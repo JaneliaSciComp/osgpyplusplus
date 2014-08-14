@@ -1,0 +1,3 @@
++@free_function_t@greet@char const * (*)(  )char const * (*)(  )
++@namespace_t@std@::std
++@namespace_t@__cxxabiv1@::__cxxabiv1
