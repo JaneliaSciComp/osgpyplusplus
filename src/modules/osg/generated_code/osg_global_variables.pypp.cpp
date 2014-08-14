@@ -18,4 +18,10 @@ void register_global_variables(){
 
     bp::scope().attr("PI_4") = osg::PI_4;
 
+    bp::scope().attr("X_AXIS") = osg::X_AXIS;
+
+    bp::scope().attr("Y_AXIS") = osg::Y_AXIS;
+
+    bp::scope().attr("Z_AXIS") = osg::Z_AXIS;
+
 }

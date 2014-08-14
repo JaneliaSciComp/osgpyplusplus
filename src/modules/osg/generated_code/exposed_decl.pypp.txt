@@ -1,3 +1,6 @@
++@casting_operator_t@operator ::osg::Vec4f@::osg::Vec4f ( ::osg::Vec4d::* )(  )const::osg::Vec4f ( ::osg::Vec4d::* )(  )const
++@casting_operator_t@operator ::osg::Vec2f@::osg::Vec2f ( ::osg::Vec2d::* )(  )const::osg::Vec2f ( ::osg::Vec2d::* )(  )const
++@casting_operator_t@operator ::osg::Vec3f@::osg::Vec3f ( ::osg::Vec3d::* )(  )const::osg::Vec3f ( ::osg::Vec3d::* )(  )const
 ~@destructor_t@~tagEMRSETMAPPERFLAGS@ ( ::tagEMRSETMAPPERFLAGS::* )(  ) ( ::tagEMRSETMAPPERFLAGS::* )(  )
 ~@destructor_t@~_MEMORYSTATUS@ ( ::_MEMORYSTATUS::* )(  ) ( ::_MEMORYSTATUS::* )(  )
 ~@destructor_t@~ASSOCIATIONELEMENT_@ ( ::ASSOCIATIONELEMENT_::* )(  ) ( ::ASSOCIATIONELEMENT_::* )(  )
@@ -1061,6 +1064,8 @@
 ~@destructor_t@~_CERT_LOGOTYPE_DATA@ ( ::_CERT_LOGOTYPE_DATA::* )(  ) ( ::_CERT_LOGOTYPE_DATA::* )(  )
 ~@destructor_t@~_EFS_PIN_BLOB@ ( ::_EFS_PIN_BLOB::* )(  ) ( ::_EFS_PIN_BLOB::* )(  )
 ~@destructor_t@~tagEMRALPHABLEND@ ( ::tagEMRALPHABLEND::* )(  ) ( ::tagEMRALPHABLEND::* )(  )
++@destructor_t@~Vec3f@ ( ::osg::Vec3f::* )(  ) ( ::osg::Vec3f::* )(  )
++@destructor_t@~Vec3d@ ( ::osg::Vec3d::* )(  ) ( ::osg::Vec3d::* )(  )
 ~@destructor_t@~tagENUMLOGFONTEXDVA@ ( ::tagENUMLOGFONTEXDVA::* )(  ) ( ::tagENUMLOGFONTEXDVA::* )(  )
 ~@destructor_t@~tagMOUSEKEYS@ ( ::tagMOUSEKEYS::* )(  ) ( ::tagMOUSEKEYS::* )(  )
 ~@destructor_t@~IXMLDOMEntity@ ( ::IXMLDOMEntity::* )(  ) ( ::IXMLDOMEntity::* )(  )
@@ -1133,6 +1138,7 @@
 ~@destructor_t@~__NCRYPT_SUPPORTED_LENGTHS@ ( ::__NCRYPT_SUPPORTED_LENGTHS::* )(  ) ( ::__NCRYPT_SUPPORTED_LENGTHS::* )(  )
 ~@destructor_t@~_RPC_BINDING_HANDLE_SECURITY_V1_A@ ( ::_RPC_BINDING_HANDLE_SECURITY_V1_A::* )(  ) ( ::_RPC_BINDING_HANDLE_SECURITY_V1_A::* )(  )
 ~@destructor_t@~_CRL_DIST_POINT_NAME@ ( ::_CRL_DIST_POINT_NAME::* )(  ) ( ::_CRL_DIST_POINT_NAME::* )(  )
++@destructor_t@~Vec4d@ ( ::osg::Vec4d::* )(  ) ( ::osg::Vec4d::* )(  )
 ~@destructor_t@~tagCRGB@ ( ::tagCRGB::* )(  ) ( ::tagCRGB::* )(  )
 ~@destructor_t@~_NOTIFYICONDATAW@ ( ::_NOTIFYICONDATAW::* )(  ) ( ::_NOTIFYICONDATAW::* )(  )
 ~@destructor_t@~_CERT_QC_STATEMENT@ ( ::_CERT_QC_STATEMENT::* )(  ) ( ::_CERT_QC_STATEMENT::* )(  )
@@ -1214,6 +1220,7 @@
 ~@destructor_t@~HCONVLIST__@ ( ::HCONVLIST__::* )(  ) ( ::HCONVLIST__::* )(  )
 ~@destructor_t@~tagRPC_CALL_ATTRIBUTES_V2_A@ ( ::tagRPC_CALL_ATTRIBUTES_V2_A::* )(  ) ( ::tagRPC_CALL_ATTRIBUTES_V2_A::* )(  )
 ~@destructor_t@~IInternetZoneManagerEx2@ ( ::IInternetZoneManagerEx2::* )(  ) ( ::IInternetZoneManagerEx2::* )(  )
++@destructor_t@~Quat@ ( ::osg::Quat::* )(  ) ( ::osg::Quat::* )(  )
 ~@destructor_t@~_TXFS_START_RM_INFORMATION@ ( ::_TXFS_START_RM_INFORMATION::* )(  ) ( ::_TXFS_START_RM_INFORMATION::* )(  )
 ~@destructor_t@~_CERT_HASHED_URL@ ( ::_CERT_HASHED_URL::* )(  ) ( ::_CERT_HASHED_URL::* )(  )
 ~@destructor_t@~ITypeLib@ ( ::ITypeLib::* )(  ) ( ::ITypeLib::* )(  )
@@ -1466,6 +1473,7 @@
 ~@destructor_t@~_CRYPT_RSAES_OAEP_PARAMETERS@ ( ::_CRYPT_RSAES_OAEP_PARAMETERS::* )(  ) ( ::_CRYPT_RSAES_OAEP_PARAMETERS::* )(  )
 ~@destructor_t@~_TRANSACTION_ENLISTMENT_PAIR@ ( ::_TRANSACTION_ENLISTMENT_PAIR::* )(  ) ( ::_TRANSACTION_ENLISTMENT_PAIR::* )(  )
 ~@destructor_t@~SChannelHookCallInfo@ ( ::SChannelHookCallInfo::* )(  ) ( ::SChannelHookCallInfo::* )(  )
++@destructor_t@~Vec2d@ ( ::osg::Vec2d::* )(  ) ( ::osg::Vec2d::* )(  )
 ~@destructor_t@~_TXFS_TRANSACTION_ACTIVE_INFO@ ( ::_TXFS_TRANSACTION_ACTIVE_INFO::* )(  ) ( ::_TXFS_TRANSACTION_ACTIVE_INFO::* )(  )
 ~@destructor_t@~_ICONINFOEXW@ ( ::_ICONINFOEXW::* )(  ) ( ::_ICONINFOEXW::* )(  )
 ~@destructor_t@~_CMSG_CNG_CONTENT_DECRYPT_INFO@ ( ::_CMSG_CNG_CONTENT_DECRYPT_INFO::* )(  ) ( ::_CMSG_CNG_CONTENT_DECRYPT_INFO::* )(  )
@@ -1994,6 +2002,7 @@
 ~@destructor_t@~IMAGE_AUX_SYMBOL_TOKEN_DEF@ ( ::IMAGE_AUX_SYMBOL_TOKEN_DEF::* )(  ) ( ::IMAGE_AUX_SYMBOL_TOKEN_DEF::* )(  )
 ~@destructor_t@~_CERT_POLICY_MAPPING@ ( ::_CERT_POLICY_MAPPING::* )(  ) ( ::_CERT_POLICY_MAPPING::* )(  )
 ~@destructor_t@~$_241@ ( ::MFT_ENUM_DATA::* )(  ) ( ::MFT_ENUM_DATA::* )(  )
++@destructor_t@~Vec4f@ ( ::osg::Vec4f::* )(  ) ( ::osg::Vec4f::* )(  )
 ~@destructor_t@~tagCOMPAREITEMSTRUCT@ ( ::tagCOMPAREITEMSTRUCT::* )(  ) ( ::tagCOMPAREITEMSTRUCT::* )(  )
 ~@destructor_t@~tagEMRCREATEDIBPATTERNBRUSHPT@ ( ::tagEMRCREATEDIBPATTERNBRUSHPT::* )(  ) ( ::tagEMRCREATEDIBPATTERNBRUSHPT::* )(  )
 ~@destructor_t@~tagMCI_WAVE_DELETE_PARMS@ ( ::tagMCI_WAVE_DELETE_PARMS::* )(  ) ( ::tagMCI_WAVE_DELETE_PARMS::* )(  )
@@ -2046,6 +2055,7 @@
 ~@enumeration_t@_PROC_THREAD_ATTRIBUTE_NUM@::_PROC_THREAD_ATTRIBUTE_NUM
 ~@enumeration_t@tagBINDSPEED@::tagBINDSPEED
 ~@enumeration_t@tagDOMNodeType@::tagDOMNodeType
++@enumeration_t@('C:/Program Files (x86)/OpenSceneGraph321vs2008/include/osg/Vec2d', 36)@::osg::Vec2d
 ~@enumeration_t@EPrintXPSJobOperation@::EPrintXPSJobOperation
 ~@enumeration_t@_PARTITION_STYLE@::_PARTITION_STYLE
 ~@enumeration_t@tagOLEWHICHMK@::tagOLEWHICHMK
@@ -2115,8 +2125,10 @@
 ~@enumeration_t@LATENCY_TIME@::LATENCY_TIME
 ~@enumeration_t@tagSTDMSHLFLAGS@::tagSTDMSHLFLAGS
 ~@enumeration_t@_JOBOBJECTINFOCLASS@::_JOBOBJECTINFOCLASS
++@enumeration_t@('C:/Program Files (x86)/OpenSceneGraph321vs2008/include/osg/Vec3d', 37)@::osg::Vec3d
 ~@enumeration_t@_RPC_ASYNC_EVENT@::_RPC_ASYNC_EVENT
 ~@enumeration_t@tagBINDSTATUS@::tagBINDSTATUS
++@enumeration_t@('C:/Program Files (x86)/OpenSceneGraph321vs2008/include/osg/Vec4d', 36)@::osg::Vec4d
 ~@enumeration_t@__MIDL___MIDL_itf_objidl_0000_0046_0001@::__MIDL___MIDL_itf_objidl_0000_0046_0001
 ~@enumeration_t@__MIDL___MIDL_itf_objidl_0000_0046_0002@::__MIDL___MIDL_itf_objidl_0000_0046_0002
 ~@enumeration_t@_DETECTION_TYPE@::_DETECTION_TYPE
@@ -2125,6 +2137,7 @@
 ~@enumeration_t@tagTYMED@::tagTYMED
 ~@enumeration_t@IMPORT_OBJECT_TYPE@::IMPORT_OBJECT_TYPE
 ~@enumeration_t@tagPENDINGMSG@::tagPENDINGMSG
++@enumeration_t@('C:/Program Files (x86)/OpenSceneGraph321vs2008/include/osg/Vec4f', 35)@::osg::Vec4f
 ~@enumeration_t@tagREGCLS@::tagREGCLS
 ~@enumeration_t@tagCOWAIT_FLAGS@::tagCOWAIT_FLAGS
 ~@enumeration_t@_MANDATORY_LEVEL@::_MANDATORY_LEVEL
@@ -2183,6 +2196,7 @@
 ~@enumeration_t@_SHRINK_VOLUME_REQUEST_TYPES@::_SHRINK_VOLUME_REQUEST_TYPES
 ~@enumeration_t@ACTCTX_REQUESTED_RUN_LEVEL@::ACTCTX_REQUESTED_RUN_LEVEL
 ~@enumeration_t@tagOLERENDER@::tagOLERENDER
++@enumeration_t@('C:/Program Files (x86)/OpenSceneGraph321vs2008/include/osg/Vec3f', 36)@::osg::Vec3f
 ~@enumeration_t@QUERY_USER_NOTIFICATION_STATE@::QUERY_USER_NOTIFICATION_STATE
 ~@enumeration_t@tagXMLEMEM_TYPE@::tagXMLEMEM_TYPE
 ~@enumeration_t@tagSF_TYPE@::tagSF_TYPE
@@ -2236,6 +2250,7 @@
 ~@member_function_t@_Init_locks_ctor@void (*)( ::std::_Init_locks * )void (*)( ::std::_Init_locks * )
 ~@member_function_t@CreateStorageEx@::HRESULT ( ::IOplockStorage::* )( ::LPCWSTR,::DWORD,::DWORD,::DWORD,::IID const &,void * * )::HRESULT ( ::IOplockStorage::* )( ::LPCWSTR,::DWORD,::DWORD,::DWORD,::IID const &,void * * )
 ~@member_function_t@DoDecode@::HRESULT ( ::IDataFilter::* )( ::DWORD,::LONG,unsigned char *,::LONG,unsigned char *,::LONG,::LONG *,::LONG *,::DWORD )::HRESULT ( ::IDataFilter::* )( ::DWORD,::LONG,unsigned char *,::LONG,unsigned char *,::LONG,::LONG *,::LONG *,::DWORD )
++@member_function_t@inverse@::osg::Quat const ( ::osg::Quat::* )(  )const::osg::Quat const ( ::osg::Quat::* )(  )const
 ~@member_function_t@ReleaseBoundObjects@::HRESULT ( ::IBindCtx::* )(  )::HRESULT ( ::IBindCtx::* )(  )
 ~@member_function_t@InitDone@::HRESULT ( ::IPrintDialogCallback::* )(  )::HRESULT ( ::IPrintDialogCallback::* )(  )
 ~@member_function_t@send@::HRESULT ( ::IXMLHttpRequest::* )( ::VARIANT )::HRESULT ( ::IXMLHttpRequest::* )( ::VARIANT )
@@ -2372,8 +2387,10 @@
 ~@member_function_t@_Lockit_ctor@void (*)( ::std::_Lockit * )void (*)( ::std::_Lockit * )
 ~@member_function_t@_Lockit_ctor@void (*)( ::std::_Lockit *,int )void (*)( ::std::_Lockit *,int )
 ~@member_function_t@MonikerBindToObject@::HRESULT ( ::IBindHost::* )( ::IMoniker *,::IBindCtx *,::IBindStatusCallback *,::IID const &,void * * )::HRESULT ( ::IBindHost::* )( ::IMoniker *,::IBindCtx *,::IBindStatusCallback *,::IID const &,void * * )
++@member_function_t@asVec4@::osg::Vec4d ( ::osg::Quat::* )(  )const::osg::Vec4d ( ::osg::Quat::* )(  )const
 ~@member_function_t@DeactivateAndUndo@::HRESULT ( ::IOleInPlaceSite::* )(  )::HRESULT ( ::IOleInPlaceSite::* )(  )
 ~@member_function_t@GetUnmarshalClass@::HRESULT ( ::IMarshal::* )( ::IID const &,void *,::DWORD,void *,::DWORD,::CLSID * )::HRESULT ( ::IMarshal::* )( ::IID const &,void *,::DWORD,void *,::DWORD,::CLSID * )
++@member_function_t@asVec3@::osg::Vec3d ( ::osg::Quat::* )(  )const::osg::Vec3d ( ::osg::Quat::* )(  )const
 ~@member_function_t@get_doctype@::HRESULT ( ::IXMLDocument::* )( ::BSTR * )::HRESULT ( ::IXMLDocument::* )( ::BSTR * )
 ~@member_function_t@get_doctype@::HRESULT ( ::IXMLDOMDocument::* )( ::IXMLDOMDocumentType * * )::HRESULT ( ::IXMLDOMDocument::* )( ::IXMLDOMDocumentType * * )
 ~@member_function_t@get_doctype@::HRESULT ( ::IXMLDocument2::* )( ::BSTR * )::HRESULT ( ::IXMLDocument2::* )( ::BSTR * )
@@ -2426,9 +2443,15 @@
 ~@member_function_t@ServerFillBuffer@void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,long unsigned int *,void *,::HRESULT )void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,long unsigned int *,void *,::HRESULT )
 ~@member_function_t@Finish_OnLinkSrcChange@void ( ::AsyncIAdviseSink2::* )(  )void ( ::AsyncIAdviseSink2::* )(  )
 ~@member_function_t@normalize@::HRESULT ( ::IXMLDOMElement::* )(  )::HRESULT ( ::IXMLDOMElement::* )(  )
++@member_function_t@normalize@double ( ::osg::Vec3d::* )(  )double ( ::osg::Vec3d::* )(  )
++@member_function_t@normalize@float ( ::osg::Vec3f::* )(  )float ( ::osg::Vec3f::* )(  )
++@member_function_t@normalize@double ( ::osg::Vec2d::* )(  )double ( ::osg::Vec2d::* )(  )
 +@member_function_t@normalize@float ( ::osg::Vec2f::* )(  )float ( ::osg::Vec2f::* )(  )
++@member_function_t@normalize@double ( ::osg::Vec4d::* )(  )double ( ::osg::Vec4d::* )(  )
++@member_function_t@normalize@float ( ::osg::Vec4f::* )(  )float ( ::osg::Vec4f::* )(  )
 ~@member_function_t@OnUIActivate@::HRESULT ( ::IOleInPlaceSite::* )(  )::HRESULT ( ::IOleInPlaceSite::* )(  )
 ~@member_function_t@LayOut@::HRESULT ( ::ICreateTypeInfo::* )(  )::HRESULT ( ::ICreateTypeInfo::* )(  )
++@member_function_t@makeRotate_original@void ( ::osg::Quat::* )( ::osg::Vec3d const &,::osg::Vec3d const & )void ( ::osg::Quat::* )( ::osg::Vec3d const &,::osg::Vec3d const & )
 ~@member_function_t@GetFirstCodeBase@::HRESULT ( ::ISoftDistExt::* )( ::LPWSTR *,::LPDWORD )::HRESULT ( ::ISoftDistExt::* )( ::LPWSTR *,::LPDWORD )
 ~@member_function_t@TestCancel@::HRESULT ( ::ICancelMethodCalls::* )(  )::HRESULT ( ::ICancelMethodCalls::* )(  )
 ~@member_function_t@RevokeObjectBound@::HRESULT ( ::IBindCtx::* )( ::IUnknown * )::HRESULT ( ::IBindCtx::* )( ::IUnknown * )
@@ -2589,8 +2612,20 @@
 ~@member_function_t@GetContainer@::HRESULT ( ::IOleClientSite::* )( ::IOleContainer * * )::HRESULT ( ::IOleClientSite::* )( ::IOleContainer * * )
 ~@member_function_t@Flush@::HRESULT ( ::ILockBytes::* )(  )::HRESULT ( ::ILockBytes::* )(  )
 ~@member_function_t@removeQualifiedItem@::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::BSTR,::BSTR,::IXMLDOMNode * * )::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::BSTR,::BSTR,::IXMLDOMNode * * )
++@member_function_t@x@double & ( ::osg::Vec3d::* )(  )double & ( ::osg::Vec3d::* )(  )
++@member_function_t@x@double ( ::osg::Vec3d::* )(  )constdouble ( ::osg::Vec3d::* )(  )const
++@member_function_t@x@float & ( ::osg::Vec3f::* )(  )float & ( ::osg::Vec3f::* )(  )
++@member_function_t@x@float ( ::osg::Vec3f::* )(  )constfloat ( ::osg::Vec3f::* )(  )const
++@member_function_t@x@double & ( ::osg::Quat::* )(  )double & ( ::osg::Quat::* )(  )
++@member_function_t@x@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@x@double & ( ::osg::Vec2d::* )(  )double & ( ::osg::Vec2d::* )(  )
++@member_function_t@x@double ( ::osg::Vec2d::* )(  )constdouble ( ::osg::Vec2d::* )(  )const
 +@member_function_t@x@float & ( ::osg::Vec2f::* )(  )float & ( ::osg::Vec2f::* )(  )
 +@member_function_t@x@float ( ::osg::Vec2f::* )(  )constfloat ( ::osg::Vec2f::* )(  )const
++@member_function_t@x@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@x@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@x@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@x@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@GetMiscStatus@::HRESULT ( ::IOleObject::* )( ::DWORD,long unsigned int * )::HRESULT ( ::IOleObject::* )( ::DWORD,long unsigned int * )
 ~@member_function_t@Authenticate@::HRESULT ( ::IAuthenticate::* )( ::HWND *,::LPWSTR *,::LPWSTR * )::HRESULT ( ::IAuthenticate::* )( ::HWND *,::LPWSTR *,::LPWSTR * )
 ~@member_function_t@Delete@::HRESULT ( ::IPropertySetStorage::* )( ::IID const & )::HRESULT ( ::IPropertySetStorage::* )( ::IID const & )
@@ -2599,12 +2634,28 @@
 ~@member_function_t@GetState@::HRESULT ( ::IAsyncManager::* )( long unsigned int * )::HRESULT ( ::IAsyncManager::* )( long unsigned int * )
 ~@member_function_t@GetPassword@::HRESULT ( ::IUri::* )( ::BSTR * )::HRESULT ( ::IUri::* )( ::BSTR * )
 ~@member_function_t@GetPassword@::HRESULT ( ::IUriBuilder::* )( long unsigned int *,::LPCWSTR * )::HRESULT ( ::IUriBuilder::* )( long unsigned int *,::LPCWSTR * )
++@member_function_t@g@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@g@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@g@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@g@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@SendOnDataChange@::HRESULT ( ::IDataAdviseHolder::* )( ::IDataObject *,::DWORD,::DWORD )::HRESULT ( ::IDataAdviseHolder::* )( ::IDataObject *,::DWORD,::DWORD )
 ~@member_function_t@replaceData@::HRESULT ( ::IXMLDOMCharacterData::* )( long int,long int,::BSTR )::HRESULT ( ::IXMLDOMCharacterData::* )( long int,long int,::BSTR )
 ~@member_function_t@OnObjectAvailable@::HRESULT ( ::IBindStatusCallback::* )( ::IID const &,::IUnknown * )::HRESULT ( ::IBindStatusCallback::* )( ::IID const &,::IUnknown * )
 ~@member_function_t@OnInPlaceActivate@::HRESULT ( ::IOleInPlaceSite::* )(  )::HRESULT ( ::IOleInPlaceSite::* )(  )
++@member_function_t@length@double ( ::osg::Vec3d::* )(  )constdouble ( ::osg::Vec3d::* )(  )const
++@member_function_t@length@float ( ::osg::Vec3f::* )(  )constfloat ( ::osg::Vec3f::* )(  )const
++@member_function_t@length@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@length@double ( ::osg::Vec2d::* )(  )constdouble ( ::osg::Vec2d::* )(  )const
 +@member_function_t@length@float ( ::osg::Vec2f::* )(  )constfloat ( ::osg::Vec2f::* )(  )const
++@member_function_t@length@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@length@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@GetRawUri@::HRESULT ( ::IUri::* )( ::BSTR * )::HRESULT ( ::IUri::* )( ::BSTR * )
++@member_function_t@w@double & ( ::osg::Quat::* )(  )double & ( ::osg::Quat::* )(  )
++@member_function_t@w@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@w@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@w@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@w@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@w@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@OnDocWindowActivate@::HRESULT ( ::IOleInPlaceActiveObject::* )( ::BOOL )::HRESULT ( ::IOleInPlaceActiveObject::* )( ::BOOL )
 ~@member_function_t@PostDidAlloc@int ( ::IMallocSpy::* )( void *,::BOOL,int )int ( ::IMallocSpy::* )( void *,::BOOL,int )
 ~@member_function_t@GetBuffer@::HRESULT ( ::IRpcChannelBuffer::* )( ::RPCOLEMESSAGE *,::IID const & )::HRESULT ( ::IRpcChannelBuffer::* )( ::RPCOLEMESSAGE *,::IID const & )
@@ -2633,6 +2684,10 @@
 ~@member_function_t@DeleteMultiple@::HRESULT ( ::IPropertyStorage::* )( ::DWORD,::PROPSPEC const * )::HRESULT ( ::IPropertyStorage::* )( ::DWORD,::PROPSPEC const * )
 ~@member_function_t@SetFuncHelpStringContext@::HRESULT ( ::ICreateTypeInfo2::* )( ::UINT,::DWORD )::HRESULT ( ::ICreateTypeInfo2::* )( ::UINT,::DWORD )
 ~@member_function_t@HasProperty@::HRESULT ( ::IUri::* )( ::Uri_PROPERTY,::BOOL * )::HRESULT ( ::IUri::* )( ::Uri_PROPERTY,::BOOL * )
++@member_function_t@a@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@a@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@a@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@a@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@SetSchemeName@::HRESULT ( ::IUriBuilder::* )( ::LPCWSTR )::HRESULT ( ::IUriBuilder::* )( ::LPCWSTR )
 ~@member_function_t@Bind@::HRESULT ( ::ITypeComp::* )( ::LPOLESTR,::DWORD,::WORD,::ITypeInfo * *,::DESCKIND *,::BINDPTR * )::HRESULT ( ::ITypeComp::* )( ::LPOLESTR,::DWORD,::WORD,::ITypeInfo * *,::DESCKIND *,::BINDPTR * )
 ~@member_function_t@FindBestFilter@::HRESULT ( ::IEncodingFilterFactory::* )( ::LPCWSTR,::LPCWSTR,::DATAINFO,::IDataFilter * * )::HRESULT ( ::IEncodingFilterFactory::* )( ::LPCWSTR,::LPCWSTR,::DATAINFO,::IDataFilter * * )
@@ -2644,7 +2699,10 @@
 ~@member_function_t@DUnadvise@::HRESULT ( ::IDataObject::* )( ::DWORD )::HRESULT ( ::IDataObject::* )( ::DWORD )
 ~@member_function_t@SetImplTypeFlags@::HRESULT ( ::ICreateTypeInfo::* )( ::UINT,::INT )::HRESULT ( ::ICreateTypeInfo::* )( ::UINT,::INT )
 ~@member_function_t@ClientNotify@void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,::DWORD,void *,::DWORD,::HRESULT )void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,::DWORD,void *,::DWORD,::HRESULT )
-~@member_function_t@Set@::HRESULT ( ::IRpcOptions::* )( ::IUnknown *,::DWORD,::ULONG_PTR )::HRESULT ( ::IRpcOptions::* )( ::IUnknown *,::DWORD,::ULONG_PTR )
++@member_function_t@b@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@b@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@b@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@b@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@GetDllEntry@::HRESULT ( ::ITypeInfo::* )( ::MEMBERID,::INVOKEKIND,::BSTR *,::BSTR *,short unsigned int * )::HRESULT ( ::ITypeInfo::* )( ::MEMBERID,::INVOKEKIND,::BSTR *,::BSTR *,short unsigned int * )
 ~@member_function_t@GetRunningObjectTable@::HRESULT ( ::IBindCtx::* )( ::IRunningObjectTable * * )::HRESULT ( ::IBindCtx::* )( ::IRunningObjectTable * * )
 ~@member_function_t@OnClose@void ( ::IAdviseSink::* )(  )void ( ::IAdviseSink::* )(  )
@@ -2654,6 +2712,10 @@
 ~@member_function_t@setAttribute@::HRESULT ( ::IXMLElement::* )( ::BSTR,::VARIANT )::HRESULT ( ::IXMLElement::* )( ::BSTR,::VARIANT )
 ~@member_function_t@GetVarCustData@::HRESULT ( ::ITypeInfo2::* )( ::UINT,::_GUID const &,::VARIANT * )::HRESULT ( ::ITypeInfo2::* )( ::UINT,::_GUID const &,::VARIANT * )
 ~@member_function_t@SaveAllChanges@::HRESULT ( ::ICreateTypeLib::* )(  )::HRESULT ( ::ICreateTypeLib::* )(  )
++@member_function_t@r@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@r@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@r@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@r@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@Connect@::HRESULT ( ::IRpcStubBuffer::* )( ::IUnknown * )::HRESULT ( ::IRpcStubBuffer::* )( ::IUnknown * )
 ~@member_function_t@Connect@::HRESULT ( ::IRpcProxyBuffer::* )( ::IRpcChannelBuffer * )::HRESULT ( ::IRpcProxyBuffer::* )( ::IRpcChannelBuffer * )
 ~@member_function_t@TranslateAcceleratorA@::HRESULT ( ::IOleInPlaceActiveObject::* )( ::LPMSG )::HRESULT ( ::IOleInPlaceActiveObject::* )( ::LPMSG )
@@ -2730,6 +2792,8 @@
 ~@member_function_t@GetClassForHandler@::HRESULT ( ::IStdMarshalInfo::* )( ::DWORD,void *,::CLSID * )::HRESULT ( ::IStdMarshalInfo::* )( ::DWORD,void *,::CLSID * )
 ~@member_function_t@Free@void ( ::IMalloc::* )( void * )void ( ::IMalloc::* )( void * )
 ~@member_function_t@Free@::HRESULT ( ::ITypeMarshal::* )( ::PVOID )::HRESULT ( ::ITypeMarshal::* )( ::PVOID )
++@member_function_t@asABGR@unsigned int ( ::osg::Vec4d::* )(  )constunsigned int ( ::osg::Vec4d::* )(  )const
++@member_function_t@asABGR@unsigned int ( ::osg::Vec4f::* )(  )constunsigned int ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@IsIIDSupported@::IRpcStubBuffer * ( ::IRpcStubBuffer::* )( ::IID const & )::IRpcStubBuffer * ( ::IRpcStubBuffer::* )( ::IID const & )
 ~@member_function_t@DeleteTypeInfo@::HRESULT ( ::ICreateTypeLib2::* )( ::LPOLESTR )::HRESULT ( ::ICreateTypeLib2::* )( ::LPOLESTR )
 ~@member_function_t@IsImpersonating@::BOOL ( ::IServerSecurity::* )(  )::BOOL ( ::IServerSecurity::* )(  )
@@ -2746,9 +2810,12 @@
 ~@member_function_t@LockRunning@::HRESULT ( ::IRunnableObject::* )( ::BOOL,::BOOL )::HRESULT ( ::IRunnableObject::* )( ::BOOL,::BOOL )
 ~@member_function_t@SetEventHandle@::HRESULT ( ::ISynchronizeEvent::* )( ::HANDLE * )::HRESULT ( ::ISynchronizeEvent::* )( ::HANDLE * )
 ~@member_function_t@put_ondataavailable@::HRESULT ( ::IXMLDOMDocument::* )( ::VARIANT )::HRESULT ( ::IXMLDOMDocument::* )( ::VARIANT )
++@member_function_t@get@void ( ::osg::Quat::* )( ::osg::Matrixf & )constvoid ( ::osg::Quat::* )( ::osg::Matrixf & )const
++@member_function_t@get@void ( ::osg::Quat::* )( ::osg::Matrixd & )constvoid ( ::osg::Quat::* )( ::osg::Matrixd & )const
 ~@member_function_t@OnSecurityProblem@::HRESULT ( ::IHttpSecurity::* )( ::DWORD )::HRESULT ( ::IHttpSecurity::* )( ::DWORD )
 ~@member_function_t@setNamedItem@::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::IXMLDOMNode *,::IXMLDOMNode * * )::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::IXMLDOMNode *,::IXMLDOMNode * * )
 ~@member_function_t@Begin_OnRename@void ( ::AsyncIAdviseSink::* )( ::IMoniker * )void ( ::AsyncIAdviseSink::* )( ::IMoniker * )
+~@member_function_t@Set@::HRESULT ( ::IRpcOptions::* )( ::IUnknown *,::DWORD,::ULONG_PTR )::HRESULT ( ::IRpcOptions::* )( ::IUnknown *,::DWORD,::ULONG_PTR )
 ~@member_function_t@ClientGetSize@void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,long unsigned int * )void ( ::IChannelHook::* )( ::_GUID const &,::IID const &,long unsigned int * )
 ~@member_function_t@SetPassword@::HRESULT ( ::IUriBuilder::* )( ::LPCWSTR )::HRESULT ( ::IUriBuilder::* )( ::LPCWSTR )
 ~@member_function_t@SetExtent@::HRESULT ( ::IOleObject::* )( ::DWORD,::SIZEL * )::HRESULT ( ::IOleObject::* )( ::DWORD,::SIZEL * )
@@ -2776,7 +2843,19 @@
 ~@member_function_t@get_tagName@::HRESULT ( ::IXMLElement2::* )( ::BSTR * )::HRESULT ( ::IXMLElement2::* )( ::BSTR * )
 ~@member_function_t@get_tagName@::HRESULT ( ::IXMLElement::* )( ::BSTR * )::HRESULT ( ::IXMLElement::* )( ::BSTR * )
 ~@member_function_t@GetLibStatistics@::HRESULT ( ::ITypeLib2::* )( long unsigned int *,long unsigned int * )::HRESULT ( ::ITypeLib2::* )( long unsigned int *,long unsigned int * )
++@member_function_t@set@void ( ::osg::Vec3d::* )( double,double,double )void ( ::osg::Vec3d::* )( double,double,double )
++@member_function_t@set@void ( ::osg::Vec3d::* )( ::osg::Vec3d const & )void ( ::osg::Vec3d::* )( ::osg::Vec3d const & )
++@member_function_t@set@void ( ::osg::Vec3f::* )( float,float,float )void ( ::osg::Vec3f::* )( float,float,float )
++@member_function_t@set@void ( ::osg::Vec3f::* )( ::osg::Vec3f const & )void ( ::osg::Vec3f::* )( ::osg::Vec3f const & )
++@member_function_t@set@void ( ::osg::Quat::* )( double,double,double,double )void ( ::osg::Quat::* )( double,double,double,double )
++@member_function_t@set@void ( ::osg::Quat::* )( ::osg::Vec4f const & )void ( ::osg::Quat::* )( ::osg::Vec4f const & )
++@member_function_t@set@void ( ::osg::Quat::* )( ::osg::Vec4d const & )void ( ::osg::Quat::* )( ::osg::Vec4d const & )
+~@member_function_t@set@void ( ::osg::Quat::* )( ::osg::Matrixf const & )void ( ::osg::Quat::* )( ::osg::Matrixf const & )
+~@member_function_t@set@void ( ::osg::Quat::* )( ::osg::Matrixd const & )void ( ::osg::Quat::* )( ::osg::Matrixd const & )
++@member_function_t@set@void ( ::osg::Vec2d::* )( double,double )void ( ::osg::Vec2d::* )( double,double )
 +@member_function_t@set@void ( ::osg::Vec2f::* )( float,float )void ( ::osg::Vec2f::* )( float,float )
++@member_function_t@set@void ( ::osg::Vec4d::* )( double,double,double,double )void ( ::osg::Vec4d::* )( double,double,double,double )
++@member_function_t@set@void ( ::osg::Vec4f::* )( float,float,float,float )void ( ::osg::Vec4f::* )( float,float,float,float )
 ~@member_function_t@CombineUrl@::HRESULT ( ::IInternetProtocolInfo::* )( ::LPCWSTR,::LPCWSTR,::DWORD,::LPWSTR,::DWORD,long unsigned int *,::DWORD )::HRESULT ( ::IInternetProtocolInfo::* )( ::LPCWSTR,::LPCWSTR,::DWORD,::LPWSTR,::DWORD,long unsigned int *,::DWORD )
 ~@member_function_t@PromptAction@::HRESULT ( ::IInternetZoneManager::* )( ::DWORD,::HWND,::LPCWSTR,::LPCWSTR,::DWORD )::HRESULT ( ::IInternetZoneManager::* )( ::DWORD,::HWND,::LPCWSTR,::LPCWSTR,::DWORD )
 ~@member_function_t@Create@::HRESULT ( ::IPropertySetStorage::* )( ::IID const &,::CLSID const *,::DWORD,::DWORD,::IPropertyStorage * * )::HRESULT ( ::IPropertySetStorage::* )( ::IID const &,::CLSID const *,::DWORD,::DWORD,::IPropertyStorage * * )
@@ -2817,7 +2896,11 @@
 ~@member_function_t@Revert@::HRESULT ( ::IStream::* )(  )::HRESULT ( ::IStream::* )(  )
 ~@member_function_t@nextNode@::HRESULT ( ::IXMLDOMNodeList::* )( ::IXMLDOMNode * * )::HRESULT ( ::IXMLDOMNodeList::* )( ::IXMLDOMNode * * )
 ~@member_function_t@nextNode@::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::IXMLDOMNode * * )::HRESULT ( ::IXMLDOMNamedNodeMap::* )( ::IXMLDOMNode * * )
++@member_function_t@zeroRotation@bool ( ::osg::Quat::* )(  )constbool ( ::osg::Quat::* )(  )const
 ~@member_function_t@EnumDAdvise@::HRESULT ( ::IDataObject::* )( ::IEnumSTATDATA * * )::HRESULT ( ::IDataObject::* )( ::IEnumSTATDATA * * )
+~@member_function_t@getRotate@void ( ::osg::Quat::* )( double &,double &,double &,double & )constvoid ( ::osg::Quat::* )( double &,double &,double &,double & )const
++@member_function_t@getRotate@void ( ::osg::Quat::* )( double &,::osg::Vec3f & )constvoid ( ::osg::Quat::* )( double &,::osg::Vec3f & )const
+~@member_function_t@getRotate@void ( ::osg::Quat::* )( double &,::osg::Vec3d & )constvoid ( ::osg::Quat::* )( double &,::osg::Vec3d & )const
 ~@member_function_t@GetHostType@::HRESULT ( ::IUri::* )( long unsigned int * )::HRESULT ( ::IUri::* )( long unsigned int * )
 ~@member_function_t@ApplicationLaunch@::HRESULT ( ::ISurrogateService::* )( ::_GUID const &,::ApplicationType )::HRESULT ( ::ISurrogateService::* )( ::_GUID const &,::ApplicationType )
 ~@member_function_t@SetZoneMapping@::HRESULT ( ::IInternetSecurityManager::* )( ::DWORD,::LPCWSTR,::DWORD )::HRESULT ( ::IInternetSecurityManager::* )( ::DWORD,::LPCWSTR,::DWORD )
@@ -2871,6 +2954,8 @@
 ~@member_function_t@Switch@::HRESULT ( ::IInternetProtocolSink::* )( ::PROTOCOLDATA * )::HRESULT ( ::IInternetProtocolSink::* )( ::PROTOCOLDATA * )
 ~@member_function_t@GetObjectParam@::HRESULT ( ::IBindCtx::* )( ::LPOLESTR,::IUnknown * * )::HRESULT ( ::IBindCtx::* )( ::LPOLESTR,::IUnknown * * )
 ~@member_function_t@ReleaseWriteAccess@::HRESULT ( ::IDirectWriterLock::* )(  )::HRESULT ( ::IDirectWriterLock::* )(  )
++@member_function_t@asRGBA@unsigned int ( ::osg::Vec4d::* )(  )constunsigned int ( ::osg::Vec4d::* )(  )const
++@member_function_t@asRGBA@unsigned int ( ::osg::Vec4f::* )(  )constunsigned int ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@absoluteChildNumber@::HRESULT ( ::IXTLRuntime::* )( ::IXMLDOMNode *,long int * )::HRESULT ( ::IXTLRuntime::* )( ::IXMLDOMNode *,long int * )
 ~@member_function_t@transformNodeToObject@::HRESULT ( ::IXMLDOMNode::* )( ::IXMLDOMNode *,::VARIANT )::HRESULT ( ::IXMLDOMNode::* )( ::IXMLDOMNode *,::VARIANT )
 ~@member_function_t@DragEnterTarget@::HRESULT ( ::IDropSourceNotify::* )( ::HWND )::HRESULT ( ::IDropSourceNotify::* )( ::HWND )
@@ -2905,8 +2990,14 @@
 ~@member_function_t@Begin_Pull@::HRESULT ( ::AsyncIPipeDouble::* )( ::DWORD )::HRESULT ( ::AsyncIPipeDouble::* )( ::DWORD )
 ~@member_function_t@Begin_Pull@::HRESULT ( ::AsyncIPipeByte::* )( ::DWORD )::HRESULT ( ::AsyncIPipeByte::* )( ::DWORD )
 ~@member_function_t@CreateCall@::HRESULT ( ::ICallFactory::* )( ::IID const &,::IUnknown *,::IID const &,::IUnknown * * )::HRESULT ( ::ICallFactory::* )( ::IID const &,::IUnknown *,::IID const &,::IUnknown * * )
++@member_function_t@conj@::osg::Quat ( ::osg::Quat::* )(  )const::osg::Quat ( ::osg::Quat::* )(  )const
 ~@member_function_t@InPlaceDeactivate@::HRESULT ( ::IOleInPlaceObject::* )(  )::HRESULT ( ::IOleInPlaceObject::* )(  )
++@member_function_t@isNaN@bool ( ::osg::Vec3d::* )(  )constbool ( ::osg::Vec3d::* )(  )const
++@member_function_t@isNaN@bool ( ::osg::Vec3f::* )(  )constbool ( ::osg::Vec3f::* )(  )const
++@member_function_t@isNaN@bool ( ::osg::Vec2d::* )(  )constbool ( ::osg::Vec2d::* )(  )const
 +@member_function_t@isNaN@bool ( ::osg::Vec2f::* )(  )constbool ( ::osg::Vec2f::* )(  )const
++@member_function_t@isNaN@bool ( ::osg::Vec4d::* )(  )constbool ( ::osg::Vec4d::* )(  )const
++@member_function_t@isNaN@bool ( ::osg::Vec4f::* )(  )constbool ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@RecordCreateCopy@::HRESULT ( ::IRecordInfo::* )( ::PVOID,::PVOID * )::HRESULT ( ::IRecordInfo::* )( ::PVOID,::PVOID * )
 ~@member_function_t@CreateUriWithFlags@::HRESULT ( ::IUriBuilder::* )( ::DWORD,::DWORD,::DWORD,::DWORD_PTR,::IUri * * )::HRESULT ( ::IUriBuilder::* )( ::DWORD,::DWORD,::DWORD,::DWORD_PTR,::IUri * * )
 ~@member_function_t@SetEncodingLevel@::HRESULT ( ::IDataFilter::* )( ::DWORD )::HRESULT ( ::IDataFilter::* )( ::DWORD )
@@ -2942,8 +3033,20 @@
 ~@member_function_t@SetHelpContext@::HRESULT ( ::ICreateErrorInfo::* )( ::DWORD )::HRESULT ( ::ICreateErrorInfo::* )( ::DWORD )
 ~@member_function_t@SetHelpContext@::HRESULT ( ::ICreateTypeInfo::* )( ::DWORD )::HRESULT ( ::ICreateTypeInfo::* )( ::DWORD )
 ~@member_function_t@LockRequest@::HRESULT ( ::IInternetProtocol::* )( ::DWORD )::HRESULT ( ::IInternetProtocol::* )( ::DWORD )
++@member_function_t@y@double & ( ::osg::Vec3d::* )(  )double & ( ::osg::Vec3d::* )(  )
++@member_function_t@y@double ( ::osg::Vec3d::* )(  )constdouble ( ::osg::Vec3d::* )(  )const
++@member_function_t@y@float & ( ::osg::Vec3f::* )(  )float & ( ::osg::Vec3f::* )(  )
++@member_function_t@y@float ( ::osg::Vec3f::* )(  )constfloat ( ::osg::Vec3f::* )(  )const
++@member_function_t@y@double & ( ::osg::Quat::* )(  )double & ( ::osg::Quat::* )(  )
++@member_function_t@y@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@y@double & ( ::osg::Vec2d::* )(  )double & ( ::osg::Vec2d::* )(  )
++@member_function_t@y@double ( ::osg::Vec2d::* )(  )constdouble ( ::osg::Vec2d::* )(  )const
 +@member_function_t@y@float & ( ::osg::Vec2f::* )(  )float & ( ::osg::Vec2f::* )(  )
 +@member_function_t@y@float ( ::osg::Vec2f::* )(  )constfloat ( ::osg::Vec2f::* )(  )const
++@member_function_t@y@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@y@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@y@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@y@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@Clone@::HRESULT ( ::IEnumFORMATETC::* )( ::IEnumFORMATETC * * )::HRESULT ( ::IEnumFORMATETC::* )( ::IEnumFORMATETC * * )
 ~@member_function_t@Clone@::HRESULT ( ::IEnumMoniker::* )( ::IEnumMoniker * * )::HRESULT ( ::IEnumMoniker::* )( ::IEnumMoniker * * )
 ~@member_function_t@Clone@::HRESULT ( ::IEnumVARIANT::* )( ::IEnumVARIANT * * )::HRESULT ( ::IEnumVARIANT::* )( ::IEnumVARIANT * * )
@@ -2966,6 +3069,13 @@
 ~@member_function_t@HeapMinimize@void ( ::IMalloc::* )(  )void ( ::IMalloc::* )(  )
 ~@member_function_t@UpdateCache@::HRESULT ( ::IOleCache2::* )( ::LPDATAOBJECT,::DWORD,::LPVOID )::HRESULT ( ::IOleCache2::* )( ::LPDATAOBJECT,::DWORD,::LPVOID )
 ~@member_function_t@AddRefOnProcess@::DWORD ( ::IProcessLock::* )(  )::DWORD ( ::IProcessLock::* )(  )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( double,double,double,double )void ( ::osg::Quat::* )( double,double,double,double )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( double,::osg::Vec3f const & )void ( ::osg::Quat::* )( double,::osg::Vec3f const & )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( double,::osg::Vec3d const & )void ( ::osg::Quat::* )( double,::osg::Vec3d const & )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & )void ( ::osg::Quat::* )( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & )void ( ::osg::Quat::* )( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( ::osg::Vec3f const &,::osg::Vec3f const & )void ( ::osg::Quat::* )( ::osg::Vec3f const &,::osg::Vec3f const & )
++@member_function_t@makeRotate@void ( ::osg::Quat::* )( ::osg::Vec3d const &,::osg::Vec3d const & )void ( ::osg::Quat::* )( ::osg::Vec3d const &,::osg::Vec3d const & )
 ~@member_function_t@put_value@::HRESULT ( ::IXMLDOMAttribute::* )( ::VARIANT )::HRESULT ( ::IXMLDOMAttribute::* )( ::VARIANT )
 ~@member_function_t@UnlockRequest@::HRESULT ( ::IInternetProtocol::* )(  )::HRESULT ( ::IInternetProtocol::* )(  )
 ~@member_function_t@GetCallContext@::HRESULT ( ::IRpcChannelBuffer3::* )( ::RPCOLEMESSAGE *,::IID const &,void * * )::HRESULT ( ::IRpcChannelBuffer3::* )( ::RPCOLEMESSAGE *,::IID const &,void * * )
@@ -3016,7 +3126,13 @@
 ~@member_function_t@PreGetSize@void * ( ::IMallocSpy::* )( void *,::BOOL )void * ( ::IMallocSpy::* )( void *,::BOOL )
 ~@member_function_t@RecordCreate@::PVOID ( ::IRecordInfo::* )(  )::PVOID ( ::IRecordInfo::* )(  )
 ~@member_function_t@get_notationName@::HRESULT ( ::IXMLDOMEntity::* )( ::BSTR * )::HRESULT ( ::IXMLDOMEntity::* )( ::BSTR * )
++@member_function_t@length2@double ( ::osg::Vec3d::* )(  )constdouble ( ::osg::Vec3d::* )(  )const
++@member_function_t@length2@float ( ::osg::Vec3f::* )(  )constfloat ( ::osg::Vec3f::* )(  )const
++@member_function_t@length2@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@length2@double ( ::osg::Vec2d::* )(  )constdouble ( ::osg::Vec2d::* )(  )const
 +@member_function_t@length2@float ( ::osg::Vec2f::* )(  )constfloat ( ::osg::Vec2f::* )(  )const
++@member_function_t@length2@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@length2@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@Release@::DWORD ( ::IUnknown::* )(  )::DWORD ( ::IUnknown::* )(  )
 ~@member_function_t@Release@::DWORD ( ::IPrintDialogServices::* )(  )::DWORD ( ::IPrintDialogServices::* )(  )
 ~@member_function_t@Release@::DWORD ( ::IPrintDialogCallback::* )(  )::DWORD ( ::IPrintDialogCallback::* )(  )
@@ -3057,6 +3173,7 @@
 ~@member_function_t@AsyncInstallDistributionUnit@::HRESULT ( ::ISoftDistExt::* )( ::IBindCtx *,::LPVOID,::DWORD,::LPCODEBASEHOLD )::HRESULT ( ::ISoftDistExt::* )( ::IBindCtx *,::LPVOID,::DWORD,::LPCODEBASEHOLD )
 ~@member_function_t@removeAttributeNode@::HRESULT ( ::IXMLDOMElement::* )( ::IXMLDOMAttribute *,::IXMLDOMAttribute * * )::HRESULT ( ::IXMLDOMElement::* )( ::IXMLDOMAttribute *,::IXMLDOMAttribute * * )
 ~@member_function_t@BindToStorage@::HRESULT ( ::IMoniker::* )( ::IBindCtx *,::IMoniker *,::IID const &,void * * )::HRESULT ( ::IMoniker::* )( ::IBindCtx *,::IMoniker *,::IID const &,void * * )
++@member_function_t@slerp@void ( ::osg::Quat::* )( double,::osg::Quat const &,::osg::Quat const & )void ( ::osg::Quat::* )( double,::osg::Quat const &,::osg::Quat const & )
 ~@member_function_t@OnInPlaceDeactivate@::HRESULT ( ::IOleInPlaceSite::* )(  )::HRESULT ( ::IOleInPlaceSite::* )(  )
 ~@member_function_t@get_nodeType@::HRESULT ( ::IXMLDOMNode::* )( ::DOMNodeType * )::HRESULT ( ::IXMLDOMNode::* )( ::DOMNodeType * )
 ~@member_function_t@GetCurrentLogicalThreadId@::HRESULT ( ::IComThreadingInfo::* )( ::GUID * )::HRESULT ( ::IComThreadingInfo::* )( ::GUID * )
@@ -3179,6 +3296,16 @@
 ~@member_function_t@SetGUID@::HRESULT ( ::ICreateErrorInfo::* )( ::_GUID const & )::HRESULT ( ::ICreateErrorInfo::* )( ::_GUID const & )
 ~@member_function_t@Close@::HRESULT ( ::IOleObject::* )( ::DWORD )::HRESULT ( ::IOleObject::* )( ::DWORD )
 ~@member_function_t@GetErrorInfo@::HRESULT ( ::IXMLError::* )( ::XML_ERROR * )::HRESULT ( ::IXMLError::* )( ::XML_ERROR * )
++@member_function_t@z@double & ( ::osg::Vec3d::* )(  )double & ( ::osg::Vec3d::* )(  )
++@member_function_t@z@double ( ::osg::Vec3d::* )(  )constdouble ( ::osg::Vec3d::* )(  )const
++@member_function_t@z@float & ( ::osg::Vec3f::* )(  )float & ( ::osg::Vec3f::* )(  )
++@member_function_t@z@float ( ::osg::Vec3f::* )(  )constfloat ( ::osg::Vec3f::* )(  )const
++@member_function_t@z@double & ( ::osg::Quat::* )(  )double & ( ::osg::Quat::* )(  )
++@member_function_t@z@double ( ::osg::Quat::* )(  )constdouble ( ::osg::Quat::* )(  )const
++@member_function_t@z@double & ( ::osg::Vec4d::* )(  )double & ( ::osg::Vec4d::* )(  )
++@member_function_t@z@double ( ::osg::Vec4d::* )(  )constdouble ( ::osg::Vec4d::* )(  )const
++@member_function_t@z@float & ( ::osg::Vec4f::* )(  )float & ( ::osg::Vec4f::* )(  )
++@member_function_t@z@float ( ::osg::Vec4f::* )(  )constfloat ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@GetAuthority@::HRESULT ( ::IUri::* )( ::BSTR * )::HRESULT ( ::IUri::* )( ::BSTR * )
 ~@member_function_t@appendChild@::HRESULT ( ::IXMLDOMNode::* )( ::IXMLDOMNode *,::IXMLDOMNode * * )::HRESULT ( ::IXMLDOMNode::* )( ::IXMLDOMNode *,::IXMLDOMNode * * )
 ~@member_function_t@createAttribute@::HRESULT ( ::IXMLDOMDocument::* )( ::BSTR,::IXMLDOMAttribute * * )::HRESULT ( ::IXMLDOMDocument::* )( ::BSTR,::IXMLDOMAttribute * * )
@@ -3205,7 +3332,12 @@
 ~@member_function_t@GetDescription@::HRESULT ( ::IErrorInfo::* )( ::BSTR * )::HRESULT ( ::IErrorInfo::* )( ::BSTR * )
 ~@member_function_t@GetScheme@::HRESULT ( ::IUri::* )( long unsigned int * )::HRESULT ( ::IUri::* )( long unsigned int * )
 ~@member_function_t@GetVarIndexOfMemId@::HRESULT ( ::ITypeInfo2::* )( ::MEMBERID,::UINT * )::HRESULT ( ::ITypeInfo2::* )( ::MEMBERID,::UINT * )
++@member_function_t@valid@bool ( ::osg::Vec3d::* )(  )constbool ( ::osg::Vec3d::* )(  )const
++@member_function_t@valid@bool ( ::osg::Vec3f::* )(  )constbool ( ::osg::Vec3f::* )(  )const
++@member_function_t@valid@bool ( ::osg::Vec2d::* )(  )constbool ( ::osg::Vec2d::* )(  )const
 +@member_function_t@valid@bool ( ::osg::Vec2f::* )(  )constbool ( ::osg::Vec2f::* )(  )const
++@member_function_t@valid@bool ( ::osg::Vec4d::* )(  )constbool ( ::osg::Vec4d::* )(  )const
++@member_function_t@valid@bool ( ::osg::Vec4f::* )(  )constbool ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@GetTypeKind@::HRESULT ( ::ITypeInfo2::* )( ::TYPEKIND * )::HRESULT ( ::ITypeInfo2::* )( ::TYPEKIND * )
 ~@member_function_t@CreateZoneEnumerator@::HRESULT ( ::IInternetZoneManager::* )( long unsigned int *,long unsigned int *,::DWORD )::HRESULT ( ::IInternetZoneManager::* )( long unsigned int *,long unsigned int *,::DWORD )
 ~@member_function_t@GetDefaultFilter@::HRESULT ( ::IEncodingFilterFactory::* )( ::LPCWSTR,::LPCWSTR,::IDataFilter * * )::HRESULT ( ::IEncodingFilterFactory::* )( ::LPCWSTR,::LPCWSTR,::IDataFilter * * )
@@ -3236,8 +3368,18 @@
 ~@member_function_t@Reduce@::HRESULT ( ::IMoniker::* )( ::IBindCtx *,::DWORD,::IMoniker * *,::IMoniker * * )::HRESULT ( ::IMoniker::* )( ::IBindCtx *,::DWORD,::IMoniker * *,::IMoniker * * )
 ~@member_function_t@depth@::HRESULT ( ::IXTLRuntime::* )( ::IXMLDOMNode *,long int * )::HRESULT ( ::IXTLRuntime::* )( ::IXMLDOMNode *,long int * )
 ~@member_function_t@GetCurrentPortName@::HRESULT ( ::IPrintDialogServices::* )( ::LPWSTR,::UINT * )::HRESULT ( ::IPrintDialogServices::* )( ::LPWSTR,::UINT * )
+~@member_function_t@ptr@double * ( ::osg::Vec3d::* )(  )double * ( ::osg::Vec3d::* )(  )
+~@member_function_t@ptr@double const * ( ::osg::Vec3d::* )(  )constdouble const * ( ::osg::Vec3d::* )(  )const
+~@member_function_t@ptr@float * ( ::osg::Vec3f::* )(  )float * ( ::osg::Vec3f::* )(  )
+~@member_function_t@ptr@float const * ( ::osg::Vec3f::* )(  )constfloat const * ( ::osg::Vec3f::* )(  )const
+~@member_function_t@ptr@double * ( ::osg::Vec2d::* )(  )double * ( ::osg::Vec2d::* )(  )
+~@member_function_t@ptr@double const * ( ::osg::Vec2d::* )(  )constdouble const * ( ::osg::Vec2d::* )(  )const
 ~@member_function_t@ptr@float * ( ::osg::Vec2f::* )(  )float * ( ::osg::Vec2f::* )(  )
 ~@member_function_t@ptr@float const * ( ::osg::Vec2f::* )(  )constfloat const * ( ::osg::Vec2f::* )(  )const
+~@member_function_t@ptr@double * ( ::osg::Vec4d::* )(  )double * ( ::osg::Vec4d::* )(  )
+~@member_function_t@ptr@double const * ( ::osg::Vec4d::* )(  )constdouble const * ( ::osg::Vec4d::* )(  )const
+~@member_function_t@ptr@float * ( ::osg::Vec4f::* )(  )float * ( ::osg::Vec4f::* )(  )
+~@member_function_t@ptr@float const * ( ::osg::Vec4f::* )(  )constfloat const * ( ::osg::Vec4f::* )(  )const
 ~@member_function_t@createTextNode@::HRESULT ( ::IXMLDOMDocument::* )( ::BSTR,::IXMLDOMText * * )::HRESULT ( ::IXMLDOMDocument::* )( ::BSTR,::IXMLDOMText * * )
 +@namespace_t@std@::std
 +@namespace_t@__cxxabiv1@::__cxxabiv1
@@ -3252,6 +3394,7 @@
 ~@class_declaration_t@_NDR_PROC_CONTEXT@::_NDR_PROC_CONTEXT
 ~@class_declaration_t@threadmbcinfostruct@::threadmbcinfostruct
 ~@class_declaration_t@_PROC_THREAD_ATTRIBUTE_LIST@::_PROC_THREAD_ATTRIBUTE_LIST
++@class_declaration_t@Matrixd@::osg::Matrixd
 ~@class_declaration_t@XMLDSOControl@::XMLDSOControl
 ~@class_declaration_t@NET_ADDRESS_INFO_@::NET_ADDRESS_INFO_
 ~@class_declaration_t@PMemoryAllocator@::PMemoryAllocator
@@ -3270,6 +3413,7 @@
 ~@class_declaration_t@_ACTIVATION_CONTEXT@::_ACTIVATION_CONTEXT
 ~@class_declaration_t@_TP_IO@::_TP_IO
 ~@class_declaration_t@_TP_CLEANUP_GROUP@::_TP_CLEANUP_GROUP
++@class_declaration_t@Matrixf@::osg::Matrixf
 ~@class_declaration_t@IEnumContextProps@::IEnumContextProps
 ~@class_declaration_t@_NDR_ASYNC_MESSAGE@::_NDR_ASYNC_MESSAGE
 ~@variable_t@ManagerEpv@::_RPC_MESSAGE::ManagerEpv
@@ -3421,6 +3565,7 @@
 ~@variable_t@offBmiMask@::tagEMRPLGBLT::offBmiMask
 ~@variable_t@GUID_BATTERY_SUBGROUP@::GUID_BATTERY_SUBGROUP
 ~@variable_t@pObject@::SChannelHookCallInfo::pObject
++@variable_t@Z_AXIS@::osg::Z_AXIS
 ~@variable_t@hStdInput@::_STARTUPINFOA::hStdInput
 ~@variable_t@hStdInput@::_STARTUPINFOW::hStdInput
 ~@variable_t@tmCharSet@::tagTEXTMETRICA::tmCharSet
@@ -3492,7 +3637,13 @@
 ~@variable_t@pSchema@::_BIDI_REQUEST_DATA::pSchema
 ~@variable_t@pSchema@::_BIDI_RESPONSE_DATA::pSchema
 ~@variable_t@pszPracticesReference@::_CERT_POLICY95_QUALIFIER1::pszPracticesReference
-+@variable_t@_v@::osg::Vec2f::_v
+~@variable_t@_v@::osg::Vec3d::_v
+~@variable_t@_v@::osg::Vec3f::_v
+~@variable_t@_v@::osg::Quat::_v
+~@variable_t@_v@::osg::Vec2d::_v
+~@variable_t@_v@::osg::Vec2f::_v
+~@variable_t@_v@::osg::Vec4d::_v
+~@variable_t@_v@::osg::Vec4f::_v
 ~@variable_t@rcv_any_outstanding@::_SESSION_HEADER::rcv_any_outstanding
 ~@variable_t@lconv_mon_refcount@::threadlocaleinfostruct::lconv_mon_refcount
 ~@variable_t@BindingH@::_RPC_BINDING_VECTOR::BindingH
@@ -8601,6 +8752,7 @@
 ~@variable_t@lcsGammaRed@::tagLOGCOLORSPACEA::lcsGammaRed
 ~@variable_t@elfStyleSize@::tagEXTLOGFONTA::elfStyleSize
 ~@variable_t@elfStyleSize@::tagEXTLOGFONTW::elfStyleSize
++@variable_t@X_AXIS@::osg::X_AXIS
 ~@variable_t@mtime@::tagSTATPROPSETSTG::mtime
 ~@variable_t@mtime@::tagSTATSTG::mtime
 ~@variable_t@EntryCount@::_RTL_CRITICAL_SECTION_DEBUG::EntryCount
@@ -9622,6 +9774,7 @@
 ~@variable_t@dwCount@::tagCANDIDATELIST::dwCount
 ~@variable_t@dwCount@::tagRAWHID::dwCount
 ~@variable_t@sample@::mmtime_tag::sample
++@variable_t@Y_AXIS@::osg::Y_AXIS
 ~@variable_t@BinRange@::_BIN_COUNT::BinRange
 ~@variable_t@IID_IDataFilter@::IID_IDataFilter
 ~@variable_t@fOnlyContainsUserCerts@::_CRL_ISSUING_DIST_POINT::fOnlyContainsUserCerts
@@ -13832,6 +13985,8 @@
 ~@variable_t@dwStreamAttributes@::_WIN32_STREAM_ID::dwStreamAttributes
 ~@variable_t@StatusWord@::_FLOATING_SAVE_AREA::StatusWord
 ~@variable_t@StatusWord@::_WOW64_FLOATING_SAVE_AREA::StatusWord
++@class_t@Vec4f@::osg::Vec4f
++@class_t@Vec4d@::osg::Vec4d
 ~@class_t@tagENUMLOGFONTEXW@::tagENUMLOGFONTEXW
 ~@class_t@_MIDL_FORMAT_STRING@::_MIDL_FORMAT_STRING
 ~@class_t@_IMAGE_TLS_DIRECTORY32@::_IMAGE_TLS_DIRECTORY32
@@ -14685,6 +14840,7 @@
 ~@class_t@_PROPSHEETPAGEW@::_PROPSHEETPAGEW
 ~@class_t@tMIXERCONTROLDETAILS_BOOLEAN@::tMIXERCONTROLDETAILS_BOOLEAN
 ~@class_t@_SERVICE_NOTIFY_2W@::_SERVICE_NOTIFY_2W
++@class_t@Quat@::osg::Quat
 ~@class_t@('C:/Program Files/Microsoft SDKs/Windows/v6.0A/Include/wincrypt.h', 4364)@::_CRL_DIST_POINT_NAME
 ~@class_t@_PROPSHEETPAGEA@::_PROPSHEETPAGEA
 ~@class_t@_CERT_LOGOTYPE_AUDIO_INFO@::_CERT_LOGOTYPE_AUDIO_INFO
@@ -15084,6 +15240,7 @@
 ~@class_t@tagEMRSETWORLDTRANSFORM@::tagEMRSETWORLDTRANSFORM
 ~@class_t@_FAT_STATISTICS@::_FAT_STATISTICS
 ~@class_t@_CERT_TEMPLATE_EXT@::_CERT_TEMPLATE_EXT
++@class_t@Vec2d@::osg::Vec2d
 ~@class_t@_ENCRYPTION_CERTIFICATE@::_ENCRYPTION_CERTIFICATE
 ~@class_t@_ACCESS_DENIED_ACE@::_ACCESS_DENIED_ACE
 ~@class_t@_RPC_PROTSEQ_VECTORW@::_RPC_PROTSEQ_VECTORW
@@ -15287,6 +15444,8 @@
 ~@class_t@_IMAGE_ROM_HEADERS@::_IMAGE_ROM_HEADERS
 ~@class_t@IWinInetFileStream@::IWinInetFileStream
 ~@class_t@('C:/Program Files/Microsoft SDKs/Windows/v6.0A/Include/wincrypt.h', 5598)@::_OCSP_BASIC_RESPONSE_ENTRY
++@class_t@Vec3f@::osg::Vec3f
++@class_t@Vec3d@::osg::Vec3d
 ~@class_t@_OFSTRUCT@::_OFSTRUCT
 ~@class_t@IPersistMoniker@::IPersistMoniker
 ~@class_t@_CRYPT_X942_OTHER_INFO@::_CRYPT_X942_OTHER_INFO
@@ -15998,6 +16157,15 @@
 ~@class_t@tagMONITORINFOEXA@::tagMONITORINFOEXA
 ~@class_t@tagARRAYDESC@::tagARRAYDESC
 ~@class_t@('C:/Program Files (x86)/gccxml/share/gccxml-0.9/Vc9/PlatformSDK/oaidl.h', 437)@::tagVARIANT
++@constructor_t@Vec4f@ ( ::osg::Vec4f::* )( ::osg::Vec4f const & ) ( ::osg::Vec4f::* )( ::osg::Vec4f const & )
++@constructor_t@Vec4f@ ( ::osg::Vec4f::* )(  ) ( ::osg::Vec4f::* )(  )
++@constructor_t@Vec4f@ ( ::osg::Vec4f::* )( float,float,float,float ) ( ::osg::Vec4f::* )( float,float,float,float )
++@constructor_t@Vec4f@ ( ::osg::Vec4f::* )( ::osg::Vec3f const &,float ) ( ::osg::Vec4f::* )( ::osg::Vec3f const &,float )
++@constructor_t@Vec4d@ ( ::osg::Vec4d::* )( ::osg::Vec4d const & ) ( ::osg::Vec4d::* )( ::osg::Vec4d const & )
++@constructor_t@Vec4d@ ( ::osg::Vec4d::* )(  ) ( ::osg::Vec4d::* )(  )
++@constructor_t@Vec4d@ ( ::osg::Vec4d::* )( double,double,double,double ) ( ::osg::Vec4d::* )( double,double,double,double )
++@constructor_t@Vec4d@ ( ::osg::Vec4d::* )( ::osg::Vec3d const &,double ) ( ::osg::Vec4d::* )( ::osg::Vec3d const &,double )
++@constructor_t@Vec4d@ ( ::osg::Vec4d::* )( ::osg::Vec4f const & ) ( ::osg::Vec4d::* )( ::osg::Vec4f const & )
 ~@constructor_t@tagENUMLOGFONTEXW@ ( ::tagENUMLOGFONTEXW::* )( ::tagENUMLOGFONTEXW const & ) ( ::tagENUMLOGFONTEXW::* )( ::tagENUMLOGFONTEXW const & )
 ~@constructor_t@tagENUMLOGFONTEXW@ ( ::tagENUMLOGFONTEXW::* )(  ) ( ::tagENUMLOGFONTEXW::* )(  )
 ~@constructor_t@_MIDL_FORMAT_STRING@ ( ::_MIDL_FORMAT_STRING::* )( ::_MIDL_FORMAT_STRING const & ) ( ::_MIDL_FORMAT_STRING::* )( ::_MIDL_FORMAT_STRING const & )
@@ -17584,6 +17752,15 @@
 ~@constructor_t@tMIXERCONTROLDETAILS_BOOLEAN@ ( ::tMIXERCONTROLDETAILS_BOOLEAN::* )(  ) ( ::tMIXERCONTROLDETAILS_BOOLEAN::* )(  )
 ~@constructor_t@_SERVICE_NOTIFY_2W@ ( ::_SERVICE_NOTIFY_2W::* )( ::_SERVICE_NOTIFY_2W const & ) ( ::_SERVICE_NOTIFY_2W::* )( ::_SERVICE_NOTIFY_2W const & )
 ~@constructor_t@_SERVICE_NOTIFY_2W@ ( ::_SERVICE_NOTIFY_2W::* )(  ) ( ::_SERVICE_NOTIFY_2W::* )(  )
++@constructor_t@Quat@ ( ::osg::Quat::* )( ::osg::Quat const & ) ( ::osg::Quat::* )( ::osg::Quat const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )(  ) ( ::osg::Quat::* )(  )
++@constructor_t@Quat@ ( ::osg::Quat::* )( double,double,double,double ) ( ::osg::Quat::* )( double,double,double,double )
++@constructor_t@Quat@ ( ::osg::Quat::* )( ::osg::Vec4f const & ) ( ::osg::Quat::* )( ::osg::Vec4f const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )( ::osg::Vec4d const & ) ( ::osg::Quat::* )( ::osg::Vec4d const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )( double,::osg::Vec3f const & ) ( ::osg::Quat::* )( double,::osg::Vec3f const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )( double,::osg::Vec3d const & ) ( ::osg::Quat::* )( double,::osg::Vec3d const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & ) ( ::osg::Quat::* )( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & )
++@constructor_t@Quat@ ( ::osg::Quat::* )( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & ) ( ::osg::Quat::* )( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & )
 ~@constructor_t@OPENCARDNAMEA@ ( ::OPENCARDNAMEA::* )( ::OPENCARDNAMEA const & ) ( ::OPENCARDNAMEA::* )( ::OPENCARDNAMEA const & )
 ~@constructor_t@OPENCARDNAMEA@ ( ::OPENCARDNAMEA::* )(  ) ( ::OPENCARDNAMEA::* )(  )
 ~@constructor_t@_PROPSHEETPAGEA@ ( ::_PROPSHEETPAGEA::* )( ::_PROPSHEETPAGEA const & ) ( ::_PROPSHEETPAGEA::* )( ::_PROPSHEETPAGEA const & )
@@ -18332,6 +18509,10 @@
 ~@constructor_t@_FAT_STATISTICS@ ( ::_FAT_STATISTICS::* )(  ) ( ::_FAT_STATISTICS::* )(  )
 ~@constructor_t@_CERT_TEMPLATE_EXT@ ( ::_CERT_TEMPLATE_EXT::* )( ::_CERT_TEMPLATE_EXT const & ) ( ::_CERT_TEMPLATE_EXT::* )( ::_CERT_TEMPLATE_EXT const & )
 ~@constructor_t@_CERT_TEMPLATE_EXT@ ( ::_CERT_TEMPLATE_EXT::* )(  ) ( ::_CERT_TEMPLATE_EXT::* )(  )
++@constructor_t@Vec2d@ ( ::osg::Vec2d::* )( ::osg::Vec2d const & ) ( ::osg::Vec2d::* )( ::osg::Vec2d const & )
++@constructor_t@Vec2d@ ( ::osg::Vec2d::* )(  ) ( ::osg::Vec2d::* )(  )
++@constructor_t@Vec2d@ ( ::osg::Vec2d::* )( double,double ) ( ::osg::Vec2d::* )( double,double )
++@constructor_t@Vec2d@ ( ::osg::Vec2d::* )( ::osg::Vec2f const & ) ( ::osg::Vec2d::* )( ::osg::Vec2f const & )
 ~@constructor_t@_ENCRYPTION_CERTIFICATE@ ( ::_ENCRYPTION_CERTIFICATE::* )( ::_ENCRYPTION_CERTIFICATE const & ) ( ::_ENCRYPTION_CERTIFICATE::* )( ::_ENCRYPTION_CERTIFICATE const & )
 ~@constructor_t@_ENCRYPTION_CERTIFICATE@ ( ::_ENCRYPTION_CERTIFICATE::* )(  ) ( ::_ENCRYPTION_CERTIFICATE::* )(  )
 ~@constructor_t@_ACCESS_DENIED_ACE@ ( ::_ACCESS_DENIED_ACE::* )( ::_ACCESS_DENIED_ACE const & ) ( ::_ACCESS_DENIED_ACE::* )( ::_ACCESS_DENIED_ACE const & )
@@ -18720,6 +18901,15 @@
 ~@constructor_t@_IMAGE_ROM_HEADERS@ ( ::_IMAGE_ROM_HEADERS::* )(  ) ( ::_IMAGE_ROM_HEADERS::* )(  )
 ~@constructor_t@IWinInetFileStream@ ( ::IWinInetFileStream::* )( ::IWinInetFileStream const & ) ( ::IWinInetFileStream::* )( ::IWinInetFileStream const & )
 ~@constructor_t@IWinInetFileStream@ ( ::IWinInetFileStream::* )(  ) ( ::IWinInetFileStream::* )(  )
++@constructor_t@Vec3f@ ( ::osg::Vec3f::* )( ::osg::Vec3f const & ) ( ::osg::Vec3f::* )( ::osg::Vec3f const & )
++@constructor_t@Vec3f@ ( ::osg::Vec3f::* )(  ) ( ::osg::Vec3f::* )(  )
++@constructor_t@Vec3f@ ( ::osg::Vec3f::* )( float,float,float ) ( ::osg::Vec3f::* )( float,float,float )
++@constructor_t@Vec3f@ ( ::osg::Vec3f::* )( ::osg::Vec2f const &,float ) ( ::osg::Vec3f::* )( ::osg::Vec2f const &,float )
++@constructor_t@Vec3d@ ( ::osg::Vec3d::* )( ::osg::Vec3d const & ) ( ::osg::Vec3d::* )( ::osg::Vec3d const & )
++@constructor_t@Vec3d@ ( ::osg::Vec3d::* )(  ) ( ::osg::Vec3d::* )(  )
++@constructor_t@Vec3d@ ( ::osg::Vec3d::* )( ::osg::Vec3f const & ) ( ::osg::Vec3d::* )( ::osg::Vec3f const & )
++@constructor_t@Vec3d@ ( ::osg::Vec3d::* )( double,double,double ) ( ::osg::Vec3d::* )( double,double,double )
++@constructor_t@Vec3d@ ( ::osg::Vec3d::* )( ::osg::Vec2d const &,double ) ( ::osg::Vec3d::* )( ::osg::Vec2d const &,double )
 ~@constructor_t@_OFSTRUCT@ ( ::_OFSTRUCT::* )( ::_OFSTRUCT const & ) ( ::_OFSTRUCT::* )( ::_OFSTRUCT const & )
 ~@constructor_t@_OFSTRUCT@ ( ::_OFSTRUCT::* )(  ) ( ::_OFSTRUCT::* )(  )
 ~@constructor_t@IPersistMoniker@ ( ::IPersistMoniker::* )( ::IPersistMoniker const & ) ( ::IPersistMoniker::* )( ::IPersistMoniker const & )
@@ -20912,7 +21102,13 @@
 ~@typedef_t@PGET_SYSTEM_WOW64_DIRECTORY_W@::PGET_SYSTEM_WOW64_DIRECTORY_W
 ~@typedef_t@PCERT_AUTHORITY_KEY_ID2_INFO@::PCERT_AUTHORITY_KEY_ID2_INFO
 ~@typedef_t@PTRANSMIT_FILE_BUFFERS@::PTRANSMIT_FILE_BUFFERS
++@typedef_t@value_type@::osg::Vec3d::value_type
++@typedef_t@value_type@::osg::Vec3f::value_type
++@typedef_t@value_type@::osg::Quat::value_type
++@typedef_t@value_type@::osg::Vec2d::value_type
 +@typedef_t@value_type@::osg::Vec2f::value_type
++@typedef_t@value_type@::osg::Vec4d::value_type
++@typedef_t@value_type@::osg::Vec4f::value_type
 ~@typedef_t@PCRM_PROTOCOL_ID@::PCRM_PROTOCOL_ID
 ~@typedef_t@GDI_OBJECT@::GDI_OBJECT
 ~@typedef_t@LPMCI_SYSINFO_PARMSW@::LPMCI_SYSINFO_PARMSW
@@ -25526,22 +25722,127 @@
 ~@typedef_t@RAWINPUTDEVICE@::RAWINPUTDEVICE
 ~@typedef_t@LPALTTABINFO@::LPALTTABINFO
 ~@free_operator_t@operator==@int (*)( ::_GUID const &,::_GUID const & )int (*)( ::_GUID const &,::_GUID const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec4f const &,::osg::Vec3d const & )double (*)( ::osg::Vec4f const &,::osg::Vec3d const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec4d const &,::osg::Vec3f const & )double (*)( ::osg::Vec4d const &,::osg::Vec3f const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec4d const &,::osg::Vec3d const & )double (*)( ::osg::Vec4d const &,::osg::Vec3d const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec3d const &,::osg::Vec4f const & )double (*)( ::osg::Vec3d const &,::osg::Vec4f const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec3f const &,::osg::Vec4d const & )double (*)( ::osg::Vec3f const &,::osg::Vec4d const & )
++@free_operator_t@operator*@double (*)( ::osg::Vec3d const &,::osg::Vec4d const & )double (*)( ::osg::Vec3d const &,::osg::Vec4d const & )
++@free_operator_t@operator*@float (*)( ::osg::Vec4f const &,::osg::Vec3f const & )float (*)( ::osg::Vec4f const &,::osg::Vec3f const & )
++@free_operator_t@operator*@float (*)( ::osg::Vec3f const &,::osg::Vec4f const & )float (*)( ::osg::Vec3f const &,::osg::Vec4f const & )
 ~@free_operator_t@operator!=@int (*)( ::_GUID const &,::_GUID const & )int (*)( ::_GUID const &,::_GUID const & )
++@member_operator_t@operator-=@::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )
++@member_operator_t@operator-=@::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )
++@member_operator_t@operator-=@::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )
++@member_operator_t@operator-=@::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )
 +@member_operator_t@operator-=@::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )
++@member_operator_t@operator-=@::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )
++@member_operator_t@operator-=@::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )
++@member_operator_t@operator/@::osg::Vec3d const ( ::osg::Vec3d::* )( double )const::osg::Vec3d const ( ::osg::Vec3d::* )( double )const
++@member_operator_t@operator/@::osg::Vec3f const ( ::osg::Vec3f::* )( float )const::osg::Vec3f const ( ::osg::Vec3f::* )( float )const
++@member_operator_t@operator/@::osg::Quat ( ::osg::Quat::* )( double )const::osg::Quat ( ::osg::Quat::* )( double )const
++@member_operator_t@operator/@::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator/@::osg::Vec2d const ( ::osg::Vec2d::* )( double )const::osg::Vec2d const ( ::osg::Vec2d::* )( double )const
 +@member_operator_t@operator/@::osg::Vec2f const ( ::osg::Vec2f::* )( float )const::osg::Vec2f const ( ::osg::Vec2f::* )( float )const
++@member_operator_t@operator/@::osg::Vec4d ( ::osg::Vec4d::* )( double )const::osg::Vec4d ( ::osg::Vec4d::* )( double )const
++@member_operator_t@operator/@::osg::Vec4f ( ::osg::Vec4f::* )( float )const::osg::Vec4f ( ::osg::Vec4f::* )( float )const
++@member_operator_t@operator!=@bool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )constbool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator!=@bool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )constbool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator!=@bool ( ::osg::Quat::* )( ::osg::Quat const & )constbool ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator!=@bool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )constbool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
 +@member_operator_t@operator!=@bool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )constbool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
++@member_operator_t@operator!=@bool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )constbool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator!=@bool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )constbool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator<@bool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )constbool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator<@bool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )constbool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator<@bool ( ::osg::Quat::* )( ::osg::Quat const & )constbool ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator<@bool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )constbool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
 +@member_operator_t@operator<@bool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )constbool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
++@member_operator_t@operator<@bool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )constbool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator<@bool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )constbool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator+=@::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )
++@member_operator_t@operator+=@::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )
++@member_operator_t@operator+=@::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )
++@member_operator_t@operator+=@::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )
 +@member_operator_t@operator+=@::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )
++@member_operator_t@operator+=@::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )
++@member_operator_t@operator+=@::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )
++@member_operator_t@operator^@::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator^@::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator/=@::osg::Vec3d & ( ::osg::Vec3d::* )( double )::osg::Vec3d & ( ::osg::Vec3d::* )( double )
++@member_operator_t@operator/=@::osg::Vec3f & ( ::osg::Vec3f::* )( float )::osg::Vec3f & ( ::osg::Vec3f::* )( float )
++@member_operator_t@operator/=@::osg::Quat & ( ::osg::Quat::* )( double )::osg::Quat & ( ::osg::Quat::* )( double )
++@member_operator_t@operator/=@::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )
++@member_operator_t@operator/=@::osg::Vec2d & ( ::osg::Vec2d::* )( double )::osg::Vec2d & ( ::osg::Vec2d::* )( double )
 +@member_operator_t@operator/=@::osg::Vec2f & ( ::osg::Vec2f::* )( float )::osg::Vec2f & ( ::osg::Vec2f::* )( float )
++@member_operator_t@operator/=@::osg::Vec4d & ( ::osg::Vec4d::* )( double )::osg::Vec4d & ( ::osg::Vec4d::* )( double )
++@member_operator_t@operator/=@::osg::Vec4f & ( ::osg::Vec4f::* )( float )::osg::Vec4f & ( ::osg::Vec4f::* )( float )
++@member_operator_t@operator==@bool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )constbool ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator==@bool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )constbool ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator==@bool ( ::osg::Quat::* )( ::osg::Quat const & )constbool ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator==@bool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )constbool ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
 +@member_operator_t@operator==@bool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )constbool ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
++@member_operator_t@operator==@bool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )constbool ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator==@bool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )constbool ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator+@::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator+@::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator+@::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator+@::osg::Vec2d const ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const::osg::Vec2d const ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
 +@member_operator_t@operator+@::osg::Vec2f const ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const::osg::Vec2f const ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
++@member_operator_t@operator+@::osg::Vec4d ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const::osg::Vec4d ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator+@::osg::Vec4f ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const::osg::Vec4f ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator*@double ( ::osg::Vec3d::* )( ::osg::Vec3d const & )constdouble ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator*@::osg::Vec3d const ( ::osg::Vec3d::* )( double )const::osg::Vec3d const ( ::osg::Vec3d::* )( double )const
++@member_operator_t@operator*@float ( ::osg::Vec3f::* )( ::osg::Vec3f const & )constfloat ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator*@::osg::Vec3f const ( ::osg::Vec3f::* )( float )const::osg::Vec3f const ( ::osg::Vec3f::* )( float )const
++@member_operator_t@operator*@::osg::Quat const ( ::osg::Quat::* )( double )const::osg::Quat const ( ::osg::Quat::* )( double )const
++@member_operator_t@operator*@::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator*@::osg::Vec3f ( ::osg::Quat::* )( ::osg::Vec3f const & )const::osg::Vec3f ( ::osg::Quat::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator*@::osg::Vec3d ( ::osg::Quat::* )( ::osg::Vec3d const & )const::osg::Vec3d ( ::osg::Quat::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator*@double ( ::osg::Vec2d::* )( ::osg::Vec2d const & )constdouble ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
++@member_operator_t@operator*@::osg::Vec2d const ( ::osg::Vec2d::* )( double )const::osg::Vec2d const ( ::osg::Vec2d::* )( double )const
 +@member_operator_t@operator*@float ( ::osg::Vec2f::* )( ::osg::Vec2f const & )constfloat ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
 +@member_operator_t@operator*@::osg::Vec2f const ( ::osg::Vec2f::* )( float )const::osg::Vec2f const ( ::osg::Vec2f::* )( float )const
++@member_operator_t@operator*@double ( ::osg::Vec4d::* )( ::osg::Vec4d const & )constdouble ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator*@::osg::Vec4d ( ::osg::Vec4d::* )( double )const::osg::Vec4d ( ::osg::Vec4d::* )( double )const
++@member_operator_t@operator*@float ( ::osg::Vec4f::* )( ::osg::Vec4f const & )constfloat ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator*@::osg::Vec4f ( ::osg::Vec4f::* )( float )const::osg::Vec4f ( ::osg::Vec4f::* )( float )const
++@member_operator_t@operator-@::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const::osg::Vec3d const ( ::osg::Vec3d::* )( ::osg::Vec3d const & )const
++@member_operator_t@operator-@::osg::Vec3d const ( ::osg::Vec3d::* )(  )const::osg::Vec3d const ( ::osg::Vec3d::* )(  )const
++@member_operator_t@operator-@::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const::osg::Vec3f const ( ::osg::Vec3f::* )( ::osg::Vec3f const & )const
++@member_operator_t@operator-@::osg::Vec3f const ( ::osg::Vec3f::* )(  )const::osg::Vec3f const ( ::osg::Vec3f::* )(  )const
++@member_operator_t@operator-@::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const::osg::Quat const ( ::osg::Quat::* )( ::osg::Quat const & )const
++@member_operator_t@operator-@::osg::Quat const ( ::osg::Quat::* )(  )const::osg::Quat const ( ::osg::Quat::* )(  )const
++@member_operator_t@operator-@::osg::Vec2d const ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const::osg::Vec2d const ( ::osg::Vec2d::* )( ::osg::Vec2d const & )const
++@member_operator_t@operator-@::osg::Vec2d const ( ::osg::Vec2d::* )(  )const::osg::Vec2d const ( ::osg::Vec2d::* )(  )const
 +@member_operator_t@operator-@::osg::Vec2f const ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const::osg::Vec2f const ( ::osg::Vec2f::* )( ::osg::Vec2f const & )const
 +@member_operator_t@operator-@::osg::Vec2f const ( ::osg::Vec2f::* )(  )const::osg::Vec2f const ( ::osg::Vec2f::* )(  )const
++@member_operator_t@operator-@::osg::Vec4d ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const::osg::Vec4d ( ::osg::Vec4d::* )( ::osg::Vec4d const & )const
++@member_operator_t@operator-@::osg::Vec4d const ( ::osg::Vec4d::* )(  )const::osg::Vec4d const ( ::osg::Vec4d::* )(  )const
++@member_operator_t@operator-@::osg::Vec4f ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const::osg::Vec4f ( ::osg::Vec4f::* )( ::osg::Vec4f const & )const
++@member_operator_t@operator-@::osg::Vec4f const ( ::osg::Vec4f::* )(  )const::osg::Vec4f const ( ::osg::Vec4f::* )(  )const
++@member_operator_t@operator[]@double & ( ::osg::Vec3d::* )( int )double & ( ::osg::Vec3d::* )( int )
++@member_operator_t@operator[]@double ( ::osg::Vec3d::* )( int )constdouble ( ::osg::Vec3d::* )( int )const
++@member_operator_t@operator[]@float & ( ::osg::Vec3f::* )( int )float & ( ::osg::Vec3f::* )( int )
++@member_operator_t@operator[]@float ( ::osg::Vec3f::* )( int )constfloat ( ::osg::Vec3f::* )( int )const
++@member_operator_t@operator[]@double & ( ::osg::Quat::* )( int )double & ( ::osg::Quat::* )( int )
++@member_operator_t@operator[]@double ( ::osg::Quat::* )( int )constdouble ( ::osg::Quat::* )( int )const
++@member_operator_t@operator[]@double & ( ::osg::Vec2d::* )( int )double & ( ::osg::Vec2d::* )( int )
++@member_operator_t@operator[]@double ( ::osg::Vec2d::* )( int )constdouble ( ::osg::Vec2d::* )( int )const
 +@member_operator_t@operator[]@float & ( ::osg::Vec2f::* )( int )float & ( ::osg::Vec2f::* )( int )
 +@member_operator_t@operator[]@float ( ::osg::Vec2f::* )( int )constfloat ( ::osg::Vec2f::* )( int )const
++@member_operator_t@operator[]@double & ( ::osg::Vec4d::* )( unsigned int )double & ( ::osg::Vec4d::* )( unsigned int )
++@member_operator_t@operator[]@double ( ::osg::Vec4d::* )( unsigned int )constdouble ( ::osg::Vec4d::* )( unsigned int )const
++@member_operator_t@operator[]@float & ( ::osg::Vec4f::* )( unsigned int )float & ( ::osg::Vec4f::* )( unsigned int )
++@member_operator_t@operator[]@float ( ::osg::Vec4f::* )( unsigned int )constfloat ( ::osg::Vec4f::* )( unsigned int )const
++@member_operator_t@operator*=@::osg::Vec3d & ( ::osg::Vec3d::* )( double )::osg::Vec3d & ( ::osg::Vec3d::* )( double )
++@member_operator_t@operator*=@::osg::Vec3f & ( ::osg::Vec3f::* )( float )::osg::Vec3f & ( ::osg::Vec3f::* )( float )
++@member_operator_t@operator*=@::osg::Quat & ( ::osg::Quat::* )( double )::osg::Quat & ( ::osg::Quat::* )( double )
++@member_operator_t@operator*=@::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )
++@member_operator_t@operator*=@::osg::Vec2d & ( ::osg::Vec2d::* )( double )::osg::Vec2d & ( ::osg::Vec2d::* )( double )
 +@member_operator_t@operator*=@::osg::Vec2f & ( ::osg::Vec2f::* )( float )::osg::Vec2f & ( ::osg::Vec2f::* )( float )
++@member_operator_t@operator*=@::osg::Vec4d & ( ::osg::Vec4d::* )( double )::osg::Vec4d & ( ::osg::Vec4d::* )( double )
++@member_operator_t@operator*=@::osg::Vec4f & ( ::osg::Vec4f::* )( float )::osg::Vec4f & ( ::osg::Vec4f::* )( float )
 ~@member_operator_t@operator=@::std::_Mutex & ( ::std::_Mutex::* )( ::std::_Mutex const & )::std::_Mutex & ( ::std::_Mutex::* )( ::std::_Mutex const & )
 ~@member_operator_t@operator=@::std::_Lockit & ( ::std::_Lockit::* )( ::std::_Lockit const & )::std::_Lockit & ( ::std::_Lockit::* )( ::std::_Lockit const & )
 ~@member_operator_t@operator=@::std::_Init_locks & ( ::std::_Init_locks::* )( ::std::_Init_locks const & )::std::_Init_locks & ( ::std::_Init_locks::* )( ::std::_Init_locks const & )
@@ -27544,7 +27845,13 @@
 ~@member_operator_t@operator=@::IOleCacheControl & ( ::IOleCacheControl::* )( ::IOleCacheControl const & )::IOleCacheControl & ( ::IOleCacheControl::* )( ::IOleCacheControl const & )
 ~@member_operator_t@operator=@::tagEMRMODIFYWORLDTRANSFORM & ( ::tagEMRMODIFYWORLDTRANSFORM::* )( ::tagEMRMODIFYWORLDTRANSFORM const & )::tagEMRMODIFYWORLDTRANSFORM & ( ::tagEMRMODIFYWORLDTRANSFORM::* )( ::tagEMRMODIFYWORLDTRANSFORM const & )
 ~@member_operator_t@operator=@::ICatalogFileInfo & ( ::ICatalogFileInfo::* )( ::ICatalogFileInfo const & )::ICatalogFileInfo & ( ::ICatalogFileInfo::* )( ::ICatalogFileInfo const & )
++@member_operator_t@operator=@::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )::osg::Vec3d & ( ::osg::Vec3d::* )( ::osg::Vec3d const & )
++@member_operator_t@operator=@::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )::osg::Vec3f & ( ::osg::Vec3f::* )( ::osg::Vec3f const & )
++@member_operator_t@operator=@::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )::osg::Quat & ( ::osg::Quat::* )( ::osg::Quat const & )
++@member_operator_t@operator=@::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )::osg::Vec2d & ( ::osg::Vec2d::* )( ::osg::Vec2d const & )
 +@member_operator_t@operator=@::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )::osg::Vec2f & ( ::osg::Vec2f::* )( ::osg::Vec2f const & )
++@member_operator_t@operator=@::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )::osg::Vec4d & ( ::osg::Vec4d::* )( ::osg::Vec4d const & )
++@member_operator_t@operator=@::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )::osg::Vec4f & ( ::osg::Vec4f::* )( ::osg::Vec4f const & )
 ~@member_operator_t@operator=@::IEncodingFilterFactory & ( ::IEncodingFilterFactory::* )( ::IEncodingFilterFactory const & )::IEncodingFilterFactory & ( ::IEncodingFilterFactory::* )( ::IEncodingFilterFactory const & )
 ~@member_operator_t@operator=@::IBindCtx & ( ::IBindCtx::* )( ::IBindCtx const & )::IBindCtx & ( ::IBindCtx::* )( ::IBindCtx const & )
 ~@member_operator_t@operator=@::_PRINTER_INFO_1A & ( ::_PRINTER_INFO_1A::* )( ::_PRINTER_INFO_1A const & )::_PRINTER_INFO_1A & ( ::_PRINTER_INFO_1A::* )( ::_PRINTER_INFO_1A const & )
@@ -30159,6 +30466,11 @@
 ~@free_function_t@GetProcessWorkingSetSizeEx@::BOOL (*)( ::HANDLE,::PSIZE_T,::PSIZE_T,::PDWORD )::BOOL (*)( ::HANDLE,::PSIZE_T,::PSIZE_T,::PDWORD )
 ~@free_function_t@HlinkNavigateMoniker@::HRESULT (*)( ::IUnknown *,::IMoniker * )::HRESULT (*)( ::IUnknown *,::IMoniker * )
 ~@free_function_t@VariantCopyInd@::HRESULT (*)( ::VARIANT *,::VARIANTARG const * )::HRESULT (*)( ::VARIANT *,::VARIANTARG const * )
++@free_function_t@componentMultiply@::osg::Vec4d (*)( ::osg::Vec4d const &,::osg::Vec4d const & )::osg::Vec4d (*)( ::osg::Vec4d const &,::osg::Vec4d const & )
++@free_function_t@componentMultiply@::osg::Vec3d (*)( ::osg::Vec3d const &,::osg::Vec3d const & )::osg::Vec3d (*)( ::osg::Vec3d const &,::osg::Vec3d const & )
++@free_function_t@componentMultiply@::osg::Vec2d (*)( ::osg::Vec2d const &,::osg::Vec2d const & )::osg::Vec2d (*)( ::osg::Vec2d const &,::osg::Vec2d const & )
++@free_function_t@componentMultiply@::osg::Vec4f (*)( ::osg::Vec4f const &,::osg::Vec4f const & )::osg::Vec4f (*)( ::osg::Vec4f const &,::osg::Vec4f const & )
++@free_function_t@componentMultiply@::osg::Vec3f (*)( ::osg::Vec3f const &,::osg::Vec3f const & )::osg::Vec3f (*)( ::osg::Vec3f const &,::osg::Vec3f const & )
 +@free_function_t@componentMultiply@::osg::Vec2f (*)( ::osg::Vec2f const &,::osg::Vec2f const & )::osg::Vec2f (*)( ::osg::Vec2f const &,::osg::Vec2f const & )
 ~@free_function_t@GenerateConsoleCtrlEvent@::BOOL (*)( ::DWORD,::DWORD )::BOOL (*)( ::DWORD,::DWORD )
 ~@free_function_t@GetComputerNameExA@::BOOL (*)( ::COMPUTER_NAME_FORMAT,::LPSTR,::LPDWORD )::BOOL (*)( ::COMPUTER_NAME_FORMAT,::LPSTR,::LPDWORD )
@@ -30591,6 +30903,8 @@
 ~@free_function_t@midiInAddBuffer@::MMRESULT (*)( ::HMIDIIN,::LPMIDIHDR,::UINT )::MMRESULT (*)( ::HMIDIIN,::LPMIDIHDR,::UINT )
 ~@free_function_t@CertAddSerializedElementToStore@::BOOL (*)( ::HCERTSTORE,::BYTE const *,::DWORD,::DWORD,::DWORD,::DWORD,long unsigned int *,void const * * )::BOOL (*)( ::HCERTSTORE,::BYTE const *,::DWORD,::DWORD,::DWORD,::DWORD,long unsigned int *,void const * * )
 ~@free_function_t@BCryptFinishHash@::NTSTATUS (*)( ::BCRYPT_HASH_HANDLE,::PUCHAR,::ULONG,::ULONG )::NTSTATUS (*)( ::BCRYPT_HASH_HANDLE,::PUCHAR,::ULONG,::ULONG )
++@free_function_t@clampTo@double (*)( double,double,double )double (*)( double,double,double )
++@free_function_t@clampTo@float (*)( float,float,float )float (*)( float,float,float )
 ~@free_function_t@GetCurrentThreadId@::DWORD (*)(  )::DWORD (*)(  )
 ~@free_function_t@fabsf@float (*)( float )float (*)( float )
 ~@free_function_t@fabsl@long double (*)( long double )long double (*)( long double )
@@ -32893,6 +33207,11 @@
 ~@free_function_t@IDataObject_RemoteSetData_Proxy@::HRESULT (*)( ::IDataObject *,::FORMATETC *,::FLAG_STGMEDIUM *,::BOOL )::HRESULT (*)( ::IDataObject *,::FORMATETC *,::FLAG_STGMEDIUM *,::BOOL )
 ~@free_function_t@AddFontResourceA@int (*)( ::LPCSTR )int (*)( ::LPCSTR )
 ~@free_function_t@AddJobA@::BOOL (*)( ::HANDLE,::DWORD,::LPBYTE,::DWORD,::LPDWORD )::BOOL (*)( ::HANDLE,::DWORD,::LPBYTE,::DWORD,::LPDWORD )
++@free_function_t@componentDivide@::osg::Vec4d (*)( ::osg::Vec4d const &,::osg::Vec4d const & )::osg::Vec4d (*)( ::osg::Vec4d const &,::osg::Vec4d const & )
++@free_function_t@componentDivide@::osg::Vec3d (*)( ::osg::Vec3d const &,::osg::Vec3d const & )::osg::Vec3d (*)( ::osg::Vec3d const &,::osg::Vec3d const & )
++@free_function_t@componentDivide@::osg::Vec2d (*)( ::osg::Vec2d const &,::osg::Vec2d const & )::osg::Vec2d (*)( ::osg::Vec2d const &,::osg::Vec2d const & )
++@free_function_t@componentDivide@::osg::Vec4f (*)( ::osg::Vec4f const &,::osg::Vec4f const & )::osg::Vec4f (*)( ::osg::Vec4f const &,::osg::Vec4f const & )
++@free_function_t@componentDivide@::osg::Vec3f (*)( ::osg::Vec3f const &,::osg::Vec3f const & )::osg::Vec3f (*)( ::osg::Vec3f const &,::osg::Vec3f const & )
 +@free_function_t@componentDivide@::osg::Vec2f (*)( ::osg::Vec2f const &,::osg::Vec2f const & )::osg::Vec2f (*)( ::osg::Vec2f const &,::osg::Vec2f const & )
 ~@free_function_t@ImmGetIMEFileNameA@::UINT (*)( ::HKL,::LPSTR,::UINT )::UINT (*)( ::HKL,::LPSTR,::UINT )
 ~@free_function_t@AddFontResourceW@int (*)( ::LPCWSTR )int (*)( ::LPCWSTR )

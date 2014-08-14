@@ -141,7 +141,7 @@ void register_Vec2f_class(){
             Vec2f_exposer.def( 
                 "x"
                 , x_function_type( &::osg::Vec2f::x )
-                    /* undefined call policies */ );
+                , bp::return_value_policy< bp::copy_non_const_reference >() );
         
         }
         { //::osg::Vec2f::x
@@ -160,7 +160,7 @@ void register_Vec2f_class(){
             Vec2f_exposer.def( 
                 "y"
                 , y_function_type( &::osg::Vec2f::y )
-                    /* undefined call policies */ );
+                , bp::return_value_policy< bp::copy_non_const_reference >() );
         
         }
         { //::osg::Vec2f::y
