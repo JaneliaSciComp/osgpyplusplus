@@ -1,0 +1,9 @@
+
+You will need CMake (maybe version 2.8)
+
+Build boost
+On windows:
+  Open Visual Studio command prompt
+  Change directory to boost source tree
+  % bootstrap
+  % b2 --with-python python-debugging=off threading=multi variant=release link=shared toolset=msvc-9.0 install
