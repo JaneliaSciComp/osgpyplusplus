@@ -1,1 +1,2 @@
 /build_cmake
+/src/modules/greet/generated_code/*.cpp~
