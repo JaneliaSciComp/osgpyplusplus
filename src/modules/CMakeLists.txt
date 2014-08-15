@@ -20,7 +20,7 @@ mark_as_advanced(CLEAR Boost_PYTHON_LIBRARY_RELEASE)
 
 include_directories(${Boost_INCLUDE_DIR})
 
-# OpenSceneGraph TODO make this more general
+# OpenSceneGraph TODO make this finding process more general
 find_path(OSG_DIR "include/osg/Node")
 find_path(OSG_INCLUDE_DIR "osg/Node"
     PATHS ${OSG_DIR})
@@ -54,6 +54,7 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     target_link_libraries(${MODULE_NAME} 
         ${PYTHON_LIBRARY_RELEASE}
         ${Boost_PYTHON_LIBRARY}
+        ${OSG_LIBRARY}
     )
     # On Windows python extension modules have suffix ".pyd"
     if(WIN32)
@@ -73,7 +74,7 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
             COMMAND "${PYTHON_EXECUTABLE}" ${WRAP_SCRIPT}
                 > "${CMAKE_CURRENT_BINARY_DIR}/generate_${MODULE_NAME}_source.log"
                 2> "${CMAKE_CURRENT_BINARY_DIR}/generate_${MODULE_NAME}_source.err"
-            OUTPUT "${STDGEN_STAMP}"
+            OUTPUT "${GEN_STAMP}"
             DEPENDS
                 ${WRAP_SCRIPT}
                 ${MODULE_OTHER_SRCS}
@@ -82,7 +83,7 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
         )
 
         add_custom_target(Generate_${MODULE_NAME}_WrapperSources
-            DEPENDS "${STDGEN_STAMP}"
+            DEPENDS "${GEN_STAMP}"
             SOURCES
                 ${WRAP_SCRIPT}
                 ${MODULE_OTHER_SRCS}

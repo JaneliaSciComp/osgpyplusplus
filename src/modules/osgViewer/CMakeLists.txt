@@ -1,8 +1,8 @@
-find_library(OSG_LIBRARY 
-    NAME osg
+find_library(OSGVIEWER_LIBRARY 
+    NAME osgViewer
     PATHS ${OSG_DIR}/lib
 )
 
 set(MODULE_OTHER_SRCS "")
-OSGPYPP_WRAP_MODULE(osg)
-target_link_libraries(osg ${OSG_LIBRARY})
+OSGPYPP_WRAP_MODULE(osgViewer)
+target_link_libraries(osg ${OSGVIEWER_LIBRARY})
