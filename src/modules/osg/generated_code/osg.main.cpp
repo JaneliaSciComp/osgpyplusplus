@@ -8,6 +8,12 @@
 
 #include "wrap_osg.h"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomic.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomicptr.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_global_variables.pypp.hpp"
@@ -29,6 +35,14 @@
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osg){
+    register_Atomic_class();
+
+    bp::implicitly_convertible< OpenThreads::Atomic, unsigned int >();
+
+    register_AtomicPtr_class();
+
+    register_Mutex_class();
+
     register_Quat_class();
 
     register_Vec2d_class();

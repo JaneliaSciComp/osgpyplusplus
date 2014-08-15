@@ -62,7 +62,6 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     endif()
 
     # Maybe generate boost python C++ wrapping code, using pyplusplus
-    # TODO - the dependencies are not working automatically, at least in Visual Studio 2008
     if(OSGPYPP_REGENERATE_BINDINGS)
         find_program(PYTHON_EXECUTABLE 
             NAMES python27 python)
@@ -88,7 +87,7 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
                 ${WRAP_SCRIPT}
                 ${MODULE_OTHER_SRCS}
         )
-        add_dependencies(${MODULE_NAME} Generate_${MODULE_NAME}_WrapperSources) # TODO - not working?
+        add_dependencies(${MODULE_NAME} Generate_${MODULE_NAME}_WrapperSources)
     endif()
 endfunction()
 

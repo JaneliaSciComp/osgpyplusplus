@@ -294,6 +294,28 @@ void register_free_functions(){
     
     }
 
+    { //::osg::intrusive_ptr_add_ref
+    
+        typedef void ( *intrusive_ptr_add_ref_function_type )( ::osg::Referenced * );
+        
+        bp::def( 
+            "intrusive_ptr_add_ref"
+            , intrusive_ptr_add_ref_function_type( &::osg::intrusive_ptr_add_ref )
+            , ( bp::arg("p") ) );
+    
+    }
+
+    { //::osg::intrusive_ptr_release
+    
+        typedef void ( *intrusive_ptr_release_function_type )( ::osg::Referenced * );
+        
+        bp::def( 
+            "intrusive_ptr_release"
+            , intrusive_ptr_release_function_type( &::osg::intrusive_ptr_release )
+            , ( bp::arg("p") ) );
+    
+    }
+
     { //::osg::isNaN
     
         typedef bool ( *isNaN_function_type )( double );
