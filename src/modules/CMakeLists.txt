@@ -94,6 +94,7 @@ endfunction()
 ####################
 
 # For initial testing and debugging only...
-add_subdirectory(greet)
+# add_subdirectory(greet)
+
 add_subdirectory(osg)
 add_subdirectory(osgDB)

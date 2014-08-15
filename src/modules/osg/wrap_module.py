@@ -31,29 +31,75 @@ class OsgWrapper:
         
         # Avoid all methods that return raw pointers
         mb.member_functions("ptr").exclude()
-        
-        # Don't use internal array member TODO - make osg::VecWhatever into excellent python sequences, with slices and all
+
+        # Rules that apply to all classes
         for cls in mb.classes():
             # Exclude non-public attributes
             for var in cls.variables(lambda v: v.access_type != declarations.ACCESS_TYPES.PUBLIC, allow_empty=True):
                 var.exclude()
             # Exclude "_v" attribute in vectors
             cls.variables('_v', allow_empty=True).exclude()
+
+        for cls in mb.classes(lambda c: c.name.startswith('ref_ptr<')):
+            cls.exclude()
         
         self.wrap_call_policies()
-        
+
+        # Common treatment for all derived classes of Object
+        for fn_name in ["cloneType", "clone"]:
+            for fn in self.mb.member_functions(fn_name):
+                # manage_new_object causes compile errors because of protected destructor
+                fn.call_policies = return_value_policy(reference_existing_object)
+        for fn_name in ["getUserDataContainer", "getOrCreateUserDataContainer", "getUserData"]:
+            for fn in self.mb.member_functions(fn_name):
+                fn.call_policies = return_internal_reference()
+        for fn_name in ["getUserObject",]:
+            for fn in self.mb.member_functions(fn_name):
+                fn.call_policies = return_internal_reference()
+                fn.exclude()
+
         # Call custom methods to wrap individual classes
         self.wrap_quaternion()
         self.wrap_observerset()
         self.wrap_referenced()
-        # self.mb.class_("Referenced").exclude() # protected destructor...
-        # self.wrap_stats()
+        self.wrap_stats()
+        self.wrap_copyop()
+        self.wrap_object()
+        self.wrap_userdatacontainer()
         
+        # Wrap Free functions
+        mb.free_function("getNotifyHandler").call_policies = return_value_policy(reference_existing_object)
+        for fn in mb.free_functions("notify"):
+            fn.call_policies = return_value_policy(reference_existing_object)
+        
+        # Write results
         self.mb.build_code_creator(module_name='osg')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
     
+    def wrap_userdatacontainer(self):
+        for class_name in ["UserDataContainer", "DefaultUserDataContainer"]:
+            udc = self.mb.class_(class_name)
+            # udc.member_functions("getDescriptions").exclude()
+            # udc.member_functions("clone", allow_empty=True).exclude()
+            # udc.member_functions("cloneType", allow_empty=True).exclude()
+            # udc.member_functions("getUserObject", allow_empty=True).exclude()
+            udc.constructors().exclude()
+            # udc.noncopyable = True
+            # udc.no_init = True
+    
+    def wrap_object(self):
+        ob = self.mb.class_("Object")
+        ob.constructors(arg_types=[None, None]).exclude()
+        ob.member_functions("releaseGLObjects").exclude() # Because I don't want to wrap State yet...
+        ob.constructors().exclude()
+        
+    def wrap_copyop(self):
+        copyop = self.mb.class_("CopyOp")
+        for op in copyop.member_operators("operator()"):
+            op.call_policies = return_value_policy(manage_new_object)
+        
     def wrap_observerset(self):
         os = self.mb.class_("ObserverSet")
         for fn_name in ["getObserverdObject", "addRefLock"]:
@@ -61,15 +107,15 @@ class OsgWrapper:
                 fn.call_policies = return_value_policy(reference_existing_object)
         for fn in os.member_functions("getObserverSetMutex"):
             fn.call_policies = return_internal_reference()
-        # os.member_function('setThreadSafeRefUnref').exclude() # silence warning
     
     def wrap_stats(self):
         stats = self.mb.class_("Stats")
         for fn_name in ['getAttribute', 'getAveragedAttribute']:
             for fn in stats.member_functions(fn_name):
-                fn.add_transformation(FT.output('value'))
+                fn.exclude() # TODO compile error hidden destructor
+                # fn.add_transformation(FT.output('value'))
                 # avoid ugly alias
-                fn.transformations[-1].alias = fn.alias
+                # fn.transformations[-1].alias = fn.alias   
         
     def wrap_referenced(self):
         ref = self.mb.class_("Referenced")

@@ -6,19 +6,37 @@
 
 #include "__call_policies.pypp.hpp"
 
+#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+
+#include "boost/python/suite/indexing/map_indexing_suite.hpp"
+
 #include "wrap_osg.h"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomic.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomicptr.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/copyop.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/defaultuserdatacontainer.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/deletehandler.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/descriptionlist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__double__greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/object.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_enumerations.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_free_functions.pypp.hpp"
 
@@ -27,6 +45,14 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/referenced.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scopedlock_less__openthreads_scope_mutex__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/standardnotifyhandler.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stats.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/userdatacontainer.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2d.pypp.hpp"
 
@@ -40,9 +66,17 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4f.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/windebugnotifyhandler.pypp.hpp"
+
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osg){
+    register_enumerations();
+
+    register_DescriptionList_class();
+
+    register_map_less__std_scope_string_comma__double__greater__class();
+
     register_Atomic_class();
 
     bp::implicitly_convertible< OpenThreads::Atomic, unsigned int >();
@@ -51,15 +85,31 @@ BOOST_PYTHON_MODULE(osg){
 
     register_Mutex_class();
 
-    register_DeleteHandler_class();
+    register_ScopedLock_less__OpenThreads_scope_Mutex__greater__class();
 
-    register_Observer_class();
+    register_CopyOp_class();
 
     register_Referenced_class();
+
+    register_Object_class();
+
+    register_UserDataContainer_class();
+
+    register_DefaultUserDataContainer_class();
+
+    register_DeleteHandler_class();
+
+    register_NotifyHandler_class();
+
+    register_Observer_class();
 
     register_ObserverSet_class();
 
     register_Quat_class();
+
+    register_StandardNotifyHandler_class();
+
+    register_Stats_class();
 
     register_Vec2d_class();
 
@@ -78,6 +128,8 @@ BOOST_PYTHON_MODULE(osg){
     bp::implicitly_convertible< osg::Vec4d, osg::Vec4f >();
 
     register_Vec4f_class();
+
+    register_WinDebugNotifyHandler_class();
 
     register_global_variables();
 

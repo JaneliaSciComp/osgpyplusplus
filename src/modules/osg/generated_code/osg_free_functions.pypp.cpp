@@ -272,6 +272,27 @@ void register_free_functions(){
     
     }
 
+    { //::osg::getNotifyHandler
+    
+        typedef ::osg::NotifyHandler * ( *getNotifyHandler_function_type )(  );
+        
+        bp::def( 
+            "getNotifyHandler"
+            , getNotifyHandler_function_type( &::osg::getNotifyHandler )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osg::getNotifyLevel
+    
+        typedef ::osg::NotifySeverity ( *getNotifyLevel_function_type )(  );
+        
+        bp::def( 
+            "getNotifyLevel"
+            , getNotifyLevel_function_type( &::osg::getNotifyLevel ) );
+    
+    }
+
     { //::osg::inDegrees
     
         typedef double ( *inDegrees_function_type )( double );
@@ -291,6 +312,16 @@ void register_free_functions(){
             "inDegrees"
             , inDegrees_function_type( &::osg::inDegrees )
             , ( bp::arg("angle") ) );
+    
+    }
+
+    { //::osg::initNotifyLevel
+    
+        typedef bool ( *initNotifyLevel_function_type )(  );
+        
+        bp::def( 
+            "initNotifyLevel"
+            , initNotifyLevel_function_type( &::osg::initNotifyLevel ) );
     
     }
 
@@ -324,6 +355,40 @@ void register_free_functions(){
             "isNaN"
             , isNaN_function_type( &::osg::isNaN )
             , ( bp::arg("v") ) );
+    
+    }
+
+    { //::osg::isNotifyEnabled
+    
+        typedef bool ( *isNotifyEnabled_function_type )( ::osg::NotifySeverity );
+        
+        bp::def( 
+            "isNotifyEnabled"
+            , isNotifyEnabled_function_type( &::osg::isNotifyEnabled )
+            , ( bp::arg("severity") ) );
+    
+    }
+
+    { //::osg::notify
+    
+        typedef ::std::ostream & ( *notify_function_type )(  );
+        
+        bp::def( 
+            "notify"
+            , notify_function_type( &::osg::notify )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osg::notify
+    
+        typedef ::std::ostream & ( *notify_function_type )( ::osg::NotifySeverity const );
+        
+        bp::def( 
+            "notify"
+            , notify_function_type( &::osg::notify )
+            , ( bp::arg("severity") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
     
     }
 
@@ -376,6 +441,28 @@ void register_free_functions(){
             "round"
             , round_function_type( &::osg::round )
             , ( bp::arg("v") ) );
+    
+    }
+
+    { //::osg::setNotifyHandler
+    
+        typedef void ( *setNotifyHandler_function_type )( ::osg::NotifyHandler * );
+        
+        bp::def( 
+            "setNotifyHandler"
+            , setNotifyHandler_function_type( &::osg::setNotifyHandler )
+            , ( bp::arg("handler") ) );
+    
+    }
+
+    { //::osg::setNotifyLevel
+    
+        typedef void ( *setNotifyLevel_function_type )( ::osg::NotifySeverity );
+        
+        bp::def( 
+            "setNotifyLevel"
+            , setNotifyLevel_function_type( &::osg::setNotifyLevel )
+            , ( bp::arg("severity") ) );
     
     }
 

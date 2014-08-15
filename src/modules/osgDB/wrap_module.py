@@ -10,6 +10,9 @@ class OsgDBWrapper:
             files = ["wrap_osgdb.h",],
             gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
             include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",])
+        # Don't rewrap anything already wrapped by simtk.common etc.
+        # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
+        self.mb.register_module_dependency('../osg/generated_code/')
             
     def wrap(self):
         mb = self.mb
