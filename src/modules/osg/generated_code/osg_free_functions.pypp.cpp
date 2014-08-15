@@ -305,6 +305,36 @@ void register_free_functions(){
     
     }
 
+    { //::osgGetLibraryName
+    
+        typedef char const * ( *osgGetLibraryName_function_type )(  );
+        
+        bp::def( 
+            "osgGetLibraryName"
+            , osgGetLibraryName_function_type( &::osgGetLibraryName ) );
+    
+    }
+
+    { //::osgGetSOVersion
+    
+        typedef char const * ( *osgGetSOVersion_function_type )(  );
+        
+        bp::def( 
+            "osgGetSOVersion"
+            , osgGetSOVersion_function_type( &::osgGetSOVersion ) );
+    
+    }
+
+    { //::osgGetVersion
+    
+        typedef char const * ( *osgGetVersion_function_type )(  );
+        
+        bp::def( 
+            "osgGetVersion"
+            , osgGetVersion_function_type( &::osgGetVersion ) );
+    
+    }
+
     { //::osg::round
     
         typedef double ( *round_function_type )( double );

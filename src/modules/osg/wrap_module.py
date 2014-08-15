@@ -13,9 +13,14 @@ class OsgWrapper:
             
     def wrap(self):
         mb = self.mb
-        osg = mb.namespace("osg")
         
+        # Wrap everything in the "osg" namespace
+        osg = mb.namespace("osg")
         osg.include()
+
+        # Wrap methods that begin with "osg", even if not in osg namespace
+        mb.free_functions(lambda f: f.name.startswith('osg')).include()
+        
         # Avoid all methods that return pointers
         osg.member_functions("ptr").exclude()
         # Don't use internal array member TODO - make osg::VecWhatever into excellent python sequences, with slices and all
@@ -42,7 +47,7 @@ class OsgWrapper:
             else:
                 # Only expose this one version of getRotate
                 fn.add_transformation(FT.output('angle'), FT.output('vec'))
-                # TODO avoid ugly alias
+                # avoid ugly alias
                 fn.transformations[-1].alias = fn.alias
                 have_getRotate = True
         # Avoid refering to Matrix types for now... TODO - remove this

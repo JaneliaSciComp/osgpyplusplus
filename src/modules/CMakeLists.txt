@@ -20,14 +20,31 @@ mark_as_advanced(CLEAR Boost_PYTHON_LIBRARY_RELEASE)
 
 include_directories(${Boost_INCLUDE_DIR})
 
+# OpenSceneGraph TODO make this more general
+find_path(OSG_DIR "include/osg/Node")
+find_path(OSG_INCLUDE_DIR "osg/Node"
+    PATHS ${OSG_DIR})
+include_directories(${OSG_INCLUDE_DIR})
+find_library(OSG_LIBRARY 
+    NAME osg
+    PATHS ${OSG_DIR}/lib
+)
+
 set(OSGPYPP_REGENERATE_BINDINGS FALSE CACHE BOOL "Whether to regenerate boost python C++ binding source code")
+
+SET(OUTPUT_DIRECTORY "${PROJECT_BINARY_DIR}/stage")
+SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_DIRECTORY}")
+SET( CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
+SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_DIRECTORY}")
+SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
+SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_DIRECTORY}")
+SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
 
 ################
 
-# TODO MACRO
+# Define function to wrap each module the same way, within each module's subfolder
 function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     file(GLOB MODULE_GENERATED_SRCS "generated_code/*.cpp" "generated_code/*.hpp")
-    # set(MODULE_OTHER_SRCS greet.cpp greet.h)
 
     include_directories(${CMAKE_CURRENT_SOURCE_DIR})
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/generated_code)
@@ -44,6 +61,7 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     endif()
 
     # Maybe generate boost python C++ wrapping code, using pyplusplus
+    # TODO - the dependencies are not working automatically, at least in Visual Studio 2008
     if(OSGPYPP_REGENERATE_BINDINGS)
         find_program(PYTHON_EXECUTABLE 
             NAMES python27 python)
@@ -75,7 +93,7 @@ endfunction()
 
 ####################
 
-
 # For initial testing and debugging only...
 add_subdirectory(greet)
 add_subdirectory(osg)
+add_subdirectory(osgDB)
