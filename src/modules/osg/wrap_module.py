@@ -24,6 +24,8 @@ class OsgWrapper:
         # But don't export non-public member functions
         for fn in mb.member_functions(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):
             fn.exclude()
+        for fn in mb.constructors(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):
+            fn.exclude()
         
         self.expose_increment_operators()
         
@@ -40,14 +42,34 @@ class OsgWrapper:
         
         self.wrap_call_policies()
         
+        # Call custom methods to wrap individual classes
         self.wrap_quaternion()
-        # self.wrap_referenced()
-        self.mb.class_("Referenced").exclude() # protected destructor...
+        self.wrap_observerset()
+        self.wrap_referenced()
+        # self.mb.class_("Referenced").exclude() # protected destructor...
+        # self.wrap_stats()
         
         self.mb.build_code_creator(module_name='osg')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
+    
+    def wrap_observerset(self):
+        os = self.mb.class_("ObserverSet")
+        for fn_name in ["getObserverdObject", "addRefLock"]:
+            for fn in os.member_functions(fn_name):
+                fn.call_policies = return_value_policy(reference_existing_object)
+        for fn in os.member_functions("getObserverSetMutex"):
+            fn.call_policies = return_internal_reference()
+        # os.member_function('setThreadSafeRefUnref').exclude() # silence warning
+    
+    def wrap_stats(self):
+        stats = self.mb.class_("Stats")
+        for fn_name in ['getAttribute', 'getAveragedAttribute']:
+            for fn in stats.member_functions(fn_name):
+                fn.add_transformation(FT.output('value'))
+                # avoid ugly alias
+                fn.transformations[-1].alias = fn.alias
         
     def wrap_referenced(self):
         ref = self.mb.class_("Referenced")
@@ -60,6 +82,10 @@ class OsgWrapper:
         for fn_name in ['getGlobalReferencedMutex', ]:
             for fn in ref.member_functions(fn_name):
                 fn.call_policies = return_value_policy(reference_existing_object)
+        # Protected destuctor means compile errors on copy operations
+        ref.noncopyable = True
+        ref.member_operators("operator=").exclude() # Avoid protected destructor compile error
+        ref.constructors(arg_types=[None]).exclude() # remove non-compiling copy constructor
         
     def expose_increment_operators(self):
         "Wrap C++ operator++() and operator()-- methods as python incr() and decr() methods"

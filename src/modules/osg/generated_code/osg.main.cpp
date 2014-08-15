@@ -12,13 +12,21 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomicptr.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/deletehandler.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_global_variables.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/referenced.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2d.pypp.hpp"
 
@@ -42,6 +50,14 @@ BOOST_PYTHON_MODULE(osg){
     register_AtomicPtr_class();
 
     register_Mutex_class();
+
+    register_DeleteHandler_class();
+
+    register_Observer_class();
+
+    register_Referenced_class();
+
+    register_ObserverSet_class();
 
     register_Quat_class();
 
