@@ -3,3 +3,4 @@
 /src/modules/osg/generated_code/*.cpp~
 /src/modules/osgDB/generated_code/exposed_decl.pypp.txt
 /src/modules/osgDB/generated_code/*.cpp~
+generate_module.stamp
