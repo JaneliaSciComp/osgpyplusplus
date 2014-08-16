@@ -98,7 +98,7 @@ class OsgWrapper:
     def wrap_copyop(self):
         copyop = self.mb.class_("CopyOp")
         for op in copyop.member_operators("operator()"):
-            op.call_policies = return_value_policy(manage_new_object)
+            op.call_policies = return_value_policy(reference_existing_object)
         
     def wrap_observerset(self):
         os = self.mb.class_("ObserverSet")

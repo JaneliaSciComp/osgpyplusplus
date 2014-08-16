@@ -236,7 +236,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("ref") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -249,7 +249,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("obj") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -262,7 +262,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("node") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -275,7 +275,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("drawable") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -288,7 +288,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("stateset") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -301,7 +301,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("attr") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -314,7 +314,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("text") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -327,7 +327,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("image") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -340,7 +340,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("array") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -353,7 +353,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("primitives") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -366,7 +366,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("shape") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -379,7 +379,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("shape") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -392,7 +392,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("nodecallback") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::operator()
@@ -405,7 +405,7 @@ void register_CopyOp_class(){
                 , __call___function_type(&::osg::CopyOp::operator())
                 , default___call___function_type(&CopyOp_wrapper::default___call__)
                 , ( bp::arg("stateattributecallback") )
-                , bp::return_value_policy< bp::manage_new_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
         { //::osg::CopyOp::setCopyFlags
