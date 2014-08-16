@@ -20,6 +20,8 @@ void register_global_variables(){
 
     bp::scope().attr("SHALLOW_COPY") = SHALLOW_COPY;
 
+    bp::scope().attr("UNINITIALIZED_FRAME_NUMBER") = osg::UNINITIALIZED_FRAME_NUMBER;
+
     bp::scope().attr("X_AXIS") = osg::X_AXIS;
 
     bp::scope().attr("Y_AXIS") = osg::Y_AXIS;

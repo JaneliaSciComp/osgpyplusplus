@@ -30,14 +30,6 @@ struct UserDataContainer_wrapper : osg::UserDataContainer, bp::wrapper< osg::Use
         return osg::UserDataContainer::className( );
     }
 
-    virtual ::std::vector< std::string > & getDescriptions(  ){
-        throw std::logic_error("warning W1049: This method could not be overriden in Python - method returns reference to local variable!");
-    }
-
-    virtual ::std::vector< std::string > const & getDescriptions(  ) const {
-        throw std::logic_error("warning W1049: This method could not be overriden in Python - method returns reference to local variable!");
-    }
-
     virtual unsigned int getNumDescriptions(  ) const {
         bp::override func_getNumDescriptions = this->get_override( "getNumDescriptions" );
         return func_getNumDescriptions(  );
@@ -187,14 +179,6 @@ void register_UserDataContainer_class(){
             "className"
             , (char const * ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::className)
             , (char const * ( UserDataContainer_wrapper::* )(  )const)(&UserDataContainer_wrapper::default_className) )    
-        .def( 
-            "getDescriptions"
-            , bp::pure_virtual( (::std::vector< std::string > & ( ::osg::UserDataContainer::* )(  ))(&::osg::UserDataContainer::getDescriptions) )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDescriptions"
-            , bp::pure_virtual( (::std::vector< std::string > const & ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getDescriptions) )
-            , bp::return_internal_reference< >() )    
         .def( 
             "getNumDescriptions"
             , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getNumDescriptions) ) )    

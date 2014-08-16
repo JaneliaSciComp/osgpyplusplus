@@ -175,6 +175,8 @@ void register_Vec3d_class(){
                 , z_function_type( &::osg::Vec3d::z ) );
         
         }
+        Vec3d_exposer.def( bp::self * bp::other< osg::Matrixf >() );
+        Vec3d_exposer.def( bp::self * bp::other< osg::Matrixd >() );
         Vec3d_exposer.def( bp::self * bp::other< osg::Vec4f >() );
         Vec3d_exposer.def( bp::self * bp::other< osg::Vec4d >() );
     }

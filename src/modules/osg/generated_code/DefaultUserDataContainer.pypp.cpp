@@ -291,14 +291,6 @@ void register_DefaultUserDataContainer_class(){
             , (::osg::Object * ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
-            "getDescriptions"
-            , (::std::vector< std::string > & ( ::osg::DefaultUserDataContainer::* )(  ))(&::osg::DefaultUserDataContainer::getDescriptions)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDescriptions"
-            , (::std::vector< std::string > const & ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::getDescriptions)
-            , bp::return_internal_reference< >() )    
-        .def( 
             "getNumDescriptions"
             , (unsigned int ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::getNumDescriptions)
             , (unsigned int ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_getNumDescriptions) )    

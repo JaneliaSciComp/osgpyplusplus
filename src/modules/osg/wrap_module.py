@@ -81,7 +81,7 @@ class OsgWrapper:
     def wrap_userdatacontainer(self):
         for class_name in ["UserDataContainer", "DefaultUserDataContainer"]:
             udc = self.mb.class_(class_name)
-            # udc.member_functions("getDescriptions").exclude()
+            udc.member_functions("getDescriptions").exclude()
             # udc.member_functions("clone", allow_empty=True).exclude()
             # udc.member_functions("cloneType", allow_empty=True).exclude()
             # udc.member_functions("getUserObject", allow_empty=True).exclude()
