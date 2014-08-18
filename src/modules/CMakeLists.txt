@@ -40,6 +40,8 @@ SET( CMAKE_LIBRARY_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
 SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${OUTPUT_DIRECTORY}")
 SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${OUTPUT_DIRECTORY}")
 
+add_definitions("-DBOOST_PYTHON_MAX_ARITY=18")
+
 ################
 
 # Define function to wrap each module the same way, within each module's subfolder

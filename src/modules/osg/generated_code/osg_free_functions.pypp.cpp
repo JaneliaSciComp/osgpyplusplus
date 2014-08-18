@@ -98,6 +98,94 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
+        typedef ::osg::Vec4us ( *componentDivide_function_type )( ::osg::Vec4us const &,::osg::Vec4us const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec3us ( *componentDivide_function_type )( ::osg::Vec3us const &,::osg::Vec3us const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec2us ( *componentDivide_function_type )( ::osg::Vec2us const &,::osg::Vec2us const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec3ub ( *componentDivide_function_type )( ::osg::Vec3ub const &,::osg::Vec3ub const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec2ub ( *componentDivide_function_type )( ::osg::Vec2ub const &,::osg::Vec2ub const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec4s ( *componentDivide_function_type )( ::osg::Vec4s const &,::osg::Vec4s const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec3s ( *componentDivide_function_type )( ::osg::Vec3s const &,::osg::Vec3s const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec2s ( *componentDivide_function_type )( ::osg::Vec2s const &,::osg::Vec2s const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
         typedef ::osg::Vec4d ( *componentDivide_function_type )( ::osg::Vec4d const &,::osg::Vec4d const & );
         
         bp::def( 
@@ -158,6 +246,94 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec4us ( *componentMultiply_function_type )( ::osg::Vec4us const &,::osg::Vec4us const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec3us ( *componentMultiply_function_type )( ::osg::Vec3us const &,::osg::Vec3us const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec2us ( *componentMultiply_function_type )( ::osg::Vec2us const &,::osg::Vec2us const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec3ub ( *componentMultiply_function_type )( ::osg::Vec3ub const &,::osg::Vec3ub const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec2ub ( *componentMultiply_function_type )( ::osg::Vec2ub const &,::osg::Vec2ub const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec4s ( *componentMultiply_function_type )( ::osg::Vec4s const &,::osg::Vec4s const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec3s ( *componentMultiply_function_type )( ::osg::Vec3s const &,::osg::Vec3s const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec2s ( *componentMultiply_function_type )( ::osg::Vec2s const &,::osg::Vec2s const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
             , ( bp::arg("lhs"), bp::arg("rhs") ) );
     
     }
@@ -272,6 +448,28 @@ void register_free_functions(){
     
     }
 
+    { //::osg::getBinding
+    
+        typedef ::osg::Array::Binding ( *getBinding_function_type )( ::osg::Array const * );
+        
+        bp::def( 
+            "getBinding"
+            , getBinding_function_type( &::osg::getBinding )
+            , ( bp::arg("array") ) );
+    
+    }
+
+    { //::osg::getNormalize
+    
+        typedef bool ( *getNormalize_function_type )( ::osg::Array const * );
+        
+        bp::def( 
+            "getNormalize"
+            , getNormalize_function_type( &::osg::getNormalize )
+            , ( bp::arg("array") ) );
+    
+    }
+
     { //::osg::getNotifyHandler
     
         typedef ::osg::NotifyHandler * ( *getNotifyHandler_function_type )(  );
@@ -366,6 +564,17 @@ void register_free_functions(){
             "isNotifyEnabled"
             , isNotifyEnabled_function_type( &::osg::isNotifyEnabled )
             , ( bp::arg("severity") ) );
+    
+    }
+
+    { //::osg::isTextureMode
+    
+        typedef bool ( *isTextureMode_function_type )( ::GLenum );
+        
+        bp::def( 
+            "isTextureMode"
+            , isTextureMode_function_type( &::osg::isTextureMode )
+            , ( bp::arg("mode") ) );
     
     }
 

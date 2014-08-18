@@ -10,8 +10,9 @@
 // #include <osg/StateAttributeCallback>
 // #include <osg/StateAttribute>
 // #include <osg/NodeVisitor>
-// #include <osg/Node>
+#include <osg/Node>
 // #include <osg/Drawable>
+#include <osg/StateSet>
 
 #include <osg/Notify> // OK
 #include <osg/Stats> // OK excluded getAttribute methods
@@ -25,15 +26,17 @@
 static int SHALLOW_COPY = osg::CopyOp::SHALLOW_COPY;
 
 // Disambiguate aliases for file names
-// template class std::vector<osg::Group*>;
-// template class std::vector<osg::Node*>;
-// template class std::vector<osg::StateSet*>;
+template class std::vector<osg::Group*>;
+template class std::vector<osg::Object*>;
+template class std::vector<osg::Node*>;
+template class std::vector<osg::StateSet*>;
 // template class std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > >;
 namespace pyplusplus { namespace aliases {
-    // typedef std::vector<osg::Group*> std_vector_osgGroupPtr;
-    // typedef std::vector<osg::Node*> std_vector_osgNodePtr;
-    // typedef std::vector<osg::StateSet*> std_vector_osgStateSetPtr;
-    // typedef std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > > longClassName1;
+    typedef std::vector<osg::Group*> std_vector_osgGroupPtr;
+    typedef std::vector<osg::Node*> std_vector_osgNodePtr;
+    typedef std::vector<osg::Object*> std_vector_osgObjectPtr;
+    typedef std::vector<osg::StateSet*> std_vector_osgStateSetPtr;
+    typedef std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > > longClassName1;
 }}
 
 // #include <osg/Matrixf>

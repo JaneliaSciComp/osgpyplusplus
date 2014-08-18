@@ -8,6 +8,13 @@ namespace bp = boost::python;
 
 struct DefaultUserDataContainer_wrapper : osg::DefaultUserDataContainer, bp::wrapper< osg::DefaultUserDataContainer > {
 
+    DefaultUserDataContainer_wrapper( )
+    : osg::DefaultUserDataContainer( )
+      , bp::wrapper< osg::DefaultUserDataContainer >(){
+        // null constructor
+    
+    }
+
     virtual void addDescription( ::std::string const & desc ) {
         if( bp::override func_addDescription = this->get_override( "addDescription" ) )
             func_addDescription( desc );
@@ -262,9 +269,16 @@ struct DefaultUserDataContainer_wrapper : osg::DefaultUserDataContainer, bp::wra
 
 };
 
+// Tell boost::python that osg::ref_ptr is a smart pointer class
+            namespace boost { namespace python {
+              template <class T> struct pointee< osg::ref_ptr<T> >
+              { typedef T type; };
+            } } // namespace boost::python
+
 void register_DefaultUserDataContainer_class(){
 
-    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, boost::noncopyable >( "DefaultUserDataContainer", bp::no_init )    
+    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, osg::ref_ptr< DefaultUserDataContainer_wrapper >, boost::noncopyable >( "DefaultUserDataContainer", bp::no_init )    
+        .def( bp::init< >() )    
         .def( 
             "addDescription"
             , (void ( ::osg::DefaultUserDataContainer::* )( ::std::string const & ))(&::osg::DefaultUserDataContainer::addDescription)

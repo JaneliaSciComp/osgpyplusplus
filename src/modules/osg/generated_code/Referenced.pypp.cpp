@@ -29,10 +29,16 @@ struct Referenced_wrapper : osg::Referenced, bp::wrapper< osg::Referenced > {
 
 };
 
+// Tell boost::python that osg::ref_ptr is a smart pointer class
+            namespace boost { namespace python {
+              template <class T> struct pointee< osg::ref_ptr<T> >
+              { typedef T type; };
+            } } // namespace boost::python
+
 void register_Referenced_class(){
 
     { //::osg::Referenced
-        typedef bp::class_< Referenced_wrapper, boost::noncopyable > Referenced_exposer_t;
+        typedef bp::class_< Referenced_wrapper, osg::ref_ptr< Referenced_wrapper >, boost::noncopyable > Referenced_exposer_t;
         Referenced_exposer_t Referenced_exposer = Referenced_exposer_t( "Referenced", bp::no_init );
         bp::scope Referenced_scope( Referenced_exposer );
         Referenced_exposer.def( bp::init< >() );
