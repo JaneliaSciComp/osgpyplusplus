@@ -274,8 +274,6 @@ void register_Vec4f_class(){
                 , z_function_type( &::osg::Vec4f::z ) );
         
         }
-        Vec4f_exposer.def( bp::self * bp::other< osg::Matrixf >() );
-        Vec4f_exposer.def( bp::self * bp::other< osg::Matrixd >() );
         Vec4f_exposer.def( bp::self * bp::other< osg::Vec3d >() );
         Vec4f_exposer.def( bp::self * bp::other< osg::Vec3f >() );
     }

@@ -53,10 +53,12 @@ class OsgWrapper:
         for fn_name in ["getUserDataContainer", "getOrCreateUserDataContainer", "getUserData"]:
             for fn in self.mb.member_functions(fn_name):
                 fn.call_policies = return_internal_reference()
+        """
         for fn_name in ["getUserObject",]:
-            for fn in self.mb.member_functions(fn_name):
+            for fn in self.mb.member_functions(fn_name, allow_empty=True):
                 fn.call_policies = return_internal_reference()
                 fn.exclude()
+                """
 
         # Call custom methods to wrap individual classes
         self.wrap_quaternion()
@@ -84,7 +86,7 @@ class OsgWrapper:
             udc.member_functions("getDescriptions").exclude()
             # udc.member_functions("clone", allow_empty=True).exclude()
             # udc.member_functions("cloneType", allow_empty=True).exclude()
-            # udc.member_functions("getUserObject", allow_empty=True).exclude()
+            udc.member_functions("getUserObject", allow_empty=True).exclude()
             udc.constructors().exclude()
             # udc.noncopyable = True
             # udc.no_init = True
@@ -99,6 +101,7 @@ class OsgWrapper:
         copyop = self.mb.class_("CopyOp")
         for op in copyop.member_operators("operator()"):
             op.call_policies = return_value_policy(reference_existing_object)
+            op.exclude()
         
     def wrap_observerset(self):
         os = self.mb.class_("ObserverSet")
