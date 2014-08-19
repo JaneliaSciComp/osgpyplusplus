@@ -8,17 +8,6 @@ namespace bp = boost::python;
 
 void register_free_functions(){
 
-    { //::osgDB::open
-    
-        typedef void ( *open_function_type )( ::std::fstream &,char const *,int );
-        
-        bp::def( 
-            "open"
-            , open_function_type( &::osgDB::open )
-            , ( bp::arg("fs"), bp::arg("filename"), bp::arg("mode") ) );
-    
-    }
-
     { //::osgDBGetLibraryName
     
         typedef char const * ( *osgDBGetLibraryName_function_type )(  );
@@ -36,6 +25,30 @@ void register_free_functions(){
         bp::def( 
             "osgDBGetVersion"
             , osgDBGetVersion_function_type( &::osgDBGetVersion ) );
+    
+    }
+
+    { //::osgDB::readNodeFile
+    
+        typedef ::osg::Node * ( *readNodeFile_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "readNodeFile"
+            , readNodeFile_function_type( &::osgDB::readNodeFile )
+            , ( bp::arg("filename") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osgDB::readNodeFile
+    
+        typedef ::osg::Node * ( *readNodeFile_function_type )( ::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readNodeFile"
+            , readNodeFile_function_type( &::osgDB::readNodeFile )
+            , ( bp::arg("filename"), bp::arg("options") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
     
     }
 

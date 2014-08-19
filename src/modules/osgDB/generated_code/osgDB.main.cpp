@@ -4,18 +4,22 @@
 
 #include "wrap_osgdb.h"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ifstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/options.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ofstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_enumerations.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_free_functions.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_global_variables.pypp.hpp"
 
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osgDB){
-    register_ifstream_class();
+    register_enumerations();
 
-    register_ofstream_class();
+    register_Options_class();
+
+    register_global_variables();
 
     register_free_functions();
 }

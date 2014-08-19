@@ -4,6 +4,10 @@ from pyplusplus import function_transformers as FT
 from pygccxml import declarations
 import os
 import re
+import sys
+
+sys.path.append("..")
+from wrap_helpers import *
 
 class OsgWrapper:
     def __init__(self):
@@ -52,7 +56,7 @@ class OsgWrapper:
         for cls in mb.classes(lambda c: c.name.startswith('BoundingSphereImpl<')):
             cls.exclude()
         
-        self.wrap_call_policies()
+        wrap_call_policies(self.mb)
 
         # Common treatment for all derived classes of Object
         for fn_name in ["cloneType", "clone"]:
@@ -338,39 +342,6 @@ class OsgWrapper:
             arg = fn.argument_types[0].decl_string
             if "Matrix" in arg:
                 fn.exclude()
-    
-    def wrap_call_policies(self):
-        "Set function and operator call policies to sensible defaults"
-        mb = self.mb
-        for fn in mb.member_functions():
-            self.wrap_one_call_policy(fn)
-        for op in mb.member_operators():
-            self.wrap_one_call_policy(op)
-
-    def wrap_one_call_policy(self, fn):
-        rt = fn.return_type
-        parent_ref = declarations.reference_t(declarations.declarated_t(fn.parent))
-        # If return type is not a reference, I have no opinion about the call policies
-        if not declarations.is_reference(rt):
-            return
-        # Need type without reference for next type checks
-        nonref_rt = rt.base
-        if declarations.is_arithmetic(nonref_rt) or declarations.is_enum(nonref_rt):
-            # returning const& double can cause compile trouble if return_internal_reference is used
-            if declarations.is_const(nonref_rt):
-                fn.call_policies = return_value_policy(copy_const_reference)
-                return
-            # int& might need to be copy_non_const_reference...
-            else:
-                fn.call_policies = return_value_policy(copy_non_const_reference)
-                return
-        # Returning reference to this same class looks like return_self() [does this always work?]
-        if declarations.is_same(parent_ref, rt):
-            fn.call_policies = return_self()
-            return
-        # Everything else probably returns an internal reference
-        fn.call_policies = return_internal_reference()
-        return
 
 if __name__ == "__main__":
     wrapper = OsgWrapper()
