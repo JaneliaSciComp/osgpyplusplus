@@ -4,3 +4,4 @@
 /src/modules/osgDB/generated_code/*.cpp~
 generate_module.stamp
 /src/modules/*.pyc
+/src/modules/osgViewer/generated_code/*.cpp~

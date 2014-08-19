@@ -104,3 +104,4 @@ endfunction()
 
 add_subdirectory(osg)
 add_subdirectory(osgDB)
+add_subdirectory(osgViewer)
