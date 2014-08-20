@@ -10,6 +10,7 @@ sys.path.append("..")
 from wrap_helpers import *
 
 class OsgViewerWrapper:
+    "Class that knows how to generate code for osgViewer python module"
     def __init__(self):
         self.mb = module_builder.module_builder_t(
             files = ["wrap_osgViewer.h",],
@@ -33,6 +34,7 @@ class OsgViewerWrapper:
 
         wrap_call_policies(self.mb)
 
+        # Use ref_ptr<> held-type for classes derived from osg::Referenced
         for cls_name in ["ViewerBase", 
                 "Viewer", 
                 "View", 

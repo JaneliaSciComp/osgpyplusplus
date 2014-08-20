@@ -30,9 +30,13 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/lodscalehandler.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/openglquerysupport.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/osgviewer_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/recordcamerapathhandler.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/renderer.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/scene.pypp.hpp"
 
@@ -111,7 +115,11 @@ BOOST_PYTHON_MODULE(osgViewer){
 
     register_LODScaleHandler_class();
 
+    register_OpenGLQuerySupport_class();
+
     register_RecordCameraPathHandler_class();
+
+    register_Renderer_class();
 
     register_Scene_class();
 

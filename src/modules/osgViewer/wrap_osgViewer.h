@@ -1,7 +1,7 @@
 #include "../default.h"
 
-// TODO - wrap more classes
-#include <osgViewer/ViewerEventHandlers>
-#include <osgViewer/CompositeViewer>
-#include <osgViewer/Viewer>
-#include <osgViewer/Version>
+#include <osgViewer/Renderer> // TODO
+#include <osgViewer/ViewerEventHandlers> // OK
+#include <osgViewer/CompositeViewer> // OK
+#include <osgViewer/Viewer> // OK
+#include <osgViewer/Version> // OK

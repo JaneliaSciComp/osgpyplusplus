@@ -1,4 +1,4 @@
-#include <windows.h>
+#include "../default.h"
 
 // TODO wrap more classes
 #include <osg/Quat> // OK
@@ -21,9 +21,6 @@
 #include <osg/DeleteHandler> // OK
 #include <osg/Export> // OK
 #include <osg/Version> // OK
-
-// avoid default argument scope error in pyplusplus
-static int SHALLOW_COPY = osg::CopyOp::SHALLOW_COPY;
 
 // Disambiguate aliases for file names
 template class std::vector<osg::Group*>;

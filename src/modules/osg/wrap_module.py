@@ -9,18 +9,17 @@ import sys
 sys.path.append("..")
 from wrap_helpers import *
 
-class OsgWrapper:
+class OsgWrapper(BaseWrapper):
     def __init__(self):
-        self.mb = module_builder.module_builder_t(
-            files = ["wrap_osg.h",],
-            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
-            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",],
-            define_symbols=["BOOST_PYTHON_MAX_ARITY=18"],
-        )
-        self.mb.BOOST_PYTHON_MAX_ARITY = 18 # Prevents warnings on 10-18 argument methods
+        BaseWrapper.__init__(self, files=["wrap_osg.h",])
             
     def wrap(self):
         mb = self.mb
+        
+        # for debugging only...
+        if False:
+            print mb.class_("BufferData").member_function("getDataPointer").return_type.decl_string
+            exit(0)
         
         # Wrap everything in the "osg" namespace
         mb.namespace("osg").include()
@@ -29,13 +28,9 @@ class OsgWrapper:
         # Wrap methods that begin with "osg", even if not in osg namespace
         mb.free_functions(lambda f: f.name.startswith('osg')).include()
         
-        # But don't export non-public member functions
-        for fn in mb.member_functions(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):
-            fn.exclude()
-        for fn in mb.constructors(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):
-            fn.exclude()
+        hide_nonpublic(self.mb)
         
-        self.expose_increment_operators()
+        expose_increment_operators(self.mb)
         
         # Avoid all methods that return raw pointers
         mb.member_functions("ptr").exclude()
@@ -57,15 +52,6 @@ class OsgWrapper:
             cls.exclude()
         
         wrap_call_policies(self.mb)
-
-        # Common treatment for all derived classes of Object
-        for fn_name in ["cloneType", "clone"]:
-            for fn in self.mb.member_functions(fn_name):
-                # manage_new_object causes compile errors because of protected destructor
-                fn.call_policies = return_value_policy(reference_existing_object)
-        for fn_name in ["getUserDataContainer", "getOrCreateUserDataContainer", "getUserData"]:
-            for fn in self.mb.member_functions(fn_name):
-                fn.call_policies = return_internal_reference()
 
         # Manage classes maintained by osg::ref_ptr<>
         for cls_name in ["Referenced", 
@@ -300,28 +286,6 @@ class OsgWrapper:
         ref.noncopyable = True
         ref.member_operators("operator=").exclude() # Avoid protected destructor compile error
         ref.constructors(arg_types=[None]).exclude() # remove non-compiling copy constructor
-        
-    def expose_increment_operators(self):
-        "Wrap C++ operator++() and operator()-- methods as python incr() and decr() methods"
-        mb = self.mb
-        for op in mb.member_operators('operator++', arg_types=[]):
-            op.exclude()
-            try: 
-                op.parent.has_wrapped_increment
-            except AttributeError:
-                # Create less ambiguous increment/decrement function names, since there might be more than one in the file
-                incr_fn_name = "wrap_increment_%s" % op.parent.alias
-                op.parent.add_declaration_code('static void %s(%s& val) {++val;}' % (incr_fn_name, op.parent.demangled) )
-                op.parent.add_registration_code('def("increment", &%s)' % incr_fn_name)
-                op.parent.has_wrapped_increment = True
-        for op in mb.member_operators('operator--', arg_types=[]):
-            op.exclude()
-            try: 
-                op.parent.has_wrapped_decrement
-            except AttributeError:
-                decr_fn_name = "wrap_decrement_%s" % op.parent.alias
-                op.parent.add_declaration_code('static void %s(%s& val) {--val;}' % (decr_fn_name, op.parent.demangled) )
-                op.parent.add_registration_code('def("decrement", &%s)' % decr_fn_name)
 
     def wrap_quaternion(self):
         quat = self.mb.class_("Quat")

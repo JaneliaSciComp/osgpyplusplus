@@ -1,6 +1,38 @@
+from pyplusplus import module_builder
 from pygccxml import declarations
 from pyplusplus.module_builder.call_policies import *
 import re
+
+class BaseWrapper:
+    def __init__(self, files):
+        self.mb = module_builder.module_builder_t(
+            files = files,
+            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
+            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",],
+            define_symbols=["BOOST_PYTHON_MAX_ARITY=18"],
+        )
+        self.mb.BOOST_PYTHON_MAX_ARITY = 18 # Prevents warnings on 10-18 argument methods
+
+def expose_increment_operators(mb):
+    "Wrap C++ operator++() and operator()-- methods as python incr() and decr() methods"
+    for op in mb.member_operators('operator++', arg_types=[]):
+        op.exclude()
+        try: 
+            op.parent.has_wrapped_increment
+        except AttributeError:
+            # Create less ambiguous increment/decrement function names, since there might be more than one in the file
+            incr_fn_name = "wrap_increment_%s" % op.parent.alias
+            op.parent.add_declaration_code('static void %s(%s& val) {++val;}' % (incr_fn_name, op.parent.demangled) )
+            op.parent.add_registration_code('def("increment", &%s)' % incr_fn_name)
+            op.parent.has_wrapped_increment = True
+    for op in mb.member_operators('operator--', arg_types=[]):
+        op.exclude()
+        try: 
+            op.parent.has_wrapped_decrement
+        except AttributeError:
+            decr_fn_name = "wrap_decrement_%s" % op.parent.alias
+            op.parent.add_declaration_code('static void %s(%s& val) {--val;}' % (decr_fn_name, op.parent.demangled) )
+            op.parent.add_registration_code('def("decrement", &%s)' % decr_fn_name)
 
 def expose_ref_ptr_class(cls):
     # Compute nested wrapper class name
@@ -36,6 +68,10 @@ def wrap_one_call_policy(fn):
     rt = fn.return_type
     if fn.return_type.decl_string == "char const *":
         return # use default for strings
+    elif fn.return_type.decl_string == "void *":
+        return # use default for void pointers
+    elif fn.return_type.decl_string == "::GLvoid const *":
+        return # use default for void pointers
     parent_ref = declarations.reference_t(declarations.declarated_t(fn.parent))
     if declarations.is_reference(rt):
         # Need type without reference for next type checks
