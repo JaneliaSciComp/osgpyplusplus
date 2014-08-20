@@ -1,7 +1,7 @@
-#include <windows.h>
+#include "../default.h"
 
 // TODO - wrap more classes
+#include <osgViewer/ViewerEventHandlers>
+#include <osgViewer/CompositeViewer>
 #include <osgViewer/Viewer>
 #include <osgViewer/Version>
-
-static int SHALLOW_COPY = osg::CopyOp::SHALLOW_COPY;

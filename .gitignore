@@ -5,3 +5,4 @@
 generate_module.stamp
 /src/modules/*.pyc
 /src/modules/osgViewer/generated_code/*.cpp~
+/src/modules/osgGA/generated_code/*.cpp~

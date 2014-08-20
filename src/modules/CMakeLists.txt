@@ -25,12 +25,12 @@ find_path(OSG_DIR "include/osg/Node")
 find_path(OSG_INCLUDE_DIR "osg/Node"
     PATHS ${OSG_DIR})
 include_directories(${OSG_INCLUDE_DIR})
-find_library(OSG_LIBRARY 
-    NAME osg
-    PATHS ${OSG_DIR}/lib
-)
 find_library(OPENTHREADS_LIBRARY 
     NAME OpenThreads
+    PATHS ${OSG_DIR}/lib
+)
+find_library(OSGGA_LIBRARY 
+    NAME osgGA
     PATHS ${OSG_DIR}/lib
 )
 
@@ -44,6 +44,9 @@ SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_DEBUG "${MODULE_STAGING_FOLDER}")
 SET( CMAKE_ARCHIVE_OUTPUT_DIRECTORY_RELEASE "${MODULE_STAGING_FOLDER}")
 
 add_definitions("-DBOOST_PYTHON_MAX_ARITY=18")
+
+# So we can include "wrap_referenced.h"
+include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 ################
 
@@ -103,5 +106,6 @@ endfunction()
 # add_subdirectory(greet)
 
 add_subdirectory(osg)
+add_subdirectory(osgGA)
 add_subdirectory(osgDB)
 add_subdirectory(osgViewer)

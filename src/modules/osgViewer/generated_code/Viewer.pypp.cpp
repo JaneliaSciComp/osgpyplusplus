@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "viewer.pypp.hpp"
 
 namespace bp = boost::python;
@@ -413,6 +414,18 @@ struct Viewer_wrapper : osgViewer::Viewer, bp::wrapper< osgViewer::Viewer > {
         osg::Object::computeDataVariance( );
     }
 
+    virtual void frame( double simulationTime=1.79769313486231570814527423731704356798070567526e+308 ) {
+        if( bp::override func_frame = this->get_override( "frame" ) )
+            func_frame( simulationTime );
+        else{
+            this->osgViewer::ViewerBase::frame( simulationTime );
+        }
+    }
+    
+    void default_frame( double simulationTime=1.79769313486231570814527423731704356798070567526e+308 ) {
+        osgViewer::ViewerBase::frame( simulationTime );
+    }
+
     virtual ::osg::Referenced * getUserData(  ) {
         if( bp::override func_getUserData = this->get_override( "getUserData" ) )
             return func_getUserData(  );
@@ -435,6 +448,30 @@ struct Viewer_wrapper : osgViewer::Viewer, bp::wrapper< osgViewer::Viewer > {
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual void getWindows( ::std::vector< osgViewer::GraphicsWindow* > & windows, bool onlyValid=true ) {
+        if( bp::override func_getWindows = this->get_override( "getWindows" ) )
+            func_getWindows( boost::ref(windows), onlyValid );
+        else{
+            this->osgViewer::ViewerBase::getWindows( boost::ref(windows), onlyValid );
+        }
+    }
+    
+    void default_getWindows( ::std::vector< osgViewer::GraphicsWindow* > & windows, bool onlyValid=true ) {
+        osgViewer::ViewerBase::getWindows( boost::ref(windows), onlyValid );
+    }
+
+    virtual void renderingTraversals(  ) {
+        if( bp::override func_renderingTraversals = this->get_override( "renderingTraversals" ) )
+            func_renderingTraversals(  );
+        else{
+            this->osgViewer::ViewerBase::renderingTraversals(  );
+        }
+    }
+    
+    void default_renderingTraversals(  ) {
+        osgViewer::ViewerBase::renderingTraversals( );
     }
 
     virtual void requestContinuousUpdate( bool needed=true ) {
@@ -509,6 +546,30 @@ struct Viewer_wrapper : osgViewer::Viewer, bp::wrapper< osgViewer::Viewer > {
         osg::Object::setThreadSafeRefUnref( threadSafe );
     }
 
+    virtual void setThreadingModel( ::osgViewer::ViewerBase::ThreadingModel threadingModel ) {
+        if( bp::override func_setThreadingModel = this->get_override( "setThreadingModel" ) )
+            func_setThreadingModel( threadingModel );
+        else{
+            this->osgViewer::ViewerBase::setThreadingModel( threadingModel );
+        }
+    }
+    
+    void default_setThreadingModel( ::osgViewer::ViewerBase::ThreadingModel threadingModel ) {
+        osgViewer::ViewerBase::setThreadingModel( threadingModel );
+    }
+
+    virtual void setUpThreading(  ) {
+        if( bp::override func_setUpThreading = this->get_override( "setUpThreading" ) )
+            func_setUpThreading(  );
+        else{
+            this->osgViewer::ViewerBase::setUpThreading(  );
+        }
+    }
+    
+    void default_setUpThreading(  ) {
+        osgViewer::ViewerBase::setUpThreading( );
+    }
+
     virtual void setUserData( ::osg::Referenced * obj ) {
         if( bp::override func_setUserData = this->get_override( "setUserData" ) )
             func_setUserData( boost::python::ptr(obj) );
@@ -521,18 +582,48 @@ struct Viewer_wrapper : osgViewer::Viewer, bp::wrapper< osgViewer::Viewer > {
         osg::Object::setUserData( boost::python::ptr(obj) );
     }
 
-};
+    virtual void startThreading(  ) {
+        if( bp::override func_startThreading = this->get_override( "startThreading" ) )
+            func_startThreading(  );
+        else{
+            this->osgViewer::ViewerBase::startThreading(  );
+        }
+    }
+    
+    void default_startThreading(  ) {
+        osgViewer::ViewerBase::startThreading( );
+    }
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-        namespace boost { namespace python {
-          template <class T> struct pointee< osg::ref_ptr<T> >
-          { typedef T type; };
-        } } // namespace boost::python
+    virtual void stopThreading(  ) {
+        if( bp::override func_stopThreading = this->get_override( "stopThreading" ) )
+            func_stopThreading(  );
+        else{
+            this->osgViewer::ViewerBase::stopThreading(  );
+        }
+    }
+    
+    void default_stopThreading(  ) {
+        osgViewer::ViewerBase::stopThreading( );
+    }
+
+    virtual ::osgViewer::ViewerBase::ThreadingModel suggestBestThreadingModel(  ) {
+        if( bp::override func_suggestBestThreadingModel = this->get_override( "suggestBestThreadingModel" ) )
+            return func_suggestBestThreadingModel(  );
+        else{
+            return this->osgViewer::ViewerBase::suggestBestThreadingModel(  );
+        }
+    }
+    
+    ::osgViewer::ViewerBase::ThreadingModel default_suggestBestThreadingModel(  ) {
+        return osgViewer::ViewerBase::suggestBestThreadingModel( );
+    }
+
+};
 
 void register_Viewer_class(){
 
     { //::osgViewer::Viewer
-        typedef bp::class_< Viewer_wrapper, bp::bases< osgViewer::View >, osg::ref_ptr< Viewer_wrapper >, boost::noncopyable > Viewer_exposer_t;
+        typedef bp::class_< Viewer_wrapper, bp::bases< osgViewer::ViewerBase, osgViewer::View >, osg::ref_ptr< ::osgViewer::Viewer >, boost::noncopyable > Viewer_exposer_t;
         Viewer_exposer_t Viewer_exposer = Viewer_exposer_t( "Viewer", bp::init< >() );
         bp::scope Viewer_scope( Viewer_exposer );
         Viewer_exposer.def( bp::init< osg::ArgumentParser & >(( bp::arg("arguments") )) );
@@ -913,6 +1004,41 @@ void register_Viewer_class(){
                 , bp::return_internal_reference< >() );
         
         }
+        { //::osgViewer::ViewerBase::frame
+        
+            typedef void ( ::osgViewer::ViewerBase::*frame_function_type)( double ) ;
+            typedef void ( Viewer_wrapper::*default_frame_function_type)( double ) ;
+            
+            Viewer_exposer.def( 
+                "frame"
+                , frame_function_type(&::osgViewer::ViewerBase::frame)
+                , default_frame_function_type(&Viewer_wrapper::default_frame)
+                , ( bp::arg("simulationTime")=1.79769313486231570814527423731704356798070567526e+308 ) );
+        
+        }
+        { //::osgViewer::ViewerBase::getWindows
+        
+            typedef void ( ::osgViewer::ViewerBase::*getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            typedef void ( Viewer_wrapper::*default_getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            
+            Viewer_exposer.def( 
+                "getWindows"
+                , getWindows_function_type(&::osgViewer::ViewerBase::getWindows)
+                , default_getWindows_function_type(&Viewer_wrapper::default_getWindows)
+                , ( bp::arg("windows"), bp::arg("onlyValid")=(bool)(true) ) );
+        
+        }
+        { //::osgViewer::ViewerBase::renderingTraversals
+        
+            typedef void ( ::osgViewer::ViewerBase::*renderingTraversals_function_type)(  ) ;
+            typedef void ( Viewer_wrapper::*default_renderingTraversals_function_type)(  ) ;
+            
+            Viewer_exposer.def( 
+                "renderingTraversals"
+                , renderingTraversals_function_type(&::osgViewer::ViewerBase::renderingTraversals)
+                , default_renderingTraversals_function_type(&Viewer_wrapper::default_renderingTraversals) );
+        
+        }
         { //::osgViewer::View::requestContinuousUpdate
         
             typedef void ( ::osgViewer::View::*requestContinuousUpdate_function_type)( bool ) ;
@@ -946,6 +1072,62 @@ void register_Viewer_class(){
                 , requestWarpPointer_function_type(&::osgViewer::View::requestWarpPointer)
                 , default_requestWarpPointer_function_type(&Viewer_wrapper::default_requestWarpPointer)
                 , ( bp::arg("x"), bp::arg("y") ) );
+        
+        }
+        { //::osgViewer::ViewerBase::setThreadingModel
+        
+            typedef void ( ::osgViewer::ViewerBase::*setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            typedef void ( Viewer_wrapper::*default_setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            
+            Viewer_exposer.def( 
+                "setThreadingModel"
+                , setThreadingModel_function_type(&::osgViewer::ViewerBase::setThreadingModel)
+                , default_setThreadingModel_function_type(&Viewer_wrapper::default_setThreadingModel)
+                , ( bp::arg("threadingModel") ) );
+        
+        }
+        { //::osgViewer::ViewerBase::setUpThreading
+        
+            typedef void ( ::osgViewer::ViewerBase::*setUpThreading_function_type)(  ) ;
+            typedef void ( Viewer_wrapper::*default_setUpThreading_function_type)(  ) ;
+            
+            Viewer_exposer.def( 
+                "setUpThreading"
+                , setUpThreading_function_type(&::osgViewer::ViewerBase::setUpThreading)
+                , default_setUpThreading_function_type(&Viewer_wrapper::default_setUpThreading) );
+        
+        }
+        { //::osgViewer::ViewerBase::startThreading
+        
+            typedef void ( ::osgViewer::ViewerBase::*startThreading_function_type)(  ) ;
+            typedef void ( Viewer_wrapper::*default_startThreading_function_type)(  ) ;
+            
+            Viewer_exposer.def( 
+                "startThreading"
+                , startThreading_function_type(&::osgViewer::ViewerBase::startThreading)
+                , default_startThreading_function_type(&Viewer_wrapper::default_startThreading) );
+        
+        }
+        { //::osgViewer::ViewerBase::stopThreading
+        
+            typedef void ( ::osgViewer::ViewerBase::*stopThreading_function_type)(  ) ;
+            typedef void ( Viewer_wrapper::*default_stopThreading_function_type)(  ) ;
+            
+            Viewer_exposer.def( 
+                "stopThreading"
+                , stopThreading_function_type(&::osgViewer::ViewerBase::stopThreading)
+                , default_stopThreading_function_type(&Viewer_wrapper::default_stopThreading) );
+        
+        }
+        { //::osgViewer::ViewerBase::suggestBestThreadingModel
+        
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*suggestBestThreadingModel_function_type)(  ) ;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( Viewer_wrapper::*default_suggestBestThreadingModel_function_type)(  ) ;
+            
+            Viewer_exposer.def( 
+                "suggestBestThreadingModel"
+                , suggestBestThreadingModel_function_type(&::osgViewer::ViewerBase::suggestBestThreadingModel)
+                , default_suggestBestThreadingModel_function_type(&Viewer_wrapper::default_suggestBestThreadingModel) );
         
         }
     }

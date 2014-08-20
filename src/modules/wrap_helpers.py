@@ -3,14 +3,17 @@ from pyplusplus.module_builder.call_policies import *
 import re
 
 def expose_ref_ptr_class(cls):
-    cls.held_type = 'osg::ref_ptr< %s >' % cls.wrapper_alias
-    cls.add_declaration_code("""
-        // Tell boost::python that osg::ref_ptr is a smart pointer class
-        namespace boost { namespace python {
-          template <class T> struct pointee< osg::ref_ptr<T> >
-          { typedef T type; };
-        } } // namespace boost::python
-    """)
+    # Compute nested wrapper class name
+    decl = [cls.wrapper_alias,]
+    p = cls.parent
+    while hasattr(p, "wrapper_alias"):
+        decl.append(p.wrapper_alias)
+        p = p.parent
+    decl.reverse()
+    wrapper_decl_string = "::".join(decl)
+    # cls.held_type = 'osg::ref_ptr< %s >' % wrapper_decl_string # TODO wrapper class? or regular osg class in ref_ptr?
+    cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string
+    cls.include_files.append('wrap_referenced.h')
     
 def hide_nonpublic(mb):
     for fn in mb.member_functions(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):

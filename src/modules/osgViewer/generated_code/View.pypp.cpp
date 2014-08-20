@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "view.pypp.hpp"
 
 namespace bp = boost::python;
@@ -261,16 +262,10 @@ struct View_wrapper : osgViewer::View, bp::wrapper< osgViewer::View > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-        namespace boost { namespace python {
-          template <class T> struct pointee< osg::ref_ptr<T> >
-          { typedef T type; };
-        } } // namespace boost::python
-
 void register_View_class(){
 
     { //::osgViewer::View
-        typedef bp::class_< View_wrapper, osg::ref_ptr< View_wrapper >, boost::noncopyable > View_exposer_t;
+        typedef bp::class_< View_wrapper, osg::ref_ptr< ::osgViewer::View >, boost::noncopyable > View_exposer_t;
         View_exposer_t View_exposer = View_exposer_t( "View", bp::no_init );
         bp::scope View_scope( View_exposer );
         bp::class_< View_wrapper::StereoSlaveCallback_wrapper, boost::noncopyable >( "StereoSlaveCallback", bp::no_init )    
