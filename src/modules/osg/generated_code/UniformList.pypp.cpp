@@ -9,7 +9,12 @@ namespace bp = boost::python;
 
 void register_UniformList_class(){
 
-    bp::class_< std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > >( "UniformList" )    
-        .def( bp::map_indexing_suite< ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > >() );
+    { //::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> >
+        typedef bp::class_< std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > > UniformList_exposer_t;
+        UniformList_exposer_t UniformList_exposer = UniformList_exposer_t( "UniformList" );
+        bp::scope UniformList_scope( UniformList_exposer );
+        //WARNING: the next line of code will not compile, because "::std::pair<osg::ref_ptr<osg::Uniform>, unsigned int>" does not have operator== !
+        UniformList_exposer.def( bp::map_indexing_suite< ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > >() );
+    }
 
 }

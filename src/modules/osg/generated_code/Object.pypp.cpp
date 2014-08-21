@@ -2,25 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "object.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct Object_wrapper : osg::Object, bp::wrapper< osg::Object > {
-
-    Object_wrapper( )
-    : osg::Object( )
-      , bp::wrapper< osg::Object >(){
-        // null constructor
-    
-    }
-
-    Object_wrapper(bool threadSafeRefUnref )
-    : osg::Object( threadSafeRefUnref )
-      , bp::wrapper< osg::Object >(){
-        // constructor
-    
-    }
 
     virtual char const * className(  ) const {
         bp::override func_className = this->get_override( "className" );
@@ -140,16 +127,10 @@ struct Object_wrapper : osg::Object, bp::wrapper< osg::Object > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_Object_class(){
 
     { //::osg::Object
-        typedef bp::class_< Object_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Object_wrapper >, boost::noncopyable > Object_exposer_t;
+        typedef bp::class_< Object_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Object >, boost::noncopyable > Object_exposer_t;
         Object_exposer_t Object_exposer = Object_exposer_t( "Object", bp::no_init );
         bp::scope Object_scope( Object_exposer );
         bp::enum_< osg::Object::DataVariance>("DataVariance")
@@ -158,8 +139,6 @@ void register_Object_class(){
             .value("UNSPECIFIED", osg::Object::UNSPECIFIED)
             .export_values()
             ;
-        Object_exposer.def( bp::init< >() );
-        Object_exposer.def( bp::init< bool >(( bp::arg("threadSafeRefUnref") )) );
         { //::osg::Object::className
         
             typedef char const * ( ::osg::Object::*className_function_type)(  ) const;

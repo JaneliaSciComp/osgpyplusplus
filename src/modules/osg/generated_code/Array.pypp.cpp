@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "array.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct Array_wrapper : osg::Array, bp::wrapper< osg::Array > {
-
-    Array_wrapper(::osg::Array::Type arrayType=::osg::Array::ArrayType, ::GLint dataSize=0, ::GLenum dataType=0, ::osg::Array::Binding binding=::osg::Array::BIND_UNDEFINED )
-    : osg::Array( arrayType, dataSize, dataType, binding )
-      , bp::wrapper< osg::Array >(){
-        // constructor
-    
-    }
 
     virtual void accept( ::osg::ArrayVisitor & arg0 ){
         bp::override func_accept = this->get_override( "accept" );
@@ -238,16 +232,10 @@ struct Array_wrapper : osg::Array, bp::wrapper< osg::Array > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_Array_class(){
 
     { //::osg::Array
-        typedef bp::class_< Array_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< Array_wrapper >, boost::noncopyable > Array_exposer_t;
+        typedef bp::class_< Array_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< ::osg::Array >, boost::noncopyable > Array_exposer_t;
         Array_exposer_t Array_exposer = Array_exposer_t( "Array", bp::no_init );
         bp::scope Array_scope( Array_exposer );
         bp::enum_< osg::Array::Binding>("Binding")
@@ -296,7 +284,6 @@ void register_Array_class(){
             .value("MatrixdArrayType", osg::Array::MatrixdArrayType)
             .export_values()
             ;
-        Array_exposer.def( bp::init< bp::optional< osg::Array::Type, GLint, GLenum, osg::Array::Binding > >(( bp::arg("arrayType")=(long)(::osg::Array::ArrayType), bp::arg("dataSize")=(::GLint)(0), bp::arg("dataType")=(::GLenum)(0), bp::arg("binding")=(long)(::osg::Array::BIND_UNDEFINED) )) );
         { //::osg::Array::accept
         
             typedef void ( ::osg::Array::*accept_function_type)( ::osg::ArrayVisitor & ) ;

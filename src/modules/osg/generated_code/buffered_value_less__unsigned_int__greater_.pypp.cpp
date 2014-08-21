@@ -2,24 +2,24 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
-#include "modelist.pypp.hpp"
+#include "buffered_value_less__unsigned_int__greater_.pypp.hpp"
 
 namespace bp = boost::python;
 
-void register_ModeList_class(){
+void register_buffered_value_less__unsigned_int__greater__class(){
 
     { //::osg::buffered_value< unsigned int >
-        typedef bp::class_< osg::buffered_value< unsigned int > > ModeList_exposer_t;
-        ModeList_exposer_t ModeList_exposer = ModeList_exposer_t( "ModeList", bp::init< >() );
-        bp::scope ModeList_scope( ModeList_exposer );
-        ModeList_exposer.def( bp::init< unsigned int >(( bp::arg("size") )) );
+        typedef bp::class_< osg::buffered_value< unsigned int > > buffered_value_less__unsigned_int__greater__exposer_t;
+        buffered_value_less__unsigned_int__greater__exposer_t buffered_value_less__unsigned_int__greater__exposer = buffered_value_less__unsigned_int__greater__exposer_t( "buffered_value_less__unsigned_int__greater_", bp::init< >() );
+        bp::scope buffered_value_less__unsigned_int__greater__scope( buffered_value_less__unsigned_int__greater__exposer );
+        buffered_value_less__unsigned_int__greater__exposer.def( bp::init< unsigned int >(( bp::arg("size") )) );
         bp::implicitly_convertible< unsigned int, osg::buffered_value< unsigned int > >();
         { //::osg::buffered_value< unsigned int >::clear
         
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef void ( exported_class_t::*clear_function_type)(  ) ;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "clear"
                 , clear_function_type( &::osg::buffered_value< unsigned int >::clear ) );
         
@@ -29,7 +29,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef bool ( exported_class_t::*empty_function_type)(  ) const;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "empty"
                 , empty_function_type( &::osg::buffered_value< unsigned int >::empty ) );
         
@@ -39,7 +39,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef ::osg::buffered_value< unsigned int > & ( exported_class_t::*assign_function_type)( ::osg::buffered_value< unsigned int > const & ) ;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "assign"
                 , assign_function_type( &::osg::buffered_value< unsigned int >::operator= )
                 , ( bp::arg("rhs") )
@@ -51,7 +51,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef unsigned int & ( exported_class_t::*__getitem___function_type)( unsigned int ) ;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "__getitem__"
                 , __getitem___function_type( &::osg::buffered_value< unsigned int >::operator[] )
                 , ( bp::arg("pos") )
@@ -63,7 +63,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef unsigned int ( exported_class_t::*__getitem___function_type)( unsigned int ) const;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "__getitem__"
                 , __getitem___function_type( &::osg::buffered_value< unsigned int >::operator[] )
                 , ( bp::arg("pos") ) );
@@ -74,7 +74,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef void ( exported_class_t::*resize_function_type)( unsigned int ) ;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "resize"
                 , resize_function_type( &::osg::buffered_value< unsigned int >::resize )
                 , ( bp::arg("newSize") ) );
@@ -85,7 +85,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef void ( exported_class_t::*setAllElementsTo_function_type)( unsigned int const & ) ;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "setAllElementsTo"
                 , setAllElementsTo_function_type( &::osg::buffered_value< unsigned int >::setAllElementsTo )
                 , ( bp::arg("t") ) );
@@ -96,7 +96,7 @@ void register_ModeList_class(){
             typedef osg::buffered_value< unsigned int > exported_class_t;
             typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
             
-            ModeList_exposer.def( 
+            buffered_value_less__unsigned_int__greater__exposer.def( 
                 "size"
                 , size_function_type( &::osg::buffered_value< unsigned int >::size ) );
         

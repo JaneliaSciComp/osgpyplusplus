@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "stats.pypp.hpp"
 
 namespace bp = boost::python;
@@ -36,16 +37,10 @@ struct Stats_wrapper : osg::Stats, bp::wrapper< osg::Stats > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_Stats_class(){
 
     { //::osg::Stats
-        typedef bp::class_< Stats_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Stats_wrapper >, boost::noncopyable > Stats_exposer_t;
+        typedef bp::class_< Stats_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Stats >, boost::noncopyable > Stats_exposer_t;
         Stats_exposer_t Stats_exposer = Stats_exposer_t( "Stats", bp::no_init );
         bp::scope Stats_scope( Stats_exposer );
         Stats_exposer.def( bp::init< std::string const & >(( bp::arg("name") )) );

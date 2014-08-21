@@ -9,7 +9,12 @@ namespace bp = boost::python;
 
 void register_longClassName1_class(){
 
-    bp::class_< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > >( "longClassName1" )    
-        .def( bp::map_indexing_suite< ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > >() );
+    { //::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> >
+        typedef bp::class_< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > longClassName1_exposer_t;
+        longClassName1_exposer_t longClassName1_exposer = longClassName1_exposer_t( "longClassName1" );
+        bp::scope longClassName1_scope( longClassName1_exposer );
+        //WARNING: the next line of code will not compile, because "::std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>" does not have operator== !
+        longClassName1_exposer.def( bp::map_indexing_suite< ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > >() );
+    }
 
 }

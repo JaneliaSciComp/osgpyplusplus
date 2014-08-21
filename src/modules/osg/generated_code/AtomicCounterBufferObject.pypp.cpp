@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "atomiccounterbufferobject.pypp.hpp"
 
 namespace bp = boost::python;
@@ -161,15 +162,9 @@ struct AtomicCounterBufferObject_wrapper : osg::AtomicCounterBufferObject, bp::w
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_AtomicCounterBufferObject_class(){
 
-    bp::class_< AtomicCounterBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< AtomicCounterBufferObject_wrapper >, boost::noncopyable >( "AtomicCounterBufferObject", bp::no_init )    
+    bp::class_< AtomicCounterBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< ::osg::AtomicCounterBufferObject >, boost::noncopyable >( "AtomicCounterBufferObject", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "className"

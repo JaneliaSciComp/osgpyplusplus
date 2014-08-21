@@ -30,6 +30,16 @@ void register_free_functions(){
     
     }
 
+    { //::OpenThreads::GetNumberOfProcessors
+    
+        typedef int ( *GetNumberOfProcessors_function_type )(  );
+        
+        bp::def( 
+            "GetNumberOfProcessors"
+            , GetNumberOfProcessors_function_type( &::OpenThreads::GetNumberOfProcessors ) );
+    
+    }
+
     { //::osg::RadiansToDegrees
     
         typedef double ( *RadiansToDegrees_function_type )( double );
@@ -49,6 +59,17 @@ void register_free_functions(){
             "RadiansToDegrees"
             , RadiansToDegrees_function_type( &::osg::RadiansToDegrees )
             , ( bp::arg("angle") ) );
+    
+    }
+
+    { //::OpenThreads::SetProcessorAffinityOfCurrentThread
+    
+        typedef int ( *SetProcessorAffinityOfCurrentThread_function_type )( unsigned int );
+        
+        bp::def( 
+            "SetProcessorAffinityOfCurrentThread"
+            , SetProcessorAffinityOfCurrentThread_function_type( &::OpenThreads::SetProcessorAffinityOfCurrentThread )
+            , ( bp::arg("cpunum") ) );
     
     }
 
@@ -197,6 +218,17 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
+        typedef ::osg::Vec4f ( *componentDivide_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentDivide
+    
         typedef ::osg::Vec3d ( *componentDivide_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
         
         bp::def( 
@@ -209,17 +241,6 @@ void register_free_functions(){
     { //::osg::componentDivide
     
         typedef ::osg::Vec2d ( *componentDivide_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
-        
-        bp::def( 
-            "componentDivide"
-            , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
-    
-    }
-
-    { //::osg::componentDivide
-    
-        typedef ::osg::Vec4f ( *componentDivide_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
         
         bp::def( 
             "componentDivide"
@@ -351,6 +372,17 @@ void register_free_functions(){
 
     { //::osg::componentMultiply
     
+        typedef ::osg::Vec4f ( *componentMultiply_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::componentMultiply
+    
         typedef ::osg::Vec3d ( *componentMultiply_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
         
         bp::def( 
@@ -363,17 +395,6 @@ void register_free_functions(){
     { //::osg::componentMultiply
     
         typedef ::osg::Vec2d ( *componentMultiply_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
-        
-        bp::def( 
-            "componentMultiply"
-            , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
-    
-    }
-
-    { //::osg::componentMultiply
-    
-        typedef ::osg::Vec4f ( *componentMultiply_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
         
         bp::def( 
             "componentMultiply"
@@ -401,6 +422,98 @@ void register_free_functions(){
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
             , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osg::computeEyeToLocal
+    
+        typedef ::osg::Matrix ( *computeEyeToLocal_function_type )( ::osg::Matrix const &,::osg::NodePath const &,bool );
+        
+        bp::def( 
+            "computeEyeToLocal"
+            , computeEyeToLocal_function_type( &::osg::computeEyeToLocal )
+            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+    
+    }
+
+    { //::osg::computeLocalToEye
+    
+        typedef ::osg::Matrix ( *computeLocalToEye_function_type )( ::osg::Matrix const &,::osg::NodePath const &,bool );
+        
+        bp::def( 
+            "computeLocalToEye"
+            , computeLocalToEye_function_type( &::osg::computeLocalToEye )
+            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+    
+    }
+
+    { //::osg::computeLocalToWorld
+    
+        typedef ::osg::Matrix ( *computeLocalToWorld_function_type )( ::osg::NodePath const &,bool );
+        
+        bp::def( 
+            "computeLocalToWorld"
+            , computeLocalToWorld_function_type( &::osg::computeLocalToWorld )
+            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+    
+    }
+
+    { //::osg::computeWorldToLocal
+    
+        typedef ::osg::Matrix ( *computeWorldToLocal_function_type )( ::osg::NodePath const &,bool );
+        
+        bp::def( 
+            "computeWorldToLocal"
+            , computeWorldToLocal_function_type( &::osg::computeWorldToLocal )
+            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+    
+    }
+
+    { //::osg::createGeodeForImage
+    
+        typedef ::osg::Geode * ( *createGeodeForImage_function_type )( ::osg::Image *,float,float );
+        
+        bp::def( 
+            "createGeodeForImage"
+            , createGeodeForImage_function_type( &::osg::createGeodeForImage )
+            , ( bp::arg("image"), bp::arg("s"), bp::arg("t") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osg::createGeodeForImage
+    
+        typedef ::osg::Geode * ( *createGeodeForImage_function_type )( ::osg::Image * );
+        
+        bp::def( 
+            "createGeodeForImage"
+            , createGeodeForImage_function_type( &::osg::createGeodeForImage )
+            , ( bp::arg("image") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osg::createTexturedQuadGeometry
+    
+        typedef ::osg::Geometry * ( *createTexturedQuadGeometry_function_type )( ::osg::Vec3 const &,::osg::Vec3 const &,::osg::Vec3 const &,float,float );
+        
+        bp::def( 
+            "createTexturedQuadGeometry"
+            , createTexturedQuadGeometry_function_type( &::osg::createTexturedQuadGeometry )
+            , ( bp::arg("corner"), bp::arg("widthVec"), bp::arg("heightVec"), bp::arg("s")=1.0e+0f, bp::arg("t")=1.0e+0f )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osg::createTexturedQuadGeometry
+    
+        typedef ::osg::Geometry * ( *createTexturedQuadGeometry_function_type )( ::osg::Vec3 const &,::osg::Vec3 const &,::osg::Vec3 const &,float,float,float,float );
+        
+        bp::def( 
+            "createTexturedQuadGeometry"
+            , createTexturedQuadGeometry_function_type( &::osg::createTexturedQuadGeometry )
+            , ( bp::arg("corner"), bp::arg("widthVec"), bp::arg("heightVec"), bp::arg("l"), bp::arg("b"), bp::arg("r"), bp::arg("t") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
     
     }
 
@@ -575,6 +688,17 @@ void register_free_functions(){
             "isTextureMode"
             , isTextureMode_function_type( &::osg::isTextureMode )
             , ( bp::arg("mode") ) );
+    
+    }
+
+    { //::osg::maximum
+    
+        typedef int ( *maximum_function_type )( int,int );
+        
+        bp::def( 
+            "maximum"
+            , maximum_function_type( &::osg::maximum )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
     
     }
 

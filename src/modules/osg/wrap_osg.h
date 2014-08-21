@@ -1,19 +1,18 @@
 #include "../default.h"
 
 // TODO wrap more classes
+#include <osg/Geometry>
+#include <osg/Uniform>
+#include <osg/Geode>
+#include <osg/View>
+
 #include <osg/Quat> // OK
 #include <osg/Vec2f> // OK
-
-#include <osg/Object>
-#include <osg/CopyOp>
-#include <osg/UserDataContainer>
-// #include <osg/StateAttributeCallback>
-// #include <osg/StateAttribute>
-// #include <osg/NodeVisitor>
-#include <osg/Node>
-// #include <osg/Drawable>
-#include <osg/StateSet>
-
+#include <osg/Object> // OK
+#include <osg/CopyOp> // OK
+#include <osg/UserDataContainer> // OK
+#include <osg/Node> // OK
+#include <osg/StateSet> // OK
 #include <osg/Notify> // OK
 #include <osg/Stats> // OK excluded getAttribute methods
 #include <osg/Referenced> // OK excluded copy methods

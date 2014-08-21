@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "uniform.pypp.hpp"
 
 namespace bp = boost::python;
@@ -386,16 +387,10 @@ struct Uniform_wrapper : osg::Uniform, bp::wrapper< osg::Uniform > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_Uniform_class(){
 
     { //::osg::Uniform
-        typedef bp::class_< Uniform_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Uniform_wrapper >, boost::noncopyable > Uniform_exposer_t;
+        typedef bp::class_< Uniform_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform >, boost::noncopyable > Uniform_exposer_t;
         Uniform_exposer_t Uniform_exposer = Uniform_exposer_t( "Uniform", bp::no_init );
         bp::scope Uniform_scope( Uniform_exposer );
         bp::enum_< osg::Uniform::Type>("Type")

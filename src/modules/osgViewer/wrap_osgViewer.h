@@ -1,6 +1,7 @@
 #include "../default.h"
 
-#include <osgViewer/Renderer> // TODO
+// DONE!
+#include <osgViewer/Renderer> // OK
 #include <osgViewer/ViewerEventHandlers> // OK
 #include <osgViewer/CompositeViewer> // OK
 #include <osgViewer/Viewer> // OK

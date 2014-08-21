@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "refmatrixf.pypp.hpp"
 
 namespace bp = boost::python;
@@ -189,16 +190,10 @@ struct RefMatrixf_wrapper : osg::RefMatrixf, bp::wrapper< osg::RefMatrixf > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_RefMatrixf_class(){
 
     { //::osg::RefMatrixf
-        typedef bp::class_< RefMatrixf_wrapper, bp::bases< osg::Object, osg::Matrixf >, osg::ref_ptr< RefMatrixf_wrapper > > RefMatrixf_exposer_t;
+        typedef bp::class_< RefMatrixf_wrapper, bp::bases< osg::Object, osg::Matrixf >, osg::ref_ptr< ::osg::RefMatrixf > > RefMatrixf_exposer_t;
         RefMatrixf_exposer_t RefMatrixf_exposer = RefMatrixf_exposer_t( "RefMatrixf", bp::no_init );
         bp::scope RefMatrixf_scope( RefMatrixf_exposer );
         RefMatrixf_exposer.def( bp::init< >() );

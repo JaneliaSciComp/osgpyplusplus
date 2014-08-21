@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "node.pypp.hpp"
 
 namespace bp = boost::python;
@@ -173,15 +174,9 @@ struct Node_wrapper : osg::Node, bp::wrapper< osg::Node > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_Node_class(){
 
-    bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Node_wrapper >, boost::noncopyable >( "Node", bp::no_init )    
+    bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Node >, boost::noncopyable >( "Node", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addCullCallback"

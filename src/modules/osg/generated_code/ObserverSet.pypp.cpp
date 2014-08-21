@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "observerset.pypp.hpp"
 
 namespace bp = boost::python;
@@ -29,16 +30,10 @@ struct ObserverSet_wrapper : osg::ObserverSet, bp::wrapper< osg::ObserverSet > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_ObserverSet_class(){
 
     { //::osg::ObserverSet
-        typedef bp::class_< ObserverSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ObserverSet_wrapper >, boost::noncopyable > ObserverSet_exposer_t;
+        typedef bp::class_< ObserverSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ObserverSet >, boost::noncopyable > ObserverSet_exposer_t;
         ObserverSet_exposer_t ObserverSet_exposer = ObserverSet_exposer_t( "ObserverSet", bp::no_init );
         bp::scope ObserverSet_scope( ObserverSet_exposer );
         ObserverSet_exposer.def( bp::init< osg::Referenced const * >(( bp::arg("observedObject") )) );

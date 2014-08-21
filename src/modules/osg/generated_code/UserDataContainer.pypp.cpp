@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "userdatacontainer.pypp.hpp"
 
 namespace bp = boost::python;
@@ -164,15 +165,9 @@ struct UserDataContainer_wrapper : osg::UserDataContainer, bp::wrapper< osg::Use
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_UserDataContainer_class(){
 
-    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< UserDataContainer_wrapper >, boost::noncopyable >( "UserDataContainer", bp::no_init )    
+    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::UserDataContainer >, boost::noncopyable >( "UserDataContainer", bp::no_init )    
         .def( 
             "addDescription"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( ::std::string const & ))(&::osg::UserDataContainer::addDescription) )

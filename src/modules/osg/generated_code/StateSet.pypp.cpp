@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "stateset.pypp.hpp"
 
 namespace bp = boost::python;
@@ -316,19 +317,10 @@ struct StateSet_wrapper : osg::StateSet, bp::wrapper< osg::StateSet > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
-static int ON = ::osg::StateAttribute::ON;
-            static int OFF = ::osg::StateAttribute::OFF;
-
 void register_StateSet_class(){
 
     { //::osg::StateSet
-        typedef bp::class_< StateSet_wrapper, bp::bases< osg::Object >, osg::ref_ptr< StateSet_wrapper >, boost::noncopyable > StateSet_exposer_t;
+        typedef bp::class_< StateSet_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet >, boost::noncopyable > StateSet_exposer_t;
         StateSet_exposer_t StateSet_exposer = StateSet_exposer_t( "StateSet", bp::no_init );
         bp::scope StateSet_scope( StateSet_exposer );
         bp::enum_< osg::StateSet::RenderBinMode>("RenderBinMode")

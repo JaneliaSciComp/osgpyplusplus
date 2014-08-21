@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "displaysettings.pypp.hpp"
 
 namespace bp = boost::python;
@@ -70,16 +71,10 @@ struct DisplaySettings_wrapper : osg::DisplaySettings, bp::wrapper< osg::Display
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_DisplaySettings_class(){
 
     { //::osg::DisplaySettings
-        typedef bp::class_< DisplaySettings_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< DisplaySettings_wrapper >, boost::noncopyable > DisplaySettings_exposer_t;
+        typedef bp::class_< DisplaySettings_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::DisplaySettings >, boost::noncopyable > DisplaySettings_exposer_t;
         DisplaySettings_exposer_t DisplaySettings_exposer = DisplaySettings_exposer_t( "DisplaySettings", bp::no_init );
         bp::scope DisplaySettings_scope( DisplaySettings_exposer );
         bp::enum_< osg::DisplaySettings::DisplayType>("DisplayType")

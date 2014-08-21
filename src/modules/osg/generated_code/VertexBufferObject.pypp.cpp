@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "vertexbufferobject.pypp.hpp"
 
 namespace bp = boost::python;
@@ -161,15 +162,9 @@ struct VertexBufferObject_wrapper : osg::VertexBufferObject, bp::wrapper< osg::V
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_VertexBufferObject_class(){
 
-    bp::class_< VertexBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< VertexBufferObject_wrapper >, boost::noncopyable >( "VertexBufferObject", bp::no_init )    
+    bp::class_< VertexBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< ::osg::VertexBufferObject >, boost::noncopyable >( "VertexBufferObject", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addArray"

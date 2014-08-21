@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "bufferobject.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct BufferObject_wrapper : osg::BufferObject, bp::wrapper< osg::BufferObject > {
-
-    BufferObject_wrapper( )
-    : osg::BufferObject( )
-      , bp::wrapper< osg::BufferObject >(){
-        // null constructor
-    
-    }
 
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
@@ -147,16 +141,9 @@ struct BufferObject_wrapper : osg::BufferObject, bp::wrapper< osg::BufferObject 
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-            namespace boost { namespace python {
-              template <class T> struct pointee< osg::ref_ptr<T> >
-              { typedef T type; };
-            } } // namespace boost::python
-
 void register_BufferObject_class(){
 
-    bp::class_< BufferObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< BufferObject_wrapper >, boost::noncopyable >( "BufferObject", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< BufferObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferObject >, boost::noncopyable >( "BufferObject", bp::no_init )    
         .def( 
             "addBufferData"
             , (unsigned int ( ::osg::BufferObject::* )( ::osg::BufferData * ))( &::osg::BufferObject::addBufferData )
