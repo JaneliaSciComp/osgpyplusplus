@@ -68,6 +68,8 @@ def wrap_one_call_policy(fn):
     rt = fn.return_type
     if fn.return_type.decl_string == "char const *":
         return # use default for strings
+    if fn.return_type.decl_string == "const *":
+        return # use default for strings
     elif fn.return_type.decl_string == "void *":
         return # use default for void pointers
     elif fn.return_type.decl_string == "::GLvoid const *":

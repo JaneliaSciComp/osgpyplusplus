@@ -14,4 +14,23 @@ void register_enumerations(){
         .export_values()
         ;
 
+    bp::enum_< osgDB::FileType>("FileType")
+        .value("FILE_NOT_FOUND", osgDB::FILE_NOT_FOUND)
+        .value("REGULAR_FILE", osgDB::REGULAR_FILE)
+        .value("DIRECTORY", osgDB::DIRECTORY)
+        .export_values()
+        ;
+
+    bp::enum_< osgDB::FileOpResult::Value>("Value")
+        .value("OK", osgDB::FileOpResult::OK)
+        .value("SOURCE_EQUALS_DESTINATION", osgDB::FileOpResult::SOURCE_EQUALS_DESTINATION)
+        .value("BAD_ARGUMENT", osgDB::FileOpResult::BAD_ARGUMENT)
+        .value("SOURCE_MISSING", osgDB::FileOpResult::SOURCE_MISSING)
+        .value("SOURCE_NOT_OPENED", osgDB::FileOpResult::SOURCE_NOT_OPENED)
+        .value("DESTINATION_NOT_OPENED", osgDB::FileOpResult::DESTINATION_NOT_OPENED)
+        .value("READ_ERROR", osgDB::FileOpResult::READ_ERROR)
+        .value("WRITE_ERROR", osgDB::FileOpResult::WRITE_ERROR)
+        .export_values()
+        ;
+
 }

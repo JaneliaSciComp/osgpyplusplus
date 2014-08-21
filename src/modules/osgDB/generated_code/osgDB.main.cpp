@@ -2,7 +2,69 @@
 
 #include "boost/python.hpp"
 
+#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+
+#include "boost/python/suite/indexing/map_indexing_suite.hpp"
+
 #include "wrap_osgdb.h"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationdetails.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationmap.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basecompressor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/baseserializer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basic_type_wrapper.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/compressormap.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/databasepager.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dotosgwrapper.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dynamiclibrary.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/field.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreader.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreaderiterator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filelocationcallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/findfilecallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/finishedobjectreadcallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ifstream.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imagepager.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageprocessor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/input.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputexception.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputiterator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputstream.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/intlookup.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectglenum.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectmark.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectproperty.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrapper.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrappermanager.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ofstream.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/options.pypp.hpp"
 
@@ -12,12 +74,134 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_global_variables.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/output.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputexception.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputiterator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputstream.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/pluginfunctionproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readfilecallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercompressorproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercustomwrapperproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerdotosgwrapperproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerwrapperproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/sharedstatemanager.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/updatewrapperversionproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_node_greater___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/vector_type.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
+
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osgDB){
     register_enumerations();
 
+    register_vector_less__osg_scope_ref_ptr_less_osg_scope_Node_greater___greater__class();
+
+    register_vector_type_class();
+
+    register_WrapperMap_class();
+
+    register_CompressorMap_class();
+
+    register_AuthenticationDetails_class();
+
+    register_AuthenticationMap_class();
+
+    register_BaseCompressor_class();
+
+    register_BaseSerializer_class();
+
+    register_DatabasePager_class();
+
+    register_DotOsgWrapper_class();
+
+    register_DynamicLibrary_class();
+
+    register_Field_class();
+
+    register_FieldReader_class();
+
+    register_FieldReaderIterator_class();
+
+    register_FileLocationCallback_class();
+
+    register_FindFileCallback_class();
+
+    register_FinishedObjectReadCallback_class();
+
+    register_ImagePager_class();
+
+    register_ImageProcessor_class();
+
+    register_Input_class();
+
+    register_InputException_class();
+
+    register_InputIterator_class();
+
+    register_InputStream_class();
+
+    register_IntLookup_class();
+
+    register_ObjectGLenum_class();
+
+    register_ObjectMark_class();
+
+    register_ObjectProperty_class();
+
+    register_ObjectWrapper_class();
+
+    register_ObjectWrapperManager_class();
+
     register_Options_class();
+
+    register_ofstream_class();
+
+    register_Output_class();
+
+    register_OutputException_class();
+
+    register_OutputIterator_class();
+
+    register_OutputStream_class();
+
+    register_PluginFunctionProxy_class();
+
+    register_ReadFileCallback_class();
+
+    register_RegisterCompressorProxy_class();
+
+    register_RegisterCustomWrapperProxy_class();
+
+    register_RegisterDotOsgWrapperProxy_class();
+
+    register_RegisterWrapperProxy_class();
+
+    register_SharedStateManager_class();
+
+    register_UpdateWrapperVersionProxy_class();
+
+    register_UserLookupTableProxy_class();
+
+    register_basic_type_wrapper_class();
+
+    register_ifstream_class();
 
     register_global_variables();
 

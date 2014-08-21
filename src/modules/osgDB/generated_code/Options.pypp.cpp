@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "options.pypp.hpp"
 
 namespace bp = boost::python;
@@ -156,16 +157,10 @@ struct Options_wrapper : osgDB::Options, bp::wrapper< osgDB::Options > {
 
 };
 
-// Tell boost::python that osg::ref_ptr is a smart pointer class
-        namespace boost { namespace python {
-          template <class T> struct pointee< osg::ref_ptr<T> >
-          { typedef T type; };
-        } } // namespace boost::python
-
 void register_Options_class(){
 
     { //::osgDB::Options
-        typedef bp::class_< Options_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Options_wrapper >, boost::noncopyable > Options_exposer_t;
+        typedef bp::class_< Options_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgDB::Options >, boost::noncopyable > Options_exposer_t;
         Options_exposer_t Options_exposer = Options_exposer_t( "Options", bp::no_init );
         bp::scope Options_scope( Options_exposer );
         bp::enum_< osgDB::Options::BuildKdTreesHint>("BuildKdTreesHint")

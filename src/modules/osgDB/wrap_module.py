@@ -9,12 +9,9 @@ import re
 sys.path.append("..")
 from wrap_helpers import *
 
-class OsgDBWrapper:
+class OsgDBWrapper(BaseWrapper):
     def __init__(self):
-        self.mb = module_builder.module_builder_t(
-            files = ["wrap_osgdb.h",],
-            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
-            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",])
+        BaseWrapper.__init__(self, files=["wrap_osgdb.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         self.mb.register_module_dependency('../osg/generated_code/')
@@ -26,49 +23,122 @@ class OsgDBWrapper:
         osgDB = mb.namespace("osgDB")
         osgDB.include()
 
-        osgDB.classes().exclude() # TODO - wrap more classes
+        # osgDB.classes().exclude() # TODO - wrap more classes
         
-        osgDB.free_functions().exclude()
+        # osgDB.free_functions().exclude()
 
         wrap_call_policies(self.mb)
-        
-        # Call policies for clone methods
-        for fn in mb.member_functions(lambda f: re.search(r'^clone', f.name)):
-            rt = fn.return_type
-            if not declarations.is_pointer(fn.return_type):
-                continue
-            fn.call_policies = return_value_policy(reference_existing_object)
-        # Call policies for getter methods
-        for fn in mb.member_functions(lambda f: re.search(r'^get[A-Z]', f.name)):
-            rt = fn.return_type
-            if fn.return_type.decl_string == "char const *":
-                continue # use default for strings
-            if declarations.is_pointer(fn.return_type):
-                pass
-            elif declarations.is_reference(fn.return_type):
-                pass
-            else:
-                continue # use default for non-reference/pointer
-            fn.call_policies = return_internal_reference()
 
+        for cls_name in [
+                "DatabaseRevision",
+                "DatabaseRevisions",
+                "DeprecatedDotOsgWrapperManager",
+                "FileCache",
+                "FileList",
+                "ImageProcessor",
+                "ObjectWrapper",
+                "Options",
+                "ReaderWriter",
+                "Registry",
+                "WriteFileCallback",
+                ]:
+            expose_ref_ptr_class(osgDB.class_(cls_name))
+
+        for cls_name in [
+                "DatabaseRevision",
+                "FileList",
+                ]:
+            osgDB.class_(cls_name).constructors().allow_implicit_conversion = False
+
+        # Abstract classes with virtual destructors cannot be copied
+        # Avoids compile error "error C2259: '' : cannot instantiate abstract class"
+        for cls_name in [
+                "BaseSerializer",
+                "InputIterator",
+                "OutputIterator",
+                ]:
+            cls = osgDB.class_(cls_name)
+            cls.noncopyable = True
+            cls.no_init = True
+            cls.member_operators("operator=", allow_empty=True).exclude()
+            cls.constructors().exclude()
+
+        hide_nonpublic(self.mb)
+        
         self.wrap_options()
+        self.wrap_input()
+        self.wrap_imagepager()
+        self.wrap_databasepager()
+        
+        osgDB.class_("Output").member_function("writeObject").exclude()
+        osgDB.class_("BaseSerializer").member_function("write").exclude()
+        osgDB.class_("ObjectWrapper").member_function("write").exclude()
+        osgDB.class_("Field").member_function("takeStr").exclude()
 
         # Wrap methods that begin with "osg", even if not in osg namespace
         mb.free_functions(lambda f: f.name.startswith('osgDB')).include()
         
-        for fn in mb.free_functions("readNodeFile"):
-            fn.include()
-            fn.call_policies = return_value_policy(reference_existing_object)
+        for fn_name in [
+                "getDataFilePathList",
+                "getLibraryFilePathList",
+                "openArchive",
+                "readHeightFieldFile", 
+                "readImageFile", 
+                "readNodeFile", 
+                "readNodeFiles", 
+                "readObjectFile", 
+                "readShaderFile", 
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.call_policies = return_value_policy(reference_existing_object)
+        mb.free_functions("fopen").exclude()
+        
+        # Exclude difficult classe for now
+        for cls_name in [
+                "Archive",
+                "DatabaseRevision",
+                "DatabaseRevisions",
+                "DeprecatedDotOsgWrapperManager",
+                "FileCache",
+                "FileList",
+                "ReaderWriter",
+                "Registry",
+                "WriteFileCallback",
+                ]:
+            osgDB.classes(cls_name).exclude()
+        osgDB.classes(lambda c: c.name.startswith("TemplateSerializer<")).exclude()
         
         self.mb.build_code_creator(module_name='osgDB')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
     
+    def wrap_databasepager(self):
+        databasepager = self.mb.class_("DatabasePager")
+        databasepager.constructors(arg_types=[None]).exclude()
+        databasepager.noncopyable = True
+        databasethread = databasepager.class_("DatabaseThread")
+        expose_ref_ptr_class(databasethread)
+        databasethread.constructors(arg_types=[None, None]).exclude()
+    
+    def wrap_imagepager(self):
+        imagepager = self.mb.class_("ImagePager")
+        imagethread = imagepager.class_("ImageThread")
+        expose_ref_ptr_class(imagethread)
+        imagethread.constructors(arg_types=[None, None]).exclude()
+    
+    def wrap_input(self):
+        input = self.mb.class_("Input")
+        for fn_name in [
+                "getObjectForUniqueID",
+                "readObject",
+                "readObjectOfType",
+                "registerUniqueIDForObject",
+                    ]:
+            input.member_functions(fn_name).exclude()
+    
     def wrap_options(self):
         cls = self.mb.class_("Options")
-        cls.include()
-        expose_ref_ptr_class(cls)
         for ctor in cls.constructors():
             ctor.allow_implicit_conversion = False
         cls.constructors(arg_types=[None, None]).exclude()
