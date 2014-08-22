@@ -1,11 +1,16 @@
 #include "../default.h"
 
 // TODO wrap more classes
-#include <osg/Geometry>
-#include <osg/Uniform>
-#include <osg/Geode>
-#include <osg/View>
+#include <osg/Billboard>
+#include <osg/LOD>
+#include <osg/MatrixTransform>
+#include <osg/PagedLOD>
+#include <osg/ProxyNode>
 
+#include <osg/Geometry> // OK
+#include <osg/Uniform> // OK
+#include <osg/Geode> // OK
+#include <osg/View> // OK
 #include <osg/Quat> // OK
 #include <osg/Vec2f> // OK
 #include <osg/Object> // OK

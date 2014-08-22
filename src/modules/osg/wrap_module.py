@@ -62,6 +62,7 @@ class OsgWrapper(BaseWrapper):
         # TODO - write a method to identify all these descendants of "Referenced"
         for cls_name in [
                 "AtomicCounterBufferObject",
+                "Billboard", 
                 "Box",
                 "BufferObject",
                 "Camera",
@@ -87,10 +88,14 @@ class OsgWrapper(BaseWrapper):
                 "Image",
                 "InfinitePlane",
                 "Light",
+                "LOD", 
+                "MatrixTransform", 
                 "Object",
                 "Node",
+                "PagedLOD", 
                 "PrimitiveSet",
                 "Program",
+                "ProxyNode", 
                 "Referenced", 
                 "RefMatrixf",
                 "RefMatrixd",
@@ -112,6 +117,7 @@ class OsgWrapper(BaseWrapper):
 
         # Many ref_ptr classes have trouble with implicit conversion operators
         for cls_name in [
+                "Billboard",
                 "Box",
                 "Camera",
                 "Capsule",
@@ -133,7 +139,11 @@ class OsgWrapper(BaseWrapper):
                 "Image",
                 "InfinitePlane",
                 "Light",
+                "LOD", 
+                "MatrixTransform",
+                "PagedLOD",
                 "Program",
+                "ProxyNode",
                 "ShaderComposer",
                 "Sphere",
                 "Transform",
@@ -147,6 +157,7 @@ class OsgWrapper(BaseWrapper):
         # Look for mention of two argument constructor, with CopyOp second, in compiler error message
         for cls_name in [
                 "AtomicCounterBufferObject",
+                "Billboard",
                 "Box",
                 "Camera",
                 "Capsule",
@@ -169,10 +180,14 @@ class OsgWrapper(BaseWrapper):
                 "HeightField",
                 "Image",
                 "InfinitePlane",
+                "LOD", 
                 "Light",
+                "MatrixTransform",
                 "Node", 
                 "Object",
+                "PagedLOD",
                 "Program",
+                "ProxyNode",
                 "Shader",
                 "ShaderComposer",
                 "Sphere",

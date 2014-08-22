@@ -240,7 +240,7 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
-        typedef ::osg::Vec2d ( *componentDivide_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
+        typedef ::osg::Vec3f ( *componentDivide_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
         
         bp::def( 
             "componentDivide"
@@ -251,7 +251,7 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
-        typedef ::osg::Vec3f ( *componentDivide_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
+        typedef ::osg::Vec2d ( *componentDivide_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
         
         bp::def( 
             "componentDivide"
@@ -394,7 +394,7 @@ void register_free_functions(){
 
     { //::osg::componentMultiply
     
-        typedef ::osg::Vec2d ( *componentMultiply_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
+        typedef ::osg::Vec3f ( *componentMultiply_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
         
         bp::def( 
             "componentMultiply"
@@ -405,7 +405,7 @@ void register_free_functions(){
 
     { //::osg::componentMultiply
     
-        typedef ::osg::Vec3f ( *componentMultiply_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
+        typedef ::osg::Vec2d ( *componentMultiply_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
         
         bp::def( 
             "componentMultiply"

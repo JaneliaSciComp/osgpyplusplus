@@ -42,6 +42,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrieroperation.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/billboard.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/block.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blockandflushoperation.pypp.hpp"
@@ -150,6 +152,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/light.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lod.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/longclassname1.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__double__greater_.pypp.hpp"
@@ -163,6 +167,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixd.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixf.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixtransform.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
 
@@ -190,6 +196,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_global_variables.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pagedlod.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/plane.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polytope.pypp.hpp"
@@ -206,7 +214,11 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/programcostestimator.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/proxynode.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/rangelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refblock.pypp.hpp"
 
@@ -338,6 +350,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_drawable_greater___greater_.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_node_greater___greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_object_greater___greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_shadercomponent_ptr___greater_.pypp.hpp"
@@ -371,6 +385,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_AttributeVec_class();
 
+    register_RangeList_class();
+
     register_TextureModeList_class();
 
     register_TextureAttributeList_class();
@@ -378,6 +394,8 @@ BOOST_PYTHON_MODULE(osg){
     register_PrimitiveSetList_class();
 
     register_vector_less__osg_scope_ref_ptr_less_osg_scope_Object_greater___greater__class();
+
+    register_vector_less__osg_scope_ref_ptr_less_osg_scope_Node_greater___greater__class();
 
     register_vector_less__osg_scope_ref_ptr_less_osg_scope_Drawable_greater___greater__class();
 
@@ -473,6 +491,12 @@ BOOST_PYTHON_MODULE(osg){
 
     register_BarrierOperation_class();
 
+    register_Node_class();
+
+    register_Geode_class();
+
+    register_Billboard_class();
+
     register_GraphicsOperation_class();
 
     register_BlockAndFlushOperation_class();
@@ -494,8 +518,6 @@ BOOST_PYTHON_MODULE(osg){
     register_Capsule_class();
 
     register_ClampedLinearCostFunction1D_class();
-
-    register_Node_class();
 
     register_Group_class();
 
@@ -553,8 +575,6 @@ BOOST_PYTHON_MODULE(osg){
 
     register_GLBeginEndAdapter_class();
 
-    register_Geode_class();
-
     register_Geometry_class();
 
     register_GeometryCostEstimator_class();
@@ -573,7 +593,11 @@ BOOST_PYTHON_MODULE(osg){
 
     register_InfinitePlane_class();
 
+    register_LOD_class();
+
     register_Light_class();
+
+    register_MatrixTransform_class();
 
     register_Matrixd_class();
 
@@ -587,6 +611,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_OperationQueue_class();
 
+    register_PagedLOD_class();
+
     register_Polytope_class();
 
     register_PrimitiveFunctor_class();
@@ -596,6 +622,8 @@ BOOST_PYTHON_MODULE(osg){
     register_Program_class();
 
     register_ProgramCostEstimator_class();
+
+    register_ProxyNode_class();
 
     register_Quat_class();
 
