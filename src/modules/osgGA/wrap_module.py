@@ -9,15 +9,13 @@ import re
 sys.path.append("..")
 from wrap_helpers import *
 
-class OsgGAWrapper:
+class OsgGAWrapper(BaseWrapper):
     def __init__(self):
-        self.mb = module_builder.module_builder_t(
-            files = ["wrap_osgGA.h",],
-            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
-            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",])
+        BaseWrapper.__init__(self, files=["wrap_osgGA.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         self.mb.register_module_dependency('../osg/generated_code/')
+        self.mb.register_module_dependency('../osgDB/generated_code/')
             
     def wrap(self):
         mb = self.mb
@@ -32,15 +30,46 @@ class OsgGAWrapper:
         wrap_call_policies(self.mb)
         hide_nonpublic(mb)
 
-        for cls_name in ["PointerData", "GUIEventAdapter"]:
+        for cls_name in [
+                "CameraManipulator",
+                "Device",
+                "GUIEventAdapter", 
+                "GUIEventHandler",
+                "PointerData", 
+                ]:
             expose_ref_ptr_class(mb.class_(cls_name))
             
+
+        for cls_name in [
+                "Device",
+                ]:
+            ctor = mb.class_(cls_name).constructors(arg_types=[None, None])
+            ctor.exclude()
+            # ctor.add_transformation(FT.modify_type(1, remove_const_from_reference))
+
         self.wrap_guieventadapter()
+        self.wrap_cameramanipulator()
+
+        for cls_name in [
+                "GUIEventHandler",
+                ]:
+            osgGA.class_(cls_name).member_functions(
+                lambda f: f.name.startswith("handle")).exclude()
+
+        hack_osg_arg(osgGA.class_("Device"), "sendEvent", 0)
 
         self.mb.build_code_creator(module_name='osgGA')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
+
+    def wrap_cameramanipulator(self):
+        cm = self.mb.namespace("osgGA").class_("CameraManipulator")
+        # Proof of concept for transforming all those compile errors
+        # for const reference arguments with protected destructors
+        hack_osg_arg(cm, "init", "arg0")
+        hack_osg_arg(cm, "handle", "ea")
+        hack_osg_arg(cm, "home", "arg0")
 
     def wrap_guieventadapter(self):
         cls = self.mb.class_("GUIEventAdapter")

@@ -1,5 +1,8 @@
+from pyplusplus import function_transformers as FT
 from pyplusplus import module_builder
 from pygccxml import declarations
+from pygccxml.declarations import type_traits
+from pygccxml.declarations import cpptypes
 from pyplusplus.module_builder.call_policies import *
 import re
 
@@ -57,6 +60,22 @@ def hide_nonpublic(mb):
         for var in cls.variables(lambda v: v.access_type != declarations.ACCESS_TYPES.PUBLIC, allow_empty=True):
             var.exclude()
     
+# https://mail.python.org/pipermail/cplusplus-sig/2009-September/014828.html
+def remove_const_from_reference(type):
+    "Helper to avoid compile errors with const-reference-protected-destructor argument types"
+    if not type_traits.is_reference(type):
+        return type
+    nonref = declarations.remove_reference(type)
+    if not type_traits.is_const(nonref):
+        return type
+    nonconst = declarations.remove_const(nonref)
+    return cpptypes.reference_t(nonconst)
+
+def hack_osg_arg(cls, fn_name, arg_name):
+    "Convert one const reference function argument to non-const reference"
+    for fn in cls.member_functions(fn_name):
+        fn.add_transformation(FT.modify_type(arg_name, remove_const_from_reference))
+
 def wrap_call_policies(mb):
     "Set function and operator call policies to sensible defaults"
     for fn in mb.member_functions():
