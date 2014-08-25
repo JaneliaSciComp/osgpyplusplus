@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "operationqueue.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct OperationQueue_wrapper : osg::OperationQueue, bp::wrapper< osg::Operation
 
 void register_OperationQueue_class(){
 
-    bp::class_< OperationQueue_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "OperationQueue", bp::no_init )    
+    bp::class_< OperationQueue_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::OperationQueue >, boost::noncopyable >( "OperationQueue", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "add"

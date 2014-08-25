@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "programcostestimator.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct ProgramCostEstimator_wrapper : osg::ProgramCostEstimator, bp::wrapper< os
 
 void register_ProgramCostEstimator_class(){
 
-    bp::class_< ProgramCostEstimator_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "ProgramCostEstimator", bp::init< >() )    
+    bp::class_< ProgramCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ProgramCostEstimator >, boost::noncopyable >( "ProgramCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
             , (void ( ::osg::ProgramCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::ProgramCostEstimator::calibrate )

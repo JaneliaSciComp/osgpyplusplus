@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "operation.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct Operation_wrapper : osg::Operation, bp::wrapper< osg::Operation > {
-
-    Operation_wrapper(::std::string const & name, bool keep )
-    : osg::Operation( name, keep )
-      , bp::wrapper< osg::Operation >(){
-        // constructor
-    
-    }
 
     virtual void operator()( ::osg::Object * arg0 ){
         bp::override func___call__ = this->get_override( "__call__" );
@@ -48,8 +42,7 @@ struct Operation_wrapper : osg::Operation, bp::wrapper< osg::Operation > {
 
 void register_Operation_class(){
 
-    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "Operation", bp::no_init )    
-        .def( bp::init< std::string const &, bool >(( bp::arg("name"), bp::arg("keep") )) )    
+    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Operation >, boost::noncopyable >( "Operation", bp::no_init )    
         .def( 
             "getKeep"
             , (bool ( ::osg::Operation::* )(  )const)( &::osg::Operation::getKeep ) )    

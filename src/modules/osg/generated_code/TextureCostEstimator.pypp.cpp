@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "texturecostestimator.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct TextureCostEstimator_wrapper : osg::TextureCostEstimator, bp::wrapper< os
 
 void register_TextureCostEstimator_class(){
 
-    bp::class_< TextureCostEstimator_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "TextureCostEstimator", bp::init< >() )    
+    bp::class_< TextureCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureCostEstimator >, boost::noncopyable >( "TextureCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
             , (void ( ::osg::TextureCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::TextureCostEstimator::calibrate )

@@ -335,7 +335,7 @@ void register_StateSet_class(){
             .value("TRANSPARENT_BIN", osg::StateSet::TRANSPARENT_BIN)
             .export_values()
             ;
-        bp::class_< StateSet_wrapper::Callback_wrapper, bp::bases< osg::Object >, boost::noncopyable >( "Callback", bp::init< >() )    
+        bp::class_< StateSet_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
                 , (char const * ( ::osg::StateSet::Callback::* )(  )const)(&::osg::StateSet::Callback::className)

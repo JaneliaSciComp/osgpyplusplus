@@ -9,6 +9,20 @@ namespace bp = boost::python;
 
 struct Viewport_wrapper : osg::Viewport, bp::wrapper< osg::Viewport > {
 
+    Viewport_wrapper( )
+    : osg::Viewport( )
+      , bp::wrapper< osg::Viewport >(){
+        // null constructor
+    
+    }
+
+    Viewport_wrapper(double x, double y, double width, double height )
+    : osg::Viewport( x, y, width, height )
+      , bp::wrapper< osg::Viewport >(){
+        // constructor
+    
+    }
+
     virtual void apply( ::osg::State & state ) const  {
         if( bp::override func_apply = this->get_override( "apply" ) )
             func_apply( boost::ref(state) );
@@ -173,6 +187,8 @@ void register_Viewport_class(){
         typedef bp::class_< Viewport_wrapper, osg::ref_ptr< ::osg::Viewport >, boost::noncopyable > Viewport_exposer_t;
         Viewport_exposer_t Viewport_exposer = Viewport_exposer_t( "Viewport", bp::no_init );
         bp::scope Viewport_scope( Viewport_exposer );
+        Viewport_exposer.def( bp::init< >() );
+        Viewport_exposer.def( bp::init< double, double, double, double >(( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )) );
         { //::osg::Viewport::apply
         
             typedef void ( ::osg::Viewport::*apply_function_type)( ::osg::State & ) const;

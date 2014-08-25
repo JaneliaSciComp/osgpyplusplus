@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "bufferdata.pypp.hpp"
 
 namespace bp = boost::python;
@@ -9,13 +10,6 @@ namespace bp = boost::python;
 struct BufferData_wrapper : osg::BufferData, bp::wrapper< osg::BufferData > {
 
     struct ModifiedCallback_wrapper : osg::BufferData::ModifiedCallback, bp::wrapper< osg::BufferData::ModifiedCallback > {
-    
-        ModifiedCallback_wrapper( )
-        : osg::BufferData::ModifiedCallback( )
-          , bp::wrapper< osg::BufferData::ModifiedCallback >(){
-            // null constructor
-        
-        }
     
         virtual char const * className(  ) const  {
             if( bp::override func_className = this->get_override( "className" ) )
@@ -174,13 +168,6 @@ struct BufferData_wrapper : osg::BufferData, bp::wrapper< osg::BufferData > {
         }
     
     };
-
-    BufferData_wrapper( )
-    : osg::BufferData( )
-      , bp::wrapper< osg::BufferData >(){
-        // null constructor
-    
-    }
 
     virtual ::osg::Array * asArray(  ) {
         if( bp::override func_asArray = this->get_override( "asArray" ) )
@@ -351,10 +338,10 @@ struct BufferData_wrapper : osg::BufferData, bp::wrapper< osg::BufferData > {
 void register_BufferData_class(){
 
     { //::osg::BufferData
-        typedef bp::class_< BufferData_wrapper, bp::bases< osg::Object >, boost::noncopyable > BufferData_exposer_t;
+        typedef bp::class_< BufferData_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferData >, boost::noncopyable > BufferData_exposer_t;
         BufferData_exposer_t BufferData_exposer = BufferData_exposer_t( "BufferData", bp::no_init );
         bp::scope BufferData_scope( BufferData_exposer );
-        bp::class_< BufferData_wrapper::ModifiedCallback_wrapper, bp::bases< osg::Object >, boost::noncopyable >( "ModifiedCallback", bp::init< >() )    
+        bp::class_< BufferData_wrapper::ModifiedCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferData::ModifiedCallback >, boost::noncopyable >( "ModifiedCallback" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  )const)(&::osg::BufferData::ModifiedCallback::className)
@@ -422,7 +409,6 @@ void register_BufferData_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::Referenced * ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        BufferData_exposer.def( bp::init< >() );
         { //::osg::BufferData::addClient
         
             typedef void ( ::osg::BufferData::*addClient_function_type)( ::osg::Object * ) ;

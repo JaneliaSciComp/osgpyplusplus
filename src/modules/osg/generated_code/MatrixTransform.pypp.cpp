@@ -327,155 +327,371 @@ struct MatrixTransform_wrapper : osg::MatrixTransform, bp::wrapper< osg::MatrixT
 
 void register_MatrixTransform_class(){
 
-    bp::class_< MatrixTransform_wrapper, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable >( "MatrixTransform", bp::no_init )    
-        .def( bp::init< >() )    
-        .def( bp::init< osg::Matrix const & >(( bp::arg("matix") )) )    
-        .def( 
-            "accept"
-            , (void ( ::osg::MatrixTransform::* )( ::osg::NodeVisitor & ))(&::osg::MatrixTransform::accept)
-            , (void ( MatrixTransform_wrapper::* )( ::osg::NodeVisitor & ))(&MatrixTransform_wrapper::default_accept)
-            , ( bp::arg("nv") ) )    
-        .def( 
-            "asMatrixTransform"
-            , (::osg::MatrixTransform * ( ::osg::MatrixTransform::* )(  ))(&::osg::MatrixTransform::asMatrixTransform)
-            , (::osg::MatrixTransform * ( MatrixTransform_wrapper::* )(  ))(&MatrixTransform_wrapper::default_asMatrixTransform)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asMatrixTransform"
-            , (::osg::MatrixTransform const * ( ::osg::MatrixTransform::* )(  )const)(&::osg::MatrixTransform::asMatrixTransform)
-            , (::osg::MatrixTransform const * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_asMatrixTransform)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "className"
-            , (char const * ( ::osg::MatrixTransform::* )(  )const)(&::osg::MatrixTransform::className)
-            , (char const * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_className) )    
-        .def( 
-            "clone"
-            , (::osg::Object * ( ::osg::MatrixTransform::* )( ::osg::CopyOp const & )const)(&::osg::MatrixTransform::clone)
-            , (::osg::Object * ( MatrixTransform_wrapper::* )( ::osg::CopyOp const & )const)(&MatrixTransform_wrapper::default_clone)
-            , ( bp::arg("copyop") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "cloneType"
-            , (::osg::Object * ( ::osg::MatrixTransform::* )(  )const)(&::osg::MatrixTransform::cloneType)
-            , (::osg::Object * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_cloneType)
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "computeLocalToWorldMatrix"
-            , (bool ( ::osg::MatrixTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&::osg::MatrixTransform::computeLocalToWorldMatrix)
-            , (bool ( MatrixTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&MatrixTransform_wrapper::default_computeLocalToWorldMatrix)
-            , ( bp::arg("matrix"), bp::arg("arg1") ) )    
-        .def( 
-            "computeWorldToLocalMatrix"
-            , (bool ( ::osg::MatrixTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&::osg::MatrixTransform::computeWorldToLocalMatrix)
-            , (bool ( MatrixTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&MatrixTransform_wrapper::default_computeWorldToLocalMatrix)
-            , ( bp::arg("matrix"), bp::arg("arg1") ) )    
-        .def( 
-            "getInverseMatrix"
-            , (::osg::Matrix const & ( ::osg::MatrixTransform::* )(  )const)( &::osg::MatrixTransform::getInverseMatrix )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getMatrix"
-            , (::osg::Matrix const & ( ::osg::MatrixTransform::* )(  )const)( &::osg::MatrixTransform::getMatrix )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "isSameKindAs"
-            , (bool ( ::osg::MatrixTransform::* )( ::osg::Object const * )const)(&::osg::MatrixTransform::isSameKindAs)
-            , (bool ( MatrixTransform_wrapper::* )( ::osg::Object const * )const)(&MatrixTransform_wrapper::default_isSameKindAs)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "libraryName"
-            , (char const * ( ::osg::MatrixTransform::* )(  )const)(&::osg::MatrixTransform::libraryName)
-            , (char const * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_libraryName) )    
-        .def( 
-            "postMult"
-            , (void ( ::osg::MatrixTransform::* )( ::osg::Matrix const & ))( &::osg::MatrixTransform::postMult )
-            , ( bp::arg("mat") ) )    
-        .def( 
-            "preMult"
-            , (void ( ::osg::MatrixTransform::* )( ::osg::Matrix const & ))( &::osg::MatrixTransform::preMult )
-            , ( bp::arg("mat") ) )    
-        .def( 
-            "setMatrix"
-            , (void ( ::osg::MatrixTransform::* )( ::osg::Matrix const & ))( &::osg::MatrixTransform::setMatrix )
-            , ( bp::arg("mat") ) )    
-        .def( 
-            "addChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
-            , (bool ( MatrixTransform_wrapper::* )( ::osg::Node * ))(&MatrixTransform_wrapper::default_addChild)
-            , ( bp::arg("child") ) )    
-        .def( 
-            "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
-            , (::osg::Group * ( MatrixTransform_wrapper::* )(  ))(&MatrixTransform_wrapper::default_asGroup)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_asGroup)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( MatrixTransform_wrapper::* )(  ))(&MatrixTransform_wrapper::default_computeDataVariance) )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( MatrixTransform_wrapper::* )(  ))(&MatrixTransform_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( MatrixTransform_wrapper::* )(  )const)(&MatrixTransform_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "insertChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
-            , (bool ( MatrixTransform_wrapper::* )( unsigned int,::osg::Node * ))(&MatrixTransform_wrapper::default_insertChild)
-            , ( bp::arg("index"), bp::arg("child") ) )    
-        .def( 
-            "removeChildren"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
-            , (bool ( MatrixTransform_wrapper::* )( unsigned int,unsigned int ))(&MatrixTransform_wrapper::default_removeChildren)
-            , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
-        .def( 
-            "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
-            , (bool ( MatrixTransform_wrapper::* )( ::osg::Node *,::osg::Node * ))(&MatrixTransform_wrapper::default_replaceChild)
-            , ( bp::arg("origChild"), bp::arg("newChild") ) )    
-        .def( 
-            "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( MatrixTransform_wrapper::* )( unsigned int ))(&MatrixTransform_wrapper::default_resizeGLObjectBuffers)
-            , ( bp::arg("maxSize") ) )    
-        .def( 
-            "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
-            , (bool ( MatrixTransform_wrapper::* )( unsigned int,::osg::Node * ))(&MatrixTransform_wrapper::default_setChild)
-            , ( bp::arg("i"), bp::arg("node") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( MatrixTransform_wrapper::* )( ::std::string const & ))(&MatrixTransform_wrapper::default_setName)
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( MatrixTransform_wrapper::* )( bool ))(&MatrixTransform_wrapper::default_setThreadSafeRefUnref)
-            , ( bp::arg("threadSafe") ) )    
-        .def( 
-            "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( MatrixTransform_wrapper::* )( ::osg::Referenced * ))(&MatrixTransform_wrapper::default_setUserData)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "traverse"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::traverse)
-            , (void ( MatrixTransform_wrapper::* )( ::osg::NodeVisitor & ))(&MatrixTransform_wrapper::default_traverse)
-            , ( bp::arg("nv") ) );
+    { //::osg::MatrixTransform
+        typedef bp::class_< MatrixTransform_wrapper, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable > MatrixTransform_exposer_t;
+        MatrixTransform_exposer_t MatrixTransform_exposer = MatrixTransform_exposer_t( "MatrixTransform", bp::no_init );
+        bp::scope MatrixTransform_scope( MatrixTransform_exposer );
+        MatrixTransform_exposer.def( bp::init< >() );
+        MatrixTransform_exposer.def( bp::init< osg::Matrix const & >(( bp::arg("matix") )) );
+        bp::implicitly_convertible< osg::Matrix const &, osg::MatrixTransform >();
+        { //::osg::MatrixTransform::accept
+        
+            typedef void ( ::osg::MatrixTransform::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::MatrixTransform::accept)
+                , default_accept_function_type(&MatrixTransform_wrapper::default_accept)
+                , ( bp::arg("nv") ) );
+        
+        }
+        { //::osg::MatrixTransform::asMatrixTransform
+        
+            typedef ::osg::MatrixTransform * ( ::osg::MatrixTransform::*asMatrixTransform_function_type)(  ) ;
+            typedef ::osg::MatrixTransform * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "asMatrixTransform"
+                , asMatrixTransform_function_type(&::osg::MatrixTransform::asMatrixTransform)
+                , default_asMatrixTransform_function_type(&MatrixTransform_wrapper::default_asMatrixTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::MatrixTransform::asMatrixTransform
+        
+            typedef ::osg::MatrixTransform const * ( ::osg::MatrixTransform::*asMatrixTransform_function_type)(  ) const;
+            typedef ::osg::MatrixTransform const * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "asMatrixTransform"
+                , asMatrixTransform_function_type(&::osg::MatrixTransform::asMatrixTransform)
+                , default_asMatrixTransform_function_type(&MatrixTransform_wrapper::default_asMatrixTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::MatrixTransform::className
+        
+            typedef char const * ( ::osg::MatrixTransform::*className_function_type)(  ) const;
+            typedef char const * ( MatrixTransform_wrapper::*default_className_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "className"
+                , className_function_type(&::osg::MatrixTransform::className)
+                , default_className_function_type(&MatrixTransform_wrapper::default_className) );
+        
+        }
+        { //::osg::MatrixTransform::clone
+        
+            typedef ::osg::Object * ( ::osg::MatrixTransform::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            
+            MatrixTransform_exposer.def( 
+                "clone"
+                , clone_function_type(&::osg::MatrixTransform::clone)
+                , default_clone_function_type(&MatrixTransform_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::MatrixTransform::cloneType
+        
+            typedef ::osg::Object * ( ::osg::MatrixTransform::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_cloneType_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "cloneType"
+                , cloneType_function_type(&::osg::MatrixTransform::cloneType)
+                , default_cloneType_function_type(&MatrixTransform_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::MatrixTransform::computeLocalToWorldMatrix
+        
+            typedef bool ( ::osg::MatrixTransform::*computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            
+            MatrixTransform_exposer.def( 
+                "computeLocalToWorldMatrix"
+                , computeLocalToWorldMatrix_function_type(&::osg::MatrixTransform::computeLocalToWorldMatrix)
+                , default_computeLocalToWorldMatrix_function_type(&MatrixTransform_wrapper::default_computeLocalToWorldMatrix)
+                , ( bp::arg("matrix"), bp::arg("arg1") ) );
+        
+        }
+        { //::osg::MatrixTransform::computeWorldToLocalMatrix
+        
+            typedef bool ( ::osg::MatrixTransform::*computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            
+            MatrixTransform_exposer.def( 
+                "computeWorldToLocalMatrix"
+                , computeWorldToLocalMatrix_function_type(&::osg::MatrixTransform::computeWorldToLocalMatrix)
+                , default_computeWorldToLocalMatrix_function_type(&MatrixTransform_wrapper::default_computeWorldToLocalMatrix)
+                , ( bp::arg("matrix"), bp::arg("arg1") ) );
+        
+        }
+        { //::osg::MatrixTransform::getInverseMatrix
+        
+            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getInverseMatrix_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "getInverseMatrix"
+                , getInverseMatrix_function_type( &::osg::MatrixTransform::getInverseMatrix )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::MatrixTransform::getMatrix
+        
+            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getMatrix_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "getMatrix"
+                , getMatrix_function_type( &::osg::MatrixTransform::getMatrix )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::MatrixTransform::isSameKindAs
+        
+            typedef bool ( ::osg::MatrixTransform::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            
+            MatrixTransform_exposer.def( 
+                "isSameKindAs"
+                , isSameKindAs_function_type(&::osg::MatrixTransform::isSameKindAs)
+                , default_isSameKindAs_function_type(&MatrixTransform_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::MatrixTransform::libraryName
+        
+            typedef char const * ( ::osg::MatrixTransform::*libraryName_function_type)(  ) const;
+            typedef char const * ( MatrixTransform_wrapper::*default_libraryName_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "libraryName"
+                , libraryName_function_type(&::osg::MatrixTransform::libraryName)
+                , default_libraryName_function_type(&MatrixTransform_wrapper::default_libraryName) );
+        
+        }
+        { //::osg::MatrixTransform::postMult
+        
+            typedef void ( ::osg::MatrixTransform::*postMult_function_type)( ::osg::Matrix const & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "postMult"
+                , postMult_function_type( &::osg::MatrixTransform::postMult )
+                , ( bp::arg("mat") ) );
+        
+        }
+        { //::osg::MatrixTransform::preMult
+        
+            typedef void ( ::osg::MatrixTransform::*preMult_function_type)( ::osg::Matrix const & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "preMult"
+                , preMult_function_type( &::osg::MatrixTransform::preMult )
+                , ( bp::arg("mat") ) );
+        
+        }
+        { //::osg::MatrixTransform::setMatrix
+        
+            typedef void ( ::osg::MatrixTransform::*setMatrix_function_type)( ::osg::Matrix const & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setMatrix"
+                , setMatrix_function_type( &::osg::MatrixTransform::setMatrix )
+                , ( bp::arg("mat") ) );
+        
+        }
+        { //::osg::Group::addChild
+        
+            typedef bool ( ::osg::Group::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "addChild"
+                , addChild_function_type(&::osg::Group::addChild)
+                , default_addChild_function_type(&MatrixTransform_wrapper::default_addChild)
+                , ( bp::arg("child") ) );
+        
+        }
+        { //::osg::Group::asGroup
+        
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( MatrixTransform_wrapper::*default_asGroup_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Group::asGroup)
+                , default_asGroup_function_type(&MatrixTransform_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Group::asGroup
+        
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( MatrixTransform_wrapper::*default_asGroup_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Group::asGroup)
+                , default_asGroup_function_type(&MatrixTransform_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::computeDataVariance
+        
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( MatrixTransform_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "computeDataVariance"
+                , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
+                , default_computeDataVariance_function_type(&MatrixTransform_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( MatrixTransform_wrapper::*default_getUserData_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&MatrixTransform_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( MatrixTransform_wrapper::*default_getUserData_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&MatrixTransform_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Group::insertChild
+        
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "insertChild"
+                , insertChild_function_type(&::osg::Group::insertChild)
+                , default_insertChild_function_type(&MatrixTransform_wrapper::default_insertChild)
+                , ( bp::arg("index"), bp::arg("child") ) );
+        
+        }
+        { //::osg::Group::removeChildren
+        
+            typedef bool ( ::osg::Group::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
+            
+            MatrixTransform_exposer.def( 
+                "removeChildren"
+                , removeChildren_function_type(&::osg::Group::removeChildren)
+                , default_removeChildren_function_type(&MatrixTransform_wrapper::default_removeChildren)
+                , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) );
+        
+        }
+        { //::osg::Group::replaceChild
+        
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "replaceChild"
+                , replaceChild_function_type(&::osg::Group::replaceChild)
+                , default_replaceChild_function_type(&MatrixTransform_wrapper::default_replaceChild)
+                , ( bp::arg("origChild"), bp::arg("newChild") ) );
+        
+        }
+        { //::osg::Group::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( MatrixTransform_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            MatrixTransform_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::Group::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&MatrixTransform_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("maxSize") ) );
+        
+        }
+        { //::osg::Group::setChild
+        
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setChild"
+                , setChild_function_type(&::osg::Group::setChild)
+                , default_setChild_function_type(&MatrixTransform_wrapper::default_setChild)
+                , ( bp::arg("i"), bp::arg("node") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setName"
+                , setName_function_type(&::osg::Object::setName)
+                , default_setName_function_type(&MatrixTransform_wrapper::default_setName)
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setName"
+                , setName_function_type( &::osg::Object::setName )
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Group::setThreadSafeRefUnref
+        
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setThreadSafeRefUnref"
+                , setThreadSafeRefUnref_function_type(&::osg::Group::setThreadSafeRefUnref)
+                , default_setThreadSafeRefUnref_function_type(&MatrixTransform_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) );
+        
+        }
+        { //::osg::Object::setUserData
+        
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            
+            MatrixTransform_exposer.def( 
+                "setUserData"
+                , setUserData_function_type(&::osg::Object::setUserData)
+                , default_setUserData_function_type(&MatrixTransform_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::Group::traverse
+        
+            typedef void ( ::osg::Group::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            
+            MatrixTransform_exposer.def( 
+                "traverse"
+                , traverse_function_type(&::osg::Group::traverse)
+                , default_traverse_function_type(&MatrixTransform_wrapper::default_traverse)
+                , ( bp::arg("nv") ) );
+        
+        }
+    }
 
 }

@@ -435,7 +435,7 @@ void register_Program_class(){
             .def_readwrite( "_location", &osg::Program::ActiveVarInfo::_location )    
             .def_readwrite( "_size", &osg::Program::ActiveVarInfo::_size )    
             .def_readwrite( "_type", &osg::Program::ActiveVarInfo::_type );
-        bp::class_< Program_wrapper::PerContextProgram_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "PerContextProgram", bp::no_init )    
+        bp::class_< Program_wrapper::PerContextProgram_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Program::PerContextProgram >, boost::noncopyable >( "PerContextProgram", bp::no_init )    
             .def( bp::init< osg::Program const *, unsigned int, bp::optional< GLuint > >(( bp::arg("program"), bp::arg("contextID"), bp::arg("programHandle")=(::GLuint)(0) )) )    
             .def( 
                 "addShaderToAttach"
@@ -598,6 +598,7 @@ void register_Program_class(){
                 , (void ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::Referenced * ))(&Program_wrapper::ProgramBinary_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         bp::class_< osg::Program::UniformBlockInfo >( "UniformBlockInfo", bp::init< >() )    
+            .def( bp::init< GLuint, GLsizei >(( bp::arg("index"), bp::arg("size") )) )    
             .def_readwrite( "_index", &osg::Program::UniformBlockInfo::_index )    
             .def_readwrite( "_size", &osg::Program::UniformBlockInfo::_size );
         Program_exposer.def( bp::init< >() );

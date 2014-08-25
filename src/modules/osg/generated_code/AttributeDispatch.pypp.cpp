@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "attributedispatch.pypp.hpp"
 
 namespace bp = boost::python;
@@ -55,7 +56,7 @@ struct AttributeDispatch_wrapper : osg::AttributeDispatch, bp::wrapper< osg::Att
 
 void register_AttributeDispatch_class(){
 
-    bp::class_< AttributeDispatch_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "AttributeDispatch" )    
+    bp::class_< AttributeDispatch_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::AttributeDispatch >, boost::noncopyable >( "AttributeDispatch" )    
         .def( 
             "assign"
             , (void ( ::osg::AttributeDispatch::* )( ::GLvoid const * ))(&::osg::AttributeDispatch::assign)

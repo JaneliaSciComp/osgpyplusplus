@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "standardnotifyhandler.pypp.hpp"
 
 namespace bp = boost::python;
@@ -43,7 +44,7 @@ struct StandardNotifyHandler_wrapper : osg::StandardNotifyHandler, bp::wrapper< 
 
 void register_StandardNotifyHandler_class(){
 
-    bp::class_< StandardNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, boost::noncopyable >( "StandardNotifyHandler" )    
+    bp::class_< StandardNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::StandardNotifyHandler >, boost::noncopyable >( "StandardNotifyHandler" )    
         .def( 
             "notify"
             , (void ( ::osg::StandardNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::StandardNotifyHandler::notify)

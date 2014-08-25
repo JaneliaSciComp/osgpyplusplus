@@ -9,6 +9,7 @@ import sys
 sys.path.append("..")
 from wrap_helpers import *
 
+
 class OsgWrapper(BaseWrapper):
     def __init__(self):
         BaseWrapper.__init__(self, files=["wrap_osg.h",])
@@ -24,15 +25,22 @@ class OsgWrapper(BaseWrapper):
         # Wrap everything in the "osg" namespace
         osg = mb.namespace("osg")
         osg.include()
-        mb.namespace("OpenThreads").include()
+
+        openthreads = mb.namespace("OpenThreads")
+        openthreads.include()
 
         # Wrap methods that begin with "osg", even if not in osg namespace
         mb.free_functions(lambda f: f.name.startswith('osg')).include()
         
+        hide_nonpublic(self.mb)
+        
+        # Identify all classes derived from osg::Referenced, 
+        # and set their boost::python held_type to "osg::ref_ptr<class>"
+        self.wrap_all_osg_referenced(osg)
+        self.wrap_all_osg_referenced(openthreads)
+
         for fn in mb.free_functions("createGeodeForImage"):
             fn.call_policies = return_value_policy(reference_existing_object)
-        
-        hide_nonpublic(self.mb)
         
         expose_increment_operators(self.mb)
         
@@ -56,147 +64,6 @@ class OsgWrapper(BaseWrapper):
             cls.exclude()
         
         wrap_call_policies(self.mb)
-
-        # Manage classes maintained by osg::ref_ptr<>
-        # Look for "error C2065: 'SHALLOW_COPY' : undeclared identifier"
-        # TODO - write a method to identify all these descendants of "Referenced"
-        for cls_name in [
-                "AtomicCounterBufferObject",
-                "Billboard", 
-                "Box",
-                "BufferObject",
-                "Camera",
-                "Capsule",
-                "ClearNode",
-                "ColorMask",
-                "CompositeShape",
-                "Cone",
-                "ConvexHull",
-                "Cylinder",
-                "DisplaySettings",
-                "Drawable",
-                "DrawArrays",
-                "DrawArrayLengths",
-                "DrawElements",
-                "DrawElementsUShort",
-                "DrawElementsUInt",
-                "DrawElementsUByte",
-                "Geode",
-                "Geometry",
-                "Group",
-                "HeightField",
-                "Image",
-                "InfinitePlane",
-                "Light",
-                "LOD", 
-                "MatrixTransform", 
-                "Object",
-                "Node",
-                "PagedLOD", 
-                "PrimitiveSet",
-                "Program",
-                "ProxyNode", 
-                "Referenced", 
-                "RefMatrixf",
-                "RefMatrixd",
-                "ShaderComposer",
-                "Shader",
-                "Shape",
-                "Sphere",
-                "State",
-                "StateSet",
-                "Texture",
-                "Transform",
-                "TriangleMesh",
-                "Uniform",
-                "View",
-                "Viewport",
-                ]:
-            cls = osg.class_(cls_name)
-            expose_ref_ptr_class(cls)
-
-        # Many ref_ptr classes have trouble with implicit conversion operators
-        for cls_name in [
-                "Billboard",
-                "Box",
-                "Camera",
-                "Capsule",
-                "ClearNode",
-                "ColorMask",
-                "CompositeShape",
-                "Cone",
-                "ConvexHull",
-                "Cylinder",
-                "DrawArrays",
-                "DrawArrayLengths",
-                "DrawElementsUShort",
-                "DrawElementsUInt",
-                "DrawElementsUByte",
-                "Geode",
-                "Geometry",
-                "Group",
-                "HeightField",
-                "Image",
-                "InfinitePlane",
-                "Light",
-                "LOD", 
-                "MatrixTransform",
-                "PagedLOD",
-                "Program",
-                "ProxyNode",
-                "ShaderComposer",
-                "Sphere",
-                "Transform",
-                "TriangleMesh",
-                "View",
-                "Viewport",
-                ]:
-            osg.class_(cls_name).constructors().allow_implicit_conversion = False
-
-        # Many of those ref_ptr classes have a troublesome two-argument copy constructor
-        # Look for mention of two argument constructor, with CopyOp second, in compiler error message
-        for cls_name in [
-                "AtomicCounterBufferObject",
-                "Billboard",
-                "Box",
-                "Camera",
-                "Capsule",
-                "BufferData",
-                "BufferObject",
-                "ClearNode",
-                "ColorMask",
-                "CompositeShape",
-                "Cone",
-                "ConvexHull",
-                "Cylinder",
-                "DrawArrayLengths",
-                "DrawArrays",
-                "DrawElementsUShort",
-                "DrawElementsUInt",
-                "DrawElementsUByte",
-                "Geode",
-                "Geometry",
-                "Group",
-                "HeightField",
-                "Image",
-                "InfinitePlane",
-                "LOD", 
-                "Light",
-                "MatrixTransform",
-                "Node", 
-                "Object",
-                "PagedLOD",
-                "Program",
-                "ProxyNode",
-                "Shader",
-                "ShaderComposer",
-                "Sphere",
-                "TriangleMesh",
-                "Viewport",
-                "View",
-                ]:
-            cls = osg.class_(cls_name)
-            cls.constructors(arg_types=[None, None]).exclude()
             
         # Many of those ref_ptr classes have a troublesome one-argument copy constructor
         for cls_name in [
@@ -207,27 +74,6 @@ class OsgWrapper(BaseWrapper):
             for ctor in cls.constructors():
                 if ctor.is_copy_constructor:
                     ctor.exclude()
-
-        # Abstract classes with virtual destructors cannot be copied
-        # Avoids compile error "error C2259: '' : cannot instantiate abstract class"
-        for cls_name in [
-                "Array",
-                "BufferObject",
-                "DisplaySettings",
-                "Drawable",
-                "DrawElements",
-                "Object",
-                "PrimitiveSet",
-                "Referenced",
-                "Shape",
-                "Texture",
-                "Viewport",
-                ]:
-            cls = osg.class_(cls_name)
-            cls.noncopyable = True
-            cls.no_init = True
-            cls.member_operators("operator=", allow_empty=True).exclude()
-            cls.constructors().exclude()
 
         # TODO confusing protected destructor compile errors, associated with comparison operators
         for cls_name in [

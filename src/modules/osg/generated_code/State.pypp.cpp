@@ -105,7 +105,7 @@ void register_State_class(){
             .value("ONCE_PER_ATTRIBUTE", osg::State::ONCE_PER_ATTRIBUTE)
             .export_values()
             ;
-        bp::class_< State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "DynamicObjectRenderingCompletedCallback" )    
+        bp::class_< State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::State::DynamicObjectRenderingCompletedCallback >, boost::noncopyable >( "DynamicObjectRenderingCompletedCallback", bp::no_init )    
             .def( 
                 "completed"
                 , bp::pure_virtual( (void ( ::osg::State::DynamicObjectRenderingCompletedCallback::* )( ::osg::State * ))(&::osg::State::DynamicObjectRenderingCompletedCallback::completed) )

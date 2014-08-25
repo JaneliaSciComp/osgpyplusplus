@@ -508,7 +508,7 @@ void register_Uniform_class(){
             .value("UNDEFINED", osg::Uniform::UNDEFINED)
             .export_values()
             ;
-        bp::class_< Uniform_wrapper::Callback_wrapper, bp::bases< osg::Object >, boost::noncopyable >( "Callback", bp::init< >() )    
+        bp::class_< Uniform_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::className)

@@ -207,168 +207,422 @@ struct Light_wrapper : osg::Light, bp::wrapper< osg::Light > {
 
 void register_Light_class(){
 
-    bp::class_< Light_wrapper, osg::ref_ptr< ::osg::Light >, boost::noncopyable >( "Light", bp::no_init )    
-        .def( bp::init< >() )    
-        .def( bp::init< unsigned int >(( bp::arg("lightnum") )) )    
-        .def( 
-            "apply"
-            , (void ( ::osg::Light::* )( ::osg::State & )const)(&::osg::Light::apply)
-            , (void ( Light_wrapper::* )( ::osg::State & )const)(&Light_wrapper::default_apply)
-            , ( bp::arg("state") ) )    
-        .def( 
-            "captureLightState"
-            , (void ( ::osg::Light::* )(  ))( &::osg::Light::captureLightState ) )    
-        .def( 
-            "className"
-            , (char const * ( ::osg::Light::* )(  )const)(&::osg::Light::className)
-            , (char const * ( Light_wrapper::* )(  )const)(&Light_wrapper::default_className) )    
-        .def( 
-            "clone"
-            , (::osg::Object * ( ::osg::Light::* )( ::osg::CopyOp const & )const)(&::osg::Light::clone)
-            , (::osg::Object * ( Light_wrapper::* )( ::osg::CopyOp const & )const)(&Light_wrapper::default_clone)
-            , ( bp::arg("copyop") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "cloneType"
-            , (::osg::Object * ( ::osg::Light::* )(  )const)(&::osg::Light::cloneType)
-            , (::osg::Object * ( Light_wrapper::* )(  )const)(&Light_wrapper::default_cloneType)
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "getAmbient"
-            , (::osg::Vec4 const & ( ::osg::Light::* )(  )const)( &::osg::Light::getAmbient )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getConstantAttenuation"
-            , (float ( ::osg::Light::* )(  )const)( &::osg::Light::getConstantAttenuation ) )    
-        .def( 
-            "getDiffuse"
-            , (::osg::Vec4 const & ( ::osg::Light::* )(  )const)( &::osg::Light::getDiffuse )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDirection"
-            , (::osg::Vec3 const & ( ::osg::Light::* )(  )const)( &::osg::Light::getDirection )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getLightNum"
-            , (int ( ::osg::Light::* )(  )const)( &::osg::Light::getLightNum ) )    
-        .def( 
-            "getLinearAttenuation"
-            , (float ( ::osg::Light::* )(  )const)( &::osg::Light::getLinearAttenuation ) )    
-        .def( 
-            "getMember"
-            , (unsigned int ( ::osg::Light::* )(  )const)(&::osg::Light::getMember)
-            , (unsigned int ( Light_wrapper::* )(  )const)(&Light_wrapper::default_getMember) )    
-        .def( 
-            "getModeUsage"
-            , (bool ( ::osg::Light::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::Light::getModeUsage)
-            , (bool ( Light_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&Light_wrapper::default_getModeUsage)
-            , ( bp::arg("usage") ) )    
-        .def( 
-            "getPosition"
-            , (::osg::Vec4 const & ( ::osg::Light::* )(  )const)( &::osg::Light::getPosition )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getQuadraticAttenuation"
-            , (float ( ::osg::Light::* )(  )const)( &::osg::Light::getQuadraticAttenuation ) )    
-        .def( 
-            "getSpecular"
-            , (::osg::Vec4 const & ( ::osg::Light::* )(  )const)( &::osg::Light::getSpecular )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getSpotCutoff"
-            , (float ( ::osg::Light::* )(  )const)( &::osg::Light::getSpotCutoff ) )    
-        .def( 
-            "getSpotExponent"
-            , (float ( ::osg::Light::* )(  )const)( &::osg::Light::getSpotExponent ) )    
-        .def( 
-            "getType"
-            , (::osg::StateAttribute::Type ( ::osg::Light::* )(  )const)(&::osg::Light::getType)
-            , (::osg::StateAttribute::Type ( Light_wrapper::* )(  )const)(&Light_wrapper::default_getType) )    
-        .def( 
-            "isSameKindAs"
-            , (bool ( ::osg::Light::* )( ::osg::Object const * )const)(&::osg::Light::isSameKindAs)
-            , (bool ( Light_wrapper::* )( ::osg::Object const * )const)(&Light_wrapper::default_isSameKindAs)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "libraryName"
-            , (char const * ( ::osg::Light::* )(  )const)(&::osg::Light::libraryName)
-            , (char const * ( Light_wrapper::* )(  )const)(&Light_wrapper::default_libraryName) )    
-        .def( 
-            "setAmbient"
-            , (void ( ::osg::Light::* )( ::osg::Vec4 const & ))( &::osg::Light::setAmbient )
-            , ( bp::arg("ambient") ) )    
-        .def( 
-            "setConstantAttenuation"
-            , (void ( ::osg::Light::* )( float ))( &::osg::Light::setConstantAttenuation )
-            , ( bp::arg("constant_attenuation") ) )    
-        .def( 
-            "setDiffuse"
-            , (void ( ::osg::Light::* )( ::osg::Vec4 const & ))( &::osg::Light::setDiffuse )
-            , ( bp::arg("diffuse") ) )    
-        .def( 
-            "setDirection"
-            , (void ( ::osg::Light::* )( ::osg::Vec3 const & ))( &::osg::Light::setDirection )
-            , ( bp::arg("direction") ) )    
-        .def( 
-            "setLightNum"
-            , (void ( ::osg::Light::* )( int ))( &::osg::Light::setLightNum )
-            , ( bp::arg("num") ) )    
-        .def( 
-            "setLinearAttenuation"
-            , (void ( ::osg::Light::* )( float ))( &::osg::Light::setLinearAttenuation )
-            , ( bp::arg("linear_attenuation") ) )    
-        .def( 
-            "setPosition"
-            , (void ( ::osg::Light::* )( ::osg::Vec4 const & ))( &::osg::Light::setPosition )
-            , ( bp::arg("position") ) )    
-        .def( 
-            "setQuadraticAttenuation"
-            , (void ( ::osg::Light::* )( float ))( &::osg::Light::setQuadraticAttenuation )
-            , ( bp::arg("quadratic_attenuation") ) )    
-        .def( 
-            "setSpecular"
-            , (void ( ::osg::Light::* )( ::osg::Vec4 const & ))( &::osg::Light::setSpecular )
-            , ( bp::arg("specular") ) )    
-        .def( 
-            "setSpotCutoff"
-            , (void ( ::osg::Light::* )( float ))( &::osg::Light::setSpotCutoff )
-            , ( bp::arg("spot_cutoff") ) )    
-        .def( 
-            "setSpotExponent"
-            , (void ( ::osg::Light::* )( float ))( &::osg::Light::setSpotExponent )
-            , ( bp::arg("spot_exponent") ) )    
-        .def( 
-            "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Light_wrapper::* )(  ))(&Light_wrapper::default_computeDataVariance) )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Light_wrapper::* )(  ))(&Light_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Light_wrapper::* )(  )const)(&Light_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Light_wrapper::* )( ::std::string const & ))(&Light_wrapper::default_setName)
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Light_wrapper::* )( bool ))(&Light_wrapper::default_setThreadSafeRefUnref)
-            , ( bp::arg("threadSafe") ) )    
-        .def( 
-            "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Light_wrapper::* )( ::osg::Referenced * ))(&Light_wrapper::default_setUserData)
-            , ( bp::arg("obj") ) );
+    { //::osg::Light
+        typedef bp::class_< Light_wrapper, osg::ref_ptr< ::osg::Light >, boost::noncopyable > Light_exposer_t;
+        Light_exposer_t Light_exposer = Light_exposer_t( "Light", bp::no_init );
+        bp::scope Light_scope( Light_exposer );
+        Light_exposer.def( bp::init< >() );
+        Light_exposer.def( bp::init< unsigned int >(( bp::arg("lightnum") )) );
+        bp::implicitly_convertible< unsigned int, osg::Light >();
+        { //::osg::Light::apply
+        
+            typedef void ( ::osg::Light::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( Light_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            
+            Light_exposer.def( 
+                "apply"
+                , apply_function_type(&::osg::Light::apply)
+                , default_apply_function_type(&Light_wrapper::default_apply)
+                , ( bp::arg("state") ) );
+        
+        }
+        { //::osg::Light::captureLightState
+        
+            typedef void ( ::osg::Light::*captureLightState_function_type)(  ) ;
+            
+            Light_exposer.def( 
+                "captureLightState"
+                , captureLightState_function_type( &::osg::Light::captureLightState ) );
+        
+        }
+        { //::osg::Light::className
+        
+            typedef char const * ( ::osg::Light::*className_function_type)(  ) const;
+            typedef char const * ( Light_wrapper::*default_className_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "className"
+                , className_function_type(&::osg::Light::className)
+                , default_className_function_type(&Light_wrapper::default_className) );
+        
+        }
+        { //::osg::Light::clone
+        
+            typedef ::osg::Object * ( ::osg::Light::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Light_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            
+            Light_exposer.def( 
+                "clone"
+                , clone_function_type(&::osg::Light::clone)
+                , default_clone_function_type(&Light_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::Light::cloneType
+        
+            typedef ::osg::Object * ( ::osg::Light::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Light_wrapper::*default_cloneType_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "cloneType"
+                , cloneType_function_type(&::osg::Light::cloneType)
+                , default_cloneType_function_type(&Light_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::Light::getAmbient
+        
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getAmbient_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getAmbient"
+                , getAmbient_function_type( &::osg::Light::getAmbient )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Light::getConstantAttenuation
+        
+            typedef float ( ::osg::Light::*getConstantAttenuation_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getConstantAttenuation"
+                , getConstantAttenuation_function_type( &::osg::Light::getConstantAttenuation ) );
+        
+        }
+        { //::osg::Light::getDiffuse
+        
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getDiffuse_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getDiffuse"
+                , getDiffuse_function_type( &::osg::Light::getDiffuse )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Light::getDirection
+        
+            typedef ::osg::Vec3 const & ( ::osg::Light::*getDirection_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getDirection"
+                , getDirection_function_type( &::osg::Light::getDirection )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Light::getLightNum
+        
+            typedef int ( ::osg::Light::*getLightNum_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getLightNum"
+                , getLightNum_function_type( &::osg::Light::getLightNum ) );
+        
+        }
+        { //::osg::Light::getLinearAttenuation
+        
+            typedef float ( ::osg::Light::*getLinearAttenuation_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getLinearAttenuation"
+                , getLinearAttenuation_function_type( &::osg::Light::getLinearAttenuation ) );
+        
+        }
+        { //::osg::Light::getMember
+        
+            typedef unsigned int ( ::osg::Light::*getMember_function_type)(  ) const;
+            typedef unsigned int ( Light_wrapper::*default_getMember_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getMember"
+                , getMember_function_type(&::osg::Light::getMember)
+                , default_getMember_function_type(&Light_wrapper::default_getMember) );
+        
+        }
+        { //::osg::Light::getModeUsage
+        
+            typedef bool ( ::osg::Light::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Light_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            
+            Light_exposer.def( 
+                "getModeUsage"
+                , getModeUsage_function_type(&::osg::Light::getModeUsage)
+                , default_getModeUsage_function_type(&Light_wrapper::default_getModeUsage)
+                , ( bp::arg("usage") ) );
+        
+        }
+        { //::osg::Light::getPosition
+        
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getPosition_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getPosition"
+                , getPosition_function_type( &::osg::Light::getPosition )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Light::getQuadraticAttenuation
+        
+            typedef float ( ::osg::Light::*getQuadraticAttenuation_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getQuadraticAttenuation"
+                , getQuadraticAttenuation_function_type( &::osg::Light::getQuadraticAttenuation ) );
+        
+        }
+        { //::osg::Light::getSpecular
+        
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getSpecular_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getSpecular"
+                , getSpecular_function_type( &::osg::Light::getSpecular )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Light::getSpotCutoff
+        
+            typedef float ( ::osg::Light::*getSpotCutoff_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getSpotCutoff"
+                , getSpotCutoff_function_type( &::osg::Light::getSpotCutoff ) );
+        
+        }
+        { //::osg::Light::getSpotExponent
+        
+            typedef float ( ::osg::Light::*getSpotExponent_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getSpotExponent"
+                , getSpotExponent_function_type( &::osg::Light::getSpotExponent ) );
+        
+        }
+        { //::osg::Light::getType
+        
+            typedef ::osg::StateAttribute::Type ( ::osg::Light::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( Light_wrapper::*default_getType_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getType"
+                , getType_function_type(&::osg::Light::getType)
+                , default_getType_function_type(&Light_wrapper::default_getType) );
+        
+        }
+        { //::osg::Light::isSameKindAs
+        
+            typedef bool ( ::osg::Light::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Light_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            
+            Light_exposer.def( 
+                "isSameKindAs"
+                , isSameKindAs_function_type(&::osg::Light::isSameKindAs)
+                , default_isSameKindAs_function_type(&Light_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::Light::libraryName
+        
+            typedef char const * ( ::osg::Light::*libraryName_function_type)(  ) const;
+            typedef char const * ( Light_wrapper::*default_libraryName_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "libraryName"
+                , libraryName_function_type(&::osg::Light::libraryName)
+                , default_libraryName_function_type(&Light_wrapper::default_libraryName) );
+        
+        }
+        { //::osg::Light::setAmbient
+        
+            typedef void ( ::osg::Light::*setAmbient_function_type)( ::osg::Vec4 const & ) ;
+            
+            Light_exposer.def( 
+                "setAmbient"
+                , setAmbient_function_type( &::osg::Light::setAmbient )
+                , ( bp::arg("ambient") ) );
+        
+        }
+        { //::osg::Light::setConstantAttenuation
+        
+            typedef void ( ::osg::Light::*setConstantAttenuation_function_type)( float ) ;
+            
+            Light_exposer.def( 
+                "setConstantAttenuation"
+                , setConstantAttenuation_function_type( &::osg::Light::setConstantAttenuation )
+                , ( bp::arg("constant_attenuation") ) );
+        
+        }
+        { //::osg::Light::setDiffuse
+        
+            typedef void ( ::osg::Light::*setDiffuse_function_type)( ::osg::Vec4 const & ) ;
+            
+            Light_exposer.def( 
+                "setDiffuse"
+                , setDiffuse_function_type( &::osg::Light::setDiffuse )
+                , ( bp::arg("diffuse") ) );
+        
+        }
+        { //::osg::Light::setDirection
+        
+            typedef void ( ::osg::Light::*setDirection_function_type)( ::osg::Vec3 const & ) ;
+            
+            Light_exposer.def( 
+                "setDirection"
+                , setDirection_function_type( &::osg::Light::setDirection )
+                , ( bp::arg("direction") ) );
+        
+        }
+        { //::osg::Light::setLightNum
+        
+            typedef void ( ::osg::Light::*setLightNum_function_type)( int ) ;
+            
+            Light_exposer.def( 
+                "setLightNum"
+                , setLightNum_function_type( &::osg::Light::setLightNum )
+                , ( bp::arg("num") ) );
+        
+        }
+        { //::osg::Light::setLinearAttenuation
+        
+            typedef void ( ::osg::Light::*setLinearAttenuation_function_type)( float ) ;
+            
+            Light_exposer.def( 
+                "setLinearAttenuation"
+                , setLinearAttenuation_function_type( &::osg::Light::setLinearAttenuation )
+                , ( bp::arg("linear_attenuation") ) );
+        
+        }
+        { //::osg::Light::setPosition
+        
+            typedef void ( ::osg::Light::*setPosition_function_type)( ::osg::Vec4 const & ) ;
+            
+            Light_exposer.def( 
+                "setPosition"
+                , setPosition_function_type( &::osg::Light::setPosition )
+                , ( bp::arg("position") ) );
+        
+        }
+        { //::osg::Light::setQuadraticAttenuation
+        
+            typedef void ( ::osg::Light::*setQuadraticAttenuation_function_type)( float ) ;
+            
+            Light_exposer.def( 
+                "setQuadraticAttenuation"
+                , setQuadraticAttenuation_function_type( &::osg::Light::setQuadraticAttenuation )
+                , ( bp::arg("quadratic_attenuation") ) );
+        
+        }
+        { //::osg::Light::setSpecular
+        
+            typedef void ( ::osg::Light::*setSpecular_function_type)( ::osg::Vec4 const & ) ;
+            
+            Light_exposer.def( 
+                "setSpecular"
+                , setSpecular_function_type( &::osg::Light::setSpecular )
+                , ( bp::arg("specular") ) );
+        
+        }
+        { //::osg::Light::setSpotCutoff
+        
+            typedef void ( ::osg::Light::*setSpotCutoff_function_type)( float ) ;
+            
+            Light_exposer.def( 
+                "setSpotCutoff"
+                , setSpotCutoff_function_type( &::osg::Light::setSpotCutoff )
+                , ( bp::arg("spot_cutoff") ) );
+        
+        }
+        { //::osg::Light::setSpotExponent
+        
+            typedef void ( ::osg::Light::*setSpotExponent_function_type)( float ) ;
+            
+            Light_exposer.def( 
+                "setSpotExponent"
+                , setSpotExponent_function_type( &::osg::Light::setSpotExponent )
+                , ( bp::arg("spot_exponent") ) );
+        
+        }
+        { //::osg::Object::computeDataVariance
+        
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Light_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            
+            Light_exposer.def( 
+                "computeDataVariance"
+                , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
+                , default_computeDataVariance_function_type(&Light_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Light_wrapper::*default_getUserData_function_type)(  ) ;
+            
+            Light_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&Light_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Light_wrapper::*default_getUserData_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&Light_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Light_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            
+            Light_exposer.def( 
+                "setName"
+                , setName_function_type(&::osg::Object::setName)
+                , default_setName_function_type(&Light_wrapper::default_setName)
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            
+            Light_exposer.def( 
+                "setName"
+                , setName_function_type( &::osg::Object::setName )
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setThreadSafeRefUnref
+        
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Light_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            
+            Light_exposer.def( 
+                "setThreadSafeRefUnref"
+                , setThreadSafeRefUnref_function_type(&::osg::Object::setThreadSafeRefUnref)
+                , default_setThreadSafeRefUnref_function_type(&Light_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) );
+        
+        }
+        { //::osg::Object::setUserData
+        
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Light_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            
+            Light_exposer.def( 
+                "setUserData"
+                , setUserData_function_type(&::osg::Object::setUserData)
+                , default_setUserData_function_type(&Light_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
+        
+        }
+    }
 
 }

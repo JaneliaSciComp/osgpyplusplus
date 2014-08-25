@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "arraydispatchers.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct ArrayDispatchers_wrapper : osg::ArrayDispatchers, bp::wrapper< osg::Array
 
 void register_ArrayDispatchers_class(){
 
-    bp::class_< ArrayDispatchers_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "ArrayDispatchers", bp::init< >() )    
+    bp::class_< ArrayDispatchers_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ArrayDispatchers >, boost::noncopyable >( "ArrayDispatchers", bp::init< >() )    
         .def( 
             "activate"
             , (void ( ::osg::ArrayDispatchers::* )( unsigned int,::osg::AttributeDispatch * ))( &::osg::ArrayDispatchers::activate )

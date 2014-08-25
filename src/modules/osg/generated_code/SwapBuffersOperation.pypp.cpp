@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "swapbuffersoperation.pypp.hpp"
 
 namespace bp = boost::python;
@@ -55,7 +56,7 @@ struct SwapBuffersOperation_wrapper : osg::SwapBuffersOperation, bp::wrapper< os
 
 void register_SwapBuffersOperation_class(){
 
-    bp::class_< SwapBuffersOperation_wrapper, bp::bases< osg::GraphicsOperation >, boost::noncopyable >( "SwapBuffersOperation", bp::init< >() )    
+    bp::class_< SwapBuffersOperation_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< ::osg::SwapBuffersOperation >, boost::noncopyable >( "SwapBuffersOperation", bp::init< >() )    
         .def( 
             "__call__"
             , (void ( ::osg::SwapBuffersOperation::* )( ::osg::GraphicsContext * ))(&::osg::SwapBuffersOperation::operator())

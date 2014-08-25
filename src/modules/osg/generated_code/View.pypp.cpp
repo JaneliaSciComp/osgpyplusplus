@@ -255,7 +255,7 @@ void register_View_class(){
             typedef bp::class_< View_wrapper::Slave_wrapper > Slave_exposer_t;
             Slave_exposer_t Slave_exposer = Slave_exposer_t( "Slave", bp::init< bp::optional< bool > >(( bp::arg("useMastersSceneData")=(bool)(true) )) );
             bp::scope Slave_scope( Slave_exposer );
-            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "UpdateSlaveCallback" )    
+            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::View::Slave::UpdateSlaveCallback >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
                 .def( 
                     "updateSlave"
                     , bp::pure_virtual( (void ( ::osg::View::Slave::UpdateSlaveCallback::* )( ::osg::View &,::osg::View::Slave & ))(&::osg::View::Slave::UpdateSlaveCallback::updateSlave) )
@@ -265,19 +265,9 @@ void register_View_class(){
                     , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                     , (void ( View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper::* )( bool ))(&View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper::default_setThreadSafeRefUnref)
                     , ( bp::arg("threadSafe") ) );
+            bp::implicitly_convertible< bool, osg::View::Slave >();
             Slave_exposer.def( bp::init< osg::Camera *, osg::Matrixd const &, osg::Matrixd const &, bp::optional< bool > >(( bp::arg("camera"), bp::arg("projectionOffset"), bp::arg("viewOffset"), bp::arg("useMastersSceneData")=(bool)(true) )) );
             Slave_exposer.def( bp::init< osg::View::Slave const & >(( bp::arg("rhs") )) );
-            { //::osg::View::Slave::operator=
-            
-                typedef ::osg::View::Slave & ( ::osg::View::Slave::*assign_function_type)( ::osg::View::Slave const & ) ;
-                
-                Slave_exposer.def( 
-                    "assign"
-                    , assign_function_type( &::osg::View::Slave::operator= )
-                    , ( bp::arg("rhs") )
-                    , bp::return_self< >() );
-            
-            }
             { //::osg::View::Slave::updateSlave
             
                 typedef void ( ::osg::View::Slave::*updateSlave_function_type)( ::osg::View & ) ;

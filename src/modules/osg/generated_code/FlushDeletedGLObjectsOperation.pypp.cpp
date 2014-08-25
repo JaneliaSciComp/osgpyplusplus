@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "flushdeletedglobjectsoperation.pypp.hpp"
 
 namespace bp = boost::python;
@@ -56,7 +57,7 @@ struct FlushDeletedGLObjectsOperation_wrapper : osg::FlushDeletedGLObjectsOperat
 void register_FlushDeletedGLObjectsOperation_class(){
 
     { //::osg::FlushDeletedGLObjectsOperation
-        typedef bp::class_< FlushDeletedGLObjectsOperation_wrapper, bp::bases< osg::GraphicsOperation >, boost::noncopyable > FlushDeletedGLObjectsOperation_exposer_t;
+        typedef bp::class_< FlushDeletedGLObjectsOperation_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< ::osg::FlushDeletedGLObjectsOperation >, boost::noncopyable > FlushDeletedGLObjectsOperation_exposer_t;
         FlushDeletedGLObjectsOperation_exposer_t FlushDeletedGLObjectsOperation_exposer = FlushDeletedGLObjectsOperation_exposer_t( "FlushDeletedGLObjectsOperation", bp::init< double, bp::optional< bool > >(( bp::arg("availableTime"), bp::arg("keep")=(bool)(false) )) );
         bp::scope FlushDeletedGLObjectsOperation_scope( FlushDeletedGLObjectsOperation_exposer );
         bp::implicitly_convertible< double, osg::FlushDeletedGLObjectsOperation >();

@@ -23,6 +23,13 @@ struct DrawElementsUShort_wrapper : osg::DrawElementsUShort, bp::wrapper< osg::D
     
     }
 
+    DrawElementsUShort_wrapper(::GLenum mode, unsigned int no )
+    : osg::DrawElementsUShort( mode, no )
+      , bp::wrapper< osg::DrawElementsUShort >(){
+        // constructor
+    
+    }
+
     virtual void accept( ::osg::PrimitiveFunctor & functor ) const  {
         if( bp::override func_accept = this->get_override( "accept" ) )
             func_accept( boost::ref(functor) );
@@ -423,170 +430,413 @@ struct DrawElementsUShort_wrapper : osg::DrawElementsUShort, bp::wrapper< osg::D
 
 void register_DrawElementsUShort_class(){
 
-    bp::class_< DrawElementsUShort_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< ::osg::DrawElementsUShort >, boost::noncopyable >( "DrawElementsUShort", bp::no_init )    
-        .def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) )    
-        .def( bp::init< GLenum, unsigned int, GLushort const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) )) )    
-        .def( 
-            "accept"
-            , (void ( ::osg::DrawElementsUShort::* )( ::osg::PrimitiveFunctor & )const)(&::osg::DrawElementsUShort::accept)
-            , (void ( DrawElementsUShort_wrapper::* )( ::osg::PrimitiveFunctor & )const)(&DrawElementsUShort_wrapper::default_accept)
-            , ( bp::arg("functor") ) )    
-        .def( 
-            "accept"
-            , (void ( ::osg::DrawElementsUShort::* )( ::osg::PrimitiveIndexFunctor & )const)(&::osg::DrawElementsUShort::accept)
-            , (void ( DrawElementsUShort_wrapper::* )( ::osg::PrimitiveIndexFunctor & )const)(&DrawElementsUShort_wrapper::default_accept)
-            , ( bp::arg("functor") ) )    
-        .def( 
-            "addElement"
-            , (void ( ::osg::DrawElementsUShort::* )( unsigned int ))(&::osg::DrawElementsUShort::addElement)
-            , (void ( DrawElementsUShort_wrapper::* )( unsigned int ))(&DrawElementsUShort_wrapper::default_addElement)
-            , ( bp::arg("v") ) )    
-        .def( 
-            "className"
-            , (char const * ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::className)
-            , (char const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_className) )    
-        .def( 
-            "clone"
-            , (::osg::Object * ( ::osg::DrawElementsUShort::* )( ::osg::CopyOp const & )const)(&::osg::DrawElementsUShort::clone)
-            , (::osg::Object * ( DrawElementsUShort_wrapper::* )( ::osg::CopyOp const & )const)(&DrawElementsUShort_wrapper::default_clone)
-            , ( bp::arg("copyop") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "cloneType"
-            , (::osg::Object * ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::cloneType)
-            , (::osg::Object * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_cloneType)
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "draw"
-            , (void ( ::osg::DrawElementsUShort::* )( ::osg::State &,bool )const)(&::osg::DrawElementsUShort::draw)
-            , (void ( DrawElementsUShort_wrapper::* )( ::osg::State &,bool )const)(&DrawElementsUShort_wrapper::default_draw)
-            , ( bp::arg("state"), bp::arg("useVertexBufferObjects") ) )    
-        .def( 
-            "getDataPointer"
-            , (::GLvoid const * ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::getDataPointer)
-            , (::GLvoid const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getDataPointer)
-            , bp::return_value_policy< bp::return_opaque_pointer >() )    
-        .def( 
-            "getElement"
-            , (unsigned int ( ::osg::DrawElementsUShort::* )( unsigned int ))(&::osg::DrawElementsUShort::getElement)
-            , (unsigned int ( DrawElementsUShort_wrapper::* )( unsigned int ))(&DrawElementsUShort_wrapper::default_getElement)
-            , ( bp::arg("i") ) )    
-        .def( 
-            "getNumIndices"
-            , (unsigned int ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::getNumIndices)
-            , (unsigned int ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getNumIndices) )    
-        .def( 
-            "getTotalDataSize"
-            , (unsigned int ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::getTotalDataSize)
-            , (unsigned int ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getTotalDataSize) )    
-        .def( 
-            "index"
-            , (unsigned int ( ::osg::DrawElementsUShort::* )( unsigned int )const)(&::osg::DrawElementsUShort::index)
-            , (unsigned int ( DrawElementsUShort_wrapper::* )( unsigned int )const)(&DrawElementsUShort_wrapper::default_index)
-            , ( bp::arg("pos") ) )    
-        .def( 
-            "isSameKindAs"
-            , (bool ( ::osg::DrawElementsUShort::* )( ::osg::Object const * )const)(&::osg::DrawElementsUShort::isSameKindAs)
-            , (bool ( DrawElementsUShort_wrapper::* )( ::osg::Object const * )const)(&DrawElementsUShort_wrapper::default_isSameKindAs)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "libraryName"
-            , (char const * ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::libraryName)
-            , (char const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_libraryName) )    
-        .def( 
-            "offsetIndices"
-            , (void ( ::osg::DrawElementsUShort::* )( int ))(&::osg::DrawElementsUShort::offsetIndices)
-            , (void ( DrawElementsUShort_wrapper::* )( int ))(&DrawElementsUShort_wrapper::default_offsetIndices)
-            , ( bp::arg("offset") ) )    
-        .def( 
-            "reserveElements"
-            , (void ( ::osg::DrawElementsUShort::* )( unsigned int ))(&::osg::DrawElementsUShort::reserveElements)
-            , (void ( DrawElementsUShort_wrapper::* )( unsigned int ))(&DrawElementsUShort_wrapper::default_reserveElements)
-            , ( bp::arg("numIndices") ) )    
-        .def( 
-            "setElement"
-            , (void ( ::osg::DrawElementsUShort::* )( unsigned int,unsigned int ))(&::osg::DrawElementsUShort::setElement)
-            , (void ( DrawElementsUShort_wrapper::* )( unsigned int,unsigned int ))(&DrawElementsUShort_wrapper::default_setElement)
-            , ( bp::arg("i"), bp::arg("v") ) )    
-        .def( 
-            "supportsBufferObject"
-            , (bool ( ::osg::DrawElementsUShort::* )(  )const)(&::osg::DrawElementsUShort::supportsBufferObject)
-            , (bool ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_supportsBufferObject) )    
-        .def( 
-            "asArray"
-            , (::osg::Array * ( ::osg::BufferData::* )(  ))(&::osg::BufferData::asArray)
-            , (::osg::Array * ( DrawElementsUShort_wrapper::* )(  ))(&DrawElementsUShort_wrapper::default_asArray)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asArray"
-            , (::osg::Array const * ( ::osg::BufferData::* )(  )const)(&::osg::BufferData::asArray)
-            , (::osg::Array const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_asArray)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asPrimitiveSet"
-            , (::osg::PrimitiveSet * ( ::osg::PrimitiveSet::* )(  ))(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet * ( DrawElementsUShort_wrapper::* )(  ))(&DrawElementsUShort_wrapper::default_asPrimitiveSet)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asPrimitiveSet"
-            , (::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_asPrimitiveSet)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( DrawElementsUShort_wrapper::* )(  ))(&DrawElementsUShort_wrapper::default_computeDataVariance) )    
-        .def( 
-            "computeRange"
-            , (void ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::computeRange)
-            , (void ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_computeRange) )    
-        .def( 
-            "getDrawElements"
-            , (::osg::DrawElements * ( ::osg::DrawElements::* )(  ))(&::osg::DrawElements::getDrawElements)
-            , (::osg::DrawElements * ( DrawElementsUShort_wrapper::* )(  ))(&DrawElementsUShort_wrapper::default_getDrawElements)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDrawElements"
-            , (::osg::DrawElements const * ( ::osg::DrawElements::* )(  )const)(&::osg::DrawElements::getDrawElements)
-            , (::osg::DrawElements const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getDrawElements)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getNumPrimitives"
-            , (unsigned int ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getNumPrimitives)
-            , (unsigned int ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getNumPrimitives) )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( DrawElementsUShort_wrapper::* )(  ))(&DrawElementsUShort_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( DrawElementsUShort_wrapper::* )(  )const)(&DrawElementsUShort_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "resizeGLObjectBuffers"
-            , (void ( ::osg::BufferData::* )( unsigned int ))(&::osg::BufferData::resizeGLObjectBuffers)
-            , (void ( DrawElementsUShort_wrapper::* )( unsigned int ))(&DrawElementsUShort_wrapper::default_resizeGLObjectBuffers)
-            , ( bp::arg("maxSize") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( DrawElementsUShort_wrapper::* )( ::std::string const & ))(&DrawElementsUShort_wrapper::default_setName)
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( DrawElementsUShort_wrapper::* )( bool ))(&DrawElementsUShort_wrapper::default_setThreadSafeRefUnref)
-            , ( bp::arg("threadSafe") ) )    
-        .def( 
-            "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( DrawElementsUShort_wrapper::* )( ::osg::Referenced * ))(&DrawElementsUShort_wrapper::default_setUserData)
-            , ( bp::arg("obj") ) );
+    { //::osg::DrawElementsUShort
+        typedef bp::class_< DrawElementsUShort_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< ::osg::DrawElementsUShort >, boost::noncopyable > DrawElementsUShort_exposer_t;
+        DrawElementsUShort_exposer_t DrawElementsUShort_exposer = DrawElementsUShort_exposer_t( "DrawElementsUShort", bp::no_init );
+        bp::scope DrawElementsUShort_scope( DrawElementsUShort_exposer );
+        DrawElementsUShort_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );
+        bp::implicitly_convertible< GLenum, osg::DrawElementsUShort >();
+        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int, GLushort const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) )) );
+        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") )) );
+        { //::osg::DrawElementsUShort::accept
+        
+            typedef void ( ::osg::DrawElementsUShort::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::DrawElementsUShort::accept)
+                , default_accept_function_type(&DrawElementsUShort_wrapper::default_accept)
+                , ( bp::arg("functor") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::accept
+        
+            typedef void ( ::osg::DrawElementsUShort::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::DrawElementsUShort::accept)
+                , default_accept_function_type(&DrawElementsUShort_wrapper::default_accept)
+                , ( bp::arg("functor") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::addElement
+        
+            typedef void ( ::osg::DrawElementsUShort::*addElement_function_type)( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_addElement_function_type)( unsigned int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "addElement"
+                , addElement_function_type(&::osg::DrawElementsUShort::addElement)
+                , default_addElement_function_type(&DrawElementsUShort_wrapper::default_addElement)
+                , ( bp::arg("v") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::className
+        
+            typedef char const * ( ::osg::DrawElementsUShort::*className_function_type)(  ) const;
+            typedef char const * ( DrawElementsUShort_wrapper::*default_className_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "className"
+                , className_function_type(&::osg::DrawElementsUShort::className)
+                , default_className_function_type(&DrawElementsUShort_wrapper::default_className) );
+        
+        }
+        { //::osg::DrawElementsUShort::clone
+        
+            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "clone"
+                , clone_function_type(&::osg::DrawElementsUShort::clone)
+                , default_clone_function_type(&DrawElementsUShort_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::DrawElementsUShort::cloneType
+        
+            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_cloneType_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "cloneType"
+                , cloneType_function_type(&::osg::DrawElementsUShort::cloneType)
+                , default_cloneType_function_type(&DrawElementsUShort_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::DrawElementsUShort::draw
+        
+            typedef void ( ::osg::DrawElementsUShort::*draw_function_type)( ::osg::State &,bool ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_draw_function_type)( ::osg::State &,bool ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "draw"
+                , draw_function_type(&::osg::DrawElementsUShort::draw)
+                , default_draw_function_type(&DrawElementsUShort_wrapper::default_draw)
+                , ( bp::arg("state"), bp::arg("useVertexBufferObjects") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::getDataPointer
+        
+            typedef ::GLvoid const * ( ::osg::DrawElementsUShort::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( DrawElementsUShort_wrapper::*default_getDataPointer_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getDataPointer"
+                , getDataPointer_function_type(&::osg::DrawElementsUShort::getDataPointer)
+                , default_getDataPointer_function_type(&DrawElementsUShort_wrapper::default_getDataPointer)
+                , bp::return_value_policy< bp::return_opaque_pointer >() );
+        
+        }
+        { //::osg::DrawElementsUShort::getElement
+        
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getElement_function_type)( unsigned int ) ;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getElement_function_type)( unsigned int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "getElement"
+                , getElement_function_type(&::osg::DrawElementsUShort::getElement)
+                , default_getElement_function_type(&DrawElementsUShort_wrapper::default_getElement)
+                , ( bp::arg("i") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::getNumIndices
+        
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getNumIndices_function_type)(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumIndices_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getNumIndices"
+                , getNumIndices_function_type(&::osg::DrawElementsUShort::getNumIndices)
+                , default_getNumIndices_function_type(&DrawElementsUShort_wrapper::default_getNumIndices) );
+        
+        }
+        { //::osg::DrawElementsUShort::getTotalDataSize
+        
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getTotalDataSize"
+                , getTotalDataSize_function_type(&::osg::DrawElementsUShort::getTotalDataSize)
+                , default_getTotalDataSize_function_type(&DrawElementsUShort_wrapper::default_getTotalDataSize) );
+        
+        }
+        { //::osg::DrawElementsUShort::index
+        
+            typedef unsigned int ( ::osg::DrawElementsUShort::*index_function_type)( unsigned int ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_index_function_type)( unsigned int ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "index"
+                , index_function_type(&::osg::DrawElementsUShort::index)
+                , default_index_function_type(&DrawElementsUShort_wrapper::default_index)
+                , ( bp::arg("pos") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::isSameKindAs
+        
+            typedef bool ( ::osg::DrawElementsUShort::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( DrawElementsUShort_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "isSameKindAs"
+                , isSameKindAs_function_type(&::osg::DrawElementsUShort::isSameKindAs)
+                , default_isSameKindAs_function_type(&DrawElementsUShort_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::libraryName
+        
+            typedef char const * ( ::osg::DrawElementsUShort::*libraryName_function_type)(  ) const;
+            typedef char const * ( DrawElementsUShort_wrapper::*default_libraryName_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "libraryName"
+                , libraryName_function_type(&::osg::DrawElementsUShort::libraryName)
+                , default_libraryName_function_type(&DrawElementsUShort_wrapper::default_libraryName) );
+        
+        }
+        { //::osg::DrawElementsUShort::offsetIndices
+        
+            typedef void ( ::osg::DrawElementsUShort::*offsetIndices_function_type)( int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_offsetIndices_function_type)( int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "offsetIndices"
+                , offsetIndices_function_type(&::osg::DrawElementsUShort::offsetIndices)
+                , default_offsetIndices_function_type(&DrawElementsUShort_wrapper::default_offsetIndices)
+                , ( bp::arg("offset") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::reserveElements
+        
+            typedef void ( ::osg::DrawElementsUShort::*reserveElements_function_type)( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_reserveElements_function_type)( unsigned int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "reserveElements"
+                , reserveElements_function_type(&::osg::DrawElementsUShort::reserveElements)
+                , default_reserveElements_function_type(&DrawElementsUShort_wrapper::default_reserveElements)
+                , ( bp::arg("numIndices") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::setElement
+        
+            typedef void ( ::osg::DrawElementsUShort::*setElement_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setElement_function_type)( unsigned int,unsigned int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "setElement"
+                , setElement_function_type(&::osg::DrawElementsUShort::setElement)
+                , default_setElement_function_type(&DrawElementsUShort_wrapper::default_setElement)
+                , ( bp::arg("i"), bp::arg("v") ) );
+        
+        }
+        { //::osg::DrawElementsUShort::supportsBufferObject
+        
+            typedef bool ( ::osg::DrawElementsUShort::*supportsBufferObject_function_type)(  ) const;
+            typedef bool ( DrawElementsUShort_wrapper::*default_supportsBufferObject_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "supportsBufferObject"
+                , supportsBufferObject_function_type(&::osg::DrawElementsUShort::supportsBufferObject)
+                , default_supportsBufferObject_function_type(&DrawElementsUShort_wrapper::default_supportsBufferObject) );
+        
+        }
+        { //::osg::BufferData::asArray
+        
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( DrawElementsUShort_wrapper::*default_asArray_function_type)(  ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "asArray"
+                , asArray_function_type(&::osg::BufferData::asArray)
+                , default_asArray_function_type(&DrawElementsUShort_wrapper::default_asArray)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::BufferData::asArray
+        
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( DrawElementsUShort_wrapper::*default_asArray_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "asArray"
+                , asArray_function_type(&::osg::BufferData::asArray)
+                , default_asArray_function_type(&DrawElementsUShort_wrapper::default_asArray)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::asPrimitiveSet
+        
+            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type)(  ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "asPrimitiveSet"
+                , asPrimitiveSet_function_type(&::osg::PrimitiveSet::asPrimitiveSet)
+                , default_asPrimitiveSet_function_type(&DrawElementsUShort_wrapper::default_asPrimitiveSet)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::asPrimitiveSet
+        
+            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) const;
+            typedef ::osg::PrimitiveSet const * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "asPrimitiveSet"
+                , asPrimitiveSet_function_type(&::osg::PrimitiveSet::asPrimitiveSet)
+                , default_asPrimitiveSet_function_type(&DrawElementsUShort_wrapper::default_asPrimitiveSet)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::computeDataVariance
+        
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "computeDataVariance"
+                , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
+                , default_computeDataVariance_function_type(&DrawElementsUShort_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::PrimitiveSet::computeRange
+        
+            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type)(  ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_computeRange_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "computeRange"
+                , computeRange_function_type(&::osg::PrimitiveSet::computeRange)
+                , default_computeRange_function_type(&DrawElementsUShort_wrapper::default_computeRange) );
+        
+        }
+        { //::osg::DrawElements::getDrawElements
+        
+            typedef ::osg::DrawElements * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) ;
+            typedef ::osg::DrawElements * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type)(  ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "getDrawElements"
+                , getDrawElements_function_type(&::osg::DrawElements::getDrawElements)
+                , default_getDrawElements_function_type(&DrawElementsUShort_wrapper::default_getDrawElements)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::DrawElements::getDrawElements
+        
+            typedef ::osg::DrawElements const * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) const;
+            typedef ::osg::DrawElements const * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getDrawElements"
+                , getDrawElements_function_type(&::osg::DrawElements::getDrawElements)
+                , default_getDrawElements_function_type(&DrawElementsUShort_wrapper::default_getDrawElements)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::getNumPrimitives
+        
+            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type)(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumPrimitives_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getNumPrimitives"
+                , getNumPrimitives_function_type(&::osg::PrimitiveSet::getNumPrimitives)
+                , default_getNumPrimitives_function_type(&DrawElementsUShort_wrapper::default_getNumPrimitives) );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( DrawElementsUShort_wrapper::*default_getUserData_function_type)(  ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&DrawElementsUShort_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( DrawElementsUShort_wrapper::*default_getUserData_function_type)(  ) const;
+            
+            DrawElementsUShort_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&DrawElementsUShort_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::BufferData::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::BufferData::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&DrawElementsUShort_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("maxSize") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "setName"
+                , setName_function_type(&::osg::Object::setName)
+                , default_setName_function_type(&DrawElementsUShort_wrapper::default_setName)
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "setName"
+                , setName_function_type( &::osg::Object::setName )
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setThreadSafeRefUnref
+        
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "setThreadSafeRefUnref"
+                , setThreadSafeRefUnref_function_type(&::osg::Object::setThreadSafeRefUnref)
+                , default_setThreadSafeRefUnref_function_type(&DrawElementsUShort_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) );
+        
+        }
+        { //::osg::Object::setUserData
+        
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            
+            DrawElementsUShort_exposer.def( 
+                "setUserData"
+                , setUserData_function_type(&::osg::Object::setUserData)
+                , default_setUserData_function_type(&DrawElementsUShort_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
+        
+        }
+    }
 
 }

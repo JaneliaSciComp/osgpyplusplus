@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "graphicscostestimator.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct GraphicsCostEstimator_wrapper : osg::GraphicsCostEstimator, bp::wrapper< 
 
 void register_GraphicsCostEstimator_class(){
 
-    bp::class_< GraphicsCostEstimator_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "GraphicsCostEstimator", bp::no_init )    
+    bp::class_< GraphicsCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsCostEstimator >, boost::noncopyable >( "GraphicsCostEstimator", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "calibrate"

@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "windebugnotifyhandler.pypp.hpp"
 
 namespace bp = boost::python;
@@ -43,7 +44,7 @@ struct WinDebugNotifyHandler_wrapper : osg::WinDebugNotifyHandler, bp::wrapper< 
 
 void register_WinDebugNotifyHandler_class(){
 
-    bp::class_< WinDebugNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, boost::noncopyable >( "WinDebugNotifyHandler" )    
+    bp::class_< WinDebugNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::WinDebugNotifyHandler >, boost::noncopyable >( "WinDebugNotifyHandler" )    
         .def( 
             "notify"
             , (void ( ::osg::WinDebugNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::WinDebugNotifyHandler::notify)

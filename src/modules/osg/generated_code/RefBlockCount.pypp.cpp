@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "refblockcount.pypp.hpp"
 
 namespace bp = boost::python;
@@ -32,7 +33,7 @@ struct RefBlockCount_wrapper : osg::RefBlockCount, bp::wrapper< osg::RefBlockCou
 void register_RefBlockCount_class(){
 
     { //::osg::RefBlockCount
-        typedef bp::class_< RefBlockCount_wrapper, bp::bases< osg::Referenced, OpenThreads::BlockCount >, boost::noncopyable > RefBlockCount_exposer_t;
+        typedef bp::class_< RefBlockCount_wrapper, bp::bases< osg::Referenced, OpenThreads::BlockCount >, osg::ref_ptr< ::osg::RefBlockCount >, boost::noncopyable > RefBlockCount_exposer_t;
         RefBlockCount_exposer_t RefBlockCount_exposer = RefBlockCount_exposer_t( "RefBlockCount", bp::init< unsigned int >(( bp::arg("blockCount") )) );
         bp::scope RefBlockCount_scope( RefBlockCount_exposer );
         bp::implicitly_convertible< unsigned int, osg::RefBlockCount >();

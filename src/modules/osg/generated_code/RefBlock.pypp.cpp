@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "refblock.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct RefBlock_wrapper : osg::RefBlock, bp::wrapper< osg::RefBlock > {
 
 void register_RefBlock_class(){
 
-    bp::class_< RefBlock_wrapper, bp::bases< osg::Referenced, OpenThreads::Block >, boost::noncopyable >( "RefBlock", bp::init< >() )    
+    bp::class_< RefBlock_wrapper, bp::bases< osg::Referenced, OpenThreads::Block >, osg::ref_ptr< ::osg::RefBlock >, boost::noncopyable >( "RefBlock", bp::init< >() )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

@@ -30,6 +30,13 @@ struct DrawArrayLengths_wrapper : osg::DrawArrayLengths, bp::wrapper< osg::DrawA
     
     }
 
+    DrawArrayLengths_wrapper(::GLenum mode, ::GLint first )
+    : osg::DrawArrayLengths( mode, first )
+      , bp::wrapper< osg::DrawArrayLengths >(){
+        // constructor
+    
+    }
+
     virtual void accept( ::osg::PrimitiveFunctor & functor ) const  {
         if( bp::override func_accept = this->get_override( "accept" ) )
             func_accept( boost::ref(functor) );
@@ -382,158 +389,385 @@ struct DrawArrayLengths_wrapper : osg::DrawArrayLengths, bp::wrapper< osg::DrawA
 
 void register_DrawArrayLengths_class(){
 
-    bp::class_< DrawArrayLengths_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawArrayLengths >, boost::noncopyable >( "DrawArrayLengths", bp::no_init )    
-        .def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) )    
-        .def( bp::init< GLenum, GLint, unsigned int, GLsizei * >(( bp::arg("mode"), bp::arg("first"), bp::arg("no"), bp::arg("ptr") )) )    
-        .def( bp::init< GLenum, GLint, unsigned int >(( bp::arg("mode"), bp::arg("first"), bp::arg("no") )) )    
-        .def( 
-            "accept"
-            , (void ( ::osg::DrawArrayLengths::* )( ::osg::PrimitiveFunctor & )const)(&::osg::DrawArrayLengths::accept)
-            , (void ( DrawArrayLengths_wrapper::* )( ::osg::PrimitiveFunctor & )const)(&DrawArrayLengths_wrapper::default_accept)
-            , ( bp::arg("functor") ) )    
-        .def( 
-            "accept"
-            , (void ( ::osg::DrawArrayLengths::* )( ::osg::PrimitiveIndexFunctor & )const)(&::osg::DrawArrayLengths::accept)
-            , (void ( DrawArrayLengths_wrapper::* )( ::osg::PrimitiveIndexFunctor & )const)(&DrawArrayLengths_wrapper::default_accept)
-            , ( bp::arg("functor") ) )    
-        .def( 
-            "className"
-            , (char const * ( ::osg::DrawArrayLengths::* )(  )const)(&::osg::DrawArrayLengths::className)
-            , (char const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_className) )    
-        .def( 
-            "clone"
-            , (::osg::Object * ( ::osg::DrawArrayLengths::* )( ::osg::CopyOp const & )const)(&::osg::DrawArrayLengths::clone)
-            , (::osg::Object * ( DrawArrayLengths_wrapper::* )( ::osg::CopyOp const & )const)(&DrawArrayLengths_wrapper::default_clone)
-            , ( bp::arg("copyop") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "cloneType"
-            , (::osg::Object * ( ::osg::DrawArrayLengths::* )(  )const)(&::osg::DrawArrayLengths::cloneType)
-            , (::osg::Object * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_cloneType)
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "draw"
-            , (void ( ::osg::DrawArrayLengths::* )( ::osg::State &,bool )const)(&::osg::DrawArrayLengths::draw)
-            , (void ( DrawArrayLengths_wrapper::* )( ::osg::State &,bool )const)(&DrawArrayLengths_wrapper::default_draw)
-            , ( bp::arg("state"), bp::arg("useVertexBufferObjects") ) )    
-        .def( 
-            "getFirst"
-            , (::GLint ( ::osg::DrawArrayLengths::* )(  )const)( &::osg::DrawArrayLengths::getFirst ) )    
-        .def( 
-            "getNumIndices"
-            , (unsigned int ( ::osg::DrawArrayLengths::* )(  )const)(&::osg::DrawArrayLengths::getNumIndices)
-            , (unsigned int ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getNumIndices) )    
-        .def( 
-            "getNumPrimitives"
-            , (unsigned int ( ::osg::DrawArrayLengths::* )(  )const)(&::osg::DrawArrayLengths::getNumPrimitives)
-            , (unsigned int ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getNumPrimitives) )    
-        .def( 
-            "index"
-            , (unsigned int ( ::osg::DrawArrayLengths::* )( unsigned int )const)(&::osg::DrawArrayLengths::index)
-            , (unsigned int ( DrawArrayLengths_wrapper::* )( unsigned int )const)(&DrawArrayLengths_wrapper::default_index)
-            , ( bp::arg("pos") ) )    
-        .def( 
-            "isSameKindAs"
-            , (bool ( ::osg::DrawArrayLengths::* )( ::osg::Object const * )const)(&::osg::DrawArrayLengths::isSameKindAs)
-            , (bool ( DrawArrayLengths_wrapper::* )( ::osg::Object const * )const)(&DrawArrayLengths_wrapper::default_isSameKindAs)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "libraryName"
-            , (char const * ( ::osg::DrawArrayLengths::* )(  )const)(&::osg::DrawArrayLengths::libraryName)
-            , (char const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_libraryName) )    
-        .def( 
-            "offsetIndices"
-            , (void ( ::osg::DrawArrayLengths::* )( int ))(&::osg::DrawArrayLengths::offsetIndices)
-            , (void ( DrawArrayLengths_wrapper::* )( int ))(&DrawArrayLengths_wrapper::default_offsetIndices)
-            , ( bp::arg("offset") ) )    
-        .def( 
-            "setFirst"
-            , (void ( ::osg::DrawArrayLengths::* )( ::GLint ))( &::osg::DrawArrayLengths::setFirst )
-            , ( bp::arg("first") ) )    
-        .def( 
-            "asArray"
-            , (::osg::Array * ( ::osg::BufferData::* )(  ))(&::osg::BufferData::asArray)
-            , (::osg::Array * ( DrawArrayLengths_wrapper::* )(  ))(&DrawArrayLengths_wrapper::default_asArray)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asArray"
-            , (::osg::Array const * ( ::osg::BufferData::* )(  )const)(&::osg::BufferData::asArray)
-            , (::osg::Array const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_asArray)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asPrimitiveSet"
-            , (::osg::PrimitiveSet * ( ::osg::PrimitiveSet::* )(  ))(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet * ( DrawArrayLengths_wrapper::* )(  ))(&DrawArrayLengths_wrapper::default_asPrimitiveSet)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "asPrimitiveSet"
-            , (::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_asPrimitiveSet)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( DrawArrayLengths_wrapper::* )(  ))(&DrawArrayLengths_wrapper::default_computeDataVariance) )    
-        .def( 
-            "computeRange"
-            , (void ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::computeRange)
-            , (void ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_computeRange) )    
-        .def( 
-            "getDataPointer"
-            , (::GLvoid const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getDataPointer)
-            , (::GLvoid const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getDataPointer)
-            , bp::return_value_policy< bp::return_opaque_pointer >() )    
-        .def( 
-            "getDrawElements"
-            , (::osg::DrawElements * ( ::osg::PrimitiveSet::* )(  ))(&::osg::PrimitiveSet::getDrawElements)
-            , (::osg::DrawElements * ( DrawArrayLengths_wrapper::* )(  ))(&DrawArrayLengths_wrapper::default_getDrawElements)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDrawElements"
-            , (::osg::DrawElements const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getDrawElements)
-            , (::osg::DrawElements const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getDrawElements)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getTotalDataSize"
-            , (unsigned int ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getTotalDataSize)
-            , (unsigned int ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getTotalDataSize) )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( DrawArrayLengths_wrapper::* )(  ))(&DrawArrayLengths_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "resizeGLObjectBuffers"
-            , (void ( ::osg::BufferData::* )( unsigned int ))(&::osg::BufferData::resizeGLObjectBuffers)
-            , (void ( DrawArrayLengths_wrapper::* )( unsigned int ))(&DrawArrayLengths_wrapper::default_resizeGLObjectBuffers)
-            , ( bp::arg("maxSize") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( DrawArrayLengths_wrapper::* )( ::std::string const & ))(&DrawArrayLengths_wrapper::default_setName)
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( DrawArrayLengths_wrapper::* )( bool ))(&DrawArrayLengths_wrapper::default_setThreadSafeRefUnref)
-            , ( bp::arg("threadSafe") ) )    
-        .def( 
-            "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( DrawArrayLengths_wrapper::* )( ::osg::Referenced * ))(&DrawArrayLengths_wrapper::default_setUserData)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "supportsBufferObject"
-            , (bool ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::supportsBufferObject)
-            , (bool ( DrawArrayLengths_wrapper::* )(  )const)(&DrawArrayLengths_wrapper::default_supportsBufferObject) );
+    { //::osg::DrawArrayLengths
+        typedef bp::class_< DrawArrayLengths_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawArrayLengths >, boost::noncopyable > DrawArrayLengths_exposer_t;
+        DrawArrayLengths_exposer_t DrawArrayLengths_exposer = DrawArrayLengths_exposer_t( "DrawArrayLengths", bp::no_init );
+        bp::scope DrawArrayLengths_scope( DrawArrayLengths_exposer );
+        DrawArrayLengths_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );
+        bp::implicitly_convertible< GLenum, osg::DrawArrayLengths >();
+        DrawArrayLengths_exposer.def( bp::init< GLenum, GLint, unsigned int, GLsizei * >(( bp::arg("mode"), bp::arg("first"), bp::arg("no"), bp::arg("ptr") )) );
+        DrawArrayLengths_exposer.def( bp::init< GLenum, GLint, unsigned int >(( bp::arg("mode"), bp::arg("first"), bp::arg("no") )) );
+        DrawArrayLengths_exposer.def( bp::init< GLenum, GLint >(( bp::arg("mode"), bp::arg("first") )) );
+        { //::osg::DrawArrayLengths::accept
+        
+            typedef void ( ::osg::DrawArrayLengths::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( DrawArrayLengths_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::DrawArrayLengths::accept)
+                , default_accept_function_type(&DrawArrayLengths_wrapper::default_accept)
+                , ( bp::arg("functor") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::accept
+        
+            typedef void ( ::osg::DrawArrayLengths::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( DrawArrayLengths_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::DrawArrayLengths::accept)
+                , default_accept_function_type(&DrawArrayLengths_wrapper::default_accept)
+                , ( bp::arg("functor") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::className
+        
+            typedef char const * ( ::osg::DrawArrayLengths::*className_function_type)(  ) const;
+            typedef char const * ( DrawArrayLengths_wrapper::*default_className_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "className"
+                , className_function_type(&::osg::DrawArrayLengths::className)
+                , default_className_function_type(&DrawArrayLengths_wrapper::default_className) );
+        
+        }
+        { //::osg::DrawArrayLengths::clone
+        
+            typedef ::osg::Object * ( ::osg::DrawArrayLengths::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( DrawArrayLengths_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "clone"
+                , clone_function_type(&::osg::DrawArrayLengths::clone)
+                , default_clone_function_type(&DrawArrayLengths_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::DrawArrayLengths::cloneType
+        
+            typedef ::osg::Object * ( ::osg::DrawArrayLengths::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( DrawArrayLengths_wrapper::*default_cloneType_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "cloneType"
+                , cloneType_function_type(&::osg::DrawArrayLengths::cloneType)
+                , default_cloneType_function_type(&DrawArrayLengths_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::DrawArrayLengths::draw
+        
+            typedef void ( ::osg::DrawArrayLengths::*draw_function_type)( ::osg::State &,bool ) const;
+            typedef void ( DrawArrayLengths_wrapper::*default_draw_function_type)( ::osg::State &,bool ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "draw"
+                , draw_function_type(&::osg::DrawArrayLengths::draw)
+                , default_draw_function_type(&DrawArrayLengths_wrapper::default_draw)
+                , ( bp::arg("state"), bp::arg("useVertexBufferObjects") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::getFirst
+        
+            typedef ::GLint ( ::osg::DrawArrayLengths::*getFirst_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getFirst"
+                , getFirst_function_type( &::osg::DrawArrayLengths::getFirst ) );
+        
+        }
+        { //::osg::DrawArrayLengths::getNumIndices
+        
+            typedef unsigned int ( ::osg::DrawArrayLengths::*getNumIndices_function_type)(  ) const;
+            typedef unsigned int ( DrawArrayLengths_wrapper::*default_getNumIndices_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getNumIndices"
+                , getNumIndices_function_type(&::osg::DrawArrayLengths::getNumIndices)
+                , default_getNumIndices_function_type(&DrawArrayLengths_wrapper::default_getNumIndices) );
+        
+        }
+        { //::osg::DrawArrayLengths::getNumPrimitives
+        
+            typedef unsigned int ( ::osg::DrawArrayLengths::*getNumPrimitives_function_type)(  ) const;
+            typedef unsigned int ( DrawArrayLengths_wrapper::*default_getNumPrimitives_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getNumPrimitives"
+                , getNumPrimitives_function_type(&::osg::DrawArrayLengths::getNumPrimitives)
+                , default_getNumPrimitives_function_type(&DrawArrayLengths_wrapper::default_getNumPrimitives) );
+        
+        }
+        { //::osg::DrawArrayLengths::index
+        
+            typedef unsigned int ( ::osg::DrawArrayLengths::*index_function_type)( unsigned int ) const;
+            typedef unsigned int ( DrawArrayLengths_wrapper::*default_index_function_type)( unsigned int ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "index"
+                , index_function_type(&::osg::DrawArrayLengths::index)
+                , default_index_function_type(&DrawArrayLengths_wrapper::default_index)
+                , ( bp::arg("pos") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::isSameKindAs
+        
+            typedef bool ( ::osg::DrawArrayLengths::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( DrawArrayLengths_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "isSameKindAs"
+                , isSameKindAs_function_type(&::osg::DrawArrayLengths::isSameKindAs)
+                , default_isSameKindAs_function_type(&DrawArrayLengths_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::libraryName
+        
+            typedef char const * ( ::osg::DrawArrayLengths::*libraryName_function_type)(  ) const;
+            typedef char const * ( DrawArrayLengths_wrapper::*default_libraryName_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "libraryName"
+                , libraryName_function_type(&::osg::DrawArrayLengths::libraryName)
+                , default_libraryName_function_type(&DrawArrayLengths_wrapper::default_libraryName) );
+        
+        }
+        { //::osg::DrawArrayLengths::offsetIndices
+        
+            typedef void ( ::osg::DrawArrayLengths::*offsetIndices_function_type)( int ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_offsetIndices_function_type)( int ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "offsetIndices"
+                , offsetIndices_function_type(&::osg::DrawArrayLengths::offsetIndices)
+                , default_offsetIndices_function_type(&DrawArrayLengths_wrapper::default_offsetIndices)
+                , ( bp::arg("offset") ) );
+        
+        }
+        { //::osg::DrawArrayLengths::setFirst
+        
+            typedef void ( ::osg::DrawArrayLengths::*setFirst_function_type)( ::GLint ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "setFirst"
+                , setFirst_function_type( &::osg::DrawArrayLengths::setFirst )
+                , ( bp::arg("first") ) );
+        
+        }
+        { //::osg::BufferData::asArray
+        
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( DrawArrayLengths_wrapper::*default_asArray_function_type)(  ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "asArray"
+                , asArray_function_type(&::osg::BufferData::asArray)
+                , default_asArray_function_type(&DrawArrayLengths_wrapper::default_asArray)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::BufferData::asArray
+        
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( DrawArrayLengths_wrapper::*default_asArray_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "asArray"
+                , asArray_function_type(&::osg::BufferData::asArray)
+                , default_asArray_function_type(&DrawArrayLengths_wrapper::default_asArray)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::asPrimitiveSet
+        
+            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( DrawArrayLengths_wrapper::*default_asPrimitiveSet_function_type)(  ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "asPrimitiveSet"
+                , asPrimitiveSet_function_type(&::osg::PrimitiveSet::asPrimitiveSet)
+                , default_asPrimitiveSet_function_type(&DrawArrayLengths_wrapper::default_asPrimitiveSet)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::asPrimitiveSet
+        
+            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) const;
+            typedef ::osg::PrimitiveSet const * ( DrawArrayLengths_wrapper::*default_asPrimitiveSet_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "asPrimitiveSet"
+                , asPrimitiveSet_function_type(&::osg::PrimitiveSet::asPrimitiveSet)
+                , default_asPrimitiveSet_function_type(&DrawArrayLengths_wrapper::default_asPrimitiveSet)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::computeDataVariance
+        
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "computeDataVariance"
+                , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
+                , default_computeDataVariance_function_type(&DrawArrayLengths_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::PrimitiveSet::computeRange
+        
+            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type)(  ) const;
+            typedef void ( DrawArrayLengths_wrapper::*default_computeRange_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "computeRange"
+                , computeRange_function_type(&::osg::PrimitiveSet::computeRange)
+                , default_computeRange_function_type(&DrawArrayLengths_wrapper::default_computeRange) );
+        
+        }
+        { //::osg::PrimitiveSet::getDataPointer
+        
+            typedef ::GLvoid const * ( ::osg::PrimitiveSet::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( DrawArrayLengths_wrapper::*default_getDataPointer_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getDataPointer"
+                , getDataPointer_function_type(&::osg::PrimitiveSet::getDataPointer)
+                , default_getDataPointer_function_type(&DrawArrayLengths_wrapper::default_getDataPointer)
+                , bp::return_value_policy< bp::return_opaque_pointer >() );
+        
+        }
+        { //::osg::PrimitiveSet::getDrawElements
+        
+            typedef ::osg::DrawElements * ( ::osg::PrimitiveSet::*getDrawElements_function_type)(  ) ;
+            typedef ::osg::DrawElements * ( DrawArrayLengths_wrapper::*default_getDrawElements_function_type)(  ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "getDrawElements"
+                , getDrawElements_function_type(&::osg::PrimitiveSet::getDrawElements)
+                , default_getDrawElements_function_type(&DrawArrayLengths_wrapper::default_getDrawElements)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::getDrawElements
+        
+            typedef ::osg::DrawElements const * ( ::osg::PrimitiveSet::*getDrawElements_function_type)(  ) const;
+            typedef ::osg::DrawElements const * ( DrawArrayLengths_wrapper::*default_getDrawElements_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getDrawElements"
+                , getDrawElements_function_type(&::osg::PrimitiveSet::getDrawElements)
+                , default_getDrawElements_function_type(&DrawArrayLengths_wrapper::default_getDrawElements)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::PrimitiveSet::getTotalDataSize
+        
+            typedef unsigned int ( ::osg::PrimitiveSet::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( DrawArrayLengths_wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getTotalDataSize"
+                , getTotalDataSize_function_type(&::osg::PrimitiveSet::getTotalDataSize)
+                , default_getTotalDataSize_function_type(&DrawArrayLengths_wrapper::default_getTotalDataSize) );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( DrawArrayLengths_wrapper::*default_getUserData_function_type)(  ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&DrawArrayLengths_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( DrawArrayLengths_wrapper::*default_getUserData_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&DrawArrayLengths_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::BufferData::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::BufferData::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&DrawArrayLengths_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("maxSize") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "setName"
+                , setName_function_type(&::osg::Object::setName)
+                , default_setName_function_type(&DrawArrayLengths_wrapper::default_setName)
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "setName"
+                , setName_function_type( &::osg::Object::setName )
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setThreadSafeRefUnref
+        
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "setThreadSafeRefUnref"
+                , setThreadSafeRefUnref_function_type(&::osg::Object::setThreadSafeRefUnref)
+                , default_setThreadSafeRefUnref_function_type(&DrawArrayLengths_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) );
+        
+        }
+        { //::osg::Object::setUserData
+        
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( DrawArrayLengths_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            
+            DrawArrayLengths_exposer.def( 
+                "setUserData"
+                , setUserData_function_type(&::osg::Object::setUserData)
+                , default_setUserData_function_type(&DrawArrayLengths_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::PrimitiveSet::supportsBufferObject
+        
+            typedef bool ( ::osg::PrimitiveSet::*supportsBufferObject_function_type)(  ) const;
+            typedef bool ( DrawArrayLengths_wrapper::*default_supportsBufferObject_function_type)(  ) const;
+            
+            DrawArrayLengths_exposer.def( 
+                "supportsBufferObject"
+                , supportsBufferObject_function_type(&::osg::PrimitiveSet::supportsBufferObject)
+                , default_supportsBufferObject_function_type(&DrawArrayLengths_wrapper::default_supportsBufferObject) );
+        
+        }
+    }
 
 }

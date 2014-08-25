@@ -9,6 +9,13 @@ namespace bp = boost::python;
 
 struct Referenced_wrapper : osg::Referenced, bp::wrapper< osg::Referenced > {
 
+    Referenced_wrapper( )
+    : osg::Referenced( )
+      , bp::wrapper< osg::Referenced >(){
+        // null constructor
+    
+    }
+
     virtual void setThreadSafeRefUnref( bool threadSafe ) {
         if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
             func_setThreadSafeRefUnref( threadSafe );
@@ -26,9 +33,10 @@ struct Referenced_wrapper : osg::Referenced, bp::wrapper< osg::Referenced > {
 void register_Referenced_class(){
 
     { //::osg::Referenced
-        typedef bp::class_< Referenced_wrapper, osg::ref_ptr< ::osg::Referenced >, boost::noncopyable > Referenced_exposer_t;
+        typedef bp::class_< Referenced_wrapper, osg::ref_ptr< ::osg::Referenced > > Referenced_exposer_t;
         Referenced_exposer_t Referenced_exposer = Referenced_exposer_t( "Referenced", bp::no_init );
         bp::scope Referenced_scope( Referenced_exposer );
+        Referenced_exposer.def( bp::init< >() );
         { //::osg::Referenced::addObserver
         
             typedef void ( ::osg::Referenced::*addObserver_function_type)( ::osg::Observer * ) const;

@@ -329,17 +329,6 @@ void register_PagedLOD_class(){
             PerRangeData_exposer_t PerRangeData_exposer = PerRangeData_exposer_t( "PerRangeData", bp::init< >() );
             bp::scope PerRangeData_scope( PerRangeData_exposer );
             PerRangeData_exposer.def( bp::init< osg::PagedLOD::PerRangeData const & >(( bp::arg("prd") )) );
-            { //::osg::PagedLOD::PerRangeData::operator=
-            
-                typedef ::osg::PagedLOD::PerRangeData & ( ::osg::PagedLOD::PerRangeData::*assign_function_type)( ::osg::PagedLOD::PerRangeData const & ) ;
-                
-                PerRangeData_exposer.def( 
-                    "assign"
-                    , assign_function_type( &::osg::PagedLOD::PerRangeData::operator= )
-                    , ( bp::arg("prd") )
-                    , bp::return_self< >() );
-            
-            }
             PerRangeData_exposer.def_readwrite( "_databaseRequest", &osg::PagedLOD::PerRangeData::_databaseRequest );
             PerRangeData_exposer.def_readwrite( "_filename", &osg::PagedLOD::PerRangeData::_filename );
             PerRangeData_exposer.def_readwrite( "_frameNumber", &osg::PagedLOD::PerRangeData::_frameNumber );

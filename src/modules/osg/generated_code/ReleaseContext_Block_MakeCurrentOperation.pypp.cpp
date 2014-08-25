@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "releasecontext_block_makecurrentoperation.pypp.hpp"
 
 namespace bp = boost::python;
@@ -55,7 +56,7 @@ struct ReleaseContext_Block_MakeCurrentOperation_wrapper : osg::ReleaseContext_B
 
 void register_ReleaseContext_Block_MakeCurrentOperation_class(){
 
-    bp::class_< ReleaseContext_Block_MakeCurrentOperation_wrapper, bp::bases< osg::GraphicsOperation, osg::RefBlock >, boost::noncopyable >( "ReleaseContext_Block_MakeCurrentOperation", bp::init< >() )    
+    bp::class_< ReleaseContext_Block_MakeCurrentOperation_wrapper, bp::bases< osg::GraphicsOperation, osg::RefBlock >, osg::ref_ptr< ::osg::ReleaseContext_Block_MakeCurrentOperation >, boost::noncopyable >( "ReleaseContext_Block_MakeCurrentOperation", bp::init< >() )    
         .def( 
             "__call__"
             , (void ( ::osg::ReleaseContext_Block_MakeCurrentOperation::* )( ::osg::GraphicsContext * ))(&::osg::ReleaseContext_Block_MakeCurrentOperation::operator())

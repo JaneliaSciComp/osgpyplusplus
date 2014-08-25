@@ -16,6 +16,13 @@ struct Box_wrapper : osg::Box, bp::wrapper< osg::Box > {
     
     }
 
+    Box_wrapper(::osg::Vec3 const & center, float width )
+    : osg::Box( boost::ref(center), width )
+      , bp::wrapper< osg::Box >(){
+        // constructor
+    
+    }
+
     Box_wrapper(::osg::Vec3 const & center, float lengthX, float lengthY, float lengthZ )
     : osg::Box( boost::ref(center), lengthX, lengthY, lengthZ )
       , bp::wrapper< osg::Box >(){
@@ -197,6 +204,7 @@ void register_Box_class(){
 
     bp::class_< Box_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Box >, boost::noncopyable >( "Box", bp::no_init )    
         .def( bp::init< >() )    
+        .def( bp::init< osg::Vec3 const &, float >(( bp::arg("center"), bp::arg("width") )) )    
         .def( bp::init< osg::Vec3 const &, float, float, float >(( bp::arg("center"), bp::arg("lengthX"), bp::arg("lengthY"), bp::arg("lengthZ") )) )    
         .def( 
             "accept"

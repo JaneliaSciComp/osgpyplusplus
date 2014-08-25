@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "framestamp.pypp.hpp"
 
 namespace bp = boost::python;
@@ -39,7 +40,7 @@ struct FrameStamp_wrapper : osg::FrameStamp, bp::wrapper< osg::FrameStamp > {
 void register_FrameStamp_class(){
 
     { //::osg::FrameStamp
-        typedef bp::class_< FrameStamp_wrapper, bp::bases< osg::Referenced > > FrameStamp_exposer_t;
+        typedef bp::class_< FrameStamp_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::FrameStamp > > FrameStamp_exposer_t;
         FrameStamp_exposer_t FrameStamp_exposer = FrameStamp_exposer_t( "FrameStamp", bp::init< >() );
         bp::scope FrameStamp_scope( FrameStamp_exposer );
         FrameStamp_exposer.def( bp::init< osg::FrameStamp const & >(( bp::arg("fs") )) );
@@ -78,17 +79,6 @@ void register_FrameStamp_class(){
             FrameStamp_exposer.def( 
                 "getSimulationTime"
                 , getSimulationTime_function_type( &::osg::FrameStamp::getSimulationTime ) );
-        
-        }
-        { //::osg::FrameStamp::operator=
-        
-            typedef ::osg::FrameStamp & ( ::osg::FrameStamp::*assign_function_type)( ::osg::FrameStamp const & ) ;
-            
-            FrameStamp_exposer.def( 
-                "assign"
-                , assign_function_type( &::osg::FrameStamp::operator= )
-                , ( bp::arg("fs") )
-                , bp::return_self< >() );
         
         }
         { //::osg::FrameStamp::setCalendarTime

@@ -11,13 +11,6 @@ struct Image_wrapper : osg::Image, bp::wrapper< osg::Image > {
 
     struct DimensionsChangedCallback_wrapper : osg::Image::DimensionsChangedCallback, bp::wrapper< osg::Image::DimensionsChangedCallback > {
     
-        DimensionsChangedCallback_wrapper( )
-        : osg::Image::DimensionsChangedCallback( )
-          , bp::wrapper< osg::Image::DimensionsChangedCallback >(){
-            // null constructor
-        
-        }
-    
         virtual void operator()( ::osg::Image * image ){
             bp::override func___call__ = this->get_override( "__call__" );
             func___call__( boost::python::ptr(image) );
@@ -550,16 +543,33 @@ void register_Image_class(){
             .value("EXTERNAL_FILE", osg::Image::EXTERNAL_FILE)
             .export_values()
             ;
-        bp::class_< osg::Image::DataIterator >( "DataIterator", bp::init< osg::Image const * >(( bp::arg("image") )) )    
-            .def( bp::init< osg::Image::DataIterator const & >(( bp::arg("ri") )) )    
-            .def( 
-                "size"
-                , (unsigned int ( ::osg::Image::DataIterator::* )(  )const)( &::osg::Image::DataIterator::size ) )    
-            .def( 
-                "valid"
-                , (bool ( ::osg::Image::DataIterator::* )(  )const)( &::osg::Image::DataIterator::valid ) )    
-            .def("increment", &wrap_increment_DataIterator);
-        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "DimensionsChangedCallback", bp::init< >() )    
+        { //::osg::Image::DataIterator
+            typedef bp::class_< osg::Image::DataIterator > DataIterator_exposer_t;
+            DataIterator_exposer_t DataIterator_exposer = DataIterator_exposer_t( "DataIterator", bp::init< osg::Image const * >(( bp::arg("image") )) );
+            bp::scope DataIterator_scope( DataIterator_exposer );
+            bp::implicitly_convertible< osg::Image const *, osg::Image::DataIterator >();
+            DataIterator_exposer.def( bp::init< osg::Image::DataIterator const & >(( bp::arg("ri") )) );
+            { //::osg::Image::DataIterator::size
+            
+                typedef unsigned int ( ::osg::Image::DataIterator::*size_function_type)(  ) const;
+                
+                DataIterator_exposer.def( 
+                    "size"
+                    , size_function_type( &::osg::Image::DataIterator::size ) );
+            
+            }
+            { //::osg::Image::DataIterator::valid
+            
+                typedef bool ( ::osg::Image::DataIterator::*valid_function_type)(  ) const;
+                
+                DataIterator_exposer.def( 
+                    "valid"
+                    , valid_function_type( &::osg::Image::DataIterator::valid ) );
+            
+            }
+            DataIterator_exposer.def("increment", &wrap_increment_DataIterator);
+        }
+        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Image::DimensionsChangedCallback >, boost::noncopyable >( "DimensionsChangedCallback", bp::no_init )    
             .def( 
                 "__call__"
                 , bp::pure_virtual( (void ( ::osg::Image::DimensionsChangedCallback::* )( ::osg::Image * ))(&::osg::Image::DimensionsChangedCallback::operator()) )
@@ -569,7 +579,7 @@ void register_Image_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Image_wrapper::DimensionsChangedCallback_wrapper::* )( bool ))(&Image_wrapper::DimensionsChangedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< Image_wrapper::UpdateCallback_wrapper, boost::noncopyable >( "UpdateCallback" )    
+        bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< ::osg::Image::UpdateCallback >, boost::noncopyable >( "UpdateCallback" )    
             .def( 
                 "__call__"
                 , (void ( ::osg::Image::UpdateCallback::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ))(&::osg::Image::UpdateCallback::operator())

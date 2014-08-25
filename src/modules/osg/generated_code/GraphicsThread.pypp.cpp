@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "graphicsthread.pypp.hpp"
 
 namespace bp = boost::python;
@@ -67,7 +68,7 @@ struct GraphicsThread_wrapper : osg::GraphicsThread, bp::wrapper< osg::GraphicsT
 
 void register_GraphicsThread_class(){
 
-    bp::class_< GraphicsThread_wrapper, bp::bases< osg::OperationThread >, boost::noncopyable >( "GraphicsThread", bp::init< >() )    
+    bp::class_< GraphicsThread_wrapper, bp::bases< osg::OperationThread >, osg::ref_ptr< ::osg::GraphicsThread >, boost::noncopyable >( "GraphicsThread", bp::init< >() )    
         .def( 
             "run"
             , (void ( ::osg::GraphicsThread::* )(  ))(&::osg::GraphicsThread::run)

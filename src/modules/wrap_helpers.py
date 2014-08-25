@@ -6,6 +6,26 @@ from pygccxml.declarations import cpptypes
 from pyplusplus.module_builder.call_policies import *
 import re
 
+
+class DerivedClasses(set):
+    def __init__(self, base_class):
+        set.__init__(self)
+        self.base_class = base_class
+
+    def include_module(self, module):
+        for cls in module.classes(allow_empty=True):
+            self.walk_bases(cls, cls)
+
+    def walk_bases(self, cls, base_class):
+        if cls in self:
+            return
+        if base_class == self.base_class:
+            self.add(cls)
+            # print cls.alias
+        for base in base_class.bases:
+            self.walk_bases(cls, base.related_class)
+
+
 class BaseWrapper:
     def __init__(self, files):
         self.mb = module_builder.module_builder_t(
@@ -15,6 +35,22 @@ class BaseWrapper:
             define_symbols=["BOOST_PYTHON_MAX_ARITY=18"],
         )
         self.mb.BOOST_PYTHON_MAX_ARITY = 18 # Prevents warnings on 10-18 argument methods
+
+    def wrap_all_osg_referenced(self, namespace):
+        # Identify all classes derived from osg::Referenced, 
+        # and set their boost::python held_type to "osg::ref_ptr<class>"
+        osg = self.mb.namespace("osg")
+        referenced = osg.class_("Referenced")
+        referenced_derived = DerivedClasses(referenced)
+        referenced_derived.include_module(namespace)
+        copyop = osg.class_("CopyOp")
+        # We are interested in constructors that take an argument of type "const osg::CopyOp&""
+        copyop_arg_t = declarations.reference_t(declarations.const_t(declarations.declarated_t(copyop)))
+        for cls in referenced_derived:
+            expose_ref_ptr_class(cls)
+            for ctor in cls.constructors(arg_types=[None, copyop_arg_t], allow_empty=True):
+                    ctor.exclude()
+
 
 def expose_increment_operators(mb):
     "Wrap C++ operator++() and operator()-- methods as python incr() and decr() methods"
@@ -49,6 +85,12 @@ def expose_ref_ptr_class(cls):
     # cls.held_type = 'osg::ref_ptr< %s >' % wrapper_decl_string # TODO wrapper class? or regular osg class in ref_ptr?
     cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string
     cls.include_files.append('wrap_referenced.h')
+    cls.member_operators("operator=", allow_empty=True).exclude()
+    if cls.is_abstract:
+        # print cls.alias
+        cls.noncopyable = True
+        cls.no_init = True
+        cls.constructors().exclude()
     
 def hide_nonpublic(mb):
     for fn in mb.member_functions(lambda f: f.access_type != declarations.ACCESS_TYPES.PUBLIC):

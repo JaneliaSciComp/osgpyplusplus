@@ -155,7 +155,7 @@ void register_CullSettings_class(){
             .value("ALL_VARIABLES", osg::CullSettings::ALL_VARIABLES)
             .export_values()
             ;
-        bp::class_< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper, bp::bases< osg::Referenced >, boost::noncopyable >( "ClampProjectionMatrixCallback" )    
+        bp::class_< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::CullSettings::ClampProjectionMatrixCallback >, boost::noncopyable >( "ClampProjectionMatrixCallback", bp::no_init )    
             .def( 
                 "clampProjectionMatrixImplementation"
                 , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixf &,double &,double & )const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )

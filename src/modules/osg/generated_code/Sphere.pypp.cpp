@@ -16,6 +16,13 @@ struct Sphere_wrapper : osg::Sphere, bp::wrapper< osg::Sphere > {
     
     }
 
+    Sphere_wrapper(::osg::Vec3 const & center, float radius )
+    : osg::Sphere( boost::ref(center), radius )
+      , bp::wrapper< osg::Sphere >(){
+        // constructor
+    
+    }
+
     virtual void accept( ::osg::ShapeVisitor & sv ) {
         if( bp::override func_accept = this->get_override( "accept" ) )
             func_accept( boost::ref(sv) );
@@ -190,6 +197,7 @@ void register_Sphere_class(){
 
     bp::class_< Sphere_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Sphere >, boost::noncopyable >( "Sphere", bp::no_init )    
         .def( bp::init< >() )    
+        .def( bp::init< osg::Vec3 const &, float >(( bp::arg("center"), bp::arg("radius") )) )    
         .def( 
             "accept"
             , (void ( ::osg::Sphere::* )( ::osg::ShapeVisitor & ))(&::osg::Sphere::accept)

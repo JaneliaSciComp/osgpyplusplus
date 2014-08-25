@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "operationthread.pypp.hpp"
 
 namespace bp = boost::python;
@@ -67,7 +68,7 @@ struct OperationThread_wrapper : osg::OperationThread, bp::wrapper< osg::Operati
 
 void register_OperationThread_class(){
 
-    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, boost::noncopyable >( "OperationThread", bp::no_init )    
+    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, osg::ref_ptr< ::osg::OperationThread >, boost::noncopyable >( "OperationThread", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "add"

@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "wrap_referenced.h"
 #include "graphicsoperation.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct GraphicsOperation_wrapper : osg::GraphicsOperation, bp::wrapper< osg::GraphicsOperation > {
-
-    GraphicsOperation_wrapper(::std::string const & name, bool keep )
-    : osg::GraphicsOperation( name, keep )
-      , bp::wrapper< osg::GraphicsOperation >(){
-        // constructor
-    
-    }
 
     virtual void operator()( ::osg::Object * object ) {
         if( bp::override func___call__ = this->get_override( "__call__" ) )
@@ -60,7 +54,7 @@ struct GraphicsOperation_wrapper : osg::GraphicsOperation, bp::wrapper< osg::Gra
 
 void register_GraphicsOperation_class(){
 
-    bp::class_< GraphicsOperation_wrapper, bp::bases< osg::Operation >, boost::noncopyable >( "GraphicsOperation", bp::init< std::string const &, bool >(( bp::arg("name"), bp::arg("keep") )) )    
+    bp::class_< GraphicsOperation_wrapper, bp::bases< osg::Operation >, osg::ref_ptr< ::osg::GraphicsOperation >, boost::noncopyable >( "GraphicsOperation", bp::no_init )    
         .def( 
             "__call__"
             , (void ( ::osg::GraphicsOperation::* )( ::osg::Object * ))(&::osg::GraphicsOperation::operator())

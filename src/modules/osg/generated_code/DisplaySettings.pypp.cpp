@@ -74,7 +74,7 @@ struct DisplaySettings_wrapper : osg::DisplaySettings, bp::wrapper< osg::Display
 void register_DisplaySettings_class(){
 
     { //::osg::DisplaySettings
-        typedef bp::class_< DisplaySettings_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::DisplaySettings >, boost::noncopyable > DisplaySettings_exposer_t;
+        typedef bp::class_< DisplaySettings_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::DisplaySettings > > DisplaySettings_exposer_t;
         DisplaySettings_exposer_t DisplaySettings_exposer = DisplaySettings_exposer_t( "DisplaySettings", bp::no_init );
         bp::scope DisplaySettings_scope( DisplaySettings_exposer );
         bp::enum_< osg::DisplaySettings::DisplayType>("DisplayType")
