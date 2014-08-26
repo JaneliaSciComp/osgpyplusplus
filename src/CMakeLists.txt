@@ -1,4 +1,3 @@
-set(STAGING_FOLDER "${PROJECT_BINARY_DIR}/stage")
 # Copy python source modules to staging area
 file(COPY osgpyplusplus 
     DESTINATION ${STAGING_FOLDER})

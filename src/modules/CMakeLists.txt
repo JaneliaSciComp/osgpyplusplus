@@ -111,3 +111,7 @@ add_subdirectory(osgDB)
 add_subdirectory(osgGA)
 add_subdirectory(osgUtil)
 add_subdirectory(osgViewer)
+
+# InstallOsgPyPPLocally is used as a prerequisite for unit tests
+add_custom_target(InstallOsgPyPPLocally DEPENDS 
+    osg osgDB osgGA osgUtil osgViewer)
