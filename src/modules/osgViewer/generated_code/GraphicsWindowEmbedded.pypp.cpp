@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "graphicswindowembedded.pypp.hpp"
 
 namespace bp = boost::python;
@@ -202,6 +203,18 @@ struct GraphicsWindowEmbedded_wrapper : osgViewer::GraphicsWindowEmbedded, bp::w
         return osgViewer::GraphicsWindow::checkEvents( );
     }
 
+    virtual void clear(  ) {
+        if( bp::override func_clear = this->get_override( "clear" ) )
+            func_clear(  );
+        else{
+            this->osg::GraphicsContext::clear(  );
+        }
+    }
+    
+    void default_clear(  ) {
+        osg::GraphicsContext::clear( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -334,6 +347,30 @@ struct GraphicsWindowEmbedded_wrapper : osgViewer::GraphicsWindowEmbedded, bp::w
         osg::Object::resizeGLObjectBuffers( arg0 );
     }
 
+    virtual void resizedImplementation( int x, int y, int width, int height ) {
+        if( bp::override func_resizedImplementation = this->get_override( "resizedImplementation" ) )
+            func_resizedImplementation( x, y, width, height );
+        else{
+            this->osg::GraphicsContext::resizedImplementation( x, y, width, height );
+        }
+    }
+    
+    void default_resizedImplementation( int x, int y, int width, int height ) {
+        osg::GraphicsContext::resizedImplementation( x, y, width, height );
+    }
+
+    virtual void runOperations(  ) {
+        if( bp::override func_runOperations = this->get_override( "runOperations" ) )
+            func_runOperations(  );
+        else{
+            this->osg::GraphicsContext::runOperations(  );
+        }
+    }
+    
+    void default_runOperations(  ) {
+        osg::GraphicsContext::runOperations( );
+    }
+
     virtual void setCursor( ::osgViewer::GraphicsWindow::MouseCursor arg0 ) {
         if( bp::override func_setCursor = this->get_override( "setCursor" ) )
             func_setCursor( arg0 );
@@ -459,7 +496,7 @@ struct GraphicsWindowEmbedded_wrapper : osgViewer::GraphicsWindowEmbedded, bp::w
 void register_GraphicsWindowEmbedded_class(){
 
     { //::osgViewer::GraphicsWindowEmbedded
-        typedef bp::class_< GraphicsWindowEmbedded_wrapper, bp::bases< osgViewer::GraphicsWindow >, boost::noncopyable > GraphicsWindowEmbedded_exposer_t;
+        typedef bp::class_< GraphicsWindowEmbedded_wrapper, bp::bases< osgViewer::GraphicsWindow >, osg::ref_ptr< ::osgViewer::GraphicsWindowEmbedded >, boost::noncopyable > GraphicsWindowEmbedded_exposer_t;
         GraphicsWindowEmbedded_exposer_t GraphicsWindowEmbedded_exposer = GraphicsWindowEmbedded_exposer_t( "GraphicsWindowEmbedded", bp::init< bp::optional< osg::GraphicsContext::Traits * > >(( bp::arg("traits")=bp::object() )) );
         bp::scope GraphicsWindowEmbedded_scope( GraphicsWindowEmbedded_exposer );
         bp::implicitly_convertible< osg::GraphicsContext::Traits *, osgViewer::GraphicsWindowEmbedded >();

@@ -9,6 +9,29 @@ namespace bp = boost::python;
 
 struct ScreenCaptureHandler_wrapper : osgViewer::ScreenCaptureHandler, bp::wrapper< osgViewer::ScreenCaptureHandler > {
 
+    struct CaptureOperation_wrapper : osgViewer::ScreenCaptureHandler::CaptureOperation, bp::wrapper< osgViewer::ScreenCaptureHandler::CaptureOperation > {
+    
+        CaptureOperation_wrapper()
+        : osgViewer::ScreenCaptureHandler::CaptureOperation()
+          , bp::wrapper< osgViewer::ScreenCaptureHandler::CaptureOperation >(){
+            // null constructor
+            
+        }
+    
+        virtual void setThreadSafeRefUnref( bool threadSafe ) {
+            if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+                func_setThreadSafeRefUnref( threadSafe );
+            else{
+                this->osg::Referenced::setThreadSafeRefUnref( threadSafe );
+            }
+        }
+        
+        void default_setThreadSafeRefUnref( bool threadSafe ) {
+            osg::Referenced::setThreadSafeRefUnref( threadSafe );
+        }
+    
+    };
+
     struct WriteToFile_wrapper : osgViewer::ScreenCaptureHandler::WriteToFile, bp::wrapper< osgViewer::ScreenCaptureHandler::WriteToFile > {
     
         WriteToFile_wrapper(::std::string const & filename, ::std::string const & extension, ::osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy savePolicy=::osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER )
@@ -155,8 +178,9 @@ void register_ScreenCaptureHandler_class(){
         typedef bp::class_< ScreenCaptureHandler_wrapper, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler >, boost::noncopyable > ScreenCaptureHandler_exposer_t;
         ScreenCaptureHandler_exposer_t ScreenCaptureHandler_exposer = ScreenCaptureHandler_exposer_t( "ScreenCaptureHandler", bp::init< bp::optional< osgViewer::ScreenCaptureHandler::CaptureOperation *, int > >(( bp::arg("defaultOperation")=bp::object(), bp::arg("numFrames")=(int)(1) )) );
         bp::scope ScreenCaptureHandler_scope( ScreenCaptureHandler_exposer );
+        bp::class_< ScreenCaptureHandler_wrapper::CaptureOperation_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler::CaptureOperation >, boost::noncopyable >( "CaptureOperation", bp::no_init );
         { //::osgViewer::ScreenCaptureHandler::WriteToFile
-            typedef bp::class_< ScreenCaptureHandler_wrapper::WriteToFile_wrapper, boost::noncopyable > WriteToFile_exposer_t;
+            typedef bp::class_< ScreenCaptureHandler_wrapper::WriteToFile_wrapper, bp::bases< osgViewer::ScreenCaptureHandler::CaptureOperation >, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler::WriteToFile >, boost::noncopyable > WriteToFile_exposer_t;
             WriteToFile_exposer_t WriteToFile_exposer = WriteToFile_exposer_t( "WriteToFile", bp::init< std::string const &, std::string const &, bp::optional< osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy > >(( bp::arg("filename"), bp::arg("extension"), bp::arg("savePolicy")=(long)(::osgViewer::ScreenCaptureHandler::WriteToFile::SEQUENTIAL_NUMBER) )) );
             bp::scope WriteToFile_scope( WriteToFile_exposer );
             bp::enum_< osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy>("SavePolicy")

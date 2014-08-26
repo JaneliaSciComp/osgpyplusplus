@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "filelocationcallback.pypp.hpp"
 
 namespace bp = boost::python;
@@ -42,7 +43,7 @@ struct FileLocationCallback_wrapper : osgDB::FileLocationCallback, bp::wrapper< 
 void register_FileLocationCallback_class(){
 
     { //::osgDB::FileLocationCallback
-        typedef bp::class_< FileLocationCallback_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable > FileLocationCallback_exposer_t;
+        typedef bp::class_< FileLocationCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::FileLocationCallback >, boost::noncopyable > FileLocationCallback_exposer_t;
         FileLocationCallback_exposer_t FileLocationCallback_exposer = FileLocationCallback_exposer_t( "FileLocationCallback", bp::no_init );
         bp::scope FileLocationCallback_scope( FileLocationCallback_exposer );
         bp::enum_< osgDB::FileLocationCallback::Location>("Location")

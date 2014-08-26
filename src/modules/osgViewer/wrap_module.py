@@ -9,17 +9,14 @@ import re
 sys.path.append("..")
 from wrap_helpers import *
 
-class OsgViewerWrapper:
+
+class OsgViewerWrapper(BaseWrapper):
     "Class that knows how to generate code for osgViewer python module"
     def __init__(self):
-        self.mb = module_builder.module_builder_t(
-            files = ["wrap_osgViewer.h",],
-            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
-            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",])
+        BaseWrapper.__init__(self, files=["wrap_osgViewer.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
-        self.mb.register_module_dependency('../osg/generated_code/')
-        self.mb.register_module_dependency('../osgGA/generated_code/')
+        self.mb.register_module_dependency('../osgUtil/generated_code/')
             
     def wrap(self):
         mb = self.mb
@@ -29,22 +26,12 @@ class OsgViewerWrapper:
         osgViewer.include()
 
         mb.free_functions(lambda f: f.name.startswith("osgViewer")).include()
-        
-        # osgViewer.classes().exclude() # TODO - wrap more classes
 
         wrap_call_policies(self.mb)
 
-        # Use ref_ptr<> held-type for classes derived from osg::Referenced
-        for cls_name in ["ViewerBase", 
-                "Viewer", 
-                "View", 
-                "Keystone", 
-                "ViewConfig", 
-                "CompositeViewer",]:
-            cls = self.mb.namespace("osgViewer").class_(cls_name)
-            expose_ref_ptr_class(cls)
+        self.wrap_all_osg_referenced(osgViewer)
+
         for cls in mb.classes(lambda c: c.name.endswith("Handler")):
-            expose_ref_ptr_class(cls)
             cls.member_functions("handle", allow_empty=True).exclude()
             cls.noncopyable = True
             
@@ -64,7 +51,7 @@ class OsgViewerWrapper:
         cls = self.mb.class_("ScreenCaptureHandler")
         cls.member_operators("operator()").exclude()
         co = cls.class_("CaptureOperation")
-        co.exclude()
+        # co.exclude()
         
     def wrap_keystone(self):
         ks = self.mb.class_("Keystone")

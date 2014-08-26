@@ -27,6 +27,7 @@ class DerivedClasses(set):
 
 
 class BaseWrapper:
+    "Base class for each OSG module wrapper"
     def __init__(self, files):
         self.mb = module_builder.module_builder_t(
             files = files,
@@ -48,8 +49,9 @@ class BaseWrapper:
         copyop_arg_t = declarations.reference_t(declarations.const_t(declarations.declarated_t(copyop)))
         for cls in referenced_derived:
             expose_ref_ptr_class(cls)
+            # These copy constructors consistently cause trouble
             for ctor in cls.constructors(arg_types=[None, copyop_arg_t], allow_empty=True):
-                    ctor.exclude()
+                ctor.exclude()
 
 
 def expose_increment_operators(mb):

@@ -70,17 +70,6 @@ void register_PointerData_class(){
                 , getYnormalized_function_type( &::osgGA::PointerData::getYnormalized ) );
         
         }
-        { //::osgGA::PointerData::operator=
-        
-            typedef ::osgGA::PointerData & ( ::osgGA::PointerData::*assign_function_type)( ::osgGA::PointerData const & ) ;
-            
-            PointerData_exposer.def( 
-                "assign"
-                , assign_function_type( &::osgGA::PointerData::operator= )
-                , ( bp::arg("pd") )
-                , bp::return_self< >() );
-        
-        }
         PointerData_exposer.def_readwrite( "object", &osgGA::PointerData::object );
         PointerData_exposer.def_readwrite( "x", &osgGA::PointerData::x );
         PointerData_exposer.def_readwrite( "xMax", &osgGA::PointerData::xMax );

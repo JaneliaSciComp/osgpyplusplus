@@ -446,7 +446,7 @@ void register_CameraManipulator_class(){
         typedef bp::class_< CameraManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< ::osgGA::CameraManipulator >, boost::noncopyable > CameraManipulator_exposer_t;
         CameraManipulator_exposer_t CameraManipulator_exposer = CameraManipulator_exposer_t( "CameraManipulator", bp::no_init );
         bp::scope CameraManipulator_scope( CameraManipulator_exposer );
-        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "CoordinateFrameCallback", bp::no_init )    
+        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::CameraManipulator::CoordinateFrameCallback >, boost::noncopyable >( "CoordinateFrameCallback", bp::no_init )    
             .def( 
                 "getCoordinateFrame"
                 , bp::pure_virtual( (::osg::CoordinateFrame ( ::osgGA::CameraManipulator::CoordinateFrameCallback::* )( ::osg::Vec3d const & )const)(&::osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame) )

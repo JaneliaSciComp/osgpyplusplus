@@ -23,48 +23,15 @@ class OsgDBWrapper(BaseWrapper):
         osgDB = mb.namespace("osgDB")
         osgDB.include()
 
-        # osgDB.classes().exclude() # TODO - wrap more classes
+        # Wrap methods that begin with "osg", even if not in osg namespace
+        mb.free_functions(lambda f: f.name.startswith('osgDB')).include()
         
-        # osgDB.free_functions().exclude()
-
         wrap_call_policies(self.mb)
-
-        for cls_name in [
-                "DatabaseRevision",
-                "DatabaseRevisions",
-                "DeprecatedDotOsgWrapperManager",
-                "FileCache",
-                "FileList",
-                "ImageProcessor",
-                "ObjectWrapper",
-                "Options",
-                "ReaderWriter",
-                "Registry",
-                "WriteFileCallback",
-                ]:
-            expose_ref_ptr_class(osgDB.class_(cls_name))
-
-        for cls_name in [
-                "DatabaseRevision",
-                "FileList",
-                ]:
-            osgDB.class_(cls_name).constructors().allow_implicit_conversion = False
-
-        # Abstract classes with virtual destructors cannot be copied
-        # Avoids compile error "error C2259: '' : cannot instantiate abstract class"
-        for cls_name in [
-                "BaseSerializer",
-                "InputIterator",
-                "OutputIterator",
-                ]:
-            cls = osgDB.class_(cls_name)
-            cls.noncopyable = True
-            cls.no_init = True
-            cls.member_operators("operator=", allow_empty=True).exclude()
-            cls.constructors().exclude()
 
         hide_nonpublic(self.mb)
         
+        self.wrap_all_osg_referenced(osgDB)
+
         self.wrap_options()
         self.wrap_input()
         self.wrap_imagepager()
@@ -75,9 +42,6 @@ class OsgDBWrapper(BaseWrapper):
         osgDB.class_("ObjectWrapper").member_function("write").exclude()
         osgDB.class_("Field").member_function("takeStr").exclude()
 
-        # Wrap methods that begin with "osg", even if not in osg namespace
-        mb.free_functions(lambda f: f.name.startswith('osgDB')).include()
-        
         for fn_name in [
                 "getDataFilePathList",
                 "getLibraryFilePathList",
@@ -103,6 +67,7 @@ class OsgDBWrapper(BaseWrapper):
                 "FileList",
                 "ReaderWriter",
                 "Registry",
+                "SharedStateManager",
                 "WriteFileCallback",
                 ]:
             osgDB.classes(cls_name).exclude()

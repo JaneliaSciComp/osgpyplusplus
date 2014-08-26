@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "readfilecallback.pypp.hpp"
 
 namespace bp = boost::python;
@@ -103,7 +104,7 @@ struct ReadFileCallback_wrapper : osgDB::ReadFileCallback, bp::wrapper< osgDB::R
 
 void register_ReadFileCallback_class(){
 
-    bp::class_< ReadFileCallback_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "ReadFileCallback", bp::no_init )    
+    bp::class_< ReadFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ReadFileCallback >, boost::noncopyable >( "ReadFileCallback", bp::no_init )    
         .def( 
             "openArchive"
             , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::openArchive)

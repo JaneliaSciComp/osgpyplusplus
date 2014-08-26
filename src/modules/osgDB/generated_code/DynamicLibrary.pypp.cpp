@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "dynamiclibrary.pypp.hpp"
 
 namespace bp = boost::python;
@@ -24,7 +25,7 @@ struct DynamicLibrary_wrapper : osgDB::DynamicLibrary, bp::wrapper< osgDB::Dynam
 
 void register_DynamicLibrary_class(){
 
-    bp::class_< DynamicLibrary_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "DynamicLibrary", bp::no_init )    
+    bp::class_< DynamicLibrary_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::DynamicLibrary >, boost::noncopyable >( "DynamicLibrary", bp::no_init )    
         .def( 
             "getFullName"
             , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getFullName )

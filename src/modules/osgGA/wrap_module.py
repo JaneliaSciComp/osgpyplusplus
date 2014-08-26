@@ -14,7 +14,6 @@ class OsgGAWrapper(BaseWrapper):
         BaseWrapper.__init__(self, files=["wrap_osgGA.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
-        self.mb.register_module_dependency('../osg/generated_code/')
         self.mb.register_module_dependency('../osgDB/generated_code/')
             
     def wrap(self):
@@ -27,25 +26,11 @@ class OsgGAWrapper(BaseWrapper):
         # Wrap methods that begin with "osg", even if not in osg namespace
         mb.free_functions(lambda f: f.name.startswith('osgGA')).include()
         
-        wrap_call_policies(self.mb)
         hide_nonpublic(mb)
 
-        for cls_name in [
-                "CameraManipulator",
-                "Device",
-                "GUIEventAdapter", 
-                "GUIEventHandler",
-                "PointerData", 
-                ]:
-            expose_ref_ptr_class(mb.class_(cls_name))
-            
+        wrap_call_policies(self.mb)
 
-        for cls_name in [
-                "Device",
-                ]:
-            ctor = mb.class_(cls_name).constructors(arg_types=[None, None])
-            ctor.exclude()
-            # ctor.add_transformation(FT.modify_type(1, remove_const_from_reference))
+        self.wrap_all_osg_referenced(osgGA)
 
         self.wrap_guieventadapter()
         self.wrap_cameramanipulator()

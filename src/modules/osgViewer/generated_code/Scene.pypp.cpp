@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "scene.pypp.hpp"
 
 namespace bp = boost::python;
@@ -36,7 +37,7 @@ struct Scene_wrapper : osgViewer::Scene, bp::wrapper< osgViewer::Scene > {
 
 void register_Scene_class(){
 
-    bp::class_< Scene_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "Scene", bp::no_init )    
+    bp::class_< Scene_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::Scene >, boost::noncopyable >( "Scene", bp::no_init )    
         .def( 
             "className"
             , (char const * ( ::osgViewer::Scene::* )(  )const)(&::osgViewer::Scene::className)

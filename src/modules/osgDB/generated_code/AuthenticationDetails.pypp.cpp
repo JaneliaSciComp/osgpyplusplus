@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "authenticationdetails.pypp.hpp"
 
 namespace bp = boost::python;
@@ -32,7 +33,7 @@ struct AuthenticationDetails_wrapper : osgDB::AuthenticationDetails, bp::wrapper
 void register_AuthenticationDetails_class(){
 
     { //::osgDB::AuthenticationDetails
-        typedef bp::class_< AuthenticationDetails_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable > AuthenticationDetails_exposer_t;
+        typedef bp::class_< AuthenticationDetails_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::AuthenticationDetails >, boost::noncopyable > AuthenticationDetails_exposer_t;
         AuthenticationDetails_exposer_t AuthenticationDetails_exposer = AuthenticationDetails_exposer_t( "AuthenticationDetails", bp::no_init );
         bp::scope AuthenticationDetails_scope( AuthenticationDetails_exposer );
         bp::enum_< osgDB::AuthenticationDetails::HttpAuthentication>("HttpAuthentication")

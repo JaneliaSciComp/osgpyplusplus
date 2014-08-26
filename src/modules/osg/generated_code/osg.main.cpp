@@ -20,6 +20,10 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activevarinfomap.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpath.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpathcallback.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/array.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraydispatchers.pypp.hpp"
@@ -72,11 +76,19 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camerarenderordersortop.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameraview.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/capsule.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clampedlinearcostfunction1d.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clearnode.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipnode.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplane.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplanelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormask.pypp.hpp"
 
@@ -91,6 +103,12 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/constvaluevisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexhull.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanaroccluder.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanarpolygon.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/coordinatesystemnode.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/copyop.pypp.hpp"
 
@@ -120,6 +138,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/elapsedtime.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ellipsoidmodel.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/endofdynamicdrawblock.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/flushdeletedglobjectsoperation.pypp.hpp"
@@ -136,6 +156,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/glbufferobjects.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscontext.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscostestimator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicsoperation.pypp.hpp"
@@ -146,11 +168,15 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/heightfield.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/holelist.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/image.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/infiniteplane.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/light.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightsource.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lod.pypp.hpp"
 
@@ -176,6 +202,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodeacceptop.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodevisitor.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/object.pypp.hpp"
@@ -183,6 +211,10 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occludernode.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occlusionquerynode.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operation.pypp.hpp"
 
@@ -202,6 +234,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polytope.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/positionattitudetransform.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitivefunctor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiveindexfunctor.pypp.hpp"
@@ -214,9 +248,13 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/programcostestimator.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/projection.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/proxynode.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/querygeometry.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/rangelist.pypp.hpp"
 
@@ -237,6 +275,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/runoperations.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scopedlock_less__openthreads_scope_mutex__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sequence.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadercomposer.pypp.hpp"
 
@@ -264,6 +304,16 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/swapbuffersoperation.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/switch.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/testresult.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgen.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgennode.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureattributelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturecostestimator.pypp.hpp"
@@ -274,7 +324,11 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/thread.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timecontrolpointmap.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transform.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglemesh.pypp.hpp"
 
@@ -338,11 +392,19 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4us.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__bool__greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__const_osg_scope_shader_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__double__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__float__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_drawelements_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_scope_screensettings__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_matrixd__greater_.pypp.hpp"
 
@@ -399,6 +461,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_vector_less__osg_scope_ref_ptr_less_osg_scope_Drawable_greater___greater__class();
 
+    register_ClipPlaneList_class();
+
     register_ArrayList_class();
 
     register_vector_less__osg_scope_Vec3f__greater__class();
@@ -419,11 +483,21 @@ BOOST_PYTHON_MODULE(osg){
 
     register_vector_less__osg_scope_Matrixd__greater__class();
 
+    register_vector_less__osg_scope_GraphicsContext_scope_ScreenSettings__greater__class();
+
+    register_vector_less__osg_scope_GraphicsContext_ptr___greater__class();
+
     register_vector_less__osg_scope_DrawElements_ptr___greater__class();
+
+    register_HoleList_class();
 
     register_vector_less__float__greater__class();
 
+    register_vector_less__double__greater__class();
+
     register_vector_less__const_osg_scope_Shader_ptr___greater__class();
+
+    register_vector_less__bool__greater__class();
 
     register_map_less__unsigned_int_comma__unsigned_int__greater__class();
 
@@ -442,6 +516,8 @@ BOOST_PYTHON_MODULE(osg){
     register_longClassName1_class();
 
     register_BufferAttachmentMap_class();
+
+    register_TimeControlPointMap_class();
 
     register_Atomic_class();
 
@@ -472,6 +548,10 @@ BOOST_PYTHON_MODULE(osg){
     register_State_class();
 
     register_Object_class();
+
+    register_AnimationPath_class();
+
+    register_AnimationPathCallback_class();
 
     register_BufferData_class();
 
@@ -511,17 +591,25 @@ BOOST_PYTHON_MODULE(osg){
 
     register_CullSettings_class();
 
+    register_Group_class();
+
+    register_Transform_class();
+
     register_Camera_class();
 
     register_CameraRenderOrderSortOp_class();
+
+    register_CameraView_class();
 
     register_Capsule_class();
 
     register_ClampedLinearCostFunction1D_class();
 
-    register_Group_class();
-
     register_ClearNode_class();
+
+    register_ClipNode_class();
+
+    register_ClipPlane_class();
 
     register_ColorMask_class();
 
@@ -536,6 +624,12 @@ BOOST_PYTHON_MODULE(osg){
     register_TriangleMesh_class();
 
     register_ConvexHull_class();
+
+    register_ConvexPlanarOccluder_class();
+
+    register_ConvexPlanarPolygon_class();
+
+    register_CoordinateSystemNode_class();
 
     register_Cylinder_class();
 
@@ -567,6 +661,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_ElapsedTime_class();
 
+    register_EllipsoidModel_class();
+
     register_EndOfDynamicDrawBlock_class();
 
     register_FlushDeletedGLObjectsOperation_class();
@@ -578,6 +674,8 @@ BOOST_PYTHON_MODULE(osg){
     register_Geometry_class();
 
     register_GeometryCostEstimator_class();
+
+    register_GraphicsContext_class();
 
     register_GraphicsCostEstimator_class();
 
@@ -597,6 +695,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_Light_class();
 
+    register_LightSource_class();
+
     register_MatrixTransform_class();
 
     register_Matrixd_class();
@@ -605,15 +705,23 @@ BOOST_PYTHON_MODULE(osg){
 
     register_NodeAcceptOp_class();
 
+    register_NodeVisitor_class();
+
     register_NotifyHandler_class();
 
     register_ObserverSet_class();
+
+    register_OccluderNode_class();
+
+    register_OcclusionQueryNode_class();
 
     register_OperationQueue_class();
 
     register_PagedLOD_class();
 
     register_Polytope_class();
+
+    register_PositionAttitudeTransform_class();
 
     register_PrimitiveFunctor_class();
 
@@ -623,9 +731,13 @@ BOOST_PYTHON_MODULE(osg){
 
     register_ProgramCostEstimator_class();
 
+    register_Projection_class();
+
     register_ProxyNode_class();
 
     register_Quat_class();
+
+    register_QueryGeometry_class();
 
     register_RefBlock_class();
 
@@ -640,6 +752,8 @@ BOOST_PYTHON_MODULE(osg){
     register_RenderInfo_class();
 
     register_RunOperations_class();
+
+    register_Sequence_class();
 
     register_ShaderComposer_class();
 
@@ -656,6 +770,16 @@ BOOST_PYTHON_MODULE(osg){
     register_Stats_class();
 
     register_SwapBuffersOperation_class();
+
+    register_Switch_class();
+
+    register_TestResult_class();
+
+    register_TexGen_class();
+
+    register_TexGenNode_class();
+
+    register_Texture_class();
 
     register_TextureCostEstimator_class();
 

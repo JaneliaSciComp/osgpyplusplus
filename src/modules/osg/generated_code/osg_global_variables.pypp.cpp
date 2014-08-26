@@ -20,6 +20,10 @@ void register_global_variables(){
 
     bp::scope().attr("UNINITIALIZED_FRAME_NUMBER") = osg::UNINITIALIZED_FRAME_NUMBER;
 
+    bp::scope().attr("WGS_84_RADIUS_EQUATOR") = osg::WGS_84_RADIUS_EQUATOR;
+
+    bp::scope().attr("WGS_84_RADIUS_POLAR") = osg::WGS_84_RADIUS_POLAR;
+
     bp::scope().attr("X_AXIS") = osg::X_AXIS;
 
     bp::scope().attr("Y_AXIS") = osg::Y_AXIS;

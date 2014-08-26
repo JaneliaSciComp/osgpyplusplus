@@ -1,4 +1,4 @@
-set(MODULE_OTHER_SRCS "")
+set(MODULE_OTHER_SRCS "wrap_osg.h")
 OSGPYPP_WRAP_MODULE(osg)
 
 find_library(OSG_OPENTHREADS_LIBRARY 

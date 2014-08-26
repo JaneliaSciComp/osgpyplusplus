@@ -50,10 +50,6 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/vector_less__openthreads_scope_thread_ptr___greater_.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/vector_less__osg_scope_graphicscontext_ptr___greater_.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/vector_less__osg_scope_node_ptr___greater_.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/vector_less__osg_scope_operationthread_ptr___greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/vector_less__osgviewer_scope_graphicswindow_ptr___greater_.pypp.hpp"
@@ -84,10 +80,6 @@ BOOST_PYTHON_MODULE(osgViewer){
     register_Devices_class();
 
     register_vector_less__osg_scope_OperationThread_ptr___greater__class();
-
-    register_vector_less__osg_scope_Node_ptr___greater__class();
-
-    register_vector_less__osg_scope_GraphicsContext_ptr___greater__class();
 
     register_Cameras_class();
 

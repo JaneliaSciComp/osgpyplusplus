@@ -105,8 +105,9 @@ endfunction()
 # For initial testing and debugging only...
 # add_subdirectory(greet)
 
+# Add module subdirectories in inverse order of linear dependency chain
 add_subdirectory(osg)
-add_subdirectory(osgGA)
 add_subdirectory(osgDB)
-add_subdirectory(osgViewer)
+add_subdirectory(osgGA)
 add_subdirectory(osgUtil)
+add_subdirectory(osgViewer)

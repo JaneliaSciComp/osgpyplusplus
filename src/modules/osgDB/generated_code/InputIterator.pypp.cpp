@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "inputiterator.pypp.hpp"
 
 namespace bp = boost::python;
@@ -143,7 +144,7 @@ struct InputIterator_wrapper : osgDB::InputIterator, bp::wrapper< osgDB::InputIt
 
 void register_InputIterator_class(){
 
-    bp::class_< InputIterator_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "InputIterator", bp::no_init )    
+    bp::class_< InputIterator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::InputIterator >, boost::noncopyable >( "InputIterator", bp::no_init )    
         .def( 
             "advanceToCurrentEndBracket"
             , (void ( ::osgDB::InputIterator::* )(  ))(&::osgDB::InputIterator::advanceToCurrentEndBracket)

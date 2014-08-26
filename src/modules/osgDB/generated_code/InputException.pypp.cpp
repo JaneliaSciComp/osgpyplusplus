@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "inputexception.pypp.hpp"
 
 namespace bp = boost::python;
@@ -31,7 +32,7 @@ struct InputException_wrapper : osgDB::InputException, bp::wrapper< osgDB::Input
 
 void register_InputException_class(){
 
-    bp::class_< InputException_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "InputException", bp::init< std::vector< std::string > const &, std::string const & >(( bp::arg("fields"), bp::arg("err") )) )    
+    bp::class_< InputException_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::InputException >, boost::noncopyable >( "InputException", bp::init< std::vector< std::string > const &, std::string const & >(( bp::arg("fields"), bp::arg("err") )) )    
         .def( 
             "getError"
             , (::std::string const & ( ::osgDB::InputException::* )(  )const)( &::osgDB::InputException::getError )

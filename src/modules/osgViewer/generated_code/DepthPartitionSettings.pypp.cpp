@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "depthpartitionsettings.pypp.hpp"
 
 namespace bp = boost::python;
@@ -44,7 +45,7 @@ struct DepthPartitionSettings_wrapper : osgViewer::DepthPartitionSettings, bp::w
 void register_DepthPartitionSettings_class(){
 
     { //::osgViewer::DepthPartitionSettings
-        typedef bp::class_< DepthPartitionSettings_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable > DepthPartitionSettings_exposer_t;
+        typedef bp::class_< DepthPartitionSettings_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::DepthPartitionSettings >, boost::noncopyable > DepthPartitionSettings_exposer_t;
         DepthPartitionSettings_exposer_t DepthPartitionSettings_exposer = DepthPartitionSettings_exposer_t( "DepthPartitionSettings", bp::init< bp::optional< osgViewer::DepthPartitionSettings::DepthMode > >(( bp::arg("mode")=(long)(::osgViewer::DepthPartitionSettings::BOUNDING_VOLUME) )) );
         bp::scope DepthPartitionSettings_scope( DepthPartitionSettings_exposer );
         bp::enum_< osgViewer::DepthPartitionSettings::DepthMode>("DepthMode")

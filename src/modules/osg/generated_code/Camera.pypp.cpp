@@ -196,6 +196,90 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
         return osg::Group::asGroup( );
     }
 
+    virtual ::osg::MatrixTransform * asMatrixTransform(  ) {
+        if( bp::override func_asMatrixTransform = this->get_override( "asMatrixTransform" ) )
+            return func_asMatrixTransform(  );
+        else{
+            return this->osg::Transform::asMatrixTransform(  );
+        }
+    }
+    
+    ::osg::MatrixTransform * default_asMatrixTransform(  ) {
+        return osg::Transform::asMatrixTransform( );
+    }
+
+    virtual ::osg::MatrixTransform const * asMatrixTransform(  ) const  {
+        if( bp::override func_asMatrixTransform = this->get_override( "asMatrixTransform" ) )
+            return func_asMatrixTransform(  );
+        else{
+            return this->osg::Transform::asMatrixTransform(  );
+        }
+    }
+    
+    ::osg::MatrixTransform const * default_asMatrixTransform(  ) const  {
+        return osg::Transform::asMatrixTransform( );
+    }
+
+    virtual ::osg::PositionAttitudeTransform * asPositionAttitudeTransform(  ) {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform * default_asPositionAttitudeTransform(  ) {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::PositionAttitudeTransform const * asPositionAttitudeTransform(  ) const  {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform const * default_asPositionAttitudeTransform(  ) const  {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual ::osg::BoundingSphere computeBound(  ) const  {
+        if( bp::override func_computeBound = this->get_override( "computeBound" ) )
+            return func_computeBound(  );
+        else{
+            return this->osg::Transform::computeBound(  );
+        }
+    }
+    
+    ::osg::BoundingSphere default_computeBound(  ) const  {
+        return osg::Transform::computeBound( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -357,7 +441,7 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
 void register_Camera_class(){
 
     { //::osg::Camera
-        typedef bp::class_< Camera_wrapper, bp::bases< osg::CullSettings >, osg::ref_ptr< ::osg::Camera >, boost::noncopyable > Camera_exposer_t;
+        typedef bp::class_< Camera_wrapper, bp::bases< osg::Transform, osg::CullSettings >, osg::ref_ptr< ::osg::Camera >, boost::noncopyable > Camera_exposer_t;
         Camera_exposer_t Camera_exposer = Camera_exposer_t( "Camera", bp::no_init );
         bp::scope Camera_scope( Camera_exposer );
         bp::enum_< osg::Camera::BufferComponent>("BufferComponent")
@@ -1607,6 +1691,89 @@ void register_Camera_class(){
                 , asGroup_function_type(&::osg::Group::asGroup)
                 , default_asGroup_function_type(&Camera_wrapper::default_asGroup)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asMatrixTransform
+        
+            typedef ::osg::MatrixTransform * ( ::osg::Transform::*asMatrixTransform_function_type)(  ) ;
+            typedef ::osg::MatrixTransform * ( Camera_wrapper::*default_asMatrixTransform_function_type)(  ) ;
+            
+            Camera_exposer.def( 
+                "asMatrixTransform"
+                , asMatrixTransform_function_type(&::osg::Transform::asMatrixTransform)
+                , default_asMatrixTransform_function_type(&Camera_wrapper::default_asMatrixTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asMatrixTransform
+        
+            typedef ::osg::MatrixTransform const * ( ::osg::Transform::*asMatrixTransform_function_type)(  ) const;
+            typedef ::osg::MatrixTransform const * ( Camera_wrapper::*default_asMatrixTransform_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "asMatrixTransform"
+                , asMatrixTransform_function_type(&::osg::Transform::asMatrixTransform)
+                , default_asMatrixTransform_function_type(&Camera_wrapper::default_asMatrixTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asPositionAttitudeTransform
+        
+            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( Camera_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) ;
+            
+            Camera_exposer.def( 
+                "asPositionAttitudeTransform"
+                , asPositionAttitudeTransform_function_type(&::osg::Transform::asPositionAttitudeTransform)
+                , default_asPositionAttitudeTransform_function_type(&Camera_wrapper::default_asPositionAttitudeTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asPositionAttitudeTransform
+        
+            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( Camera_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "asPositionAttitudeTransform"
+                , asPositionAttitudeTransform_function_type(&::osg::Transform::asPositionAttitudeTransform)
+                , default_asPositionAttitudeTransform_function_type(&Camera_wrapper::default_asPositionAttitudeTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asTransform
+        
+            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Camera_wrapper::*default_asTransform_function_type)(  ) ;
+            
+            Camera_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Transform::asTransform)
+                , default_asTransform_function_type(&Camera_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asTransform
+        
+            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Camera_wrapper::*default_asTransform_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Transform::asTransform)
+                , default_asTransform_function_type(&Camera_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::computeBound
+        
+            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Camera_wrapper::*default_computeBound_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "computeBound"
+                , computeBound_function_type(&::osg::Transform::computeBound)
+                , default_computeBound_function_type(&Camera_wrapper::default_computeBound) );
         
         }
         { //::osg::Object::computeDataVariance

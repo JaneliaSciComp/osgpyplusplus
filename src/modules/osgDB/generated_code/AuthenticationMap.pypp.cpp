@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "authenticationmap.pypp.hpp"
 
 namespace bp = boost::python;
@@ -55,7 +56,7 @@ struct AuthenticationMap_wrapper : osgDB::AuthenticationMap, bp::wrapper< osgDB:
 
 void register_AuthenticationMap_class(){
 
-    bp::class_< AuthenticationMap_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "AuthenticationMap", bp::no_init )    
+    bp::class_< AuthenticationMap_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::AuthenticationMap >, boost::noncopyable >( "AuthenticationMap", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addAuthenticationDetails"

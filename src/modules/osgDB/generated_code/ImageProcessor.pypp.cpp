@@ -16,13 +16,6 @@ struct ImageProcessor_wrapper : osgDB::ImageProcessor, bp::wrapper< osgDB::Image
     
     }
 
-    ImageProcessor_wrapper(::osgDB::ImageProcessor const & rw, ::osg::CopyOp const & copyop=SHALLOW_COPY )
-    : osgDB::ImageProcessor( boost::ref(rw), boost::ref(copyop) )
-      , bp::wrapper< osgDB::ImageProcessor >(){
-        // constructor
-    
-    }
-
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -211,8 +204,6 @@ void register_ImageProcessor_class(){
             .value("HIGHEST", osgDB::ImageProcessor::HIGHEST)
             .export_values()
             ;
-        ImageProcessor_exposer.def( bp::init< osgDB::ImageProcessor const &, bp::optional< osg::CopyOp const & > >(( bp::arg("rw"), bp::arg("copyop")=SHALLOW_COPY )) );
-        bp::implicitly_convertible< osgDB::ImageProcessor const &, osgDB::ImageProcessor >();
         { //::osgDB::ImageProcessor::className
         
             typedef char const * ( ::osgDB::ImageProcessor::*className_function_type)(  ) const;

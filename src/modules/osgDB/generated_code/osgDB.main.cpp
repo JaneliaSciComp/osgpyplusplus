@@ -94,13 +94,9 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerwrapperproxy.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/sharedstatemanager.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/updatewrapperversionproxy.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_node_greater___greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/vector_type.pypp.hpp"
 
@@ -110,8 +106,6 @@ namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osgDB){
     register_enumerations();
-
-    register_vector_less__osg_scope_ref_ptr_less_osg_scope_Node_greater___greater__class();
 
     register_vector_type_class();
 
@@ -192,8 +186,6 @@ BOOST_PYTHON_MODULE(osgDB){
     register_RegisterDotOsgWrapperProxy_class();
 
     register_RegisterWrapperProxy_class();
-
-    register_SharedStateManager_class();
 
     register_UpdateWrapperVersionProxy_class();
 

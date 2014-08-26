@@ -16,13 +16,6 @@ struct CompositeViewer_wrapper : osgViewer::CompositeViewer, bp::wrapper< osgVie
     
     }
 
-    CompositeViewer_wrapper(::osgViewer::CompositeViewer const & arg0, ::osg::CopyOp const & copyop=SHALLOW_COPY )
-    : osgViewer::CompositeViewer( boost::ref(arg0), boost::ref(copyop) )
-      , bp::wrapper< osgViewer::CompositeViewer >(){
-        // constructor
-    
-    }
-
     CompositeViewer_wrapper(::osg::ArgumentParser & arguments )
     : osgViewer::CompositeViewer( boost::ref(arguments) )
       , bp::wrapper< osgViewer::CompositeViewer >(){
@@ -542,8 +535,6 @@ void register_CompositeViewer_class(){
         typedef bp::class_< CompositeViewer_wrapper, bp::bases< osgViewer::ViewerBase >, osg::ref_ptr< ::osgViewer::CompositeViewer >, boost::noncopyable > CompositeViewer_exposer_t;
         CompositeViewer_exposer_t CompositeViewer_exposer = CompositeViewer_exposer_t( "CompositeViewer", bp::init< >() );
         bp::scope CompositeViewer_scope( CompositeViewer_exposer );
-        CompositeViewer_exposer.def( bp::init< osgViewer::CompositeViewer const &, bp::optional< osg::CopyOp const & > >(( bp::arg("arg0"), bp::arg("copyop")=SHALLOW_COPY )) );
-        bp::implicitly_convertible< osgViewer::CompositeViewer const &, osgViewer::CompositeViewer >();
         CompositeViewer_exposer.def( bp::init< osg::ArgumentParser & >(( bp::arg("arguments") )) );
         bp::implicitly_convertible< osg::ArgumentParser &, osgViewer::CompositeViewer >();
         { //::osgViewer::CompositeViewer::addView

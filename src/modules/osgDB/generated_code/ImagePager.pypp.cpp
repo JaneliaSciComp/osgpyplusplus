@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "imagepager.pypp.hpp"
 
 namespace bp = boost::python;
@@ -175,7 +176,7 @@ struct ImagePager_wrapper : osgDB::ImagePager, bp::wrapper< osgDB::ImagePager > 
 void register_ImagePager_class(){
 
     { //::osgDB::ImagePager
-        typedef bp::class_< ImagePager_wrapper, boost::noncopyable > ImagePager_exposer_t;
+        typedef bp::class_< ImagePager_wrapper, bp::bases< ::osg::NodeVisitor::ImageRequestHandler >, osg::ref_ptr< ::osgDB::ImagePager >, boost::noncopyable > ImagePager_exposer_t;
         ImagePager_exposer_t ImagePager_exposer = ImagePager_exposer_t( "ImagePager", bp::no_init );
         bp::scope ImagePager_scope( ImagePager_exposer );
         { //::osgDB::ImagePager::ImageThread

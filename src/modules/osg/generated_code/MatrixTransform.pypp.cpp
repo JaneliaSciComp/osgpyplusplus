@@ -179,6 +179,66 @@ struct MatrixTransform_wrapper : osg::MatrixTransform, bp::wrapper< osg::MatrixT
         return osg::Group::asGroup( );
     }
 
+    virtual ::osg::PositionAttitudeTransform * asPositionAttitudeTransform(  ) {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform * default_asPositionAttitudeTransform(  ) {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::PositionAttitudeTransform const * asPositionAttitudeTransform(  ) const  {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform const * default_asPositionAttitudeTransform(  ) const  {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual ::osg::BoundingSphere computeBound(  ) const  {
+        if( bp::override func_computeBound = this->get_override( "computeBound" ) )
+            return func_computeBound(  );
+        else{
+            return this->osg::Transform::computeBound(  );
+        }
+    }
+    
+    ::osg::BoundingSphere default_computeBound(  ) const  {
+        return osg::Transform::computeBound( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -328,7 +388,7 @@ struct MatrixTransform_wrapper : osg::MatrixTransform, bp::wrapper< osg::MatrixT
 void register_MatrixTransform_class(){
 
     { //::osg::MatrixTransform
-        typedef bp::class_< MatrixTransform_wrapper, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable > MatrixTransform_exposer_t;
+        typedef bp::class_< MatrixTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable > MatrixTransform_exposer_t;
         MatrixTransform_exposer_t MatrixTransform_exposer = MatrixTransform_exposer_t( "MatrixTransform", bp::no_init );
         bp::scope MatrixTransform_scope( MatrixTransform_exposer );
         MatrixTransform_exposer.def( bp::init< >() );
@@ -537,6 +597,65 @@ void register_MatrixTransform_class(){
                 , asGroup_function_type(&::osg::Group::asGroup)
                 , default_asGroup_function_type(&MatrixTransform_wrapper::default_asGroup)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asPositionAttitudeTransform
+        
+            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "asPositionAttitudeTransform"
+                , asPositionAttitudeTransform_function_type(&::osg::Transform::asPositionAttitudeTransform)
+                , default_asPositionAttitudeTransform_function_type(&MatrixTransform_wrapper::default_asPositionAttitudeTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asPositionAttitudeTransform
+        
+            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "asPositionAttitudeTransform"
+                , asPositionAttitudeTransform_function_type(&::osg::Transform::asPositionAttitudeTransform)
+                , default_asPositionAttitudeTransform_function_type(&MatrixTransform_wrapper::default_asPositionAttitudeTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asTransform
+        
+            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( MatrixTransform_wrapper::*default_asTransform_function_type)(  ) ;
+            
+            MatrixTransform_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Transform::asTransform)
+                , default_asTransform_function_type(&MatrixTransform_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::asTransform
+        
+            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( MatrixTransform_wrapper::*default_asTransform_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Transform::asTransform)
+                , default_asTransform_function_type(&MatrixTransform_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Transform::computeBound
+        
+            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( MatrixTransform_wrapper::*default_computeBound_function_type)(  ) const;
+            
+            MatrixTransform_exposer.def( 
+                "computeBound"
+                , computeBound_function_type(&::osg::Transform::computeBound)
+                , default_computeBound_function_type(&MatrixTransform_wrapper::default_computeBound) );
         
         }
         { //::osg::Object::computeDataVariance

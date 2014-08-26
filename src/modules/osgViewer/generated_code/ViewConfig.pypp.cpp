@@ -16,13 +16,6 @@ struct ViewConfig_wrapper : osgViewer::ViewConfig, bp::wrapper< osgViewer::ViewC
     
     }
 
-    ViewConfig_wrapper(::osgViewer::ViewConfig const & rhs, ::osg::CopyOp const & copyop=SHALLOW_COPY )
-    : osgViewer::ViewConfig( boost::ref(rhs), boost::ref(copyop) )
-      , bp::wrapper< osgViewer::ViewConfig >(){
-        // constructor
-    
-    }
-
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -195,96 +188,41 @@ struct ViewConfig_wrapper : osgViewer::ViewConfig, bp::wrapper< osgViewer::ViewC
 
 void register_ViewConfig_class(){
 
-    { //::osgViewer::ViewConfig
-        typedef bp::class_< ViewConfig_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::ViewConfig >, boost::noncopyable > ViewConfig_exposer_t;
-        ViewConfig_exposer_t ViewConfig_exposer = ViewConfig_exposer_t( "ViewConfig", bp::init< >() );
-        bp::scope ViewConfig_scope( ViewConfig_exposer );
-        ViewConfig_exposer.def( bp::init< osgViewer::ViewConfig const &, bp::optional< osg::CopyOp const & > >(( bp::arg("rhs"), bp::arg("copyop")=SHALLOW_COPY )) );
-        bp::implicitly_convertible< osgViewer::ViewConfig const &, osgViewer::ViewConfig >();
-        { //::osgViewer::ViewConfig::className
-        
-            typedef char const * ( ::osgViewer::ViewConfig::*className_function_type)(  ) const;
-            typedef char const * ( ViewConfig_wrapper::*default_className_function_type)(  ) const;
-            
-            ViewConfig_exposer.def( 
-                "className"
-                , className_function_type(&::osgViewer::ViewConfig::className)
-                , default_className_function_type(&ViewConfig_wrapper::default_className) );
-        
-        }
-        { //::osgViewer::ViewConfig::clone
-        
-            typedef ::osg::Object * ( ::osgViewer::ViewConfig::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ViewConfig_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
-            
-            ViewConfig_exposer.def( 
-                "clone"
-                , clone_function_type(&::osgViewer::ViewConfig::clone)
-                , default_clone_function_type(&ViewConfig_wrapper::default_clone)
-                , ( bp::arg("copyop") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
-        
-        }
-        { //::osgViewer::ViewConfig::cloneType
-        
-            typedef ::osg::Object * ( ::osgViewer::ViewConfig::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( ViewConfig_wrapper::*default_cloneType_function_type)(  ) const;
-            
-            ViewConfig_exposer.def( 
-                "cloneType"
-                , cloneType_function_type(&::osgViewer::ViewConfig::cloneType)
-                , default_cloneType_function_type(&ViewConfig_wrapper::default_cloneType)
-                , bp::return_value_policy< bp::reference_existing_object >() );
-        
-        }
-        { //::osgViewer::ViewConfig::configure
-        
-            typedef void ( ::osgViewer::ViewConfig::*configure_function_type)( ::osgViewer::View & ) const;
-            typedef void ( ViewConfig_wrapper::*default_configure_function_type)( ::osgViewer::View & ) const;
-            
-            ViewConfig_exposer.def( 
-                "configure"
-                , configure_function_type(&::osgViewer::ViewConfig::configure)
-                , default_configure_function_type(&ViewConfig_wrapper::default_configure)
-                , ( bp::arg("arg0") ) );
-        
-        }
-        { //::osgViewer::ViewConfig::getActiveDisplaySetting
-        
-            typedef ::osg::DisplaySettings * ( ::osgViewer::ViewConfig::*getActiveDisplaySetting_function_type)( ::osgViewer::View & ) const;
-            typedef ::osg::DisplaySettings * ( ViewConfig_wrapper::*default_getActiveDisplaySetting_function_type)( ::osgViewer::View & ) const;
-            
-            ViewConfig_exposer.def( 
-                "getActiveDisplaySetting"
-                , getActiveDisplaySetting_function_type(&::osgViewer::ViewConfig::getActiveDisplaySetting)
-                , default_getActiveDisplaySetting_function_type(&ViewConfig_wrapper::default_getActiveDisplaySetting)
-                , ( bp::arg("view") )
-                , bp::return_internal_reference< >() );
-        
-        }
-        { //::osgViewer::ViewConfig::isSameKindAs
-        
-            typedef bool ( ::osgViewer::ViewConfig::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( ViewConfig_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
-            
-            ViewConfig_exposer.def( 
-                "isSameKindAs"
-                , isSameKindAs_function_type(&::osgViewer::ViewConfig::isSameKindAs)
-                , default_isSameKindAs_function_type(&ViewConfig_wrapper::default_isSameKindAs)
-                , ( bp::arg("obj") ) );
-        
-        }
-        { //::osgViewer::ViewConfig::libraryName
-        
-            typedef char const * ( ::osgViewer::ViewConfig::*libraryName_function_type)(  ) const;
-            typedef char const * ( ViewConfig_wrapper::*default_libraryName_function_type)(  ) const;
-            
-            ViewConfig_exposer.def( 
-                "libraryName"
-                , libraryName_function_type(&::osgViewer::ViewConfig::libraryName)
-                , default_libraryName_function_type(&ViewConfig_wrapper::default_libraryName) );
-        
-        }
-    }
+    bp::class_< ViewConfig_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::ViewConfig >, boost::noncopyable >( "ViewConfig", bp::init< >() )    
+        .def( 
+            "className"
+            , (char const * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::className)
+            , (char const * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_className) )    
+        .def( 
+            "clone"
+            , (::osg::Object * ( ::osgViewer::ViewConfig::* )( ::osg::CopyOp const & )const)(&::osgViewer::ViewConfig::clone)
+            , (::osg::Object * ( ViewConfig_wrapper::* )( ::osg::CopyOp const & )const)(&ViewConfig_wrapper::default_clone)
+            , ( bp::arg("copyop") )
+            , bp::return_value_policy< bp::reference_existing_object >() )    
+        .def( 
+            "cloneType"
+            , (::osg::Object * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::cloneType)
+            , (::osg::Object * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_cloneType)
+            , bp::return_value_policy< bp::reference_existing_object >() )    
+        .def( 
+            "configure"
+            , (void ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & )const)(&::osgViewer::ViewConfig::configure)
+            , (void ( ViewConfig_wrapper::* )( ::osgViewer::View & )const)(&ViewConfig_wrapper::default_configure)
+            , ( bp::arg("arg0") ) )    
+        .def( 
+            "getActiveDisplaySetting"
+            , (::osg::DisplaySettings * ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & )const)(&::osgViewer::ViewConfig::getActiveDisplaySetting)
+            , (::osg::DisplaySettings * ( ViewConfig_wrapper::* )( ::osgViewer::View & )const)(&ViewConfig_wrapper::default_getActiveDisplaySetting)
+            , ( bp::arg("view") )
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "isSameKindAs"
+            , (bool ( ::osgViewer::ViewConfig::* )( ::osg::Object const * )const)(&::osgViewer::ViewConfig::isSameKindAs)
+            , (bool ( ViewConfig_wrapper::* )( ::osg::Object const * )const)(&ViewConfig_wrapper::default_isSameKindAs)
+            , ( bp::arg("obj") ) )    
+        .def( 
+            "libraryName"
+            , (char const * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::libraryName)
+            , (char const * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_libraryName) );
 
 }

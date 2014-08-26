@@ -36,6 +36,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::CheckGeometryVisitor::apply( boost::ref(geode) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -69,6 +417,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::LOD & lod ) {
             osgUtil::Optimizer::CombineLODsVisitor::apply( boost::ref(lod) );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -106,6 +802,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::CombineStaticTransformsVisitor::apply( boost::ref(transform) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -139,6 +1183,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Node & node ) {
             osgUtil::Optimizer::CopySharedSubgraphsVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -186,6 +1578,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_reset(  ) {
             osgUtil::Optimizer::FlattenBillboardVisitor::reset( );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -283,6 +2011,294 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::reset( );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -376,6 +2392,294 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Transform & transform ) {
             osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply( boost::ref(transform) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -484,6 +2788,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::MakeFastGeometryVisitor::apply( boost::ref(geode) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -517,6 +3169,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Group & group ) {
             osgUtil::Optimizer::MergeGeodesVisitor::apply( boost::ref(group) );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -566,6 +3566,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::MergeGeometryVisitor::apply( boost::ref(arg0) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -613,6 +3949,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::RemoveEmptyNodesVisitor::apply( boost::ref(group) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -646,6 +4318,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::ProxyNode & group ) {
             osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::apply( boost::ref(group) );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -695,6 +4715,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::RemoveRedundantNodesVisitor::apply( boost::ref(transform) );
         }
     
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Geode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Geode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -740,6 +5096,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Geode & geode ) {
             osgUtil::Optimizer::SpatializeGroupsVisitor::apply( boost::ref(geode) );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -801,6 +5493,330 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::StateVisitor::reset( );
         }
     
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -848,6 +5864,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::StaticObjectDetectionVisitor::apply( boost::ref(geode) );
         }
     
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -881,6 +6233,354 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Geode & geode ) {
             osgUtil::Optimizer::TessellateVisitor::apply( boost::ref(geode) );
+        }
+    
+        virtual void apply( ::osg::Node & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Node & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -942,6 +6642,330 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
             osgUtil::Optimizer::TextureAtlasVisitor::reset( );
         }
     
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
             if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
                 func_setThreadSafeRefUnref( threadSafe );
@@ -987,6 +7011,342 @@ struct Optimizer_wrapper : osgUtil::Optimizer, bp::wrapper< osgUtil::Optimizer >
         
         void default_apply( ::osg::Node & node ) {
             osgUtil::Optimizer::TextureVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Billboard & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Billboard & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Group & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Group & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ProxyNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ProxyNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Projection & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Projection & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CoordinateSystemNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CoordinateSystemNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClipNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClipNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::TexGenNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::TexGenNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LightSource & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LightSource & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Transform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Transform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Camera & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Camera & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::CameraView & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::CameraView & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::MatrixTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::MatrixTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PositionAttitudeTransform & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PositionAttitudeTransform & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Switch & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Switch & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::Sequence & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::Sequence & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::LOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::LOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::PagedLOD & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::PagedLOD & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::ClearNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::ClearNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OccluderNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OccluderNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual void apply( ::osg::OcclusionQueryNode & node ) {
+            if( bp::override func_apply = this->get_override( "apply" ) )
+                func_apply( boost::ref(node) );
+            else{
+                this->osg::NodeVisitor::apply( boost::ref(node) );
+            }
+        }
+        
+        void default_apply( ::osg::OcclusionQueryNode & node ) {
+            osg::NodeVisitor::apply( boost::ref(node) );
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::NodeVisitor::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::NodeVisitor::className( );
+        }
+    
+        virtual float getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceFromEyePoint = this->get_override( "getDistanceFromEyePoint" ) )
+                return func_getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceFromEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceFromEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToEyePoint = this->get_override( "getDistanceToEyePoint" ) )
+                return func_getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToEyePoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToEyePoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual float getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            if( bp::override func_getDistanceToViewPoint = this->get_override( "getDistanceToViewPoint" ) )
+                return func_getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            else{
+                return this->osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+            }
+        }
+        
+        float default_getDistanceToViewPoint( ::osg::Vec3 const & arg0, bool arg1 ) const  {
+            return osg::NodeVisitor::getDistanceToViewPoint( boost::ref(arg0), arg1 );
+        }
+    
+        virtual ::osg::Vec3 getEyePoint(  ) const  {
+            if( bp::override func_getEyePoint = this->get_override( "getEyePoint" ) )
+                return func_getEyePoint(  );
+            else{
+                return this->osg::NodeVisitor::getEyePoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getEyePoint(  ) const  {
+            return osg::NodeVisitor::getEyePoint( );
+        }
+    
+        virtual ::osg::Vec3 getViewPoint(  ) const  {
+            if( bp::override func_getViewPoint = this->get_override( "getViewPoint" ) )
+                return func_getViewPoint(  );
+            else{
+                return this->osg::NodeVisitor::getViewPoint(  );
+            }
+        }
+        
+        ::osg::Vec3 default_getViewPoint(  ) const  {
+            return osg::NodeVisitor::getViewPoint( );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::NodeVisitor::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::NodeVisitor::libraryName( );
+        }
+    
+        virtual void reset(  ) {
+            if( bp::override func_reset = this->get_override( "reset" ) )
+                func_reset(  );
+            else{
+                this->osg::NodeVisitor::reset(  );
+            }
+        }
+        
+        void default_reset(  ) {
+            osg::NodeVisitor::reset( );
         }
     
         virtual void setThreadSafeRefUnref( bool threadSafe ) {
@@ -1057,7 +7417,7 @@ void register_Optimizer_class(){
             .export_values()
             ;
         { //::osgUtil::Optimizer::CheckGeometryVisitor
-            typedef bp::class_< Optimizer_wrapper::CheckGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > CheckGeometryVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::CheckGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::CheckGeometryVisitor >, boost::noncopyable > CheckGeometryVisitor_exposer_t;
             CheckGeometryVisitor_exposer_t CheckGeometryVisitor_exposer = CheckGeometryVisitor_exposer_t( "CheckGeometryVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope CheckGeometryVisitor_scope( CheckGeometryVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CheckGeometryVisitor >();
@@ -1085,7 +7445,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::CombineLODsVisitor
-            typedef bp::class_< Optimizer_wrapper::CombineLODsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > CombineLODsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::CombineLODsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::CombineLODsVisitor >, boost::noncopyable > CombineLODsVisitor_exposer_t;
             CombineLODsVisitor_exposer_t CombineLODsVisitor_exposer = CombineLODsVisitor_exposer_t( "CombineLODsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope CombineLODsVisitor_scope( CombineLODsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CombineLODsVisitor >();
@@ -1113,7 +7473,7 @@ void register_Optimizer_class(){
             CombineLODsVisitor_exposer.def_readwrite( "_groupList", &osgUtil::Optimizer::CombineLODsVisitor::_groupList );
         }
         { //::osgUtil::Optimizer::CombineStaticTransformsVisitor
-            typedef bp::class_< Optimizer_wrapper::CombineStaticTransformsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > CombineStaticTransformsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::CombineStaticTransformsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::CombineStaticTransformsVisitor >, boost::noncopyable > CombineStaticTransformsVisitor_exposer_t;
             CombineStaticTransformsVisitor_exposer_t CombineStaticTransformsVisitor_exposer = CombineStaticTransformsVisitor_exposer_t( "CombineStaticTransformsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope CombineStaticTransformsVisitor_scope( CombineStaticTransformsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CombineStaticTransformsVisitor >();
@@ -1141,7 +7501,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::CopySharedSubgraphsVisitor
-            typedef bp::class_< Optimizer_wrapper::CopySharedSubgraphsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > CopySharedSubgraphsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::CopySharedSubgraphsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::CopySharedSubgraphsVisitor >, boost::noncopyable > CopySharedSubgraphsVisitor_exposer_t;
             CopySharedSubgraphsVisitor_exposer_t CopySharedSubgraphsVisitor_exposer = CopySharedSubgraphsVisitor_exposer_t( "CopySharedSubgraphsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope CopySharedSubgraphsVisitor_scope( CopySharedSubgraphsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CopySharedSubgraphsVisitor >();
@@ -1169,7 +7529,7 @@ void register_Optimizer_class(){
             CopySharedSubgraphsVisitor_exposer.def_readwrite( "_sharedNodeList", &osgUtil::Optimizer::CopySharedSubgraphsVisitor::_sharedNodeList );
         }
         { //::osgUtil::Optimizer::FlattenBillboardVisitor
-            typedef bp::class_< Optimizer_wrapper::FlattenBillboardVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > FlattenBillboardVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::FlattenBillboardVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::FlattenBillboardVisitor >, boost::noncopyable > FlattenBillboardVisitor_exposer_t;
             FlattenBillboardVisitor_exposer_t FlattenBillboardVisitor_exposer = FlattenBillboardVisitor_exposer_t( "FlattenBillboardVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope FlattenBillboardVisitor_scope( FlattenBillboardVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenBillboardVisitor >();
@@ -1205,10 +7565,9 @@ void register_Optimizer_class(){
                     , default_reset_function_type(&Optimizer_wrapper::FlattenBillboardVisitor_wrapper::default_reset) );
             
             }
-            FlattenBillboardVisitor_exposer.def_readwrite( "_billboards", &osgUtil::Optimizer::FlattenBillboardVisitor::_billboards );
         }
         { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor
-            typedef bp::class_< Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor >, boost::noncopyable > FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer_t;
             FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer_t FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer = FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer_t( "FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_scope( FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor >();
@@ -1285,7 +7644,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor
-            typedef bp::class_< Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > FlattenStaticTransformsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::FlattenStaticTransformsVisitor >, boost::noncopyable > FlattenStaticTransformsVisitor_exposer_t;
             FlattenStaticTransformsVisitor_exposer_t FlattenStaticTransformsVisitor_exposer = FlattenStaticTransformsVisitor_exposer_t( "FlattenStaticTransformsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope FlattenStaticTransformsVisitor_scope( FlattenStaticTransformsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenStaticTransformsVisitor >();
@@ -1372,7 +7731,7 @@ void register_Optimizer_class(){
             
             }
         }
-        bp::class_< Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "IsOperationPermissibleForObjectCallback" )    
+        bp::class_< Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback >, boost::noncopyable >( "IsOperationPermissibleForObjectCallback" )    
             .def( 
                 "isOperationPermissibleForObjectImplementation"
                 , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::StateSet const *,unsigned int )const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
@@ -1394,7 +7753,7 @@ void register_Optimizer_class(){
                 , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::Node const *,unsigned int )const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
                 , ( bp::arg("optimizer"), bp::arg("node"), bp::arg("option") ) );
         { //::osgUtil::Optimizer::MakeFastGeometryVisitor
-            typedef bp::class_< Optimizer_wrapper::MakeFastGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > MakeFastGeometryVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::MakeFastGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::MakeFastGeometryVisitor >, boost::noncopyable > MakeFastGeometryVisitor_exposer_t;
             MakeFastGeometryVisitor_exposer_t MakeFastGeometryVisitor_exposer = MakeFastGeometryVisitor_exposer_t( "MakeFastGeometryVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope MakeFastGeometryVisitor_scope( MakeFastGeometryVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MakeFastGeometryVisitor >();
@@ -1422,7 +7781,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::MergeGeodesVisitor
-            typedef bp::class_< Optimizer_wrapper::MergeGeodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > MergeGeodesVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::MergeGeodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::MergeGeodesVisitor >, boost::noncopyable > MergeGeodesVisitor_exposer_t;
             MergeGeodesVisitor_exposer_t MergeGeodesVisitor_exposer = MergeGeodesVisitor_exposer_t( "MergeGeodesVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope MergeGeodesVisitor_scope( MergeGeodesVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MergeGeodesVisitor >();
@@ -1450,7 +7809,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::MergeGeometryVisitor
-            typedef bp::class_< Optimizer_wrapper::MergeGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > MergeGeometryVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::MergeGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::MergeGeometryVisitor >, boost::noncopyable > MergeGeometryVisitor_exposer_t;
             MergeGeometryVisitor_exposer_t MergeGeometryVisitor_exposer = MergeGeometryVisitor_exposer_t( "MergeGeometryVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope MergeGeometryVisitor_scope( MergeGeometryVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MergeGeometryVisitor >();
@@ -1582,7 +7941,7 @@ void register_Optimizer_class(){
             MergeGeometryVisitor_exposer.staticmethod( "mergePrimitive" );
         }
         { //::osgUtil::Optimizer::RemoveEmptyNodesVisitor
-            typedef bp::class_< Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > RemoveEmptyNodesVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::RemoveEmptyNodesVisitor >, boost::noncopyable > RemoveEmptyNodesVisitor_exposer_t;
             RemoveEmptyNodesVisitor_exposer_t RemoveEmptyNodesVisitor_exposer = RemoveEmptyNodesVisitor_exposer_t( "RemoveEmptyNodesVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope RemoveEmptyNodesVisitor_scope( RemoveEmptyNodesVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveEmptyNodesVisitor >();
@@ -1622,7 +7981,7 @@ void register_Optimizer_class(){
             RemoveEmptyNodesVisitor_exposer.def_readwrite( "_redundantNodeList", &osgUtil::Optimizer::RemoveEmptyNodesVisitor::_redundantNodeList );
         }
         { //::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor
-            typedef bp::class_< Optimizer_wrapper::RemoveLoadedProxyNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > RemoveLoadedProxyNodesVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::RemoveLoadedProxyNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor >, boost::noncopyable > RemoveLoadedProxyNodesVisitor_exposer_t;
             RemoveLoadedProxyNodesVisitor_exposer_t RemoveLoadedProxyNodesVisitor_exposer = RemoveLoadedProxyNodesVisitor_exposer_t( "RemoveLoadedProxyNodesVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope RemoveLoadedProxyNodesVisitor_scope( RemoveLoadedProxyNodesVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor >();
@@ -1650,7 +8009,7 @@ void register_Optimizer_class(){
             RemoveLoadedProxyNodesVisitor_exposer.def_readwrite( "_redundantNodeList", &osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::_redundantNodeList );
         }
         { //::osgUtil::Optimizer::RemoveRedundantNodesVisitor
-            typedef bp::class_< Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > RemoveRedundantNodesVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::RemoveRedundantNodesVisitor >, boost::noncopyable > RemoveRedundantNodesVisitor_exposer_t;
             RemoveRedundantNodesVisitor_exposer_t RemoveRedundantNodesVisitor_exposer = RemoveRedundantNodesVisitor_exposer_t( "RemoveRedundantNodesVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope RemoveRedundantNodesVisitor_scope( RemoveRedundantNodesVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveRedundantNodesVisitor >();
@@ -1700,7 +8059,7 @@ void register_Optimizer_class(){
             RemoveRedundantNodesVisitor_exposer.def_readwrite( "_redundantNodeList", &osgUtil::Optimizer::RemoveRedundantNodesVisitor::_redundantNodeList );
         }
         { //::osgUtil::Optimizer::SpatializeGroupsVisitor
-            typedef bp::class_< Optimizer_wrapper::SpatializeGroupsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > SpatializeGroupsVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::SpatializeGroupsVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::SpatializeGroupsVisitor >, boost::noncopyable > SpatializeGroupsVisitor_exposer_t;
             SpatializeGroupsVisitor_exposer_t SpatializeGroupsVisitor_exposer = SpatializeGroupsVisitor_exposer_t( "SpatializeGroupsVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope SpatializeGroupsVisitor_scope( SpatializeGroupsVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::SpatializeGroupsVisitor >();
@@ -1761,7 +8120,7 @@ void register_Optimizer_class(){
             SpatializeGroupsVisitor_exposer.def_readwrite( "_geodesToDivideList", &osgUtil::Optimizer::SpatializeGroupsVisitor::_geodesToDivideList );
             SpatializeGroupsVisitor_exposer.def_readwrite( "_groupsToDivideList", &osgUtil::Optimizer::SpatializeGroupsVisitor::_groupsToDivideList );
         }
-        bp::class_< Optimizer_wrapper::StateVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable >( "StateVisitor", bp::init< bool, bool, bool, bp::optional< osgUtil::Optimizer * > >(( bp::arg("combineDynamicState"), bp::arg("combineStaticState"), bp::arg("combineUnspecifiedState"), bp::arg("optimizer")=bp::object() )) )    
+        bp::class_< Optimizer_wrapper::StateVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::StateVisitor >, boost::noncopyable >( "StateVisitor", bp::init< bool, bool, bool, bp::optional< osgUtil::Optimizer * > >(( bp::arg("combineDynamicState"), bp::arg("combineStaticState"), bp::arg("combineUnspecifiedState"), bp::arg("optimizer")=bp::object() )) )    
             .def( 
                 "apply"
                 , (void ( ::osgUtil::Optimizer::StateVisitor::* )( ::osg::Node & ))(&::osgUtil::Optimizer::StateVisitor::apply)
@@ -1780,7 +8139,7 @@ void register_Optimizer_class(){
                 , (void ( ::osgUtil::Optimizer::StateVisitor::* )(  ))(&::osgUtil::Optimizer::StateVisitor::reset)
                 , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )(  ))(&Optimizer_wrapper::StateVisitor_wrapper::default_reset) );
         { //::osgUtil::Optimizer::StaticObjectDetectionVisitor
-            typedef bp::class_< Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > StaticObjectDetectionVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::StaticObjectDetectionVisitor >, boost::noncopyable > StaticObjectDetectionVisitor_exposer_t;
             StaticObjectDetectionVisitor_exposer_t StaticObjectDetectionVisitor_exposer = StaticObjectDetectionVisitor_exposer_t( "StaticObjectDetectionVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope StaticObjectDetectionVisitor_scope( StaticObjectDetectionVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::StaticObjectDetectionVisitor >();
@@ -1810,7 +8169,7 @@ void register_Optimizer_class(){
             }
         }
         { //::osgUtil::Optimizer::TessellateVisitor
-            typedef bp::class_< Optimizer_wrapper::TessellateVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > TessellateVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::TessellateVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::TessellateVisitor >, boost::noncopyable > TessellateVisitor_exposer_t;
             TessellateVisitor_exposer_t TessellateVisitor_exposer = TessellateVisitor_exposer_t( "TessellateVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope TessellateVisitor_scope( TessellateVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::TessellateVisitor >();
@@ -1916,7 +8275,7 @@ void register_Optimizer_class(){
                 , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( int,int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::setMaximumAtlasSize )
                 , ( bp::arg("width"), bp::arg("height") ) );
         { //::osgUtil::Optimizer::TextureAtlasVisitor
-            typedef bp::class_< Optimizer_wrapper::TextureAtlasVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable > TextureAtlasVisitor_exposer_t;
+            typedef bp::class_< Optimizer_wrapper::TextureAtlasVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::TextureAtlasVisitor >, boost::noncopyable > TextureAtlasVisitor_exposer_t;
             TextureAtlasVisitor_exposer_t TextureAtlasVisitor_exposer = TextureAtlasVisitor_exposer_t( "TextureAtlasVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
             bp::scope TextureAtlasVisitor_scope( TextureAtlasVisitor_exposer );
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::TextureAtlasVisitor >();
@@ -1975,7 +8334,7 @@ void register_Optimizer_class(){
             
             }
         }
-        bp::class_< Optimizer_wrapper::TextureVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, boost::noncopyable >( "TextureVisitor", bp::init< bool, bool, bool, bool, bool, float, bp::optional< osgUtil::Optimizer * > >(( bp::arg("changeAutoUnRef"), bp::arg("valueAutoUnRef"), bp::arg("changeClientImageStorage"), bp::arg("valueClientImageStorage"), bp::arg("changeAnisotropy"), bp::arg("valueAnisotropy"), bp::arg("optimizer")=bp::object() )) )    
+        bp::class_< Optimizer_wrapper::TextureVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::TextureVisitor >, boost::noncopyable >( "TextureVisitor", bp::init< bool, bool, bool, bool, bool, float, bp::optional< osgUtil::Optimizer * > >(( bp::arg("changeAutoUnRef"), bp::arg("valueAutoUnRef"), bp::arg("changeClientImageStorage"), bp::arg("valueClientImageStorage"), bp::arg("changeAnisotropy"), bp::arg("valueAnisotropy"), bp::arg("optimizer")=bp::object() )) )    
             .def( 
                 "apply"
                 , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Geode & ))(&::osgUtil::Optimizer::TextureVisitor::apply)

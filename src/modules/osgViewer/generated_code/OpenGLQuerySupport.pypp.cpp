@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "openglquerysupport.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct OpenGLQuerySupport_wrapper : osgViewer::OpenGLQuerySupport, bp::wrapper< osgViewer::OpenGLQuerySupport > {
-
-    OpenGLQuerySupport_wrapper( )
-    : osgViewer::OpenGLQuerySupport( )
-      , bp::wrapper< osgViewer::OpenGLQuerySupport >(){
-        // null constructor
-    
-    }
 
     virtual void beginQuery( unsigned int frameNumber, ::osg::State * state ){
         bp::override func_beginQuery = this->get_override( "beginQuery" );
@@ -58,7 +52,7 @@ struct OpenGLQuerySupport_wrapper : osgViewer::OpenGLQuerySupport, bp::wrapper< 
 
 void register_OpenGLQuerySupport_class(){
 
-    bp::class_< OpenGLQuerySupport_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "OpenGLQuerySupport", bp::init< >() )    
+    bp::class_< OpenGLQuerySupport_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::OpenGLQuerySupport >, boost::noncopyable >( "OpenGLQuerySupport", bp::no_init )    
         .def( 
             "beginQuery"
             , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( unsigned int,::osg::State * ))(&::osgViewer::OpenGLQuerySupport::beginQuery) )

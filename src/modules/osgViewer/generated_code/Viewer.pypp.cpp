@@ -23,13 +23,6 @@ struct Viewer_wrapper : osgViewer::Viewer, bp::wrapper< osgViewer::Viewer > {
     
     }
 
-    Viewer_wrapper(::osgViewer::Viewer const & viewer, ::osg::CopyOp const & copyop=SHALLOW_COPY )
-    : osgViewer::Viewer( boost::ref(viewer), boost::ref(copyop) )
-      , bp::wrapper< osgViewer::Viewer >(){
-        // constructor
-    
-    }
-
     virtual void advance( double simulationTime=1.79769313486231570814527423731704356798070567526e+308 ) {
         if( bp::override func_advance = this->get_override( "advance" ) )
             func_advance( simulationTime );
@@ -628,8 +621,6 @@ void register_Viewer_class(){
         bp::scope Viewer_scope( Viewer_exposer );
         Viewer_exposer.def( bp::init< osg::ArgumentParser & >(( bp::arg("arguments") )) );
         bp::implicitly_convertible< osg::ArgumentParser &, osgViewer::Viewer >();
-        Viewer_exposer.def( bp::init< osgViewer::Viewer const &, bp::optional< osg::CopyOp const & > >(( bp::arg("viewer"), bp::arg("copyop")=SHALLOW_COPY )) );
-        bp::implicitly_convertible< osgViewer::Viewer const &, osgViewer::Viewer >();
         { //::osgViewer::Viewer::advance
         
             typedef void ( ::osgViewer::Viewer::*advance_function_type)( double ) ;

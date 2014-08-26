@@ -76,7 +76,9 @@ class OsgWrapper(BaseWrapper):
                     ctor.exclude()
 
         # TODO confusing protected destructor compile errors, associated with comparison operators
+        # TODO need to remove const from both argument type, AND from wrapped function source object type
         for cls_name in [
+                "ClipPlane",
                 "ColorMask",
                 "Image", 
                 "Light", 
@@ -84,6 +86,7 @@ class OsgWrapper(BaseWrapper):
                 "StateAttribute",
                 "StateSet",
                 "Texture",
+                "TexGen",
                 "Uniform", 
                 "Viewport",
                 ]:
@@ -117,6 +120,18 @@ class OsgWrapper(BaseWrapper):
         self.wrap_drawable()
 
         self.mb.class_("ConstShapeVisitor").member_functions("apply").exclude()
+        self.mb.class_("NodeVisitor").member_functions("validNodeMask").exclude()
+        # osg.class_("Texture").member_functions("compare").exclude()
+        osg.class_("CoordinateSystemNode").member_functions("set").exclude()
+
+        # Pure virtual "compare" method causes compile error
+        texture = osg.class_("Texture")
+        # print dir(texture)
+        for fn in texture.redefined_funcs():
+            if "compare" in fn.alias:
+                # print fn
+                texture.redefined_funcs().remove(fn)
+        # exit(0)
         
         # Exclude classes I'm too lazy to wrap right now
         for cls_name in [
@@ -136,12 +151,12 @@ class OsgWrapper(BaseWrapper):
                 "GL2Extensions", 
                 "ElementBufferObject", 
                 "ConstArrayVisitor", 
-                "NodeVisitor", 
+                # "NodeVisitor", 
                 "vector<osg::VertexAttribAlias>",
                 "VertexAttribAlias",
-                "GraphicsContext",
-                "Texture",
-                "Transform",
+                # "GraphicsContext",
+                # "Texture",
+                # "Transform",
                 ]:
             self.mb.class_(cls_name).exclude()
             self.mb.class_(lambda c: c.alias == "VertexAttribAliasList").exclude()
@@ -151,11 +166,17 @@ class OsgWrapper(BaseWrapper):
             self.mb.class_("Texture").class_("TextureObject").exclude()
         
         # Wrap Free functions
-        mb.free_function("getNotifyHandler").call_policies = return_value_policy(reference_existing_object)
-        for fn in mb.free_functions("notify"):
-            fn.call_policies = return_value_policy(reference_existing_object)
-        # TODO createTexturedQuadGeometry should create a ref_ptr object?
-        mb.free_functions("createTexturedQuadGeometry").call_policies = return_value_policy(reference_existing_object)
+        for fn_name in [
+                "createTexturedQuadGeometry",
+                "getNotifyHandler",
+                "notify",
+                ]:
+            mb.free_functions(fn_name).call_policies = return_value_policy(reference_existing_object)
+        for fn_name in [
+                "initOQState", # link error
+                "initOQDebugState", # link error
+                ]:
+            mb.free_functions(fn_name).exclude()
         
         # Write results
         self.mb.build_code_creator(module_name='osg')

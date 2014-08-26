@@ -2,7 +2,7 @@
 
 #include "boost/python.hpp"
 #include "boost/python/suite/indexing/vector_indexing_suite.hpp"
-#include "wrap_osgviewer.h"
+#include "wrap_osg.h"
 #include "vector_less__osg_scope_graphicscontext_ptr___greater_.pypp.hpp"
 
 namespace bp = boost::python;

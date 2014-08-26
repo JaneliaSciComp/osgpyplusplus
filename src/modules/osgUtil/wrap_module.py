@@ -14,8 +14,7 @@ class OsgUtilWrapper(BaseWrapper):
         BaseWrapper.__init__(self, files=["wrap_osgUtil.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
-        self.mb.register_module_dependency('../osg/generated_code/')
-        self.mb.register_module_dependency('../osgDB/generated_code/')
+        self.mb.register_module_dependency('../osgGA/generated_code/')
             
     def wrap(self):
         mb = self.mb
@@ -28,20 +27,25 @@ class OsgUtilWrapper(BaseWrapper):
         mb.free_functions(lambda f: f.name.startswith('osgUtil')).include()
         
         wrap_call_policies(self.mb)
+
+        self.wrap_all_osg_referenced(osgUtil)
+
         hide_nonpublic(mb)
 
-        for cls_name in [
-                ]:
-            expose_ref_ptr_class(mb.class_(cls_name))
-            
-
-        for cls_name in [
-                ]:
-            ctor = mb.class_(cls_name).constructors(arg_types=[None, None])
-            ctor.exclude()
-            # ctor.add_transformation(FT.modify_type(1, remove_const_from_reference))
-
         self.mb.classes(lambda c: c.name.startswith("map<")).exclude()
+
+        cullVisitor = osgUtil.class_("CullVisitor")
+        for fn_name in [
+                "computeFurthestPointInFrustum",
+                "computeNearestPointInFrustum",
+                "updateCalculatedNearFar",
+                ]:
+            cullVisitor.member_functions(fn_name).exclude()
+        cullVisitor.constructors(arg_types=[None]).exclude()
+
+        self.mb.class_("IncrementalCompileOperation").variables("_compileMap").exclude()
+        self.mb.class_("Optimizer").variables("_billboards").exclude()
+        self.mb.class_("StateGraph").variables("_children").exclude()
 
         self.mb.build_code_creator(module_name='osgUtil')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))

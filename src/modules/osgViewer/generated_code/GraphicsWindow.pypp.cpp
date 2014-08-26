@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
+#include "wrap_referenced.h"
 #include "graphicswindow.pypp.hpp"
 
 namespace bp = boost::python;
@@ -363,6 +364,18 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
         return osgViewer::GraphicsWindow::valid( );
     }
 
+    virtual void clear(  ) {
+        if( bp::override func_clear = this->get_override( "clear" ) )
+            func_clear(  );
+        else{
+            this->osg::GraphicsContext::clear(  );
+        }
+    }
+    
+    void default_clear(  ) {
+        osg::GraphicsContext::clear( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -411,6 +424,30 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
         osg::Object::resizeGLObjectBuffers( arg0 );
     }
 
+    virtual void resizedImplementation( int x, int y, int width, int height ) {
+        if( bp::override func_resizedImplementation = this->get_override( "resizedImplementation" ) )
+            func_resizedImplementation( x, y, width, height );
+        else{
+            this->osg::GraphicsContext::resizedImplementation( x, y, width, height );
+        }
+    }
+    
+    void default_resizedImplementation( int x, int y, int width, int height ) {
+        osg::GraphicsContext::resizedImplementation( x, y, width, height );
+    }
+
+    virtual void runOperations(  ) {
+        if( bp::override func_runOperations = this->get_override( "runOperations" ) )
+            func_runOperations(  );
+        else{
+            this->osg::GraphicsContext::runOperations(  );
+        }
+    }
+    
+    void default_runOperations(  ) {
+        osg::GraphicsContext::runOperations( );
+    }
+
     virtual void setName( ::std::string const & name ) {
         if( bp::override func_setName = this->get_override( "setName" ) )
             func_setName( name );
@@ -452,7 +489,7 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
 void register_GraphicsWindow_class(){
 
     { //::osgViewer::GraphicsWindow
-        typedef bp::class_< GraphicsWindow_wrapper, boost::noncopyable > GraphicsWindow_exposer_t;
+        typedef bp::class_< GraphicsWindow_wrapper, bp::bases< ::osg::GraphicsContext >, osg::ref_ptr< ::osgViewer::GraphicsWindow >, boost::noncopyable > GraphicsWindow_exposer_t;
         GraphicsWindow_exposer_t GraphicsWindow_exposer = GraphicsWindow_exposer_t( "GraphicsWindow", bp::init< >() );
         bp::scope GraphicsWindow_scope( GraphicsWindow_exposer );
         bp::enum_< osgViewer::GraphicsWindow::MouseCursor>("MouseCursor")

@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgga.h"
+#include "wrap_referenced.h"
 #include "eventqueue.pypp.hpp"
 
 namespace bp = boost::python;
@@ -32,7 +33,7 @@ struct EventQueue_wrapper : osgGA::EventQueue, bp::wrapper< osgGA::EventQueue > 
 void register_EventQueue_class(){
 
     { //::osgGA::EventQueue
-        typedef bp::class_< EventQueue_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable > EventQueue_exposer_t;
+        typedef bp::class_< EventQueue_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::EventQueue >, boost::noncopyable > EventQueue_exposer_t;
         EventQueue_exposer_t EventQueue_exposer = EventQueue_exposer_t( "EventQueue", bp::no_init );
         bp::scope EventQueue_scope( EventQueue_exposer );
         EventQueue_exposer.def( bp::init< bp::optional< osgGA::GUIEventAdapter::MouseYOrientation > >(( bp::arg("mouseYOrientation")=::osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS )) );

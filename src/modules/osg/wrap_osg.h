@@ -1,12 +1,24 @@
 #include "../default.h"
 
 // TODO wrap more classes
-#include <osg/Billboard>
-#include <osg/LOD>
-#include <osg/MatrixTransform>
-#include <osg/PagedLOD>
-#include <osg/ProxyNode>
+#include <osg/PositionAttitudeTransform>
+#include <osg/Sequence>
+#include <osg/Switch>
+#include <osg/CameraView>
+#include <osg/LightSource>
+#include <osg/CoordinateSystemNode>
+#include <osg/Projection>
+#include <osg/ClipNode>
+#include <osg/OccluderNode>
+#include <osg/OcclusionQueryNode>
+#include <osg/TexGenNode>
+#include <osg/OcclusionQueryNode>
 
+#include <osg/Billboard> // OK
+#include <osg/LOD> // OK
+#include <osg/MatrixTransform> // OK
+#include <osg/PagedLOD> // OK
+#include <osg/ProxyNode> // OK
 #include <osg/Geometry> // OK
 #include <osg/Uniform> // OK
 #include <osg/Geode> // OK
@@ -39,6 +51,29 @@ namespace pyplusplus { namespace aliases {
     typedef std::vector<osg::StateSet*> std_vector_osgStateSetPtr;
     typedef std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > > longClassName1;
 }}
+
+// function(s) needed by indexing suite
+namespace osg {
+
+	inline bool operator==(
+			const osg::GraphicsContext::ScreenSettings& lhs, 
+			const osg::GraphicsContext::ScreenSettings& rhs) 
+	{
+		if (lhs.width != rhs.width) return false;
+		if (lhs.height != rhs.height) return false;
+		if (lhs.refreshRate != rhs.refreshRate) return false;
+		if (lhs.colorDepth != rhs.colorDepth) return false;
+		return true;
+	}
+
+	inline bool operator==(
+			const osg::ConvexPlanarPolygon& lhs, 
+			const osg::ConvexPlanarPolygon& rhs) 
+	{
+		if (lhs.getVertexList() != rhs.getVertexList()) return false;
+		return true;
+	}	
+}
 
 // #include <osg/Matrixf>
 

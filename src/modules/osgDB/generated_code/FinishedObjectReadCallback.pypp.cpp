@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "finishedobjectreadcallback.pypp.hpp"
 
 namespace bp = boost::python;
@@ -36,7 +37,7 @@ struct FinishedObjectReadCallback_wrapper : osgDB::FinishedObjectReadCallback, b
 
 void register_FinishedObjectReadCallback_class(){
 
-    bp::class_< FinishedObjectReadCallback_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "FinishedObjectReadCallback" )    
+    bp::class_< FinishedObjectReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::FinishedObjectReadCallback >, boost::noncopyable >( "FinishedObjectReadCallback", bp::no_init )    
         .def( 
             "objectRead"
             , bp::pure_virtual( (void ( ::osgDB::FinishedObjectReadCallback::* )( ::osgDB::InputStream &,::osg::Object & ))(&::osgDB::FinishedObjectReadCallback::objectRead) )

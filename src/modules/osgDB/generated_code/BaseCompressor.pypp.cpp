@@ -2,18 +2,12 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
+#include "wrap_referenced.h"
 #include "basecompressor.pypp.hpp"
 
 namespace bp = boost::python;
 
 struct BaseCompressor_wrapper : osgDB::BaseCompressor, bp::wrapper< osgDB::BaseCompressor > {
-
-    BaseCompressor_wrapper( )
-    : osgDB::BaseCompressor( )
-      , bp::wrapper< osgDB::BaseCompressor >(){
-        // null constructor
-    
-    }
 
     virtual bool compress( ::std::ostream & arg0, ::std::string const & arg1 ){
         bp::override func_compress = this->get_override( "compress" );
@@ -41,7 +35,7 @@ struct BaseCompressor_wrapper : osgDB::BaseCompressor, bp::wrapper< osgDB::BaseC
 
 void register_BaseCompressor_class(){
 
-    bp::class_< BaseCompressor_wrapper, bp::bases< ::osg::Referenced >, boost::noncopyable >( "BaseCompressor", bp::init< >() )    
+    bp::class_< BaseCompressor_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::BaseCompressor >, boost::noncopyable >( "BaseCompressor", bp::no_init )    
         .def( 
             "compress"
             , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::ostream &,::std::string const & ))(&::osgDB::BaseCompressor::compress) )

@@ -107,6 +107,18 @@ struct InteractiveImageHandler_wrapper : osgViewer::InteractiveImageHandler, bp:
         osg::Object::computeDataVariance( );
     }
 
+    virtual bool cull( ::osg::NodeVisitor * arg0, ::osg::Drawable * arg1, ::osg::State * arg2 ) const  {
+        if( bp::override func_cull = this->get_override( "cull" ) )
+            return func_cull( boost::python::ptr(arg0), boost::python::ptr(arg1), boost::python::ptr(arg2) );
+        else{
+            return this->osg::Drawable::CullCallback::cull( boost::python::ptr(arg0), boost::python::ptr(arg1), boost::python::ptr(arg2) );
+        }
+    }
+    
+    bool default_cull( ::osg::NodeVisitor * arg0, ::osg::Drawable * arg1, ::osg::State * arg2 ) const  {
+        return osg::Drawable::CullCallback::cull( boost::python::ptr(arg0), boost::python::ptr(arg1), boost::python::ptr(arg2) );
+    }
+
     virtual ::osg::Referenced * getUserData(  ) {
         if( bp::override func_getUserData = this->get_override( "getUserData" ) )
             return func_getUserData(  );
@@ -184,7 +196,7 @@ struct InteractiveImageHandler_wrapper : osgViewer::InteractiveImageHandler, bp:
 void register_InteractiveImageHandler_class(){
 
     { //::osgViewer::InteractiveImageHandler
-        typedef bp::class_< InteractiveImageHandler_wrapper, osg::ref_ptr< ::osgViewer::InteractiveImageHandler >, boost::noncopyable > InteractiveImageHandler_exposer_t;
+        typedef bp::class_< InteractiveImageHandler_wrapper, bp::bases< ::osg::Drawable::CullCallback >, osg::ref_ptr< ::osgViewer::InteractiveImageHandler >, boost::noncopyable > InteractiveImageHandler_exposer_t;
         InteractiveImageHandler_exposer_t InteractiveImageHandler_exposer = InteractiveImageHandler_exposer_t( "InteractiveImageHandler", bp::no_init );
         bp::scope InteractiveImageHandler_scope( InteractiveImageHandler_exposer );
         InteractiveImageHandler_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );

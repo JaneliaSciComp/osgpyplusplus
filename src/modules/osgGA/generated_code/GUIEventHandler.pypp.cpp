@@ -16,13 +16,6 @@ struct GUIEventHandler_wrapper : osgGA::GUIEventHandler, bp::wrapper< osgGA::GUI
     
     }
 
-    GUIEventHandler_wrapper(::osgGA::GUIEventHandler const & eh, ::osg::CopyOp const & copyop )
-    : osgGA::GUIEventHandler( boost::ref(eh), boost::ref(copyop) )
-      , bp::wrapper< osgGA::GUIEventHandler >(){
-        // constructor
-    
-    }
-
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -208,7 +201,6 @@ struct GUIEventHandler_wrapper : osgGA::GUIEventHandler, bp::wrapper< osgGA::GUI
 void register_GUIEventHandler_class(){
 
     bp::class_< GUIEventHandler_wrapper, bp::bases< ::osg::Drawable::EventCallback >, osg::ref_ptr< ::osgGA::GUIEventHandler >, boost::noncopyable >( "GUIEventHandler", bp::init< >() )    
-        .def( bp::init< osgGA::GUIEventHandler const &, osg::CopyOp const & >(( bp::arg("eh"), bp::arg("copyop") )) )    
         .def( 
             "className"
             , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::className)
