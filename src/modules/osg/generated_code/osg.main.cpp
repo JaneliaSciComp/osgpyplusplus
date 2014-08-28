@@ -8,9 +8,17 @@
 
 #include "__call_policies.pypp.hpp"
 
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+#include "indexing_suite/value_traits.hpp"
 
-#include "boost/python/suite/indexing/map_indexing_suite.hpp"
+#include "indexing_suite/container_suite.hpp"
+
+#include "indexing_suite/vector.hpp"
+
+#include "indexing_suite/set.hpp"
+
+#include "indexing_suite/map.hpp"
+
+#include "indexing_suite/list.hpp"
 
 #include "wrap_osg.h"
 
@@ -75,6 +83,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camera.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camerarenderordersortop.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameras.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameraview.pypp.hpp"
 
@@ -178,6 +188,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightsource.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/list_less__osg_scope_ref_ptr_less_osg_scope_operation_greater___greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lod.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/longclassname1.pypp.hpp"
@@ -210,6 +222,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observers.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occludernode.pypp.hpp"
@@ -221,6 +235,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationqueue.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthread.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthreads.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_enumerations.pypp.hpp"
 
@@ -306,6 +322,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/switch.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/templatearray_less__float_comma___obrace_osg_scope_array_scope_type_cbrace_7_comma__1_comma__5126__greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/testresult.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgen.pypp.hpp"
@@ -375,6 +393,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3ui.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3us.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4array.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4b.pypp.hpp"
 
@@ -499,6 +519,10 @@ BOOST_PYTHON_MODULE(osg){
 
     register_vector_less__bool__greater__class();
 
+    register_OperationThreads_class();
+
+    register_Observers_class();
+
     register_map_less__unsigned_int_comma__unsigned_int__greater__class();
 
     register_ActiveUniformMap_class();
@@ -518,6 +542,10 @@ BOOST_PYTHON_MODULE(osg){
     register_BufferAttachmentMap_class();
 
     register_TimeControlPointMap_class();
+
+    register_list_less__osg_scope_ref_ptr_less_osg_scope_Operation_greater___greater__class();
+
+    register_Cameras_class();
 
     register_Atomic_class();
 
@@ -772,6 +800,10 @@ BOOST_PYTHON_MODULE(osg){
     register_SwapBuffersOperation_class();
 
     register_Switch_class();
+
+    register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__class();
+
+    register_Vec4Array_class();
 
     register_TestResult_class();
 

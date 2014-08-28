@@ -162,7 +162,7 @@ class OsgWrapper(BaseWrapper):
             self.mb.class_(lambda c: c.alias == "VertexAttribAliasList").exclude()
             self.mb.classes(lambda c: c.name.startswith("observer_ptr<")).exclude()
             self.mb.classes(lambda c: c.name.startswith("MixinVector<")).exclude()
-            self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
+            # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
             self.mb.class_("Texture").class_("TextureObject").exclude()
         
         # Wrap Free functions
@@ -178,11 +178,20 @@ class OsgWrapper(BaseWrapper):
                 ]:
             mb.free_functions(fn_name).exclude()
         
+        # TODO - wrap vector class as array
+        arr = osg.classes(lambda c: c.alias == "Vec4Array")[0]
+        arr.include_files.append("indexing_helpers.h")
+        t = arr.demangled
+        arr.add_registration_code("""
+            def(bp::indexing::container_suite<
+                    %s, 
+                    bp::indexing::all_methods, 
+                    list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType, int> > >())
+            """ % (t, t, t) )
+        # exit(0)
+
         # Write results
-        self.mb.build_code_creator(module_name='osg')
-        self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
-        # Create a file to indicate completion of wrapping script
-        open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
+        self.generate_module_code("osg")
     
     def wrap_drawable(self):
         drawable = self.mb.class_("Drawable")

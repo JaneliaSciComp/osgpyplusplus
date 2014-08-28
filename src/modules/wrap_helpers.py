@@ -4,7 +4,9 @@ from pygccxml import declarations
 from pygccxml.declarations import type_traits
 from pygccxml.declarations import cpptypes
 from pyplusplus.module_builder.call_policies import *
+from doxygen_doc_extractor import doxygen_doc_extractor
 import re
+import os
 
 
 class DerivedClasses(set):
@@ -29,13 +31,22 @@ class DerivedClasses(set):
 class BaseWrapper:
     "Base class for each OSG module wrapper"
     def __init__(self, files):
+        self.max_arity = 18
         self.mb = module_builder.module_builder_t(
             files = files,
             gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
             include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",],
-            define_symbols=["BOOST_PYTHON_MAX_ARITY=18"],
+            define_symbols=["BOOST_PYTHON_MAX_ARITY=%d" % self.max_arity],
+            indexing_suite_version=2,
         )
-        self.mb.BOOST_PYTHON_MAX_ARITY = 18 # Prevents warnings on 10-18 argument methods
+        self.mb.BOOST_PYTHON_MAX_ARITY = self.max_arity # Prevents warnings on 10-18 argument methods
+
+    def generate_module_code(self, module_name):
+        extractor = doxygen_doc_extractor()
+        self.mb.build_code_creator(module_name=module_name) # , doc_extractor=extractor)
+        self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
+        # Create a file to indicate completion of wrapping script
+        open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
 
     def wrap_all_osg_referenced(self, namespace):
         # Identify all classes derived from osg::Referenced, 
