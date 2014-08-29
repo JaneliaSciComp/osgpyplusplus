@@ -362,6 +362,42 @@ struct Program_wrapper : osg::Program, bp::wrapper< osg::Program > {
         osg::Program::setThreadSafeRefUnref( threadSafe );
     }
 
+    virtual ::osg::Texture * asTexture(  ) {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture * default_asTexture(  ) {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual ::osg::Texture const * asTexture(  ) const  {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture const * default_asTexture(  ) const  {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual bool checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        if( bp::override func_checkValidityOfAssociatedModes = this->get_override( "checkValidityOfAssociatedModes" ) )
+            return func_checkValidityOfAssociatedModes( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        return osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -372,6 +408,30 @@ struct Program_wrapper : osg::Program, bp::wrapper< osg::Program > {
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
+    }
+
+    virtual unsigned int getMember(  ) const  {
+        if( bp::override func_getMember = this->get_override( "getMember" ) )
+            return func_getMember(  );
+        else{
+            return this->osg::StateAttribute::getMember(  );
+        }
+    }
+    
+    unsigned int default_getMember(  ) const  {
+        return osg::StateAttribute::getMember( );
+    }
+
+    virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
+        if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
+            return func_getModeUsage( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::getModeUsage( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
+        return osg::StateAttribute::getModeUsage( boost::ref(arg0) );
     }
 
     virtual ::osg::Referenced * getUserData(  ) {
@@ -396,6 +456,18 @@ struct Program_wrapper : osg::Program, bp::wrapper< osg::Program > {
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual bool isTextureAttribute(  ) const  {
+        if( bp::override func_isTextureAttribute = this->get_override( "isTextureAttribute" ) )
+            return func_isTextureAttribute(  );
+        else{
+            return this->osg::StateAttribute::isTextureAttribute(  );
+        }
+    }
+    
+    bool default_isTextureAttribute(  ) const  {
+        return osg::StateAttribute::isTextureAttribute( );
     }
 
     virtual void setName( ::std::string const & name ) {
@@ -427,7 +499,7 @@ struct Program_wrapper : osg::Program, bp::wrapper< osg::Program > {
 void register_Program_class(){
 
     { //::osg::Program
-        typedef bp::class_< Program_wrapper, osg::ref_ptr< ::osg::Program >, boost::noncopyable > Program_exposer_t;
+        typedef bp::class_< Program_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Program >, boost::noncopyable > Program_exposer_t;
         Program_exposer_t Program_exposer = Program_exposer_t( "Program", bp::no_init );
         bp::scope Program_scope( Program_exposer );
         bp::class_< osg::Program::ActiveVarInfo >( "ActiveVarInfo", bp::init< >() )    
@@ -1021,6 +1093,42 @@ void register_Program_class(){
                 , ( bp::arg("threadSafe") ) );
         
         }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( Program_wrapper::*default_asTexture_function_type)(  ) ;
+            
+            Program_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&Program_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( Program_wrapper::*default_asTexture_function_type)(  ) const;
+            
+            Program_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&Program_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::checkValidityOfAssociatedModes
+        
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( Program_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            
+            Program_exposer.def( 
+                "checkValidityOfAssociatedModes"
+                , checkValidityOfAssociatedModes_function_type(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+                , default_checkValidityOfAssociatedModes_function_type(&Program_wrapper::default_checkValidityOfAssociatedModes)
+                , ( bp::arg("arg0") ) );
+        
+        }
         { //::osg::Object::computeDataVariance
         
             typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
@@ -1030,6 +1138,29 @@ void register_Program_class(){
                 "computeDataVariance"
                 , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
                 , default_computeDataVariance_function_type(&Program_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::StateAttribute::getMember
+        
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( Program_wrapper::*default_getMember_function_type)(  ) const;
+            
+            Program_exposer.def( 
+                "getMember"
+                , getMember_function_type(&::osg::StateAttribute::getMember)
+                , default_getMember_function_type(&Program_wrapper::default_getMember) );
+        
+        }
+        { //::osg::StateAttribute::getModeUsage
+        
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Program_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            
+            Program_exposer.def( 
+                "getModeUsage"
+                , getModeUsage_function_type(&::osg::StateAttribute::getModeUsage)
+                , default_getModeUsage_function_type(&Program_wrapper::default_getModeUsage)
+                , ( bp::arg("arg0") ) );
         
         }
         { //::osg::Object::getUserData
@@ -1054,6 +1185,17 @@ void register_Program_class(){
                 , getUserData_function_type(&::osg::Object::getUserData)
                 , default_getUserData_function_type(&Program_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::isTextureAttribute
+        
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( Program_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            
+            Program_exposer.def( 
+                "isTextureAttribute"
+                , isTextureAttribute_function_type(&::osg::StateAttribute::isTextureAttribute)
+                , default_isTextureAttribute_function_type(&Program_wrapper::default_isTextureAttribute) );
         
         }
         { //::osg::Object::setName

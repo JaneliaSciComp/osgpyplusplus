@@ -354,7 +354,7 @@ struct Texture_wrapper : osg::Texture, bp::wrapper< osg::Texture > {
 void register_Texture_class(){
 
     { //::osg::Texture
-        typedef bp::class_< Texture_wrapper, osg::ref_ptr< ::osg::Texture >, boost::noncopyable > Texture_exposer_t;
+        typedef bp::class_< Texture_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Texture >, boost::noncopyable > Texture_exposer_t;
         Texture_exposer_t Texture_exposer = Texture_exposer_t( "Texture", bp::no_init );
         bp::scope Texture_scope( Texture_exposer );
         bp::enum_< osg::Texture::FilterMode>("FilterMode")

@@ -1,4 +1,7 @@
-from osgpyplusplus import osg, osgDB, osgGA, osgViewer
+from osgpyplusplus import osg
+from osgpyplusplus import osgDB
+from osgpyplusplus import osgGA
+from osgpyplusplus import osgViewer
 
 # Adapted from https://code.google.com/p/osgboostpython/
 

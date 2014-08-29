@@ -2,7 +2,11 @@
 
 #include "boost/python.hpp"
 
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+#include "indexing_suite/container_suite.hpp"
+
+#include "indexing_suite/vector.hpp"
+
+#include "indexing_suite/list.hpp"
 
 #include "wrap_osgviewer.h"
 
@@ -13,6 +17,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/depthpartitionsettings.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/devices.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/eventhandlers.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/graphicswindow.pypp.hpp"
 
@@ -27,6 +33,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/keystone.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/keystonehandler.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/list_less__osgviewer_scope_view_ptr___greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/lodscalehandler.pypp.hpp"
 
@@ -84,6 +92,10 @@ BOOST_PYTHON_MODULE(osgViewer){
     register_Cameras_class();
 
     register_vector_less__OpenThreads_scope_Thread_ptr___greater__class();
+
+    register_list_less__osgViewer_scope_View_ptr___greater__class();
+
+    register_EventHandlers_class();
 
     register_ViewerBase_class();
 

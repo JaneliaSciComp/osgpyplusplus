@@ -16,6 +16,42 @@ struct KeystoneHandler_wrapper : osgViewer::KeystoneHandler, bp::wrapper< osgVie
     
     }
 
+    virtual char const * className(  ) const  {
+        if( bp::override func_className = this->get_override( "className" ) )
+            return func_className(  );
+        else{
+            return this->osgGA::GUIEventHandler::className(  );
+        }
+    }
+    
+    char const * default_className(  ) const  {
+        return osgGA::GUIEventHandler::className( );
+    }
+
+    virtual ::osg::Object * clone( ::osg::CopyOp const & copyop ) const  {
+        if( bp::override func_clone = this->get_override( "clone" ) )
+            return func_clone( boost::ref(copyop) );
+        else{
+            return this->osgGA::GUIEventHandler::clone( boost::ref(copyop) );
+        }
+    }
+    
+    ::osg::Object * default_clone( ::osg::CopyOp const & copyop ) const  {
+        return osgGA::GUIEventHandler::clone( boost::ref(copyop) );
+    }
+
+    virtual ::osg::Object * cloneType(  ) const  {
+        if( bp::override func_cloneType = this->get_override( "cloneType" ) )
+            return func_cloneType(  );
+        else{
+            return this->osgGA::GUIEventHandler::cloneType(  );
+        }
+    }
+    
+    ::osg::Object * default_cloneType(  ) const  {
+        return osgGA::GUIEventHandler::cloneType( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -26,6 +62,30 @@ struct KeystoneHandler_wrapper : osgViewer::KeystoneHandler, bp::wrapper< osgVie
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
+    }
+
+    virtual void event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        if( bp::override func_event = this->get_override( "event" ) )
+            func_event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        else{
+            this->osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        }
+    }
+    
+    void default_event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+    }
+
+    virtual void getUsage( ::osg::ApplicationUsage & arg0 ) const  {
+        if( bp::override func_getUsage = this->get_override( "getUsage" ) )
+            func_getUsage( boost::ref(arg0) );
+        else{
+            this->osgGA::GUIEventHandler::getUsage( boost::ref(arg0) );
+        }
+    }
+    
+    void default_getUsage( ::osg::ApplicationUsage & arg0 ) const  {
+        osgGA::GUIEventHandler::getUsage( boost::ref(arg0) );
     }
 
     virtual ::osg::Referenced * getUserData(  ) {
@@ -50,6 +110,30 @@ struct KeystoneHandler_wrapper : osgViewer::KeystoneHandler, bp::wrapper< osgVie
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual bool isSameKindAs( ::osg::Object const * obj ) const  {
+        if( bp::override func_isSameKindAs = this->get_override( "isSameKindAs" ) )
+            return func_isSameKindAs( boost::python::ptr(obj) );
+        else{
+            return this->osgGA::GUIEventHandler::isSameKindAs( boost::python::ptr(obj) );
+        }
+    }
+    
+    bool default_isSameKindAs( ::osg::Object const * obj ) const  {
+        return osgGA::GUIEventHandler::isSameKindAs( boost::python::ptr(obj) );
+    }
+
+    virtual char const * libraryName(  ) const  {
+        if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+            return func_libraryName(  );
+        else{
+            return this->osgGA::GUIEventHandler::libraryName(  );
+        }
+    }
+    
+    char const * default_libraryName(  ) const  {
+        return osgGA::GUIEventHandler::libraryName( );
     }
 
     virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
@@ -105,7 +189,7 @@ struct KeystoneHandler_wrapper : osgViewer::KeystoneHandler, bp::wrapper< osgVie
 void register_KeystoneHandler_class(){
 
     { //::osgViewer::KeystoneHandler
-        typedef bp::class_< KeystoneHandler_wrapper, osg::ref_ptr< ::osgViewer::KeystoneHandler >, boost::noncopyable > KeystoneHandler_exposer_t;
+        typedef bp::class_< KeystoneHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::KeystoneHandler >, boost::noncopyable > KeystoneHandler_exposer_t;
         KeystoneHandler_exposer_t KeystoneHandler_exposer = KeystoneHandler_exposer_t( "KeystoneHandler", bp::init< osgViewer::Keystone * >(( bp::arg("keystone") )) );
         bp::scope KeystoneHandler_scope( KeystoneHandler_exposer );
         bp::enum_< osgViewer::KeystoneHandler::Region>("Region")

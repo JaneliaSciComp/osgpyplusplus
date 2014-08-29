@@ -107,6 +107,54 @@ struct ColorMask_wrapper : osg::ColorMask, bp::wrapper< osg::ColorMask > {
         return osg::ColorMask::libraryName( );
     }
 
+    virtual ::osg::Texture * asTexture(  ) {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture * default_asTexture(  ) {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual ::osg::Texture const * asTexture(  ) const  {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture const * default_asTexture(  ) const  {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual bool checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        if( bp::override func_checkValidityOfAssociatedModes = this->get_override( "checkValidityOfAssociatedModes" ) )
+            return func_checkValidityOfAssociatedModes( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        return osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+    }
+
+    virtual void compileGLObjects( ::osg::State & arg0 ) const  {
+        if( bp::override func_compileGLObjects = this->get_override( "compileGLObjects" ) )
+            func_compileGLObjects( boost::ref(arg0) );
+        else{
+            this->osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+        }
+    }
+    
+    void default_compileGLObjects( ::osg::State & arg0 ) const  {
+        osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -117,6 +165,30 @@ struct ColorMask_wrapper : osg::ColorMask, bp::wrapper< osg::ColorMask > {
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
+    }
+
+    virtual unsigned int getMember(  ) const  {
+        if( bp::override func_getMember = this->get_override( "getMember" ) )
+            return func_getMember(  );
+        else{
+            return this->osg::StateAttribute::getMember(  );
+        }
+    }
+    
+    unsigned int default_getMember(  ) const  {
+        return osg::StateAttribute::getMember( );
+    }
+
+    virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
+        if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
+            return func_getModeUsage( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::getModeUsage( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
+        return osg::StateAttribute::getModeUsage( boost::ref(arg0) );
     }
 
     virtual ::osg::Referenced * getUserData(  ) {
@@ -141,6 +213,30 @@ struct ColorMask_wrapper : osg::ColorMask, bp::wrapper< osg::ColorMask > {
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual bool isTextureAttribute(  ) const  {
+        if( bp::override func_isTextureAttribute = this->get_override( "isTextureAttribute" ) )
+            return func_isTextureAttribute(  );
+        else{
+            return this->osg::StateAttribute::isTextureAttribute(  );
+        }
+    }
+    
+    bool default_isTextureAttribute(  ) const  {
+        return osg::StateAttribute::isTextureAttribute( );
+    }
+
+    virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( arg0 );
+        else{
+            this->osg::StateAttribute::resizeGLObjectBuffers( arg0 );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int arg0 ) {
+        osg::StateAttribute::resizeGLObjectBuffers( arg0 );
     }
 
     virtual void setName( ::std::string const & name ) {
@@ -183,7 +279,7 @@ struct ColorMask_wrapper : osg::ColorMask, bp::wrapper< osg::ColorMask > {
 
 void register_ColorMask_class(){
 
-    bp::class_< ColorMask_wrapper, osg::ref_ptr< ::osg::ColorMask >, boost::noncopyable >( "ColorMask", bp::no_init )    
+    bp::class_< ColorMask_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ColorMask >, boost::noncopyable >( "ColorMask", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< bool, bool, bool, bool >(( bp::arg("red"), bp::arg("green"), bp::arg("blue"), bp::arg("alpha") )) )    
         .def( 
@@ -252,9 +348,38 @@ void register_ColorMask_class(){
             , (void ( ::osg::ColorMask::* )( bool ))( &::osg::ColorMask::setRedMask )
             , ( bp::arg("mask") ) )    
         .def( 
+            "asTexture"
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( ColorMask_wrapper::* )(  ))(&ColorMask_wrapper::default_asTexture)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asTexture"
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_asTexture)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "checkValidityOfAssociatedModes"
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( ColorMask_wrapper::* )( ::osg::State & )const)(&ColorMask_wrapper::default_checkValidityOfAssociatedModes)
+            , ( bp::arg("arg0") ) )    
+        .def( 
+            "compileGLObjects"
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( ColorMask_wrapper::* )( ::osg::State & )const)(&ColorMask_wrapper::default_compileGLObjects)
+            , ( bp::arg("arg0") ) )    
+        .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
             , (void ( ColorMask_wrapper::* )(  ))(&ColorMask_wrapper::default_computeDataVariance) )    
+        .def( 
+            "getMember"
+            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_getMember) )    
+        .def( 
+            "getModeUsage"
+            , (bool ( ::osg::StateAttribute::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::StateAttribute::getModeUsage)
+            , (bool ( ColorMask_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&ColorMask_wrapper::default_getModeUsage)
+            , ( bp::arg("arg0") ) )    
         .def( 
             "getUserData"
             , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
@@ -265,6 +390,15 @@ void register_ColorMask_class(){
             , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
             , (::osg::Referenced const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
+        .def( 
+            "isTextureAttribute"
+            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_isTextureAttribute) )    
+        .def( 
+            "resizeGLObjectBuffers"
+            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( ColorMask_wrapper::* )( unsigned int ))(&ColorMask_wrapper::default_resizeGLObjectBuffers)
+            , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)

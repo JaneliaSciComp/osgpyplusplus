@@ -28,14 +28,14 @@ template<class VecType, class ElemType, class IndexType> struct OsgArray_contain
     typedef key_type                       key_param;
     typedef index_type                     index_param;
 
-    static bool const has_copyable_iter = false;
+    static bool const has_copyable_iter = true;
     static bool const has_mutable_ref   = true;
     static bool const has_find          = true;
-    static bool const has_insert        = false;
-    static bool const has_erase         = false;
+    static bool const has_insert        = true;
+    static bool const has_erase         = true;
     static bool const has_pop_back      = false;
-    static bool const has_push_back     = false;
-    static bool const is_reorderable    = false;
+    static bool const has_push_back     = true;
+    static bool const is_reorderable    = true;
   
     BOOST_STATIC_CONSTANT(
         method_set_type,
@@ -43,7 +43,7 @@ template<class VecType, class ElemType, class IndexType> struct OsgArray_contain
               method_len
               | method_getitem
               | method_getitem_slice
-        //    | method_index // requires begin and end methods, which Vec3 lacks
+        //      | method_index // requires begin and end methods, which Vec3 lacks
               | method_setitem
               | method_setitem_slice
         //    | method_contains // requires begin and end methods, which Vec3 lacks

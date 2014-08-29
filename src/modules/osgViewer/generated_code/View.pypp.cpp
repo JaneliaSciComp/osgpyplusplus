@@ -265,7 +265,7 @@ struct View_wrapper : osgViewer::View, bp::wrapper< osgViewer::View > {
 void register_View_class(){
 
     { //::osgViewer::View
-        typedef bp::class_< View_wrapper, bp::bases< ::osg::View >, osg::ref_ptr< ::osgViewer::View >, boost::noncopyable > View_exposer_t;
+        typedef bp::class_< View_wrapper, bp::bases< ::osg::View, ::osgGA::GUIActionAdapter >, osg::ref_ptr< ::osgViewer::View >, boost::noncopyable > View_exposer_t;
         View_exposer_t View_exposer = View_exposer_t( "View", bp::no_init );
         bp::scope View_scope( View_exposer );
         bp::class_< View_wrapper::StereoSlaveCallback_wrapper, bp::bases< ::osg::View::Slave::UpdateSlaveCallback >, osg::ref_ptr< ::osgViewer::View::StereoSlaveCallback >, boost::noncopyable >( "StereoSlaveCallback", bp::no_init )    

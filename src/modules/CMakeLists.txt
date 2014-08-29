@@ -60,8 +60,8 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     set(MODULE_SRCS ${MODULE_GENERATED_SRCS} ${MODULE_OTHER_SRCS})
     add_library(${MODULE_NAME} SHARED ${MODULE_SRCS})
     target_link_libraries(${MODULE_NAME} 
-        ${PYTHON_LIBRARY_RELEASE}
         ${Boost_PYTHON_LIBRARY}
+        ${PYTHON_LIBRARY_RELEASE}
         ${OSG_LIBRARY}
     )
     # On Windows python extension modules have suffix ".pyd"

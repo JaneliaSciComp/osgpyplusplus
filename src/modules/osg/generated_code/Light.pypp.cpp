@@ -131,6 +131,54 @@ struct Light_wrapper : osg::Light, bp::wrapper< osg::Light > {
         return osg::Light::libraryName( );
     }
 
+    virtual ::osg::Texture * asTexture(  ) {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture * default_asTexture(  ) {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual ::osg::Texture const * asTexture(  ) const  {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture const * default_asTexture(  ) const  {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual bool checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        if( bp::override func_checkValidityOfAssociatedModes = this->get_override( "checkValidityOfAssociatedModes" ) )
+            return func_checkValidityOfAssociatedModes( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        return osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+    }
+
+    virtual void compileGLObjects( ::osg::State & arg0 ) const  {
+        if( bp::override func_compileGLObjects = this->get_override( "compileGLObjects" ) )
+            func_compileGLObjects( boost::ref(arg0) );
+        else{
+            this->osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+        }
+    }
+    
+    void default_compileGLObjects( ::osg::State & arg0 ) const  {
+        osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -165,6 +213,30 @@ struct Light_wrapper : osg::Light, bp::wrapper< osg::Light > {
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual bool isTextureAttribute(  ) const  {
+        if( bp::override func_isTextureAttribute = this->get_override( "isTextureAttribute" ) )
+            return func_isTextureAttribute(  );
+        else{
+            return this->osg::StateAttribute::isTextureAttribute(  );
+        }
+    }
+    
+    bool default_isTextureAttribute(  ) const  {
+        return osg::StateAttribute::isTextureAttribute( );
+    }
+
+    virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( arg0 );
+        else{
+            this->osg::StateAttribute::resizeGLObjectBuffers( arg0 );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int arg0 ) {
+        osg::StateAttribute::resizeGLObjectBuffers( arg0 );
     }
 
     virtual void setName( ::std::string const & name ) {
@@ -208,7 +280,7 @@ struct Light_wrapper : osg::Light, bp::wrapper< osg::Light > {
 void register_Light_class(){
 
     { //::osg::Light
-        typedef bp::class_< Light_wrapper, osg::ref_ptr< ::osg::Light >, boost::noncopyable > Light_exposer_t;
+        typedef bp::class_< Light_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Light >, boost::noncopyable > Light_exposer_t;
         Light_exposer_t Light_exposer = Light_exposer_t( "Light", bp::no_init );
         bp::scope Light_scope( Light_exposer );
         Light_exposer.def( bp::init< >() );
@@ -542,6 +614,54 @@ void register_Light_class(){
                 , ( bp::arg("spot_exponent") ) );
         
         }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( Light_wrapper::*default_asTexture_function_type)(  ) ;
+            
+            Light_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&Light_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( Light_wrapper::*default_asTexture_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&Light_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::checkValidityOfAssociatedModes
+        
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( Light_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            
+            Light_exposer.def( 
+                "checkValidityOfAssociatedModes"
+                , checkValidityOfAssociatedModes_function_type(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+                , default_checkValidityOfAssociatedModes_function_type(&Light_wrapper::default_checkValidityOfAssociatedModes)
+                , ( bp::arg("arg0") ) );
+        
+        }
+        { //::osg::StateAttribute::compileGLObjects
+        
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( Light_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            
+            Light_exposer.def( 
+                "compileGLObjects"
+                , compileGLObjects_function_type(&::osg::StateAttribute::compileGLObjects)
+                , default_compileGLObjects_function_type(&Light_wrapper::default_compileGLObjects)
+                , ( bp::arg("arg0") ) );
+        
+        }
         { //::osg::Object::computeDataVariance
         
             typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
@@ -575,6 +695,29 @@ void register_Light_class(){
                 , getUserData_function_type(&::osg::Object::getUserData)
                 , default_getUserData_function_type(&Light_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::isTextureAttribute
+        
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( Light_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            
+            Light_exposer.def( 
+                "isTextureAttribute"
+                , isTextureAttribute_function_type(&::osg::StateAttribute::isTextureAttribute)
+                , default_isTextureAttribute_function_type(&Light_wrapper::default_isTextureAttribute) );
+        
+        }
+        { //::osg::StateAttribute::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Light_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            Light_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::StateAttribute::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&Light_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("arg0") ) );
         
         }
         { //::osg::Object::setName

@@ -15,6 +15,7 @@ class OsgGAWrapper(BaseWrapper):
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         self.mb.register_module_dependency('../osgDB/generated_code/')
+        self.mb.register_module_dependency('../osg/generated_code/')
             
     def wrap(self):
         mb = self.mb
@@ -43,10 +44,11 @@ class OsgGAWrapper(BaseWrapper):
 
         hack_osg_arg(osgGA.class_("Device"), "sendEvent", 0)
 
-        self.mb.build_code_creator(module_name='osgGA')
-        self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
-        # Create a file to indicate completion of wrapping script
-        open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
+        fn = osgGA.class_("StateSetManipulator").member_function("handle")
+        fn.add_transformation(FT.modify_type(0, remove_const_from_reference))
+
+        # Write results
+        self.generate_module_code("osgGA")
 
     def wrap_cameramanipulator(self):
         cm = self.mb.namespace("osgGA").class_("CameraManipulator")

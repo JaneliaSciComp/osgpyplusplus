@@ -124,6 +124,54 @@ struct TexGen_wrapper : osg::TexGen, bp::wrapper< osg::TexGen > {
         return osg::TexGen::libraryName( );
     }
 
+    virtual ::osg::Texture * asTexture(  ) {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture * default_asTexture(  ) {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual ::osg::Texture const * asTexture(  ) const  {
+        if( bp::override func_asTexture = this->get_override( "asTexture" ) )
+            return func_asTexture(  );
+        else{
+            return this->osg::StateAttribute::asTexture(  );
+        }
+    }
+    
+    ::osg::Texture const * default_asTexture(  ) const  {
+        return osg::StateAttribute::asTexture( );
+    }
+
+    virtual bool checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        if( bp::override func_checkValidityOfAssociatedModes = this->get_override( "checkValidityOfAssociatedModes" ) )
+            return func_checkValidityOfAssociatedModes( boost::ref(arg0) );
+        else{
+            return this->osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_checkValidityOfAssociatedModes( ::osg::State & arg0 ) const  {
+        return osg::StateAttribute::checkValidityOfAssociatedModes( boost::ref(arg0) );
+    }
+
+    virtual void compileGLObjects( ::osg::State & arg0 ) const  {
+        if( bp::override func_compileGLObjects = this->get_override( "compileGLObjects" ) )
+            func_compileGLObjects( boost::ref(arg0) );
+        else{
+            this->osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+        }
+    }
+    
+    void default_compileGLObjects( ::osg::State & arg0 ) const  {
+        osg::StateAttribute::compileGLObjects( boost::ref(arg0) );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -134,6 +182,18 @@ struct TexGen_wrapper : osg::TexGen, bp::wrapper< osg::TexGen > {
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
+    }
+
+    virtual unsigned int getMember(  ) const  {
+        if( bp::override func_getMember = this->get_override( "getMember" ) )
+            return func_getMember(  );
+        else{
+            return this->osg::StateAttribute::getMember(  );
+        }
+    }
+    
+    unsigned int default_getMember(  ) const  {
+        return osg::StateAttribute::getMember( );
     }
 
     virtual ::osg::Referenced * getUserData(  ) {
@@ -158,6 +218,18 @@ struct TexGen_wrapper : osg::TexGen, bp::wrapper< osg::TexGen > {
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( arg0 );
+        else{
+            this->osg::StateAttribute::resizeGLObjectBuffers( arg0 );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int arg0 ) {
+        osg::StateAttribute::resizeGLObjectBuffers( arg0 );
     }
 
     virtual void setName( ::std::string const & name ) {
@@ -201,7 +273,7 @@ struct TexGen_wrapper : osg::TexGen, bp::wrapper< osg::TexGen > {
 void register_TexGen_class(){
 
     { //::osg::TexGen
-        typedef bp::class_< TexGen_wrapper, osg::ref_ptr< ::osg::TexGen >, boost::noncopyable > TexGen_exposer_t;
+        typedef bp::class_< TexGen_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexGen >, boost::noncopyable > TexGen_exposer_t;
         TexGen_exposer_t TexGen_exposer = TexGen_exposer_t( "TexGen", bp::no_init );
         bp::scope TexGen_scope( TexGen_exposer );
         bp::enum_< osg::TexGen::Coord>("Coord")
@@ -386,6 +458,54 @@ void register_TexGen_class(){
                 , ( bp::arg("matrix") ) );
         
         }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( TexGen_wrapper::*default_asTexture_function_type)(  ) ;
+            
+            TexGen_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&TexGen_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::asTexture
+        
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( TexGen_wrapper::*default_asTexture_function_type)(  ) const;
+            
+            TexGen_exposer.def( 
+                "asTexture"
+                , asTexture_function_type(&::osg::StateAttribute::asTexture)
+                , default_asTexture_function_type(&TexGen_wrapper::default_asTexture)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::checkValidityOfAssociatedModes
+        
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( TexGen_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            
+            TexGen_exposer.def( 
+                "checkValidityOfAssociatedModes"
+                , checkValidityOfAssociatedModes_function_type(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+                , default_checkValidityOfAssociatedModes_function_type(&TexGen_wrapper::default_checkValidityOfAssociatedModes)
+                , ( bp::arg("arg0") ) );
+        
+        }
+        { //::osg::StateAttribute::compileGLObjects
+        
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( TexGen_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            
+            TexGen_exposer.def( 
+                "compileGLObjects"
+                , compileGLObjects_function_type(&::osg::StateAttribute::compileGLObjects)
+                , default_compileGLObjects_function_type(&TexGen_wrapper::default_compileGLObjects)
+                , ( bp::arg("arg0") ) );
+        
+        }
         { //::osg::Object::computeDataVariance
         
             typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
@@ -395,6 +515,17 @@ void register_TexGen_class(){
                 "computeDataVariance"
                 , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
                 , default_computeDataVariance_function_type(&TexGen_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::StateAttribute::getMember
+        
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( TexGen_wrapper::*default_getMember_function_type)(  ) const;
+            
+            TexGen_exposer.def( 
+                "getMember"
+                , getMember_function_type(&::osg::StateAttribute::getMember)
+                , default_getMember_function_type(&TexGen_wrapper::default_getMember) );
         
         }
         { //::osg::Object::getUserData
@@ -419,6 +550,18 @@ void register_TexGen_class(){
                 , getUserData_function_type(&::osg::Object::getUserData)
                 , default_getUserData_function_type(&TexGen_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::StateAttribute::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( TexGen_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            TexGen_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::StateAttribute::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&TexGen_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("arg0") ) );
         
         }
         { //::osg::Object::setName

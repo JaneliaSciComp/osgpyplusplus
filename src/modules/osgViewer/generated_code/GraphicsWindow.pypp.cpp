@@ -364,6 +364,18 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
         return osgViewer::GraphicsWindow::valid( );
     }
 
+    virtual ::osg::View * asView(  ) {
+        if( bp::override func_asView = this->get_override( "asView" ) )
+            return func_asView(  );
+        else{
+            return this->osgGA::GUIActionAdapter::asView(  );
+        }
+    }
+    
+    ::osg::View * default_asView(  ) {
+        return osgGA::GUIActionAdapter::asView( );
+    }
+
     virtual void clear(  ) {
         if( bp::override func_clear = this->get_override( "clear" ) )
             func_clear(  );
@@ -489,7 +501,7 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
 void register_GraphicsWindow_class(){
 
     { //::osgViewer::GraphicsWindow
-        typedef bp::class_< GraphicsWindow_wrapper, bp::bases< ::osg::GraphicsContext >, osg::ref_ptr< ::osgViewer::GraphicsWindow >, boost::noncopyable > GraphicsWindow_exposer_t;
+        typedef bp::class_< GraphicsWindow_wrapper, bp::bases< ::osg::GraphicsContext, ::osgGA::GUIActionAdapter >, osg::ref_ptr< ::osgViewer::GraphicsWindow >, boost::noncopyable > GraphicsWindow_exposer_t;
         GraphicsWindow_exposer_t GraphicsWindow_exposer = GraphicsWindow_exposer_t( "GraphicsWindow", bp::init< >() );
         bp::scope GraphicsWindow_scope( GraphicsWindow_exposer );
         bp::enum_< osgViewer::GraphicsWindow::MouseCursor>("MouseCursor")

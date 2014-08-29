@@ -119,6 +119,30 @@ struct InteractiveImageHandler_wrapper : osgViewer::InteractiveImageHandler, bp:
         return osg::Drawable::CullCallback::cull( boost::python::ptr(arg0), boost::python::ptr(arg1), boost::python::ptr(arg2) );
     }
 
+    virtual void event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        if( bp::override func_event = this->get_override( "event" ) )
+            func_event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        else{
+            this->osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        }
+    }
+    
+    void default_event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+    }
+
+    virtual void getUsage( ::osg::ApplicationUsage & arg0 ) const  {
+        if( bp::override func_getUsage = this->get_override( "getUsage" ) )
+            func_getUsage( boost::ref(arg0) );
+        else{
+            this->osgGA::GUIEventHandler::getUsage( boost::ref(arg0) );
+        }
+    }
+    
+    void default_getUsage( ::osg::ApplicationUsage & arg0 ) const  {
+        osgGA::GUIEventHandler::getUsage( boost::ref(arg0) );
+    }
+
     virtual ::osg::Referenced * getUserData(  ) {
         if( bp::override func_getUserData = this->get_override( "getUserData" ) )
             return func_getUserData(  );
@@ -196,7 +220,7 @@ struct InteractiveImageHandler_wrapper : osgViewer::InteractiveImageHandler, bp:
 void register_InteractiveImageHandler_class(){
 
     { //::osgViewer::InteractiveImageHandler
-        typedef bp::class_< InteractiveImageHandler_wrapper, bp::bases< ::osg::Drawable::CullCallback >, osg::ref_ptr< ::osgViewer::InteractiveImageHandler >, boost::noncopyable > InteractiveImageHandler_exposer_t;
+        typedef bp::class_< InteractiveImageHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler, ::osg::Drawable::CullCallback >, osg::ref_ptr< ::osgViewer::InteractiveImageHandler >, boost::noncopyable > InteractiveImageHandler_exposer_t;
         InteractiveImageHandler_exposer_t InteractiveImageHandler_exposer = InteractiveImageHandler_exposer_t( "InteractiveImageHandler", bp::no_init );
         bp::scope InteractiveImageHandler_scope( InteractiveImageHandler_exposer );
         InteractiveImageHandler_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );

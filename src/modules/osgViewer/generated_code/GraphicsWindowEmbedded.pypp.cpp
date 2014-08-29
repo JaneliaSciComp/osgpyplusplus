@@ -179,6 +179,18 @@ struct GraphicsWindowEmbedded_wrapper : osgViewer::GraphicsWindowEmbedded, bp::w
         return osgViewer::GraphicsWindowEmbedded::valid( );
     }
 
+    virtual ::osg::View * asView(  ) {
+        if( bp::override func_asView = this->get_override( "asView" ) )
+            return func_asView(  );
+        else{
+            return this->osgGA::GUIActionAdapter::asView(  );
+        }
+    }
+    
+    ::osg::View * default_asView(  ) {
+        return osgGA::GUIActionAdapter::asView( );
+    }
+
     virtual void bindPBufferToTextureImplementation( ::GLenum arg0 ) {
         if( bp::override func_bindPBufferToTextureImplementation = this->get_override( "bindPBufferToTextureImplementation" ) )
             func_bindPBufferToTextureImplementation( arg0 );

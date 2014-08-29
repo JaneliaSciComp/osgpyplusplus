@@ -176,248 +176,638 @@ struct Node_wrapper : osg::Node, bp::wrapper< osg::Node > {
 
 void register_Node_class(){
 
-    bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Node >, boost::noncopyable >( "Node", bp::no_init )    
-        .def( bp::init< >() )    
-        .def( 
-            "addCullCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::addCullCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "addDescription"
-            , (void ( ::osg::Node::* )( ::std::string const & ))( &::osg::Node::addDescription )
-            , ( bp::arg("desc") ) )    
-        .def( 
-            "addEventCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::addEventCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "addUpdateCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::addUpdateCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "className"
-            , (char const * ( ::osg::Node::* )(  )const)(&::osg::Node::className)
-            , (char const * ( Node_wrapper::* )(  )const)(&Node_wrapper::default_className) )    
-        .def( 
-            "clone"
-            , (::osg::Object * ( ::osg::Node::* )( ::osg::CopyOp const & )const)(&::osg::Node::clone)
-            , (::osg::Object * ( Node_wrapper::* )( ::osg::CopyOp const & )const)(&Node_wrapper::default_clone)
-            , ( bp::arg("copyop") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "cloneType"
-            , (::osg::Object * ( ::osg::Node::* )(  )const)(&::osg::Node::cloneType)
-            , (::osg::Object * ( Node_wrapper::* )(  )const)(&Node_wrapper::default_cloneType)
-            , bp::return_value_policy< bp::reference_existing_object >() )    
-        .def( 
-            "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Node::* )(  )const)(&::osg::Node::computeBound)
-            , (::osg::BoundingSphere ( Node_wrapper::* )(  )const)(&Node_wrapper::default_computeBound) )    
-        .def( 
-            "containsOccluderNodes"
-            , (bool ( ::osg::Node::* )(  )const)( &::osg::Node::containsOccluderNodes ) )    
-        .def( 
-            "dirtyBound"
-            , (void ( ::osg::Node::* )(  ))( &::osg::Node::dirtyBound ) )    
-        .def( 
-            "getBound"
-            , (::osg::BoundingSphere const & ( ::osg::Node::* )(  )const)( &::osg::Node::getBound )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getComputeBoundingSphereCallback"
-            , (::osg::Node::ComputeBoundingSphereCallback * ( ::osg::Node::* )(  ))( &::osg::Node::getComputeBoundingSphereCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getComputeBoundingSphereCallback"
-            , (::osg::Node::ComputeBoundingSphereCallback const * ( ::osg::Node::* )(  )const)( &::osg::Node::getComputeBoundingSphereCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getCullCallback"
-            , (::osg::NodeCallback * ( ::osg::Node::* )(  ))( &::osg::Node::getCullCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getCullCallback"
-            , (::osg::NodeCallback const * ( ::osg::Node::* )(  )const)( &::osg::Node::getCullCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getCullingActive"
-            , (bool ( ::osg::Node::* )(  )const)( &::osg::Node::getCullingActive ) )    
-        .def( 
-            "getDescription"
-            , (::std::string const & ( ::osg::Node::* )( unsigned int )const)( &::osg::Node::getDescription )
-            , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDescription"
-            , (::std::string & ( ::osg::Node::* )( unsigned int ))( &::osg::Node::getDescription )
-            , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDescriptions"
-            , (::std::vector< std::string > & ( ::osg::Node::* )(  ))( &::osg::Node::getDescriptions )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getDescriptions"
-            , (::std::vector< std::string > const & ( ::osg::Node::* )(  )const)( &::osg::Node::getDescriptions )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getEventCallback"
-            , (::osg::NodeCallback * ( ::osg::Node::* )(  ))( &::osg::Node::getEventCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getEventCallback"
-            , (::osg::NodeCallback const * ( ::osg::Node::* )(  )const)( &::osg::Node::getEventCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getInitialBound"
-            , (::osg::BoundingSphere const & ( ::osg::Node::* )(  )const)( &::osg::Node::getInitialBound )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getNodeMask"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNodeMask ) )    
-        .def( 
-            "getNumChildrenRequiringEventTraversal"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumChildrenRequiringEventTraversal ) )    
-        .def( 
-            "getNumChildrenRequiringUpdateTraversal"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumChildrenRequiringUpdateTraversal ) )    
-        .def( 
-            "getNumChildrenWithCullingDisabled"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumChildrenWithCullingDisabled ) )    
-        .def( 
-            "getNumChildrenWithOccluderNodes"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumChildrenWithOccluderNodes ) )    
-        .def( 
-            "getNumDescriptions"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumDescriptions ) )    
-        .def( 
-            "getNumParents"
-            , (unsigned int ( ::osg::Node::* )(  )const)( &::osg::Node::getNumParents ) )    
-        .def( 
-            "getOrCreateStateSet"
-            , (::osg::StateSet * ( ::osg::Node::* )(  ))( &::osg::Node::getOrCreateStateSet )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getParentalNodePaths"
-            , (::osg::NodePathList ( ::osg::Node::* )( ::osg::Node * )const)( &::osg::Node::getParentalNodePaths )
-            , ( bp::arg("haltTraversalAtNode")=bp::object() ) )    
-        .def( 
-            "getStateSet"
-            , (::osg::StateSet * ( ::osg::Node::* )(  ))( &::osg::Node::getStateSet )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getStateSet"
-            , (::osg::StateSet const * ( ::osg::Node::* )(  )const)( &::osg::Node::getStateSet )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUpdateCallback"
-            , (::osg::NodeCallback * ( ::osg::Node::* )(  ))( &::osg::Node::getUpdateCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUpdateCallback"
-            , (::osg::NodeCallback const * ( ::osg::Node::* )(  )const)( &::osg::Node::getUpdateCallback )
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getWorldMatrices"
-            , (::osg::MatrixList ( ::osg::Node::* )( ::osg::Node const * )const)( &::osg::Node::getWorldMatrices )
-            , ( bp::arg("haltTraversalAtNode")=bp::object() ) )    
-        .def( 
-            "isCullingActive"
-            , (bool ( ::osg::Node::* )(  )const)( &::osg::Node::isCullingActive ) )    
-        .def( 
-            "isSameKindAs"
-            , (bool ( ::osg::Node::* )( ::osg::Object const * )const)(&::osg::Node::isSameKindAs)
-            , (bool ( Node_wrapper::* )( ::osg::Object const * )const)(&Node_wrapper::default_isSameKindAs)
-            , ( bp::arg("obj") ) )    
-        .def( 
-            "libraryName"
-            , (char const * ( ::osg::Node::* )(  )const)(&::osg::Node::libraryName)
-            , (char const * ( Node_wrapper::* )(  )const)(&Node_wrapper::default_libraryName) )    
-        .def( 
-            "removeCullCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::removeCullCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "removeEventCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::removeEventCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "removeUpdateCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::removeUpdateCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "resizeGLObjectBuffers"
-            , (void ( ::osg::Node::* )( unsigned int ))(&::osg::Node::resizeGLObjectBuffers)
-            , (void ( Node_wrapper::* )( unsigned int ))(&Node_wrapper::default_resizeGLObjectBuffers)
-            , ( bp::arg("arg0") ) )    
-        .def( 
-            "setComputeBoundingSphereCallback"
-            , (void ( ::osg::Node::* )( ::osg::Node::ComputeBoundingSphereCallback * ))( &::osg::Node::setComputeBoundingSphereCallback )
-            , ( bp::arg("callback") ) )    
-        .def( 
-            "setCullCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::setCullCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "setCullingActive"
-            , (void ( ::osg::Node::* )( bool ))( &::osg::Node::setCullingActive )
-            , ( bp::arg("active") ) )    
-        .def( 
-            "setDescriptions"
-            , (void ( ::osg::Node::* )( ::std::vector< std::string > const & ))( &::osg::Node::setDescriptions )
-            , ( bp::arg("descriptions") ) )    
-        .def( 
-            "setEventCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::setEventCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "setInitialBound"
-            , (void ( ::osg::Node::* )( ::osg::BoundingSphere const & ))( &::osg::Node::setInitialBound )
-            , ( bp::arg("bsphere") ) )    
-        .def( 
-            "setNodeMask"
-            , (void ( ::osg::Node::* )( unsigned int ))( &::osg::Node::setNodeMask )
-            , ( bp::arg("nm") ) )    
-        .def( 
-            "setStateSet"
-            , (void ( ::osg::Node::* )( ::osg::StateSet * ))( &::osg::Node::setStateSet )
-            , ( bp::arg("stateset") ) )    
-        .def( 
-            "setThreadSafeRefUnref"
-            , (void ( ::osg::Node::* )( bool ))(&::osg::Node::setThreadSafeRefUnref)
-            , (void ( Node_wrapper::* )( bool ))(&Node_wrapper::default_setThreadSafeRefUnref)
-            , ( bp::arg("threadSafe") ) )    
-        .def( 
-            "setUpdateCallback"
-            , (void ( ::osg::Node::* )( ::osg::NodeCallback * ))( &::osg::Node::setUpdateCallback )
-            , ( bp::arg("nc") ) )    
-        .def( 
-            "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Node_wrapper::* )(  ))(&Node_wrapper::default_computeDataVariance) )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Node_wrapper::* )(  ))(&Node_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Node_wrapper::* )(  )const)(&Node_wrapper::default_getUserData)
-            , bp::return_internal_reference< >() )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Node_wrapper::* )( ::std::string const & ))(&Node_wrapper::default_setName)
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
-        .def( 
-            "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Node_wrapper::* )( ::osg::Referenced * ))(&Node_wrapper::default_setUserData)
-            , ( bp::arg("obj") ) );
+    { //::osg::Node
+        typedef bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Node >, boost::noncopyable > Node_exposer_t;
+        Node_exposer_t Node_exposer = Node_exposer_t( "Node", bp::no_init );
+        bp::scope Node_scope( Node_exposer );
+        Node_exposer.def( bp::init< >() );
+        { //::osg::Node::addCullCallback
+        
+            typedef void ( ::osg::Node::*addCullCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "addCullCallback"
+                , addCullCallback_function_type( &::osg::Node::addCullCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::addDescription
+        
+            typedef void ( ::osg::Node::*addDescription_function_type)( ::std::string const & ) ;
+            
+            Node_exposer.def( 
+                "addDescription"
+                , addDescription_function_type( &::osg::Node::addDescription )
+                , ( bp::arg("desc") ) );
+        
+        }
+        { //::osg::Node::addEventCallback
+        
+            typedef void ( ::osg::Node::*addEventCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "addEventCallback"
+                , addEventCallback_function_type( &::osg::Node::addEventCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::addUpdateCallback
+        
+            typedef void ( ::osg::Node::*addUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "addUpdateCallback"
+                , addUpdateCallback_function_type( &::osg::Node::addUpdateCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::className
+        
+            typedef char const * ( ::osg::Node::*className_function_type)(  ) const;
+            typedef char const * ( Node_wrapper::*default_className_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "className"
+                , className_function_type(&::osg::Node::className)
+                , default_className_function_type(&Node_wrapper::default_className) );
+        
+        }
+        { //::osg::Node::clone
+        
+            typedef ::osg::Object * ( ::osg::Node::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Node_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            
+            Node_exposer.def( 
+                "clone"
+                , clone_function_type(&::osg::Node::clone)
+                , default_clone_function_type(&Node_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::Node::cloneType
+        
+            typedef ::osg::Object * ( ::osg::Node::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Node_wrapper::*default_cloneType_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "cloneType"
+                , cloneType_function_type(&::osg::Node::cloneType)
+                , default_cloneType_function_type(&Node_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() );
+        
+        }
+        { //::osg::Node::computeBound
+        
+            typedef ::osg::BoundingSphere ( ::osg::Node::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Node_wrapper::*default_computeBound_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "computeBound"
+                , computeBound_function_type(&::osg::Node::computeBound)
+                , default_computeBound_function_type(&Node_wrapper::default_computeBound) );
+        
+        }
+        { //::osg::Node::containsOccluderNodes
+        
+            typedef bool ( ::osg::Node::*containsOccluderNodes_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "containsOccluderNodes"
+                , containsOccluderNodes_function_type( &::osg::Node::containsOccluderNodes ) );
+        
+        }
+        { //::osg::Node::dirtyBound
+        
+            typedef void ( ::osg::Node::*dirtyBound_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "dirtyBound"
+                , dirtyBound_function_type( &::osg::Node::dirtyBound ) );
+        
+        }
+        { //::osg::Node::getBound
+        
+            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getBound_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getBound"
+                , getBound_function_type( &::osg::Node::getBound )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getComputeBoundingSphereCallback
+        
+            typedef ::osg::Node::ComputeBoundingSphereCallback * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getComputeBoundingSphereCallback"
+                , getComputeBoundingSphereCallback_function_type( &::osg::Node::getComputeBoundingSphereCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getComputeBoundingSphereCallback
+        
+            typedef ::osg::Node::ComputeBoundingSphereCallback const * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getComputeBoundingSphereCallback"
+                , getComputeBoundingSphereCallback_function_type( &::osg::Node::getComputeBoundingSphereCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getCullCallback
+        
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getCullCallback_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getCullCallback"
+                , getCullCallback_function_type( &::osg::Node::getCullCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getCullCallback
+        
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getCullCallback_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getCullCallback"
+                , getCullCallback_function_type( &::osg::Node::getCullCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getCullingActive
+        
+            typedef bool ( ::osg::Node::*getCullingActive_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getCullingActive"
+                , getCullingActive_function_type( &::osg::Node::getCullingActive ) );
+        
+        }
+        { //::osg::Node::getDescription
+        
+            typedef ::std::string const & ( ::osg::Node::*getDescription_function_type)( unsigned int ) const;
+            
+            Node_exposer.def( 
+                "getDescription"
+                , getDescription_function_type( &::osg::Node::getDescription )
+                , ( bp::arg("i") )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getDescription
+        
+            typedef ::std::string & ( ::osg::Node::*getDescription_function_type)( unsigned int ) ;
+            
+            Node_exposer.def( 
+                "getDescription"
+                , getDescription_function_type( &::osg::Node::getDescription )
+                , ( bp::arg("i") )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getDescriptions
+        
+            typedef ::std::vector< std::string > & ( ::osg::Node::*getDescriptions_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getDescriptions"
+                , getDescriptions_function_type( &::osg::Node::getDescriptions )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getDescriptions
+        
+            typedef ::std::vector< std::string > const & ( ::osg::Node::*getDescriptions_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getDescriptions"
+                , getDescriptions_function_type( &::osg::Node::getDescriptions )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getEventCallback
+        
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getEventCallback_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getEventCallback"
+                , getEventCallback_function_type( &::osg::Node::getEventCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getEventCallback
+        
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getEventCallback_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getEventCallback"
+                , getEventCallback_function_type( &::osg::Node::getEventCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getInitialBound
+        
+            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getInitialBound_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getInitialBound"
+                , getInitialBound_function_type( &::osg::Node::getInitialBound )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getNodeMask
+        
+            typedef unsigned int ( ::osg::Node::*getNodeMask_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNodeMask"
+                , getNodeMask_function_type( &::osg::Node::getNodeMask ) );
+        
+        }
+        { //::osg::Node::getNumChildrenRequiringEventTraversal
+        
+            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringEventTraversal_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumChildrenRequiringEventTraversal"
+                , getNumChildrenRequiringEventTraversal_function_type( &::osg::Node::getNumChildrenRequiringEventTraversal ) );
+        
+        }
+        { //::osg::Node::getNumChildrenRequiringUpdateTraversal
+        
+            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringUpdateTraversal_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumChildrenRequiringUpdateTraversal"
+                , getNumChildrenRequiringUpdateTraversal_function_type( &::osg::Node::getNumChildrenRequiringUpdateTraversal ) );
+        
+        }
+        { //::osg::Node::getNumChildrenWithCullingDisabled
+        
+            typedef unsigned int ( ::osg::Node::*getNumChildrenWithCullingDisabled_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumChildrenWithCullingDisabled"
+                , getNumChildrenWithCullingDisabled_function_type( &::osg::Node::getNumChildrenWithCullingDisabled ) );
+        
+        }
+        { //::osg::Node::getNumChildrenWithOccluderNodes
+        
+            typedef unsigned int ( ::osg::Node::*getNumChildrenWithOccluderNodes_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumChildrenWithOccluderNodes"
+                , getNumChildrenWithOccluderNodes_function_type( &::osg::Node::getNumChildrenWithOccluderNodes ) );
+        
+        }
+        { //::osg::Node::getNumDescriptions
+        
+            typedef unsigned int ( ::osg::Node::*getNumDescriptions_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumDescriptions"
+                , getNumDescriptions_function_type( &::osg::Node::getNumDescriptions ) );
+        
+        }
+        { //::osg::Node::getNumParents
+        
+            typedef unsigned int ( ::osg::Node::*getNumParents_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getNumParents"
+                , getNumParents_function_type( &::osg::Node::getNumParents ) );
+        
+        }
+        { //::osg::Node::getOrCreateStateSet
+        
+            typedef ::osg::StateSet * ( ::osg::Node::*getOrCreateStateSet_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getOrCreateStateSet"
+                , getOrCreateStateSet_function_type( &::osg::Node::getOrCreateStateSet )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getParentalNodePaths
+        
+            typedef ::osg::NodePathList ( ::osg::Node::*getParentalNodePaths_function_type)( ::osg::Node * ) const;
+            
+            Node_exposer.def( 
+                "getParentalNodePaths"
+                , getParentalNodePaths_function_type( &::osg::Node::getParentalNodePaths )
+                , ( bp::arg("haltTraversalAtNode")=bp::object() ) );
+        
+        }
+        { //::osg::Node::getStateSet
+        
+            typedef ::osg::StateSet * ( ::osg::Node::*getStateSet_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getStateSet"
+                , getStateSet_function_type( &::osg::Node::getStateSet )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getStateSet
+        
+            typedef ::osg::StateSet const * ( ::osg::Node::*getStateSet_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getStateSet"
+                , getStateSet_function_type( &::osg::Node::getStateSet )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getUpdateCallback
+        
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getUpdateCallback_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getUpdateCallback"
+                , getUpdateCallback_function_type( &::osg::Node::getUpdateCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getUpdateCallback
+        
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getUpdateCallback_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getUpdateCallback"
+                , getUpdateCallback_function_type( &::osg::Node::getUpdateCallback )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getWorldMatrices
+        
+            typedef ::osg::MatrixList ( ::osg::Node::*getWorldMatrices_function_type)( ::osg::Node const * ) const;
+            
+            Node_exposer.def( 
+                "getWorldMatrices"
+                , getWorldMatrices_function_type( &::osg::Node::getWorldMatrices )
+                , ( bp::arg("haltTraversalAtNode")=bp::object() ) );
+        
+        }
+        { //::osg::Node::isCullingActive
+        
+            typedef bool ( ::osg::Node::*isCullingActive_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "isCullingActive"
+                , isCullingActive_function_type( &::osg::Node::isCullingActive ) );
+        
+        }
+        { //::osg::Node::isSameKindAs
+        
+            typedef bool ( ::osg::Node::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Node_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            
+            Node_exposer.def( 
+                "isSameKindAs"
+                , isSameKindAs_function_type(&::osg::Node::isSameKindAs)
+                , default_isSameKindAs_function_type(&Node_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::Node::libraryName
+        
+            typedef char const * ( ::osg::Node::*libraryName_function_type)(  ) const;
+            typedef char const * ( Node_wrapper::*default_libraryName_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "libraryName"
+                , libraryName_function_type(&::osg::Node::libraryName)
+                , default_libraryName_function_type(&Node_wrapper::default_libraryName) );
+        
+        }
+        { //::osg::Node::removeCullCallback
+        
+            typedef void ( ::osg::Node::*removeCullCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "removeCullCallback"
+                , removeCullCallback_function_type( &::osg::Node::removeCullCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::removeEventCallback
+        
+            typedef void ( ::osg::Node::*removeEventCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "removeEventCallback"
+                , removeEventCallback_function_type( &::osg::Node::removeEventCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::removeUpdateCallback
+        
+            typedef void ( ::osg::Node::*removeUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "removeUpdateCallback"
+                , removeUpdateCallback_function_type( &::osg::Node::removeUpdateCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::resizeGLObjectBuffers
+        
+            typedef void ( ::osg::Node::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Node_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            
+            Node_exposer.def( 
+                "resizeGLObjectBuffers"
+                , resizeGLObjectBuffers_function_type(&::osg::Node::resizeGLObjectBuffers)
+                , default_resizeGLObjectBuffers_function_type(&Node_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("arg0") ) );
+        
+        }
+        { //::osg::Node::setComputeBoundingSphereCallback
+        
+            typedef void ( ::osg::Node::*setComputeBoundingSphereCallback_function_type)( ::osg::Node::ComputeBoundingSphereCallback * ) ;
+            
+            Node_exposer.def( 
+                "setComputeBoundingSphereCallback"
+                , setComputeBoundingSphereCallback_function_type( &::osg::Node::setComputeBoundingSphereCallback )
+                , ( bp::arg("callback") ) );
+        
+        }
+        { //::osg::Node::setCullCallback
+        
+            typedef void ( ::osg::Node::*setCullCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "setCullCallback"
+                , setCullCallback_function_type( &::osg::Node::setCullCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::setCullingActive
+        
+            typedef void ( ::osg::Node::*setCullingActive_function_type)( bool ) ;
+            
+            Node_exposer.def( 
+                "setCullingActive"
+                , setCullingActive_function_type( &::osg::Node::setCullingActive )
+                , ( bp::arg("active") ) );
+        
+        }
+        { //::osg::Node::setDescriptions
+        
+            typedef void ( ::osg::Node::*setDescriptions_function_type)( ::std::vector< std::string > const & ) ;
+            
+            Node_exposer.def( 
+                "setDescriptions"
+                , setDescriptions_function_type( &::osg::Node::setDescriptions )
+                , ( bp::arg("descriptions") ) );
+        
+        }
+        { //::osg::Node::setEventCallback
+        
+            typedef void ( ::osg::Node::*setEventCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "setEventCallback"
+                , setEventCallback_function_type( &::osg::Node::setEventCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Node::setInitialBound
+        
+            typedef void ( ::osg::Node::*setInitialBound_function_type)( ::osg::BoundingSphere const & ) ;
+            
+            Node_exposer.def( 
+                "setInitialBound"
+                , setInitialBound_function_type( &::osg::Node::setInitialBound )
+                , ( bp::arg("bsphere") ) );
+        
+        }
+        { //::osg::Node::setNodeMask
+        
+            typedef void ( ::osg::Node::*setNodeMask_function_type)( unsigned int ) ;
+            
+            Node_exposer.def( 
+                "setNodeMask"
+                , setNodeMask_function_type( &::osg::Node::setNodeMask )
+                , ( bp::arg("nm") ) );
+        
+        }
+        { //::osg::Node::setStateSet
+        
+            typedef void ( ::osg::Node::*setStateSet_function_type)( ::osg::StateSet * ) ;
+            
+            Node_exposer.def( 
+                "setStateSet"
+                , setStateSet_function_type( &::osg::Node::setStateSet )
+                , ( bp::arg("stateset") ) );
+        
+        }
+        { //::osg::Node::setThreadSafeRefUnref
+        
+            typedef void ( ::osg::Node::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Node_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            
+            Node_exposer.def( 
+                "setThreadSafeRefUnref"
+                , setThreadSafeRefUnref_function_type(&::osg::Node::setThreadSafeRefUnref)
+                , default_setThreadSafeRefUnref_function_type(&Node_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) );
+        
+        }
+        { //::osg::Node::setUpdateCallback
+        
+            typedef void ( ::osg::Node::*setUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
+            
+            Node_exposer.def( 
+                "setUpdateCallback"
+                , setUpdateCallback_function_type( &::osg::Node::setUpdateCallback )
+                , ( bp::arg("nc") ) );
+        
+        }
+        { //::osg::Object::computeDataVariance
+        
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Node_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "computeDataVariance"
+                , computeDataVariance_function_type(&::osg::Object::computeDataVariance)
+                , default_computeDataVariance_function_type(&Node_wrapper::default_computeDataVariance) );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Node_wrapper::*default_getUserData_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&Node_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::getUserData
+        
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Node_wrapper::*default_getUserData_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getUserData"
+                , getUserData_function_type(&::osg::Object::getUserData)
+                , default_getUserData_function_type(&Node_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Node_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            
+            Node_exposer.def( 
+                "setName"
+                , setName_function_type(&::osg::Object::setName)
+                , default_setName_function_type(&Node_wrapper::default_setName)
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setName
+        
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            
+            Node_exposer.def( 
+                "setName"
+                , setName_function_type( &::osg::Object::setName )
+                , ( bp::arg("name") ) );
+        
+        }
+        { //::osg::Object::setUserData
+        
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Node_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            
+            Node_exposer.def( 
+                "setUserData"
+                , setUserData_function_type(&::osg::Object::setUserData)
+                , default_setUserData_function_type(&Node_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
+        
+        }
+        { //property "stateSet"[fget=::osg::Node::getOrCreateStateSet, fset=::osg::Node::setStateSet]
+        
+            typedef ::osg::StateSet * ( ::osg::Node::*fget)(  ) ;
+            typedef void ( ::osg::Node::*fset)( ::osg::StateSet * ) ;
+            
+            Node_exposer.add_property( 
+                "stateSet"
+                , bp::make_function( 
+                      fget( &::osg::Node::getOrCreateStateSet )
+                    , bp::return_internal_reference< >() ) 
+                , fset( &::osg::Node::setStateSet ) );
+        
+        }
+    }
 
 }

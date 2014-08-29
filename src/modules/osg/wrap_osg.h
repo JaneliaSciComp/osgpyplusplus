@@ -1,19 +1,22 @@
 #include "../default.h"
 
 // TODO wrap more classes
-#include <osg/PositionAttitudeTransform>
-#include <osg/Sequence>
-#include <osg/Switch>
-#include <osg/CameraView>
-#include <osg/LightSource>
-#include <osg/CoordinateSystemNode>
-#include <osg/Projection>
-#include <osg/ClipNode>
-#include <osg/OccluderNode>
-#include <osg/OcclusionQueryNode>
-#include <osg/TexGenNode>
-#include <osg/OcclusionQueryNode>
-
+#include <osg/Object> // OK
+#include <osg/Referenced> // OK excluded copy methods
+#include <osg/GL>
+#include <osg/Texture2D> // OK
+#include <osg/PositionAttitudeTransform> // OK
+#include <osg/Sequence> // OK
+#include <osg/Switch> // OK
+#include <osg/CameraView> // OK
+#include <osg/LightSource> // OK
+#include <osg/CoordinateSystemNode> // OK
+#include <osg/Projection> // OK
+#include <osg/ClipNode> // OK
+#include <osg/OccluderNode> // OK
+#include <osg/OcclusionQueryNode> // OK
+#include <osg/TexGenNode> // OK
+#include <osg/OcclusionQueryNode> // OK
 #include <osg/Billboard> // OK
 #include <osg/LOD> // OK
 #include <osg/MatrixTransform> // OK
@@ -25,14 +28,12 @@
 #include <osg/View> // OK
 #include <osg/Quat> // OK
 #include <osg/Vec2f> // OK
-#include <osg/Object> // OK
 #include <osg/CopyOp> // OK
 #include <osg/UserDataContainer> // OK
 #include <osg/Node> // OK
 #include <osg/StateSet> // OK
 #include <osg/Notify> // OK
 #include <osg/Stats> // OK excluded getAttribute methods
-#include <osg/Referenced> // OK excluded copy methods
 #include <osg/Observer> // OK
 #include <osg/DeleteHandler> // OK
 #include <osg/Export> // OK

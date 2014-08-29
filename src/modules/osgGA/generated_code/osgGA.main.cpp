@@ -6,7 +6,13 @@
 
 #include "__convenience.pypp.hpp"
 
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+#include "indexing_suite/value_traits.hpp"
+
+#include "indexing_suite/container_suite.hpp"
+
+#include "indexing_suite/vector.hpp"
+
+#include "indexing_suite/list.hpp"
 
 #include "wrap_osgga.h"
 
@@ -15,6 +21,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/device.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventqueue.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/events.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guiactionadapter.pypp.hpp"
 
@@ -30,10 +38,14 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdatalist.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/statesetmanipulator.pypp.hpp"
+
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(osgGA){
     register_PointerDataList_class();
+
+    register_Events_class();
 
     register_GUIEventHandler_class();
 
@@ -50,6 +62,8 @@ BOOST_PYTHON_MODULE(osgGA){
     register_GUIEventHandlerVisitor_class();
 
     register_PointerData_class();
+
+    register_StateSetManipulator_class();
 
     register_free_functions();
 }

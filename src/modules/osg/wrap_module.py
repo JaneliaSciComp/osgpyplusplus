@@ -10,6 +10,28 @@ sys.path.append("..")
 from wrap_helpers import *
 
 
+# This hack tweaks class registration order, to avoid runtime module load error
+# see https://www.mail-archive.com/cplusplus-sig@python.org/msg01538.html
+import pyplusplus
+pypp_sort_classes = pyplusplus.creators_factory.sort_algorithms.sort_classes
+def my_sort_classes(classes, include_vars=False):
+    sorted = pypp_sort_classes(classes, include_vars)
+    # Place Object immediately after Referenced
+    obj = [x for x in sorted if x.alias == "Object"]
+    ref = [x for x in sorted if x.alias == "Referenced"]
+    if len(obj) > 0 and len(ref) > 0:
+        # print len(obj), len(ref)
+        object_ix = sorted.index(obj[0])
+        referenced_ix = sorted.index(ref[0])
+        if object_ix > referenced_ix + 1:
+            # print object_ix, referenced_ix
+            sorted.remove(obj[0])
+            sorted.insert(referenced_ix + 1, obj[0])
+            # exit(0)
+    return sorted
+pyplusplus.creators_factory.sort_algorithms.sort_classes = my_sort_classes
+
+
 class OsgWrapper(BaseWrapper):
     def __init__(self):
         BaseWrapper.__init__(self, files=["wrap_osg.h",])
@@ -86,6 +108,7 @@ class OsgWrapper(BaseWrapper):
                 "StateAttribute",
                 "StateSet",
                 "Texture",
+                "Texture2D",
                 "TexGen",
                 "Uniform", 
                 "Viewport",
@@ -118,11 +141,13 @@ class OsgWrapper(BaseWrapper):
         self.wrap_program()
         self.wrap_image()
         self.wrap_drawable()
+        self.wrap_gl_symbols()
 
         self.mb.class_("ConstShapeVisitor").member_functions("apply").exclude()
         self.mb.class_("NodeVisitor").member_functions("validNodeMask").exclude()
         # osg.class_("Texture").member_functions("compare").exclude()
         osg.class_("CoordinateSystemNode").member_functions("set").exclude()
+        osg.class_("Texture2D").class_("SubloadCallback").exclude()
 
         # Pure virtual "compare" method causes compile error
         texture = osg.class_("Texture")
@@ -136,7 +161,7 @@ class OsgWrapper(BaseWrapper):
         # Exclude classes I'm too lazy to wrap right now
         for cls_name in [
                 "StateAttributeCallback", 
-                "StateAttribute", 
+                # "StateAttribute", 
                 "vector<osg::Group*>", 
                 "ShaderComponent", 
                 "ShaderBinary", 
@@ -178,7 +203,7 @@ class OsgWrapper(BaseWrapper):
                 ]:
             mb.free_functions(fn_name).exclude()
         
-        # TODO - wrap vector class as array
+        # TODO - This is how to wrap one array type: Wrap more
         arr = osg.classes(lambda c: c.alias == "Vec4Array")[0]
         arr.include_files.append("indexing_helpers.h")
         t = arr.demangled
@@ -193,6 +218,74 @@ class OsgWrapper(BaseWrapper):
         # Write results
         self.generate_module_code("osg")
     
+    def wrap_gl_symbols(self):
+        # Manually export #define constants
+        # expose GL_ constants TODO - more of them
+        for symbol in [ 
+                "GL_ALPHA_TEST", 
+                "GL_AUTO_NORMAL", 
+                "GL_BLEND", 
+                "GL_CLIP_PLANE0", 
+                "GL_CLIP_PLANE1", 
+                "GL_CLIP_PLANE2", 
+                "GL_CLIP_PLANE3", 
+                "GL_CLIP_PLANE4", 
+                "GL_CLIP_PLANE5", 
+                "GL_COLOR_LOGIC_OP", 
+                "GL_COLOR_MATERIAL", 
+                "GL_CULL_FACE", 
+                "GL_DEPTH_TEST", 
+                "GL_DITHER", 
+                "GL_FOG", 
+                "GL_INDEX_LOGIC_OP", 
+                "GL_LIGHT0", 
+                "GL_LIGHT1", 
+                "GL_LIGHT2", 
+                "GL_LIGHT3", 
+                "GL_LIGHT4", 
+                "GL_LIGHT5", 
+                "GL_LIGHT6", 
+                "GL_LIGHT7", 
+                "GL_LIGHTING", 
+                "GL_LINE_SMOOTH", 
+                "GL_LINE_STIPPLE", 
+                "GL_MAP1_COLOR_4", 
+                "GL_MAP1_INDEX", 
+                "GL_MAP1_NORMAL", 
+                "GL_MAP1_TEXTURE_COORD_1", 
+                "GL_MAP1_TEXTURE_COORD_2", 
+                "GL_MAP1_TEXTURE_COORD_3", 
+                "GL_MAP1_TEXTURE_COORD_4", 
+                "GL_MAP1_VERTEX_3", 
+                "GL_MAP1_VERTEX_4", 
+                "GL_MAP2_COLOR_4", 
+                "GL_MAP2_INDEX", 
+                "GL_MAP2_NORMAL", 
+                "GL_MAP2_TEXTURE_COORD_1", 
+                "GL_MAP2_TEXTURE_COORD_2", 
+                "GL_MAP2_TEXTURE_COORD_3", 
+                "GL_MAP2_TEXTURE_COORD_4", 
+                "GL_MAP2_VERTEX_3", 
+                "GL_MAP2_VERTEX_4", 
+                "GL_NORMALIZE", 
+                "GL_POINT_SMOOTH", 
+                "GL_POLYGON_OFFSET_FILL", 
+                "GL_POLYGON_OFFSET_LINE", 
+                "GL_POLYGON_OFFSET_POINT", 
+                "GL_POLYGON_SMOOTH", 
+                "GL_POLYGON_STIPPLE", 
+                "GL_SCISSOR_TEST", 
+                "GL_STENCIL_TEST", 
+                "GL_TEXTURE_1D", 
+                "GL_TEXTURE_2D", 
+                "GL_TEXTURE_GEN_Q", 
+                "GL_TEXTURE_GEN_R", 
+                "GL_TEXTURE_GEN_S", 
+                "GL_TEXTURE_GEN_T", 
+                ]:
+            self.mb.add_registration_code('''
+                boost::python::scope().attr("%s") = %s;''' % (symbol, symbol))
+
     def wrap_drawable(self):
         drawable = self.mb.class_("Drawable")
         de = drawable.class_("Extensions")
@@ -244,7 +337,11 @@ class OsgWrapper(BaseWrapper):
                 "getParents", # TODO wrap Group
                 ]:
             cls.member_functions(fn_name).exclude()
+        cls.add_property( "stateSet", 
+            cls.member_function("getOrCreateStateSet"),
+            cls.member_function("setStateSet") )
         cls.class_("ComputeBoundingSphereCallback").exclude()
+
     
     def wrap_displaysettings(self):
         cls = self.mb.class_("DisplaySettings")

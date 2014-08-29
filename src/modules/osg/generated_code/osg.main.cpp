@@ -306,6 +306,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/state.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateattribute.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/statesetstack.pypp.hpp"
@@ -331,6 +333,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgennode.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2d.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureattributelist.pypp.hpp"
 
@@ -571,11 +575,13 @@ BOOST_PYTHON_MODULE(osg){
 
     register_Referenced_class();
 
+    register_Object_class();
+
     register_Observer_class();
 
-    register_State_class();
+    register_StateAttribute_class();
 
-    register_Object_class();
+    register_State_class();
 
     register_AnimationPath_class();
 
@@ -813,6 +819,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_Texture_class();
 
+    register_Texture2D_class();
+
     register_TextureCostEstimator_class();
 
     register_UniformBufferObject_class();
@@ -892,6 +900,126 @@ BOOST_PYTHON_MODULE(osg){
     register_buffered_value_less__unsigned_int__greater__class();
 
     register_MaskStack_class();
+
+    boost::python::scope().attr("GL_ALPHA_TEST") = GL_ALPHA_TEST;
+
+    boost::python::scope().attr("GL_AUTO_NORMAL") = GL_AUTO_NORMAL;
+
+    boost::python::scope().attr("GL_BLEND") = GL_BLEND;
+
+    boost::python::scope().attr("GL_CLIP_PLANE0") = GL_CLIP_PLANE0;
+
+    boost::python::scope().attr("GL_CLIP_PLANE1") = GL_CLIP_PLANE1;
+
+    boost::python::scope().attr("GL_CLIP_PLANE2") = GL_CLIP_PLANE2;
+
+    boost::python::scope().attr("GL_CLIP_PLANE3") = GL_CLIP_PLANE3;
+
+    boost::python::scope().attr("GL_CLIP_PLANE4") = GL_CLIP_PLANE4;
+
+    boost::python::scope().attr("GL_CLIP_PLANE5") = GL_CLIP_PLANE5;
+
+    boost::python::scope().attr("GL_COLOR_LOGIC_OP") = GL_COLOR_LOGIC_OP;
+
+    boost::python::scope().attr("GL_COLOR_MATERIAL") = GL_COLOR_MATERIAL;
+
+    boost::python::scope().attr("GL_CULL_FACE") = GL_CULL_FACE;
+
+    boost::python::scope().attr("GL_DEPTH_TEST") = GL_DEPTH_TEST;
+
+    boost::python::scope().attr("GL_DITHER") = GL_DITHER;
+
+    boost::python::scope().attr("GL_FOG") = GL_FOG;
+
+    boost::python::scope().attr("GL_INDEX_LOGIC_OP") = GL_INDEX_LOGIC_OP;
+
+    boost::python::scope().attr("GL_LIGHT0") = GL_LIGHT0;
+
+    boost::python::scope().attr("GL_LIGHT1") = GL_LIGHT1;
+
+    boost::python::scope().attr("GL_LIGHT2") = GL_LIGHT2;
+
+    boost::python::scope().attr("GL_LIGHT3") = GL_LIGHT3;
+
+    boost::python::scope().attr("GL_LIGHT4") = GL_LIGHT4;
+
+    boost::python::scope().attr("GL_LIGHT5") = GL_LIGHT5;
+
+    boost::python::scope().attr("GL_LIGHT6") = GL_LIGHT6;
+
+    boost::python::scope().attr("GL_LIGHT7") = GL_LIGHT7;
+
+    boost::python::scope().attr("GL_LIGHTING") = GL_LIGHTING;
+
+    boost::python::scope().attr("GL_LINE_SMOOTH") = GL_LINE_SMOOTH;
+
+    boost::python::scope().attr("GL_LINE_STIPPLE") = GL_LINE_STIPPLE;
+
+    boost::python::scope().attr("GL_MAP1_COLOR_4") = GL_MAP1_COLOR_4;
+
+    boost::python::scope().attr("GL_MAP1_INDEX") = GL_MAP1_INDEX;
+
+    boost::python::scope().attr("GL_MAP1_NORMAL") = GL_MAP1_NORMAL;
+
+    boost::python::scope().attr("GL_MAP1_TEXTURE_COORD_1") = GL_MAP1_TEXTURE_COORD_1;
+
+    boost::python::scope().attr("GL_MAP1_TEXTURE_COORD_2") = GL_MAP1_TEXTURE_COORD_2;
+
+    boost::python::scope().attr("GL_MAP1_TEXTURE_COORD_3") = GL_MAP1_TEXTURE_COORD_3;
+
+    boost::python::scope().attr("GL_MAP1_TEXTURE_COORD_4") = GL_MAP1_TEXTURE_COORD_4;
+
+    boost::python::scope().attr("GL_MAP1_VERTEX_3") = GL_MAP1_VERTEX_3;
+
+    boost::python::scope().attr("GL_MAP1_VERTEX_4") = GL_MAP1_VERTEX_4;
+
+    boost::python::scope().attr("GL_MAP2_COLOR_4") = GL_MAP2_COLOR_4;
+
+    boost::python::scope().attr("GL_MAP2_INDEX") = GL_MAP2_INDEX;
+
+    boost::python::scope().attr("GL_MAP2_NORMAL") = GL_MAP2_NORMAL;
+
+    boost::python::scope().attr("GL_MAP2_TEXTURE_COORD_1") = GL_MAP2_TEXTURE_COORD_1;
+
+    boost::python::scope().attr("GL_MAP2_TEXTURE_COORD_2") = GL_MAP2_TEXTURE_COORD_2;
+
+    boost::python::scope().attr("GL_MAP2_TEXTURE_COORD_3") = GL_MAP2_TEXTURE_COORD_3;
+
+    boost::python::scope().attr("GL_MAP2_TEXTURE_COORD_4") = GL_MAP2_TEXTURE_COORD_4;
+
+    boost::python::scope().attr("GL_MAP2_VERTEX_3") = GL_MAP2_VERTEX_3;
+
+    boost::python::scope().attr("GL_MAP2_VERTEX_4") = GL_MAP2_VERTEX_4;
+
+    boost::python::scope().attr("GL_NORMALIZE") = GL_NORMALIZE;
+
+    boost::python::scope().attr("GL_POINT_SMOOTH") = GL_POINT_SMOOTH;
+
+    boost::python::scope().attr("GL_POLYGON_OFFSET_FILL") = GL_POLYGON_OFFSET_FILL;
+
+    boost::python::scope().attr("GL_POLYGON_OFFSET_LINE") = GL_POLYGON_OFFSET_LINE;
+
+    boost::python::scope().attr("GL_POLYGON_OFFSET_POINT") = GL_POLYGON_OFFSET_POINT;
+
+    boost::python::scope().attr("GL_POLYGON_SMOOTH") = GL_POLYGON_SMOOTH;
+
+    boost::python::scope().attr("GL_POLYGON_STIPPLE") = GL_POLYGON_STIPPLE;
+
+    boost::python::scope().attr("GL_SCISSOR_TEST") = GL_SCISSOR_TEST;
+
+    boost::python::scope().attr("GL_STENCIL_TEST") = GL_STENCIL_TEST;
+
+    boost::python::scope().attr("GL_TEXTURE_1D") = GL_TEXTURE_1D;
+
+    boost::python::scope().attr("GL_TEXTURE_2D") = GL_TEXTURE_2D;
+
+    boost::python::scope().attr("GL_TEXTURE_GEN_Q") = GL_TEXTURE_GEN_Q;
+
+    boost::python::scope().attr("GL_TEXTURE_GEN_R") = GL_TEXTURE_GEN_R;
+
+    boost::python::scope().attr("GL_TEXTURE_GEN_S") = GL_TEXTURE_GEN_S;
+
+    boost::python::scope().attr("GL_TEXTURE_GEN_T") = GL_TEXTURE_GEN_T;
 
     register_global_variables();
 

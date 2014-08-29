@@ -86,6 +86,42 @@ struct ScreenCaptureHandler_wrapper : osgViewer::ScreenCaptureHandler, bp::wrapp
         osgViewer::ScreenCaptureHandler::getUsage( boost::ref(usage) );
     }
 
+    virtual char const * className(  ) const  {
+        if( bp::override func_className = this->get_override( "className" ) )
+            return func_className(  );
+        else{
+            return this->osgGA::GUIEventHandler::className(  );
+        }
+    }
+    
+    char const * default_className(  ) const  {
+        return osgGA::GUIEventHandler::className( );
+    }
+
+    virtual ::osg::Object * clone( ::osg::CopyOp const & copyop ) const  {
+        if( bp::override func_clone = this->get_override( "clone" ) )
+            return func_clone( boost::ref(copyop) );
+        else{
+            return this->osgGA::GUIEventHandler::clone( boost::ref(copyop) );
+        }
+    }
+    
+    ::osg::Object * default_clone( ::osg::CopyOp const & copyop ) const  {
+        return osgGA::GUIEventHandler::clone( boost::ref(copyop) );
+    }
+
+    virtual ::osg::Object * cloneType(  ) const  {
+        if( bp::override func_cloneType = this->get_override( "cloneType" ) )
+            return func_cloneType(  );
+        else{
+            return this->osgGA::GUIEventHandler::cloneType(  );
+        }
+    }
+    
+    ::osg::Object * default_cloneType(  ) const  {
+        return osgGA::GUIEventHandler::cloneType( );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -96,6 +132,18 @@ struct ScreenCaptureHandler_wrapper : osgViewer::ScreenCaptureHandler, bp::wrapp
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
+    }
+
+    virtual void event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        if( bp::override func_event = this->get_override( "event" ) )
+            func_event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        else{
+            this->osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
+        }
+    }
+    
+    void default_event( ::osg::NodeVisitor * nv, ::osg::Drawable * drawable ) {
+        osgGA::GUIEventHandler::event( boost::python::ptr(nv), boost::python::ptr(drawable) );
     }
 
     virtual ::osg::Referenced * getUserData(  ) {
@@ -120,6 +168,30 @@ struct ScreenCaptureHandler_wrapper : osgViewer::ScreenCaptureHandler, bp::wrapp
     
     ::osg::Referenced const * default_getUserData(  ) const  {
         return osg::Object::getUserData( );
+    }
+
+    virtual bool isSameKindAs( ::osg::Object const * obj ) const  {
+        if( bp::override func_isSameKindAs = this->get_override( "isSameKindAs" ) )
+            return func_isSameKindAs( boost::python::ptr(obj) );
+        else{
+            return this->osgGA::GUIEventHandler::isSameKindAs( boost::python::ptr(obj) );
+        }
+    }
+    
+    bool default_isSameKindAs( ::osg::Object const * obj ) const  {
+        return osgGA::GUIEventHandler::isSameKindAs( boost::python::ptr(obj) );
+    }
+
+    virtual char const * libraryName(  ) const  {
+        if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+            return func_libraryName(  );
+        else{
+            return this->osgGA::GUIEventHandler::libraryName(  );
+        }
+    }
+    
+    char const * default_libraryName(  ) const  {
+        return osgGA::GUIEventHandler::libraryName( );
     }
 
     virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
@@ -175,7 +247,7 @@ struct ScreenCaptureHandler_wrapper : osgViewer::ScreenCaptureHandler, bp::wrapp
 void register_ScreenCaptureHandler_class(){
 
     { //::osgViewer::ScreenCaptureHandler
-        typedef bp::class_< ScreenCaptureHandler_wrapper, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler >, boost::noncopyable > ScreenCaptureHandler_exposer_t;
+        typedef bp::class_< ScreenCaptureHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler >, boost::noncopyable > ScreenCaptureHandler_exposer_t;
         ScreenCaptureHandler_exposer_t ScreenCaptureHandler_exposer = ScreenCaptureHandler_exposer_t( "ScreenCaptureHandler", bp::init< bp::optional< osgViewer::ScreenCaptureHandler::CaptureOperation *, int > >(( bp::arg("defaultOperation")=bp::object(), bp::arg("numFrames")=(int)(1) )) );
         bp::scope ScreenCaptureHandler_scope( ScreenCaptureHandler_exposer );
         bp::class_< ScreenCaptureHandler_wrapper::CaptureOperation_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::ScreenCaptureHandler::CaptureOperation >, boost::noncopyable >( "CaptureOperation", bp::no_init );
