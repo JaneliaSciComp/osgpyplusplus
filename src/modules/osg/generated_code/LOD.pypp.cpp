@@ -298,7 +298,7 @@ void register_LOD_class(){
 
     { //::osg::LOD
         typedef bp::class_< LOD_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::LOD >, boost::noncopyable > LOD_exposer_t;
-        LOD_exposer_t LOD_exposer = LOD_exposer_t( "LOD", bp::no_init );
+        LOD_exposer_t LOD_exposer = LOD_exposer_t( "LOD", "\n LOD - Level Of Detail group node which allows switching between children\n    depending on distance from eye point.\n    Typical uses are for load balancing - objects further away from\n    the eye point are rendered at a lower level of detail, and at times\n    of high stress on the graphics pipeline lower levels of detail can\n    also be chosen by adjusting the viewerss Camera/CullSettings LODScale value.\n    Each child has a corresponding valid range consisting of a minimum\n    and maximum distance. Given a distance to the viewer (d), LOD displays\n    a child if min <= d < max. LOD may display multiple children simultaneously\n    if their corresponding ranges overlap. Children can be in any order,\n    and dont need to be sorted by range or amount of detail. If the number of\n    ranges (m) is less than the number of children (n), then children m+1 through\n    n are ignored.\n", bp::no_init );
         bp::scope LOD_scope( LOD_exposer );
         bp::enum_< osg::LOD::CenterMode>("CenterMode")
             .value("USE_BOUNDING_SPHERE_CENTER", osg::LOD::USE_BOUNDING_SPHERE_CENTER)
@@ -311,7 +311,7 @@ void register_LOD_class(){
             .value("PIXEL_SIZE_ON_SCREEN", osg::LOD::PIXEL_SIZE_ON_SCREEN)
             .export_values()
             ;
-        LOD_exposer.def( bp::init< >() );
+        LOD_exposer.def( bp::init< >("\n LOD - Level Of Detail group node which allows switching between children\n    depending on distance from eye point.\n    Typical uses are for load balancing - objects further away from\n    the eye point are rendered at a lower level of detail, and at times\n    of high stress on the graphics pipeline lower levels of detail can\n    also be chosen by adjusting the viewerss Camera/CullSettings LODScale value.\n    Each child has a corresponding valid range consisting of a minimum\n    and maximum distance. Given a distance to the viewer (d), LOD displays\n    a child if min <= d < max. LOD may display multiple children simultaneously\n    if their corresponding ranges overlap. Children can be in any order,\n    and dont need to be sorted by range or amount of detail. If the number of\n    ranges (m) is less than the number of children (n), then children m+1 through\n    n are ignored.\n") );
         { //::osg::LOD::accept
         
             typedef void ( ::osg::LOD::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -402,7 +402,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "getCenter"
                 , getCenter_function_type( &::osg::LOD::getCenter )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the LOD center point." );
         
         }
         { //::osg::LOD::getCenterMode
@@ -411,7 +412,8 @@ void register_LOD_class(){
             
             LOD_exposer.def( 
                 "getCenterMode"
-                , getCenterMode_function_type( &::osg::LOD::getCenterMode ) );
+                , getCenterMode_function_type( &::osg::LOD::getCenterMode )
+                , " Get how the center of object should be determined when computing which child is active." );
         
         }
         { //::osg::LOD::getMaxRange
@@ -421,7 +423,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "getMaxRange"
                 , getMaxRange_function_type( &::osg::LOD::getMaxRange )
-                , ( bp::arg("childNo") ) );
+                , ( bp::arg("childNo") )
+                , " returns the max visible range for specified child." );
         
         }
         { //::osg::LOD::getMinRange
@@ -431,7 +434,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "getMinRange"
                 , getMinRange_function_type( &::osg::LOD::getMinRange )
-                , ( bp::arg("childNo") ) );
+                , ( bp::arg("childNo") )
+                , " returns the min visible range for specified child." );
         
         }
         { //::osg::LOD::getNumRanges
@@ -440,7 +444,8 @@ void register_LOD_class(){
             
             LOD_exposer.def( 
                 "getNumRanges"
-                , getNumRanges_function_type( &::osg::LOD::getNumRanges ) );
+                , getNumRanges_function_type( &::osg::LOD::getNumRanges )
+                , " returns the number of ranges currently set.\n An LOD which has been fully set up will have getNumChildren()==getNumRanges()." );
         
         }
         { //::osg::LOD::getRadius
@@ -449,7 +454,8 @@ void register_LOD_class(){
             
             LOD_exposer.def( 
                 "getRadius"
-                , getRadius_function_type( &::osg::LOD::getRadius ) );
+                , getRadius_function_type( &::osg::LOD::getRadius )
+                , " Get the object-space radius of the volume enclosed by the LOD." );
         
         }
         { //::osg::LOD::getRangeList
@@ -459,7 +465,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "getRangeList"
                 , getRangeList_function_type( &::osg::LOD::getRangeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the list of MinMax ranges for each child." );
         
         }
         { //::osg::LOD::getRangeMode
@@ -468,7 +475,8 @@ void register_LOD_class(){
             
             LOD_exposer.def( 
                 "getRangeMode"
-                , getRangeMode_function_type( &::osg::LOD::getRangeMode ) );
+                , getRangeMode_function_type( &::osg::LOD::getRangeMode )
+                , " Get how the range values should be interpreted when computing which child is active." );
         
         }
         { //::osg::LOD::isSameKindAs
@@ -513,7 +521,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setCenter"
                 , setCenter_function_type( &::osg::LOD::setCenter )
-                , ( bp::arg("center") ) );
+                , ( bp::arg("center") )
+                , " Sets the object-space point which defines the center of the osg::LOD.\n            center is affected by any transforms in the hierarchy above the osg::LOD." );
         
         }
         { //::osg::LOD::setCenterMode
@@ -523,7 +532,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setCenterMode"
                 , setCenterMode_function_type( &::osg::LOD::setCenterMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set how the center of object should be determined when computing which child is active." );
         
         }
         { //::osg::LOD::setRadius
@@ -533,7 +543,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setRadius"
                 , setRadius_function_type( &::osg::LOD::setRadius )
-                , ( bp::arg("radius") ) );
+                , ( bp::arg("radius") )
+                , " Set the object-space reference radius of the volume enclosed by the LOD.\n Used to determine the bounding sphere of the LOD in the absence of any children." );
         
         }
         { //::osg::LOD::setRange
@@ -543,7 +554,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setRange"
                 , setRange_function_type( &::osg::LOD::setRange )
-                , ( bp::arg("childNo"), bp::arg("min"), bp::arg("max") ) );
+                , ( bp::arg("childNo"), bp::arg("min"), bp::arg("max") )
+                , " Sets the min and max visible ranges of range of specific child.\n            Values are floating point distance specified in local objects coordinates." );
         
         }
         { //::osg::LOD::setRangeList
@@ -553,7 +565,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setRangeList"
                 , setRangeList_function_type( &::osg::LOD::setRangeList )
-                , ( bp::arg("rangeList") ) );
+                , ( bp::arg("rangeList") )
+                , " set the list of MinMax ranges for each child." );
         
         }
         { //::osg::LOD::setRangeMode
@@ -563,7 +576,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setRangeMode"
                 , setRangeMode_function_type( &::osg::LOD::setRangeMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set how the range values should be interpreted when computing which child is active." );
         
         }
         { //::osg::LOD::traverse
@@ -704,7 +718,8 @@ void register_LOD_class(){
             LOD_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

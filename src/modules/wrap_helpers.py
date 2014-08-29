@@ -43,7 +43,7 @@ class BaseWrapper:
 
     def generate_module_code(self, module_name):
         extractor = doxygen_doc_extractor()
-        self.mb.build_code_creator(module_name=module_name) # , doc_extractor=extractor)
+        self.mb.build_code_creator(module_name=module_name , doc_extractor=extractor)
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()

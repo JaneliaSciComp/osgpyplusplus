@@ -10,7 +10,7 @@ void register_CopyOp_class(){
 
     { //::osg::CopyOp
         typedef bp::class_< osg::CopyOp > CopyOp_exposer_t;
-        CopyOp_exposer_t CopyOp_exposer = CopyOp_exposer_t( "CopyOp", bp::init< bp::optional< unsigned int > >(( bp::arg("flags")=(unsigned int)((unsigned int)(::osg::CopyOp::SHALLOW_COPY)) )) );
+        CopyOp_exposer_t CopyOp_exposer = CopyOp_exposer_t( "CopyOp", "\n Copy Op(erator) used to control whether shallow or deep copy is used\n during copy construction and clone operation.\n", bp::init< bp::optional< unsigned int > >(( bp::arg("flags")=(unsigned int)((unsigned int)(::osg::CopyOp::SHALLOW_COPY)) )) );
         bp::scope CopyOp_scope( CopyOp_exposer );
         bp::enum_< osg::CopyOp::Options>("Options")
             .value("SHALLOW_COPY", osg::CopyOp::SHALLOW_COPY)

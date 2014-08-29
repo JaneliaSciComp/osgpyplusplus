@@ -153,15 +153,17 @@ struct Shape_wrapper : osg::Shape, bp::wrapper< osg::Shape > {
 
 void register_Shape_class(){
 
-    bp::class_< Shape_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Shape >, boost::noncopyable >( "Shape", bp::no_init )    
+    bp::class_< Shape_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Shape >, boost::noncopyable >( "Shape", "\n Base class for all shape types.\n Shapes are used to either for culling and collision detection or\n to define the geometric shape of procedurally generate Geometry.\n", bp::no_init )    
         .def( 
             "accept"
             , bp::pure_virtual( (void ( ::osg::Shape::* )( ::osg::ShapeVisitor & ))(&::osg::Shape::accept) )
-            , ( bp::arg("arg0") ) )    
+            , ( bp::arg("arg0") )
+            , "\n accept a non const shape visitor which can be used on non const shape objects.\n            Must be defined by derived classes.\n" )    
         .def( 
             "accept"
             , bp::pure_virtual( (void ( ::osg::Shape::* )( ::osg::ConstShapeVisitor & )const)(&::osg::Shape::accept) )
-            , ( bp::arg("arg0") ) )    
+            , ( bp::arg("arg0") )
+            , "\n accept a const shape visitor which can be used on const shape objects.\n            Must be defined by derived classes.\n" )    
         .def( 
             "className"
             , (char const * ( ::osg::Shape::* )(  )const)(&::osg::Shape::className)
@@ -170,11 +172,13 @@ void register_Shape_class(){
             "clone"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Shape::* )( ::osg::CopyOp const & )const)(&::osg::Shape::clone) )
             , ( bp::arg("arg0") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone an attribute, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "cloneType"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Shape::* )(  )const)(&::osg::Shape::cloneType) )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone the type of an attribute, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::Shape::* )( ::osg::Object const * )const)(&::osg::Shape::isSameKindAs)
@@ -211,7 +215,8 @@ void register_Shape_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

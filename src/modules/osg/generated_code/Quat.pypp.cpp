@@ -19,7 +19,7 @@ void register_Quat_class(){
 
     { //::osg::Quat
         typedef bp::class_< osg::Quat > Quat_exposer_t;
-        Quat_exposer_t Quat_exposer = Quat_exposer_t( "Quat", bp::init< >() );
+        Quat_exposer_t Quat_exposer = Quat_exposer_t( "Quat", "\n A quaternion class. It can be used to represent an orientation in 3D space.\n", bp::init< >() );
         bp::scope Quat_scope( Quat_exposer );
         Quat_exposer.def( bp::init< double, double, double, double >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );
         Quat_exposer.def( bp::init< osg::Vec4f const & >(( bp::arg("v") )) );
@@ -54,7 +54,8 @@ void register_Quat_class(){
             
             Quat_exposer.def( 
                 "conj"
-                , conj_function_type( &::osg::Quat::conj ) );
+                , conj_function_type( &::osg::Quat::conj )
+                , "\n Conjugate\n" );
         
         }
         { //::osg::Quat::get
@@ -84,7 +85,8 @@ void register_Quat_class(){
             Quat_exposer.def( 
                 "getRotate"
                 , getRotate_function_type( &getRotate_7cd433cce0eabe855a9b774688d2845e )
-                , ( bp::arg("inst") ) );
+                , ( bp::arg("inst") )
+                , " Return the angle and vector represented by the quaternion." );
         
         }
         { //::osg::Quat::inverse
@@ -93,7 +95,8 @@ void register_Quat_class(){
             
             Quat_exposer.def( 
                 "inverse"
-                , inverse_function_type( &::osg::Quat::inverse ) );
+                , inverse_function_type( &::osg::Quat::inverse )
+                , "\n Multiplicative inverse method: q^(-1) = q^*/(q.q^*)\n" );
         
         }
         { //::osg::Quat::length
@@ -102,7 +105,8 @@ void register_Quat_class(){
             
             Quat_exposer.def( 
                 "length"
-                , length_function_type( &::osg::Quat::length ) );
+                , length_function_type( &::osg::Quat::length )
+                , "\n Length of the quaternion = sqrt( vec . vec )\n" );
         
         }
         { //::osg::Quat::length2
@@ -111,7 +115,8 @@ void register_Quat_class(){
             
             Quat_exposer.def( 
                 "length2"
-                , length2_function_type( &::osg::Quat::length2 ) );
+                , length2_function_type( &::osg::Quat::length2 )
+                , "\n Length of the quaternion = vec . vec\n" );
         
         }
         { //::osg::Quat::makeRotate
@@ -171,7 +176,8 @@ void register_Quat_class(){
             Quat_exposer.def( 
                 "makeRotate"
                 , makeRotate_function_type( &::osg::Quat::makeRotate )
-                , ( bp::arg("vec1"), bp::arg("vec2") ) );
+                , ( bp::arg("vec1"), bp::arg("vec2") )
+                , "\n Make a rotation Quat which will rotate vec1 to vec2.\n            Generally take a dot product to get the angle between these\n            and then use a cross product to get the rotation axis\n            Watch out for the two special cases when the vectors\n            are co-incident or opposite in direction.\n" );
         
         }
         { //::osg::Quat::makeRotate
@@ -181,7 +187,8 @@ void register_Quat_class(){
             Quat_exposer.def( 
                 "makeRotate"
                 , makeRotate_function_type( &::osg::Quat::makeRotate )
-                , ( bp::arg("vec1"), bp::arg("vec2") ) );
+                , ( bp::arg("vec1"), bp::arg("vec2") )
+                , "\n Make a rotation Quat which will rotate vec1 to vec2.\n            Generally take a dot product to get the angle between these\n            and then use a cross product to get the rotation axis\n            Watch out for the two special cases of when the vectors\n            are co-incident or opposite in direction.\n" );
         
         }
         { //::osg::Quat::makeRotate_original
@@ -281,7 +288,8 @@ void register_Quat_class(){
             Quat_exposer.def( 
                 "slerp"
                 , slerp_function_type( &::osg::Quat::slerp )
-                , ( bp::arg("t"), bp::arg("from"), bp::arg("to") ) );
+                , ( bp::arg("t"), bp::arg("from"), bp::arg("to") )
+                , "\n Spherical Linear Interpolation.\n        As t goes from 0 to 1, the Quat object goes from from to to.\n" );
         
         }
         { //::osg::Quat::w
@@ -366,7 +374,8 @@ void register_Quat_class(){
             
             Quat_exposer.def( 
                 "zeroRotation"
-                , zeroRotation_function_type( &::osg::Quat::zeroRotation ) );
+                , zeroRotation_function_type( &::osg::Quat::zeroRotation )
+                , "\n return true if the Quat represents a zero rotation, and therefore can be ignored in computations.\n" );
         
         }
     }

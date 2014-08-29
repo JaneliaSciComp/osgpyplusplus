@@ -302,9 +302,9 @@ void register_ClipPlane_class(){
 
     { //::osg::ClipPlane
         typedef bp::class_< ClipPlane_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ClipPlane >, boost::noncopyable > ClipPlane_exposer_t;
-        ClipPlane_exposer_t ClipPlane_exposer = ClipPlane_exposer_t( "ClipPlane", bp::no_init );
+        ClipPlane_exposer_t ClipPlane_exposer = ClipPlane_exposer_t( "ClipPlane", "\n Encapsulates OpenGL glClipPlane().\n", bp::no_init );
         bp::scope ClipPlane_scope( ClipPlane_exposer );
-        ClipPlane_exposer.def( bp::init< >() );
+        ClipPlane_exposer.def( bp::init< >("\n Encapsulates OpenGL glClipPlane().\n") );
         ClipPlane_exposer.def( bp::init< unsigned int >(( bp::arg("no") )) );
         bp::implicitly_convertible< unsigned int, osg::ClipPlane >();
         ClipPlane_exposer.def( bp::init< unsigned int, osg::Vec4d const & >(( bp::arg("no"), bp::arg("plane") )) );
@@ -365,7 +365,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "getClipPlane"
                 , getClipPlane_function_type( &::osg::ClipPlane::getClipPlane )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the clip plane as a Vec4d." );
         
         }
         { //::osg::ClipPlane::getClipPlaneNum
@@ -374,7 +375,8 @@ void register_ClipPlane_class(){
             
             ClipPlane_exposer.def( 
                 "getClipPlaneNum"
-                , getClipPlaneNum_function_type( &::osg::ClipPlane::getClipPlaneNum ) );
+                , getClipPlaneNum_function_type( &::osg::ClipPlane::getClipPlaneNum )
+                , " Gets the clip plane number." );
         
         }
         { //::osg::ClipPlane::getMember
@@ -441,7 +443,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "setClipPlane"
                 , setClipPlane_function_type( &::osg::ClipPlane::setClipPlane )
-                , ( bp::arg("plane") ) );
+                , ( bp::arg("plane") )
+                , " Set the clip plane with the given Plane." );
         
         }
         { //::osg::ClipPlane::setClipPlane
@@ -451,7 +454,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "setClipPlane"
                 , setClipPlane_function_type( &::osg::ClipPlane::setClipPlane )
-                , ( bp::arg("a"), bp::arg("b"), bp::arg("c"), bp::arg("d") ) );
+                , ( bp::arg("a"), bp::arg("b"), bp::arg("c"), bp::arg("d") )
+                , " Defines the plane as [ a b c d ]." );
         
         }
         { //::osg::ClipPlane::setClipPlane
@@ -461,7 +465,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "setClipPlane"
                 , setClipPlane_function_type( &::osg::ClipPlane::setClipPlane )
-                , ( bp::arg("plane") ) );
+                , ( bp::arg("plane") )
+                , " Set the clip plane with the given Vec4." );
         
         }
         { //::osg::ClipPlane::setClipPlaneNum
@@ -471,7 +476,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "setClipPlaneNum"
                 , setClipPlaneNum_function_type( &::osg::ClipPlane::setClipPlaneNum )
-                , ( bp::arg("num") ) );
+                , ( bp::arg("num") )
+                , " Sets the clip plane number." );
         
         }
         { //::osg::StateAttribute::asTexture
@@ -599,7 +605,8 @@ void register_ClipPlane_class(){
             ClipPlane_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

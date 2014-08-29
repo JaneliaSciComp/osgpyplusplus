@@ -284,8 +284,8 @@ struct OccluderNode_wrapper : osg::OccluderNode, bp::wrapper< osg::OccluderNode 
 
 void register_OccluderNode_class(){
 
-    bp::class_< OccluderNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::OccluderNode >, boost::noncopyable >( "OccluderNode", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< OccluderNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::OccluderNode >, boost::noncopyable >( "OccluderNode", "\n OccluderNode is a Group node which provides hooks for adding\n ConvexPlanarOccluders to the scene.\n", bp::no_init )    
+        .def( bp::init< >("\n OccluderNode is a Group node which provides hooks for adding\n ConvexPlanarOccluders to the scene.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::OccluderNode::* )( ::osg::NodeVisitor & ))(&::osg::OccluderNode::accept)
@@ -313,11 +313,13 @@ void register_OccluderNode_class(){
         .def( 
             "getOccluder"
             , (::osg::ConvexPlanarOccluder * ( ::osg::OccluderNode::* )(  ))( &::osg::OccluderNode::getOccluder )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the ConvexPlanarOccluder* attached to a OccluderNode." )    
         .def( 
             "getOccluder"
             , (::osg::ConvexPlanarOccluder const * ( ::osg::OccluderNode::* )(  )const)( &::osg::OccluderNode::getOccluder )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const ConvexPlanarOccluder* attached to a OccluderNode." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::OccluderNode::* )( ::osg::Object const * )const)(&::osg::OccluderNode::isSameKindAs)
@@ -330,7 +332,8 @@ void register_OccluderNode_class(){
         .def( 
             "setOccluder"
             , (void ( ::osg::OccluderNode::* )( ::osg::ConvexPlanarOccluder * ))( &::osg::OccluderNode::setOccluder )
-            , ( bp::arg("occluder") ) )    
+            , ( bp::arg("occluder") )
+            , " Attach a ConvexPlanarOccluder to an OccluderNode." )    
         .def( 
             "addChild"
             , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
@@ -393,7 +396,8 @@ void register_OccluderNode_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)

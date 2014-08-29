@@ -167,41 +167,49 @@ struct UserDataContainer_wrapper : osg::UserDataContainer, bp::wrapper< osg::Use
 
 void register_UserDataContainer_class(){
 
-    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::UserDataContainer >, boost::noncopyable >( "UserDataContainer", bp::no_init )    
+    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::UserDataContainer >, boost::noncopyable >( "UserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
         .def( 
             "addDescription"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( ::std::string const & ))(&::osg::UserDataContainer::addDescription) )
-            , ( bp::arg("desc") ) )    
+            , ( bp::arg("desc") )
+            , "\n Add a description string.\n" )    
         .def( 
             "addUserObject"
             , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )( ::osg::Object * ))(&::osg::UserDataContainer::addUserObject) )
-            , ( bp::arg("obj") ) )    
+            , ( bp::arg("obj") )
+            , "\n Add user data object. Returns the index position of object added.\n" )    
         .def( 
             "className"
             , (char const * ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::className)
             , (char const * ( UserDataContainer_wrapper::* )(  )const)(&UserDataContainer_wrapper::default_className) )    
         .def( 
             "getNumDescriptions"
-            , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getNumDescriptions) ) )    
+            , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getNumDescriptions) )
+            , "\n Get number of description strings.\n" )    
         .def( 
             "getNumUserObjects"
-            , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getNumUserObjects) ) )    
+            , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getNumUserObjects) )
+            , "\n Get number of user objects assigned to this object.\n" )    
         .def( 
             "getUserData"
             , bp::pure_virtual( (::osg::Referenced * ( ::osg::UserDataContainer::* )(  ))(&::osg::UserDataContainer::getUserData) )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , "\n Get user data.\n" )    
         .def( 
             "getUserData"
             , bp::pure_virtual( (::osg::Referenced const * ( ::osg::UserDataContainer::* )(  )const)(&::osg::UserDataContainer::getUserData) )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , "\n Get const user data.\n" )    
         .def( 
             "getUserObjectIndex"
             , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )( ::osg::Object const *,unsigned int )const)(&::osg::UserDataContainer::getUserObjectIndex) )
-            , ( bp::arg("obj"), bp::arg("startPos")=(unsigned int)(0) ) )    
+            , ( bp::arg("obj"), bp::arg("startPos")=(unsigned int)(0) )
+            , "\n Get the index position of specified user data object.\n" )    
         .def( 
             "getUserObjectIndex"
             , bp::pure_virtual( (unsigned int ( ::osg::UserDataContainer::* )( ::std::string const &,unsigned int )const)(&::osg::UserDataContainer::getUserObjectIndex) )
-            , ( bp::arg("name"), bp::arg("startPos")=(unsigned int)(0) ) )    
+            , ( bp::arg("name"), bp::arg("startPos")=(unsigned int)(0) )
+            , "\n Get the index position of first user data object that matches specified name.\n" )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::UserDataContainer::* )( ::osg::Object const * )const)(&::osg::UserDataContainer::isSameKindAs)
@@ -214,28 +222,34 @@ void register_UserDataContainer_class(){
         .def( 
             "removeUserObject"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( unsigned int ))(&::osg::UserDataContainer::removeUserObject) )
-            , ( bp::arg("i") ) )    
+            , ( bp::arg("i") )
+            , "\n Remove element from the list of user data objects.\n" )    
         .def( 
             "setDescriptions"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( ::std::vector< std::string > const & ))(&::osg::UserDataContainer::setDescriptions) )
-            , ( bp::arg("descriptions") ) )    
+            , ( bp::arg("descriptions") )
+            , "\n Set the list of string descriptions.\n" )    
         .def( 
             "setUserData"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( ::osg::Referenced * ))(&::osg::UserDataContainer::setUserData) )
-            , ( bp::arg("obj") ) )    
+            , ( bp::arg("obj") )
+            , "\n Set user data, data must be subclassed from Referenced to allow\n automatic memory handling.  If your own data isnt directly\n subclassed from Referenced then create an adapter object\n which points to your own object and handles the memory addressing.\n" )    
         .def( 
             "setUserObject"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( unsigned int,::osg::Object * ))(&::osg::UserDataContainer::setUserObject) )
-            , ( bp::arg("i"), bp::arg("obj") ) )    
+            , ( bp::arg("i"), bp::arg("obj") )
+            , "\n Add element to list of user data objects.\n" )    
         .def( 
             "clone"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )( ::osg::CopyOp const & )const)(&::osg::Object::clone) )
             , ( bp::arg("arg0") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "cloneType"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )(  )const)(&::osg::Object::cloneType) )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
@@ -253,7 +267,8 @@ void register_UserDataContainer_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

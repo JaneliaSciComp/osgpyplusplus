@@ -10,7 +10,7 @@ void register_Vec2f_class(){
 
     { //::osg::Vec2f
         typedef bp::class_< osg::Vec2f > Vec2f_exposer_t;
-        Vec2f_exposer_t Vec2f_exposer = Vec2f_exposer_t( "Vec2f", bp::init< >() );
+        Vec2f_exposer_t Vec2f_exposer = Vec2f_exposer_t( "Vec2f", "\n General purpose float pair. Uses include representation of\n texture coordinates.\n No support yet added for float * Vec2f - is it necessary?\n Need to define a non-member non-friend operator* etc.\n BTW: Vec2f * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec2f_scope( Vec2f_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2f::num_components;
         Vec2f_exposer.def( bp::init< float, float >(( bp::arg("x"), bp::arg("y") )) );
@@ -20,7 +20,8 @@ void register_Vec2f_class(){
             
             Vec2f_exposer.def( 
                 "isNaN"
-                , isNaN_function_type( &::osg::Vec2f::isNaN ) );
+                , isNaN_function_type( &::osg::Vec2f::isNaN )
+                , "\n Returns true if at least one component has value NaN.\n" );
         
         }
         { //::osg::Vec2f::length
@@ -29,7 +30,8 @@ void register_Vec2f_class(){
             
             Vec2f_exposer.def( 
                 "length"
-                , length_function_type( &::osg::Vec2f::length ) );
+                , length_function_type( &::osg::Vec2f::length )
+                , "\n Length of the vector = sqrt( vec . vec )\n" );
         
         }
         { //::osg::Vec2f::length2
@@ -38,7 +40,8 @@ void register_Vec2f_class(){
             
             Vec2f_exposer.def( 
                 "length2"
-                , length2_function_type( &::osg::Vec2f::length2 ) );
+                , length2_function_type( &::osg::Vec2f::length2 )
+                , "\n Length squared of the vector = vec . vec\n" );
         
         }
         { //::osg::Vec2f::normalize
@@ -47,7 +50,8 @@ void register_Vec2f_class(){
             
             Vec2f_exposer.def( 
                 "normalize"
-                , normalize_function_type( &::osg::Vec2f::normalize ) );
+                , normalize_function_type( &::osg::Vec2f::normalize )
+                , "\n Normalize the vector so that it has length unity.\n Returns the previous length of the vector.\n" );
         
         }
         Vec2f_exposer.def( bp::self != bp::self );
@@ -100,7 +104,8 @@ void register_Vec2f_class(){
             
             Vec2f_exposer.def( 
                 "valid"
-                , valid_function_type( &::osg::Vec2f::valid ) );
+                , valid_function_type( &::osg::Vec2f::valid )
+                , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
         { //::osg::Vec2f::x

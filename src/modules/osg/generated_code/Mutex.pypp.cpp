@@ -57,7 +57,7 @@ void register_Mutex_class(){
 
     { //::OpenThreads::Mutex
         typedef bp::class_< Mutex_wrapper, boost::noncopyable > Mutex_exposer_t;
-        Mutex_exposer_t Mutex_exposer = Mutex_exposer_t( "Mutex", bp::init< bp::optional< OpenThreads::Mutex::MutexType > >(( bp::arg("type")=(long)(::OpenThreads::Mutex::MUTEX_NORMAL) )) );
+        Mutex_exposer_t Mutex_exposer = Mutex_exposer_t( "Mutex", "\n  Class: Mutex\n   This class provides an object-oriented thread mutex interface.\n", bp::init< bp::optional< OpenThreads::Mutex::MutexType > >(( bp::arg("type")=(long)(::OpenThreads::Mutex::MUTEX_NORMAL) ), "\n  Constructor\n") );
         bp::scope Mutex_scope( Mutex_exposer );
         bp::enum_< OpenThreads::Mutex::MutexType>("MutexType")
             .value("MUTEX_NORMAL", OpenThreads::Mutex::MUTEX_NORMAL)

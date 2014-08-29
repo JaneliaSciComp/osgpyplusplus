@@ -366,7 +366,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "compare"
                 , bp::pure_virtual( compare_function_type(&::osg::Array::compare) )
-                , ( bp::arg("lhs"), bp::arg("rhs") ) );
+                , ( bp::arg("lhs"), bp::arg("rhs") )
+                , "\n Return -1 if lhs element is less than rhs element, 0 if equal,\n 1 if lhs element is greater than rhs element.\n" );
         
         }
         { //::osg::Array::getBinding
@@ -375,7 +376,8 @@ void register_Array_class(){
             
             Array_exposer.def( 
                 "getBinding"
-                , getBinding_function_type( &::osg::Array::getBinding ) );
+                , getBinding_function_type( &::osg::Array::getBinding )
+                , " Get how this array should be passed to OpenGL." );
         
         }
         { //::osg::Array::getDataPointer
@@ -421,7 +423,8 @@ void register_Array_class(){
             
             Array_exposer.def( 
                 "getNormalize"
-                , getNormalize_function_type( &::osg::Array::getNormalize ) );
+                , getNormalize_function_type( &::osg::Array::getNormalize )
+                , " Get whether the array data should be normalized by OpenGL." );
         
         }
         { //::osg::Array::getNumElements
@@ -439,7 +442,8 @@ void register_Array_class(){
             
             Array_exposer.def( 
                 "getPreserveDataType"
-                , getPreserveDataType_function_type( &::osg::Array::getPreserveDataType ) );
+                , getPreserveDataType_function_type( &::osg::Array::getPreserveDataType )
+                , " Get hint to ask that the array data is passed via integer or double, or normal setVertexAttribPointer function." );
         
         }
         { //::osg::Array::getTotalDataSize
@@ -467,7 +471,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "getVertexBufferObject"
                 , getVertexBufferObject_function_type( &::osg::Array::getVertexBufferObject )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the VertexBufferObject. If no VBO is assigned returns NULL" );
         
         }
         { //::osg::Array::getVertexBufferObject
@@ -477,7 +482,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "getVertexBufferObject"
                 , getVertexBufferObject_function_type( &::osg::Array::getVertexBufferObject )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const VertexBufferObject. If no VBO is assigned returns NULL" );
         
         }
         { //::osg::Array::isSameKindAs
@@ -530,7 +536,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "setBinding"
                 , setBinding_function_type( &::osg::Array::setBinding )
-                , ( bp::arg("binding") ) );
+                , ( bp::arg("binding") )
+                , " Specify how this array should be passed to OpenGL." );
         
         }
         { //::osg::Array::setNormalize
@@ -540,7 +547,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "setNormalize"
                 , setNormalize_function_type( &::osg::Array::setNormalize )
-                , ( bp::arg("normalize") ) );
+                , ( bp::arg("normalize") )
+                , " Specify whether the array data should be normalized by OpenGL." );
         
         }
         { //::osg::Array::setPreserveDataType
@@ -550,7 +558,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "setPreserveDataType"
                 , setPreserveDataType_function_type( &::osg::Array::setPreserveDataType )
-                , ( bp::arg("preserve") ) );
+                , ( bp::arg("preserve") )
+                , " Set hint to ask that the array data is passed via integer or double, or normal setVertexAttribPointer function." );
         
         }
         { //::osg::Array::setVertexBufferObject
@@ -560,7 +569,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "setVertexBufferObject"
                 , setVertexBufferObject_function_type( &::osg::Array::setVertexBufferObject )
-                , ( bp::arg("vbo") ) );
+                , ( bp::arg("vbo") )
+                , " Set the VertexBufferObject." );
         
         }
         { //::osg::Array::trim
@@ -582,7 +592,8 @@ void register_Array_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::Object::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::cloneType
@@ -592,7 +603,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::Object::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::computeDataVariance
@@ -661,7 +673,8 @@ void register_Array_class(){
             Array_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

@@ -166,7 +166,7 @@ void register_EllipsoidModel_class(){
 
     { //::osg::EllipsoidModel
         typedef bp::class_< EllipsoidModel_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::EllipsoidModel >, boost::noncopyable > EllipsoidModel_exposer_t;
-        EllipsoidModel_exposer_t EllipsoidModel_exposer = EllipsoidModel_exposer_t( "EllipsoidModel", bp::init< bp::optional< double, double > >(( bp::arg("radiusEquator")=osg::WGS_84_RADIUS_EQUATOR, bp::arg("radiusPolar")=osg::WGS_84_RADIUS_POLAR )) );
+        EllipsoidModel_exposer_t EllipsoidModel_exposer = EllipsoidModel_exposer_t( "EllipsoidModel", "\n EllipsoidModel encapsulates the ellipsoid used to model astronomical bodies,\n such as sun, planets, moon etc.\n All distance quantities (i.e. heights + radius) are in meters,\n and latitude and longitude are in radians.\n", bp::init< bp::optional< double, double > >(( bp::arg("radiusEquator")=osg::WGS_84_RADIUS_EQUATOR, bp::arg("radiusPolar")=osg::WGS_84_RADIUS_POLAR ), "\n WGS_84 is a common representation of the earths spheroid\n") );
         bp::scope EllipsoidModel_scope( EllipsoidModel_exposer );
         bp::implicitly_convertible< double, osg::EllipsoidModel >();
         { //::osg::EllipsoidModel::className
@@ -252,7 +252,8 @@ void register_EllipsoidModel_class(){
             EllipsoidModel_exposer.def( 
                 "convertLatLongHeightToXYZ"
                 , convertLatLongHeightToXYZ_function_type( &::osg::EllipsoidModel::convertLatLongHeightToXYZ )
-                , ( bp::arg("latitude"), bp::arg("longitude"), bp::arg("height"), bp::arg("X"), bp::arg("Y"), bp::arg("Z") ) );
+                , ( bp::arg("latitude"), bp::arg("longitude"), bp::arg("height"), bp::arg("X"), bp::arg("Y"), bp::arg("Z") )
+                , "" );
         
         }
         { //::osg::EllipsoidModel::convertXYZToLatLongHeight
@@ -401,7 +402,8 @@ void register_EllipsoidModel_class(){
             EllipsoidModel_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

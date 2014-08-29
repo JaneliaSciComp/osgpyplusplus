@@ -279,8 +279,8 @@ struct ColorMask_wrapper : osg::ColorMask, bp::wrapper< osg::ColorMask > {
 
 void register_ColorMask_class(){
 
-    bp::class_< ColorMask_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ColorMask >, boost::noncopyable >( "ColorMask", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< ColorMask_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ColorMask >, boost::noncopyable >( "ColorMask", "\n Encapsulates OpenGL glColorMaskFunc/Op/Mask functions.\n", bp::no_init )    
+        .def( bp::init< >("\n Encapsulates OpenGL glColorMaskFunc/Op/Mask functions.\n") )    
         .def( bp::init< bool, bool, bool, bool >(( bp::arg("red"), bp::arg("green"), bp::arg("blue"), bp::arg("alpha") )) )    
         .def( 
             "apply"
@@ -407,7 +407,8 @@ void register_ColorMask_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

@@ -41,7 +41,7 @@ void register_FrameStamp_class(){
 
     { //::osg::FrameStamp
         typedef bp::class_< FrameStamp_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::FrameStamp > > FrameStamp_exposer_t;
-        FrameStamp_exposer_t FrameStamp_exposer = FrameStamp_exposer_t( "FrameStamp", bp::init< >() );
+        FrameStamp_exposer_t FrameStamp_exposer = FrameStamp_exposer_t( "FrameStamp", "\n Class which encapsulates the frame number, reference time and calendar\n time of specific frame, used to synchronize operations on the scene graph\n and other machines when using a graphics cluster.  Note the calendar\n time can be an artificial simulation time or capture the real time\n of day etc.\n", bp::init< >("\n Class which encapsulates the frame number, reference time and calendar\n time of specific frame, used to synchronize operations on the scene graph\n and other machines when using a graphics cluster.  Note the calendar\n time can be an artificial simulation time or capture the real time\n of day etc.\n") );
         bp::scope FrameStamp_scope( FrameStamp_exposer );
         FrameStamp_exposer.def( bp::init< osg::FrameStamp const & >(( bp::arg("fs") )) );
         { //::osg::FrameStamp::getCalendarTime

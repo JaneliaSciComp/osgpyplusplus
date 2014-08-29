@@ -286,7 +286,7 @@ void register_Billboard_class(){
 
     { //::osg::Billboard
         typedef bp::class_< Billboard_wrapper, bp::bases< osg::Geode >, osg::ref_ptr< ::osg::Billboard >, boost::noncopyable > Billboard_exposer_t;
-        Billboard_exposer_t Billboard_exposer = Billboard_exposer_t( "Billboard", bp::no_init );
+        Billboard_exposer_t Billboard_exposer = Billboard_exposer_t( "Billboard", "\n Billboard is a derived form of Geode that orients its osg::Drawable\n children to face the eye point. Typical uses include trees and\n particle explosions,\n", bp::no_init );
         bp::scope Billboard_scope( Billboard_exposer );
         bp::enum_< osg::Billboard::Mode>("Mode")
             .value("POINT_ROT_EYE", osg::Billboard::POINT_ROT_EYE)
@@ -395,7 +395,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "getAxis"
                 , getAxis_function_type( &::osg::Billboard::getAxis )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the rotation axis." );
         
         }
         { //::osg::Billboard::getMode
@@ -404,7 +405,8 @@ void register_Billboard_class(){
             
             Billboard_exposer.def( 
                 "getMode"
-                , getMode_function_type( &::osg::Billboard::getMode ) );
+                , getMode_function_type( &::osg::Billboard::getMode )
+                , " Get the billboard rotation mode." );
         
         }
         { //::osg::Billboard::getNormal
@@ -414,7 +416,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "getNormal"
                 , getNormal_function_type( &::osg::Billboard::getNormal )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the front face direction normal." );
         
         }
         { //::osg::Billboard::getPosition
@@ -425,7 +428,8 @@ void register_Billboard_class(){
                 "getPosition"
                 , getPosition_function_type( &::osg::Billboard::getPosition )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the specified child Drawables position." );
         
         }
         { //::osg::Billboard::getPositionList
@@ -435,7 +439,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "getPositionList"
                 , getPositionList_function_type( &::osg::Billboard::getPositionList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the list of pivot point positions." );
         
         }
         { //::osg::Billboard::getPositionList
@@ -445,7 +450,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "getPositionList"
                 , getPositionList_function_type( &::osg::Billboard::getPositionList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a const list of pivot point positions." );
         
         }
         { //::osg::Billboard::isSameKindAs
@@ -490,7 +496,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setAxis"
                 , setAxis_function_type( &::osg::Billboard::setAxis )
-                , ( bp::arg("axis") ) );
+                , ( bp::arg("axis") )
+                , " Set the rotation axis for the billboards child Drawables.\n Only utilized when mode==AXIAL_ROT." );
         
         }
         { //::osg::Billboard::setMode
@@ -500,7 +507,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setMode"
                 , setMode_function_type( &::osg::Billboard::setMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set the billboard rotation mode." );
         
         }
         { //::osg::Billboard::setNormal
@@ -510,7 +518,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setNormal"
                 , setNormal_function_type( &::osg::Billboard::setNormal )
-                , ( bp::arg("normal") ) );
+                , ( bp::arg("normal") )
+                , " This normal defines child Drawables front face direction when unrotated." );
         
         }
         { //::osg::Billboard::setPosition
@@ -520,7 +529,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setPosition"
                 , setPosition_function_type( &::osg::Billboard::setPosition )
-                , ( bp::arg("i"), bp::arg("pos") ) );
+                , ( bp::arg("i"), bp::arg("pos") )
+                , " Set the specified child Drawables position." );
         
         }
         { //::osg::Billboard::setPositionList
@@ -530,7 +540,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setPositionList"
                 , setPositionList_function_type( &::osg::Billboard::setPositionList )
-                , ( bp::arg("pl") ) );
+                , ( bp::arg("pl") )
+                , " Set the list of pivot point positions." );
         
         }
         { //::osg::Geode::asGeode
@@ -659,7 +670,8 @@ void register_Billboard_class(){
             Billboard_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Geode::setThreadSafeRefUnref

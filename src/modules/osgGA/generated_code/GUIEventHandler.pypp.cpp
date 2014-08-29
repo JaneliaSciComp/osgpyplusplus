@@ -200,7 +200,7 @@ struct GUIEventHandler_wrapper : osgGA::GUIEventHandler, bp::wrapper< osgGA::GUI
 
 void register_GUIEventHandler_class(){
 
-    bp::class_< GUIEventHandler_wrapper, bp::bases< ::osg::Drawable::EventCallback >, osg::ref_ptr< ::osgGA::GUIEventHandler >, boost::noncopyable >( "GUIEventHandler", bp::init< >() )    
+    bp::class_< GUIEventHandler_wrapper, bp::bases< ::osg::Drawable::EventCallback >, osg::ref_ptr< ::osgGA::GUIEventHandler >, boost::noncopyable >( "GUIEventHandler", "\nGUIEventHandler provides a basic interface for any class which wants to handle\na GUI Events.\n\nThe GUIEvent is supplied by a GUIEventAdapter. Feedback resulting from the\nhandle method is supplied by a GUIActionAdapter, which allows the GUIEventHandler\nto ask the GUI to take some action in response to an incoming event.\n\nFor example, consider a Trackball Viewer class which takes mouse events and\nmanipulates a scene camera in response. The Trackball Viewer is a GUIEventHandler,\nand receives the events via the handle method. If the user throws the model,\nthe Trackball Viewer class can detect this via the incoming events, and\nrequest that the GUI set up a timer callback to continually redraw the view.\nThis request is made via the GUIActionAdapter class.\n", bp::init< >("\nGUIEventHandler provides a basic interface for any class which wants to handle\na GUI Events.\n\nThe GUIEvent is supplied by a GUIEventAdapter. Feedback resulting from the\nhandle method is supplied by a GUIActionAdapter, which allows the GUIEventHandler\nto ask the GUI to take some action in response to an incoming event.\n\nFor example, consider a Trackball Viewer class which takes mouse events and\nmanipulates a scene camera in response. The Trackball Viewer is a GUIEventHandler,\nand receives the events via the handle method. If the user throws the model,\nthe Trackball Viewer class can detect this via the incoming events, and\nrequest that the GUI set up a timer callback to continually redraw the view.\nThis request is made via the GUIActionAdapter class.\n") )    
         .def( 
             "className"
             , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::className)
@@ -223,7 +223,8 @@ void register_GUIEventHandler_class(){
             , ( bp::arg("nv"), bp::arg("drawable") ) )    
         .def( 
             "getIgnoreHandledEventsMask"
-            , (unsigned int ( ::osgGA::GUIEventHandler::* )(  )const)( &::osgGA::GUIEventHandler::getIgnoreHandledEventsMask ) )    
+            , (unsigned int ( ::osgGA::GUIEventHandler::* )(  )const)( &::osgGA::GUIEventHandler::getIgnoreHandledEventsMask )
+            , " Get the event mask of the osgGA::GUIEeventAdapter::Event to be ignored if marked as handled" )    
         .def( 
             "getUsage"
             , (void ( ::osgGA::GUIEventHandler::* )( ::osg::ApplicationUsage & )const)(&::osgGA::GUIEventHandler::getUsage)
@@ -246,6 +247,7 @@ void register_GUIEventHandler_class(){
         .def( 
             "setIgnoreHandledEventsMask"
             , (void ( ::osgGA::GUIEventHandler::* )( unsigned int ))( &::osgGA::GUIEventHandler::setIgnoreHandledEventsMask )
-            , ( bp::arg("mask") ) );
+            , ( bp::arg("mask") )
+            , " Set a mask of osgGA::GUIEeventAdapter::Event to be ignored if marked as handled" );
 
 }

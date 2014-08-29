@@ -11,6 +11,7 @@ Extensively modified by C.M. Bruns April 2010.
 import re
 from pygccxml import declarations
 import unittest
+import unicodedata
 
 class doxygen_doc_extractor:
     """
@@ -142,7 +143,11 @@ class doxygen_doc_extractor:
             final_doc_lines.append("")
             final_doc_lines.insert(0, "")
             pass
-        return '\"' + '\\n'.join(final_doc_lines) + '\"'    
+        result = '\"' + '\\n'.join(final_doc_lines) + '\"'    
+        if isinstance( result, unicode ):
+            result = unicodedata.normalize('NFKD', result).encode('ascii','ignore')
+            assert isinstance(result, str)
+        return result
 
 def clear_str(tmp_str):
     """

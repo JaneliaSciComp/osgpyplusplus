@@ -2,9 +2,15 @@
 
 #include "boost/python.hpp"
 
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+#include "indexing_suite/value_traits.hpp"
 
-#include "boost/python/suite/indexing/map_indexing_suite.hpp"
+#include "indexing_suite/container_suite.hpp"
+
+#include "indexing_suite/vector.hpp"
+
+#include "indexing_suite/map.hpp"
+
+#include "indexing_suite/deque.hpp"
 
 #include "wrap_osgdb.h"
 
@@ -33,6 +39,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreaderiterator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filelocationcallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filepathlist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/findfilecallback.pypp.hpp"
 
@@ -112,6 +120,8 @@ BOOST_PYTHON_MODULE(osgDB){
     register_WrapperMap_class();
 
     register_CompressorMap_class();
+
+    register_FilePathList_class();
 
     register_AuthenticationDetails_class();
 

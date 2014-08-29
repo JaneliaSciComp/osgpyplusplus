@@ -8,8 +8,8 @@ namespace bp = boost::python;
 
 void register_Block_class(){
 
-    bp::class_< OpenThreads::Block, boost::noncopyable >( "Block", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< OpenThreads::Block, boost::noncopyable >( "Block", "\n Block is a block that can be used to halt a thread that is waiting another thread to release it.\n", bp::no_init )    
+        .def( bp::init< >("\n Block is a block that can be used to halt a thread that is waiting another thread to release it.\n") )    
         .def( 
             "block"
             , (bool ( ::OpenThreads::Block::* )(  ))( &::OpenThreads::Block::block ) )    

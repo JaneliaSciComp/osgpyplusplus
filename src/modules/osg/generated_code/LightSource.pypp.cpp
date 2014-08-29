@@ -286,14 +286,14 @@ void register_LightSource_class(){
 
     { //::osg::LightSource
         typedef bp::class_< LightSource_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::LightSource >, boost::noncopyable > LightSource_exposer_t;
-        LightSource_exposer_t LightSource_exposer = LightSource_exposer_t( "LightSource", bp::no_init );
+        LightSource_exposer_t LightSource_exposer = LightSource_exposer_t( "LightSource", "\n Leaf Node for defining a light in the scene.\n", bp::no_init );
         bp::scope LightSource_scope( LightSource_exposer );
         bp::enum_< osg::LightSource::ReferenceFrame>("ReferenceFrame")
             .value("RELATIVE_RF", osg::LightSource::RELATIVE_RF)
             .value("ABSOLUTE_RF", osg::LightSource::ABSOLUTE_RF)
             .export_values()
             ;
-        LightSource_exposer.def( bp::init< >() );
+        LightSource_exposer.def( bp::init< >("\n Leaf Node for defining a light in the scene.\n") );
         { //::osg::LightSource::accept
         
             typedef void ( ::osg::LightSource::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -360,7 +360,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "getLight"
                 , getLight_function_type( &::osg::LightSource::getLight )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the attached light." );
         
         }
         { //::osg::LightSource::getLight
@@ -370,7 +371,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "getLight"
                 , getLight_function_type( &::osg::LightSource::getLight )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const attached light." );
         
         }
         { //::osg::LightSource::getReferenceFrame
@@ -412,7 +414,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "setLight"
                 , setLight_function_type( &::osg::LightSource::setLight )
-                , ( bp::arg("light") ) );
+                , ( bp::arg("light") )
+                , " Set the attached light." );
         
         }
         { //::osg::LightSource::setLocalStateSetModes
@@ -422,7 +425,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "setLocalStateSetModes"
                 , setLocalStateSetModes_function_type( &::osg::LightSource::setLocalStateSetModes )
-                , ( bp::arg("value")=(unsigned int)(ON) ) );
+                , ( bp::arg("value")=(unsigned int)(ON) )
+                , " Set up the local StateSet." );
         
         }
         { //::osg::LightSource::setReferenceFrame
@@ -432,7 +436,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "setReferenceFrame"
                 , setReferenceFrame_function_type( &::osg::LightSource::setReferenceFrame )
-                , ( bp::arg("rf") ) );
+                , ( bp::arg("rf") )
+                , " Set the light sourcess ReferenceFrame, either to be relative to its\n parent reference frame, or relative to an absolute coordinate\n frame. RELATIVE_RF is the default.\n Note: setting the ReferenceFrame to be ABSOLUTE_RF will\n also set the CullingActive flag on the light source, and hence all\n of its parents, to false, thereby disabling culling of it and\n all its parents.  This is necessary to prevent inappropriate\n culling, but may impact cull times if the absolute light source is\n deep in the scene graph.  It is therefore recommended to only use\n absolute light source at the top of the scene." );
         
         }
         { //::osg::LightSource::setStateSetModes
@@ -442,7 +447,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "setStateSetModes"
                 , setStateSetModes_function_type( &::osg::LightSource::setStateSetModes )
-                , ( bp::arg("arg0"), bp::arg("arg1") ) );
+                , ( bp::arg("arg0"), bp::arg("arg1") )
+                , " Set the GLModes on StateSet associated with the LightSource." );
         
         }
         { //::osg::LightSource::setThreadSafeRefUnref
@@ -607,7 +613,8 @@ void register_LightSource_class(){
             LightSource_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

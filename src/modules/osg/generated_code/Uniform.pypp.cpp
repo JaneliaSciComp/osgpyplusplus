@@ -391,7 +391,7 @@ void register_Uniform_class(){
 
     { //::osg::Uniform
         typedef bp::class_< Uniform_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform >, boost::noncopyable > Uniform_exposer_t;
-        Uniform_exposer_t Uniform_exposer = Uniform_exposer_t( "Uniform", bp::no_init );
+        Uniform_exposer_t Uniform_exposer = Uniform_exposer_t( "Uniform", "\n Uniform encapsulates glUniform values\n", bp::no_init );
         bp::scope Uniform_scope( Uniform_exposer );
         bp::enum_< osg::Uniform::Type>("Type")
             .value("FLOAT", osg::Uniform::FLOAT)
@@ -560,7 +560,8 @@ void register_Uniform_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -634,7 +635,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "dirty"
-                , dirty_function_type( &::osg::Uniform::dirty ) );
+                , dirty_function_type( &::osg::Uniform::dirty )
+                , " Increment the modified count on the Uniform so Programs watching it know it update themselves.\n NOTE: automatically called during osg::Uniform::set*();\n you must call if modifying the internal data array directly." );
         
         }
         { //::osg::Uniform::get
@@ -644,7 +646,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "get"
                 , get_function_type( &::osg::Uniform::get )
-                , ( bp::arg("f") ) );
+                , ( bp::arg("f") )
+                , " convenient scalar (non-array) value query" );
         
         }
         { //::osg::Uniform::get
@@ -1024,7 +1027,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getDoubleArray"
                 , getDoubleArray_function_type( &::osg::Uniform::getDoubleArray )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the internal data array for a double osg::Uniform." );
         
         }
         { //::osg::Uniform::getDoubleArray
@@ -1044,7 +1048,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getElement"
                 , getElement_function_type( &::osg::Uniform::getElement )
-                , ( bp::arg("index"), bp::arg("f") ) );
+                , ( bp::arg("index"), bp::arg("f") )
+                , " value query for array uniforms" );
         
         }
         { //::osg::Uniform::getElement
@@ -1424,7 +1429,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Uniform::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const EventCallback." );
         
         }
         { //::osg::Uniform::getEventCallback
@@ -1434,7 +1440,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Uniform::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const EventCallback." );
         
         }
         { //::osg::Uniform::getFloatArray
@@ -1444,7 +1451,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getFloatArray"
                 , getFloatArray_function_type( &::osg::Uniform::getFloatArray )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the internal data array for a float osg::Uniform." );
         
         }
         { //::osg::Uniform::getFloatArray
@@ -1464,7 +1472,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getGlApiType"
                 , getGlApiType_function_type( &::osg::Uniform::getGlApiType )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Return the GL API type corresponding to a GLSL type" );
         
         }
         { //::osg::Uniform::getIntArray
@@ -1474,7 +1483,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getIntArray"
                 , getIntArray_function_type( &::osg::Uniform::getIntArray )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the internal data array for an int osg::Uniform." );
         
         }
         { //::osg::Uniform::getIntArray
@@ -1493,7 +1503,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getInternalArrayNumElements"
-                , getInternalArrayNumElements_function_type( &::osg::Uniform::getInternalArrayNumElements ) );
+                , getInternalArrayNumElements_function_type( &::osg::Uniform::getInternalArrayNumElements )
+                , " Get the number of elements required for the internal data array.\n Returns 0 if the osg::Uniform is not properly configured." );
         
         }
         { //::osg::Uniform::getInternalArrayType
@@ -1503,7 +1514,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getInternalArrayType"
                 , getInternalArrayType_function_type( &::osg::Uniform::getInternalArrayType )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Return the internal data array type corresponding to a GLSL type" );
         
         }
         { //::osg::Uniform::getModifiedCount
@@ -1522,7 +1534,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getNameID"
                 , getNameID_function_type( &::osg::Uniform::getNameID )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Return the number that the name maps to uniquely" );
         
         }
         { //::osg::Uniform::getNameID
@@ -1531,7 +1544,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getNameID"
-                , getNameID_function_type( &::osg::Uniform::getNameID ) );
+                , getNameID_function_type( &::osg::Uniform::getNameID )
+                , " Get the number that the Uniforms name maps to uniquely" );
         
         }
         { //::osg::Uniform::getNumElements
@@ -1540,7 +1554,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getNumElements"
-                , getNumElements_function_type( &::osg::Uniform::getNumElements ) );
+                , getNumElements_function_type( &::osg::Uniform::getNumElements )
+                , " Get the number of GLSL elements of the osg::Uniform (1==scalar)" );
         
         }
         { //::osg::Uniform::getNumParents
@@ -1549,7 +1564,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getNumParents"
-                , getNumParents_function_type( &::osg::Uniform::getNumParents ) );
+                , getNumParents_function_type( &::osg::Uniform::getNumParents )
+                , " Get the number of parents of this Uniform.\n Return: the number of parents of this Uniform." );
         
         }
         { //::osg::Uniform::getParent
@@ -1571,7 +1587,8 @@ void register_Uniform_class(){
                 "getParent"
                 , getParent_function_type( &::osg::Uniform::getParent )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single const parent of this Uniform.\n @param i: index of the parent to get.\n Return: the parent i." );
         
         }
         { //::osg::Uniform::getParents
@@ -1581,7 +1598,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getParents"
                 , getParents_function_type( &::osg::Uniform::getParents )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the parent list of this Uniform." );
         
         }
         { //::osg::Uniform::getParents
@@ -1590,7 +1608,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getParents"
-                , getParents_function_type( &::osg::Uniform::getParents ) );
+                , getParents_function_type( &::osg::Uniform::getParents )
+                , " Get the a copy of parent list of node. A copy is returned to\n prevent modification of the parent list." );
         
         }
         { //::osg::Uniform::getType
@@ -1599,7 +1618,8 @@ void register_Uniform_class(){
             
             Uniform_exposer.def( 
                 "getType"
-                , getType_function_type( &::osg::Uniform::getType ) );
+                , getType_function_type( &::osg::Uniform::getType )
+                , " Get the type of glUniform as enum." );
         
         }
         { //::osg::Uniform::getTypeId
@@ -1609,7 +1629,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getTypeId"
                 , getTypeId_function_type( &::osg::Uniform::getTypeId )
-                , ( bp::arg("tname") ) );
+                , ( bp::arg("tname") )
+                , " Return the Type enum of a Uniform typename string" );
         
         }
         { //::osg::Uniform::getTypeNumComponents
@@ -1619,7 +1640,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getTypeNumComponents"
                 , getTypeNumComponents_function_type( &::osg::Uniform::getTypeNumComponents )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Return the the number of components for a GLSL type." );
         
         }
         { //::osg::Uniform::getTypename
@@ -1629,7 +1651,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getTypename"
                 , getTypename_function_type( &::osg::Uniform::getTypename )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Return the name of a Type enum as string." );
         
         }
         { //::osg::Uniform::getUIntArray
@@ -1639,7 +1662,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getUIntArray"
                 , getUIntArray_function_type( &::osg::Uniform::getUIntArray )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the internal data array for an unsigned int osg::Uniform." );
         
         }
         { //::osg::Uniform::getUIntArray
@@ -1659,7 +1683,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Uniform::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const UpdateCallback." );
         
         }
         { //::osg::Uniform::getUpdateCallback
@@ -1669,7 +1694,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Uniform::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const UpdateCallback." );
         
         }
         { //::osg::Uniform::isSameKindAs
@@ -1702,7 +1728,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "set"
                 , set_function_type( &::osg::Uniform::set )
-                , ( bp::arg("f") ) );
+                , ( bp::arg("f") )
+                , " convenient scalar (non-array) value assignment" );
         
         }
         { //::osg::Uniform::set
@@ -2082,7 +2109,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setArray"
                 , setArray_function_type( &::osg::Uniform::setArray )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the internal data array for a osg::Uniform" );
         
         }
         { //::osg::Uniform::setArray
@@ -2122,7 +2150,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setElement"
                 , setElement_function_type( &::osg::Uniform::setElement )
-                , ( bp::arg("index"), bp::arg("f") ) );
+                , ( bp::arg("index"), bp::arg("f") )
+                , " value assignment for array uniforms" );
         
         }
         { //::osg::Uniform::setElement
@@ -2502,7 +2531,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::Uniform::setEventCallback )
-                , ( bp::arg("ec") ) );
+                , ( bp::arg("ec") )
+                , " Set the EventCallback which allows users to attach customize the updating of an object during the Event traversal." );
         
         }
         { //::osg::Uniform::setModifiedCount
@@ -2534,7 +2564,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setNumElements"
                 , setNumElements_function_type( &::osg::Uniform::setNumElements )
-                , ( bp::arg("numElements") ) );
+                , ( bp::arg("numElements") )
+                , " Set the length of a uniform, ensuring it is only set once (1==scalar)" );
         
         }
         { //::osg::Uniform::setType
@@ -2544,7 +2575,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setType"
                 , setType_function_type( &::osg::Uniform::setType )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Set the type of glUniform, ensuring it is only set once." );
         
         }
         { //::osg::Uniform::setUpdateCallback
@@ -2554,7 +2586,8 @@ void register_Uniform_class(){
             Uniform_exposer.def( 
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::Uniform::setUpdateCallback )
-                , ( bp::arg("uc") ) );
+                , ( bp::arg("uc") )
+                , " Set the UpdateCallback which allows users to attach customize the updating of an object during the update traversal." );
         
         }
         { //::osg::Object::computeDataVariance

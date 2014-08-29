@@ -158,7 +158,8 @@ void register_BufferObject_class(){
         .def( 
             "deleteBufferObject"
             , (void (*)( unsigned int,::GLuint ))( &::osg::BufferObject::deleteBufferObject )
-            , ( bp::arg("contextID"), bp::arg("globj") ) )    
+            , ( bp::arg("contextID"), bp::arg("globj") )
+            , " deprecated, provided for backwards compatibility." )    
         .def( 
             "dirty"
             , (void ( ::osg::BufferObject::* )(  ))( &::osg::BufferObject::dirty ) )    
@@ -174,7 +175,8 @@ void register_BufferObject_class(){
             , bp::return_internal_reference< >() )    
         .def( 
             "getCopyDataAndReleaseGLBufferObject"
-            , (bool ( ::osg::BufferObject::* )(  )const)( &::osg::BufferObject::getCopyDataAndReleaseGLBufferObject ) )    
+            , (bool ( ::osg::BufferObject::* )(  )const)( &::osg::BufferObject::getCopyDataAndReleaseGLBufferObject )
+            , " Get whether the BufferObject should use a GLBufferObject just for copying the BufferData and release it immmediately." )    
         .def( 
             "getGLBufferObject"
             , (::osg::GLBufferObject * ( ::osg::BufferObject::* )( unsigned int )const)( &::osg::BufferObject::getGLBufferObject )
@@ -201,7 +203,8 @@ void register_BufferObject_class(){
             , (::GLenum ( ::osg::BufferObject::* )(  )const)( &::osg::BufferObject::getTarget ) )    
         .def( 
             "getUsage"
-            , (::GLenum ( ::osg::BufferObject::* )(  )const)( &::osg::BufferObject::getUsage ) )    
+            , (::GLenum ( ::osg::BufferObject::* )(  )const)( &::osg::BufferObject::getUsage )
+            , " Get the type of usage the buffer object has been set up for." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::BufferObject::* )( ::osg::Object const * )const)(&::osg::BufferObject::isSameKindAs)
@@ -231,7 +234,8 @@ void register_BufferObject_class(){
         .def( 
             "setCopyDataAndReleaseGLBufferObject"
             , (void ( ::osg::BufferObject::* )( bool ))( &::osg::BufferObject::setCopyDataAndReleaseGLBufferObject )
-            , ( bp::arg("copyAndRelease") ) )    
+            , ( bp::arg("copyAndRelease") )
+            , " Set whether the BufferObject should use a GLBufferObject just for copying the BufferData and release it immmediately so that it may be reused." )    
         .def( 
             "setGLBufferObject"
             , (void ( ::osg::BufferObject::* )( unsigned int,::osg::GLBufferObject * ))( &::osg::BufferObject::setGLBufferObject )
@@ -243,16 +247,19 @@ void register_BufferObject_class(){
         .def( 
             "setUsage"
             , (void ( ::osg::BufferObject::* )( ::GLenum ))( &::osg::BufferObject::setUsage )
-            , ( bp::arg("usage") ) )    
+            , ( bp::arg("usage") )
+            , " Set what type of usage the buffer object will have. Options are:\n          GL_STREAM_DRAW, GL_STREAM_READ, GL_STREAM_COPY,\n          GL_STATIC_DRAW, GL_STATIC_READ, GL_STATIC_COPY,\n          GL_DYNAMIC_DRAW, GL_DYNAMIC_READ, or GL_DYNAMIC_COPY." )    
         .def( 
             "clone"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )( ::osg::CopyOp const & )const)(&::osg::Object::clone) )
             , ( bp::arg("arg0") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "cloneType"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )(  )const)(&::osg::Object::cloneType) )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
@@ -275,7 +282,8 @@ void register_BufferObject_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

@@ -219,9 +219,9 @@ void register_AnimationPathCallback_class(){
         AnimationPathCallback_exposer_t AnimationPathCallback_exposer = AnimationPathCallback_exposer_t( "AnimationPathCallback", bp::no_init );
         bp::scope AnimationPathCallback_scope( AnimationPathCallback_exposer );
         AnimationPathCallback_exposer.def( bp::init< >() );
-        AnimationPathCallback_exposer.def( bp::init< osg::AnimationPath *, bp::optional< double, double > >(( bp::arg("ap"), bp::arg("timeOffset")=0.0, bp::arg("timeMultiplier")=1.0e+0 )) );
+        AnimationPathCallback_exposer.def( bp::init< osg::AnimationPath *, bp::optional< double, double > >(( bp::arg("ap"), bp::arg("timeOffset")=0.0, bp::arg("timeMultiplier")=1.0e+0 ), "\n Construct an AnimationPathCallback with a specified animation path.\n") );
         bp::implicitly_convertible< osg::AnimationPath *, osg::AnimationPathCallback >();
-        AnimationPathCallback_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") )) );
+        AnimationPathCallback_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") ), "\n Construct an AnimationPathCallback and automatically create an animation path to produce a rotation about a point.\n") );
         { //::osg::AnimationPathCallback::className
         
             typedef char const * ( ::osg::AnimationPathCallback::*className_function_type)(  ) const;
@@ -526,7 +526,8 @@ void register_AnimationPathCallback_class(){
             AnimationPathCallback_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

@@ -274,7 +274,7 @@ void register_TexGen_class(){
 
     { //::osg::TexGen
         typedef bp::class_< TexGen_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexGen >, boost::noncopyable > TexGen_exposer_t;
-        TexGen_exposer_t TexGen_exposer = TexGen_exposer_t( "TexGen", bp::no_init );
+        TexGen_exposer_t TexGen_exposer = TexGen_exposer_t( "TexGen", "\n TexGen encapsulates the OpenGL glTexGen (texture coordinate generation)\n state.\n", bp::no_init );
         bp::scope TexGen_scope( TexGen_exposer );
         bp::enum_< osg::TexGen::Coord>("Coord")
             .value("S", osg::TexGen::S)
@@ -291,7 +291,7 @@ void register_TexGen_class(){
             .value("REFLECTION_MAP", osg::TexGen::REFLECTION_MAP)
             .export_values()
             ;
-        TexGen_exposer.def( bp::init< >() );
+        TexGen_exposer.def( bp::init< >("\n TexGen encapsulates the OpenGL glTexGen (texture coordinate generation)\n state.\n") );
         { //::osg::TexGen::apply
         
             typedef void ( ::osg::TexGen::*apply_function_type)( ::osg::State & ) const;
@@ -455,7 +455,8 @@ void register_TexGen_class(){
             TexGen_exposer.def( 
                 "setPlanesFromMatrix"
                 , setPlanesFromMatrix_function_type( &::osg::TexGen::setPlanesFromMatrix )
-                , ( bp::arg("matrix") ) );
+                , ( bp::arg("matrix") )
+                , " Set the tex gen planes from specified matrix.\n Typical usage would be to pass in a projection\n matrix to set up projective texturing." );
         
         }
         { //::osg::StateAttribute::asTexture
@@ -583,7 +584,8 @@ void register_TexGen_class(){
             TexGen_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

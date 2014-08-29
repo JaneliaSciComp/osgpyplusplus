@@ -38,7 +38,7 @@ struct Observer_wrapper : osg::Observer, bp::wrapper< osg::Observer > {
 
 void register_Observer_class(){
 
-    bp::class_< Observer_wrapper >( "Observer", bp::init< >() )    
+    bp::class_< Observer_wrapper >( "Observer", "\n Observer base class for tracking when objects are unreferenced (their reference count goes to 0) and are being deleted.\n", bp::init< >("\n Observer base class for tracking when objects are unreferenced (their reference count goes to 0) and are being deleted.\n") )    
         .def( 
             "objectDeleted"
             , (void ( ::osg::Observer::* )( void * ))(&::osg::Observer::objectDeleted)

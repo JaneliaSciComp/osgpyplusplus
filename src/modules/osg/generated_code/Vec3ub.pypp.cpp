@@ -10,7 +10,7 @@ void register_Vec3ub_class(){
 
     { //::osg::Vec3ub
         typedef bp::class_< osg::Vec3ub > Vec3ub_exposer_t;
-        Vec3ub_exposer_t Vec3ub_exposer = Vec3ub_exposer_t( "Vec3ub", bp::init< >() );
+        Vec3ub_exposer_t Vec3ub_exposer = Vec3ub_exposer_t( "Vec3ub", "\n General purpose float triple.\n Uses include representation of color coordinates.\n No support yet added for float * Vec3ub - is it necessary?\n Need to define a non-member non-friend operator*  etc.\n Vec3ub * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec3ub_scope( Vec3ub_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3ub::num_components;
         Vec3ub_exposer.def( bp::init< unsigned char, unsigned char, unsigned char >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );

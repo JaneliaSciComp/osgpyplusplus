@@ -37,7 +37,8 @@ void register_GraphicsCostEstimator_class(){
         .def( 
             "calibrate"
             , (void ( ::osg::GraphicsCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::GraphicsCostEstimator::calibrate )
-            , ( bp::arg("renderInfo") ) )    
+            , ( bp::arg("renderInfo") )
+            , " calibrate the costs of various compile and draw operations" )    
         .def( 
             "estimateCompileCost"
             , (::osg::CostPair ( ::osg::GraphicsCostEstimator::* )( ::osg::Geometry const * )const)( &::osg::GraphicsCostEstimator::estimateCompileCost )
@@ -72,7 +73,8 @@ void register_GraphicsCostEstimator_class(){
             , ( bp::arg("node") ) )    
         .def( 
             "setDefaults"
-            , (void ( ::osg::GraphicsCostEstimator::* )(  ))( &::osg::GraphicsCostEstimator::setDefaults ) )    
+            , (void ( ::osg::GraphicsCostEstimator::* )(  ))( &::osg::GraphicsCostEstimator::setDefaults )
+            , " set defaults for computing the costs." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

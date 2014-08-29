@@ -345,7 +345,7 @@ void register_GUIEventAdapter_class(){
 
     { //::osgGA::GUIEventAdapter
         typedef bp::class_< GUIEventAdapter_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgGA::GUIEventAdapter >, boost::noncopyable > GUIEventAdapter_exposer_t;
-        GUIEventAdapter_exposer_t GUIEventAdapter_exposer = GUIEventAdapter_exposer_t( "GUIEventAdapter", bp::no_init );
+        GUIEventAdapter_exposer_t GUIEventAdapter_exposer = GUIEventAdapter_exposer_t( "GUIEventAdapter", "\n Event class for storing Keyboard, mouse and window events.\n", bp::no_init );
         bp::scope GUIEventAdapter_scope( GUIEventAdapter_exposer );
         bp::enum_< osgGA::GUIEventAdapter::EventType>("EventType")
             .value("NONE", osgGA::GUIEventAdapter::NONE)
@@ -805,7 +805,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "getAccumulatedEventState"
                 , getAccumulatedEventState_function_type( &::osgGA::GUIEventAdapter::getAccumulatedEventState )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the accumulated event state singleton.\n Typically all EventQueue will share this single GUIEventAdapter object for tracking\n the mouse position, keyboard and mouse masks." );
         
         }
         { //::osgGA::GUIEventAdapter::getButton
@@ -814,7 +815,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getButton"
-                , getButton_function_type( &::osgGA::GUIEventAdapter::getButton ) );
+                , getButton_function_type( &::osgGA::GUIEventAdapter::getButton )
+                , " button pressed/released, return -1 if inappropriate for this GUIEventAdapter." );
         
         }
         { //::osgGA::GUIEventAdapter::getButtonMask
@@ -823,7 +825,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getButtonMask"
-                , getButtonMask_function_type( &::osgGA::GUIEventAdapter::getButtonMask ) );
+                , getButtonMask_function_type( &::osgGA::GUIEventAdapter::getButtonMask )
+                , " get current mouse button state." );
         
         }
         { //::osgGA::GUIEventAdapter::getEventType
@@ -863,7 +866,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getHandled"
-                , getHandled_function_type( &::osgGA::GUIEventAdapter::getHandled ) );
+                , getHandled_function_type( &::osgGA::GUIEventAdapter::getHandled )
+                , " Get whether this event has been handled by an event handler or not." );
         
         }
         { //::osgGA::GUIEventAdapter::getKey
@@ -883,7 +887,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getModKeyMask"
-                , getModKeyMask_function_type( &::osgGA::GUIEventAdapter::getModKeyMask ) );
+                , getModKeyMask_function_type( &::osgGA::GUIEventAdapter::getModKeyMask )
+                , " get modifier key mask." );
         
         }
         { //::osgGA::GUIEventAdapter::getMouseYOrientation
@@ -892,7 +897,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getMouseYOrientation"
-                , getMouseYOrientation_function_type( &::osgGA::GUIEventAdapter::getMouseYOrientation ) );
+                , getMouseYOrientation_function_type( &::osgGA::GUIEventAdapter::getMouseYOrientation )
+                , " get mouse-Y orientation (mouse-Y increases upwards or downwards)." );
         
         }
         { //::osgGA::GUIEventAdapter::getNumPointerData
@@ -910,7 +916,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getPenOrientation"
-                , getPenOrientation_function_type( &::osgGA::GUIEventAdapter::getPenOrientation ) );
+                , getPenOrientation_function_type( &::osgGA::GUIEventAdapter::getPenOrientation )
+                , " set the orientation from a tablet input device as a matrix." );
         
         }
         { //::osgGA::GUIEventAdapter::getPenPressure
@@ -919,7 +926,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getPenPressure"
-                , getPenPressure_function_type( &::osgGA::GUIEventAdapter::getPenPressure ) );
+                , getPenPressure_function_type( &::osgGA::GUIEventAdapter::getPenPressure )
+                , " get the tablet pen pressure (range 0..1)." );
         
         }
         { //::osgGA::GUIEventAdapter::getPenRotation
@@ -928,7 +936,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getPenRotation"
-                , getPenRotation_function_type( &::osgGA::GUIEventAdapter::getPenRotation ) );
+                , getPenRotation_function_type( &::osgGA::GUIEventAdapter::getPenRotation )
+                , " get the tablet pen rotation around the Z-axis in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::getPenTiltX
@@ -937,7 +946,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getPenTiltX"
-                , getPenTiltX_function_type( &::osgGA::GUIEventAdapter::getPenTiltX ) );
+                , getPenTiltX_function_type( &::osgGA::GUIEventAdapter::getPenTiltX )
+                , " get the tablet pen tiltX in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::getPenTiltY
@@ -946,7 +956,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getPenTiltY"
-                , getPenTiltY_function_type( &::osgGA::GUIEventAdapter::getPenTiltY ) );
+                , getPenTiltY_function_type( &::osgGA::GUIEventAdapter::getPenTiltY )
+                , " get the tablet pen tiltY in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::getPointerData
@@ -1019,7 +1030,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingDeltaX"
-                , getScrollingDeltaX_function_type( &::osgGA::GUIEventAdapter::getScrollingDeltaX ) );
+                , getScrollingDeltaX_function_type( &::osgGA::GUIEventAdapter::getScrollingDeltaX )
+                , " get the scrolling x-delta." );
         
         }
         { //::osgGA::GUIEventAdapter::getScrollingDeltaY
@@ -1028,7 +1040,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingDeltaY"
-                , getScrollingDeltaY_function_type( &::osgGA::GUIEventAdapter::getScrollingDeltaY ) );
+                , getScrollingDeltaY_function_type( &::osgGA::GUIEventAdapter::getScrollingDeltaY )
+                , " get the scrolling y-delta." );
         
         }
         { //::osgGA::GUIEventAdapter::getScrollingMotion
@@ -1037,7 +1050,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingMotion"
-                , getScrollingMotion_function_type( &::osgGA::GUIEventAdapter::getScrollingMotion ) );
+                , getScrollingMotion_function_type( &::osgGA::GUIEventAdapter::getScrollingMotion )
+                , " get scrolling motion (for EventType::SCROLL)." );
         
         }
         { //::osgGA::GUIEventAdapter::getTabletPointerType
@@ -1046,7 +1060,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getTabletPointerType"
-                , getTabletPointerType_function_type( &::osgGA::GUIEventAdapter::getTabletPointerType ) );
+                , getTabletPointerType_function_type( &::osgGA::GUIEventAdapter::getTabletPointerType )
+                , " get the tablet pointer type." );
         
         }
         { //::osgGA::GUIEventAdapter::getTime
@@ -1055,7 +1070,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getTime"
-                , getTime_function_type( &::osgGA::GUIEventAdapter::getTime ) );
+                , getTime_function_type( &::osgGA::GUIEventAdapter::getTime )
+                , " get time in seconds of event." );
         
         }
         { //::osgGA::GUIEventAdapter::getTouchData
@@ -1074,7 +1090,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getUnmodifiedKey"
-                , getUnmodifiedKey_function_type( &::osgGA::GUIEventAdapter::getUnmodifiedKey ) );
+                , getUnmodifiedKey_function_type( &::osgGA::GUIEventAdapter::getUnmodifiedKey )
+                , " get virtual key pressed." );
         
         }
         { //::osgGA::GUIEventAdapter::getWindowHeight
@@ -1083,7 +1100,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getWindowHeight"
-                , getWindowHeight_function_type( &::osgGA::GUIEventAdapter::getWindowHeight ) );
+                , getWindowHeight_function_type( &::osgGA::GUIEventAdapter::getWindowHeight )
+                , " get window height." );
         
         }
         { //::osgGA::GUIEventAdapter::getWindowWidth
@@ -1092,7 +1110,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getWindowWidth"
-                , getWindowWidth_function_type( &::osgGA::GUIEventAdapter::getWindowWidth ) );
+                , getWindowWidth_function_type( &::osgGA::GUIEventAdapter::getWindowWidth )
+                , " get window width." );
         
         }
         { //::osgGA::GUIEventAdapter::getWindowX
@@ -1101,7 +1120,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getWindowX"
-                , getWindowX_function_type( &::osgGA::GUIEventAdapter::getWindowX ) );
+                , getWindowX_function_type( &::osgGA::GUIEventAdapter::getWindowX )
+                , " get window x origin." );
         
         }
         { //::osgGA::GUIEventAdapter::getWindowY
@@ -1110,7 +1130,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getWindowY"
-                , getWindowY_function_type( &::osgGA::GUIEventAdapter::getWindowY ) );
+                , getWindowY_function_type( &::osgGA::GUIEventAdapter::getWindowY )
+                , " get window y origin." );
         
         }
         { //::osgGA::GUIEventAdapter::getX
@@ -1119,7 +1140,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getX"
-                , getX_function_type( &::osgGA::GUIEventAdapter::getX ) );
+                , getX_function_type( &::osgGA::GUIEventAdapter::getX )
+                , " get current mouse x position." );
         
         }
         { //::osgGA::GUIEventAdapter::getXmax
@@ -1128,7 +1150,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getXmax"
-                , getXmax_function_type( &::osgGA::GUIEventAdapter::getXmax ) );
+                , getXmax_function_type( &::osgGA::GUIEventAdapter::getXmax )
+                , " get mouse maximum x." );
         
         }
         { //::osgGA::GUIEventAdapter::getXmin
@@ -1137,7 +1160,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getXmin"
-                , getXmin_function_type( &::osgGA::GUIEventAdapter::getXmin ) );
+                , getXmin_function_type( &::osgGA::GUIEventAdapter::getXmin )
+                , " get mouse minimum x." );
         
         }
         { //::osgGA::GUIEventAdapter::getXnormalized
@@ -1155,7 +1179,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getY"
-                , getY_function_type( &::osgGA::GUIEventAdapter::getY ) );
+                , getY_function_type( &::osgGA::GUIEventAdapter::getY )
+                , " get current mouse y position." );
         
         }
         { //::osgGA::GUIEventAdapter::getYmax
@@ -1164,7 +1189,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getYmax"
-                , getYmax_function_type( &::osgGA::GUIEventAdapter::getYmax ) );
+                , getYmax_function_type( &::osgGA::GUIEventAdapter::getYmax )
+                , " get mouse maximum y." );
         
         }
         { //::osgGA::GUIEventAdapter::getYmin
@@ -1173,7 +1199,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "getYmin"
-                , getYmin_function_type( &::osgGA::GUIEventAdapter::getYmin ) );
+                , getYmin_function_type( &::osgGA::GUIEventAdapter::getYmin )
+                , " get mouse minimum y." );
         
         }
         { //::osgGA::GUIEventAdapter::getYnormalized
@@ -1224,7 +1251,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setButton"
                 , setButton_function_type( &::osgGA::GUIEventAdapter::setButton )
-                , ( bp::arg("button") ) );
+                , ( bp::arg("button") )
+                , " set button pressed/released." );
         
         }
         { //::osgGA::GUIEventAdapter::setButtonMask
@@ -1234,7 +1262,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setButtonMask"
                 , setButtonMask_function_type( &::osgGA::GUIEventAdapter::setButtonMask )
-                , ( bp::arg("mask") ) );
+                , ( bp::arg("mask") )
+                , " set current mouse button state." );
         
         }
         { //::osgGA::GUIEventAdapter::setEventType
@@ -1244,7 +1273,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setEventType"
                 , setEventType_function_type( &::osgGA::GUIEventAdapter::setEventType )
-                , ( bp::arg("Type") ) );
+                , ( bp::arg("Type") )
+                , " set the event type." );
         
         }
         { //::osgGA::GUIEventAdapter::setGraphicsContext
@@ -1264,7 +1294,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setHandled"
                 , setHandled_function_type( &::osgGA::GUIEventAdapter::setHandled )
-                , ( bp::arg("handled") ) );
+                , ( bp::arg("handled") )
+                , " Set whether this event has been handled by an event handler or not." );
         
         }
         { //::osgGA::GUIEventAdapter::setInputRange
@@ -1274,7 +1305,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setInputRange"
                 , setInputRange_function_type( &::osgGA::GUIEventAdapter::setInputRange )
-                , ( bp::arg("Xmin"), bp::arg("Ymin"), bp::arg("Xmax"), bp::arg("Ymax") ) );
+                , ( bp::arg("Xmin"), bp::arg("Ymin"), bp::arg("Xmax"), bp::arg("Ymax") )
+                , " set mouse input range." );
         
         }
         { //::osgGA::GUIEventAdapter::setKey
@@ -1284,7 +1316,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setKey"
                 , setKey_function_type( &::osgGA::GUIEventAdapter::setKey )
-                , ( bp::arg("key") ) );
+                , ( bp::arg("key") )
+                , " set key pressed." );
         
         }
         { //::osgGA::GUIEventAdapter::setModKeyMask
@@ -1294,7 +1327,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setModKeyMask"
                 , setModKeyMask_function_type( &::osgGA::GUIEventAdapter::setModKeyMask )
-                , ( bp::arg("mask") ) );
+                , ( bp::arg("mask") )
+                , " set modifier key mask." );
         
         }
         { //::osgGA::GUIEventAdapter::setMouseYOrientation
@@ -1304,7 +1338,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setMouseYOrientation"
                 , setMouseYOrientation_function_type( &::osgGA::GUIEventAdapter::setMouseYOrientation )
-                , ( bp::arg("myo") ) );
+                , ( bp::arg("myo") )
+                , " set mouse-Y orientation (mouse-Y increases upwards or downwards)." );
         
         }
         { //::osgGA::GUIEventAdapter::setPenPressure
@@ -1314,7 +1349,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setPenPressure"
                 , setPenPressure_function_type( &::osgGA::GUIEventAdapter::setPenPressure )
-                , ( bp::arg("pressure") ) );
+                , ( bp::arg("pressure") )
+                , " set the tablet pen pressure (range 0..1)." );
         
         }
         { //::osgGA::GUIEventAdapter::setPenRotation
@@ -1324,7 +1360,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setPenRotation"
                 , setPenRotation_function_type( &::osgGA::GUIEventAdapter::setPenRotation )
-                , ( bp::arg("rotation") ) );
+                , ( bp::arg("rotation") )
+                , " set the tablet pen rotation around the Z-axis in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::setPenTiltX
@@ -1334,7 +1371,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setPenTiltX"
                 , setPenTiltX_function_type( &::osgGA::GUIEventAdapter::setPenTiltX )
-                , ( bp::arg("tiltX") ) );
+                , ( bp::arg("tiltX") )
+                , " set the tablet pen tiltX in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::setPenTiltY
@@ -1344,7 +1382,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setPenTiltY"
                 , setPenTiltY_function_type( &::osgGA::GUIEventAdapter::setPenTiltY )
-                , ( bp::arg("tiltY") ) );
+                , ( bp::arg("tiltY") )
+                , " set the tablet pen tiltY in degrees." );
         
         }
         { //::osgGA::GUIEventAdapter::setPointerDataList
@@ -1364,7 +1403,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setScrollingDeltaX"
                 , setScrollingDeltaX_function_type( &::osgGA::GUIEventAdapter::setScrollingDeltaX )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set the scrolling x-delta." );
         
         }
         { //::osgGA::GUIEventAdapter::setScrollingDeltaY
@@ -1374,7 +1414,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setScrollingDeltaY"
                 , setScrollingDeltaY_function_type( &::osgGA::GUIEventAdapter::setScrollingDeltaY )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set the scrolling y-delta." );
         
         }
         { //::osgGA::GUIEventAdapter::setScrollingMotion
@@ -1384,7 +1425,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setScrollingMotion"
                 , setScrollingMotion_function_type( &::osgGA::GUIEventAdapter::setScrollingMotion )
-                , ( bp::arg("motion") ) );
+                , ( bp::arg("motion") )
+                , " set scrolling motion (for EventType::SCROLL)." );
         
         }
         { //::osgGA::GUIEventAdapter::setScrollingMotionDelta
@@ -1394,7 +1436,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setScrollingMotionDelta"
                 , setScrollingMotionDelta_function_type( &::osgGA::GUIEventAdapter::setScrollingMotionDelta )
-                , ( bp::arg("x"), bp::arg("y") ) );
+                , ( bp::arg("x"), bp::arg("y") )
+                , " set the scrolling delta to x,y and the scrolling motion to SCROLL_2D." );
         
         }
         { //::osgGA::GUIEventAdapter::setTabletPointerType
@@ -1404,7 +1447,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setTabletPointerType"
                 , setTabletPointerType_function_type( &::osgGA::GUIEventAdapter::setTabletPointerType )
-                , ( bp::arg("pt") ) );
+                , ( bp::arg("pt") )
+                , " set the tablet pointer type." );
         
         }
         { //::osgGA::GUIEventAdapter::setTime
@@ -1414,7 +1458,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setTime"
                 , setTime_function_type( &::osgGA::GUIEventAdapter::setTime )
-                , ( bp::arg("time") ) );
+                , ( bp::arg("time") )
+                , " set time in seconds of event." );
         
         }
         { //::osgGA::GUIEventAdapter::setUnmodifiedKey
@@ -1424,7 +1469,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setUnmodifiedKey"
                 , setUnmodifiedKey_function_type( &::osgGA::GUIEventAdapter::setUnmodifiedKey )
-                , ( bp::arg("key") ) );
+                , ( bp::arg("key") )
+                , " set virtual key pressed." );
         
         }
         { //::osgGA::GUIEventAdapter::setWindowHeight
@@ -1434,7 +1480,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setWindowHeight"
                 , setWindowHeight_function_type( &::osgGA::GUIEventAdapter::setWindowHeight )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set window height." );
         
         }
         { //::osgGA::GUIEventAdapter::setWindowRectangle
@@ -1444,7 +1491,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setWindowRectangle"
                 , setWindowRectangle_function_type( &::osgGA::GUIEventAdapter::setWindowRectangle )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height"), bp::arg("updateMouseRange")=(bool)(true) ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height"), bp::arg("updateMouseRange")=(bool)(true) )
+                , " set window rectangle." );
         
         }
         { //::osgGA::GUIEventAdapter::setWindowWidth
@@ -1454,7 +1502,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setWindowWidth"
                 , setWindowWidth_function_type( &::osgGA::GUIEventAdapter::setWindowWidth )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set window width." );
         
         }
         { //::osgGA::GUIEventAdapter::setWindowX
@@ -1464,7 +1513,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setWindowX"
                 , setWindowX_function_type( &::osgGA::GUIEventAdapter::setWindowX )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set window x origin." );
         
         }
         { //::osgGA::GUIEventAdapter::setWindowY
@@ -1474,7 +1524,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setWindowY"
                 , setWindowY_function_type( &::osgGA::GUIEventAdapter::setWindowY )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set window x origin." );
         
         }
         { //::osgGA::GUIEventAdapter::setX
@@ -1484,7 +1535,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setX"
                 , setX_function_type( &::osgGA::GUIEventAdapter::setX )
-                , ( bp::arg("x") ) );
+                , ( bp::arg("x") )
+                , " set current mouse x position." );
         
         }
         { //::osgGA::GUIEventAdapter::setXmax
@@ -1494,7 +1546,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setXmax"
                 , setXmax_function_type( &::osgGA::GUIEventAdapter::setXmax )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set mouse maximum x." );
         
         }
         { //::osgGA::GUIEventAdapter::setXmin
@@ -1504,7 +1557,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setXmin"
                 , setXmin_function_type( &::osgGA::GUIEventAdapter::setXmin )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set mouse minimum x." );
         
         }
         { //::osgGA::GUIEventAdapter::setY
@@ -1514,7 +1568,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setY"
                 , setY_function_type( &::osgGA::GUIEventAdapter::setY )
-                , ( bp::arg("y") ) );
+                , ( bp::arg("y") )
+                , " set current mouse y position." );
         
         }
         { //::osgGA::GUIEventAdapter::setYmax
@@ -1524,7 +1579,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setYmax"
                 , setYmax_function_type( &::osgGA::GUIEventAdapter::setYmax )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set mouse maximum y." );
         
         }
         { //::osgGA::GUIEventAdapter::setYmin
@@ -1534,7 +1590,8 @@ void register_GUIEventAdapter_class(){
             GUIEventAdapter_exposer.def( 
                 "setYmin"
                 , setYmin_function_type( &::osgGA::GUIEventAdapter::setYmin )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , " set mouse minimum x." );
         
         }
         { //::osgGA::GUIEventAdapter::time
@@ -1543,7 +1600,8 @@ void register_GUIEventAdapter_class(){
             
             GUIEventAdapter_exposer.def( 
                 "time"
-                , time_function_type( &::osgGA::GUIEventAdapter::time ) );
+                , time_function_type( &::osgGA::GUIEventAdapter::time )
+                , " deprecated function for getting time of event." );
         
         }
         GUIEventAdapter_exposer.staticmethod( "getAccumulatedEventState" );

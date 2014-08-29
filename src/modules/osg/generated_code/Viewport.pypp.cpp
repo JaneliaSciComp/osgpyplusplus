@@ -281,7 +281,7 @@ void register_Viewport_class(){
 
     { //::osg::Viewport
         typedef bp::class_< Viewport_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Viewport >, boost::noncopyable > Viewport_exposer_t;
-        Viewport_exposer_t Viewport_exposer = Viewport_exposer_t( "Viewport", bp::no_init );
+        Viewport_exposer_t Viewport_exposer = Viewport_exposer_t( "Viewport", "\n Encapsulate OpenGL glViewport.\n", bp::no_init );
         bp::scope Viewport_scope( Viewport_exposer );
         Viewport_exposer.def( bp::init< >() );
         Viewport_exposer.def( bp::init< double, double, double, double >(( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )) );
@@ -303,7 +303,8 @@ void register_Viewport_class(){
             
             Viewport_exposer.def( 
                 "aspectRatio"
-                , aspectRatio_function_type( &::osg::Viewport::aspectRatio ) );
+                , aspectRatio_function_type( &::osg::Viewport::aspectRatio )
+                , " Return the aspectRatio of the viewport, which is equal to width/height.\n If height is zero, the potential division by zero is avoided by simply returning 1.0f." );
         
         }
         { //::osg::Viewport::className
@@ -348,7 +349,8 @@ void register_Viewport_class(){
             
             Viewport_exposer.def( 
                 "computeWindowMatrix"
-                , computeWindowMatrix_function_type( &::osg::Viewport::computeWindowMatrix ) );
+                , computeWindowMatrix_function_type( &::osg::Viewport::computeWindowMatrix )
+                , " Compute the Window Matrix which takes projected coords into Window coordinates.\n To convert local coordinates into window coordinates use v_window = v_local * MVPW matrix,\n where the MVPW matrix is ModelViewMatrix * ProjectionMatrix * WindowMatrix, the latter supplied by\n Viewport::computeWindowMatrix(), the ModelView and Projection Matrix can either be sourced from the\n current osg::State object, via osgUtil::SceneView or CullVisitor." );
         
         }
         { //::osg::Viewport::getType
@@ -628,7 +630,8 @@ void register_Viewport_class(){
             Viewport_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

@@ -1,10 +1,10 @@
-from osgpyplusplus import osg, osgDB
+from osgpyplusplus import osg, osgUtil, osgDB
 
 print osg.osgGetVersion()
 print osgDB.osgDBGetVersion()
 scene = osgDB.readNodeFile("cow.osg")
 
-from osgpyplusplus import osgViewer
+from osgpyplusplus import osgGA, osgViewer
 print osgViewer.osgViewerGetVersion()
 
 viewer = osgViewer.Viewer()

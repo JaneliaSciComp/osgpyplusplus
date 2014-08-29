@@ -188,8 +188,8 @@ struct TriangleMesh_wrapper : osg::TriangleMesh, bp::wrapper< osg::TriangleMesh 
 
 void register_TriangleMesh_class(){
 
-    bp::class_< TriangleMesh_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::TriangleMesh >, boost::noncopyable >( "TriangleMesh", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< TriangleMesh_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::TriangleMesh >, boost::noncopyable >( "TriangleMesh", "\n Exists to support collision detection engines not for doing rendering, use  osg::Geometry instead.\n", bp::no_init )    
+        .def( bp::init< >("\n Exists to support collision detection engines not for doing rendering, use  osg::Geometry instead.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::TriangleMesh::* )( ::osg::ShapeVisitor & ))(&::osg::TriangleMesh::accept)
@@ -275,7 +275,8 @@ void register_TriangleMesh_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

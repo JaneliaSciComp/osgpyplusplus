@@ -382,7 +382,7 @@ void register_CameraView_class(){
 
     { //::osg::CameraView
         typedef bp::class_< CameraView_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::CameraView >, boost::noncopyable > CameraView_exposer_t;
-        CameraView_exposer_t CameraView_exposer = CameraView_exposer_t( "CameraView", bp::no_init );
+        CameraView_exposer_t CameraView_exposer = CameraView_exposer_t( "CameraView", "\n CameraView - is a Transform that is used to specify camera views from within the scene graph.\n The application must attach a camera to a CameraView via the NodePath from the top of the scene graph\n to the CameraView node itself, and accumulate the view matrix from this NodePath.\n", bp::no_init );
         bp::scope CameraView_scope( CameraView_exposer );
         bp::enum_< osg::CameraView::FieldOfViewMode>("FieldOfViewMode")
             .value("UNCONSTRAINED", osg::CameraView::UNCONSTRAINED)
@@ -390,7 +390,7 @@ void register_CameraView_class(){
             .value("VERTICAL", osg::CameraView::VERTICAL)
             .export_values()
             ;
-        CameraView_exposer.def( bp::init< >() );
+        CameraView_exposer.def( bp::init< >("\n CameraView - is a Transform that is used to specify camera views from within the scene graph.\n The application must attach a camera to a CameraView via the NodePath from the top of the scene graph\n to the CameraView node itself, and accumulate the view matrix from this NodePath.\n") );
         { //::osg::CameraView::accept
         
             typedef void ( ::osg::CameraView::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -470,7 +470,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "getAttitude"
                 , getAttitude_function_type( &::osg::CameraView::getAttitude )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the attitude of the camera view." );
         
         }
         { //::osg::CameraView::getFieldOfView
@@ -479,7 +480,8 @@ void register_CameraView_class(){
             
             CameraView_exposer.def( 
                 "getFieldOfView"
-                , getFieldOfView_function_type( &::osg::CameraView::getFieldOfView ) );
+                , getFieldOfView_function_type( &::osg::CameraView::getFieldOfView )
+                , " Get the field of view." );
         
         }
         { //::osg::CameraView::getFieldOfViewMode
@@ -488,7 +490,8 @@ void register_CameraView_class(){
             
             CameraView_exposer.def( 
                 "getFieldOfViewMode"
-                , getFieldOfViewMode_function_type( &::osg::CameraView::getFieldOfViewMode ) );
+                , getFieldOfViewMode_function_type( &::osg::CameraView::getFieldOfViewMode )
+                , " Get the field of view mode." );
         
         }
         { //::osg::CameraView::getFocalLength
@@ -497,7 +500,8 @@ void register_CameraView_class(){
             
             CameraView_exposer.def( 
                 "getFocalLength"
-                , getFocalLength_function_type( &::osg::CameraView::getFocalLength ) );
+                , getFocalLength_function_type( &::osg::CameraView::getFocalLength )
+                , " Get the focal length of the camera." );
         
         }
         { //::osg::CameraView::getPosition
@@ -507,7 +511,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "getPosition"
                 , getPosition_function_type( &::osg::CameraView::getPosition )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the position of the camera view." );
         
         }
         { //::osg::CameraView::isSameKindAs
@@ -540,7 +545,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setAttitude"
                 , setAttitude_function_type( &::osg::CameraView::setAttitude )
-                , ( bp::arg("quat") ) );
+                , ( bp::arg("quat") )
+                , " Set the attitude of the camera view." );
         
         }
         { //::osg::CameraView::setFieldOfView
@@ -550,7 +556,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setFieldOfView"
                 , setFieldOfView_function_type( &::osg::CameraView::setFieldOfView )
-                , ( bp::arg("fieldOfView") ) );
+                , ( bp::arg("fieldOfView") )
+                , " Set the field of view.\n The cameras field of view can be constrained to either the horizontal or vertical axis of the camera, or unconstrained\n in which case the camera/application are left to choose an appropriate field of view.\n The default value if 60 degrees." );
         
         }
         { //::osg::CameraView::setFieldOfViewMode
@@ -560,7 +567,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setFieldOfViewMode"
                 , setFieldOfViewMode_function_type( &::osg::CameraView::setFieldOfViewMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set the field of view mode - controlling how the field of view of the camera is constrained by the CameraView settings." );
         
         }
         { //::osg::CameraView::setFocalLength
@@ -570,7 +578,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setFocalLength"
                 , setFocalLength_function_type( &::osg::CameraView::setFocalLength )
-                , ( bp::arg("focalLength") ) );
+                , ( bp::arg("focalLength") )
+                , " Set the focal length of the camera.\n A focal length of 0.0 indicates that the camera/application should determine the focal length.\n The default value is 0.0." );
         
         }
         { //::osg::CameraView::setPosition
@@ -580,7 +589,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setPosition"
                 , setPosition_function_type( &::osg::CameraView::setPosition )
-                , ( bp::arg("pos") ) );
+                , ( bp::arg("pos") )
+                , " Set the position of the camera view." );
         
         }
         { //::osg::Group::addChild
@@ -816,7 +826,8 @@ void register_CameraView_class(){
             CameraView_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

@@ -97,7 +97,7 @@ void register_State_class(){
 
     { //::osg::State
         typedef bp::class_< State_wrapper, bp::bases< osg::Referenced, osg::Observer >, osg::ref_ptr< ::osg::State >, boost::noncopyable > State_exposer_t;
-        State_exposer_t State_exposer = State_exposer_t( "State", bp::no_init );
+        State_exposer_t State_exposer = State_exposer_t( "State", "\n Encapsulates the current applied OpenGL modes, attributes and vertex arrays settings,\n implements lazy state updating and provides accessors for querying the current state.\n The venerable Red Book says that OpenGL is a state machine, and this class\n represents the OpenGL state in OSG. Furthermore,  State also has other\n important features:\n - It works as a stack of states (see  pushStateSet() and\n    popStateSet()). Manipulating this stack of OpenGL states manually is\n   seldom needed, since OSG does this in the most common situations.\n - It implements lazy state updating. This means that, if one requests a\n   state change and that particular state is already in the requested state,\n   no OpenGL call will be made. This ensures that the OpenGL pipeline is not\n   stalled by unnecessary state changes.\n - It allows to query the current OpenGL state without calls to  glGet*(),\n   which typically stall the graphics pipeline (see, for instance,\n    captureCurrentState() and  getModelViewMatrix()).\n", bp::no_init );
         bp::scope State_scope( State_exposer );
         bp::enum_< osg::State::CheckForGLErrors>("CheckForGLErrors")
             .value("NEVER_CHECK_GL_ERRORS", osg::State::NEVER_CHECK_GL_ERRORS)
@@ -115,7 +115,7 @@ void register_State_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper::* )( bool ))(&State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        State_exposer.def( bp::init< >() );
+        State_exposer.def( bp::init< >("\n Encapsulates the current applied OpenGL modes, attributes and vertex arrays settings,\n implements lazy state updating and provides accessors for querying the current state.\n The venerable Red Book says that OpenGL is a state machine, and this class\n represents the OpenGL state in OSG. Furthermore,  State also has other\n important features:\n - It works as a stack of states (see  pushStateSet() and\n    popStateSet()). Manipulating this stack of OpenGL states manually is\n   seldom needed, since OSG does this in the most common situations.\n - It implements lazy state updating. This means that, if one requests a\n   state change and that particular state is already in the requested state,\n   no OpenGL call will be made. This ensures that the OpenGL pipeline is not\n   stalled by unnecessary state changes.\n - It allows to query the current OpenGL state without calls to  glGet*(),\n   which typically stall the graphics pipeline (see, for instance,\n    captureCurrentState() and  getModelViewMatrix()).\n") );
         { //::osg::State::Color
         
             typedef void ( ::osg::State::*Color_function_type)( float,float,float,float ) ;
@@ -183,7 +183,8 @@ void register_State_class(){
             State_exposer.def( 
                 "apply"
                 , apply_function_type( &::osg::State::apply )
-                , ( bp::arg("dstate") ) );
+                , ( bp::arg("dstate") )
+                , " Apply stateset." );
         
         }
         { //::osg::State::apply
@@ -192,7 +193,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "apply"
-                , apply_function_type( &::osg::State::apply ) );
+                , apply_function_type( &::osg::State::apply )
+                , " Updates the OpenGL state so that it matches the  StateSet at the\n top of the stack of <tt>StateSet</tt>s maintained internally by a\n  State." );
         
         }
         { //::osg::State::applyAttribute
@@ -202,7 +204,8 @@ void register_State_class(){
             State_exposer.def( 
                 "applyAttribute"
                 , applyAttribute_function_type( &::osg::State::applyAttribute )
-                , ( bp::arg("attribute") ) );
+                , ( bp::arg("attribute") )
+                , " Apply an attribute if required." );
         
         }
         { //::osg::State::applyDisablingOfVertexAttributes
@@ -211,7 +214,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "applyDisablingOfVertexAttributes"
-                , applyDisablingOfVertexAttributes_function_type( &::osg::State::applyDisablingOfVertexAttributes ) );
+                , applyDisablingOfVertexAttributes_function_type( &::osg::State::applyDisablingOfVertexAttributes )
+                , " Disable all the vertex attributes that have been marked as to be disabled." );
         
         }
         { //::osg::State::applyMode
@@ -221,7 +225,8 @@ void register_State_class(){
             State_exposer.def( 
                 "applyMode"
                 , applyMode_function_type( &::osg::State::applyMode )
-                , ( bp::arg("mode"), bp::arg("enabled") ) );
+                , ( bp::arg("mode"), bp::arg("enabled") )
+                , " Apply an OpenGL mode if required. This is a wrapper around\n  glEnable() and  glDisable(), that just actually calls these\n functions if the  enabled flag is different than the current\n state.\n Return:  true if the state was actually changed.  false\n         otherwise. Notice that a  false return does not indicate\n         an error, it just means that the mode was already set to the\n         same value as the  enabled parameter." );
         
         }
         { //::osg::State::applyModelViewAndProjectionUniformsIfRequired
@@ -269,7 +274,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "applyShaderComposition"
-                , applyShaderComposition_function_type( &::osg::State::applyShaderComposition ) );
+                , applyShaderComposition_function_type( &::osg::State::applyShaderComposition )
+                , " Apply any shader composed state." );
         
         }
         { //::osg::State::applyShaderCompositionUniform
@@ -279,7 +285,8 @@ void register_State_class(){
             State_exposer.def( 
                 "applyShaderCompositionUniform"
                 , applyShaderCompositionUniform_function_type( &::osg::State::applyShaderCompositionUniform )
-                , ( bp::arg("uniform"), bp::arg("value")=(unsigned int)(ON) ) );
+                , ( bp::arg("uniform"), bp::arg("value")=(unsigned int)(ON) )
+                , " Convinience method for StateAttribute:::apply(State&) methods to pass on their uniforms to osg::State so it can apply them at the appropriate point." );
         
         }
         { //::osg::State::applyTextureAttribute
@@ -339,7 +346,8 @@ void register_State_class(){
             State_exposer.def( 
                 "captureCurrentState"
                 , captureCurrentState_function_type( &::osg::State::captureCurrentState )
-                , ( bp::arg("stateset") ) );
+                , ( bp::arg("stateset") )
+                , " Copy the modes and attributes which capture the current state." );
         
         }
         { //::osg::State::checkGLErrors
@@ -388,7 +396,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "decrementDynamicObjectCount"
-                , decrementDynamicObjectCount_function_type( &::osg::State::decrementDynamicObjectCount ) );
+                , decrementDynamicObjectCount_function_type( &::osg::State::decrementDynamicObjectCount )
+                , " Decrement the number of dynamic objects left to render this frame, and once the count goes to zero call the\n DynamicObjectRenderingCompletedCallback to inform of completion." );
         
         }
         { //::osg::State::dirtyAllAttributes
@@ -397,7 +406,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "dirtyAllAttributes"
-                , dirtyAllAttributes_function_type( &::osg::State::dirtyAllAttributes ) );
+                , dirtyAllAttributes_function_type( &::osg::State::dirtyAllAttributes )
+                , " Dirty the modes attributes previously applied in osg::State." );
         
         }
         { //::osg::State::dirtyAllModes
@@ -406,7 +416,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "dirtyAllModes"
-                , dirtyAllModes_function_type( &::osg::State::dirtyAllModes ) );
+                , dirtyAllModes_function_type( &::osg::State::dirtyAllModes )
+                , " Dirty the modes previously applied in osg::State." );
         
         }
         { //::osg::State::dirtyAllVertexArrays
@@ -415,7 +426,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "dirtyAllVertexArrays"
-                , dirtyAllVertexArrays_function_type( &::osg::State::dirtyAllVertexArrays ) );
+                , dirtyAllVertexArrays_function_type( &::osg::State::dirtyAllVertexArrays )
+                , " dirty the vertex, normal, color, tex coords, secondary color, fog coord and index arrays." );
         
         }
         { //::osg::State::dirtyColorPointer
@@ -509,7 +521,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableAllVertexArrays"
-                , disableAllVertexArrays_function_type( &::osg::State::disableAllVertexArrays ) );
+                , disableAllVertexArrays_function_type( &::osg::State::disableAllVertexArrays )
+                , " disable the vertex, normal, color, tex coords, secondary color, fog coord and index arrays." );
         
         }
         { //::osg::State::disableColorPointer
@@ -518,7 +531,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableColorPointer"
-                , disableColorPointer_function_type( &::osg::State::disableColorPointer ) );
+                , disableColorPointer_function_type( &::osg::State::disableColorPointer )
+                , " wrapper around glDisableClientState(GL_COLOR_ARRAY);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableFogCoordPointer
@@ -527,7 +541,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableFogCoordPointer"
-                , disableFogCoordPointer_function_type( &::osg::State::disableFogCoordPointer ) );
+                , disableFogCoordPointer_function_type( &::osg::State::disableFogCoordPointer )
+                , " wrapper around glDisableClientState(GL_FOG_COORDINATE_ARRAY);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableNormalPointer
@@ -536,7 +551,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableNormalPointer"
-                , disableNormalPointer_function_type( &::osg::State::disableNormalPointer ) );
+                , disableNormalPointer_function_type( &::osg::State::disableNormalPointer )
+                , " wrapper around glDisableClientState(GL_NORMAL_ARRAY);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableSecondaryColorPointer
@@ -545,7 +561,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableSecondaryColorPointer"
-                , disableSecondaryColorPointer_function_type( &::osg::State::disableSecondaryColorPointer ) );
+                , disableSecondaryColorPointer_function_type( &::osg::State::disableSecondaryColorPointer )
+                , " wrapper around glDisableClientState(GL_SECONDARY_COLOR_ARRAY);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableTexCoordPointer
@@ -555,7 +572,8 @@ void register_State_class(){
             State_exposer.def( 
                 "disableTexCoordPointer"
                 , disableTexCoordPointer_function_type( &::osg::State::disableTexCoordPointer )
-                , ( bp::arg("unit") ) );
+                , ( bp::arg("unit") )
+                , " wrapper around glDisableClientState(GL_TEXTURE_COORD_ARRAY);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableTexCoordPointersAboveAndIncluding
@@ -575,7 +593,8 @@ void register_State_class(){
             State_exposer.def( 
                 "disableVertexAttribPointer"
                 , disableVertexAttribPointer_function_type( &::osg::State::disableVertexAttribPointer )
-                , ( bp::arg("index") ) );
+                , ( bp::arg("index") )
+                , " wrapper around DisableVertexAttribArrayARB(index);\n note, only updates values that change." );
         
         }
         { //::osg::State::disableVertexAttribPointersAboveAndIncluding
@@ -594,7 +613,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "disableVertexPointer"
-                , disableVertexPointer_function_type( &::osg::State::disableVertexPointer ) );
+                , disableVertexPointer_function_type( &::osg::State::disableVertexPointer )
+                , " wrapper around glDisableClientState(GL_VERTEX_ARRAY).\n note, only updates values that change." );
         
         }
         { //::osg::State::drawQuads
@@ -624,7 +644,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getAbortRendering"
-                , getAbortRendering_function_type( &::osg::State::getAbortRendering ) );
+                , getAbortRendering_function_type( &::osg::State::getAbortRendering )
+                , " Get flag for early termination of the draw traversal,\n if true steps should be taken to complete rendering early." );
         
         }
         { //::osg::State::getActiveTextureUnit
@@ -633,7 +654,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getActiveTextureUnit"
-                , getActiveTextureUnit_function_type( &::osg::State::getActiveTextureUnit ) );
+                , getActiveTextureUnit_function_type( &::osg::State::getActiveTextureUnit )
+                , " Get the current texture unit." );
         
         }
         { //::osg::State::getArrayDispatchers
@@ -643,7 +665,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getArrayDispatchers"
                 , getArrayDispatchers_function_type( &::osg::State::getArrayDispatchers )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the helper class for dispatching osg::Arrays as OpenGL attribute data." );
         
         }
         { //::osg::State::getAttribLocation
@@ -683,7 +706,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getCheckForGLErrors"
-                , getCheckForGLErrors_function_type( &::osg::State::getCheckForGLErrors ) );
+                , getCheckForGLErrors_function_type( &::osg::State::getCheckForGLErrors )
+                , " Get whether and how often OpenGL errors should be checked for." );
         
         }
         { //::osg::State::getClientActiveTextureUnit
@@ -692,7 +716,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getClientActiveTextureUnit"
-                , getClientActiveTextureUnit_function_type( &::osg::State::getClientActiveTextureUnit ) );
+                , getClientActiveTextureUnit_function_type( &::osg::State::getClientActiveTextureUnit )
+                , " Get the current tex coord array texture unit." );
         
         }
         { //::osg::State::getColorAlias
@@ -711,7 +736,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getContextID"
-                , getContextID_function_type( &::osg::State::getContextID ) );
+                , getContextID_function_type( &::osg::State::getContextID )
+                , " Get the current OpenGL context unique ID." );
         
         }
         { //::osg::State::getCurrentElementBufferObject
@@ -741,7 +767,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getCurrentShaderCompositionUniformList"
                 , getCurrentShaderCompositionUniformList_function_type( &::osg::State::getCurrentShaderCompositionUniformList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the unform list in which to inject any uniforms that StateAttribute::apply(State&) methods provide." );
         
         }
         { //::osg::State::getCurrentVertexBufferObject
@@ -771,7 +798,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getDisplaySettings"
                 , getDisplaySettings_function_type( &::osg::State::getDisplaySettings )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the DisplaySettings" );
         
         }
         { //::osg::State::getDynamicObjectCount
@@ -780,7 +808,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getDynamicObjectCount"
-                , getDynamicObjectCount_function_type( &::osg::State::getDynamicObjectCount ) );
+                , getDynamicObjectCount_function_type( &::osg::State::getDynamicObjectCount )
+                , " Get the number of dynamic objects that will be rendered in this graphics context this frame." );
         
         }
         { //::osg::State::getDynamicObjectRenderingCompletedCallback
@@ -790,7 +819,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getDynamicObjectRenderingCompletedCallback"
                 , getDynamicObjectRenderingCompletedCallback_function_type( &::osg::State::getDynamicObjectRenderingCompletedCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the callback to be called when the dynamic object count hits 0." );
         
         }
         { //::osg::State::getFogCoordAlias
@@ -810,7 +840,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getFrameStamp"
                 , getFrameStamp_function_type( &::osg::State::getFrameStamp )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the frame stamp for the current frame." );
         
         }
         { //::osg::State::getFrameStamp
@@ -820,7 +851,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getFrameStamp"
                 , getFrameStamp_function_type( &::osg::State::getFrameStamp )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const frame stamp for the current frame." );
         
         }
         { //::osg::State::getGLBeginEndAdapter
@@ -830,7 +862,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getGLBeginEndAdapter"
                 , getGLBeginEndAdapter_function_type( &::osg::State::getGLBeginEndAdapter )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the GL adapter object used to map OpenGL 1.0 glBegin/glEnd usage to vertex arrays." );
         
         }
         { //::osg::State::getGlobalDefaultAttribute
@@ -909,7 +942,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getGraphicsContext"
                 , getGraphicsContext_function_type( &::osg::State::getGraphicsContext )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the graphics context associated with that owns this State object." );
         
         }
         { //::osg::State::getGraphicsContext
@@ -919,7 +953,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getGraphicsContext"
                 , getGraphicsContext_function_type( &::osg::State::getGraphicsContext )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const graphics context associated with that owns this State object." );
         
         }
         { //::osg::State::getGraphicsCostEstimator
@@ -929,7 +964,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getGraphicsCostEstimator"
                 , getGraphicsCostEstimator_function_type( &::osg::State::getGraphicsCostEstimator )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the helper class that provides applications with estimate on how much different graphics operations will cost." );
         
         }
         { //::osg::State::getGraphicsCostEstimator
@@ -939,7 +975,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getGraphicsCostEstimator"
                 , getGraphicsCostEstimator_function_type( &::osg::State::getGraphicsCostEstimator )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the cont helper class that provides applications with estimate on how much different graphics operations will cost." );
         
         }
         { //::osg::State::getInitialInverseViewMatrix
@@ -970,7 +1007,8 @@ void register_State_class(){
                 "getLastAppliedAttribute"
                 , getLastAppliedAttribute_function_type( &::osg::State::getLastAppliedAttribute )
                 , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the current specified attribute, return NULL if one has not yet been applied." );
         
         }
         { //::osg::State::getLastAppliedMode
@@ -980,7 +1018,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getLastAppliedMode"
                 , getLastAppliedMode_function_type( &::osg::State::getLastAppliedMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Get whether the current specified mode is enabled (true) or disabled (false)." );
         
         }
         { //::osg::State::getLastAppliedProgramObject
@@ -1001,7 +1040,8 @@ void register_State_class(){
                 "getLastAppliedTextureAttribute"
                 , getLastAppliedTextureAttribute_function_type( &::osg::State::getLastAppliedTextureAttribute )
                 , ( bp::arg("unit"), bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the current specified texture attribute, return NULL if one has not yet been applied." );
         
         }
         { //::osg::State::getLastAppliedTextureMode
@@ -1011,7 +1051,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getLastAppliedTextureMode"
                 , getLastAppliedTextureMode_function_type( &::osg::State::getLastAppliedTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode") ) );
+                , ( bp::arg("unit"), bp::arg("mode") )
+                , " Get whether the current specified texture mode is enabled (true) or disabled (false)." );
         
         }
         { //::osg::State::getMaxBufferObjectPoolSize
@@ -1029,7 +1070,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getMaxTextureCoords"
-                , getMaxTextureCoords_function_type( &::osg::State::getMaxTextureCoords ) );
+                , getMaxTextureCoords_function_type( &::osg::State::getMaxTextureCoords )
+                , " For GL>=2.0 uses GL_MAX_TEXTURE_COORDS, for GL<2 uses GL_MAX_TEXTURE_UNITS" );
         
         }
         { //::osg::State::getMaxTexturePoolSize
@@ -1047,7 +1089,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getMaxTextureUnits"
-                , getMaxTextureUnits_function_type( &::osg::State::getMaxTextureUnits ) );
+                , getMaxTextureUnits_function_type( &::osg::State::getMaxTextureUnits )
+                , " For GL>=2.0 uses GL_MAX_COMBINED_TEXTURE_IMAGE_UNITS, for GL<2 uses GL_MAX_TEXTURE_UNITS" );
         
         }
         { //::osg::State::getModeValidity
@@ -1057,7 +1100,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getModeValidity"
                 , getModeValidity_function_type( &::osg::State::getModeValidity )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Get whether a particular OpenGL mode is valid in the current graphics context.\n Use to disable OpenGL modes that are not supported by current graphics drivers/context." );
         
         }
         { //::osg::State::getModelViewMatrix
@@ -1147,7 +1191,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getShaderComposer"
                 , getShaderComposer_function_type( &::osg::State::getShaderComposer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the ShaderComposor object." );
         
         }
         { //::osg::State::getShaderComposer
@@ -1157,7 +1202,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getShaderComposer"
                 , getShaderComposer_function_type( &::osg::State::getShaderComposer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const ShaderComposor object." );
         
         }
         { //::osg::State::getShaderCompositionEnabled
@@ -1175,7 +1221,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getStartTick"
-                , getStartTick_function_type( &::osg::State::getStartTick ) );
+                , getStartTick_function_type( &::osg::State::getStartTick )
+                , " Support for synchronizing the system time and the timestamp\n counter available with ARB_timer_query. Note that State\n doesnt update these values itself." );
         
         }
         { //::osg::State::getStateSetStack
@@ -1185,7 +1232,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getStateSetStack"
                 , getStateSetStack_function_type( &::osg::State::getStateSetStack )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the StateSet stack." );
         
         }
         { //::osg::State::getStateSetStackSize
@@ -1194,7 +1242,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "getStateSetStackSize"
-                , getStateSetStackSize_function_type( &::osg::State::getStateSetStackSize ) );
+                , getStateSetStackSize_function_type( &::osg::State::getStateSetStackSize )
+                , " Get the number of StateSets on the StateSet stack." );
         
         }
         { //::osg::State::getTimestampBits
@@ -1223,7 +1272,8 @@ void register_State_class(){
             State_exposer.def( 
                 "getUniformLocation"
                 , getUniformLocation_function_type( &::osg::State::getUniformLocation )
-                , ( bp::arg("uniformName") ) );
+                , ( bp::arg("uniformName") )
+                , " Alternative version of getUniformLocation( unsigned int uniformNameID )\n retrofited into OSG for backward compatibility with osgCal,\n after uniform ids were refactored from std::strings to GLints in OSG version 2.9.10.\n\n Drawbacks: This method is not particularly fast. It has to access mutexed static\n map of uniform ids. So dont overuse it or your app performance will suffer." );
         
         }
         { //::osg::State::getUseModelViewAndProjectionUniforms
@@ -1290,7 +1340,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedAttribute"
                 , haveAppliedAttribute_function_type( &::osg::State::haveAppliedAttribute )
-                , ( bp::arg("attribute") ) );
+                , ( bp::arg("attribute") )
+                , " Attribute has been applied externally, update state to reflect this setting." );
         
         }
         { //::osg::State::haveAppliedAttribute
@@ -1300,7 +1351,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedAttribute"
                 , haveAppliedAttribute_function_type( &::osg::State::haveAppliedAttribute )
-                , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) ) );
+                , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
+                , " Attribute has been applied externally,\n and therefore this attribute type has been dirtied\n and will need to be re-applied on next osg::State.apply(..).\n note, if you have an osg::StateAttribute which you have applied externally\n then use the have_applied(attribute) method as this will cause the osg::State to\n track the current state more accurately and enable lazy state updating such\n that only changed state will be applied." );
         
         }
         { //::osg::State::haveAppliedMode
@@ -1310,7 +1362,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedMode"
                 , haveAppliedMode_function_type( &::osg::State::haveAppliedMode )
-                , ( bp::arg("mode"), bp::arg("value") ) );
+                , ( bp::arg("mode"), bp::arg("value") )
+                , " Mode has been set externally, update state to reflect this setting." );
         
         }
         { //::osg::State::haveAppliedMode
@@ -1320,7 +1373,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedMode"
                 , haveAppliedMode_function_type( &::osg::State::haveAppliedMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Mode has been set externally, therefore dirty the associated mode in osg::State\n so it is applied on next call to osg::State::apply(..)" );
         
         }
         { //::osg::State::haveAppliedTextureAttribute
@@ -1330,7 +1384,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedTextureAttribute"
                 , haveAppliedTextureAttribute_function_type( &::osg::State::haveAppliedTextureAttribute )
-                , ( bp::arg("unit"), bp::arg("attribute") ) );
+                , ( bp::arg("unit"), bp::arg("attribute") )
+                , " texture Attribute has been applied externally, update state to reflect this setting." );
         
         }
         { //::osg::State::haveAppliedTextureAttribute
@@ -1340,7 +1395,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedTextureAttribute"
                 , haveAppliedTextureAttribute_function_type( &::osg::State::haveAppliedTextureAttribute )
-                , ( bp::arg("unit"), bp::arg("type"), bp::arg("member")=(unsigned int)(0) ) );
+                , ( bp::arg("unit"), bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
+                , " texture Attribute has been applied externally,\n and therefore this attribute type has been dirtied\n and will need to be re-applied on next osg::State.apply(..).\n note, if you have an osg::StateAttribute which you have applied externally\n then use the have_applied(attribute) method as this will the osg::State to\n track the current state more accurately and enable lazy state updating such\n that only changed state will be applied." );
         
         }
         { //::osg::State::haveAppliedTextureMode
@@ -1350,7 +1406,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedTextureMode"
                 , haveAppliedTextureMode_function_type( &::osg::State::haveAppliedTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode"), bp::arg("value") ) );
+                , ( bp::arg("unit"), bp::arg("mode"), bp::arg("value") )
+                , " texture Mode has been set externally, update state to reflect this setting." );
         
         }
         { //::osg::State::haveAppliedTextureMode
@@ -1360,7 +1417,8 @@ void register_State_class(){
             State_exposer.def( 
                 "haveAppliedTextureMode"
                 , haveAppliedTextureMode_function_type( &::osg::State::haveAppliedTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode") ) );
+                , ( bp::arg("unit"), bp::arg("mode") )
+                , " texture Mode has been set externally, therefore dirty the associated mode in osg::State\n so it is applied on next call to osg::State::apply(..)" );
         
         }
         { //::osg::State::initializeExtensionProcs
@@ -1369,7 +1427,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "initializeExtensionProcs"
-                , initializeExtensionProcs_function_type( &::osg::State::initializeExtensionProcs ) );
+                , initializeExtensionProcs_function_type( &::osg::State::initializeExtensionProcs )
+                , " Initialize extension used by osg:::State." );
         
         }
         { //::osg::State::insertStateSet
@@ -1379,7 +1438,8 @@ void register_State_class(){
             State_exposer.def( 
                 "insertStateSet"
                 , insertStateSet_function_type( &::osg::State::insertStateSet )
-                , ( bp::arg("pos"), bp::arg("dstate") ) );
+                , ( bp::arg("pos"), bp::arg("dstate") )
+                , " Insert stateset onto state stack." );
         
         }
         { //::osg::State::isFogCoordSupported
@@ -1415,7 +1475,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "lazyDisablingOfVertexAttributes"
-                , lazyDisablingOfVertexAttributes_function_type( &::osg::State::lazyDisablingOfVertexAttributes ) );
+                , lazyDisablingOfVertexAttributes_function_type( &::osg::State::lazyDisablingOfVertexAttributes )
+                , " Mark all the vertex attributes as being disabled but leave the disabling till a later call to applyDisablingOfVertexAttributes." );
         
         }
         { //::osg::State::objectDeleted
@@ -1436,7 +1497,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "popAllStateSets"
-                , popAllStateSets_function_type( &::osg::State::popAllStateSets ) );
+                , popAllStateSets_function_type( &::osg::State::popAllStateSets )
+                , " pop all statesets off state stack, ensuring it is empty ready for the next frame.\n Note, to return OpenGL to default state, one should do any state.popAllStatSets(); state.apply()." );
         
         }
         { //::osg::State::popStateSet
@@ -1445,7 +1507,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "popStateSet"
-                , popStateSet_function_type( &::osg::State::popStateSet ) );
+                , popStateSet_function_type( &::osg::State::popStateSet )
+                , " Pop stateset off state stack." );
         
         }
         { //::osg::State::popStateSetStackToSize
@@ -1455,7 +1518,8 @@ void register_State_class(){
             State_exposer.def( 
                 "popStateSetStackToSize"
                 , popStateSetStackToSize_function_type( &::osg::State::popStateSetStackToSize )
-                , ( bp::arg("size") ) );
+                , ( bp::arg("size") )
+                , " Pop StateSets for the StateSet stack till its size equals the specified size." );
         
         }
         { //::osg::State::print
@@ -1465,7 +1529,8 @@ void register_State_class(){
             State_exposer.def( 
                 "print"
                 , print_function_type( &::osg::State::print )
-                , ( bp::arg("fout") ) );
+                , ( bp::arg("fout") )
+                , " print out the internal details of osg::State - useful for debugging." );
         
         }
         { //::osg::State::pushStateSet
@@ -1475,7 +1540,8 @@ void register_State_class(){
             State_exposer.def( 
                 "pushStateSet"
                 , pushStateSet_function_type( &::osg::State::pushStateSet )
-                , ( bp::arg("dstate") ) );
+                , ( bp::arg("dstate") )
+                , " Push stateset onto state stack." );
         
         }
         { //::osg::State::removeStateSet
@@ -1485,7 +1551,8 @@ void register_State_class(){
             State_exposer.def( 
                 "removeStateSet"
                 , removeStateSet_function_type( &::osg::State::removeStateSet )
-                , ( bp::arg("pos") ) );
+                , ( bp::arg("pos") )
+                , " Pop stateset off state stack." );
         
         }
         { //::osg::State::reset
@@ -1494,7 +1561,8 @@ void register_State_class(){
             
             State_exposer.def( 
                 "reset"
-                , reset_function_type( &::osg::State::reset ) );
+                , reset_function_type( &::osg::State::reset )
+                , " reset the state object to an empty stack." );
         
         }
         { //::osg::State::resetVertexAttributeAlias
@@ -1504,7 +1572,8 @@ void register_State_class(){
             State_exposer.def( 
                 "resetVertexAttributeAlias"
                 , resetVertexAttributeAlias_function_type( &::osg::State::resetVertexAttributeAlias )
-                , ( bp::arg("compactAliasing")=(bool)(true) ) );
+                , ( bp::arg("compactAliasing")=(bool)(true) )
+                , " Reset the vertex attribute aliasing to osgs default. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setAbortRenderingPtr
@@ -1514,7 +1583,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setAbortRenderingPtr"
                 , setAbortRenderingPtr_function_type( &::osg::State::setAbortRenderingPtr )
-                , ( bp::arg("abortPtr") ) );
+                , ( bp::arg("abortPtr") )
+                , " Set flag for early termination of the draw traversal." );
         
         }
         { //::osg::State::setActiveTextureUnit
@@ -1534,7 +1604,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setAttributeBindingList"
                 , setAttributeBindingList_function_type( &::osg::State::setAttributeBindingList )
-                , ( bp::arg("attribBindingList") ) );
+                , ( bp::arg("attribBindingList") )
+                , " Set the vertex attribute binding list. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setCheckForGLErrors
@@ -1544,7 +1615,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setCheckForGLErrors"
                 , setCheckForGLErrors_function_type( &::osg::State::setCheckForGLErrors )
-                , ( bp::arg("check") ) );
+                , ( bp::arg("check") )
+                , " Set whether and how often OpenGL errors should be checked for." );
         
         }
         { //::osg::State::setClientActiveTextureUnit
@@ -1554,7 +1626,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setClientActiveTextureUnit"
                 , setClientActiveTextureUnit_function_type( &::osg::State::setClientActiveTextureUnit )
-                , ( bp::arg("unit") ) );
+                , ( bp::arg("unit") )
+                , " Set the current tex coord array texture unit, return true if selected,\n false if selection failed such as when multi texturing is not supported.\n note, only updates values that change." );
         
         }
         { //::osg::State::setColorAlias
@@ -1564,7 +1637,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setColorAlias"
                 , setColorAlias_function_type( &::osg::State::setColorAlias )
-                , ( bp::arg("alias") ) );
+                , ( bp::arg("alias") )
+                , " Set the vertex attribute aliasing for color. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setColorPointer
@@ -1574,7 +1648,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setColorPointer"
                 , setColorPointer_function_type( &::osg::State::setColorPointer )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the color pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setColorPointer
@@ -1584,7 +1659,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setColorPointer"
                 , setColorPointer_function_type( &::osg::State::setColorPointer )
-                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(1) ) );
+                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(1) )
+                , " wrapper around glEnableClientState(GL_COLOR_ARRAY);glColorPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setContextID
@@ -1594,7 +1670,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setContextID"
                 , setContextID_function_type( &::osg::State::setContextID )
-                , ( bp::arg("contextID") ) );
+                , ( bp::arg("contextID") )
+                , " Set the current OpenGL context uniqueID.\n  The ContextID is used by classes like osg::StateAttributes and osg::Drawables to\n  help manage seperate OpenGL objects, such as display lists, vertex buffer objects\n  and texture object for each graphics context. The ContextID simply acts as an index\n  into arrays that these classes maintain for the purpose of storing GL object handles.\n\n  Note, osgViewer::GraphicsWindow will automatically set up the ContextID for you,\n  so you will rearely need to set this yourself.\n\n  The exception is when creating your own graphics context, where you should set\n  the ContextID uniquely for each graphics context.\n\n  Typical settings for ContextID are 0,1,2,3... up to the maximum\n  number of graphics contexts you have set up. By default contextID is 0." );
         
         }
         { //::osg::State::setCurrentElementBufferObject
@@ -1634,7 +1711,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setDisplaySettings"
                 , setDisplaySettings_function_type( &::osg::State::setDisplaySettings )
-                , ( bp::arg("vs") ) );
+                , ( bp::arg("vs") )
+                , " Set the DisplaySettings. Note, nothing is applied, the visual settings are just\n used in the State object to pass the current visual settings to Drawables\n during rendering." );
         
         }
         { //::osg::State::setDynamicObjectCount
@@ -1644,7 +1722,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setDynamicObjectCount"
                 , setDynamicObjectCount_function_type( &::osg::State::setDynamicObjectCount )
-                , ( bp::arg("count"), bp::arg("callCallbackOnZero")=(bool)(false) ) );
+                , ( bp::arg("count"), bp::arg("callCallbackOnZero")=(bool)(false) )
+                , " Set the number of dynamic objects that will be rendered in this graphics context this frame." );
         
         }
         { //::osg::State::setDynamicObjectRenderingCompletedCallback
@@ -1654,7 +1733,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setDynamicObjectRenderingCompletedCallback"
                 , setDynamicObjectRenderingCompletedCallback_function_type( &::osg::State::setDynamicObjectRenderingCompletedCallback )
-                , ( bp::arg("cb") ) );
+                , ( bp::arg("cb") )
+                , " Set the callback to be called when the dynamic object count hits 0." );
         
         }
         { //::osg::State::setFogCoordAlias
@@ -1664,7 +1744,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setFogCoordAlias"
                 , setFogCoordAlias_function_type( &::osg::State::setFogCoordAlias )
-                , ( bp::arg("alias") ) );
+                , ( bp::arg("alias") )
+                , " Set the vertex attribute aliasing for fog coord. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setFogCoordPointer
@@ -1674,7 +1755,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setFogCoordPointer"
                 , setFogCoordPointer_function_type( &::osg::State::setFogCoordPointer )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the fog coord pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setFogCoordPointer
@@ -1684,7 +1766,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setFogCoordPointer"
                 , setFogCoordPointer_function_type( &::osg::State::setFogCoordPointer )
-                , ( bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) ) );
+                , ( bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) )
+                , " wrapper around glEnableClientState(GL_FOG_COORDINATE_ARRAY);glFogCoordPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setFrameStamp
@@ -1694,7 +1777,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setFrameStamp"
                 , setFrameStamp_function_type( &::osg::State::setFrameStamp )
-                , ( bp::arg("fs") ) );
+                , ( bp::arg("fs") )
+                , " Set the frame stamp for the current frame." );
         
         }
         { //::osg::State::setGlobalDefaultAttribute
@@ -1754,7 +1838,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setGraphicsContext"
                 , setGraphicsContext_function_type( &::osg::State::setGraphicsContext )
-                , ( bp::arg("context") ) );
+                , ( bp::arg("context") )
+                , " Set the graphics context associated with that owns this State object." );
         
         }
         { //::osg::State::setGraphicsCostEstimator
@@ -1764,7 +1849,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setGraphicsCostEstimator"
                 , setGraphicsCostEstimator_function_type( &::osg::State::setGraphicsCostEstimator )
-                , ( bp::arg("gce") ) );
+                , ( bp::arg("gce") )
+                , " Set the helper class that provides applications with estimate on how much different graphics operations will cost." );
         
         }
         { //::osg::State::setInitialViewMatrix
@@ -1784,7 +1870,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setInterleavedArrays"
                 , setInterleavedArrays_function_type( &::osg::State::setInterleavedArrays )
-                , ( bp::arg("format"), bp::arg("stride"), bp::arg("pointer") ) );
+                , ( bp::arg("format"), bp::arg("stride"), bp::arg("pointer") )
+                , " Wrapper around glInterleavedArrays(..).\n also resets the internal array points and modes within osg::State to keep the other\n vertex array operations consistent." );
         
         }
         { //::osg::State::setLastAppliedProgramObject
@@ -1824,7 +1911,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setModeValidity"
                 , setModeValidity_function_type( &::osg::State::setModeValidity )
-                , ( bp::arg("mode"), bp::arg("valid") ) );
+                , ( bp::arg("mode"), bp::arg("valid") )
+                , " Set whether a particular OpenGL mode is valid in the current graphics context.\n Use to disable OpenGL modes that are not supported by current graphics drivers/context." );
         
         }
         { //::osg::State::setNormalAlias
@@ -1834,7 +1922,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setNormalAlias"
                 , setNormalAlias_function_type( &::osg::State::setNormalAlias )
-                , ( bp::arg("alias") ) );
+                , ( bp::arg("alias") )
+                , " Set the vertex attribute aliasing for normal. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setNormalPointer
@@ -1844,7 +1933,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setNormalPointer"
                 , setNormalPointer_function_type( &::osg::State::setNormalPointer )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the normal pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setNormalPointer
@@ -1854,7 +1944,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setNormalPointer"
                 , setNormalPointer_function_type( &::osg::State::setNormalPointer )
-                , ( bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) ) );
+                , ( bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) )
+                , " wrapper around glEnableClientState(GL_NORMAL_ARRAY);glNormalPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setSecondaryColorAlias
@@ -1864,7 +1955,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setSecondaryColorAlias"
                 , setSecondaryColorAlias_function_type( &::osg::State::setSecondaryColorAlias )
-                , ( bp::arg("alias") ) );
+                , ( bp::arg("alias") )
+                , " Set the vertex attribute aliasing for secondary color. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setSecondaryColorPointer
@@ -1874,7 +1966,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setSecondaryColorPointer"
                 , setSecondaryColorPointer_function_type( &::osg::State::setSecondaryColorPointer )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the secondary color pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setSecondaryColorPointer
@@ -1884,7 +1977,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setSecondaryColorPointer"
                 , setSecondaryColorPointer_function_type( &::osg::State::setSecondaryColorPointer )
-                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(1) ) );
+                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(1) )
+                , " wrapper around glEnableClientState(GL_SECONDARY_COLOR_ARRAY);glSecondayColorPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setShaderComposer
@@ -1894,7 +1988,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setShaderComposer"
                 , setShaderComposer_function_type( &::osg::State::setShaderComposer )
-                , ( bp::arg("sc") ) );
+                , ( bp::arg("sc") )
+                , " Set the ShaderComposor object that implements shader composition." );
         
         }
         { //::osg::State::setShaderCompositionEnabled
@@ -1924,7 +2019,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setTexCoordPointer"
                 , setTexCoordPointer_function_type( &::osg::State::setTexCoordPointer )
-                , ( bp::arg("unit"), bp::arg("array") ) );
+                , ( bp::arg("unit"), bp::arg("array") )
+                , " Set the tex coord pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setTexCoordPointer
@@ -1934,7 +2030,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setTexCoordPointer"
                 , setTexCoordPointer_function_type( &::osg::State::setTexCoordPointer )
-                , ( bp::arg("unit"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) ) );
+                , ( bp::arg("unit"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) )
+                , " wrapper around glEnableClientState(GL_TEXTURE_COORD_ARRAY);glTexCoordPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setTimestampBits
@@ -1974,7 +2071,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAlias"
                 , setVertexAlias_function_type( &::osg::State::setVertexAlias )
-                , ( bp::arg("alias") ) );
+                , ( bp::arg("alias") )
+                , " Set the vertex attribute aliasing for vertex. This method needs to be called before render anything unless you really know what youre doing !" );
         
         }
         { //::osg::State::setVertexAttribIPointer
@@ -1984,7 +2082,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribIPointer"
                 , setVertexAttribIPointer_function_type( &::osg::State::setVertexAttribIPointer )
-                , ( bp::arg("unit"), bp::arg("array") ) );
+                , ( bp::arg("unit"), bp::arg("array") )
+                , " Set the vertex attrib pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setVertexAttribIPointer
@@ -1994,7 +2093,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribIPointer"
                 , setVertexAttribIPointer_function_type( &::osg::State::setVertexAttribIPointer )
-                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr") ) );
+                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr") )
+                , " wrapper around glEnableVertexAttribArrayARB(index);glVertexAttribIPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setVertexAttribLPointer
@@ -2004,7 +2104,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribLPointer"
                 , setVertexAttribLPointer_function_type( &::osg::State::setVertexAttribLPointer )
-                , ( bp::arg("unit"), bp::arg("array") ) );
+                , ( bp::arg("unit"), bp::arg("array") )
+                , " Set the vertex attrib pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setVertexAttribLPointer
@@ -2014,7 +2115,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribLPointer"
                 , setVertexAttribLPointer_function_type( &::osg::State::setVertexAttribLPointer )
-                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr") ) );
+                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr") )
+                , " wrapper around glEnableVertexAttribArrayARB(index);glVertexAttribLPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setVertexAttribPointer
@@ -2024,7 +2126,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribPointer"
                 , setVertexAttribPointer_function_type( &::osg::State::setVertexAttribPointer )
-                , ( bp::arg("unit"), bp::arg("array") ) );
+                , ( bp::arg("unit"), bp::arg("array") )
+                , " Set the vertex attrib pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setVertexAttribPointer
@@ -2034,7 +2137,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexAttribPointer"
                 , setVertexAttribPointer_function_type( &::osg::State::setVertexAttribPointer )
-                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("normalized"), bp::arg("stride"), bp::arg("ptr") ) );
+                , ( bp::arg("index"), bp::arg("size"), bp::arg("type"), bp::arg("normalized"), bp::arg("stride"), bp::arg("ptr") )
+                , " wrapper around glEnableVertexAttribArrayARB(index);glVertexAttribPointerARB(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::setVertexPointer
@@ -2044,7 +2148,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexPointer"
                 , setVertexPointer_function_type( &::osg::State::setVertexPointer )
-                , ( bp::arg("array") ) );
+                , ( bp::arg("array") )
+                , " Set the vertex pointer using an osg::Array, and manage any VBO that are required." );
         
         }
         { //::osg::State::setVertexPointer
@@ -2054,7 +2159,8 @@ void register_State_class(){
             State_exposer.def( 
                 "setVertexPointer"
                 , setVertexPointer_function_type( &::osg::State::setVertexPointer )
-                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) ) );
+                , ( bp::arg("size"), bp::arg("type"), bp::arg("stride"), bp::arg("ptr"), bp::arg("normalized")=(::GLboolean)(0) )
+                , " wrapper around glEnableClientState(GL_VERTEX_ARRAY);glVertexPointer(..);\n note, only updates values that change." );
         
         }
         { //::osg::State::unbindElementBufferObject

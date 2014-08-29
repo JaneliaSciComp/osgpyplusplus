@@ -267,7 +267,7 @@ void register_StateAttribute_class(){
 
     { //::osg::StateAttribute
         typedef bp::class_< StateAttribute_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateAttribute >, boost::noncopyable > StateAttribute_exposer_t;
-        StateAttribute_exposer_t StateAttribute_exposer = StateAttribute_exposer_t( "StateAttribute", bp::no_init );
+        StateAttribute_exposer_t StateAttribute_exposer = StateAttribute_exposer_t( "StateAttribute", "\n Base class for state attributes.\n", bp::no_init );
         bp::scope StateAttribute_scope( StateAttribute_exposer );
         bp::enum_< osg::StateAttribute::Type>("Type")
             .value("TEXTURE", osg::StateAttribute::TEXTURE)
@@ -411,7 +411,8 @@ void register_StateAttribute_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::StateAttribute::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an attribute, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::StateAttribute::cloneType
@@ -421,7 +422,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::StateAttribute::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an attribute, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::StateAttribute::compileGLObjects
@@ -443,7 +445,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::StateAttribute::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const EventCallback." );
         
         }
         { //::osg::StateAttribute::getEventCallback
@@ -453,7 +456,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::StateAttribute::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const EventCallback." );
         
         }
         { //::osg::StateAttribute::getMember
@@ -485,7 +489,8 @@ void register_StateAttribute_class(){
             
             StateAttribute_exposer.def( 
                 "getNumParents"
-                , getNumParents_function_type( &::osg::StateAttribute::getNumParents ) );
+                , getNumParents_function_type( &::osg::StateAttribute::getNumParents )
+                , " Get the number of parents of this StateAttribute.\n Return: the number of parents of this StateAttribute." );
         
         }
         { //::osg::StateAttribute::getParent
@@ -507,7 +512,8 @@ void register_StateAttribute_class(){
                 "getParent"
                 , getParent_function_type( &::osg::StateAttribute::getParent )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single const parent of this StateAttribute.\n @param i: index of the parent to get.\n Return: the parent i." );
         
         }
         { //::osg::StateAttribute::getParents
@@ -517,7 +523,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "getParents"
                 , getParents_function_type( &::osg::StateAttribute::getParents )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the parent list of this StateAttribute." );
         
         }
         { //::osg::StateAttribute::getShaderComponent
@@ -546,7 +553,8 @@ void register_StateAttribute_class(){
             
             StateAttribute_exposer.def( 
                 "getType"
-                , bp::pure_virtual( getType_function_type(&::osg::StateAttribute::getType) ) );
+                , bp::pure_virtual( getType_function_type(&::osg::StateAttribute::getType) )
+                , "\n Return the Type identifier of the attributes class type.\n" );
         
         }
         { //::osg::StateAttribute::getTypeMemberPair
@@ -555,7 +563,8 @@ void register_StateAttribute_class(){
             
             StateAttribute_exposer.def( 
                 "getTypeMemberPair"
-                , getTypeMemberPair_function_type( &::osg::StateAttribute::getTypeMemberPair ) );
+                , getTypeMemberPair_function_type( &::osg::StateAttribute::getTypeMemberPair )
+                , " Return the TypeMemberPair that uniquely identifies this type member." );
         
         }
         { //::osg::StateAttribute::getUpdateCallback
@@ -565,7 +574,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::StateAttribute::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const UpdateCallback." );
         
         }
         { //::osg::StateAttribute::getUpdateCallback
@@ -575,7 +585,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::StateAttribute::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const UpdateCallback." );
         
         }
         { //::osg::StateAttribute::isSameKindAs
@@ -631,7 +642,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::StateAttribute::setEventCallback )
-                , ( bp::arg("ec") ) );
+                , ( bp::arg("ec") )
+                , " Set the EventCallback which allows users to attach customize the updating of an object during the Event traversal." );
         
         }
         { //::osg::StateAttribute::setShaderComponent
@@ -651,7 +663,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::StateAttribute::setUpdateCallback )
-                , ( bp::arg("uc") ) );
+                , ( bp::arg("uc") )
+                , " Set the UpdateCallback which allows users to attach customize the updating of an object during the update traversal." );
         
         }
         { //::osg::Object::computeDataVariance
@@ -708,7 +721,8 @@ void register_StateAttribute_class(){
             StateAttribute_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

@@ -612,7 +612,8 @@ void register_PrimitiveSet_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::Object::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::cloneType
@@ -622,7 +623,8 @@ void register_PrimitiveSet_class(){
             PrimitiveSet_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::Object::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::computeDataVariance
@@ -691,7 +693,8 @@ void register_PrimitiveSet_class(){
             PrimitiveSet_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

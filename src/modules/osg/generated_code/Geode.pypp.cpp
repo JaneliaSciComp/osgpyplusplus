@@ -272,7 +272,7 @@ struct Geode_wrapper : osg::Geode, bp::wrapper< osg::Geode > {
 
 void register_Geode_class(){
 
-    bp::class_< Geode_wrapper, bp::bases< osg::Node >, osg::ref_ptr< ::osg::Geode >, boost::noncopyable >( "Geode", bp::no_init )    
+    bp::class_< Geode_wrapper, bp::bases< osg::Node >, osg::ref_ptr< ::osg::Geode >, boost::noncopyable >( "Geode", "\n A  Geode is a geometry node, that is, a leaf node on the scene graph\n that can have renderable things attached to it. In OSG, renderable things\n are represented by objects from the  Drawable class, so a  Geode is a\n  Node whose purpose is grouping <tt>Drawable</tt>s.\n", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"
@@ -312,7 +312,8 @@ void register_Geode_class(){
         .def( 
             "compileDrawables"
             , (void ( ::osg::Geode::* )( ::osg::RenderInfo & ))( &::osg::Geode::compileDrawables )
-            , ( bp::arg("renderInfo") ) )    
+            , ( bp::arg("renderInfo") )
+            , " Compile OpenGL Display List for each drawable." )    
         .def( 
             "computeBound"
             , (::osg::BoundingSphere ( ::osg::Geode::* )(  )const)(&::osg::Geode::computeBound)
@@ -320,32 +321,39 @@ void register_Geode_class(){
         .def( 
             "containsDrawable"
             , (bool ( ::osg::Geode::* )( ::osg::Drawable const * )const)( &::osg::Geode::containsDrawable )
-            , ( bp::arg("gset") ) )    
+            , ( bp::arg("gset") )
+            , " Return  true if a given  Drawable is contained within  Geode." )    
         .def( 
             "getBoundingBox"
             , (::osg::BoundingBox const & ( ::osg::Geode::* )(  )const)( &::osg::Geode::getBoundingBox )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Return the Geodes bounding box, which is the union of all the\n bounding boxes of the geodes drawables." )    
         .def( 
             "getDrawable"
             , (::osg::Drawable * ( ::osg::Geode::* )( unsigned int ))( &::osg::Geode::getDrawable )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Return the  Drawable at position  i." )    
         .def( 
             "getDrawable"
             , (::osg::Drawable const * ( ::osg::Geode::* )( unsigned int )const)( &::osg::Geode::getDrawable )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Return the  Drawable at position  i." )    
         .def( 
             "getDrawableIndex"
             , (unsigned int ( ::osg::Geode::* )( ::osg::Drawable const * )const)( &::osg::Geode::getDrawableIndex )
-            , ( bp::arg("drawable") ) )    
+            , ( bp::arg("drawable") )
+            , " Get the index number of  drawable.\n Return: A value between 0 and <tt>getNumDrawables()-1</tt> if\n          drawable is found; if not found, then\n         <tt>getNumDrawables()</tt> is returned." )    
         .def( 
             "getDrawableList"
             , (::std::vector< osg::ref_ptr<osg::Drawable> > const & ( ::osg::Geode::* )(  )const)( &::osg::Geode::getDrawableList )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the list of drawables." )    
         .def( 
             "getNumDrawables"
-            , (unsigned int ( ::osg::Geode::* )(  )const)( &::osg::Geode::getNumDrawables ) )    
+            , (unsigned int ( ::osg::Geode::* )(  )const)( &::osg::Geode::getNumDrawables )
+            , " Return the number of <tt>Drawable</tt>s currently attached to the\n  Geode." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::Geode::* )( ::osg::Object const * )const)(&::osg::Geode::isSameKindAs)
@@ -407,7 +415,8 @@ void register_Geode_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setUserData"
             , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)

@@ -10,7 +10,7 @@ void register_GLBeginEndAdapter_class(){
 
     { //::osg::GLBeginEndAdapter
         typedef bp::class_< osg::GLBeginEndAdapter > GLBeginEndAdapter_exposer_t;
-        GLBeginEndAdapter_exposer_t GLBeginEndAdapter_exposer = GLBeginEndAdapter_exposer_t( "GLBeginEndAdapter", bp::init< bp::optional< osg::State * > >(( bp::arg("state")=bp::object() )) );
+        GLBeginEndAdapter_exposer_t GLBeginEndAdapter_exposer = GLBeginEndAdapter_exposer_t( "GLBeginEndAdapter", "\n A class adapting OpenGL 1.0 glBegin()/glEnd() style code to vertex array based code\n", bp::init< bp::optional< osg::State * > >(( bp::arg("state")=bp::object() ), "\n A class adapting OpenGL 1.0 glBegin()/glEnd() style code to vertex array based code\n") );
         bp::scope GLBeginEndAdapter_scope( GLBeginEndAdapter_exposer );
         bp::enum_< osg::GLBeginEndAdapter::MatrixMode>("MatrixMode")
             .value("APPLY_LOCAL_MATRICES_TO_VERTICES", osg::GLBeginEndAdapter::APPLY_LOCAL_MATRICES_TO_VERTICES)

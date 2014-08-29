@@ -10,7 +10,7 @@ void register_Vec2d_class(){
 
     { //::osg::Vec2d
         typedef bp::class_< osg::Vec2d > Vec2d_exposer_t;
-        Vec2d_exposer_t Vec2d_exposer = Vec2d_exposer_t( "Vec2d", bp::init< >() );
+        Vec2d_exposer_t Vec2d_exposer = Vec2d_exposer_t( "Vec2d", "\n General purpose double pair, uses include representation of\n texture coordinates.\n No support yet added for double * Vec2d - is it necessary?\n Need to define a non-member non-friend operator* etc.\n BTW: Vec2d * double is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec2d_scope( Vec2d_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2d::num_components;
         Vec2d_exposer.def( bp::init< double, double >(( bp::arg("x"), bp::arg("y") )) );
@@ -22,7 +22,8 @@ void register_Vec2d_class(){
             
             Vec2d_exposer.def( 
                 "isNaN"
-                , isNaN_function_type( &::osg::Vec2d::isNaN ) );
+                , isNaN_function_type( &::osg::Vec2d::isNaN )
+                , "\n Returns true if at least one component has value NaN.\n" );
         
         }
         { //::osg::Vec2d::length
@@ -31,7 +32,8 @@ void register_Vec2d_class(){
             
             Vec2d_exposer.def( 
                 "length"
-                , length_function_type( &::osg::Vec2d::length ) );
+                , length_function_type( &::osg::Vec2d::length )
+                , "\n Length of the vector = sqrt( vec . vec )\n" );
         
         }
         { //::osg::Vec2d::length2
@@ -40,7 +42,8 @@ void register_Vec2d_class(){
             
             Vec2d_exposer.def( 
                 "length2"
-                , length2_function_type( &::osg::Vec2d::length2 ) );
+                , length2_function_type( &::osg::Vec2d::length2 )
+                , "\n Length squared of the vector = vec . vec\n" );
         
         }
         { //::osg::Vec2d::normalize
@@ -49,7 +52,8 @@ void register_Vec2d_class(){
             
             Vec2d_exposer.def( 
                 "normalize"
-                , normalize_function_type( &::osg::Vec2d::normalize ) );
+                , normalize_function_type( &::osg::Vec2d::normalize )
+                , "\n Normalize the vector so that it has length unity.\n Returns the previous length of the vector.\n" );
         
         }
         Vec2d_exposer.def( "as__scope_osg_scope_Vec2f", &osg::Vec2d::operator ::osg::Vec2f  );
@@ -103,7 +107,8 @@ void register_Vec2d_class(){
             
             Vec2d_exposer.def( 
                 "valid"
-                , valid_function_type( &::osg::Vec2d::valid ) );
+                , valid_function_type( &::osg::Vec2d::valid )
+                , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
         { //::osg::Vec2d::x

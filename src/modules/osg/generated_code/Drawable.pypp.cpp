@@ -1426,7 +1426,7 @@ void register_Drawable_class(){
 
     { //::osg::Drawable
         typedef bp::class_< Drawable_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable >, boost::noncopyable > Drawable_exposer_t;
-        Drawable_exposer_t Drawable_exposer = Drawable_exposer_t( "Drawable", bp::no_init );
+        Drawable_exposer_t Drawable_exposer = Drawable_exposer_t( "Drawable", "\n Pure virtual base class for drawable geometry. In OSG, everything that can\n  be rendered is implemented as a class derived from  Drawable. The\n   Drawable class contains no drawing primitives, since these are provided\n  by subclasses such as  osg::Geometry.\n  <p>Notice that a  Drawable is not a  Node, and therefore it cannot be\n  directly added to a scene graph. Instead, <tt>Drawable</tt>s are attached to\n  <tt>Geode</tt>s, which are scene graph nodes.\n  <p>The OpenGL state that must be used when rendering a  Drawable is\n  represented by a  StateSet. Since a  Drawable has a reference\n  ( osg::ref_ptr) to a  StateSet, <tt>StateSet</tt>s can be shared between\n  different <tt>Drawable</tt>s. In fact, sharing <tt>StateSet</tt>s is a good\n  way to improve performance, since this allows OSG to reduce the number of\n  expensive changes in the OpenGL state.\n  <p>Finally, <tt>Drawable</tt>s can also be shared between different\n  <tt>Geode</tt>s, so that the same geometry (loaded to memory just once) can\n  be used in different parts of the scene graph.\n", bp::no_init );
         bp::scope Drawable_scope( Drawable_exposer );
         bp::enum_< osg::Drawable::AttributeTypes>("AttributeTypes")
             .value("VERTICES", osg::Drawable::VERTICES)
@@ -1524,7 +1524,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Drawable::AttributeFunctor::* )( unsigned int,unsigned int,::osg::Vec4d * ))(&::osg::Drawable::AttributeFunctor::apply)
                 , (void ( Drawable_wrapper::AttributeFunctor_wrapper::* )( unsigned int,unsigned int,::osg::Vec4d * ))(&Drawable_wrapper::AttributeFunctor_wrapper::default_apply)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) );
-        bp::class_< Drawable_wrapper::ConstAttributeFunctor_wrapper >( "ConstAttributeFunctor" )    
+        bp::class_< Drawable_wrapper::ConstAttributeFunctor_wrapper >( "ConstAttributeFunctor", "\n accept an AttributeFunctor and call its methods to tell it about the internal attributes that this Drawable has.\n return true if functor handled by drawable,\n return false on failure of drawable to generate functor calls.\n" )    
             .def( 
                 "apply"
                 , (void ( ::osg::Drawable::ConstAttributeFunctor::* )( unsigned int,unsigned int,::GLbyte const * ))(&::osg::Drawable::ConstAttributeFunctor::apply)
@@ -1662,7 +1662,8 @@ void register_Drawable_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -1673,7 +1674,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( Drawable_wrapper::CullCallback_wrapper::* )( ::osg::Referenced * ))(&Drawable_wrapper::CullCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        bp::class_< Drawable_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::DrawCallback >, boost::noncopyable >( "DrawCallback" )    
+        bp::class_< Drawable_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::DrawCallback >, boost::noncopyable >( "DrawCallback", "\n Callback attached to an Drawable which allows the users to customize the drawing of an exist Drawable object.\n The draw callback is implement as a replacement to the Drawables own drawImplementation() method, if the\n the user intends to decorate the existing draw code then simple call the drawable->drawImplementation() from\n with the callbacks drawImplementation() method. This allows the users to do both pre and post callbacks\n without fuss and can even disable the inner draw if required.\n" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Drawable::DrawCallback::* )(  )const)(&::osg::Drawable::DrawCallback::className)
@@ -1730,7 +1731,8 @@ void register_Drawable_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -1798,7 +1800,8 @@ void register_Drawable_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -1866,7 +1869,8 @@ void register_Drawable_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -2001,7 +2005,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "deleteDisplayList"
                 , deleteDisplayList_function_type( &::osg::Drawable::deleteDisplayList )
-                , ( bp::arg("contextID"), bp::arg("globj"), bp::arg("sizeHint")=(unsigned int)(0) ) );
+                , ( bp::arg("contextID"), bp::arg("globj"), bp::arg("sizeHint")=(unsigned int)(0) )
+                , " Use deleteDisplayList instead of glDeleteList to allow\n OpenGL display list to be cached until they can be deleted\n by the OpenGL context in which they were created, specified\n by contextID." );
         
         }
         { //::osg::Drawable::dirtyBound
@@ -2010,7 +2015,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "dirtyBound"
-                , dirtyBound_function_type( &::osg::Drawable::dirtyBound ) );
+                , dirtyBound_function_type( &::osg::Drawable::dirtyBound )
+                , " Dirty the bounding box, forcing a computeBound() on the next call\n to getBound(). Should be called in the internal geometry of the Drawable\n is modified." );
         
         }
         { //::osg::Drawable::dirtyDisplayList
@@ -2031,7 +2037,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "discardAllDeletedDisplayLists"
                 , discardAllDeletedDisplayLists_function_type( &::osg::Drawable::discardAllDeletedDisplayLists )
-                , ( bp::arg("contextID") ) );
+                , ( bp::arg("contextID") )
+                , " Flush all the cached display list which need to be deleted\n in the OpenGL context related to contextID.\n Note, unlike flush no OpenGL calls are made, instead the handles are all removed.\n this call is useful for when an OpenGL context has been destroyed." );
         
         }
         { //::osg::Drawable::draw
@@ -2051,7 +2058,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "drawImplementation"
                 , bp::pure_virtual( drawImplementation_function_type(&::osg::Drawable::drawImplementation) )
-                , ( bp::arg("renderInfo") ) );
+                , ( bp::arg("renderInfo") )
+                , "\n drawImplementation(RenderInfo&) is a pure virtual method for the actual implementation of OpenGL drawing calls, such as vertex arrays and primitives, that\n must be implemented in concrete subclasses of the Drawable base class, examples include osg::Geometry and osg::ShapeDrawable.\n drawImplementation(RenderInfo&) is called from the draw(RenderInfo&) method, with the draw method handling management of OpenGL display lists,\n and drawImplementation(RenderInfo&) handling the actual drawing itself.\n @param renderInfo: The osg::RenderInfo object that encapsulates the current rendering information including the osg::State OpenGL state for the current graphics context.\n" );
         
         }
         { //::osg::Drawable::flushAllDeletedDisplayLists
@@ -2061,7 +2069,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "flushAllDeletedDisplayLists"
                 , flushAllDeletedDisplayLists_function_type( &::osg::Drawable::flushAllDeletedDisplayLists )
-                , ( bp::arg("contextID") ) );
+                , ( bp::arg("contextID") )
+                , " Flush all the cached display list which need to be deleted\n in the OpenGL context related to contextID." );
         
         }
         { //::osg::Drawable::flushDeletedDisplayLists
@@ -2071,7 +2080,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "flushDeletedDisplayLists"
                 , flushDeletedDisplayLists_function_type( &::osg::Drawable::flushDeletedDisplayLists )
-                , ( bp::arg("contextID"), bp::arg("availableTime") ) );
+                , ( bp::arg("contextID"), bp::arg("availableTime") )
+                , " Flush the cached display list which need to be deleted\n in the OpenGL context related to contextID." );
         
         }
         { //::osg::Drawable::generateDisplayList
@@ -2081,7 +2091,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "generateDisplayList"
                 , generateDisplayList_function_type( &::osg::Drawable::generateDisplayList )
-                , ( bp::arg("contextID"), bp::arg("sizeHint")=(unsigned int)(0) ) );
+                , ( bp::arg("contextID"), bp::arg("sizeHint")=(unsigned int)(0) )
+                , " Return a OpenGL display list handle a newly generated or reused from display list cache." );
         
         }
         { //::osg::Drawable::getBound
@@ -2091,7 +2102,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getBound"
                 , getBound_function_type( &::osg::Drawable::getBound )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get BoundingBox of Drawable.\n If the BoundingBox is not up to date then its updated via an internal call to computeBond()." );
         
         }
         { //::osg::Drawable::getComputeBoundingBoxCallback
@@ -2101,7 +2113,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getComputeBoundingBoxCallback"
                 , getComputeBoundingBoxCallback_function_type( &::osg::Drawable::getComputeBoundingBoxCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the compute bound callback." );
         
         }
         { //::osg::Drawable::getComputeBoundingBoxCallback
@@ -2111,7 +2124,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getComputeBoundingBoxCallback"
                 , getComputeBoundingBoxCallback_function_type( &::osg::Drawable::getComputeBoundingBoxCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const compute bound callback." );
         
         }
         { //::osg::Drawable::getCullCallback
@@ -2121,7 +2135,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getCullCallback"
                 , getCullCallback_function_type( &::osg::Drawable::getCullCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const CullCallback." );
         
         }
         { //::osg::Drawable::getCullCallback
@@ -2131,7 +2146,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getCullCallback"
                 , getCullCallback_function_type( &::osg::Drawable::getCullCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const CullCallback." );
         
         }
         { //::osg::Drawable::getDisplayList
@@ -2142,7 +2158,8 @@ void register_Drawable_class(){
                 "getDisplayList"
                 , getDisplayList_function_type( &::osg::Drawable::getDisplayList )
                 , ( bp::arg("contextID") )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::return_value_policy< bp::copy_non_const_reference >()
+                , " Return OpenGL display list for specified contextID." );
         
         }
         { //::osg::Drawable::getDrawCallback
@@ -2152,7 +2169,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getDrawCallback"
                 , getDrawCallback_function_type( &::osg::Drawable::getDrawCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const DrawCallback." );
         
         }
         { //::osg::Drawable::getDrawCallback
@@ -2162,7 +2180,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getDrawCallback"
                 , getDrawCallback_function_type( &::osg::Drawable::getDrawCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const DrawCallback." );
         
         }
         { //::osg::Drawable::getEventCallback
@@ -2172,7 +2191,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Drawable::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const EventCallback." );
         
         }
         { //::osg::Drawable::getEventCallback
@@ -2182,7 +2202,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Drawable::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const EventCallback." );
         
         }
         { //::osg::Drawable::getExtensions
@@ -2193,7 +2214,8 @@ void register_Drawable_class(){
                 "getExtensions"
                 , getExtensions_function_type( &::osg::Drawable::getExtensions )
                 , ( bp::arg("contextID"), bp::arg("createIfNotInitalized") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Function to call to get the extension of a specified context.\n If the Extension object for that context has not yet been created\n and the createIfNotInitalized flag been set to false then returns NULL.\n If createIfNotInitalized is true then the Extensions object is\n automatically created.  However, in this case the extension object is\n only created with the graphics context associated with ContextID.." );
         
         }
         { //::osg::Drawable::getGLObjectSizeHint
@@ -2214,7 +2236,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getInitialBound"
                 , getInitialBound_function_type( &::osg::Drawable::getInitialBound )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Set the initial bounding volume to use when computing the overall bounding volume." );
         
         }
         { //::osg::Drawable::getMinimumNumberOfDisplayListsToRetainInCache
@@ -2223,7 +2246,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getMinimumNumberOfDisplayListsToRetainInCache"
-                , getMinimumNumberOfDisplayListsToRetainInCache_function_type( &::osg::Drawable::getMinimumNumberOfDisplayListsToRetainInCache ) );
+                , getMinimumNumberOfDisplayListsToRetainInCache_function_type( &::osg::Drawable::getMinimumNumberOfDisplayListsToRetainInCache )
+                , " Get the minimum number of display lists to retain in the deleted display list cache." );
         
         }
         { //::osg::Drawable::getNumParents
@@ -2232,7 +2256,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getNumParents"
-                , getNumParents_function_type( &::osg::Drawable::getNumParents ) );
+                , getNumParents_function_type( &::osg::Drawable::getNumParents )
+                , " Get the number of parents of node.\n Return: the number of parents of this node." );
         
         }
         { //::osg::Drawable::getOrCreateStateSet
@@ -2242,7 +2267,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getOrCreateStateSet"
                 , getOrCreateStateSet_function_type( &::osg::Drawable::getOrCreateStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the attached const StateSet,\n if one is not already attached create one,\n attach it to the drawable and return a pointer to it." );
         
         }
         { //::osg::Drawable::getParent
@@ -2253,7 +2279,8 @@ void register_Drawable_class(){
                 "getParent"
                 , getParent_function_type( &::osg::Drawable::getParent )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single parent of Drawable.\n @param i: index of the parent to get.\n Return: the parent i." );
         
         }
         { //::osg::Drawable::getParent
@@ -2264,7 +2291,8 @@ void register_Drawable_class(){
                 "getParent"
                 , getParent_function_type( &::osg::Drawable::getParent )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single const parent of Drawable.\n @param i: index of the parent to get.\n Return: the parent i." );
         
         }
         { //::osg::Drawable::getParents
@@ -2274,7 +2302,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getParents"
                 , getParents_function_type( &::osg::Drawable::getParents )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the parent list of drawable." );
         
         }
         { //::osg::Drawable::getParents
@@ -2283,7 +2312,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getParents"
-                , getParents_function_type( &::osg::Drawable::getParents ) );
+                , getParents_function_type( &::osg::Drawable::getParents )
+                , " Get the a copy of parent list of node. A copy is returned to\n prevent modification of the parent list." );
         
         }
         { //::osg::Drawable::getShape
@@ -2293,7 +2323,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getShape"
                 , getShape_function_type( &::osg::Drawable::getShape )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the Shape of the Drawable." );
         
         }
         { //::osg::Drawable::getShape
@@ -2303,7 +2334,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getShape"
                 , getShape_function_type( &::osg::Drawable::getShape )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const Shape of the const Drawable." );
         
         }
         { //::osg::Drawable::getStateSet
@@ -2313,7 +2345,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getStateSet"
                 , getStateSet_function_type( &::osg::Drawable::getStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the attached StateSet." );
         
         }
         { //::osg::Drawable::getStateSet
@@ -2323,7 +2356,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getStateSet"
                 , getStateSet_function_type( &::osg::Drawable::getStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the attached const StateSet." );
         
         }
         { //::osg::Drawable::getSupportsDisplayList
@@ -2332,7 +2366,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getSupportsDisplayList"
-                , getSupportsDisplayList_function_type( &::osg::Drawable::getSupportsDisplayList ) );
+                , getSupportsDisplayList_function_type( &::osg::Drawable::getSupportsDisplayList )
+                , " Get whether display lists are supported for this drawable instance." );
         
         }
         { //::osg::Drawable::getUpdateCallback
@@ -2342,7 +2377,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Drawable::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const UpdateCallback." );
         
         }
         { //::osg::Drawable::getUpdateCallback
@@ -2352,7 +2388,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Drawable::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const UpdateCallback." );
         
         }
         { //::osg::Drawable::getUseDisplayList
@@ -2361,7 +2398,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getUseDisplayList"
-                , getUseDisplayList_function_type( &::osg::Drawable::getUseDisplayList ) );
+                , getUseDisplayList_function_type( &::osg::Drawable::getUseDisplayList )
+                , " Return whether OpenGL display lists are being used for rendering." );
         
         }
         { //::osg::Drawable::getUseVertexBufferObjects
@@ -2370,7 +2408,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "getUseVertexBufferObjects"
-                , getUseVertexBufferObjects_function_type( &::osg::Drawable::getUseVertexBufferObjects ) );
+                , getUseVertexBufferObjects_function_type( &::osg::Drawable::getUseVertexBufferObjects )
+                , " Return whether OpenGL vertex buffer objects should be used when supported by OpenGL driver." );
         
         }
         { //::osg::Drawable::getWorldMatrices
@@ -2380,7 +2419,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "getWorldMatrices"
                 , getWorldMatrices_function_type( &::osg::Drawable::getWorldMatrices )
-                , ( bp::arg("haltTraversalAtNode")=bp::object() ) );
+                , ( bp::arg("haltTraversalAtNode")=bp::object() )
+                , " Get the list of matrices that transform this node from local coordinates to world coordinates.\n The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node." );
         
         }
         { //::osg::Drawable::isSameKindAs
@@ -2412,7 +2452,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "requiresEventTraversal"
-                , requiresEventTraversal_function_type( &::osg::Drawable::requiresEventTraversal ) );
+                , requiresEventTraversal_function_type( &::osg::Drawable::requiresEventTraversal )
+                , " Return whether this Drawable has event callbacks associated with it, and therefore must be traversed." );
         
         }
         { //::osg::Drawable::requiresUpdateTraversal
@@ -2421,7 +2462,8 @@ void register_Drawable_class(){
             
             Drawable_exposer.def( 
                 "requiresUpdateTraversal"
-                , requiresUpdateTraversal_function_type( &::osg::Drawable::requiresUpdateTraversal ) );
+                , requiresUpdateTraversal_function_type( &::osg::Drawable::requiresUpdateTraversal )
+                , " Return whether this Drawable has update callbacks associated with it, and therefore must be traversed." );
         
         }
         { //::osg::Drawable::resizeGLObjectBuffers
@@ -2443,7 +2485,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setComputeBoundingBoxCallback"
                 , setComputeBoundingBoxCallback_function_type( &::osg::Drawable::setComputeBoundingBoxCallback )
-                , ( bp::arg("callback") ) );
+                , ( bp::arg("callback") )
+                , " Set the compute bound callback to override the default computeBound." );
         
         }
         { //::osg::Drawable::setCullCallback
@@ -2489,7 +2532,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setExtensions"
                 , setExtensions_function_type( &::osg::Drawable::setExtensions )
-                , ( bp::arg("contextID"), bp::arg("extensions") ) );
+                , ( bp::arg("contextID"), bp::arg("extensions") )
+                , " setExtensions allows users to override the extensions across graphics contexts.\n typically used when you have different extensions supported across graphics pipes\n but need to ensure that they all use the same low common denominator extensions." );
         
         }
         { //::osg::Drawable::setInitialBound
@@ -2499,7 +2543,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setInitialBound"
                 , setInitialBound_function_type( &::osg::Drawable::setInitialBound )
-                , ( bp::arg("bbox") ) );
+                , ( bp::arg("bbox") )
+                , " Set the initial bounding volume to use when computing the overall bounding volume." );
         
         }
         { //::osg::Drawable::setMinimumNumberOfDisplayListsToRetainInCache
@@ -2509,7 +2554,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setMinimumNumberOfDisplayListsToRetainInCache"
                 , setMinimumNumberOfDisplayListsToRetainInCache_function_type( &::osg::Drawable::setMinimumNumberOfDisplayListsToRetainInCache )
-                , ( bp::arg("minimum") ) );
+                , ( bp::arg("minimum") )
+                , " Set the minimum number of display lists to retain in the deleted display list cache." );
         
         }
         { //::osg::Drawable::setShape
@@ -2519,7 +2565,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setShape"
                 , setShape_function_type( &::osg::Drawable::setShape )
-                , ( bp::arg("shape") ) );
+                , ( bp::arg("shape") )
+                , " Set the Shape of the  Drawable. The shape can be used to\n  speed up collision detection or as a guide for procedural\n  geometry generation.\n aee osg::Shape." );
         
         }
         { //::osg::Drawable::setStateSet
@@ -2529,7 +2576,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setStateSet"
                 , setStateSet_function_type( &::osg::Drawable::setStateSet )
-                , ( bp::arg("stateset") ) );
+                , ( bp::arg("stateset") )
+                , " Set the StateSet attached to the Drawable.\n            Previously attached StateSet are automatically unreferenced on\n            assignment of a new drawstate." );
         
         }
         { //::osg::Drawable::setSupportsDisplayList
@@ -2539,7 +2587,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setSupportsDisplayList"
                 , setSupportsDisplayList_function_type( &::osg::Drawable::setSupportsDisplayList )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " Set the drawable so that it can or cannot be used in conjunction with OpenGL\n display lists.  When set to true, calls to Drawable::setUseDisplayList,\n whereas when set to false, no display lists can be created and calls\n to setUseDisplayList are ignored, and a warning is produced.  The latter\n is typically used to guard against the switching on of display lists\n on objects with dynamic internal data such as continuous Level of Detail\n algorithms." );
         
         }
         { //::osg::Drawable::setThreadSafeRefUnref
@@ -2573,7 +2622,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setUseDisplayList"
                 , setUseDisplayList_function_type( &::osg::Drawable::setUseDisplayList )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " When set to true, force the draw method to use OpenGL Display List for rendering.\n            If false, rendering directly.  If the display list has not been compiled\n            already, the next call to draw will automatically create the display list." );
         
         }
         { //::osg::Drawable::setUseVertexBufferObjects
@@ -2637,7 +2687,7 @@ void register_Drawable_class(){
         
         }
         Drawable_exposer.def_readwrite( "s_numberDeletedDrawablesInLastFrame", osg::Drawable::s_numberDeletedDrawablesInLastFrame );
-        Drawable_exposer.def_readwrite( "s_numberDrawablesReusedLastInLastFrame", osg::Drawable::s_numberDrawablesReusedLastInLastFrame );
+        Drawable_exposer.def_readwrite( "s_numberDrawablesReusedLastInLastFrame", osg::Drawable::s_numberDrawablesReusedLastInLastFrame, " Pure virtual base class for drawable geometry. In OSG, everything that can\n  be rendered is implemented as a class derived from  Drawable. The\n   Drawable class contains no drawing primitives, since these are provided\n  by subclasses such as  osg::Geometry.\n  <p>Notice that a  Drawable is not a  Node, and therefore it cannot be\n  directly added to a scene graph. Instead, <tt>Drawable</tt>s are attached to\n  <tt>Geode</tt>s, which are scene graph nodes.\n  <p>The OpenGL state that must be used when rendering a  Drawable is\n  represented by a  StateSet. Since a  Drawable has a reference\n  ( osg::ref_ptr) to a  StateSet, <tt>StateSet</tt>s can be shared between\n  different <tt>Drawable</tt>s. In fact, sharing <tt>StateSet</tt>s is a good\n  way to improve performance, since this allows OSG to reduce the number of\n  expensive changes in the OpenGL state.\n  <p>Finally, <tt>Drawable</tt>s can also be shared between different\n  <tt>Geode</tt>s, so that the same geometry (loaded to memory just once) can\n  be used in different parts of the scene graph." );
         Drawable_exposer.def_readwrite( "s_numberNewDrawablesInLastFrame", osg::Drawable::s_numberNewDrawablesInLastFrame );
         { //::osg::Object::clone
         
@@ -2647,7 +2697,8 @@ void register_Drawable_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::Object::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::cloneType
@@ -2657,7 +2708,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::Object::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::getUserData
@@ -2703,7 +2755,8 @@ void register_Drawable_class(){
             Drawable_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

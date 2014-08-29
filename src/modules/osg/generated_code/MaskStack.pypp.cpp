@@ -10,10 +10,10 @@ void register_MaskStack_class(){
 
     { //::osg::fast_back_stack< unsigned int >
         typedef bp::class_< osg::fast_back_stack< unsigned int > > MaskStack_exposer_t;
-        MaskStack_exposer_t MaskStack_exposer = MaskStack_exposer_t( "MaskStack", bp::init< >() );
+        MaskStack_exposer_t MaskStack_exposer = MaskStack_exposer_t( "MaskStack", "\n Simple stack implementation that keeps the back() cached locally for fast access\n rather than at the back of the vector which is the traditional stack implementation.\n A conventional std::vector<> stores the rest of the stack. Although fast_back_stack\n  contains a stl container it only implements the back push_back(),pop_back()\n and back() methods so is not as general purpose as stl stack implementation.\n The focus of the fast_back_stack is purely to maximize the speed at which the\n back can be accessed.\n", bp::init< >("\n Simple stack implementation that keeps the back() cached locally for fast access\n rather than at the back of the vector which is the traditional stack implementation.\n A conventional std::vector<> stores the rest of the stack. Although fast_back_stack\n  contains a stl container it only implements the back push_back(),pop_back()\n and back() methods so is not as general purpose as stl stack implementation.\n The focus of the fast_back_stack is purely to maximize the speed at which the\n back can be accessed.\n") );
         bp::scope MaskStack_scope( MaskStack_exposer );
-        MaskStack_exposer.def( bp::init< osg::fast_back_stack< unsigned int > const & >(( bp::arg("fbs") )) );
-        MaskStack_exposer.def( bp::init< unsigned int const & >(( bp::arg("value") )) );
+        MaskStack_exposer.def( bp::init< osg::fast_back_stack< unsigned int > const & >(( bp::arg("fbs") ), "\n Simple stack implementation that keeps the back() cached locally for fast access\n rather than at the back of the vector which is the traditional stack implementation.\n A conventional std::vector<> stores the rest of the stack. Although fast_back_stack\n  contains a stl container it only implements the back push_back(),pop_back()\n and back() methods so is not as general purpose as stl stack implementation.\n The focus of the fast_back_stack is purely to maximize the speed at which the\n back can be accessed.\n") );
+        MaskStack_exposer.def( bp::init< unsigned int const & >(( bp::arg("value") ), "\n Simple stack implementation that keeps the back() cached locally for fast access\n rather than at the back of the vector which is the traditional stack implementation.\n A conventional std::vector<> stores the rest of the stack. Although fast_back_stack\n  contains a stl container it only implements the back push_back(),pop_back()\n and back() methods so is not as general purpose as stl stack implementation.\n The focus of the fast_back_stack is purely to maximize the speed at which the\n back can be accessed.\n") );
         bp::implicitly_convertible< unsigned int const &, osg::fast_back_stack< unsigned int > >();
         { //::osg::fast_back_stack< unsigned int >::back
         
@@ -66,7 +66,8 @@ void register_MaskStack_class(){
                 "assign"
                 , assign_function_type( &::osg::fast_back_stack< unsigned int >::operator= )
                 , ( bp::arg("fbs") )
-                , bp::return_self< >() );
+                , bp::return_self< >()
+                , "\n Simple stack implementation that keeps the back() cached locally for fast access\n rather than at the back of the vector which is the traditional stack implementation.\n A conventional std::vector<> stores the rest of the stack. Although fast_back_stack\n  contains a stl container it only implements the back push_back(),pop_back()\n and back() methods so is not as general purpose as stl stack implementation.\n The focus of the fast_back_stack is purely to maximize the speed at which the\n back can be accessed.\n" );
         
         }
         { //::osg::fast_back_stack< unsigned int >::pop_back

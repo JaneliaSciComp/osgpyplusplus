@@ -471,7 +471,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "addPrimitiveSet"
                 , addPrimitiveSet_function_type( &::osg::Geometry::addPrimitiveSet )
-                , ( bp::arg("primitiveset") ) );
+                , ( bp::arg("primitiveset") )
+                , " Add a primitive set to the geometry." );
         
         }
         { //::osg::Geometry::asGeometry
@@ -504,7 +505,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "checkForDeprecatedData"
-                , checkForDeprecatedData_function_type( &::osg::Geometry::checkForDeprecatedData ) );
+                , checkForDeprecatedData_function_type( &::osg::Geometry::checkForDeprecatedData )
+                , " fallback for deprecated functionality. Return true if the Geometry contains any array indices or BIND_PER_PRIMITIVE arrays." );
         
         }
         { //::osg::Geometry::className
@@ -561,7 +563,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "containsDeprecatedData"
-                , containsDeprecatedData_function_type( &::osg::Geometry::containsDeprecatedData ) );
+                , containsDeprecatedData_function_type( &::osg::Geometry::containsDeprecatedData )
+                , " Return true if the deprecated use array indicies or BIND_PER_PRIMITIVE binding has been assigned to arrays." );
         
         }
         { //::osg::Geometry::containsSharedArrays
@@ -570,7 +573,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "containsSharedArrays"
-                , containsSharedArrays_function_type( &::osg::Geometry::containsSharedArrays ) );
+                , containsSharedArrays_function_type( &::osg::Geometry::containsSharedArrays )
+                , " return true if any arrays are shared." );
         
         }
         { //::osg::Geometry::dirtyDisplayList
@@ -602,7 +606,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "duplicateSharedArrays"
-                , duplicateSharedArrays_function_type( &::osg::Geometry::duplicateSharedArrays ) );
+                , duplicateSharedArrays_function_type( &::osg::Geometry::duplicateSharedArrays )
+                , " duplicate any shared arrays." );
         
         }
         { //::osg::Geometry::empty
@@ -620,7 +625,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "fixDeprecatedData"
-                , fixDeprecatedData_function_type( &::osg::Geometry::fixDeprecatedData ) );
+                , fixDeprecatedData_function_type( &::osg::Geometry::fixDeprecatedData )
+                , " fallback for deprecated functionality. Removes any array indices and BIND_PER_PRIMITIVE arrays." );
         
         }
         { //::osg::Geometry::getArrayList
@@ -738,7 +744,8 @@ void register_Geometry_class(){
             
             Geometry_exposer.def( 
                 "getNormalBinding"
-                , getNormalBinding_function_type( &::osg::Geometry::getNormalBinding ) );
+                , getNormalBinding_function_type( &::osg::Geometry::getNormalBinding )
+                , " deprecated, use array->get*Binding(..)." );
         
         }
         { //::osg::Geometry::getNumPrimitiveSets
@@ -817,7 +824,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "getPrimitiveSetIndex"
                 , getPrimitiveSetIndex_function_type( &::osg::Geometry::getPrimitiveSetIndex )
-                , ( bp::arg("primitiveset") ) );
+                , ( bp::arg("primitiveset") )
+                , " Get the index number of a primitive set, return a value between\n 0 and getNumPrimitiveSet()-1 if found, if not found then return getNumPrimitiveSet().\n When checking for a valid find value use if ((value=geometry->getPrimitiveSetIndex(primitive))!=geometry.getNumPrimitiveSet())" );
         
         }
         { //::osg::Geometry::getPrimitiveSetList
@@ -990,7 +998,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "getVertexAttribNormalize"
                 , getVertexAttribNormalize_function_type( &::osg::Geometry::getVertexAttribNormalize )
-                , ( bp::arg("index") ) );
+                , ( bp::arg("index") )
+                , " deprecated, use array->get*Normalize(..)." );
         
         }
         { //::osg::Geometry::insertPrimitiveSet
@@ -1000,7 +1009,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "insertPrimitiveSet"
                 , insertPrimitiveSet_function_type( &::osg::Geometry::insertPrimitiveSet )
-                , ( bp::arg("i"), bp::arg("primitiveset") ) );
+                , ( bp::arg("i"), bp::arg("primitiveset") )
+                , " Insert a primitive set to the specified position in geometrys primitive set list." );
         
         }
         { //::osg::Geometry::isSameKindAs
@@ -1033,7 +1043,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "removePrimitiveSet"
                 , removePrimitiveSet_function_type( &::osg::Geometry::removePrimitiveSet )
-                , ( bp::arg("i"), bp::arg("numElementsToRemove")=(unsigned int)(1) ) );
+                , ( bp::arg("i"), bp::arg("numElementsToRemove")=(unsigned int)(1) )
+                , " Remove primitive set(s) from the specified position in geometrys primitive set list." );
         
         }
         { //::osg::Geometry::resizeGLObjectBuffers
@@ -1105,7 +1116,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "setNormalBinding"
                 , setNormalBinding_function_type( &::osg::Geometry::setNormalBinding )
-                , ( bp::arg("ab") ) );
+                , ( bp::arg("ab") )
+                , " deprecated, use array->set*Binding(..)." );
         
         }
         { //::osg::Geometry::setPrimitiveSet
@@ -1115,7 +1127,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "setPrimitiveSet"
                 , setPrimitiveSet_function_type( &::osg::Geometry::setPrimitiveSet )
-                , ( bp::arg("i"), bp::arg("primitiveset") ) );
+                , ( bp::arg("i"), bp::arg("primitiveset") )
+                , " Set a primitive set to the specified position in geometrys primitive set list." );
         
         }
         { //::osg::Geometry::setPrimitiveSetList
@@ -1207,7 +1220,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "setVertexAttribNormalize"
                 , setVertexAttribNormalize_function_type( &::osg::Geometry::setVertexAttribNormalize )
-                , ( bp::arg("index"), bp::arg("norm") ) );
+                , ( bp::arg("index"), bp::arg("norm") )
+                , " deprecated, use array->set*Normalize(..)." );
         
         }
         { //::osg::Geometry::supports
@@ -1359,7 +1373,8 @@ void register_Geometry_class(){
             Geometry_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Drawable::setThreadSafeRefUnref

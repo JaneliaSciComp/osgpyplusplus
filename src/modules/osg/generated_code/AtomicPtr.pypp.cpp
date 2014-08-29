@@ -10,7 +10,7 @@ void register_AtomicPtr_class(){
 
     { //::OpenThreads::AtomicPtr
         typedef bp::class_< OpenThreads::AtomicPtr, boost::noncopyable > AtomicPtr_exposer_t;
-        AtomicPtr_exposer_t AtomicPtr_exposer = AtomicPtr_exposer_t( "AtomicPtr", bp::init< bp::optional< void * > >(( bp::arg("ptr")=bp::object() )) );
+        AtomicPtr_exposer_t AtomicPtr_exposer = AtomicPtr_exposer_t( "AtomicPtr", "\n  Class: AtomicPtr\n   This class provides an atomic pointer assignment using cas operations.\n", bp::init< bp::optional< void * > >(( bp::arg("ptr")=bp::object() ), "\n  Class: AtomicPtr\n   This class provides an atomic pointer assignment using cas operations.\n") );
         bp::scope AtomicPtr_scope( AtomicPtr_exposer );
         bp::implicitly_convertible< void *, OpenThreads::AtomicPtr >();
         { //::OpenThreads::AtomicPtr::assign

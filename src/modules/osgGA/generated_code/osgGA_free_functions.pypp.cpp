@@ -14,7 +14,8 @@ void register_free_functions(){
         
         bp::def( 
             "osgGAGetLibraryName"
-            , osgGAGetLibraryName_function_type( &::osgGAGetLibraryName ) );
+            , osgGAGetLibraryName_function_type( &::osgGAGetLibraryName )
+            , " getLibraryName_osgGA() returns the library name in human friendly form." );
     
     }
 
@@ -24,7 +25,8 @@ void register_free_functions(){
         
         bp::def( 
             "osgGAGetVersion"
-            , osgGAGetVersion_function_type( &::osgGAGetVersion ) );
+            , osgGAGetVersion_function_type( &::osgGAGetVersion )
+            , " osgGAGetVersion() returns the library version number.\n Numbering convention : OpenSceneGraph-1.0 will return 1.0 from osgGAGetVersion.\n\n This C function can be also used to check for the existence of the OpenSceneGraph\n library using autoconf and its m4 macro AC_CHECK_LIB.\n\n Here is the code to add to your configure.in:\n Verbatim:\n #\n # Check for the OpenSceneGraph (OSG) GA library\n #\n AC_CHECK_LIB(osg, osgGAGetVersion, ,\n    [AC_MSG_ERROR(OpenSceneGraph GA library not found. See http://www.openscenegraph.org)],)\n E:ndverbatim" );
     
     }
 

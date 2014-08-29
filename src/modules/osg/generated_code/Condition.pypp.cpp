@@ -67,7 +67,7 @@ struct Condition_wrapper : OpenThreads::Condition, bp::wrapper< OpenThreads::Con
 
 void register_Condition_class(){
 
-    bp::class_< Condition_wrapper, boost::noncopyable >( "Condition", bp::init< >() )    
+    bp::class_< Condition_wrapper, boost::noncopyable >( "Condition", "\n  Class: Condition\n   This class provides an object-oriented thread condition interface.\n", bp::init< >("\n  Constructor\n") )    
         .def( 
             "broadcast"
             , (int ( ::OpenThreads::Condition::* )(  ))(&::OpenThreads::Condition::broadcast)

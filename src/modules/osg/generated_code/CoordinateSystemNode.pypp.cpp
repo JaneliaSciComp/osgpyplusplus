@@ -291,8 +291,8 @@ struct CoordinateSystemNode_wrapper : osg::CoordinateSystemNode, bp::wrapper< os
 
 void register_CoordinateSystemNode_class(){
 
-    bp::class_< CoordinateSystemNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::CoordinateSystemNode >, boost::noncopyable >( "CoordinateSystemNode", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< CoordinateSystemNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::CoordinateSystemNode >, boost::noncopyable >( "CoordinateSystemNode", "\n CoordinateSystem encapsulate the coordinate system that is associated with objects in a scene.\n    For an overview of common earth bases coordinate systems see http://www.colorado.edu/geography/gcraft/notes/coordsys/coordsys_f.html\n", bp::no_init )    
+        .def( bp::init< >("\n CoordinateSystem encapsulate the coordinate system that is associated with objects in a scene.\n    For an overview of common earth bases coordinate systems see http://www.colorado.edu/geography/gcraft/notes/coordsys/coordsys_f.html\n") )    
         .def( bp::init< std::string const &, std::string const & >(( bp::arg("format"), bp::arg("cs") )) )    
         .def( 
             "accept"
@@ -317,27 +317,33 @@ void register_CoordinateSystemNode_class(){
         .def( 
             "computeLocalCoordinateFrame"
             , (::osg::CoordinateFrame ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & )const)( &::osg::CoordinateSystemNode::computeLocalCoordinateFrame )
-            , ( bp::arg("position") ) )    
+            , ( bp::arg("position") )
+            , " Compute the local coordinate frame for specified point." )    
         .def( 
             "computeLocalUpVector"
             , (::osg::Vec3d ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & )const)( &::osg::CoordinateSystemNode::computeLocalUpVector )
-            , ( bp::arg("position") ) )    
+            , ( bp::arg("position") )
+            , " Compute the local up-vector for specified point." )    
         .def( 
             "getCoordinateSystem"
             , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getCoordinateSystem )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the CoordinateSystem reference string." )    
         .def( 
             "getEllipsoidModel"
             , (::osg::EllipsoidModel * ( ::osg::CoordinateSystemNode::* )(  ))( &::osg::CoordinateSystemNode::getEllipsoidModel )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the EllipsoidModel." )    
         .def( 
             "getEllipsoidModel"
             , (::osg::EllipsoidModel const * ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getEllipsoidModel )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const EllipsoidModel." )    
         .def( 
             "getFormat"
             , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getFormat )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the coordinate system format string." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::CoordinateSystemNode::* )( ::osg::Object const * )const)(&::osg::CoordinateSystemNode::isSameKindAs)
@@ -350,15 +356,18 @@ void register_CoordinateSystemNode_class(){
         .def( 
             "setCoordinateSystem"
             , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ))( &::osg::CoordinateSystemNode::setCoordinateSystem )
-            , ( bp::arg("cs") ) )    
+            , ( bp::arg("cs") )
+            , " Set the CoordinateSystem reference string, should be stored in a form consistent with the Format." )    
         .def( 
             "setEllipsoidModel"
             , (void ( ::osg::CoordinateSystemNode::* )( ::osg::EllipsoidModel * ))( &::osg::CoordinateSystemNode::setEllipsoidModel )
-            , ( bp::arg("ellipsode") ) )    
+            , ( bp::arg("ellipsode") )
+            , " Set EllipsoidModel to describe the model used to map lat, long and height into geocentric XYZ and back." )    
         .def( 
             "setFormat"
             , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ))( &::osg::CoordinateSystemNode::setFormat )
-            , ( bp::arg("format") ) )    
+            , ( bp::arg("format") )
+            , " Set the coordinate system format string. Typical values would be WKT, PROJ4, USGS etc." )    
         .def( 
             "addChild"
             , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
@@ -425,7 +434,8 @@ void register_CoordinateSystemNode_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)

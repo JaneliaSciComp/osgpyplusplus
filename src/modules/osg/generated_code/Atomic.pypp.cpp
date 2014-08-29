@@ -14,7 +14,7 @@ void register_Atomic_class(){
 
     { //::OpenThreads::Atomic
         typedef bp::class_< OpenThreads::Atomic, boost::noncopyable > Atomic_exposer_t;
-        Atomic_exposer_t Atomic_exposer = Atomic_exposer_t( "Atomic", bp::init< bp::optional< unsigned int > >(( bp::arg("value")=(unsigned int)(0) )) );
+        Atomic_exposer_t Atomic_exposer = Atomic_exposer_t( "Atomic", "\n  Class: Atomic\n   This class provides an atomic increment and decrement operation.\n", bp::init< bp::optional< unsigned int > >(( bp::arg("value")=(unsigned int)(0) ), "\n  Class: Atomic\n   This class provides an atomic increment and decrement operation.\n") );
         bp::scope Atomic_scope( Atomic_exposer );
         bp::implicitly_convertible< unsigned int, OpenThreads::Atomic >();
         { //::OpenThreads::Atomic::AND

@@ -377,9 +377,9 @@ void register_Texture2D_class(){
 
     { //::osg::Texture2D
         typedef bp::class_< Texture2D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture2D >, boost::noncopyable > Texture2D_exposer_t;
-        Texture2D_exposer_t Texture2D_exposer = Texture2D_exposer_t( "Texture2D", bp::no_init );
+        Texture2D_exposer_t Texture2D_exposer = Texture2D_exposer_t( "Texture2D", "\n Encapsulates OpenGL 2D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n", bp::no_init );
         bp::scope Texture2D_scope( Texture2D_exposer );
-        Texture2D_exposer.def( bp::init< >() );
+        Texture2D_exposer.def( bp::init< >("\n Encapsulates OpenGL 2D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n") );
         Texture2D_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );
         bp::implicitly_convertible< osg::Image *, osg::Texture2D >();
         { //::osg::Texture2D::apply
@@ -437,7 +437,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "copyTexImage2D"
                 , copyTexImage2D_function_type( &::osg::Texture2D::copyTexImage2D )
-                , ( bp::arg("state"), bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") ) );
+                , ( bp::arg("state"), bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )
+                , " Copies pixels into a 2D texture image, as per glCopyTexImage2D.\n Creates an OpenGL texture object from the current OpenGL background\n framebuffer contents at position C{x,} C{y} with width C{width} and\n height C{height.} C{width} and C{height} must be a power of two." );
         
         }
         { //::osg::Texture2D::copyTexSubImage2D
@@ -447,7 +448,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "copyTexSubImage2D"
                 , copyTexSubImage2D_function_type( &::osg::Texture2D::copyTexSubImage2D )
-                , ( bp::arg("state"), bp::arg("xoffset"), bp::arg("yoffset"), bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") ) );
+                , ( bp::arg("state"), bp::arg("xoffset"), bp::arg("yoffset"), bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )
+                , " Copies a two-dimensional texture subimage, as per\n glCopyTexSubImage2D. Updates a portion of an existing OpenGL\n texture object from the current OpenGL background framebuffer\n contents at position C{x,} C{y} with width C{width} and height\n C{height.} Loads framebuffer data into the texture using offsets\n C{xoffset} and C{yoffset.} C{width} and C{height} must be powers\n of two." );
         
         }
         { //::osg::Texture2D::getImage
@@ -457,7 +459,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "getImage"
                 , getImage_function_type( &::osg::Texture2D::getImage )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the texture image." );
         
         }
         { //::osg::Texture2D::getImage
@@ -467,7 +470,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "getImage"
                 , getImage_function_type( &::osg::Texture2D::getImage )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the const texture image." );
         
         }
         { //::osg::Texture2D::getImage
@@ -524,7 +528,8 @@ void register_Texture2D_class(){
             
             Texture2D_exposer.def( 
                 "getNumMipmapLevels"
-                , getNumMipmapLevels_function_type( &::osg::Texture2D::getNumMipmapLevels ) );
+                , getNumMipmapLevels_function_type( &::osg::Texture2D::getNumMipmapLevels )
+                , " Gets the number of mipmap levels created." );
         
         }
         { //::osg::Texture2D::getSubloadCallback
@@ -632,7 +637,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "setImage"
                 , setImage_function_type( &::osg::Texture2D::setImage )
-                , ( bp::arg("image") ) );
+                , ( bp::arg("image") )
+                , " Sets the texture image." );
         
         }
         { //::osg::Texture2D::setImage
@@ -654,7 +660,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "setNumMipmapLevels"
                 , setNumMipmapLevels_function_type( &::osg::Texture2D::setNumMipmapLevels )
-                , ( bp::arg("num") ) );
+                , ( bp::arg("num") )
+                , " Helper function. Sets the number of mipmap levels created for this\n texture. Should only be called within an osg::Texture::apply(), or\n during a custom OpenGL texture load." );
         
         }
         { //::osg::Texture2D::setSubloadCallback
@@ -684,7 +691,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "setTextureSize"
                 , setTextureSize_function_type( &::osg::Texture2D::setTextureSize )
-                , ( bp::arg("width"), bp::arg("height") ) );
+                , ( bp::arg("width"), bp::arg("height") )
+                , " Sets the texture width and height. If width or height are zero,\n calculate the respective value from the source image size." );
         
         }
         { //::osg::Texture2D::setTextureWidth
@@ -845,7 +853,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

@@ -500,15 +500,15 @@ void register_Program_class(){
 
     { //::osg::Program
         typedef bp::class_< Program_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Program >, boost::noncopyable > Program_exposer_t;
-        Program_exposer_t Program_exposer = Program_exposer_t( "Program", bp::no_init );
+        Program_exposer_t Program_exposer = Program_exposer_t( "Program", "\n osg::Program is an application-level abstraction of an OpenGL glProgram.\n It is an osg::StateAttribute that, when applied, will activate a\n glProgram for subsequent rendering.\n osg::Shaders containing the actual shader source code are\n attached to a Program, which will then manage the compilation,\n linking, and activation of the GLSL program.\n osg::Program will automatically manage per-context instancing of the\n OpenGL glPrograms, if that is necessary for a particular display\n configuration.\n", bp::no_init );
         bp::scope Program_scope( Program_exposer );
         bp::class_< osg::Program::ActiveVarInfo >( "ActiveVarInfo", bp::init< >() )    
             .def( bp::init< GLint, GLenum, GLint >(( bp::arg("loc"), bp::arg("type"), bp::arg("size") )) )    
             .def_readwrite( "_location", &osg::Program::ActiveVarInfo::_location )    
             .def_readwrite( "_size", &osg::Program::ActiveVarInfo::_size )    
             .def_readwrite( "_type", &osg::Program::ActiveVarInfo::_type );
-        bp::class_< Program_wrapper::PerContextProgram_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Program::PerContextProgram >, boost::noncopyable >( "PerContextProgram", bp::no_init )    
-            .def( bp::init< osg::Program const *, unsigned int, bp::optional< GLuint > >(( bp::arg("program"), bp::arg("contextID"), bp::arg("programHandle")=(::GLuint)(0) )) )    
+        bp::class_< Program_wrapper::PerContextProgram_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Program::PerContextProgram >, boost::noncopyable >( "PerContextProgram", "\n PerContextProgram (PCP) is an OSG-internal encapsulation of glPrograms per-GL context.\n", bp::no_init )    
+            .def( bp::init< osg::Program const *, unsigned int, bp::optional< GLuint > >(( bp::arg("program"), bp::arg("contextID"), bp::arg("programHandle")=(::GLuint)(0) ), "\n Use 0 as programHandle to let the PeContextProgram execute glCreateProgramand glDeleteProgram\n") )    
             .def( 
                 "addShaderToAttach"
                 , (void ( ::osg::Program::PerContextProgram::* )( ::osg::Shader * ))( &::osg::Program::PerContextProgram::addShaderToAttach )
@@ -554,7 +554,8 @@ void register_Program_class(){
             .def( 
                 "getUniformLocation"
                 , (::GLint ( ::osg::Program::PerContextProgram::* )( ::std::string const & )const)( &::osg::Program::PerContextProgram::getUniformLocation )
-                , ( bp::arg("uniformName") ) )    
+                , ( bp::arg("uniformName") )
+                , " Alternative version of getUniformLocation( unsigned int uniformNameID )\n retrofited into OSG for backward compatibility with osgCal,\n after uniform ids were refactored from std::strings to GLints in OSG version 2.9.10.\n\n Drawbacks: This method is not particularly fast. It has to access mutexed static\n map of uniform ids. So dont overuse it or your app performance will suffer." )    
             .def( 
                 "isLinked"
                 , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::isLinked ) )    
@@ -565,7 +566,8 @@ void register_Program_class(){
                 , ( bp::arg("state") ) )    
             .def( 
                 "loadedBinary"
-                , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::loadedBinary ) )    
+                , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::loadedBinary )
+                , " Was glProgramBinary called successfully?" )    
             .def( 
                 "needsLink"
                 , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::needsLink ) )    
@@ -588,15 +590,17 @@ void register_Program_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Program_wrapper::PerContextProgram_wrapper::* )( bool ))(&Program_wrapper::PerContextProgram_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< Program_wrapper::ProgramBinary_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Program::ProgramBinary >, boost::noncopyable >( "ProgramBinary", bp::init< >() )    
+        bp::class_< Program_wrapper::ProgramBinary_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Program::ProgramBinary >, boost::noncopyable >( "ProgramBinary", "\n Simple class for wrapping up the data used in glProgramBinary and glGetProgramBinary.\n On the first run of your application Programs should be assigned an empty ProgramBinary.\n Before your application exits it should retrieve the program binary via\n Program::PerContextProgram::compileProgramBinary and save it to disk.\n When your application is run subsequently, load your binary from disk and use it to set\n the data of a ProgramBinary, and set the ProgramBinary on the associated Program.\n This will typically result in Program::compileGLObjects executing much faster.\n", bp::init< >("\n Simple class for wrapping up the data used in glProgramBinary and glGetProgramBinary.\n On the first run of your application Programs should be assigned an empty ProgramBinary.\n Before your application exits it should retrieve the program binary via\n Program::PerContextProgram::compileProgramBinary and save it to disk.\n When your application is run subsequently, load your binary from disk and use it to set\n the data of a ProgramBinary, and set the ProgramBinary on the associated Program.\n This will typically result in Program::compileGLObjects executing much faster.\n") )    
             .def( 
                 "allocate"
                 , (void ( ::osg::Program::ProgramBinary::* )( unsigned int ))( &::osg::Program::ProgramBinary::allocate )
-                , ( bp::arg("size") ) )    
+                , ( bp::arg("size") )
+                , " Allocated a data buffer of specified size" )    
             .def( 
                 "assign"
                 , (void ( ::osg::Program::ProgramBinary::* )( unsigned int,unsigned char const * ))( &::osg::Program::ProgramBinary::assign )
-                , ( bp::arg("size"), bp::arg("data") ) )    
+                , ( bp::arg("size"), bp::arg("data") )
+                , " Assign program binary data, copying the specified data into locally stored data buffer, the original data can then be deleted." )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Program::ProgramBinary::* )(  )const)(&::osg::Program::ProgramBinary::className)
@@ -614,10 +618,12 @@ void register_Program_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "getFormat"
-                , (::GLenum ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getFormat ) )    
+                , (::GLenum ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getFormat )
+                , " Get the format of the program binary data." )    
             .def( 
                 "getSize"
-                , (unsigned int ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getSize ) )    
+                , (unsigned int ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getSize )
+                , " Get the size of the program binary data." )    
             .def( 
                 "isSameKindAs"
                 , (bool ( ::osg::Program::ProgramBinary::* )( ::osg::Object const * )const)(&::osg::Program::ProgramBinary::isSameKindAs)
@@ -630,7 +636,8 @@ void register_Program_class(){
             .def( 
                 "setFormat"
                 , (void ( ::osg::Program::ProgramBinary::* )( ::GLenum ))( &::osg::Program::ProgramBinary::setFormat )
-                , ( bp::arg("format") ) )    
+                , ( bp::arg("format") )
+                , " Set the format of the program binary data." )    
             .def( 
                 "computeDataVariance"
                 , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
@@ -658,7 +665,8 @@ void register_Program_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -673,7 +681,7 @@ void register_Program_class(){
             .def( bp::init< GLuint, GLsizei >(( bp::arg("index"), bp::arg("size") )) )    
             .def_readwrite( "_index", &osg::Program::UniformBlockInfo::_index )    
             .def_readwrite( "_size", &osg::Program::UniformBlockInfo::_size );
-        Program_exposer.def( bp::init< >() );
+        Program_exposer.def( bp::init< >("\n osg::Program is an application-level abstraction of an OpenGL glProgram.\n It is an osg::StateAttribute that, when applied, will activate a\n glProgram for subsequent rendering.\n osg::Shaders containing the actual shader source code are\n attached to a Program, which will then manage the compilation,\n linking, and activation of the GLSL program.\n osg::Program will automatically manage per-context instancing of the\n OpenGL glPrograms, if that is necessary for a particular display\n configuration.\n") );
         { //::osg::Program::addBindAttribLocation
         
             typedef void ( ::osg::Program::*addBindAttribLocation_function_type)( ::std::string const &,::GLuint ) ;
@@ -681,7 +689,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "addBindAttribLocation"
                 , addBindAttribLocation_function_type( &::osg::Program::addBindAttribLocation )
-                , ( bp::arg("name"), bp::arg("index") ) );
+                , ( bp::arg("name"), bp::arg("index") )
+                , " Add an attribute location binding." );
         
         }
         { //::osg::Program::addBindFragDataLocation
@@ -691,7 +700,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "addBindFragDataLocation"
                 , addBindFragDataLocation_function_type( &::osg::Program::addBindFragDataLocation )
-                , ( bp::arg("name"), bp::arg("index") ) );
+                , ( bp::arg("name"), bp::arg("index") )
+                , " Add an frag data location binding. See EXT_gpu_shader4 for BindFragDataLocationEXT" );
         
         }
         { //::osg::Program::addBindUniformBlock
@@ -701,7 +711,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "addBindUniformBlock"
                 , addBindUniformBlock_function_type( &::osg::Program::addBindUniformBlock )
-                , ( bp::arg("name"), bp::arg("index") ) );
+                , ( bp::arg("name"), bp::arg("index") )
+                , " Add a uniform block binding to an index target. XXX This\n should not be an attribute of the program. It should be a\n pseudo-uniform that can live in StateSet objects because\n it is cheap to set." );
         
         }
         { //::osg::Program::addShader
@@ -711,7 +722,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "addShader"
                 , addShader_function_type( &::osg::Program::addShader )
-                , ( bp::arg("shader") ) );
+                , ( bp::arg("shader") )
+                , " Attach an osg::Shader to this osg::Program.\n Mark Program as needing relink.  Return true for success" );
         
         }
         { //::osg::Program::className
@@ -769,7 +781,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "deleteGlProgram"
                 , deleteGlProgram_function_type( &::osg::Program::deleteGlProgram )
-                , ( bp::arg("contextID"), bp::arg("program") ) );
+                , ( bp::arg("contextID"), bp::arg("program") )
+                , " Mark internal glProgram for deletion.\n Deletion requests are queued until they can be executed\n in the proper GL context." );
         
         }
         { //::osg::Program::dirtyProgram
@@ -778,7 +791,8 @@ void register_Program_class(){
             
             Program_exposer.def( 
                 "dirtyProgram"
-                , dirtyProgram_function_type( &::osg::Program::dirtyProgram ) );
+                , dirtyProgram_function_type( &::osg::Program::dirtyProgram )
+                , " Mark our PCSOs as needing relink" );
         
         }
         { //::osg::Program::discardDeletedGlPrograms
@@ -788,7 +802,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "discardDeletedGlPrograms"
                 , discardDeletedGlPrograms_function_type( &::osg::Program::discardDeletedGlPrograms )
-                , ( bp::arg("contextID") ) );
+                , ( bp::arg("contextID") )
+                , " discard all the cached glPrograms which need to be deleted\n in the OpenGL context related to contextID.\n Note, unlike flush no OpenGL calls are made, instead the handles are all removed.\n this call is useful for when an OpenGL context has been destroyed." );
         
         }
         { //::osg::Program::flushDeletedGlPrograms
@@ -798,7 +813,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "flushDeletedGlPrograms"
                 , flushDeletedGlPrograms_function_type( &::osg::Program::flushDeletedGlPrograms )
-                , ( bp::arg("contextID"), bp::arg("currentTime"), bp::arg("availableTime") ) );
+                , ( bp::arg("contextID"), bp::arg("currentTime"), bp::arg("availableTime") )
+                , " flush all the cached glPrograms which need to be deleted\n in the OpenGL context related to contextID." );
         
         }
         { //::osg::Program::getActiveAttribs
@@ -860,7 +876,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "getGlProgramInfoLog"
                 , getGlProgramInfoLog_function_type( &::osg::Program::getGlProgramInfoLog )
-                , ( bp::arg("contextID"), bp::arg("log") ) );
+                , ( bp::arg("contextID"), bp::arg("log") )
+                , " Query InfoLog from a glProgram" );
         
         }
         { //::osg::Program::getNumShaders
@@ -880,7 +897,8 @@ void register_Program_class(){
                 "getPCP"
                 , getPCP_function_type( &::osg::Program::getPCP )
                 , ( bp::arg("contextID") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the PCP for a particular GL context" );
         
         }
         { //::osg::Program::getParameter
@@ -900,7 +918,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "getProgramBinary"
                 , getProgramBinary_function_type( &::osg::Program::getProgramBinary )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the Programs ProgramBinary, return NULL if none is assigned." );
         
         }
         { //::osg::Program::getProgramBinary
@@ -910,7 +929,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "getProgramBinary"
                 , getProgramBinary_function_type( &::osg::Program::getProgramBinary )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const Programs ProgramBinary, return NULL if none is assigned." );
         
         }
         { //::osg::Program::getShader
@@ -973,7 +993,8 @@ void register_Program_class(){
             
             Program_exposer.def( 
                 "isFixedFunction"
-                , isFixedFunction_function_type( &::osg::Program::isFixedFunction ) );
+                , isFixedFunction_function_type( &::osg::Program::isFixedFunction )
+                , " Return true if this Program represents fixed-functionality rendering" );
         
         }
         { //::osg::Program::isSameKindAs
@@ -1006,7 +1027,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "removeBindAttribLocation"
                 , removeBindAttribLocation_function_type( &::osg::Program::removeBindAttribLocation )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Remove an attribute location binding." );
         
         }
         { //::osg::Program::removeBindFragDataLocation
@@ -1016,7 +1038,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "removeBindFragDataLocation"
                 , removeBindFragDataLocation_function_type( &::osg::Program::removeBindFragDataLocation )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Remove an frag data location binding." );
         
         }
         { //::osg::Program::removeBindUniformBlock
@@ -1026,7 +1049,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "removeBindUniformBlock"
                 , removeBindUniformBlock_function_type( &::osg::Program::removeBindUniformBlock )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Remove a uniform block binding." );
         
         }
         { //::osg::Program::removeShader
@@ -1036,7 +1060,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "removeShader"
                 , removeShader_function_type( &::osg::Program::removeShader )
-                , ( bp::arg("shader") ) );
+                , ( bp::arg("shader") )
+                , " Remove osg::Shader from this osg::Program.\n Mark Program as needing relink.  Return true for success" );
         
         }
         { //::osg::Program::resizeGLObjectBuffers
@@ -1058,7 +1083,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "setComputeGroups"
                 , setComputeGroups_function_type( &::osg::Program::setComputeGroups )
-                , ( bp::arg("numGroupsX"), bp::arg("numGroupsY"), bp::arg("numGroupsZ") ) );
+                , ( bp::arg("numGroupsX"), bp::arg("numGroupsY"), bp::arg("numGroupsZ") )
+                , " Set/get compute shader work groups" );
         
         }
         { //::osg::Program::setParameter
@@ -1068,7 +1094,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "setParameter"
                 , setParameter_function_type( &::osg::Program::setParameter )
-                , ( bp::arg("pname"), bp::arg("value") ) );
+                , ( bp::arg("pname"), bp::arg("value") )
+                , " Set/get GL program parameters" );
         
         }
         { //::osg::Program::setProgramBinary
@@ -1078,7 +1105,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "setProgramBinary"
                 , setProgramBinary_function_type( &::osg::Program::setProgramBinary )
-                , ( bp::arg("programBinary") ) );
+                , ( bp::arg("programBinary") )
+                , " Set the Program using a ProgramBinary. If a ProgramBinary is not yet\n available then setting an empty one signals that compileProgramBinary\n will be called later." );
         
         }
         { //::osg::Program::setThreadSafeRefUnref
@@ -1217,7 +1245,8 @@ void register_Program_class(){
             Program_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

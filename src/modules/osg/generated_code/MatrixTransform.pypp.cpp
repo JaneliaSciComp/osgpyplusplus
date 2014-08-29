@@ -389,9 +389,9 @@ void register_MatrixTransform_class(){
 
     { //::osg::MatrixTransform
         typedef bp::class_< MatrixTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable > MatrixTransform_exposer_t;
-        MatrixTransform_exposer_t MatrixTransform_exposer = MatrixTransform_exposer_t( "MatrixTransform", bp::no_init );
+        MatrixTransform_exposer_t MatrixTransform_exposer = MatrixTransform_exposer_t( "MatrixTransform", "\n MatrixTransform - is a subclass of Transform which has an osg::Matrix\n which represents a 4x4 transformation of its children from local coordinates\n into the Transforms parent coordinates.\n", bp::no_init );
         bp::scope MatrixTransform_scope( MatrixTransform_exposer );
-        MatrixTransform_exposer.def( bp::init< >() );
+        MatrixTransform_exposer.def( bp::init< >("\n MatrixTransform - is a subclass of Transform which has an osg::Matrix\n which represents a 4x4 transformation of its children from local coordinates\n into the Transforms parent coordinates.\n") );
         MatrixTransform_exposer.def( bp::init< osg::Matrix const & >(( bp::arg("matix") )) );
         bp::implicitly_convertible< osg::Matrix const &, osg::MatrixTransform >();
         { //::osg::MatrixTransform::accept
@@ -497,7 +497,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "getInverseMatrix"
                 , getInverseMatrix_function_type( &::osg::MatrixTransform::getInverseMatrix )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the inverse matrix." );
         
         }
         { //::osg::MatrixTransform::getMatrix
@@ -507,7 +508,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "getMatrix"
                 , getMatrix_function_type( &::osg::MatrixTransform::getMatrix )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the matrix." );
         
         }
         { //::osg::MatrixTransform::isSameKindAs
@@ -540,7 +542,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "postMult"
                 , postMult_function_type( &::osg::MatrixTransform::postMult )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " post multiply the transforms matrix." );
         
         }
         { //::osg::MatrixTransform::preMult
@@ -550,7 +553,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "preMult"
                 , preMult_function_type( &::osg::MatrixTransform::preMult )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " pre multiply the transforms matrix." );
         
         }
         { //::osg::MatrixTransform::setMatrix
@@ -560,7 +564,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "setMatrix"
                 , setMatrix_function_type( &::osg::MatrixTransform::setMatrix )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " Set the transforms matrix." );
         
         }
         { //::osg::Group::addChild
@@ -772,7 +777,8 @@ void register_MatrixTransform_class(){
             MatrixTransform_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

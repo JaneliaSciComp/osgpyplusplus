@@ -243,7 +243,7 @@ void register_View_class(){
 
     { //::osg::View
         typedef bp::class_< View_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::View >, boost::noncopyable > View_exposer_t;
-        View_exposer_t View_exposer = View_exposer_t( "View", bp::no_init );
+        View_exposer_t View_exposer = View_exposer_t( "View", "\n View - maintains a master camera view and a list of slave cameras that are relative to this master camera.\n Note, if no slave cameras are attached to the view then the master camera does both the control and implementation of the rendering of the scene,\n but if slave cameras are present then the master controls the view onto the scene, while the slaves implement the rendering of the scene.\n", bp::no_init );
         bp::scope View_scope( View_exposer );
         bp::enum_< osg::View::LightingMode>("LightingMode")
             .value("NO_LIGHT", osg::View::NO_LIGHT)
@@ -253,7 +253,7 @@ void register_View_class(){
             ;
         { //::osg::View::Slave
             typedef bp::class_< View_wrapper::Slave_wrapper > Slave_exposer_t;
-            Slave_exposer_t Slave_exposer = Slave_exposer_t( "Slave", bp::init< bp::optional< bool > >(( bp::arg("useMastersSceneData")=(bool)(true) )) );
+            Slave_exposer_t Slave_exposer = Slave_exposer_t( "Slave", "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n", bp::init< bp::optional< bool > >(( bp::arg("useMastersSceneData")=(bool)(true) ), "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n") );
             bp::scope Slave_scope( Slave_exposer );
             bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::View::Slave::UpdateSlaveCallback >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
                 .def( 
@@ -266,8 +266,8 @@ void register_View_class(){
                     , (void ( View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper::* )( bool ))(&View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper::default_setThreadSafeRefUnref)
                     , ( bp::arg("threadSafe") ) );
             bp::implicitly_convertible< bool, osg::View::Slave >();
-            Slave_exposer.def( bp::init< osg::Camera *, osg::Matrixd const &, osg::Matrixd const &, bp::optional< bool > >(( bp::arg("camera"), bp::arg("projectionOffset"), bp::arg("viewOffset"), bp::arg("useMastersSceneData")=(bool)(true) )) );
-            Slave_exposer.def( bp::init< osg::View::Slave const & >(( bp::arg("rhs") )) );
+            Slave_exposer.def( bp::init< osg::Camera *, osg::Matrixd const &, osg::Matrixd const &, bp::optional< bool > >(( bp::arg("camera"), bp::arg("projectionOffset"), bp::arg("viewOffset"), bp::arg("useMastersSceneData")=(bool)(true) ), "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n") );
+            Slave_exposer.def( bp::init< osg::View::Slave const & >(( bp::arg("rhs") ), "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n") );
             { //::osg::View::Slave::updateSlave
             
                 typedef void ( ::osg::View::Slave::*updateSlave_function_type)( ::osg::View & ) ;
@@ -296,7 +296,7 @@ void register_View_class(){
             Slave_exposer.def_readwrite( "_useMastersSceneData", &osg::View::Slave::_useMastersSceneData );
             Slave_exposer.def_readwrite( "_viewOffset", &osg::View::Slave::_viewOffset );
         }
-        View_exposer.def( bp::init< >() );
+        View_exposer.def( bp::init< >("\n View - maintains a master camera view and a list of slave cameras that are relative to this master camera.\n Note, if no slave cameras are attached to the view then the master camera does both the control and implementation of the rendering of the scene,\n but if slave cameras are present then the master controls the view onto the scene, while the slaves implement the rendering of the scene.\n") );
         { //::osg::View::addSlave
         
             typedef bool ( ::osg::View::*addSlave_function_type)( ::osg::Camera *,bool ) ;
@@ -381,7 +381,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getCamera"
                 , getCamera_function_type( &::osg::View::getCamera )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the master camera of the view." );
         
         }
         { //::osg::View::getCamera
@@ -391,7 +392,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getCamera"
                 , getCamera_function_type( &::osg::View::getCamera )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const master camera of the view." );
         
         }
         { //::osg::View::getFrameStamp
@@ -401,7 +403,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getFrameStamp"
                 , getFrameStamp_function_type( &::osg::View::getFrameStamp )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the frame stamp of the view." );
         
         }
         { //::osg::View::getFrameStamp
@@ -411,7 +414,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getFrameStamp"
                 , getFrameStamp_function_type( &::osg::View::getFrameStamp )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the frame stamp of the view." );
         
         }
         { //::osg::View::getLight
@@ -421,7 +425,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getLight"
                 , getLight_function_type( &::osg::View::getLight )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the global lighting if assigned." );
         
         }
         { //::osg::View::getLight
@@ -431,7 +436,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getLight"
                 , getLight_function_type( &::osg::View::getLight )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const global lighting if assigned." );
         
         }
         { //::osg::View::getLightingMode
@@ -440,7 +446,8 @@ void register_View_class(){
             
             View_exposer.def( 
                 "getLightingMode"
-                , getLightingMode_function_type( &::osg::View::getLightingMode ) );
+                , getLightingMode_function_type( &::osg::View::getLightingMode )
+                , " Get the global lighting used for this view." );
         
         }
         { //::osg::View::getNumSlaves
@@ -481,7 +488,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getStats"
                 , getStats_function_type( &::osg::View::getStats )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the Viewers Stats object." );
         
         }
         { //::osg::View::getStats
@@ -491,7 +499,8 @@ void register_View_class(){
             View_exposer.def( 
                 "getStats"
                 , getStats_function_type( &::osg::View::getStats )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the Viewers Stats object." );
         
         }
         { //::osg::View::isSameKindAs
@@ -534,7 +543,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setCamera"
                 , setCamera_function_type( &::osg::View::setCamera )
-                , ( bp::arg("camera") ) );
+                , ( bp::arg("camera") )
+                , " Set the master camera of the view." );
         
         }
         { //::osg::View::setFrameStamp
@@ -544,7 +554,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setFrameStamp"
                 , setFrameStamp_function_type( &::osg::View::setFrameStamp )
-                , ( bp::arg("fs") ) );
+                , ( bp::arg("fs") )
+                , " Set the frame stamp of the view." );
         
         }
         { //::osg::View::setLight
@@ -554,7 +565,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setLight"
                 , setLight_function_type( &::osg::View::setLight )
-                , ( bp::arg("light") ) );
+                , ( bp::arg("light") )
+                , " Get the global light." );
         
         }
         { //::osg::View::setLightingMode
@@ -564,7 +576,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setLightingMode"
                 , setLightingMode_function_type( &::osg::View::setLightingMode )
-                , ( bp::arg("lightingMode") ) );
+                , ( bp::arg("lightingMode") )
+                , " Set the global lighting to use for this view.\n Defaults to headlight." );
         
         }
         { //::osg::View::setStats
@@ -574,7 +587,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setStats"
                 , setStats_function_type( &::osg::View::setStats )
-                , ( bp::arg("stats") ) );
+                , ( bp::arg("stats") )
+                , " Set the Stats object used for collect various frame related timing and scene graph stats." );
         
         }
         { //::osg::View::take
@@ -664,7 +678,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

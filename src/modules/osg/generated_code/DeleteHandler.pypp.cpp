@@ -57,7 +57,7 @@ void register_DeleteHandler_class(){
 
     { //::osg::DeleteHandler
         typedef bp::class_< DeleteHandler_wrapper, boost::noncopyable > DeleteHandler_exposer_t;
-        DeleteHandler_exposer_t DeleteHandler_exposer = DeleteHandler_exposer_t( "DeleteHandler", bp::init< bp::optional< int > >(( bp::arg("numberOfFramesToRetainObjects")=(int)(0) )) );
+        DeleteHandler_exposer_t DeleteHandler_exposer = DeleteHandler_exposer_t( "DeleteHandler", "\n Class for overriding the default delete behaviour so that users can implement their own object\n deletion schemes.\n This might be used to implement a protection scheme that avoids\n multiple threads deleting objects unintentionally.\n Note, the DeleteHandler cannot itself be reference counted, otherwise it\n would be responsible for deleting itself!\n A static auto_ptr<> is used internally in Referenced.cpp to manage the\n DeleteHandlers memory.\n", bp::init< bp::optional< int > >(( bp::arg("numberOfFramesToRetainObjects")=(int)(0) )) );
         bp::scope DeleteHandler_scope( DeleteHandler_exposer );
         bp::implicitly_convertible< int, osg::DeleteHandler >();
         { //::osg::DeleteHandler::doDelete
@@ -98,7 +98,8 @@ void register_DeleteHandler_class(){
             
             DeleteHandler_exposer.def( 
                 "getFrameNumber"
-                , getFrameNumber_function_type( &::osg::DeleteHandler::getFrameNumber ) );
+                , getFrameNumber_function_type( &::osg::DeleteHandler::getFrameNumber )
+                , " Get the current frame number." );
         
         }
         { //::osg::DeleteHandler::getNumFramesToRetainObjects
@@ -129,7 +130,8 @@ void register_DeleteHandler_class(){
             DeleteHandler_exposer.def( 
                 "setFrameNumber"
                 , setFrameNumber_function_type( &::osg::DeleteHandler::setFrameNumber )
-                , ( bp::arg("frameNumber") ) );
+                , ( bp::arg("frameNumber") )
+                , " Set the current frame number so that subsequent deletes get tagged as associated with this frame." );
         
         }
         { //::osg::DeleteHandler::setNumFramesToRetainObjects
@@ -139,7 +141,8 @@ void register_DeleteHandler_class(){
             DeleteHandler_exposer.def( 
                 "setNumFramesToRetainObjects"
                 , setNumFramesToRetainObjects_function_type( &::osg::DeleteHandler::setNumFramesToRetainObjects )
-                , ( bp::arg("numberOfFramesToRetainObjects") ) );
+                , ( bp::arg("numberOfFramesToRetainObjects") )
+                , " Set the number of frames to retain objects that have been requested for deletion.\n When set to zero objects are deleted immediately, by setting to 1 they are kept around for an extra frame etc.\n The ability to retain objects for several frames is useful to prevent premature deletion when objects\n are still being used by graphics threads that use double buffering of rendering data structures with\n non ref_ptr<> pointers to scene graph elements." );
         
         }
     }

@@ -10,7 +10,7 @@ void register_Polytope_class(){
 
     { //::osg::Polytope
         typedef bp::class_< osg::Polytope > Polytope_exposer_t;
-        Polytope_exposer_t Polytope_exposer = Polytope_exposer_t( "Polytope", bp::init< >() );
+        Polytope_exposer_t Polytope_exposer = Polytope_exposer_t( "Polytope", "\n A Polytope class for representing convex clipping volumes made up of a set of planes.\n When adding planes, their normals should point inwards (into the volume)\n", bp::init< >() );
         bp::scope Polytope_scope( Polytope_exposer );
         Polytope_exposer.def( bp::init< osg::Polytope const & >(( bp::arg("cv") )) );
         Polytope_exposer.def( bp::init< std::vector< osg::Plane > const & >(( bp::arg("pl") )) );
@@ -41,7 +41,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "contains"
                 , contains_function_type( &::osg::Polytope::contains )
-                , ( bp::arg("v") ) );
+                , ( bp::arg("v") )
+                , "\n Check whether a vertex is contained within clipping set.\n" );
         
         }
         { //::osg::Polytope::contains
@@ -51,7 +52,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "contains"
                 , contains_function_type( &::osg::Polytope::contains )
-                , ( bp::arg("vertices") ) );
+                , ( bp::arg("vertices") )
+                , "\n Check whether any part of vertex list is contained within clipping set.\n" );
         
         }
         { //::osg::Polytope::contains
@@ -61,7 +63,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "contains"
                 , contains_function_type( &::osg::Polytope::contains )
-                , ( bp::arg("bs") ) );
+                , ( bp::arg("bs") )
+                , "\n Check whether any part of a bounding sphere is contained within clipping set.\n            Using a mask to determine which planes should be used for the check, and\n            modifying the mask to turn off planes which wouldnt contribute to clipping\n            of any internal objects.  This feature is used in osgUtil::CullVisitor\n            to prevent redundant plane checking.\n" );
         
         }
         { //::osg::Polytope::contains
@@ -71,7 +74,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "contains"
                 , contains_function_type( &::osg::Polytope::contains )
-                , ( bp::arg("bb") ) );
+                , ( bp::arg("bb") )
+                , "\n Check whether any part of a bounding box is contained within clipping set.\n            Using a mask to determine which planes should be used for the check, and\n            modifying the mask to turn off planes which wouldnt contribute to clipping\n            of any internal objects.  This feature is used in osgUtil::CullVisitor\n            to prevent redundant plane checking.\n" );
         
         }
         { //::osg::Polytope::containsAllOf
@@ -81,7 +85,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "containsAllOf"
                 , containsAllOf_function_type( &::osg::Polytope::containsAllOf )
-                , ( bp::arg("vertices") ) );
+                , ( bp::arg("vertices") )
+                , "\n Check whether all of vertex list is contained with clipping set.\n" );
         
         }
         { //::osg::Polytope::containsAllOf
@@ -91,7 +96,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "containsAllOf"
                 , containsAllOf_function_type( &::osg::Polytope::containsAllOf )
-                , ( bp::arg("bs") ) );
+                , ( bp::arg("bs") )
+                , "\n Check whether the entire bounding sphere is contained within clipping set.\n" );
         
         }
         { //::osg::Polytope::containsAllOf
@@ -101,7 +107,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "containsAllOf"
                 , containsAllOf_function_type( &::osg::Polytope::containsAllOf )
-                , ( bp::arg("bb") ) );
+                , ( bp::arg("bb") )
+                , "\n Check whether the entire bounding box is contained within clipping set.\n" );
         
         }
         { //::osg::Polytope::empty
@@ -119,7 +126,8 @@ void register_Polytope_class(){
             
             Polytope_exposer.def( 
                 "flip"
-                , flip_function_type( &::osg::Polytope::flip ) );
+                , flip_function_type( &::osg::Polytope::flip )
+                , "\n flip/reverse the orientation of all the planes.\n" );
         
         }
         { //::osg::Polytope::getCurrentMask
@@ -286,7 +294,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "setToBoundingBox"
                 , setToBoundingBox_function_type( &::osg::Polytope::setToBoundingBox )
-                , ( bp::arg("bb") ) );
+                , ( bp::arg("bb") )
+                , "\n Create a Polytope which is a equivalent to BoundingBox.\n" );
         
         }
         { //::osg::Polytope::setToUnitFrustum
@@ -296,7 +305,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "setToUnitFrustum"
                 , setToUnitFrustum_function_type( &::osg::Polytope::setToUnitFrustum )
-                , ( bp::arg("withNear")=(bool)(true), bp::arg("withFar")=(bool)(true) ) );
+                , ( bp::arg("withNear")=(bool)(true), bp::arg("withFar")=(bool)(true) )
+                , "\n Create a Polytope which is a cube, centered at 0,0,0, with sides of 2 units.\n" );
         
         }
         { //::osg::Polytope::setupMask
@@ -315,7 +325,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "transform"
                 , transform_function_type( &::osg::Polytope::transform )
-                , ( bp::arg("matrix") ) );
+                , ( bp::arg("matrix") )
+                , "\n Transform the clipping set by matrix.  Note, this operations carries out\n the calculation of the inverse of the matrix since a plane must\n be multiplied by the inverse transposed to transform it. This\n makes this operation expensive.  If the inverse has been already\n calculated elsewhere then use transformProvidingInverse() instead.\n See http://www.worldserver.com/turk/computergraphics/NormalTransformations.pdf\n" );
         
         }
         { //::osg::Polytope::transformProvidingInverse
@@ -325,7 +336,8 @@ void register_Polytope_class(){
             Polytope_exposer.def( 
                 "transformProvidingInverse"
                 , transformProvidingInverse_function_type( &::osg::Polytope::transformProvidingInverse )
-                , ( bp::arg("matrix") ) );
+                , ( bp::arg("matrix") )
+                , "\n Transform the clipping set by provide a pre inverted matrix.\n see transform for details.\n" );
         
         }
     }

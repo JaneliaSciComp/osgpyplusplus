@@ -2,15 +2,31 @@
 
 #include "boost/python.hpp"
 
-#include "boost/python/suite/indexing/vector_indexing_suite.hpp"
+#include "indexing_suite/value_traits.hpp"
 
-#include "boost/python/suite/indexing/map_indexing_suite.hpp"
+#include "indexing_suite/container_suite.hpp"
+
+#include "indexing_suite/vector.hpp"
+
+#include "indexing_suite/set.hpp"
+
+#include "indexing_suite/map.hpp"
+
+#include "indexing_suite/list.hpp"
 
 #include "wrap_osgutil.h"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/baseoptimizervisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/compileops.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/compilesets.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/contextset.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/cullvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/geodestodividelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/globjectsoperation.pypp.hpp"
 
@@ -26,6 +42,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/positionalstatecontainer.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/programset.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/renderbin.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/renderbinlist.pypp.hpp"
@@ -38,11 +56,21 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/sceneview.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/set_less__osg_scope_drawable_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/set_less__osg_scope_group_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/set_less__osg_scope_node_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/set_less__osg_scope_stateset_ptr___greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/stategraph.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/statetocompile.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/std_vector_pair_stateattribute_refmatrixd.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/textureset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/texunitattrmatrixlistmap.pypp.hpp"
 
@@ -63,9 +91,29 @@ BOOST_PYTHON_MODULE(osgUtil){
 
     register_vector_less__osg_scope_ref_ptr_less_osgUtil_scope_RenderLeaf_greater___greater__class();
 
+    register_TextureSet_class();
+
+    register_set_less__osg_scope_StateSet_ptr___greater__class();
+
+    register_ProgramSet_class();
+
+    register_set_less__osg_scope_Node_ptr___greater__class();
+
+    register_set_less__osg_scope_Group_ptr___greater__class();
+
+    register_ContextSet_class();
+
+    register_GeodesToDivideList_class();
+
+    register_set_less__osg_scope_Drawable_ptr___greater__class();
+
     register_TexUnitAttrMatrixListMap_class();
 
     register_RenderBinList_class();
+
+    register_CompileSets_class();
+
+    register_CompileOps_class();
 
     register_BaseOptimizerVisitor_class();
 

@@ -250,9 +250,9 @@ void register_StateSetManipulator_class(){
 
     { //::osgGA::StateSetManipulator
         typedef bp::class_< StateSetManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< ::osgGA::StateSetManipulator >, boost::noncopyable > StateSetManipulator_exposer_t;
-        StateSetManipulator_exposer_t StateSetManipulator_exposer = StateSetManipulator_exposer_t( "StateSetManipulator", bp::no_init );
+        StateSetManipulator_exposer_t StateSetManipulator_exposer = StateSetManipulator_exposer_t( "StateSetManipulator", "\nExperimental class, not been looked at for a while, but which will\nbe returned to at some point :-\\n", bp::no_init );
         bp::scope StateSetManipulator_scope( StateSetManipulator_exposer );
-        StateSetManipulator_exposer.def( bp::init< bp::optional< osg::StateSet * > >(( bp::arg("stateset")=bp::object() )) );
+        StateSetManipulator_exposer.def( bp::init< bp::optional< osg::StateSet * > >(( bp::arg("stateset")=bp::object() ), "\nExperimental class, not been looked at for a while, but which will\nbe returned to at some point :-\\n") );
         bp::implicitly_convertible< osg::StateSet *, osgGA::StateSetManipulator >();
         { //::osgGA::StateSetManipulator::className
         
@@ -398,7 +398,8 @@ void register_StateSetManipulator_class(){
             StateSetManipulator_exposer.def( 
                 "handle"
                 , default_handle_function_type( &StateSetManipulator_wrapper::default_handle )
-                , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
+                , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") )
+                , "\n Handle events, return true if handled, false otherwise.\n" );
         
         }
         { //::osgGA::StateSetManipulator::setBackfaceEnabled

@@ -39,7 +39,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "decompose"
                 , decompose_function_type( &::osg::Matrixd::decompose )
-                , ( bp::arg("translation"), bp::arg("rotation"), bp::arg("scale"), bp::arg("so") ) );
+                , ( bp::arg("translation"), bp::arg("rotation"), bp::arg("scale"), bp::arg("so") )
+                , "\n decompose the matrix into translation, rotation, scale and scale orientation.\n" );
         
         }
         { //::osg::Matrixd::decompose
@@ -49,7 +50,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "decompose"
                 , decompose_function_type( &::osg::Matrixd::decompose )
-                , ( bp::arg("translation"), bp::arg("rotation"), bp::arg("scale"), bp::arg("so") ) );
+                , ( bp::arg("translation"), bp::arg("rotation"), bp::arg("scale"), bp::arg("so") )
+                , "\n decompose the matrix into translation, rotation, scale and scale orientation.\n" );
         
         }
         { //::osg::Matrixd::frustum
@@ -79,7 +81,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getFrustum"
                 , getFrustum_function_type( &::osg::Matrixd::getFrustum )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Get the frustum settings of a perspective projection matrix.\n Note, if matrix is not a perspective matrix then invalid values\n will be returned.\n" );
         
         }
         { //::osg::Matrixd::getFrustum
@@ -89,7 +92,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getFrustum"
                 , getFrustum_function_type( &::osg::Matrixd::getFrustum )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n float version of getFrustum(..)\n" );
         
         }
         { //::osg::Matrixd::getLookAt
@@ -99,7 +103,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getLookAt"
                 , getLookAt_function_type( &::osg::Matrixd::getLookAt )
-                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("lookDistance")=1.0e+0f ) );
+                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("lookDistance")=1.0e+0f )
+                , "\n Get to the position and orientation of a modelview matrix,\n using the same convention as gluLookAt.\n" );
         
         }
         { //::osg::Matrixd::getLookAt
@@ -109,7 +114,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getLookAt"
                 , getLookAt_function_type( &::osg::Matrixd::getLookAt )
-                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("lookDistance")=1.0e+0f ) );
+                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("lookDistance")=1.0e+0f )
+                , "\n Get to the position and orientation of a modelview matrix,\n using the same convention as gluLookAt.\n" );
         
         }
         { //::osg::Matrixd::getOrtho
@@ -119,7 +125,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getOrtho"
                 , getOrtho_function_type( &::osg::Matrixd::getOrtho )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Get the orthographic settings of the orthographic projection matrix.\n Note, if matrix is not an orthographic matrix then invalid values\n will be returned.\n" );
         
         }
         { //::osg::Matrixd::getOrtho
@@ -129,7 +136,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getOrtho"
                 , getOrtho_function_type( &::osg::Matrixd::getOrtho )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n float version of getOrtho(..)\n" );
         
         }
         { //::osg::Matrixd::getPerspective
@@ -139,7 +147,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getPerspective"
                 , getPerspective_function_type( &::osg::Matrixd::getPerspective )
-                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Get the frustum settings of a symmetric perspective projection\n matrix.\n Return false if matrix is not a perspective matrix,\n where parameter values are undefined.\n Note, if matrix is not a symmetric perspective matrix then the\n shear will be lost.\n Asymmetric matrices occur when stereo, power walls, caves and\n reality center display are used.\n In these configuration one should use the AsFrustum method instead.\n" );
         
         }
         { //::osg::Matrixd::getPerspective
@@ -149,7 +158,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "getPerspective"
                 , getPerspective_function_type( &::osg::Matrixd::getPerspective )
-                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n float version of getPerspective(..)\n" );
         
         }
         { //::osg::Matrixd::getRotate
@@ -158,7 +168,8 @@ void register_Matrixd_class(){
             
             Matrixd_exposer.def( 
                 "getRotate"
-                , getRotate_function_type( &::osg::Matrixd::getRotate ) );
+                , getRotate_function_type( &::osg::Matrixd::getRotate )
+                , "\n Get the matrix rotation as a Quat. Note that this function\n assumes a non-scaled matrix and will return incorrect results\n for scaled matrixces. Consider decompose() instead.\n" );
         
         }
         { //::osg::Matrixd::getScale
@@ -205,7 +216,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "invert"
                 , invert_function_type( &::osg::Matrixd::invert )
-                , ( bp::arg("rhs") ) );
+                , ( bp::arg("rhs") )
+                , "\n invert the matrix rhs, automatically select invert_4x3 or invert_4x4.\n" );
         
         }
         { //::osg::Matrixd::invert_4x3
@@ -215,7 +227,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "invert_4x3"
                 , invert_4x3_function_type( &::osg::Matrixd::invert_4x3 )
-                , ( bp::arg("rhs") ) );
+                , ( bp::arg("rhs") )
+                , "\n 4x3 matrix invert, not right hand column is assumed to be 0,0,0,1.\n" );
         
         }
         { //::osg::Matrixd::invert_4x4
@@ -225,7 +238,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "invert_4x4"
                 , invert_4x4_function_type( &::osg::Matrixd::invert_4x4 )
-                , ( bp::arg("rhs") ) );
+                , ( bp::arg("rhs") )
+                , "\n full 4x4 matrix invert.\n" );
         
         }
         { //::osg::Matrixd::isIdentity
@@ -273,7 +287,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "makeFrustum"
                 , makeFrustum_function_type( &::osg::Matrixd::makeFrustum )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Set to a perspective projection.\n See glFrustum for further details.\n" );
         
         }
         { //::osg::Matrixd::makeIdentity
@@ -292,7 +307,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "makeLookAt"
                 , makeLookAt_function_type( &::osg::Matrixd::makeLookAt )
-                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") ) );
+                , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") )
+                , "\n Set the position and orientation to be a view matrix,\n using the same convention as gluLookAt.\n" );
         
         }
         { //::osg::Matrixd::makeOrtho
@@ -302,7 +318,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "makeOrtho"
                 , makeOrtho_function_type( &::osg::Matrixd::makeOrtho )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Set to an orthographic projection.\n See glOrtho for further details.\n" );
         
         }
         { //::osg::Matrixd::makeOrtho2D
@@ -312,7 +329,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "makeOrtho2D"
                 , makeOrtho2D_function_type( &::osg::Matrixd::makeOrtho2D )
-                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top") ) );
+                , ( bp::arg("left"), bp::arg("right"), bp::arg("bottom"), bp::arg("top") )
+                , "\n Set to a 2D orthographic projection.\n See glOrtho2D for further details.\n" );
         
         }
         { //::osg::Matrixd::makePerspective
@@ -322,7 +340,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "makePerspective"
                 , makePerspective_function_type( &::osg::Matrixd::makePerspective )
-                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") ) );
+                , ( bp::arg("fovy"), bp::arg("aspectRatio"), bp::arg("zNear"), bp::arg("zFar") )
+                , "\n Set to a symmetrical perspective projection.\n See gluPerspective for further details.\n Aspect ratio is defined as width/height.\n" );
         
         }
         { //::osg::Matrixd::makeRotate
@@ -564,7 +583,8 @@ void register_Matrixd_class(){
             Matrixd_exposer.def( 
                 "orthoNormalize"
                 , orthoNormalize_function_type( &::osg::Matrixd::orthoNormalize )
-                , ( bp::arg("rhs") ) );
+                , ( bp::arg("rhs") )
+                , "\n ortho-normalize the 3x3 rotation & scale matrix\n" );
         
         }
         { //::osg::Matrixd::perspective

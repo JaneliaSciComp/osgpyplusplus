@@ -281,9 +281,9 @@ void register_Light_class(){
 
     { //::osg::Light
         typedef bp::class_< Light_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Light >, boost::noncopyable > Light_exposer_t;
-        Light_exposer_t Light_exposer = Light_exposer_t( "Light", bp::no_init );
+        Light_exposer_t Light_exposer = Light_exposer_t( "Light", "\n Light state class which encapsulates OpenGL glLight() functionality.\n", bp::no_init );
         bp::scope Light_scope( Light_exposer );
-        Light_exposer.def( bp::init< >() );
+        Light_exposer.def( bp::init< >("\n Light state class which encapsulates OpenGL glLight() functionality.\n") );
         Light_exposer.def( bp::init< unsigned int >(( bp::arg("lightnum") )) );
         bp::implicitly_convertible< unsigned int, osg::Light >();
         { //::osg::Light::apply
@@ -304,7 +304,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "captureLightState"
-                , captureLightState_function_type( &::osg::Light::captureLightState ) );
+                , captureLightState_function_type( &::osg::Light::captureLightState )
+                , " Capture the lighting settings of the current OpenGL state\n and store them in this object." );
         
         }
         { //::osg::Light::className
@@ -350,7 +351,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "getAmbient"
                 , getAmbient_function_type( &::osg::Light::getAmbient )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the ambient component of the light." );
         
         }
         { //::osg::Light::getConstantAttenuation
@@ -359,7 +361,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getConstantAttenuation"
-                , getConstantAttenuation_function_type( &::osg::Light::getConstantAttenuation ) );
+                , getConstantAttenuation_function_type( &::osg::Light::getConstantAttenuation )
+                , " Get the constant attenuation of the light." );
         
         }
         { //::osg::Light::getDiffuse
@@ -369,7 +372,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "getDiffuse"
                 , getDiffuse_function_type( &::osg::Light::getDiffuse )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the diffuse component of the light." );
         
         }
         { //::osg::Light::getDirection
@@ -379,7 +383,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "getDirection"
                 , getDirection_function_type( &::osg::Light::getDirection )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the direction of the light." );
         
         }
         { //::osg::Light::getLightNum
@@ -388,7 +393,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getLightNum"
-                , getLightNum_function_type( &::osg::Light::getLightNum ) );
+                , getLightNum_function_type( &::osg::Light::getLightNum )
+                , " Get which OpenGL light this osg::Light operates on." );
         
         }
         { //::osg::Light::getLinearAttenuation
@@ -397,7 +403,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getLinearAttenuation"
-                , getLinearAttenuation_function_type( &::osg::Light::getLinearAttenuation ) );
+                , getLinearAttenuation_function_type( &::osg::Light::getLinearAttenuation )
+                , " Get the linear attenuation of the light." );
         
         }
         { //::osg::Light::getMember
@@ -430,7 +437,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "getPosition"
                 , getPosition_function_type( &::osg::Light::getPosition )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the position of the light." );
         
         }
         { //::osg::Light::getQuadraticAttenuation
@@ -439,7 +447,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getQuadraticAttenuation"
-                , getQuadraticAttenuation_function_type( &::osg::Light::getQuadraticAttenuation ) );
+                , getQuadraticAttenuation_function_type( &::osg::Light::getQuadraticAttenuation )
+                , " Get the quadratic attenuation of the light." );
         
         }
         { //::osg::Light::getSpecular
@@ -449,7 +458,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "getSpecular"
                 , getSpecular_function_type( &::osg::Light::getSpecular )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the specular component of the light." );
         
         }
         { //::osg::Light::getSpotCutoff
@@ -458,7 +468,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getSpotCutoff"
-                , getSpotCutoff_function_type( &::osg::Light::getSpotCutoff ) );
+                , getSpotCutoff_function_type( &::osg::Light::getSpotCutoff )
+                , " Get the spot cutoff of the light." );
         
         }
         { //::osg::Light::getSpotExponent
@@ -467,7 +478,8 @@ void register_Light_class(){
             
             Light_exposer.def( 
                 "getSpotExponent"
-                , getSpotExponent_function_type( &::osg::Light::getSpotExponent ) );
+                , getSpotExponent_function_type( &::osg::Light::getSpotExponent )
+                , " Get the spot exponent of the light." );
         
         }
         { //::osg::Light::getType
@@ -511,7 +523,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setAmbient"
                 , setAmbient_function_type( &::osg::Light::setAmbient )
-                , ( bp::arg("ambient") ) );
+                , ( bp::arg("ambient") )
+                , " Set the ambient component of the light." );
         
         }
         { //::osg::Light::setConstantAttenuation
@@ -521,7 +534,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setConstantAttenuation"
                 , setConstantAttenuation_function_type( &::osg::Light::setConstantAttenuation )
-                , ( bp::arg("constant_attenuation") ) );
+                , ( bp::arg("constant_attenuation") )
+                , " Set the constant attenuation of the light." );
         
         }
         { //::osg::Light::setDiffuse
@@ -531,7 +545,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setDiffuse"
                 , setDiffuse_function_type( &::osg::Light::setDiffuse )
-                , ( bp::arg("diffuse") ) );
+                , ( bp::arg("diffuse") )
+                , " Set the diffuse component of the light." );
         
         }
         { //::osg::Light::setDirection
@@ -541,7 +556,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setDirection"
                 , setDirection_function_type( &::osg::Light::setDirection )
-                , ( bp::arg("direction") ) );
+                , ( bp::arg("direction") )
+                , " Set the direction of the light." );
         
         }
         { //::osg::Light::setLightNum
@@ -551,7 +567,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setLightNum"
                 , setLightNum_function_type( &::osg::Light::setLightNum )
-                , ( bp::arg("num") ) );
+                , ( bp::arg("num") )
+                , " Set which OpenGL light to operate on." );
         
         }
         { //::osg::Light::setLinearAttenuation
@@ -561,7 +578,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setLinearAttenuation"
                 , setLinearAttenuation_function_type( &::osg::Light::setLinearAttenuation )
-                , ( bp::arg("linear_attenuation") ) );
+                , ( bp::arg("linear_attenuation") )
+                , " Set the linear attenuation of the light." );
         
         }
         { //::osg::Light::setPosition
@@ -571,7 +589,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setPosition"
                 , setPosition_function_type( &::osg::Light::setPosition )
-                , ( bp::arg("position") ) );
+                , ( bp::arg("position") )
+                , " Set the position of the light." );
         
         }
         { //::osg::Light::setQuadraticAttenuation
@@ -581,7 +600,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setQuadraticAttenuation"
                 , setQuadraticAttenuation_function_type( &::osg::Light::setQuadraticAttenuation )
-                , ( bp::arg("quadratic_attenuation") ) );
+                , ( bp::arg("quadratic_attenuation") )
+                , " Set the quadratic attenuation of the light." );
         
         }
         { //::osg::Light::setSpecular
@@ -591,7 +611,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setSpecular"
                 , setSpecular_function_type( &::osg::Light::setSpecular )
-                , ( bp::arg("specular") ) );
+                , ( bp::arg("specular") )
+                , " Set the specular component of the light." );
         
         }
         { //::osg::Light::setSpotCutoff
@@ -601,7 +622,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setSpotCutoff"
                 , setSpotCutoff_function_type( &::osg::Light::setSpotCutoff )
-                , ( bp::arg("spot_cutoff") ) );
+                , ( bp::arg("spot_cutoff") )
+                , " Set the spot cutoff of the light." );
         
         }
         { //::osg::Light::setSpotExponent
@@ -611,7 +633,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setSpotExponent"
                 , setSpotExponent_function_type( &::osg::Light::setSpotExponent )
-                , ( bp::arg("spot_exponent") ) );
+                , ( bp::arg("spot_exponent") )
+                , " Set the spot exponent of the light." );
         
         }
         { //::osg::StateAttribute::asTexture
@@ -739,7 +762,8 @@ void register_Light_class(){
             Light_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

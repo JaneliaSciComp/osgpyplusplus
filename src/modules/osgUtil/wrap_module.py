@@ -14,7 +14,7 @@ class OsgUtilWrapper(BaseWrapper):
         BaseWrapper.__init__(self, files=["wrap_osgUtil.h",])
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
-        self.mb.register_module_dependency('../osgGA/generated_code/')
+        self.mb.register_module_dependency('../osg/generated_code/')
             
     def wrap(self):
         mb = self.mb

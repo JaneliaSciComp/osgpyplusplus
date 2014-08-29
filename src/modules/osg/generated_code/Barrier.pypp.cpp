@@ -69,7 +69,7 @@ void register_Barrier_class(){
 
     { //::OpenThreads::Barrier
         typedef bp::class_< Barrier_wrapper, boost::noncopyable > Barrier_exposer_t;
-        Barrier_exposer_t Barrier_exposer = Barrier_exposer_t( "Barrier", bp::init< bp::optional< int > >(( bp::arg("numThreads")=(int)(0) )) );
+        Barrier_exposer_t Barrier_exposer = Barrier_exposer_t( "Barrier", "\n  Class: Barrier\n  This class provides an object-oriented thread barrier interface\n\n  Warning: It is unwise to use the construct Barrier barrier in the\n           global namespace on sgis.  The object barrier\n           will confilict with the c-library sproc function barrier and\n           unpredictable results may occur. You have been warned.\n", bp::init< bp::optional< int > >(( bp::arg("numThreads")=(int)(0) ), "\n  Constructor\n") );
         bp::scope Barrier_scope( Barrier_exposer );
         bp::implicitly_convertible< int, OpenThreads::Barrier >();
         { //::OpenThreads::Barrier::block

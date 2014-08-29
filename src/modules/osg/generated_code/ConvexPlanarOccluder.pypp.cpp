@@ -164,8 +164,8 @@ struct ConvexPlanarOccluder_wrapper : osg::ConvexPlanarOccluder, bp::wrapper< os
 
 void register_ConvexPlanarOccluder_class(){
 
-    bp::class_< ConvexPlanarOccluder_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::ConvexPlanarOccluder >, boost::noncopyable >( "ConvexPlanarOccluder", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< ConvexPlanarOccluder_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::ConvexPlanarOccluder >, boost::noncopyable >( "ConvexPlanarOccluder", "\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n", bp::no_init )    
+        .def( bp::init< >("\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n") )    
         .def( 
             "addHole"
             , (void ( ::osg::ConvexPlanarOccluder::* )( ::osg::ConvexPlanarPolygon const & ))( &::osg::ConvexPlanarOccluder::addHole )
@@ -245,7 +245,8 @@ void register_ConvexPlanarOccluder_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

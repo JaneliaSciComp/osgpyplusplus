@@ -398,7 +398,8 @@ void register_BufferData_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -460,7 +461,8 @@ void register_BufferData_class(){
             
             BufferData_exposer.def( 
                 "dirty"
-                , dirty_function_type( &::osg::BufferData::dirty ) );
+                , dirty_function_type( &::osg::BufferData::dirty )
+                , " Dirty the primitive, which increments the modified count, to force buffer objects to update.\n If a ModifiedCallback is attached to this BufferData then the callback is called prior to the bufferObjects dirty is called." );
         
         }
         { //::osg::BufferData::getBufferIndex
@@ -539,7 +541,8 @@ void register_BufferData_class(){
             
             BufferData_exposer.def( 
                 "getModifiedCount"
-                , getModifiedCount_function_type( &::osg::BufferData::getModifiedCount ) );
+                , getModifiedCount_function_type( &::osg::BufferData::getModifiedCount )
+                , " Get modified count value." );
         
         }
         { //::osg::BufferData::getNumClients
@@ -653,7 +656,8 @@ void register_BufferData_class(){
             BufferData_exposer.def( 
                 "setModifiedCount"
                 , setModifiedCount_function_type( &::osg::BufferData::setModifiedCount )
-                , ( bp::arg("value") ) );
+                , ( bp::arg("value") )
+                , " Set the modified count value." );
         
         }
         { //::osg::Object::clone
@@ -664,7 +668,8 @@ void register_BufferData_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::Object::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::cloneType
@@ -674,7 +679,8 @@ void register_BufferData_class(){
             BufferData_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::Object::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::computeDataVariance
@@ -731,7 +737,8 @@ void register_BufferData_class(){
             BufferData_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

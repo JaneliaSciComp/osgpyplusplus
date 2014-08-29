@@ -8,7 +8,7 @@ namespace bp = boost::python;
 
 void register_ConvexPlanarPolygon_class(){
 
-    bp::class_< osg::ConvexPlanarPolygon >( "ConvexPlanarPolygon", bp::init< >() )    
+    bp::class_< osg::ConvexPlanarPolygon >( "ConvexPlanarPolygon", "\n A class for representing components of convex clipping volumes.\n", bp::init< >(" A class for representing components of convex clipping volumes.") )    
         .def( 
             "add"
             , (void ( ::osg::ConvexPlanarPolygon::* )( ::osg::Vec3 const & ))( &::osg::ConvexPlanarPolygon::add )

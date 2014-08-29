@@ -298,7 +298,7 @@ void register_ProxyNode_class(){
 
     { //::osg::ProxyNode
         typedef bp::class_< ProxyNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ProxyNode >, boost::noncopyable > ProxyNode_exposer_t;
-        ProxyNode_exposer_t ProxyNode_exposer = ProxyNode_exposer_t( "ProxyNode", bp::no_init );
+        ProxyNode_exposer_t ProxyNode_exposer = ProxyNode_exposer_t( "ProxyNode", "\n ProxyNode.\n", bp::no_init );
         bp::scope ProxyNode_scope( ProxyNode_exposer );
         bp::enum_< osg::ProxyNode::CenterMode>("CenterMode")
             .value("USE_BOUNDING_SPHERE_CENTER", osg::ProxyNode::USE_BOUNDING_SPHERE_CENTER)
@@ -312,7 +312,7 @@ void register_ProxyNode_class(){
             .value("NO_AUTOMATIC_LOADING", osg::ProxyNode::NO_AUTOMATIC_LOADING)
             .export_values()
             ;
-        ProxyNode_exposer.def( bp::init< >() );
+        ProxyNode_exposer.def( bp::init< >("\n ProxyNode.\n") );
         { //::osg::ProxyNode::accept
         
             typedef void ( ::osg::ProxyNode::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -403,7 +403,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "getCenter"
                 , getCenter_function_type( &::osg::ProxyNode::getCenter )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the ProxyNode center point." );
         
         }
         { //::osg::ProxyNode::getCenterMode
@@ -412,7 +413,8 @@ void register_ProxyNode_class(){
             
             ProxyNode_exposer.def( 
                 "getCenterMode"
-                , getCenterMode_function_type( &::osg::ProxyNode::getCenterMode ) );
+                , getCenterMode_function_type( &::osg::ProxyNode::getCenterMode )
+                , " Get how the center of object should be determined when computing which child is active." );
         
         }
         { //::osg::ProxyNode::getDatabaseOptions
@@ -422,7 +424,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "getDatabaseOptions"
                 , getDatabaseOptions_function_type( &::osg::ProxyNode::getDatabaseOptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the optional database osgDB::Options object used when loading children." );
         
         }
         { //::osg::ProxyNode::getDatabaseOptions
@@ -432,7 +435,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "getDatabaseOptions"
                 , getDatabaseOptions_function_type( &::osg::ProxyNode::getDatabaseOptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the optional database osgDB::Options object used when loading children." );
         
         }
         { //::osg::ProxyNode::getDatabasePath
@@ -442,7 +446,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "getDatabasePath"
                 , getDatabasePath_function_type( &::osg::ProxyNode::getDatabasePath )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the database path used to prepend to childrens filenames." );
         
         }
         { //::osg::ProxyNode::getDatabaseRequest
@@ -453,7 +458,8 @@ void register_ProxyNode_class(){
                 "getDatabaseRequest"
                 , getDatabaseRequest_function_type( &::osg::ProxyNode::getDatabaseRequest )
                 , ( bp::arg("childNo") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the DatabaseRequest object used by the DatabasePager to keep track of file load requests\n being carried out on behalf of the DatabasePager.\n Note, in normal OSG usage you should not set this value yourself, as this will be managed by\n the osgDB::DatabasePager." );
         
         }
         { //::osg::ProxyNode::getDatabaseRequest
@@ -464,7 +470,8 @@ void register_ProxyNode_class(){
                 "getDatabaseRequest"
                 , getDatabaseRequest_function_type( &::osg::ProxyNode::getDatabaseRequest )
                 , ( bp::arg("childNo") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the const DatabaseRequest object." );
         
         }
         { //::osg::ProxyNode::getFileName
@@ -484,7 +491,8 @@ void register_ProxyNode_class(){
             
             ProxyNode_exposer.def( 
                 "getLoadingExternalReferenceMode"
-                , getLoadingExternalReferenceMode_function_type( &::osg::ProxyNode::getLoadingExternalReferenceMode ) );
+                , getLoadingExternalReferenceMode_function_type( &::osg::ProxyNode::getLoadingExternalReferenceMode )
+                , " Get the loading mode." );
         
         }
         { //::osg::ProxyNode::getNumFileNames
@@ -502,7 +510,8 @@ void register_ProxyNode_class(){
             
             ProxyNode_exposer.def( 
                 "getRadius"
-                , getRadius_function_type( &::osg::ProxyNode::getRadius ) );
+                , getRadius_function_type( &::osg::ProxyNode::getRadius )
+                , " Get the object-space radius of the volume enclosed by the ProxyNode." );
         
         }
         { //::osg::ProxyNode::isSameKindAs
@@ -547,7 +556,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setCenter"
                 , setCenter_function_type( &::osg::ProxyNode::setCenter )
-                , ( bp::arg("center") ) );
+                , ( bp::arg("center") )
+                , " Sets the object-space point which defines the center of the osg::ProxyNode.\n            Center is affected by any transforms in the hierarchy above the osg::ProxyNode." );
         
         }
         { //::osg::ProxyNode::setCenterMode
@@ -557,7 +567,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setCenterMode"
                 , setCenterMode_function_type( &::osg::ProxyNode::setCenterMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set how the center of object should be determined when computing which child is active." );
         
         }
         { //::osg::ProxyNode::setDatabaseOptions
@@ -567,7 +578,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setDatabaseOptions"
                 , setDatabaseOptions_function_type( &::osg::ProxyNode::setDatabaseOptions )
-                , ( bp::arg("options") ) );
+                , ( bp::arg("options") )
+                , " Set the optional database osgDB::Options object to use when loading children." );
         
         }
         { //::osg::ProxyNode::setDatabasePath
@@ -577,7 +589,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setDatabasePath"
                 , setDatabasePath_function_type( &::osg::ProxyNode::setDatabasePath )
-                , ( bp::arg("path") ) );
+                , ( bp::arg("path") )
+                , " Set the database path to prepend to childrens filenames." );
         
         }
         { //::osg::ProxyNode::setFileName
@@ -597,7 +610,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setLoadingExternalReferenceMode"
                 , setLoadingExternalReferenceMode_function_type( &::osg::ProxyNode::setLoadingExternalReferenceMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set how the child loading is done." );
         
         }
         { //::osg::ProxyNode::setRadius
@@ -607,7 +621,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setRadius"
                 , setRadius_function_type( &::osg::ProxyNode::setRadius )
-                , ( bp::arg("radius") ) );
+                , ( bp::arg("radius") )
+                , " Set the object-space reference radius of the volume enclosed by the ProxyNode.\n Used to determine the bounding sphere of the ProxyNode in the absence of any children." );
         
         }
         { //::osg::ProxyNode::traverse
@@ -748,7 +763,8 @@ void register_ProxyNode_class(){
             ProxyNode_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

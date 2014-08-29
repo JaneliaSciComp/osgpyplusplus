@@ -107,11 +107,12 @@ endfunction()
 
 # Add module subdirectories in inverse order of linear dependency chain
 add_subdirectory(osg)
-add_subdirectory(osgDB)
-add_subdirectory(osgGA)
 add_subdirectory(osgUtil)
+add_subdirectory(osgDB)
+add_subdirectory(osgText)
+add_subdirectory(osgGA)
 add_subdirectory(osgViewer)
 
 # InstallOsgPyPPLocally is used as a prerequisite for unit tests
 add_custom_target(InstallOsgPyPPLocally DEPENDS 
-    osg osgDB osgGA osgUtil osgViewer)
+    osg osgDB osgGA osgUtil osgViewer osgText)

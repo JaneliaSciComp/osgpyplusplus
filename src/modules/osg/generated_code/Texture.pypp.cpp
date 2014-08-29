@@ -355,7 +355,7 @@ void register_Texture_class(){
 
     { //::osg::Texture
         typedef bp::class_< Texture_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Texture >, boost::noncopyable > Texture_exposer_t;
-        Texture_exposer_t Texture_exposer = Texture_exposer_t( "Texture", bp::no_init );
+        Texture_exposer_t Texture_exposer = Texture_exposer_t( "Texture", "\n Texture pure virtual base class that encapsulates OpenGL texture\n functionality common to the various types of OSG textures.\n", bp::no_init );
         bp::scope Texture_scope( Texture_exposer );
         bp::enum_< osg::Texture::FilterMode>("FilterMode")
             .value("LINEAR", osg::Texture::LINEAR)
@@ -438,7 +438,7 @@ void register_Texture_class(){
             .value("WRAP_R", osg::Texture::WRAP_R)
             .export_values()
             ;
-        bp::class_< Texture_wrapper::Extensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::Extensions >, boost::noncopyable >( "Extensions", bp::no_init )    
+        bp::class_< Texture_wrapper::Extensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::Extensions >, boost::noncopyable >( "Extensions", "\n Encapsulates queries of extension availability, obtains extension\n function pointers, and provides convenience wrappers for\n calling extension functions.\n", bp::no_init )    
             .def( 
                 "getPreferGenerateMipmapSGISForPowerOfTwo"
                 , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo ) )    
@@ -642,13 +642,13 @@ void register_Texture_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Texture_wrapper::Extensions_wrapper::* )( bool ))(&Texture_wrapper::Extensions_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< osg::Texture::ImageAttachment >( "ImageAttachment" )    
+        bp::class_< osg::Texture::ImageAttachment >( "ImageAttachment", " Encapsulates texture image load/store attributes" )    
             .def_readwrite( "access", &osg::Texture::ImageAttachment::access )    
             .def_readwrite( "format", &osg::Texture::ImageAttachment::format )    
             .def_readwrite( "layer", &osg::Texture::ImageAttachment::layer )    
             .def_readwrite( "layered", &osg::Texture::ImageAttachment::layered )    
             .def_readwrite( "level", &osg::Texture::ImageAttachment::level )    
-            .def_readwrite( "unit", &osg::Texture::ImageAttachment::unit );
+            .def_readwrite( "unit", &osg::Texture::ImageAttachment::unit, " Encapsulates texture image load/store attributes" );
         bp::class_< Texture_wrapper::TextureObjectManager_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::TextureObjectManager >, boost::noncopyable >( "TextureObjectManager", bp::no_init )    
             .def( 
                 "checkConsistency"
@@ -905,7 +905,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "allocateMipmapLevels"
-                , allocateMipmapLevels_function_type( &::osg::Texture::allocateMipmapLevels ) );
+                , allocateMipmapLevels_function_type( &::osg::Texture::allocateMipmapLevels )
+                , " Force a manual allocation of the mipmap levels on the next apply() call.\n User is responsible for filling the mipmap levels with valid data.\n The OpenGLs glGenerateMipmapEXT function is used to generate the mipmap levels.\n If glGenerateMipmapEXT is not supported or textures internal format is not supported\n by the glGenerateMipmapEXT, then empty mipmap levels will\n be allocated manually. The mipmap levels are also allocated if a non-mipmapped\n min filter is used." );
         
         }
         { //::osg::Texture::apply
@@ -915,7 +916,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "apply"
                 , bp::pure_virtual( apply_function_type(&::osg::Texture::apply) )
-                , ( bp::arg("state") ) );
+                , ( bp::arg("state") )
+                , "\n Texture is a pure virtual base class, apply must be overridden.\n" );
         
         }
         { //::osg::Texture::applyTexImage2D_load
@@ -925,7 +927,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "applyTexImage2D_load"
                 , applyTexImage2D_load_function_type( &::osg::Texture::applyTexImage2D_load )
-                , ( bp::arg("state"), bp::arg("target"), bp::arg("image"), bp::arg("width"), bp::arg("height"), bp::arg("numMipmapLevels") ) );
+                , ( bp::arg("state"), bp::arg("target"), bp::arg("image"), bp::arg("width"), bp::arg("height"), bp::arg("numMipmapLevels") )
+                , " Helper method. Creates the texture, but doesnt set or use a\n texture binding. Note: Dont call this method directly unless\n youre implementing a subload callback." );
         
         }
         { //::osg::Texture::applyTexImage2D_subload
@@ -935,7 +938,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "applyTexImage2D_subload"
                 , applyTexImage2D_subload_function_type( &::osg::Texture::applyTexImage2D_subload )
-                , ( bp::arg("state"), bp::arg("target"), bp::arg("image"), bp::arg("width"), bp::arg("height"), bp::arg("inInternalFormat"), bp::arg("numMipmapLevels") ) );
+                , ( bp::arg("state"), bp::arg("target"), bp::arg("image"), bp::arg("width"), bp::arg("height"), bp::arg("inInternalFormat"), bp::arg("numMipmapLevels") )
+                , " Helper method. Subloads images into the texture, but doesnt set\n or use a texture binding. Note: Dont call this method directly\n unless youre implementing a subload callback." );
         
         }
         { //::osg::Texture::areAllTextureObjectsLoaded
@@ -944,7 +948,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "areAllTextureObjectsLoaded"
-                , areAllTextureObjectsLoaded_function_type( &::osg::Texture::areAllTextureObjectsLoaded ) );
+                , areAllTextureObjectsLoaded_function_type( &::osg::Texture::areAllTextureObjectsLoaded )
+                , " Returns true if the texture objects for all the required graphics\n contexts are loaded." );
         
         }
         { //::osg::Texture::asTexture
@@ -978,7 +983,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "bindToImageUnit"
                 , bindToImageUnit_function_type( &::osg::Texture::bindToImageUnit )
-                , ( bp::arg("unit"), bp::arg("access"), bp::arg("format")=(::GLenum)(0), bp::arg("level")=(int)(0), bp::arg("layered")=(bool)(false), bp::arg("layer")=(int)(0) ) );
+                , ( bp::arg("unit"), bp::arg("access"), bp::arg("format")=(::GLenum)(0), bp::arg("level")=(int)(0), bp::arg("layered")=(bool)(false), bp::arg("layer")=(int)(0) )
+                , " Bind texture to an image unit (available only if GL version is 4.2 or greater)\n The format parameter for the image unit need not exactly match the texture internal format,\n but if it is set to 0, the texture internal format will be used.\n See http://www.opengl.org/registry/specs/ARB/shader_image_load_store.txt" );
         
         }
         { //::osg::Texture::className
@@ -1041,7 +1047,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "dirtyTextureObject"
-                , dirtyTextureObject_function_type( &::osg::Texture::dirtyTextureObject ) );
+                , dirtyTextureObject_function_type( &::osg::Texture::dirtyTextureObject )
+                , " Forces a recompile on next apply() of associated OpenGL texture\n objects." );
         
         }
         { //::osg::Texture::dirtyTextureParameters
@@ -1050,7 +1057,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "dirtyTextureParameters"
-                , dirtyTextureParameters_function_type( &::osg::Texture::dirtyTextureParameters ) );
+                , dirtyTextureParameters_function_type( &::osg::Texture::dirtyTextureParameters )
+                , " Force a reset on next apply() of associated OpenGL texture\n parameters." );
         
         }
         { //::osg::Texture::discardAllDeletedTextureObjects
@@ -1122,7 +1130,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getBorderColor"
                 , getBorderColor_function_type( &::osg::Texture::getBorderColor )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the border color." );
         
         }
         { //::osg::Texture::getBorderWidth
@@ -1140,7 +1149,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getClientStorageHint"
-                , getClientStorageHint_function_type( &::osg::Texture::getClientStorageHint ) );
+                , getClientStorageHint_function_type( &::osg::Texture::getClientStorageHint )
+                , " Gets whether to use client storage for the texture." );
         
         }
         { //::osg::Texture::getCompressedSize
@@ -1150,7 +1160,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getCompressedSize"
                 , getCompressedSize_function_type( &::osg::Texture::getCompressedSize )
-                , ( bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("blockSize"), bp::arg("size") ) );
+                , ( bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("blockSize"), bp::arg("size") )
+                , " Determine the size of a compressed image, given the internalFormat,\n the width, the height, and the depth of the image. The block size\n and the size are output parameters." );
         
         }
         { //::osg::Texture::getExtensions
@@ -1161,7 +1172,8 @@ void register_Texture_class(){
                 "getExtensions"
                 , getExtensions_function_type( &::osg::Texture::getExtensions )
                 , ( bp::arg("contextID"), bp::arg("createIfNotInitalized") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the extension for the specified context. Creates the\n Extensions object for that context if it doesnt exist.\n Returns NULL if the Extensions object for the context doesnt\n exist and the createIfNotInitalized flag is false." );
         
         }
         { //::osg::Texture::getFilter
@@ -1171,7 +1183,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getFilter"
                 , getFilter_function_type( &::osg::Texture::getFilter )
-                , ( bp::arg("which") ) );
+                , ( bp::arg("which") )
+                , " Gets the texture filter mode." );
         
         }
         { //::osg::Texture::getImage
@@ -1182,7 +1195,8 @@ void register_Texture_class(){
                 "getImage"
                 , bp::pure_virtual( getImage_function_type(&::osg::Texture::getImage) )
                 , ( bp::arg("face") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Gets the texture image for the specified face.\n" );
         
         }
         { //::osg::Texture::getImage
@@ -1193,7 +1207,8 @@ void register_Texture_class(){
                 "getImage"
                 , bp::pure_virtual( getImage_function_type(&::osg::Texture::getImage) )
                 , ( bp::arg("face") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Gets the const texture image for specified face.\n" );
         
         }
         { //::osg::Texture::getImageAttachment
@@ -1222,7 +1237,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getInternalFormat"
-                , getInternalFormat_function_type( &::osg::Texture::getInternalFormat ) );
+                , getInternalFormat_function_type( &::osg::Texture::getInternalFormat )
+                , " Gets the internal texture format." );
         
         }
         { //::osg::Texture::getInternalFormatMode
@@ -1231,7 +1247,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getInternalFormatMode"
-                , getInternalFormatMode_function_type( &::osg::Texture::getInternalFormatMode ) );
+                , getInternalFormatMode_function_type( &::osg::Texture::getInternalFormatMode )
+                , " Gets the internal texture format mode." );
         
         }
         { //::osg::Texture::getInternalFormatType
@@ -1240,7 +1257,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getInternalFormatType"
-                , getInternalFormatType_function_type( &::osg::Texture::getInternalFormatType ) );
+                , getInternalFormatType_function_type( &::osg::Texture::getInternalFormatType )
+                , " Get the internal texture format type." );
         
         }
         { //::osg::Texture::getMaxAnisotropy
@@ -1249,7 +1267,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getMaxAnisotropy"
-                , getMaxAnisotropy_function_type( &::osg::Texture::getMaxAnisotropy ) );
+                , getMaxAnisotropy_function_type( &::osg::Texture::getMaxAnisotropy )
+                , " Gets the maximum anisotropy value." );
         
         }
         { //::osg::Texture::getModeUsage
@@ -1270,7 +1289,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getNumImages"
-                , bp::pure_virtual( getNumImages_function_type(&::osg::Texture::getNumImages) ) );
+                , bp::pure_virtual( getNumImages_function_type(&::osg::Texture::getNumImages) )
+                , "\n Gets the number of images that can be assigned to this Texture.\n" );
         
         }
         { //::osg::Texture::getReadPBuffer
@@ -1280,7 +1300,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getReadPBuffer"
                 , getReadPBuffer_function_type( &::osg::Texture::getReadPBuffer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the PBuffer graphics context to read from when using PBuffers for RenderToTexture." );
         
         }
         { //::osg::Texture::getReadPBuffer
@@ -1290,7 +1311,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getReadPBuffer"
                 , getReadPBuffer_function_type( &::osg::Texture::getReadPBuffer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const PBuffer graphics context to read from when using PBuffers for RenderToTexture." );
         
         }
         { //::osg::Texture::getResizeNonPowerOfTwoHint
@@ -1299,7 +1321,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getResizeNonPowerOfTwoHint"
-                , getResizeNonPowerOfTwoHint_function_type( &::osg::Texture::getResizeNonPowerOfTwoHint ) );
+                , getResizeNonPowerOfTwoHint_function_type( &::osg::Texture::getResizeNonPowerOfTwoHint )
+                , " Gets whether texture will force non power to two images to be resized." );
         
         }
         { //::osg::Texture::getShadowAmbient
@@ -1344,7 +1367,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getSourceFormat"
-                , getSourceFormat_function_type( &::osg::Texture::getSourceFormat ) );
+                , getSourceFormat_function_type( &::osg::Texture::getSourceFormat )
+                , " Gets the external source image format." );
         
         }
         { //::osg::Texture::getSourceType
@@ -1353,7 +1377,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getSourceType"
-                , getSourceType_function_type( &::osg::Texture::getSourceType ) );
+                , getSourceType_function_type( &::osg::Texture::getSourceType )
+                , " Gets the external source data type." );
         
         }
         { //::osg::Texture::getSwizzle
@@ -1363,7 +1388,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getSwizzle"
                 , getSwizzle_function_type( &::osg::Texture::getSwizzle )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Gets the source of texture swizzling for all channels" );
         
         }
         { //::osg::Texture::getTextureDepth
@@ -1396,7 +1422,8 @@ void register_Texture_class(){
                 "getTextureObject"
                 , getTextureObject_function_type( &::osg::Texture::getTextureObject )
                 , ( bp::arg("contextID") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Returns a pointer to the TextureObject for the current context." );
         
         }
         { //::osg::Texture::getTextureObjectManager
@@ -1418,7 +1445,8 @@ void register_Texture_class(){
                 "getTextureParameterDirty"
                 , getTextureParameterDirty_function_type( &::osg::Texture::getTextureParameterDirty )
                 , ( bp::arg("contextID") )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::return_value_policy< bp::copy_non_const_reference >()
+                , " Gets the dirty flag for the current contextID." );
         
         }
         { //::osg::Texture::getTextureTarget
@@ -1458,7 +1486,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getUnRefImageDataAfterApply"
-                , getUnRefImageDataAfterApply_function_type( &::osg::Texture::getUnRefImageDataAfterApply ) );
+                , getUnRefImageDataAfterApply_function_type( &::osg::Texture::getUnRefImageDataAfterApply )
+                , " Gets whether or not apply() unreferences image data." );
         
         }
         { //::osg::Texture::getUseHardwareMipMapGeneration
@@ -1467,7 +1496,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "getUseHardwareMipMapGeneration"
-                , getUseHardwareMipMapGeneration_function_type( &::osg::Texture::getUseHardwareMipMapGeneration ) );
+                , getUseHardwareMipMapGeneration_function_type( &::osg::Texture::getUseHardwareMipMapGeneration )
+                , " Gets the hardware mipmap generation hint." );
         
         }
         { //::osg::Texture::getWrap
@@ -1477,7 +1507,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "getWrap"
                 , getWrap_function_type( &::osg::Texture::getWrap )
-                , ( bp::arg("which") ) );
+                , ( bp::arg("which") )
+                , " Gets the texture wrap mode." );
         
         }
         { //::osg::Texture::isCompressedInternalFormat
@@ -1486,7 +1517,8 @@ void register_Texture_class(){
             
             Texture_exposer.def( 
                 "isCompressedInternalFormat"
-                , isCompressedInternalFormat_function_type( &::osg::Texture::isCompressedInternalFormat ) );
+                , isCompressedInternalFormat_function_type( &::osg::Texture::isCompressedInternalFormat )
+                , " Return true if the internal format is one of the compressed formats." );
         
         }
         { //::osg::Texture::isCompressedInternalFormat
@@ -1496,7 +1528,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "isCompressedInternalFormat"
                 , isCompressedInternalFormat_function_type( &::osg::Texture::isCompressedInternalFormat )
-                , ( bp::arg("internalFormat") ) );
+                , ( bp::arg("internalFormat") )
+                , " Determine whether the given internalFormat is a compressed\n image format." );
         
         }
         { //::osg::Texture::isSameKindAs
@@ -1562,7 +1595,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setBorderColor"
                 , setBorderColor_function_type( &::osg::Texture::setBorderColor )
-                , ( bp::arg("color") ) );
+                , ( bp::arg("color") )
+                , " Sets the border color. Only used when wrap mode is CLAMP_TO_BORDER.\n The border color will be casted to the appropriate type to match the\n internal pixel format of the texture." );
         
         }
         { //::osg::Texture::setBorderWidth
@@ -1572,7 +1606,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setBorderWidth"
                 , setBorderWidth_function_type( &::osg::Texture::setBorderWidth )
-                , ( bp::arg("width") ) );
+                , ( bp::arg("width") )
+                , " Sets the border width." );
         
         }
         { //::osg::Texture::setClientStorageHint
@@ -1582,7 +1617,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setClientStorageHint"
                 , setClientStorageHint_function_type( &::osg::Texture::setClientStorageHint )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " Sets whether to use client storage for the texture, if supported\n by the graphics system. Note: If enabled, and the graphics system\n supports it, the osg::Image(s) associated with this texture cannot\n be deleted, so the UnRefImageDataAfterApply flag would be ignored." );
         
         }
         { //::osg::Texture::setExtensions
@@ -1592,7 +1628,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setExtensions"
                 , setExtensions_function_type( &::osg::Texture::setExtensions )
-                , ( bp::arg("contextID"), bp::arg("extensions") ) );
+                , ( bp::arg("contextID"), bp::arg("extensions") )
+                , " Overrides Extensions objects across graphics contexts. Typically\n used to ensure the same lowest common denominator of extensions\n on systems with different graphics pipes." );
         
         }
         { //::osg::Texture::setFilter
@@ -1602,7 +1639,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setFilter"
                 , setFilter_function_type( &::osg::Texture::setFilter )
-                , ( bp::arg("which"), bp::arg("filter") ) );
+                , ( bp::arg("which"), bp::arg("filter") )
+                , " Sets the texture filter mode." );
         
         }
         { //::osg::Texture::setImage
@@ -1612,7 +1650,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setImage"
                 , bp::pure_virtual( setImage_function_type(&::osg::Texture::setImage) )
-                , ( bp::arg("face"), bp::arg("image") ) );
+                , ( bp::arg("face"), bp::arg("image") )
+                , "\n Sets the texture image for the specified face.\n" );
         
         }
         { //::osg::Texture::setInternalFormat
@@ -1622,7 +1661,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setInternalFormat"
                 , setInternalFormat_function_type( &::osg::Texture::setInternalFormat )
-                , ( bp::arg("internalFormat") ) );
+                , ( bp::arg("internalFormat") )
+                , " Sets the internal texture format. Implicitly sets the\n internalFormatMode to USE_USER_DEFINED_FORMAT.\n The corresponding internal format type will be computed." );
         
         }
         { //::osg::Texture::setInternalFormatMode
@@ -1632,7 +1672,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setInternalFormatMode"
                 , setInternalFormatMode_function_type( &::osg::Texture::setInternalFormatMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Sets the internal texture format mode. Note: If the texture format is\n USE_IMAGE_DATA_FORMAT, USE_ARB_COMPRESSION, or USE_S3TC_COMPRESSION,\n the internal format mode is set automatically and will overwrite the\n previous _internalFormat." );
         
         }
         { //::osg::Texture::setMaxAnisotropy
@@ -1642,7 +1683,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setMaxAnisotropy"
                 , setMaxAnisotropy_function_type( &::osg::Texture::setMaxAnisotropy )
-                , ( bp::arg("anis") ) );
+                , ( bp::arg("anis") )
+                , " Sets the maximum anisotropy value, default value is 1.0 for no\n anisotropic filtering. If hardware does not support anisotropic\n filtering, use normal filtering (equivalent to a max anisotropy\n value of 1.0. Valid range is 1.0f upwards.  The maximum value\n depends on the graphics system." );
         
         }
         { //::osg::Texture::setReadPBuffer
@@ -1652,7 +1694,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setReadPBuffer"
                 , setReadPBuffer_function_type( &::osg::Texture::setReadPBuffer )
-                , ( bp::arg("context") ) );
+                , ( bp::arg("context") )
+                , " Set the PBuffer graphics context to read from when using PBuffers for RenderToTexture." );
         
         }
         { //::osg::Texture::setResizeNonPowerOfTwoHint
@@ -1662,7 +1705,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setResizeNonPowerOfTwoHint"
                 , setResizeNonPowerOfTwoHint_function_type( &::osg::Texture::setResizeNonPowerOfTwoHint )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " Sets whether to force the texture to resize images that have dimensions\n that are not a power of two. If enabled, NPOT images will be resized,\n whether or not NPOT textures are supported by the hardware. If disabled,\n NPOT images will not be resized if supported by hardware." );
         
         }
         { //::osg::Texture::setShadowAmbient
@@ -1672,7 +1716,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setShadowAmbient"
                 , setShadowAmbient_function_type( &::osg::Texture::setShadowAmbient )
-                , ( bp::arg("shadow_ambient") ) );
+                , ( bp::arg("shadow_ambient") )
+                , " Sets the TEXTURE_COMPARE_FAIL_VALUE_ARB texture parameter. See\n http://oss.sgi.com/projects/ogl-sample/registry/ARB/shadow_ambient.txt." );
         
         }
         { //::osg::Texture::setShadowCompareFunc
@@ -1682,7 +1727,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setShadowCompareFunc"
                 , setShadowCompareFunc_function_type( &::osg::Texture::setShadowCompareFunc )
-                , ( bp::arg("func") ) );
+                , ( bp::arg("func") )
+                , " Sets shadow texture comparison function." );
         
         }
         { //::osg::Texture::setShadowComparison
@@ -1692,7 +1738,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setShadowComparison"
                 , setShadowComparison_function_type( &::osg::Texture::setShadowComparison )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " Sets GL_TEXTURE_COMPARE_MODE_ARB to GL_COMPARE_R_TO_TEXTURE_ARB\n See http://oss.sgi.com/projects/ogl-sample/registry/ARB/shadow.txt." );
         
         }
         { //::osg::Texture::setShadowTextureMode
@@ -1702,7 +1749,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setShadowTextureMode"
                 , setShadowTextureMode_function_type( &::osg::Texture::setShadowTextureMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Sets shadow texture mode after comparison." );
         
         }
         { //::osg::Texture::setSourceFormat
@@ -1712,7 +1760,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setSourceFormat"
                 , setSourceFormat_function_type( &::osg::Texture::setSourceFormat )
-                , ( bp::arg("sourceFormat") ) );
+                , ( bp::arg("sourceFormat") )
+                , " Sets the external source image format, used as a fallback when no osg::Image is attached to provide the source image format." );
         
         }
         { //::osg::Texture::setSourceType
@@ -1722,7 +1771,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setSourceType"
                 , setSourceType_function_type( &::osg::Texture::setSourceType )
-                , ( bp::arg("sourceType") ) );
+                , ( bp::arg("sourceType") )
+                , " Sets the external source data type, used as a fallback when no osg::Image is attached to provide the source image format." );
         
         }
         { //::osg::Texture::setSwizzle
@@ -1732,7 +1782,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setSwizzle"
                 , setSwizzle_function_type( &::osg::Texture::setSwizzle )
-                , ( bp::arg("swizzle") ) );
+                , ( bp::arg("swizzle") )
+                , " Configure the source of texture swizzling for all channels" );
         
         }
         { //::osg::Texture::setTextureObject
@@ -1752,7 +1803,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setUnRefImageDataAfterApply"
                 , setUnRefImageDataAfterApply_function_type( &::osg::Texture::setUnRefImageDataAfterApply )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , " Sets whether or not the apply() function will unreference the image\n data. If enabled, and the image data is only referenced by this\n Texture, apply() will delete the image data." );
         
         }
         { //::osg::Texture::setUseHardwareMipMapGeneration
@@ -1762,7 +1814,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setUseHardwareMipMapGeneration"
                 , setUseHardwareMipMapGeneration_function_type( &::osg::Texture::setUseHardwareMipMapGeneration )
-                , ( bp::arg("useHardwareMipMapGeneration") ) );
+                , ( bp::arg("useHardwareMipMapGeneration") )
+                , " Sets the hardware mipmap generation hint. If enabled, it will\n only be used if supported in the graphics system." );
         
         }
         { //::osg::Texture::setWrap
@@ -1772,7 +1825,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setWrap"
                 , setWrap_function_type( &::osg::Texture::setWrap )
-                , ( bp::arg("which"), bp::arg("wrap") ) );
+                , ( bp::arg("which"), bp::arg("wrap") )
+                , " Sets the texture wrap mode." );
         
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
@@ -1852,7 +1906,8 @@ void register_Texture_class(){
             Texture_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

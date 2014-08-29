@@ -436,8 +436,8 @@ void register_DrawElementsUInt_class(){
         bp::scope DrawElementsUInt_scope( DrawElementsUInt_exposer );
         DrawElementsUInt_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );
         bp::implicitly_convertible< GLenum, osg::DrawElementsUInt >();
-        DrawElementsUInt_exposer.def( bp::init< GLenum, unsigned int, GLuint const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) )) );
-        DrawElementsUInt_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") )) );
+        DrawElementsUInt_exposer.def( bp::init< GLenum, unsigned int, GLuint const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) ), "\n @param mode: One of osg::PrimitiveSet::Mode. Determines the type of primitives used.\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
+        DrawElementsUInt_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") ), "\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
         { //::osg::DrawElementsUInt::accept
         
             typedef void ( ::osg::DrawElementsUInt::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
@@ -810,7 +810,8 @@ void register_DrawElementsUInt_class(){
             DrawElementsUInt_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

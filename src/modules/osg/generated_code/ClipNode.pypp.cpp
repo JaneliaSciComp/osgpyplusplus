@@ -286,7 +286,7 @@ void register_ClipNode_class(){
 
     { //::osg::ClipNode
         typedef bp::class_< ClipNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ClipNode >, boost::noncopyable > ClipNode_exposer_t;
-        ClipNode_exposer_t ClipNode_exposer = ClipNode_exposer_t( "ClipNode", bp::no_init );
+        ClipNode_exposer_t ClipNode_exposer = ClipNode_exposer_t( "ClipNode", "\n Node for defining the position of ClipPlanes in the scene.\n", bp::no_init );
         bp::scope ClipNode_scope( ClipNode_exposer );
         bp::enum_< osg::ClipNode::ReferenceFrame>("ReferenceFrame")
             .value("RELATIVE_RF", osg::ClipNode::RELATIVE_RF)
@@ -313,7 +313,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "addClipPlane"
                 , addClipPlane_function_type( &::osg::ClipNode::addClipPlane )
-                , ( bp::arg("clipplane") ) );
+                , ( bp::arg("clipplane") )
+                , " Adds the clipplane. Returns true on success, and false if the plane\n has already been added, or if clipplane is NULL." );
         
         }
         { //::osg::ClipNode::className
@@ -370,7 +371,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "createClipBox"
                 , createClipBox_function_type( &::osg::ClipNode::createClipBox )
-                , ( bp::arg("bb"), bp::arg("clipPlaneNumberBase")=(unsigned int)(0) ) );
+                , ( bp::arg("bb"), bp::arg("clipPlaneNumberBase")=(unsigned int)(0) )
+                , " Creates six clip planes corresponding to the given BoundingBox." );
         
         }
         { //::osg::ClipNode::getClipPlane
@@ -381,7 +383,8 @@ void register_ClipNode_class(){
                 "getClipPlane"
                 , getClipPlane_function_type( &::osg::ClipNode::getClipPlane )
                 , ( bp::arg("pos") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get ClipPlane at the given index position." );
         
         }
         { //::osg::ClipNode::getClipPlane
@@ -392,7 +395,8 @@ void register_ClipNode_class(){
                 "getClipPlane"
                 , getClipPlane_function_type( &::osg::ClipNode::getClipPlane )
                 , ( bp::arg("pos") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get const ClipPlane at the given index position." );
         
         }
         { //::osg::ClipNode::getClipPlaneList
@@ -402,7 +406,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "getClipPlaneList"
                 , getClipPlaneList_function_type( &::osg::ClipNode::getClipPlaneList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the ClipPlaneList." );
         
         }
         { //::osg::ClipNode::getClipPlaneList
@@ -412,7 +417,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "getClipPlaneList"
                 , getClipPlaneList_function_type( &::osg::ClipNode::getClipPlaneList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const ClipPlaneList." );
         
         }
         { //::osg::ClipNode::getNumClipPlanes
@@ -421,7 +427,8 @@ void register_ClipNode_class(){
             
             ClipNode_exposer.def( 
                 "getNumClipPlanes"
-                , getNumClipPlanes_function_type( &::osg::ClipNode::getNumClipPlanes ) );
+                , getNumClipPlanes_function_type( &::osg::ClipNode::getNumClipPlanes )
+                , " Returns the number of ClipPlanes." );
         
         }
         { //::osg::ClipNode::getReferenceFrame
@@ -463,7 +470,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "removeClipPlane"
                 , removeClipPlane_function_type( &::osg::ClipNode::removeClipPlane )
-                , ( bp::arg("clipplane") ) );
+                , ( bp::arg("clipplane") )
+                , " Removes the clipplane. Returns true on success, false if clipplane\n isnt in this ClipNode." );
         
         }
         { //::osg::ClipNode::removeClipPlane
@@ -473,7 +481,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "removeClipPlane"
                 , removeClipPlane_function_type( &::osg::ClipNode::removeClipPlane )
-                , ( bp::arg("pos") ) );
+                , ( bp::arg("pos") )
+                , " Remove the ClipPlane with the given index. Returns true on success,\n false if pos is not a valid plane index." );
         
         }
         { //::osg::ClipNode::setClipPlaneList
@@ -483,7 +492,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "setClipPlaneList"
                 , setClipPlaneList_function_type( &::osg::ClipNode::setClipPlaneList )
-                , ( bp::arg("cpl") ) );
+                , ( bp::arg("cpl") )
+                , " Set the ClipPlaneList." );
         
         }
         { //::osg::ClipNode::setLocalStateSetModes
@@ -493,7 +503,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "setLocalStateSetModes"
                 , setLocalStateSetModes_function_type( &::osg::ClipNode::setLocalStateSetModes )
-                , ( bp::arg("arg0")=(unsigned int)(ON) ) );
+                , ( bp::arg("arg0")=(unsigned int)(ON) )
+                , " Set up the local StateSet." );
         
         }
         { //::osg::ClipNode::setReferenceFrame
@@ -503,7 +514,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "setReferenceFrame"
                 , setReferenceFrame_function_type( &::osg::ClipNode::setReferenceFrame )
-                , ( bp::arg("rf") ) );
+                , ( bp::arg("rf") )
+                , " Set the ClipNodes ReferenceFrame, either to be relative to its\n parent reference frame, or relative to an absolute coordinate\n frame. RELATIVE_RF is the default.\n Note: setting the ReferenceFrame to be ABSOLUTE_RF will\n also set the CullingActive flag to false on the ClipNode (and\n consequently all of its parents), thereby disabling culling of it and\n all its parents.  This is necessary to prevent inappropriate\n culling, but may impact cull times if the absolute ClipNode is\n deep in the scene graph.  It is therefore recommended to only use\n absolute ClipNode at the top of the scene." );
         
         }
         { //::osg::ClipNode::setStateSetModes
@@ -513,7 +525,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "setStateSetModes"
                 , setStateSetModes_function_type( &::osg::ClipNode::setStateSetModes )
-                , ( bp::arg("arg0"), bp::arg("arg1") ) );
+                , ( bp::arg("arg0"), bp::arg("arg1") )
+                , " Set the GLModes for all ClipPlanes, on the StateSet." );
         
         }
         { //::osg::Group::addChild
@@ -666,7 +679,8 @@ void register_ClipNode_class(){
             ClipNode_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

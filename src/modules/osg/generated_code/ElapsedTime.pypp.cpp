@@ -10,7 +10,7 @@ void register_ElapsedTime_class(){
 
     { //::osg::ElapsedTime
         typedef bp::class_< osg::ElapsedTime > ElapsedTime_exposer_t;
-        ElapsedTime_exposer_t ElapsedTime_exposer = ElapsedTime_exposer_t( "ElapsedTime", bp::init< double *, bp::optional< osg::Timer * > >(( bp::arg("elapsedTime"), bp::arg("timer")=bp::object() )) );
+        ElapsedTime_exposer_t ElapsedTime_exposer = ElapsedTime_exposer_t( "ElapsedTime", "\n Helper class for timing sections of code.\n", bp::init< double *, bp::optional< osg::Timer * > >(( bp::arg("elapsedTime"), bp::arg("timer")=bp::object() ), "\n Helper class for timing sections of code.\n") );
         bp::scope ElapsedTime_scope( ElapsedTime_exposer );
         bp::implicitly_convertible< double *, osg::ElapsedTime >();
         ElapsedTime_exposer.def( bp::init< bp::optional< osg::Timer * > >(( bp::arg("timer")=bp::object() )) );
@@ -21,7 +21,8 @@ void register_ElapsedTime_class(){
             
             ElapsedTime_exposer.def( 
                 "elapsedTime"
-                , elapsedTime_function_type( &::osg::ElapsedTime::elapsedTime ) );
+                , elapsedTime_function_type( &::osg::ElapsedTime::elapsedTime )
+                , "\n elapsed time in seconds.\n" );
         
         }
         { //::osg::ElapsedTime::elapsedTime_m
@@ -30,7 +31,8 @@ void register_ElapsedTime_class(){
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_m"
-                , elapsedTime_m_function_type( &::osg::ElapsedTime::elapsedTime_m ) );
+                , elapsedTime_m_function_type( &::osg::ElapsedTime::elapsedTime_m )
+                , "\n elapsed time in milliseconds.\n" );
         
         }
         { //::osg::ElapsedTime::elapsedTime_n
@@ -39,7 +41,8 @@ void register_ElapsedTime_class(){
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_n"
-                , elapsedTime_n_function_type( &::osg::ElapsedTime::elapsedTime_n ) );
+                , elapsedTime_n_function_type( &::osg::ElapsedTime::elapsedTime_n )
+                , "\n elapsed time in nanoseconds.\n" );
         
         }
         { //::osg::ElapsedTime::elapsedTime_u
@@ -48,7 +51,8 @@ void register_ElapsedTime_class(){
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_u"
-                , elapsedTime_u_function_type( &::osg::ElapsedTime::elapsedTime_u ) );
+                , elapsedTime_u_function_type( &::osg::ElapsedTime::elapsedTime_u )
+                , "\n elapsed time in microseconds.\n" );
         
         }
         { //::osg::ElapsedTime::finish

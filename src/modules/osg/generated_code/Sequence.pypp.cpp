@@ -322,7 +322,7 @@ void register_Sequence_class(){
 
     { //::osg::Sequence
         typedef bp::class_< Sequence_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Sequence >, boost::noncopyable > Sequence_exposer_t;
-        Sequence_exposer_t Sequence_exposer = Sequence_exposer_t( "Sequence", bp::no_init );
+        Sequence_exposer_t Sequence_exposer = Sequence_exposer_t( "Sequence", "\n Sequence is a Group node which allows automatic, time based\nswitching between children.\n", bp::no_init );
         bp::scope Sequence_scope( Sequence_exposer );
         bp::enum_< osg::Sequence::LoopMode>("LoopMode")
             .value("LOOP", osg::Sequence::LOOP)
@@ -336,7 +336,7 @@ void register_Sequence_class(){
             .value("RESUME", osg::Sequence::RESUME)
             .export_values()
             ;
-        Sequence_exposer.def( bp::init< >() );
+        Sequence_exposer.def( bp::init< >("\n Sequence is a Group node which allows automatic, time based\nswitching between children.\n") );
         { //::osg::Sequence::accept
         
             typedef void ( ::osg::Sequence::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -415,7 +415,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getBegin"
-                , getBegin_function_type( &::osg::Sequence::getBegin ) );
+                , getBegin_function_type( &::osg::Sequence::getBegin )
+                , " Get interval beginning." );
         
         }
         { //::osg::Sequence::getClearOnStop
@@ -424,7 +425,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getClearOnStop"
-                , getClearOnStop_function_type( &::osg::Sequence::getClearOnStop ) );
+                , getClearOnStop_function_type( &::osg::Sequence::getClearOnStop )
+                , " Get whether to show no child nodes after stopping" );
         
         }
         { //::osg::Sequence::getDefaultTime
@@ -433,7 +435,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getDefaultTime"
-                , getDefaultTime_function_type( &::osg::Sequence::getDefaultTime ) );
+                , getDefaultTime_function_type( &::osg::Sequence::getDefaultTime )
+                , " Get default time in seconds for new child." );
         
         }
         { //::osg::Sequence::getDuration
@@ -443,7 +446,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "getDuration"
                 , getDuration_function_type( &::osg::Sequence::getDuration )
-                , ( bp::arg("speed"), bp::arg("nreps") ) );
+                , ( bp::arg("speed"), bp::arg("nreps") )
+                , " Get duration & number of repeats." );
         
         }
         { //::osg::Sequence::getEnd
@@ -452,7 +456,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getEnd"
-                , getEnd_function_type( &::osg::Sequence::getEnd ) );
+                , getEnd_function_type( &::osg::Sequence::getEnd )
+                , " Get interval ending." );
         
         }
         { //::osg::Sequence::getInterval
@@ -462,7 +467,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "getInterval"
                 , getInterval_function_type( &::osg::Sequence::getInterval )
-                , ( bp::arg("mode"), bp::arg("begin"), bp::arg("end") ) );
+                , ( bp::arg("mode"), bp::arg("begin"), bp::arg("end") )
+                , " Get sequence mode & interval." );
         
         }
         { //::osg::Sequence::getLastFrameTime
@@ -471,7 +477,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getLastFrameTime"
-                , getLastFrameTime_function_type( &::osg::Sequence::getLastFrameTime ) );
+                , getLastFrameTime_function_type( &::osg::Sequence::getLastFrameTime )
+                , " Get last frame time in seconds" );
         
         }
         { //::osg::Sequence::getLoopMode
@@ -480,7 +487,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getLoopMode"
-                , getLoopMode_function_type( &::osg::Sequence::getLoopMode ) );
+                , getLoopMode_function_type( &::osg::Sequence::getLoopMode )
+                , " Get sequence mode." );
         
         }
         { //::osg::Sequence::getMode
@@ -489,7 +497,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getMode"
-                , getMode_function_type( &::osg::Sequence::getMode ) );
+                , getMode_function_type( &::osg::Sequence::getMode )
+                , " Get sequence mode." );
         
         }
         { //::osg::Sequence::getNumFrames
@@ -498,7 +507,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getNumFrames"
-                , getNumFrames_function_type( &::osg::Sequence::getNumFrames ) );
+                , getNumFrames_function_type( &::osg::Sequence::getNumFrames )
+                , " Get number of frames" );
         
         }
         { //::osg::Sequence::getNumRepeats
@@ -507,7 +517,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getNumRepeats"
-                , getNumRepeats_function_type( &::osg::Sequence::getNumRepeats ) );
+                , getNumRepeats_function_type( &::osg::Sequence::getNumRepeats )
+                , " Get number of repeats." );
         
         }
         { //::osg::Sequence::getSpeed
@@ -516,7 +527,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getSpeed"
-                , getSpeed_function_type( &::osg::Sequence::getSpeed ) );
+                , getSpeed_function_type( &::osg::Sequence::getSpeed )
+                , " Get speed." );
         
         }
         { //::osg::Sequence::getSync
@@ -525,7 +537,8 @@ void register_Sequence_class(){
             
             Sequence_exposer.def( 
                 "getSync"
-                , getSync_function_type( &::osg::Sequence::getSync ) );
+                , getSync_function_type( &::osg::Sequence::getSync )
+                , " Get sync value" );
         
         }
         { //::osg::Sequence::getTime
@@ -535,7 +548,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "getTime"
                 , getTime_function_type( &::osg::Sequence::getTime )
-                , ( bp::arg("frame") ) );
+                , ( bp::arg("frame") )
+                , " Get time for child." );
         
         }
         { //::osg::Sequence::getTimeList
@@ -545,7 +559,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "getTimeList"
                 , getTimeList_function_type( &::osg::Sequence::getTimeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the time list for children." );
         
         }
         { //::osg::Sequence::getValue
@@ -635,7 +650,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setBegin"
                 , setBegin_function_type( &::osg::Sequence::setBegin )
-                , ( bp::arg("begin") ) );
+                , ( bp::arg("begin") )
+                , " Set interval beginning." );
         
         }
         { //::osg::Sequence::setClearOnStop
@@ -645,7 +661,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setClearOnStop"
                 , setClearOnStop_function_type( &::osg::Sequence::setClearOnStop )
-                , ( bp::arg("clearOnStop") ) );
+                , ( bp::arg("clearOnStop") )
+                , " If true, show no child nodes after stopping" );
         
         }
         { //::osg::Sequence::setDefaultTime
@@ -655,7 +672,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setDefaultTime"
                 , setDefaultTime_function_type( &::osg::Sequence::setDefaultTime )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Set default time in seconds for new child.\n            if t<0, t=0" );
         
         }
         { //::osg::Sequence::setDuration
@@ -665,7 +683,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setDuration"
                 , setDuration_function_type( &::osg::Sequence::setDuration )
-                , ( bp::arg("speed"), bp::arg("nreps")=(int)(-0x000000001) ) );
+                , ( bp::arg("speed"), bp::arg("nreps")=(int)(-0x000000001) )
+                , " Set duration: speed-up & number of repeats" );
         
         }
         { //::osg::Sequence::setEnd
@@ -675,7 +694,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setEnd"
                 , setEnd_function_type( &::osg::Sequence::setEnd )
-                , ( bp::arg("end") ) );
+                , ( bp::arg("end") )
+                , " Set interval ending." );
         
         }
         { //::osg::Sequence::setInterval
@@ -685,7 +705,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setInterval"
                 , setInterval_function_type( &::osg::Sequence::setInterval )
-                , ( bp::arg("mode"), bp::arg("begin"), bp::arg("end") ) );
+                , ( bp::arg("mode"), bp::arg("begin"), bp::arg("end") )
+                , " Set sequence mode & interval (range of children to be displayed)." );
         
         }
         { //::osg::Sequence::setLastFrameTime
@@ -695,7 +716,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setLastFrameTime"
                 , setLastFrameTime_function_type( &::osg::Sequence::setLastFrameTime )
-                , ( bp::arg("t") ) );
+                , ( bp::arg("t") )
+                , " Set time of last frame of last loop, in seconds.\n            if t<= 0, then ignored" );
         
         }
         { //::osg::Sequence::setLoopMode
@@ -705,7 +727,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setLoopMode"
                 , setLoopMode_function_type( &::osg::Sequence::setLoopMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set sequence mode." );
         
         }
         { //::osg::Sequence::setMode
@@ -715,7 +738,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setMode"
                 , setMode_function_type( &::osg::Sequence::setMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set sequence mode. Start/stop & pause/resume." );
         
         }
         { //::osg::Sequence::setNumRepeats
@@ -725,7 +749,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setNumRepeats"
                 , setNumRepeats_function_type( &::osg::Sequence::setNumRepeats )
-                , ( bp::arg("nreps") ) );
+                , ( bp::arg("nreps") )
+                , " Set number of repeats." );
         
         }
         { //::osg::Sequence::setSpeed
@@ -735,7 +760,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setSpeed"
                 , setSpeed_function_type( &::osg::Sequence::setSpeed )
-                , ( bp::arg("speed") ) );
+                , ( bp::arg("speed") )
+                , " Set speed." );
         
         }
         { //::osg::Sequence::setSync
@@ -745,7 +771,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setSync"
                 , setSync_function_type( &::osg::Sequence::setSync )
-                , ( bp::arg("sync") ) );
+                , ( bp::arg("sync") )
+                , " If false (default), frames will not be syncd to frameTime.  If\n            true, frames will be syncd to frameTime." );
         
         }
         { //::osg::Sequence::setTime
@@ -755,7 +782,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setTime"
                 , setTime_function_type( &::osg::Sequence::setTime )
-                , ( bp::arg("frame"), bp::arg("t") ) );
+                , ( bp::arg("frame"), bp::arg("t") )
+                , " Set time in seconds for child." );
         
         }
         { //::osg::Sequence::setTimeList
@@ -765,7 +793,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setTimeList"
                 , setTimeList_function_type( &::osg::Sequence::setTimeList )
-                , ( bp::arg("timeList") ) );
+                , ( bp::arg("timeList") )
+                , " Set the time list for children." );
         
         }
         { //::osg::Sequence::setValue
@@ -775,7 +804,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setValue"
                 , setValue_function_type( &::osg::Sequence::setValue )
-                , ( bp::arg("value") ) );
+                , ( bp::arg("value") )
+                , " value is which child node is to be displayed" );
         
         }
         { //::osg::Sequence::traverse
@@ -915,7 +945,8 @@ void register_Sequence_class(){
             Sequence_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

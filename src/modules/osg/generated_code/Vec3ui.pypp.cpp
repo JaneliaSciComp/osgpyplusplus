@@ -10,7 +10,7 @@ void register_Vec3ui_class(){
 
     { //::osg::Vec3ui
         typedef bp::class_< osg::Vec3ui > Vec3ui_exposer_t;
-        Vec3ui_exposer_t Vec3ui_exposer = Vec3ui_exposer_t( "Vec3ui", bp::init< >() );
+        Vec3ui_exposer_t Vec3ui_exposer = Vec3ui_exposer_t( "Vec3ui", "\n General purpose integer triple\n", bp::init< >() );
         bp::scope Vec3ui_scope( Vec3ui_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3ui::num_components;
         Vec3ui_exposer.def( bp::init< unsigned int, unsigned int, unsigned int >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );

@@ -75,7 +75,7 @@ void register_DisplaySettings_class(){
 
     { //::osg::DisplaySettings
         typedef bp::class_< DisplaySettings_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::DisplaySettings > > DisplaySettings_exposer_t;
-        DisplaySettings_exposer_t DisplaySettings_exposer = DisplaySettings_exposer_t( "DisplaySettings", bp::no_init );
+        DisplaySettings_exposer_t DisplaySettings_exposer = DisplaySettings_exposer_t( "DisplaySettings", "\n DisplaySettings class for encapsulating what visuals are required and\n have been set up, and the status of stereo viewing.\n", bp::no_init );
         bp::scope DisplaySettings_scope( DisplaySettings_exposer );
         bp::enum_< osg::DisplaySettings::DisplayType>("DisplayType")
             .value("MONITOR", osg::DisplaySettings::MONITOR)
@@ -247,7 +247,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getGLContextFlags"
-                , getGLContextFlags_function_type( &::osg::DisplaySettings::getGLContextFlags ) );
+                , getGLContextFlags_function_type( &::osg::DisplaySettings::getGLContextFlags )
+                , " Get the hint of the flags to use in when creating graphic contexts." );
         
         }
         { //::osg::DisplaySettings::getGLContextProfileMask
@@ -256,7 +257,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getGLContextProfileMask"
-                , getGLContextProfileMask_function_type( &::osg::DisplaySettings::getGLContextProfileMask ) );
+                , getGLContextProfileMask_function_type( &::osg::DisplaySettings::getGLContextProfileMask )
+                , " Get the hint of the profile mask to use in when creating graphic contexts." );
         
         }
         { //::osg::DisplaySettings::getGLContextVersion
@@ -265,7 +267,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getGLContextVersion"
-                , getGLContextVersion_function_type( &::osg::DisplaySettings::getGLContextVersion ) );
+                , getGLContextVersion_function_type( &::osg::DisplaySettings::getGLContextVersion )
+                , " Get the hint of which OpenGL version to attempt to create a graphics context for." );
         
         }
         { //::osg::DisplaySettings::getImplicitBufferAttachmentRenderMask
@@ -274,7 +277,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getImplicitBufferAttachmentRenderMask"
-                , getImplicitBufferAttachmentRenderMask_function_type( &::osg::DisplaySettings::getImplicitBufferAttachmentRenderMask ) );
+                , getImplicitBufferAttachmentRenderMask_function_type( &::osg::DisplaySettings::getImplicitBufferAttachmentRenderMask )
+                , " Get mask selecting default implict buffer attachments for Cameras primary FBOs." );
         
         }
         { //::osg::DisplaySettings::getImplicitBufferAttachmentResolveMask
@@ -283,7 +287,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getImplicitBufferAttachmentResolveMask"
-                , getImplicitBufferAttachmentResolveMask_function_type( &::osg::DisplaySettings::getImplicitBufferAttachmentResolveMask ) );
+                , getImplicitBufferAttachmentResolveMask_function_type( &::osg::DisplaySettings::getImplicitBufferAttachmentResolveMask )
+                , " Get mask selecting default implict buffer attachments for Cameras secondary MULTISAMPLE FBOs." );
         
         }
         { //::osg::DisplaySettings::getKeystoneFileNames
@@ -440,7 +445,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getNumOfDatabaseThreadsHint"
-                , getNumOfDatabaseThreadsHint_function_type( &::osg::DisplaySettings::getNumOfDatabaseThreadsHint ) );
+                , getNumOfDatabaseThreadsHint_function_type( &::osg::DisplaySettings::getNumOfDatabaseThreadsHint )
+                , " Get the hint for total number of threads in the DatbasePager set up, inclusive of the number of http dedicated threads." );
         
         }
         { //::osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint
@@ -449,7 +455,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getNumOfHttpDatabaseThreadsHint"
-                , getNumOfHttpDatabaseThreadsHint_function_type( &::osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint ) );
+                , getNumOfHttpDatabaseThreadsHint_function_type( &::osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint )
+                , " Get the hint for number of threads in the DatbasePager dedicated to reading http requests." );
         
         }
         { //::osg::DisplaySettings::getRGB
@@ -575,7 +582,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "getSwapMethod"
-                , getSwapMethod_function_type( &::osg::DisplaySettings::getSwapMethod ) );
+                , getSwapMethod_function_type( &::osg::DisplaySettings::getSwapMethod )
+                , " Get preferred swap method" );
         
         }
         { //::osg::DisplaySettings::getUseSceneViewForStereoHint
@@ -594,7 +602,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "instance"
                 , instance_function_type( &::osg::DisplaySettings::instance )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Maintain a DisplaySettings singleton for objects to query at runtime." );
         
         }
         { //::osg::DisplaySettings::readCommandLine
@@ -604,7 +613,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "readCommandLine"
                 , readCommandLine_function_type( &::osg::DisplaySettings::readCommandLine )
-                , ( bp::arg("arguments") ) );
+                , ( bp::arg("arguments") )
+                , " read the commandline arguments." );
         
         }
         { //::osg::DisplaySettings::readEnvironmentalVariables
@@ -613,7 +623,8 @@ void register_DisplaySettings_class(){
             
             DisplaySettings_exposer.def( 
                 "readEnvironmentalVariables"
-                , readEnvironmentalVariables_function_type( &::osg::DisplaySettings::readEnvironmentalVariables ) );
+                , readEnvironmentalVariables_function_type( &::osg::DisplaySettings::readEnvironmentalVariables )
+                , " read the environmental variables." );
         
         }
         { //::osg::DisplaySettings::setApplication
@@ -692,7 +703,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setGLContextFlags"
                 , setGLContextFlags_function_type( &::osg::DisplaySettings::setGLContextFlags )
-                , ( bp::arg("flags") ) );
+                , ( bp::arg("flags") )
+                , " Set the hint of the flags to use in when creating graphic contexts." );
         
         }
         { //::osg::DisplaySettings::setGLContextProfileMask
@@ -702,7 +714,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setGLContextProfileMask"
                 , setGLContextProfileMask_function_type( &::osg::DisplaySettings::setGLContextProfileMask )
-                , ( bp::arg("mask") ) );
+                , ( bp::arg("mask") )
+                , " Set the hint of the profile mask to use in when creating graphic contexts." );
         
         }
         { //::osg::DisplaySettings::setGLContextVersion
@@ -712,7 +725,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setGLContextVersion"
                 , setGLContextVersion_function_type( &::osg::DisplaySettings::setGLContextVersion )
-                , ( bp::arg("version") ) );
+                , ( bp::arg("version") )
+                , " Set the hint of which OpenGL version to attempt to create a graphics context for." );
         
         }
         { //::osg::DisplaySettings::setImplicitBufferAttachmentMask
@@ -852,7 +866,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setNumOfDatabaseThreadsHint"
                 , setNumOfDatabaseThreadsHint_function_type( &::osg::DisplaySettings::setNumOfDatabaseThreadsHint )
-                , ( bp::arg("numThreads") ) );
+                , ( bp::arg("numThreads") )
+                , " Set the hint for the total number of threads in the DatbasePager set up, inclusive of the number of http dedicated threads." );
         
         }
         { //::osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint
@@ -862,7 +877,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setNumOfHttpDatabaseThreadsHint"
                 , setNumOfHttpDatabaseThreadsHint_function_type( &::osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint )
-                , ( bp::arg("numThreads") ) );
+                , ( bp::arg("numThreads") )
+                , " Set the hint for number of threads in the DatbasePager to dedicate to reading http requests." );
         
         }
         { //::osg::DisplaySettings::setRGB
@@ -992,7 +1008,8 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "setSwapMethod"
                 , setSwapMethod_function_type( &::osg::DisplaySettings::setSwapMethod )
-                , ( bp::arg("swapMethod") ) );
+                , ( bp::arg("swapMethod") )
+                , " Select preferred swap method" );
         
         }
         { //::osg::DisplaySettings::setUseSceneViewForStereoHint

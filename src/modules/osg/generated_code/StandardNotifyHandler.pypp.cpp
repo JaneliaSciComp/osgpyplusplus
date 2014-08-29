@@ -44,7 +44,7 @@ struct StandardNotifyHandler_wrapper : osg::StandardNotifyHandler, bp::wrapper< 
 
 void register_StandardNotifyHandler_class(){
 
-    bp::class_< StandardNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::StandardNotifyHandler >, boost::noncopyable >( "StandardNotifyHandler" )    
+    bp::class_< StandardNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::StandardNotifyHandler >, boost::noncopyable >( "StandardNotifyHandler", "\n Redirects notification stream to stderr (severity <= WARN) or stdout (severity > WARN).\n The fputs() function is used to write messages to standard files. Note that\n std::out and std::cerr streams are not used.\n aee setNotifyHandler\n" )    
         .def( 
             "notify"
             , (void ( ::osg::StandardNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::StandardNotifyHandler::notify)

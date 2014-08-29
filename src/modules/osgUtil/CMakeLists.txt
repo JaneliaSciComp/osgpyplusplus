@@ -13,5 +13,5 @@ target_link_libraries(osgUtil
 # Establish a linear chain of wrapper dependencies
 # osg<-osgDB<-osgGA<-osgUtil<-osgViewer<-?
 if(OSGPYPP_REGENERATE_BINDINGS)
-	add_dependencies(Generate_osgUtil_WrapperSources Generate_osgGA_WrapperSources)
+	add_dependencies(Generate_osgUtil_WrapperSources Generate_osg_WrapperSources)
 endif()

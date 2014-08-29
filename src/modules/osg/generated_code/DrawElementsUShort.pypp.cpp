@@ -436,8 +436,8 @@ void register_DrawElementsUShort_class(){
         bp::scope DrawElementsUShort_scope( DrawElementsUShort_exposer );
         DrawElementsUShort_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );
         bp::implicitly_convertible< GLenum, osg::DrawElementsUShort >();
-        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int, GLushort const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) )) );
-        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") )) );
+        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int, GLushort const *, bp::optional< int > >(( bp::arg("mode"), bp::arg("no"), bp::arg("ptr"), bp::arg("numInstances")=(int)(0) ), "\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
+        DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") ), "\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
         { //::osg::DrawElementsUShort::accept
         
             typedef void ( ::osg::DrawElementsUShort::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
@@ -810,7 +810,8 @@ void register_DrawElementsUShort_class(){
             DrawElementsUShort_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

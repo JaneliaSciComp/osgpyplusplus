@@ -10,7 +10,7 @@ void register_Vec3i_class(){
 
     { //::osg::Vec3i
         typedef bp::class_< osg::Vec3i > Vec3i_exposer_t;
-        Vec3i_exposer_t Vec3i_exposer = Vec3i_exposer_t( "Vec3i", bp::init< >() );
+        Vec3i_exposer_t Vec3i_exposer = Vec3i_exposer_t( "Vec3i", "\n General purpose integer triple\n", bp::init< >() );
         bp::scope Vec3i_scope( Vec3i_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3i::num_components;
         Vec3i_exposer.def( bp::init< int, int, int >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );

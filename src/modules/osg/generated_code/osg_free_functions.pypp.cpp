@@ -36,7 +36,8 @@ void register_free_functions(){
         
         bp::def( 
             "GetNumberOfProcessors"
-            , GetNumberOfProcessors_function_type( &::OpenThreads::GetNumberOfProcessors ) );
+            , GetNumberOfProcessors_function_type( &::OpenThreads::GetNumberOfProcessors )
+            , "  Get the number of processors.\n\n  Note, systems where no support exists for querrying the number of processors, 1 is returned." );
     
     }
 
@@ -69,7 +70,8 @@ void register_free_functions(){
         bp::def( 
             "SetProcessorAffinityOfCurrentThread"
             , SetProcessorAffinityOfCurrentThread_function_type( &::OpenThreads::SetProcessorAffinityOfCurrentThread )
-            , ( bp::arg("cpunum") ) );
+            , ( bp::arg("cpunum") )
+            , "  Set the processor affinity of current thread.\n\n  Note, systems where no support exists no affinity will be set, and -1 will be returned." );
     
     }
 
@@ -80,7 +82,8 @@ void register_free_functions(){
         bp::def( 
             "asciiToDouble"
             , asciiToDouble_function_type( &::osg::asciiToDouble )
-            , ( bp::arg("str") ) );
+            , ( bp::arg("str") )
+            , " Convert a ascii number to a double, ignoring locale settings." );
     
     }
 
@@ -91,7 +94,8 @@ void register_free_functions(){
         bp::def( 
             "asciiToFloat"
             , asciiToFloat_function_type( &::osg::asciiToFloat )
-            , ( bp::arg("str") ) );
+            , ( bp::arg("str") )
+            , " Convert a ascii number to a float, ignoring locale settings." );
     
     }
 
@@ -124,7 +128,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -135,7 +140,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -146,7 +152,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -157,7 +164,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -168,7 +176,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -179,7 +188,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -190,7 +200,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -201,7 +212,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -212,7 +224,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -223,7 +236,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -234,7 +248,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -245,7 +260,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -256,7 +272,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -267,7 +284,8 @@ void register_free_functions(){
         bp::def( 
             "componentDivide"
             , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
     
     }
 
@@ -278,7 +296,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -289,7 +308,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -300,7 +320,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -311,7 +332,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -322,7 +344,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -333,7 +356,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -344,7 +368,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -355,7 +380,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -366,7 +392,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -377,7 +404,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -388,7 +416,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -399,7 +428,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -410,7 +440,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -421,7 +452,8 @@ void register_free_functions(){
         bp::def( 
             "componentMultiply"
             , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
     
     }
 
@@ -432,7 +464,8 @@ void register_free_functions(){
         bp::def( 
             "computeEyeToLocal"
             , computeEyeToLocal_function_type( &::osg::computeEyeToLocal )
-            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) )
+            , " Compute the matrix which transforms objects in eye coords to local coords,\n by accumulating the Transform world to local matrices along the specified node path\n and multiplying by the inverse of the supplied initial camera modelview." );
     
     }
 
@@ -443,7 +476,8 @@ void register_free_functions(){
         bp::def( 
             "computeLocalToEye"
             , computeLocalToEye_function_type( &::osg::computeLocalToEye )
-            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+            , ( bp::arg("modelview"), bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) )
+            , " Compute the matrix which transforms objects in local coords to eye coords,\n by accumulating the Transform local to world matrices along the specified node path\n and multiplying by the supplied initial camera modelview." );
     
     }
 
@@ -454,7 +488,8 @@ void register_free_functions(){
         bp::def( 
             "computeLocalToWorld"
             , computeLocalToWorld_function_type( &::osg::computeLocalToWorld )
-            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) )
+            , " Compute the matrix which transforms objects in local coords to world coords,\n by accumulating the Transform local to world matrices along the specified node path." );
     
     }
 
@@ -465,7 +500,8 @@ void register_free_functions(){
         bp::def( 
             "computeWorldToLocal"
             , computeWorldToLocal_function_type( &::osg::computeWorldToLocal )
-            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) ) );
+            , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) )
+            , " Compute the matrix which transforms objects in world coords to local coords,\n by accumulating the Transform world to local matrices along the specified node path." );
     
     }
 
@@ -477,7 +513,8 @@ void register_free_functions(){
             "createGeodeForImage"
             , createGeodeForImage_function_type( &::osg::createGeodeForImage )
             , ( bp::arg("image"), bp::arg("s"), bp::arg("t") )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Convenience function to be used by image loaders to generate a valid geode\n to return for readNode().\n Use the specified s and t values to scale the dimensions of the image." );
     
     }
 
@@ -489,7 +526,8 @@ void register_free_functions(){
             "createGeodeForImage"
             , createGeodeForImage_function_type( &::osg::createGeodeForImage )
             , ( bp::arg("image") )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Convenience function to be used by image loaders to generate a valid geode\n to return for readNode().\n Use the images s and t values to scale the dimensions of the image." );
     
     }
 
@@ -501,7 +539,8 @@ void register_free_functions(){
             "createTexturedQuadGeometry"
             , createTexturedQuadGeometry_function_type( &::osg::createTexturedQuadGeometry )
             , ( bp::arg("corner"), bp::arg("widthVec"), bp::arg("heightVec"), bp::arg("s")=1.0e+0f, bp::arg("t")=1.0e+0f )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Convenience function to be used for creating quad geometry with texture coords.\n Tex coords go from bottom left (0,0) to top right (s,t)." );
     
     }
 
@@ -513,7 +552,8 @@ void register_free_functions(){
             "createTexturedQuadGeometry"
             , createTexturedQuadGeometry_function_type( &::osg::createTexturedQuadGeometry )
             , ( bp::arg("corner"), bp::arg("widthVec"), bp::arg("heightVec"), bp::arg("l"), bp::arg("b"), bp::arg("r"), bp::arg("t") )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Convenience function to be used for creating quad geometry with texture coords.\n Tex coords go from left bottom (l,b) to right top (r,t)." );
     
     }
 
@@ -524,7 +564,8 @@ void register_free_functions(){
         bp::def( 
             "equivalent"
             , equivalent_function_type( &::osg::equivalent )
-            , ( bp::arg("lhs"), bp::arg("rhs"), bp::arg("epsilon")=9.99999999999999954748111825886258685613938723691e-7 ) );
+            , ( bp::arg("lhs"), bp::arg("rhs"), bp::arg("epsilon")=9.99999999999999954748111825886258685613938723691e-7 )
+            , " return true if double lhs and rhs are equivalent,\n meaning that the difference between them is less than an epsilon value\n which defaults to 1e-6." );
     
     }
 
@@ -535,7 +576,8 @@ void register_free_functions(){
         bp::def( 
             "equivalent"
             , equivalent_function_type( &::osg::equivalent )
-            , ( bp::arg("lhs"), bp::arg("rhs"), bp::arg("epsilon")=9.99999999999999954748111825886258685613938723691e-7 ) );
+            , ( bp::arg("lhs"), bp::arg("rhs"), bp::arg("epsilon")=9.99999999999999954748111825886258685613938723691e-7 )
+            , " return true if float lhs and rhs are equivalent,\n meaning that the difference between them is less than an epsilon value\n which defaults to 1e-6." );
     
     }
 
@@ -546,7 +588,8 @@ void register_free_functions(){
         bp::def( 
             "findAsciiToDouble"
             , findAsciiToDouble_function_type( &::osg::findAsciiToDouble )
-            , ( bp::arg("str") ) );
+            , ( bp::arg("str") )
+            , " Detect first ascii POSITIVE number in string and convert to double." );
     
     }
 
@@ -557,7 +600,8 @@ void register_free_functions(){
         bp::def( 
             "findAsciiToFloat"
             , findAsciiToFloat_function_type( &::osg::findAsciiToFloat )
-            , ( bp::arg("str") ) );
+            , ( bp::arg("str") )
+            , " Detect first ascii POSITIVE number in string and convert to double." );
     
     }
 
@@ -568,7 +612,8 @@ void register_free_functions(){
         bp::def( 
             "getBinding"
             , getBinding_function_type( &::osg::getBinding )
-            , ( bp::arg("array") ) );
+            , ( bp::arg("array") )
+            , " convinience function for getting the binding of array via a ptr that may be null." );
     
     }
 
@@ -579,7 +624,8 @@ void register_free_functions(){
         bp::def( 
             "getNormalize"
             , getNormalize_function_type( &::osg::getNormalize )
-            , ( bp::arg("array") ) );
+            , ( bp::arg("array") )
+            , " convinience function for getting the binding of array via a ptr that may be null." );
     
     }
 
@@ -590,7 +636,8 @@ void register_free_functions(){
         bp::def( 
             "getNotifyHandler"
             , getNotifyHandler_function_type( &::osg::getNotifyHandler )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Get currrent notification handler." );
     
     }
 
@@ -600,7 +647,8 @@ void register_free_functions(){
         
         bp::def( 
             "getNotifyLevel"
-            , getNotifyLevel_function_type( &::osg::getNotifyLevel ) );
+            , getNotifyLevel_function_type( &::osg::getNotifyLevel )
+            , " get the notify level." );
     
     }
 
@@ -632,7 +680,8 @@ void register_free_functions(){
         
         bp::def( 
             "initNotifyLevel"
-            , initNotifyLevel_function_type( &::osg::initNotifyLevel ) );
+            , initNotifyLevel_function_type( &::osg::initNotifyLevel )
+            , " initialize notify level." );
     
     }
 
@@ -676,7 +725,8 @@ void register_free_functions(){
         bp::def( 
             "isNotifyEnabled"
             , isNotifyEnabled_function_type( &::osg::isNotifyEnabled )
-            , ( bp::arg("severity") ) );
+            , ( bp::arg("severity") )
+            , " is notification enabled, given the current setNotifyLevel() setting?" );
     
     }
 
@@ -698,7 +748,8 @@ void register_free_functions(){
         bp::def( 
             "maximum"
             , maximum_function_type( &::osg::maximum )
-            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " return the maximum of two values, equivalent to std::max.\n std::max not used because of STL implementation under IRIX not containing\n std::max." );
     
     }
 
@@ -721,7 +772,8 @@ void register_free_functions(){
             "notify"
             , notify_function_type( &::osg::notify )
             , ( bp::arg("severity") )
-            , bp::return_value_policy< bp::reference_existing_object >() );
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " notify messaging function for providing fatal through to verbose\n debugging messages.  Level of messages sent to the console can\n be controlled by setting the NotifyLevel either within your\n application or via the an environmental variable i.e.\n - setenv OSGNOTIFYLEVEL DEBUG (for tsh)\n - export OSGNOTIFYLEVEL=DEBUG (for bourne shell)\n - set OSGNOTIFYLEVEL=DEBUG (for Windows)\n\n All tell the osg to redirect all debugging and more important messages\n to the notification stream (useful for debugging) setting ALWAYS will force\n all messages to be absorbed, which might be appropriate for final\n applications.  Default NotifyLevel is NOTICE.  Check the enum\n #NotifySeverity for full range of possibilities.  To use the notify\n with your code simply use the notify function as a normal file\n stream (like std::cout) i.e\n [Code]\n osg::notify(osg::DEBUG) << Hello Bugs! << std::endl;\n E:ndcode\n aee setNotifyLevel, setNotifyHandler" );
     
     }
 
@@ -731,7 +783,8 @@ void register_free_functions(){
         
         bp::def( 
             "osgGetLibraryName"
-            , osgGetLibraryName_function_type( &::osgGetLibraryName ) );
+            , osgGetLibraryName_function_type( &::osgGetLibraryName )
+            , " The osgGetLibraryName() method returns the library name in human-friendly form." );
     
     }
 
@@ -741,7 +794,8 @@ void register_free_functions(){
         
         bp::def( 
             "osgGetSOVersion"
-            , osgGetSOVersion_function_type( &::osgGetSOVersion ) );
+            , osgGetSOVersion_function_type( &::osgGetSOVersion )
+            , " The osgGetSOVersion() method returns the OpenSceneGraph shared object version number." );
     
     }
 
@@ -751,7 +805,8 @@ void register_free_functions(){
         
         bp::def( 
             "osgGetVersion"
-            , osgGetVersion_function_type( &::osgGetVersion ) );
+            , osgGetVersion_function_type( &::osgGetVersion )
+            , " osgGetVersion() returns the library version number.\n Numbering convention : OpenSceneGraph-1.0 will return 1.0 from osgGetVersion.\n\n This C function can be also used to check for the existence of the OpenSceneGraph\n library using autoconf and its m4 macro AC_CHECK_LIB.\n\n Here is the code to add to your configure.in:\n Verbatim:\n #\n # Check for the OpenSceneGraph (OSG) library\n #\n AC_CHECK_LIB(osg, osgGetVersion, ,\n    [AC_MSG_ERROR(OpenSceneGraph library not found. See http://www.openscenegraph.org)],)\n E:ndverbatim" );
     
     }
 
@@ -784,7 +839,8 @@ void register_free_functions(){
         bp::def( 
             "setNotifyHandler"
             , setNotifyHandler_function_type( &::osg::setNotifyHandler )
-            , ( bp::arg("handler") ) );
+            , ( bp::arg("handler") )
+            , " Set notification handler, by default StandardNotifyHandler is used.\n aee NotifyHandler" );
     
     }
 
@@ -795,7 +851,8 @@ void register_free_functions(){
         bp::def( 
             "setNotifyLevel"
             , setNotifyLevel_function_type( &::osg::setNotifyLevel )
-            , ( bp::arg("severity") ) );
+            , ( bp::arg("severity") )
+            , " set the notify level, overriding the default or the value set by\n the environmental variable OSGNOTIFYLEVEL or OSG_NOTIFY_LEVEL." );
     
     }
 

@@ -380,8 +380,8 @@ struct PositionAttitudeTransform_wrapper : osg::PositionAttitudeTransform, bp::w
 
 void register_PositionAttitudeTransform_class(){
 
-    bp::class_< PositionAttitudeTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::PositionAttitudeTransform >, boost::noncopyable >( "PositionAttitudeTransform", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< PositionAttitudeTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::PositionAttitudeTransform >, boost::noncopyable >( "PositionAttitudeTransform", "\n PositionAttitudeTransform - is a Transform. Sets the coordinate transform\n    via a Vec3 position and Quat attitude.\n", bp::no_init )    
+        .def( bp::init< >("\n PositionAttitudeTransform - is a Transform. Sets the coordinate transform\n    via a Vec3 position and Quat attitude.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::NodeVisitor & ))(&::osg::PositionAttitudeTransform::accept)
@@ -549,7 +549,8 @@ void register_PositionAttitudeTransform_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)

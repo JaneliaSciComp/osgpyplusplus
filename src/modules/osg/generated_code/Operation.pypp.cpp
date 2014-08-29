@@ -42,18 +42,21 @@ struct Operation_wrapper : osg::Operation, bp::wrapper< osg::Operation > {
 
 void register_Operation_class(){
 
-    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Operation >, boost::noncopyable >( "Operation", bp::no_init )    
+    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Operation >, boost::noncopyable >( "Operation", "\n Base class for implementing graphics operations.\n", bp::no_init )    
         .def( 
             "getKeep"
-            , (bool ( ::osg::Operation::* )(  )const)( &::osg::Operation::getKeep ) )    
+            , (bool ( ::osg::Operation::* )(  )const)( &::osg::Operation::getKeep )
+            , " Get whether the operation should be kept once its been applied." )    
         .def( 
             "getName"
             , (::std::string const & ( ::osg::Operation::* )(  )const)( &::osg::Operation::getName )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the human readable name of the operation." )    
         .def( 
             "__call__"
             , bp::pure_virtual( (void ( ::osg::Operation::* )( ::osg::Object * ))(&::osg::Operation::operator()) )
-            , ( bp::arg("arg0") ) )    
+            , ( bp::arg("arg0") )
+            , "\n Do the actual task of this operation.\n" )    
         .def( 
             "release"
             , (void ( ::osg::Operation::* )(  ))(&::osg::Operation::release)
@@ -61,11 +64,13 @@ void register_Operation_class(){
         .def( 
             "setKeep"
             , (void ( ::osg::Operation::* )( bool ))( &::osg::Operation::setKeep )
-            , ( bp::arg("keep") ) )    
+            , ( bp::arg("keep") )
+            , " Set whether the operation should be kept once its been applied." )    
         .def( 
             "setName"
             , (void ( ::osg::Operation::* )( ::std::string const & ))( &::osg::Operation::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the human readable name of the operation." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

@@ -131,7 +131,7 @@ void register_Object_class(){
 
     { //::osg::Object
         typedef bp::class_< Object_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Object >, boost::noncopyable > Object_exposer_t;
-        Object_exposer_t Object_exposer = Object_exposer_t( "Object", bp::no_init );
+        Object_exposer_t Object_exposer = Object_exposer_t( "Object", "\n Base class/standard interface for objects which require IO support,\n    cloning and reference counting.\n    Based on GOF Composite, Prototype and Template Method patterns.\n", bp::no_init );
         bp::scope Object_scope( Object_exposer );
         bp::enum_< osg::Object::DataVariance>("DataVariance")
             .value("DYNAMIC", osg::Object::DYNAMIC)
@@ -145,7 +145,8 @@ void register_Object_class(){
             
             Object_exposer.def( 
                 "className"
-                , bp::pure_virtual( className_function_type(&::osg::Object::className) ) );
+                , bp::pure_virtual( className_function_type(&::osg::Object::className) )
+                , "\n return the name of the objects class type. Must be defined\n            by derived classes.\n" );
         
         }
         { //::osg::Object::clone
@@ -156,7 +157,8 @@ void register_Object_class(){
                 "clone"
                 , bp::pure_virtual( clone_function_type(&::osg::Object::clone) )
                 , ( bp::arg("arg0") )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::cloneType
@@ -166,7 +168,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "cloneType"
                 , bp::pure_virtual( cloneType_function_type(&::osg::Object::cloneType) )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" );
         
         }
         { //::osg::Object::computeDataVariance
@@ -186,7 +189,8 @@ void register_Object_class(){
             
             Object_exposer.def( 
                 "getDataVariance"
-                , getDataVariance_function_type( &::osg::Object::getDataVariance ) );
+                , getDataVariance_function_type( &::osg::Object::getDataVariance )
+                , " Get the data variance of this object." );
         
         }
         { //::osg::Object::getName
@@ -196,7 +200,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "getName"
                 , getName_function_type( &::osg::Object::getName )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the name of object." );
         
         }
         { //::osg::Object::getOrCreateUserDataContainer
@@ -206,7 +211,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "getOrCreateUserDataContainer"
                 , getOrCreateUserDataContainer_function_type( &::osg::Object::getOrCreateUserDataContainer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Convinience method that returns the UserDataContainer, and if one doesnt already exist creates and assigns\n a DefaultUserDataContainer to the Object and then return this new UserDataContainer." );
         
         }
         { //::osg::Object::getUserData
@@ -240,7 +246,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "getUserDataContainer"
                 , getUserDataContainer_function_type( &::osg::Object::getUserDataContainer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " get the UserDataContainer attached to this object." );
         
         }
         { //::osg::Object::getUserDataContainer
@@ -250,7 +257,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "getUserDataContainer"
                 , getUserDataContainer_function_type( &::osg::Object::getUserDataContainer )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " get the const UserDataContainer attached to this object." );
         
         }
         { //::osg::Object::isSameKindAs
@@ -271,7 +279,8 @@ void register_Object_class(){
             
             Object_exposer.def( 
                 "libraryName"
-                , bp::pure_virtual( libraryName_function_type(&::osg::Object::libraryName) ) );
+                , bp::pure_virtual( libraryName_function_type(&::osg::Object::libraryName) )
+                , "\n return the name of the objects library. Must be defined\n            by derived classes. The OpenSceneGraph convention is that the\n            namespace of a library is the same as the library name.\n" );
         
         }
         { //::osg::Object::resizeGLObjectBuffers
@@ -293,7 +302,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "setDataVariance"
                 , setDataVariance_function_type( &::osg::Object::setDataVariance )
-                , ( bp::arg("dv") ) );
+                , ( bp::arg("dv") )
+                , " Set the data variance of this object.\n Can be set to either STATIC for values that do not change over the lifetime of the object,\n or DYNAMIC for values that vary over the lifetime of the object. The DataVariance value\n can be used by routines such as optimization codes that wish to share static data.\n UNSPECIFIED is used to specify that the DataVariance hasnt been set yet." );
         
         }
         { //::osg::Object::setName
@@ -315,7 +325,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref
@@ -349,7 +360,8 @@ void register_Object_class(){
             Object_exposer.def( 
                 "setUserDataContainer"
                 , setUserDataContainer_function_type( &::osg::Object::setUserDataContainer )
-                , ( bp::arg("udc") ) );
+                , ( bp::arg("udc") )
+                , " set the UserDataContainer object." );
         
         }
     }

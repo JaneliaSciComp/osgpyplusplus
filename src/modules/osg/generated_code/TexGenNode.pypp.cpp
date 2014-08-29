@@ -293,14 +293,14 @@ void register_TexGenNode_class(){
 
     { //::osg::TexGenNode
         typedef bp::class_< TexGenNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::TexGenNode >, boost::noncopyable > TexGenNode_exposer_t;
-        TexGenNode_exposer_t TexGenNode_exposer = TexGenNode_exposer_t( "TexGenNode", bp::no_init );
+        TexGenNode_exposer_t TexGenNode_exposer = TexGenNode_exposer_t( "TexGenNode", "\n Node for defining the position of TexGen in the scene.\n", bp::no_init );
         bp::scope TexGenNode_scope( TexGenNode_exposer );
         bp::enum_< osg::TexGenNode::ReferenceFrame>("ReferenceFrame")
             .value("RELATIVE_RF", osg::TexGenNode::RELATIVE_RF)
             .value("ABSOLUTE_RF", osg::TexGenNode::ABSOLUTE_RF)
             .export_values()
             ;
-        TexGenNode_exposer.def( bp::init< >() );
+        TexGenNode_exposer.def( bp::init< >("\n Node for defining the position of TexGen in the scene.\n") );
         TexGenNode_exposer.def( bp::init< osg::TexGen * >(( bp::arg("texgen") )) );
         bp::implicitly_convertible< osg::TexGen *, osg::TexGenNode >();
         { //::osg::TexGenNode::accept
@@ -357,7 +357,8 @@ void register_TexGenNode_class(){
             
             TexGenNode_exposer.def( 
                 "getReferenceFrame"
-                , getReferenceFrame_function_type( &::osg::TexGenNode::getReferenceFrame ) );
+                , getReferenceFrame_function_type( &::osg::TexGenNode::getReferenceFrame )
+                , " Get the TexGenNodes ReferenceFrame." );
         
         }
         { //::osg::TexGenNode::getTexGen
@@ -367,7 +368,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "getTexGen"
                 , getTexGen_function_type( &::osg::TexGenNode::getTexGen )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the TexGen." );
         
         }
         { //::osg::TexGenNode::getTexGen
@@ -377,7 +379,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "getTexGen"
                 , getTexGen_function_type( &::osg::TexGenNode::getTexGen )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const TexGen." );
         
         }
         { //::osg::TexGenNode::getTextureUnit
@@ -419,7 +422,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "setReferenceFrame"
                 , setReferenceFrame_function_type( &::osg::TexGenNode::setReferenceFrame )
-                , ( bp::arg("rf") ) );
+                , ( bp::arg("rf") )
+                , " Set the TexGenNodes ReferenceFrame, either to be relative to its\n parent reference frame." );
         
         }
         { //::osg::TexGenNode::setTexGen
@@ -429,7 +433,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "setTexGen"
                 , setTexGen_function_type( &::osg::TexGenNode::setTexGen )
-                , ( bp::arg("texgen") ) );
+                , ( bp::arg("texgen") )
+                , " Set the TexGen." );
         
         }
         { //::osg::TexGenNode::setTextureUnit
@@ -439,7 +444,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "setTextureUnit"
                 , setTextureUnit_function_type( &::osg::TexGenNode::setTextureUnit )
-                , ( bp::arg("textureUnit") ) );
+                , ( bp::arg("textureUnit") )
+                , " Set the texture unit that this TexGenNode is associated with." );
         
         }
         { //::osg::TexGenNode::setThreadSafeRefUnref
@@ -615,7 +621,8 @@ void register_TexGenNode_class(){
             TexGenNode_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

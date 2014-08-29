@@ -347,11 +347,13 @@ void register_DrawElements_class(){
         .def( 
             "getElementBufferObject"
             , (::osg::ElementBufferObject * ( ::osg::DrawElements::* )(  ))( &::osg::DrawElements::getElementBufferObject )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the ElementBufferObject. If no EBO is assigned returns NULL" )    
         .def( 
             "getElementBufferObject"
             , (::osg::ElementBufferObject const * ( ::osg::DrawElements::* )(  )const)( &::osg::DrawElements::getElementBufferObject )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const ElementBufferObject. If no EBO is assigned returns NULL" )    
         .def( 
             "reserveElements"
             , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ))(&::osg::DrawElements::reserveElements) )
@@ -363,7 +365,8 @@ void register_DrawElements_class(){
         .def( 
             "setElementBufferObject"
             , (void ( ::osg::DrawElements::* )( ::osg::ElementBufferObject * ))( &::osg::DrawElements::setElementBufferObject )
-            , ( bp::arg("ebo") ) )    
+            , ( bp::arg("ebo") )
+            , " Set the ElementBufferObject." )    
         .def( 
             "accept"
             , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::PrimitiveFunctor & )const)(&::osg::PrimitiveSet::accept) )
@@ -400,11 +403,13 @@ void register_DrawElements_class(){
             "clone"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )( ::osg::CopyOp const & )const)(&::osg::Object::clone) )
             , ( bp::arg("arg0") )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "cloneType"
             , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )(  )const)(&::osg::Object::cloneType) )
-            , bp::return_value_policy< bp::reference_existing_object >() )    
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
@@ -473,7 +478,8 @@ void register_DrawElements_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

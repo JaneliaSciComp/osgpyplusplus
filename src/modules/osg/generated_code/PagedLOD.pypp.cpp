@@ -322,7 +322,7 @@ void register_PagedLOD_class(){
 
     { //::osg::PagedLOD
         typedef bp::class_< PagedLOD_wrapper, bp::bases< osg::LOD >, osg::ref_ptr< ::osg::PagedLOD >, boost::noncopyable > PagedLOD_exposer_t;
-        PagedLOD_exposer_t PagedLOD_exposer = PagedLOD_exposer_t( "PagedLOD", bp::no_init );
+        PagedLOD_exposer_t PagedLOD_exposer = PagedLOD_exposer_t( "PagedLOD", "\n PagedLOD.\n", bp::no_init );
         bp::scope PagedLOD_scope( PagedLOD_exposer );
         { //::osg::PagedLOD::PerRangeData
             typedef bp::class_< osg::PagedLOD::PerRangeData > PerRangeData_exposer_t;
@@ -339,7 +339,7 @@ void register_PagedLOD_class(){
             PerRangeData_exposer.def_readwrite( "_priorityScale", &osg::PagedLOD::PerRangeData::_priorityScale );
             PerRangeData_exposer.def_readwrite( "_timeStamp", &osg::PagedLOD::PerRangeData::_timeStamp );
         }
-        PagedLOD_exposer.def( bp::init< >() );
+        PagedLOD_exposer.def( bp::init< >("\n PagedLOD.\n") );
         { //::osg::PagedLOD::accept
         
             typedef void ( ::osg::PagedLOD::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -431,7 +431,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "getDatabaseOptions"
                 , getDatabaseOptions_function_type( &::osg::PagedLOD::getDatabaseOptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Get the optional database osgDB::Options object used when reading children.\n" );
         
         }
         { //::osg::PagedLOD::getDatabaseOptions
@@ -441,7 +442,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "getDatabaseOptions"
                 , getDatabaseOptions_function_type( &::osg::PagedLOD::getDatabaseOptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Get the optional database osgDB::Options object used when reading children.\n" );
         
         }
         { //::osg::PagedLOD::getDatabasePath
@@ -451,7 +453,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "getDatabasePath"
                 , getDatabasePath_function_type( &::osg::PagedLOD::getDatabasePath )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Get the database path used to prepend to childrens filenames.\n" );
         
         }
         { //::osg::PagedLOD::getDatabaseRequest
@@ -462,7 +465,8 @@ void register_PagedLOD_class(){
                 "getDatabaseRequest"
                 , getDatabaseRequest_function_type( &::osg::PagedLOD::getDatabaseRequest )
                 , ( bp::arg("childNo") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Return the DatabaseRequest object used by the DatabasePager to keep track of file load requests\n being carried on behalf of the DatabasePager.\n Note, in normal OSG usage you should not set this value yourself, as this will be managed by\n the osgDB::DatabasePager.\n" );
         
         }
         { //::osg::PagedLOD::getDatabaseRequest
@@ -473,7 +477,8 @@ void register_PagedLOD_class(){
                 "getDatabaseRequest"
                 , getDatabaseRequest_function_type( &::osg::PagedLOD::getDatabaseRequest )
                 , ( bp::arg("childNo") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , "\n Return the const DatabaseRequest object.\n" );
         
         }
         { //::osg::PagedLOD::getDisableExternalChildrenPaging
@@ -512,7 +517,8 @@ void register_PagedLOD_class(){
             
             PagedLOD_exposer.def( 
                 "getFrameNumberOfLastTraversal"
-                , getFrameNumberOfLastTraversal_function_type( &::osg::PagedLOD::getFrameNumberOfLastTraversal ) );
+                , getFrameNumberOfLastTraversal_function_type( &::osg::PagedLOD::getFrameNumberOfLastTraversal )
+                , "\n Get the frame number of the last time that this PageLOD node was traversed.\n" );
         
         }
         { //::osg::PagedLOD::getMinimumExpiryFrames
@@ -541,7 +547,8 @@ void register_PagedLOD_class(){
             
             PagedLOD_exposer.def( 
                 "getNumChildrenThatCannotBeExpired"
-                , getNumChildrenThatCannotBeExpired_function_type( &::osg::PagedLOD::getNumChildrenThatCannotBeExpired ) );
+                , getNumChildrenThatCannotBeExpired_function_type( &::osg::PagedLOD::getNumChildrenThatCannotBeExpired )
+                , "\n Get the number of children that the PagedLOD must keep around, even if they are older than their expiry time.\n" );
         
         }
         { //::osg::PagedLOD::getNumFileNames
@@ -691,7 +698,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setDatabaseOptions"
                 , setDatabaseOptions_function_type( &::osg::PagedLOD::setDatabaseOptions )
-                , ( bp::arg("options") ) );
+                , ( bp::arg("options") )
+                , "\n Set the optional database osgDB::Options object to use when reading children.\n" );
         
         }
         { //::osg::PagedLOD::setDatabasePath
@@ -701,7 +709,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setDatabasePath"
                 , setDatabasePath_function_type( &::osg::PagedLOD::setDatabasePath )
-                , ( bp::arg("path") ) );
+                , ( bp::arg("path") )
+                , "\n Set the database path to prepend to childrens filenames.\n" );
         
         }
         { //::osg::PagedLOD::setDisableExternalChildrenPaging
@@ -711,7 +720,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setDisableExternalChildrenPaging"
                 , setDisableExternalChildrenPaging_function_type( &::osg::PagedLOD::setDisableExternalChildrenPaging )
-                , ( bp::arg("flag") ) );
+                , ( bp::arg("flag") )
+                , "\n Set wether you want to disable the paging in of external nodes.\n" );
         
         }
         { //::osg::PagedLOD::setFileName
@@ -741,7 +751,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setFrameNumberOfLastTraversal"
                 , setFrameNumberOfLastTraversal_function_type( &::osg::PagedLOD::setFrameNumberOfLastTraversal )
-                , ( bp::arg("frameNumber") ) );
+                , ( bp::arg("frameNumber") )
+                , "\n Set the frame number of the last time that this PageLOD node was traversed.\n Note, this frame number is automatically set by the traverse() method for all traversals (update, cull etc.).\n" );
         
         }
         { //::osg::PagedLOD::setMinimumExpiryFrames
@@ -751,7 +762,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setMinimumExpiryFrames"
                 , setMinimumExpiryFrames_function_type( &::osg::PagedLOD::setMinimumExpiryFrames )
-                , ( bp::arg("childNo"), bp::arg("minFrames") ) );
+                , ( bp::arg("childNo"), bp::arg("minFrames") )
+                , "\n Sets the minimum number of frames that must be rendered without a child being traversed before it can be expired.\n" );
         
         }
         { //::osg::PagedLOD::setMinimumExpiryTime
@@ -761,7 +773,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setMinimumExpiryTime"
                 , setMinimumExpiryTime_function_type( &::osg::PagedLOD::setMinimumExpiryTime )
-                , ( bp::arg("childNo"), bp::arg("minTime") ) );
+                , ( bp::arg("childNo"), bp::arg("minTime") )
+                , "\n Sets the minimum amount of time, in seconds, that must pass without a child being traversed before it can be expired.\n" );
         
         }
         { //::osg::PagedLOD::setNumChildrenThatCannotBeExpired
@@ -771,7 +784,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setNumChildrenThatCannotBeExpired"
                 , setNumChildrenThatCannotBeExpired_function_type( &::osg::PagedLOD::setNumChildrenThatCannotBeExpired )
-                , ( bp::arg("num") ) );
+                , ( bp::arg("num") )
+                , "\n Set the number of children that the PagedLOD must keep around, even if they are older than their expiry time.\n" );
         
         }
         { //::osg::PagedLOD::setPriorityOffset
@@ -953,7 +967,8 @@ void register_PagedLOD_class(){
             PagedLOD_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

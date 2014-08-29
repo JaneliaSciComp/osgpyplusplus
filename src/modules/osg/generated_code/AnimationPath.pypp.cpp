@@ -178,7 +178,7 @@ void register_AnimationPath_class(){
 
     { //::osg::AnimationPath
         typedef bp::class_< AnimationPath_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::AnimationPath >, boost::noncopyable > AnimationPath_exposer_t;
-        AnimationPath_exposer_t AnimationPath_exposer = AnimationPath_exposer_t( "AnimationPath", bp::no_init );
+        AnimationPath_exposer_t AnimationPath_exposer = AnimationPath_exposer_t( "AnimationPath", "\n AnimationPath encapsulates a time varying transformation pathway. Can be\n used for updating camera position and model object position.\n AnimationPathCallback can be attached directly to Transform nodes to\n move subgraphs around the scene.\n", bp::no_init );
         bp::scope AnimationPath_scope( AnimationPath_exposer );
         bp::enum_< osg::AnimationPath::LoopMode>("LoopMode")
             .value("SWING", osg::AnimationPath::SWING)
@@ -315,7 +315,7 @@ void register_AnimationPath_class(){
             
             }
         }
-        AnimationPath_exposer.def( bp::init< >() );
+        AnimationPath_exposer.def( bp::init< >("\n AnimationPath encapsulates a time varying transformation pathway. Can be\n used for updating camera position and model object position.\n AnimationPathCallback can be attached directly to Transform nodes to\n move subgraphs around the scene.\n") );
         { //::osg::AnimationPath::className
         
             typedef char const * ( ::osg::AnimationPath::*className_function_type)(  ) const;
@@ -398,7 +398,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "getInverse"
                 , getInverse_function_type( &::osg::AnimationPath::getInverse )
-                , ( bp::arg("time"), bp::arg("matrix") ) );
+                , ( bp::arg("time"), bp::arg("matrix") )
+                , " Given a specific time, return the inverse transformation matrix for a point." );
         
         }
         { //::osg::AnimationPath::getInverse
@@ -436,7 +437,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "getMatrix"
                 , getMatrix_function_type( &::osg::AnimationPath::getMatrix )
-                , ( bp::arg("time"), bp::arg("matrix") ) );
+                , ( bp::arg("time"), bp::arg("matrix") )
+                , " Given a specific time, return the transformation matrix for a point." );
         
         }
         { //::osg::AnimationPath::getMatrix
@@ -446,7 +448,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "getMatrix"
                 , getMatrix_function_type( &::osg::AnimationPath::getMatrix )
-                , ( bp::arg("time"), bp::arg("matrix") ) );
+                , ( bp::arg("time"), bp::arg("matrix") )
+                , " Given a specific time, return the transformation matrix for a point." );
         
         }
         { //::osg::AnimationPath::getPeriod
@@ -485,7 +488,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "insert"
                 , insert_function_type( &::osg::AnimationPath::insert )
-                , ( bp::arg("time"), bp::arg("controlPoint") ) );
+                , ( bp::arg("time"), bp::arg("controlPoint") )
+                , " Insert a control point into the AnimationPath." );
         
         }
         { //::osg::AnimationPath::isSameKindAs
@@ -518,7 +522,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "read"
                 , read_function_type( &::osg::AnimationPath::read )
-                , ( bp::arg("in") ) );
+                , ( bp::arg("in") )
+                , " Read the animation path from a flat ASCII file stream." );
         
         }
         { //::osg::AnimationPath::setLoopMode
@@ -548,7 +553,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "write"
                 , write_function_type( &::osg::AnimationPath::write )
-                , ( bp::arg("out") ) );
+                , ( bp::arg("out") )
+                , " Write the animation path to a flat ASCII file stream." );
         
         }
         { //::osg::AnimationPath::write
@@ -558,7 +564,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "write"
                 , write_function_type( &::osg::AnimationPath::write )
-                , ( bp::arg("itr"), bp::arg("out") ) );
+                , ( bp::arg("itr"), bp::arg("out") )
+                , " Write the control point to a flat ASCII file stream." );
         
         }
         { //::osg::Object::computeDataVariance
@@ -627,7 +634,8 @@ void register_AnimationPath_class(){
             AnimationPath_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

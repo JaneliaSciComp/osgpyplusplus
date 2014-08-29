@@ -293,9 +293,9 @@ void register_Projection_class(){
 
     { //::osg::Projection
         typedef bp::class_< Projection_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Projection >, boost::noncopyable > Projection_exposer_t;
-        Projection_exposer_t Projection_exposer = Projection_exposer_t( "Projection", bp::no_init );
+        Projection_exposer_t Projection_exposer = Projection_exposer_t( "Projection", "\n Projection nodes set up the frustum/orthographic projection used when rendering the scene.\n", bp::no_init );
         bp::scope Projection_scope( Projection_exposer );
-        Projection_exposer.def( bp::init< >() );
+        Projection_exposer.def( bp::init< >("\n Projection nodes set up the frustum/orthographic projection used when rendering the scene.\n") );
         Projection_exposer.def( bp::init< osg::Matrix const & >(( bp::arg("matix") )) );
         bp::implicitly_convertible< osg::Matrix const &, osg::Projection >();
         { //::osg::Projection::accept
@@ -353,7 +353,8 @@ void register_Projection_class(){
             Projection_exposer.def( 
                 "getMatrix"
                 , getMatrix_function_type( &::osg::Projection::getMatrix )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the transforms matrix." );
         
         }
         { //::osg::Projection::isSameKindAs
@@ -386,7 +387,8 @@ void register_Projection_class(){
             Projection_exposer.def( 
                 "postMult"
                 , postMult_function_type( &::osg::Projection::postMult )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " postMult transform." );
         
         }
         { //::osg::Projection::preMult
@@ -396,7 +398,8 @@ void register_Projection_class(){
             Projection_exposer.def( 
                 "preMult"
                 , preMult_function_type( &::osg::Projection::preMult )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " preMult transform." );
         
         }
         { //::osg::Projection::setMatrix
@@ -406,7 +409,8 @@ void register_Projection_class(){
             Projection_exposer.def( 
                 "setMatrix"
                 , setMatrix_function_type( &::osg::Projection::setMatrix )
-                , ( bp::arg("mat") ) );
+                , ( bp::arg("mat") )
+                , " Set the transforms matrix." );
         
         }
         { //::osg::Group::addChild
@@ -570,7 +574,8 @@ void register_Projection_class(){
             Projection_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

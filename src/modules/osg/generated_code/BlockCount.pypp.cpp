@@ -10,7 +10,7 @@ void register_BlockCount_class(){
 
     { //::OpenThreads::BlockCount
         typedef bp::class_< OpenThreads::BlockCount, boost::noncopyable > BlockCount_exposer_t;
-        BlockCount_exposer_t BlockCount_exposer = BlockCount_exposer_t( "BlockCount", bp::init< unsigned int >(( bp::arg("blockCount") )) );
+        BlockCount_exposer_t BlockCount_exposer = BlockCount_exposer_t( "BlockCount", "\n BlockCount is a block that can be used to halt a thread that is waiting for a specified number of operations to be completed.\n", bp::init< unsigned int >(( bp::arg("blockCount") ), "\n BlockCount is a block that can be used to halt a thread that is waiting for a specified number of operations to be completed.\n") );
         bp::scope BlockCount_scope( BlockCount_exposer );
         bp::implicitly_convertible< unsigned int, OpenThreads::BlockCount >();
         { //::OpenThreads::BlockCount::block

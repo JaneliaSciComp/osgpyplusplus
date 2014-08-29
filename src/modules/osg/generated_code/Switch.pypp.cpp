@@ -332,8 +332,8 @@ struct Switch_wrapper : osg::Switch, bp::wrapper< osg::Switch > {
 
 void register_Switch_class(){
 
-    bp::class_< Switch_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Switch >, boost::noncopyable >( "Switch", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< Switch_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Switch >, boost::noncopyable >( "Switch", "\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n", bp::no_init )    
+        .def( bp::init< >("\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::Switch::* )( ::osg::NodeVisitor & ))(&::osg::Switch::accept)
@@ -419,10 +419,12 @@ void register_Switch_class(){
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "setAllChildrenOff"
-            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOff ) )    
+            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOff )
+            , " Set all the children off (false), and set the new default child\n value to off (false)." )    
         .def( 
             "setAllChildrenOn"
-            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOn ) )    
+            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOn )
+            , " Set all the children on (true), and set the new default child\n value to on (true)." )    
         .def( 
             "setChildValue"
             , (void ( ::osg::Switch::* )( ::osg::Node const *,bool ))( &::osg::Switch::setChildValue )
@@ -434,7 +436,8 @@ void register_Switch_class(){
         .def( 
             "setSingleChildOn"
             , (bool ( ::osg::Switch::* )( unsigned int ))( &::osg::Switch::setSingleChildOn )
-            , ( bp::arg("pos") ) )    
+            , ( bp::arg("pos") )
+            , " Set a single child on, switch off all other children." )    
         .def( 
             "setValue"
             , (void ( ::osg::Switch::* )( unsigned int,bool ))( &::osg::Switch::setValue )
@@ -495,7 +498,8 @@ void register_Switch_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)

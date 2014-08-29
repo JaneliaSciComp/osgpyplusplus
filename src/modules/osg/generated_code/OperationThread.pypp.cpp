@@ -68,30 +68,34 @@ struct OperationThread_wrapper : osg::OperationThread, bp::wrapper< osg::Operati
 
 void register_OperationThread_class(){
 
-    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, osg::ref_ptr< ::osg::OperationThread >, boost::noncopyable >( "OperationThread", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, osg::ref_ptr< ::osg::OperationThread >, boost::noncopyable >( "OperationThread", "\n OperationThread is a helper class for running Operation within a single thread.\n", bp::no_init )    
+        .def( bp::init< >("\n OperationThread is a helper class for running Operation within a single thread.\n") )    
         .def( 
             "add"
             , (void ( ::osg::OperationThread::* )( ::osg::Operation * ))( &::osg::OperationThread::add )
-            , ( bp::arg("operation") ) )    
+            , ( bp::arg("operation") )
+            , " Add operation to end of OperationQueue, this will be\n executed by the graphics thread once this operation gets to the head of the queue." )    
         .def( 
             "cancel"
             , (int ( ::osg::OperationThread::* )(  ))(&::osg::OperationThread::cancel)
             , (int ( OperationThread_wrapper::* )(  ))(&OperationThread_wrapper::default_cancel) )    
         .def( 
             "getCurrentOperation"
-            , (::osg::ref_ptr< osg::Operation > ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getCurrentOperation ) )    
+            , (::osg::ref_ptr< osg::Operation > ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getCurrentOperation )
+            , " Get the operation currently being run." )    
         .def( 
             "getDone"
             , (bool ( ::osg::OperationThread::* )(  )const)( &::osg::OperationThread::getDone ) )    
         .def( 
             "getOperationQueue"
             , (::osg::OperationQueue * ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getOperationQueue )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the OperationQueue." )    
         .def( 
             "getOperationQueue"
             , (::osg::OperationQueue const * ( ::osg::OperationThread::* )(  )const)( &::osg::OperationThread::getOperationQueue )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const OperationQueue." )    
         .def( 
             "getParent"
             , (::osg::Object * ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getParent )
@@ -103,14 +107,17 @@ void register_OperationThread_class(){
         .def( 
             "remove"
             , (void ( ::osg::OperationThread::* )( ::osg::Operation * ))( &::osg::OperationThread::remove )
-            , ( bp::arg("operation") ) )    
+            , ( bp::arg("operation") )
+            , " Remove operation from OperationQueue." )    
         .def( 
             "remove"
             , (void ( ::osg::OperationThread::* )( ::std::string const & ))( &::osg::OperationThread::remove )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Remove named operation from OperationQueue." )    
         .def( 
             "removeAllOperations"
-            , (void ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::removeAllOperations ) )    
+            , (void ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::removeAllOperations )
+            , " Remove all operations from OperationQueue." )    
         .def( 
             "run"
             , (void ( ::osg::OperationThread::* )(  ))(&::osg::OperationThread::run)
@@ -122,7 +129,8 @@ void register_OperationThread_class(){
         .def( 
             "setOperationQueue"
             , (void ( ::osg::OperationThread::* )( ::osg::OperationQueue * ))( &::osg::OperationThread::setOperationQueue )
-            , ( bp::arg("opq") ) )    
+            , ( bp::arg("opq") )
+            , " Set the OperationQueue." )    
         .def( 
             "setParent"
             , (void ( ::osg::OperationThread::* )( ::osg::Object * ))( &::osg::OperationThread::setParent )

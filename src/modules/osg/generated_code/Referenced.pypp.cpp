@@ -34,9 +34,9 @@ void register_Referenced_class(){
 
     { //::osg::Referenced
         typedef bp::class_< Referenced_wrapper, osg::ref_ptr< ::osg::Referenced > > Referenced_exposer_t;
-        Referenced_exposer_t Referenced_exposer = Referenced_exposer_t( "Referenced", bp::no_init );
+        Referenced_exposer_t Referenced_exposer = Referenced_exposer_t( "Referenced", "\n Base class for providing reference counted objects.\n", bp::no_init );
         bp::scope Referenced_scope( Referenced_exposer );
-        Referenced_exposer.def( bp::init< >() );
+        Referenced_exposer.def( bp::init< >("\n Base class for providing reference counted objects.\n") );
         { //::osg::Referenced::addObserver
         
             typedef void ( ::osg::Referenced::*addObserver_function_type)( ::osg::Observer * ) const;
@@ -44,7 +44,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "addObserver"
                 , addObserver_function_type( &::osg::Referenced::addObserver )
-                , ( bp::arg("observer") ) );
+                , ( bp::arg("observer") )
+                , " Add a Observer that is observing this object, notify the Observer when this object gets deleted." );
         
         }
         { //::osg::Referenced::getDeleteHandler
@@ -54,7 +55,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "getDeleteHandler"
                 , getDeleteHandler_function_type( &::osg::Referenced::getDeleteHandler )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a DeleteHandler." );
         
         }
         { //::osg::Referenced::getGlobalReferencedMutex
@@ -64,7 +66,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "getGlobalReferencedMutex"
                 , getGlobalReferencedMutex_function_type( &::osg::Referenced::getGlobalReferencedMutex )
-                , bp::return_value_policy< bp::reference_existing_object >() );
+                , bp::return_value_policy< bp::reference_existing_object >()
+                , " Get the optional global Referenced mutex, this can be shared between all osg::Referenced." );
         
         }
         { //::osg::Referenced::getObserverSet
@@ -74,7 +77,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "getObserverSet"
                 , getObserverSet_function_type( &::osg::Referenced::getObserverSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the ObserverSet if one is attached, otherwise return NULL." );
         
         }
         { //::osg::Referenced::getOrCreateObserverSet
@@ -84,7 +88,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "getOrCreateObserverSet"
                 , getOrCreateObserverSet_function_type( &::osg::Referenced::getOrCreateObserverSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the ObserverSet if one is attached, otherwise create an ObserverSet, attach it, then return this newly created ObserverSet." );
         
         }
         { //::osg::Referenced::getRefMutex
@@ -94,7 +99,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "getRefMutex"
                 , getRefMutex_function_type( &::osg::Referenced::getRefMutex )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the mutex used to ensure thread safety of ref()/unref()." );
         
         }
         { //::osg::Referenced::getThreadSafeRefUnref
@@ -103,7 +109,8 @@ void register_Referenced_class(){
             
             Referenced_exposer.def( 
                 "getThreadSafeRefUnref"
-                , getThreadSafeRefUnref_function_type( &::osg::Referenced::getThreadSafeRefUnref ) );
+                , getThreadSafeRefUnref_function_type( &::osg::Referenced::getThreadSafeRefUnref )
+                , " Get whether a mutex is used to ensure ref() and unref() are thread safe." );
         
         }
         { //::osg::Referenced::getThreadSafeReferenceCounting
@@ -112,7 +119,8 @@ void register_Referenced_class(){
             
             Referenced_exposer.def( 
                 "getThreadSafeReferenceCounting"
-                , getThreadSafeReferenceCounting_function_type( &::osg::Referenced::getThreadSafeReferenceCounting ) );
+                , getThreadSafeReferenceCounting_function_type( &::osg::Referenced::getThreadSafeReferenceCounting )
+                , " Get whether reference counting is active." );
         
         }
         { //::osg::Referenced::ref
@@ -130,7 +138,8 @@ void register_Referenced_class(){
             
             Referenced_exposer.def( 
                 "referenceCount"
-                , referenceCount_function_type( &::osg::Referenced::referenceCount ) );
+                , referenceCount_function_type( &::osg::Referenced::referenceCount )
+                , " Return the number of pointers currently referencing this object." );
         
         }
         { //::osg::Referenced::removeObserver
@@ -140,7 +149,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "removeObserver"
                 , removeObserver_function_type( &::osg::Referenced::removeObserver )
-                , ( bp::arg("observer") ) );
+                , ( bp::arg("observer") )
+                , " Remove Observer that is observing this object." );
         
         }
         { //::osg::Referenced::setDeleteHandler
@@ -150,7 +160,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "setDeleteHandler"
                 , setDeleteHandler_function_type( &::osg::Referenced::setDeleteHandler )
-                , ( bp::arg("handler") ) );
+                , ( bp::arg("handler") )
+                , " Set a DeleteHandler to which deletion of all referenced counted objects\n will be delegated." );
         
         }
         { //::osg::Referenced::setThreadSafeRefUnref
@@ -172,7 +183,8 @@ void register_Referenced_class(){
             Referenced_exposer.def( 
                 "setThreadSafeReferenceCounting"
                 , setThreadSafeReferenceCounting_function_type( &::osg::Referenced::setThreadSafeReferenceCounting )
-                , ( bp::arg("enableThreadSafeReferenceCounting") ) );
+                , ( bp::arg("enableThreadSafeReferenceCounting") )
+                , " Set whether reference counting should use a mutex for thread safe reference counting." );
         
         }
         { //::osg::Referenced::unref
@@ -190,7 +202,8 @@ void register_Referenced_class(){
             
             Referenced_exposer.def( 
                 "unref_nodelete"
-                , unref_nodelete_function_type( &::osg::Referenced::unref_nodelete ) );
+                , unref_nodelete_function_type( &::osg::Referenced::unref_nodelete )
+                , " Decrement the reference count by one, indicating that\n            a pointer to this object is no longer referencing it.  However, do\n            not delete it, even if ref count goes to 0.  Warning, unref_nodelete()\n            should only be called if the user knows exactly who will\n            be responsible for, one should prefer unref() over unref_nodelete()\n            as the latter can lead to memory leaks." );
         
         }
         Referenced_exposer.staticmethod( "getDeleteHandler" );

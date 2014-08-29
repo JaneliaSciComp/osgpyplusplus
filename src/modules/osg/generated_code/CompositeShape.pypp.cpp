@@ -203,7 +203,8 @@ void register_CompositeShape_class(){
         .def( 
             "addChild"
             , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ))( &::osg::CompositeShape::addChild )
-            , ( bp::arg("shape") ) )    
+            , ( bp::arg("shape") )
+            , " Add a child to the list." )    
         .def( 
             "className"
             , (char const * ( ::osg::CompositeShape::* )(  )const)(&::osg::CompositeShape::className)
@@ -222,28 +223,34 @@ void register_CompositeShape_class(){
         .def( 
             "findChildNo"
             , (unsigned int ( ::osg::CompositeShape::* )( ::osg::Shape * )const)( &::osg::CompositeShape::findChildNo )
-            , ( bp::arg("shape") ) )    
+            , ( bp::arg("shape") )
+            , " find the index number of child, if child is not found then it returns getNumChildren(),\n so should be used in similar style to STLs result!=end()." )    
         .def( 
             "getChild"
             , (::osg::Shape * ( ::osg::CompositeShape::* )( unsigned int ))( &::osg::CompositeShape::getChild )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get a child." )    
         .def( 
             "getChild"
             , (::osg::Shape const * ( ::osg::CompositeShape::* )( unsigned int )const)( &::osg::CompositeShape::getChild )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get a const child." )    
         .def( 
             "getNumChildren"
-            , (unsigned int ( ::osg::CompositeShape::* )(  )const)( &::osg::CompositeShape::getNumChildren ) )    
+            , (unsigned int ( ::osg::CompositeShape::* )(  )const)( &::osg::CompositeShape::getNumChildren )
+            , " Get the number of children of this composite shape." )    
         .def( 
             "getShape"
             , (::osg::Shape * ( ::osg::CompositeShape::* )(  ))( &::osg::CompositeShape::getShape )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the shape that encloses all of the children." )    
         .def( 
             "getShape"
             , (::osg::Shape const * ( ::osg::CompositeShape::* )(  )const)( &::osg::CompositeShape::getShape )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const shape that encloses all of the children." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::CompositeShape::* )( ::osg::Object const * )const)(&::osg::CompositeShape::isSameKindAs)
@@ -256,11 +263,13 @@ void register_CompositeShape_class(){
         .def( 
             "removeChild"
             , (void ( ::osg::CompositeShape::* )( unsigned int ))( &::osg::CompositeShape::removeChild )
-            , ( bp::arg("i") ) )    
+            , ( bp::arg("i") )
+            , " remove a child from the list." )    
         .def( 
             "setShape"
             , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ))( &::osg::CompositeShape::setShape )
-            , ( bp::arg("shape") ) )    
+            , ( bp::arg("shape") )
+            , " Set the shape that encloses all of the children." )    
         .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
@@ -288,7 +297,8 @@ void register_CompositeShape_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

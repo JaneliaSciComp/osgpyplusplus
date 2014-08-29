@@ -32,7 +32,7 @@ struct ArrayDispatchers_wrapper : osg::ArrayDispatchers, bp::wrapper< osg::Array
 
 void register_ArrayDispatchers_class(){
 
-    bp::class_< ArrayDispatchers_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ArrayDispatchers >, boost::noncopyable >( "ArrayDispatchers", bp::init< >() )    
+    bp::class_< ArrayDispatchers_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ArrayDispatchers >, boost::noncopyable >( "ArrayDispatchers", "\n Helper class for managing the dispatch to OpenGL of various attribute arrays such as stored in osg::Geometry.\n", bp::init< >("\n Helper class for managing the dispatch to OpenGL of various attribute arrays such as stored in osg::Geometry.\n") )    
         .def( 
             "activate"
             , (void ( ::osg::ArrayDispatchers::* )( unsigned int,::osg::AttributeDispatch * ))( &::osg::ArrayDispatchers::activate )

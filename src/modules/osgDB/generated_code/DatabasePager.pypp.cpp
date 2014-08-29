@@ -97,11 +97,6 @@ struct DatabasePager_wrapper : osgDB::DatabasePager, bp::wrapper< osgDB::Databas
             func_insertPagedLOD( boost::ref(plod) );
         }
     
-        virtual void removeExpiredChildren( int numberChildrenToRemove, double expiryTime, unsigned int expiryFrame, ::std::list< osg::ref_ptr<osg::Object> > & childrenRemoved, bool visitActive ){
-            bp::override func_removeExpiredChildren = this->get_override( "removeExpiredChildren" );
-            func_removeExpiredChildren( numberChildrenToRemove, expiryTime, expiryFrame, boost::ref(childrenRemoved), visitActive );
-        }
-    
         virtual void removeNodes( ::osg::NodeList & nodesToRemove ){
             bp::override func_removeNodes = this->get_override( "removeNodes" );
             func_removeNodes( boost::ref(nodesToRemove) );
@@ -400,10 +395,6 @@ void register_DatabasePager_class(){
                 "insertPagedLOD"
                 , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::observer_ptr< osg::PagedLOD > const & ))(&::osgDB::DatabasePager::PagedLODList::insertPagedLOD) )
                 , ( bp::arg("plod") ) )    
-            .def( 
-                "removeExpiredChildren"
-                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( int,double,unsigned int,::std::list< osg::ref_ptr<osg::Object> > &,bool ))(&::osgDB::DatabasePager::PagedLODList::removeExpiredChildren) )
-                , ( bp::arg("numberChildrenToRemove"), bp::arg("expiryTime"), bp::arg("expiryFrame"), bp::arg("childrenRemoved"), bp::arg("visitActive") ) )    
             .def( 
                 "removeNodes"
                 , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::NodeList & ))(&::osgDB::DatabasePager::PagedLODList::removeNodes) )

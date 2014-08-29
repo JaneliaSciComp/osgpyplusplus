@@ -272,8 +272,8 @@ struct DefaultUserDataContainer_wrapper : osg::DefaultUserDataContainer, bp::wra
 
 void register_DefaultUserDataContainer_class(){
 
-    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, osg::ref_ptr< ::osg::DefaultUserDataContainer >, boost::noncopyable >( "DefaultUserDataContainer", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, osg::ref_ptr< ::osg::DefaultUserDataContainer >, boost::noncopyable >( "DefaultUserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
+        .def( bp::init< >("\n Internal structure for storing all user data.\n") )    
         .def( 
             "addDescription"
             , (void ( ::osg::DefaultUserDataContainer::* )( ::std::string const & ))(&::osg::DefaultUserDataContainer::addDescription)
@@ -378,6 +378,7 @@ void register_DefaultUserDataContainer_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) );
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." );
 
 }

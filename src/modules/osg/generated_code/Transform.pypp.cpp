@@ -382,7 +382,7 @@ void register_Transform_class(){
 
     { //::osg::Transform
         typedef bp::class_< Transform_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Transform >, boost::noncopyable > Transform_exposer_t;
-        Transform_exposer_t Transform_exposer = Transform_exposer_t( "Transform", bp::no_init );
+        Transform_exposer_t Transform_exposer = Transform_exposer_t( "Transform", "\n A Transform is a group node for which all children are transformed by\n a 4x4 matrix. It is often used for positioning objects within a scene,\n producing trackball functionality or for animation.\n\n Transform itself does not provide set/get functions, only the interface\n for defining what the 4x4 transformation is.  Subclasses, such as\n MatrixTransform and PositionAttitudeTransform support the use of an\n osg::Matrix or a osg::Vec3/osg::Quat respectively.\n\n Note: If the transformation matrix scales the subgraph then the normals\n of the underlying geometry will need to be renormalized to be unit\n vectors once more.  This can be done transparently through OpenGLs\n use of either GL_NORMALIZE and GL_RESCALE_NORMAL modes. For further\n background reading see the glNormalize documentation in the OpenGL\n Reference Guide (the blue book). To enable it in the OSG, you simply\n need to attach a local osg::StateSet to the osg::Transform, and set\n the appropriate mode to ON via\n   stateset->setMode(GL_NORMALIZE, osg::StateAttribute::ON);\n", bp::no_init );
         bp::scope Transform_scope( Transform_exposer );
         bp::enum_< osg::Transform::ReferenceFrame>("ReferenceFrame")
             .value("RELATIVE_RF", osg::Transform::RELATIVE_RF)
@@ -390,7 +390,7 @@ void register_Transform_class(){
             .value("ABSOLUTE_RF_INHERIT_VIEWPOINT", osg::Transform::ABSOLUTE_RF_INHERIT_VIEWPOINT)
             .export_values()
             ;
-        Transform_exposer.def( bp::init< >() );
+        Transform_exposer.def( bp::init< >("\n A Transform is a group node for which all children are transformed by\n a 4x4 matrix. It is often used for positioning objects within a scene,\n producing trackball functionality or for animation.\n\n Transform itself does not provide set/get functions, only the interface\n for defining what the 4x4 transformation is.  Subclasses, such as\n MatrixTransform and PositionAttitudeTransform support the use of an\n osg::Matrix or a osg::Vec3/osg::Quat respectively.\n\n Note: If the transformation matrix scales the subgraph then the normals\n of the underlying geometry will need to be renormalized to be unit\n vectors once more.  This can be done transparently through OpenGLs\n use of either GL_NORMALIZE and GL_RESCALE_NORMAL modes. For further\n background reading see the glNormalize documentation in the OpenGL\n Reference Guide (the blue book). To enable it in the OSG, you simply\n need to attach a local osg::StateSet to the osg::Transform, and set\n the appropriate mode to ON via\n   stateset->setMode(GL_NORMALIZE, osg::StateAttribute::ON);\n") );
         { //::osg::Transform::accept
         
             typedef void ( ::osg::Transform::*accept_function_type)( ::osg::NodeVisitor & ) ;
@@ -585,7 +585,8 @@ void register_Transform_class(){
             Transform_exposer.def( 
                 "setReferenceFrame"
                 , setReferenceFrame_function_type( &::osg::Transform::setReferenceFrame )
-                , ( bp::arg("rf") ) );
+                , ( bp::arg("rf") )
+                , " Set the transforms ReferenceFrame, either to be relative to its\n parent reference frame, or relative to an absolute coordinate\n frame. RELATIVE_RF is the default.\n Note: Setting the ReferenceFrame to be ABSOLUTE_RF will\n also set the CullingActive flag on the transform, and hence all\n of its parents, to false, thereby disabling culling of it and\n all its parents.  This is necessary to prevent inappropriate\n culling, but may impact cull times if the absolute transform is\n deep in the scene graph.  It is therefore recommended to only use\n absolute Transforms at the top of the scene, for such things as\n heads up displays.\n ABSOLUTE_RF_INHERIT_VIEWPOINT is the same as ABSOLUTE_RF except it\n adds the ability to use the parents view points position in world coordinates\n as its local viewpoint in the new coordinates frame.  This is useful for\n Render to texture Cameras that wish to use the main views LOD range computation\n (which uses the viewpoint rather than the eye point) rather than use the local\n eye point defined by the this Transforms absolute view matrix." );
         
         }
         { //::osg::Group::addChild
@@ -738,7 +739,8 @@ void register_Transform_class(){
             Transform_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Group::setThreadSafeRefUnref

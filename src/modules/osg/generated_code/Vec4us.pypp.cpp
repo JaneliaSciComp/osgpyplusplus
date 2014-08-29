@@ -10,7 +10,7 @@ void register_Vec4us_class(){
 
     { //::osg::Vec4us
         typedef bp::class_< osg::Vec4us > Vec4us_exposer_t;
-        Vec4us_exposer_t Vec4us_exposer = Vec4us_exposer_t( "Vec4us", bp::init< >() );
+        Vec4us_exposer_t Vec4us_exposer = Vec4us_exposer_t( "Vec4us", "\n General purpose float quad. Uses include representation\n of color coordinates.\n No support yet added for float * Vec4us - is it necessary?\n Need to define a non-member non-friend operator*  etc.\n    Vec4us * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec4us_scope( Vec4us_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4us::num_components;
         Vec4us_exposer.def( bp::init< short unsigned int, short unsigned int, short unsigned int, short unsigned int >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );

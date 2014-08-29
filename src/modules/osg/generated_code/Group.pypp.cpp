@@ -284,8 +284,8 @@ struct Group_wrapper : osg::Group, bp::wrapper< osg::Group > {
 
 void register_Group_class(){
 
-    bp::class_< Group_wrapper, bp::bases< osg::Node >, osg::ref_ptr< ::osg::Group >, boost::noncopyable >( "Group", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< Group_wrapper, bp::bases< osg::Node >, osg::ref_ptr< ::osg::Group >, boost::noncopyable >( "Group", "\n General group node which maintains a list of children.\n Children are reference counted. This allows children to be shared\n with memory management handled automatically via osg::Referenced.\n", bp::no_init )    
+        .def( bp::init< >("\n General group node which maintains a list of children.\n Children are reference counted. This allows children to be shared\n with memory management handled automatically via osg::Referenced.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::accept)
@@ -328,24 +328,29 @@ void register_Group_class(){
         .def( 
             "containsNode"
             , (bool ( ::osg::Group::* )( ::osg::Node const * )const)( &::osg::Group::containsNode )
-            , ( bp::arg("node") ) )    
+            , ( bp::arg("node") )
+            , " Return true if node is contained within Group." )    
         .def( 
             "getChild"
             , (::osg::Node * ( ::osg::Group::* )( unsigned int ))( &::osg::Group::getChild )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Return child node at position i." )    
         .def( 
             "getChild"
             , (::osg::Node const * ( ::osg::Group::* )( unsigned int )const)( &::osg::Group::getChild )
             , ( bp::arg("i") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Return child node at position i." )    
         .def( 
             "getChildIndex"
             , (unsigned int ( ::osg::Group::* )( ::osg::Node const * )const)( &::osg::Group::getChildIndex )
-            , ( bp::arg("node") ) )    
+            , ( bp::arg("node") )
+            , " Get the index number of child, return a value between\n 0 and _children.size()-1 if found, if not found then\n return _children.size()." )    
         .def( 
             "getNumChildren"
-            , (unsigned int ( ::osg::Group::* )(  )const)( &::osg::Group::getNumChildren ) )    
+            , (unsigned int ( ::osg::Group::* )(  )const)( &::osg::Group::getNumChildren )
+            , " Return the number of children nodes." )    
         .def( 
             "insertChild"
             , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
@@ -363,11 +368,13 @@ void register_Group_class(){
         .def( 
             "removeChild"
             , (bool ( ::osg::Group::* )( ::osg::Node * ))( &::osg::Group::removeChild )
-            , ( bp::arg("child") ) )    
+            , ( bp::arg("child") )
+            , " Remove Node from Group.\n If Node is contained in Group then remove it from the child\n list, decrement its reference count, and dirty the\n bounding sphere to force it to recompute on next getBound() and\n return true for success. If Node is not found then return false\n and do not change the reference count of the Node.\n Note, do not override, only override removeChildren(,) is required." )    
         .def( 
             "removeChild"
             , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))( &::osg::Group::removeChild )
-            , ( bp::arg("pos"), bp::arg("numChildrenToRemove")=(unsigned int)(1) ) )    
+            , ( bp::arg("pos"), bp::arg("numChildrenToRemove")=(unsigned int)(1) )
+            , " Remove Node from Group.\n If Node is contained in Group then remove it from the child\n list, decrement its reference count, and dirty the\n bounding sphere to force it to recompute on next getBound() and\n return true for success. If Node is not found then return false\n and do not change the reference count of the Node.\n Note, do not override, only override removeChildren(,) is required." )    
         .def( 
             "removeChildren"
             , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
@@ -420,7 +427,8 @@ void register_Group_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setUserData"
             , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)

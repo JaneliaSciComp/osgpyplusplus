@@ -284,8 +284,8 @@ struct ClearNode_wrapper : osg::ClearNode, bp::wrapper< osg::ClearNode > {
 
 void register_ClearNode_class(){
 
-    bp::class_< ClearNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ClearNode >, boost::noncopyable >( "ClearNode", bp::no_init )    
-        .def( bp::init< >() )    
+    bp::class_< ClearNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ClearNode >, boost::noncopyable >( "ClearNode", "\n A Group node for clearing the color and depth buffers. Use setClearColor\n to change the clear color, and setRequiresClear to disable/enable the call\n clearing. You might want to disable clearing if you perform your clear by\n drawing fullscreen geometry. If you do this, add child nodes to perform\n such drawing. The default StateSet associated with this node places\n children in render bin -1 to ensure that children are rendered prior to\n the rest of the scene graph.\n", bp::no_init )    
+        .def( bp::init< >("\n A Group node for clearing the color and depth buffers. Use setClearColor\n to change the clear color, and setRequiresClear to disable/enable the call\n clearing. You might want to disable clearing if you perform your clear by\n drawing fullscreen geometry. If you do this, add child nodes to perform\n such drawing. The default StateSet associated with this node places\n children in render bin -1 to ensure that children are rendered prior to\n the rest of the scene graph.\n") )    
         .def( 
             "accept"
             , (void ( ::osg::ClearNode::* )( ::osg::NodeVisitor & ))(&::osg::ClearNode::accept)
@@ -309,13 +309,16 @@ void register_ClearNode_class(){
         .def( 
             "getClearColor"
             , (::osg::Vec4 const & ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getClearColor )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Returns the clear color." )    
         .def( 
             "getClearMask"
-            , (::GLbitfield ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getClearMask ) )    
+            , (::GLbitfield ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getClearMask )
+            , " Get the clear mask." )    
         .def( 
             "getRequiresClear"
-            , (bool ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getRequiresClear ) )    
+            , (bool ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getRequiresClear )
+            , " Gets whether clearing is enabled or disabled." )    
         .def( 
             "isSameKindAs"
             , (bool ( ::osg::ClearNode::* )( ::osg::Object const * )const)(&::osg::ClearNode::isSameKindAs)
@@ -328,15 +331,18 @@ void register_ClearNode_class(){
         .def( 
             "setClearColor"
             , (void ( ::osg::ClearNode::* )( ::osg::Vec4 const & ))( &::osg::ClearNode::setClearColor )
-            , ( bp::arg("color") ) )    
+            , ( bp::arg("color") )
+            , " Sets the clear color." )    
         .def( 
             "setClearMask"
             , (void ( ::osg::ClearNode::* )( ::GLbitfield ))( &::osg::ClearNode::setClearMask )
-            , ( bp::arg("mask") ) )    
+            , ( bp::arg("mask") )
+            , " Set the clear mask used in glClear(..).\n Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT." )    
         .def( 
             "setRequiresClear"
             , (void ( ::osg::ClearNode::* )( bool ))( &::osg::ClearNode::setRequiresClear )
-            , ( bp::arg("requiresClear") ) )    
+            , ( bp::arg("requiresClear") )
+            , " Enable/disable clearing via glClear." )    
         .def( 
             "addChild"
             , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
@@ -403,7 +409,8 @@ void register_ClearNode_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)

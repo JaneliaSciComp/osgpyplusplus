@@ -10,7 +10,7 @@ void register_Vec2b_class(){
 
     { //::osg::Vec2b
         typedef bp::class_< osg::Vec2b > Vec2b_exposer_t;
-        Vec2b_exposer_t Vec2b_exposer = Vec2b_exposer_t( "Vec2b", bp::init< >() );
+        Vec2b_exposer_t Vec2b_exposer = Vec2b_exposer_t( "Vec2b", "\n General purpose float triple.\n Uses include representation of color coordinates.\n No support yet added for float * Vec2b - is it necessary?\n Need to define a non-member non-friend operator*  etc.\n Vec2b * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec2b_scope( Vec2b_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2b::num_components;
         Vec2b_exposer.def( bp::init< signed char, signed char >(( bp::arg("r"), bp::arg("g") )) );

@@ -444,13 +444,14 @@ void register_CameraManipulator_class(){
 
     { //::osgGA::CameraManipulator
         typedef bp::class_< CameraManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< ::osgGA::CameraManipulator >, boost::noncopyable > CameraManipulator_exposer_t;
-        CameraManipulator_exposer_t CameraManipulator_exposer = CameraManipulator_exposer_t( "CameraManipulator", bp::no_init );
+        CameraManipulator_exposer_t CameraManipulator_exposer = CameraManipulator_exposer_t( "CameraManipulator", "\nCameraManipulator is an abstract base class defining the interface, and a certain\namount of default functionality, for classes which wish to control OSG cameras\nin response to GUI events.\n", bp::no_init );
         bp::scope CameraManipulator_scope( CameraManipulator_exposer );
-        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::CameraManipulator::CoordinateFrameCallback >, boost::noncopyable >( "CoordinateFrameCallback", bp::no_init )    
+        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::CameraManipulator::CoordinateFrameCallback >, boost::noncopyable >( "CoordinateFrameCallback", "\n callback class to use to allow matrix manipulators to query the application for the local coordinate frame.\n", bp::no_init )    
             .def( 
                 "getCoordinateFrame"
                 , bp::pure_virtual( (::osg::CoordinateFrame ( ::osgGA::CameraManipulator::CoordinateFrameCallback::* )( ::osg::Vec3d const & )const)(&::osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame) )
-                , ( bp::arg("position") ) );
+                , ( bp::arg("position") )
+                , "\n callback class to use to allow matrix manipulators to query the application for the local coordinate frame.\n" );
         { //::osgGA::CameraManipulator::className
         
             typedef char const * ( ::osgGA::CameraManipulator::*className_function_type)(  ) const;
@@ -480,7 +481,8 @@ void register_CameraManipulator_class(){
             
             CameraManipulator_exposer.def( 
                 "getAutoComputeHomePosition"
-                , getAutoComputeHomePosition_function_type( &::osgGA::CameraManipulator::getAutoComputeHomePosition ) );
+                , getAutoComputeHomePosition_function_type( &::osgGA::CameraManipulator::getAutoComputeHomePosition )
+                , " Get whether the automatic compute of the home position is enabled." );
         
         }
         { //::osgGA::CameraManipulator::getCoordinateFrame
@@ -490,7 +492,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "getCoordinateFrame"
                 , getCoordinateFrame_function_type( &::osgGA::CameraManipulator::getCoordinateFrame )
-                , ( bp::arg("position") ) );
+                , ( bp::arg("position") )
+                , " get the coordinate frame." );
         
         }
         { //::osgGA::CameraManipulator::getCoordinateFrameCallback
@@ -500,7 +503,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "getCoordinateFrameCallback"
                 , getCoordinateFrameCallback_function_type( &::osgGA::CameraManipulator::getCoordinateFrameCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " get the coordinate frame callback which tells the manipulator which way is up, east and north." );
         
         }
         { //::osgGA::CameraManipulator::getCoordinateFrameCallback
@@ -510,7 +514,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "getCoordinateFrameCallback"
                 , getCoordinateFrameCallback_function_type( &::osgGA::CameraManipulator::getCoordinateFrameCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " get the coordinate frame callback which tells the manipulator which way is up, east and north." );
         
         }
         { //::osgGA::CameraManipulator::getFrontVector
@@ -563,7 +568,8 @@ void register_CameraManipulator_class(){
             
             CameraManipulator_exposer.def( 
                 "getIntersectTraversalMask"
-                , getIntersectTraversalMask_function_type( &::osgGA::CameraManipulator::getIntersectTraversalMask ) );
+                , getIntersectTraversalMask_function_type( &::osgGA::CameraManipulator::getIntersectTraversalMask )
+                , " Get the mask to use when set up intersection traversal such as used in manipulators that follow terrain or have collision detection." );
         
         }
         { //::osgGA::CameraManipulator::getInverseMatrix
@@ -572,7 +578,8 @@ void register_CameraManipulator_class(){
             
             CameraManipulator_exposer.def( 
                 "getInverseMatrix"
-                , bp::pure_virtual( getInverseMatrix_function_type(&::osgGA::CameraManipulator::getInverseMatrix) ) );
+                , bp::pure_virtual( getInverseMatrix_function_type(&::osgGA::CameraManipulator::getInverseMatrix) )
+                , " get the position of the manipulator as a inverse matrix of the manipulator, typically used as a model view matrix." );
         
         }
         { //::osgGA::CameraManipulator::getMatrix
@@ -581,7 +588,8 @@ void register_CameraManipulator_class(){
             
             CameraManipulator_exposer.def( 
                 "getMatrix"
-                , bp::pure_virtual( getMatrix_function_type(&::osgGA::CameraManipulator::getMatrix) ) );
+                , bp::pure_virtual( getMatrix_function_type(&::osgGA::CameraManipulator::getMatrix) )
+                , " get the position of the manipulator as 4x4 Matrix." );
         
         }
         { //::osgGA::CameraManipulator::getNode
@@ -635,7 +643,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "handle"
                 , default_handle_function_type( &CameraManipulator_wrapper::default_handle )
-                , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
+                , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") )
+                , " Handle events, return true if handled, false otherwise." );
         
         }
         { //::osgGA::CameraManipulator::home
@@ -645,7 +654,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "home_9715462911072744dcf4ae663764b018"
                 , default_home_9715462911072744dcf4ae663764b018_function_type( &CameraManipulator_wrapper::default_home_9715462911072744dcf4ae663764b018 )
-                , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") ) );
+                , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") )
+                , "        Move the camera to the default position.\n        May be ignored by manipulators if home functionality is not appropriate." );
         
         }
         { //::osgGA::CameraManipulator::home
@@ -655,7 +665,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "home_60d9f789ca14c44af8e13acc6b7f8b5f"
                 , default_home_60d9f789ca14c44af8e13acc6b7f8b5f_function_type( &CameraManipulator_wrapper::default_home_60d9f789ca14c44af8e13acc6b7f8b5f )
-                , ( bp::arg("inst"), bp::arg("arg0") ) );
+                , ( bp::arg("inst"), bp::arg("arg0") )
+                , "        Move the camera to the default position.\n        This version does not require GUIEventAdapter and GUIActionAdapter so may be\n        called from somewhere other than a handle() method in GUIEventHandler.  Application\n        must be aware of implications." );
         
         }
         { //::osgGA::CameraManipulator::init
@@ -665,7 +676,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "init"
                 , default_init_function_type( &CameraManipulator_wrapper::default_init )
-                , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") ) );
+                , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") )
+                , "        Start/restart the manipulator.\n        FIXME: what does this actually mean? Provide examples." );
         
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
@@ -687,7 +699,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "setByInverseMatrix"
                 , bp::pure_virtual( setByInverseMatrix_function_type(&::osgGA::CameraManipulator::setByInverseMatrix) )
-                , ( bp::arg("matrix") ) );
+                , ( bp::arg("matrix") )
+                , " set the position of the matrix manipulator using a 4x4 Matrix." );
         
         }
         { //::osgGA::CameraManipulator::setByMatrix
@@ -697,7 +710,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "setByMatrix"
                 , bp::pure_virtual( setByMatrix_function_type(&::osgGA::CameraManipulator::setByMatrix) )
-                , ( bp::arg("matrix") ) );
+                , ( bp::arg("matrix") )
+                , " set the position of the matrix manipulator using a 4x4 Matrix." );
         
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
@@ -731,7 +745,8 @@ void register_CameraManipulator_class(){
             CameraManipulator_exposer.def( 
                 "setIntersectTraversalMask"
                 , setIntersectTraversalMask_function_type( &::osgGA::CameraManipulator::setIntersectTraversalMask )
-                , ( bp::arg("mask") ) );
+                , ( bp::arg("mask") )
+                , " Set the mask to use when set up intersection traversal such as used in manipulators that follow terrain or have collision detection.\n The intersection traversal mask is useful for controlling what parts of the scene graph should be used for intersection purposes." );
         
         }
         { //::osgGA::CameraManipulator::setNode

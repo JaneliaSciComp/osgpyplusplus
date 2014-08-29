@@ -10,7 +10,7 @@ void register_Vec3f_class(){
 
     { //::osg::Vec3f
         typedef bp::class_< osg::Vec3f > Vec3f_exposer_t;
-        Vec3f_exposer_t Vec3f_exposer = Vec3f_exposer_t( "Vec3f", bp::init< >() );
+        Vec3f_exposer_t Vec3f_exposer = Vec3f_exposer_t( "Vec3f", "\n General purpose float triple for use as vertices, vectors and normals.\n Provides general math operations from addition through to cross products.\n No support yet added for float * Vec3f - is it necessary?\n Need to define a non-member non-friend operator*  etc.\n Vec3f * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec3f_scope( Vec3f_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3f::num_components;
         Vec3f_exposer.def( bp::init< float, float, float >(( bp::arg("x"), bp::arg("y"), bp::arg("z") )) );
@@ -21,7 +21,8 @@ void register_Vec3f_class(){
             
             Vec3f_exposer.def( 
                 "isNaN"
-                , isNaN_function_type( &::osg::Vec3f::isNaN ) );
+                , isNaN_function_type( &::osg::Vec3f::isNaN )
+                , "\n Returns true if at least one component has value NaN.\n" );
         
         }
         { //::osg::Vec3f::length
@@ -30,7 +31,8 @@ void register_Vec3f_class(){
             
             Vec3f_exposer.def( 
                 "length"
-                , length_function_type( &::osg::Vec3f::length ) );
+                , length_function_type( &::osg::Vec3f::length )
+                , "\n Length of the vector = sqrt( vec . vec )\n" );
         
         }
         { //::osg::Vec3f::length2
@@ -39,7 +41,8 @@ void register_Vec3f_class(){
             
             Vec3f_exposer.def( 
                 "length2"
-                , length2_function_type( &::osg::Vec3f::length2 ) );
+                , length2_function_type( &::osg::Vec3f::length2 )
+                , "\n Length squared of the vector = vec . vec\n" );
         
         }
         { //::osg::Vec3f::normalize
@@ -48,7 +51,8 @@ void register_Vec3f_class(){
             
             Vec3f_exposer.def( 
                 "normalize"
-                , normalize_function_type( &::osg::Vec3f::normalize ) );
+                , normalize_function_type( &::osg::Vec3f::normalize )
+                , "\n Normalize the vector so that it has length unity.\n Returns the previous length of the vector.\n" );
         
         }
         Vec3f_exposer.def( bp::self != bp::self );
@@ -112,7 +116,8 @@ void register_Vec3f_class(){
             
             Vec3f_exposer.def( 
                 "valid"
-                , valid_function_type( &::osg::Vec3f::valid ) );
+                , valid_function_type( &::osg::Vec3f::valid )
+                , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
         { //::osg::Vec3f::x

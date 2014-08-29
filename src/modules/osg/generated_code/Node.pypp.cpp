@@ -178,9 +178,9 @@ void register_Node_class(){
 
     { //::osg::Node
         typedef bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Node >, boost::noncopyable > Node_exposer_t;
-        Node_exposer_t Node_exposer = Node_exposer_t( "Node", bp::no_init );
+        Node_exposer_t Node_exposer = Node_exposer_t( "Node", "\n Base class for all internal nodes in the scene graph.\n    Provides interface for most common node operations (Composite Pattern).\n", bp::no_init );
         bp::scope Node_scope( Node_exposer );
-        Node_exposer.def( bp::init< >() );
+        Node_exposer.def( bp::init< >("\n Construct a node.\n            Initialize the parent list to empty, node name to  and\n            bounding sphere dirty flag to true.\n") );
         { //::osg::Node::addCullCallback
         
             typedef void ( ::osg::Node::*addCullCallback_function_type)( ::osg::NodeCallback * ) ;
@@ -188,7 +188,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "addCullCallback"
                 , addCullCallback_function_type( &::osg::Node::addCullCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that sets the cull callback of the node if it doesnt exist, or nest it into the existing one." );
         
         }
         { //::osg::Node::addDescription
@@ -198,7 +199,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "addDescription"
                 , addDescription_function_type( &::osg::Node::addDescription )
-                , ( bp::arg("desc") ) );
+                , ( bp::arg("desc") )
+                , " Add a description string to the node." );
         
         }
         { //::osg::Node::addEventCallback
@@ -208,7 +210,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "addEventCallback"
                 , addEventCallback_function_type( &::osg::Node::addEventCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that sets the event callback of the node if it doesnt exist, or nest it into the existing one." );
         
         }
         { //::osg::Node::addUpdateCallback
@@ -218,7 +221,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "addUpdateCallback"
                 , addUpdateCallback_function_type( &::osg::Node::addUpdateCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that sets the update callback of the node if it doesnt exist, or nest it into the existing one." );
         
         }
         { //::osg::Node::className
@@ -274,7 +278,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "containsOccluderNodes"
-                , containsOccluderNodes_function_type( &::osg::Node::containsOccluderNodes ) );
+                , containsOccluderNodes_function_type( &::osg::Node::containsOccluderNodes )
+                , " return true if this node is an OccluderNode or the subgraph below this node are OccluderNodes." );
         
         }
         { //::osg::Node::dirtyBound
@@ -283,7 +288,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "dirtyBound"
-                , dirtyBound_function_type( &::osg::Node::dirtyBound ) );
+                , dirtyBound_function_type( &::osg::Node::dirtyBound )
+                , " Mark this nodes bounding sphere dirty.\n            Forcing it to be computed on the next call to getBound()." );
         
         }
         { //::osg::Node::getBound
@@ -293,7 +299,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getBound"
                 , getBound_function_type( &::osg::Node::getBound )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the bounding sphere of node.\n           Using lazy evaluation computes the bounding sphere if it is dirty." );
         
         }
         { //::osg::Node::getComputeBoundingSphereCallback
@@ -303,7 +310,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getComputeBoundingSphereCallback"
                 , getComputeBoundingSphereCallback_function_type( &::osg::Node::getComputeBoundingSphereCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the compute bound callback." );
         
         }
         { //::osg::Node::getComputeBoundingSphereCallback
@@ -313,7 +321,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getComputeBoundingSphereCallback"
                 , getComputeBoundingSphereCallback_function_type( &::osg::Node::getComputeBoundingSphereCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const compute bound callback." );
         
         }
         { //::osg::Node::getCullCallback
@@ -323,7 +332,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getCullCallback"
                 , getCullCallback_function_type( &::osg::Node::getCullCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get cull node callback, called during cull traversal." );
         
         }
         { //::osg::Node::getCullCallback
@@ -333,7 +343,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getCullCallback"
                 , getCullCallback_function_type( &::osg::Node::getCullCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get const cull node callback, called during cull traversal." );
         
         }
         { //::osg::Node::getCullingActive
@@ -342,7 +353,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getCullingActive"
-                , getCullingActive_function_type( &::osg::Node::getCullingActive ) );
+                , getCullingActive_function_type( &::osg::Node::getCullingActive )
+                , " Get the view frustum/small feature _cullingActive flag for this node. Used as a guide\n to the cull traversal." );
         
         }
         { //::osg::Node::getDescription
@@ -353,7 +365,8 @@ void register_Node_class(){
                 "getDescription"
                 , getDescription_function_type( &::osg::Node::getDescription )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single const description of the const node." );
         
         }
         { //::osg::Node::getDescription
@@ -364,7 +377,8 @@ void register_Node_class(){
                 "getDescription"
                 , getDescription_function_type( &::osg::Node::getDescription )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single description of the node." );
         
         }
         { //::osg::Node::getDescriptions
@@ -374,7 +388,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getDescriptions"
                 , getDescriptions_function_type( &::osg::Node::getDescriptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the description list of the node." );
         
         }
         { //::osg::Node::getDescriptions
@@ -384,7 +399,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getDescriptions"
                 , getDescriptions_function_type( &::osg::Node::getDescriptions )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const description list of the const node." );
         
         }
         { //::osg::Node::getEventCallback
@@ -394,7 +410,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Node::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get event node callback, called during event traversal." );
         
         }
         { //::osg::Node::getEventCallback
@@ -404,7 +421,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::Node::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get const event node callback, called during event traversal." );
         
         }
         { //::osg::Node::getInitialBound
@@ -414,7 +432,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getInitialBound"
                 , getInitialBound_function_type( &::osg::Node::getInitialBound )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Set the initial bounding volume to use when computing the overall bounding volume." );
         
         }
         { //::osg::Node::getNodeMask
@@ -423,7 +442,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNodeMask"
-                , getNodeMask_function_type( &::osg::Node::getNodeMask ) );
+                , getNodeMask_function_type( &::osg::Node::getNodeMask )
+                , " Get the node Mask." );
         
         }
         { //::osg::Node::getNumChildrenRequiringEventTraversal
@@ -432,7 +452,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumChildrenRequiringEventTraversal"
-                , getNumChildrenRequiringEventTraversal_function_type( &::osg::Node::getNumChildrenRequiringEventTraversal ) );
+                , getNumChildrenRequiringEventTraversal_function_type( &::osg::Node::getNumChildrenRequiringEventTraversal )
+                , " Get the number of Children of this node which require Event traversal,\n since they have an Event Callback attached to them or their children." );
         
         }
         { //::osg::Node::getNumChildrenRequiringUpdateTraversal
@@ -441,7 +462,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumChildrenRequiringUpdateTraversal"
-                , getNumChildrenRequiringUpdateTraversal_function_type( &::osg::Node::getNumChildrenRequiringUpdateTraversal ) );
+                , getNumChildrenRequiringUpdateTraversal_function_type( &::osg::Node::getNumChildrenRequiringUpdateTraversal )
+                , " Get the number of Children of this node which require Update traversal,\n since they have an Update Callback attached to them or their children." );
         
         }
         { //::osg::Node::getNumChildrenWithCullingDisabled
@@ -450,7 +472,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumChildrenWithCullingDisabled"
-                , getNumChildrenWithCullingDisabled_function_type( &::osg::Node::getNumChildrenWithCullingDisabled ) );
+                , getNumChildrenWithCullingDisabled_function_type( &::osg::Node::getNumChildrenWithCullingDisabled )
+                , " Get the number of Children of this node which have culling disabled." );
         
         }
         { //::osg::Node::getNumChildrenWithOccluderNodes
@@ -459,7 +482,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumChildrenWithOccluderNodes"
-                , getNumChildrenWithOccluderNodes_function_type( &::osg::Node::getNumChildrenWithOccluderNodes ) );
+                , getNumChildrenWithOccluderNodes_function_type( &::osg::Node::getNumChildrenWithOccluderNodes )
+                , " Get the number of Children of this node which are or have OccluderNodes." );
         
         }
         { //::osg::Node::getNumDescriptions
@@ -468,7 +492,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumDescriptions"
-                , getNumDescriptions_function_type( &::osg::Node::getNumDescriptions ) );
+                , getNumDescriptions_function_type( &::osg::Node::getNumDescriptions )
+                , " Get the number of descriptions of the node." );
         
         }
         { //::osg::Node::getNumParents
@@ -477,7 +502,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "getNumParents"
-                , getNumParents_function_type( &::osg::Node::getNumParents ) );
+                , getNumParents_function_type( &::osg::Node::getNumParents )
+                , " Get the number of parents of node.\n Return: the number of parents of this node." );
         
         }
         { //::osg::Node::getOrCreateStateSet
@@ -487,7 +513,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getOrCreateStateSet"
                 , getOrCreateStateSet_function_type( &::osg::Node::getOrCreateStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the nodes StateSet, if one does not already exist create it\n set the node and return the newly created StateSet. This ensures\n that a valid StateSet is always returned and can be used directly." );
         
         }
         { //::osg::Node::getParentalNodePaths
@@ -497,7 +524,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getParentalNodePaths"
                 , getParentalNodePaths_function_type( &::osg::Node::getParentalNodePaths )
-                , ( bp::arg("haltTraversalAtNode")=bp::object() ) );
+                , ( bp::arg("haltTraversalAtNode")=bp::object() )
+                , " Get the list of node paths parent paths.\n The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node." );
         
         }
         { //::osg::Node::getStateSet
@@ -507,7 +535,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getStateSet"
                 , getStateSet_function_type( &::osg::Node::getStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the nodes StateSet. returns NULL if a stateset is not attached." );
         
         }
         { //::osg::Node::getStateSet
@@ -517,7 +546,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getStateSet"
                 , getStateSet_function_type( &::osg::Node::getStateSet )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the nodes const StateSet. Returns NULL if a stateset is not attached." );
         
         }
         { //::osg::Node::getUpdateCallback
@@ -527,7 +557,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Node::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get update node callback, called during update traversal." );
         
         }
         { //::osg::Node::getUpdateCallback
@@ -537,7 +568,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::Node::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get const update node callback, called during update traversal." );
         
         }
         { //::osg::Node::getWorldMatrices
@@ -547,7 +579,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "getWorldMatrices"
                 , getWorldMatrices_function_type( &::osg::Node::getWorldMatrices )
-                , ( bp::arg("haltTraversalAtNode")=bp::object() ) );
+                , ( bp::arg("haltTraversalAtNode")=bp::object() )
+                , " Get the list of matrices that transform this node from local coordinates to world coordinates.\n The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node." );
         
         }
         { //::osg::Node::isCullingActive
@@ -556,7 +589,8 @@ void register_Node_class(){
             
             Node_exposer.def( 
                 "isCullingActive"
-                , isCullingActive_function_type( &::osg::Node::isCullingActive ) );
+                , isCullingActive_function_type( &::osg::Node::isCullingActive )
+                , " Return true if this node can be culled by view frustum, occlusion or small feature culling during the cull traversal.\n Note, returns true only if no children have culling disabled, and the local _cullingActive flag is true." );
         
         }
         { //::osg::Node::isSameKindAs
@@ -589,7 +623,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "removeCullCallback"
                 , removeCullCallback_function_type( &::osg::Node::removeCullCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found." );
         
         }
         { //::osg::Node::removeEventCallback
@@ -599,7 +634,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "removeEventCallback"
                 , removeEventCallback_function_type( &::osg::Node::removeEventCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found." );
         
         }
         { //::osg::Node::removeUpdateCallback
@@ -609,7 +645,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "removeUpdateCallback"
                 , removeUpdateCallback_function_type( &::osg::Node::removeUpdateCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Convenience method that removes a given callback from a node, even if that callback is nested. There is no error return in case the given callback is not found." );
         
         }
         { //::osg::Node::resizeGLObjectBuffers
@@ -631,7 +668,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setComputeBoundingSphereCallback"
                 , setComputeBoundingSphereCallback_function_type( &::osg::Node::setComputeBoundingSphereCallback )
-                , ( bp::arg("callback") ) );
+                , ( bp::arg("callback") )
+                , " Set the compute bound callback to override the default computeBound." );
         
         }
         { //::osg::Node::setCullCallback
@@ -641,7 +679,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setCullCallback"
                 , setCullCallback_function_type( &::osg::Node::setCullCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Set cull node callback, called during cull traversal." );
         
         }
         { //::osg::Node::setCullingActive
@@ -651,7 +690,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setCullingActive"
                 , setCullingActive_function_type( &::osg::Node::setCullingActive )
-                , ( bp::arg("active") ) );
+                , ( bp::arg("active") )
+                , " Set the view frustum/small feature culling of this node to be active or inactive.\n The default value is true for _cullingActive. Used as a guide\n to the cull traversal." );
         
         }
         { //::osg::Node::setDescriptions
@@ -661,7 +701,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setDescriptions"
                 , setDescriptions_function_type( &::osg::Node::setDescriptions )
-                , ( bp::arg("descriptions") ) );
+                , ( bp::arg("descriptions") )
+                , " Set the list of string descriptions." );
         
         }
         { //::osg::Node::setEventCallback
@@ -671,7 +712,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::Node::setEventCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Set event node callback, called during event traversal." );
         
         }
         { //::osg::Node::setInitialBound
@@ -681,7 +723,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setInitialBound"
                 , setInitialBound_function_type( &::osg::Node::setInitialBound )
-                , ( bp::arg("bsphere") ) );
+                , ( bp::arg("bsphere") )
+                , " Set the initial bounding volume to use when computing the overall bounding volume." );
         
         }
         { //::osg::Node::setNodeMask
@@ -691,7 +734,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setNodeMask"
                 , setNodeMask_function_type( &::osg::Node::setNodeMask )
-                , ( bp::arg("nm") ) );
+                , ( bp::arg("nm") )
+                , " Set the node mask." );
         
         }
         { //::osg::Node::setStateSet
@@ -701,7 +745,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setStateSet"
                 , setStateSet_function_type( &::osg::Node::setStateSet )
-                , ( bp::arg("stateset") ) );
+                , ( bp::arg("stateset") )
+                , " Set the nodes StateSet." );
         
         }
         { //::osg::Node::setThreadSafeRefUnref
@@ -723,7 +768,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::Node::setUpdateCallback )
-                , ( bp::arg("nc") ) );
+                , ( bp::arg("nc") )
+                , " Set update node callback, called during update traversal." );
         
         }
         { //::osg::Object::computeDataVariance
@@ -780,7 +826,8 @@ void register_Node_class(){
             Node_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

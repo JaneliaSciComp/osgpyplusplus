@@ -10,7 +10,7 @@ void register_Vec4f_class(){
 
     { //::osg::Vec4f
         typedef bp::class_< osg::Vec4f > Vec4f_exposer_t;
-        Vec4f_exposer_t Vec4f_exposer = Vec4f_exposer_t( "Vec4f", bp::init< >() );
+        Vec4f_exposer_t Vec4f_exposer = Vec4f_exposer_t( "Vec4f", "\n General purpose float quad. Uses include representation\n of color coordinates.\n No support yet added for float * Vec4f - is it necessary?\n Need to define a non-member non-friend operator*  etc.\n    Vec4f * float is okay\n", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec4f_scope( Vec4f_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4f::num_components;
         Vec4f_exposer.def( bp::init< float, float, float, float >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );
@@ -96,7 +96,8 @@ void register_Vec4f_class(){
             
             Vec4f_exposer.def( 
                 "isNaN"
-                , isNaN_function_type( &::osg::Vec4f::isNaN ) );
+                , isNaN_function_type( &::osg::Vec4f::isNaN )
+                , "\n Returns true if at least one component has value NaN.\n" );
         
         }
         { //::osg::Vec4f::length
@@ -105,7 +106,8 @@ void register_Vec4f_class(){
             
             Vec4f_exposer.def( 
                 "length"
-                , length_function_type( &::osg::Vec4f::length ) );
+                , length_function_type( &::osg::Vec4f::length )
+                , "\n Length of the vector = sqrt( vec . vec )\n" );
         
         }
         { //::osg::Vec4f::length2
@@ -114,7 +116,8 @@ void register_Vec4f_class(){
             
             Vec4f_exposer.def( 
                 "length2"
-                , length2_function_type( &::osg::Vec4f::length2 ) );
+                , length2_function_type( &::osg::Vec4f::length2 )
+                , "\n Length squared of the vector = vec . vec\n" );
         
         }
         { //::osg::Vec4f::normalize
@@ -123,7 +126,8 @@ void register_Vec4f_class(){
             
             Vec4f_exposer.def( 
                 "normalize"
-                , normalize_function_type( &::osg::Vec4f::normalize ) );
+                , normalize_function_type( &::osg::Vec4f::normalize )
+                , "\n Normalize the vector so that it has length unity.\n Returns the previous length of the vector.\n" );
         
         }
         Vec4f_exposer.def( bp::self != bp::self );
@@ -195,7 +199,8 @@ void register_Vec4f_class(){
             
             Vec4f_exposer.def( 
                 "valid"
-                , valid_function_type( &::osg::Vec4f::valid ) );
+                , valid_function_type( &::osg::Vec4f::valid )
+                , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
         { //::osg::Vec4f::w

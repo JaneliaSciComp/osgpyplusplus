@@ -524,7 +524,7 @@ void register_Image_class(){
 
     { //::osg::Image
         typedef bp::class_< Image_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< ::osg::Image >, boost::noncopyable > Image_exposer_t;
-        Image_exposer_t Image_exposer = Image_exposer_t( "Image", bp::no_init );
+        Image_exposer_t Image_exposer = Image_exposer_t( "Image", "\n Image class for encapsulating the storage texture image data.\n", bp::no_init );
         bp::scope Image_scope( Image_exposer );
         bp::enum_< osg::Image::AllocationMode>("AllocationMode")
             .value("NO_DELETE", osg::Image::NO_DELETE)
@@ -545,7 +545,7 @@ void register_Image_class(){
             ;
         { //::osg::Image::DataIterator
             typedef bp::class_< osg::Image::DataIterator > DataIterator_exposer_t;
-            DataIterator_exposer_t DataIterator_exposer = DataIterator_exposer_t( "DataIterator", bp::init< osg::Image const * >(( bp::arg("image") )) );
+            DataIterator_exposer_t DataIterator_exposer = DataIterator_exposer_t( "DataIterator", " Convenience class for assisting the copying of image data when the image data isnt contiguous.", bp::init< osg::Image const * >(( bp::arg("image") ), " Convenience class for assisting the copying of image data when the image data isnt contiguous.") );
             bp::scope DataIterator_scope( DataIterator_exposer );
             bp::implicitly_convertible< osg::Image const *, osg::Image::DataIterator >();
             DataIterator_exposer.def( bp::init< osg::Image::DataIterator const & >(( bp::arg("ri") )) );
@@ -555,7 +555,8 @@ void register_Image_class(){
                 
                 DataIterator_exposer.def( 
                     "size"
-                    , size_function_type( &::osg::Image::DataIterator::size ) );
+                    , size_function_type( &::osg::Image::DataIterator::size )
+                    , " Size of current block to copy." );
             
             }
             { //::osg::Image::DataIterator::valid
@@ -564,22 +565,24 @@ void register_Image_class(){
                 
                 DataIterator_exposer.def( 
                     "valid"
-                    , valid_function_type( &::osg::Image::DataIterator::valid ) );
+                    , valid_function_type( &::osg::Image::DataIterator::valid )
+                    , " is iterator valid." );
             
             }
             DataIterator_exposer.def("increment", &wrap_increment_DataIterator);
         }
-        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Image::DimensionsChangedCallback >, boost::noncopyable >( "DimensionsChangedCallback", bp::no_init )    
+        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Image::DimensionsChangedCallback >, boost::noncopyable >( "DimensionsChangedCallback", "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n", bp::no_init )    
             .def( 
                 "__call__"
                 , bp::pure_virtual( (void ( ::osg::Image::DimensionsChangedCallback::* )( ::osg::Image * ))(&::osg::Image::DimensionsChangedCallback::operator()) )
-                , ( bp::arg("image") ) )    
+                , ( bp::arg("image") )
+                , "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n" )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Image_wrapper::DimensionsChangedCallback_wrapper::* )( bool ))(&Image_wrapper::DimensionsChangedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< ::osg::Image::UpdateCallback >, boost::noncopyable >( "UpdateCallback" )    
+        bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< ::osg::Image::UpdateCallback >, boost::noncopyable >( "UpdateCallback", "\n Convenience update callback class that can be attached to a StateAttribute (such as Textures) to ensure\n that the Image::update(NodeVisitor*) method is called during the update traversal.  This callback\n is automatically attached when Image::requiresUpdateCall() is true (its false by default.)\n" )    
             .def( 
                 "__call__"
                 , (void ( ::osg::Image::UpdateCallback::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ))(&::osg::Image::UpdateCallback::operator())
@@ -612,7 +615,8 @@ void register_Image_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -623,7 +627,7 @@ void register_Image_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::osg::Referenced * ))(&Image_wrapper::UpdateCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        Image_exposer.def( bp::init< >() );
+        Image_exposer.def( bp::init< >("\n Image class for encapsulating the storage texture image data.\n") );
         { //::osg::Image::addDimensionsChangedCallback
         
             typedef void ( ::osg::Image::*addDimensionsChangedCallback_function_type)( ::osg::Image::DimensionsChangedCallback * ) ;
@@ -815,7 +819,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "ensureValidSizeForTexturing"
                 , ensureValidSizeForTexturing_function_type( &::osg::Image::ensureValidSizeForTexturing )
-                , ( bp::arg("maxTextureSize") ) );
+                , ( bp::arg("maxTextureSize") )
+                , " Ensure image dimensions are a power of two.\n Mipmapped textures require the image dimensions to be\n power of two and are within the maxiumum texture size for\n the host machine." );
         
         }
         { //::osg::Image::flipDepth
@@ -824,7 +829,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "flipDepth"
-                , flipDepth_function_type( &::osg::Image::flipDepth ) );
+                , flipDepth_function_type( &::osg::Image::flipDepth )
+                , " Flip the image around the r dimension. Only relevent for 3D textures." );
         
         }
         { //::osg::Image::flipHorizontal
@@ -833,7 +839,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "flipHorizontal"
-                , flipHorizontal_function_type( &::osg::Image::flipHorizontal ) );
+                , flipHorizontal_function_type( &::osg::Image::flipHorizontal )
+                , " Flip the image horizontally, around s dimension." );
         
         }
         { //::osg::Image::flipVertical
@@ -842,7 +849,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "flipVertical"
-                , flipVertical_function_type( &::osg::Image::flipVertical ) );
+                , flipVertical_function_type( &::osg::Image::flipVertical )
+                , " Flip the image vertically, around t dimension." );
         
         }
         { //::osg::Image::getAllocationMode
@@ -851,7 +859,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getAllocationMode"
-                , getAllocationMode_function_type( &::osg::Image::getAllocationMode ) );
+                , getAllocationMode_function_type( &::osg::Image::getAllocationMode )
+                , " Get the method used for deleting data once it goes out of scope." );
         
         }
         { //::osg::Image::getColor
@@ -861,7 +870,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getColor"
                 , getColor_function_type( &::osg::Image::getColor )
-                , ( bp::arg("s"), bp::arg("t")=(unsigned int)(0), bp::arg("r")=(unsigned int)(0) ) );
+                , ( bp::arg("s"), bp::arg("t")=(unsigned int)(0), bp::arg("r")=(unsigned int)(0) )
+                , " Get the color value for specified texcoord." );
         
         }
         { //::osg::Image::getColor
@@ -871,7 +881,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getColor"
                 , getColor_function_type( &::osg::Image::getColor )
-                , ( bp::arg("texcoord") ) );
+                , ( bp::arg("texcoord") )
+                , " Get the color value for specified texcoord." );
         
         }
         { //::osg::Image::getColor
@@ -881,7 +892,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getColor"
                 , getColor_function_type( &::osg::Image::getColor )
-                , ( bp::arg("texcoord") ) );
+                , ( bp::arg("texcoord") )
+                , " Get the color value for specified texcoord." );
         
         }
         { //::osg::Image::getDataPointer
@@ -921,7 +933,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getImageSizeInBytes"
-                , getImageSizeInBytes_function_type( &::osg::Image::getImageSizeInBytes ) );
+                , getImageSizeInBytes_function_type( &::osg::Image::getImageSizeInBytes )
+                , " Return the number of bytes each image (_s*_t) of pixels occupies." );
         
         }
         { //::osg::Image::getImageStepInBytes
@@ -930,7 +943,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getImageStepInBytes"
-                , getImageStepInBytes_function_type( &::osg::Image::getImageStepInBytes ) );
+                , getImageStepInBytes_function_type( &::osg::Image::getImageStepInBytes )
+                , " Return the number of bytes between each successive image.\n Note, getImageSizeInBytes() will only equal getImageStepInBytes() when isDataContiguous() return true." );
         
         }
         { //::osg::Image::getInternalTextureFormat
@@ -977,7 +991,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getOrigin"
-                , getOrigin_function_type( &::osg::Image::getOrigin ) );
+                , getOrigin_function_type( &::osg::Image::getOrigin )
+                , " Get the origin of the image." );
         
         }
         { //::osg::Image::getPacking
@@ -995,7 +1010,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getPixelAspectRatio"
-                , getPixelAspectRatio_function_type( &::osg::Image::getPixelAspectRatio ) );
+                , getPixelAspectRatio_function_type( &::osg::Image::getPixelAspectRatio )
+                , " Get the pixel aspect ratio." );
         
         }
         { //::osg::Image::getPixelBufferObject
@@ -1005,7 +1021,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getPixelBufferObject"
                 , getPixelBufferObject_function_type( &::osg::Image::getPixelBufferObject )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the PixelBufferObject." );
         
         }
         { //::osg::Image::getPixelBufferObject
@@ -1015,7 +1032,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getPixelBufferObject"
                 , getPixelBufferObject_function_type( &::osg::Image::getPixelBufferObject )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const PixelBufferObject." );
         
         }
         { //::osg::Image::getPixelFormat
@@ -1033,7 +1051,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getPixelSizeInBits"
-                , getPixelSizeInBits_function_type( &::osg::Image::getPixelSizeInBits ) );
+                , getPixelSizeInBits_function_type( &::osg::Image::getPixelSizeInBits )
+                , " Return the number of bits required for each pixel." );
         
         }
         { //::osg::Image::getRowLength
@@ -1051,7 +1070,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getRowSizeInBytes"
-                , getRowSizeInBytes_function_type( &::osg::Image::getRowSizeInBytes ) );
+                , getRowSizeInBytes_function_type( &::osg::Image::getRowSizeInBytes )
+                , " Return the number of bytes each row of pixels occupies once it has been packed." );
         
         }
         { //::osg::Image::getRowStepInBytes
@@ -1060,7 +1080,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getRowStepInBytes"
-                , getRowStepInBytes_function_type( &::osg::Image::getRowStepInBytes ) );
+                , getRowStepInBytes_function_type( &::osg::Image::getRowStepInBytes )
+                , " Return the number of bytes between each successive row.\n Note, getRowSizeInBytes() will only equal getRowStepInBytes() when isDataContiguous() return true." );
         
         }
         { //::osg::Image::getTotalDataSize
@@ -1080,7 +1101,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getTotalSizeInBytes"
-                , getTotalSizeInBytes_function_type( &::osg::Image::getTotalSizeInBytes ) );
+                , getTotalSizeInBytes_function_type( &::osg::Image::getTotalSizeInBytes )
+                , " Return the number of bytes the whole row/image/volume of pixels occupies." );
         
         }
         { //::osg::Image::getTotalSizeInBytesIncludingMipmaps
@@ -1089,7 +1111,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "getTotalSizeInBytesIncludingMipmaps"
-                , getTotalSizeInBytesIncludingMipmaps_function_type( &::osg::Image::getTotalSizeInBytesIncludingMipmaps ) );
+                , getTotalSizeInBytesIncludingMipmaps_function_type( &::osg::Image::getTotalSizeInBytesIncludingMipmaps )
+                , " Return the number of bytes the whole row/image/volume of pixels occupies, including all mip maps if included." );
         
         }
         { //::osg::Image::getWriteHint
@@ -1107,7 +1130,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "isCompressed"
-                , isCompressed_function_type( &::osg::Image::isCompressed ) );
+                , isCompressed_function_type( &::osg::Image::isCompressed )
+                , " Return true of the pixel format is an OpenGL compressed pixel format." );
         
         }
         { //::osg::Image::isDataContiguous
@@ -1116,7 +1140,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "isDataContiguous"
-                , isDataContiguous_function_type( &::osg::Image::isDataContiguous ) );
+                , isDataContiguous_function_type( &::osg::Image::isDataContiguous )
+                , " return true if the data stored in the image is a contiguous block of data." );
         
         }
         { //::osg::Image::isImageTranslucent
@@ -1178,7 +1203,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "r"
-                , r_function_type( &::osg::Image::r ) );
+                , r_function_type( &::osg::Image::r )
+                , " Depth of image." );
         
         }
         { //::osg::Image::readImageFromCurrentTexture
@@ -1232,7 +1258,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "s"
-                , s_function_type( &::osg::Image::s ) );
+                , s_function_type( &::osg::Image::s )
+                , " Width of image." );
         
         }
         { //::osg::Image::scaleImage
@@ -1242,7 +1269,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "scaleImage"
                 , scaleImage_function_type( &::osg::Image::scaleImage )
-                , ( bp::arg("s"), bp::arg("t"), bp::arg("r") ) );
+                , ( bp::arg("s"), bp::arg("t"), bp::arg("r") )
+                , " Scale image to specified size." );
         
         }
         { //::osg::Image::scaleImage
@@ -1300,7 +1328,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setAllocationMode"
                 , setAllocationMode_function_type( &::osg::Image::setAllocationMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set the method used for deleting data once it goes out of scope." );
         
         }
         { //::osg::Image::setDataType
@@ -1364,7 +1393,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setMipmapLevels"
                 , setMipmapLevels_function_type( &::osg::Image::setMipmapLevels )
-                , ( bp::arg("mipmapDataVector") ) );
+                , ( bp::arg("mipmapDataVector") )
+                , " Send offsets into data. It is assumed that first mipmap offset (index 0) is 0." );
         
         }
         { //::osg::Image::setOrigin
@@ -1374,7 +1404,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setOrigin"
                 , setOrigin_function_type( &::osg::Image::setOrigin )
-                , ( bp::arg("origin") ) );
+                , ( bp::arg("origin") )
+                , " Set the origin of the image.\n The default value is BOTTOM_LEFT and is consistent with OpenGL.\n TOP_LEFT is used for imagery that follows standard Imagery convention, such as movies,\n and hasnt been flipped yet.  For such images one much flip the t axis of the tex coords.\n to handle this origin position." );
         
         }
         { //::osg::Image::setPacking
@@ -1394,7 +1425,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setPixelAspectRatio"
                 , setPixelAspectRatio_function_type( &::osg::Image::setPixelAspectRatio )
-                , ( bp::arg("pixelAspectRatio") ) );
+                , ( bp::arg("pixelAspectRatio") )
+                , " Set the pixel aspect ratio, defined as the pixel width divided by the pixel height." );
         
         }
         { //::osg::Image::setPixelBufferObject
@@ -1404,7 +1436,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setPixelBufferObject"
                 , setPixelBufferObject_function_type( &::osg::Image::setPixelBufferObject )
-                , ( bp::arg("buffer") ) );
+                , ( bp::arg("buffer") )
+                , " Set the optional PixelBufferObject used to map the image memory efficiently to graphics memory." );
         
         }
         { //::osg::Image::setPixelFormat
@@ -1443,7 +1476,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "supportsTextureSubloading"
-                , supportsTextureSubloading_function_type( &::osg::Image::supportsTextureSubloading ) );
+                , supportsTextureSubloading_function_type( &::osg::Image::supportsTextureSubloading )
+                , " returns false for texture formats that do not support texture subloading" );
         
         }
         { //::osg::Image::swap
@@ -1453,7 +1487,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "swap"
                 , swap_function_type( &::osg::Image::swap )
-                , ( bp::arg("rhs") ) );
+                , ( bp::arg("rhs") )
+                , " swap the data and settings between two image objects." );
         
         }
         { //::osg::Image::t
@@ -1462,7 +1497,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "t"
-                , t_function_type( &::osg::Image::t ) );
+                , t_function_type( &::osg::Image::t )
+                , " Height of image." );
         
         }
         { //::osg::Image::update
@@ -1483,7 +1519,8 @@ void register_Image_class(){
             
             Image_exposer.def( 
                 "valid"
-                , valid_function_type( &::osg::Image::valid ) );
+                , valid_function_type( &::osg::Image::valid )
+                , " Return true if the Image represent a valid and usable imagery." );
         
         }
         { //::osg::BufferData::asArray
@@ -1576,7 +1613,8 @@ void register_Image_class(){
             Image_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setThreadSafeRefUnref

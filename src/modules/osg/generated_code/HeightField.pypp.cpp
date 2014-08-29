@@ -224,15 +224,18 @@ void register_HeightField_class(){
             , (::osg::Matrix ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::computeRotationMatrix ) )    
         .def( 
             "getBorderWidth"
-            , (unsigned int ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::getBorderWidth ) )    
+            , (unsigned int ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::getBorderWidth )
+            , " Get the width in number of cells in from the edge that the height field should be rendered from." )    
         .def( 
             "getFloatArray"
             , (::osg::FloatArray * ( ::osg::HeightField::* )(  ))( &::osg::HeightField::getFloatArray )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the FloatArray height data." )    
         .def( 
             "getFloatArray"
             , (::osg::FloatArray const * ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::getFloatArray )
-            , bp::return_internal_reference< >() )    
+            , bp::return_internal_reference< >()
+            , " Get the const FloatArray height data." )    
         .def( 
             "getHeight"
             , (float & ( ::osg::HeightField::* )( unsigned int,unsigned int ))( &::osg::HeightField::getHeight )
@@ -274,7 +277,8 @@ void register_HeightField_class(){
             , bp::return_internal_reference< >() )    
         .def( 
             "getSkirtHeight"
-            , (float ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::getSkirtHeight ) )    
+            , (float ( ::osg::HeightField::* )(  )const)( &::osg::HeightField::getSkirtHeight )
+            , " Get the height of the skirt to render around the edge of HeightField." )    
         .def( 
             "getVertex"
             , (::osg::Vec3 ( ::osg::HeightField::* )( unsigned int,unsigned int )const)( &::osg::HeightField::getVertex )
@@ -297,7 +301,8 @@ void register_HeightField_class(){
         .def( 
             "setBorderWidth"
             , (void ( ::osg::HeightField::* )( unsigned int ))( &::osg::HeightField::setBorderWidth )
-            , ( bp::arg("borderWidth") ) )    
+            , ( bp::arg("borderWidth") )
+            , " Set the width in number of cells in from the edge that the height field should be rendered from.\n This exists to allow gradient and curvature continutity to be maintained between adjacent HeightField, where\n the border cells will overlap adjacent HeightField." )    
         .def( 
             "setHeight"
             , (void ( ::osg::HeightField::* )( unsigned int,unsigned int,float ))( &::osg::HeightField::setHeight )
@@ -313,7 +318,8 @@ void register_HeightField_class(){
         .def( 
             "setSkirtHeight"
             , (void ( ::osg::HeightField::* )( float ))( &::osg::HeightField::setSkirtHeight )
-            , ( bp::arg("skirtHeight") ) )    
+            , ( bp::arg("skirtHeight") )
+            , " Set the height of the skirt to render around the edge of HeightField.\n The skirt is used as a means of disguising edge boundaries between adjacent HeightField,\n particularly of ones with different resolutions." )    
         .def( 
             "setXInterval"
             , (void ( ::osg::HeightField::* )( float ))( &::osg::HeightField::setXInterval )
@@ -352,7 +358,8 @@ void register_HeightField_class(){
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-            , ( bp::arg("name") ) )    
+            , ( bp::arg("name") )
+            , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)

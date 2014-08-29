@@ -34,9 +34,9 @@ void register_EventQueue_class(){
 
     { //::osgGA::EventQueue
         typedef bp::class_< EventQueue_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::EventQueue >, boost::noncopyable > EventQueue_exposer_t;
-        EventQueue_exposer_t EventQueue_exposer = EventQueue_exposer_t( "EventQueue", bp::no_init );
+        EventQueue_exposer_t EventQueue_exposer = EventQueue_exposer_t( "EventQueue", "\n EventQueue implementation for collecting and adapting windowing events\n", bp::no_init );
         bp::scope EventQueue_scope( EventQueue_exposer );
-        EventQueue_exposer.def( bp::init< bp::optional< osgGA::GUIEventAdapter::MouseYOrientation > >(( bp::arg("mouseYOrientation")=::osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS )) );
+        EventQueue_exposer.def( bp::init< bp::optional< osgGA::GUIEventAdapter::MouseYOrientation > >(( bp::arg("mouseYOrientation")=::osgGA::GUIEventAdapter::Y_INCREASING_DOWNWARDS ), "\n EventQueue implementation for collecting and adapting windowing events\n") );
         bp::implicitly_convertible< osgGA::GUIEventAdapter::MouseYOrientation, osgGA::EventQueue >();
         { //::osgGA::EventQueue::addEvent
         
@@ -45,7 +45,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "addEvent"
                 , addEvent_function_type( &::osgGA::EventQueue::addEvent )
-                , ( bp::arg("event") ) );
+                , ( bp::arg("event") )
+                , " Add an event to the end of the event queue." );
         
         }
         { //::osgGA::EventQueue::appendEvents
@@ -55,7 +56,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "appendEvents"
                 , appendEvents_function_type( &::osgGA::EventQueue::appendEvents )
-                , ( bp::arg("events") ) );
+                , ( bp::arg("events") )
+                , " Add events to end of event queue." );
         
         }
         { //::osgGA::EventQueue::clear
@@ -64,7 +66,8 @@ void register_EventQueue_class(){
             
             EventQueue_exposer.def( 
                 "clear"
-                , clear_function_type( &::osgGA::EventQueue::clear ) );
+                , clear_function_type( &::osgGA::EventQueue::clear )
+                , " clear all events from queue." );
         
         }
         { //::osgGA::EventQueue::closeWindow
@@ -73,7 +76,8 @@ void register_EventQueue_class(){
             
             EventQueue_exposer.def( 
                 "closeWindow"
-                , closeWindow_function_type( &::osgGA::EventQueue::closeWindow ) );
+                , closeWindow_function_type( &::osgGA::EventQueue::closeWindow )
+                , " Method for adapting close window events." );
         
         }
         { //::osgGA::EventQueue::closeWindow
@@ -83,7 +87,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "closeWindow"
                 , closeWindow_function_type( &::osgGA::EventQueue::closeWindow )
-                , ( bp::arg("time") ) );
+                , ( bp::arg("time") )
+                , " Method for adapting close window event with specified event time." );
         
         }
         { //::osgGA::EventQueue::copyEvents
@@ -93,7 +98,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "copyEvents"
                 , copyEvents_function_type( &::osgGA::EventQueue::copyEvents )
-                , ( bp::arg("events") ) );
+                , ( bp::arg("events") )
+                , " Take a copy the entire event queue leaving the EventQueue event queue intact." );
         
         }
         { //::osgGA::EventQueue::createEvent
@@ -103,7 +109,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "createEvent"
                 , createEvent_function_type( &::osgGA::EventQueue::createEvent )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " convenience method for create an event ready to fill in.  Clones the getCurrentEventState() to produce a up to date event state." );
         
         }
         { //::osgGA::EventQueue::empty
@@ -122,7 +129,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "frame"
                 , frame_function_type( &::osgGA::EventQueue::frame )
-                , ( bp::arg("time") ) );
+                , ( bp::arg("time") )
+                , " Method for adapting frame events." );
         
         }
         { //::osgGA::EventQueue::getCurrentEventState
@@ -198,7 +206,8 @@ void register_EventQueue_class(){
             
             EventQueue_exposer.def( 
                 "getUseFixedMouseInputRange"
-                , getUseFixedMouseInputRange_function_type( &::osgGA::EventQueue::getUseFixedMouseInputRange ) );
+                , getUseFixedMouseInputRange_function_type( &::osgGA::EventQueue::getUseFixedMouseInputRange )
+                , " Get whether the mouse coordinates should be transformed into a pre defined input range." );
         
         }
         { //::osgGA::EventQueue::keyPress
@@ -208,7 +217,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "keyPress"
                 , keyPress_function_type( &::osgGA::EventQueue::keyPress )
-                , ( bp::arg("key"), bp::arg("unmodifiedKey")=(int)(0) ) );
+                , ( bp::arg("key"), bp::arg("unmodifiedKey")=(int)(0) )
+                , " Method for adapting keyboard press events. Note, special keys such as Ctrl/Function keys should be adapted to GUIEventAdapter::KeySymbol mappings." );
         
         }
         { //::osgGA::EventQueue::keyPress
@@ -218,7 +228,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "keyPress"
                 , keyPress_function_type( &::osgGA::EventQueue::keyPress )
-                , ( bp::arg("key"), bp::arg("time"), bp::arg("unmodifiedKey")=(int)(0) ) );
+                , ( bp::arg("key"), bp::arg("time"), bp::arg("unmodifiedKey")=(int)(0) )
+                , " Method for adapting keyboard press events. Note, special keys such as Ctrl/Function keys should be adapted to GUIEventAdapter::KeySymbol mappings, with specified time." );
         
         }
         { //::osgGA::EventQueue::keyRelease
@@ -228,7 +239,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "keyRelease"
                 , keyRelease_function_type( &::osgGA::EventQueue::keyRelease )
-                , ( bp::arg("key"), bp::arg("unmodifiedKey")=(int)(0) ) );
+                , ( bp::arg("key"), bp::arg("unmodifiedKey")=(int)(0) )
+                , " Method for adapting keyboard press events. Note, special keys such as Ctrl/Function keys should be adapted to GUIEventAdapter::KeySymbol mappings." );
         
         }
         { //::osgGA::EventQueue::keyRelease
@@ -238,7 +250,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "keyRelease"
                 , keyRelease_function_type( &::osgGA::EventQueue::keyRelease )
-                , ( bp::arg("key"), bp::arg("time"), bp::arg("unmodifiedKey")=(int)(0) ) );
+                , ( bp::arg("key"), bp::arg("time"), bp::arg("unmodifiedKey")=(int)(0) )
+                , " Method for adapting keyboard press events. Note, special keys such as Ctrl/Function keys should be adapted to GUIEventAdapter::KeySymbol mappings, with specified time." );
         
         }
         { //::osgGA::EventQueue::mouseButtonPress
@@ -248,7 +261,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseButtonPress"
                 , mouseButtonPress_function_type( &::osgGA::EventQueue::mouseButtonPress )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") )
+                , " Method for adapting mouse button pressed events, placing this event on the back of the event queue.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseButtonPress
@@ -258,7 +272,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseButtonPress"
                 , mouseButtonPress_function_type( &::osgGA::EventQueue::mouseButtonPress )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") )
+                , " Method for adapting mouse button pressed events, placing this event on the back of the event queue, with specified time.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseButtonRelease
@@ -268,7 +283,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseButtonRelease"
                 , mouseButtonRelease_function_type( &::osgGA::EventQueue::mouseButtonRelease )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") )
+                , " Method for adapting mouse button release events, placing this event on the back of the event queue.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseButtonRelease
@@ -278,7 +294,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseButtonRelease"
                 , mouseButtonRelease_function_type( &::osgGA::EventQueue::mouseButtonRelease )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") )
+                , " Method for adapting mouse button release events, placing this event on the back of the event queue, with specified time.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseDoubleButtonPress
@@ -288,7 +305,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseDoubleButtonPress"
                 , mouseDoubleButtonPress_function_type( &::osgGA::EventQueue::mouseDoubleButtonPress )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button") )
+                , " Method for adapting mouse button pressed events, placing this event on the back of the event queue.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseDoubleButtonPress
@@ -298,7 +316,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseDoubleButtonPress"
                 , mouseDoubleButtonPress_function_type( &::osgGA::EventQueue::mouseDoubleButtonPress )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("button"), bp::arg("time") )
+                , " Method for adapting mouse button pressed events, placing this event on the back of the event queue, with specified time.\n Button numbering is 1 for left mouse button, 2 for middle, 3 for right." );
         
         }
         { //::osgGA::EventQueue::mouseMotion
@@ -308,7 +327,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseMotion"
                 , mouseMotion_function_type( &::osgGA::EventQueue::mouseMotion )
-                , ( bp::arg("x"), bp::arg("y") ) );
+                , ( bp::arg("x"), bp::arg("y") )
+                , " Method for adapting mouse motion events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::mouseMotion
@@ -318,7 +338,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseMotion"
                 , mouseMotion_function_type( &::osgGA::EventQueue::mouseMotion )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("time") )
+                , " Method for adapting mouse motion events, placing this event on the back of the event queue, with specified time." );
         
         }
         { //::osgGA::EventQueue::mouseScroll
@@ -328,7 +349,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseScroll"
                 , mouseScroll_function_type( &::osgGA::EventQueue::mouseScroll )
-                , ( bp::arg("sm") ) );
+                , ( bp::arg("sm") )
+                , " Method for adapting mouse scroll wheel events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::mouseScroll
@@ -338,7 +360,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseScroll"
                 , mouseScroll_function_type( &::osgGA::EventQueue::mouseScroll )
-                , ( bp::arg("sm"), bp::arg("time") ) );
+                , ( bp::arg("sm"), bp::arg("time") )
+                , " Method for adapting mouse scroll wheel events, placing this event on the back of the event queue, with specified time." );
         
         }
         { //::osgGA::EventQueue::mouseScroll2D
@@ -348,7 +371,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseScroll2D"
                 , mouseScroll2D_function_type( &::osgGA::EventQueue::mouseScroll2D )
-                , ( bp::arg("x"), bp::arg("y") ) );
+                , ( bp::arg("x"), bp::arg("y") )
+                , " Method for adapting mouse scroll wheel events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::mouseScroll2D
@@ -358,7 +382,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseScroll2D"
                 , mouseScroll2D_function_type( &::osgGA::EventQueue::mouseScroll2D )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("time") )
+                , " Method for adapting mouse scroll wheel events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::mouseWarped
@@ -368,7 +393,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "mouseWarped"
                 , mouseWarped_function_type( &::osgGA::EventQueue::mouseWarped )
-                , ( bp::arg("x"), bp::arg("y") ) );
+                , ( bp::arg("x"), bp::arg("y") )
+                , " Method for updating in response to a mouse warp. Note, just moves the mouse position without creating a new event for it." );
         
         }
         { //::osgGA::EventQueue::penOrientation
@@ -378,7 +404,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penOrientation"
                 , penOrientation_function_type( &::osgGA::EventQueue::penOrientation )
-                , ( bp::arg("tiltX"), bp::arg("tiltY"), bp::arg("rotation") ) );
+                , ( bp::arg("tiltX"), bp::arg("tiltY"), bp::arg("rotation") )
+                , " Method for adapting pen orientation events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::penOrientation
@@ -388,7 +415,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penOrientation"
                 , penOrientation_function_type( &::osgGA::EventQueue::penOrientation )
-                , ( bp::arg("tiltX"), bp::arg("tiltY"), bp::arg("rotation"), bp::arg("time") ) );
+                , ( bp::arg("tiltX"), bp::arg("tiltY"), bp::arg("rotation"), bp::arg("time") )
+                , " Method for adapting pen orientation events, placing this event on the back of the event queue, with specified time." );
         
         }
         { //::osgGA::EventQueue::penPressure
@@ -398,7 +426,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penPressure"
                 , penPressure_function_type( &::osgGA::EventQueue::penPressure )
-                , ( bp::arg("pressure") ) );
+                , ( bp::arg("pressure") )
+                , " Method for adapting pen pressure events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::penPressure
@@ -408,7 +437,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penPressure"
                 , penPressure_function_type( &::osgGA::EventQueue::penPressure )
-                , ( bp::arg("pressure"), bp::arg("time") ) );
+                , ( bp::arg("pressure"), bp::arg("time") )
+                , " Method for adapting pen pressure events, placing this event on the back of the event queue, with specified time." );
         
         }
         { //::osgGA::EventQueue::penProximity
@@ -418,7 +448,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penProximity"
                 , penProximity_function_type( &::osgGA::EventQueue::penProximity )
-                , ( bp::arg("pt"), bp::arg("isEntering") ) );
+                , ( bp::arg("pt"), bp::arg("isEntering") )
+                , " Method for adapting pen proximity events, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::penProximity
@@ -428,7 +459,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "penProximity"
                 , penProximity_function_type( &::osgGA::EventQueue::penProximity )
-                , ( bp::arg("pt"), bp::arg("isEntering"), bp::arg("time") ) );
+                , ( bp::arg("pt"), bp::arg("isEntering"), bp::arg("time") )
+                , " Method for adapting pen proximity events, placing this event on the back of the event queue, with specified time." );
         
         }
         { //::osgGA::EventQueue::quitApplication
@@ -437,7 +469,8 @@ void register_EventQueue_class(){
             
             EventQueue_exposer.def( 
                 "quitApplication"
-                , quitApplication_function_type( &::osgGA::EventQueue::quitApplication ) );
+                , quitApplication_function_type( &::osgGA::EventQueue::quitApplication )
+                , " Method for adapting application quit events." );
         
         }
         { //::osgGA::EventQueue::quitApplication
@@ -447,7 +480,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "quitApplication"
                 , quitApplication_function_type( &::osgGA::EventQueue::quitApplication )
-                , ( bp::arg("time") ) );
+                , ( bp::arg("time") )
+                , " Method for adapting application quit events with specified event time." );
         
         }
         { //::osgGA::EventQueue::setCurrentEventState
@@ -467,7 +501,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "setEvents"
                 , setEvents_function_type( &::osgGA::EventQueue::setEvents )
-                , ( bp::arg("events") ) );
+                , ( bp::arg("events") )
+                , " Set events." );
         
         }
         { //::osgGA::EventQueue::setFirstTouchEmulatesMouse
@@ -487,7 +522,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "setGraphicsContext"
                 , setGraphicsContext_function_type( &::osgGA::EventQueue::setGraphicsContext )
-                , ( bp::arg("context") ) );
+                , ( bp::arg("context") )
+                , " Set the graphics context associated with this event queue." );
         
         }
         { //::osgGA::EventQueue::setMouseInputRange
@@ -497,7 +533,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "setMouseInputRange"
                 , setMouseInputRange_function_type( &::osgGA::EventQueue::setMouseInputRange )
-                , ( bp::arg("xMin"), bp::arg("yMin"), bp::arg("xMax"), bp::arg("yMax") ) );
+                , ( bp::arg("xMin"), bp::arg("yMin"), bp::arg("xMax"), bp::arg("yMax") )
+                , " Set the mouse input range." );
         
         }
         { //::osgGA::EventQueue::setStartTick
@@ -517,7 +554,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "setUseFixedMouseInputRange"
                 , setUseFixedMouseInputRange_function_type( &::osgGA::EventQueue::setUseFixedMouseInputRange )
-                , ( bp::arg("useFixedMouseInputRange") ) );
+                , ( bp::arg("useFixedMouseInputRange") )
+                , " Specify if mouse coordinates should be transformed into a pre defined input range, or whether they\n should be simply based on as local coordinates to the window that generated the mouse events." );
         
         }
         { //::osgGA::EventQueue::syncWindowRectangleWithGraphcisContext
@@ -526,7 +564,8 @@ void register_EventQueue_class(){
             
             EventQueue_exposer.def( 
                 "syncWindowRectangleWithGraphcisContext"
-                , syncWindowRectangleWithGraphcisContext_function_type( &::osgGA::EventQueue::syncWindowRectangleWithGraphcisContext ) );
+                , syncWindowRectangleWithGraphcisContext_function_type( &::osgGA::EventQueue::syncWindowRectangleWithGraphcisContext )
+                , " Read the window record dimensions from the graphics context." );
         
         }
         { //::osgGA::EventQueue::takeEvents
@@ -536,7 +575,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "takeEvents"
                 , takeEvents_function_type( &::osgGA::EventQueue::takeEvents )
-                , ( bp::arg("events") ) );
+                , ( bp::arg("events") )
+                , " Take the entire event queue leaving the EventQueue event queue empty." );
         
         }
         { //::osgGA::EventQueue::takeEvents
@@ -546,7 +586,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "takeEvents"
                 , takeEvents_function_type( &::osgGA::EventQueue::takeEvents )
-                , ( bp::arg("events"), bp::arg("cutOffTime") ) );
+                , ( bp::arg("events"), bp::arg("cutOffTime") )
+                , " Take the events that were recorded before with specified time queue." );
         
         }
         { //::osgGA::EventQueue::touchBegan
@@ -622,7 +663,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "userEvent"
                 , userEvent_function_type( &::osgGA::EventQueue::userEvent )
-                , ( bp::arg("userEventData") ) );
+                , ( bp::arg("userEventData") )
+                , " Method for adapting user defined events" );
         
         }
         { //::osgGA::EventQueue::userEvent
@@ -632,7 +674,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "userEvent"
                 , userEvent_function_type( &::osgGA::EventQueue::userEvent )
-                , ( bp::arg("userEventData"), bp::arg("time") ) );
+                , ( bp::arg("userEventData"), bp::arg("time") )
+                , " Method for adapting user defined events with specified event time" );
         
         }
         { //::osgGA::EventQueue::windowResize
@@ -642,7 +685,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "windowResize"
                 , windowResize_function_type( &::osgGA::EventQueue::windowResize )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )
+                , " Method for adapting window resize event, placing this event on the back of the event queue." );
         
         }
         { //::osgGA::EventQueue::windowResize
@@ -652,7 +696,8 @@ void register_EventQueue_class(){
             EventQueue_exposer.def( 
                 "windowResize"
                 , windowResize_function_type( &::osgGA::EventQueue::windowResize )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height"), bp::arg("time") ) );
+                , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height"), bp::arg("time") )
+                , " Method for adapting window resize event, placing this event on the back of the event queue, with specified time." );
         
         }
     }

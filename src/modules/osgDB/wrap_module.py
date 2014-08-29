@@ -15,6 +15,7 @@ class OsgDBWrapper(BaseWrapper):
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         self.mb.register_module_dependency('../osg/generated_code/')
+        self.mb.register_module_dependency('../osgUtil/generated_code/')
             
     def wrap(self):
         mb = self.mb
@@ -85,6 +86,7 @@ class OsgDBWrapper(BaseWrapper):
         databasethread = databasepager.class_("DatabaseThread")
         expose_ref_ptr_class(databasethread)
         databasethread.constructors(arg_types=[None, None]).exclude()
+        databasepager.member_functions("removeExpiredChildren").exclude()
     
     def wrap_imagepager(self):
         imagepager = self.mb.class_("ImagePager")

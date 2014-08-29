@@ -211,7 +211,7 @@ void register_Device_class(){
 
     { //::osgGA::Device
         typedef bp::class_< Device_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgGA::Device >, boost::noncopyable > Device_exposer_t;
-        Device_exposer_t Device_exposer = Device_exposer_t( "Device", bp::no_init );
+        Device_exposer_t Device_exposer = Device_exposer_t( "Device", "\n Device base class from abstracting away from devices/windows that can generate events.\n", bp::no_init );
         bp::scope Device_scope( Device_exposer );
         bp::scope().attr("UNKNOWN") = (int)osgGA::Device::UNKNOWN;
         bp::scope().attr("RECEIVE_EVENTS") = (int)osgGA::Device::RECEIVE_EVENTS;
@@ -348,7 +348,7 @@ void register_Device_class(){
                 , ( bp::arg("eventQueue") ) );
         
         }
-        Device_exposer.def_readwrite( "Capabilities", &osgGA::Device::Capabilities );
+        Device_exposer.def_readwrite( "Capabilities", &osgGA::Device::Capabilities, " Device base class from abstracting away from devices/windows that can generate events." );
     }
 
 }

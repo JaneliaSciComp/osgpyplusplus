@@ -321,7 +321,7 @@ void register_StateSet_class(){
 
     { //::osg::StateSet
         typedef bp::class_< StateSet_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet >, boost::noncopyable > StateSet_exposer_t;
-        StateSet_exposer_t StateSet_exposer = StateSet_exposer_t( "StateSet", bp::no_init );
+        StateSet_exposer_t StateSet_exposer = StateSet_exposer_t( "StateSet", "\n Stores a set of modes and attributes which represent a set of OpenGL state.\n  Notice that a  StateSet contains just a subset of the whole OpenGL state.\n <p>In OSG, each  Drawable and each  Node has a reference to a\n  StateSet. These <tt>StateSet</tt>s can be shared between\n different <tt>Drawable</tt>s and <tt>Node</tt>s (that is, several\n <tt>Drawable</tt>s and <tt>Node</tt>s can reference the same  StateSet).\n Indeed, this practice is recommended whenever possible,\n as this minimizes expensive state changes in the graphics pipeline.\n", bp::no_init );
         bp::scope StateSet_scope( StateSet_exposer );
         bp::enum_< osg::StateSet::RenderBinMode>("RenderBinMode")
             .value("INHERIT_RENDERBIN_DETAILS", osg::StateSet::INHERIT_RENDERBIN_DETAILS)
@@ -387,7 +387,8 @@ void register_StateSet_class(){
             .def( 
                 "setName"
                 , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
-                , ( bp::arg("name") ) )    
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
@@ -398,7 +399,7 @@ void register_StateSet_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( StateSet_wrapper::Callback_wrapper::* )( ::osg::Referenced * ))(&StateSet_wrapper::Callback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        StateSet_exposer.def( bp::init< >() );
+        StateSet_exposer.def( bp::init< >("\n Stores a set of modes and attributes which represent a set of OpenGL state.\n  Notice that a  StateSet contains just a subset of the whole OpenGL state.\n <p>In OSG, each  Drawable and each  Node has a reference to a\n  StateSet. These <tt>StateSet</tt>s can be shared between\n different <tt>Drawable</tt>s and <tt>Node</tt>s (that is, several\n <tt>Drawable</tt>s and <tt>Node</tt>s can reference the same  StateSet).\n Indeed, this practice is recommended whenever possible,\n as this minimizes expensive state changes in the graphics pipeline.\n") );
         { //::osg::StateSet::addUniform
         
             typedef void ( ::osg::StateSet::*addUniform_function_type)( ::osg::Uniform *,unsigned int ) ;
@@ -406,7 +407,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "addUniform"
                 , addUniform_function_type( &::osg::StateSet::addUniform )
-                , ( bp::arg("uniform"), bp::arg("value")=(unsigned int)(ON) ) );
+                , ( bp::arg("uniform"), bp::arg("value")=(unsigned int)(ON) )
+                , " Set this StateSet to contain specified uniform and override flag." );
         
         }
         { //::osg::StateSet::checkValidityOfAssociatedModes
@@ -416,7 +418,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "checkValidityOfAssociatedModes"
                 , checkValidityOfAssociatedModes_function_type( &::osg::StateSet::checkValidityOfAssociatedModes )
-                , ( bp::arg("state") ) );
+                , ( bp::arg("state") )
+                , " Check the modes associated with this StateSet are supported by current OpenGL drivers,\n and if not set the associated mode in osg::State to be black listed/invalid.\n Return true if all associated modes are valid." );
         
         }
         { //::osg::StateSet::className
@@ -436,7 +439,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "clear"
-                , clear_function_type( &::osg::StateSet::clear ) );
+                , clear_function_type( &::osg::StateSet::clear )
+                , " Clear the StateSet of all modes and attributes." );
         
         }
         { //::osg::StateSet::clone
@@ -471,7 +475,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "compileGLObjects"
                 , compileGLObjects_function_type( &::osg::StateSet::compileGLObjects )
-                , ( bp::arg("state") ) );
+                , ( bp::arg("state") )
+                , " call compile on all StateAttributes contained within this StateSet." );
         
         }
         { //::osg::StateSet::computeDataVariance
@@ -493,7 +498,8 @@ void register_StateSet_class(){
                 "getAttribute"
                 , getAttribute_function_type( &::osg::StateSet::getAttribute )
                 , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified StateAttribute for specified type.\n Returns NULL if no type is contained within StateSet." );
         
         }
         { //::osg::StateSet::getAttribute
@@ -504,7 +510,8 @@ void register_StateSet_class(){
                 "getAttribute"
                 , getAttribute_function_type( &::osg::StateSet::getAttribute )
                 , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified const StateAttribute for specified type.\n Returns NULL if no type is contained within const StateSet." );
         
         }
         { //::osg::StateSet::getAttributeList
@@ -514,7 +521,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getAttributeList"
                 , getAttributeList_function_type( &::osg::StateSet::getAttributeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the list of all StateAttributes contained in this StateSet." );
         
         }
         { //::osg::StateSet::getAttributeList
@@ -524,7 +532,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getAttributeList"
                 , getAttributeList_function_type( &::osg::StateSet::getAttributeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the const list of all StateAttributes contained in this const StateSet." );
         
         }
         { //::osg::StateSet::getAttributePair
@@ -535,7 +544,8 @@ void register_StateSet_class(){
                 "getAttributePair"
                 , getAttributePair_function_type( &::osg::StateSet::getAttributePair )
                 , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified RefAttributePair for specified type.\n Returns NULL if no type is contained within StateSet." );
         
         }
         { //::osg::StateSet::getBinName
@@ -545,7 +555,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getBinName"
                 , getBinName_function_type( &::osg::StateSet::getBinName )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the render bin name." );
         
         }
         { //::osg::StateSet::getBinNumber
@@ -554,7 +565,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getBinNumber"
-                , getBinNumber_function_type( &::osg::StateSet::getBinNumber ) );
+                , getBinNumber_function_type( &::osg::StateSet::getBinNumber )
+                , " Get the render bin number." );
         
         }
         { //::osg::StateSet::getEventCallback
@@ -564,7 +576,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::StateSet::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const Event Callback." );
         
         }
         { //::osg::StateSet::getEventCallback
@@ -574,7 +587,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getEventCallback"
                 , getEventCallback_function_type( &::osg::StateSet::getEventCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const Event Callback." );
         
         }
         { //::osg::StateSet::getMode
@@ -584,7 +598,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getMode"
                 , getMode_function_type( &::osg::StateSet::getMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Get the value for a given  GLMode.\n @param mode: The  GLMode whose value is desired.\n Return: If  mode is contained within this  StateSet, returns the\n         value associated with it. Otherwise, returns\n          StateAttribute::INHERIT.\n Note: Dont use this method to get the value of modes related to\n       textures. For this purpose, use  removeTextureMode(), that\n       accepts an extra parameter specifying which texture unit shall\n       be affected by the call." );
         
         }
         { //::osg::StateSet::getModeList
@@ -594,7 +609,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getModeList"
                 , getModeList_function_type( &::osg::StateSet::getModeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the list of all <tt>GLMode</tt>s contained in this  StateSet." );
         
         }
         { //::osg::StateSet::getModeList
@@ -604,7 +620,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getModeList"
                 , getModeList_function_type( &::osg::StateSet::getModeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the  const list of all <tt>GLMode</tt>s contained in this\n <tt>const StateSet</tt>." );
         
         }
         { //::osg::StateSet::getNestRenderBins
@@ -613,7 +630,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNestRenderBins"
-                , getNestRenderBins_function_type( &::osg::StateSet::getNestRenderBins ) );
+                , getNestRenderBins_function_type( &::osg::StateSet::getNestRenderBins )
+                , " Get whether associated RenderBin should be nested within parents RenderBin." );
         
         }
         { //::osg::StateSet::getNumChildrenRequiringEventTraversal
@@ -622,7 +640,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNumChildrenRequiringEventTraversal"
-                , getNumChildrenRequiringEventTraversal_function_type( &::osg::StateSet::getNumChildrenRequiringEventTraversal ) );
+                , getNumChildrenRequiringEventTraversal_function_type( &::osg::StateSet::getNumChildrenRequiringEventTraversal )
+                , " Get the number of Objects of this StateSet which require Event traversal,\n since they have an Eevnt Callback attached to them or their children." );
         
         }
         { //::osg::StateSet::getNumChildrenRequiringUpdateTraversal
@@ -631,7 +650,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNumChildrenRequiringUpdateTraversal"
-                , getNumChildrenRequiringUpdateTraversal_function_type( &::osg::StateSet::getNumChildrenRequiringUpdateTraversal ) );
+                , getNumChildrenRequiringUpdateTraversal_function_type( &::osg::StateSet::getNumChildrenRequiringUpdateTraversal )
+                , " Get the number of Objects of this StateSet which require Update traversal,\n since they have an Update Callback attached to them or their children." );
         
         }
         { //::osg::StateSet::getNumParents
@@ -640,7 +660,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNumParents"
-                , getNumParents_function_type( &::osg::StateSet::getNumParents ) );
+                , getNumParents_function_type( &::osg::StateSet::getNumParents )
+                , " Get the number of parents of this StateSet.\n Return: the number of parents of this StateSet." );
         
         }
         { //::osg::StateSet::getNumTextureAttributeLists
@@ -649,7 +670,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNumTextureAttributeLists"
-                , getNumTextureAttributeLists_function_type( &::osg::StateSet::getNumTextureAttributeLists ) );
+                , getNumTextureAttributeLists_function_type( &::osg::StateSet::getNumTextureAttributeLists )
+                , " Return the number of texture units active in the TextureAttributeList." );
         
         }
         { //::osg::StateSet::getNumTextureModeLists
@@ -658,7 +680,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getNumTextureModeLists"
-                , getNumTextureModeLists_function_type( &::osg::StateSet::getNumTextureModeLists ) );
+                , getNumTextureModeLists_function_type( &::osg::StateSet::getNumTextureModeLists )
+                , " Return the number texture units active in the TextureModeList." );
         
         }
         { //::osg::StateSet::getOrCreateUniform
@@ -669,7 +692,8 @@ void register_StateSet_class(){
                 "getOrCreateUniform"
                 , getOrCreateUniform_function_type( &::osg::StateSet::getOrCreateUniform )
                 , ( bp::arg("name"), bp::arg("type"), bp::arg("numElements")=(unsigned int)(1) )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get Uniform for specified name, if one is not available create it, add it to this StateSet and return a pointer to it." );
         
         }
         { //::osg::StateSet::getParent
@@ -691,7 +715,8 @@ void register_StateSet_class(){
                 "getParent"
                 , getParent_function_type( &::osg::StateSet::getParent )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get a single const parent of this StateSet.\n @param i: index of the parent to get.\n Return: the parent i." );
         
         }
         { //::osg::StateSet::getParents
@@ -701,7 +726,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getParents"
                 , getParents_function_type( &::osg::StateSet::getParents )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the parent list of this StateSet." );
         
         }
         { //::osg::StateSet::getParents
@@ -710,7 +736,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getParents"
-                , getParents_function_type( &::osg::StateSet::getParents ) );
+                , getParents_function_type( &::osg::StateSet::getParents )
+                , " Get the a copy of parent list of node. A copy is returned to\n prevent modification of the parent list." );
         
         }
         { //::osg::StateSet::getRenderBinMode
@@ -719,7 +746,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getRenderBinMode"
-                , getRenderBinMode_function_type( &::osg::StateSet::getRenderBinMode ) );
+                , getRenderBinMode_function_type( &::osg::StateSet::getRenderBinMode )
+                , " Get the render bin mode." );
         
         }
         { //::osg::StateSet::getRenderingHint
@@ -728,7 +756,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "getRenderingHint"
-                , getRenderingHint_function_type( &::osg::StateSet::getRenderingHint ) );
+                , getRenderingHint_function_type( &::osg::StateSet::getRenderingHint )
+                , " Get the  RenderingHint of this  StateSet." );
         
         }
         { //::osg::StateSet::getTextureAttribute
@@ -739,7 +768,8 @@ void register_StateSet_class(){
                 "getTextureAttribute"
                 , getTextureAttribute_function_type( &::osg::StateSet::getTextureAttribute )
                 , ( bp::arg("unit"), bp::arg("type") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified Texture related StateAttribute for specified type.\n Returns NULL if no type is contained within StateSet." );
         
         }
         { //::osg::StateSet::getTextureAttribute
@@ -750,7 +780,8 @@ void register_StateSet_class(){
                 "getTextureAttribute"
                 , getTextureAttribute_function_type( &::osg::StateSet::getTextureAttribute )
                 , ( bp::arg("unit"), bp::arg("type") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified Texture related const StateAttribute for specified type.\n Returns NULL if no type is contained within const StateSet." );
         
         }
         { //::osg::StateSet::getTextureAttributeList
@@ -760,7 +791,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getTextureAttributeList"
                 , getTextureAttributeList_function_type( &::osg::StateSet::getTextureAttributeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the list of all Texture related StateAttributes contained in this StateSet." );
         
         }
         { //::osg::StateSet::getTextureAttributeList
@@ -770,7 +802,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getTextureAttributeList"
                 , getTextureAttributeList_function_type( &::osg::StateSet::getTextureAttributeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Return the const list of all Texture related StateAttributes contained in this const StateSet." );
         
         }
         { //::osg::StateSet::getTextureAttributePair
@@ -781,7 +814,8 @@ void register_StateSet_class(){
                 "getTextureAttributePair"
                 , getTextureAttributePair_function_type( &::osg::StateSet::getTextureAttributePair )
                 , ( bp::arg("unit"), bp::arg("type") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified Texture related RefAttributePair for specified type.\n Returns NULL if no type is contained within StateSet." );
         
         }
         { //::osg::StateSet::getTextureMode
@@ -791,7 +825,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getTextureMode"
                 , getTextureMode_function_type( &::osg::StateSet::getTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode") ) );
+                , ( bp::arg("unit"), bp::arg("mode") )
+                , " Get specified GLModeValue for specified GLMode.\n returns INHERIT if no GLModeValue is contained within StateSet." );
         
         }
         { //::osg::StateSet::getTextureModeList
@@ -801,7 +836,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getTextureModeList"
                 , getTextureModeList_function_type( &::osg::StateSet::getTextureModeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the list of all Texture related GLModes contained in this StateSet." );
         
         }
         { //::osg::StateSet::getTextureModeList
@@ -811,7 +847,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getTextureModeList"
                 , getTextureModeList_function_type( &::osg::StateSet::getTextureModeList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the const list of all Texture related GLModes contained in this const StateSet." );
         
         }
         { //::osg::StateSet::getUniform
@@ -822,7 +859,8 @@ void register_StateSet_class(){
                 "getUniform"
                 , getUniform_function_type( &::osg::StateSet::getUniform )
                 , ( bp::arg("name") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get Uniform for specified name.\n Returns NULL if no matching Uniform is contained within StateSet." );
         
         }
         { //::osg::StateSet::getUniform
@@ -833,7 +871,8 @@ void register_StateSet_class(){
                 "getUniform"
                 , getUniform_function_type( &::osg::StateSet::getUniform )
                 , ( bp::arg("name") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get const Uniform for specified name.\n Returns NULL if no matching Uniform is contained within StateSet." );
         
         }
         { //::osg::StateSet::getUniformList
@@ -843,7 +882,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getUniformList"
                 , getUniformList_function_type( &::osg::StateSet::getUniformList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the list of all Uniforms contained in this StateSet." );
         
         }
         { //::osg::StateSet::getUniformList
@@ -853,7 +893,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getUniformList"
                 , getUniformList_function_type( &::osg::StateSet::getUniformList )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " return the const list of all Uniforms contained in this const StateSet." );
         
         }
         { //::osg::StateSet::getUniformPair
@@ -864,7 +905,8 @@ void register_StateSet_class(){
                 "getUniformPair"
                 , getUniformPair_function_type( &::osg::StateSet::getUniformPair )
                 , ( bp::arg("name") )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get specified RefUniformPair for specified Uniform name.\n Returns NULL if no Uniform is contained within StateSet." );
         
         }
         { //::osg::StateSet::getUpdateCallback
@@ -874,7 +916,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::StateSet::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the non const Update Callback." );
         
         }
         { //::osg::StateSet::getUpdateCallback
@@ -884,7 +927,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getUpdateCallback"
                 , getUpdateCallback_function_type( &::osg::StateSet::getUpdateCallback )
-                , bp::return_internal_reference< >() );
+                , bp::return_internal_reference< >()
+                , " Get the const Update Callback." );
         
         }
         { //::osg::StateSet::isSameKindAs
@@ -937,7 +981,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeAttribute"
                 , removeAttribute_function_type( &::osg::StateSet::removeAttribute )
-                , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) ) );
+                , ( bp::arg("type"), bp::arg("member")=(unsigned int)(0) )
+                , " remove attribute of specified type from StateSet." );
         
         }
         { //::osg::StateSet::removeAttribute
@@ -947,7 +992,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeAttribute"
                 , removeAttribute_function_type( &::osg::StateSet::removeAttribute )
-                , ( bp::arg("attribute") ) );
+                , ( bp::arg("attribute") )
+                , " remove attribute from StateSet." );
         
         }
         { //::osg::StateSet::removeMode
@@ -957,7 +1003,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeMode"
                 , removeMode_function_type( &::osg::StateSet::removeMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Remove  mode from this  StateSet.\n Note: Dont use this method to remove modes related to textures. For\n       this purpose, use  removeTextureMode(), that accepts an extra\n       parameter specifying which texture unit shall be affected by\n       the call." );
         
         }
         { //::osg::StateSet::removeTextureAttribute
@@ -967,7 +1014,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeTextureAttribute"
                 , removeTextureAttribute_function_type( &::osg::StateSet::removeTextureAttribute )
-                , ( bp::arg("unit"), bp::arg("type") ) );
+                , ( bp::arg("unit"), bp::arg("type") )
+                , " remove texture attribute of specified type from StateSet." );
         
         }
         { //::osg::StateSet::removeTextureAttribute
@@ -977,7 +1025,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeTextureAttribute"
                 , removeTextureAttribute_function_type( &::osg::StateSet::removeTextureAttribute )
-                , ( bp::arg("unit"), bp::arg("attribute") ) );
+                , ( bp::arg("unit"), bp::arg("attribute") )
+                , " remove texture attribute from StateSet." );
         
         }
         { //::osg::StateSet::removeTextureMode
@@ -987,7 +1036,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeTextureMode"
                 , removeTextureMode_function_type( &::osg::StateSet::removeTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode") ) );
+                , ( bp::arg("unit"), bp::arg("mode") )
+                , " Remove texture mode from StateSet." );
         
         }
         { //::osg::StateSet::removeUniform
@@ -997,7 +1047,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeUniform"
                 , removeUniform_function_type( &::osg::StateSet::removeUniform )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " remove uniform of specified name from StateSet." );
         
         }
         { //::osg::StateSet::removeUniform
@@ -1007,7 +1058,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "removeUniform"
                 , removeUniform_function_type( &::osg::StateSet::removeUniform )
-                , ( bp::arg("uniform") ) );
+                , ( bp::arg("uniform") )
+                , " remove Uniform from StateSet." );
         
         }
         { //::osg::StateSet::requiresEventTraversal
@@ -1016,7 +1068,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "requiresEventTraversal"
-                , requiresEventTraversal_function_type( &::osg::StateSet::requiresEventTraversal ) );
+                , requiresEventTraversal_function_type( &::osg::StateSet::requiresEventTraversal )
+                , " Return whether this StateSet has event callbacks associated with it, and therefore must be traversed." );
         
         }
         { //::osg::StateSet::requiresUpdateTraversal
@@ -1025,7 +1078,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "requiresUpdateTraversal"
-                , requiresUpdateTraversal_function_type( &::osg::StateSet::requiresUpdateTraversal ) );
+                , requiresUpdateTraversal_function_type( &::osg::StateSet::requiresUpdateTraversal )
+                , " Return whether this StateSet has update callbacks associated with it, and therefore must be traversed." );
         
         }
         { //::osg::StateSet::resizeGLObjectBuffers
@@ -1047,7 +1101,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "runEventCallbacks"
                 , runEventCallbacks_function_type( &::osg::StateSet::runEventCallbacks )
-                , ( bp::arg("nv") ) );
+                , ( bp::arg("nv") )
+                , " Run the event callbacks attached directly to this StateSet or to its children." );
         
         }
         { //::osg::StateSet::runUpdateCallbacks
@@ -1057,7 +1112,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "runUpdateCallbacks"
                 , runUpdateCallbacks_function_type( &::osg::StateSet::runUpdateCallbacks )
-                , ( bp::arg("nv") ) );
+                , ( bp::arg("nv") )
+                , " Run the update callbacks attached directly to this StateSet or to its children." );
         
         }
         { //::osg::StateSet::setAssociatedModes
@@ -1087,7 +1143,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setAttribute"
                 , setAttribute_function_type( &::osg::StateSet::setAttribute )
-                , ( bp::arg("attribute"), bp::arg("value")=(unsigned int)(OFF) ) );
+                , ( bp::arg("attribute"), bp::arg("value")=(unsigned int)(OFF) )
+                , " Set this StateSet to contain specified attribute and override flag." );
         
         }
         { //::osg::StateSet::setAttributeAndModes
@@ -1097,7 +1154,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setAttributeAndModes"
                 , setAttributeAndModes_function_type( &::osg::StateSet::setAttributeAndModes )
-                , ( bp::arg("attribute"), bp::arg("value")=(unsigned int)(ON) ) );
+                , ( bp::arg("attribute"), bp::arg("value")=(unsigned int)(ON) )
+                , " Set this StateSet to contain specified attribute and set the associated GLModes to specified value." );
         
         }
         { //::osg::StateSet::setAttributeList
@@ -1107,7 +1165,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setAttributeList"
                 , setAttributeList_function_type( &::osg::StateSet::setAttributeList )
-                , ( bp::arg("al") ) );
+                , ( bp::arg("al") )
+                , " set the list of all StateAttributes contained in this StateSet." );
         
         }
         { //::osg::StateSet::setBinName
@@ -1117,7 +1176,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setBinName"
                 , setBinName_function_type( &::osg::StateSet::setBinName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the render bin name." );
         
         }
         { //::osg::StateSet::setBinNumber
@@ -1127,7 +1187,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setBinNumber"
                 , setBinNumber_function_type( &::osg::StateSet::setBinNumber )
-                , ( bp::arg("num") ) );
+                , ( bp::arg("num") )
+                , " Set the render bin number." );
         
         }
         { //::osg::StateSet::setEventCallback
@@ -1137,7 +1198,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::StateSet::setEventCallback )
-                , ( bp::arg("ac") ) );
+                , ( bp::arg("ac") )
+                , " Set the Event Callback which allows users to attach customize the updating of an object during the event traversal." );
         
         }
         { //::osg::StateSet::setGlobalDefaults
@@ -1146,7 +1208,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "setGlobalDefaults"
-                , setGlobalDefaults_function_type( &::osg::StateSet::setGlobalDefaults ) );
+                , setGlobalDefaults_function_type( &::osg::StateSet::setGlobalDefaults )
+                , " Set all the modes to on or off so that it defines a\n            complete state, typically used for a default global state." );
         
         }
         { //::osg::StateSet::setMode
@@ -1156,7 +1219,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setMode"
                 , setMode_function_type( &::osg::StateSet::setMode )
-                , ( bp::arg("mode"), bp::arg("value") ) );
+                , ( bp::arg("mode"), bp::arg("value") )
+                , " Set this  StateSet to contain the specified  GLMode with a given\n value.\n Note: Dont use this method to set modes related to textures. For this\n       purpose, use  setTextureMode(), that accepts an extra parameter\n       specifying which texture unit shall be affected by the call." );
         
         }
         { //::osg::StateSet::setModeList
@@ -1166,7 +1230,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setModeList"
                 , setModeList_function_type( &::osg::StateSet::setModeList )
-                , ( bp::arg("ml") ) );
+                , ( bp::arg("ml") )
+                , " Set the list of all <tt>GLMode</tt>s contained in this  StateSet." );
         
         }
         { //::osg::StateSet::setNestRenderBins
@@ -1176,7 +1241,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setNestRenderBins"
                 , setNestRenderBins_function_type( &::osg::StateSet::setNestRenderBins )
-                , ( bp::arg("val") ) );
+                , ( bp::arg("val") )
+                , " By default render bins will be nested within each other dependent\n upon where they are set in the scene graph. This can be problematic\n if a transparent render bin is attached to an opaque render bin\n which is attached to another transparent render bin as these render\n bins will be sorted separately, giving the wrong draw ordering for\n back-to-front transparency. Therefore, to prevent render bins being\n nested, call setNestRenderBins(false)." );
         
         }
         { //::osg::StateSet::setRenderBinDetails
@@ -1186,7 +1252,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setRenderBinDetails"
                 , setRenderBinDetails_function_type( &::osg::StateSet::setRenderBinDetails )
-                , ( bp::arg("binNum"), bp::arg("binName"), bp::arg("mode")=::osg::StateSet::USE_RENDERBIN_DETAILS ) );
+                , ( bp::arg("binNum"), bp::arg("binName"), bp::arg("mode")=::osg::StateSet::USE_RENDERBIN_DETAILS )
+                , " Set the render bin details." );
         
         }
         { //::osg::StateSet::setRenderBinMode
@@ -1196,7 +1263,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setRenderBinMode"
                 , setRenderBinMode_function_type( &::osg::StateSet::setRenderBinMode )
-                , ( bp::arg("mode") ) );
+                , ( bp::arg("mode") )
+                , " Set the render bin mode." );
         
         }
         { //::osg::StateSet::setRenderBinToInherit
@@ -1205,7 +1273,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "setRenderBinToInherit"
-                , setRenderBinToInherit_function_type( &::osg::StateSet::setRenderBinToInherit ) );
+                , setRenderBinToInherit_function_type( &::osg::StateSet::setRenderBinToInherit )
+                , " Set the render bin details to inherit." );
         
         }
         { //::osg::StateSet::setRenderingHint
@@ -1215,7 +1284,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setRenderingHint"
                 , setRenderingHint_function_type( &::osg::StateSet::setRenderingHint )
-                , ( bp::arg("hint") ) );
+                , ( bp::arg("hint") )
+                , " Set the  RenderingHint of this  StateSet.  RenderingHint is\n used by the renderer to determine which draw bin to drop associated\n <tt>osg::Drawable</tt>s in. Typically, users will set this to either\n  StateSet::OPAQUE_BIN or  StateSet::TRANSPARENT_BIN.\n <tt>Drawable</tt>s in the opaque bin are sorted by their\n  StateSet, so that the number of expensive changes in the OpenGL\n state is minimized. <tt>Drawable</tt>s in the transparent bin are\n sorted by depth, so that objects farther from the viewer are\n rendered first (and hence alpha blending works nicely for\n translucent objects)." );
         
         }
         { //::osg::StateSet::setTextureAttribute
@@ -1225,7 +1295,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setTextureAttribute"
                 , setTextureAttribute_function_type( &::osg::StateSet::setTextureAttribute )
-                , ( bp::arg("unit"), bp::arg("attribute"), bp::arg("value")=(unsigned int)(OFF) ) );
+                , ( bp::arg("unit"), bp::arg("attribute"), bp::arg("value")=(unsigned int)(OFF) )
+                , " Set this StateSet to contain specified attribute and override flag." );
         
         }
         { //::osg::StateSet::setTextureAttributeAndModes
@@ -1235,7 +1306,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setTextureAttributeAndModes"
                 , setTextureAttributeAndModes_function_type( &::osg::StateSet::setTextureAttributeAndModes )
-                , ( bp::arg("unit"), bp::arg("attribute"), bp::arg("value")=(unsigned int)(ON) ) );
+                , ( bp::arg("unit"), bp::arg("attribute"), bp::arg("value")=(unsigned int)(ON) )
+                , " Set this StateSet to contain specified attribute and set the associated GLModes to specified value." );
         
         }
         { //::osg::StateSet::setTextureAttributeList
@@ -1245,7 +1317,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setTextureAttributeList"
                 , setTextureAttributeList_function_type( &::osg::StateSet::setTextureAttributeList )
-                , ( bp::arg("tal") ) );
+                , ( bp::arg("tal") )
+                , " Set the list of all Texture related StateAttributes contained in this StateSet." );
         
         }
         { //::osg::StateSet::setTextureMode
@@ -1255,7 +1328,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setTextureMode"
                 , setTextureMode_function_type( &::osg::StateSet::setTextureMode )
-                , ( bp::arg("unit"), bp::arg("mode"), bp::arg("value") ) );
+                , ( bp::arg("unit"), bp::arg("mode"), bp::arg("value") )
+                , " Set this  StateSet to contain specified  GLMode with a given\n  value.\n  @param unit: The texture unit to be affected (used with\n         multi-texturing).\n  @param mode: The OpenGL mode to be added to the  StateSet.\n  @param value: The value to be assigned to  mode." );
         
         }
         { //::osg::StateSet::setTextureModeList
@@ -1265,7 +1339,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setTextureModeList"
                 , setTextureModeList_function_type( &::osg::StateSet::setTextureModeList )
-                , ( bp::arg("tml") ) );
+                , ( bp::arg("tml") )
+                , " set the list of all Texture related GLModes contained in this StateSet." );
         
         }
         { //::osg::StateSet::setThreadSafeRefUnref
@@ -1287,7 +1362,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setUniformList"
                 , setUniformList_function_type( &::osg::StateSet::setUniformList )
-                , ( bp::arg("al") ) );
+                , ( bp::arg("al") )
+                , " set the list of all Uniforms contained in this StateSet." );
         
         }
         { //::osg::StateSet::setUpdateCallback
@@ -1297,7 +1373,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::StateSet::setUpdateCallback )
-                , ( bp::arg("ac") ) );
+                , ( bp::arg("ac") )
+                , " Set the Update Callback which allows users to attach customize the updating of an object during the update traversal." );
         
         }
         { //::osg::StateSet::useRenderBinDetails
@@ -1306,7 +1383,8 @@ void register_StateSet_class(){
             
             StateSet_exposer.def( 
                 "useRenderBinDetails"
-                , useRenderBinDetails_function_type( &::osg::StateSet::useRenderBinDetails ) );
+                , useRenderBinDetails_function_type( &::osg::StateSet::useRenderBinDetails )
+                , " Get whether the render bin details are set and should be used." );
         
         }
         { //::osg::Object::getUserData
@@ -1352,7 +1430,8 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "setName"
                 , setName_function_type( &::osg::Object::setName )
-                , ( bp::arg("name") ) );
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." );
         
         }
         { //::osg::Object::setUserData

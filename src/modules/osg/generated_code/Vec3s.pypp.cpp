@@ -10,7 +10,7 @@ void register_Vec3s_class(){
 
     { //::osg::Vec3s
         typedef bp::class_< osg::Vec3s > Vec3s_exposer_t;
-        Vec3s_exposer_t Vec3s_exposer = Vec3s_exposer_t( "Vec3s", bp::init< >() );
+        Vec3s_exposer_t Vec3s_exposer = Vec3s_exposer_t( "Vec3s", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec3s_scope( Vec3s_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3s::num_components;
         Vec3s_exposer.def( bp::init< short int, short int, short int >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );

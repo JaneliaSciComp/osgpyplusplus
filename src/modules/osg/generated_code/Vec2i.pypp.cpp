@@ -10,7 +10,7 @@ void register_Vec2i_class(){
 
     { //::osg::Vec2i
         typedef bp::class_< osg::Vec2i > Vec2i_exposer_t;
-        Vec2i_exposer_t Vec2i_exposer = Vec2i_exposer_t( "Vec2i", bp::init< >() );
+        Vec2i_exposer_t Vec2i_exposer = Vec2i_exposer_t( "Vec2i", "\n General purpose integer pair.\n", bp::init< >() );
         bp::scope Vec2i_scope( Vec2i_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2i::num_components;
         Vec2i_exposer.def( bp::init< int, int >(( bp::arg("x"), bp::arg("y") )) );

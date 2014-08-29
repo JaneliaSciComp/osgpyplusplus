@@ -10,7 +10,7 @@ void register_Vec4ui_class(){
 
     { //::osg::Vec4ui
         typedef bp::class_< osg::Vec4ui > Vec4ui_exposer_t;
-        Vec4ui_exposer_t Vec4ui_exposer = Vec4ui_exposer_t( "Vec4ui", bp::init< >() );
+        Vec4ui_exposer_t Vec4ui_exposer = Vec4ui_exposer_t( "Vec4ui", "\n General purpose integer quad\n", bp::init< >() );
         bp::scope Vec4ui_scope( Vec4ui_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4ui::num_components;
         Vec4ui_exposer.def( bp::init< unsigned int, unsigned int, unsigned int, unsigned int >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );

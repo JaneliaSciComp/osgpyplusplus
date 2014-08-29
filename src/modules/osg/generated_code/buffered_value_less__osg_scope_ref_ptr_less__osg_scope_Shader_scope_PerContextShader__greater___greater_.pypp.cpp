@@ -10,9 +10,9 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
 
     { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >
         typedef bp::class_< osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > > buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer_t;
-        buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer_t buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer = buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer_t( "buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater_", bp::init< >() );
+        buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer_t buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer = buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer_t( "buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater_", "\n Implements a simple buffered value for values that need to be buffered on\n a per graphics context basis.\n", bp::init< >("\n Implements a simple buffered value for values that need to be buffered on\n a per graphics context basis.\n") );
         bp::scope buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__scope( buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer );
-        buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( bp::init< unsigned int >(( bp::arg("size") )) );
+        buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( bp::init< unsigned int >(( bp::arg("size") ), "\n Implements a simple buffered value for values that need to be buffered on\n a per graphics context basis.\n") );
         bp::implicitly_convertible< unsigned int, osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > >();
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::clear
         
@@ -43,7 +43,8 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
                 "assign"
                 , assign_function_type( &::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::operator= )
                 , ( bp::arg("rhs") )
-                , bp::return_self< >() );
+                , bp::return_self< >()
+                , "\n Implements a simple buffered value for values that need to be buffered on\n a per graphics context basis.\n" );
         
         }
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::operator[]

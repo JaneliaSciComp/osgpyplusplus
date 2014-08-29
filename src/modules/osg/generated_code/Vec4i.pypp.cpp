@@ -10,7 +10,7 @@ void register_Vec4i_class(){
 
     { //::osg::Vec4i
         typedef bp::class_< osg::Vec4i > Vec4i_exposer_t;
-        Vec4i_exposer_t Vec4i_exposer = Vec4i_exposer_t( "Vec4i", bp::init< >() );
+        Vec4i_exposer_t Vec4i_exposer = Vec4i_exposer_t( "Vec4i", "\n General purpose integer quad\n", bp::init< >() );
         bp::scope Vec4i_scope( Vec4i_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4i::num_components;
         Vec4i_exposer.def( bp::init< int, int, int, int >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );

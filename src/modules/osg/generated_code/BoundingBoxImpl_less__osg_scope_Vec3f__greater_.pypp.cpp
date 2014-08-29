@@ -8,66 +8,81 @@ namespace bp = boost::python;
 
 void register_BoundingBoxImpl_less__osg_scope_Vec3f__greater__class(){
 
-    bp::class_< osg::BoundingBoxImpl< osg::Vec3f > >( "BoundingBoxImpl_less__osg_scope_Vec3f__greater_", bp::init< >() )    
-        .def( bp::init< float, float, float, float, float, float >(( bp::arg("xmin"), bp::arg("ymin"), bp::arg("zmin"), bp::arg("xmax"), bp::arg("ymax"), bp::arg("zmax") )) )    
-        .def( bp::init< osg::Vec3f const &, osg::Vec3f const & >(( bp::arg("min"), bp::arg("max") )) )    
+    bp::class_< osg::BoundingBoxImpl< osg::Vec3f > >( "BoundingBoxImpl_less__osg_scope_Vec3f__greater_", "\n General purpose axis-aligned bounding box class for enclosing objects/vertices.\n Bounds leaf objects in a scene such as osg::Drawable objects. Used for frustum\n culling etc.\n", bp::init< >("\n Creates an uninitialized bounding box.\n") )    
+        .def( bp::init< float, float, float, float, float, float >(( bp::arg("xmin"), bp::arg("ymin"), bp::arg("zmin"), bp::arg("xmax"), bp::arg("ymax"), bp::arg("zmax") ), "\n Creates a bounding box initialized to the given extents.\n") )    
+        .def( bp::init< osg::Vec3f const &, osg::Vec3f const & >(( bp::arg("min"), bp::arg("max") ), "\n Creates a bounding box initialized to the given extents.\n") )    
         .def( 
             "center"
-            , (::osg::Vec3f const ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::center ) )    
+            , (::osg::Vec3f const ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::center )
+            , "\n Calculates and returns the bounding box center.\n" )    
         .def( 
             "contains"
             , (bool ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::Vec3f const & )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::contains )
-            , ( bp::arg("v") ) )    
+            , ( bp::arg("v") )
+            , "\n Returns true if this bounding box contains the specified coordinate.\n" )    
         .def( 
             "contains"
             , (bool ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::Vec3f const &,float )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::contains )
-            , ( bp::arg("v"), bp::arg("epsilon") ) )    
+            , ( bp::arg("v"), bp::arg("epsilon") )
+            , "\n Returns true if this bounding box contains the specified coordinate allowing for specific epsilon.\n" )    
         .def( 
             "corner"
             , (::osg::Vec3f const ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( unsigned int )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::corner )
-            , ( bp::arg("pos") ) )    
+            , ( bp::arg("pos") )
+            , "\n Returns a specific corner of the bounding box.\n pos specifies the corner as a number between 0 and 7.\n Each bit selects an axis, X, Y, or Z from least- to\n most-significant. Unset bits select the minimum value\n for that axis, and set bits select the maximum.\n" )    
         .def( 
             "expandBy"
             , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::Vec3f const & ))( &::osg::BoundingBoxImpl< osg::Vec3f >::expandBy )
-            , ( bp::arg("v") ) )    
+            , ( bp::arg("v") )
+            , "\n Expands the bounding box to include the given coordinate.\n If the box is uninitialized, set its min and max extents to v.\n" )    
         .def( 
             "expandBy"
             , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( float,float,float ))( &::osg::BoundingBoxImpl< osg::Vec3f >::expandBy )
-            , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
+            , ( bp::arg("x"), bp::arg("y"), bp::arg("z") )
+            , "\n Expands the bounding box to include the given coordinate.\n If the box is uninitialized, set its min and max extents to\n Vec3(x,y,z).\n" )    
         .def( 
             "expandBy"
             , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::BoundingBoxImpl< osg::Vec3f > const & ))( &::osg::BoundingBoxImpl< osg::Vec3f >::expandBy )
-            , ( bp::arg("bb") ) )    
+            , ( bp::arg("bb") )
+            , "\n Expands this bounding box to include the given bounding box.\n If this box is uninitialized, set it equal to bb.\n" )    
         .def( 
             "init"
-            , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  ))( &::osg::BoundingBoxImpl< osg::Vec3f >::init ) )    
+            , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  ))( &::osg::BoundingBoxImpl< osg::Vec3f >::init )
+            , "\n Clear the bounding box. Erases existing minimum and maximum extents.\n" )    
         .def( 
             "intersect"
             , (::osg::BoundingBoxImpl< osg::Vec3f > ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::BoundingBoxImpl< osg::Vec3f > const & )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::intersect )
-            , ( bp::arg("bb") ) )    
+            , ( bp::arg("bb") )
+            , "\n Returns the intersection of this bounding box and the specified bounding box.\n" )    
         .def( 
             "intersects"
             , (bool ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::BoundingBoxImpl< osg::Vec3f > const & )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::intersects )
-            , ( bp::arg("bb") ) )    
+            , ( bp::arg("bb") )
+            , "\n Return true if this bounding box intersects the specified bounding box.\n" )    
         .def( bp::self != bp::self )    
         .def( bp::self == bp::self )    
         .def( 
             "radius"
-            , (float ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::radius ) )    
+            , (float ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::radius )
+            , "\n Calculates and returns the bounding box radius.\n" )    
         .def( 
             "radius2"
-            , (float ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::radius2 ) )    
+            , (float ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::radius2 )
+            , "\n Calculates and returns the squared length of the bounding box radius.\n Note, radius2() is faster to calculate than radius().\n" )    
         .def( 
             "set"
             , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( float,float,float,float,float,float ))( &::osg::BoundingBoxImpl< osg::Vec3f >::set )
-            , ( bp::arg("xmin"), bp::arg("ymin"), bp::arg("zmin"), bp::arg("xmax"), bp::arg("ymax"), bp::arg("zmax") ) )    
+            , ( bp::arg("xmin"), bp::arg("ymin"), bp::arg("zmin"), bp::arg("xmax"), bp::arg("ymax"), bp::arg("zmax") )
+            , "\n Sets the bounding box extents.\n" )    
         .def( 
             "set"
             , (void ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )( ::osg::Vec3f const &,::osg::Vec3f const & ))( &::osg::BoundingBoxImpl< osg::Vec3f >::set )
-            , ( bp::arg("min"), bp::arg("max") ) )    
+            , ( bp::arg("min"), bp::arg("max") )
+            , "\n Sets the bounding box extents.\n" )    
         .def( 
             "valid"
-            , (bool ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::valid ) )    
+            , (bool ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::valid )
+            , "\n Returns true if the bounding box extents are valid, false otherwise.\n" )    
         .def( 
             "xMax"
             , (float & ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  ))( &::osg::BoundingBoxImpl< osg::Vec3f >::xMax )
@@ -110,7 +125,7 @@ void register_BoundingBoxImpl_less__osg_scope_Vec3f__greater__class(){
         .def( 
             "zMin"
             , (float ( ::osg::BoundingBoxImpl<osg::Vec3f>::* )(  )const)( &::osg::BoundingBoxImpl< osg::Vec3f >::zMin ) )    
-        .def_readwrite( "_max", &osg::BoundingBoxImpl< osg::Vec3f >::_max )    
-        .def_readwrite( "_min", &osg::BoundingBoxImpl< osg::Vec3f >::_min );
+        .def_readwrite( "_max", &osg::BoundingBoxImpl< osg::Vec3f >::_max, "\n Maximum extent. (Greatest X, Y, and Z values of all coordinates.)\n" )    
+        .def_readwrite( "_min", &osg::BoundingBoxImpl< osg::Vec3f >::_min, "\n Minimum extent. (Smallest X, Y, and Z values of all coordinates.)\n" );
 
 }

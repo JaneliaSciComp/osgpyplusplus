@@ -10,7 +10,7 @@ void register_Vec2us_class(){
 
     { //::osg::Vec2us
         typedef bp::class_< osg::Vec2us > Vec2us_exposer_t;
-        Vec2us_exposer_t Vec2us_exposer = Vec2us_exposer_t( "Vec2us", bp::init< >() );
+        Vec2us_exposer_t Vec2us_exposer = Vec2us_exposer_t( "Vec2us", bp::init< >("\n Constructor that sets all components of the vector to zero\n") );
         bp::scope Vec2us_scope( Vec2us_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2us::num_components;
         Vec2us_exposer.def( bp::init< short unsigned int, short unsigned int >(( bp::arg("x"), bp::arg("y") )) );
