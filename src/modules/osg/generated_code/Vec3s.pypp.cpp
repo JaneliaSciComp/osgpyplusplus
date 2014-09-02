@@ -14,44 +14,6 @@ void register_Vec3s_class(){
         bp::scope Vec3s_scope( Vec3s_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3s::num_components;
         Vec3s_exposer.def( bp::init< short int, short int, short int >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );
-        { //::osg::Vec3s::b
-        
-            typedef short int & ( ::osg::Vec3s::*b_function_type)(  ) ;
-            
-            Vec3s_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec3s::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3s::b
-        
-            typedef short int ( ::osg::Vec3s::*b_function_type)(  ) const;
-            
-            Vec3s_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec3s::b ) );
-        
-        }
-        { //::osg::Vec3s::g
-        
-            typedef short int & ( ::osg::Vec3s::*g_function_type)(  ) ;
-            
-            Vec3s_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec3s::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3s::g
-        
-            typedef short int ( ::osg::Vec3s::*g_function_type)(  ) const;
-            
-            Vec3s_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec3s::g ) );
-        
-        }
         Vec3s_exposer.def( bp::self != bp::self );
         Vec3s_exposer.def( bp::self * bp::other< short int >() );
         Vec3s_exposer.def( bp::self * bp::self );
@@ -86,25 +48,6 @@ void register_Vec3s_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec3s::r
-        
-            typedef short int & ( ::osg::Vec3s::*r_function_type)(  ) ;
-            
-            Vec3s_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec3s::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3s::r
-        
-            typedef short int ( ::osg::Vec3s::*r_function_type)(  ) const;
-            
-            Vec3s_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec3s::r ) );
-        
-        }
         { //::osg::Vec3s::set
         
             typedef void ( ::osg::Vec3s::*set_function_type)( short int,short int,short int ) ;
@@ -125,61 +68,124 @@ void register_Vec3s_class(){
                 , ( bp::arg("rhs") ) );
         
         }
-        { //::osg::Vec3s::x
+        { //property "x"[fget=::osg::Vec3s::x]
         
-            typedef short int & ( ::osg::Vec3s::*x_function_type)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3s::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3s::x
+        { //property "x"[fget=::osg::Vec3s::x]
         
-            typedef short int ( ::osg::Vec3s::*x_function_type)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3s::x ) );
+                , fget( &::osg::Vec3s::x ) );
         
         }
-        { //::osg::Vec3s::y
+        { //property "y"[fget=::osg::Vec3s::y]
         
-            typedef short int & ( ::osg::Vec3s::*y_function_type)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3s::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3s::y
+        { //property "y"[fget=::osg::Vec3s::y]
         
-            typedef short int ( ::osg::Vec3s::*y_function_type)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3s::y ) );
+                , fget( &::osg::Vec3s::y ) );
         
         }
-        { //::osg::Vec3s::z
+        { //property "z"[fget=::osg::Vec3s::z]
         
-            typedef short int & ( ::osg::Vec3s::*z_function_type)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3s::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3s::z
+        { //property "z"[fget=::osg::Vec3s::z]
         
-            typedef short int ( ::osg::Vec3s::*z_function_type)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
             
-            Vec3s_exposer.def( 
+            Vec3s_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3s::z ) );
+                , fget( &::osg::Vec3s::z ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec3s::r]
+        
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            
+            Vec3s_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec3s::r]
+        
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            
+            Vec3s_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec3s::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec3s::g]
+        
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            
+            Vec3s_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec3s::g]
+        
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            
+            Vec3s_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec3s::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec3s::b]
+        
+            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            
+            Vec3s_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec3s::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec3s::b]
+        
+            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            
+            Vec3s_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec3s::b ) );
         
         }
     }

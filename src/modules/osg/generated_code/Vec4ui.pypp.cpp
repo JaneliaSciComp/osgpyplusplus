@@ -14,63 +14,6 @@ void register_Vec4ui_class(){
         bp::scope Vec4ui_scope( Vec4ui_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4ui::num_components;
         Vec4ui_exposer.def( bp::init< unsigned int, unsigned int, unsigned int, unsigned int >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );
-        { //::osg::Vec4ui::a
-        
-            typedef unsigned int & ( ::osg::Vec4ui::*a_function_type)(  ) ;
-            
-            Vec4ui_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4ui::a )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4ui::a
-        
-            typedef unsigned int ( ::osg::Vec4ui::*a_function_type)(  ) const;
-            
-            Vec4ui_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4ui::a ) );
-        
-        }
-        { //::osg::Vec4ui::b
-        
-            typedef unsigned int & ( ::osg::Vec4ui::*b_function_type)(  ) ;
-            
-            Vec4ui_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4ui::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4ui::b
-        
-            typedef unsigned int ( ::osg::Vec4ui::*b_function_type)(  ) const;
-            
-            Vec4ui_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4ui::b ) );
-        
-        }
-        { //::osg::Vec4ui::g
-        
-            typedef unsigned int & ( ::osg::Vec4ui::*g_function_type)(  ) ;
-            
-            Vec4ui_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4ui::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4ui::g
-        
-            typedef unsigned int ( ::osg::Vec4ui::*g_function_type)(  ) const;
-            
-            Vec4ui_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4ui::g ) );
-        
-        }
         Vec4ui_exposer.def( bp::self != bp::self );
         Vec4ui_exposer.def( bp::self * bp::other< unsigned int >() );
         Vec4ui_exposer.def( bp::self * bp::self );
@@ -102,25 +45,6 @@ void register_Vec4ui_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec4ui::r
-        
-            typedef unsigned int & ( ::osg::Vec4ui::*r_function_type)(  ) ;
-            
-            Vec4ui_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4ui::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4ui::r
-        
-            typedef unsigned int ( ::osg::Vec4ui::*r_function_type)(  ) const;
-            
-            Vec4ui_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4ui::r ) );
-        
-        }
         { //::osg::Vec4ui::set
         
             typedef void ( ::osg::Vec4ui::*set_function_type)( unsigned int,unsigned int,unsigned int,unsigned int ) ;
@@ -131,80 +55,164 @@ void register_Vec4ui_class(){
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") ) );
         
         }
-        { //::osg::Vec4ui::w
+        { //property "x"[fget=::osg::Vec4ui::x]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*w_function_type)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
             
-            Vec4ui_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4ui::w )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4ui::w
-        
-            typedef unsigned int ( ::osg::Vec4ui::*w_function_type)(  ) const;
-            
-            Vec4ui_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4ui::w ) );
-        
-        }
-        { //::osg::Vec4ui::x
-        
-            typedef unsigned int & ( ::osg::Vec4ui::*x_function_type)(  ) ;
-            
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4ui::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4ui::x
+        { //property "x"[fget=::osg::Vec4ui::x]
         
-            typedef unsigned int ( ::osg::Vec4ui::*x_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
             
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4ui::x ) );
+                , fget( &::osg::Vec4ui::x ) );
         
         }
-        { //::osg::Vec4ui::y
+        { //property "y"[fget=::osg::Vec4ui::y]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*y_function_type)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
             
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4ui::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4ui::y
+        { //property "y"[fget=::osg::Vec4ui::y]
         
-            typedef unsigned int ( ::osg::Vec4ui::*y_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
             
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4ui::y ) );
+                , fget( &::osg::Vec4ui::y ) );
         
         }
-        { //::osg::Vec4ui::z
+        { //property "z"[fget=::osg::Vec4ui::z]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*z_function_type)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
             
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4ui::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4ui::z
+        { //property "z"[fget=::osg::Vec4ui::z]
         
-            typedef unsigned int ( ::osg::Vec4ui::*z_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
             
-            Vec4ui_exposer.def( 
+            Vec4ui_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4ui::z ) );
+                , fget( &::osg::Vec4ui::z ) );
+        
+        }
+        { //property "w"[fget=::osg::Vec4ui::w]
+        
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            
+            Vec4ui_exposer.add_property( 
+                "w"
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::w )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "w"[fget=::osg::Vec4ui::w]
+        
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            
+            Vec4ui_exposer.add_property( 
+                "w"
+                , fget( &::osg::Vec4ui::w ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec4ui::r]
+        
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            
+            Vec4ui_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec4ui::r]
+        
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            
+            Vec4ui_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec4ui::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec4ui::g]
+        
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            
+            Vec4ui_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec4ui::g]
+        
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            
+            Vec4ui_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec4ui::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec4ui::b]
+        
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            
+            Vec4ui_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec4ui::b]
+        
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            
+            Vec4ui_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec4ui::b ) );
+        
+        }
+        { //property "a"[fget=::osg::Vec4ui::a]
+        
+            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            
+            Vec4ui_exposer.add_property( 
+                "a"
+                , bp::make_function( 
+                      fget( &::osg::Vec4ui::a )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "a"[fget=::osg::Vec4ui::a]
+        
+            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            
+            Vec4ui_exposer.add_property( 
+                "a"
+                , fget( &::osg::Vec4ui::a ) );
         
         }
     }

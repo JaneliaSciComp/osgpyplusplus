@@ -14,63 +14,6 @@ void register_Vec4us_class(){
         bp::scope Vec4us_scope( Vec4us_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4us::num_components;
         Vec4us_exposer.def( bp::init< short unsigned int, short unsigned int, short unsigned int, short unsigned int >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );
-        { //::osg::Vec4us::a
-        
-            typedef short unsigned int & ( ::osg::Vec4us::*a_function_type)(  ) ;
-            
-            Vec4us_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4us::a )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4us::a
-        
-            typedef short unsigned int ( ::osg::Vec4us::*a_function_type)(  ) const;
-            
-            Vec4us_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4us::a ) );
-        
-        }
-        { //::osg::Vec4us::b
-        
-            typedef short unsigned int & ( ::osg::Vec4us::*b_function_type)(  ) ;
-            
-            Vec4us_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4us::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4us::b
-        
-            typedef short unsigned int ( ::osg::Vec4us::*b_function_type)(  ) const;
-            
-            Vec4us_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4us::b ) );
-        
-        }
-        { //::osg::Vec4us::g
-        
-            typedef short unsigned int & ( ::osg::Vec4us::*g_function_type)(  ) ;
-            
-            Vec4us_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4us::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4us::g
-        
-            typedef short unsigned int ( ::osg::Vec4us::*g_function_type)(  ) const;
-            
-            Vec4us_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4us::g ) );
-        
-        }
         Vec4us_exposer.def( bp::self != bp::self );
         Vec4us_exposer.def( bp::self * bp::other< short unsigned int >() );
         Vec4us_exposer.def( bp::self * bp::self );
@@ -104,25 +47,6 @@ void register_Vec4us_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec4us::r
-        
-            typedef short unsigned int & ( ::osg::Vec4us::*r_function_type)(  ) ;
-            
-            Vec4us_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4us::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4us::r
-        
-            typedef short unsigned int ( ::osg::Vec4us::*r_function_type)(  ) const;
-            
-            Vec4us_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4us::r ) );
-        
-        }
         { //::osg::Vec4us::set
         
             typedef void ( ::osg::Vec4us::*set_function_type)( short unsigned int,short unsigned int,short unsigned int,short unsigned int ) ;
@@ -133,80 +57,164 @@ void register_Vec4us_class(){
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") ) );
         
         }
-        { //::osg::Vec4us::w
+        { //property "x"[fget=::osg::Vec4us::x]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*w_function_type)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
             
-            Vec4us_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4us::w )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4us::w
-        
-            typedef short unsigned int ( ::osg::Vec4us::*w_function_type)(  ) const;
-            
-            Vec4us_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4us::w ) );
-        
-        }
-        { //::osg::Vec4us::x
-        
-            typedef short unsigned int & ( ::osg::Vec4us::*x_function_type)(  ) ;
-            
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4us::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4us::x
+        { //property "x"[fget=::osg::Vec4us::x]
         
-            typedef short unsigned int ( ::osg::Vec4us::*x_function_type)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
             
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4us::x ) );
+                , fget( &::osg::Vec4us::x ) );
         
         }
-        { //::osg::Vec4us::y
+        { //property "y"[fget=::osg::Vec4us::y]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*y_function_type)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
             
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4us::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4us::y
+        { //property "y"[fget=::osg::Vec4us::y]
         
-            typedef short unsigned int ( ::osg::Vec4us::*y_function_type)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
             
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4us::y ) );
+                , fget( &::osg::Vec4us::y ) );
         
         }
-        { //::osg::Vec4us::z
+        { //property "z"[fget=::osg::Vec4us::z]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*z_function_type)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
             
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4us::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4us::z
+        { //property "z"[fget=::osg::Vec4us::z]
         
-            typedef short unsigned int ( ::osg::Vec4us::*z_function_type)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
             
-            Vec4us_exposer.def( 
+            Vec4us_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4us::z ) );
+                , fget( &::osg::Vec4us::z ) );
+        
+        }
+        { //property "w"[fget=::osg::Vec4us::w]
+        
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            
+            Vec4us_exposer.add_property( 
+                "w"
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::w )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "w"[fget=::osg::Vec4us::w]
+        
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            
+            Vec4us_exposer.add_property( 
+                "w"
+                , fget( &::osg::Vec4us::w ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec4us::r]
+        
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            
+            Vec4us_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec4us::r]
+        
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            
+            Vec4us_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec4us::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec4us::g]
+        
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            
+            Vec4us_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec4us::g]
+        
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            
+            Vec4us_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec4us::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec4us::b]
+        
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            
+            Vec4us_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec4us::b]
+        
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            
+            Vec4us_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec4us::b ) );
+        
+        }
+        { //property "a"[fget=::osg::Vec4us::a]
+        
+            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            
+            Vec4us_exposer.add_property( 
+                "a"
+                , bp::make_function( 
+                      fget( &::osg::Vec4us::a )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "a"[fget=::osg::Vec4us::a]
+        
+            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            
+            Vec4us_exposer.add_property( 
+                "a"
+                , fget( &::osg::Vec4us::a ) );
         
         }
     }

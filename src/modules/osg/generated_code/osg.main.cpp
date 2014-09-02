@@ -64,6 +64,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingboximpl_less__osg_scope_vec3f__greater_.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingspherevec3f.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/box.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferattachmentmap.pypp.hpp"
@@ -382,6 +384,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2us.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3array.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3b.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3d.pypp.hpp"
@@ -617,6 +621,8 @@ BOOST_PYTHON_MODULE(osg){
 
     register_BoundingBoxImpl_less__osg_scope_Vec3f__greater__class();
 
+    register_BoundingSphereVec3f_class();
+
     register_Shape_class();
 
     register_Box_class();
@@ -808,6 +814,8 @@ BOOST_PYTHON_MODULE(osg){
     register_Switch_class();
 
     register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__class();
+
+    register_Vec3Array_class();
 
     register_Vec4Array_class();
 

@@ -39,8 +39,11 @@ class OsgGAWrapper(BaseWrapper):
         for cls_name in [
                 "GUIEventHandler",
                 ]:
-            osgGA.class_(cls_name).member_functions(
-                lambda f: f.name.startswith("handle")).exclude()
+            for fn in osgGA.class_(cls_name).member_functions(lambda f: f.name.startswith("handle")):
+                # fn.exclude()
+                fn.add_transformation(FT.modify_type(0, remove_const_from_reference))
+                # avoid ugly alias
+                fn.transformations[-1].alias = fn.alias
 
         hack_osg_arg(osgGA.class_("Device"), "sendEvent", 0)
 

@@ -172,6 +172,28 @@ struct StateSetManipulator_wrapper : osgGA::StateSetManipulator, bp::wrapper< os
         return osg::Object::getUserData( );
     }
 
+    virtual bool handle( ::osgGA::GUIEventAdapter const & ea, ::osgGA::GUIActionAdapter & aa, ::osg::Object * arg2, ::osg::NodeVisitor * arg3 ) {
+        namespace bpl = boost::python;
+        if( bpl::override func_handle = this->get_override( "handle" ) ){
+            bpl::object py_result = bpl::call<bpl::object>( func_handle.ptr(), ea, aa, arg2, arg3 );
+            return bpl::extract< bool >( pyplus_conv::get_out_argument( py_result, 0 ) );
+        }
+        else{
+            return osgGA::GUIEventHandler::handle( boost::ref(ea), boost::ref(aa), boost::python::ptr(arg2), boost::python::ptr(arg3) );
+        }
+    }
+    
+    static boost::python::object default_handle_d0ba65b51c8a2afc5afff00aad1b91b3( ::osgGA::GUIEventHandler & inst, ::osgGA::GUIEventAdapter & ea, ::osgGA::GUIActionAdapter & aa, ::osg::Object * arg2, ::osg::NodeVisitor * arg3 ){
+        bool result;
+        if( dynamic_cast< StateSetManipulator_wrapper * >( boost::addressof( inst ) ) ){
+            result = inst.::osgGA::GUIEventHandler::handle(ea, aa, arg2, arg3);
+        }
+        else{
+            result = inst.handle(ea, aa, arg2, arg3);
+        }
+        return bp::object( result );
+    }
+
     virtual bool isSameKindAs( ::osg::Object const * obj ) const  {
         if( bp::override func_isSameKindAs = this->get_override( "isSameKindAs" ) )
             return func_isSameKindAs( boost::python::ptr(obj) );
@@ -539,6 +561,17 @@ void register_StateSetManipulator_class(){
                 , event_function_type(&::osgGA::GUIEventHandler::event)
                 , default_event_function_type(&StateSetManipulator_wrapper::default_event)
                 , ( bp::arg("nv"), bp::arg("drawable") ) );
+        
+        }
+        { //::osgGA::GUIEventHandler::handle
+        
+            typedef boost::python::object ( *default_handle_function_type )( ::osgGA::GUIEventHandler &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter &,::osg::Object *,::osg::NodeVisitor * );
+            
+            StateSetManipulator_exposer.def( 
+                "handle"
+                , default_handle_function_type( &StateSetManipulator_wrapper::default_handle_d0ba65b51c8a2afc5afff00aad1b91b3 )
+                , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa"), bp::arg("arg2"), bp::arg("arg3") )
+                , "\n Handle events, return true if handled, false otherwise.\n" );
         
         }
         { //::osgGA::GUIEventHandler::isSameKindAs

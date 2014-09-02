@@ -14,44 +14,6 @@ void register_Vec3ub_class(){
         bp::scope Vec3ub_scope( Vec3ub_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec3ub::num_components;
         Vec3ub_exposer.def( bp::init< unsigned char, unsigned char, unsigned char >(( bp::arg("r"), bp::arg("g"), bp::arg("b") )) );
-        { //::osg::Vec3ub::b
-        
-            typedef unsigned char & ( ::osg::Vec3ub::*b_function_type)(  ) ;
-            
-            Vec3ub_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec3ub::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3ub::b
-        
-            typedef unsigned char ( ::osg::Vec3ub::*b_function_type)(  ) const;
-            
-            Vec3ub_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec3ub::b ) );
-        
-        }
-        { //::osg::Vec3ub::g
-        
-            typedef unsigned char & ( ::osg::Vec3ub::*g_function_type)(  ) ;
-            
-            Vec3ub_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec3ub::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3ub::g
-        
-            typedef unsigned char ( ::osg::Vec3ub::*g_function_type)(  ) const;
-            
-            Vec3ub_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec3ub::g ) );
-        
-        }
         Vec3ub_exposer.def( bp::self != bp::self );
         Vec3ub_exposer.def( bp::self * bp::other< float >() );
         Vec3ub_exposer.def( bp::self *= bp::other< float >() );
@@ -84,25 +46,6 @@ void register_Vec3ub_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec3ub::r
-        
-            typedef unsigned char & ( ::osg::Vec3ub::*r_function_type)(  ) ;
-            
-            Vec3ub_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec3ub::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec3ub::r
-        
-            typedef unsigned char ( ::osg::Vec3ub::*r_function_type)(  ) const;
-            
-            Vec3ub_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec3ub::r ) );
-        
-        }
         { //::osg::Vec3ub::set
         
             typedef void ( ::osg::Vec3ub::*set_function_type)( unsigned char,unsigned char,unsigned char ) ;
@@ -123,61 +66,124 @@ void register_Vec3ub_class(){
                 , ( bp::arg("rhs") ) );
         
         }
-        { //::osg::Vec3ub::x
+        { //property "x"[fget=::osg::Vec3ub::x]
         
-            typedef unsigned char & ( ::osg::Vec3ub::*x_function_type)(  ) ;
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3ub::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3ub::x
+        { //property "x"[fget=::osg::Vec3ub::x]
         
-            typedef unsigned char ( ::osg::Vec3ub::*x_function_type)(  ) const;
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3ub::x ) );
+                , fget( &::osg::Vec3ub::x ) );
         
         }
-        { //::osg::Vec3ub::y
+        { //property "y"[fget=::osg::Vec3ub::y]
         
-            typedef unsigned char & ( ::osg::Vec3ub::*y_function_type)(  ) ;
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3ub::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3ub::y
+        { //property "y"[fget=::osg::Vec3ub::y]
         
-            typedef unsigned char ( ::osg::Vec3ub::*y_function_type)(  ) const;
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3ub::y ) );
+                , fget( &::osg::Vec3ub::y ) );
         
         }
-        { //::osg::Vec3ub::z
+        { //property "z"[fget=::osg::Vec3ub::z]
         
-            typedef unsigned char & ( ::osg::Vec3ub::*z_function_type)(  ) ;
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3ub::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3ub::z
+        { //property "z"[fget=::osg::Vec3ub::z]
         
-            typedef unsigned char ( ::osg::Vec3ub::*z_function_type)(  ) const;
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
             
-            Vec3ub_exposer.def( 
+            Vec3ub_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3ub::z ) );
+                , fget( &::osg::Vec3ub::z ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec3ub::r]
+        
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
+            
+            Vec3ub_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec3ub::r]
+        
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
+            
+            Vec3ub_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec3ub::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec3ub::g]
+        
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
+            
+            Vec3ub_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec3ub::g]
+        
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
+            
+            Vec3ub_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec3ub::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec3ub::b]
+        
+            typedef unsigned char & ( ::osg::Vec3ub::*fget)(  ) ;
+            
+            Vec3ub_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec3ub::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec3ub::b]
+        
+            typedef unsigned char ( ::osg::Vec3ub::*fget)(  ) const;
+            
+            Vec3ub_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec3ub::b ) );
         
         }
     }

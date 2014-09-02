@@ -105,8 +105,8 @@ class OsgWrapper(BaseWrapper):
             cls.exclude()
         for cls in mb.classes(lambda c: c.name.startswith('vector<')):
             cls.exclude()
-        for cls in mb.classes(lambda c: c.name.startswith('BoundingSphereImpl<')):
-            cls.exclude()
+        # for cls in mb.classes(lambda c: c.name.startswith('BoundingSphereImpl<')):
+        #     cls.exclude()
         
         wrap_call_policies(self.mb)
             
@@ -172,6 +172,13 @@ class OsgWrapper(BaseWrapper):
         osg.class_("CoordinateSystemNode").member_functions("set").exclude()
         osg.class_("Texture2D").class_("SubloadCallback").exclude()
 
+        # Transform vector x(), y(), z() methods into properties
+        for cls in osg.classes(lambda c: c.name.startswith("Vec")):
+            for fn_name in ["x", "y", "z", "w", "r", "g", "b", "a"]:
+                for fn in cls.member_functions(fn_name, allow_empty=True):
+                    fn.exclude()
+                    cls.add_property(fn_name, fn) # TODO setter
+
         # Pure virtual "compare" method causes compile error
         texture = osg.class_("Texture")
         # print dir(texture)
@@ -227,15 +234,16 @@ class OsgWrapper(BaseWrapper):
             mb.free_functions(fn_name).exclude()
         
         # TODO - This is how to wrap one array type: Wrap more
-        arr = osg.classes(lambda c: c.alias == "Vec4Array")[0]
-        arr.include_files.append("indexing_helpers.h")
-        t = arr.demangled
-        arr.add_registration_code("""
-            def(bp::indexing::container_suite<
-                    %s, 
-                    bp::indexing::all_methods, 
-                    list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType, int> > >())
-            """ % (t, t, t) )
+        for alias in ["Vec3Array", "Vec4Array"]:
+            arr = osg.classes(lambda c: c.alias == alias)[0]
+            arr.include_files.append("indexing_helpers.h")
+            t = arr.demangled
+            arr.add_registration_code("""
+                def(bp::indexing::container_suite<
+                        %s, 
+                        bp::indexing::all_methods, 
+                        list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType, int> > >())
+                """ % (t, t, t) )
         # exit(0)
 
         # Write results

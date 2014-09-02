@@ -704,9 +704,9 @@ void register_Vec4Array_class(){
         
         }
         Vec4Array_exposer.def(bp::indexing::container_suite<
-                    osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>, 
-                    bp::indexing::all_methods, 
-                    list_algorithms<OsgArray_container_traits<osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>, osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>::ElementDataType, int> > >());
+                        osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>, 
+                        bp::indexing::all_methods, 
+                        list_algorithms<OsgArray_container_traits<osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>, osg::TemplateArray<osg::Vec4f, (osg::Array::Type)29, 4, 5126>::ElementDataType, int> > >());
     }
 
 }

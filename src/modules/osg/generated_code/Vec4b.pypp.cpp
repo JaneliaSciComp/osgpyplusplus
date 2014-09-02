@@ -14,63 +14,6 @@ void register_Vec4b_class(){
         bp::scope Vec4b_scope( Vec4b_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec4b::num_components;
         Vec4b_exposer.def( bp::init< signed char, signed char, signed char, signed char >(( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )) );
-        { //::osg::Vec4b::a
-        
-            typedef signed char & ( ::osg::Vec4b::*a_function_type)(  ) ;
-            
-            Vec4b_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4b::a )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4b::a
-        
-            typedef signed char ( ::osg::Vec4b::*a_function_type)(  ) const;
-            
-            Vec4b_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4b::a ) );
-        
-        }
-        { //::osg::Vec4b::b
-        
-            typedef signed char & ( ::osg::Vec4b::*b_function_type)(  ) ;
-            
-            Vec4b_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4b::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4b::b
-        
-            typedef signed char ( ::osg::Vec4b::*b_function_type)(  ) const;
-            
-            Vec4b_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4b::b ) );
-        
-        }
-        { //::osg::Vec4b::g
-        
-            typedef signed char & ( ::osg::Vec4b::*g_function_type)(  ) ;
-            
-            Vec4b_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4b::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4b::g
-        
-            typedef signed char ( ::osg::Vec4b::*g_function_type)(  ) const;
-            
-            Vec4b_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4b::g ) );
-        
-        }
         Vec4b_exposer.def( bp::self != bp::self );
         Vec4b_exposer.def( bp::self * bp::other< float >() );
         Vec4b_exposer.def( bp::self *= bp::other< float >() );
@@ -103,25 +46,6 @@ void register_Vec4b_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec4b::r
-        
-            typedef signed char & ( ::osg::Vec4b::*r_function_type)(  ) ;
-            
-            Vec4b_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4b::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4b::r
-        
-            typedef signed char ( ::osg::Vec4b::*r_function_type)(  ) const;
-            
-            Vec4b_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4b::r ) );
-        
-        }
         { //::osg::Vec4b::set
         
             typedef void ( ::osg::Vec4b::*set_function_type)( signed char,signed char,signed char,signed char ) ;
@@ -132,80 +56,164 @@ void register_Vec4b_class(){
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") ) );
         
         }
-        { //::osg::Vec4b::w
+        { //property "x"[fget=::osg::Vec4b::x]
         
-            typedef signed char & ( ::osg::Vec4b::*w_function_type)(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
-            Vec4b_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4b::w )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4b::w
-        
-            typedef signed char ( ::osg::Vec4b::*w_function_type)(  ) const;
-            
-            Vec4b_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4b::w ) );
-        
-        }
-        { //::osg::Vec4b::x
-        
-            typedef signed char & ( ::osg::Vec4b::*x_function_type)(  ) ;
-            
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4b::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4b::x
+        { //property "x"[fget=::osg::Vec4b::x]
         
-            typedef signed char ( ::osg::Vec4b::*x_function_type)(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4b::x ) );
+                , fget( &::osg::Vec4b::x ) );
         
         }
-        { //::osg::Vec4b::y
+        { //property "y"[fget=::osg::Vec4b::y]
         
-            typedef signed char & ( ::osg::Vec4b::*y_function_type)(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4b::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4b::y
+        { //property "y"[fget=::osg::Vec4b::y]
         
-            typedef signed char ( ::osg::Vec4b::*y_function_type)(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4b::y ) );
+                , fget( &::osg::Vec4b::y ) );
         
         }
-        { //::osg::Vec4b::z
+        { //property "z"[fget=::osg::Vec4b::z]
         
-            typedef signed char & ( ::osg::Vec4b::*z_function_type)(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4b::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4b::z
+        { //property "z"[fget=::osg::Vec4b::z]
         
-            typedef signed char ( ::osg::Vec4b::*z_function_type)(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
-            Vec4b_exposer.def( 
+            Vec4b_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4b::z ) );
+                , fget( &::osg::Vec4b::z ) );
+        
+        }
+        { //property "w"[fget=::osg::Vec4b::w]
+        
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
+            
+            Vec4b_exposer.add_property( 
+                "w"
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::w )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "w"[fget=::osg::Vec4b::w]
+        
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
+            
+            Vec4b_exposer.add_property( 
+                "w"
+                , fget( &::osg::Vec4b::w ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec4b::r]
+        
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
+            
+            Vec4b_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec4b::r]
+        
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
+            
+            Vec4b_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec4b::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec4b::g]
+        
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
+            
+            Vec4b_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec4b::g]
+        
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
+            
+            Vec4b_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec4b::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec4b::b]
+        
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
+            
+            Vec4b_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec4b::b]
+        
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
+            
+            Vec4b_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec4b::b ) );
+        
+        }
+        { //property "a"[fget=::osg::Vec4b::a]
+        
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
+            
+            Vec4b_exposer.add_property( 
+                "a"
+                , bp::make_function( 
+                      fget( &::osg::Vec4b::a )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "a"[fget=::osg::Vec4b::a]
+        
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
+            
+            Vec4b_exposer.add_property( 
+                "a"
+                , fget( &::osg::Vec4b::a ) );
         
         }
     }

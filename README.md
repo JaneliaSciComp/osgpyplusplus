@@ -6,20 +6,28 @@ Python bindings for OpenSceneGraph 3D graphics API, created using Boost.Python a
 There exist already two projects that provide python bindings for OpenSceneGraph: osgswig and osgboostpython. 
 So why am I trying to create yet another?
 
-Currency: osgswig has not been updated for a couple of years. So I created a fork of osgswig here on github,
-and I modified osgswig to work with OpenSceneGraph version 3.2.1. I also added support to osgswig for the osgVolume
-module. I learned enough about osgswig in this process to convince me that I would prefer to work with bindings
-based on Boost.Python, rather than on SWIG.
+Currency: The competing project osgswig has not been updated for a couple of years (I'm writing in 2014). So 
+I created a fork of osgswig (elsewhere) here on github, and I modified osgswig to work with OpenSceneGraph 
+version 3.2.1. I also added support to osgswig for the osgVolume module. I learned enough about osgswig in 
+this process to convince me that I would prefer to work with bindings based on Boost.Python, rather than on 
+SWIG. So I created this osgpyplusplus project too.
 
-Completeness: The osgboostpython project contains impressive manually coded bindings based on Boost.Python. I
-predict that osgboostpython will never be complete, because manually coding those bindings is an overly ambitious
-goal. So I have chosen to use the Py++ code generator to automate the creation of Boost.Python bindings for
-OpenSceneGraph. I am fortunate to have the osgboostpython project available, to serve as a gold-standard touchstone
-for what those automatically generated bindings should look like.
+Completeness: The other competing project, osgboostpython, contains impressive manually coded bindings 
+based on Boost.Python. I predict that osgboostpython will never be complete, because manually coding those 
+bindings is an overly ambitious goal. So I have chosen to use the Py++ code generator to automate the creation 
+of Boost.Python bindings for OpenSceneGraph. I am fortunate to have the osgboostpython project available, 
+to serve as a gold-standard touchstone for what these semi-automatically generated bindings should look like.
 
 Control: I am maintaining an application (Neuroptikon) that depends critically on Python bindings for OpenSceneGraph.
 I appreciate having both projects controlled by me, so I can improve them together, without necessarily needing to
 negotiate features with others.
+
+One special feature of these osgpyplusplus bindings is built-in API documentation. OpenSceneGraph
+source code contains DOXYGEN comments to document the API. osgpyplusplus parses these comments, and
+creates python docstrings, so they can be used for interactive API documentation. Further, these docstrings
+are formatted so that python API documentation could be generated using the epydoc tool. The intention
+is that the OpenSceneGraph python API documentation created with epydoc, would resemble the C++ 
+documentation created with DOXYGEN.
 
 The Janelia Farm Research Campus Software Copyright 1.1
 Copyright (c) 2014, Howard Hughes Medical Institute, All rights reserved.

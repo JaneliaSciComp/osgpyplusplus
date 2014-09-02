@@ -14,25 +14,6 @@ void register_Vec2i_class(){
         bp::scope Vec2i_scope( Vec2i_exposer );
         bp::scope().attr("num_components") = (int)osg::Vec2i::num_components;
         Vec2i_exposer.def( bp::init< int, int >(( bp::arg("x"), bp::arg("y") )) );
-        { //::osg::Vec2i::g
-        
-            typedef int & ( ::osg::Vec2i::*g_function_type)(  ) ;
-            
-            Vec2i_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec2i::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec2i::g
-        
-            typedef int ( ::osg::Vec2i::*g_function_type)(  ) const;
-            
-            Vec2i_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec2i::g ) );
-        
-        }
         Vec2i_exposer.def( bp::self != bp::self );
         Vec2i_exposer.def( bp::self * bp::other< int >() );
         Vec2i_exposer.def( bp::self * bp::self );
@@ -64,25 +45,6 @@ void register_Vec2i_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec2i::r
-        
-            typedef int & ( ::osg::Vec2i::*r_function_type)(  ) ;
-            
-            Vec2i_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec2i::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec2i::r
-        
-            typedef int ( ::osg::Vec2i::*r_function_type)(  ) const;
-            
-            Vec2i_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec2i::r ) );
-        
-        }
         { //::osg::Vec2i::set
         
             typedef void ( ::osg::Vec2i::*set_function_type)( int,int ) ;
@@ -103,42 +65,84 @@ void register_Vec2i_class(){
                 , ( bp::arg("rhs") ) );
         
         }
-        { //::osg::Vec2i::x
+        { //property "x"[fget=::osg::Vec2i::x]
         
-            typedef int & ( ::osg::Vec2i::*x_function_type)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
             
-            Vec2i_exposer.def( 
+            Vec2i_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec2i::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec2i::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec2i::x
+        { //property "x"[fget=::osg::Vec2i::x]
         
-            typedef int ( ::osg::Vec2i::*x_function_type)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget)(  ) const;
             
-            Vec2i_exposer.def( 
+            Vec2i_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec2i::x ) );
+                , fget( &::osg::Vec2i::x ) );
         
         }
-        { //::osg::Vec2i::y
+        { //property "y"[fget=::osg::Vec2i::y]
         
-            typedef int & ( ::osg::Vec2i::*y_function_type)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
             
-            Vec2i_exposer.def( 
+            Vec2i_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec2i::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec2i::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec2i::y
+        { //property "y"[fget=::osg::Vec2i::y]
         
-            typedef int ( ::osg::Vec2i::*y_function_type)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget)(  ) const;
             
-            Vec2i_exposer.def( 
+            Vec2i_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec2i::y ) );
+                , fget( &::osg::Vec2i::y ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec2i::r]
+        
+            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            
+            Vec2i_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec2i::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec2i::r]
+        
+            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            
+            Vec2i_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec2i::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec2i::g]
+        
+            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            
+            Vec2i_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec2i::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec2i::g]
+        
+            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            
+            Vec2i_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec2i::g ) );
         
         }
     }

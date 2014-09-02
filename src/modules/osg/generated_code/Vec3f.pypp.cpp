@@ -120,61 +120,64 @@ void register_Vec3f_class(){
                 , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
-        { //::osg::Vec3f::x
+        { //property "x"[fget=::osg::Vec3f::x]
         
-            typedef float & ( ::osg::Vec3f::*x_function_type)(  ) ;
+            typedef float & ( ::osg::Vec3f::*fget)(  ) ;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3f::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3f::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3f::x
+        { //property "x"[fget=::osg::Vec3f::x]
         
-            typedef float ( ::osg::Vec3f::*x_function_type)(  ) const;
+            typedef float ( ::osg::Vec3f::*fget)(  ) const;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec3f::x ) );
+                , fget( &::osg::Vec3f::x ) );
         
         }
-        { //::osg::Vec3f::y
+        { //property "y"[fget=::osg::Vec3f::y]
         
-            typedef float & ( ::osg::Vec3f::*y_function_type)(  ) ;
+            typedef float & ( ::osg::Vec3f::*fget)(  ) ;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3f::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3f::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3f::y
+        { //property "y"[fget=::osg::Vec3f::y]
         
-            typedef float ( ::osg::Vec3f::*y_function_type)(  ) const;
+            typedef float ( ::osg::Vec3f::*fget)(  ) const;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec3f::y ) );
+                , fget( &::osg::Vec3f::y ) );
         
         }
-        { //::osg::Vec3f::z
+        { //property "z"[fget=::osg::Vec3f::z]
         
-            typedef float & ( ::osg::Vec3f::*z_function_type)(  ) ;
+            typedef float & ( ::osg::Vec3f::*fget)(  ) ;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3f::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec3f::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec3f::z
+        { //property "z"[fget=::osg::Vec3f::z]
         
-            typedef float ( ::osg::Vec3f::*z_function_type)(  ) const;
+            typedef float ( ::osg::Vec3f::*fget)(  ) const;
             
-            Vec3f_exposer.def( 
+            Vec3f_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec3f::z ) );
+                , fget( &::osg::Vec3f::z ) );
         
         }
         Vec3f_exposer.def( bp::self * bp::other< osg::Matrixf >() );

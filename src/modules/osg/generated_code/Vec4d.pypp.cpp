@@ -17,25 +17,6 @@ void register_Vec4d_class(){
         Vec4d_exposer.def( bp::init< osg::Vec3d const &, double >(( bp::arg("v3"), bp::arg("w") )) );
         Vec4d_exposer.def( bp::init< osg::Vec4f const & >(( bp::arg("vec") )) );
         bp::implicitly_convertible< osg::Vec4f const &, osg::Vec4d >();
-        { //::osg::Vec4d::a
-        
-            typedef double & ( ::osg::Vec4d::*a_function_type)(  ) ;
-            
-            Vec4d_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4d::a )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4d::a
-        
-            typedef double ( ::osg::Vec4d::*a_function_type)(  ) const;
-            
-            Vec4d_exposer.def( 
-                "a"
-                , a_function_type( &::osg::Vec4d::a ) );
-        
-        }
         { //::osg::Vec4d::asABGR
         
             typedef unsigned int ( ::osg::Vec4d::*asABGR_function_type)(  ) const;
@@ -52,44 +33,6 @@ void register_Vec4d_class(){
             Vec4d_exposer.def( 
                 "asRGBA"
                 , asRGBA_function_type( &::osg::Vec4d::asRGBA ) );
-        
-        }
-        { //::osg::Vec4d::b
-        
-            typedef double & ( ::osg::Vec4d::*b_function_type)(  ) ;
-            
-            Vec4d_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4d::b )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4d::b
-        
-            typedef double ( ::osg::Vec4d::*b_function_type)(  ) const;
-            
-            Vec4d_exposer.def( 
-                "b"
-                , b_function_type( &::osg::Vec4d::b ) );
-        
-        }
-        { //::osg::Vec4d::g
-        
-            typedef double & ( ::osg::Vec4d::*g_function_type)(  ) ;
-            
-            Vec4d_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4d::g )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4d::g
-        
-            typedef double ( ::osg::Vec4d::*g_function_type)(  ) const;
-            
-            Vec4d_exposer.def( 
-                "g"
-                , g_function_type( &::osg::Vec4d::g ) );
         
         }
         { //::osg::Vec4d::isNaN
@@ -167,25 +110,6 @@ void register_Vec4d_class(){
                 , ( bp::arg("i") ) );
         
         }
-        { //::osg::Vec4d::r
-        
-            typedef double & ( ::osg::Vec4d::*r_function_type)(  ) ;
-            
-            Vec4d_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4d::r )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4d::r
-        
-            typedef double ( ::osg::Vec4d::*r_function_type)(  ) const;
-            
-            Vec4d_exposer.def( 
-                "r"
-                , r_function_type( &::osg::Vec4d::r ) );
-        
-        }
         { //::osg::Vec4d::set
         
             typedef void ( ::osg::Vec4d::*set_function_type)( double,double,double,double ) ;
@@ -206,80 +130,164 @@ void register_Vec4d_class(){
                 , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
-        { //::osg::Vec4d::w
+        { //property "x"[fget=::osg::Vec4d::x]
         
-            typedef double & ( ::osg::Vec4d::*w_function_type)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
             
-            Vec4d_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4d::w )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
-        
-        }
-        { //::osg::Vec4d::w
-        
-            typedef double ( ::osg::Vec4d::*w_function_type)(  ) const;
-            
-            Vec4d_exposer.def( 
-                "w"
-                , w_function_type( &::osg::Vec4d::w ) );
-        
-        }
-        { //::osg::Vec4d::x
-        
-            typedef double & ( ::osg::Vec4d::*x_function_type)(  ) ;
-            
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4d::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4d::x
+        { //property "x"[fget=::osg::Vec4d::x]
         
-            typedef double ( ::osg::Vec4d::*x_function_type)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
             
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec4d::x ) );
+                , fget( &::osg::Vec4d::x ) );
         
         }
-        { //::osg::Vec4d::y
+        { //property "y"[fget=::osg::Vec4d::y]
         
-            typedef double & ( ::osg::Vec4d::*y_function_type)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
             
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4d::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4d::y
+        { //property "y"[fget=::osg::Vec4d::y]
         
-            typedef double ( ::osg::Vec4d::*y_function_type)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
             
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec4d::y ) );
+                , fget( &::osg::Vec4d::y ) );
         
         }
-        { //::osg::Vec4d::z
+        { //property "z"[fget=::osg::Vec4d::z]
         
-            typedef double & ( ::osg::Vec4d::*z_function_type)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
             
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4d::z )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::z )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec4d::z
+        { //property "z"[fget=::osg::Vec4d::z]
         
-            typedef double ( ::osg::Vec4d::*z_function_type)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
             
-            Vec4d_exposer.def( 
+            Vec4d_exposer.add_property( 
                 "z"
-                , z_function_type( &::osg::Vec4d::z ) );
+                , fget( &::osg::Vec4d::z ) );
+        
+        }
+        { //property "w"[fget=::osg::Vec4d::w]
+        
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            
+            Vec4d_exposer.add_property( 
+                "w"
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::w )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "w"[fget=::osg::Vec4d::w]
+        
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            
+            Vec4d_exposer.add_property( 
+                "w"
+                , fget( &::osg::Vec4d::w ) );
+        
+        }
+        { //property "r"[fget=::osg::Vec4d::r]
+        
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            
+            Vec4d_exposer.add_property( 
+                "r"
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::r )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "r"[fget=::osg::Vec4d::r]
+        
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            
+            Vec4d_exposer.add_property( 
+                "r"
+                , fget( &::osg::Vec4d::r ) );
+        
+        }
+        { //property "g"[fget=::osg::Vec4d::g]
+        
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            
+            Vec4d_exposer.add_property( 
+                "g"
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::g )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "g"[fget=::osg::Vec4d::g]
+        
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            
+            Vec4d_exposer.add_property( 
+                "g"
+                , fget( &::osg::Vec4d::g ) );
+        
+        }
+        { //property "b"[fget=::osg::Vec4d::b]
+        
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            
+            Vec4d_exposer.add_property( 
+                "b"
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::b )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "b"[fget=::osg::Vec4d::b]
+        
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            
+            Vec4d_exposer.add_property( 
+                "b"
+                , fget( &::osg::Vec4d::b ) );
+        
+        }
+        { //property "a"[fget=::osg::Vec4d::a]
+        
+            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            
+            Vec4d_exposer.add_property( 
+                "a"
+                , bp::make_function( 
+                      fget( &::osg::Vec4d::a )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
+        
+        }
+        { //property "a"[fget=::osg::Vec4d::a]
+        
+            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            
+            Vec4d_exposer.add_property( 
+                "a"
+                , fget( &::osg::Vec4d::a ) );
         
         }
         Vec4d_exposer.def( bp::self * bp::other< osg::Matrixf >() );

@@ -45,7 +45,11 @@ template class std::vector<osg::Object*>;
 template class std::vector<osg::Node*>;
 template class std::vector<osg::StateSet*>;
 
+// TODO - instantiate more VecXArray types
 template class osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT >;
+template class osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT >;
+
+template class osg::BoundingSphereImpl< osg::Vec3f >;
 
 // template class std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > >;
 namespace pyplusplus { namespace aliases {
@@ -54,7 +58,11 @@ namespace pyplusplus { namespace aliases {
     typedef std::vector<osg::Object*> std_vector_osgObjectPtr;
     typedef std::vector<osg::StateSet*> std_vector_osgStateSetPtr;
     typedef std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > > longClassName1;
+	
 	typedef osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT > Vec4Array;
+	typedef osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > Vec3Array;
+
+	typedef osg::BoundingSphereImpl< osg::Vec3f > BoundingSphereVec3f;
 }}
 
 // function(s) needed by indexing suite
