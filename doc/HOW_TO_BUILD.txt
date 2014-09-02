@@ -9,3 +9,4 @@ On windows:
   % b2 --with-python python-debugging=off threading=multi variant=release link=shared toolset=msvc-9.0 install
 
 Set GCCXML_COMPILER environment variable to the correct value (msvc9 on Windows for Python 2.7)
+[Many more steps need to be documented here...]
