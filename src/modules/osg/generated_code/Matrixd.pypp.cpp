@@ -1098,6 +1098,8 @@ void register_Matrixd_class(){
         Matrixd_exposer.staticmethod( "scale" );
         Matrixd_exposer.staticmethod( "transform3x3" );
         Matrixd_exposer.staticmethod( "translate" );
+        Matrixd_exposer.def( bp::self_ns::str( bp::self ) );
+        Matrixd_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

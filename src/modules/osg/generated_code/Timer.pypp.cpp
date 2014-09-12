@@ -39,7 +39,7 @@ void register_Timer_class(){
         .def( 
             "instance"
             , (::osg::Timer * (*)(  ))( &::osg::Timer::instance )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "setStartTick"
             , (void ( ::osg::Timer::* )(  ))( &::osg::Timer::setStartTick )

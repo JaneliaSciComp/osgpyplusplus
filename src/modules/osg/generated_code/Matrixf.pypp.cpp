@@ -1104,6 +1104,8 @@ void register_Matrixf_class(){
         Matrixf_exposer.staticmethod( "scale" );
         Matrixf_exposer.staticmethod( "transform3x3" );
         Matrixf_exposer.staticmethod( "translate" );
+        Matrixf_exposer.def( bp::self_ns::str( bp::self ) );
+        Matrixf_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

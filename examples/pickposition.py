@@ -39,6 +39,7 @@ class PickHandler(osgGA.GUIEventHandler):
         self.wb = 0
 
     def handle(self, ea, aa, obj, nv):
+        print "handle called"
         try:
             return self._handle(ea,aa,obj,nv)
         except:
@@ -108,6 +109,7 @@ viewer.addEventHandler(osgViewer.HelpHandler());
 viewer.addEventHandler(osgViewer.StatsHandler());
 viewer.addEventHandler(osgGA.StateSetManipulator(root.stateSet));
 pickhandler = PickHandler()
+print "adding pickhandler"
 viewer.addEventHandler(pickhandler);
 #run the viewer
 viewer.run()

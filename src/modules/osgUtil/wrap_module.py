@@ -42,6 +42,7 @@ class OsgUtilWrapper(BaseWrapper):
                 ]:
             cullVisitor.member_functions(fn_name).exclude()
         cullVisitor.constructors(arg_types=[None]).exclude()
+        cullVisitor.noncopyable = True
 
         self.mb.class_("IncrementalCompileOperation").variables("_compileMap").exclude()
         self.mb.class_("Optimizer").variables("_billboards").exclude()

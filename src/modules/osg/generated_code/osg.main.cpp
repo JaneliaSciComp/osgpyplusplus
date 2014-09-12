@@ -216,6 +216,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodeacceptop.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodecallback.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodevisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
@@ -588,6 +590,8 @@ BOOST_PYTHON_MODULE(osg){
     register_State_class();
 
     register_AnimationPath_class();
+
+    register_NodeCallback_class();
 
     register_AnimationPathCallback_class();
 
@@ -1028,6 +1032,14 @@ BOOST_PYTHON_MODULE(osg){
     boost::python::scope().attr("GL_TEXTURE_GEN_S") = GL_TEXTURE_GEN_S;
 
     boost::python::scope().attr("GL_TEXTURE_GEN_T") = GL_TEXTURE_GEN_T;
+
+    #ifdef OSG_USE_FLOAT_MATRIX
+    boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixf");
+    boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixf");
+#else
+    boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixd");
+    boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixd");
+#endif
 
     register_global_variables();
 

@@ -108,44 +108,47 @@ void register_Vec2f_class(){
                 , "\n Returns true if all components have values that are not NaN.\n" );
         
         }
-        { //::osg::Vec2f::x
+        { //property "x"[fget=::osg::Vec2f::x]
         
-            typedef float & ( ::osg::Vec2f::*x_function_type)(  ) ;
+            typedef float & ( ::osg::Vec2f::*fget)(  ) ;
             
-            Vec2f_exposer.def( 
+            Vec2f_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec2f::x )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec2f::x )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec2f::x
+        { //property "x"[fget=::osg::Vec2f::x]
         
-            typedef float ( ::osg::Vec2f::*x_function_type)(  ) const;
+            typedef float ( ::osg::Vec2f::*fget)(  ) const;
             
-            Vec2f_exposer.def( 
+            Vec2f_exposer.add_property( 
                 "x"
-                , x_function_type( &::osg::Vec2f::x ) );
+                , fget( &::osg::Vec2f::x ) );
         
         }
-        { //::osg::Vec2f::y
+        { //property "y"[fget=::osg::Vec2f::y]
         
-            typedef float & ( ::osg::Vec2f::*y_function_type)(  ) ;
+            typedef float & ( ::osg::Vec2f::*fget)(  ) ;
             
-            Vec2f_exposer.def( 
+            Vec2f_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec2f::y )
-                , bp::return_value_policy< bp::copy_non_const_reference >() );
+                , bp::make_function( 
+                      fget( &::osg::Vec2f::y )
+                    , bp::return_value_policy< bp::copy_non_const_reference >() )  );
         
         }
-        { //::osg::Vec2f::y
+        { //property "y"[fget=::osg::Vec2f::y]
         
-            typedef float ( ::osg::Vec2f::*y_function_type)(  ) const;
+            typedef float ( ::osg::Vec2f::*fget)(  ) const;
             
-            Vec2f_exposer.def( 
+            Vec2f_exposer.add_property( 
                 "y"
-                , y_function_type( &::osg::Vec2f::y ) );
+                , fget( &::osg::Vec2f::y ) );
         
         }
+        Vec2f_exposer.def( bp::self_ns::str( bp::self ) );
     }
 
 }

@@ -304,6 +304,7 @@ void register_Plane_class(){
                 , "\n Checks if all internal values describing the plane have valid numbers\n Warning: This method does not check if the plane is mathematically correctly described!\n @remark  The only case where all elements have valid numbers and the plane description is invalid occurs if the planes normal\n          is zero.\n" );
         
         }
+        Plane_exposer.def( bp::self_ns::str( bp::self ) );
     }
 
 }

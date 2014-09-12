@@ -146,6 +146,8 @@ void register_Vec2b_class(){
                 , fget( &::osg::Vec2b::g ) );
         
         }
+        Vec2b_exposer.def( bp::self_ns::str( bp::self ) );
+        Vec2b_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

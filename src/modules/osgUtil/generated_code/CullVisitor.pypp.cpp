@@ -500,7 +500,7 @@ struct CullVisitor_wrapper : osgUtil::CullVisitor, bp::wrapper< osgUtil::CullVis
 void register_CullVisitor_class(){
 
     { //::osgUtil::CullVisitor
-        typedef bp::class_< CullVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::CullVisitor > > CullVisitor_exposer_t;
+        typedef bp::class_< CullVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::CullVisitor >, boost::noncopyable > CullVisitor_exposer_t;
         CullVisitor_exposer_t CullVisitor_exposer = CullVisitor_exposer_t( "CullVisitor", bp::no_init );
         bp::scope CullVisitor_scope( CullVisitor_exposer );
         bp::class_< CullVisitor_wrapper::Identifier_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::CullVisitor::Identifier >, boost::noncopyable >( "Identifier", bp::init< >() );

@@ -281,6 +281,26 @@ void register_Quat_class(){
                 , ( bp::arg("v") ) );
         
         }
+        { //::osg::Quat::set
+        
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Matrixf const & ) ;
+            
+            Quat_exposer.def( 
+                "set"
+                , set_function_type( &::osg::Quat::set )
+                , ( bp::arg("matrix") ) );
+        
+        }
+        { //::osg::Quat::set
+        
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Matrixd const & ) ;
+            
+            Quat_exposer.def( 
+                "set"
+                , set_function_type( &::osg::Quat::set )
+                , ( bp::arg("matrix") ) );
+        
+        }
         { //::osg::Quat::slerp
         
             typedef void ( ::osg::Quat::*slerp_function_type)( double,::osg::Quat const &,::osg::Quat const & ) ;
@@ -378,6 +398,8 @@ void register_Quat_class(){
                 , "\n return true if the Quat represents a zero rotation, and therefore can be ignored in computations.\n" );
         
         }
+        Quat_exposer.def( bp::self_ns::str( bp::self ) );
+        Quat_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

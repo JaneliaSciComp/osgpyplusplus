@@ -215,7 +215,7 @@ struct AnimationPathCallback_wrapper : osg::AnimationPathCallback, bp::wrapper< 
 void register_AnimationPathCallback_class(){
 
     { //::osg::AnimationPathCallback
-        typedef bp::class_< AnimationPathCallback_wrapper, osg::ref_ptr< ::osg::AnimationPathCallback >, boost::noncopyable > AnimationPathCallback_exposer_t;
+        typedef bp::class_< AnimationPathCallback_wrapper, bp::bases< osg::NodeCallback >, osg::ref_ptr< ::osg::AnimationPathCallback >, boost::noncopyable > AnimationPathCallback_exposer_t;
         AnimationPathCallback_exposer_t AnimationPathCallback_exposer = AnimationPathCallback_exposer_t( "AnimationPathCallback", bp::no_init );
         bp::scope AnimationPathCallback_scope( AnimationPathCallback_exposer );
         AnimationPathCallback_exposer.def( bp::init< >() );

@@ -357,6 +357,7 @@ void register_RefMatrixd_class(){
                 , ( bp::arg("obj") ) );
         
         }
+        RefMatrixd_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

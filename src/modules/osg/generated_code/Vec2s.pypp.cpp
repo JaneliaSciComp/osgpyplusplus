@@ -148,6 +148,8 @@ void register_Vec2s_class(){
                 , fget( &::osg::Vec2s::g ) );
         
         }
+        Vec2s_exposer.def( bp::self_ns::str( bp::self ) );
+        Vec2s_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

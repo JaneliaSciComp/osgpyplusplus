@@ -38,6 +38,7 @@
 #include <osg/DeleteHandler> // OK
 #include <osg/Export> // OK
 #include <osg/Version> // OK
+#include <osg/io_utils>
 
 // Disambiguate aliases for file names
 template class std::vector<osg::Group*>;

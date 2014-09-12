@@ -25,6 +25,7 @@ from pyplusplus import module_builder
 from pyplusplus.module_builder.call_policies import *
 from pyplusplus import function_transformers as FT
 from pygccxml import declarations
+import textwrap
 import os
 import re
 import sys
@@ -171,6 +172,7 @@ class OsgWrapper(BaseWrapper):
         # osg.class_("Texture").member_functions("compare").exclude()
         osg.class_("CoordinateSystemNode").member_functions("set").exclude()
         osg.class_("Texture2D").class_("SubloadCallback").exclude()
+        osg.class_("Timer").member_functions("instance").call_policies = return_value_policy(reference_existing_object)
 
         # Transform vector x(), y(), z() methods into properties
         for cls in osg.classes(lambda c: c.name.startswith("Vec")):
@@ -178,6 +180,21 @@ class OsgWrapper(BaseWrapper):
                 for fn in cls.member_functions(fn_name, allow_empty=True):
                     fn.exclude()
                     cls.add_property(fn_name, fn) # TODO setter
+                    # expose __str__ method
+
+        # Expose __str__ methods for Vec*, Matrix*, Quat, based on ostream helpers
+        for cls_prefix in ["Vec", "Matrix", "RefMatrix", "Quat"]:
+            for cls in osg.classes(lambda c: c.name.startswith(cls_prefix)):
+                if cls.alias.endswith("Transform"): # MatrixTransform
+                    continue
+                if cls.alias.endswith("i"): # Vec4ui, Vec4i compile errors
+                    continue
+                if cls.alias.endswith("us"):
+                    continue
+                if cls.alias.endswith("ub"):
+                    continue
+                # Expose a method that converts vec to string
+                cls.add_registration_code("def( bp::self_ns::str(bp::self) )")
 
         # Pure virtual "compare" method causes compile error
         texture = osg.class_("Texture")
@@ -198,7 +215,7 @@ class OsgWrapper(BaseWrapper):
                 "Shader", 
                 "PixelDataBufferObject", 
                 "PixelBufferObject", 
-                "NodeCallback", 
+                # "NodeCallback", 
                 "IndexArray", 
                 "GLBufferObjectSet", 
                 "GLBufferObjectManager", 
@@ -245,6 +262,18 @@ class OsgWrapper(BaseWrapper):
                         list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType, int> > >())
                 """ % (t, t, t) )
         # exit(0)
+
+        # Create alias for Matrix, just like in <osg/Matrix> header
+        self.mb.add_registration_code(textwrap.dedent("""
+
+            #ifdef OSG_USE_FLOAT_MATRIX
+                boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixf");
+                boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixf");
+            #else
+                boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixd");
+                boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixd");
+            #endif
+            """))
 
         # Write results
         self.generate_module_code("osg")
@@ -380,6 +409,7 @@ class OsgWrapper(BaseWrapper):
         cls.member_functions("merge").exclude()
         cls.member_functions("setDisplaySettings").exclude()
         cls.constructors().exclude()
+        cls.noncopyable = True
     
     def wrap_stateset(self):
         cls = self.mb.class_("StateSet")
@@ -461,6 +491,7 @@ class OsgWrapper(BaseWrapper):
         for fn_name in ['getGlobalReferencedMutex', ]:
             for fn in ref.member_functions(fn_name):
                 fn.call_policies = return_value_policy(reference_existing_object)
+        ref.noncopyable = True
         ref.constructors(arg_types=[None]).exclude() # remove non-compiling copy constructor
 
     def wrap_quaternion(self):
@@ -477,11 +508,6 @@ class OsgWrapper(BaseWrapper):
                 # avoid ugly alias
                 fn.transformations[-1].alias = fn.alias
                 have_getRotate = True
-        # Avoid refering to Matrix types for now... TODO - remove this
-        for fn in quat.member_functions("set"):
-            arg = fn.argument_types[0].decl_string
-            if "Matrix" in arg:
-                fn.exclude()
 
 if __name__ == "__main__":
     wrapper = OsgWrapper()
