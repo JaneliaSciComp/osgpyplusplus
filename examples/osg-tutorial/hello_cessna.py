@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 # the order of import is important here
-from osgpyplusplus import osg, osgGA, osgDB, osgViewer
+from osgpypp import osg, osgGA, osgDB, osgViewer
 
 viewer = osgViewer.Viewer()
 
