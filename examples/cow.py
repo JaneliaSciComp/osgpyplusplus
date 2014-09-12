@@ -23,13 +23,13 @@
 
 # This is the "hello world" of OpenScenGraph.
 # Creates a window containing a model of a cow
-from osgpyplusplus import osg, osgUtil, osgDB
+from osgpypp import osg, osgUtil, osgDB
 
 # print osg.osgGetVersion()
 # print osgDB.osgDBGetVersion()
 scene = osgDB.readNodeFile("cow.osg")
 
-from osgpyplusplus import osgGA, osgViewer
+from osgpypp import osgGA, osgViewer
 # print osgViewer.osgViewerGetVersion()
 
 viewer = osgViewer.Viewer()

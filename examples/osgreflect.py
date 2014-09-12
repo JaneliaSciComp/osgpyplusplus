@@ -18,7 +18,7 @@
 import sys
 import math
 import thread
-from osgpyplusplus import osg, osgDB, osgGA, osgViewer
+from osgpypp import osg, osgDB, osgGA, osgViewer
 # import osg
 # import osgDB
 # import osgGA

@@ -16,7 +16,7 @@
 #
 
 #import the needed modules
-from osgpyplusplus import osg, osgDB, osgGA, osgViewer, osgUtil
+from osgpypp import osg, osgDB, osgGA, osgViewer, osgUtil
 # import osg
 # import osgDB
 # import osgGA

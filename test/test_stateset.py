@@ -1,4 +1,4 @@
-from osgpyplusplus import osg
+from osgpypp import osg
 import unittest
 
 class TestOsgStateSet(unittest.TestCase):

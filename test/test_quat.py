@@ -1,4 +1,4 @@
-from osgpyplusplus import osg
+from osgpypp import osg
 import unittest
 from numpy import arange
 

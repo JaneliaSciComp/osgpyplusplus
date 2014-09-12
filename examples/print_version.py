@@ -1,4 +1,4 @@
 # Sanity check existence and minimal functioning of osg module
-from osgpyplusplus import osg
+from osgpypp import osg
 print osg.osgGetVersion()
 
