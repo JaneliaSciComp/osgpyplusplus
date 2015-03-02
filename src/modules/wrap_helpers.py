@@ -151,7 +151,14 @@ def remove_const_from_reference(type):
 
 def hack_osg_arg(cls, fn_name, arg_name):
     "Convert one const reference function argument to non-const reference"
-    for fn in cls.member_functions(fn_name):
+    for fn in cls.member_functions(fn_name, allow_empty=True):
+        found_arg = False
+        for arg in fn.arguments:
+            if arg.name == arg_name:
+                found_arg = True
+                break
+        if not found_arg:
+            continue
         fn.add_transformation(FT.modify_type(arg_name, remove_const_from_reference))
 
 def wrap_call_policies(mb):
@@ -165,7 +172,7 @@ def wrap_one_call_policy(fn):
     rt = fn.return_type
     if fn.return_type.decl_string == "char const *":
         return # use default for strings
-    if fn.return_type.decl_string == "const *":
+    if fn.return_type.decl_string == "char *":
         return # use default for strings
     elif fn.return_type.decl_string == "void *":
         return # use default for void pointers
@@ -184,6 +191,10 @@ def wrap_one_call_policy(fn):
             else:
                 fn.call_policies = return_value_policy(copy_non_const_reference)
                 return
+        # Const string references should be copied to python strings
+        if declarations.is_std_string(nonref_rt) and declarations.is_const(nonref_rt):
+            fn.call_policies = return_value_policy(copy_const_reference)
+            return
         # Returning reference to this same class looks like return_self() [does this always work?]
         if declarations.is_same(parent_ref, rt):
             fn.call_policies = return_self()

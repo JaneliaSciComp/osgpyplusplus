@@ -110,7 +110,9 @@ class OsgWrapper(BaseWrapper):
         #     cls.exclude()
         
         wrap_call_policies(self.mb)
-            
+        
+        # mb.member_functions("getName").call_policies = return_value_policy(copy_const_reference)
+
         # Many of those ref_ptr classes have a troublesome one-argument copy constructor
         for cls_name in [
                 "RefMatrixf",
@@ -209,7 +211,7 @@ class OsgWrapper(BaseWrapper):
         for cls_name in [
                 "StateAttributeCallback", 
                 # "StateAttribute", 
-                "vector<osg::Group*>", 
+                # "vector<osg::Group*>", 
                 "ShaderComponent", 
                 "ShaderBinary", 
                 "Shader", 
@@ -273,6 +275,10 @@ class OsgWrapper(BaseWrapper):
                 boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixd");
                 boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixd");
             #endif
+
+            boost::python::scope().attr("Vec4") = boost::python::scope().attr("Vec4f");
+            boost::python::scope().attr("Vec3") = boost::python::scope().attr("Vec3f");
+            boost::python::scope().attr("Vec2") = boost::python::scope().attr("Vec2f");
             """))
 
         # Write results
@@ -384,17 +390,18 @@ class OsgWrapper(BaseWrapper):
     def wrap_node(self):
         cls = self.mb.class_("Node")
         # Avoid wrapping NodeVisitor for the moment...
-        for fn_name in ["accept", 
-                "ascend", 
-                "traverse",
-                "asTransform", # TODO wrap Transform
+        for fn_name in [
+                # "accept", 
+                # "ascend", 
+                # "traverse",
+                # "asTransform", # TODO wrap Transform
                 "asTerrain", # TODO wrap Terrain
-                "asSwitch", # TODO wrap Switch
-                "asGroup", # TODO wrap Group
-                "getParent", 
-                "asGeode", # TODO wrap Geode
-                "asCamera", # TODO wrap Camera
-                "getParents", # TODO wrap Group
+                # "asSwitch", # TODO wrap Switch
+                # "asGroup", # TODO wrap Group
+                # "getParent", 
+                # "asGeode", # TODO wrap Geode
+                # "asCamera", # TODO wrap Camera
+                # "getParents", # TODO wrap Group
                 ]:
             cls.member_functions(fn_name).exclude()
         cls.add_property( "stateSet", 

@@ -31,12 +31,16 @@ class PickHandler(osgGA.GUIEventHandler):
     Print pick position
     """
     def __init__(self):
+        print "constructing pickhandler"
         osgGA.GUIEventHandler.__init__(self)
         #Store mouse xy location for button press and move events.
         self._mX = 0
         self._mY = 0
         self._selectedNode = 0
         self.wb = 0
+
+    def handleWithCheckAgainstIgnoreHandledEventsMask(self, ea, aa, obj, nv):
+        print "handleWhatever called"
 
     def handle(self, ea, aa, obj, nv):
         print "handle called"
@@ -45,7 +49,9 @@ class PickHandler(osgGA.GUIEventHandler):
         except:
             pass
         return False
+
     def _handle(self, ea, aa, obj, nv):
+        print "_handle called"
         vwr = aa
 #        vwr = osgViewer.GUIActionAdapterToViewer(aa)
         if not vwr:
@@ -62,7 +68,9 @@ class PickHandler(osgGA.GUIEventHandler):
                 if self.pick( ea.getXnormalized(), ea.getYnormalized(), vwr ):
                     return True
         return False
+
     def pick(self, x, y, viewer):
+        print "pick called"
         g1 = osgUtil.IntersectorGroup()
         l1 = osgUtil.LineSegmentIntersector(osgUtil.Intersector.PROJECTION, x, y)
         g1.addIntersector(l1)
@@ -110,6 +118,9 @@ viewer.addEventHandler(osgViewer.StatsHandler());
 viewer.addEventHandler(osgGA.StateSetManipulator(root.stateSet));
 pickhandler = PickHandler()
 print "adding pickhandler"
-viewer.addEventHandler(pickhandler);
+result = viewer.addEventHandler(pickhandler);
+print result
 #run the viewer
+viewer.setUpViewInWindow(100, 100, 500, 500, 0)
 viewer.run()
+

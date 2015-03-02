@@ -318,6 +318,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stats.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osggroupptr.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgnodeptr.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgobjectptr.pypp.hpp"
@@ -512,6 +514,8 @@ BOOST_PYTHON_MODULE(osg){
     register_std_vector_osgNodePtr_class();
 
     register_vector_less__osg_scope_Matrixd__greater__class();
+
+    register_std_vector_osgGroupPtr_class();
 
     register_vector_less__osg_scope_GraphicsContext_scope_ScreenSettings__greater__class();
 
@@ -1040,6 +1044,10 @@ BOOST_PYTHON_MODULE(osg){
     boost::python::scope().attr("Matrix") = boost::python::scope().attr("Matrixd");
     boost::python::scope().attr("RefMatrix") = boost::python::scope().attr("RefMatrixd");
 #endif
+
+boost::python::scope().attr("Vec4") = boost::python::scope().attr("Vec4f");
+boost::python::scope().attr("Vec3") = boost::python::scope().attr("Vec3f");
+boost::python::scope().attr("Vec2") = boost::python::scope().attr("Vec2f");
 
     register_global_variables();
 

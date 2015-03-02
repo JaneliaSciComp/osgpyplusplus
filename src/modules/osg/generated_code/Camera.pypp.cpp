@@ -172,6 +172,30 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
         return osg::Group::addChild( boost::python::ptr(child) );
     }
 
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
     virtual ::osg::Group * asGroup(  ) {
         if( bp::override func_asGroup = this->get_override( "asGroup" ) )
             return func_asGroup(  );
@@ -244,6 +268,30 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
         return osg::Transform::asPositionAttitudeTransform( );
     }
 
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
     virtual ::osg::Transform * asTransform(  ) {
         if( bp::override func_asTransform = this->get_override( "asTransform" ) )
             return func_asTransform(  );
@@ -266,6 +314,18 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
     
     ::osg::Transform const * default_asTransform(  ) const  {
         return osg::Transform::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
     }
 
     virtual ::osg::BoundingSphere computeBound(  ) const  {
@@ -1766,6 +1826,30 @@ void register_Camera_class(){
                 , ( bp::arg("child") ) );
         
         }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Camera_wrapper::*default_asGeode_function_type)(  ) ;
+            
+            Camera_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&Camera_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Camera_wrapper::*default_asGeode_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&Camera_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
         { //::osg::Group::asGroup
         
             typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
@@ -1838,6 +1922,30 @@ void register_Camera_class(){
                 , bp::return_internal_reference< >() );
         
         }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Camera_wrapper::*default_asSwitch_function_type)(  ) ;
+            
+            Camera_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Camera_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Camera_wrapper::*default_asSwitch_function_type)(  ) const;
+            
+            Camera_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Camera_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
         { //::osg::Transform::asTransform
         
             typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type)(  ) ;
@@ -1860,6 +1968,18 @@ void register_Camera_class(){
                 , asTransform_function_type(&::osg::Transform::asTransform)
                 , default_asTransform_function_type(&Camera_wrapper::default_asTransform)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::ascend
+        
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Camera_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Camera_exposer.def( 
+                "ascend"
+                , ascend_function_type(&::osg::Node::ascend)
+                , default_ascend_function_type(&Camera_wrapper::default_ascend)
+                , ( bp::arg("nv") ) );
         
         }
         { //::osg::Transform::computeBound

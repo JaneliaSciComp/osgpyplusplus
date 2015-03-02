@@ -136,6 +136,30 @@ struct Billboard_wrapper : osg::Billboard, bp::wrapper< osg::Billboard > {
         return osg::Billboard::removeDrawable( boost::python::ptr(gset) );
     }
 
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
     virtual ::osg::Geode * asGeode(  ) {
         if( bp::override func_asGeode = this->get_override( "asGeode" ) )
             return func_asGeode(  );
@@ -158,6 +182,90 @@ struct Billboard_wrapper : osg::Billboard, bp::wrapper< osg::Billboard > {
     
     ::osg::Geode const * default_asGeode(  ) const  {
         return osg::Geode::asGeode( );
+    }
+
+    virtual ::osg::Group * asGroup(  ) {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Node::asGroup(  );
+        }
+    }
+    
+    ::osg::Group * default_asGroup(  ) {
+        return osg::Node::asGroup( );
+    }
+
+    virtual ::osg::Group const * asGroup(  ) const  {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Node::asGroup(  );
+        }
+    }
+    
+    ::osg::Group const * default_asGroup(  ) const  {
+        return osg::Node::asGroup( );
+    }
+
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Node::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Node::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
     }
 
     virtual void computeDataVariance(  ) {
@@ -278,6 +386,18 @@ struct Billboard_wrapper : osg::Billboard, bp::wrapper< osg::Billboard > {
     
     void default_setUserData( ::osg::Referenced * obj ) {
         osg::Object::setUserData( boost::python::ptr(obj) );
+    }
+
+    virtual void traverse( ::osg::NodeVisitor & arg0 ) {
+        if( bp::override func_traverse = this->get_override( "traverse" ) )
+            func_traverse( boost::ref(arg0) );
+        else{
+            this->osg::Node::traverse( boost::ref(arg0) );
+        }
+    }
+    
+    void default_traverse( ::osg::NodeVisitor & arg0 ) {
+        osg::Node::traverse( boost::ref(arg0) );
     }
 
 };
@@ -544,6 +664,30 @@ void register_Billboard_class(){
                 , " Set the list of pivot point positions." );
         
         }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Billboard_wrapper::*default_asCamera_function_type)(  ) ;
+            
+            Billboard_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&Billboard_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Billboard_wrapper::*default_asCamera_function_type)(  ) const;
+            
+            Billboard_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&Billboard_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
         { //::osg::Geode::asGeode
         
             typedef ::osg::Geode * ( ::osg::Geode::*asGeode_function_type)(  ) ;
@@ -566,6 +710,90 @@ void register_Billboard_class(){
                 , asGeode_function_type(&::osg::Geode::asGeode)
                 , default_asGeode_function_type(&Billboard_wrapper::default_asGeode)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGroup
+        
+            typedef ::osg::Group * ( ::osg::Node::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Billboard_wrapper::*default_asGroup_function_type)(  ) ;
+            
+            Billboard_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Node::asGroup)
+                , default_asGroup_function_type(&Billboard_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGroup
+        
+            typedef ::osg::Group const * ( ::osg::Node::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Billboard_wrapper::*default_asGroup_function_type)(  ) const;
+            
+            Billboard_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Node::asGroup)
+                , default_asGroup_function_type(&Billboard_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Billboard_wrapper::*default_asSwitch_function_type)(  ) ;
+            
+            Billboard_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Billboard_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Billboard_wrapper::*default_asSwitch_function_type)(  ) const;
+            
+            Billboard_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Billboard_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Billboard_wrapper::*default_asTransform_function_type)(  ) ;
+            
+            Billboard_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&Billboard_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Billboard_wrapper::*default_asTransform_function_type)(  ) const;
+            
+            Billboard_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&Billboard_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::ascend
+        
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Billboard_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Billboard_exposer.def( 
+                "ascend"
+                , ascend_function_type(&::osg::Node::ascend)
+                , default_ascend_function_type(&Billboard_wrapper::default_ascend)
+                , ( bp::arg("nv") ) );
         
         }
         { //::osg::Object::computeDataVariance
@@ -696,6 +924,18 @@ void register_Billboard_class(){
                 , setUserData_function_type(&::osg::Object::setUserData)
                 , default_setUserData_function_type(&Billboard_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
+        
+        }
+        { //::osg::Node::traverse
+        
+            typedef void ( ::osg::Node::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Billboard_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Billboard_exposer.def( 
+                "traverse"
+                , traverse_function_type(&::osg::Node::traverse)
+                , default_traverse_function_type(&Billboard_wrapper::default_traverse)
+                , ( bp::arg("arg0") ) );
         
         }
     }

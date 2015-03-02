@@ -924,7 +924,7 @@ void register_Image_class(){
             Image_exposer.def( 
                 "getFileName"
                 , getFileName_function_type( &::osg::Image::getFileName )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osg::Image::getImageSizeInBytes

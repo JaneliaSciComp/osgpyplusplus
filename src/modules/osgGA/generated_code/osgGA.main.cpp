@@ -24,6 +24,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/events.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/firstpersonmanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guiactionadapter.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventadapter.pypp.hpp"
@@ -37,6 +39,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdata.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdatalist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/standardmanipulator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/statesetmanipulator.pypp.hpp"
 
@@ -56,6 +60,10 @@ BOOST_PYTHON_MODULE(osgGA){
     register_GUIEventAdapter_class();
 
     register_EventQueue_class();
+
+    register_StandardManipulator_class();
+
+    register_FirstPersonManipulator_class();
 
     register_GUIActionAdapter_class();
 

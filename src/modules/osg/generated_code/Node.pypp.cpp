@@ -16,6 +16,150 @@ struct Node_wrapper : osg::Node, bp::wrapper< osg::Node > {
     
     }
 
+    virtual void accept( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(nv) );
+        else{
+            this->osg::Node::accept( boost::ref(nv) );
+        }
+    }
+    
+    void default_accept( ::osg::NodeVisitor & nv ) {
+        osg::Node::accept( boost::ref(nv) );
+    }
+
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Group * asGroup(  ) {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Node::asGroup(  );
+        }
+    }
+    
+    ::osg::Group * default_asGroup(  ) {
+        return osg::Node::asGroup( );
+    }
+
+    virtual ::osg::Group const * asGroup(  ) const  {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Node::asGroup(  );
+        }
+    }
+    
+    ::osg::Group const * default_asGroup(  ) const  {
+        return osg::Node::asGroup( );
+    }
+
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Node::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Node::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
+    }
+
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -112,6 +256,18 @@ struct Node_wrapper : osg::Node, bp::wrapper< osg::Node > {
         osg::Node::setThreadSafeRefUnref( threadSafe );
     }
 
+    virtual void traverse( ::osg::NodeVisitor & arg0 ) {
+        if( bp::override func_traverse = this->get_override( "traverse" ) )
+            func_traverse( boost::ref(arg0) );
+        else{
+            this->osg::Node::traverse( boost::ref(arg0) );
+        }
+    }
+    
+    void default_traverse( ::osg::NodeVisitor & arg0 ) {
+        osg::Node::traverse( boost::ref(arg0) );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -181,6 +337,18 @@ void register_Node_class(){
         Node_exposer_t Node_exposer = Node_exposer_t( "Node", "\n Base class for all internal nodes in the scene graph.\n    Provides interface for most common node operations (Composite Pattern).\n", bp::no_init );
         bp::scope Node_scope( Node_exposer );
         Node_exposer.def( bp::init< >("\n Construct a node.\n            Initialize the parent list to empty, node name to  and\n            bounding sphere dirty flag to true.\n") );
+        { //::osg::Node::accept
+        
+            typedef void ( ::osg::Node::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Node_exposer.def( 
+                "accept"
+                , accept_function_type(&::osg::Node::accept)
+                , default_accept_function_type(&Node_wrapper::default_accept)
+                , ( bp::arg("nv") ) );
+        
+        }
         { //::osg::Node::addCullCallback
         
             typedef void ( ::osg::Node::*addCullCallback_function_type)( ::osg::NodeCallback * ) ;
@@ -223,6 +391,138 @@ void register_Node_class(){
                 , addUpdateCallback_function_type( &::osg::Node::addUpdateCallback )
                 , ( bp::arg("nc") )
                 , " Convenience method that sets the update callback of the node if it doesnt exist, or nest it into the existing one." );
+        
+        }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Node_wrapper::*default_asCamera_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&Node_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Node_wrapper::*default_asCamera_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&Node_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Node_wrapper::*default_asGeode_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&Node_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Node_wrapper::*default_asGeode_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&Node_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGroup
+        
+            typedef ::osg::Group * ( ::osg::Node::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Node_wrapper::*default_asGroup_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Node::asGroup)
+                , default_asGroup_function_type(&Node_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGroup
+        
+            typedef ::osg::Group const * ( ::osg::Node::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Node_wrapper::*default_asGroup_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "asGroup"
+                , asGroup_function_type(&::osg::Node::asGroup)
+                , default_asGroup_function_type(&Node_wrapper::default_asGroup)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Node_wrapper::*default_asSwitch_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Node_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Node_wrapper::*default_asSwitch_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&Node_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Node_wrapper::*default_asTransform_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&Node_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Node_wrapper::*default_asTransform_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&Node_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::ascend
+        
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Node_exposer.def( 
+                "ascend"
+                , ascend_function_type(&::osg::Node::ascend)
+                , default_ascend_function_type(&Node_wrapper::default_ascend)
+                , ( bp::arg("nv") ) );
         
         }
         { //::osg::Node::className
@@ -365,7 +665,7 @@ void register_Node_class(){
                 "getDescription"
                 , getDescription_function_type( &::osg::Node::getDescription )
                 , ( bp::arg("i") )
-                , bp::return_internal_reference< >()
+                , bp::return_value_policy< bp::copy_const_reference >()
                 , " Get a single const description of the const node." );
         
         }
@@ -517,6 +817,29 @@ void register_Node_class(){
                 , " return the nodes StateSet, if one does not already exist create it\n set the node and return the newly created StateSet. This ensures\n that a valid StateSet is always returned and can be used directly." );
         
         }
+        { //::osg::Node::getParent
+        
+            typedef ::osg::Group * ( ::osg::Node::*getParent_function_type)( unsigned int ) ;
+            
+            Node_exposer.def( 
+                "getParent"
+                , getParent_function_type( &::osg::Node::getParent )
+                , ( bp::arg("i") )
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::getParent
+        
+            typedef ::osg::Group const * ( ::osg::Node::*getParent_function_type)( unsigned int ) const;
+            
+            Node_exposer.def( 
+                "getParent"
+                , getParent_function_type( &::osg::Node::getParent )
+                , ( bp::arg("i") )
+                , bp::return_internal_reference< >()
+                , " Get a single const parent of node.\n @param i: index of the parent to get.\n Return: the parent i." );
+        
+        }
         { //::osg::Node::getParentalNodePaths
         
             typedef ::osg::NodePathList ( ::osg::Node::*getParentalNodePaths_function_type)( ::osg::Node * ) const;
@@ -526,6 +849,27 @@ void register_Node_class(){
                 , getParentalNodePaths_function_type( &::osg::Node::getParentalNodePaths )
                 , ( bp::arg("haltTraversalAtNode")=bp::object() )
                 , " Get the list of node paths parent paths.\n The optional Node* haltTraversalAtNode allows the user to prevent traversal beyond a specifed node." );
+        
+        }
+        { //::osg::Node::getParents
+        
+            typedef ::std::vector< osg::Group* > const & ( ::osg::Node::*getParents_function_type)(  ) const;
+            
+            Node_exposer.def( 
+                "getParents"
+                , getParents_function_type( &::osg::Node::getParents )
+                , bp::return_internal_reference< >()
+                , " Get the parent list of node." );
+        
+        }
+        { //::osg::Node::getParents
+        
+            typedef ::std::vector< osg::Group* > ( ::osg::Node::*getParents_function_type)(  ) ;
+            
+            Node_exposer.def( 
+                "getParents"
+                , getParents_function_type( &::osg::Node::getParents )
+                , " Get the a copy of parent list of node. A copy is returned to\n prevent modification of the parent list." );
         
         }
         { //::osg::Node::getStateSet
@@ -770,6 +1114,18 @@ void register_Node_class(){
                 , setUpdateCallback_function_type( &::osg::Node::setUpdateCallback )
                 , ( bp::arg("nc") )
                 , " Set update node callback, called during update traversal." );
+        
+        }
+        { //::osg::Node::traverse
+        
+            typedef void ( ::osg::Node::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            
+            Node_exposer.def( 
+                "traverse"
+                , traverse_function_type(&::osg::Node::traverse)
+                , default_traverse_function_type(&Node_wrapper::default_traverse)
+                , ( bp::arg("arg0") ) );
         
         }
         { //::osg::Object::computeDataVariance

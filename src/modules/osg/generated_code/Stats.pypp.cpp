@@ -123,7 +123,7 @@ void register_Stats_class(){
             Stats_exposer.def( 
                 "getName"
                 , getName_function_type( &::osg::Stats::getName )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osg::Stats::report

@@ -148,6 +148,54 @@ struct PositionAttitudeTransform_wrapper : osg::PositionAttitudeTransform, bp::w
         return osg::Group::addChild( boost::python::ptr(child) );
     }
 
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
     virtual ::osg::Group * asGroup(  ) {
         if( bp::override func_asGroup = this->get_override( "asGroup" ) )
             return func_asGroup(  );
@@ -196,6 +244,30 @@ struct PositionAttitudeTransform_wrapper : osg::PositionAttitudeTransform, bp::w
         return osg::Transform::asMatrixTransform( );
     }
 
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
     virtual ::osg::Transform * asTransform(  ) {
         if( bp::override func_asTransform = this->get_override( "asTransform" ) )
             return func_asTransform(  );
@@ -218,6 +290,18 @@ struct PositionAttitudeTransform_wrapper : osg::PositionAttitudeTransform, bp::w
     
     ::osg::Transform const * default_asTransform(  ) const  {
         return osg::Transform::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
     }
 
     virtual ::osg::BoundingSphere computeBound(  ) const  {
@@ -469,6 +553,26 @@ void register_PositionAttitudeTransform_class(){
             , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Node * ))(&PositionAttitudeTransform_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
+            "asCamera"
+            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
+            , (::osg::Camera * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asCamera)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asCamera"
+            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asCamera)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asGeode"
+            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
+            , (::osg::Geode * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asGeode)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asGeode"
+            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asGeode)
+            , bp::return_internal_reference< >() )    
+        .def( 
             "asGroup"
             , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
             , (::osg::Group * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asGroup)
@@ -489,6 +593,16 @@ void register_PositionAttitudeTransform_class(){
             , (::osg::MatrixTransform const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asMatrixTransform)
             , bp::return_internal_reference< >() )    
         .def( 
+            "asSwitch"
+            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asSwitch)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asSwitch"
+            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asSwitch)
+            , bp::return_internal_reference< >() )    
+        .def( 
             "asTransform"
             , (::osg::Transform * ( ::osg::Transform::* )(  ))(&::osg::Transform::asTransform)
             , (::osg::Transform * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asTransform)
@@ -498,6 +612,11 @@ void register_PositionAttitudeTransform_class(){
             , (::osg::Transform const * ( ::osg::Transform::* )(  )const)(&::osg::Transform::asTransform)
             , (::osg::Transform const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
+        .def( 
+            "ascend"
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ))(&PositionAttitudeTransform_wrapper::default_ascend)
+            , ( bp::arg("nv") ) )    
         .def( 
             "computeBound"
             , (::osg::BoundingSphere ( ::osg::Transform::* )(  )const)(&::osg::Transform::computeBound)

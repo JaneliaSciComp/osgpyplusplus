@@ -124,6 +124,54 @@ struct LightSource_wrapper : osg::LightSource, bp::wrapper< osg::LightSource > {
         return osg::Group::addChild( boost::python::ptr(child) );
     }
 
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
     virtual ::osg::Group * asGroup(  ) {
         if( bp::override func_asGroup = this->get_override( "asGroup" ) )
             return func_asGroup(  );
@@ -146,6 +194,66 @@ struct LightSource_wrapper : osg::LightSource, bp::wrapper< osg::LightSource > {
     
     ::osg::Group const * default_asGroup(  ) const  {
         return osg::Group::asGroup( );
+    }
+
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Node::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Node::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
     }
 
     virtual void computeDataVariance(  ) {
@@ -475,6 +583,54 @@ void register_LightSource_class(){
                 , ( bp::arg("child") ) );
         
         }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( LightSource_wrapper::*default_asCamera_function_type)(  ) ;
+            
+            LightSource_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&LightSource_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asCamera
+        
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( LightSource_wrapper::*default_asCamera_function_type)(  ) const;
+            
+            LightSource_exposer.def( 
+                "asCamera"
+                , asCamera_function_type(&::osg::Node::asCamera)
+                , default_asCamera_function_type(&LightSource_wrapper::default_asCamera)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( LightSource_wrapper::*default_asGeode_function_type)(  ) ;
+            
+            LightSource_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&LightSource_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asGeode
+        
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( LightSource_wrapper::*default_asGeode_function_type)(  ) const;
+            
+            LightSource_exposer.def( 
+                "asGeode"
+                , asGeode_function_type(&::osg::Node::asGeode)
+                , default_asGeode_function_type(&LightSource_wrapper::default_asGeode)
+                , bp::return_internal_reference< >() );
+        
+        }
         { //::osg::Group::asGroup
         
             typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
@@ -497,6 +653,66 @@ void register_LightSource_class(){
                 , asGroup_function_type(&::osg::Group::asGroup)
                 , default_asGroup_function_type(&LightSource_wrapper::default_asGroup)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( LightSource_wrapper::*default_asSwitch_function_type)(  ) ;
+            
+            LightSource_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&LightSource_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asSwitch
+        
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( LightSource_wrapper::*default_asSwitch_function_type)(  ) const;
+            
+            LightSource_exposer.def( 
+                "asSwitch"
+                , asSwitch_function_type(&::osg::Node::asSwitch)
+                , default_asSwitch_function_type(&LightSource_wrapper::default_asSwitch)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( LightSource_wrapper::*default_asTransform_function_type)(  ) ;
+            
+            LightSource_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&LightSource_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::asTransform
+        
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( LightSource_wrapper::*default_asTransform_function_type)(  ) const;
+            
+            LightSource_exposer.def( 
+                "asTransform"
+                , asTransform_function_type(&::osg::Node::asTransform)
+                , default_asTransform_function_type(&LightSource_wrapper::default_asTransform)
+                , bp::return_internal_reference< >() );
+        
+        }
+        { //::osg::Node::ascend
+        
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( LightSource_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
+            
+            LightSource_exposer.def( 
+                "ascend"
+                , ascend_function_type(&::osg::Node::ascend)
+                , default_ascend_function_type(&LightSource_wrapper::default_ascend)
+                , ( bp::arg("nv") ) );
         
         }
         { //::osg::Object::computeDataVariance

@@ -200,7 +200,7 @@ void register_Object_class(){
             Object_exposer.def( 
                 "getName"
                 , getName_function_type( &::osg::Object::getName )
-                , bp::return_internal_reference< >()
+                , bp::return_value_policy< bp::copy_const_reference >()
                 , " Get the name of object." );
         
         }

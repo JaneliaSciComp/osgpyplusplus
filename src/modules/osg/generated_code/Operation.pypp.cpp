@@ -50,7 +50,7 @@ void register_Operation_class(){
         .def( 
             "getName"
             , (::std::string const & ( ::osg::Operation::* )(  )const)( &::osg::Operation::getName )
-            , bp::return_internal_reference< >()
+            , bp::return_value_policy< bp::copy_const_reference >()
             , " Get the human readable name of the operation." )    
         .def( 
             "__call__"

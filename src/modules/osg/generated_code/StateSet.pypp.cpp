@@ -555,7 +555,7 @@ void register_StateSet_class(){
             StateSet_exposer.def( 
                 "getBinName"
                 , getBinName_function_type( &::osg::StateSet::getBinName )
-                , bp::return_internal_reference< >()
+                , bp::return_value_policy< bp::copy_const_reference >()
                 , " Get the render bin name." );
         
         }

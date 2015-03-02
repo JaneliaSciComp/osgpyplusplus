@@ -196,6 +196,54 @@ struct Switch_wrapper : osg::Switch, bp::wrapper< osg::Switch > {
         osg::Switch::traverse( boost::ref(nv) );
     }
 
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
     virtual ::osg::Group * asGroup(  ) {
         if( bp::override func_asGroup = this->get_override( "asGroup" ) )
             return func_asGroup(  );
@@ -218,6 +266,42 @@ struct Switch_wrapper : osg::Switch, bp::wrapper< osg::Switch > {
     
     ::osg::Group const * default_asGroup(  ) const  {
         return osg::Group::asGroup( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Node::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Node::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Node::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
     }
 
     virtual void computeDataVariance(  ) {
@@ -452,6 +536,26 @@ void register_Switch_class(){
             , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ))(&Switch_wrapper::default_traverse)
             , ( bp::arg("nv") ) )    
         .def( 
+            "asCamera"
+            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
+            , (::osg::Camera * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asCamera)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asCamera"
+            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asCamera)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asGeode"
+            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
+            , (::osg::Geode * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asGeode)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asGeode"
+            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asGeode)
+            , bp::return_internal_reference< >() )    
+        .def( 
             "asGroup"
             , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
             , (::osg::Group * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asGroup)
@@ -461,6 +565,21 @@ void register_Switch_class(){
             , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
             , (::osg::Group const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
+        .def( 
+            "asTransform"
+            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
+            , (::osg::Transform * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asTransform)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "asTransform"
+            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asTransform)
+            , bp::return_internal_reference< >() )    
+        .def( 
+            "ascend"
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
+            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ))(&Switch_wrapper::default_ascend)
+            , ( bp::arg("nv") ) )    
         .def( 
             "computeDataVariance"
             , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)

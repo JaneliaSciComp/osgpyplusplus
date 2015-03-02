@@ -193,7 +193,7 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "getApplication"
                 , getApplication_function_type( &::osg::DisplaySettings::getApplication )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osg::DisplaySettings::getCompileContextsHint
