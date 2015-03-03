@@ -18,6 +18,30 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
     
     }
 
+    virtual void allocAnimationData(  ){
+        if( bp::override func_allocAnimationData = this->get_override( "allocAnimationData" ) )
+            func_allocAnimationData(  );
+        else{
+            this->osgGA::FirstPersonManipulator::allocAnimationData(  );
+        }
+    }
+    
+    virtual void default_allocAnimationData(  ){
+        osgGA::FirstPersonManipulator::allocAnimationData( );
+    }
+
+    virtual void applyAnimationStep( double const currentProgress, double const prevProgress ){
+        if( bp::override func_applyAnimationStep = this->get_override( "applyAnimationStep" ) )
+            func_applyAnimationStep( currentProgress, prevProgress );
+        else{
+            this->osgGA::FirstPersonManipulator::applyAnimationStep( currentProgress, prevProgress );
+        }
+    }
+    
+    virtual void default_applyAnimationStep( double const currentProgress, double const prevProgress ){
+        osgGA::FirstPersonManipulator::applyAnimationStep( currentProgress, prevProgress );
+    }
+
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -176,6 +200,46 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
         return osgGA::FirstPersonManipulator::libraryName( );
     }
 
+    void moveForward( double const distance ){
+        osgGA::FirstPersonManipulator::moveForward( distance );
+    }
+
+    void moveForward( ::osg::Quat const & rotation, double const distance ){
+        osgGA::FirstPersonManipulator::moveForward( boost::ref(rotation), distance );
+    }
+
+    void moveRight( double const distance ){
+        osgGA::FirstPersonManipulator::moveRight( distance );
+    }
+
+    void moveUp( double const distance ){
+        osgGA::FirstPersonManipulator::moveUp( distance );
+    }
+
+    virtual bool performMouseDeltaMovement( float const dx, float const dy ){
+        if( bp::override func_performMouseDeltaMovement = this->get_override( "performMouseDeltaMovement" ) )
+            return func_performMouseDeltaMovement( dx, dy );
+        else{
+            return this->osgGA::FirstPersonManipulator::performMouseDeltaMovement( dx, dy );
+        }
+    }
+    
+    virtual bool default_performMouseDeltaMovement( float const dx, float const dy ){
+        return osgGA::FirstPersonManipulator::performMouseDeltaMovement( dx, dy );
+    }
+
+    virtual bool performMovementLeftMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementLeftMouseButton = this->get_override( "performMovementLeftMouseButton" ) )
+            return func_performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::FirstPersonManipulator::performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementLeftMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::FirstPersonManipulator::performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+    }
+
     virtual void setAcceleration( double const & acceleration, bool relativeToModelSize=false ) {
         if( bp::override func_setAcceleration = this->get_override( "setAcceleration" ) )
             func_setAcceleration( acceleration, relativeToModelSize );
@@ -272,6 +336,10 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
         osgGA::FirstPersonManipulator::setWheelMovement( wheelMovement, relativeToModelSize );
     }
 
+    static int allocateRelativeFlag(  ){
+        return osgGA::StandardManipulator::allocateRelativeFlag(  );
+    }
+
     virtual void computeDataVariance(  ) {
         if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
             func_computeDataVariance(  );
@@ -318,6 +386,22 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
     
     void default_finishAnimation(  ) {
         osgGA::StandardManipulator::finishAnimation( );
+    }
+
+    static void fixVerticalAxis( ::osg::Quat & rotation, ::osg::Vec3d const & localUp, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(rotation), boost::ref(localUp), disallowFlipOver );
+    }
+
+    void fixVerticalAxis( ::osg::Vec3d & eye, ::osg::Quat & rotation, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(eye), boost::ref(rotation), disallowFlipOver );
+    }
+
+    static void fixVerticalAxis( ::osg::Vec3d const & forward, ::osg::Vec3d const & up, ::osg::Vec3d & newUp, ::osg::Vec3d const & localUp, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(forward), boost::ref(up), boost::ref(newUp), boost::ref(localUp), disallowFlipOver );
+    }
+
+    void flushMouseEventStack(  ){
+        osgGA::StandardManipulator::flushMouseEventStack(  );
     }
 
     virtual ::osgUtil::SceneView::FusionDistanceMode getFusionDistanceMode(  ) const  {
@@ -378,6 +462,14 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
     
     ::osg::Node * default_getNode(  ) {
         return osgGA::StandardManipulator::getNode( );
+    }
+
+    bool getRelativeFlag( int index ) const {
+        return osgGA::StandardManipulator::getRelativeFlag( index );
+    }
+
+    float getThrowScale( double const eventTimeDelta ) const {
+        return osgGA::StandardManipulator::getThrowScale( eventTimeDelta );
     }
 
     virtual void getUsage( ::osg::ApplicationUsage & usage ) const  {
@@ -460,6 +552,42 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
         return bp::object( result );
     }
 
+    virtual bool isMouseMoving(  ) const {
+        if( bp::override func_isMouseMoving = this->get_override( "isMouseMoving" ) )
+            return func_isMouseMoving(  );
+        else{
+            return this->osgGA::StandardManipulator::isMouseMoving(  );
+        }
+    }
+    
+    virtual bool default_isMouseMoving(  ) const {
+        return osgGA::StandardManipulator::isMouseMoving( );
+    }
+
+    virtual bool performMovementMiddleMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementMiddleMouseButton = this->get_override( "performMovementMiddleMouseButton" ) )
+            return func_performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::StandardManipulator::performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementMiddleMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::StandardManipulator::performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+    }
+
+    virtual bool performMovementRightMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementRightMouseButton = this->get_override( "performMovementRightMouseButton" ) )
+            return func_performMovementRightMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::StandardManipulator::performMovementRightMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementRightMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::StandardManipulator::performMovementRightMouseButton( eventTimeDelta, dx, dy );
+    }
+
     virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
         if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
             func_resizeGLObjectBuffers( arg0 );
@@ -470,6 +598,10 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
     
     void default_resizeGLObjectBuffers( unsigned int arg0 ) {
         osg::Object::resizeGLObjectBuffers( arg0 );
+    }
+
+    static void rotateYawPitch( ::osg::Quat & rotation, double const yaw, double const pitch, ::osg::Vec3d const & localUp=osg::Vec3d(0.0, 0.0, 0.0) ){
+        osgGA::StandardManipulator::rotateYawPitch( boost::ref(rotation), yaw, pitch, boost::ref(localUp) );
     }
 
     virtual void setAllowThrow( bool allowThrow ) {
@@ -556,6 +688,10 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
         osgGA::StandardManipulator::setNode( boost::python::ptr(arg0) );
     }
 
+    void setRelativeFlag( int index, bool value ){
+        osgGA::StandardManipulator::setRelativeFlag( index, value );
+    }
+
     virtual void setThreadSafeRefUnref( bool threadSafe ) {
         if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
             func_setThreadSafeRefUnref( threadSafe );
@@ -611,10 +747,29 @@ static int DEFAULT_SETTINGS = osgGA::FirstPersonManipulator::DEFAULT_SETTINGS;
 void register_FirstPersonManipulator_class(){
 
     { //::osgGA::FirstPersonManipulator
-        typedef bp::class_< FirstPersonManipulator_wrapper, bp::bases< osgGA::StandardManipulator >, osg::ref_ptr< ::osgGA::FirstPersonManipulator >, boost::noncopyable > FirstPersonManipulator_exposer_t;
+        typedef bp::class_< FirstPersonManipulator_wrapper, bp::bases< osgGA::StandardManipulator >, osg::ref_ptr< FirstPersonManipulator_wrapper >, boost::noncopyable > FirstPersonManipulator_exposer_t;
         FirstPersonManipulator_exposer_t FirstPersonManipulator_exposer = FirstPersonManipulator_exposer_t( "FirstPersonManipulator", "\n FirstPersonManipulator is base class for camera control based on position\n    and orientation of camera, like walk, drive, and flight manipulators.\n", bp::init< bp::optional< int > >(( bp::arg("flags")=(int)(DEFAULT_SETTINGS) )) );
         bp::scope FirstPersonManipulator_scope( FirstPersonManipulator_exposer );
         bp::implicitly_convertible< int, osgGA::FirstPersonManipulator >();
+        { //::osgGA::FirstPersonManipulator::allocAnimationData
+        
+            typedef void ( FirstPersonManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "allocAnimationData"
+                , allocAnimationData_function_type( &FirstPersonManipulator_wrapper::default_allocAnimationData ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::applyAnimationStep
+        
+            typedef void ( FirstPersonManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "applyAnimationStep"
+                , applyAnimationStep_function_type( &FirstPersonManipulator_wrapper::default_applyAnimationStep )
+                , ( bp::arg("currentProgress"), bp::arg("prevProgress") ) );
+        
+        }
         { //::osgGA::FirstPersonManipulator::className
         
             typedef char const * ( ::osgGA::FirstPersonManipulator::*className_function_type)(  ) const;
@@ -792,6 +947,66 @@ void register_FirstPersonManipulator_class(){
                 , default_libraryName_function_type(&FirstPersonManipulator_wrapper::default_libraryName) );
         
         }
+        { //::osgGA::FirstPersonManipulator::moveForward
+        
+            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type)( double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "moveForward"
+                , moveForward_function_type( &FirstPersonManipulator_wrapper::moveForward )
+                , ( bp::arg("distance") ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::moveForward
+        
+            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type)( ::osg::Quat const &,double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "moveForward"
+                , moveForward_function_type( &FirstPersonManipulator_wrapper::moveForward )
+                , ( bp::arg("rotation"), bp::arg("distance") ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::moveRight
+        
+            typedef void ( FirstPersonManipulator_wrapper::*moveRight_function_type)( double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "moveRight"
+                , moveRight_function_type( &FirstPersonManipulator_wrapper::moveRight )
+                , ( bp::arg("distance") ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::moveUp
+        
+            typedef void ( FirstPersonManipulator_wrapper::*moveUp_function_type)( double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "moveUp"
+                , moveUp_function_type( &FirstPersonManipulator_wrapper::moveUp )
+                , ( bp::arg("distance") ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::performMouseDeltaMovement
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*performMouseDeltaMovement_function_type)( float const,float const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "performMouseDeltaMovement"
+                , performMouseDeltaMovement_function_type( &FirstPersonManipulator_wrapper::default_performMouseDeltaMovement )
+                , ( bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::FirstPersonManipulator::performMovementLeftMouseButton
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "performMovementLeftMouseButton"
+                , performMovementLeftMouseButton_function_type( &FirstPersonManipulator_wrapper::default_performMovementLeftMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
         { //::osgGA::FirstPersonManipulator::setAcceleration
         
             typedef void ( ::osgGA::FirstPersonManipulator::*setAcceleration_function_type)( double const &,bool ) ;
@@ -888,6 +1103,15 @@ void register_FirstPersonManipulator_class(){
                 , ( bp::arg("wheelMovement"), bp::arg("relativeToModelSize")=(bool)(false) ) );
         
         }
+        { //::osgGA::StandardManipulator::allocateRelativeFlag
+        
+            typedef int ( *allocateRelativeFlag_function_type )(  );
+            
+            FirstPersonManipulator_exposer.def( 
+                "allocateRelativeFlag"
+                , allocateRelativeFlag_function_type( &FirstPersonManipulator_wrapper::allocateRelativeFlag ) );
+        
+        }
         { //::osgGA::CameraManipulator::computeHomePosition
         
             typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
@@ -921,6 +1145,45 @@ void register_FirstPersonManipulator_class(){
                 "finishAnimation"
                 , finishAnimation_function_type(&::osgGA::StandardManipulator::finishAnimation)
                 , default_finishAnimation_function_type(&FirstPersonManipulator_wrapper::default_finishAnimation) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( *fixVerticalAxis_function_type )( ::osg::Quat &,::osg::Vec3d const &,bool );
+            
+            FirstPersonManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &FirstPersonManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("rotation"), bp::arg("localUp"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( FirstPersonManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &FirstPersonManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("eye"), bp::arg("rotation"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( *fixVerticalAxis_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d &,::osg::Vec3d const &,bool );
+            
+            FirstPersonManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &FirstPersonManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("forward"), bp::arg("up"), bp::arg("newUp"), bp::arg("localUp"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::flushMouseEventStack
+        
+            typedef void ( FirstPersonManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "flushMouseEventStack"
+                , flushMouseEventStack_function_type( &FirstPersonManipulator_wrapper::flushMouseEventStack ) );
         
         }
         { //::osgGA::CameraManipulator::getFusionDistanceMode
@@ -981,6 +1244,26 @@ void register_FirstPersonManipulator_class(){
                 , bp::return_internal_reference< >() );
         
         }
+        { //::osgGA::StandardManipulator::getRelativeFlag
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
+            
+            FirstPersonManipulator_exposer.def( 
+                "getRelativeFlag"
+                , getRelativeFlag_function_type( &FirstPersonManipulator_wrapper::getRelativeFlag )
+                , ( bp::arg("index") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::getThrowScale
+        
+            typedef float ( FirstPersonManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
+            
+            FirstPersonManipulator_exposer.def( 
+                "getThrowScale"
+                , getThrowScale_function_type( &FirstPersonManipulator_wrapper::getThrowScale )
+                , ( bp::arg("eventTimeDelta") ) );
+        
+        }
         { //::osgGA::StandardManipulator::getUsage
         
             typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
@@ -1012,6 +1295,45 @@ void register_FirstPersonManipulator_class(){
                 "handle"
                 , default_handle_function_type( &FirstPersonManipulator_wrapper::default_handle )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::isMouseMoving
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
+            
+            FirstPersonManipulator_exposer.def( 
+                "isMouseMoving"
+                , isMouseMoving_function_type( &FirstPersonManipulator_wrapper::default_isMouseMoving ) );
+        
+        }
+        { //::osgGA::StandardManipulator::performMovementMiddleMouseButton
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "performMovementMiddleMouseButton"
+                , performMovementMiddleMouseButton_function_type( &FirstPersonManipulator_wrapper::default_performMovementMiddleMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::performMovementRightMouseButton
+        
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "performMovementRightMouseButton"
+                , performMovementRightMouseButton_function_type( &FirstPersonManipulator_wrapper::default_performMovementRightMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::rotateYawPitch
+        
+            typedef void ( *rotateYawPitch_function_type )( ::osg::Quat &,double const,double const,::osg::Vec3d const & );
+            
+            FirstPersonManipulator_exposer.def( 
+                "rotateYawPitch"
+                , rotateYawPitch_function_type( &FirstPersonManipulator_wrapper::rotateYawPitch )
+                , ( bp::arg("rotation"), bp::arg("yaw"), bp::arg("pitch"), bp::arg("localUp")=osg::Vec3d(0.0, 0.0, 0.0) ) );
         
         }
         { //::osgGA::StandardManipulator::setAllowThrow
@@ -1086,6 +1408,16 @@ void register_FirstPersonManipulator_class(){
                 , ( bp::arg("arg0") ) );
         
         }
+        { //::osgGA::StandardManipulator::setRelativeFlag
+        
+            typedef void ( FirstPersonManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
+            
+            FirstPersonManipulator_exposer.def( 
+                "setRelativeFlag"
+                , setRelativeFlag_function_type( &FirstPersonManipulator_wrapper::setRelativeFlag )
+                , ( bp::arg("index"), bp::arg("value") ) );
+        
+        }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
             typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
@@ -1110,6 +1442,9 @@ void register_FirstPersonManipulator_class(){
                 , ( bp::arg("camera") ) );
         
         }
+        FirstPersonManipulator_exposer.staticmethod( "allocateRelativeFlag" );
+        FirstPersonManipulator_exposer.staticmethod( "fixVerticalAxis" );
+        FirstPersonManipulator_exposer.staticmethod( "rotateYawPitch" );
     }
 
 }

@@ -78,6 +78,18 @@ struct Uniform_wrapper : osg::Uniform, bp::wrapper< osg::Uniform > {
             return osg::Uniform::Callback::libraryName( );
         }
     
+        virtual void operator()( ::osg::Uniform * arg0, ::osg::NodeVisitor * arg1 ) {
+            if( bp::override func___call__ = this->get_override( "__call__" ) )
+                func___call__( boost::python::ptr(arg0), boost::python::ptr(arg1) );
+            else{
+                this->osg::Uniform::Callback::operator()( boost::python::ptr(arg0), boost::python::ptr(arg1) );
+            }
+        }
+        
+        void default___call__( ::osg::Uniform * arg0, ::osg::NodeVisitor * arg1 ) {
+            osg::Uniform::Callback::operator()( boost::python::ptr(arg0), boost::python::ptr(arg1) );
+        }
+    
         virtual void computeDataVariance(  ) {
             if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
                 func_computeDataVariance(  );
@@ -533,6 +545,11 @@ void register_Uniform_class(){
                 "libraryName"
                 , (char const * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::libraryName)
                 , (char const * ( Uniform_wrapper::Callback_wrapper::* )(  )const)(&Uniform_wrapper::Callback_wrapper::default_libraryName) )    
+            .def( 
+                "__call__"
+                , (void ( ::osg::Uniform::Callback::* )( ::osg::Uniform *,::osg::NodeVisitor * ))(&::osg::Uniform::Callback::operator())
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Uniform *,::osg::NodeVisitor * ))(&Uniform_wrapper::Callback_wrapper::default___call__)
+                , ( bp::arg("arg0"), bp::arg("arg1") ) )    
             .def( 
                 "computeDataVariance"
                 , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)

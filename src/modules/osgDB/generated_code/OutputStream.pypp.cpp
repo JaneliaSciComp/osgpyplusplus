@@ -75,7 +75,7 @@ void register_OutputStream_class(){
             OutputStream_exposer.def( 
                 "getSchemaName"
                 , getSchemaName_function_type( &::osgDB::OutputStream::getSchemaName )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osgDB::OutputStream::getWriteImageHint

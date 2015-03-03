@@ -57,7 +57,7 @@ void register_ObjectWrapper_class(){
         .def( 
             "getName"
             , (::std::string const & ( ::osgDB::ObjectWrapper::* )(  )const)( &::osgDB::ObjectWrapper::getName )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getProto"
             , (::osg::Object const * ( ::osgDB::ObjectWrapper::* )(  )const)( &::osgDB::ObjectWrapper::getProto )

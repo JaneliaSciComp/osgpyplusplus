@@ -47,7 +47,7 @@ void register_BaseCompressor_class(){
         .def( 
             "getName"
             , (::std::string const & ( ::osgDB::BaseCompressor::* )(  )const)( &::osgDB::BaseCompressor::getName )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "setName"
             , (void ( ::osgDB::BaseCompressor::* )( ::std::string const & ))( &::osgDB::BaseCompressor::setName )

@@ -56,7 +56,7 @@ void register_ObjectWrapperManager_class(){
             "getString"
             , (::std::string const & ( ::osgDB::ObjectWrapperManager::* )( ::std::string const &,int ))( &::osgDB::ObjectWrapperManager::getString )
             , ( bp::arg("group"), bp::arg("value") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getValue"
             , (int ( ::osgDB::ObjectWrapperManager::* )( ::std::string const &,::std::string const & ))( &::osgDB::ObjectWrapperManager::getValue )

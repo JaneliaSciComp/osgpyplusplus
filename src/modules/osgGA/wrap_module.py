@@ -72,11 +72,36 @@ class OsgGAWrapper(BaseWrapper):
     def wrap_standardmanipulator(self):
         for cls_name in ["StandardManipulator",]:
             cls = self.mb.namespace("osgGA").class_(cls_name)
+            cls.member_functions().include() # even protected ones...
             # Proof of concept for transforming all those compile errors
             # for const reference arguments with protected destructors
             hack_osg_arg(cls, "init", "ea")
             hack_osg_arg(cls, "handle", "ea")
-            hack_osg_arg(cls, "home", "ea")        
+            hack_osg_arg(cls, "home", "ea")
+            # hack_osg_arg(cls, "performAnimationMovement", "ea")
+            # hack_osg_arg(cls, "centerMousePointer", "ea")
+            # hack_osg_arg(cls, "addMouseEvent", "ea")
+            for cls_name in [
+                    "addMouseEvent",
+                    "centerMousePointer",
+                    "handleFrame",
+                    "handleKeyUp",
+                    "handleKeyDown",
+                    "handleMouseDeltaMovement",
+                    "handleMouseDrag",
+                    "handleMouseMove",
+                    "handleMousePush",
+                    "handleMouseRelease",
+                    "handleMouseWheel",
+                    "handleResize",
+                    "performAnimationMovement",  
+                    "performMouseDeltaMovement",
+                    "performMovement", 
+                    "setCenterByMousePointerIntersection", 
+                    "startAnimationByMousePointerIntersection", 
+                    ]:
+                cls.member_function(cls_name).exclude()
+            expose_overridable_ref_ptr_class(cls)
 
     def wrap_firstpersonmanipulator(self):
         fpm = self.mb.namespace("osgGA").class_("FirstPersonManipulator")
@@ -85,12 +110,22 @@ class OsgGAWrapper(BaseWrapper):
             """)
         for cls_name in ["FirstPersonManipulator",]:
             cls = self.mb.namespace("osgGA").class_(cls_name)
+            cls.member_functions().include() # even protected ones...
             # Proof of concept for transforming all those compile errors
             # for const reference arguments with protected destructors
             hack_osg_arg(cls, "init", "ea")
-            hack_osg_arg(cls, "handleMouseWheel", "ea")
+            # hack_osg_arg(cls, "handleMouseWheel", "ea")
             hack_osg_arg(cls, "handle", "ea")
             hack_osg_arg(cls, "home", "ea")
+            # hack_osg_arg(cls, "centerMousePointer", "ea")
+            # hack_osg_arg(cls, "addMouseEvent", "ea")        
+            # hack_osg_arg(cls, "startAnimationByMousePointerIntersection", "ea")
+            #
+            cls.member_function("handleMouseWheel").exclude()
+            # cls.member_function("addMouseEvent").exclude()
+            cls.member_function("startAnimationByMousePointerIntersection").exclude()
+            # Make class overridable, including callbacks from C++
+            expose_overridable_ref_ptr_class(cls)
 
     def wrap_guieventadapter(self):
         cls = self.mb.class_("GUIEventAdapter")

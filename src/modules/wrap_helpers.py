@@ -110,7 +110,25 @@ def expose_increment_operators(mb):
             op.parent.add_registration_code('def("decrement", &%s)' % decr_fn_name)
 
 def expose_ref_ptr_class(cls):
-    # Compute nested wrapper class name
+    "Wrap a class that derives from osg::Referenced, using osg::ref_ptr<class_name>"
+    cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # Insufficient for calling overridden python methods from C++
+    cls.include_files.append('wrap_referenced.h')
+    cls.member_operators("operator=", allow_empty=True).exclude()
+    if cls.is_abstract:
+        # print cls.alias
+        cls.noncopyable = True
+        cls.no_init = True
+        cls.constructors().exclude()
+    
+def expose_overridable_ref_ptr_class(cls):
+    """
+    Wrap a class that derives from osg::Referenced, using osg::ref_ptr<class_name>
+    Version where python virtual method callbacks are callable from C++.
+    Causes multithreading trouble maybe.
+    """
+    # Compute nested wrapper class name, which is needed for classes having
+    # virtual methods that can be overidden in python, and need to be callable from C++,
+    # such as NodeVisitors
     decl = [cls.wrapper_alias,]
     p = cls.parent
     while hasattr(p, "wrapper_alias"):
@@ -118,8 +136,8 @@ def expose_ref_ptr_class(cls):
         p = p.parent
     decl.reverse()
     wrapper_decl_string = "::".join(decl)
-    # cls.held_type = 'osg::ref_ptr< %s >' % wrapper_decl_string # TODO wrapper class? or regular osg class in ref_ptr?
-    cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string
+    cls.held_type = 'osg::ref_ptr< %s >' % wrapper_decl_string # Use wrapper class in ref_ptr, for maximum extensibility
+    # cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # Insufficient for calling overridden python methods from C++
     cls.include_files.append('wrap_referenced.h')
     cls.member_operators("operator=", allow_empty=True).exclude()
     if cls.is_abstract:

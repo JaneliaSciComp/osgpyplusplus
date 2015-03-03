@@ -29,7 +29,7 @@ void register_DynamicLibrary_class(){
         .def( 
             "getFullName"
             , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getFullName )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getHandle"
             , (void * ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getHandle )
@@ -37,7 +37,7 @@ void register_DynamicLibrary_class(){
         .def( 
             "getName"
             , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getName )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getProcAddress"
             , (void * ( ::osgDB::DynamicLibrary::* )( ::std::string const & ))( &::osgDB::DynamicLibrary::getProcAddress )

@@ -150,7 +150,7 @@ void register_Output_class(){
             Output_exposer.def( 
                 "getFileName"
                 , getFileName_function_type( &::osgDB::Output::getFileName )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osgDB::Output::getFileNameForOutput

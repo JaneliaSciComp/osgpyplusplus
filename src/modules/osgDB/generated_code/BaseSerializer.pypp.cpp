@@ -94,7 +94,7 @@ void register_BaseSerializer_class(){
             BaseSerializer_exposer.def( 
                 "getName"
                 , bp::pure_virtual( getName_function_type(&::osgDB::BaseSerializer::getName) )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osgDB::BaseSerializer::read

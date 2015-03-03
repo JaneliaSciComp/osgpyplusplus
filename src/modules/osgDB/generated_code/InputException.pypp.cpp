@@ -36,10 +36,10 @@ void register_InputException_class(){
         .def( 
             "getError"
             , (::std::string const & ( ::osgDB::InputException::* )(  )const)( &::osgDB::InputException::getError )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getField"
             , (::std::string const & ( ::osgDB::InputException::* )(  )const)( &::osgDB::InputException::getField )
-            , bp::return_internal_reference< >() );
+            , bp::return_value_policy< bp::copy_const_reference >() );
 
 }

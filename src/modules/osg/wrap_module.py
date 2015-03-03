@@ -85,6 +85,9 @@ class OsgWrapper(BaseWrapper):
         self.wrap_all_osg_referenced(osg)
         self.wrap_all_osg_referenced(openthreads)
 
+        # Special treatment for classes that need to be called back from C++
+        expose_overridable_ref_ptr_class(mb.class_("NodeVisitor"))
+
         for fn in mb.free_functions("createGeodeForImage"):
             fn.call_policies = return_value_policy(reference_existing_object)
         
@@ -284,6 +287,10 @@ class OsgWrapper(BaseWrapper):
         # Write results
         self.generate_module_code("osg")
     
+    def wrap_nodevisitor(self):
+        cls = self.mb.class_("NodeVisitor")
+
+
     def wrap_gl_symbols(self):
         # Manually export #define constants
         # expose GL_ constants TODO - more of them
@@ -427,7 +434,7 @@ class OsgWrapper(BaseWrapper):
     def wrap_uniform(self):
         unif = self.mb.class_("Uniform")
         unif.constructors(arg_types=[None, None]).exclude() # copy constructor
-        unif.member_operators("operator()").exclude() # because I don't want to wrap NodeVisitor yet...
+        # unif.member_operators("operator()").exclude() # because I don't want to wrap NodeVisitor yet...
         
     def wrap_array(self):
         arr = self.mb.class_("Array")

@@ -452,7 +452,7 @@ struct NodeVisitor_wrapper : osg::NodeVisitor, bp::wrapper< osg::NodeVisitor > {
 void register_NodeVisitor_class(){
 
     { //::osg::NodeVisitor
-        typedef bp::class_< NodeVisitor_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::NodeVisitor >, boost::noncopyable > NodeVisitor_exposer_t;
+        typedef bp::class_< NodeVisitor_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< NodeVisitor_wrapper >, boost::noncopyable > NodeVisitor_exposer_t;
         NodeVisitor_exposer_t NodeVisitor_exposer = NodeVisitor_exposer_t( "NodeVisitor", "\n Visitor for type safe operations on osg::Nodes.\n    Based on GOFs Visitor pattern. The NodeVisitor\n    is useful for developing type safe operations to nodes\n    in the scene graph (as per Visitor pattern), and adds to this\n    support for optional scene graph traversal to allow\n    operations to be applied to whole scenes at once. The Visitor\n    pattern uses a technique of double dispatch as a mechanism to\n    call the appropriate apply(..) method of the NodeVisitor.  To\n    use this feature one must use the Node::accept(NodeVisitor) which\n    is extended in each Node subclass, rather than the NodeVisitor\n    apply directly.  So use root->accept(myVisitor); instead of\n    myVisitor.apply(*root).  The later method will bypass the double\n    dispatch and the appropriate NodeVisitor::apply(..) method will\n    not be called.\n", bp::init< bp::optional< osg::NodeVisitor::TraversalMode > >(( bp::arg("tm")=(long)(::osg::NodeVisitor::TRAVERSE_NONE) )) );
         bp::scope NodeVisitor_scope( NodeVisitor_exposer );
         bp::enum_< osg::NodeVisitor::TraversalMode>("TraversalMode")

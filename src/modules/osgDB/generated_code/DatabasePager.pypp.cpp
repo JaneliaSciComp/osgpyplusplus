@@ -334,7 +334,7 @@ void register_DatabasePager_class(){
                 DatabaseThread_exposer.def( 
                     "getName"
                     , getName_function_type( &::osgDB::DatabasePager::DatabaseThread::getName )
-                    , bp::return_internal_reference< >() );
+                    , bp::return_value_policy< bp::copy_const_reference >() );
             
             }
             { //::osgDB::DatabasePager::DatabaseThread::run

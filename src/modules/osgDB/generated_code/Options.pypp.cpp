@@ -333,7 +333,7 @@ void register_Options_class(){
             Options_exposer.def( 
                 "getOptionString"
                 , getOptionString_function_type( &::osgDB::Options::getOptionString )
-                , bp::return_internal_reference< >() );
+                , bp::return_value_policy< bp::copy_const_reference >() );
         
         }
         { //::osgDB::Options::getPluginStringData

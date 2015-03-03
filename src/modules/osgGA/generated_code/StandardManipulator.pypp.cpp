@@ -11,6 +11,34 @@ namespace bp = boost::python;
 
 struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< osgGA::StandardManipulator > {
 
+    virtual void allocAnimationData(  ){
+        if( bp::override func_allocAnimationData = this->get_override( "allocAnimationData" ) )
+            func_allocAnimationData(  );
+        else{
+            this->osgGA::StandardManipulator::allocAnimationData(  );
+        }
+    }
+    
+    virtual void default_allocAnimationData(  ){
+        osgGA::StandardManipulator::allocAnimationData( );
+    }
+
+    static int allocateRelativeFlag(  ){
+        return osgGA::StandardManipulator::allocateRelativeFlag(  );
+    }
+
+    virtual void applyAnimationStep( double const currentProgress, double const prevProgress ){
+        if( bp::override func_applyAnimationStep = this->get_override( "applyAnimationStep" ) )
+            func_applyAnimationStep( currentProgress, prevProgress );
+        else{
+            this->osgGA::StandardManipulator::applyAnimationStep( currentProgress, prevProgress );
+        }
+    }
+    
+    virtual void default_applyAnimationStep( double const currentProgress, double const prevProgress ){
+        osgGA::StandardManipulator::applyAnimationStep( currentProgress, prevProgress );
+    }
+
     virtual char const * className(  ) const  {
         if( bp::override func_className = this->get_override( "className" ) )
             return func_className(  );
@@ -35,6 +63,22 @@ struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< os
         osgGA::StandardManipulator::finishAnimation( );
     }
 
+    static void fixVerticalAxis( ::osg::Quat & rotation, ::osg::Vec3d const & localUp, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(rotation), boost::ref(localUp), disallowFlipOver );
+    }
+
+    void fixVerticalAxis( ::osg::Vec3d & eye, ::osg::Quat & rotation, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(eye), boost::ref(rotation), disallowFlipOver );
+    }
+
+    static void fixVerticalAxis( ::osg::Vec3d const & forward, ::osg::Vec3d const & up, ::osg::Vec3d & newUp, ::osg::Vec3d const & localUp, bool disallowFlipOver ){
+        osgGA::StandardManipulator::fixVerticalAxis( boost::ref(forward), boost::ref(up), boost::ref(newUp), boost::ref(localUp), disallowFlipOver );
+    }
+
+    void flushMouseEventStack(  ){
+        osgGA::StandardManipulator::flushMouseEventStack(  );
+    }
+
     virtual ::osg::Node const * getNode(  ) const  {
         if( bp::override func_getNode = this->get_override( "getNode" ) )
             return func_getNode(  );
@@ -57,6 +101,14 @@ struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< os
     
     ::osg::Node * default_getNode(  ) {
         return osgGA::StandardManipulator::getNode( );
+    }
+
+    bool getRelativeFlag( int index ) const {
+        return osgGA::StandardManipulator::getRelativeFlag( index );
+    }
+
+    float getThrowScale( double const eventTimeDelta ) const {
+        return osgGA::StandardManipulator::getThrowScale( eventTimeDelta );
     }
 
     virtual void getTransformation( ::osg::Vec3d & eye, ::osg::Quat & rotation ) const {
@@ -153,6 +205,58 @@ struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< os
         }
     }
 
+    virtual bool isMouseMoving(  ) const {
+        if( bp::override func_isMouseMoving = this->get_override( "isMouseMoving" ) )
+            return func_isMouseMoving(  );
+        else{
+            return this->osgGA::StandardManipulator::isMouseMoving(  );
+        }
+    }
+    
+    virtual bool default_isMouseMoving(  ) const {
+        return osgGA::StandardManipulator::isMouseMoving( );
+    }
+
+    virtual bool performMovementLeftMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementLeftMouseButton = this->get_override( "performMovementLeftMouseButton" ) )
+            return func_performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::StandardManipulator::performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementLeftMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::StandardManipulator::performMovementLeftMouseButton( eventTimeDelta, dx, dy );
+    }
+
+    virtual bool performMovementMiddleMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementMiddleMouseButton = this->get_override( "performMovementMiddleMouseButton" ) )
+            return func_performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::StandardManipulator::performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementMiddleMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::StandardManipulator::performMovementMiddleMouseButton( eventTimeDelta, dx, dy );
+    }
+
+    virtual bool performMovementRightMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        if( bp::override func_performMovementRightMouseButton = this->get_override( "performMovementRightMouseButton" ) )
+            return func_performMovementRightMouseButton( eventTimeDelta, dx, dy );
+        else{
+            return this->osgGA::StandardManipulator::performMovementRightMouseButton( eventTimeDelta, dx, dy );
+        }
+    }
+    
+    virtual bool default_performMovementRightMouseButton( double const eventTimeDelta, double const dx, double const dy ){
+        return osgGA::StandardManipulator::performMovementRightMouseButton( eventTimeDelta, dx, dy );
+    }
+
+    static void rotateYawPitch( ::osg::Quat & rotation, double const yaw, double const pitch, ::osg::Vec3d const & localUp=osg::Vec3d(0.0, 0.0, 0.0) ){
+        osgGA::StandardManipulator::rotateYawPitch( boost::ref(rotation), yaw, pitch, boost::ref(localUp) );
+    }
+
     virtual void setAllowThrow( bool allowThrow ) {
         if( bp::override func_setAllowThrow = this->get_override( "setAllowThrow" ) )
             func_setAllowThrow( allowThrow );
@@ -187,6 +291,10 @@ struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< os
     
     void default_setNode( ::osg::Node * arg0 ) {
         osgGA::StandardManipulator::setNode( boost::python::ptr(arg0) );
+    }
+
+    void setRelativeFlag( int index, bool value ){
+        osgGA::StandardManipulator::setRelativeFlag( index, value );
     }
 
     virtual void setTransformation( ::osg::Vec3d const & eye, ::osg::Quat const & rotation ){
@@ -498,7 +606,7 @@ struct StandardManipulator_wrapper : osgGA::StandardManipulator, bp::wrapper< os
 void register_StandardManipulator_class(){
 
     { //::osgGA::StandardManipulator
-        typedef bp::class_< StandardManipulator_wrapper, bp::bases< osgGA::CameraManipulator >, osg::ref_ptr< ::osgGA::StandardManipulator >, boost::noncopyable > StandardManipulator_exposer_t;
+        typedef bp::class_< StandardManipulator_wrapper, bp::bases< osgGA::CameraManipulator >, osg::ref_ptr< StandardManipulator_wrapper >, boost::noncopyable > StandardManipulator_exposer_t;
         StandardManipulator_exposer_t StandardManipulator_exposer = StandardManipulator_exposer_t( "StandardManipulator", "\n StandardManipulator class provides basic functionality\n    for user controlled manipulation.\n", bp::no_init );
         bp::scope StandardManipulator_scope( StandardManipulator_exposer );
         bp::enum_< osgGA::StandardManipulator::UserInteractionFlags>("UserInteractionFlags")
@@ -509,6 +617,34 @@ void register_StandardManipulator_class(){
             .value("DEFAULT_SETTINGS", osgGA::StandardManipulator::DEFAULT_SETTINGS)
             .export_values()
             ;
+        { //::osgGA::StandardManipulator::allocAnimationData
+        
+            typedef void ( StandardManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
+            
+            StandardManipulator_exposer.def( 
+                "allocAnimationData"
+                , allocAnimationData_function_type( &StandardManipulator_wrapper::default_allocAnimationData ) );
+        
+        }
+        { //::osgGA::StandardManipulator::allocateRelativeFlag
+        
+            typedef int ( *allocateRelativeFlag_function_type )(  );
+            
+            StandardManipulator_exposer.def( 
+                "allocateRelativeFlag"
+                , allocateRelativeFlag_function_type( &StandardManipulator_wrapper::allocateRelativeFlag ) );
+        
+        }
+        { //::osgGA::StandardManipulator::applyAnimationStep
+        
+            typedef void ( StandardManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
+            
+            StandardManipulator_exposer.def( 
+                "applyAnimationStep"
+                , applyAnimationStep_function_type( &StandardManipulator_wrapper::default_applyAnimationStep )
+                , ( bp::arg("currentProgress"), bp::arg("prevProgress") ) );
+        
+        }
         { //::osgGA::StandardManipulator::className
         
             typedef char const * ( ::osgGA::StandardManipulator::*className_function_type)(  ) const;
@@ -529,6 +665,45 @@ void register_StandardManipulator_class(){
                 "finishAnimation"
                 , finishAnimation_function_type(&::osgGA::StandardManipulator::finishAnimation)
                 , default_finishAnimation_function_type(&StandardManipulator_wrapper::default_finishAnimation) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( *fixVerticalAxis_function_type )( ::osg::Quat &,::osg::Vec3d const &,bool );
+            
+            StandardManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &StandardManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("rotation"), bp::arg("localUp"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( StandardManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            
+            StandardManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &StandardManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("eye"), bp::arg("rotation"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::fixVerticalAxis
+        
+            typedef void ( *fixVerticalAxis_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d &,::osg::Vec3d const &,bool );
+            
+            StandardManipulator_exposer.def( 
+                "fixVerticalAxis"
+                , fixVerticalAxis_function_type( &StandardManipulator_wrapper::fixVerticalAxis )
+                , ( bp::arg("forward"), bp::arg("up"), bp::arg("newUp"), bp::arg("localUp"), bp::arg("disallowFlipOver") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::flushMouseEventStack
+        
+            typedef void ( StandardManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
+            
+            StandardManipulator_exposer.def( 
+                "flushMouseEventStack"
+                , flushMouseEventStack_function_type( &StandardManipulator_wrapper::flushMouseEventStack ) );
         
         }
         { //::osgGA::StandardManipulator::getAllowThrow
@@ -572,6 +747,26 @@ void register_StandardManipulator_class(){
                 , getNode_function_type(&::osgGA::StandardManipulator::getNode)
                 , default_getNode_function_type(&StandardManipulator_wrapper::default_getNode)
                 , bp::return_internal_reference< >() );
+        
+        }
+        { //::osgGA::StandardManipulator::getRelativeFlag
+        
+            typedef bool ( StandardManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
+            
+            StandardManipulator_exposer.def( 
+                "getRelativeFlag"
+                , getRelativeFlag_function_type( &StandardManipulator_wrapper::getRelativeFlag )
+                , ( bp::arg("index") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::getThrowScale
+        
+            typedef float ( StandardManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
+            
+            StandardManipulator_exposer.def( 
+                "getThrowScale"
+                , getThrowScale_function_type( &StandardManipulator_wrapper::getThrowScale )
+                , ( bp::arg("eventTimeDelta") ) );
         
         }
         { //::osgGA::StandardManipulator::getTransformation
@@ -669,6 +864,55 @@ void register_StandardManipulator_class(){
                 , isAnimating_function_type( &::osgGA::StandardManipulator::isAnimating ) );
         
         }
+        { //::osgGA::StandardManipulator::isMouseMoving
+        
+            typedef bool ( StandardManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
+            
+            StandardManipulator_exposer.def( 
+                "isMouseMoving"
+                , isMouseMoving_function_type( &StandardManipulator_wrapper::default_isMouseMoving ) );
+        
+        }
+        { //::osgGA::StandardManipulator::performMovementLeftMouseButton
+        
+            typedef bool ( StandardManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
+            
+            StandardManipulator_exposer.def( 
+                "performMovementLeftMouseButton"
+                , performMovementLeftMouseButton_function_type( &StandardManipulator_wrapper::default_performMovementLeftMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::performMovementMiddleMouseButton
+        
+            typedef bool ( StandardManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
+            
+            StandardManipulator_exposer.def( 
+                "performMovementMiddleMouseButton"
+                , performMovementMiddleMouseButton_function_type( &StandardManipulator_wrapper::default_performMovementMiddleMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::performMovementRightMouseButton
+        
+            typedef bool ( StandardManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
+            
+            StandardManipulator_exposer.def( 
+                "performMovementRightMouseButton"
+                , performMovementRightMouseButton_function_type( &StandardManipulator_wrapper::default_performMovementRightMouseButton )
+                , ( bp::arg("eventTimeDelta"), bp::arg("dx"), bp::arg("dy") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::rotateYawPitch
+        
+            typedef void ( *rotateYawPitch_function_type )( ::osg::Quat &,double const,double const,::osg::Vec3d const & );
+            
+            StandardManipulator_exposer.def( 
+                "rotateYawPitch"
+                , rotateYawPitch_function_type( &StandardManipulator_wrapper::rotateYawPitch )
+                , ( bp::arg("rotation"), bp::arg("yaw"), bp::arg("pitch"), bp::arg("localUp")=osg::Vec3d(0.0, 0.0, 0.0) ) );
+        
+        }
         { //::osgGA::StandardManipulator::setAllowThrow
         
             typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
@@ -703,6 +947,16 @@ void register_StandardManipulator_class(){
                 , setNode_function_type(&::osgGA::StandardManipulator::setNode)
                 , default_setNode_function_type(&StandardManipulator_wrapper::default_setNode)
                 , ( bp::arg("arg0") ) );
+        
+        }
+        { //::osgGA::StandardManipulator::setRelativeFlag
+        
+            typedef void ( StandardManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
+            
+            StandardManipulator_exposer.def( 
+                "setRelativeFlag"
+                , setRelativeFlag_function_type( &StandardManipulator_wrapper::setRelativeFlag )
+                , ( bp::arg("index"), bp::arg("value") ) );
         
         }
         { //::osgGA::StandardManipulator::setTransformation
@@ -946,6 +1200,9 @@ void register_StandardManipulator_class(){
                 , ( bp::arg("camera") ) );
         
         }
+        StandardManipulator_exposer.staticmethod( "allocateRelativeFlag" );
+        StandardManipulator_exposer.staticmethod( "fixVerticalAxis" );
+        StandardManipulator_exposer.staticmethod( "rotateYawPitch" );
     }
 
 }

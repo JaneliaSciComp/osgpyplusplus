@@ -17,7 +17,7 @@ void register_IntLookup_class(){
             "getString"
             , (::std::string const & ( ::osgDB::IntLookup::* )( int ))( &::osgDB::IntLookup::getString )
             , ( bp::arg("value") )
-            , bp::return_internal_reference< >() )    
+            , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getValue"
             , (int ( ::osgDB::IntLookup::* )( char const * ))( &::osgDB::IntLookup::getValue )
