@@ -231,30 +231,6 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
-        typedef ::osg::Vec3d ( *componentDivide_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
-        
-        bp::def( 
-            "componentDivide"
-            , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") )
-            , " divide rhs components by rhs vector components." );
-    
-    }
-
-    { //::osg::componentDivide
-    
-        typedef ::osg::Vec2d ( *componentDivide_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
-        
-        bp::def( 
-            "componentDivide"
-            , componentDivide_function_type( &::osg::componentDivide )
-            , ( bp::arg("lhs"), bp::arg("rhs") )
-            , " divide rhs components by rhs vector components." );
-    
-    }
-
-    { //::osg::componentDivide
-    
         typedef ::osg::Vec4f ( *componentDivide_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
         
         bp::def( 
@@ -267,7 +243,31 @@ void register_free_functions(){
 
     { //::osg::componentDivide
     
+        typedef ::osg::Vec3d ( *componentDivide_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
+    
+    }
+
+    { //::osg::componentDivide
+    
         typedef ::osg::Vec3f ( *componentDivide_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
+        
+        bp::def( 
+            "componentDivide"
+            , componentDivide_function_type( &::osg::componentDivide )
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " divide rhs components by rhs vector components." );
+    
+    }
+
+    { //::osg::componentDivide
+    
+        typedef ::osg::Vec2d ( *componentDivide_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
         
         bp::def( 
             "componentDivide"
@@ -399,30 +399,6 @@ void register_free_functions(){
 
     { //::osg::componentMultiply
     
-        typedef ::osg::Vec3d ( *componentMultiply_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
-        
-        bp::def( 
-            "componentMultiply"
-            , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") )
-            , " multiply by vector components." );
-    
-    }
-
-    { //::osg::componentMultiply
-    
-        typedef ::osg::Vec2d ( *componentMultiply_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
-        
-        bp::def( 
-            "componentMultiply"
-            , componentMultiply_function_type( &::osg::componentMultiply )
-            , ( bp::arg("lhs"), bp::arg("rhs") )
-            , " multiply by vector components." );
-    
-    }
-
-    { //::osg::componentMultiply
-    
         typedef ::osg::Vec4f ( *componentMultiply_function_type )( ::osg::Vec4f const &,::osg::Vec4f const & );
         
         bp::def( 
@@ -435,7 +411,31 @@ void register_free_functions(){
 
     { //::osg::componentMultiply
     
+        typedef ::osg::Vec3d ( *componentMultiply_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
+    
+    }
+
+    { //::osg::componentMultiply
+    
         typedef ::osg::Vec3f ( *componentMultiply_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & );
+        
+        bp::def( 
+            "componentMultiply"
+            , componentMultiply_function_type( &::osg::componentMultiply )
+            , ( bp::arg("lhs"), bp::arg("rhs") )
+            , " multiply by vector components." );
+    
+    }
+
+    { //::osg::componentMultiply
+    
+        typedef ::osg::Vec2d ( *componentMultiply_function_type )( ::osg::Vec2d const &,::osg::Vec2d const & );
         
         bp::def( 
             "componentMultiply"

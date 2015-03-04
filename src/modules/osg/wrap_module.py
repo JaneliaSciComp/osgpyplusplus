@@ -179,6 +179,8 @@ class OsgWrapper(BaseWrapper):
         osg.class_("Texture2D").class_("SubloadCallback").exclude()
         osg.class_("Timer").member_functions("instance").call_policies = return_value_policy(reference_existing_object)
 
+        osg.class_("Fog").member_function("compare").exclude()
+
         # Transform vector x(), y(), z() methods into properties
         for cls in osg.classes(lambda c: c.name.startswith("Vec")):
             for fn_name in ["x", "y", "z", "w", "r", "g", "b", "a"]:

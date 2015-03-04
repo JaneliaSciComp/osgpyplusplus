@@ -1,6 +1,7 @@
 #include "../default.h"
 
 // TODO wrap more classes
+#include <osg/Fog>
 #include <osg/Vec4>
 #include <osg/Object> // OK
 #include <osg/Referenced> // OK excluded copy methods

@@ -156,6 +156,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/flushdeletedglobjectsoperation.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fog.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framestamp.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geode.pypp.hpp"
@@ -714,6 +716,8 @@ BOOST_PYTHON_MODULE(osg){
     register_EndOfDynamicDrawBlock_class();
 
     register_FlushDeletedGLObjectsOperation_class();
+
+    register_Fog_class();
 
     register_FrameStamp_class();
 
