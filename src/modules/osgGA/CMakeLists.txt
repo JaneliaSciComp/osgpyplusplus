@@ -10,9 +10,6 @@ target_link_libraries(_osgGA
     ${OPENTHREADS_LIBRARY}
     ${OSGGA_LIBRARY})
 
-# Copy wrapper module
-configure_file(osgGA.py "${MODULE_STAGING_FOLDER}/osgGA.py" COPYONLY)
-
 # Establish a linear chain of wrapper dependencies
 # osg<-osgDB<-osgGA<-osgUtil<-osgViewer<-?
 if(OSGPYPP_REGENERATE_BINDINGS)
