@@ -13,3 +13,5 @@ generate_module.stamp
 /src/modules/osgDB/wrap_log.txt
 /src/modules/osgGA/wrap_log.txt
 /src/modules/osgText/generated_code/*.cpp~
+/examples/test.py
+/examples/cow2.py

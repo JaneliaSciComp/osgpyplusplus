@@ -4,15 +4,18 @@ find_library(OSGGA_LIBRARY
 )
 
 set(MODULE_OTHER_SRCS "wrap_osgGA.h")
-OSGPYPP_WRAP_MODULE(osgGA)
-target_link_libraries(osgGA 
+OSGPYPP_WRAP_MODULE(_osgGA)
+target_link_libraries(_osgGA 
     ${OSG_LIBRARY}
     ${OPENTHREADS_LIBRARY}
     ${OSGGA_LIBRARY})
 
+# Copy wrapper module
+configure_file(osgGA.py "${MODULE_STAGING_FOLDER}/osgGA.py" COPYONLY)
+
 # Establish a linear chain of wrapper dependencies
 # osg<-osgDB<-osgGA<-osgUtil<-osgViewer<-?
 if(OSGPYPP_REGENERATE_BINDINGS)
-	add_dependencies(Generate_osgGA_WrapperSources Generate_osgUtil_WrapperSources)
-	add_dependencies(Generate_osgGA_WrapperSources Generate_osg_WrapperSources)
+	add_dependencies(Generate__osgGA_WrapperSources Generate_osgUtil_WrapperSources)
+	add_dependencies(Generate__osgGA_WrapperSources Generate_osg_WrapperSources)
 endif()

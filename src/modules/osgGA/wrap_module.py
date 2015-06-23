@@ -37,7 +37,8 @@ class OsgGAWrapper(BaseWrapper):
         self.wrap_guieventadapter()
         self.wrap_cameramanipulator()
         self.wrap_standardmanipulator()
-        self.wrap_firstpersonmanipulator()
+        # self.wrap_firstpersonmanipulator()
+        self.wrap_manipulators()
         hack_osg_arg(
             self.mb.namespace("osgGA").class_("Device"),
             "sendEvent", "ea")
@@ -58,7 +59,7 @@ class OsgGAWrapper(BaseWrapper):
         fn.add_transformation(FT.modify_type(0, remove_const_from_reference))
 
         # Write results
-        self.generate_module_code("osgGA")
+        self.generate_module_code("_osgGA")
 
     def wrap_cameramanipulator(self):
         for cls_name in ["CameraManipulator",]:
@@ -124,6 +125,29 @@ class OsgGAWrapper(BaseWrapper):
             cls.member_function("handleMouseWheel").exclude()
             # cls.member_function("addMouseEvent").exclude()
             cls.member_function("startAnimationByMousePointerIntersection").exclude()
+            # Make class overridable, including callbacks from C++
+            expose_overridable_ref_ptr_class(cls)
+
+    def wrap_manipulators(self):
+        for cls_name in ["FirstPersonManipulator", "OrbitManipulator", "TrackballManipulator", ]:
+            cls = self.mb.namespace("osgGA").class_(cls_name)
+            cls.add_declaration_code("""
+                static int DEFAULT_SETTINGS = osgGA::%s::DEFAULT_SETTINGS;
+                """ % cls_name)
+            cls.member_functions().include() # even protected ones...
+            # Proof of concept for transforming all those compile errors
+            # for const reference arguments with protected destructors
+            hack_osg_arg(cls, "init", "ea")
+            # hack_osg_arg(cls, "handleMouseWheel", "ea")
+            hack_osg_arg(cls, "handle", "ea")
+            hack_osg_arg(cls, "home", "ea")
+            # hack_osg_arg(cls, "centerMousePointer", "ea")
+            # hack_osg_arg(cls, "addMouseEvent", "ea")        
+            # hack_osg_arg(cls, "startAnimationByMousePointerIntersection", "ea")
+            #
+            cls.member_functions("handleMouseWheel", allow_empty=True).exclude()
+            # cls.member_function("addMouseEvent").exclude()
+            cls.member_functions("startAnimationByMousePointerIntersection", allow_empty=True).exclude()
             # Make class overridable, including callbacks from C++
             expose_overridable_ref_ptr_class(cls)
 
