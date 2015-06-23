@@ -792,7 +792,8 @@ void register_View_class(){
             View_exposer.def( 
                 "setCameraManipulator"
                 , setCameraManipulator_function_type( &::osgViewer::View::setCameraManipulator )
-                , ( bp::arg("manipulator"), bp::arg("resetPosition")=(bool)(true) ) );
+                , ( bp::arg("manipulator"), bp::arg("resetPosition")=(bool)(true) )
+                , bp::with_custodian_and_ward< 1, 2 >() );
         
         }
         { //::osgViewer::View::setCoordinateSystemNodePath

@@ -87,6 +87,8 @@ class OsgViewerWrapper(BaseWrapper):
         if False: # TODO - transformation does not seem to work with protected destructor classes
             gccp = cls.member_function("getCameraContainingPosition")
             gccp.add_transformation(FT.output('local_x'), FT.output('local_y'),)
+        # Avoid premature destruction of manipulator
+        cls.member_function("setCameraManipulator").call_policies = with_custodian_and_ward(1, 2)
 
 
 if __name__ == "__main__":
