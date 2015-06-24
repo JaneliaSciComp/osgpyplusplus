@@ -16,3 +16,5 @@ generate_module.stamp
 /examples/test.py
 /examples/cow2.py
 /build
+/dist
+/osgpyplusplus.egg-info
