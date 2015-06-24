@@ -16,6 +16,8 @@
 
 #include "wrap_osgutil.h"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/_osgutil_free_functions.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/baseoptimizervisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/compileops.pypp.hpp"
@@ -37,8 +39,6 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/lessdepthsortfunctor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/optimizer.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/osgutil_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/positionalstatecontainer.pypp.hpp"
 
@@ -82,7 +82,7 @@
 
 namespace bp = boost::python;
 
-BOOST_PYTHON_MODULE(osgUtil){
+BOOST_PYTHON_MODULE(_osgUtil){
     register_std_vector_pair_StateAttribute_RefMatrixd_class();
 
     register_vector_less__osgUtil_scope_StateGraph_ptr___greater__class();

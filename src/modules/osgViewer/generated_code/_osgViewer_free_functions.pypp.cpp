@@ -2,7 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgviewer.h"
-#include "osgviewer_free_functions.pypp.hpp"
+#include "_osgviewer_free_functions.pypp.hpp"
 
 namespace bp = boost::python;
 

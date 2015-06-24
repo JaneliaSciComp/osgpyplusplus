@@ -24,6 +24,12 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_myvec.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_enumerations.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_free_functions.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_global_variables.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activeuniformmap.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activevarinfomap.pypp.hpp"
@@ -243,12 +249,6 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthread.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthreads.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_enumerations.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_free_functions.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/osg_global_variables.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pagedlod.pypp.hpp"
 
@@ -470,7 +470,7 @@
 
 namespace bp = boost::python;
 
-BOOST_PYTHON_MODULE(osg){
+BOOST_PYTHON_MODULE(_osg){
     register_enumerations();
 
     register_vector_less__unsigned_int__greater__class();

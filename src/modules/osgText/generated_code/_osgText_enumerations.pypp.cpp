@@ -2,7 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgtext.h"
-#include "osgtext_enumerations.pypp.hpp"
+#include "_osgtext_enumerations.pypp.hpp"
 
 namespace bp = boost::python;
 

@@ -56,13 +56,18 @@ for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
 # Append module specific libraries
 for module_name in ['osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
     moduleInfo[module_name]["libraries"].append('osg')
-# TODO - build other modules: osgGA, osgViewer, etc.
+for module_name in ['osgGA', 'osgDB', 'osgText', 'osgViewer']:
+    moduleInfo[module_name]["libraries"].append('osgUtil')
+for module_name in ['osgText', 'osgViewer']:
+    moduleInfo[module_name]["libraries"].append('osgDB')
+moduleInfo['osgViewer']["libraries"].append('osgGA')
 
 # Create final list of extension modules
 extension_modules = []
-for module_name in ['osgUtil']:
+for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
     extension_modules.append(Extension(
-        'osgpypp.%s' % module_name,
+        # binary module name begins with underscore "_", so we can wrap module with a python file
+        'osgpypp._%s' % module_name,
         moduleInfo[module_name]["source_files"],
         include_dirs=moduleInfo[module_name]["includes"],
         library_dirs=library_dirs,

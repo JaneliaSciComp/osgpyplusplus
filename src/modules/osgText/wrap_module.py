@@ -61,7 +61,7 @@ class OsgTextWrapper(BaseWrapper):
         osgText.free_function("readFontStream").call_policies = return_value_policy(reference_existing_object)
         osgText.class_("GlyphTexture").member_functions("compare").exclude()
         
-        self.generate_module_code('osgText')
+        self.generate_module_code('_osgText')
 
 if __name__ == "__main__":
     wrapper = OsgTextWrapper()

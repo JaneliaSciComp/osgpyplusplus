@@ -4,8 +4,8 @@ find_library(OSGDB_LIBRARY
 )
 
 set(MODULE_OTHER_SRCS "wrap_osgDB.h")
-OSGPYPP_WRAP_MODULE(osgDB)
-target_link_libraries(osgDB 
+OSGPYPP_WRAP_MODULE(_osgDB)
+target_link_libraries(_osgDB 
     ${OSG_LIBRARY}
     ${OPENTHREADS_LIBRARY}
     ${OSGDB_LIBRARY})
@@ -13,6 +13,6 @@ target_link_libraries(osgDB
 # Establish a linear chain of wrapper dependencies
 # osg<-osgDB<-osgGA<-osgUtil<-osgViewer<-?
 if(OSGPYPP_REGENERATE_BINDINGS)
-	add_dependencies(Generate_osgDB_WrapperSources Generate_osg_WrapperSources)
-	add_dependencies(Generate_osgDB_WrapperSources Generate_osgUtil_WrapperSources)
+	add_dependencies(Generate__osgDB_WrapperSources Generate__osg_WrapperSources)
+	add_dependencies(Generate__osgDB_WrapperSources Generate__osgUtil_WrapperSources)
 endif()

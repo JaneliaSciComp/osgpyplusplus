@@ -2,7 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgutil.h"
-#include "osgutil_free_functions.pypp.hpp"
+#include "_osgutil_free_functions.pypp.hpp"
 
 namespace bp = boost::python;
 

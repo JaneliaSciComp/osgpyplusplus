@@ -287,7 +287,7 @@ class OsgWrapper(BaseWrapper):
             """))
 
         # Write results
-        self.generate_module_code("osg")
+        self.generate_module_code("_osg")
     
     def wrap_nodevisitor(self):
         cls = self.mb.class_("NodeVisitor")

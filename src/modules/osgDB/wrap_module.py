@@ -97,7 +97,7 @@ class OsgDBWrapper(BaseWrapper):
             osgDB.classes(cls_name).exclude()
         osgDB.classes(lambda c: c.name.startswith("TemplateSerializer<")).exclude()
         
-        self.mb.build_code_creator(module_name='osgDB')
+        self.mb.build_code_creator(module_name='_osgDB')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()

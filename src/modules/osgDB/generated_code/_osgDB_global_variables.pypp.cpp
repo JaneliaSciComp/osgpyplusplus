@@ -2,7 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osgdb.h"
-#include "osgdb_global_variables.pypp.hpp"
+#include "_osgdb_global_variables.pypp.hpp"
 
 namespace bp = boost::python;
 

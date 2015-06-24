@@ -10,6 +10,8 @@
 
 #include "wrap_osgviewer.h"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/_osgviewer_free_functions.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/cameras.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/compositeviewer.pypp.hpp"
@@ -39,8 +41,6 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/lodscalehandler.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/openglquerysupport.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/osgviewer_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgviewer/generated_code/recordcamerapathhandler.pypp.hpp"
 
@@ -78,7 +78,7 @@
 
 namespace bp = boost::python;
 
-BOOST_PYTHON_MODULE(osgViewer){
+BOOST_PYTHON_MODULE(_osgViewer){
     register_vector_less__osgViewer_scope_View_ptr___greater__class();
 
     register_vector_less__osgViewer_scope_Scene_ptr___greater__class();

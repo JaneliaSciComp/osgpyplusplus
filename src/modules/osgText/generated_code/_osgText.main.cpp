@@ -14,6 +14,10 @@
 
 #include "wrap_osgtext.h"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/_osgtext_enumerations.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/_osgtext_free_functions.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/bevel.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/font.pypp.hpp"
@@ -29,10 +33,6 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/glyphtexture.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/glyphtexturelist.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/osgtext_enumerations.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/osgtext_free_functions.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/string.pypp.hpp"
 
@@ -52,7 +52,7 @@
 
 namespace bp = boost::python;
 
-BOOST_PYTHON_MODULE(osgText){
+BOOST_PYTHON_MODULE(_osgText){
     register_enumerations();
 
     register_Glyphs_class();

@@ -14,6 +14,12 @@
 
 #include "wrap_osgdb.h"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_enumerations.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_free_functions.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_global_variables.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationdetails.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationmap.pypp.hpp"
@@ -76,12 +82,6 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/options.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_enumerations.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_free_functions.pypp.hpp"
-
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/osgdb_global_variables.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/output.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputexception.pypp.hpp"
@@ -112,7 +112,7 @@
 
 namespace bp = boost::python;
 
-BOOST_PYTHON_MODULE(osgDB){
+BOOST_PYTHON_MODULE(_osgDB){
     register_enumerations();
 
     register_vector_type_class();

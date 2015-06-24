@@ -50,7 +50,7 @@ class OsgViewerWrapper(BaseWrapper):
             
         hide_nonpublic(mb)
         
-        self.mb.build_code_creator(module_name='osgViewer')
+        self.mb.build_code_creator(module_name='_osgViewer')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()

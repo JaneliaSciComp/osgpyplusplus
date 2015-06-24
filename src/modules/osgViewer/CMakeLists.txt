@@ -27,8 +27,8 @@ find_library(OSGVIEWER_LIBRARY
 )
 
 set(MODULE_OTHER_SRCS "wrap_osgViewer.h")
-OSGPYPP_WRAP_MODULE(osgViewer)
-target_link_libraries(osgViewer 
+OSGPYPP_WRAP_MODULE(_osgViewer)
+target_link_libraries(_osgViewer 
     ${OPENTHREADS_LIBRARY}
     ${OSG_LIBRARY}
     ${OSGGA_LIBRARY}
@@ -37,9 +37,9 @@ target_link_libraries(osgViewer
 # Establish a linear chain of wrapper dependencies
 # osg<-osgDB<-osgGA<-osgUtil<-osgViewer<-?
 if(OSGPYPP_REGENERATE_BINDINGS)
-	add_dependencies(Generate_osgViewer_WrapperSources Generate_osg_WrapperSources)
-	add_dependencies(Generate_osgViewer_WrapperSources Generate_osgUtil_WrapperSources)
-	add_dependencies(Generate_osgViewer_WrapperSources Generate_osgDB_WrapperSources)
-	add_dependencies(Generate_osgViewer_WrapperSources Generate_osgGA_WrapperSources)
-	add_dependencies(Generate_osgViewer_WrapperSources Generate_osgText_WrapperSources)
+	add_dependencies(Generate__osgViewer_WrapperSources Generate__osg_WrapperSources)
+	add_dependencies(Generate__osgViewer_WrapperSources Generate__osgUtil_WrapperSources)
+	add_dependencies(Generate__osgViewer_WrapperSources Generate__osgDB_WrapperSources)
+	add_dependencies(Generate__osgViewer_WrapperSources Generate__osgGA_WrapperSources)
+	add_dependencies(Generate__osgViewer_WrapperSources Generate__osgText_WrapperSources)
 endif()

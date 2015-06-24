@@ -48,7 +48,7 @@ class OsgUtilWrapper(BaseWrapper):
         self.mb.class_("Optimizer").variables("_billboards").exclude()
         self.mb.class_("StateGraph").variables("_children").exclude()
 
-        self.mb.build_code_creator(module_name='osgUtil')
+        self.mb.build_code_creator(module_name='_osgUtil')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script
         open(os.path.join(os.path.abspath('.'), 'generated_code', 'generate_module.stamp'), "w").close()
