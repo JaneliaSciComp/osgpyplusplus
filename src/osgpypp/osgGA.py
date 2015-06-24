@@ -30,8 +30,8 @@ windowing API.
 """
 
 # osgGA depends on upstream modules, so always load these
-from . import osg
-from . import osgUtil
+from .. import osg
+from .. import osgUtil
 
 # delegate to binary module, created with pyplusplus and boost::python
 from _osgGA import *
