@@ -18,3 +18,5 @@ generate_module.stamp
 /build
 /dist
 /osgpyplusplus.egg-info
+/src/osgpypp/*.dll
+/src/osgpypp/osgPlugins-3.2.1/*.dll

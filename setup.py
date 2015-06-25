@@ -19,6 +19,7 @@ If necessary, regenerate the binding source code using CMake.
 
 from distutils.core import setup
 from distutils.extension import Extension
+from shutil import copy
 from glob import glob
 import os
 import sys
@@ -27,7 +28,8 @@ import sys
 include_dirs = ['src/modules',]
 library_dirs = []
 libraries = ['OpenThreads'] # OpenThreads library is used by all modules
-package_data = []
+shared_libraries = []
+plugin_libraries = []
 cflags = [
     # Constructor for Matrixd takes more than 15 arguments...
     '-DBOOST_PYTHON_MAX_ARITY=18',]
@@ -43,9 +45,18 @@ if sys.platform == 'win32' :
         'C:/boost/lib',
         ])
     libraries.extend(['boost_python-vc90-mt-1_56',])
-    # package_data.extend(glob(OSG_DIR + '/bin/osg*.dll')) # OpenSceneGraph libraries
-    package_data.append(r'C:\\Program\ Files\ (x86)\\OpenSceneGraph321vs2008\\bin\\ot20-OpenThreads.dll') # OpenThreads libraries
-    # package_data.extend(glob(os.path.join(OSG_DIR, 'bin', 'osgPlugins-3.2.1','osgdb*.dll'))) # File format plugins
+    #
+    debug_libs = set(glob(OSG_DIR+'/bin/o*d.dll'))
+    release_libs = set(glob(OSG_DIR+'/bin/ot*.dll')) - debug_libs # OpenThreads shared libraries
+    shared_libraries.extend(release_libs)
+    release_libs = set(glob(OSG_DIR+'/bin/osg*.dll')) - debug_libs # OpenThreads shared libraries
+    shared_libraries.extend(release_libs)
+    # 
+    debug_libs = set(glob(OSG_DIR+'/bin/osgPlugins*/osgdb*d.dll'))
+    release_libs = set(glob(OSG_DIR+'/bin/osgPlugins*/osgdb*.dll')) - debug_libs # File format plugins
+    plugin_libraries.extend(release_libs)    
+    # shared_libraries.append(r'C:/Program Files (x86)/OpenSceneGraph321vs2008/bin/ot20-OpenThreads.dll') # OpenThreads libraries
+    # shared_libraries.extend(glob(os.path.join(OSG_DIR, 'bin', 'osgPlugins-3.2.1','osgdb*.dll'))) # File format plugins
     cflags.append('/EHsc') # Avoid compiler warning about exception handling
 
 # Per-module parameters
@@ -74,6 +85,7 @@ moduleInfo['osgViewer']["libraries"].append('osgGA')
 # Create final list of extension modules
 extension_modules = []
 for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
+# for module_name in ['osgText',]: # osgText module only, just for quick testing
     extension_modules.append(Extension(
         # binary module name begins with underscore "_", so we can wrap module with a python file
         'osgpypp._%s' % module_name,
@@ -84,7 +96,17 @@ for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
         extra_compile_args=cflags,        
         ))
 
-print package_data
+# Temporarily copy shared libraries into source folder, because I cannot figure out any other
+# way to get them into a bdist package.
+print "Temporarily copying shared libraries into osgpypp source folder"
+for fname in shared_libraries:
+    copy(fname, "src/osgpypp/")
+    # print fname
+if not os.path.exists("src/osgpypp/osgPlugins-3.2.1/"):
+    os.makedirs("src/osgpypp/osgPlugins-3.2.1/")
+for fname in plugin_libraries:
+    copy(fname, "src/osgpypp/osgPlugins-3.2.1/")
+    # print fname
 
 setup(name='osgpyplusplus',
       version='3.2.1.1',
@@ -97,9 +119,23 @@ setup(name='osgpyplusplus',
       # download_url='https://github.com/JaneliaSciComp/osgpyplusplus/releases',
       packages=['osgpypp',],
       package_dir={'osgpypp': 'src/osgpypp'},
-      # package_data={'osgpypp': [r'C:/Program Files (x86)/OpenSceneGraph321vs2008/bin/ot*.dll',],},
+      package_data={'osgpypp': ['*.dll', "osgPlugins-3.2.1/*.dll"],},
       # data_files installs files right into Python27 folder...
       # data_files = [('osgpypp', glob(r'C:/Program Files (x86)/OpenSceneGraph321vs2008/bin/ot*.dll'))],
       ext_package='',
       ext_modules=extension_modules,
      )
+
+print "removing copies of shared libraries"
+for fname in shared_libraries:
+    temp_fname = os.path.join("src", "osgpypp", os.path.basename(fname))
+    # print "removing %s" % temp_fname
+    os.remove(temp_fname)
+for fname in plugin_libraries:
+    temp_fname = os.path.join("src", "osgpypp", "osgPlugins-3.2.1", os.path.basename(fname))
+    # print "removing %s" % temp_fname
+    os.remove(temp_fname)
+try:
+    os.rmdir("src/osgpypp/osgPlugins-3.2.1/")
+except:
+    pass
