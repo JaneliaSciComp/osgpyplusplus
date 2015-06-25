@@ -1,5 +1,8 @@
 #!/bin/env python
 
+# Increment this version before a release
+OSG_PYPP_VERSION = '3.2.1.1'
+
 """
 File: setup.py
 
@@ -114,7 +117,7 @@ for fname in plugin_libraries:
     # print fname
 
 setup(name='osgpyplusplus',
-      version='3.2.1.1',
+      version=OSG_PYPP_VERSION,
       description='python bindings for OpenSceneGraph API, created using Boost.Python and pyplusplus',
       author='Christopher Bruns',
       author_email='brunsc@janelia.hhmi.org',
