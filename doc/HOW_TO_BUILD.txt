@@ -1,12 +1,26 @@
 
-You will need CMake (maybe version 2.8)
+Install CMake (maybe version 2.8)
 
-Build boost
+On windows:
+  Install Visual Studio 9/2008 (or whatever your version of python requires)
+
+Build and install Boost
 On windows:
   Open Visual Studio command prompt
   Change directory to boost source tree
   % bootstrap
   % b2 --with-python python-debugging=off threading=multi variant=release link=shared toolset=msvc-9.0 install
 
-Set GCCXML_COMPILER environment variable to the correct value (msvc9 on Windows for Python 2.7)
+Install ColladaDOM (to be able to load Collada DAE files in OSG)
+
+Build and install OpenSceneGraph
+  Enable collada plugin and point to the correct colladadom library
+  Do NOT check COLLADA_USE_STATIC; sadly, collada loading does not work that way.
+
+If you will be modifying and rebuilding the OSG/C++/Python bindings:
+  Install GCCXML
+  Set GCCXML_COMPILER environment variable to the correct value (msvc9 on Windows for Python 2.7)
+  install pygccxml python module
+  install pyplusplus python module
+
 [Many more steps need to be documented here...]

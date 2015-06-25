@@ -45,16 +45,21 @@ if sys.platform == 'win32' :
         'C:/boost/lib',
         ])
     libraries.extend(['boost_python-vc90-mt-1_56',])
-    #
+    # Third party shared libraries need to be packaged along with bdist binary distributions...
+    # OpenSceneGraph shared libraries
     debug_libs = set(glob(OSG_DIR+'/bin/o*d.dll'))
     release_libs = set(glob(OSG_DIR+'/bin/ot*.dll')) - debug_libs # OpenThreads shared libraries
     shared_libraries.extend(release_libs)
-    release_libs = set(glob(OSG_DIR+'/bin/osg*.dll')) - debug_libs # OpenThreads shared libraries
+    release_libs = set(glob(OSG_DIR+'/bin/osg*.dll')) - debug_libs # OpenSceneGraph shared libraries
     shared_libraries.extend(release_libs)
     # 
     debug_libs = set(glob(OSG_DIR+'/bin/osgPlugins*/osgdb*d.dll'))
     release_libs = set(glob(OSG_DIR+'/bin/osgPlugins*/osgdb*.dll')) - debug_libs # File format plugins
-    plugin_libraries.extend(release_libs)    
+    plugin_libraries.extend(release_libs)
+    # Boost shared libraries
+    shared_libraries.append('C:/boost/lib/boost_python-vc90-mt-1_56.dll')
+    # Collada shared libraries
+    shared_libraries.append("C:/Users/brunsc/Build/Collada DOM 2.2/collada-dom/dom/build/vc9-1.4/libcollada14dom21.dll")
     # shared_libraries.append(r'C:/Program Files (x86)/OpenSceneGraph321vs2008/bin/ot20-OpenThreads.dll') # OpenThreads libraries
     # shared_libraries.extend(glob(os.path.join(OSG_DIR, 'bin', 'osgPlugins-3.2.1','osgdb*.dll'))) # File format plugins
     cflags.append('/EHsc') # Avoid compiler warning about exception handling
