@@ -116,7 +116,7 @@ for fname in plugin_libraries:
     copy(fname, "src/osgpypp/osgPlugins-3.2.1/")
     # print fname
 
-setup(name='osgpyplusplus',
+setup(name='osgpypp',
       version=OSG_PYPP_VERSION,
       description='python bindings for OpenSceneGraph API, created using Boost.Python and pyplusplus',
       author='Christopher Bruns',
