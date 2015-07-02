@@ -6,8 +6,6 @@
 
 #include "indexing_suite/container_suite.hpp"
 
-#include "indexing_suite/vector.hpp"
-
 #include "indexing_suite/map.hpp"
 
 #include "indexing_suite/deque.hpp"
@@ -106,16 +104,12 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/vector_type.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
 
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(_osgDB){
     register_enumerations();
-
-    register_vector_type_class();
 
     register_WrapperMap_class();
 

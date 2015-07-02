@@ -146,15 +146,22 @@ struct FirstPersonManipulator_wrapper : osgGA::FirstPersonManipulator, bp::wrapp
     }
 
     virtual void home( double arg0 ) {
-        if( bp::override func_home = this->get_override( "home" ) )
-            func_home( arg0 );
+        namespace bpl = boost::python;
+        if( bpl::override func_home = this->get_override( "home" ) ){
+            bpl::object py_result = bpl::call<bpl::object>( func_home.ptr(), arg0 );
+        }
         else{
-            this->osgGA::FirstPersonManipulator::home( arg0 );
+            osgGA::FirstPersonManipulator::home( arg0 );
         }
     }
     
-    void default_home( double arg0 ) {
-        osgGA::FirstPersonManipulator::home( arg0 );
+    static void default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc( ::osgGA::FirstPersonManipulator & inst, double arg0 ){
+        if( dynamic_cast< FirstPersonManipulator_wrapper * >( boost::addressof( inst ) ) ){
+            inst.::osgGA::FirstPersonManipulator::home(arg0);
+        }
+        else{
+            inst.home(arg0);
+        }
     }
 
     virtual void init( ::osgGA::GUIEventAdapter const & ea, ::osgGA::GUIActionAdapter & us ) {
@@ -904,14 +911,12 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::home
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*home_function_type)( double ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_home_function_type)( double ) ;
+            typedef void ( *default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type )( ::osgGA::FirstPersonManipulator &,double );
             
             FirstPersonManipulator_exposer.def( 
-                "home"
-                , home_function_type(&::osgGA::FirstPersonManipulator::home)
-                , default_home_function_type(&FirstPersonManipulator_wrapper::default_home)
-                , ( bp::arg("arg0") ) );
+                "home_cfeb5c5ad1b7f5b9f7fe9966abc644dc"
+                , default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type( &FirstPersonManipulator_wrapper::default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc )
+                , ( bp::arg("inst"), bp::arg("arg0") ) );
         
         }
         { //::osgGA::FirstPersonManipulator::init

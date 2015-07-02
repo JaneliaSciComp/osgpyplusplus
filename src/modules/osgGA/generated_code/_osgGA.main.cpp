@@ -12,21 +12,31 @@
 
 #include "indexing_suite/vector.hpp"
 
+#include "indexing_suite/map.hpp"
+
 #include "indexing_suite/list.hpp"
 
 #include "wrap_osgga.h"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/_osgga_free_functions.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/animationpathmanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameramanipulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameraviewswitchmanipulator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/device.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/drivemanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventqueue.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/events.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/firstpersonmanipulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/flightmanipulator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guiactionadapter.pypp.hpp"
 
@@ -36,50 +46,90 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventhandlervisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keymanipmap.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keyswitchmatrixmanipulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/list_less__osg_scope_ref_ptr_less_osgga_scope_guieventadapter_greater___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/multitouchtrackballmanipulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/nodetrackermanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/orbitmanipulator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdata.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdatalist.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/sphericalmanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/standardmanipulator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/statesetmanipulator.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/terrainmanipulator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/trackballmanipulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/ufomanipulator.pypp.hpp"
 
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(_osgGA){
     register_PointerDataList_class();
 
-    register_Events_class();
+    register_KeyManipMap_class();
+
+    register_list_less__osg_scope_ref_ptr_less_osgGA_scope_GUIEventAdapter_greater___greater__class();
 
     register_GUIEventHandler_class();
 
     register_CameraManipulator_class();
 
+    register_AnimationPathManipulator_class();
+
+    register_CameraViewSwitchManipulator_class();
+
     register_Device_class();
+
+    register_DriveManipulator_class();
 
     register_GUIEventAdapter_class();
 
     register_EventQueue_class();
 
+    register_EventVisitor_class();
+
     register_StandardManipulator_class();
 
     register_FirstPersonManipulator_class();
+
+    register_FlightManipulator_class();
 
     register_GUIActionAdapter_class();
 
     register_GUIEventHandlerVisitor_class();
 
+    register_KeySwitchMatrixManipulator_class();
+
     register_OrbitManipulator_class();
+
+    register_TrackballManipulator_class();
+
+    register_MultiTouchTrackballManipulator_class();
+
+    register_NodeTrackerManipulator_class();
 
     register_PointerData_class();
 
+    register_SphericalManipulator_class();
+
     register_StateSetManipulator_class();
 
-    register_TrackballManipulator_class();
+    register_TerrainManipulator_class();
+
+    register_UFOManipulator_class();
 
     register_free_functions();
 }

@@ -28,19 +28,45 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/cullvisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/displayrequirementsvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/drawelementtypesimplifier.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/drawelementtypesimplifiervisitor.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/geodestodividelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/globjectsoperation.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/globjectsvisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/hit.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/incrementalcompileoperation.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersectionvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersector.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersectorgroup.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersectors.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersectvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/lessdepthsortfunctor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/linesegmenthitlistmap.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/optimizer.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/pickvisitor.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/positionalstatecontainer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/primitivevaluemap.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/printvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/programset.pypp.hpp"
 
@@ -64,9 +90,21 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/set_less__osg_scope_stateset_ptr___greater_.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/shadergencache.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/shadergenvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/simplifier.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/smoothingvisitor.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/stategraph.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/statetocompile.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/statistics.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/statsvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/std_vector_pair_stateattribute_refmatrixd.pypp.hpp"
 
@@ -74,9 +112,15 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/texunitattrmatrixlistmap.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/tristripvisitor.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/updatevisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__int__greater_.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__osg_scope_ref_ptr_less_osgutil_scope_renderleaf_greater___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__osgutil_scope_hit__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__osgutil_scope_stategraph_ptr___greater_.pypp.hpp"
 
@@ -89,7 +133,13 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_RenderLeafList_class();
 
+    register_vector_less__osgUtil_scope_Hit__greater__class();
+
     register_vector_less__osg_scope_ref_ptr_less_osgUtil_scope_RenderLeaf_greater___greater__class();
+
+    register_Intersectors_class();
+
+    register_vector_less__int__greater__class();
 
     register_TextureSet_class();
 
@@ -109,6 +159,10 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_TexUnitAttrMatrixListMap_class();
 
+    register_PrimitiveValueMap_class();
+
+    register_LineSegmentHitListMap_class();
+
     register_RenderBinList_class();
 
     register_CompileSets_class();
@@ -119,17 +173,37 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_CullVisitor_class();
 
+    register_DisplayRequirementsVisitor_class();
+
+    register_DrawElementTypeSimplifier_class();
+
+    register_DrawElementTypeSimplifierVisitor_class();
+
     register_GLObjectsOperation_class();
 
     register_GLObjectsVisitor_class();
 
+    register_Hit_class();
+
     register_IncrementalCompileOperation_class();
+
+    register_IntersectVisitor_class();
+
+    register_Intersector_class();
+
+    register_IntersectionVisitor_class();
+
+    register_IntersectorGroup_class();
 
     register_LessDepthSortFunctor_class();
 
     register_Optimizer_class();
 
+    register_PickVisitor_class();
+
     register_PositionalStateContainer_class();
+
+    register_PrintVisitor_class();
 
     register_RenderBin_class();
 
@@ -139,9 +213,23 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_SceneView_class();
 
+    register_ShaderGenCache_class();
+
+    register_ShaderGenVisitor_class();
+
+    register_Simplifier_class();
+
+    register_SmoothingVisitor_class();
+
     register_StateGraph_class();
 
     register_StateToCompile_class();
+
+    register_Statistics_class();
+
+    register_StatsVisitor_class();
+
+    register_TriStripVisitor_class();
 
     register_UpdateVisitor_class();
 

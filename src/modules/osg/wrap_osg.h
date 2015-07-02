@@ -1,6 +1,72 @@
 #include "../default.h"
 
 // TODO wrap more classes
+// StateAttribute classes
+#include <osg/StateAttribute>
+#include <osg/AlphaFunc>
+#include <osg/Billboard>
+#include <osg/BlendColor>
+#include <osg/BlendEquation>
+#include <osg/BlendFunc>
+#include <osg/BufferIndexBinding>
+#include <osg/CameraView>
+#include <osg/ClampColor>
+#include <osg/ClipNode>
+#include <osg/ClipPlane>
+#include <osg/CoordinateSystemNode>
+#include <osg/ColorMask>
+#include <osg/ColorMatrix>
+#include <osg/CullFace>
+#include <osg/Depth>
+#include <osg/Fog>
+#include <osg/FragmentProgram>
+#include <osg/FrameBufferObject>
+#include <osg/FrontFace>
+#include <osg/Geode>
+#include <osg/Hint>
+#include <osg/Light>
+#include <osg/LightModel>
+#include <osg/LineStipple>
+#include <osg/LineWidth>
+#include <osg/LOD>
+#include <osg/LogicOp>
+#include <osg/Material>
+#include <osg/MatrixTransform>
+#include <osg/Multisample>
+#include <osg/OcclusionQueryNode>
+#include <osg/PagedLOD>
+#include <osg/PatchParameter>
+#include <osg/Point>
+#include <osg/PointSprite>
+#include <osg/PolygonMode>
+#include <osg/PolygonOffset>
+#include <osg/PolygonStipple>
+#include <osg/PositionAttitudeTransform>
+#include <osg/PrimitiveRestartIndex>
+#include <osg/Program>
+#include <osg/ProxyNode>
+#include <osg/SampleMaski>
+#include <osg/Scissor>
+#include <osg/Sequence>
+#include <osg/ShadeModel>
+#include <osg/ShaderAttribute>
+#include <osg/Stencil>
+#include <osg/StencilTwoSided>
+#include <osg/TexEnv>
+#include <osg/TexEnvCombine>
+#include <osg/TexEnvFilter>
+#include <osg/TexGen>
+#include <osg/TexGenNode>
+#include <osg/TexMat>
+#include <osg/Texture>
+#include <osg/VertexProgram>
+#include <osg/Viewport>
+// NodeVisitor classes
+#include <osg/NodeVisitor>
+#include <osg/CollectOccludersVisitor>
+#include <osg/ComputeBoundsVisitor>
+#include <osg/KdTree>
+// 
 #include <osg/Fog>
 #include <osg/Vec4>
 #include <osg/Object> // OK
@@ -66,6 +132,11 @@ namespace pyplusplus { namespace aliases {
 	typedef osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > Vec3Array;
 
 	typedef osg::BoundingSphereImpl< osg::Vec3f > BoundingSphereVec3f;
+
+	// Avoid multiply defined aliases
+	typedef osg::FragmentProgram::MatrixList FragmentProgram_MatrixList;
+	// typedef osg::CullStack::MatrixList CullStack_MatrixList;
+	typedef osg::VertexProgram::MatrixList VertexProgram_MatrixList;
 }}
 
 // function(s) needed by indexing suite

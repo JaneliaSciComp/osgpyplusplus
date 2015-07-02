@@ -10,7 +10,11 @@ namespace bp = boost::python;
 
 void register_vector_less__osg_scope_Matrixd__greater__class(){
 
-    bp::class_< std::vector< osg::Matrixd > >("vector_less__osg_scope_Matrixd__greater_")    
-        .def( bp::indexing::vector_suite< std::vector< osg::Matrixd > >() );
+    { //::std::vector< osg::Matrixd >
+        typedef bp::class_< std::vector< osg::Matrixd > > vector_less__osg_scope_Matrixd__greater__exposer_t;
+        vector_less__osg_scope_Matrixd__greater__exposer_t vector_less__osg_scope_Matrixd__greater__exposer = vector_less__osg_scope_Matrixd__greater__exposer_t( "vector_less__osg_scope_Matrixd__greater_" );
+        bp::scope vector_less__osg_scope_Matrixd__greater__scope( vector_less__osg_scope_Matrixd__greater__exposer );
+        vector_less__osg_scope_Matrixd__greater__exposer.def( bp::indexing::vector_suite< std::vector< osg::Matrixd > >() );
+    }
 
 }

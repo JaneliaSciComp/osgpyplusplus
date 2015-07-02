@@ -140,17 +140,16 @@ class OsgWrapper(BaseWrapper):
                 "Texture2D",
                 "TexGen",
                 "Uniform", 
+                "VertexProgram",
                 "Viewport",
                 ]:
             cls = osg.class_(cls_name)
-            for fn_name in [
-                    "compare", 
-                    "compareData", 
-                    "copyData",
-                    "merge"]: # TODO confusing protected destructor compile errors
-                cls.member_functions(fn_name, allow_empty=True).exclude()
-            for op_name in ["operator<", "operator==", "operator!="]:
-                cls.member_operators(op_name, allow_empty=True).exclude() # TODO confusing protected destructor compile errors
+            self.ignore_protected_destructor_problem_fns(cls)
+
+        cls = osg.class_("VertexProgram").class_("Extensions")
+        hack_osg_arg(cls, "lowestCommonDenominator", "rhs")
+        self.ignore_protected_destructor_problem_fns(cls)
+        cls.constructors(arg_types=[None]).exclude() # copy constructor
 
         # Call custom methods to wrap individual classes
         self.wrap_camera()
@@ -288,6 +287,16 @@ class OsgWrapper(BaseWrapper):
 
         # Write results
         self.generate_module_code("_osg")
+
+    def ignore_protected_destructor_problem_fns(self, cls):
+        for fn_name in [
+                "compare", 
+                "compareData", 
+                "copyData",
+                "merge"]: # TODO confusing protected destructor compile errors
+            cls.member_functions(fn_name, allow_empty=True).exclude()
+        for op_name in ["operator<", "operator==", "operator!="]:
+            cls.member_operators(op_name, allow_empty=True).exclude() # TODO confusing protected destructor compile errors
     
     def wrap_nodevisitor(self):
         cls = self.mb.class_("NodeVisitor")

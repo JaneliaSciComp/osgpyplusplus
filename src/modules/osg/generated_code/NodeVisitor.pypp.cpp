@@ -786,7 +786,7 @@ void register_NodeVisitor_class(){
                 "getDatabaseRequestHandler"
                 , getDatabaseRequestHandler_function_type( &::osg::NodeVisitor::getDatabaseRequestHandler )
                 , bp::return_internal_reference< >()
-                , "\n Get the handler for database requests.\n" );
+                , " Get the handler for database requests." );
         
         }
         { //::osg::NodeVisitor::getDatabaseRequestHandler
@@ -797,7 +797,7 @@ void register_NodeVisitor_class(){
                 "getDatabaseRequestHandler"
                 , getDatabaseRequestHandler_function_type( &::osg::NodeVisitor::getDatabaseRequestHandler )
                 , bp::return_internal_reference< >()
-                , "\n Get the const handler for database requests.\n" );
+                , " Get the const handler for database requests." );
         
         }
         { //::osg::NodeVisitor::getDistanceFromEyePoint
@@ -855,7 +855,7 @@ void register_NodeVisitor_class(){
                 "getFrameStamp"
                 , getFrameStamp_function_type( &::osg::NodeVisitor::getFrameStamp )
                 , bp::return_internal_reference< >()
-                , "\n Get the FrameStamp that this traversal is associated with.\n" );
+                , " Get the FrameStamp that this traversal is associated with." );
         
         }
         { //::osg::NodeVisitor::getImageRequestHandler
@@ -866,7 +866,7 @@ void register_NodeVisitor_class(){
                 "getImageRequestHandler"
                 , getImageRequestHandler_function_type( &::osg::NodeVisitor::getImageRequestHandler )
                 , bp::return_internal_reference< >()
-                , "\n Get the handler for image requests.\n" );
+                , " Get the handler for image requests." );
         
         }
         { //::osg::NodeVisitor::getImageRequestHandler
@@ -877,7 +877,7 @@ void register_NodeVisitor_class(){
                 "getImageRequestHandler"
                 , getImageRequestHandler_function_type( &::osg::NodeVisitor::getImageRequestHandler )
                 , bp::return_internal_reference< >()
-                , "\n Get the const handler for image requests.\n" );
+                , " Get the const handler for image requests." );
         
         }
         { //::osg::NodeVisitor::getNodeMaskOverride
@@ -887,7 +887,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "getNodeMaskOverride"
                 , getNodeMaskOverride_function_type( &::osg::NodeVisitor::getNodeMaskOverride )
-                , "\n Get the NodeMaskOverride mask.\n" );
+                , " Get the NodeMaskOverride mask." );
         
         }
         { //::osg::NodeVisitor::getNodePath
@@ -898,7 +898,7 @@ void register_NodeVisitor_class(){
                 "getNodePath"
                 , getNodePath_function_type( &::osg::NodeVisitor::getNodePath )
                 , bp::return_internal_reference< >()
-                , "\n Get the non const NodePath from the top most node applied down\n to the current Node being visited.\n" );
+                , " Get the non const NodePath from the top most node applied down\n to the current Node being visited." );
         
         }
         { //::osg::NodeVisitor::getNodePath
@@ -909,7 +909,7 @@ void register_NodeVisitor_class(){
                 "getNodePath"
                 , getNodePath_function_type( &::osg::NodeVisitor::getNodePath )
                 , bp::return_internal_reference< >()
-                , "\n Get the const NodePath from the top most node applied down\n to the current Node being visited.\n" );
+                , " Get the const NodePath from the top most node applied down\n to the current Node being visited." );
         
         }
         { //::osg::NodeVisitor::getTraversalMask
@@ -919,7 +919,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "getTraversalMask"
                 , getTraversalMask_function_type( &::osg::NodeVisitor::getTraversalMask )
-                , "\n Get the TraversalMask.\n" );
+                , " Get the TraversalMask." );
         
         }
         { //::osg::NodeVisitor::getTraversalMode
@@ -929,7 +929,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "getTraversalMode"
                 , getTraversalMode_function_type( &::osg::NodeVisitor::getTraversalMode )
-                , "\n Get the traversal mode.\n" );
+                , " Get the traversal mode." );
         
         }
         { //::osg::NodeVisitor::getTraversalNumber
@@ -939,7 +939,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "getTraversalNumber"
                 , getTraversalNumber_function_type( &::osg::NodeVisitor::getTraversalNumber )
-                , "\n Get the traversal number. Typically used to denote the frame count.\n" );
+                , " Get the traversal number. Typically used to denote the frame count." );
         
         }
         { //::osg::NodeVisitor::getUserData
@@ -950,7 +950,7 @@ void register_NodeVisitor_class(){
                 "getUserData"
                 , getUserData_function_type( &::osg::NodeVisitor::getUserData )
                 , bp::return_internal_reference< >()
-                , "\n Get user data.\n" );
+                , " Get user data." );
         
         }
         { //::osg::NodeVisitor::getUserData
@@ -961,7 +961,7 @@ void register_NodeVisitor_class(){
                 "getUserData"
                 , getUserData_function_type( &::osg::NodeVisitor::getUserData )
                 , bp::return_internal_reference< >()
-                , "\n Get const user data.\n" );
+                , " Get const user data." );
         
         }
         { //::osg::NodeVisitor::getViewPoint
@@ -982,7 +982,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "getVisitorType"
                 , getVisitorType_function_type( &::osg::NodeVisitor::getVisitorType )
-                , "\n Get the VisitorType.\n" );
+                , " Get the VisitorType." );
         
         }
         { //::osg::NodeVisitor::libraryName
@@ -1003,7 +1003,7 @@ void register_NodeVisitor_class(){
             NodeVisitor_exposer.def( 
                 "popFromNodePath"
                 , popFromNodePath_function_type( &::osg::NodeVisitor::popFromNodePath )
-                , "\n Method called by osg::Node::accept() method after\n a call to NodeVisitor::apply(..).\n Note, the user does not typically call popFromNodePath() as it\n will be called automatically by the Node::accept() method.\n" );
+                , " Method called by osg::Node::accept() method after\n a call to NodeVisitor::apply(..).\n Note, the user does not typically call popFromNodePath() as it\n will be called automatically by the Node::accept() method." );
         
         }
         { //::osg::NodeVisitor::pushOntoNodePath
@@ -1014,7 +1014,7 @@ void register_NodeVisitor_class(){
                 "pushOntoNodePath"
                 , pushOntoNodePath_function_type( &::osg::NodeVisitor::pushOntoNodePath )
                 , ( bp::arg("node") )
-                , "\n Method called by osg::Node::accept() method before\n a call to the NodeVisitor::apply(..).  The back of the list will,\n therefore, be the current node being visited inside the apply(..),\n and the rest of the list will be the parental sequence of nodes\n from the top most node applied down the graph to the current node.\n Note, the user does not typically call pushNodeOnPath() as it\n will be called automatically by the Node::accept() method.\n" );
+                , " Method called by osg::Node::accept() method before\n a call to the NodeVisitor::apply(..).  The back of the list will,\n therefore, be the current node being visited inside the apply(..),\n and the rest of the list will be the parental sequence of nodes\n from the top most node applied down the graph to the current node.\n Note, the user does not typically call pushNodeOnPath() as it\n will be called automatically by the Node::accept() method." );
         
         }
         { //::osg::NodeVisitor::reset
@@ -1036,7 +1036,7 @@ void register_NodeVisitor_class(){
                 "setDatabaseRequestHandler"
                 , setDatabaseRequestHandler_function_type( &::osg::NodeVisitor::setDatabaseRequestHandler )
                 , ( bp::arg("handler") )
-                , "\n Set the handler for database requests.\n" );
+                , " Set the handler for database requests." );
         
         }
         { //::osg::NodeVisitor::setFrameStamp
@@ -1047,7 +1047,7 @@ void register_NodeVisitor_class(){
                 "setFrameStamp"
                 , setFrameStamp_function_type( &::osg::NodeVisitor::setFrameStamp )
                 , ( bp::arg("fs") )
-                , "\n Set the FrameStamp that this traversal is associated with.\n" );
+                , " Set the FrameStamp that this traversal is associated with." );
         
         }
         { //::osg::NodeVisitor::setImageRequestHandler
@@ -1058,7 +1058,7 @@ void register_NodeVisitor_class(){
                 "setImageRequestHandler"
                 , setImageRequestHandler_function_type( &::osg::NodeVisitor::setImageRequestHandler )
                 , ( bp::arg("handler") )
-                , "\n Set the handler for image requests.\n" );
+                , " Set the handler for image requests." );
         
         }
         { //::osg::NodeVisitor::setNodeMaskOverride
@@ -1069,7 +1069,7 @@ void register_NodeVisitor_class(){
                 "setNodeMaskOverride"
                 , setNodeMaskOverride_function_type( &::osg::NodeVisitor::setNodeMaskOverride )
                 , ( bp::arg("mask") )
-                , "\n Set the NodeMaskOverride mask.\n Used in validNodeMask() to determine whether to operate on a node or its\n subgraph, by ORing NodeVisitor::_nodeMaskOverride with the Nodes own Node::_nodeMask.\n Typically used to force on nodes which may have\n been switched off by their own Node::_nodeMask.\n" );
+                , " Set the NodeMaskOverride mask.\n Used in validNodeMask() to determine whether to operate on a node or its\n subgraph, by ORing NodeVisitor::_nodeMaskOverride with the Nodes own Node::_nodeMask.\n Typically used to force on nodes which may have\n been switched off by their own Node::_nodeMask." );
         
         }
         { //::osg::NodeVisitor::setTraversalMask
@@ -1080,7 +1080,7 @@ void register_NodeVisitor_class(){
                 "setTraversalMask"
                 , setTraversalMask_function_type( &::osg::NodeVisitor::setTraversalMask )
                 , ( bp::arg("mask") )
-                , "\n Set the TraversalMask of this NodeVisitor.\n The TraversalMask is used by the NodeVisitor::validNodeMask() method\n to determine whether to operate on a node and its subgraph.\n validNodeMask() is called automatically in the Node::accept() method before\n any call to NodeVisitor::apply(), apply() is only ever called if validNodeMask\n returns true. Note, if NodeVisitor::_traversalMask is 0 then all operations\n will be switched off for all nodes.  Whereas setting both _traversalMask and\n _nodeMaskOverride to 0xffffffff will allow a visitor to work on all nodes\n regardless of their own Node::_nodeMask state.\n" );
+                , " Set the TraversalMask of this NodeVisitor.\n The TraversalMask is used by the NodeVisitor::validNodeMask() method\n to determine whether to operate on a node and its subgraph.\n validNodeMask() is called automatically in the Node::accept() method before\n any call to NodeVisitor::apply(), apply() is only ever called if validNodeMask\n returns true. Note, if NodeVisitor::_traversalMask is 0 then all operations\n will be switched off for all nodes.  Whereas setting both _traversalMask and\n _nodeMaskOverride to 0xffffffff will allow a visitor to work on all nodes\n regardless of their own Node::_nodeMask state." );
         
         }
         { //::osg::NodeVisitor::setTraversalMode
@@ -1091,7 +1091,7 @@ void register_NodeVisitor_class(){
                 "setTraversalMode"
                 , setTraversalMode_function_type( &::osg::NodeVisitor::setTraversalMode )
                 , ( bp::arg("mode") )
-                , "\n Set the traversal mode for Node::traverse() to use when\n            deciding which children of a node to traverse. If a\n            NodeVisitor has been attached via setTraverseVisitor()\n            and the new mode is not TRAVERSE_VISITOR then the attached\n            visitor is detached. Default mode is TRAVERSE_NONE.\n" );
+                , " Set the traversal mode for Node::traverse() to use when\n            deciding which children of a node to traverse. If a\n            NodeVisitor has been attached via setTraverseVisitor()\n            and the new mode is not TRAVERSE_VISITOR then the attached\n            visitor is detached. Default mode is TRAVERSE_NONE." );
         
         }
         { //::osg::NodeVisitor::setTraversalNumber
@@ -1102,7 +1102,7 @@ void register_NodeVisitor_class(){
                 "setTraversalNumber"
                 , setTraversalNumber_function_type( &::osg::NodeVisitor::setTraversalNumber )
                 , ( bp::arg("fn") )
-                , "\n Set the traversal number. Typically used to denote the frame count.\n" );
+                , " Set the traversal number. Typically used to denote the frame count." );
         
         }
         { //::osg::NodeVisitor::setUserData
@@ -1113,7 +1113,7 @@ void register_NodeVisitor_class(){
                 "setUserData"
                 , setUserData_function_type( &::osg::NodeVisitor::setUserData )
                 , ( bp::arg("obj") )
-                , "\n Set user data, data must be subclassed from Referenced to allow\n automatic memory handling.  If your own data isnt directly\n subclassed from Referenced then create an adapter object\n which points to your own objects and handles the memory addressing.\n" );
+                , " Set user data, data must be subclassed from Referenced to allow\n automatic memory handling.  If your own data isnt directly\n subclassed from Referenced then create an adapter object\n which points to your own objects and handles the memory addressing." );
         
         }
         { //::osg::NodeVisitor::setVisitorType
@@ -1124,7 +1124,7 @@ void register_NodeVisitor_class(){
                 "setVisitorType"
                 , setVisitorType_function_type( &::osg::NodeVisitor::setVisitorType )
                 , ( bp::arg("type") )
-                , "\n Set the VisitorType, used to distinguish different visitors during\n traversal of the scene, typically used in the Node::traverse() method\n to select which behaviour to use for different types of traversal/visitors.\n" );
+                , " Set the VisitorType, used to distinguish different visitors during\n traversal of the scene, typically used in the Node::traverse() method\n to select which behaviour to use for different types of traversal/visitors." );
         
         }
         { //::osg::NodeVisitor::traverse
@@ -1135,7 +1135,7 @@ void register_NodeVisitor_class(){
                 "traverse"
                 , traverse_function_type( &::osg::NodeVisitor::traverse )
                 , ( bp::arg("node") )
-                , "\n Method for handling traversal of a nodes.\n            If you intend to use the visitor for actively traversing\n            the scene graph then make sure the accept() methods call\n            this method unless they handle traversal directly.\n" );
+                , " Method for handling traversal of a nodes.\n            If you intend to use the visitor for actively traversing\n            the scene graph then make sure the accept() methods call\n            this method unless they handle traversal directly." );
         
         }
         { //::osg::Referenced::setThreadSafeRefUnref

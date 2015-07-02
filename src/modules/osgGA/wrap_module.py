@@ -129,25 +129,64 @@ class OsgGAWrapper(BaseWrapper):
             expose_overridable_ref_ptr_class(cls)
 
     def wrap_manipulators(self):
-        for cls_name in ["FirstPersonManipulator", "OrbitManipulator", "TrackballManipulator", ]:
+        # Avoid DEFAULT_SETTINGS compile error
+        for cls_name in [
+                "FirstPersonManipulator", 
+                "FlightManipulator",
+                "MultiTouchTrackballManipulator",
+                "NodeTrackerManipulator",
+                "OrbitManipulator", 
+                "TerrainManipulator",
+                "TrackballManipulator", 
+                ]:
             cls = self.mb.namespace("osgGA").class_(cls_name)
             cls.add_declaration_code("""
                 static int DEFAULT_SETTINGS = osgGA::%s::DEFAULT_SETTINGS;
                 """ % cls_name)
+        for cls_name in [
+                "AnimationPathManipulator",
+                "CameraViewSwitchManipulator",
+                "DriveManipulator",
+                "FirstPersonManipulator", 
+                "FlightManipulator",
+                "KeySwitchMatrixManipulator",
+                "MultiTouchTrackballManipulator",
+                "NodeTrackerManipulator",
+                "OrbitManipulator", 
+                "SphericalManipulator",
+                "TerrainManipulator",
+                "TrackballManipulator", 
+                "UFOManipulator", 
+                ]:
+            cls = self.mb.namespace("osgGA").class_(cls_name)
             cls.member_functions().include() # even protected ones...
             # Proof of concept for transforming all those compile errors
             # for const reference arguments with protected destructors
-            hack_osg_arg(cls, "init", "ea")
-            # hack_osg_arg(cls, "handleMouseWheel", "ea")
-            hack_osg_arg(cls, "handle", "ea")
-            hack_osg_arg(cls, "home", "ea")
-            # hack_osg_arg(cls, "centerMousePointer", "ea")
-            # hack_osg_arg(cls, "addMouseEvent", "ea")        
-            # hack_osg_arg(cls, "startAnimationByMousePointerIntersection", "ea")
-            #
-            cls.member_functions("handleMouseWheel", allow_empty=True).exclude()
-            # cls.member_function("addMouseEvent").exclude()
-            cls.member_functions("startAnimationByMousePointerIntersection", allow_empty=True).exclude()
+            for fn_name in [
+                    "init", 
+                    "handle", 
+                    "home", 
+                    ]:
+                hack_osg_arg(cls, fn_name, "ea")
+                hack_osg_arg(cls, fn_name, "ee")
+                hack_osg_arg(cls, fn_name, "arg0")
+            for fn_name in [
+                    "_frame",
+                    "_keyDown",
+                    "_keyUp",
+                    "addMouseEvent", 
+                    "flightHandleEvent", 
+                    "handleFrame", 
+                    "handleKeyDown", 
+                    "handleMouseDrag",
+                    "handleMouseMove",
+                    "handleMousePush",
+                    "handleMouseRelease",
+                    "handleMouseWheel",
+                    # "getUsage",  
+                    "startAnimationByMousePointerIntersection", 
+                    ]:
+                cls.member_functions(fn_name, allow_empty=True).exclude()
             # Make class overridable, including callbacks from C++
             expose_overridable_ref_ptr_class(cls)
 
