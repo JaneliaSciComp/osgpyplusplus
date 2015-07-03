@@ -71,18 +71,6 @@ struct LineStipple_wrapper : osg::LineStipple, bp::wrapper< osg::LineStipple > {
         return osg::LineStipple::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::LineStipple::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::LineStipple::compare( boost::ref(sa) );
-    }
-
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & usage ) const  {
         if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
             return func_getModeUsage( boost::ref(usage) );
@@ -296,127 +284,122 @@ void register_LineStipple_class(){
         .def( bp::init< GLint, GLushort >(( bp::arg("factor"), bp::arg("pattern") )) )    
         .def( 
             "apply"
-            , (void ( ::osg::LineStipple::* )( ::osg::State & )const)(&::osg::LineStipple::apply)
-            , (void ( LineStipple_wrapper::* )( ::osg::State & )const)(&LineStipple_wrapper::default_apply)
+            , (void ( ::osg::LineStipple::* )( ::osg::State & ) const)(&::osg::LineStipple::apply)
+            , (void ( LineStipple_wrapper::* )( ::osg::State & ) const)(&LineStipple_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::LineStipple::* )(  )const)(&::osg::LineStipple::className)
-            , (char const * ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_className) )    
+            , (char const * ( ::osg::LineStipple::* )(  ) const)(&::osg::LineStipple::className)
+            , (char const * ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::LineStipple::* )( ::osg::CopyOp const & )const)(&::osg::LineStipple::clone)
-            , (::osg::Object * ( LineStipple_wrapper::* )( ::osg::CopyOp const & )const)(&LineStipple_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::LineStipple::* )( ::osg::CopyOp const & ) const)(&::osg::LineStipple::clone)
+            , (::osg::Object * ( LineStipple_wrapper::* )( ::osg::CopyOp const & ) const)(&LineStipple_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::LineStipple::* )(  )const)(&::osg::LineStipple::cloneType)
-            , (::osg::Object * ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::LineStipple::* )(  ) const)(&::osg::LineStipple::cloneType)
+            , (::osg::Object * ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
-            "compare"
-            , (int ( ::osg::LineStipple::* )( ::osg::StateAttribute const & )const)(&::osg::LineStipple::compare)
-            , (int ( LineStipple_wrapper::* )( ::osg::StateAttribute const & )const)(&LineStipple_wrapper::default_compare)
-            , ( bp::arg("sa") ) )    
-        .def( 
             "getFactor"
-            , (::GLint ( ::osg::LineStipple::* )(  )const)( &::osg::LineStipple::getFactor ) )    
+            , (::GLint ( ::osg::LineStipple::* )(  ) const)( &::osg::LineStipple::getFactor ) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::LineStipple::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::LineStipple::getModeUsage)
-            , (bool ( LineStipple_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&LineStipple_wrapper::default_getModeUsage)
+            , (bool ( ::osg::LineStipple::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::LineStipple::getModeUsage)
+            , (bool ( LineStipple_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&LineStipple_wrapper::default_getModeUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getPattern"
-            , (::GLushort ( ::osg::LineStipple::* )(  )const)( &::osg::LineStipple::getPattern ) )    
+            , (::GLushort ( ::osg::LineStipple::* )(  ) const)( &::osg::LineStipple::getPattern ) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::LineStipple::* )(  )const)(&::osg::LineStipple::getType)
-            , (::osg::StateAttribute::Type ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::LineStipple::* )(  ) const)(&::osg::LineStipple::getType)
+            , (::osg::StateAttribute::Type ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_getType) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::LineStipple::* )( ::osg::Object const * )const)(&::osg::LineStipple::isSameKindAs)
-            , (bool ( LineStipple_wrapper::* )( ::osg::Object const * )const)(&LineStipple_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::LineStipple::* )( ::osg::Object const * ) const)(&::osg::LineStipple::isSameKindAs)
+            , (bool ( LineStipple_wrapper::* )( ::osg::Object const * ) const)(&LineStipple_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::LineStipple::* )(  )const)(&::osg::LineStipple::libraryName)
-            , (char const * ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::LineStipple::* )(  ) const)(&::osg::LineStipple::libraryName)
+            , (char const * ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_libraryName) )    
         .def( 
             "setFactor"
-            , (void ( ::osg::LineStipple::* )( ::GLint ))( &::osg::LineStipple::setFactor )
+            , (void ( ::osg::LineStipple::* )( ::GLint ) )( &::osg::LineStipple::setFactor )
             , ( bp::arg("factor") ) )    
         .def( 
             "setPattern"
-            , (void ( ::osg::LineStipple::* )( ::GLushort ))( &::osg::LineStipple::setPattern )
+            , (void ( ::osg::LineStipple::* )( ::GLushort ) )( &::osg::LineStipple::setPattern )
             , ( bp::arg("pattern") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( LineStipple_wrapper::* )(  ))(&LineStipple_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( LineStipple_wrapper::* )(  ) )(&LineStipple_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( LineStipple_wrapper::* )( ::osg::State & )const)(&LineStipple_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( LineStipple_wrapper::* )( ::osg::State & ) const)(&LineStipple_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
-            , (void ( LineStipple_wrapper::* )( ::osg::State & )const)(&LineStipple_wrapper::default_compileGLObjects)
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( LineStipple_wrapper::* )( ::osg::State & ) const)(&LineStipple_wrapper::default_compileGLObjects)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( LineStipple_wrapper::* )(  ))(&LineStipple_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( LineStipple_wrapper::* )(  ) )(&LineStipple_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_getMember) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( LineStipple_wrapper::* )(  ))(&LineStipple_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( LineStipple_wrapper::* )(  ) )(&LineStipple_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( LineStipple_wrapper::* )(  )const)(&LineStipple_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( LineStipple_wrapper::* )(  ) const)(&LineStipple_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
-            , (void ( LineStipple_wrapper::* )( unsigned int ))(&LineStipple_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::StateAttribute::* )( unsigned int ) )(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( LineStipple_wrapper::* )( unsigned int ) )(&LineStipple_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( LineStipple_wrapper::* )( ::std::string const & ))(&LineStipple_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( LineStipple_wrapper::* )( ::std::string const & ) )(&LineStipple_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( LineStipple_wrapper::* )( bool ))(&LineStipple_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( LineStipple_wrapper::* )( bool ) )(&LineStipple_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( LineStipple_wrapper::* )( ::osg::Referenced * ))(&LineStipple_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( LineStipple_wrapper::* )( ::osg::Referenced * ) )(&LineStipple_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

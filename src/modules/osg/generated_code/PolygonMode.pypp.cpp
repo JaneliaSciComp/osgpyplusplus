@@ -71,18 +71,6 @@ struct PolygonMode_wrapper : osg::PolygonMode, bp::wrapper< osg::PolygonMode > {
         return osg::PolygonMode::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::PolygonMode::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::PolygonMode::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -311,8 +299,8 @@ void register_PolygonMode_class(){
         PolygonMode_exposer.def( bp::init< osg::PolygonMode::Face, osg::PolygonMode::Mode >(( bp::arg("face"), bp::arg("mode") )) );
         { //::osg::PolygonMode::apply
         
-            typedef void ( ::osg::PolygonMode::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( PolygonMode_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::PolygonMode::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( PolygonMode_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             PolygonMode_exposer.def( 
                 "apply"
@@ -323,8 +311,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::className
         
-            typedef char const * ( ::osg::PolygonMode::*className_function_type)(  ) const;
-            typedef char const * ( PolygonMode_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::PolygonMode::*className_function_type )(  ) const;
+            typedef char const * ( PolygonMode_wrapper::*default_className_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "className"
@@ -334,8 +322,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::clone
         
-            typedef ::osg::Object * ( ::osg::PolygonMode::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( PolygonMode_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::PolygonMode::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( PolygonMode_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             PolygonMode_exposer.def( 
                 "clone"
@@ -347,8 +335,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::cloneType
         
-            typedef ::osg::Object * ( ::osg::PolygonMode::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( PolygonMode_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::PolygonMode::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( PolygonMode_wrapper::*default_cloneType_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "cloneType"
@@ -357,21 +345,9 @@ void register_PolygonMode_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::PolygonMode::compare
-        
-            typedef int ( ::osg::PolygonMode::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( PolygonMode_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            PolygonMode_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::PolygonMode::compare)
-                , default_compare_function_type(&PolygonMode_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::PolygonMode::getFrontAndBack
         
-            typedef bool ( ::osg::PolygonMode::*getFrontAndBack_function_type)(  ) const;
+            typedef bool ( ::osg::PolygonMode::*getFrontAndBack_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "getFrontAndBack"
@@ -380,7 +356,7 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::getMode
         
-            typedef ::osg::PolygonMode::Mode ( ::osg::PolygonMode::*getMode_function_type)( ::osg::PolygonMode::Face ) const;
+            typedef ::osg::PolygonMode::Mode ( ::osg::PolygonMode::*getMode_function_type )( ::osg::PolygonMode::Face ) const;
             
             PolygonMode_exposer.def( 
                 "getMode"
@@ -390,8 +366,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::PolygonMode::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( PolygonMode_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::PolygonMode::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( PolygonMode_wrapper::*default_getType_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "getType"
@@ -401,8 +377,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::isSameKindAs
         
-            typedef bool ( ::osg::PolygonMode::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( PolygonMode_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::PolygonMode::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( PolygonMode_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             PolygonMode_exposer.def( 
                 "isSameKindAs"
@@ -413,8 +389,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::libraryName
         
-            typedef char const * ( ::osg::PolygonMode::*libraryName_function_type)(  ) const;
-            typedef char const * ( PolygonMode_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::PolygonMode::*libraryName_function_type )(  ) const;
+            typedef char const * ( PolygonMode_wrapper::*default_libraryName_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "libraryName"
@@ -424,7 +400,7 @@ void register_PolygonMode_class(){
         }
         { //::osg::PolygonMode::setMode
         
-            typedef void ( ::osg::PolygonMode::*setMode_function_type)( ::osg::PolygonMode::Face,::osg::PolygonMode::Mode ) ;
+            typedef void ( ::osg::PolygonMode::*setMode_function_type )( ::osg::PolygonMode::Face,::osg::PolygonMode::Mode ) ;
             
             PolygonMode_exposer.def( 
                 "setMode"
@@ -434,8 +410,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( PolygonMode_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( PolygonMode_wrapper::*default_asTexture_function_type )(  ) ;
             
             PolygonMode_exposer.def( 
                 "asTexture"
@@ -446,8 +422,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( PolygonMode_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( PolygonMode_wrapper::*default_asTexture_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "asTexture"
@@ -458,8 +434,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( PolygonMode_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( PolygonMode_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             PolygonMode_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -470,8 +446,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( PolygonMode_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( PolygonMode_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             PolygonMode_exposer.def( 
                 "compileGLObjects"
@@ -482,8 +458,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( PolygonMode_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( PolygonMode_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             PolygonMode_exposer.def( 
                 "computeDataVariance"
@@ -493,8 +469,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( PolygonMode_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( PolygonMode_wrapper::*default_getMember_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "getMember"
@@ -504,8 +480,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( PolygonMode_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( PolygonMode_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             PolygonMode_exposer.def( 
                 "getModeUsage"
@@ -516,8 +492,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( PolygonMode_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( PolygonMode_wrapper::*default_getUserData_function_type )(  ) ;
             
             PolygonMode_exposer.def( 
                 "getUserData"
@@ -528,8 +504,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( PolygonMode_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( PolygonMode_wrapper::*default_getUserData_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "getUserData"
@@ -540,8 +516,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( PolygonMode_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( PolygonMode_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             PolygonMode_exposer.def( 
                 "isTextureAttribute"
@@ -551,8 +527,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( PolygonMode_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( PolygonMode_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             PolygonMode_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -563,8 +539,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( PolygonMode_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( PolygonMode_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             PolygonMode_exposer.def( 
                 "setName"
@@ -575,7 +551,7 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             PolygonMode_exposer.def( 
                 "setName"
@@ -586,8 +562,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( PolygonMode_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( PolygonMode_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             PolygonMode_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -598,8 +574,8 @@ void register_PolygonMode_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( PolygonMode_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( PolygonMode_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             PolygonMode_exposer.def( 
                 "setUserData"

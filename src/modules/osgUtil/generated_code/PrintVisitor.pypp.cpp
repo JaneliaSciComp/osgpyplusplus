@@ -399,8 +399,8 @@ void register_PrintVisitor_class(){
         bp::implicitly_convertible< std::ostream &, osgUtil::PrintVisitor >();
         { //::osgUtil::PrintVisitor::apply
         
-            typedef void ( ::osgUtil::PrintVisitor::*apply_function_type)( ::osg::Node & ) ;
-            typedef void ( PrintVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::PrintVisitor::*apply_function_type )( ::osg::Node & ) ;
+            typedef void ( PrintVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
             
             PrintVisitor_exposer.def( 
                 "apply"
@@ -411,7 +411,7 @@ void register_PrintVisitor_class(){
         }
         { //::osgUtil::PrintVisitor::enter
         
-            typedef void ( ::osgUtil::PrintVisitor::*enter_function_type)(  ) ;
+            typedef void ( ::osgUtil::PrintVisitor::*enter_function_type )(  ) ;
             
             PrintVisitor_exposer.def( 
                 "enter"
@@ -420,7 +420,7 @@ void register_PrintVisitor_class(){
         }
         { //::osgUtil::PrintVisitor::leave
         
-            typedef void ( ::osgUtil::PrintVisitor::*leave_function_type)(  ) ;
+            typedef void ( ::osgUtil::PrintVisitor::*leave_function_type )(  ) ;
             
             PrintVisitor_exposer.def( 
                 "leave"
@@ -429,7 +429,7 @@ void register_PrintVisitor_class(){
         }
         { //::osgUtil::PrintVisitor::output
         
-            typedef ::std::ostream & ( ::osgUtil::PrintVisitor::*output_function_type)(  ) ;
+            typedef ::std::ostream & ( ::osgUtil::PrintVisitor::*output_function_type )(  ) ;
             
             PrintVisitor_exposer.def( 
                 "output"

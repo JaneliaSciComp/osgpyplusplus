@@ -52,6 +52,10 @@ find_library(OPENTHREADS_LIBRARY
     NAME OpenThreads
     PATHS ${OSG_DIR}/lib
 )
+find_library(OSG_LIBRARY 
+    NAME osg
+    PATHS ${OSG_DIR}/lib
+)
 find_library(OSGGA_LIBRARY 
     NAME osgGA
     PATHS ${OSG_DIR}/lib

@@ -191,22 +191,22 @@ void register_LODScaleHandler_class(){
     bp::class_< LODScaleHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::LODScaleHandler >, boost::noncopyable >( "LODScaleHandler", bp::init< >() )    
         .def( 
             "getKeyEventDecreaseLODScale"
-            , (int ( ::osgViewer::LODScaleHandler::* )(  )const)( &::osgViewer::LODScaleHandler::getKeyEventDecreaseLODScale ) )    
+            , (int ( ::osgViewer::LODScaleHandler::* )(  ) const)( &::osgViewer::LODScaleHandler::getKeyEventDecreaseLODScale ) )    
         .def( 
             "getKeyEventIncreaseLODScale"
-            , (int ( ::osgViewer::LODScaleHandler::* )(  )const)( &::osgViewer::LODScaleHandler::getKeyEventIncreaseLODScale ) )    
+            , (int ( ::osgViewer::LODScaleHandler::* )(  ) const)( &::osgViewer::LODScaleHandler::getKeyEventIncreaseLODScale ) )    
         .def( 
             "getUsage"
-            , (void ( ::osgViewer::LODScaleHandler::* )( ::osg::ApplicationUsage & )const)(&::osgViewer::LODScaleHandler::getUsage)
-            , (void ( LODScaleHandler_wrapper::* )( ::osg::ApplicationUsage & )const)(&LODScaleHandler_wrapper::default_getUsage)
+            , (void ( ::osgViewer::LODScaleHandler::* )( ::osg::ApplicationUsage & ) const)(&::osgViewer::LODScaleHandler::getUsage)
+            , (void ( LODScaleHandler_wrapper::* )( ::osg::ApplicationUsage & ) const)(&LODScaleHandler_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "setKeyEventDecreaseLODScale"
-            , (void ( ::osgViewer::LODScaleHandler::* )( int ))( &::osgViewer::LODScaleHandler::setKeyEventDecreaseLODScale )
+            , (void ( ::osgViewer::LODScaleHandler::* )( int ) )( &::osgViewer::LODScaleHandler::setKeyEventDecreaseLODScale )
             , ( bp::arg("key") ) )    
         .def( 
             "setKeyEventIncreaseLODScale"
-            , (void ( ::osgViewer::LODScaleHandler::* )( int ))( &::osgViewer::LODScaleHandler::setKeyEventIncreaseLODScale )
+            , (void ( ::osgViewer::LODScaleHandler::* )( int ) )( &::osgViewer::LODScaleHandler::setKeyEventIncreaseLODScale )
             , ( bp::arg("key") ) );
 
 }

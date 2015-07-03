@@ -17,7 +17,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::clear
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type)(  ) ;
+            typedef void ( exported_class_t::*clear_function_type )(  ) ;
             
             buffered_value_less__int__greater__exposer.def( 
                 "clear"
@@ -27,7 +27,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::empty
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
             
             buffered_value_less__int__greater__exposer.def( 
                 "empty"
@@ -37,7 +37,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::operator=
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef ::osg::buffered_value< int > & ( exported_class_t::*assign_function_type)( ::osg::buffered_value< int > const & ) ;
+            typedef ::osg::buffered_value< int > & ( exported_class_t::*assign_function_type )( ::osg::buffered_value< int > const & ) ;
             
             buffered_value_less__int__greater__exposer.def( 
                 "assign"
@@ -50,7 +50,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::operator[]
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef int & ( exported_class_t::*__getitem___function_type)( unsigned int ) ;
+            typedef int & ( exported_class_t::*__getitem___function_type )( unsigned int ) ;
             
             buffered_value_less__int__greater__exposer.def( 
                 "__getitem__"
@@ -62,7 +62,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::operator[]
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef int ( exported_class_t::*__getitem___function_type)( unsigned int ) const;
+            typedef int ( exported_class_t::*__getitem___function_type )( unsigned int ) const;
             
             buffered_value_less__int__greater__exposer.def( 
                 "__getitem__"
@@ -73,7 +73,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::resize
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef void ( exported_class_t::*resize_function_type)( unsigned int ) ;
+            typedef void ( exported_class_t::*resize_function_type )( unsigned int ) ;
             
             buffered_value_less__int__greater__exposer.def( 
                 "resize"
@@ -84,7 +84,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::setAllElementsTo
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef void ( exported_class_t::*setAllElementsTo_function_type)( int const & ) ;
+            typedef void ( exported_class_t::*setAllElementsTo_function_type )( int const & ) ;
             
             buffered_value_less__int__greater__exposer.def( 
                 "setAllElementsTo"
@@ -95,7 +95,7 @@ void register_buffered_value_less__int__greater__class(){
         { //::osg::buffered_value< int >::size
         
             typedef osg::buffered_value< int > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
             
             buffered_value_less__int__greater__exposer.def( 
                 "size"

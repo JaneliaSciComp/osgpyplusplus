@@ -112,91 +112,91 @@ void register_PrimitiveFunctor_class(){
     bp::class_< PrimitiveFunctor_wrapper, boost::noncopyable >( "PrimitiveFunctor", "\n A  PrimitiveFunctor is used (in conjunction with\n  <tt>osg::Drawable::accept (PrimitiveFunctor&)</tt>) to get access to the\n  primitives that compose the things drawn by OSG.\n  <p>If  osg::Drawable::accept() is called with a  PrimitiveFunctor\n  parameter, the  Drawable will pretend it is drawing itself, but instead\n  of calling real OpenGL functions, it will call <tt>PrimitiveFunctor</tt>s\n  member functions that mimic the OpenGL calls.\n  <p>Concrete subclasses of  PrimitiveFunctor must implement these methods\n  so that they performs whatever they want.\n" )    
         .def( 
             "begin"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum ))(&::osg::PrimitiveFunctor::begin) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum ) )(&::osg::PrimitiveFunctor::begin) )
             , ( bp::arg("mode") )
             , "\n Mimics the OpenGL  glBegin() function.\n" )    
         .def( 
             "drawArrays"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLint,::GLsizei ))(&::osg::PrimitiveFunctor::drawArrays) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLint,::GLsizei ) )(&::osg::PrimitiveFunctor::drawArrays) )
             , ( bp::arg("mode"), bp::arg("first"), bp::arg("count") )
             , "\n Mimics the OpenGL  glDrawArrays() function.\n" )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ))(&::osg::PrimitiveFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ) )(&::osg::PrimitiveFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") )
             , "\n Mimics the OpenGL  glDrawElements() function.\n" )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ))(&::osg::PrimitiveFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ) )(&::osg::PrimitiveFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") )
             , "\n Mimics the OpenGL  glDrawElements() function.\n" )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ))(&::osg::PrimitiveFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ) )(&::osg::PrimitiveFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") )
             , "\n Mimics the OpenGL  glDrawElements() function.\n" )    
         .def( 
             "end"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )(  ))(&::osg::PrimitiveFunctor::end) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )(  ) )(&::osg::PrimitiveFunctor::end) )
             , "\n Mimics the OpenGL  glEnd() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec2 const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec2 const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec3 const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec3 const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec4 const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec4 const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec2d const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec2d const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec3d const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec3d const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec4d const * ))(&::osg::PrimitiveFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( unsigned int,::osg::Vec4d const * ) )(&::osg::PrimitiveFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") )
             , "\n Sets the array of vertices used to describe the primitives. Somehow\n  mimics the OpenGL  glVertexPointer() function.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec2 const & ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec2 const & ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("vert") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec3 const & ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec3 const & ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("vert") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec4 const & ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( ::osg::Vec4 const & ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("vert") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("x"), bp::arg("y") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float,float ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float,float ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float,float,float ))(&::osg::PrimitiveFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveFunctor::* )( float,float,float,float ) )(&::osg::PrimitiveFunctor::vertex) )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") )
             , "\n Mimics the OpenGL  glVertex() family of functions.\n" );
 

@@ -396,196 +396,196 @@ void register_Group_class(){
         .def( bp::init< >("\n General group node which maintains a list of children.\n Children are reference counted. This allows children to be shared\n with memory management handled automatically via osg::Referenced.\n") )    
         .def( 
             "accept"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::accept)
-            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ))(&Group_wrapper::default_accept)
+            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ) )(&::osg::Group::accept)
+            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ) )(&Group_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
-            , (bool ( Group_wrapper::* )( ::osg::Node * ))(&Group_wrapper::default_addChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node * ) )(&::osg::Group::addChild)
+            , (bool ( Group_wrapper::* )( ::osg::Node * ) )(&Group_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
-            , (::osg::Group * ( Group_wrapper::* )(  ))(&Group_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Group::* )(  ) )(&::osg::Group::asGroup)
+            , (::osg::Group * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Group::* )(  ) const)(&::osg::Group::asGroup)
+            , (::osg::Group const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::Group::* )(  )const)(&::osg::Group::className)
-            , (char const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_className) )    
+            , (char const * ( ::osg::Group::* )(  ) const)(&::osg::Group::className)
+            , (char const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Group::* )( ::osg::CopyOp const & )const)(&::osg::Group::clone)
-            , (::osg::Object * ( Group_wrapper::* )( ::osg::CopyOp const & )const)(&Group_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Group::* )( ::osg::CopyOp const & ) const)(&::osg::Group::clone)
+            , (::osg::Object * ( Group_wrapper::* )( ::osg::CopyOp const & ) const)(&Group_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Group::* )(  )const)(&::osg::Group::cloneType)
-            , (::osg::Object * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Group::* )(  ) const)(&::osg::Group::cloneType)
+            , (::osg::Object * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Group::* )(  )const)(&::osg::Group::computeBound)
-            , (::osg::BoundingSphere ( Group_wrapper::* )(  )const)(&Group_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Group::* )(  ) const)(&::osg::Group::computeBound)
+            , (::osg::BoundingSphere ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_computeBound) )    
         .def( 
             "containsNode"
-            , (bool ( ::osg::Group::* )( ::osg::Node const * )const)( &::osg::Group::containsNode )
+            , (bool ( ::osg::Group::* )( ::osg::Node const * ) const)( &::osg::Group::containsNode )
             , ( bp::arg("node") )
             , " Return true if node is contained within Group." )    
         .def( 
             "getChild"
-            , (::osg::Node * ( ::osg::Group::* )( unsigned int ))( &::osg::Group::getChild )
+            , (::osg::Node * ( ::osg::Group::* )( unsigned int ) )( &::osg::Group::getChild )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Return child node at position i." )    
         .def( 
             "getChild"
-            , (::osg::Node const * ( ::osg::Group::* )( unsigned int )const)( &::osg::Group::getChild )
+            , (::osg::Node const * ( ::osg::Group::* )( unsigned int ) const)( &::osg::Group::getChild )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Return child node at position i." )    
         .def( 
             "getChildIndex"
-            , (unsigned int ( ::osg::Group::* )( ::osg::Node const * )const)( &::osg::Group::getChildIndex )
+            , (unsigned int ( ::osg::Group::* )( ::osg::Node const * ) const)( &::osg::Group::getChildIndex )
             , ( bp::arg("node") )
             , " Get the index number of child, return a value between\n 0 and _children.size()-1 if found, if not found then\n return _children.size()." )    
         .def( 
             "getNumChildren"
-            , (unsigned int ( ::osg::Group::* )(  )const)( &::osg::Group::getNumChildren )
+            , (unsigned int ( ::osg::Group::* )(  ) const)( &::osg::Group::getNumChildren )
             , " Return the number of children nodes." )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
-            , (bool ( Group_wrapper::* )( unsigned int,::osg::Node * ))(&Group_wrapper::default_insertChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::insertChild)
+            , (bool ( Group_wrapper::* )( unsigned int,::osg::Node * ) )(&Group_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Group::* )( ::osg::Object const * )const)(&::osg::Group::isSameKindAs)
-            , (bool ( Group_wrapper::* )( ::osg::Object const * )const)(&Group_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Group::* )( ::osg::Object const * ) const)(&::osg::Group::isSameKindAs)
+            , (bool ( Group_wrapper::* )( ::osg::Object const * ) const)(&Group_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Group::* )(  )const)(&::osg::Group::libraryName)
-            , (char const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Group::* )(  ) const)(&::osg::Group::libraryName)
+            , (char const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_libraryName) )    
         .def( 
             "removeChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ))( &::osg::Group::removeChild )
+            , (bool ( ::osg::Group::* )( ::osg::Node * ) )( &::osg::Group::removeChild )
             , ( bp::arg("child") )
             , " Remove Node from Group.\n If Node is contained in Group then remove it from the child\n list, decrement its reference count, and dirty the\n bounding sphere to force it to recompute on next getBound() and\n return true for success. If Node is not found then return false\n and do not change the reference count of the Node.\n Note, do not override, only override removeChildren(,) is required." )    
         .def( 
             "removeChild"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))( &::osg::Group::removeChild )
+            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ) )( &::osg::Group::removeChild )
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove")=(unsigned int)(1) )
             , " Remove Node from Group.\n If Node is contained in Group then remove it from the child\n list, decrement its reference count, and dirty the\n bounding sphere to force it to recompute on next getBound() and\n return true for success. If Node is not found then return false\n and do not change the reference count of the Node.\n Note, do not override, only override removeChildren(,) is required." )    
         .def( 
             "removeChildren"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
-            , (bool ( Group_wrapper::* )( unsigned int,unsigned int ))(&Group_wrapper::default_removeChildren)
+            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ) )(&::osg::Group::removeChildren)
+            , (bool ( Group_wrapper::* )( unsigned int,unsigned int ) )(&Group_wrapper::default_removeChildren)
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
-            , (bool ( Group_wrapper::* )( ::osg::Node *,::osg::Node * ))(&Group_wrapper::default_replaceChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ) )(&::osg::Group::replaceChild)
+            , (bool ( Group_wrapper::* )( ::osg::Node *,::osg::Node * ) )(&Group_wrapper::default_replaceChild)
             , ( bp::arg("origChild"), bp::arg("newChild") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( Group_wrapper::* )( unsigned int ))(&Group_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Group::* )( unsigned int ) )(&::osg::Group::resizeGLObjectBuffers)
+            , (void ( Group_wrapper::* )( unsigned int ) )(&Group_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
-            , (bool ( Group_wrapper::* )( unsigned int,::osg::Node * ))(&Group_wrapper::default_setChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::setChild)
+            , (bool ( Group_wrapper::* )( unsigned int,::osg::Node * ) )(&Group_wrapper::default_setChild)
             , ( bp::arg("i"), bp::arg("node") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( Group_wrapper::* )( bool ))(&Group_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Group::* )( bool ) )(&::osg::Group::setThreadSafeRefUnref)
+            , (void ( Group_wrapper::* )( bool ) )(&Group_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::traverse)
-            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ))(&Group_wrapper::default_traverse)
+            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ) )(&::osg::Group::traverse)
+            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ) )(&Group_wrapper::default_traverse)
             , ( bp::arg("nv") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
-            , (::osg::Camera * ( Group_wrapper::* )(  ))(&Group_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
+            , (::osg::Camera * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
-            , (::osg::Geode * ( Group_wrapper::* )(  ))(&Group_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Node::* )(  ) )(&::osg::Node::asGeode)
+            , (::osg::Geode * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
-            , (::osg::Geode const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
-            , (::osg::Switch * ( Group_wrapper::* )(  ))(&Group_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Node::* )(  ) )(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
-            , (::osg::Switch const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
-            , (::osg::Transform * ( Group_wrapper::* )(  ))(&Group_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Node::* )(  ) )(&::osg::Node::asTransform)
+            , (::osg::Transform * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
-            , (::osg::Transform const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
-            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ))(&Group_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
+            , (void ( Group_wrapper::* )( ::osg::NodeVisitor & ) )(&Group_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Group_wrapper::* )(  ))(&Group_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Group_wrapper::* )(  ) )(&Group_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Group_wrapper::* )(  ))(&Group_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Group_wrapper::* )(  ) )(&Group_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Group_wrapper::* )(  )const)(&Group_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Group_wrapper::* )(  ) const)(&Group_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Group_wrapper::* )( ::std::string const & ))(&Group_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Group_wrapper::* )( ::std::string const & ) )(&Group_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Group_wrapper::* )( ::osg::Referenced * ))(&Group_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Group_wrapper::* )( ::osg::Referenced * ) )(&Group_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

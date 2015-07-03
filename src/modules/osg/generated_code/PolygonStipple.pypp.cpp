@@ -71,18 +71,6 @@ struct PolygonStipple_wrapper : osg::PolygonStipple, bp::wrapper< osg::PolygonSt
         return osg::PolygonStipple::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::PolygonStipple::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::PolygonStipple::compare( boost::ref(sa) );
-    }
-
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & usage ) const  {
         if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
             return func_getModeUsage( boost::ref(usage) );
@@ -300,8 +288,8 @@ void register_PolygonStipple_class(){
         bp::implicitly_convertible< GLubyte const *, osg::PolygonStipple >();
         { //::osg::PolygonStipple::apply
         
-            typedef void ( ::osg::PolygonStipple::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( PolygonStipple_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::PolygonStipple::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( PolygonStipple_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             PolygonStipple_exposer.def( 
                 "apply"
@@ -312,8 +300,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::className
         
-            typedef char const * ( ::osg::PolygonStipple::*className_function_type)(  ) const;
-            typedef char const * ( PolygonStipple_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::PolygonStipple::*className_function_type )(  ) const;
+            typedef char const * ( PolygonStipple_wrapper::*default_className_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "className"
@@ -323,8 +311,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::clone
         
-            typedef ::osg::Object * ( ::osg::PolygonStipple::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( PolygonStipple_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::PolygonStipple::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( PolygonStipple_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             PolygonStipple_exposer.def( 
                 "clone"
@@ -336,8 +324,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::cloneType
         
-            typedef ::osg::Object * ( ::osg::PolygonStipple::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( PolygonStipple_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::PolygonStipple::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( PolygonStipple_wrapper::*default_cloneType_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "cloneType"
@@ -346,33 +334,10 @@ void register_PolygonStipple_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::PolygonStipple::compare
-        
-            typedef int ( ::osg::PolygonStipple::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( PolygonStipple_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            PolygonStipple_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::PolygonStipple::compare)
-                , default_compare_function_type(&PolygonStipple_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
-        { //::osg::PolygonStipple::getMask
-        
-            typedef ::GLubyte const * ( ::osg::PolygonStipple::*getMask_function_type)(  ) const;
-            
-            PolygonStipple_exposer.def( 
-                "getMask"
-                , getMask_function_type( &::osg::PolygonStipple::getMask )
-                , bp::return_internal_reference< >()
-                , " get a pointer to the mask." );
-        
-        }
         { //::osg::PolygonStipple::getModeUsage
         
-            typedef bool ( ::osg::PolygonStipple::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( PolygonStipple_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::PolygonStipple::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( PolygonStipple_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             PolygonStipple_exposer.def( 
                 "getModeUsage"
@@ -383,8 +348,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::PolygonStipple::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( PolygonStipple_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::PolygonStipple::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( PolygonStipple_wrapper::*default_getType_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "getType"
@@ -394,8 +359,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::isSameKindAs
         
-            typedef bool ( ::osg::PolygonStipple::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( PolygonStipple_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::PolygonStipple::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( PolygonStipple_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             PolygonStipple_exposer.def( 
                 "isSameKindAs"
@@ -406,8 +371,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::libraryName
         
-            typedef char const * ( ::osg::PolygonStipple::*libraryName_function_type)(  ) const;
-            typedef char const * ( PolygonStipple_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::PolygonStipple::*libraryName_function_type )(  ) const;
+            typedef char const * ( PolygonStipple_wrapper::*default_libraryName_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "libraryName"
@@ -417,7 +382,7 @@ void register_PolygonStipple_class(){
         }
         { //::osg::PolygonStipple::setMask
         
-            typedef void ( ::osg::PolygonStipple::*setMask_function_type)( ::GLubyte const * ) ;
+            typedef void ( ::osg::PolygonStipple::*setMask_function_type )( ::GLubyte const * ) ;
             
             PolygonStipple_exposer.def( 
                 "setMask"
@@ -428,8 +393,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( PolygonStipple_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( PolygonStipple_wrapper::*default_asTexture_function_type )(  ) ;
             
             PolygonStipple_exposer.def( 
                 "asTexture"
@@ -440,8 +405,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( PolygonStipple_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( PolygonStipple_wrapper::*default_asTexture_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "asTexture"
@@ -452,8 +417,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( PolygonStipple_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( PolygonStipple_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             PolygonStipple_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -464,8 +429,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( PolygonStipple_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( PolygonStipple_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             PolygonStipple_exposer.def( 
                 "compileGLObjects"
@@ -476,8 +441,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( PolygonStipple_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( PolygonStipple_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             PolygonStipple_exposer.def( 
                 "computeDataVariance"
@@ -487,8 +452,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( PolygonStipple_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( PolygonStipple_wrapper::*default_getMember_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "getMember"
@@ -498,8 +463,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( PolygonStipple_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( PolygonStipple_wrapper::*default_getUserData_function_type )(  ) ;
             
             PolygonStipple_exposer.def( 
                 "getUserData"
@@ -510,8 +475,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( PolygonStipple_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( PolygonStipple_wrapper::*default_getUserData_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "getUserData"
@@ -522,8 +487,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( PolygonStipple_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( PolygonStipple_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             PolygonStipple_exposer.def( 
                 "isTextureAttribute"
@@ -533,8 +498,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( PolygonStipple_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( PolygonStipple_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             PolygonStipple_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -545,8 +510,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( PolygonStipple_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( PolygonStipple_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             PolygonStipple_exposer.def( 
                 "setName"
@@ -557,7 +522,7 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             PolygonStipple_exposer.def( 
                 "setName"
@@ -568,8 +533,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( PolygonStipple_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( PolygonStipple_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             PolygonStipple_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -580,8 +545,8 @@ void register_PolygonStipple_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( PolygonStipple_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( PolygonStipple_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             PolygonStipple_exposer.def( 
                 "setUserData"

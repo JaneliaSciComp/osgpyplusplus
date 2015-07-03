@@ -35,59 +35,59 @@ void register_GlyphGeometry_class(){
     bp::class_< GlyphGeometry_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgText::GlyphGeometry >, boost::noncopyable >( "GlyphGeometry", bp::init< >() )    
         .def( 
             "getBackPrimitiveSetList"
-            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ))( &::osgText::GlyphGeometry::getBackPrimitiveSetList )
+            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ) )( &::osgText::GlyphGeometry::getBackPrimitiveSetList )
             , bp::return_internal_reference< >()
             , " Get et the PrimitiveSetList for the back face." )    
         .def( 
             "getFrontPrimitiveSetList"
-            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ))( &::osgText::GlyphGeometry::getFrontPrimitiveSetList )
+            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ) )( &::osgText::GlyphGeometry::getFrontPrimitiveSetList )
             , bp::return_internal_reference< >()
             , " Get the PrimitiveSetList for the front face." )    
         .def( 
             "getGeode"
-            , (::osg::Geode * ( ::osgText::GlyphGeometry::* )(  )const)( &::osgText::GlyphGeometry::getGeode )
+            , (::osg::Geode * ( ::osgText::GlyphGeometry::* )(  ) const)( &::osgText::GlyphGeometry::getGeode )
             , bp::return_internal_reference< >() )    
         .def( 
             "getGeometry"
-            , (::osg::Geometry * ( ::osgText::GlyphGeometry::* )(  )const)( &::osgText::GlyphGeometry::getGeometry )
+            , (::osg::Geometry * ( ::osgText::GlyphGeometry::* )(  ) const)( &::osgText::GlyphGeometry::getGeometry )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNormalArray"
-            , (::osg::Vec3Array * ( ::osgText::GlyphGeometry::* )(  )const)( &::osgText::GlyphGeometry::getNormalArray )
+            , (::osg::Vec3Array * ( ::osgText::GlyphGeometry::* )(  ) const)( &::osgText::GlyphGeometry::getNormalArray )
             , bp::return_internal_reference< >()
             , " Get the NormalArray for the wall face." )    
         .def( 
             "getVertexArray"
-            , (::osg::Vec3Array * ( ::osgText::GlyphGeometry::* )(  )const)( &::osgText::GlyphGeometry::getVertexArray )
+            , (::osg::Vec3Array * ( ::osgText::GlyphGeometry::* )(  ) const)( &::osgText::GlyphGeometry::getVertexArray )
             , bp::return_internal_reference< >()
             , " Get the VertexArray of the glyph." )    
         .def( 
             "getWallPrimitiveSetList"
-            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ))( &::osgText::GlyphGeometry::getWallPrimitiveSetList )
+            , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ) )( &::osgText::GlyphGeometry::getWallPrimitiveSetList )
             , bp::return_internal_reference< >()
             , " Get the PrimitiveSetList for the wall face." )    
         .def( 
             "match"
-            , (bool ( ::osgText::GlyphGeometry::* )( ::osgText::Style const * )const)( &::osgText::GlyphGeometry::match )
+            , (bool ( ::osgText::GlyphGeometry::* )( ::osgText::Style const * ) const)( &::osgText::GlyphGeometry::match )
             , ( bp::arg("style") ) )    
         .def( 
             "setNormalArray"
-            , (void ( ::osgText::GlyphGeometry::* )( ::osg::Vec3Array * ))( &::osgText::GlyphGeometry::setNormalArray )
+            , (void ( ::osgText::GlyphGeometry::* )( ::osg::Vec3Array * ) )( &::osgText::GlyphGeometry::setNormalArray )
             , ( bp::arg("na") )
             , " Set the VertexArray of the glyph." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osgText::GlyphGeometry::* )( bool ))(&::osgText::GlyphGeometry::setThreadSafeRefUnref)
-            , (void ( GlyphGeometry_wrapper::* )( bool ))(&GlyphGeometry_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osgText::GlyphGeometry::* )( bool ) )(&::osgText::GlyphGeometry::setThreadSafeRefUnref)
+            , (void ( GlyphGeometry_wrapper::* )( bool ) )(&GlyphGeometry_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgText::GlyphGeometry::* )( ::osg::Vec3Array * ))( &::osgText::GlyphGeometry::setVertexArray )
+            , (void ( ::osgText::GlyphGeometry::* )( ::osg::Vec3Array * ) )( &::osgText::GlyphGeometry::setVertexArray )
             , ( bp::arg("va") )
             , " Set the VertexArray of the glyph." )    
         .def( 
             "setup"
-            , (void ( ::osgText::GlyphGeometry::* )( ::osgText::Glyph3D const *,::osgText::Style const * ))( &::osgText::GlyphGeometry::setup )
+            , (void ( ::osgText::GlyphGeometry::* )( ::osgText::Glyph3D const *,::osgText::Style const * ) )( &::osgText::GlyphGeometry::setup )
             , ( bp::arg("glyph"), bp::arg("style") ) );
 
 }

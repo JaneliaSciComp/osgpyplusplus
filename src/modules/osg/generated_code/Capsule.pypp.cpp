@@ -200,119 +200,119 @@ void register_Capsule_class(){
         .def( bp::init< osg::Vec3 const &, float, float >(( bp::arg("center"), bp::arg("radius"), bp::arg("height") )) )    
         .def( 
             "accept"
-            , (void ( ::osg::Capsule::* )( ::osg::ShapeVisitor & ))(&::osg::Capsule::accept)
-            , (void ( Capsule_wrapper::* )( ::osg::ShapeVisitor & ))(&Capsule_wrapper::default_accept)
+            , (void ( ::osg::Capsule::* )( ::osg::ShapeVisitor & ) )(&::osg::Capsule::accept)
+            , (void ( Capsule_wrapper::* )( ::osg::ShapeVisitor & ) )(&Capsule_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::Capsule::* )( ::osg::ConstShapeVisitor & )const)(&::osg::Capsule::accept)
-            , (void ( Capsule_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&Capsule_wrapper::default_accept)
+            , (void ( ::osg::Capsule::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::Capsule::accept)
+            , (void ( Capsule_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&Capsule_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Capsule::* )(  )const)(&::osg::Capsule::className)
-            , (char const * ( Capsule_wrapper::* )(  )const)(&Capsule_wrapper::default_className) )    
+            , (char const * ( ::osg::Capsule::* )(  ) const)(&::osg::Capsule::className)
+            , (char const * ( Capsule_wrapper::* )(  ) const)(&Capsule_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Capsule::* )( ::osg::CopyOp const & )const)(&::osg::Capsule::clone)
-            , (::osg::Object * ( Capsule_wrapper::* )( ::osg::CopyOp const & )const)(&Capsule_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Capsule::* )( ::osg::CopyOp const & ) const)(&::osg::Capsule::clone)
+            , (::osg::Object * ( Capsule_wrapper::* )( ::osg::CopyOp const & ) const)(&Capsule_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Capsule::* )(  )const)(&::osg::Capsule::cloneType)
-            , (::osg::Object * ( Capsule_wrapper::* )(  )const)(&Capsule_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Capsule::* )(  ) const)(&::osg::Capsule::cloneType)
+            , (::osg::Object * ( Capsule_wrapper::* )(  ) const)(&Capsule_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeRotationMatrix"
-            , (::osg::Matrix ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::computeRotationMatrix ) )    
+            , (::osg::Matrix ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::computeRotationMatrix ) )    
         .def( 
             "getCenter"
-            , (::osg::Vec3 const & ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::getCenter )
+            , (::osg::Vec3 const & ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::getCenter )
             , bp::return_internal_reference< >() )    
         .def( 
             "getHeight"
-            , (float ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::getHeight ) )    
+            , (float ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::getHeight ) )    
         .def( 
             "getRadius"
-            , (float ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::getRadius ) )    
+            , (float ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::getRadius ) )    
         .def( 
             "getRotation"
-            , (::osg::Quat const & ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::getRotation )
+            , (::osg::Quat const & ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::getRotation )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Capsule::* )( ::osg::Object const * )const)(&::osg::Capsule::isSameKindAs)
-            , (bool ( Capsule_wrapper::* )( ::osg::Object const * )const)(&Capsule_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Capsule::* )( ::osg::Object const * ) const)(&::osg::Capsule::isSameKindAs)
+            , (bool ( Capsule_wrapper::* )( ::osg::Object const * ) const)(&Capsule_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Capsule::* )(  )const)(&::osg::Capsule::libraryName)
-            , (char const * ( Capsule_wrapper::* )(  )const)(&Capsule_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Capsule::* )(  ) const)(&::osg::Capsule::libraryName)
+            , (char const * ( Capsule_wrapper::* )(  ) const)(&Capsule_wrapper::default_libraryName) )    
         .def( 
             "set"
-            , (void ( ::osg::Capsule::* )( ::osg::Vec3 const &,float,float ))( &::osg::Capsule::set )
+            , (void ( ::osg::Capsule::* )( ::osg::Vec3 const &,float,float ) )( &::osg::Capsule::set )
             , ( bp::arg("center"), bp::arg("radius"), bp::arg("height") ) )    
         .def( 
             "setCenter"
-            , (void ( ::osg::Capsule::* )( ::osg::Vec3 const & ))( &::osg::Capsule::setCenter )
+            , (void ( ::osg::Capsule::* )( ::osg::Vec3 const & ) )( &::osg::Capsule::setCenter )
             , ( bp::arg("center") ) )    
         .def( 
             "setHeight"
-            , (void ( ::osg::Capsule::* )( float ))( &::osg::Capsule::setHeight )
+            , (void ( ::osg::Capsule::* )( float ) )( &::osg::Capsule::setHeight )
             , ( bp::arg("height") ) )    
         .def( 
             "setRadius"
-            , (void ( ::osg::Capsule::* )( float ))( &::osg::Capsule::setRadius )
+            , (void ( ::osg::Capsule::* )( float ) )( &::osg::Capsule::setRadius )
             , ( bp::arg("radius") ) )    
         .def( 
             "setRotation"
-            , (void ( ::osg::Capsule::* )( ::osg::Quat const & ))( &::osg::Capsule::setRotation )
+            , (void ( ::osg::Capsule::* )( ::osg::Quat const & ) )( &::osg::Capsule::setRotation )
             , ( bp::arg("quat") ) )    
         .def( 
             "valid"
-            , (bool ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::valid ) )    
+            , (bool ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::valid ) )    
         .def( 
             "zeroRotation"
-            , (bool ( ::osg::Capsule::* )(  )const)( &::osg::Capsule::zeroRotation ) )    
+            , (bool ( ::osg::Capsule::* )(  ) const)( &::osg::Capsule::zeroRotation ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Capsule_wrapper::* )(  ))(&Capsule_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Capsule_wrapper::* )(  ) )(&Capsule_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Capsule_wrapper::* )(  ))(&Capsule_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Capsule_wrapper::* )(  ) )(&Capsule_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Capsule_wrapper::* )(  )const)(&Capsule_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Capsule_wrapper::* )(  ) const)(&Capsule_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( Capsule_wrapper::* )( unsigned int ))(&Capsule_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( Capsule_wrapper::* )( unsigned int ) )(&Capsule_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Capsule_wrapper::* )( ::std::string const & ))(&Capsule_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Capsule_wrapper::* )( ::std::string const & ) )(&Capsule_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Capsule_wrapper::* )( bool ))(&Capsule_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Capsule_wrapper::* )( bool ) )(&Capsule_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Capsule_wrapper::* )( ::osg::Referenced * ))(&Capsule_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Capsule_wrapper::* )( ::osg::Referenced * ) )(&Capsule_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

@@ -27,7 +27,7 @@ void register_Vec4ub_class(){
         Vec4ub_exposer.def( bp::self == bp::self );
         { //::osg::Vec4ub::operator[]
         
-            typedef unsigned char & ( ::osg::Vec4ub::*__getitem___function_type)( unsigned int ) ;
+            typedef unsigned char & ( ::osg::Vec4ub::*__getitem___function_type )( unsigned int ) ;
             
             Vec4ub_exposer.def( 
                 "__getitem__"
@@ -38,7 +38,7 @@ void register_Vec4ub_class(){
         }
         { //::osg::Vec4ub::operator[]
         
-            typedef unsigned char ( ::osg::Vec4ub::*__getitem___function_type)( unsigned int ) const;
+            typedef unsigned char ( ::osg::Vec4ub::*__getitem___function_type )( unsigned int ) const;
             
             Vec4ub_exposer.def( 
                 "__getitem__"
@@ -48,7 +48,7 @@ void register_Vec4ub_class(){
         }
         { //::osg::Vec4ub::set
         
-            typedef void ( ::osg::Vec4ub::*set_function_type)( unsigned char,unsigned char,unsigned char,unsigned char ) ;
+            typedef void ( ::osg::Vec4ub::*set_function_type )( unsigned char,unsigned char,unsigned char,unsigned char ) ;
             
             Vec4ub_exposer.def( 
                 "set"
@@ -58,7 +58,7 @@ void register_Vec4ub_class(){
         }
         { //property "r"[fget=::osg::Vec4ub::r]
         
-            typedef unsigned char & ( ::osg::Vec4ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec4ub::*fget )(  ) ;
             
             Vec4ub_exposer.add_property( 
                 "r"
@@ -69,7 +69,7 @@ void register_Vec4ub_class(){
         }
         { //property "r"[fget=::osg::Vec4ub::r]
         
-            typedef unsigned char ( ::osg::Vec4ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec4ub::*fget )(  ) const;
             
             Vec4ub_exposer.add_property( 
                 "r"
@@ -78,7 +78,7 @@ void register_Vec4ub_class(){
         }
         { //property "g"[fget=::osg::Vec4ub::g]
         
-            typedef unsigned char & ( ::osg::Vec4ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec4ub::*fget )(  ) ;
             
             Vec4ub_exposer.add_property( 
                 "g"
@@ -89,7 +89,7 @@ void register_Vec4ub_class(){
         }
         { //property "g"[fget=::osg::Vec4ub::g]
         
-            typedef unsigned char ( ::osg::Vec4ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec4ub::*fget )(  ) const;
             
             Vec4ub_exposer.add_property( 
                 "g"
@@ -98,7 +98,7 @@ void register_Vec4ub_class(){
         }
         { //property "b"[fget=::osg::Vec4ub::b]
         
-            typedef unsigned char & ( ::osg::Vec4ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec4ub::*fget )(  ) ;
             
             Vec4ub_exposer.add_property( 
                 "b"
@@ -109,7 +109,7 @@ void register_Vec4ub_class(){
         }
         { //property "b"[fget=::osg::Vec4ub::b]
         
-            typedef unsigned char ( ::osg::Vec4ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec4ub::*fget )(  ) const;
             
             Vec4ub_exposer.add_property( 
                 "b"
@@ -118,7 +118,7 @@ void register_Vec4ub_class(){
         }
         { //property "a"[fget=::osg::Vec4ub::a]
         
-            typedef unsigned char & ( ::osg::Vec4ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec4ub::*fget )(  ) ;
             
             Vec4ub_exposer.add_property( 
                 "a"
@@ -129,7 +129,7 @@ void register_Vec4ub_class(){
         }
         { //property "a"[fget=::osg::Vec4ub::a]
         
-            typedef unsigned char ( ::osg::Vec4ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec4ub::*fget )(  ) const;
             
             Vec4ub_exposer.add_property( 
                 "a"

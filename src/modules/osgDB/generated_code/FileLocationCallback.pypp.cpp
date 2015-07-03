@@ -53,7 +53,7 @@ void register_FileLocationCallback_class(){
             ;
         { //::osgDB::FileLocationCallback::fileLocation
         
-            typedef ::osgDB::FileLocationCallback::Location ( ::osgDB::FileLocationCallback::*fileLocation_function_type)( ::std::string const &,::osgDB::Options const * ) ;
+            typedef ::osgDB::FileLocationCallback::Location ( ::osgDB::FileLocationCallback::*fileLocation_function_type )( ::std::string const &,::osgDB::Options const * ) ;
             
             FileLocationCallback_exposer.def( 
                 "fileLocation"
@@ -63,7 +63,7 @@ void register_FileLocationCallback_class(){
         }
         { //::osgDB::FileLocationCallback::useFileCache
         
-            typedef bool ( ::osgDB::FileLocationCallback::*useFileCache_function_type)(  ) const;
+            typedef bool ( ::osgDB::FileLocationCallback::*useFileCache_function_type )(  ) const;
             
             FileLocationCallback_exposer.def( 
                 "useFileCache"

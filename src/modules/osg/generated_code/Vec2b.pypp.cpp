@@ -27,7 +27,7 @@ void register_Vec2b_class(){
         Vec2b_exposer.def( bp::self == bp::self );
         { //::osg::Vec2b::operator[]
         
-            typedef signed char & ( ::osg::Vec2b::*__getitem___function_type)( int ) ;
+            typedef signed char & ( ::osg::Vec2b::*__getitem___function_type )( int ) ;
             
             Vec2b_exposer.def( 
                 "__getitem__"
@@ -38,7 +38,7 @@ void register_Vec2b_class(){
         }
         { //::osg::Vec2b::operator[]
         
-            typedef signed char ( ::osg::Vec2b::*__getitem___function_type)( int ) const;
+            typedef signed char ( ::osg::Vec2b::*__getitem___function_type )( int ) const;
             
             Vec2b_exposer.def( 
                 "__getitem__"
@@ -48,7 +48,7 @@ void register_Vec2b_class(){
         }
         { //::osg::Vec2b::set
         
-            typedef void ( ::osg::Vec2b::*set_function_type)( signed char,signed char ) ;
+            typedef void ( ::osg::Vec2b::*set_function_type )( signed char,signed char ) ;
             
             Vec2b_exposer.def( 
                 "set"
@@ -58,7 +58,7 @@ void register_Vec2b_class(){
         }
         { //::osg::Vec2b::set
         
-            typedef void ( ::osg::Vec2b::*set_function_type)( ::osg::Vec2b const & ) ;
+            typedef void ( ::osg::Vec2b::*set_function_type )( ::osg::Vec2b const & ) ;
             
             Vec2b_exposer.def( 
                 "set"
@@ -68,7 +68,7 @@ void register_Vec2b_class(){
         }
         { //property "x"[fget=::osg::Vec2b::x]
         
-            typedef signed char & ( ::osg::Vec2b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec2b::*fget )(  ) ;
             
             Vec2b_exposer.add_property( 
                 "x"
@@ -79,7 +79,7 @@ void register_Vec2b_class(){
         }
         { //property "x"[fget=::osg::Vec2b::x]
         
-            typedef signed char ( ::osg::Vec2b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec2b::*fget )(  ) const;
             
             Vec2b_exposer.add_property( 
                 "x"
@@ -88,7 +88,7 @@ void register_Vec2b_class(){
         }
         { //property "y"[fget=::osg::Vec2b::y]
         
-            typedef signed char & ( ::osg::Vec2b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec2b::*fget )(  ) ;
             
             Vec2b_exposer.add_property( 
                 "y"
@@ -99,7 +99,7 @@ void register_Vec2b_class(){
         }
         { //property "y"[fget=::osg::Vec2b::y]
         
-            typedef signed char ( ::osg::Vec2b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec2b::*fget )(  ) const;
             
             Vec2b_exposer.add_property( 
                 "y"
@@ -108,7 +108,7 @@ void register_Vec2b_class(){
         }
         { //property "r"[fget=::osg::Vec2b::r]
         
-            typedef signed char & ( ::osg::Vec2b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec2b::*fget )(  ) ;
             
             Vec2b_exposer.add_property( 
                 "r"
@@ -119,7 +119,7 @@ void register_Vec2b_class(){
         }
         { //property "r"[fget=::osg::Vec2b::r]
         
-            typedef signed char ( ::osg::Vec2b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec2b::*fget )(  ) const;
             
             Vec2b_exposer.add_property( 
                 "r"
@@ -128,7 +128,7 @@ void register_Vec2b_class(){
         }
         { //property "g"[fget=::osg::Vec2b::g]
         
-            typedef signed char & ( ::osg::Vec2b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec2b::*fget )(  ) ;
             
             Vec2b_exposer.add_property( 
                 "g"
@@ -139,7 +139,7 @@ void register_Vec2b_class(){
         }
         { //property "g"[fget=::osg::Vec2b::g]
         
-            typedef signed char ( ::osg::Vec2b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec2b::*fget )(  ) const;
             
             Vec2b_exposer.add_property( 
                 "g"

@@ -499,60 +499,60 @@ void register_UFOManipulator_class(){
         .def( bp::init< >("\n Default constructor\n") )    
         .def( 
             "_adjustPosition"
-            , (void ( UFOManipulator_wrapper::* )(  ))(&UFOManipulator_wrapper::_adjustPosition) )    
+            , (void ( UFOManipulator_wrapper::* )(  ) )(&UFOManipulator_wrapper::_adjustPosition) )    
         .def( 
             "_stop"
-            , (void ( UFOManipulator_wrapper::* )(  ))(&UFOManipulator_wrapper::_stop) )    
+            , (void ( UFOManipulator_wrapper::* )(  ) )(&UFOManipulator_wrapper::_stop) )    
         .def( 
             "className"
-            , (char const * ( ::osgGA::UFOManipulator::* )(  )const)(&::osgGA::UFOManipulator::className)
-            , (char const * ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_className) )    
+            , (char const * ( ::osgGA::UFOManipulator::* )(  ) const)(&::osgGA::UFOManipulator::className)
+            , (char const * ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_className) )    
         .def( 
             "computeHomePosition"
-            , (void ( ::osgGA::UFOManipulator::* )(  ))(&::osgGA::UFOManipulator::computeHomePosition)
-            , (void ( UFOManipulator_wrapper::* )(  ))(&UFOManipulator_wrapper::default_computeHomePosition) )    
+            , (void ( ::osgGA::UFOManipulator::* )(  ) )(&::osgGA::UFOManipulator::computeHomePosition)
+            , (void ( UFOManipulator_wrapper::* )(  ) )(&UFOManipulator_wrapper::default_computeHomePosition) )    
         .def( 
             "getCurrentPositionAsLookAt"
-            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ))( &::osgGA::UFOManipulator::getCurrentPositionAsLookAt )
+            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) )( &::osgGA::UFOManipulator::getCurrentPositionAsLookAt )
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") )
             , " Report the current position as LookAt vectors" )    
         .def( 
             "getForwardSpeed"
-            , (double ( ::osgGA::UFOManipulator::* )(  )const)( &::osgGA::UFOManipulator::getForwardSpeed ) )    
+            , (double ( ::osgGA::UFOManipulator::* )(  ) const)( &::osgGA::UFOManipulator::getForwardSpeed ) )    
         .def( 
             "getInverseMatrix"
-            , (::osg::Matrixd ( ::osgGA::UFOManipulator::* )(  )const)(&::osgGA::UFOManipulator::getInverseMatrix)
-            , (::osg::Matrixd ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_getInverseMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::UFOManipulator::* )(  ) const)(&::osgGA::UFOManipulator::getInverseMatrix)
+            , (::osg::Matrixd ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_getInverseMatrix) )    
         .def( 
             "getMatrix"
-            , (::osg::Matrixd ( ::osgGA::UFOManipulator::* )(  )const)(&::osgGA::UFOManipulator::getMatrix)
-            , (::osg::Matrixd ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_getMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::UFOManipulator::* )(  ) const)(&::osgGA::UFOManipulator::getMatrix)
+            , (::osg::Matrixd ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_getMatrix) )    
         .def( 
             "getMinDistance"
-            , (double ( ::osgGA::UFOManipulator::* )(  )const)( &::osgGA::UFOManipulator::getMinDistance ) )    
+            , (double ( ::osgGA::UFOManipulator::* )(  ) const)( &::osgGA::UFOManipulator::getMinDistance ) )    
         .def( 
             "getMinHeight"
-            , (double ( ::osgGA::UFOManipulator::* )(  )const)( &::osgGA::UFOManipulator::getMinHeight ) )    
+            , (double ( ::osgGA::UFOManipulator::* )(  ) const)( &::osgGA::UFOManipulator::getMinHeight ) )    
         .def( 
             "getNode"
-            , (::osg::Node const * ( ::osgGA::UFOManipulator::* )(  )const)(&::osgGA::UFOManipulator::getNode)
-            , (::osg::Node const * ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_getNode)
+            , (::osg::Node const * ( ::osgGA::UFOManipulator::* )(  ) const)(&::osgGA::UFOManipulator::getNode)
+            , (::osg::Node const * ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getNode"
-            , (::osg::Node * ( ::osgGA::UFOManipulator::* )(  ))(&::osgGA::UFOManipulator::getNode)
-            , (::osg::Node * ( UFOManipulator_wrapper::* )(  ))(&UFOManipulator_wrapper::default_getNode)
+            , (::osg::Node * ( ::osgGA::UFOManipulator::* )(  ) )(&::osgGA::UFOManipulator::getNode)
+            , (::osg::Node * ( UFOManipulator_wrapper::* )(  ) )(&UFOManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getRotationSpeed"
-            , (double ( ::osgGA::UFOManipulator::* )(  )const)( &::osgGA::UFOManipulator::getRotationSpeed ) )    
+            , (double ( ::osgGA::UFOManipulator::* )(  ) const)( &::osgGA::UFOManipulator::getRotationSpeed ) )    
         .def( 
             "getSideSpeed"
-            , (double ( ::osgGA::UFOManipulator::* )(  )const)( &::osgGA::UFOManipulator::getSideSpeed ) )    
+            , (double ( ::osgGA::UFOManipulator::* )(  ) const)( &::osgGA::UFOManipulator::getSideSpeed ) )    
         .def( 
             "getUsage"
-            , (void ( ::osgGA::UFOManipulator::* )( ::osg::ApplicationUsage & )const)(&::osgGA::UFOManipulator::getUsage)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::ApplicationUsage & )const)(&UFOManipulator_wrapper::default_getUsage)
+            , (void ( ::osgGA::UFOManipulator::* )( ::osg::ApplicationUsage & ) const)(&::osgGA::UFOManipulator::getUsage)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::ApplicationUsage & ) const)(&UFOManipulator_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "handle"
@@ -574,76 +574,76 @@ void register_UFOManipulator_class(){
             , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "intersect"
-            , (bool ( UFOManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d & )const)(&UFOManipulator_wrapper::intersect)
+            , (bool ( UFOManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d & ) const)(&UFOManipulator_wrapper::intersect)
             , ( bp::arg("start"), bp::arg("end"), bp::arg("intersection") ) )    
         .def( 
             "setByInverseMatrix"
-            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::UFOManipulator::setByInverseMatrix)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Matrixd const & ))(&UFOManipulator_wrapper::default_setByInverseMatrix)
+            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::UFOManipulator::setByInverseMatrix)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&UFOManipulator_wrapper::default_setByInverseMatrix)
             , ( bp::arg("invmat") ) )    
         .def( 
             "setByMatrix"
-            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::UFOManipulator::setByMatrix)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Matrixd const & ))(&UFOManipulator_wrapper::default_setByMatrix)
+            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::UFOManipulator::setByMatrix)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&UFOManipulator_wrapper::default_setByMatrix)
             , ( bp::arg("matrix") ) )    
         .def( 
             "setForwardSpeed"
-            , (void ( ::osgGA::UFOManipulator::* )( double ))( &::osgGA::UFOManipulator::setForwardSpeed )
+            , (void ( ::osgGA::UFOManipulator::* )( double ) )( &::osgGA::UFOManipulator::setForwardSpeed )
             , ( bp::arg("in_fs") ) )    
         .def( 
             "setMinDistance"
-            , (void ( ::osgGA::UFOManipulator::* )( double ))( &::osgGA::UFOManipulator::setMinDistance )
+            , (void ( ::osgGA::UFOManipulator::* )( double ) )( &::osgGA::UFOManipulator::setMinDistance )
             , ( bp::arg("in_min_dist") ) )    
         .def( 
             "setMinHeight"
-            , (void ( ::osgGA::UFOManipulator::* )( double ))( &::osgGA::UFOManipulator::setMinHeight )
+            , (void ( ::osgGA::UFOManipulator::* )( double ) )( &::osgGA::UFOManipulator::setMinHeight )
             , ( bp::arg("in_min_height") ) )    
         .def( 
             "setNode"
-            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Node * ))(&::osgGA::UFOManipulator::setNode)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Node * ))(&UFOManipulator_wrapper::default_setNode)
+            , (void ( ::osgGA::UFOManipulator::* )( ::osg::Node * ) )(&::osgGA::UFOManipulator::setNode)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Node * ) )(&UFOManipulator_wrapper::default_setNode)
             , ( bp::arg("node") ) )    
         .def( 
             "setRotationSpeed"
-            , (void ( ::osgGA::UFOManipulator::* )( double ))( &::osgGA::UFOManipulator::setRotationSpeed )
+            , (void ( ::osgGA::UFOManipulator::* )( double ) )( &::osgGA::UFOManipulator::setRotationSpeed )
             , ( bp::arg("in_rot_speed") ) )    
         .def( 
             "setSideSpeed"
-            , (void ( ::osgGA::UFOManipulator::* )( double ))( &::osgGA::UFOManipulator::setSideSpeed )
+            , (void ( ::osgGA::UFOManipulator::* )( double ) )( &::osgGA::UFOManipulator::setSideSpeed )
             , ( bp::arg("in_ss") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & )const)(&::osgGA::GUIEventHandler::clone)
-            , (::osg::Object * ( UFOManipulator_wrapper::* )( ::osg::CopyOp const & )const)(&UFOManipulator_wrapper::default_clone)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & ) const)(&::osgGA::GUIEventHandler::clone)
+            , (::osg::Object * ( UFOManipulator_wrapper::* )( ::osg::CopyOp const & ) const)(&UFOManipulator_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::cloneType)
-            , (::osg::Object * ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::cloneType)
+            , (::osg::Object * ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ))(&::osgGA::CameraManipulator::computeHomePosition)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Camera const *,bool ))(&UFOManipulator_wrapper::default_computeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ) )(&::osgGA::CameraManipulator::computeHomePosition)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Camera const *,bool ) )(&UFOManipulator_wrapper::default_computeHomePosition)
             , ( bp::arg("camera")=bp::object(), bp::arg("useBoundingBox")=(bool)(false) ) )    
         .def( 
             "event"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&::osgGA::GUIEventHandler::event)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&UFOManipulator_wrapper::default_event)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&::osgGA::GUIEventHandler::event)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&UFOManipulator_wrapper::default_event)
             , ( bp::arg("nv"), bp::arg("drawable") ) )    
         .def( 
             "getFusionDistanceMode"
-            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
-            , (::osgUtil::SceneView::FusionDistanceMode ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_getFusionDistanceMode) )    
+            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
+            , (::osgUtil::SceneView::FusionDistanceMode ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_getFusionDistanceMode) )    
         .def( 
             "getFusionDistanceValue"
-            , (float ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
-            , (float ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_getFusionDistanceValue) )    
+            , (float ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
+            , (float ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_getFusionDistanceValue) )    
         .def( 
             "getHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&::osgGA::CameraManipulator::getHomePosition)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&UFOManipulator_wrapper::default_getHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&::osgGA::CameraManipulator::getHomePosition)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&UFOManipulator_wrapper::default_getHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") ) )    
         .def( 
             "handle"
@@ -652,32 +652,32 @@ void register_UFOManipulator_class(){
             , "\n Handle events, return true if handled, false otherwise.\n" )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * )const)(&::osgGA::GUIEventHandler::isSameKindAs)
-            , (bool ( UFOManipulator_wrapper::* )( ::osg::Object const * )const)(&UFOManipulator_wrapper::default_isSameKindAs)
+            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * ) const)(&::osgGA::GUIEventHandler::isSameKindAs)
+            , (bool ( UFOManipulator_wrapper::* )( ::osg::Object const * ) const)(&UFOManipulator_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::libraryName)
-            , (char const * ( UFOManipulator_wrapper::* )(  )const)(&UFOManipulator_wrapper::default_libraryName) )    
+            , (char const * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::libraryName)
+            , (char const * ( UFOManipulator_wrapper::* )(  ) const)(&UFOManipulator_wrapper::default_libraryName) )    
         .def( 
             "setAutoComputeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( bool ))(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
-            , (void ( UFOManipulator_wrapper::* )( bool ))(&UFOManipulator_wrapper::default_setAutoComputeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( bool ) )(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
+            , (void ( UFOManipulator_wrapper::* )( bool ) )(&UFOManipulator_wrapper::default_setAutoComputeHomePosition)
             , ( bp::arg("flag") ) )    
         .def( 
             "setCoordinateFrameCallback"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
-            , (void ( UFOManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&UFOManipulator_wrapper::default_setCoordinateFrameCallback)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
+            , (void ( UFOManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&UFOManipulator_wrapper::default_setCoordinateFrameCallback)
             , ( bp::arg("cb") ) )    
         .def( 
             "setHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&::osgGA::CameraManipulator::setHomePosition)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&UFOManipulator_wrapper::default_setHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&::osgGA::CameraManipulator::setHomePosition)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&UFOManipulator_wrapper::default_setHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("autoComputeHomePosition")=(bool)(false) ) )    
         .def( 
             "updateCamera"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ))(&::osgGA::CameraManipulator::updateCamera)
-            , (void ( UFOManipulator_wrapper::* )( ::osg::Camera & ))(&UFOManipulator_wrapper::default_updateCamera)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ) )(&::osgGA::CameraManipulator::updateCamera)
+            , (void ( UFOManipulator_wrapper::* )( ::osg::Camera & ) )(&UFOManipulator_wrapper::default_updateCamera)
             , ( bp::arg("camera") ) );
 
 }

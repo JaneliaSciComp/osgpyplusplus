@@ -28,7 +28,7 @@ void register_Vec4us_class(){
         Vec4us_exposer.def( bp::self == bp::self );
         { //::osg::Vec4us::operator[]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*__getitem___function_type)( unsigned int ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*__getitem___function_type )( unsigned int ) ;
             
             Vec4us_exposer.def( 
                 "__getitem__"
@@ -39,7 +39,7 @@ void register_Vec4us_class(){
         }
         { //::osg::Vec4us::operator[]
         
-            typedef short unsigned int ( ::osg::Vec4us::*__getitem___function_type)( unsigned int ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*__getitem___function_type )( unsigned int ) const;
             
             Vec4us_exposer.def( 
                 "__getitem__"
@@ -49,7 +49,7 @@ void register_Vec4us_class(){
         }
         { //::osg::Vec4us::set
         
-            typedef void ( ::osg::Vec4us::*set_function_type)( short unsigned int,short unsigned int,short unsigned int,short unsigned int ) ;
+            typedef void ( ::osg::Vec4us::*set_function_type )( short unsigned int,short unsigned int,short unsigned int,short unsigned int ) ;
             
             Vec4us_exposer.def( 
                 "set"
@@ -59,7 +59,7 @@ void register_Vec4us_class(){
         }
         { //property "x"[fget=::osg::Vec4us::x]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "x"
@@ -70,7 +70,7 @@ void register_Vec4us_class(){
         }
         { //property "x"[fget=::osg::Vec4us::x]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "x"
@@ -79,7 +79,7 @@ void register_Vec4us_class(){
         }
         { //property "y"[fget=::osg::Vec4us::y]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "y"
@@ -90,7 +90,7 @@ void register_Vec4us_class(){
         }
         { //property "y"[fget=::osg::Vec4us::y]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "y"
@@ -99,7 +99,7 @@ void register_Vec4us_class(){
         }
         { //property "z"[fget=::osg::Vec4us::z]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "z"
@@ -110,7 +110,7 @@ void register_Vec4us_class(){
         }
         { //property "z"[fget=::osg::Vec4us::z]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "z"
@@ -119,7 +119,7 @@ void register_Vec4us_class(){
         }
         { //property "w"[fget=::osg::Vec4us::w]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "w"
@@ -130,7 +130,7 @@ void register_Vec4us_class(){
         }
         { //property "w"[fget=::osg::Vec4us::w]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "w"
@@ -139,7 +139,7 @@ void register_Vec4us_class(){
         }
         { //property "r"[fget=::osg::Vec4us::r]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "r"
@@ -150,7 +150,7 @@ void register_Vec4us_class(){
         }
         { //property "r"[fget=::osg::Vec4us::r]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "r"
@@ -159,7 +159,7 @@ void register_Vec4us_class(){
         }
         { //property "g"[fget=::osg::Vec4us::g]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "g"
@@ -170,7 +170,7 @@ void register_Vec4us_class(){
         }
         { //property "g"[fget=::osg::Vec4us::g]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "g"
@@ -179,7 +179,7 @@ void register_Vec4us_class(){
         }
         { //property "b"[fget=::osg::Vec4us::b]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "b"
@@ -190,7 +190,7 @@ void register_Vec4us_class(){
         }
         { //property "b"[fget=::osg::Vec4us::b]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "b"
@@ -199,7 +199,7 @@ void register_Vec4us_class(){
         }
         { //property "a"[fget=::osg::Vec4us::a]
         
-            typedef short unsigned int & ( ::osg::Vec4us::*fget)(  ) ;
+            typedef short unsigned int & ( ::osg::Vec4us::*fget )(  ) ;
             
             Vec4us_exposer.add_property( 
                 "a"
@@ -210,7 +210,7 @@ void register_Vec4us_class(){
         }
         { //property "a"[fget=::osg::Vec4us::a]
         
-            typedef short unsigned int ( ::osg::Vec4us::*fget)(  ) const;
+            typedef short unsigned int ( ::osg::Vec4us::*fget )(  ) const;
             
             Vec4us_exposer.add_property( 
                 "a"

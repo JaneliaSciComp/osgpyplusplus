@@ -26,7 +26,7 @@ void register_Vec3ui_class(){
         Vec3ui_exposer.def( bp::self == bp::self );
         { //::osg::Vec3ui::operator[]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*__getitem___function_type)( unsigned int ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*__getitem___function_type )( unsigned int ) ;
             
             Vec3ui_exposer.def( 
                 "__getitem__"
@@ -37,7 +37,7 @@ void register_Vec3ui_class(){
         }
         { //::osg::Vec3ui::operator[]
         
-            typedef unsigned int ( ::osg::Vec3ui::*__getitem___function_type)( unsigned int ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*__getitem___function_type )( unsigned int ) const;
             
             Vec3ui_exposer.def( 
                 "__getitem__"
@@ -47,7 +47,7 @@ void register_Vec3ui_class(){
         }
         { //::osg::Vec3ui::set
         
-            typedef void ( ::osg::Vec3ui::*set_function_type)( unsigned int,unsigned int,unsigned int ) ;
+            typedef void ( ::osg::Vec3ui::*set_function_type )( unsigned int,unsigned int,unsigned int ) ;
             
             Vec3ui_exposer.def( 
                 "set"
@@ -57,7 +57,7 @@ void register_Vec3ui_class(){
         }
         { //::osg::Vec3ui::set
         
-            typedef void ( ::osg::Vec3ui::*set_function_type)( ::osg::Vec3ui const & ) ;
+            typedef void ( ::osg::Vec3ui::*set_function_type )( ::osg::Vec3ui const & ) ;
             
             Vec3ui_exposer.def( 
                 "set"
@@ -67,7 +67,7 @@ void register_Vec3ui_class(){
         }
         { //property "x"[fget=::osg::Vec3ui::x]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "x"
@@ -78,7 +78,7 @@ void register_Vec3ui_class(){
         }
         { //property "x"[fget=::osg::Vec3ui::x]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "x"
@@ -87,7 +87,7 @@ void register_Vec3ui_class(){
         }
         { //property "y"[fget=::osg::Vec3ui::y]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "y"
@@ -98,7 +98,7 @@ void register_Vec3ui_class(){
         }
         { //property "y"[fget=::osg::Vec3ui::y]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "y"
@@ -107,7 +107,7 @@ void register_Vec3ui_class(){
         }
         { //property "z"[fget=::osg::Vec3ui::z]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "z"
@@ -118,7 +118,7 @@ void register_Vec3ui_class(){
         }
         { //property "z"[fget=::osg::Vec3ui::z]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "z"
@@ -127,7 +127,7 @@ void register_Vec3ui_class(){
         }
         { //property "r"[fget=::osg::Vec3ui::r]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "r"
@@ -138,7 +138,7 @@ void register_Vec3ui_class(){
         }
         { //property "r"[fget=::osg::Vec3ui::r]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "r"
@@ -147,7 +147,7 @@ void register_Vec3ui_class(){
         }
         { //property "g"[fget=::osg::Vec3ui::g]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "g"
@@ -158,7 +158,7 @@ void register_Vec3ui_class(){
         }
         { //property "g"[fget=::osg::Vec3ui::g]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "g"
@@ -167,7 +167,7 @@ void register_Vec3ui_class(){
         }
         { //property "b"[fget=::osg::Vec3ui::b]
         
-            typedef unsigned int & ( ::osg::Vec3ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec3ui::*fget )(  ) ;
             
             Vec3ui_exposer.add_property( 
                 "b"
@@ -178,7 +178,7 @@ void register_Vec3ui_class(){
         }
         { //property "b"[fget=::osg::Vec3ui::b]
         
-            typedef unsigned int ( ::osg::Vec3ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec3ui::*fget )(  ) const;
             
             Vec3ui_exposer.add_property( 
                 "b"

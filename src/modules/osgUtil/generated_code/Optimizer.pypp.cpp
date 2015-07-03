@@ -7423,8 +7423,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CheckGeometryVisitor >();
             { //::osgUtil::Optimizer::CheckGeometryVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::CheckGeometryVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::CheckGeometryVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::CheckGeometryVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::CheckGeometryVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 CheckGeometryVisitor_exposer.def( 
                     "apply"
@@ -7435,7 +7435,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::CheckGeometryVisitor::checkGeode
             
-                typedef void ( ::osgUtil::Optimizer::CheckGeometryVisitor::*checkGeode_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::CheckGeometryVisitor::*checkGeode_function_type )( ::osg::Geode & ) ;
                 
                 CheckGeometryVisitor_exposer.def( 
                     "checkGeode"
@@ -7451,8 +7451,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CombineLODsVisitor >();
             { //::osgUtil::Optimizer::CombineLODsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::CombineLODsVisitor::*apply_function_type)( ::osg::LOD & ) ;
-                typedef void ( Optimizer_wrapper::CombineLODsVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
+                typedef void ( ::osgUtil::Optimizer::CombineLODsVisitor::*apply_function_type )( ::osg::LOD & ) ;
+                typedef void ( Optimizer_wrapper::CombineLODsVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
                 
                 CombineLODsVisitor_exposer.def( 
                     "apply"
@@ -7463,7 +7463,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::CombineLODsVisitor::combineLODs
             
-                typedef void ( ::osgUtil::Optimizer::CombineLODsVisitor::*combineLODs_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::CombineLODsVisitor::*combineLODs_function_type )(  ) ;
                 
                 CombineLODsVisitor_exposer.def( 
                     "combineLODs"
@@ -7479,8 +7479,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CombineStaticTransformsVisitor >();
             { //::osgUtil::Optimizer::CombineStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::CombineStaticTransformsVisitor::*apply_function_type)( ::osg::MatrixTransform & ) ;
-                typedef void ( Optimizer_wrapper::CombineStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::MatrixTransform & ) ;
+                typedef void ( ::osgUtil::Optimizer::CombineStaticTransformsVisitor::*apply_function_type )( ::osg::MatrixTransform & ) ;
+                typedef void ( Optimizer_wrapper::CombineStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::MatrixTransform & ) ;
                 
                 CombineStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7491,7 +7491,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::CombineStaticTransformsVisitor::removeTransforms
             
-                typedef bool ( ::osgUtil::Optimizer::CombineStaticTransformsVisitor::*removeTransforms_function_type)( ::osg::Node * ) ;
+                typedef bool ( ::osgUtil::Optimizer::CombineStaticTransformsVisitor::*removeTransforms_function_type )( ::osg::Node * ) ;
                 
                 CombineStaticTransformsVisitor_exposer.def( 
                     "removeTransforms"
@@ -7507,8 +7507,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::CopySharedSubgraphsVisitor >();
             { //::osgUtil::Optimizer::CopySharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::CopySharedSubgraphsVisitor::*apply_function_type)( ::osg::Node & ) ;
-                typedef void ( Optimizer_wrapper::CopySharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+                typedef void ( ::osgUtil::Optimizer::CopySharedSubgraphsVisitor::*apply_function_type )( ::osg::Node & ) ;
+                typedef void ( Optimizer_wrapper::CopySharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
                 
                 CopySharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7519,7 +7519,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::CopySharedSubgraphsVisitor::copySharedNodes
             
-                typedef void ( ::osgUtil::Optimizer::CopySharedSubgraphsVisitor::*copySharedNodes_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::CopySharedSubgraphsVisitor::*copySharedNodes_function_type )(  ) ;
                 
                 CopySharedSubgraphsVisitor_exposer.def( 
                     "copySharedNodes"
@@ -7535,8 +7535,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenBillboardVisitor >();
             { //::osgUtil::Optimizer::FlattenBillboardVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*apply_function_type)( ::osg::Billboard & ) ;
-                typedef void ( Optimizer_wrapper::FlattenBillboardVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*apply_function_type )( ::osg::Billboard & ) ;
+                typedef void ( Optimizer_wrapper::FlattenBillboardVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
                 
                 FlattenBillboardVisitor_exposer.def( 
                     "apply"
@@ -7547,7 +7547,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenBillboardVisitor::process
             
-                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*process_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*process_function_type )(  ) ;
                 
                 FlattenBillboardVisitor_exposer.def( 
                     "process"
@@ -7556,8 +7556,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenBillboardVisitor::reset
             
-                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*reset_function_type)(  ) ;
-                typedef void ( Optimizer_wrapper::FlattenBillboardVisitor_wrapper::*default_reset_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenBillboardVisitor::*reset_function_type )(  ) ;
+                typedef void ( Optimizer_wrapper::FlattenBillboardVisitor_wrapper::*default_reset_function_type )(  ) ;
                 
                 FlattenBillboardVisitor_exposer.def( 
                     "reset"
@@ -7573,8 +7573,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor >();
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type)( ::osg::Group & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type )( ::osg::Group & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7585,8 +7585,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type)( ::osg::Transform & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type )( ::osg::Transform & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7597,8 +7597,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type)( ::osg::LOD & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type )( ::osg::LOD & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7609,8 +7609,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7621,8 +7621,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type)( ::osg::Billboard & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*apply_function_type )( ::osg::Billboard & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "apply"
@@ -7633,8 +7633,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::reset
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*reset_function_type)(  ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_reset_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor::*reset_function_type )(  ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_wrapper::*default_reset_function_type )(  ) ;
                 
                 FlattenStaticTransformsDuplicatingSharedSubgraphsVisitor_exposer.def( 
                     "reset"
@@ -7650,8 +7650,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::FlattenStaticTransformsVisitor >();
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::Node & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::Node & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7662,8 +7662,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7674,8 +7674,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::Billboard & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::Billboard & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7686,8 +7686,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::ProxyNode & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::ProxyNode & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::ProxyNode & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::ProxyNode & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7698,8 +7698,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::PagedLOD & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::PagedLOD & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::PagedLOD & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::PagedLOD & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7710,8 +7710,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type)( ::osg::Transform & ) ;
-                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
+                typedef void ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*apply_function_type )( ::osg::Transform & ) ;
+                typedef void ( Optimizer_wrapper::FlattenStaticTransformsVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "apply"
@@ -7722,7 +7722,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::FlattenStaticTransformsVisitor::removeTransforms
             
-                typedef bool ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*removeTransforms_function_type)( ::osg::Node * ) ;
+                typedef bool ( ::osgUtil::Optimizer::FlattenStaticTransformsVisitor::*removeTransforms_function_type )( ::osg::Node * ) ;
                 
                 FlattenStaticTransformsVisitor_exposer.def( 
                     "removeTransforms"
@@ -7734,23 +7734,23 @@ void register_Optimizer_class(){
         bp::class_< Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback >, boost::noncopyable >( "IsOperationPermissibleForObjectCallback" )    
             .def( 
                 "isOperationPermissibleForObjectImplementation"
-                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::StateSet const *,unsigned int )const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
-                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::StateSet const *,unsigned int )const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
+                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::StateSet const *,unsigned int ) const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
+                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::StateSet const *,unsigned int ) const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
                 , ( bp::arg("optimizer"), bp::arg("stateset"), bp::arg("option") ) )    
             .def( 
                 "isOperationPermissibleForObjectImplementation"
-                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::StateAttribute const *,unsigned int )const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
-                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::StateAttribute const *,unsigned int )const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
+                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::StateAttribute const *,unsigned int ) const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
+                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::StateAttribute const *,unsigned int ) const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
                 , ( bp::arg("optimizer"), bp::arg("attribute"), bp::arg("option") ) )    
             .def( 
                 "isOperationPermissibleForObjectImplementation"
-                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::Drawable const *,unsigned int )const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
-                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::Drawable const *,unsigned int )const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
+                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::Drawable const *,unsigned int ) const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
+                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::Drawable const *,unsigned int ) const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
                 , ( bp::arg("optimizer"), bp::arg("drawable"), bp::arg("option") ) )    
             .def( 
                 "isOperationPermissibleForObjectImplementation"
-                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::Node const *,unsigned int )const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
-                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::Node const *,unsigned int )const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
+                , (bool ( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::* )( ::osgUtil::Optimizer const *,::osg::Node const *,unsigned int ) const)(&::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback::isOperationPermissibleForObjectImplementation)
+                , (bool ( Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::* )( ::osgUtil::Optimizer const *,::osg::Node const *,unsigned int ) const)(&Optimizer_wrapper::IsOperationPermissibleForObjectCallback_wrapper::default_isOperationPermissibleForObjectImplementation)
                 , ( bp::arg("optimizer"), bp::arg("node"), bp::arg("option") ) );
         { //::osgUtil::Optimizer::MakeFastGeometryVisitor
             typedef bp::class_< Optimizer_wrapper::MakeFastGeometryVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::MakeFastGeometryVisitor >, boost::noncopyable > MakeFastGeometryVisitor_exposer_t;
@@ -7759,8 +7759,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MakeFastGeometryVisitor >();
             { //::osgUtil::Optimizer::MakeFastGeometryVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::MakeFastGeometryVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::MakeFastGeometryVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::MakeFastGeometryVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::MakeFastGeometryVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 MakeFastGeometryVisitor_exposer.def( 
                     "apply"
@@ -7771,7 +7771,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MakeFastGeometryVisitor::checkGeode
             
-                typedef void ( ::osgUtil::Optimizer::MakeFastGeometryVisitor::*checkGeode_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::MakeFastGeometryVisitor::*checkGeode_function_type )( ::osg::Geode & ) ;
                 
                 MakeFastGeometryVisitor_exposer.def( 
                     "checkGeode"
@@ -7787,8 +7787,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MergeGeodesVisitor >();
             { //::osgUtil::Optimizer::MergeGeodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::MergeGeodesVisitor::*apply_function_type)( ::osg::Group & ) ;
-                typedef void ( Optimizer_wrapper::MergeGeodesVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+                typedef void ( ::osgUtil::Optimizer::MergeGeodesVisitor::*apply_function_type )( ::osg::Group & ) ;
+                typedef void ( Optimizer_wrapper::MergeGeodesVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
                 
                 MergeGeodesVisitor_exposer.def( 
                     "apply"
@@ -7799,7 +7799,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MergeGeodesVisitor::mergeGeodes
             
-                typedef bool ( ::osgUtil::Optimizer::MergeGeodesVisitor::*mergeGeodes_function_type)( ::osg::Group & ) ;
+                typedef bool ( ::osgUtil::Optimizer::MergeGeodesVisitor::*mergeGeodes_function_type )( ::osg::Group & ) ;
                 
                 MergeGeodesVisitor_exposer.def( 
                     "mergeGeodes"
@@ -7815,8 +7815,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::MergeGeometryVisitor >();
             { //::osgUtil::Optimizer::MergeGeometryVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::MergeGeometryVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::MergeGeometryVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 MergeGeometryVisitor_exposer.def( 
                     "apply"
@@ -7827,8 +7827,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MergeGeometryVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*apply_function_type)( ::osg::Billboard & ) ;
-                typedef void ( Optimizer_wrapper::MergeGeometryVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
+                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*apply_function_type )( ::osg::Billboard & ) ;
+                typedef void ( Optimizer_wrapper::MergeGeometryVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
                 
                 MergeGeometryVisitor_exposer.def( 
                     "apply"
@@ -7849,7 +7849,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MergeGeometryVisitor::getTargetMaximumNumberOfVertices
             
-                typedef unsigned int ( ::osgUtil::Optimizer::MergeGeometryVisitor::*getTargetMaximumNumberOfVertices_function_type)(  ) const;
+                typedef unsigned int ( ::osgUtil::Optimizer::MergeGeometryVisitor::*getTargetMaximumNumberOfVertices_function_type )(  ) const;
                 
                 MergeGeometryVisitor_exposer.def( 
                     "getTargetMaximumNumberOfVertices"
@@ -7858,7 +7858,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MergeGeometryVisitor::mergeGeode
             
-                typedef bool ( ::osgUtil::Optimizer::MergeGeometryVisitor::*mergeGeode_function_type)( ::osg::Geode & ) ;
+                typedef bool ( ::osgUtil::Optimizer::MergeGeometryVisitor::*mergeGeode_function_type )( ::osg::Geode & ) ;
                 
                 MergeGeometryVisitor_exposer.def( 
                     "mergeGeode"
@@ -7928,7 +7928,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::MergeGeometryVisitor::setTargetMaximumNumberOfVertices
             
-                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*setTargetMaximumNumberOfVertices_function_type)( unsigned int ) ;
+                typedef void ( ::osgUtil::Optimizer::MergeGeometryVisitor::*setTargetMaximumNumberOfVertices_function_type )( unsigned int ) ;
                 
                 MergeGeometryVisitor_exposer.def( 
                     "setTargetMaximumNumberOfVertices"
@@ -7947,8 +7947,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveEmptyNodesVisitor >();
             { //::osgUtil::Optimizer::RemoveEmptyNodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 RemoveEmptyNodesVisitor_exposer.def( 
                     "apply"
@@ -7959,8 +7959,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveEmptyNodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*apply_function_type)( ::osg::Group & ) ;
-                typedef void ( Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*apply_function_type )( ::osg::Group & ) ;
+                typedef void ( Optimizer_wrapper::RemoveEmptyNodesVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
                 
                 RemoveEmptyNodesVisitor_exposer.def( 
                     "apply"
@@ -7971,7 +7971,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveEmptyNodesVisitor::removeEmptyNodes
             
-                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*removeEmptyNodes_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveEmptyNodesVisitor::*removeEmptyNodes_function_type )(  ) ;
                 
                 RemoveEmptyNodesVisitor_exposer.def( 
                     "removeEmptyNodes"
@@ -7987,8 +7987,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor >();
             { //::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::*apply_function_type)( ::osg::ProxyNode & ) ;
-                typedef void ( Optimizer_wrapper::RemoveLoadedProxyNodesVisitor_wrapper::*default_apply_function_type)( ::osg::ProxyNode & ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::*apply_function_type )( ::osg::ProxyNode & ) ;
+                typedef void ( Optimizer_wrapper::RemoveLoadedProxyNodesVisitor_wrapper::*default_apply_function_type )( ::osg::ProxyNode & ) ;
                 
                 RemoveLoadedProxyNodesVisitor_exposer.def( 
                     "apply"
@@ -7999,7 +7999,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::removeRedundantNodes
             
-                typedef void ( ::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::*removeRedundantNodes_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveLoadedProxyNodesVisitor::*removeRedundantNodes_function_type )(  ) ;
                 
                 RemoveLoadedProxyNodesVisitor_exposer.def( 
                     "removeRedundantNodes"
@@ -8015,8 +8015,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::RemoveRedundantNodesVisitor >();
             { //::osgUtil::Optimizer::RemoveRedundantNodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*apply_function_type)( ::osg::Group & ) ;
-                typedef void ( Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*apply_function_type )( ::osg::Group & ) ;
+                typedef void ( Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
                 
                 RemoveRedundantNodesVisitor_exposer.def( 
                     "apply"
@@ -8027,8 +8027,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveRedundantNodesVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*apply_function_type)( ::osg::Transform & ) ;
-                typedef void ( Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*apply_function_type )( ::osg::Transform & ) ;
+                typedef void ( Optimizer_wrapper::RemoveRedundantNodesVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
                 
                 RemoveRedundantNodesVisitor_exposer.def( 
                     "apply"
@@ -8039,7 +8039,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveRedundantNodesVisitor::isOperationPermissible
             
-                typedef bool ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*isOperationPermissible_function_type)( ::osg::Node & ) ;
+                typedef bool ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*isOperationPermissible_function_type )( ::osg::Node & ) ;
                 
                 RemoveRedundantNodesVisitor_exposer.def( 
                     "isOperationPermissible"
@@ -8049,7 +8049,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::RemoveRedundantNodesVisitor::removeRedundantNodes
             
-                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*removeRedundantNodes_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::RemoveRedundantNodesVisitor::*removeRedundantNodes_function_type )(  ) ;
                 
                 RemoveRedundantNodesVisitor_exposer.def( 
                     "removeRedundantNodes"
@@ -8065,8 +8065,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::SpatializeGroupsVisitor >();
             { //::osgUtil::Optimizer::SpatializeGroupsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*apply_function_type)( ::osg::Group & ) ;
-                typedef void ( Optimizer_wrapper::SpatializeGroupsVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+                typedef void ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*apply_function_type )( ::osg::Group & ) ;
+                typedef void ( Optimizer_wrapper::SpatializeGroupsVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
                 
                 SpatializeGroupsVisitor_exposer.def( 
                     "apply"
@@ -8077,8 +8077,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::SpatializeGroupsVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::SpatializeGroupsVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::SpatializeGroupsVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 SpatializeGroupsVisitor_exposer.def( 
                     "apply"
@@ -8089,7 +8089,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::SpatializeGroupsVisitor::divide
             
-                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type)( unsigned int ) ;
+                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type )( unsigned int ) ;
                 
                 SpatializeGroupsVisitor_exposer.def( 
                     "divide"
@@ -8099,7 +8099,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::SpatializeGroupsVisitor::divide
             
-                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type)( ::osg::Group *,unsigned int ) ;
+                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type )( ::osg::Group *,unsigned int ) ;
                 
                 SpatializeGroupsVisitor_exposer.def( 
                     "divide"
@@ -8109,7 +8109,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::SpatializeGroupsVisitor::divide
             
-                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type)( ::osg::Geode *,unsigned int ) ;
+                typedef bool ( ::osgUtil::Optimizer::SpatializeGroupsVisitor::*divide_function_type )( ::osg::Geode *,unsigned int ) ;
                 
                 SpatializeGroupsVisitor_exposer.def( 
                     "divide"
@@ -8123,21 +8123,21 @@ void register_Optimizer_class(){
         bp::class_< Optimizer_wrapper::StateVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::StateVisitor >, boost::noncopyable >( "StateVisitor", bp::init< bool, bool, bool, bp::optional< osgUtil::Optimizer * > >(( bp::arg("combineDynamicState"), bp::arg("combineStaticState"), bp::arg("combineUnspecifiedState"), bp::arg("optimizer")=bp::object() )) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::StateVisitor::* )( ::osg::Node & ))(&::osgUtil::Optimizer::StateVisitor::apply)
-                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )( ::osg::Node & ))(&Optimizer_wrapper::StateVisitor_wrapper::default_apply)
+                , (void ( ::osgUtil::Optimizer::StateVisitor::* )( ::osg::Node & ) )(&::osgUtil::Optimizer::StateVisitor::apply)
+                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )( ::osg::Node & ) )(&Optimizer_wrapper::StateVisitor_wrapper::default_apply)
                 , ( bp::arg("node") ) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::StateVisitor::* )( ::osg::Geode & ))(&::osgUtil::Optimizer::StateVisitor::apply)
-                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )( ::osg::Geode & ))(&Optimizer_wrapper::StateVisitor_wrapper::default_apply)
+                , (void ( ::osgUtil::Optimizer::StateVisitor::* )( ::osg::Geode & ) )(&::osgUtil::Optimizer::StateVisitor::apply)
+                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )( ::osg::Geode & ) )(&Optimizer_wrapper::StateVisitor_wrapper::default_apply)
                 , ( bp::arg("geode") ) )    
             .def( 
                 "optimize"
-                , (void ( ::osgUtil::Optimizer::StateVisitor::* )(  ))( &::osgUtil::Optimizer::StateVisitor::optimize ) )    
+                , (void ( ::osgUtil::Optimizer::StateVisitor::* )(  ) )( &::osgUtil::Optimizer::StateVisitor::optimize ) )    
             .def( 
                 "reset"
-                , (void ( ::osgUtil::Optimizer::StateVisitor::* )(  ))(&::osgUtil::Optimizer::StateVisitor::reset)
-                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )(  ))(&Optimizer_wrapper::StateVisitor_wrapper::default_reset) );
+                , (void ( ::osgUtil::Optimizer::StateVisitor::* )(  ) )(&::osgUtil::Optimizer::StateVisitor::reset)
+                , (void ( Optimizer_wrapper::StateVisitor_wrapper::* )(  ) )(&Optimizer_wrapper::StateVisitor_wrapper::default_reset) );
         { //::osgUtil::Optimizer::StaticObjectDetectionVisitor
             typedef bp::class_< Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::StaticObjectDetectionVisitor >, boost::noncopyable > StaticObjectDetectionVisitor_exposer_t;
             StaticObjectDetectionVisitor_exposer_t StaticObjectDetectionVisitor_exposer = StaticObjectDetectionVisitor_exposer_t( "StaticObjectDetectionVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
@@ -8145,8 +8145,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::StaticObjectDetectionVisitor >();
             { //::osgUtil::Optimizer::StaticObjectDetectionVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::StaticObjectDetectionVisitor::*apply_function_type)( ::osg::Node & ) ;
-                typedef void ( Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+                typedef void ( ::osgUtil::Optimizer::StaticObjectDetectionVisitor::*apply_function_type )( ::osg::Node & ) ;
+                typedef void ( Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
                 
                 StaticObjectDetectionVisitor_exposer.def( 
                     "apply"
@@ -8157,8 +8157,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::StaticObjectDetectionVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::StaticObjectDetectionVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::StaticObjectDetectionVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::StaticObjectDetectionVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 StaticObjectDetectionVisitor_exposer.def( 
                     "apply"
@@ -8175,8 +8175,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::TessellateVisitor >();
             { //::osgUtil::Optimizer::TessellateVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::TessellateVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::TessellateVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::TessellateVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::TessellateVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 TessellateVisitor_exposer.def( 
                     "apply"
@@ -8190,89 +8190,89 @@ void register_Optimizer_class(){
         bp::class_< osgUtil::Optimizer::TextureAtlasBuilder >( "TextureAtlasBuilder", bp::init< >() )    
             .def( 
                 "addSource"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::addSource )
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::addSource )
                 , ( bp::arg("image") ) )    
             .def( 
                 "addSource"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::addSource )
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::addSource )
                 , ( bp::arg("texture") ) )    
             .def( 
                 "buildAtlas"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ))( &::osgUtil::Optimizer::TextureAtlasBuilder::buildAtlas ) )    
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::buildAtlas ) )    
             .def( 
                 "getImageAtlas"
-                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
+                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
                 , ( bp::arg("i") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getImageAtlas"
-                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
+                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
                 , ( bp::arg("image") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getImageAtlas"
-                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
+                , (::osg::Image * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getImageAtlas )
                 , ( bp::arg("textue") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getMargin"
-                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  )const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMargin ) )    
+                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMargin ) )    
             .def( 
                 "getMaximumAtlasHeight"
-                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  )const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMaximumAtlasHeight ) )    
+                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMaximumAtlasHeight ) )    
             .def( 
                 "getMaximumAtlasWidth"
-                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  )const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMaximumAtlasWidth ) )    
+                , (int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getMaximumAtlasWidth ) )    
             .def( 
                 "getNumSources"
-                , (unsigned int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  )const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getNumSources ) )    
+                , (unsigned int ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) const)( &::osgUtil::Optimizer::TextureAtlasBuilder::getNumSources ) )    
             .def( 
                 "getSourceImage"
-                , (::osg::Image const * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getSourceImage )
+                , (::osg::Image const * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getSourceImage )
                 , ( bp::arg("i") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getSourceTexture"
-                , (::osg::Texture2D const * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getSourceTexture )
+                , (::osg::Texture2D const * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getSourceTexture )
                 , ( bp::arg("i") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getTextureAtlas"
-                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
+                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
                 , ( bp::arg("i") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getTextureAtlas"
-                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
+                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
                 , ( bp::arg("image") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getTextureAtlas"
-                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
+                , (::osg::Texture2D * ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureAtlas )
                 , ( bp::arg("texture") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getTextureMatrix"
-                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
+                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( unsigned int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
                 , ( bp::arg("i") ) )    
             .def( 
                 "getTextureMatrix"
-                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
+                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Image const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
                 , ( bp::arg("image") ) )    
             .def( 
                 "getTextureMatrix"
-                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ))( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
+                , (::osg::Matrix ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( ::osg::Texture2D const * ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::getTextureMatrix )
                 , ( bp::arg("texture") ) )    
             .def( 
                 "reset"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ))( &::osgUtil::Optimizer::TextureAtlasBuilder::reset ) )    
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )(  ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::reset ) )    
             .def( 
                 "setMargin"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::setMargin )
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::setMargin )
                 , ( bp::arg("margin") ) )    
             .def( 
                 "setMaximumAtlasSize"
-                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( int,int ))( &::osgUtil::Optimizer::TextureAtlasBuilder::setMaximumAtlasSize )
+                , (void ( ::osgUtil::Optimizer::TextureAtlasBuilder::* )( int,int ) )( &::osgUtil::Optimizer::TextureAtlasBuilder::setMaximumAtlasSize )
                 , ( bp::arg("width"), bp::arg("height") ) );
         { //::osgUtil::Optimizer::TextureAtlasVisitor
             typedef bp::class_< Optimizer_wrapper::TextureAtlasVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::TextureAtlasVisitor >, boost::noncopyable > TextureAtlasVisitor_exposer_t;
@@ -8281,8 +8281,8 @@ void register_Optimizer_class(){
             bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::Optimizer::TextureAtlasVisitor >();
             { //::osgUtil::Optimizer::TextureAtlasVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*apply_function_type)( ::osg::Node & ) ;
-                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*apply_function_type )( ::osg::Node & ) ;
+                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
                 
                 TextureAtlasVisitor_exposer.def( 
                     "apply"
@@ -8293,8 +8293,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::TextureAtlasVisitor::apply
             
-                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*apply_function_type)( ::osg::Geode & ) ;
-                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*apply_function_type )( ::osg::Geode & ) ;
+                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
                 
                 TextureAtlasVisitor_exposer.def( 
                     "apply"
@@ -8305,7 +8305,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::TextureAtlasVisitor::getTextureAtlasBuilder
             
-                typedef ::osgUtil::Optimizer::TextureAtlasBuilder & ( ::osgUtil::Optimizer::TextureAtlasVisitor::*getTextureAtlasBuilder_function_type)(  ) ;
+                typedef ::osgUtil::Optimizer::TextureAtlasBuilder & ( ::osgUtil::Optimizer::TextureAtlasVisitor::*getTextureAtlasBuilder_function_type )(  ) ;
                 
                 TextureAtlasVisitor_exposer.def( 
                     "getTextureAtlasBuilder"
@@ -8315,7 +8315,7 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::TextureAtlasVisitor::optimize
             
-                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*optimize_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*optimize_function_type )(  ) ;
                 
                 TextureAtlasVisitor_exposer.def( 
                     "optimize"
@@ -8324,8 +8324,8 @@ void register_Optimizer_class(){
             }
             { //::osgUtil::Optimizer::TextureAtlasVisitor::reset
             
-                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*reset_function_type)(  ) ;
-                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_reset_function_type)(  ) ;
+                typedef void ( ::osgUtil::Optimizer::TextureAtlasVisitor::*reset_function_type )(  ) ;
+                typedef void ( Optimizer_wrapper::TextureAtlasVisitor_wrapper::*default_reset_function_type )(  ) ;
                 
                 TextureAtlasVisitor_exposer.def( 
                     "reset"
@@ -8337,21 +8337,21 @@ void register_Optimizer_class(){
         bp::class_< Optimizer_wrapper::TextureVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::Optimizer::TextureVisitor >, boost::noncopyable >( "TextureVisitor", bp::init< bool, bool, bool, bool, bool, float, bp::optional< osgUtil::Optimizer * > >(( bp::arg("changeAutoUnRef"), bp::arg("valueAutoUnRef"), bp::arg("changeClientImageStorage"), bp::arg("valueClientImageStorage"), bp::arg("changeAnisotropy"), bp::arg("valueAnisotropy"), bp::arg("optimizer")=bp::object() )) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Geode & ))(&::osgUtil::Optimizer::TextureVisitor::apply)
-                , (void ( Optimizer_wrapper::TextureVisitor_wrapper::* )( ::osg::Geode & ))(&Optimizer_wrapper::TextureVisitor_wrapper::default_apply)
+                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Geode & ) )(&::osgUtil::Optimizer::TextureVisitor::apply)
+                , (void ( Optimizer_wrapper::TextureVisitor_wrapper::* )( ::osg::Geode & ) )(&Optimizer_wrapper::TextureVisitor_wrapper::default_apply)
                 , ( bp::arg("node") ) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Node & ))(&::osgUtil::Optimizer::TextureVisitor::apply)
-                , (void ( Optimizer_wrapper::TextureVisitor_wrapper::* )( ::osg::Node & ))(&Optimizer_wrapper::TextureVisitor_wrapper::default_apply)
+                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Node & ) )(&::osgUtil::Optimizer::TextureVisitor::apply)
+                , (void ( Optimizer_wrapper::TextureVisitor_wrapper::* )( ::osg::Node & ) )(&Optimizer_wrapper::TextureVisitor_wrapper::default_apply)
                 , ( bp::arg("node") ) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::StateSet & ))( &::osgUtil::Optimizer::TextureVisitor::apply )
+                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::StateSet & ) )( &::osgUtil::Optimizer::TextureVisitor::apply )
                 , ( bp::arg("stateset") ) )    
             .def( 
                 "apply"
-                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Texture & ))( &::osgUtil::Optimizer::TextureVisitor::apply )
+                , (void ( ::osgUtil::Optimizer::TextureVisitor::* )( ::osg::Texture & ) )( &::osgUtil::Optimizer::TextureVisitor::apply )
                 , ( bp::arg("texture") ) )    
             .def_readwrite( "_changeAnisotropy", &osgUtil::Optimizer::TextureVisitor::_changeAnisotropy )    
             .def_readwrite( "_changeAutoUnRef", &osgUtil::Optimizer::TextureVisitor::_changeAutoUnRef )    
@@ -8361,7 +8361,7 @@ void register_Optimizer_class(){
             .def_readwrite( "_valueClientImageStorage", &osgUtil::Optimizer::TextureVisitor::_valueClientImageStorage );
         { //::osgUtil::Optimizer::getIsOperationPermissibleForObjectCallback
         
-            typedef ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback * ( ::osgUtil::Optimizer::*getIsOperationPermissibleForObjectCallback_function_type)(  ) ;
+            typedef ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback * ( ::osgUtil::Optimizer::*getIsOperationPermissibleForObjectCallback_function_type )(  ) ;
             
             Optimizer_exposer.def( 
                 "getIsOperationPermissibleForObjectCallback"
@@ -8371,7 +8371,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::getIsOperationPermissibleForObjectCallback
         
-            typedef ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback const * ( ::osgUtil::Optimizer::*getIsOperationPermissibleForObjectCallback_function_type)(  ) const;
+            typedef ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback const * ( ::osgUtil::Optimizer::*getIsOperationPermissibleForObjectCallback_function_type )(  ) const;
             
             Optimizer_exposer.def( 
                 "getIsOperationPermissibleForObjectCallback"
@@ -8381,7 +8381,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::getPermissibleOptimizationsForObject
         
-            typedef unsigned int ( ::osgUtil::Optimizer::*getPermissibleOptimizationsForObject_function_type)( ::osg::Object const * ) const;
+            typedef unsigned int ( ::osgUtil::Optimizer::*getPermissibleOptimizationsForObject_function_type )( ::osg::Object const * ) const;
             
             Optimizer_exposer.def( 
                 "getPermissibleOptimizationsForObject"
@@ -8391,7 +8391,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObject
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type)( ::osg::StateSet const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type )( ::osg::StateSet const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObject"
@@ -8401,7 +8401,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObject
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type)( ::osg::StateAttribute const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type )( ::osg::StateAttribute const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObject"
@@ -8411,7 +8411,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObject
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type)( ::osg::Drawable const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type )( ::osg::Drawable const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObject"
@@ -8421,7 +8421,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObject
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type)( ::osg::Node const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObject_function_type )( ::osg::Node const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObject"
@@ -8431,7 +8431,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObjectImplementation
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type)( ::osg::StateSet const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type )( ::osg::StateSet const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObjectImplementation"
@@ -8441,7 +8441,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObjectImplementation
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type)( ::osg::StateAttribute const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type )( ::osg::StateAttribute const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObjectImplementation"
@@ -8451,7 +8451,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObjectImplementation
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type)( ::osg::Drawable const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type )( ::osg::Drawable const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObjectImplementation"
@@ -8461,7 +8461,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::isOperationPermissibleForObjectImplementation
         
-            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type)( ::osg::Node const *,unsigned int ) const;
+            typedef bool ( ::osgUtil::Optimizer::*isOperationPermissibleForObjectImplementation_function_type )( ::osg::Node const *,unsigned int ) const;
             
             Optimizer_exposer.def( 
                 "isOperationPermissibleForObjectImplementation"
@@ -8471,7 +8471,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::optimize
         
-            typedef void ( ::osgUtil::Optimizer::*optimize_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgUtil::Optimizer::*optimize_function_type )( ::osg::Node * ) ;
             
             Optimizer_exposer.def( 
                 "optimize"
@@ -8481,8 +8481,8 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::optimize
         
-            typedef void ( ::osgUtil::Optimizer::*optimize_function_type)( ::osg::Node *,unsigned int ) ;
-            typedef void ( Optimizer_wrapper::*default_optimize_function_type)( ::osg::Node *,unsigned int ) ;
+            typedef void ( ::osgUtil::Optimizer::*optimize_function_type )( ::osg::Node *,unsigned int ) ;
+            typedef void ( Optimizer_wrapper::*default_optimize_function_type )( ::osg::Node *,unsigned int ) ;
             
             Optimizer_exposer.def( 
                 "optimize"
@@ -8493,7 +8493,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::reset
         
-            typedef void ( ::osgUtil::Optimizer::*reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::Optimizer::*reset_function_type )(  ) ;
             
             Optimizer_exposer.def( 
                 "reset"
@@ -8502,7 +8502,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::setIsOperationPermissibleForObjectCallback
         
-            typedef void ( ::osgUtil::Optimizer::*setIsOperationPermissibleForObjectCallback_function_type)( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback * ) ;
+            typedef void ( ::osgUtil::Optimizer::*setIsOperationPermissibleForObjectCallback_function_type )( ::osgUtil::Optimizer::IsOperationPermissibleForObjectCallback * ) ;
             
             Optimizer_exposer.def( 
                 "setIsOperationPermissibleForObjectCallback"
@@ -8512,7 +8512,7 @@ void register_Optimizer_class(){
         }
         { //::osgUtil::Optimizer::setPermissibleOptimizationsForObject
         
-            typedef void ( ::osgUtil::Optimizer::*setPermissibleOptimizationsForObject_function_type)( ::osg::Object const *,unsigned int ) ;
+            typedef void ( ::osgUtil::Optimizer::*setPermissibleOptimizationsForObject_function_type )( ::osg::Object const *,unsigned int ) ;
             
             Optimizer_exposer.def( 
                 "setPermissibleOptimizationsForObject"

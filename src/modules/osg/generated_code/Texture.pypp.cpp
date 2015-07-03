@@ -441,206 +441,206 @@ void register_Texture_class(){
         bp::class_< Texture_wrapper::Extensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::Extensions >, boost::noncopyable >( "Extensions", "\n Encapsulates queries of extension availability, obtains extension\n function pointers, and provides convenience wrappers for\n calling extension functions.\n", bp::no_init )    
             .def( 
                 "getPreferGenerateMipmapSGISForPowerOfTwo"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::getPreferGenerateMipmapSGISForPowerOfTwo ) )    
             .def( 
                 "glBindImageTexture"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLuint,::GLuint,::GLint,::GLboolean,::GLint,::GLenum,::GLenum )const)( &::osg::Texture::Extensions::glBindImageTexture )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLuint,::GLuint,::GLint,::GLboolean,::GLint,::GLenum,::GLenum ) const)( &::osg::Texture::Extensions::glBindImageTexture )
                 , ( bp::arg("unit"), bp::arg("texture"), bp::arg("level"), bp::arg("layered"), bp::arg("layer"), bp::arg("access"), bp::arg("format") ) )    
             .def( 
                 "glCompressedTexImage2D"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLint,::GLsizei,::GLvoid const * )const)( &::osg::Texture::Extensions::glCompressedTexImage2D )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLint,::GLsizei,::GLvoid const * ) const)( &::osg::Texture::Extensions::glCompressedTexImage2D )
                 , ( bp::arg("target"), bp::arg("level"), bp::arg("internalformat"), bp::arg("width"), bp::arg("height"), bp::arg("border"), bp::arg("imageSize"), bp::arg("data") ) )    
             .def( 
                 "glCompressedTexSubImage2D"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLenum,::GLsizei,::GLvoid const * )const)( &::osg::Texture::Extensions::glCompressedTexSubImage2D )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLenum,::GLsizei,::GLvoid const * ) const)( &::osg::Texture::Extensions::glCompressedTexSubImage2D )
                 , ( bp::arg("target"), bp::arg("level"), bp::arg("xoffset"), bp::arg("yoffset"), bp::arg("width"), bp::arg("height"), bp::arg("format"), bp::arg("imageSize"), bp::arg("data") ) )    
             .def( 
                 "glGetCompressedTexImage"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLvoid * )const)( &::osg::Texture::Extensions::glGetCompressedTexImage )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLint,::GLvoid * ) const)( &::osg::Texture::Extensions::glGetCompressedTexImage )
                 , ( bp::arg("target"), bp::arg("level"), bp::arg("data") ) )    
             .def( 
                 "glTexImage2DMultisample"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLsizei,::GLint,::GLsizei,::GLsizei,::GLboolean )const)( &::osg::Texture::Extensions::glTexImage2DMultisample )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLsizei,::GLint,::GLsizei,::GLsizei,::GLboolean ) const)( &::osg::Texture::Extensions::glTexImage2DMultisample )
                 , ( bp::arg("target"), bp::arg("samples"), bp::arg("internalformat"), bp::arg("width"), bp::arg("height"), bp::arg("fixedsamplelocations") ) )    
             .def( 
                 "glTexParameterIiv"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLenum,::GLint const * )const)( &::osg::Texture::Extensions::glTexParameterIiv )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLenum,::GLint const * ) const)( &::osg::Texture::Extensions::glTexParameterIiv )
                 , ( bp::arg("target"), bp::arg("pname"), bp::arg("data") ) )    
             .def( 
                 "glTexParameterIuiv"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLenum,::GLuint const * )const)( &::osg::Texture::Extensions::glTexParameterIuiv )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLenum,::GLenum,::GLuint const * ) const)( &::osg::Texture::Extensions::glTexParameterIuiv )
                 , ( bp::arg("target"), bp::arg("pname"), bp::arg("data") ) )    
             .def( 
                 "isBindImageTextureSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isBindImageTextureSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isBindImageTextureSupported ) )    
             .def( 
                 "isClientStorageSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isClientStorageSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isClientStorageSupported ) )    
             .def( 
                 "isCompressedTexImage2DSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isCompressedTexImage2DSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isCompressedTexImage2DSupported ) )    
             .def( 
                 "isCompressedTexSubImage2DSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isCompressedTexSubImage2DSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isCompressedTexSubImage2DSupported ) )    
             .def( 
                 "isGenerateMipMapSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isGenerateMipMapSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isGenerateMipMapSupported ) )    
             .def( 
                 "isMultiTexturingSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isMultiTexturingSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isMultiTexturingSupported ) )    
             .def( 
                 "isNonPowerOfTwoTextureSupported"
-                , (bool ( ::osg::Texture::Extensions::* )( ::GLenum )const)( &::osg::Texture::Extensions::isNonPowerOfTwoTextureSupported )
+                , (bool ( ::osg::Texture::Extensions::* )( ::GLenum ) const)( &::osg::Texture::Extensions::isNonPowerOfTwoTextureSupported )
                 , ( bp::arg("filter") ) )    
             .def( 
                 "isShadowAmbientSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isShadowAmbientSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isShadowAmbientSupported ) )    
             .def( 
                 "isShadowSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isShadowSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isShadowSupported ) )    
             .def( 
                 "isTextureBorderClampSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureBorderClampSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureBorderClampSupported ) )    
             .def( 
                 "isTextureCompressionARBSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionARBSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionARBSupported ) )    
             .def( 
                 "isTextureCompressionETCSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionETCSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionETCSupported ) )    
             .def( 
                 "isTextureCompressionPVRTC2BPPSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionPVRTC2BPPSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionPVRTC2BPPSupported ) )    
             .def( 
                 "isTextureCompressionPVRTC4BPPSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionPVRTC4BPPSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionPVRTC4BPPSupported ) )    
             .def( 
                 "isTextureCompressionPVRTCSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionPVRTCSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionPVRTCSupported ) )    
             .def( 
                 "isTextureCompressionRGTCSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionRGTCSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionRGTCSupported ) )    
             .def( 
                 "isTextureCompressionS3TCSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureCompressionS3TCSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureCompressionS3TCSupported ) )    
             .def( 
                 "isTextureEdgeClampSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureEdgeClampSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureEdgeClampSupported ) )    
             .def( 
                 "isTextureFilterAnisotropicSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureFilterAnisotropicSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureFilterAnisotropicSupported ) )    
             .def( 
                 "isTextureIntegerSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureIntegerSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureIntegerSupported ) )    
             .def( 
                 "isTextureMaxLevelSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureMaxLevelSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureMaxLevelSupported ) )    
             .def( 
                 "isTextureMirroredRepeatSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureMirroredRepeatSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureMirroredRepeatSupported ) )    
             .def( 
                 "isTextureMultisampledSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureMultisampledSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureMultisampledSupported ) )    
             .def( 
                 "isTextureSwizzleSupported"
-                , (bool ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::isTextureSwizzleSupported ) )    
+                , (bool ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::isTextureSwizzleSupported ) )    
             .def( 
                 "maxTextureSize"
-                , (::GLint ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::maxTextureSize ) )    
+                , (::GLint ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::maxTextureSize ) )    
             .def( 
                 "numTextureUnits"
-                , (::GLint ( ::osg::Texture::Extensions::* )(  )const)( &::osg::Texture::Extensions::numTextureUnits ) )    
+                , (::GLint ( ::osg::Texture::Extensions::* )(  ) const)( &::osg::Texture::Extensions::numTextureUnits ) )    
             .def( 
                 "setGenerateMipMapSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setGenerateMipMapSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setGenerateMipMapSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setMaxTextureSize"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLint ))( &::osg::Texture::Extensions::setMaxTextureSize )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLint ) )( &::osg::Texture::Extensions::setMaxTextureSize )
                 , ( bp::arg("maxsize") ) )    
             .def( 
                 "setMultiTexturingSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setMultiTexturingSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setMultiTexturingSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setNumTextureUnits"
-                , (void ( ::osg::Texture::Extensions::* )( ::GLint ))( &::osg::Texture::Extensions::setNumTextureUnits )
+                , (void ( ::osg::Texture::Extensions::* )( ::GLint ) )( &::osg::Texture::Extensions::setNumTextureUnits )
                 , ( bp::arg("nunits") ) )    
             .def( 
                 "setPreferGenerateMipmapSGISForPowerOfTwo"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setPreferGenerateMipmapSGISForPowerOfTwo )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setShadowAmbientSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setShadowAmbientSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setShadowAmbientSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setShadowSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setShadowSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setShadowSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureBorderClampSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureBorderClampSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureBorderClampSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionARBSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionARBSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionARBSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionETCSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionETCSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionETCSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionPVRTC2BPPSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionPVRTC2BPPSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionPVRTC2BPPSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionPVRTC4BPPSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionPVRTC4BPPSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionPVRTC4BPPSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionPVRTCSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionPVRTCSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionPVRTCSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionRGTCSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionRGTCSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionRGTCSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureCompressionS3TCSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureCompressionS3TCSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureCompressionS3TCSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureEdgeClampSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureEdgeClampSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureEdgeClampSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureFilterAnisotropicSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureFilterAnisotropicSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureFilterAnisotropicSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureIntegerSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureIntegerSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureIntegerSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureMaxLevelSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureMaxLevelSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureMaxLevelSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureMirroredRepeatSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureMirroredRepeatSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureMirroredRepeatSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureMultisampledSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureMultisampledSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureMultisampledSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setTextureSwizzleSupported"
-                , (void ( ::osg::Texture::Extensions::* )( bool ))( &::osg::Texture::Extensions::setTextureSwizzleSupported )
+                , (void ( ::osg::Texture::Extensions::* )( bool ) )( &::osg::Texture::Extensions::setTextureSwizzleSupported )
                 , ( bp::arg("flag") ) )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Texture_wrapper::Extensions_wrapper::* )( bool ))(&Texture_wrapper::Extensions_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Texture_wrapper::Extensions_wrapper::* )( bool ) )(&Texture_wrapper::Extensions_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         bp::class_< osg::Texture::ImageAttachment >( "ImageAttachment", " Encapsulates texture image load/store attributes" )    
             .def_readwrite( "access", &osg::Texture::ImageAttachment::access )    
@@ -652,244 +652,244 @@ void register_Texture_class(){
         bp::class_< Texture_wrapper::TextureObjectManager_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::TextureObjectManager >, boost::noncopyable >( "TextureObjectManager", bp::no_init )    
             .def( 
                 "checkConsistency"
-                , (bool ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::checkConsistency ) )    
+                , (bool ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::checkConsistency ) )    
             .def( 
                 "deleteAllTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::deleteAllTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::deleteAllTextureObjects ) )    
             .def( 
                 "discardAllDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::discardAllDeletedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::discardAllDeletedTextureObjects ) )    
             .def( 
                 "discardAllTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::discardAllTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::discardAllTextureObjects ) )    
             .def( 
                 "flushAllDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::flushAllDeletedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::flushAllDeletedTextureObjects ) )    
             .def( 
                 "flushDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( double,double & ))( &::osg::Texture::TextureObjectManager::flushDeletedTextureObjects )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( double,double & ) )( &::osg::Texture::TextureObjectManager::flushDeletedTextureObjects )
                 , ( bp::arg("currentTime"), bp::arg("availableTime") ) )    
             .def( 
                 "generateTextureObject"
-                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture const *,::GLenum ))( &::osg::Texture::TextureObjectManager::generateTextureObject )
+                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture const *,::GLenum ) )( &::osg::Texture::TextureObjectManager::generateTextureObject )
                 , ( bp::arg("texture"), bp::arg("target") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "generateTextureObject"
-                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture const *,::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ))( &::osg::Texture::TextureObjectManager::generateTextureObject )
+                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture const *,::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ) )( &::osg::Texture::TextureObjectManager::generateTextureObject )
                 , ( bp::arg("texture"), bp::arg("target"), bp::arg("numMipmapLevels"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("border") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getApplyTime"
-                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getApplyTime )
+                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getApplyTime )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getContextID"
-                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::getContextID ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::getContextID ) )    
             .def( 
                 "getCurrTexturePoolSize"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getCurrTexturePoolSize )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getCurrTexturePoolSize )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getCurrTexturePoolSize"
-                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::getCurrTexturePoolSize ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::getCurrTexturePoolSize ) )    
             .def( 
                 "getDeleteTime"
-                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getDeleteTime )
+                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getDeleteTime )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getFrameNumber"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getFrameNumber )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getFrameNumber )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getGenerateTime"
-                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getGenerateTime )
+                , (double & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getGenerateTime )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getMaxTexturePoolSize"
-                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::getMaxTexturePoolSize ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::getMaxTexturePoolSize ) )    
             .def( 
                 "getNumberActiveTextureObjects"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberActiveTextureObjects )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberActiveTextureObjects )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberActiveTextureObjects"
-                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::getNumberActiveTextureObjects ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::getNumberActiveTextureObjects ) )    
             .def( 
                 "getNumberApplied"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberApplied )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberApplied )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberDeleted"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberDeleted )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberDeleted )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberFrames"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberFrames )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberFrames )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberGenerated"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberGenerated )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberGenerated )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberOrphanedTextureObjects"
-                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::getNumberOrphanedTextureObjects )
+                , (unsigned int & ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::getNumberOrphanedTextureObjects )
                 , bp::return_value_policy< bp::copy_non_const_reference >() )    
             .def( 
                 "getNumberOrphanedTextureObjects"
-                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::getNumberOrphanedTextureObjects ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectManager::* )(  ) const)( &::osg::Texture::TextureObjectManager::getNumberOrphanedTextureObjects ) )    
             .def( 
                 "getTextureObjectSet"
-                , (::osg::Texture::TextureObjectSet * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture::TextureProfile const & ))( &::osg::Texture::TextureObjectManager::getTextureObjectSet )
+                , (::osg::Texture::TextureObjectSet * ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture::TextureProfile const & ) )( &::osg::Texture::TextureObjectManager::getTextureObjectSet )
                 , ( bp::arg("profile") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "handlePendingOrphandedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::handlePendingOrphandedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::handlePendingOrphandedTextureObjects ) )    
             .def( 
                 "hasSpace"
-                , (bool ( ::osg::Texture::TextureObjectManager::* )( unsigned int )const)( &::osg::Texture::TextureObjectManager::hasSpace )
+                , (bool ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) const)( &::osg::Texture::TextureObjectManager::hasSpace )
                 , ( bp::arg("size") ) )    
             .def( 
                 "makeSpace"
-                , (bool ( ::osg::Texture::TextureObjectManager::* )( unsigned int ))( &::osg::Texture::TextureObjectManager::makeSpace )
+                , (bool ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) )( &::osg::Texture::TextureObjectManager::makeSpace )
                 , ( bp::arg("size") ) )    
             .def( 
                 "newFrame"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( ::osg::FrameStamp * ))( &::osg::Texture::TextureObjectManager::newFrame )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( ::osg::FrameStamp * ) )( &::osg::Texture::TextureObjectManager::newFrame )
                 , ( bp::arg("fs") ) )    
             .def( 
                 "recomputeStats"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( ::std::ostream & )const)( &::osg::Texture::TextureObjectManager::recomputeStats )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( ::std::ostream & ) const)( &::osg::Texture::TextureObjectManager::recomputeStats )
                 , ( bp::arg("out") ) )    
             .def( 
                 "releaseTextureObject"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectManager::releaseTextureObject )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( ::osg::Texture::TextureObject * ) )( &::osg::Texture::TextureObjectManager::releaseTextureObject )
                 , ( bp::arg("to") ) )    
             .def( 
                 "reportStats"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( ::std::ostream & ))( &::osg::Texture::TextureObjectManager::reportStats )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( ::std::ostream & ) )( &::osg::Texture::TextureObjectManager::reportStats )
                 , ( bp::arg("out") ) )    
             .def( 
                 "resetStats"
-                , (void ( ::osg::Texture::TextureObjectManager::* )(  ))( &::osg::Texture::TextureObjectManager::resetStats ) )    
+                , (void ( ::osg::Texture::TextureObjectManager::* )(  ) )( &::osg::Texture::TextureObjectManager::resetStats ) )    
             .def( 
                 "setCurrTexturePoolSize"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ))( &::osg::Texture::TextureObjectManager::setCurrTexturePoolSize )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) )( &::osg::Texture::TextureObjectManager::setCurrTexturePoolSize )
                 , ( bp::arg("size") ) )    
             .def( 
                 "setMaxTexturePoolSize"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ))( &::osg::Texture::TextureObjectManager::setMaxTexturePoolSize )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) )( &::osg::Texture::TextureObjectManager::setMaxTexturePoolSize )
                 , ( bp::arg("size") ) )    
             .def( 
                 "setNumberActiveTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ))( &::osg::Texture::TextureObjectManager::setNumberActiveTextureObjects )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) )( &::osg::Texture::TextureObjectManager::setNumberActiveTextureObjects )
                 , ( bp::arg("size") ) )    
             .def( 
                 "setNumberOrphanedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ))( &::osg::Texture::TextureObjectManager::setNumberOrphanedTextureObjects )
+                , (void ( ::osg::Texture::TextureObjectManager::* )( unsigned int ) )( &::osg::Texture::TextureObjectManager::setNumberOrphanedTextureObjects )
                 , ( bp::arg("size") ) )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Texture_wrapper::TextureObjectManager_wrapper::* )( bool ))(&Texture_wrapper::TextureObjectManager_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Texture_wrapper::TextureObjectManager_wrapper::* )( bool ) )(&Texture_wrapper::TextureObjectManager_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         bp::class_< Texture_wrapper::TextureObjectSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::TextureObjectSet >, boost::noncopyable >( "TextureObjectSet", bp::no_init )    
             .def( 
                 "addToBack"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectSet::addToBack )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ) )( &::osg::Texture::TextureObjectSet::addToBack )
                 , ( bp::arg("to") ) )    
             .def( 
                 "checkConsistency"
-                , (bool ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::checkConsistency ) )    
+                , (bool ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::checkConsistency ) )    
             .def( 
                 "computeNumTextureObjectsInList"
-                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::computeNumTextureObjectsInList ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::computeNumTextureObjectsInList ) )    
             .def( 
                 "deleteAllTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::deleteAllTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::deleteAllTextureObjects ) )    
             .def( 
                 "discardAllDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::discardAllDeletedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::discardAllDeletedTextureObjects ) )    
             .def( 
                 "discardAllTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::discardAllTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::discardAllTextureObjects ) )    
             .def( 
                 "flushAllDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::flushAllDeletedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::flushAllDeletedTextureObjects ) )    
             .def( 
                 "flushDeletedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( double,double & ))( &::osg::Texture::TextureObjectSet::flushDeletedTextureObjects )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( double,double & ) )( &::osg::Texture::TextureObjectSet::flushDeletedTextureObjects )
                 , ( bp::arg("currentTime"), bp::arg("availableTime") ) )    
             .def( 
                 "getNumOfTextureObjects"
-                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::getNumOfTextureObjects ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::getNumOfTextureObjects ) )    
             .def( 
                 "getNumOrphans"
-                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::getNumOrphans ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::getNumOrphans ) )    
             .def( 
                 "getNumPendingOrphans"
-                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::getNumPendingOrphans ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::getNumPendingOrphans ) )    
             .def( 
                 "getParent"
-                , (::osg::Texture::TextureObjectManager * ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::getParent )
+                , (::osg::Texture::TextureObjectManager * ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::getParent )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getProfile"
-                , (::osg::Texture::TextureProfile const & ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::getProfile )
+                , (::osg::Texture::TextureProfile const & ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::getProfile )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "handlePendingOrphandedTextureObjects"
-                , (void ( ::osg::Texture::TextureObjectSet::* )(  ))( &::osg::Texture::TextureObjectSet::handlePendingOrphandedTextureObjects ) )    
+                , (void ( ::osg::Texture::TextureObjectSet::* )(  ) )( &::osg::Texture::TextureObjectSet::handlePendingOrphandedTextureObjects ) )    
             .def( 
                 "makeSpace"
-                , (bool ( ::osg::Texture::TextureObjectSet::* )( unsigned int & ))( &::osg::Texture::TextureObjectSet::makeSpace )
+                , (bool ( ::osg::Texture::TextureObjectSet::* )( unsigned int & ) )( &::osg::Texture::TextureObjectSet::makeSpace )
                 , ( bp::arg("size") ) )    
             .def( 
                 "moveToBack"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectSet::moveToBack )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ) )( &::osg::Texture::TextureObjectSet::moveToBack )
                 , ( bp::arg("to") ) )    
             .def( 
                 "moveToSet"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject *,::osg::Texture::TextureObjectSet * ))( &::osg::Texture::TextureObjectSet::moveToSet )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject *,::osg::Texture::TextureObjectSet * ) )( &::osg::Texture::TextureObjectSet::moveToSet )
                 , ( bp::arg("to"), bp::arg("set") ) )    
             .def( 
                 "orphan"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectSet::orphan )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ) )( &::osg::Texture::TextureObjectSet::orphan )
                 , ( bp::arg("to") ) )    
             .def( 
                 "remove"
-                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectSet::remove )
+                , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ) )( &::osg::Texture::TextureObjectSet::remove )
                 , ( bp::arg("to") ) )    
             .def( 
                 "size"
-                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  )const)( &::osg::Texture::TextureObjectSet::size ) )    
+                , (unsigned int ( ::osg::Texture::TextureObjectSet::* )(  ) const)( &::osg::Texture::TextureObjectSet::size ) )    
             .def( 
                 "takeFromOrphans"
-                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture * ))( &::osg::Texture::TextureObjectSet::takeFromOrphans )
+                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture * ) )( &::osg::Texture::TextureObjectSet::takeFromOrphans )
                 , ( bp::arg("texture") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "takeOrGenerate"
-                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture * ))( &::osg::Texture::TextureObjectSet::takeOrGenerate )
+                , (::osg::Texture::TextureObject * ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture * ) )( &::osg::Texture::TextureObjectSet::takeOrGenerate )
                 , ( bp::arg("texture") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Texture_wrapper::TextureObjectSet_wrapper::* )( bool ))(&Texture_wrapper::TextureObjectSet_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Texture_wrapper::TextureObjectSet_wrapper::* )( bool ) )(&Texture_wrapper::TextureObjectSet_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         bp::class_< osg::Texture::TextureProfile >( "TextureProfile", bp::no_init )    
             .def( 
                 "computeSize"
-                , (void ( ::osg::Texture::TextureProfile::* )(  ))( &::osg::Texture::TextureProfile::computeSize ) )    
+                , (void ( ::osg::Texture::TextureProfile::* )(  ) )( &::osg::Texture::TextureProfile::computeSize ) )    
             .def( 
                 "match"
-                , (bool ( ::osg::Texture::TextureProfile::* )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ))( &::osg::Texture::TextureProfile::match )
+                , (bool ( ::osg::Texture::TextureProfile::* )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ) )( &::osg::Texture::TextureProfile::match )
                 , ( bp::arg("target"), bp::arg("numMipmapLevels"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("border") ) )    
             .def( 
                 "set"
-                , (void ( ::osg::Texture::TextureProfile::* )( ::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ))( &::osg::Texture::TextureProfile::set )
+                , (void ( ::osg::Texture::TextureProfile::* )( ::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint ) )( &::osg::Texture::TextureProfile::set )
                 , ( bp::arg("numMipmapLevels"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("border") ) )    
             .def_readwrite( "_border", &osg::Texture::TextureProfile::_border )    
             .def_readwrite( "_depth", &osg::Texture::TextureProfile::_depth )    
@@ -901,7 +901,7 @@ void register_Texture_class(){
             .def_readwrite( "_width", &osg::Texture::TextureProfile::_width );
         { //::osg::Texture::allocateMipmapLevels
         
-            typedef void ( ::osg::Texture::*allocateMipmapLevels_function_type)(  ) ;
+            typedef void ( ::osg::Texture::*allocateMipmapLevels_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "allocateMipmapLevels"
@@ -911,7 +911,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::apply
         
-            typedef void ( ::osg::Texture::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture::*apply_function_type )( ::osg::State & ) const;
             
             Texture_exposer.def( 
                 "apply"
@@ -922,7 +922,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::applyTexImage2D_load
         
-            typedef void ( ::osg::Texture::*applyTexImage2D_load_function_type)( ::osg::State &,::GLenum,::osg::Image const *,::GLsizei,::GLsizei,::GLsizei ) const;
+            typedef void ( ::osg::Texture::*applyTexImage2D_load_function_type )( ::osg::State &,::GLenum,::osg::Image const *,::GLsizei,::GLsizei,::GLsizei ) const;
             
             Texture_exposer.def( 
                 "applyTexImage2D_load"
@@ -933,7 +933,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::applyTexImage2D_subload
         
-            typedef void ( ::osg::Texture::*applyTexImage2D_subload_function_type)( ::osg::State &,::GLenum,::osg::Image const *,::GLsizei,::GLsizei,::GLint,::GLsizei ) const;
+            typedef void ( ::osg::Texture::*applyTexImage2D_subload_function_type )( ::osg::State &,::GLenum,::osg::Image const *,::GLsizei,::GLsizei,::GLint,::GLsizei ) const;
             
             Texture_exposer.def( 
                 "applyTexImage2D_subload"
@@ -944,7 +944,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::areAllTextureObjectsLoaded
         
-            typedef bool ( ::osg::Texture::*areAllTextureObjectsLoaded_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*areAllTextureObjectsLoaded_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "areAllTextureObjectsLoaded"
@@ -954,8 +954,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Texture_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Texture_wrapper::*default_asTexture_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "asTexture"
@@ -966,8 +966,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Texture_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Texture_wrapper::*default_asTexture_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "asTexture"
@@ -978,7 +978,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::bindToImageUnit
         
-            typedef void ( ::osg::Texture::*bindToImageUnit_function_type)( unsigned int,::GLenum,::GLenum,int,bool,int ) ;
+            typedef void ( ::osg::Texture::*bindToImageUnit_function_type )( unsigned int,::GLenum,::GLenum,int,bool,int ) ;
             
             Texture_exposer.def( 
                 "bindToImageUnit"
@@ -989,8 +989,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::className
         
-            typedef char const * ( ::osg::Texture::*className_function_type)(  ) const;
-            typedef char const * ( Texture_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture::*className_function_type )(  ) const;
+            typedef char const * ( Texture_wrapper::*default_className_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "className"
@@ -1000,7 +1000,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::clone
         
-            typedef ::osg::Object * ( ::osg::Texture::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Texture::*clone_function_type )( ::osg::CopyOp const & ) const;
             
             Texture_exposer.def( 
                 "clone"
@@ -1011,7 +1011,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::cloneType
         
-            typedef ::osg::Object * ( ::osg::Texture::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Texture::*cloneType_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "cloneType"
@@ -1021,8 +1021,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::compileGLObjects
         
-            typedef void ( ::osg::Texture::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Texture_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Texture_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Texture_exposer.def( 
                 "compileGLObjects"
@@ -1043,7 +1043,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::dirtyTextureObject
         
-            typedef void ( ::osg::Texture::*dirtyTextureObject_function_type)(  ) ;
+            typedef void ( ::osg::Texture::*dirtyTextureObject_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "dirtyTextureObject"
@@ -1053,7 +1053,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::dirtyTextureParameters
         
-            typedef void ( ::osg::Texture::*dirtyTextureParameters_function_type)(  ) ;
+            typedef void ( ::osg::Texture::*dirtyTextureParameters_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "dirtyTextureParameters"
@@ -1125,7 +1125,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getBorderColor
         
-            typedef ::osg::Vec4d const & ( ::osg::Texture::*getBorderColor_function_type)(  ) const;
+            typedef ::osg::Vec4d const & ( ::osg::Texture::*getBorderColor_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getBorderColor"
@@ -1136,7 +1136,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getBorderWidth
         
-            typedef ::GLint ( ::osg::Texture::*getBorderWidth_function_type)(  ) const;
+            typedef ::GLint ( ::osg::Texture::*getBorderWidth_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getBorderWidth"
@@ -1145,7 +1145,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getClientStorageHint
         
-            typedef bool ( ::osg::Texture::*getClientStorageHint_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*getClientStorageHint_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getClientStorageHint"
@@ -1178,7 +1178,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getFilter
         
-            typedef ::osg::Texture::FilterMode ( ::osg::Texture::*getFilter_function_type)( ::osg::Texture::FilterParameter ) const;
+            typedef ::osg::Texture::FilterMode ( ::osg::Texture::*getFilter_function_type )( ::osg::Texture::FilterParameter ) const;
             
             Texture_exposer.def( 
                 "getFilter"
@@ -1189,7 +1189,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getImage
         
-            typedef ::osg::Image * ( ::osg::Texture::*getImage_function_type)( unsigned int ) ;
+            typedef ::osg::Image * ( ::osg::Texture::*getImage_function_type )( unsigned int ) ;
             
             Texture_exposer.def( 
                 "getImage"
@@ -1201,7 +1201,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getImage
         
-            typedef ::osg::Image const * ( ::osg::Texture::*getImage_function_type)( unsigned int ) const;
+            typedef ::osg::Image const * ( ::osg::Texture::*getImage_function_type )( unsigned int ) const;
             
             Texture_exposer.def( 
                 "getImage"
@@ -1213,7 +1213,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getImageAttachment
         
-            typedef ::osg::Texture::ImageAttachment & ( ::osg::Texture::*getImageAttachment_function_type)(  ) ;
+            typedef ::osg::Texture::ImageAttachment & ( ::osg::Texture::*getImageAttachment_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "getImageAttachment"
@@ -1223,7 +1223,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getImageAttachment
         
-            typedef ::osg::Texture::ImageAttachment const & ( ::osg::Texture::*getImageAttachment_function_type)(  ) const;
+            typedef ::osg::Texture::ImageAttachment const & ( ::osg::Texture::*getImageAttachment_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getImageAttachment"
@@ -1233,7 +1233,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getInternalFormat
         
-            typedef ::GLint ( ::osg::Texture::*getInternalFormat_function_type)(  ) const;
+            typedef ::GLint ( ::osg::Texture::*getInternalFormat_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getInternalFormat"
@@ -1243,7 +1243,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getInternalFormatMode
         
-            typedef ::osg::Texture::InternalFormatMode ( ::osg::Texture::*getInternalFormatMode_function_type)(  ) const;
+            typedef ::osg::Texture::InternalFormatMode ( ::osg::Texture::*getInternalFormatMode_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getInternalFormatMode"
@@ -1253,7 +1253,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getInternalFormatType
         
-            typedef ::osg::Texture::InternalFormatType ( ::osg::Texture::*getInternalFormatType_function_type)(  ) const;
+            typedef ::osg::Texture::InternalFormatType ( ::osg::Texture::*getInternalFormatType_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getInternalFormatType"
@@ -1263,7 +1263,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getMaxAnisotropy
         
-            typedef float ( ::osg::Texture::*getMaxAnisotropy_function_type)(  ) const;
+            typedef float ( ::osg::Texture::*getMaxAnisotropy_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getMaxAnisotropy"
@@ -1273,8 +1273,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getModeUsage
         
-            typedef bool ( ::osg::Texture::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Texture_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Texture::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Texture_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Texture_exposer.def( 
                 "getModeUsage"
@@ -1285,7 +1285,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getNumImages
         
-            typedef unsigned int ( ::osg::Texture::*getNumImages_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Texture::*getNumImages_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getNumImages"
@@ -1295,7 +1295,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getReadPBuffer
         
-            typedef ::osg::GraphicsContext * ( ::osg::Texture::*getReadPBuffer_function_type)(  ) ;
+            typedef ::osg::GraphicsContext * ( ::osg::Texture::*getReadPBuffer_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "getReadPBuffer"
@@ -1306,7 +1306,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getReadPBuffer
         
-            typedef ::osg::GraphicsContext const * ( ::osg::Texture::*getReadPBuffer_function_type)(  ) const;
+            typedef ::osg::GraphicsContext const * ( ::osg::Texture::*getReadPBuffer_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getReadPBuffer"
@@ -1317,7 +1317,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getResizeNonPowerOfTwoHint
         
-            typedef bool ( ::osg::Texture::*getResizeNonPowerOfTwoHint_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*getResizeNonPowerOfTwoHint_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getResizeNonPowerOfTwoHint"
@@ -1327,7 +1327,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getShadowAmbient
         
-            typedef float ( ::osg::Texture::*getShadowAmbient_function_type)(  ) const;
+            typedef float ( ::osg::Texture::*getShadowAmbient_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getShadowAmbient"
@@ -1336,7 +1336,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getShadowCompareFunc
         
-            typedef ::osg::Texture::ShadowCompareFunc ( ::osg::Texture::*getShadowCompareFunc_function_type)(  ) const;
+            typedef ::osg::Texture::ShadowCompareFunc ( ::osg::Texture::*getShadowCompareFunc_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getShadowCompareFunc"
@@ -1345,7 +1345,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getShadowComparison
         
-            typedef bool ( ::osg::Texture::*getShadowComparison_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*getShadowComparison_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getShadowComparison"
@@ -1354,7 +1354,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getShadowTextureMode
         
-            typedef ::osg::Texture::ShadowTextureMode ( ::osg::Texture::*getShadowTextureMode_function_type)(  ) const;
+            typedef ::osg::Texture::ShadowTextureMode ( ::osg::Texture::*getShadowTextureMode_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getShadowTextureMode"
@@ -1363,7 +1363,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getSourceFormat
         
-            typedef ::GLenum ( ::osg::Texture::*getSourceFormat_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Texture::*getSourceFormat_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getSourceFormat"
@@ -1373,7 +1373,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getSourceType
         
-            typedef ::GLenum ( ::osg::Texture::*getSourceType_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Texture::*getSourceType_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getSourceType"
@@ -1383,7 +1383,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getSwizzle
         
-            typedef ::osg::Vec4i const & ( ::osg::Texture::*getSwizzle_function_type)(  ) const;
+            typedef ::osg::Vec4i const & ( ::osg::Texture::*getSwizzle_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getSwizzle"
@@ -1394,8 +1394,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureDepth
         
-            typedef int ( ::osg::Texture::*getTextureDepth_function_type)(  ) const;
-            typedef int ( Texture_wrapper::*default_getTextureDepth_function_type)(  ) const;
+            typedef int ( ::osg::Texture::*getTextureDepth_function_type )(  ) const;
+            typedef int ( Texture_wrapper::*default_getTextureDepth_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getTextureDepth"
@@ -1405,8 +1405,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureHeight
         
-            typedef int ( ::osg::Texture::*getTextureHeight_function_type)(  ) const;
-            typedef int ( Texture_wrapper::*default_getTextureHeight_function_type)(  ) const;
+            typedef int ( ::osg::Texture::*getTextureHeight_function_type )(  ) const;
+            typedef int ( Texture_wrapper::*default_getTextureHeight_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getTextureHeight"
@@ -1416,7 +1416,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureObject
         
-            typedef ::osg::Texture::TextureObject * ( ::osg::Texture::*getTextureObject_function_type)( unsigned int ) const;
+            typedef ::osg::Texture::TextureObject * ( ::osg::Texture::*getTextureObject_function_type )( unsigned int ) const;
             
             Texture_exposer.def( 
                 "getTextureObject"
@@ -1439,7 +1439,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureParameterDirty
         
-            typedef unsigned int & ( ::osg::Texture::*getTextureParameterDirty_function_type)( unsigned int ) const;
+            typedef unsigned int & ( ::osg::Texture::*getTextureParameterDirty_function_type )( unsigned int ) const;
             
             Texture_exposer.def( 
                 "getTextureParameterDirty"
@@ -1451,7 +1451,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureTarget
         
-            typedef ::GLenum ( ::osg::Texture::*getTextureTarget_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Texture::*getTextureTarget_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getTextureTarget"
@@ -1460,8 +1460,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getTextureWidth
         
-            typedef int ( ::osg::Texture::*getTextureWidth_function_type)(  ) const;
-            typedef int ( Texture_wrapper::*default_getTextureWidth_function_type)(  ) const;
+            typedef int ( ::osg::Texture::*getTextureWidth_function_type )(  ) const;
+            typedef int ( Texture_wrapper::*default_getTextureWidth_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getTextureWidth"
@@ -1471,8 +1471,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Texture::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Texture_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Texture::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Texture_wrapper::*default_getType_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getType"
@@ -1482,7 +1482,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getUnRefImageDataAfterApply
         
-            typedef bool ( ::osg::Texture::*getUnRefImageDataAfterApply_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*getUnRefImageDataAfterApply_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getUnRefImageDataAfterApply"
@@ -1492,7 +1492,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getUseHardwareMipMapGeneration
         
-            typedef bool ( ::osg::Texture::*getUseHardwareMipMapGeneration_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*getUseHardwareMipMapGeneration_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getUseHardwareMipMapGeneration"
@@ -1502,7 +1502,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::getWrap
         
-            typedef ::osg::Texture::WrapMode ( ::osg::Texture::*getWrap_function_type)( ::osg::Texture::WrapParameter ) const;
+            typedef ::osg::Texture::WrapMode ( ::osg::Texture::*getWrap_function_type )( ::osg::Texture::WrapParameter ) const;
             
             Texture_exposer.def( 
                 "getWrap"
@@ -1513,7 +1513,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::isCompressedInternalFormat
         
-            typedef bool ( ::osg::Texture::*isCompressedInternalFormat_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*isCompressedInternalFormat_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "isCompressedInternalFormat"
@@ -1534,8 +1534,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::isSameKindAs
         
-            typedef bool ( ::osg::Texture::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Texture_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Texture::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Texture_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Texture_exposer.def( 
                 "isSameKindAs"
@@ -1546,8 +1546,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::isTextureAttribute
         
-            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Texture_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Texture_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "isTextureAttribute"
@@ -1557,8 +1557,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::libraryName
         
-            typedef char const * ( ::osg::Texture::*libraryName_function_type)(  ) const;
-            typedef char const * ( Texture_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture::*libraryName_function_type )(  ) const;
+            typedef char const * ( Texture_wrapper::*default_libraryName_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "libraryName"
@@ -1578,8 +1578,8 @@ void register_Texture_class(){
         }
         { //::osg::Texture::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Texture_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Texture_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Texture_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1590,7 +1590,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setBorderColor
         
-            typedef void ( ::osg::Texture::*setBorderColor_function_type)( ::osg::Vec4d const & ) ;
+            typedef void ( ::osg::Texture::*setBorderColor_function_type )( ::osg::Vec4d const & ) ;
             
             Texture_exposer.def( 
                 "setBorderColor"
@@ -1601,7 +1601,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setBorderWidth
         
-            typedef void ( ::osg::Texture::*setBorderWidth_function_type)( ::GLint ) ;
+            typedef void ( ::osg::Texture::*setBorderWidth_function_type )( ::GLint ) ;
             
             Texture_exposer.def( 
                 "setBorderWidth"
@@ -1612,7 +1612,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setClientStorageHint
         
-            typedef void ( ::osg::Texture::*setClientStorageHint_function_type)( bool ) ;
+            typedef void ( ::osg::Texture::*setClientStorageHint_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setClientStorageHint"
@@ -1634,7 +1634,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setFilter
         
-            typedef void ( ::osg::Texture::*setFilter_function_type)( ::osg::Texture::FilterParameter,::osg::Texture::FilterMode ) ;
+            typedef void ( ::osg::Texture::*setFilter_function_type )( ::osg::Texture::FilterParameter,::osg::Texture::FilterMode ) ;
             
             Texture_exposer.def( 
                 "setFilter"
@@ -1645,7 +1645,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setImage
         
-            typedef void ( ::osg::Texture::*setImage_function_type)( unsigned int,::osg::Image * ) ;
+            typedef void ( ::osg::Texture::*setImage_function_type )( unsigned int,::osg::Image * ) ;
             
             Texture_exposer.def( 
                 "setImage"
@@ -1656,7 +1656,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setInternalFormat
         
-            typedef void ( ::osg::Texture::*setInternalFormat_function_type)( ::GLint ) ;
+            typedef void ( ::osg::Texture::*setInternalFormat_function_type )( ::GLint ) ;
             
             Texture_exposer.def( 
                 "setInternalFormat"
@@ -1667,7 +1667,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setInternalFormatMode
         
-            typedef void ( ::osg::Texture::*setInternalFormatMode_function_type)( ::osg::Texture::InternalFormatMode ) ;
+            typedef void ( ::osg::Texture::*setInternalFormatMode_function_type )( ::osg::Texture::InternalFormatMode ) ;
             
             Texture_exposer.def( 
                 "setInternalFormatMode"
@@ -1678,7 +1678,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setMaxAnisotropy
         
-            typedef void ( ::osg::Texture::*setMaxAnisotropy_function_type)( float ) ;
+            typedef void ( ::osg::Texture::*setMaxAnisotropy_function_type )( float ) ;
             
             Texture_exposer.def( 
                 "setMaxAnisotropy"
@@ -1689,7 +1689,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setReadPBuffer
         
-            typedef void ( ::osg::Texture::*setReadPBuffer_function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osg::Texture::*setReadPBuffer_function_type )( ::osg::GraphicsContext * ) ;
             
             Texture_exposer.def( 
                 "setReadPBuffer"
@@ -1700,7 +1700,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setResizeNonPowerOfTwoHint
         
-            typedef void ( ::osg::Texture::*setResizeNonPowerOfTwoHint_function_type)( bool ) ;
+            typedef void ( ::osg::Texture::*setResizeNonPowerOfTwoHint_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setResizeNonPowerOfTwoHint"
@@ -1711,7 +1711,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setShadowAmbient
         
-            typedef void ( ::osg::Texture::*setShadowAmbient_function_type)( float ) ;
+            typedef void ( ::osg::Texture::*setShadowAmbient_function_type )( float ) ;
             
             Texture_exposer.def( 
                 "setShadowAmbient"
@@ -1722,7 +1722,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setShadowCompareFunc
         
-            typedef void ( ::osg::Texture::*setShadowCompareFunc_function_type)( ::osg::Texture::ShadowCompareFunc ) ;
+            typedef void ( ::osg::Texture::*setShadowCompareFunc_function_type )( ::osg::Texture::ShadowCompareFunc ) ;
             
             Texture_exposer.def( 
                 "setShadowCompareFunc"
@@ -1733,7 +1733,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setShadowComparison
         
-            typedef void ( ::osg::Texture::*setShadowComparison_function_type)( bool ) ;
+            typedef void ( ::osg::Texture::*setShadowComparison_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setShadowComparison"
@@ -1744,7 +1744,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setShadowTextureMode
         
-            typedef void ( ::osg::Texture::*setShadowTextureMode_function_type)( ::osg::Texture::ShadowTextureMode ) ;
+            typedef void ( ::osg::Texture::*setShadowTextureMode_function_type )( ::osg::Texture::ShadowTextureMode ) ;
             
             Texture_exposer.def( 
                 "setShadowTextureMode"
@@ -1755,7 +1755,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setSourceFormat
         
-            typedef void ( ::osg::Texture::*setSourceFormat_function_type)( ::GLenum ) ;
+            typedef void ( ::osg::Texture::*setSourceFormat_function_type )( ::GLenum ) ;
             
             Texture_exposer.def( 
                 "setSourceFormat"
@@ -1766,7 +1766,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setSourceType
         
-            typedef void ( ::osg::Texture::*setSourceType_function_type)( ::GLenum ) ;
+            typedef void ( ::osg::Texture::*setSourceType_function_type )( ::GLenum ) ;
             
             Texture_exposer.def( 
                 "setSourceType"
@@ -1777,7 +1777,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setSwizzle
         
-            typedef void ( ::osg::Texture::*setSwizzle_function_type)( ::osg::Vec4i const & ) ;
+            typedef void ( ::osg::Texture::*setSwizzle_function_type )( ::osg::Vec4i const & ) ;
             
             Texture_exposer.def( 
                 "setSwizzle"
@@ -1788,7 +1788,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setTextureObject
         
-            typedef void ( ::osg::Texture::*setTextureObject_function_type)( unsigned int,::osg::Texture::TextureObject * ) ;
+            typedef void ( ::osg::Texture::*setTextureObject_function_type )( unsigned int,::osg::Texture::TextureObject * ) ;
             
             Texture_exposer.def( 
                 "setTextureObject"
@@ -1798,7 +1798,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setUnRefImageDataAfterApply
         
-            typedef void ( ::osg::Texture::*setUnRefImageDataAfterApply_function_type)( bool ) ;
+            typedef void ( ::osg::Texture::*setUnRefImageDataAfterApply_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setUnRefImageDataAfterApply"
@@ -1809,7 +1809,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setUseHardwareMipMapGeneration
         
-            typedef void ( ::osg::Texture::*setUseHardwareMipMapGeneration_function_type)( bool ) ;
+            typedef void ( ::osg::Texture::*setUseHardwareMipMapGeneration_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setUseHardwareMipMapGeneration"
@@ -1820,7 +1820,7 @@ void register_Texture_class(){
         }
         { //::osg::Texture::setWrap
         
-            typedef void ( ::osg::Texture::*setWrap_function_type)( ::osg::Texture::WrapParameter,::osg::Texture::WrapMode ) ;
+            typedef void ( ::osg::Texture::*setWrap_function_type )( ::osg::Texture::WrapParameter,::osg::Texture::WrapMode ) ;
             
             Texture_exposer.def( 
                 "setWrap"
@@ -1831,8 +1831,8 @@ void register_Texture_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Texture_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Texture_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Texture_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -1843,8 +1843,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Texture_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Texture_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "computeDataVariance"
@@ -1854,8 +1854,8 @@ void register_Texture_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Texture_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Texture_wrapper::*default_getMember_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getMember"
@@ -1865,8 +1865,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Texture_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Texture_wrapper::*default_getUserData_function_type )(  ) ;
             
             Texture_exposer.def( 
                 "getUserData"
@@ -1877,8 +1877,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Texture_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Texture_wrapper::*default_getUserData_function_type )(  ) const;
             
             Texture_exposer.def( 
                 "getUserData"
@@ -1889,8 +1889,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Texture_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Texture_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Texture_exposer.def( 
                 "setName"
@@ -1901,7 +1901,7 @@ void register_Texture_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Texture_exposer.def( 
                 "setName"
@@ -1912,8 +1912,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Texture_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Texture_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Texture_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1924,8 +1924,8 @@ void register_Texture_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Texture_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Texture_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Texture_exposer.def( 
                 "setUserData"

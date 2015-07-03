@@ -59,8 +59,9 @@ class BaseWrapper:
             files = files,
             gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
             include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",],
-            define_symbols=["BOOST_PYTHON_MAX_ARITY=%d" % self.max_arity],
+            define_symbols=["_HAS_TR1=0", "BOOST_PYTHON_MAX_ARITY=%d" % self.max_arity, ],
             indexing_suite_version=2,
+            compiler='msvc9',
         )
         self.mb.BOOST_PYTHON_MAX_ARITY = self.max_arity # Prevents warnings on 10-18 argument methods
 

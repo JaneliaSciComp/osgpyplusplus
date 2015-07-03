@@ -64,18 +64,6 @@ struct TexEnvCombine_wrapper : osg::TexEnvCombine, bp::wrapper< osg::TexEnvCombi
         return osg::TexEnvCombine::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::TexEnvCombine::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::TexEnvCombine::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -324,8 +312,8 @@ void register_TexEnvCombine_class(){
         TexEnvCombine_exposer.def( bp::init< >("\n TexEnvCombine encapsulates the OpenGL glTexEnvCombine (texture\n environment) state.\n") );
         { //::osg::TexEnvCombine::apply
         
-            typedef void ( ::osg::TexEnvCombine::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnvCombine_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::TexEnvCombine::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnvCombine_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             TexEnvCombine_exposer.def( 
                 "apply"
@@ -336,8 +324,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::className
         
-            typedef char const * ( ::osg::TexEnvCombine::*className_function_type)(  ) const;
-            typedef char const * ( TexEnvCombine_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnvCombine::*className_function_type )(  ) const;
+            typedef char const * ( TexEnvCombine_wrapper::*default_className_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "className"
@@ -347,8 +335,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::clone
         
-            typedef ::osg::Object * ( ::osg::TexEnvCombine::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TexEnvCombine_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TexEnvCombine::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TexEnvCombine_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TexEnvCombine_exposer.def( 
                 "clone"
@@ -360,8 +348,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::cloneType
         
-            typedef ::osg::Object * ( ::osg::TexEnvCombine::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TexEnvCombine_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TexEnvCombine::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TexEnvCombine_wrapper::*default_cloneType_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "cloneType"
@@ -370,21 +358,9 @@ void register_TexEnvCombine_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::TexEnvCombine::compare
-        
-            typedef int ( ::osg::TexEnvCombine::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( TexEnvCombine_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            TexEnvCombine_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::TexEnvCombine::compare)
-                , default_compare_function_type(&TexEnvCombine_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::TexEnvCombine::getCombine_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getCombine_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getCombine_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getCombine_Alpha"
@@ -393,7 +369,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getCombine_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getCombine_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getCombine_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getCombine_RGB"
@@ -402,7 +378,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getConstantColor
         
-            typedef ::osg::Vec4 const & ( ::osg::TexEnvCombine::*getConstantColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::TexEnvCombine::*getConstantColor_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getConstantColor"
@@ -412,7 +388,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getConstantColorAsLightDirection
         
-            typedef ::osg::Vec3 ( ::osg::TexEnvCombine::*getConstantColorAsLightDirection_function_type)(  ) const;
+            typedef ::osg::Vec3 ( ::osg::TexEnvCombine::*getConstantColorAsLightDirection_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getConstantColorAsLightDirection"
@@ -421,7 +397,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand0_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand0_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand0_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand0_Alpha"
@@ -430,7 +406,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand0_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand0_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand0_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand0_RGB"
@@ -439,7 +415,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand1_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand1_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand1_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand1_Alpha"
@@ -448,7 +424,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand1_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand1_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand1_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand1_RGB"
@@ -457,7 +433,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand2_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand2_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand2_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand2_Alpha"
@@ -466,7 +442,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getOperand2_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand2_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getOperand2_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getOperand2_RGB"
@@ -475,7 +451,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getScale_Alpha
         
-            typedef float ( ::osg::TexEnvCombine::*getScale_Alpha_function_type)(  ) const;
+            typedef float ( ::osg::TexEnvCombine::*getScale_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getScale_Alpha"
@@ -484,7 +460,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getScale_RGB
         
-            typedef float ( ::osg::TexEnvCombine::*getScale_RGB_function_type)(  ) const;
+            typedef float ( ::osg::TexEnvCombine::*getScale_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getScale_RGB"
@@ -493,7 +469,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource0_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource0_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource0_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource0_Alpha"
@@ -502,7 +478,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource0_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource0_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource0_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource0_RGB"
@@ -511,7 +487,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource1_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource1_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource1_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource1_Alpha"
@@ -520,7 +496,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource1_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource1_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource1_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource1_RGB"
@@ -529,7 +505,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource2_Alpha
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource2_Alpha_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource2_Alpha_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource2_Alpha"
@@ -538,7 +514,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getSource2_RGB
         
-            typedef ::GLint ( ::osg::TexEnvCombine::*getSource2_RGB_function_type)(  ) const;
+            typedef ::GLint ( ::osg::TexEnvCombine::*getSource2_RGB_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getSource2_RGB"
@@ -547,8 +523,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TexEnvCombine::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TexEnvCombine_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TexEnvCombine::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TexEnvCombine_wrapper::*default_getType_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getType"
@@ -558,8 +534,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::isSameKindAs
         
-            typedef bool ( ::osg::TexEnvCombine::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TexEnvCombine_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TexEnvCombine::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TexEnvCombine_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TexEnvCombine_exposer.def( 
                 "isSameKindAs"
@@ -570,8 +546,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::isTextureAttribute
         
-            typedef bool ( ::osg::TexEnvCombine::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TexEnvCombine_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::TexEnvCombine::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TexEnvCombine_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "isTextureAttribute"
@@ -581,8 +557,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::libraryName
         
-            typedef char const * ( ::osg::TexEnvCombine::*libraryName_function_type)(  ) const;
-            typedef char const * ( TexEnvCombine_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnvCombine::*libraryName_function_type )(  ) const;
+            typedef char const * ( TexEnvCombine_wrapper::*default_libraryName_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "libraryName"
@@ -592,7 +568,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setCombine_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setCombine_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setCombine_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setCombine_Alpha"
@@ -602,7 +578,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setCombine_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setCombine_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setCombine_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setCombine_RGB"
@@ -612,7 +588,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setConstantColor
         
-            typedef void ( ::osg::TexEnvCombine::*setConstantColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::TexEnvCombine::*setConstantColor_function_type )( ::osg::Vec4 const & ) ;
             
             TexEnvCombine_exposer.def( 
                 "setConstantColor"
@@ -622,7 +598,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setConstantColorAsLightDirection
         
-            typedef void ( ::osg::TexEnvCombine::*setConstantColorAsLightDirection_function_type)( ::osg::Vec3 const & ) ;
+            typedef void ( ::osg::TexEnvCombine::*setConstantColorAsLightDirection_function_type )( ::osg::Vec3 const & ) ;
             
             TexEnvCombine_exposer.def( 
                 "setConstantColorAsLightDirection"
@@ -633,7 +609,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand0_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand0_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand0_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand0_Alpha"
@@ -643,7 +619,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand0_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand0_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand0_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand0_RGB"
@@ -653,7 +629,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand1_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand1_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand1_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand1_Alpha"
@@ -663,7 +639,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand1_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand1_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand1_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand1_RGB"
@@ -673,7 +649,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand2_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand2_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand2_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand2_Alpha"
@@ -683,7 +659,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setOperand2_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setOperand2_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setOperand2_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setOperand2_RGB"
@@ -693,7 +669,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setScale_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setScale_Alpha_function_type)( float ) ;
+            typedef void ( ::osg::TexEnvCombine::*setScale_Alpha_function_type )( float ) ;
             
             TexEnvCombine_exposer.def( 
                 "setScale_Alpha"
@@ -703,7 +679,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setScale_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setScale_RGB_function_type)( float ) ;
+            typedef void ( ::osg::TexEnvCombine::*setScale_RGB_function_type )( float ) ;
             
             TexEnvCombine_exposer.def( 
                 "setScale_RGB"
@@ -713,7 +689,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource0_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setSource0_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource0_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource0_Alpha"
@@ -723,7 +699,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource0_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setSource0_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource0_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource0_RGB"
@@ -733,7 +709,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource1_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setSource1_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource1_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource1_Alpha"
@@ -743,7 +719,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource1_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setSource1_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource1_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource1_RGB"
@@ -753,7 +729,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource2_Alpha
         
-            typedef void ( ::osg::TexEnvCombine::*setSource2_Alpha_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource2_Alpha_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource2_Alpha"
@@ -763,7 +739,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::TexEnvCombine::setSource2_RGB
         
-            typedef void ( ::osg::TexEnvCombine::*setSource2_RGB_function_type)( ::GLint ) ;
+            typedef void ( ::osg::TexEnvCombine::*setSource2_RGB_function_type )( ::GLint ) ;
             
             TexEnvCombine_exposer.def( 
                 "setSource2_RGB"
@@ -773,8 +749,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TexEnvCombine_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TexEnvCombine_wrapper::*default_asTexture_function_type )(  ) ;
             
             TexEnvCombine_exposer.def( 
                 "asTexture"
@@ -785,8 +761,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TexEnvCombine_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TexEnvCombine_wrapper::*default_asTexture_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "asTexture"
@@ -797,8 +773,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TexEnvCombine_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TexEnvCombine_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TexEnvCombine_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -809,8 +785,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnvCombine_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnvCombine_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TexEnvCombine_exposer.def( 
                 "compileGLObjects"
@@ -821,8 +797,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TexEnvCombine_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TexEnvCombine_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TexEnvCombine_exposer.def( 
                 "computeDataVariance"
@@ -832,8 +808,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TexEnvCombine_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( TexEnvCombine_wrapper::*default_getMember_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getMember"
@@ -843,8 +819,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TexEnvCombine_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TexEnvCombine_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TexEnvCombine_exposer.def( 
                 "getModeUsage"
@@ -855,8 +831,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TexEnvCombine_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TexEnvCombine_wrapper::*default_getUserData_function_type )(  ) ;
             
             TexEnvCombine_exposer.def( 
                 "getUserData"
@@ -867,8 +843,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TexEnvCombine_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TexEnvCombine_wrapper::*default_getUserData_function_type )(  ) const;
             
             TexEnvCombine_exposer.def( 
                 "getUserData"
@@ -879,8 +855,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TexEnvCombine_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TexEnvCombine_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TexEnvCombine_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -891,8 +867,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TexEnvCombine_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TexEnvCombine_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TexEnvCombine_exposer.def( 
                 "setName"
@@ -903,7 +879,7 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TexEnvCombine_exposer.def( 
                 "setName"
@@ -914,8 +890,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TexEnvCombine_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TexEnvCombine_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TexEnvCombine_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -926,8 +902,8 @@ void register_TexEnvCombine_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TexEnvCombine_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TexEnvCombine_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TexEnvCombine_exposer.def( 
                 "setUserData"

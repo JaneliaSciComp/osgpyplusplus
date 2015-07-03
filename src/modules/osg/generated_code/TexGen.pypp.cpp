@@ -294,8 +294,8 @@ void register_TexGen_class(){
         TexGen_exposer.def( bp::init< >("\n TexGen encapsulates the OpenGL glTexGen (texture coordinate generation)\n state.\n") );
         { //::osg::TexGen::apply
         
-            typedef void ( ::osg::TexGen::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TexGen_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::TexGen::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( TexGen_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             TexGen_exposer.def( 
                 "apply"
@@ -306,8 +306,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::className
         
-            typedef char const * ( ::osg::TexGen::*className_function_type)(  ) const;
-            typedef char const * ( TexGen_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TexGen::*className_function_type )(  ) const;
+            typedef char const * ( TexGen_wrapper::*default_className_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "className"
@@ -317,8 +317,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::clone
         
-            typedef ::osg::Object * ( ::osg::TexGen::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TexGen_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TexGen::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TexGen_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TexGen_exposer.def( 
                 "clone"
@@ -330,8 +330,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::cloneType
         
-            typedef ::osg::Object * ( ::osg::TexGen::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TexGen_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TexGen::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TexGen_wrapper::*default_cloneType_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "cloneType"
@@ -342,7 +342,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::getMode
         
-            typedef ::osg::TexGen::Mode ( ::osg::TexGen::*getMode_function_type)(  ) const;
+            typedef ::osg::TexGen::Mode ( ::osg::TexGen::*getMode_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "getMode"
@@ -351,8 +351,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::getModeUsage
         
-            typedef bool ( ::osg::TexGen::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TexGen_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::TexGen::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TexGen_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TexGen_exposer.def( 
                 "getModeUsage"
@@ -363,7 +363,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::getPlane
         
-            typedef ::osg::Plane & ( ::osg::TexGen::*getPlane_function_type)( ::osg::TexGen::Coord ) ;
+            typedef ::osg::Plane & ( ::osg::TexGen::*getPlane_function_type )( ::osg::TexGen::Coord ) ;
             
             TexGen_exposer.def( 
                 "getPlane"
@@ -374,7 +374,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::getPlane
         
-            typedef ::osg::Plane const & ( ::osg::TexGen::*getPlane_function_type)( ::osg::TexGen::Coord ) const;
+            typedef ::osg::Plane const & ( ::osg::TexGen::*getPlane_function_type )( ::osg::TexGen::Coord ) const;
             
             TexGen_exposer.def( 
                 "getPlane"
@@ -385,8 +385,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TexGen::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TexGen_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TexGen::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TexGen_wrapper::*default_getType_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "getType"
@@ -396,8 +396,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::isSameKindAs
         
-            typedef bool ( ::osg::TexGen::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TexGen_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TexGen::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TexGen_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TexGen_exposer.def( 
                 "isSameKindAs"
@@ -408,8 +408,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::isTextureAttribute
         
-            typedef bool ( ::osg::TexGen::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TexGen_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::TexGen::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TexGen_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "isTextureAttribute"
@@ -419,8 +419,8 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::libraryName
         
-            typedef char const * ( ::osg::TexGen::*libraryName_function_type)(  ) const;
-            typedef char const * ( TexGen_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TexGen::*libraryName_function_type )(  ) const;
+            typedef char const * ( TexGen_wrapper::*default_libraryName_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "libraryName"
@@ -430,7 +430,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::setMode
         
-            typedef void ( ::osg::TexGen::*setMode_function_type)( ::osg::TexGen::Mode ) ;
+            typedef void ( ::osg::TexGen::*setMode_function_type )( ::osg::TexGen::Mode ) ;
             
             TexGen_exposer.def( 
                 "setMode"
@@ -440,7 +440,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::setPlane
         
-            typedef void ( ::osg::TexGen::*setPlane_function_type)( ::osg::TexGen::Coord,::osg::Plane const & ) ;
+            typedef void ( ::osg::TexGen::*setPlane_function_type )( ::osg::TexGen::Coord,::osg::Plane const & ) ;
             
             TexGen_exposer.def( 
                 "setPlane"
@@ -450,7 +450,7 @@ void register_TexGen_class(){
         }
         { //::osg::TexGen::setPlanesFromMatrix
         
-            typedef void ( ::osg::TexGen::*setPlanesFromMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( ::osg::TexGen::*setPlanesFromMatrix_function_type )( ::osg::Matrixd const & ) ;
             
             TexGen_exposer.def( 
                 "setPlanesFromMatrix"
@@ -461,8 +461,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TexGen_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TexGen_wrapper::*default_asTexture_function_type )(  ) ;
             
             TexGen_exposer.def( 
                 "asTexture"
@@ -473,8 +473,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TexGen_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TexGen_wrapper::*default_asTexture_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "asTexture"
@@ -485,8 +485,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TexGen_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TexGen_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TexGen_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -497,8 +497,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TexGen_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TexGen_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TexGen_exposer.def( 
                 "compileGLObjects"
@@ -509,8 +509,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TexGen_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TexGen_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TexGen_exposer.def( 
                 "computeDataVariance"
@@ -520,8 +520,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TexGen_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( TexGen_wrapper::*default_getMember_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "getMember"
@@ -531,8 +531,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TexGen_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TexGen_wrapper::*default_getUserData_function_type )(  ) ;
             
             TexGen_exposer.def( 
                 "getUserData"
@@ -543,8 +543,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TexGen_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TexGen_wrapper::*default_getUserData_function_type )(  ) const;
             
             TexGen_exposer.def( 
                 "getUserData"
@@ -555,8 +555,8 @@ void register_TexGen_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TexGen_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TexGen_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TexGen_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -567,8 +567,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TexGen_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TexGen_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TexGen_exposer.def( 
                 "setName"
@@ -579,7 +579,7 @@ void register_TexGen_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TexGen_exposer.def( 
                 "setName"
@@ -590,8 +590,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TexGen_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TexGen_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TexGen_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -602,8 +602,8 @@ void register_TexGen_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TexGen_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TexGen_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TexGen_exposer.def( 
                 "setUserData"

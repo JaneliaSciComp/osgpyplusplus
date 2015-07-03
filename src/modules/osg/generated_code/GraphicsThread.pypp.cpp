@@ -71,20 +71,20 @@ void register_GraphicsThread_class(){
     bp::class_< GraphicsThread_wrapper, bp::bases< osg::OperationThread >, osg::ref_ptr< ::osg::GraphicsThread >, boost::noncopyable >( "GraphicsThread", "\n GraphicsThread is a helper class for running OpenGL GraphicsOperation within a single thread assigned to a specific GraphicsContext.\n", bp::init< >("\n GraphicsThread is a helper class for running OpenGL GraphicsOperation within a single thread assigned to a specific GraphicsContext.\n") )    
         .def( 
             "run"
-            , (void ( ::osg::GraphicsThread::* )(  ))(&::osg::GraphicsThread::run)
-            , (void ( GraphicsThread_wrapper::* )(  ))(&GraphicsThread_wrapper::default_run) )    
+            , (void ( ::osg::GraphicsThread::* )(  ) )(&::osg::GraphicsThread::run)
+            , (void ( GraphicsThread_wrapper::* )(  ) )(&GraphicsThread_wrapper::default_run) )    
         .def( 
             "cancel"
-            , (int ( ::osg::OperationThread::* )(  ))(&::osg::OperationThread::cancel)
-            , (int ( GraphicsThread_wrapper::* )(  ))(&GraphicsThread_wrapper::default_cancel) )    
+            , (int ( ::osg::OperationThread::* )(  ) )(&::osg::OperationThread::cancel)
+            , (int ( GraphicsThread_wrapper::* )(  ) )(&GraphicsThread_wrapper::default_cancel) )    
         .def( 
             "cancelCleanup"
-            , (void ( ::OpenThreads::Thread::* )(  ))(&::OpenThreads::Thread::cancelCleanup)
-            , (void ( GraphicsThread_wrapper::* )(  ))(&GraphicsThread_wrapper::default_cancelCleanup) )    
+            , (void ( ::OpenThreads::Thread::* )(  ) )(&::OpenThreads::Thread::cancelCleanup)
+            , (void ( GraphicsThread_wrapper::* )(  ) )(&GraphicsThread_wrapper::default_cancelCleanup) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( GraphicsThread_wrapper::* )( bool ))(&GraphicsThread_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( GraphicsThread_wrapper::* )( bool ) )(&GraphicsThread_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

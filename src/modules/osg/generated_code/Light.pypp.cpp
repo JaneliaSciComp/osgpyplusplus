@@ -288,8 +288,8 @@ void register_Light_class(){
         bp::implicitly_convertible< unsigned int, osg::Light >();
         { //::osg::Light::apply
         
-            typedef void ( ::osg::Light::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Light_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Light::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Light_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Light_exposer.def( 
                 "apply"
@@ -300,7 +300,7 @@ void register_Light_class(){
         }
         { //::osg::Light::captureLightState
         
-            typedef void ( ::osg::Light::*captureLightState_function_type)(  ) ;
+            typedef void ( ::osg::Light::*captureLightState_function_type )(  ) ;
             
             Light_exposer.def( 
                 "captureLightState"
@@ -310,8 +310,8 @@ void register_Light_class(){
         }
         { //::osg::Light::className
         
-            typedef char const * ( ::osg::Light::*className_function_type)(  ) const;
-            typedef char const * ( Light_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Light::*className_function_type )(  ) const;
+            typedef char const * ( Light_wrapper::*default_className_function_type )(  ) const;
             
             Light_exposer.def( 
                 "className"
@@ -321,8 +321,8 @@ void register_Light_class(){
         }
         { //::osg::Light::clone
         
-            typedef ::osg::Object * ( ::osg::Light::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Light_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Light::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Light_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Light_exposer.def( 
                 "clone"
@@ -334,8 +334,8 @@ void register_Light_class(){
         }
         { //::osg::Light::cloneType
         
-            typedef ::osg::Object * ( ::osg::Light::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Light_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Light::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Light_wrapper::*default_cloneType_function_type )(  ) const;
             
             Light_exposer.def( 
                 "cloneType"
@@ -346,7 +346,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getAmbient
         
-            typedef ::osg::Vec4 const & ( ::osg::Light::*getAmbient_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getAmbient_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getAmbient"
@@ -357,7 +357,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getConstantAttenuation
         
-            typedef float ( ::osg::Light::*getConstantAttenuation_function_type)(  ) const;
+            typedef float ( ::osg::Light::*getConstantAttenuation_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getConstantAttenuation"
@@ -367,7 +367,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getDiffuse
         
-            typedef ::osg::Vec4 const & ( ::osg::Light::*getDiffuse_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getDiffuse_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getDiffuse"
@@ -378,7 +378,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getDirection
         
-            typedef ::osg::Vec3 const & ( ::osg::Light::*getDirection_function_type)(  ) const;
+            typedef ::osg::Vec3 const & ( ::osg::Light::*getDirection_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getDirection"
@@ -389,7 +389,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getLightNum
         
-            typedef int ( ::osg::Light::*getLightNum_function_type)(  ) const;
+            typedef int ( ::osg::Light::*getLightNum_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getLightNum"
@@ -399,7 +399,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getLinearAttenuation
         
-            typedef float ( ::osg::Light::*getLinearAttenuation_function_type)(  ) const;
+            typedef float ( ::osg::Light::*getLinearAttenuation_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getLinearAttenuation"
@@ -409,8 +409,8 @@ void register_Light_class(){
         }
         { //::osg::Light::getMember
         
-            typedef unsigned int ( ::osg::Light::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Light_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Light::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Light_wrapper::*default_getMember_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getMember"
@@ -420,8 +420,8 @@ void register_Light_class(){
         }
         { //::osg::Light::getModeUsage
         
-            typedef bool ( ::osg::Light::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Light_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Light::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Light_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Light_exposer.def( 
                 "getModeUsage"
@@ -432,7 +432,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getPosition
         
-            typedef ::osg::Vec4 const & ( ::osg::Light::*getPosition_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getPosition_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getPosition"
@@ -443,7 +443,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getQuadraticAttenuation
         
-            typedef float ( ::osg::Light::*getQuadraticAttenuation_function_type)(  ) const;
+            typedef float ( ::osg::Light::*getQuadraticAttenuation_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getQuadraticAttenuation"
@@ -453,7 +453,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getSpecular
         
-            typedef ::osg::Vec4 const & ( ::osg::Light::*getSpecular_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Light::*getSpecular_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getSpecular"
@@ -464,7 +464,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getSpotCutoff
         
-            typedef float ( ::osg::Light::*getSpotCutoff_function_type)(  ) const;
+            typedef float ( ::osg::Light::*getSpotCutoff_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getSpotCutoff"
@@ -474,7 +474,7 @@ void register_Light_class(){
         }
         { //::osg::Light::getSpotExponent
         
-            typedef float ( ::osg::Light::*getSpotExponent_function_type)(  ) const;
+            typedef float ( ::osg::Light::*getSpotExponent_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getSpotExponent"
@@ -484,8 +484,8 @@ void register_Light_class(){
         }
         { //::osg::Light::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Light::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Light_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Light::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Light_wrapper::*default_getType_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getType"
@@ -495,8 +495,8 @@ void register_Light_class(){
         }
         { //::osg::Light::isSameKindAs
         
-            typedef bool ( ::osg::Light::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Light_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Light::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Light_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Light_exposer.def( 
                 "isSameKindAs"
@@ -507,8 +507,8 @@ void register_Light_class(){
         }
         { //::osg::Light::libraryName
         
-            typedef char const * ( ::osg::Light::*libraryName_function_type)(  ) const;
-            typedef char const * ( Light_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Light::*libraryName_function_type )(  ) const;
+            typedef char const * ( Light_wrapper::*default_libraryName_function_type )(  ) const;
             
             Light_exposer.def( 
                 "libraryName"
@@ -518,7 +518,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setAmbient
         
-            typedef void ( ::osg::Light::*setAmbient_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Light::*setAmbient_function_type )( ::osg::Vec4 const & ) ;
             
             Light_exposer.def( 
                 "setAmbient"
@@ -529,7 +529,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setConstantAttenuation
         
-            typedef void ( ::osg::Light::*setConstantAttenuation_function_type)( float ) ;
+            typedef void ( ::osg::Light::*setConstantAttenuation_function_type )( float ) ;
             
             Light_exposer.def( 
                 "setConstantAttenuation"
@@ -540,7 +540,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setDiffuse
         
-            typedef void ( ::osg::Light::*setDiffuse_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Light::*setDiffuse_function_type )( ::osg::Vec4 const & ) ;
             
             Light_exposer.def( 
                 "setDiffuse"
@@ -551,7 +551,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setDirection
         
-            typedef void ( ::osg::Light::*setDirection_function_type)( ::osg::Vec3 const & ) ;
+            typedef void ( ::osg::Light::*setDirection_function_type )( ::osg::Vec3 const & ) ;
             
             Light_exposer.def( 
                 "setDirection"
@@ -562,7 +562,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setLightNum
         
-            typedef void ( ::osg::Light::*setLightNum_function_type)( int ) ;
+            typedef void ( ::osg::Light::*setLightNum_function_type )( int ) ;
             
             Light_exposer.def( 
                 "setLightNum"
@@ -573,7 +573,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setLinearAttenuation
         
-            typedef void ( ::osg::Light::*setLinearAttenuation_function_type)( float ) ;
+            typedef void ( ::osg::Light::*setLinearAttenuation_function_type )( float ) ;
             
             Light_exposer.def( 
                 "setLinearAttenuation"
@@ -584,7 +584,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setPosition
         
-            typedef void ( ::osg::Light::*setPosition_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Light::*setPosition_function_type )( ::osg::Vec4 const & ) ;
             
             Light_exposer.def( 
                 "setPosition"
@@ -595,7 +595,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setQuadraticAttenuation
         
-            typedef void ( ::osg::Light::*setQuadraticAttenuation_function_type)( float ) ;
+            typedef void ( ::osg::Light::*setQuadraticAttenuation_function_type )( float ) ;
             
             Light_exposer.def( 
                 "setQuadraticAttenuation"
@@ -606,7 +606,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setSpecular
         
-            typedef void ( ::osg::Light::*setSpecular_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Light::*setSpecular_function_type )( ::osg::Vec4 const & ) ;
             
             Light_exposer.def( 
                 "setSpecular"
@@ -617,7 +617,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setSpotCutoff
         
-            typedef void ( ::osg::Light::*setSpotCutoff_function_type)( float ) ;
+            typedef void ( ::osg::Light::*setSpotCutoff_function_type )( float ) ;
             
             Light_exposer.def( 
                 "setSpotCutoff"
@@ -628,7 +628,7 @@ void register_Light_class(){
         }
         { //::osg::Light::setSpotExponent
         
-            typedef void ( ::osg::Light::*setSpotExponent_function_type)( float ) ;
+            typedef void ( ::osg::Light::*setSpotExponent_function_type )( float ) ;
             
             Light_exposer.def( 
                 "setSpotExponent"
@@ -639,8 +639,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Light_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Light_wrapper::*default_asTexture_function_type )(  ) ;
             
             Light_exposer.def( 
                 "asTexture"
@@ -651,8 +651,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Light_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Light_wrapper::*default_asTexture_function_type )(  ) const;
             
             Light_exposer.def( 
                 "asTexture"
@@ -663,8 +663,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Light_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Light_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Light_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -675,8 +675,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Light_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Light_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Light_exposer.def( 
                 "compileGLObjects"
@@ -687,8 +687,8 @@ void register_Light_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Light_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Light_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Light_exposer.def( 
                 "computeDataVariance"
@@ -698,8 +698,8 @@ void register_Light_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Light_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Light_wrapper::*default_getUserData_function_type )(  ) ;
             
             Light_exposer.def( 
                 "getUserData"
@@ -710,8 +710,8 @@ void register_Light_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Light_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Light_wrapper::*default_getUserData_function_type )(  ) const;
             
             Light_exposer.def( 
                 "getUserData"
@@ -722,8 +722,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Light_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Light_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Light_exposer.def( 
                 "isTextureAttribute"
@@ -733,8 +733,8 @@ void register_Light_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Light_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Light_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Light_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -745,8 +745,8 @@ void register_Light_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Light_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Light_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Light_exposer.def( 
                 "setName"
@@ -757,7 +757,7 @@ void register_Light_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Light_exposer.def( 
                 "setName"
@@ -768,8 +768,8 @@ void register_Light_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Light_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Light_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Light_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -780,8 +780,8 @@ void register_Light_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Light_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Light_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Light_exposer.def( 
                 "setUserData"

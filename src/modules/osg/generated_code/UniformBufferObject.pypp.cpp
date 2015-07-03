@@ -168,66 +168,66 @@ void register_UniformBufferObject_class(){
         .def( bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::UniformBufferObject::* )(  )const)(&::osg::UniformBufferObject::className)
-            , (char const * ( UniformBufferObject_wrapper::* )(  )const)(&UniformBufferObject_wrapper::default_className) )    
+            , (char const * ( ::osg::UniformBufferObject::* )(  ) const)(&::osg::UniformBufferObject::className)
+            , (char const * ( UniformBufferObject_wrapper::* )(  ) const)(&UniformBufferObject_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::UniformBufferObject::* )( ::osg::CopyOp const & )const)(&::osg::UniformBufferObject::clone)
-            , (::osg::Object * ( UniformBufferObject_wrapper::* )( ::osg::CopyOp const & )const)(&UniformBufferObject_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::UniformBufferObject::* )( ::osg::CopyOp const & ) const)(&::osg::UniformBufferObject::clone)
+            , (::osg::Object * ( UniformBufferObject_wrapper::* )( ::osg::CopyOp const & ) const)(&UniformBufferObject_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::UniformBufferObject::* )(  )const)(&::osg::UniformBufferObject::cloneType)
-            , (::osg::Object * ( UniformBufferObject_wrapper::* )(  )const)(&UniformBufferObject_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::UniformBufferObject::* )(  ) const)(&::osg::UniformBufferObject::cloneType)
+            , (::osg::Object * ( UniformBufferObject_wrapper::* )(  ) const)(&UniformBufferObject_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::UniformBufferObject::* )( ::osg::Object const * )const)(&::osg::UniformBufferObject::isSameKindAs)
-            , (bool ( UniformBufferObject_wrapper::* )( ::osg::Object const * )const)(&UniformBufferObject_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::UniformBufferObject::* )( ::osg::Object const * ) const)(&::osg::UniformBufferObject::isSameKindAs)
+            , (bool ( UniformBufferObject_wrapper::* )( ::osg::Object const * ) const)(&UniformBufferObject_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::UniformBufferObject::* )(  )const)(&::osg::UniformBufferObject::libraryName)
-            , (char const * ( UniformBufferObject_wrapper::* )(  )const)(&UniformBufferObject_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::UniformBufferObject::* )(  ) const)(&::osg::UniformBufferObject::libraryName)
+            , (char const * ( UniformBufferObject_wrapper::* )(  ) const)(&UniformBufferObject_wrapper::default_libraryName) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( UniformBufferObject_wrapper::* )(  ))(&UniformBufferObject_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( UniformBufferObject_wrapper::* )(  ) )(&UniformBufferObject_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( UniformBufferObject_wrapper::* )(  ))(&UniformBufferObject_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( UniformBufferObject_wrapper::* )(  ) )(&UniformBufferObject_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( UniformBufferObject_wrapper::* )(  )const)(&UniformBufferObject_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( UniformBufferObject_wrapper::* )(  ) const)(&UniformBufferObject_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::BufferObject::* )( unsigned int ))(&::osg::BufferObject::resizeGLObjectBuffers)
-            , (void ( UniformBufferObject_wrapper::* )( unsigned int ))(&UniformBufferObject_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::BufferObject::* )( unsigned int ) )(&::osg::BufferObject::resizeGLObjectBuffers)
+            , (void ( UniformBufferObject_wrapper::* )( unsigned int ) )(&UniformBufferObject_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( UniformBufferObject_wrapper::* )( ::std::string const & ))(&UniformBufferObject_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( UniformBufferObject_wrapper::* )( ::std::string const & ) )(&UniformBufferObject_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( UniformBufferObject_wrapper::* )( bool ))(&UniformBufferObject_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( UniformBufferObject_wrapper::* )( bool ) )(&UniformBufferObject_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( UniformBufferObject_wrapper::* )( ::osg::Referenced * ))(&UniformBufferObject_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( UniformBufferObject_wrapper::* )( ::osg::Referenced * ) )(&UniformBufferObject_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

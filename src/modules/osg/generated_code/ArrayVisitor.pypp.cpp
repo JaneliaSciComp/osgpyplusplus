@@ -449,178 +449,178 @@ void register_ArrayVisitor_class(){
     bp::class_< ArrayVisitor_wrapper >( "ArrayVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Array & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Array & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Array & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Array & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::ByteArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::ByteArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::ByteArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::ByteArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::ShortArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::ShortArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::ShortArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::ShortArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::IntArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::IntArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::IntArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::IntArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::UByteArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::UByteArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::UByteArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::UByteArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::UShortArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::UShortArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::UShortArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::UShortArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::UIntArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::UIntArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::UIntArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::UIntArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::FloatArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::FloatArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::FloatArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::FloatArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::DoubleArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::DoubleArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::DoubleArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::DoubleArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2bArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2bArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2bArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2bArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3bArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3bArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3bArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3bArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4bArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4bArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4bArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4bArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2sArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2sArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2sArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2sArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3sArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3sArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3sArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3sArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4sArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4sArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4sArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4sArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2iArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2iArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2iArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2iArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3iArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3iArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3iArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3iArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4iArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4iArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4iArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4iArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2ubArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2ubArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2ubArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2ubArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3ubArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3ubArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3ubArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3ubArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4ubArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4ubArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4ubArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4ubArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2usArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2usArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2usArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2usArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3usArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3usArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3usArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3usArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4usArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4usArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4usArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4usArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2uiArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2uiArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2uiArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2uiArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3uiArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3uiArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3uiArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3uiArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4uiArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4uiArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4uiArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4uiArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2Array & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2Array & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2Array & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2Array & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3Array & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3Array & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3Array & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3Array & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4Array & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4Array & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4Array & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4Array & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2dArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2dArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec2dArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec2dArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3dArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3dArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec3dArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec3dArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4dArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4dArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::Vec4dArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::Vec4dArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::MatrixfArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::MatrixfArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::MatrixfArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::MatrixfArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ArrayVisitor::* )( ::osg::MatrixdArray & ))(&::osg::ArrayVisitor::apply)
-            , (void ( ArrayVisitor_wrapper::* )( ::osg::MatrixdArray & ))(&ArrayVisitor_wrapper::default_apply)
+            , (void ( ::osg::ArrayVisitor::* )( ::osg::MatrixdArray & ) )(&::osg::ArrayVisitor::apply)
+            , (void ( ArrayVisitor_wrapper::* )( ::osg::MatrixdArray & ) )(&ArrayVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) );
 
 }

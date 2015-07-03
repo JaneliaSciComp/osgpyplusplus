@@ -64,18 +64,6 @@ struct TexEnvFilter_wrapper : osg::TexEnvFilter, bp::wrapper< osg::TexEnvFilter 
         return osg::TexEnvFilter::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::TexEnvFilter::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::TexEnvFilter::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -292,8 +280,8 @@ void register_TexEnvFilter_class(){
         bp::implicitly_convertible< float, osg::TexEnvFilter >();
         { //::osg::TexEnvFilter::apply
         
-            typedef void ( ::osg::TexEnvFilter::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnvFilter_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::TexEnvFilter::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnvFilter_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             TexEnvFilter_exposer.def( 
                 "apply"
@@ -304,8 +292,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::className
         
-            typedef char const * ( ::osg::TexEnvFilter::*className_function_type)(  ) const;
-            typedef char const * ( TexEnvFilter_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnvFilter::*className_function_type )(  ) const;
+            typedef char const * ( TexEnvFilter_wrapper::*default_className_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "className"
@@ -315,8 +303,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::clone
         
-            typedef ::osg::Object * ( ::osg::TexEnvFilter::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TexEnvFilter_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TexEnvFilter::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TexEnvFilter_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TexEnvFilter_exposer.def( 
                 "clone"
@@ -328,8 +316,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::cloneType
         
-            typedef ::osg::Object * ( ::osg::TexEnvFilter::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TexEnvFilter_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TexEnvFilter::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TexEnvFilter_wrapper::*default_cloneType_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "cloneType"
@@ -338,21 +326,9 @@ void register_TexEnvFilter_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::TexEnvFilter::compare
-        
-            typedef int ( ::osg::TexEnvFilter::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( TexEnvFilter_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            TexEnvFilter_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::TexEnvFilter::compare)
-                , default_compare_function_type(&TexEnvFilter_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::TexEnvFilter::getLodBias
         
-            typedef float ( ::osg::TexEnvFilter::*getLodBias_function_type)(  ) const;
+            typedef float ( ::osg::TexEnvFilter::*getLodBias_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "getLodBias"
@@ -361,8 +337,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TexEnvFilter::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TexEnvFilter_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TexEnvFilter::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TexEnvFilter_wrapper::*default_getType_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "getType"
@@ -372,8 +348,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::isSameKindAs
         
-            typedef bool ( ::osg::TexEnvFilter::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TexEnvFilter_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TexEnvFilter::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TexEnvFilter_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TexEnvFilter_exposer.def( 
                 "isSameKindAs"
@@ -384,8 +360,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::isTextureAttribute
         
-            typedef bool ( ::osg::TexEnvFilter::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TexEnvFilter_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::TexEnvFilter::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TexEnvFilter_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "isTextureAttribute"
@@ -395,8 +371,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::libraryName
         
-            typedef char const * ( ::osg::TexEnvFilter::*libraryName_function_type)(  ) const;
-            typedef char const * ( TexEnvFilter_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnvFilter::*libraryName_function_type )(  ) const;
+            typedef char const * ( TexEnvFilter_wrapper::*default_libraryName_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "libraryName"
@@ -406,7 +382,7 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::TexEnvFilter::setLodBias
         
-            typedef void ( ::osg::TexEnvFilter::*setLodBias_function_type)( float ) ;
+            typedef void ( ::osg::TexEnvFilter::*setLodBias_function_type )( float ) ;
             
             TexEnvFilter_exposer.def( 
                 "setLodBias"
@@ -416,8 +392,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TexEnvFilter_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TexEnvFilter_wrapper::*default_asTexture_function_type )(  ) ;
             
             TexEnvFilter_exposer.def( 
                 "asTexture"
@@ -428,8 +404,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TexEnvFilter_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TexEnvFilter_wrapper::*default_asTexture_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "asTexture"
@@ -440,8 +416,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TexEnvFilter_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TexEnvFilter_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TexEnvFilter_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -452,8 +428,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnvFilter_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnvFilter_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TexEnvFilter_exposer.def( 
                 "compileGLObjects"
@@ -464,8 +440,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TexEnvFilter_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TexEnvFilter_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TexEnvFilter_exposer.def( 
                 "computeDataVariance"
@@ -475,8 +451,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TexEnvFilter_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( TexEnvFilter_wrapper::*default_getMember_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "getMember"
@@ -486,8 +462,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TexEnvFilter_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TexEnvFilter_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TexEnvFilter_exposer.def( 
                 "getModeUsage"
@@ -498,8 +474,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TexEnvFilter_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TexEnvFilter_wrapper::*default_getUserData_function_type )(  ) ;
             
             TexEnvFilter_exposer.def( 
                 "getUserData"
@@ -510,8 +486,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TexEnvFilter_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TexEnvFilter_wrapper::*default_getUserData_function_type )(  ) const;
             
             TexEnvFilter_exposer.def( 
                 "getUserData"
@@ -522,8 +498,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TexEnvFilter_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TexEnvFilter_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TexEnvFilter_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -534,8 +510,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TexEnvFilter_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TexEnvFilter_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TexEnvFilter_exposer.def( 
                 "setName"
@@ -546,7 +522,7 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TexEnvFilter_exposer.def( 
                 "setName"
@@ -557,8 +533,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TexEnvFilter_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TexEnvFilter_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TexEnvFilter_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -569,8 +545,8 @@ void register_TexEnvFilter_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TexEnvFilter_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TexEnvFilter_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TexEnvFilter_exposer.def( 
                 "setUserData"

@@ -26,7 +26,7 @@ void register_Vec4i_class(){
         Vec4i_exposer.def( bp::self == bp::self );
         { //::osg::Vec4i::operator[]
         
-            typedef int & ( ::osg::Vec4i::*__getitem___function_type)( unsigned int ) ;
+            typedef int & ( ::osg::Vec4i::*__getitem___function_type )( unsigned int ) ;
             
             Vec4i_exposer.def( 
                 "__getitem__"
@@ -37,7 +37,7 @@ void register_Vec4i_class(){
         }
         { //::osg::Vec4i::operator[]
         
-            typedef int ( ::osg::Vec4i::*__getitem___function_type)( unsigned int ) const;
+            typedef int ( ::osg::Vec4i::*__getitem___function_type )( unsigned int ) const;
             
             Vec4i_exposer.def( 
                 "__getitem__"
@@ -47,7 +47,7 @@ void register_Vec4i_class(){
         }
         { //::osg::Vec4i::set
         
-            typedef void ( ::osg::Vec4i::*set_function_type)( int,int,int,int ) ;
+            typedef void ( ::osg::Vec4i::*set_function_type )( int,int,int,int ) ;
             
             Vec4i_exposer.def( 
                 "set"
@@ -57,7 +57,7 @@ void register_Vec4i_class(){
         }
         { //property "x"[fget=::osg::Vec4i::x]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "x"
@@ -68,7 +68,7 @@ void register_Vec4i_class(){
         }
         { //property "x"[fget=::osg::Vec4i::x]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "x"
@@ -77,7 +77,7 @@ void register_Vec4i_class(){
         }
         { //property "y"[fget=::osg::Vec4i::y]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "y"
@@ -88,7 +88,7 @@ void register_Vec4i_class(){
         }
         { //property "y"[fget=::osg::Vec4i::y]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "y"
@@ -97,7 +97,7 @@ void register_Vec4i_class(){
         }
         { //property "z"[fget=::osg::Vec4i::z]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "z"
@@ -108,7 +108,7 @@ void register_Vec4i_class(){
         }
         { //property "z"[fget=::osg::Vec4i::z]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "z"
@@ -117,7 +117,7 @@ void register_Vec4i_class(){
         }
         { //property "w"[fget=::osg::Vec4i::w]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "w"
@@ -128,7 +128,7 @@ void register_Vec4i_class(){
         }
         { //property "w"[fget=::osg::Vec4i::w]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "w"
@@ -137,7 +137,7 @@ void register_Vec4i_class(){
         }
         { //property "r"[fget=::osg::Vec4i::r]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "r"
@@ -148,7 +148,7 @@ void register_Vec4i_class(){
         }
         { //property "r"[fget=::osg::Vec4i::r]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "r"
@@ -157,7 +157,7 @@ void register_Vec4i_class(){
         }
         { //property "g"[fget=::osg::Vec4i::g]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "g"
@@ -168,7 +168,7 @@ void register_Vec4i_class(){
         }
         { //property "g"[fget=::osg::Vec4i::g]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "g"
@@ -177,7 +177,7 @@ void register_Vec4i_class(){
         }
         { //property "b"[fget=::osg::Vec4i::b]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "b"
@@ -188,7 +188,7 @@ void register_Vec4i_class(){
         }
         { //property "b"[fget=::osg::Vec4i::b]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "b"
@@ -197,7 +197,7 @@ void register_Vec4i_class(){
         }
         { //property "a"[fget=::osg::Vec4i::a]
         
-            typedef int & ( ::osg::Vec4i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec4i::*fget )(  ) ;
             
             Vec4i_exposer.add_property( 
                 "a"
@@ -208,7 +208,7 @@ void register_Vec4i_class(){
         }
         { //property "a"[fget=::osg::Vec4i::a]
         
-            typedef int ( ::osg::Vec4i::*fget)(  ) const;
+            typedef int ( ::osg::Vec4i::*fget )(  ) const;
             
             Vec4i_exposer.add_property( 
                 "a"

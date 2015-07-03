@@ -829,8 +829,8 @@ void register_TrackballManipulator_class(){
         bp::implicitly_convertible< int, osgGA::TrackballManipulator >();
         { //::osgGA::TrackballManipulator::className
         
-            typedef char const * ( ::osgGA::TrackballManipulator::*className_function_type)(  ) const;
-            typedef char const * ( TrackballManipulator_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgGA::TrackballManipulator::*className_function_type )(  ) const;
+            typedef char const * ( TrackballManipulator_wrapper::*default_className_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "className"
@@ -840,8 +840,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::TrackballManipulator::clone
         
-            typedef ::osg::Object * ( ::osgGA::TrackballManipulator::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TrackballManipulator_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::TrackballManipulator::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TrackballManipulator_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TrackballManipulator_exposer.def( 
                 "clone"
@@ -853,8 +853,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::TrackballManipulator::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::TrackballManipulator::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TrackballManipulator_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgGA::TrackballManipulator::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TrackballManipulator_wrapper::*default_cloneType_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "cloneType"
@@ -865,8 +865,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::TrackballManipulator::isSameKindAs
         
-            typedef bool ( ::osgGA::TrackballManipulator::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TrackballManipulator_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::TrackballManipulator::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TrackballManipulator_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TrackballManipulator_exposer.def( 
                 "isSameKindAs"
@@ -877,8 +877,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::TrackballManipulator::libraryName
         
-            typedef char const * ( ::osgGA::TrackballManipulator::*libraryName_function_type)(  ) const;
-            typedef char const * ( TrackballManipulator_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgGA::TrackballManipulator::*libraryName_function_type )(  ) const;
+            typedef char const * ( TrackballManipulator_wrapper::*default_libraryName_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "libraryName"
@@ -888,7 +888,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::allocAnimationData
         
-            typedef void ( TrackballManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
+            typedef void ( TrackballManipulator_wrapper::*allocAnimationData_function_type )(  ) ;
             
             TrackballManipulator_exposer.def( 
                 "allocAnimationData"
@@ -906,7 +906,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::applyAnimationStep
         
-            typedef void ( TrackballManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
+            typedef void ( TrackballManipulator_wrapper::*applyAnimationStep_function_type )( double const,double const ) ;
             
             TrackballManipulator_exposer.def( 
                 "applyAnimationStep"
@@ -916,8 +916,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "computeHomePosition"
@@ -928,8 +928,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::event
         
-            typedef void ( ::osgGA::GUIEventHandler::*event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( ::osgGA::GUIEventHandler::*event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
             
             TrackballManipulator_exposer.def( 
                 "event"
@@ -940,8 +940,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::finishAnimation
         
-            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type)(  ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_finishAnimation_function_type)(  ) ;
+            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type )(  ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_finishAnimation_function_type )(  ) ;
             
             TrackballManipulator_exposer.def( 
                 "finishAnimation"
@@ -961,7 +961,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::fixVerticalAxis
         
-            typedef void ( TrackballManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*fixVerticalAxis_function_type )( ::osg::Vec3d &,::osg::Quat &,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "fixVerticalAxis"
@@ -981,7 +981,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::flushMouseEventStack
         
-            typedef void ( TrackballManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
+            typedef void ( TrackballManipulator_wrapper::*flushMouseEventStack_function_type )(  ) ;
             
             TrackballManipulator_exposer.def( 
                 "flushMouseEventStack"
@@ -990,8 +990,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type)(  ) const;
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( TrackballManipulator_wrapper::*default_getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( TrackballManipulator_wrapper::*default_getFusionDistanceMode_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "getFusionDistanceMode"
@@ -1001,8 +1001,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceValue
         
-            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type)(  ) const;
-            typedef float ( TrackballManipulator_wrapper::*default_getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( TrackballManipulator_wrapper::*default_getFusionDistanceValue_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "getFusionDistanceValue"
@@ -1012,8 +1012,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( TrackballManipulator_wrapper::*default_getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( TrackballManipulator_wrapper::*default_getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             TrackballManipulator_exposer.def( 
                 "getHomePosition"
@@ -1024,8 +1024,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getInverseMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getInverseMatrix_function_type)(  ) const;
-            typedef ::osg::Matrixd ( TrackballManipulator_wrapper::*default_getInverseMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( TrackballManipulator_wrapper::*default_getInverseMatrix_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "getInverseMatrix"
@@ -1035,8 +1035,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getMatrix_function_type)(  ) const;
-            typedef ::osg::Matrixd ( TrackballManipulator_wrapper::*default_getMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( TrackballManipulator_wrapper::*default_getMatrix_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "getMatrix"
@@ -1046,8 +1046,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) const;
-            typedef ::osg::Node const * ( TrackballManipulator_wrapper::*default_getNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( TrackballManipulator_wrapper::*default_getNode_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "getNode"
@@ -1058,8 +1058,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) ;
-            typedef ::osg::Node * ( TrackballManipulator_wrapper::*default_getNode_function_type)(  ) ;
+            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) ;
+            typedef ::osg::Node * ( TrackballManipulator_wrapper::*default_getNode_function_type )(  ) ;
             
             TrackballManipulator_exposer.def( 
                 "getNode"
@@ -1070,7 +1070,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getRelativeFlag
         
-            typedef bool ( TrackballManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
+            typedef bool ( TrackballManipulator_wrapper::*getRelativeFlag_function_type )( int ) const;
             
             TrackballManipulator_exposer.def( 
                 "getRelativeFlag"
@@ -1080,7 +1080,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getThrowScale
         
-            typedef float ( TrackballManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
+            typedef float ( TrackballManipulator_wrapper::*getThrowScale_function_type )( double const ) const;
             
             TrackballManipulator_exposer.def( 
                 "getThrowScale"
@@ -1090,8 +1090,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
-            typedef void ( TrackballManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( TrackballManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
             
             TrackballManipulator_exposer.def( 
                 "getTransformation"
@@ -1102,8 +1102,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( TrackballManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( TrackballManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             TrackballManipulator_exposer.def( 
                 "getTransformation"
@@ -1114,8 +1114,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getUsage
         
-            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( TrackballManipulator_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( TrackballManipulator_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
             
             TrackballManipulator_exposer.def( 
                 "getUsage"
@@ -1157,8 +1157,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::home
         
-            typedef void ( ::osgGA::StandardManipulator::*home_function_type)( double ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_home_function_type)( double ) ;
+            typedef void ( ::osgGA::StandardManipulator::*home_function_type )( double ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_home_function_type )( double ) ;
             
             TrackballManipulator_exposer.def( 
                 "home"
@@ -1179,7 +1179,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isMouseMoving
         
-            typedef bool ( TrackballManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
+            typedef bool ( TrackballManipulator_wrapper::*isMouseMoving_function_type )(  ) const;
             
             TrackballManipulator_exposer.def( 
                 "isMouseMoving"
@@ -1188,7 +1188,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::panModel
         
-            typedef void ( TrackballManipulator_wrapper::*panModel_function_type)( float const,float const,float const ) ;
+            typedef void ( TrackballManipulator_wrapper::*panModel_function_type )( float const,float const,float const ) ;
             
             TrackballManipulator_exposer.def( 
                 "panModel"
@@ -1198,7 +1198,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMouseDeltaMovement
         
-            typedef bool ( TrackballManipulator_wrapper::*performMouseDeltaMovement_function_type)( float const,float const ) ;
+            typedef bool ( TrackballManipulator_wrapper::*performMouseDeltaMovement_function_type )( float const,float const ) ;
             
             TrackballManipulator_exposer.def( 
                 "performMouseDeltaMovement"
@@ -1208,7 +1208,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMovementLeftMouseButton
         
-            typedef bool ( TrackballManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( TrackballManipulator_wrapper::*performMovementLeftMouseButton_function_type )( double const,double const,double const ) ;
             
             TrackballManipulator_exposer.def( 
                 "performMovementLeftMouseButton"
@@ -1218,7 +1218,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMovementMiddleMouseButton
         
-            typedef bool ( TrackballManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( TrackballManipulator_wrapper::*performMovementMiddleMouseButton_function_type )( double const,double const,double const ) ;
             
             TrackballManipulator_exposer.def( 
                 "performMovementMiddleMouseButton"
@@ -1228,7 +1228,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMovementRightMouseButton
         
-            typedef bool ( TrackballManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( TrackballManipulator_wrapper::*performMovementRightMouseButton_function_type )( double const,double const,double const ) ;
             
             TrackballManipulator_exposer.def( 
                 "performMovementRightMouseButton"
@@ -1238,7 +1238,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateTrackball
         
-            typedef void ( TrackballManipulator_wrapper::*rotateTrackball_function_type)( float const,float const,float const,float const,float const ) ;
+            typedef void ( TrackballManipulator_wrapper::*rotateTrackball_function_type )( float const,float const,float const,float const,float const ) ;
             
             TrackballManipulator_exposer.def( 
                 "rotateTrackball"
@@ -1248,7 +1248,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( TrackballManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const ) ;
+            typedef void ( TrackballManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const ) ;
             
             TrackballManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1258,7 +1258,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( TrackballManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const,::osg::Vec3f const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const,::osg::Vec3f const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1278,8 +1278,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAllowThrow
         
-            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setAllowThrow_function_type)( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type )( bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setAllowThrow_function_type )( bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setAllowThrow"
@@ -1290,8 +1290,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAnimationTime
         
-            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type)( double const ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setAnimationTime_function_type)( double const ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type )( double const ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setAnimationTime_function_type )( double const ) ;
             
             TrackballManipulator_exposer.def( 
                 "setAnimationTime"
@@ -1302,8 +1302,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type)( bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setAutoComputeHomePosition_function_type)( bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type )( bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setAutoComputeHomePosition_function_type )( bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setAutoComputeHomePosition"
@@ -1314,8 +1314,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setByInverseMatrix
         
-            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setByInverseMatrix"
@@ -1326,8 +1326,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setByMatrix
         
-            typedef void ( ::osgGA::OrbitManipulator::*setByMatrix_function_type)( ::osg::Matrixd const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setByMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setByMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setByMatrix_function_type )( ::osg::Matrixd const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setByMatrix"
@@ -1338,8 +1338,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setCenter
         
-            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type)( ::osg::Vec3d const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setCenter_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setCenter_function_type )( ::osg::Vec3d const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setCenter"
@@ -1350,8 +1350,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
         
-            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
             
             TrackballManipulator_exposer.def( 
                 "setCoordinateFrameCallback"
@@ -1362,8 +1362,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type)( double ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setDistance_function_type)( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type )( double ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setDistance_function_type )( double ) ;
             
             TrackballManipulator_exposer.def( 
                 "setDistance"
@@ -1374,8 +1374,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setHomePosition"
@@ -1386,8 +1386,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setMinimumDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type)( double const &,bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setMinimumDistance_function_type)( double const &,bool ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type )( double const &,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setMinimumDistance_function_type )( double const &,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setMinimumDistance"
@@ -1398,8 +1398,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setNode
         
-            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type)( ::osg::Node * ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setNode_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type )( ::osg::Node * ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setNode_function_type )( ::osg::Node * ) ;
             
             TrackballManipulator_exposer.def( 
                 "setNode"
@@ -1410,7 +1410,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setRelativeFlag
         
-            typedef void ( TrackballManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*setRelativeFlag_function_type )( int,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setRelativeFlag"
@@ -1420,8 +1420,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setRotation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type)( ::osg::Quat const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setRotation_function_type)( ::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type )( ::osg::Quat const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setRotation_function_type )( ::osg::Quat const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setRotation"
@@ -1432,8 +1432,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTrackballSize
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type)( double const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setTrackballSize_function_type)( double const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type )( double const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setTrackballSize_function_type )( double const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setTrackballSize"
@@ -1444,8 +1444,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setTransformation"
@@ -1456,8 +1456,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             TrackballManipulator_exposer.def( 
                 "setTransformation"
@@ -1468,8 +1468,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
-            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setVerticalAxisFixed_function_type)( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type )( bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setVerticalAxisFixed_function_type )( bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "setVerticalAxisFixed"
@@ -1480,8 +1480,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setWheelZoomFactor
         
-            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type)( double ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_setWheelZoomFactor_function_type)( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type )( double ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_setWheelZoomFactor_function_type )( double ) ;
             
             TrackballManipulator_exposer.def( 
                 "setWheelZoomFactor"
@@ -1492,7 +1492,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::tb_project_to_sphere
         
-            typedef float ( TrackballManipulator_wrapper::*tb_project_to_sphere_function_type)( float,float,float ) ;
+            typedef float ( TrackballManipulator_wrapper::*tb_project_to_sphere_function_type )( float,float,float ) ;
             
             TrackballManipulator_exposer.def( 
                 "tb_project_to_sphere"
@@ -1502,7 +1502,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::trackball
         
-            typedef void ( TrackballManipulator_wrapper::*trackball_function_type)( ::osg::Vec3d &,float &,float,float,float,float ) ;
+            typedef void ( TrackballManipulator_wrapper::*trackball_function_type )( ::osg::Vec3d &,float &,float,float,float,float ) ;
             
             TrackballManipulator_exposer.def( 
                 "trackball"
@@ -1512,8 +1512,8 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::CameraManipulator::updateCamera
         
-            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type)( ::osg::Camera & ) ;
-            typedef void ( TrackballManipulator_wrapper::*default_updateCamera_function_type)( ::osg::Camera & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type )( ::osg::Camera & ) ;
+            typedef void ( TrackballManipulator_wrapper::*default_updateCamera_function_type )( ::osg::Camera & ) ;
             
             TrackballManipulator_exposer.def( 
                 "updateCamera"
@@ -1524,7 +1524,7 @@ void register_TrackballManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::zoomModel
         
-            typedef void ( TrackballManipulator_wrapper::*zoomModel_function_type)( float const,bool ) ;
+            typedef void ( TrackballManipulator_wrapper::*zoomModel_function_type )( float const,bool ) ;
             
             TrackballManipulator_exposer.def( 
                 "zoomModel"

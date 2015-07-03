@@ -71,18 +71,6 @@ struct PolygonOffset_wrapper : osg::PolygonOffset, bp::wrapper< osg::PolygonOffs
         return osg::PolygonOffset::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::PolygonOffset::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::PolygonOffset::compare( boost::ref(sa) );
-    }
-
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & usage ) const  {
         if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
             return func_getModeUsage( boost::ref(usage) );
@@ -296,65 +284,60 @@ void register_PolygonOffset_class(){
         .def( bp::init< float, float >(( bp::arg("factor"), bp::arg("units") )) )    
         .def( 
             "apply"
-            , (void ( ::osg::PolygonOffset::* )( ::osg::State & )const)(&::osg::PolygonOffset::apply)
-            , (void ( PolygonOffset_wrapper::* )( ::osg::State & )const)(&PolygonOffset_wrapper::default_apply)
+            , (void ( ::osg::PolygonOffset::* )( ::osg::State & ) const)(&::osg::PolygonOffset::apply)
+            , (void ( PolygonOffset_wrapper::* )( ::osg::State & ) const)(&PolygonOffset_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "areFactorAndUnitsMultipliersSet"
             , (bool (*)(  ))( &::osg::PolygonOffset::areFactorAndUnitsMultipliersSet ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::PolygonOffset::* )(  )const)(&::osg::PolygonOffset::className)
-            , (char const * ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_className) )    
+            , (char const * ( ::osg::PolygonOffset::* )(  ) const)(&::osg::PolygonOffset::className)
+            , (char const * ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::PolygonOffset::* )( ::osg::CopyOp const & )const)(&::osg::PolygonOffset::clone)
-            , (::osg::Object * ( PolygonOffset_wrapper::* )( ::osg::CopyOp const & )const)(&PolygonOffset_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::PolygonOffset::* )( ::osg::CopyOp const & ) const)(&::osg::PolygonOffset::clone)
+            , (::osg::Object * ( PolygonOffset_wrapper::* )( ::osg::CopyOp const & ) const)(&PolygonOffset_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::PolygonOffset::* )(  )const)(&::osg::PolygonOffset::cloneType)
-            , (::osg::Object * ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::PolygonOffset::* )(  ) const)(&::osg::PolygonOffset::cloneType)
+            , (::osg::Object * ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
-            "compare"
-            , (int ( ::osg::PolygonOffset::* )( ::osg::StateAttribute const & )const)(&::osg::PolygonOffset::compare)
-            , (int ( PolygonOffset_wrapper::* )( ::osg::StateAttribute const & )const)(&PolygonOffset_wrapper::default_compare)
-            , ( bp::arg("sa") ) )    
-        .def( 
             "getFactor"
-            , (float ( ::osg::PolygonOffset::* )(  )const)( &::osg::PolygonOffset::getFactor ) )    
+            , (float ( ::osg::PolygonOffset::* )(  ) const)( &::osg::PolygonOffset::getFactor ) )    
         .def( 
             "getFactorMultiplier"
             , (float (*)(  ))( &::osg::PolygonOffset::getFactorMultiplier ) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::PolygonOffset::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::PolygonOffset::getModeUsage)
-            , (bool ( PolygonOffset_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&PolygonOffset_wrapper::default_getModeUsage)
+            , (bool ( ::osg::PolygonOffset::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::PolygonOffset::getModeUsage)
+            , (bool ( PolygonOffset_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&PolygonOffset_wrapper::default_getModeUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::PolygonOffset::* )(  )const)(&::osg::PolygonOffset::getType)
-            , (::osg::StateAttribute::Type ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::PolygonOffset::* )(  ) const)(&::osg::PolygonOffset::getType)
+            , (::osg::StateAttribute::Type ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_getType) )    
         .def( 
             "getUnits"
-            , (float ( ::osg::PolygonOffset::* )(  )const)( &::osg::PolygonOffset::getUnits ) )    
+            , (float ( ::osg::PolygonOffset::* )(  ) const)( &::osg::PolygonOffset::getUnits ) )    
         .def( 
             "getUnitsMultiplier"
             , (float (*)(  ))( &::osg::PolygonOffset::getUnitsMultiplier ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::PolygonOffset::* )( ::osg::Object const * )const)(&::osg::PolygonOffset::isSameKindAs)
-            , (bool ( PolygonOffset_wrapper::* )( ::osg::Object const * )const)(&PolygonOffset_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::PolygonOffset::* )( ::osg::Object const * ) const)(&::osg::PolygonOffset::isSameKindAs)
+            , (bool ( PolygonOffset_wrapper::* )( ::osg::Object const * ) const)(&PolygonOffset_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::PolygonOffset::* )(  )const)(&::osg::PolygonOffset::libraryName)
-            , (char const * ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::PolygonOffset::* )(  ) const)(&::osg::PolygonOffset::libraryName)
+            , (char const * ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_libraryName) )    
         .def( 
             "setFactor"
-            , (void ( ::osg::PolygonOffset::* )( float ))( &::osg::PolygonOffset::setFactor )
+            , (void ( ::osg::PolygonOffset::* )( float ) )( &::osg::PolygonOffset::setFactor )
             , ( bp::arg("factor") ) )    
         .def( 
             "setFactorAndUnitsMultipliersUsingBestGuessForDriver"
@@ -366,7 +349,7 @@ void register_PolygonOffset_class(){
             , ( bp::arg("multiplier") ) )    
         .def( 
             "setUnits"
-            , (void ( ::osg::PolygonOffset::* )( float ))( &::osg::PolygonOffset::setUnits )
+            , (void ( ::osg::PolygonOffset::* )( float ) )( &::osg::PolygonOffset::setUnits )
             , ( bp::arg("units") ) )    
         .def( 
             "setUnitsMultiplier"
@@ -374,70 +357,70 @@ void register_PolygonOffset_class(){
             , ( bp::arg("multiplier") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( PolygonOffset_wrapper::* )(  ))(&PolygonOffset_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( PolygonOffset_wrapper::* )(  ) )(&PolygonOffset_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( PolygonOffset_wrapper::* )( ::osg::State & )const)(&PolygonOffset_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( PolygonOffset_wrapper::* )( ::osg::State & ) const)(&PolygonOffset_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
-            , (void ( PolygonOffset_wrapper::* )( ::osg::State & )const)(&PolygonOffset_wrapper::default_compileGLObjects)
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( PolygonOffset_wrapper::* )( ::osg::State & ) const)(&PolygonOffset_wrapper::default_compileGLObjects)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( PolygonOffset_wrapper::* )(  ))(&PolygonOffset_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( PolygonOffset_wrapper::* )(  ) )(&PolygonOffset_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_getMember) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( PolygonOffset_wrapper::* )(  ))(&PolygonOffset_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( PolygonOffset_wrapper::* )(  ) )(&PolygonOffset_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( PolygonOffset_wrapper::* )(  )const)(&PolygonOffset_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( PolygonOffset_wrapper::* )(  ) const)(&PolygonOffset_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
-            , (void ( PolygonOffset_wrapper::* )( unsigned int ))(&PolygonOffset_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::StateAttribute::* )( unsigned int ) )(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( PolygonOffset_wrapper::* )( unsigned int ) )(&PolygonOffset_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( PolygonOffset_wrapper::* )( ::std::string const & ))(&PolygonOffset_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( PolygonOffset_wrapper::* )( ::std::string const & ) )(&PolygonOffset_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( PolygonOffset_wrapper::* )( bool ))(&PolygonOffset_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( PolygonOffset_wrapper::* )( bool ) )(&PolygonOffset_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( PolygonOffset_wrapper::* )( ::osg::Referenced * ))(&PolygonOffset_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( PolygonOffset_wrapper::* )( ::osg::Referenced * ) )(&PolygonOffset_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .staticmethod( "areFactorAndUnitsMultipliersSet" )    
         .staticmethod( "getFactorMultiplier" )    

@@ -17,7 +17,7 @@ void register_BufferObjectProfile_class(){
         BufferObjectProfile_exposer.def( bp::self < bp::self );
         { //::osg::BufferObjectProfile::operator=
         
-            typedef ::osg::BufferObjectProfile & ( ::osg::BufferObjectProfile::*assign_function_type)( ::osg::BufferObjectProfile const & ) ;
+            typedef ::osg::BufferObjectProfile & ( ::osg::BufferObjectProfile::*assign_function_type )( ::osg::BufferObjectProfile const & ) ;
             
             BufferObjectProfile_exposer.def( 
                 "assign"
@@ -29,7 +29,7 @@ void register_BufferObjectProfile_class(){
         BufferObjectProfile_exposer.def( bp::self == bp::self );
         { //::osg::BufferObjectProfile::setProfile
         
-            typedef void ( ::osg::BufferObjectProfile::*setProfile_function_type)( ::GLenum,::GLenum,unsigned int ) ;
+            typedef void ( ::osg::BufferObjectProfile::*setProfile_function_type )( ::GLenum,::GLenum,unsigned int ) ;
             
             BufferObjectProfile_exposer.def( 
                 "setProfile"

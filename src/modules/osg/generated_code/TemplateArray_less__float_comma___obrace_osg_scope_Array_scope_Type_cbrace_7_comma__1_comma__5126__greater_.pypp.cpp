@@ -374,8 +374,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::accept
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*accept_function_type)( ::osg::ArrayVisitor & ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type)( ::osg::ArrayVisitor & ) ;
+            typedef void ( exported_class_t::*accept_function_type )( ::osg::ArrayVisitor & ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type )( ::osg::ArrayVisitor & ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "accept"
@@ -387,8 +387,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::accept
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*accept_function_type)( ::osg::ConstArrayVisitor & ) const;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type)( ::osg::ConstArrayVisitor & ) const;
+            typedef void ( exported_class_t::*accept_function_type )( ::osg::ConstArrayVisitor & ) const;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type )( ::osg::ConstArrayVisitor & ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "accept"
@@ -400,8 +400,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::accept
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*accept_function_type)( unsigned int,::osg::ValueVisitor & ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type)( unsigned int,::osg::ValueVisitor & ) ;
+            typedef void ( exported_class_t::*accept_function_type )( unsigned int,::osg::ValueVisitor & ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type )( unsigned int,::osg::ValueVisitor & ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "accept"
@@ -413,8 +413,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::accept
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*accept_function_type)( unsigned int,::osg::ConstValueVisitor & ) const;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type)( unsigned int,::osg::ConstValueVisitor & ) const;
+            typedef void ( exported_class_t::*accept_function_type )( unsigned int,::osg::ConstValueVisitor & ) const;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_accept_function_type )( unsigned int,::osg::ConstValueVisitor & ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "accept"
@@ -426,8 +426,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::clone
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef ::osg::Object * ( exported_class_t::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( exported_class_t::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "clone"
@@ -440,8 +440,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::cloneType
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef ::osg::Object * ( exported_class_t::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( exported_class_t::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_cloneType_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "cloneType"
@@ -453,8 +453,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::compare
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef int ( exported_class_t::*compare_function_type)( unsigned int,unsigned int ) const;
-            typedef int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_compare_function_type)( unsigned int,unsigned int ) const;
+            typedef int ( exported_class_t::*compare_function_type )( unsigned int,unsigned int ) const;
+            typedef int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_compare_function_type )( unsigned int,unsigned int ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "compare"
@@ -466,8 +466,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::getDataPointer
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef ::GLvoid const * ( exported_class_t::*getDataPointer_function_type)(  ) const;
-            typedef ::GLvoid const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( exported_class_t::*getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getDataPointer_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getDataPointer"
@@ -479,8 +479,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::getElementSize
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef unsigned int ( exported_class_t::*getElementSize_function_type)(  ) const;
-            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getElementSize_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*getElementSize_function_type )(  ) const;
+            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getElementSize_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getElementSize"
@@ -491,8 +491,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::getNumElements
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef unsigned int ( exported_class_t::*getNumElements_function_type)(  ) const;
-            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getNumElements_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*getNumElements_function_type )(  ) const;
+            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getNumElements_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getNumElements"
@@ -503,8 +503,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::getTotalDataSize
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef unsigned int ( exported_class_t::*getTotalDataSize_function_type)(  ) const;
-            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getTotalDataSize_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getTotalDataSize"
@@ -515,8 +515,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::reserveArray
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*reserveArray_function_type)( unsigned int ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_reserveArray_function_type)( unsigned int ) ;
+            typedef void ( exported_class_t::*reserveArray_function_type )( unsigned int ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_reserveArray_function_type )( unsigned int ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "reserveArray"
@@ -528,8 +528,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::resizeArray
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*resizeArray_function_type)( unsigned int ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_resizeArray_function_type)( unsigned int ) ;
+            typedef void ( exported_class_t::*resizeArray_function_type )( unsigned int ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_resizeArray_function_type )( unsigned int ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "resizeArray"
@@ -541,8 +541,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         { //::osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 >::trim
         
             typedef osg::TemplateArray< float, (osg::Array::Type)7, 1, 5126 > exported_class_t;
-            typedef void ( exported_class_t::*trim_function_type)(  ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_trim_function_type)(  ) ;
+            typedef void ( exported_class_t::*trim_function_type )(  ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_trim_function_type )(  ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "trim"
@@ -552,8 +552,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Array::asArray
         
-            typedef ::osg::Array * ( ::osg::Array::*asArray_function_type)(  ) ;
-            typedef ::osg::Array * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osg::Array::*asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_asArray_function_type )(  ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "asArray"
@@ -564,8 +564,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Array::asArray
         
-            typedef ::osg::Array const * ( ::osg::Array::*asArray_function_type)(  ) const;
-            typedef ::osg::Array const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ::osg::Array::*asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_asArray_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "asArray"
@@ -576,8 +576,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Array::className
         
-            typedef char const * ( ::osg::Array::*className_function_type)(  ) const;
-            typedef char const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Array::*className_function_type )(  ) const;
+            typedef char const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_className_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "className"
@@ -587,8 +587,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "computeDataVariance"
@@ -598,8 +598,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getUserData_function_type )(  ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getUserData"
@@ -610,8 +610,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_getUserData_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "getUserData"
@@ -622,8 +622,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Array::isSameKindAs
         
-            typedef bool ( ::osg::Array::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Array::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "isSameKindAs"
@@ -634,8 +634,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Array::libraryName
         
-            typedef char const * ( ::osg::Array::*libraryName_function_type)(  ) const;
-            typedef char const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Array::*libraryName_function_type )(  ) const;
+            typedef char const * ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_libraryName_function_type )(  ) const;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "libraryName"
@@ -645,8 +645,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "resizeGLObjectBuffers"
@@ -657,8 +657,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "setName"
@@ -669,7 +669,7 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "setName"
@@ -680,8 +680,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "setThreadSafeRefUnref"
@@ -692,8 +692,8 @@ void register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Typ
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__exposer.def( 
                 "setUserData"

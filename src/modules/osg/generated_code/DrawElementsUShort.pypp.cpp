@@ -440,8 +440,8 @@ void register_DrawElementsUShort_class(){
         DrawElementsUShort_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") ), "\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
         { //::osg::DrawElementsUShort::accept
         
-            typedef void ( ::osg::DrawElementsUShort::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osg::DrawElementsUShort::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
             
             DrawElementsUShort_exposer.def( 
                 "accept"
@@ -452,8 +452,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::accept
         
-            typedef void ( ::osg::DrawElementsUShort::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
-            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( ::osg::DrawElementsUShort::*accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
             
             DrawElementsUShort_exposer.def( 
                 "accept"
@@ -464,8 +464,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::addElement
         
-            typedef void ( ::osg::DrawElementsUShort::*addElement_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_addElement_function_type)( unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUShort::*addElement_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_addElement_function_type )( unsigned int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "addElement"
@@ -476,8 +476,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::className
         
-            typedef char const * ( ::osg::DrawElementsUShort::*className_function_type)(  ) const;
-            typedef char const * ( DrawElementsUShort_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::DrawElementsUShort::*className_function_type )(  ) const;
+            typedef char const * ( DrawElementsUShort_wrapper::*default_className_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "className"
@@ -487,8 +487,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::clone
         
-            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             DrawElementsUShort_exposer.def( 
                 "clone"
@@ -500,8 +500,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::cloneType
         
-            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::DrawElementsUShort::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( DrawElementsUShort_wrapper::*default_cloneType_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "cloneType"
@@ -512,8 +512,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::draw
         
-            typedef void ( ::osg::DrawElementsUShort::*draw_function_type)( ::osg::State &,bool ) const;
-            typedef void ( DrawElementsUShort_wrapper::*default_draw_function_type)( ::osg::State &,bool ) const;
+            typedef void ( ::osg::DrawElementsUShort::*draw_function_type )( ::osg::State &,bool ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_draw_function_type )( ::osg::State &,bool ) const;
             
             DrawElementsUShort_exposer.def( 
                 "draw"
@@ -524,8 +524,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::DrawElementsUShort::*getDataPointer_function_type)(  ) const;
-            typedef ::GLvoid const * ( DrawElementsUShort_wrapper::*default_getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( ::osg::DrawElementsUShort::*getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( DrawElementsUShort_wrapper::*default_getDataPointer_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getDataPointer"
@@ -536,8 +536,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::getElement
         
-            typedef unsigned int ( ::osg::DrawElementsUShort::*getElement_function_type)( unsigned int ) ;
-            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getElement_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getElement_function_type )( unsigned int ) ;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getElement_function_type )( unsigned int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "getElement"
@@ -548,8 +548,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::getNumIndices
         
-            typedef unsigned int ( ::osg::DrawElementsUShort::*getNumIndices_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumIndices_function_type)(  ) const;
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getNumIndices_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumIndices_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getNumIndices"
@@ -559,8 +559,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::getTotalDataSize
         
-            typedef unsigned int ( ::osg::DrawElementsUShort::*getTotalDataSize_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( ::osg::DrawElementsUShort::*getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getTotalDataSize_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getTotalDataSize"
@@ -570,8 +570,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::index
         
-            typedef unsigned int ( ::osg::DrawElementsUShort::*index_function_type)( unsigned int ) const;
-            typedef unsigned int ( DrawElementsUShort_wrapper::*default_index_function_type)( unsigned int ) const;
+            typedef unsigned int ( ::osg::DrawElementsUShort::*index_function_type )( unsigned int ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_index_function_type )( unsigned int ) const;
             
             DrawElementsUShort_exposer.def( 
                 "index"
@@ -582,8 +582,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::isSameKindAs
         
-            typedef bool ( ::osg::DrawElementsUShort::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( DrawElementsUShort_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::DrawElementsUShort::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( DrawElementsUShort_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             DrawElementsUShort_exposer.def( 
                 "isSameKindAs"
@@ -594,8 +594,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::libraryName
         
-            typedef char const * ( ::osg::DrawElementsUShort::*libraryName_function_type)(  ) const;
-            typedef char const * ( DrawElementsUShort_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::DrawElementsUShort::*libraryName_function_type )(  ) const;
+            typedef char const * ( DrawElementsUShort_wrapper::*default_libraryName_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "libraryName"
@@ -605,8 +605,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::offsetIndices
         
-            typedef void ( ::osg::DrawElementsUShort::*offsetIndices_function_type)( int ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_offsetIndices_function_type)( int ) ;
+            typedef void ( ::osg::DrawElementsUShort::*offsetIndices_function_type )( int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_offsetIndices_function_type )( int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "offsetIndices"
@@ -617,8 +617,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::reserveElements
         
-            typedef void ( ::osg::DrawElementsUShort::*reserveElements_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_reserveElements_function_type)( unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUShort::*reserveElements_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_reserveElements_function_type )( unsigned int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "reserveElements"
@@ -629,8 +629,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::setElement
         
-            typedef void ( ::osg::DrawElementsUShort::*setElement_function_type)( unsigned int,unsigned int ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_setElement_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUShort::*setElement_function_type )( unsigned int,unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setElement_function_type )( unsigned int,unsigned int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "setElement"
@@ -641,8 +641,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElementsUShort::supportsBufferObject
         
-            typedef bool ( ::osg::DrawElementsUShort::*supportsBufferObject_function_type)(  ) const;
-            typedef bool ( DrawElementsUShort_wrapper::*default_supportsBufferObject_function_type)(  ) const;
+            typedef bool ( ::osg::DrawElementsUShort::*supportsBufferObject_function_type )(  ) const;
+            typedef bool ( DrawElementsUShort_wrapper::*default_supportsBufferObject_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "supportsBufferObject"
@@ -652,8 +652,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
-            typedef ::osg::Array * ( DrawElementsUShort_wrapper::*default_asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( DrawElementsUShort_wrapper::*default_asArray_function_type )(  ) ;
             
             DrawElementsUShort_exposer.def( 
                 "asArray"
@@ -664,8 +664,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
-            typedef ::osg::Array const * ( DrawElementsUShort_wrapper::*default_asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( DrawElementsUShort_wrapper::*default_asArray_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "asArray"
@@ -676,8 +676,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) ;
-            typedef ::osg::PrimitiveSet * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) ;
+            typedef ::osg::PrimitiveSet * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type )(  ) ;
             
             DrawElementsUShort_exposer.def( 
                 "asPrimitiveSet"
@@ -688,8 +688,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) const;
-            typedef ::osg::PrimitiveSet const * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type)(  ) const;
+            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) const;
+            typedef ::osg::PrimitiveSet const * ( DrawElementsUShort_wrapper::*default_asPrimitiveSet_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "asPrimitiveSet"
@@ -700,8 +700,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             DrawElementsUShort_exposer.def( 
                 "computeDataVariance"
@@ -711,8 +711,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::PrimitiveSet::computeRange
         
-            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type)(  ) const;
-            typedef void ( DrawElementsUShort_wrapper::*default_computeRange_function_type)(  ) const;
+            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type )(  ) const;
+            typedef void ( DrawElementsUShort_wrapper::*default_computeRange_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "computeRange"
@@ -722,8 +722,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElements::getDrawElements
         
-            typedef ::osg::DrawElements * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) ;
-            typedef ::osg::DrawElements * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type)(  ) ;
+            typedef ::osg::DrawElements * ( ::osg::DrawElements::*getDrawElements_function_type )(  ) ;
+            typedef ::osg::DrawElements * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type )(  ) ;
             
             DrawElementsUShort_exposer.def( 
                 "getDrawElements"
@@ -734,8 +734,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::DrawElements::getDrawElements
         
-            typedef ::osg::DrawElements const * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) const;
-            typedef ::osg::DrawElements const * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type)(  ) const;
+            typedef ::osg::DrawElements const * ( ::osg::DrawElements::*getDrawElements_function_type )(  ) const;
+            typedef ::osg::DrawElements const * ( DrawElementsUShort_wrapper::*default_getDrawElements_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getDrawElements"
@@ -746,8 +746,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::PrimitiveSet::getNumPrimitives
         
-            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumPrimitives_function_type)(  ) const;
+            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUShort_wrapper::*default_getNumPrimitives_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getNumPrimitives"
@@ -757,8 +757,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( DrawElementsUShort_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( DrawElementsUShort_wrapper::*default_getUserData_function_type )(  ) ;
             
             DrawElementsUShort_exposer.def( 
                 "getUserData"
@@ -769,8 +769,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( DrawElementsUShort_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( DrawElementsUShort_wrapper::*default_getUserData_function_type )(  ) const;
             
             DrawElementsUShort_exposer.def( 
                 "getUserData"
@@ -781,8 +781,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             DrawElementsUShort_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -793,8 +793,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             DrawElementsUShort_exposer.def( 
                 "setName"
@@ -805,7 +805,7 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             DrawElementsUShort_exposer.def( 
                 "setName"
@@ -816,8 +816,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             DrawElementsUShort_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -828,8 +828,8 @@ void register_DrawElementsUShort_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( DrawElementsUShort_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( DrawElementsUShort_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             DrawElementsUShort_exposer.def( 
                 "setUserData"

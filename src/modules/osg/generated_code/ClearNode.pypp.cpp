@@ -396,188 +396,188 @@ void register_ClearNode_class(){
         .def( bp::init< >("\n A Group node for clearing the color and depth buffers. Use setClearColor\n to change the clear color, and setRequiresClear to disable/enable the call\n clearing. You might want to disable clearing if you perform your clear by\n drawing fullscreen geometry. If you do this, add child nodes to perform\n such drawing. The default StateSet associated with this node places\n children in render bin -1 to ensure that children are rendered prior to\n the rest of the scene graph.\n") )    
         .def( 
             "accept"
-            , (void ( ::osg::ClearNode::* )( ::osg::NodeVisitor & ))(&::osg::ClearNode::accept)
-            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ))(&ClearNode_wrapper::default_accept)
+            , (void ( ::osg::ClearNode::* )( ::osg::NodeVisitor & ) )(&::osg::ClearNode::accept)
+            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ) )(&ClearNode_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::ClearNode::* )(  )const)(&::osg::ClearNode::className)
-            , (char const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_className) )    
+            , (char const * ( ::osg::ClearNode::* )(  ) const)(&::osg::ClearNode::className)
+            , (char const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::ClearNode::* )( ::osg::CopyOp const & )const)(&::osg::ClearNode::clone)
-            , (::osg::Object * ( ClearNode_wrapper::* )( ::osg::CopyOp const & )const)(&ClearNode_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::ClearNode::* )( ::osg::CopyOp const & ) const)(&::osg::ClearNode::clone)
+            , (::osg::Object * ( ClearNode_wrapper::* )( ::osg::CopyOp const & ) const)(&ClearNode_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::ClearNode::* )(  )const)(&::osg::ClearNode::cloneType)
-            , (::osg::Object * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::ClearNode::* )(  ) const)(&::osg::ClearNode::cloneType)
+            , (::osg::Object * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getClearColor"
-            , (::osg::Vec4 const & ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getClearColor )
+            , (::osg::Vec4 const & ( ::osg::ClearNode::* )(  ) const)( &::osg::ClearNode::getClearColor )
             , bp::return_internal_reference< >()
             , " Returns the clear color." )    
         .def( 
             "getClearMask"
-            , (::GLbitfield ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getClearMask )
+            , (::GLbitfield ( ::osg::ClearNode::* )(  ) const)( &::osg::ClearNode::getClearMask )
             , " Get the clear mask." )    
         .def( 
             "getRequiresClear"
-            , (bool ( ::osg::ClearNode::* )(  )const)( &::osg::ClearNode::getRequiresClear )
+            , (bool ( ::osg::ClearNode::* )(  ) const)( &::osg::ClearNode::getRequiresClear )
             , " Gets whether clearing is enabled or disabled." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::ClearNode::* )( ::osg::Object const * )const)(&::osg::ClearNode::isSameKindAs)
-            , (bool ( ClearNode_wrapper::* )( ::osg::Object const * )const)(&ClearNode_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::ClearNode::* )( ::osg::Object const * ) const)(&::osg::ClearNode::isSameKindAs)
+            , (bool ( ClearNode_wrapper::* )( ::osg::Object const * ) const)(&ClearNode_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::ClearNode::* )(  )const)(&::osg::ClearNode::libraryName)
-            , (char const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::ClearNode::* )(  ) const)(&::osg::ClearNode::libraryName)
+            , (char const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_libraryName) )    
         .def( 
             "setClearColor"
-            , (void ( ::osg::ClearNode::* )( ::osg::Vec4 const & ))( &::osg::ClearNode::setClearColor )
+            , (void ( ::osg::ClearNode::* )( ::osg::Vec4 const & ) )( &::osg::ClearNode::setClearColor )
             , ( bp::arg("color") )
             , " Sets the clear color." )    
         .def( 
             "setClearMask"
-            , (void ( ::osg::ClearNode::* )( ::GLbitfield ))( &::osg::ClearNode::setClearMask )
+            , (void ( ::osg::ClearNode::* )( ::GLbitfield ) )( &::osg::ClearNode::setClearMask )
             , ( bp::arg("mask") )
             , " Set the clear mask used in glClear(..).\n Defaults to GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT." )    
         .def( 
             "setRequiresClear"
-            , (void ( ::osg::ClearNode::* )( bool ))( &::osg::ClearNode::setRequiresClear )
+            , (void ( ::osg::ClearNode::* )( bool ) )( &::osg::ClearNode::setRequiresClear )
             , ( bp::arg("requiresClear") )
             , " Enable/disable clearing via glClear." )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
-            , (bool ( ClearNode_wrapper::* )( ::osg::Node * ))(&ClearNode_wrapper::default_addChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node * ) )(&::osg::Group::addChild)
+            , (bool ( ClearNode_wrapper::* )( ::osg::Node * ) )(&ClearNode_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
-            , (::osg::Camera * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
+            , (::osg::Camera * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
-            , (::osg::Geode * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Node::* )(  ) )(&::osg::Node::asGeode)
+            , (::osg::Geode * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
-            , (::osg::Geode const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
-            , (::osg::Group * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Group::* )(  ) )(&::osg::Group::asGroup)
+            , (::osg::Group * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Group::* )(  ) const)(&::osg::Group::asGroup)
+            , (::osg::Group const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
-            , (::osg::Switch * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Node::* )(  ) )(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
-            , (::osg::Switch const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
-            , (::osg::Transform * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Node::* )(  ) )(&::osg::Node::asTransform)
+            , (::osg::Transform * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
-            , (::osg::Transform const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
-            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ))(&ClearNode_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
+            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ) )(&ClearNode_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Group::* )(  )const)(&::osg::Group::computeBound)
-            , (::osg::BoundingSphere ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Group::* )(  ) const)(&::osg::Group::computeBound)
+            , (::osg::BoundingSphere ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_computeBound) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( ClearNode_wrapper::* )(  ))(&ClearNode_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( ClearNode_wrapper::* )(  ) )(&ClearNode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( ClearNode_wrapper::* )(  )const)(&ClearNode_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( ClearNode_wrapper::* )(  ) const)(&ClearNode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
-            , (bool ( ClearNode_wrapper::* )( unsigned int,::osg::Node * ))(&ClearNode_wrapper::default_insertChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::insertChild)
+            , (bool ( ClearNode_wrapper::* )( unsigned int,::osg::Node * ) )(&ClearNode_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child") ) )    
         .def( 
             "removeChildren"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
-            , (bool ( ClearNode_wrapper::* )( unsigned int,unsigned int ))(&ClearNode_wrapper::default_removeChildren)
+            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ) )(&::osg::Group::removeChildren)
+            , (bool ( ClearNode_wrapper::* )( unsigned int,unsigned int ) )(&ClearNode_wrapper::default_removeChildren)
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
-            , (bool ( ClearNode_wrapper::* )( ::osg::Node *,::osg::Node * ))(&ClearNode_wrapper::default_replaceChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ) )(&::osg::Group::replaceChild)
+            , (bool ( ClearNode_wrapper::* )( ::osg::Node *,::osg::Node * ) )(&ClearNode_wrapper::default_replaceChild)
             , ( bp::arg("origChild"), bp::arg("newChild") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( ClearNode_wrapper::* )( unsigned int ))(&ClearNode_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Group::* )( unsigned int ) )(&::osg::Group::resizeGLObjectBuffers)
+            , (void ( ClearNode_wrapper::* )( unsigned int ) )(&ClearNode_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
-            , (bool ( ClearNode_wrapper::* )( unsigned int,::osg::Node * ))(&ClearNode_wrapper::default_setChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::setChild)
+            , (bool ( ClearNode_wrapper::* )( unsigned int,::osg::Node * ) )(&ClearNode_wrapper::default_setChild)
             , ( bp::arg("i"), bp::arg("node") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( ClearNode_wrapper::* )( ::std::string const & ))(&ClearNode_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( ClearNode_wrapper::* )( ::std::string const & ) )(&ClearNode_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( ClearNode_wrapper::* )( bool ))(&ClearNode_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Group::* )( bool ) )(&::osg::Group::setThreadSafeRefUnref)
+            , (void ( ClearNode_wrapper::* )( bool ) )(&ClearNode_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( ClearNode_wrapper::* )( ::osg::Referenced * ))(&ClearNode_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( ClearNode_wrapper::* )( ::osg::Referenced * ) )(&ClearNode_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::traverse)
-            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ))(&ClearNode_wrapper::default_traverse)
+            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ) )(&::osg::Group::traverse)
+            , (void ( ClearNode_wrapper::* )( ::osg::NodeVisitor & ) )(&ClearNode_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

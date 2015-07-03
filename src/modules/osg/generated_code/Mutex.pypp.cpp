@@ -67,7 +67,7 @@ void register_Mutex_class(){
         bp::implicitly_convertible< OpenThreads::Mutex::MutexType, OpenThreads::Mutex >();
         { //::OpenThreads::Mutex::getMutexType
         
-            typedef ::OpenThreads::Mutex::MutexType ( ::OpenThreads::Mutex::*getMutexType_function_type)(  ) const;
+            typedef ::OpenThreads::Mutex::MutexType ( ::OpenThreads::Mutex::*getMutexType_function_type )(  ) const;
             
             Mutex_exposer.def( 
                 "getMutexType"
@@ -76,8 +76,8 @@ void register_Mutex_class(){
         }
         { //::OpenThreads::Mutex::lock
         
-            typedef int ( ::OpenThreads::Mutex::*lock_function_type)(  ) ;
-            typedef int ( Mutex_wrapper::*default_lock_function_type)(  ) ;
+            typedef int ( ::OpenThreads::Mutex::*lock_function_type )(  ) ;
+            typedef int ( Mutex_wrapper::*default_lock_function_type )(  ) ;
             
             Mutex_exposer.def( 
                 "lock"
@@ -87,8 +87,8 @@ void register_Mutex_class(){
         }
         { //::OpenThreads::Mutex::trylock
         
-            typedef int ( ::OpenThreads::Mutex::*trylock_function_type)(  ) ;
-            typedef int ( Mutex_wrapper::*default_trylock_function_type)(  ) ;
+            typedef int ( ::OpenThreads::Mutex::*trylock_function_type )(  ) ;
+            typedef int ( Mutex_wrapper::*default_trylock_function_type )(  ) ;
             
             Mutex_exposer.def( 
                 "trylock"
@@ -98,8 +98,8 @@ void register_Mutex_class(){
         }
         { //::OpenThreads::Mutex::unlock
         
-            typedef int ( ::OpenThreads::Mutex::*unlock_function_type)(  ) ;
-            typedef int ( Mutex_wrapper::*default_unlock_function_type)(  ) ;
+            typedef int ( ::OpenThreads::Mutex::*unlock_function_type )(  ) ;
+            typedef int ( Mutex_wrapper::*default_unlock_function_type )(  ) ;
             
             Mutex_exposer.def( 
                 "unlock"

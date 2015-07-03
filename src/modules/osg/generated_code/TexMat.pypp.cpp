@@ -71,18 +71,6 @@ struct TexMat_wrapper : osg::TexMat, bp::wrapper< osg::TexMat > {
         return osg::TexMat::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::TexMat::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::TexMat::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -300,8 +288,8 @@ void register_TexMat_class(){
         bp::implicitly_convertible< osg::Matrix const &, osg::TexMat >();
         { //::osg::TexMat::apply
         
-            typedef void ( ::osg::TexMat::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TexMat_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::TexMat::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( TexMat_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             TexMat_exposer.def( 
                 "apply"
@@ -312,8 +300,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::className
         
-            typedef char const * ( ::osg::TexMat::*className_function_type)(  ) const;
-            typedef char const * ( TexMat_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TexMat::*className_function_type )(  ) const;
+            typedef char const * ( TexMat_wrapper::*default_className_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "className"
@@ -323,8 +311,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::clone
         
-            typedef ::osg::Object * ( ::osg::TexMat::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TexMat_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TexMat::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TexMat_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TexMat_exposer.def( 
                 "clone"
@@ -336,8 +324,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::cloneType
         
-            typedef ::osg::Object * ( ::osg::TexMat::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TexMat_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TexMat::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TexMat_wrapper::*default_cloneType_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "cloneType"
@@ -346,21 +334,9 @@ void register_TexMat_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::TexMat::compare
-        
-            typedef int ( ::osg::TexMat::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( TexMat_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            TexMat_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::TexMat::compare)
-                , default_compare_function_type(&TexMat_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::TexMat::getMatrix
         
-            typedef ::osg::Matrix & ( ::osg::TexMat::*getMatrix_function_type)(  ) ;
+            typedef ::osg::Matrix & ( ::osg::TexMat::*getMatrix_function_type )(  ) ;
             
             TexMat_exposer.def( 
                 "getMatrix"
@@ -371,7 +347,7 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::getMatrix
         
-            typedef ::osg::Matrix const & ( ::osg::TexMat::*getMatrix_function_type)(  ) const;
+            typedef ::osg::Matrix const & ( ::osg::TexMat::*getMatrix_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "getMatrix"
@@ -382,7 +358,7 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::getScaleByTextureRectangleSize
         
-            typedef bool ( ::osg::TexMat::*getScaleByTextureRectangleSize_function_type)(  ) const;
+            typedef bool ( ::osg::TexMat::*getScaleByTextureRectangleSize_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "getScaleByTextureRectangleSize"
@@ -392,8 +368,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TexMat::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TexMat_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TexMat::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TexMat_wrapper::*default_getType_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "getType"
@@ -403,8 +379,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::isSameKindAs
         
-            typedef bool ( ::osg::TexMat::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TexMat_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TexMat::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TexMat_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TexMat_exposer.def( 
                 "isSameKindAs"
@@ -415,8 +391,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::isTextureAttribute
         
-            typedef bool ( ::osg::TexMat::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TexMat_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::TexMat::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TexMat_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "isTextureAttribute"
@@ -426,8 +402,8 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::libraryName
         
-            typedef char const * ( ::osg::TexMat::*libraryName_function_type)(  ) const;
-            typedef char const * ( TexMat_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TexMat::*libraryName_function_type )(  ) const;
+            typedef char const * ( TexMat_wrapper::*default_libraryName_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "libraryName"
@@ -437,7 +413,7 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::setMatrix
         
-            typedef void ( ::osg::TexMat::*setMatrix_function_type)( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::TexMat::*setMatrix_function_type )( ::osg::Matrix const & ) ;
             
             TexMat_exposer.def( 
                 "setMatrix"
@@ -448,7 +424,7 @@ void register_TexMat_class(){
         }
         { //::osg::TexMat::setScaleByTextureRectangleSize
         
-            typedef void ( ::osg::TexMat::*setScaleByTextureRectangleSize_function_type)( bool ) ;
+            typedef void ( ::osg::TexMat::*setScaleByTextureRectangleSize_function_type )( bool ) ;
             
             TexMat_exposer.def( 
                 "setScaleByTextureRectangleSize"
@@ -459,8 +435,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TexMat_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TexMat_wrapper::*default_asTexture_function_type )(  ) ;
             
             TexMat_exposer.def( 
                 "asTexture"
@@ -471,8 +447,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TexMat_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TexMat_wrapper::*default_asTexture_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "asTexture"
@@ -483,8 +459,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TexMat_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TexMat_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TexMat_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -495,8 +471,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TexMat_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TexMat_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TexMat_exposer.def( 
                 "compileGLObjects"
@@ -507,8 +483,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TexMat_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TexMat_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TexMat_exposer.def( 
                 "computeDataVariance"
@@ -518,8 +494,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TexMat_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( TexMat_wrapper::*default_getMember_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "getMember"
@@ -529,8 +505,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TexMat_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TexMat_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TexMat_exposer.def( 
                 "getModeUsage"
@@ -541,8 +517,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TexMat_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TexMat_wrapper::*default_getUserData_function_type )(  ) ;
             
             TexMat_exposer.def( 
                 "getUserData"
@@ -553,8 +529,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TexMat_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TexMat_wrapper::*default_getUserData_function_type )(  ) const;
             
             TexMat_exposer.def( 
                 "getUserData"
@@ -565,8 +541,8 @@ void register_TexMat_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TexMat_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TexMat_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TexMat_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -577,8 +553,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TexMat_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TexMat_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TexMat_exposer.def( 
                 "setName"
@@ -589,7 +565,7 @@ void register_TexMat_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TexMat_exposer.def( 
                 "setName"
@@ -600,8 +576,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TexMat_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TexMat_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TexMat_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -612,8 +588,8 @@ void register_TexMat_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TexMat_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TexMat_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TexMat_exposer.def( 
                 "setUserData"

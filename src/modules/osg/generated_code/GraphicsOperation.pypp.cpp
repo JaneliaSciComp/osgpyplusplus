@@ -57,21 +57,21 @@ void register_GraphicsOperation_class(){
     bp::class_< GraphicsOperation_wrapper, bp::bases< osg::Operation >, osg::ref_ptr< ::osg::GraphicsOperation >, boost::noncopyable >( "GraphicsOperation", bp::no_init )    
         .def( 
             "__call__"
-            , (void ( ::osg::GraphicsOperation::* )( ::osg::Object * ))(&::osg::GraphicsOperation::operator())
-            , (void ( GraphicsOperation_wrapper::* )( ::osg::Object * ))(&GraphicsOperation_wrapper::default___call__)
+            , (void ( ::osg::GraphicsOperation::* )( ::osg::Object * ) )(&::osg::GraphicsOperation::operator())
+            , (void ( GraphicsOperation_wrapper::* )( ::osg::Object * ) )(&GraphicsOperation_wrapper::default___call__)
             , ( bp::arg("object") ) )    
         .def( 
             "__call__"
-            , bp::pure_virtual( (void ( ::osg::GraphicsOperation::* )( ::osg::GraphicsContext * ))(&::osg::GraphicsOperation::operator()) )
+            , bp::pure_virtual( (void ( ::osg::GraphicsOperation::* )( ::osg::GraphicsContext * ) )(&::osg::GraphicsOperation::operator()) )
             , ( bp::arg("context") ) )    
         .def( 
             "release"
-            , (void ( ::osg::Operation::* )(  ))(&::osg::Operation::release)
-            , (void ( GraphicsOperation_wrapper::* )(  ))(&GraphicsOperation_wrapper::default_release) )    
+            , (void ( ::osg::Operation::* )(  ) )(&::osg::Operation::release)
+            , (void ( GraphicsOperation_wrapper::* )(  ) )(&GraphicsOperation_wrapper::default_release) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( GraphicsOperation_wrapper::* )( bool ))(&GraphicsOperation_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( GraphicsOperation_wrapper::* )( bool ) )(&GraphicsOperation_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

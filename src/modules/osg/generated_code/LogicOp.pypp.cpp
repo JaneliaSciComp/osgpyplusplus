@@ -71,18 +71,6 @@ struct LogicOp_wrapper : osg::LogicOp, bp::wrapper< osg::LogicOp > {
         return osg::LogicOp::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::LogicOp::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::LogicOp::compare( boost::ref(sa) );
-    }
-
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & usage ) const  {
         if( bp::override func_getModeUsage = this->get_override( "getModeUsage" ) )
             return func_getModeUsage( boost::ref(usage) );
@@ -319,8 +307,8 @@ void register_LogicOp_class(){
         bp::implicitly_convertible< osg::LogicOp::Opcode, osg::LogicOp >();
         { //::osg::LogicOp::apply
         
-            typedef void ( ::osg::LogicOp::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( LogicOp_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::LogicOp::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( LogicOp_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             LogicOp_exposer.def( 
                 "apply"
@@ -331,8 +319,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::className
         
-            typedef char const * ( ::osg::LogicOp::*className_function_type)(  ) const;
-            typedef char const * ( LogicOp_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::LogicOp::*className_function_type )(  ) const;
+            typedef char const * ( LogicOp_wrapper::*default_className_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "className"
@@ -342,8 +330,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::clone
         
-            typedef ::osg::Object * ( ::osg::LogicOp::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( LogicOp_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::LogicOp::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( LogicOp_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             LogicOp_exposer.def( 
                 "clone"
@@ -355,8 +343,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::cloneType
         
-            typedef ::osg::Object * ( ::osg::LogicOp::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( LogicOp_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::LogicOp::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( LogicOp_wrapper::*default_cloneType_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "cloneType"
@@ -365,22 +353,10 @@ void register_LogicOp_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::LogicOp::compare
-        
-            typedef int ( ::osg::LogicOp::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( LogicOp_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            LogicOp_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::LogicOp::compare)
-                , default_compare_function_type(&LogicOp_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::LogicOp::getModeUsage
         
-            typedef bool ( ::osg::LogicOp::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( LogicOp_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::LogicOp::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( LogicOp_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             LogicOp_exposer.def( 
                 "getModeUsage"
@@ -391,7 +367,7 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::getOpcode
         
-            typedef ::osg::LogicOp::Opcode ( ::osg::LogicOp::*getOpcode_function_type)(  ) const;
+            typedef ::osg::LogicOp::Opcode ( ::osg::LogicOp::*getOpcode_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "getOpcode"
@@ -400,8 +376,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::LogicOp::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( LogicOp_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::LogicOp::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( LogicOp_wrapper::*default_getType_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "getType"
@@ -411,8 +387,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::isSameKindAs
         
-            typedef bool ( ::osg::LogicOp::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( LogicOp_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::LogicOp::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( LogicOp_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             LogicOp_exposer.def( 
                 "isSameKindAs"
@@ -423,8 +399,8 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::libraryName
         
-            typedef char const * ( ::osg::LogicOp::*libraryName_function_type)(  ) const;
-            typedef char const * ( LogicOp_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::LogicOp::*libraryName_function_type )(  ) const;
+            typedef char const * ( LogicOp_wrapper::*default_libraryName_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "libraryName"
@@ -434,7 +410,7 @@ void register_LogicOp_class(){
         }
         { //::osg::LogicOp::setOpcode
         
-            typedef void ( ::osg::LogicOp::*setOpcode_function_type)( ::osg::LogicOp::Opcode ) ;
+            typedef void ( ::osg::LogicOp::*setOpcode_function_type )( ::osg::LogicOp::Opcode ) ;
             
             LogicOp_exposer.def( 
                 "setOpcode"
@@ -444,8 +420,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( LogicOp_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( LogicOp_wrapper::*default_asTexture_function_type )(  ) ;
             
             LogicOp_exposer.def( 
                 "asTexture"
@@ -456,8 +432,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( LogicOp_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( LogicOp_wrapper::*default_asTexture_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "asTexture"
@@ -468,8 +444,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( LogicOp_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( LogicOp_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             LogicOp_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -480,8 +456,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( LogicOp_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( LogicOp_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             LogicOp_exposer.def( 
                 "compileGLObjects"
@@ -492,8 +468,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( LogicOp_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( LogicOp_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             LogicOp_exposer.def( 
                 "computeDataVariance"
@@ -503,8 +479,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( LogicOp_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( LogicOp_wrapper::*default_getMember_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "getMember"
@@ -514,8 +490,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( LogicOp_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( LogicOp_wrapper::*default_getUserData_function_type )(  ) ;
             
             LogicOp_exposer.def( 
                 "getUserData"
@@ -526,8 +502,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( LogicOp_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( LogicOp_wrapper::*default_getUserData_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "getUserData"
@@ -538,8 +514,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( LogicOp_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( LogicOp_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             LogicOp_exposer.def( 
                 "isTextureAttribute"
@@ -549,8 +525,8 @@ void register_LogicOp_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( LogicOp_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( LogicOp_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             LogicOp_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -561,8 +537,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( LogicOp_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( LogicOp_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             LogicOp_exposer.def( 
                 "setName"
@@ -573,7 +549,7 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             LogicOp_exposer.def( 
                 "setName"
@@ -584,8 +560,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( LogicOp_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( LogicOp_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             LogicOp_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -596,8 +572,8 @@ void register_LogicOp_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( LogicOp_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( LogicOp_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             LogicOp_exposer.def( 
                 "setUserData"

@@ -72,8 +72,8 @@ void register_GLObjectsOperation_class(){
         bp::implicitly_convertible< osg::Node *, osgUtil::GLObjectsOperation >();
         { //::osgUtil::GLObjectsOperation::operator()
         
-            typedef void ( ::osgUtil::GLObjectsOperation::*__call___function_type)( ::osg::GraphicsContext * ) ;
-            typedef void ( GLObjectsOperation_wrapper::*default___call___function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgUtil::GLObjectsOperation::*__call___function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( GLObjectsOperation_wrapper::*default___call___function_type )( ::osg::GraphicsContext * ) ;
             
             GLObjectsOperation_exposer.def( 
                 "__call__"

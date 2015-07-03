@@ -26,7 +26,7 @@ void register_Vec2ui_class(){
         Vec2ui_exposer.def( bp::self == bp::self );
         { //::osg::Vec2ui::operator[]
         
-            typedef unsigned int & ( ::osg::Vec2ui::*__getitem___function_type)( int ) ;
+            typedef unsigned int & ( ::osg::Vec2ui::*__getitem___function_type )( int ) ;
             
             Vec2ui_exposer.def( 
                 "__getitem__"
@@ -37,7 +37,7 @@ void register_Vec2ui_class(){
         }
         { //::osg::Vec2ui::operator[]
         
-            typedef unsigned int ( ::osg::Vec2ui::*__getitem___function_type)( int ) const;
+            typedef unsigned int ( ::osg::Vec2ui::*__getitem___function_type )( int ) const;
             
             Vec2ui_exposer.def( 
                 "__getitem__"
@@ -47,7 +47,7 @@ void register_Vec2ui_class(){
         }
         { //::osg::Vec2ui::set
         
-            typedef void ( ::osg::Vec2ui::*set_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::Vec2ui::*set_function_type )( unsigned int,unsigned int ) ;
             
             Vec2ui_exposer.def( 
                 "set"
@@ -57,7 +57,7 @@ void register_Vec2ui_class(){
         }
         { //::osg::Vec2ui::set
         
-            typedef void ( ::osg::Vec2ui::*set_function_type)( ::osg::Vec2ui const & ) ;
+            typedef void ( ::osg::Vec2ui::*set_function_type )( ::osg::Vec2ui const & ) ;
             
             Vec2ui_exposer.def( 
                 "set"
@@ -67,7 +67,7 @@ void register_Vec2ui_class(){
         }
         { //property "x"[fget=::osg::Vec2ui::x]
         
-            typedef unsigned int & ( ::osg::Vec2ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec2ui::*fget )(  ) ;
             
             Vec2ui_exposer.add_property( 
                 "x"
@@ -78,7 +78,7 @@ void register_Vec2ui_class(){
         }
         { //property "x"[fget=::osg::Vec2ui::x]
         
-            typedef unsigned int ( ::osg::Vec2ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec2ui::*fget )(  ) const;
             
             Vec2ui_exposer.add_property( 
                 "x"
@@ -87,7 +87,7 @@ void register_Vec2ui_class(){
         }
         { //property "y"[fget=::osg::Vec2ui::y]
         
-            typedef unsigned int & ( ::osg::Vec2ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec2ui::*fget )(  ) ;
             
             Vec2ui_exposer.add_property( 
                 "y"
@@ -98,7 +98,7 @@ void register_Vec2ui_class(){
         }
         { //property "y"[fget=::osg::Vec2ui::y]
         
-            typedef unsigned int ( ::osg::Vec2ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec2ui::*fget )(  ) const;
             
             Vec2ui_exposer.add_property( 
                 "y"
@@ -107,7 +107,7 @@ void register_Vec2ui_class(){
         }
         { //property "r"[fget=::osg::Vec2ui::r]
         
-            typedef unsigned int & ( ::osg::Vec2ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec2ui::*fget )(  ) ;
             
             Vec2ui_exposer.add_property( 
                 "r"
@@ -118,7 +118,7 @@ void register_Vec2ui_class(){
         }
         { //property "r"[fget=::osg::Vec2ui::r]
         
-            typedef unsigned int ( ::osg::Vec2ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec2ui::*fget )(  ) const;
             
             Vec2ui_exposer.add_property( 
                 "r"
@@ -127,7 +127,7 @@ void register_Vec2ui_class(){
         }
         { //property "g"[fget=::osg::Vec2ui::g]
         
-            typedef unsigned int & ( ::osg::Vec2ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec2ui::*fget )(  ) ;
             
             Vec2ui_exposer.add_property( 
                 "g"
@@ -138,7 +138,7 @@ void register_Vec2ui_class(){
         }
         { //property "g"[fget=::osg::Vec2ui::g]
         
-            typedef unsigned int ( ::osg::Vec2ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec2ui::*fget )(  ) const;
             
             Vec2ui_exposer.add_property( 
                 "g"

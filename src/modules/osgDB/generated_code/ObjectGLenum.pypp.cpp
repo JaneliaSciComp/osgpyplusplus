@@ -16,7 +16,7 @@ void register_ObjectGLenum_class(){
         ObjectGLenum_exposer.def( bp::init< osgDB::ObjectGLenum const & >(( bp::arg("copy") )) );
         { //::osgDB::ObjectGLenum::get
         
-            typedef ::GLenum ( ::osgDB::ObjectGLenum::*get_function_type)(  ) const;
+            typedef ::GLenum ( ::osgDB::ObjectGLenum::*get_function_type )(  ) const;
             
             ObjectGLenum_exposer.def( 
                 "get"
@@ -25,7 +25,7 @@ void register_ObjectGLenum_class(){
         }
         { //::osgDB::ObjectGLenum::set
         
-            typedef void ( ::osgDB::ObjectGLenum::*set_function_type)( ::GLenum ) ;
+            typedef void ( ::osgDB::ObjectGLenum::*set_function_type )( ::GLenum ) ;
             
             ObjectGLenum_exposer.def( 
                 "set"

@@ -35,23 +35,23 @@ void register_GeometryCostEstimator_class(){
     bp::class_< GeometryCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GeometryCostEstimator >, boost::noncopyable >( "GeometryCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
-            , (void ( ::osg::GeometryCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::GeometryCostEstimator::calibrate )
+            , (void ( ::osg::GeometryCostEstimator::* )( ::osg::RenderInfo & ) )( &::osg::GeometryCostEstimator::calibrate )
             , ( bp::arg("renderInfo") ) )    
         .def( 
             "estimateCompileCost"
-            , (::osg::CostPair ( ::osg::GeometryCostEstimator::* )( ::osg::Geometry const * )const)( &::osg::GeometryCostEstimator::estimateCompileCost )
+            , (::osg::CostPair ( ::osg::GeometryCostEstimator::* )( ::osg::Geometry const * ) const)( &::osg::GeometryCostEstimator::estimateCompileCost )
             , ( bp::arg("geometry") ) )    
         .def( 
             "estimateDrawCost"
-            , (::osg::CostPair ( ::osg::GeometryCostEstimator::* )( ::osg::Geometry const * )const)( &::osg::GeometryCostEstimator::estimateDrawCost )
+            , (::osg::CostPair ( ::osg::GeometryCostEstimator::* )( ::osg::Geometry const * ) const)( &::osg::GeometryCostEstimator::estimateDrawCost )
             , ( bp::arg("geometry") ) )    
         .def( 
             "setDefaults"
-            , (void ( ::osg::GeometryCostEstimator::* )(  ))( &::osg::GeometryCostEstimator::setDefaults ) )    
+            , (void ( ::osg::GeometryCostEstimator::* )(  ) )( &::osg::GeometryCostEstimator::setDefaults ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( GeometryCostEstimator_wrapper::* )( bool ))(&GeometryCostEstimator_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( GeometryCostEstimator_wrapper::* )( bool ) )(&GeometryCostEstimator_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

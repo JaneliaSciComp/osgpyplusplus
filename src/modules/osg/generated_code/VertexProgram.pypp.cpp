@@ -12,6 +12,13 @@ struct VertexProgram_wrapper : osg::VertexProgram, bp::wrapper< osg::VertexProgr
 
     struct Extensions_wrapper : osg::VertexProgram::Extensions, bp::wrapper< osg::VertexProgram::Extensions > {
     
+        Extensions_wrapper(unsigned int contextID )
+        : osg::VertexProgram::Extensions( contextID )
+          , bp::wrapper< osg::VertexProgram::Extensions >(){
+            // constructor
+        
+        }
+    
         static void lowestCommonDenominator( ::osg::VertexProgram::Extensions & inst, ::osg::VertexProgram::Extensions & rhs ){
             inst.lowestCommonDenominator(rhs);
         }
@@ -297,52 +304,119 @@ void register_VertexProgram_class(){
         typedef bp::class_< VertexProgram_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::VertexProgram >, boost::noncopyable > VertexProgram_exposer_t;
         VertexProgram_exposer_t VertexProgram_exposer = VertexProgram_exposer_t( "VertexProgram", "\n VertexProgram - encapsulates the OpenGL ARB vertex program state.\n", bp::no_init );
         bp::scope VertexProgram_scope( VertexProgram_exposer );
-        bp::class_< VertexProgram_wrapper::Extensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::VertexProgram::Extensions > >( "Extensions", "\n Extensions class which encapsulates the querying of extensions and\n associated function pointers, and provide convenience wrappers to\n check for the extensions or use the associated functions.\n", bp::no_init )    
-            .def( 
-                "glBindProgram"
-                , (void ( ::osg::VertexProgram::Extensions::* )( ::GLenum,::GLuint )const)( &::osg::VertexProgram::Extensions::glBindProgram )
-                , ( bp::arg("target"), bp::arg("id") ) )    
-            .def( 
-                "glDeletePrograms"
-                , (void ( ::osg::VertexProgram::Extensions::* )( ::GLsizei,::GLuint * )const)( &::osg::VertexProgram::Extensions::glDeletePrograms )
-                , ( bp::arg("n"), bp::arg("programs") ) )    
-            .def( 
-                "glGenPrograms"
-                , (void ( ::osg::VertexProgram::Extensions::* )( ::GLsizei,::GLuint * )const)( &::osg::VertexProgram::Extensions::glGenPrograms )
-                , ( bp::arg("n"), bp::arg("programs") ) )    
-            .def( 
-                "glProgramLocalParameter4fv"
-                , (void ( ::osg::VertexProgram::Extensions::* )( ::GLenum,::GLuint,::GLfloat const * )const)( &::osg::VertexProgram::Extensions::glProgramLocalParameter4fv )
-                , ( bp::arg("target"), bp::arg("index"), bp::arg("params") ) )    
-            .def( 
-                "glProgramString"
-                , (void ( ::osg::VertexProgram::Extensions::* )( ::GLenum,::GLenum,::GLsizei,void const * )const)( &::osg::VertexProgram::Extensions::glProgramString )
-                , ( bp::arg("target"), bp::arg("format"), bp::arg("len"), bp::arg("string") ) )    
-            .def( 
-                "isVertexProgramSupported"
-                , (bool ( ::osg::VertexProgram::Extensions::* )(  )const)( &::osg::VertexProgram::Extensions::isVertexProgramSupported ) )    
-            .def( 
-                "lowestCommonDenominator"
-                , (void (*)( ::osg::VertexProgram::Extensions &,::osg::VertexProgram::Extensions & ))( &VertexProgram_wrapper::Extensions_wrapper::lowestCommonDenominator )
-                , ( bp::arg("inst"), bp::arg("rhs") ) )    
-            .def( 
-                "setVertexProgramSupported"
-                , (void ( ::osg::VertexProgram::Extensions::* )( bool ))( &::osg::VertexProgram::Extensions::setVertexProgramSupported )
-                , ( bp::arg("flag") ) )    
-            .def( 
-                "setupGLExtensions"
-                , (void ( ::osg::VertexProgram::Extensions::* )( unsigned int ))( &::osg::VertexProgram::Extensions::setupGLExtensions )
-                , ( bp::arg("contextID") ) )    
-            .def( 
-                "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( VertexProgram_wrapper::Extensions_wrapper::* )( bool ))(&VertexProgram_wrapper::Extensions_wrapper::default_setThreadSafeRefUnref)
-                , ( bp::arg("threadSafe") ) );
+        { //::osg::VertexProgram::Extensions
+            typedef bp::class_< VertexProgram_wrapper::Extensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::VertexProgram::Extensions > > Extensions_exposer_t;
+            Extensions_exposer_t Extensions_exposer = Extensions_exposer_t( "Extensions", "\n Extensions class which encapsulates the querying of extensions and\n associated function pointers, and provide convenience wrappers to\n check for the extensions or use the associated functions.\n", bp::no_init );
+            bp::scope Extensions_scope( Extensions_exposer );
+            Extensions_exposer.def( bp::init< unsigned int >(( bp::arg("contextID") ), "\n Extensions class which encapsulates the querying of extensions and\n associated function pointers, and provide convenience wrappers to\n check for the extensions or use the associated functions.\n") );
+            bp::implicitly_convertible< unsigned int, osg::VertexProgram::Extensions >();
+            { //::osg::VertexProgram::Extensions::glBindProgram
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*glBindProgram_function_type )( ::GLenum,::GLuint ) const;
+                
+                Extensions_exposer.def( 
+                    "glBindProgram"
+                    , glBindProgram_function_type( &::osg::VertexProgram::Extensions::glBindProgram )
+                    , ( bp::arg("target"), bp::arg("id") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::glDeletePrograms
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*glDeletePrograms_function_type )( ::GLsizei,::GLuint * ) const;
+                
+                Extensions_exposer.def( 
+                    "glDeletePrograms"
+                    , glDeletePrograms_function_type( &::osg::VertexProgram::Extensions::glDeletePrograms )
+                    , ( bp::arg("n"), bp::arg("programs") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::glGenPrograms
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*glGenPrograms_function_type )( ::GLsizei,::GLuint * ) const;
+                
+                Extensions_exposer.def( 
+                    "glGenPrograms"
+                    , glGenPrograms_function_type( &::osg::VertexProgram::Extensions::glGenPrograms )
+                    , ( bp::arg("n"), bp::arg("programs") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::glProgramLocalParameter4fv
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*glProgramLocalParameter4fv_function_type )( ::GLenum,::GLuint,::GLfloat const * ) const;
+                
+                Extensions_exposer.def( 
+                    "glProgramLocalParameter4fv"
+                    , glProgramLocalParameter4fv_function_type( &::osg::VertexProgram::Extensions::glProgramLocalParameter4fv )
+                    , ( bp::arg("target"), bp::arg("index"), bp::arg("params") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::glProgramString
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*glProgramString_function_type )( ::GLenum,::GLenum,::GLsizei,void const * ) const;
+                
+                Extensions_exposer.def( 
+                    "glProgramString"
+                    , glProgramString_function_type( &::osg::VertexProgram::Extensions::glProgramString )
+                    , ( bp::arg("target"), bp::arg("format"), bp::arg("len"), bp::arg("string") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::isVertexProgramSupported
+            
+                typedef bool ( ::osg::VertexProgram::Extensions::*isVertexProgramSupported_function_type )(  ) const;
+                
+                Extensions_exposer.def( 
+                    "isVertexProgramSupported"
+                    , isVertexProgramSupported_function_type( &::osg::VertexProgram::Extensions::isVertexProgramSupported ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::lowestCommonDenominator
+            
+                typedef void ( *lowestCommonDenominator_function_type )( ::osg::VertexProgram::Extensions &,::osg::VertexProgram::Extensions & );
+                
+                Extensions_exposer.def( 
+                    "lowestCommonDenominator"
+                    , lowestCommonDenominator_function_type( &VertexProgram_wrapper::Extensions_wrapper::lowestCommonDenominator )
+                    , ( bp::arg("inst"), bp::arg("rhs") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::setVertexProgramSupported
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*setVertexProgramSupported_function_type )( bool ) ;
+                
+                Extensions_exposer.def( 
+                    "setVertexProgramSupported"
+                    , setVertexProgramSupported_function_type( &::osg::VertexProgram::Extensions::setVertexProgramSupported )
+                    , ( bp::arg("flag") ) );
+            
+            }
+            { //::osg::VertexProgram::Extensions::setupGLExtensions
+            
+                typedef void ( ::osg::VertexProgram::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
+                
+                Extensions_exposer.def( 
+                    "setupGLExtensions"
+                    , setupGLExtensions_function_type( &::osg::VertexProgram::Extensions::setupGLExtensions )
+                    , ( bp::arg("contextID") ) );
+            
+            }
+            { //::osg::Referenced::setThreadSafeRefUnref
+            
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( VertexProgram_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+                
+                Extensions_exposer.def( 
+                    "setThreadSafeRefUnref"
+                    , setThreadSafeRefUnref_function_type(&::osg::Referenced::setThreadSafeRefUnref)
+                    , default_setThreadSafeRefUnref_function_type(&VertexProgram_wrapper::Extensions_wrapper::default_setThreadSafeRefUnref)
+                    , ( bp::arg("threadSafe") ) );
+            
+            }
+        }
         VertexProgram_exposer.def( bp::init< >("\n VertexProgram - encapsulates the OpenGL ARB vertex program state.\n") );
         { //::osg::VertexProgram::apply
         
-            typedef void ( ::osg::VertexProgram::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( VertexProgram_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::VertexProgram::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( VertexProgram_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             VertexProgram_exposer.def( 
                 "apply"
@@ -353,8 +427,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::className
         
-            typedef char const * ( ::osg::VertexProgram::*className_function_type)(  ) const;
-            typedef char const * ( VertexProgram_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::VertexProgram::*className_function_type )(  ) const;
+            typedef char const * ( VertexProgram_wrapper::*default_className_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "className"
@@ -364,8 +438,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::clone
         
-            typedef ::osg::Object * ( ::osg::VertexProgram::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( VertexProgram_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::VertexProgram::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( VertexProgram_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             VertexProgram_exposer.def( 
                 "clone"
@@ -377,8 +451,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::cloneType
         
-            typedef ::osg::Object * ( ::osg::VertexProgram::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( VertexProgram_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::VertexProgram::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( VertexProgram_wrapper::*default_cloneType_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "cloneType"
@@ -389,8 +463,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::compileGLObjects
         
-            typedef void ( ::osg::VertexProgram::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( VertexProgram_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::VertexProgram::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( VertexProgram_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             VertexProgram_exposer.def( 
                 "compileGLObjects"
@@ -412,7 +486,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::dirtyVertexProgramObject
         
-            typedef void ( ::osg::VertexProgram::*dirtyVertexProgramObject_function_type)(  ) ;
+            typedef void ( ::osg::VertexProgram::*dirtyVertexProgramObject_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "dirtyVertexProgramObject"
@@ -456,7 +530,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getLocalParameters
         
-            typedef ::std::map< unsigned int, osg::Vec4f > & ( ::osg::VertexProgram::*getLocalParameters_function_type)(  ) ;
+            typedef ::std::map< unsigned int, osg::Vec4f > & ( ::osg::VertexProgram::*getLocalParameters_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "getLocalParameters"
@@ -467,7 +541,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getLocalParameters
         
-            typedef ::std::map< unsigned int, osg::Vec4f > const & ( ::osg::VertexProgram::*getLocalParameters_function_type)(  ) const;
+            typedef ::std::map< unsigned int, osg::Vec4f > const & ( ::osg::VertexProgram::*getLocalParameters_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getLocalParameters"
@@ -478,7 +552,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getMatrices
         
-            typedef ::std::map< unsigned int, osg::Matrixd > & ( ::osg::VertexProgram::*getMatrices_function_type)(  ) ;
+            typedef ::std::map< unsigned int, osg::Matrixd > & ( ::osg::VertexProgram::*getMatrices_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "getMatrices"
@@ -489,7 +563,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getMatrices
         
-            typedef ::std::map< unsigned int, osg::Matrixd > const & ( ::osg::VertexProgram::*getMatrices_function_type)(  ) const;
+            typedef ::std::map< unsigned int, osg::Matrixd > const & ( ::osg::VertexProgram::*getMatrices_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getMatrices"
@@ -500,8 +574,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getModeUsage
         
-            typedef bool ( ::osg::VertexProgram::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( VertexProgram_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::VertexProgram::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( VertexProgram_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             VertexProgram_exposer.def( 
                 "getModeUsage"
@@ -512,8 +586,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::VertexProgram::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( VertexProgram_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::VertexProgram::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( VertexProgram_wrapper::*default_getType_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getType"
@@ -523,7 +597,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getVertexProgram
         
-            typedef ::std::string const & ( ::osg::VertexProgram::*getVertexProgram_function_type)(  ) const;
+            typedef ::std::string const & ( ::osg::VertexProgram::*getVertexProgram_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getVertexProgram"
@@ -534,7 +608,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::getVertexProgramID
         
-            typedef ::GLuint & ( ::osg::VertexProgram::*getVertexProgramID_function_type)( unsigned int ) const;
+            typedef ::GLuint & ( ::osg::VertexProgram::*getVertexProgramID_function_type )( unsigned int ) const;
             
             VertexProgram_exposer.def( 
                 "getVertexProgramID"
@@ -546,8 +620,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::isSameKindAs
         
-            typedef bool ( ::osg::VertexProgram::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( VertexProgram_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::VertexProgram::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( VertexProgram_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             VertexProgram_exposer.def( 
                 "isSameKindAs"
@@ -558,8 +632,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::libraryName
         
-            typedef char const * ( ::osg::VertexProgram::*libraryName_function_type)(  ) const;
-            typedef char const * ( VertexProgram_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::VertexProgram::*libraryName_function_type )(  ) const;
+            typedef char const * ( VertexProgram_wrapper::*default_libraryName_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "libraryName"
@@ -569,8 +643,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::resizeGLObjectBuffers
         
-            typedef void ( ::osg::VertexProgram::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( VertexProgram_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::VertexProgram::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( VertexProgram_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             VertexProgram_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -592,7 +666,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setLocalParameters
         
-            typedef void ( ::osg::VertexProgram::*setLocalParameters_function_type)( ::std::map< unsigned int, osg::Vec4f > const & ) ;
+            typedef void ( ::osg::VertexProgram::*setLocalParameters_function_type )( ::std::map< unsigned int, osg::Vec4f > const & ) ;
             
             VertexProgram_exposer.def( 
                 "setLocalParameters"
@@ -603,7 +677,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setMatrices
         
-            typedef void ( ::osg::VertexProgram::*setMatrices_function_type)( ::std::map< unsigned int, osg::Matrixd > const & ) ;
+            typedef void ( ::osg::VertexProgram::*setMatrices_function_type )( ::std::map< unsigned int, osg::Matrixd > const & ) ;
             
             VertexProgram_exposer.def( 
                 "setMatrices"
@@ -614,7 +688,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setMatrix
         
-            typedef void ( ::osg::VertexProgram::*setMatrix_function_type)( ::GLenum const,::osg::Matrix const & ) ;
+            typedef void ( ::osg::VertexProgram::*setMatrix_function_type )( ::GLenum const,::osg::Matrix const & ) ;
             
             VertexProgram_exposer.def( 
                 "setMatrix"
@@ -625,7 +699,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setProgramLocalParameter
         
-            typedef void ( ::osg::VertexProgram::*setProgramLocalParameter_function_type)( ::GLuint const,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::VertexProgram::*setProgramLocalParameter_function_type )( ::GLuint const,::osg::Vec4 const & ) ;
             
             VertexProgram_exposer.def( 
                 "setProgramLocalParameter"
@@ -636,7 +710,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setVertexProgram
         
-            typedef void ( ::osg::VertexProgram::*setVertexProgram_function_type)( char const * ) ;
+            typedef void ( ::osg::VertexProgram::*setVertexProgram_function_type )( char const * ) ;
             
             VertexProgram_exposer.def( 
                 "setVertexProgram"
@@ -647,7 +721,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::VertexProgram::setVertexProgram
         
-            typedef void ( ::osg::VertexProgram::*setVertexProgram_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::VertexProgram::*setVertexProgram_function_type )( ::std::string const & ) ;
             
             VertexProgram_exposer.def( 
                 "setVertexProgram"
@@ -658,8 +732,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( VertexProgram_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( VertexProgram_wrapper::*default_asTexture_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "asTexture"
@@ -670,8 +744,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( VertexProgram_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( VertexProgram_wrapper::*default_asTexture_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "asTexture"
@@ -682,8 +756,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( VertexProgram_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( VertexProgram_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             VertexProgram_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -694,8 +768,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( VertexProgram_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( VertexProgram_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "computeDataVariance"
@@ -705,8 +779,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( VertexProgram_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( VertexProgram_wrapper::*default_getMember_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getMember"
@@ -716,8 +790,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( VertexProgram_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( VertexProgram_wrapper::*default_getUserData_function_type )(  ) ;
             
             VertexProgram_exposer.def( 
                 "getUserData"
@@ -728,8 +802,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( VertexProgram_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( VertexProgram_wrapper::*default_getUserData_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "getUserData"
@@ -740,8 +814,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( VertexProgram_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( VertexProgram_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             VertexProgram_exposer.def( 
                 "isTextureAttribute"
@@ -751,8 +825,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( VertexProgram_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( VertexProgram_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             VertexProgram_exposer.def( 
                 "setName"
@@ -763,7 +837,7 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             VertexProgram_exposer.def( 
                 "setName"
@@ -774,8 +848,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( VertexProgram_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( VertexProgram_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             VertexProgram_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -786,8 +860,8 @@ void register_VertexProgram_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( VertexProgram_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( VertexProgram_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             VertexProgram_exposer.def( 
                 "setUserData"

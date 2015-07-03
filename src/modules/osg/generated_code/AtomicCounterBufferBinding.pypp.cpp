@@ -59,18 +59,6 @@ struct AtomicCounterBufferBinding_wrapper : osg::AtomicCounterBufferBinding, bp:
         return osg::AtomicCounterBufferBinding::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & bb ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(bb) );
-        else{
-            return this->osg::AtomicCounterBufferBinding::compare( boost::ref(bb) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & bb ) const  {
-        return osg::AtomicCounterBufferBinding::compare( boost::ref(bb) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -105,18 +93,6 @@ struct AtomicCounterBufferBinding_wrapper : osg::AtomicCounterBufferBinding, bp:
     
     char const * default_libraryName(  ) const  {
         return osg::AtomicCounterBufferBinding::libraryName( );
-    }
-
-    virtual void apply( ::osg::State & state ) const  {
-        if( bp::override func_apply = this->get_override( "apply" ) )
-            func_apply( boost::ref(state) );
-        else{
-            this->osg::BufferIndexBinding::apply( boost::ref(state) );
-        }
-    }
-    
-    void default_apply( ::osg::State & state ) const  {
-        osg::BufferIndexBinding::apply( boost::ref(state) );
     }
 
     virtual ::osg::Texture * asTexture(  ) {
@@ -177,18 +153,6 @@ struct AtomicCounterBufferBinding_wrapper : osg::AtomicCounterBufferBinding, bp:
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
-    }
-
-    virtual unsigned int getMember(  ) const  {
-        if( bp::override func_getMember = this->get_override( "getMember" ) )
-            return func_getMember(  );
-        else{
-            return this->osg::BufferIndexBinding::getMember(  );
-        }
-    }
-    
-    unsigned int default_getMember(  ) const  {
-        return osg::BufferIndexBinding::getMember( );
     }
 
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
@@ -292,15 +256,15 @@ struct AtomicCounterBufferBinding_wrapper : osg::AtomicCounterBufferBinding, bp:
 void register_AtomicCounterBufferBinding_class(){
 
     { //::osg::AtomicCounterBufferBinding
-        typedef bp::class_< AtomicCounterBufferBinding_wrapper, bp::bases< osg::BufferIndexBinding >, osg::ref_ptr< ::osg::AtomicCounterBufferBinding >, boost::noncopyable > AtomicCounterBufferBinding_exposer_t;
+        typedef bp::class_< AtomicCounterBufferBinding_wrapper, osg::ref_ptr< ::osg::AtomicCounterBufferBinding >, boost::noncopyable > AtomicCounterBufferBinding_exposer_t;
         AtomicCounterBufferBinding_exposer_t AtomicCounterBufferBinding_exposer = AtomicCounterBufferBinding_exposer_t( "AtomicCounterBufferBinding", "\n StateAttribute for binding a atomic counter buffer index target.\n", bp::init< bp::optional< GLuint > >(( bp::arg("index")=(::GLuint)(0) ), "\n StateAttribute for binding a atomic counter buffer index target.\n") );
         bp::scope AtomicCounterBufferBinding_scope( AtomicCounterBufferBinding_exposer );
         bp::implicitly_convertible< GLuint, osg::AtomicCounterBufferBinding >();
         AtomicCounterBufferBinding_exposer.def( bp::init< GLuint, osg::BufferObject *, GLintptr, GLsizeiptr >(( bp::arg("index"), bp::arg("bo"), bp::arg("offset"), bp::arg("size") ), "\n Create a binding for a atomic counter buffer index target.\n  @param index: the index target\n  @param bo: associated buffer object\n  @param offset: offset into buffer object\n  @param size: size of data in buffer object\n") );
         { //::osg::AtomicCounterBufferBinding::className
         
-            typedef char const * ( ::osg::AtomicCounterBufferBinding::*className_function_type)(  ) const;
-            typedef char const * ( AtomicCounterBufferBinding_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::AtomicCounterBufferBinding::*className_function_type )(  ) const;
+            typedef char const * ( AtomicCounterBufferBinding_wrapper::*default_className_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "className"
@@ -310,8 +274,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::AtomicCounterBufferBinding::clone
         
-            typedef ::osg::Object * ( ::osg::AtomicCounterBufferBinding::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( AtomicCounterBufferBinding_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::AtomicCounterBufferBinding::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( AtomicCounterBufferBinding_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "clone"
@@ -323,8 +287,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::AtomicCounterBufferBinding::cloneType
         
-            typedef ::osg::Object * ( ::osg::AtomicCounterBufferBinding::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( AtomicCounterBufferBinding_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::AtomicCounterBufferBinding::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( AtomicCounterBufferBinding_wrapper::*default_cloneType_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "cloneType"
@@ -333,22 +297,10 @@ void register_AtomicCounterBufferBinding_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::AtomicCounterBufferBinding::compare
-        
-            typedef int ( ::osg::AtomicCounterBufferBinding::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( AtomicCounterBufferBinding_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            AtomicCounterBufferBinding_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::AtomicCounterBufferBinding::compare)
-                , default_compare_function_type(&AtomicCounterBufferBinding_wrapper::default_compare)
-                , ( bp::arg("bb") ) );
-        
-        }
         { //::osg::AtomicCounterBufferBinding::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::AtomicCounterBufferBinding::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( AtomicCounterBufferBinding_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::AtomicCounterBufferBinding::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( AtomicCounterBufferBinding_wrapper::*default_getType_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "getType"
@@ -358,8 +310,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::AtomicCounterBufferBinding::isSameKindAs
         
-            typedef bool ( ::osg::AtomicCounterBufferBinding::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::AtomicCounterBufferBinding::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "isSameKindAs"
@@ -370,8 +322,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::AtomicCounterBufferBinding::libraryName
         
-            typedef char const * ( ::osg::AtomicCounterBufferBinding::*libraryName_function_type)(  ) const;
-            typedef char const * ( AtomicCounterBufferBinding_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::AtomicCounterBufferBinding::*libraryName_function_type )(  ) const;
+            typedef char const * ( AtomicCounterBufferBinding_wrapper::*default_libraryName_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "libraryName"
@@ -381,7 +333,7 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::AtomicCounterBufferBinding::readData
         
-            typedef void ( ::osg::AtomicCounterBufferBinding::*readData_function_type)( ::osg::State &,::osg::UIntArray & ) const;
+            typedef void ( ::osg::AtomicCounterBufferBinding::*readData_function_type )( ::osg::State &,::osg::UIntArray & ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "readData"
@@ -389,22 +341,10 @@ void register_AtomicCounterBufferBinding_class(){
                 , ( bp::arg("state"), bp::arg("uintArray") ) );
         
         }
-        { //::osg::BufferIndexBinding::apply
-        
-            typedef void ( ::osg::BufferIndexBinding::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_apply_function_type)( ::osg::State & ) const;
-            
-            AtomicCounterBufferBinding_exposer.def( 
-                "apply"
-                , apply_function_type(&::osg::BufferIndexBinding::apply)
-                , default_apply_function_type(&AtomicCounterBufferBinding_wrapper::default_apply)
-                , ( bp::arg("state") ) );
-        
-        }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( AtomicCounterBufferBinding_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( AtomicCounterBufferBinding_wrapper::*default_asTexture_function_type )(  ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "asTexture"
@@ -415,8 +355,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( AtomicCounterBufferBinding_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( AtomicCounterBufferBinding_wrapper::*default_asTexture_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "asTexture"
@@ -427,8 +367,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -439,8 +379,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "compileGLObjects"
@@ -451,8 +391,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "computeDataVariance"
@@ -460,21 +400,10 @@ void register_AtomicCounterBufferBinding_class(){
                 , default_computeDataVariance_function_type(&AtomicCounterBufferBinding_wrapper::default_computeDataVariance) );
         
         }
-        { //::osg::BufferIndexBinding::getMember
-        
-            typedef unsigned int ( ::osg::BufferIndexBinding::*getMember_function_type)(  ) const;
-            typedef unsigned int ( AtomicCounterBufferBinding_wrapper::*default_getMember_function_type)(  ) const;
-            
-            AtomicCounterBufferBinding_exposer.def( 
-                "getMember"
-                , getMember_function_type(&::osg::BufferIndexBinding::getMember)
-                , default_getMember_function_type(&AtomicCounterBufferBinding_wrapper::default_getMember) );
-        
-        }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "getModeUsage"
@@ -485,8 +414,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( AtomicCounterBufferBinding_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( AtomicCounterBufferBinding_wrapper::*default_getUserData_function_type )(  ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "getUserData"
@@ -497,8 +426,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( AtomicCounterBufferBinding_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( AtomicCounterBufferBinding_wrapper::*default_getUserData_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "getUserData"
@@ -509,8 +438,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( AtomicCounterBufferBinding_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "isTextureAttribute"
@@ -520,8 +449,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -532,8 +461,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "setName"
@@ -544,7 +473,7 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "setName"
@@ -555,8 +484,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -567,8 +496,8 @@ void register_AtomicCounterBufferBinding_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( AtomicCounterBufferBinding_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             AtomicCounterBufferBinding_exposer.def( 
                 "setUserData"

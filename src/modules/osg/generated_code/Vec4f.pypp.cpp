@@ -17,7 +17,7 @@ void register_Vec4f_class(){
         Vec4f_exposer.def( bp::init< osg::Vec3f const &, float >(( bp::arg("v3"), bp::arg("w") )) );
         { //::osg::Vec4f::asABGR
         
-            typedef unsigned int ( ::osg::Vec4f::*asABGR_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4f::*asABGR_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "asABGR"
@@ -26,7 +26,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::asRGBA
         
-            typedef unsigned int ( ::osg::Vec4f::*asRGBA_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4f::*asRGBA_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "asRGBA"
@@ -35,7 +35,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::isNaN
         
-            typedef bool ( ::osg::Vec4f::*isNaN_function_type)(  ) const;
+            typedef bool ( ::osg::Vec4f::*isNaN_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "isNaN"
@@ -45,7 +45,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::length
         
-            typedef float ( ::osg::Vec4f::*length_function_type)(  ) const;
+            typedef float ( ::osg::Vec4f::*length_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "length"
@@ -55,7 +55,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::length2
         
-            typedef float ( ::osg::Vec4f::*length2_function_type)(  ) const;
+            typedef float ( ::osg::Vec4f::*length2_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "length2"
@@ -65,7 +65,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::normalize
         
-            typedef float ( ::osg::Vec4f::*normalize_function_type)(  ) ;
+            typedef float ( ::osg::Vec4f::*normalize_function_type )(  ) ;
             
             Vec4f_exposer.def( 
                 "normalize"
@@ -88,7 +88,7 @@ void register_Vec4f_class(){
         Vec4f_exposer.def( bp::self == bp::self );
         { //::osg::Vec4f::operator[]
         
-            typedef float & ( ::osg::Vec4f::*__getitem___function_type)( unsigned int ) ;
+            typedef float & ( ::osg::Vec4f::*__getitem___function_type )( unsigned int ) ;
             
             Vec4f_exposer.def( 
                 "__getitem__"
@@ -99,7 +99,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::operator[]
         
-            typedef float ( ::osg::Vec4f::*__getitem___function_type)( unsigned int ) const;
+            typedef float ( ::osg::Vec4f::*__getitem___function_type )( unsigned int ) const;
             
             Vec4f_exposer.def( 
                 "__getitem__"
@@ -109,7 +109,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::set
         
-            typedef void ( ::osg::Vec4f::*set_function_type)( float,float,float,float ) ;
+            typedef void ( ::osg::Vec4f::*set_function_type )( float,float,float,float ) ;
             
             Vec4f_exposer.def( 
                 "set"
@@ -119,7 +119,7 @@ void register_Vec4f_class(){
         }
         { //::osg::Vec4f::valid
         
-            typedef bool ( ::osg::Vec4f::*valid_function_type)(  ) const;
+            typedef bool ( ::osg::Vec4f::*valid_function_type )(  ) const;
             
             Vec4f_exposer.def( 
                 "valid"
@@ -129,7 +129,7 @@ void register_Vec4f_class(){
         }
         { //property "x"[fget=::osg::Vec4f::x]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "x"
@@ -140,7 +140,7 @@ void register_Vec4f_class(){
         }
         { //property "x"[fget=::osg::Vec4f::x]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "x"
@@ -149,7 +149,7 @@ void register_Vec4f_class(){
         }
         { //property "y"[fget=::osg::Vec4f::y]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "y"
@@ -160,7 +160,7 @@ void register_Vec4f_class(){
         }
         { //property "y"[fget=::osg::Vec4f::y]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "y"
@@ -169,7 +169,7 @@ void register_Vec4f_class(){
         }
         { //property "z"[fget=::osg::Vec4f::z]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "z"
@@ -180,7 +180,7 @@ void register_Vec4f_class(){
         }
         { //property "z"[fget=::osg::Vec4f::z]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "z"
@@ -189,7 +189,7 @@ void register_Vec4f_class(){
         }
         { //property "w"[fget=::osg::Vec4f::w]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "w"
@@ -200,7 +200,7 @@ void register_Vec4f_class(){
         }
         { //property "w"[fget=::osg::Vec4f::w]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "w"
@@ -209,7 +209,7 @@ void register_Vec4f_class(){
         }
         { //property "r"[fget=::osg::Vec4f::r]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "r"
@@ -220,7 +220,7 @@ void register_Vec4f_class(){
         }
         { //property "r"[fget=::osg::Vec4f::r]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "r"
@@ -229,7 +229,7 @@ void register_Vec4f_class(){
         }
         { //property "g"[fget=::osg::Vec4f::g]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "g"
@@ -240,7 +240,7 @@ void register_Vec4f_class(){
         }
         { //property "g"[fget=::osg::Vec4f::g]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "g"
@@ -249,7 +249,7 @@ void register_Vec4f_class(){
         }
         { //property "b"[fget=::osg::Vec4f::b]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "b"
@@ -260,7 +260,7 @@ void register_Vec4f_class(){
         }
         { //property "b"[fget=::osg::Vec4f::b]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "b"
@@ -269,7 +269,7 @@ void register_Vec4f_class(){
         }
         { //property "a"[fget=::osg::Vec4f::a]
         
-            typedef float & ( ::osg::Vec4f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec4f::*fget )(  ) ;
             
             Vec4f_exposer.add_property( 
                 "a"
@@ -280,7 +280,7 @@ void register_Vec4f_class(){
         }
         { //property "a"[fget=::osg::Vec4f::a]
         
-            typedef float ( ::osg::Vec4f::*fget)(  ) const;
+            typedef float ( ::osg::Vec4f::*fget )(  ) const;
             
             Vec4f_exposer.add_property( 
                 "a"

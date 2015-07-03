@@ -411,8 +411,8 @@ void register_GLObjectsVisitor_class(){
         bp::implicitly_convertible< unsigned int, osgUtil::GLObjectsVisitor >();
         { //::osgUtil::GLObjectsVisitor::apply
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type)( ::osg::Node & ) ;
-            typedef void ( GLObjectsVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type )( ::osg::Node & ) ;
+            typedef void ( GLObjectsVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "apply"
@@ -423,8 +423,8 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::apply
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type)( ::osg::Geode & ) ;
-            typedef void ( GLObjectsVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( GLObjectsVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "apply"
@@ -435,7 +435,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::apply
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type)( ::osg::Drawable & ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type )( ::osg::Drawable & ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "apply"
@@ -445,7 +445,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::apply
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type)( ::osg::StateSet & ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*apply_function_type )( ::osg::StateSet & ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "apply"
@@ -455,8 +455,8 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::className
         
-            typedef char const * ( ::osgUtil::GLObjectsVisitor::*className_function_type)(  ) const;
-            typedef char const * ( GLObjectsVisitor_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgUtil::GLObjectsVisitor::*className_function_type )(  ) const;
+            typedef char const * ( GLObjectsVisitor_wrapper::*default_className_function_type )(  ) const;
             
             GLObjectsVisitor_exposer.def( 
                 "className"
@@ -466,7 +466,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::getMode
         
-            typedef unsigned int ( ::osgUtil::GLObjectsVisitor::*getMode_function_type)(  ) const;
+            typedef unsigned int ( ::osgUtil::GLObjectsVisitor::*getMode_function_type )(  ) const;
             
             GLObjectsVisitor_exposer.def( 
                 "getMode"
@@ -475,7 +475,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::getRenderInfo
         
-            typedef ::osg::RenderInfo & ( ::osgUtil::GLObjectsVisitor::*getRenderInfo_function_type)(  ) ;
+            typedef ::osg::RenderInfo & ( ::osgUtil::GLObjectsVisitor::*getRenderInfo_function_type )(  ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "getRenderInfo"
@@ -485,7 +485,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::getState
         
-            typedef ::osg::State * ( ::osgUtil::GLObjectsVisitor::*getState_function_type)(  ) ;
+            typedef ::osg::State * ( ::osgUtil::GLObjectsVisitor::*getState_function_type )(  ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "getState"
@@ -495,8 +495,8 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::libraryName
         
-            typedef char const * ( ::osgUtil::GLObjectsVisitor::*libraryName_function_type)(  ) const;
-            typedef char const * ( GLObjectsVisitor_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgUtil::GLObjectsVisitor::*libraryName_function_type )(  ) const;
+            typedef char const * ( GLObjectsVisitor_wrapper::*default_libraryName_function_type )(  ) const;
             
             GLObjectsVisitor_exposer.def( 
                 "libraryName"
@@ -506,8 +506,8 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::reset
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*reset_function_type)(  ) ;
-            typedef void ( GLObjectsVisitor_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*reset_function_type )(  ) ;
+            typedef void ( GLObjectsVisitor_wrapper::*default_reset_function_type )(  ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "reset"
@@ -517,7 +517,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::setMode
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*setMode_function_type)( unsigned int ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*setMode_function_type )( unsigned int ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "setMode"
@@ -527,7 +527,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::setRenderInfo
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*setRenderInfo_function_type)( ::osg::RenderInfo & ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*setRenderInfo_function_type )( ::osg::RenderInfo & ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "setRenderInfo"
@@ -537,7 +537,7 @@ void register_GLObjectsVisitor_class(){
         }
         { //::osgUtil::GLObjectsVisitor::setState
         
-            typedef void ( ::osgUtil::GLObjectsVisitor::*setState_function_type)( ::osg::State * ) ;
+            typedef void ( ::osgUtil::GLObjectsVisitor::*setState_function_type )( ::osg::State * ) ;
             
             GLObjectsVisitor_exposer.def( 
                 "setState"

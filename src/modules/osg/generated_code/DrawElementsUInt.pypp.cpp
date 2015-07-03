@@ -440,8 +440,8 @@ void register_DrawElementsUInt_class(){
         DrawElementsUInt_exposer.def( bp::init< GLenum, unsigned int >(( bp::arg("mode"), bp::arg("no") ), "\n @param no: Number of intended elements. This will be the size of the underlying vector.\n") );
         { //::osg::DrawElementsUInt::accept
         
-            typedef void ( ::osg::DrawElementsUInt::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( DrawElementsUInt_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osg::DrawElementsUInt::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( DrawElementsUInt_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
             
             DrawElementsUInt_exposer.def( 
                 "accept"
@@ -452,8 +452,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::accept
         
-            typedef void ( ::osg::DrawElementsUInt::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
-            typedef void ( DrawElementsUInt_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( ::osg::DrawElementsUInt::*accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( DrawElementsUInt_wrapper::*default_accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
             
             DrawElementsUInt_exposer.def( 
                 "accept"
@@ -464,8 +464,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::addElement
         
-            typedef void ( ::osg::DrawElementsUInt::*addElement_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_addElement_function_type)( unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUInt::*addElement_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_addElement_function_type )( unsigned int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "addElement"
@@ -476,8 +476,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::className
         
-            typedef char const * ( ::osg::DrawElementsUInt::*className_function_type)(  ) const;
-            typedef char const * ( DrawElementsUInt_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::DrawElementsUInt::*className_function_type )(  ) const;
+            typedef char const * ( DrawElementsUInt_wrapper::*default_className_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "className"
@@ -487,8 +487,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::clone
         
-            typedef ::osg::Object * ( ::osg::DrawElementsUInt::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( DrawElementsUInt_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::DrawElementsUInt::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( DrawElementsUInt_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             DrawElementsUInt_exposer.def( 
                 "clone"
@@ -500,8 +500,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::cloneType
         
-            typedef ::osg::Object * ( ::osg::DrawElementsUInt::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( DrawElementsUInt_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::DrawElementsUInt::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( DrawElementsUInt_wrapper::*default_cloneType_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "cloneType"
@@ -512,8 +512,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::draw
         
-            typedef void ( ::osg::DrawElementsUInt::*draw_function_type)( ::osg::State &,bool ) const;
-            typedef void ( DrawElementsUInt_wrapper::*default_draw_function_type)( ::osg::State &,bool ) const;
+            typedef void ( ::osg::DrawElementsUInt::*draw_function_type )( ::osg::State &,bool ) const;
+            typedef void ( DrawElementsUInt_wrapper::*default_draw_function_type )( ::osg::State &,bool ) const;
             
             DrawElementsUInt_exposer.def( 
                 "draw"
@@ -524,8 +524,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::DrawElementsUInt::*getDataPointer_function_type)(  ) const;
-            typedef ::GLvoid const * ( DrawElementsUInt_wrapper::*default_getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( ::osg::DrawElementsUInt::*getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( DrawElementsUInt_wrapper::*default_getDataPointer_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getDataPointer"
@@ -536,8 +536,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::getElement
         
-            typedef unsigned int ( ::osg::DrawElementsUInt::*getElement_function_type)( unsigned int ) ;
-            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getElement_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::osg::DrawElementsUInt::*getElement_function_type )( unsigned int ) ;
+            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getElement_function_type )( unsigned int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "getElement"
@@ -548,8 +548,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::getNumIndices
         
-            typedef unsigned int ( ::osg::DrawElementsUInt::*getNumIndices_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getNumIndices_function_type)(  ) const;
+            typedef unsigned int ( ::osg::DrawElementsUInt::*getNumIndices_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getNumIndices_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getNumIndices"
@@ -559,8 +559,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::getTotalDataSize
         
-            typedef unsigned int ( ::osg::DrawElementsUInt::*getTotalDataSize_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( ::osg::DrawElementsUInt::*getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getTotalDataSize_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getTotalDataSize"
@@ -570,8 +570,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::index
         
-            typedef unsigned int ( ::osg::DrawElementsUInt::*index_function_type)( unsigned int ) const;
-            typedef unsigned int ( DrawElementsUInt_wrapper::*default_index_function_type)( unsigned int ) const;
+            typedef unsigned int ( ::osg::DrawElementsUInt::*index_function_type )( unsigned int ) const;
+            typedef unsigned int ( DrawElementsUInt_wrapper::*default_index_function_type )( unsigned int ) const;
             
             DrawElementsUInt_exposer.def( 
                 "index"
@@ -582,8 +582,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::isSameKindAs
         
-            typedef bool ( ::osg::DrawElementsUInt::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( DrawElementsUInt_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::DrawElementsUInt::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( DrawElementsUInt_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             DrawElementsUInt_exposer.def( 
                 "isSameKindAs"
@@ -594,8 +594,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::libraryName
         
-            typedef char const * ( ::osg::DrawElementsUInt::*libraryName_function_type)(  ) const;
-            typedef char const * ( DrawElementsUInt_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::DrawElementsUInt::*libraryName_function_type )(  ) const;
+            typedef char const * ( DrawElementsUInt_wrapper::*default_libraryName_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "libraryName"
@@ -605,8 +605,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::offsetIndices
         
-            typedef void ( ::osg::DrawElementsUInt::*offsetIndices_function_type)( int ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_offsetIndices_function_type)( int ) ;
+            typedef void ( ::osg::DrawElementsUInt::*offsetIndices_function_type )( int ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_offsetIndices_function_type )( int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "offsetIndices"
@@ -617,8 +617,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::reserveElements
         
-            typedef void ( ::osg::DrawElementsUInt::*reserveElements_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_reserveElements_function_type)( unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUInt::*reserveElements_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_reserveElements_function_type )( unsigned int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "reserveElements"
@@ -629,8 +629,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::setElement
         
-            typedef void ( ::osg::DrawElementsUInt::*setElement_function_type)( unsigned int,unsigned int ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_setElement_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::DrawElementsUInt::*setElement_function_type )( unsigned int,unsigned int ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_setElement_function_type )( unsigned int,unsigned int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "setElement"
@@ -641,8 +641,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElementsUInt::supportsBufferObject
         
-            typedef bool ( ::osg::DrawElementsUInt::*supportsBufferObject_function_type)(  ) const;
-            typedef bool ( DrawElementsUInt_wrapper::*default_supportsBufferObject_function_type)(  ) const;
+            typedef bool ( ::osg::DrawElementsUInt::*supportsBufferObject_function_type )(  ) const;
+            typedef bool ( DrawElementsUInt_wrapper::*default_supportsBufferObject_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "supportsBufferObject"
@@ -652,8 +652,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
-            typedef ::osg::Array * ( DrawElementsUInt_wrapper::*default_asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( DrawElementsUInt_wrapper::*default_asArray_function_type )(  ) ;
             
             DrawElementsUInt_exposer.def( 
                 "asArray"
@@ -664,8 +664,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
-            typedef ::osg::Array const * ( DrawElementsUInt_wrapper::*default_asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( DrawElementsUInt_wrapper::*default_asArray_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "asArray"
@@ -676,8 +676,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) ;
-            typedef ::osg::PrimitiveSet * ( DrawElementsUInt_wrapper::*default_asPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) ;
+            typedef ::osg::PrimitiveSet * ( DrawElementsUInt_wrapper::*default_asPrimitiveSet_function_type )(  ) ;
             
             DrawElementsUInt_exposer.def( 
                 "asPrimitiveSet"
@@ -688,8 +688,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) const;
-            typedef ::osg::PrimitiveSet const * ( DrawElementsUInt_wrapper::*default_asPrimitiveSet_function_type)(  ) const;
+            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) const;
+            typedef ::osg::PrimitiveSet const * ( DrawElementsUInt_wrapper::*default_asPrimitiveSet_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "asPrimitiveSet"
@@ -700,8 +700,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             DrawElementsUInt_exposer.def( 
                 "computeDataVariance"
@@ -711,8 +711,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::PrimitiveSet::computeRange
         
-            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type)(  ) const;
-            typedef void ( DrawElementsUInt_wrapper::*default_computeRange_function_type)(  ) const;
+            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type )(  ) const;
+            typedef void ( DrawElementsUInt_wrapper::*default_computeRange_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "computeRange"
@@ -722,8 +722,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElements::getDrawElements
         
-            typedef ::osg::DrawElements * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) ;
-            typedef ::osg::DrawElements * ( DrawElementsUInt_wrapper::*default_getDrawElements_function_type)(  ) ;
+            typedef ::osg::DrawElements * ( ::osg::DrawElements::*getDrawElements_function_type )(  ) ;
+            typedef ::osg::DrawElements * ( DrawElementsUInt_wrapper::*default_getDrawElements_function_type )(  ) ;
             
             DrawElementsUInt_exposer.def( 
                 "getDrawElements"
@@ -734,8 +734,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::DrawElements::getDrawElements
         
-            typedef ::osg::DrawElements const * ( ::osg::DrawElements::*getDrawElements_function_type)(  ) const;
-            typedef ::osg::DrawElements const * ( DrawElementsUInt_wrapper::*default_getDrawElements_function_type)(  ) const;
+            typedef ::osg::DrawElements const * ( ::osg::DrawElements::*getDrawElements_function_type )(  ) const;
+            typedef ::osg::DrawElements const * ( DrawElementsUInt_wrapper::*default_getDrawElements_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getDrawElements"
@@ -746,8 +746,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::PrimitiveSet::getNumPrimitives
         
-            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type)(  ) const;
-            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getNumPrimitives_function_type)(  ) const;
+            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type )(  ) const;
+            typedef unsigned int ( DrawElementsUInt_wrapper::*default_getNumPrimitives_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getNumPrimitives"
@@ -757,8 +757,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( DrawElementsUInt_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( DrawElementsUInt_wrapper::*default_getUserData_function_type )(  ) ;
             
             DrawElementsUInt_exposer.def( 
                 "getUserData"
@@ -769,8 +769,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( DrawElementsUInt_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( DrawElementsUInt_wrapper::*default_getUserData_function_type )(  ) const;
             
             DrawElementsUInt_exposer.def( 
                 "getUserData"
@@ -781,8 +781,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             DrawElementsUInt_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -793,8 +793,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             DrawElementsUInt_exposer.def( 
                 "setName"
@@ -805,7 +805,7 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             DrawElementsUInt_exposer.def( 
                 "setName"
@@ -816,8 +816,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             DrawElementsUInt_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -828,8 +828,8 @@ void register_DrawElementsUInt_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( DrawElementsUInt_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( DrawElementsUInt_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             DrawElementsUInt_exposer.def( 
                 "setUserData"

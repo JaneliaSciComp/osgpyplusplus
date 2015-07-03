@@ -48,6 +48,10 @@ class OsgUtilWrapper(BaseWrapper):
         self.mb.class_("Optimizer").variables("_billboards").exclude()
         self.mb.class_("StateGraph").variables("_children").exclude()
 
+        for cls_name in ["IntersectorGroup", "Intersector"]:
+            cls = self.mb.class_(cls_name)
+            hack_osg_arg(cls, "enter", "node")
+
         self.mb.build_code_creator(module_name='_osgUtil')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script

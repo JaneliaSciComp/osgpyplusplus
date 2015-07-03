@@ -35,23 +35,23 @@ void register_TextureCostEstimator_class(){
     bp::class_< TextureCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureCostEstimator >, boost::noncopyable >( "TextureCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
-            , (void ( ::osg::TextureCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::TextureCostEstimator::calibrate )
+            , (void ( ::osg::TextureCostEstimator::* )( ::osg::RenderInfo & ) )( &::osg::TextureCostEstimator::calibrate )
             , ( bp::arg("renderInfo") ) )    
         .def( 
             "estimateCompileCost"
-            , (::osg::CostPair ( ::osg::TextureCostEstimator::* )( ::osg::Texture const * )const)( &::osg::TextureCostEstimator::estimateCompileCost )
+            , (::osg::CostPair ( ::osg::TextureCostEstimator::* )( ::osg::Texture const * ) const)( &::osg::TextureCostEstimator::estimateCompileCost )
             , ( bp::arg("texture") ) )    
         .def( 
             "estimateDrawCost"
-            , (::osg::CostPair ( ::osg::TextureCostEstimator::* )( ::osg::Texture const * )const)( &::osg::TextureCostEstimator::estimateDrawCost )
+            , (::osg::CostPair ( ::osg::TextureCostEstimator::* )( ::osg::Texture const * ) const)( &::osg::TextureCostEstimator::estimateDrawCost )
             , ( bp::arg("texture") ) )    
         .def( 
             "setDefaults"
-            , (void ( ::osg::TextureCostEstimator::* )(  ))( &::osg::TextureCostEstimator::setDefaults ) )    
+            , (void ( ::osg::TextureCostEstimator::* )(  ) )( &::osg::TextureCostEstimator::setDefaults ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( TextureCostEstimator_wrapper::* )( bool ))(&TextureCostEstimator_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( TextureCostEstimator_wrapper::* )( bool ) )(&TextureCostEstimator_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

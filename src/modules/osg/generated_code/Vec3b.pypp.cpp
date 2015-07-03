@@ -27,7 +27,7 @@ void register_Vec3b_class(){
         Vec3b_exposer.def( bp::self == bp::self );
         { //::osg::Vec3b::operator[]
         
-            typedef signed char & ( ::osg::Vec3b::*__getitem___function_type)( unsigned int ) ;
+            typedef signed char & ( ::osg::Vec3b::*__getitem___function_type )( unsigned int ) ;
             
             Vec3b_exposer.def( 
                 "__getitem__"
@@ -38,7 +38,7 @@ void register_Vec3b_class(){
         }
         { //::osg::Vec3b::operator[]
         
-            typedef signed char ( ::osg::Vec3b::*__getitem___function_type)( unsigned int ) const;
+            typedef signed char ( ::osg::Vec3b::*__getitem___function_type )( unsigned int ) const;
             
             Vec3b_exposer.def( 
                 "__getitem__"
@@ -48,7 +48,7 @@ void register_Vec3b_class(){
         }
         { //::osg::Vec3b::set
         
-            typedef void ( ::osg::Vec3b::*set_function_type)( signed char,signed char,signed char ) ;
+            typedef void ( ::osg::Vec3b::*set_function_type )( signed char,signed char,signed char ) ;
             
             Vec3b_exposer.def( 
                 "set"
@@ -58,7 +58,7 @@ void register_Vec3b_class(){
         }
         { //::osg::Vec3b::set
         
-            typedef void ( ::osg::Vec3b::*set_function_type)( ::osg::Vec3b const & ) ;
+            typedef void ( ::osg::Vec3b::*set_function_type )( ::osg::Vec3b const & ) ;
             
             Vec3b_exposer.def( 
                 "set"
@@ -68,7 +68,7 @@ void register_Vec3b_class(){
         }
         { //property "x"[fget=::osg::Vec3b::x]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "x"
@@ -79,7 +79,7 @@ void register_Vec3b_class(){
         }
         { //property "x"[fget=::osg::Vec3b::x]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "x"
@@ -88,7 +88,7 @@ void register_Vec3b_class(){
         }
         { //property "y"[fget=::osg::Vec3b::y]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "y"
@@ -99,7 +99,7 @@ void register_Vec3b_class(){
         }
         { //property "y"[fget=::osg::Vec3b::y]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "y"
@@ -108,7 +108,7 @@ void register_Vec3b_class(){
         }
         { //property "z"[fget=::osg::Vec3b::z]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "z"
@@ -119,7 +119,7 @@ void register_Vec3b_class(){
         }
         { //property "z"[fget=::osg::Vec3b::z]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "z"
@@ -128,7 +128,7 @@ void register_Vec3b_class(){
         }
         { //property "r"[fget=::osg::Vec3b::r]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "r"
@@ -139,7 +139,7 @@ void register_Vec3b_class(){
         }
         { //property "r"[fget=::osg::Vec3b::r]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "r"
@@ -148,7 +148,7 @@ void register_Vec3b_class(){
         }
         { //property "g"[fget=::osg::Vec3b::g]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "g"
@@ -159,7 +159,7 @@ void register_Vec3b_class(){
         }
         { //property "g"[fget=::osg::Vec3b::g]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "g"
@@ -168,7 +168,7 @@ void register_Vec3b_class(){
         }
         { //property "b"[fget=::osg::Vec3b::b]
         
-            typedef signed char & ( ::osg::Vec3b::*fget)(  ) ;
+            typedef signed char & ( ::osg::Vec3b::*fget )(  ) ;
             
             Vec3b_exposer.add_property( 
                 "b"
@@ -179,7 +179,7 @@ void register_Vec3b_class(){
         }
         { //property "b"[fget=::osg::Vec3b::b]
         
-            typedef signed char ( ::osg::Vec3b::*fget)(  ) const;
+            typedef signed char ( ::osg::Vec3b::*fget )(  ) const;
             
             Vec3b_exposer.add_property( 
                 "b"

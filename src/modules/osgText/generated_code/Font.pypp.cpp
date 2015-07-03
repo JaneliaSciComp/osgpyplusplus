@@ -321,40 +321,40 @@ void register_Font_class(){
         bp::class_< Font_wrapper::FontImplementation_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgText::Font::FontImplementation >, boost::noncopyable >( "FontImplementation", bp::no_init )    
             .def( 
                 "addGlyph"
-                , (void ( ::osgText::Font::FontImplementation::* )( ::osgText::FontResolution const &,unsigned int,::osgText::Glyph * ))( &::osgText::Font::FontImplementation::addGlyph )
+                , (void ( ::osgText::Font::FontImplementation::* )( ::osgText::FontResolution const &,unsigned int,::osgText::Glyph * ) )( &::osgText::Font::FontImplementation::addGlyph )
                 , ( bp::arg("fontRes"), bp::arg("charcode"), bp::arg("glyph") ) )    
             .def( 
                 "getFileName"
-                , bp::pure_virtual( (::std::string ( ::osgText::Font::FontImplementation::* )(  )const)(&::osgText::Font::FontImplementation::getFileName) ) )    
+                , bp::pure_virtual( (::std::string ( ::osgText::Font::FontImplementation::* )(  ) const)(&::osgText::Font::FontImplementation::getFileName) ) )    
             .def( 
                 "getGlyph"
-                , bp::pure_virtual( (::osgText::Glyph * ( ::osgText::Font::FontImplementation::* )( ::osgText::FontResolution const &,unsigned int ))(&::osgText::Font::FontImplementation::getGlyph) )
+                , bp::pure_virtual( (::osgText::Glyph * ( ::osgText::Font::FontImplementation::* )( ::osgText::FontResolution const &,unsigned int ) )(&::osgText::Font::FontImplementation::getGlyph) )
                 , ( bp::arg("fontRes"), bp::arg("charcode") )
                 , bp::return_internal_reference< >()
                 , "\n Get a Glyph for specified charcode, and the font size nearest to the current font size hint.\n" )    
             .def( 
                 "getGlyph3D"
-                , bp::pure_virtual( (::osgText::Glyph3D * ( ::osgText::Font::FontImplementation::* )( unsigned int ))(&::osgText::Font::FontImplementation::getGlyph3D) )
+                , bp::pure_virtual( (::osgText::Glyph3D * ( ::osgText::Font::FontImplementation::* )( unsigned int ) )(&::osgText::Font::FontImplementation::getGlyph3D) )
                 , ( bp::arg("charcode") )
                 , bp::return_internal_reference< >()
                 , "\n Get a Glyph3D for specified charcode.\n" )    
             .def( 
                 "getKerning"
-                , bp::pure_virtual( (::osg::Vec2 ( ::osgText::Font::FontImplementation::* )( unsigned int,unsigned int,::osgText::KerningType ))(&::osgText::Font::FontImplementation::getKerning) )
+                , bp::pure_virtual( (::osg::Vec2 ( ::osgText::Font::FontImplementation::* )( unsigned int,unsigned int,::osgText::KerningType ) )(&::osgText::Font::FontImplementation::getKerning) )
                 , ( bp::arg("leftcharcode"), bp::arg("rightcharcode"), bp::arg("kerningType") )
                 , "\n Get a kerning (adjustment of spacing of two adjacent character) for specified charcodes, w.r.t the current font size hint.\n" )    
             .def( 
                 "getVerticalSize"
-                , (bool ( ::osgText::Font::FontImplementation::* )( float &,float & )const)(&::osgText::Font::FontImplementation::getVerticalSize)
-                , (bool ( Font_wrapper::FontImplementation_wrapper::* )( float &,float & )const)(&Font_wrapper::FontImplementation_wrapper::default_getVerticalSize)
+                , (bool ( ::osgText::Font::FontImplementation::* )( float &,float & ) const)(&::osgText::Font::FontImplementation::getVerticalSize)
+                , (bool ( Font_wrapper::FontImplementation_wrapper::* )( float &,float & ) const)(&Font_wrapper::FontImplementation_wrapper::default_getVerticalSize)
                 , ( bp::arg("arg0"), bp::arg("arg1") ) )    
             .def( 
                 "hasVertical"
-                , bp::pure_virtual( (bool ( ::osgText::Font::FontImplementation::* )(  )const)(&::osgText::Font::FontImplementation::hasVertical) )
+                , bp::pure_virtual( (bool ( ::osgText::Font::FontImplementation::* )(  ) const)(&::osgText::Font::FontImplementation::hasVertical) )
                 , "\n Return true if this font provides vertical alignments and spacing or glyphs.\n" )    
             .def( 
                 "supportsMultipleFontResolutions"
-                , bp::pure_virtual( (bool ( ::osgText::Font::FontImplementation::* )(  )const)(&::osgText::Font::FontImplementation::supportsMultipleFontResolutions) ) )    
+                , bp::pure_virtual( (bool ( ::osgText::Font::FontImplementation::* )(  ) const)(&::osgText::Font::FontImplementation::supportsMultipleFontResolutions) ) )    
             .add_property( "_facade"
                         , bp::make_function( (::osgText::Font * (*)( ::osgText::Font::FontImplementation const & ))(&Font_wrapper::FontImplementation_wrapper::get__facade), bp::return_internal_reference< >() )
                         , bp::make_function( (void (*)( ::osgText::Font::FontImplementation &,::osgText::Font * ))(&Font_wrapper::FontImplementation_wrapper::set__facade), bp::with_custodian_and_ward_postcall< 1, 2 >() ) );
@@ -362,8 +362,8 @@ void register_Font_class(){
         bp::implicitly_convertible< osgText::Font::FontImplementation *, osgText::Font >();
         { //::osgText::Font::className
         
-            typedef char const * ( ::osgText::Font::*className_function_type)(  ) const;
-            typedef char const * ( Font_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgText::Font::*className_function_type )(  ) const;
+            typedef char const * ( Font_wrapper::*default_className_function_type )(  ) const;
             
             Font_exposer.def( 
                 "className"
@@ -373,8 +373,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::clone
         
-            typedef ::osg::Object * ( ::osgText::Font::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Font_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgText::Font::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Font_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Font_exposer.def( 
                 "clone"
@@ -386,8 +386,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::cloneType
         
-            typedef ::osg::Object * ( ::osgText::Font::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Font_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgText::Font::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Font_wrapper::*default_cloneType_function_type )(  ) const;
             
             Font_exposer.def( 
                 "cloneType"
@@ -408,8 +408,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::getFileName
         
-            typedef ::std::string ( ::osgText::Font::*getFileName_function_type)(  ) const;
-            typedef ::std::string ( Font_wrapper::*default_getFileName_function_type)(  ) const;
+            typedef ::std::string ( ::osgText::Font::*getFileName_function_type )(  ) const;
+            typedef ::std::string ( Font_wrapper::*default_getFileName_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getFileName"
@@ -419,7 +419,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getFontDepth
         
-            typedef unsigned int ( ::osgText::Font::*getFontDepth_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::Font::*getFontDepth_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getFontDepth"
@@ -428,8 +428,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::getGlyph
         
-            typedef ::osgText::Glyph * ( ::osgText::Font::*getGlyph_function_type)( ::osgText::FontResolution const &,unsigned int ) ;
-            typedef ::osgText::Glyph * ( Font_wrapper::*default_getGlyph_function_type)( ::osgText::FontResolution const &,unsigned int ) ;
+            typedef ::osgText::Glyph * ( ::osgText::Font::*getGlyph_function_type )( ::osgText::FontResolution const &,unsigned int ) ;
+            typedef ::osgText::Glyph * ( Font_wrapper::*default_getGlyph_function_type )( ::osgText::FontResolution const &,unsigned int ) ;
             
             Font_exposer.def( 
                 "getGlyph"
@@ -441,8 +441,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::getGlyph3D
         
-            typedef ::osgText::Glyph3D * ( ::osgText::Font::*getGlyph3D_function_type)( unsigned int ) ;
-            typedef ::osgText::Glyph3D * ( Font_wrapper::*default_getGlyph3D_function_type)( unsigned int ) ;
+            typedef ::osgText::Glyph3D * ( ::osgText::Font::*getGlyph3D_function_type )( unsigned int ) ;
+            typedef ::osgText::Glyph3D * ( Font_wrapper::*default_getGlyph3D_function_type )( unsigned int ) ;
             
             Font_exposer.def( 
                 "getGlyph3D"
@@ -454,7 +454,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getGlyphImageMargin
         
-            typedef unsigned int ( ::osgText::Font::*getGlyphImageMargin_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::Font::*getGlyphImageMargin_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getGlyphImageMargin"
@@ -463,7 +463,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getGlyphImageMarginRatio
         
-            typedef float ( ::osgText::Font::*getGlyphImageMarginRatio_function_type)(  ) const;
+            typedef float ( ::osgText::Font::*getGlyphImageMarginRatio_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getGlyphImageMarginRatio"
@@ -472,7 +472,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getGlyphTextureList
         
-            typedef ::std::vector< osg::ref_ptr<osgText::GlyphTexture> > & ( ::osgText::Font::*getGlyphTextureList_function_type)(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osgText::GlyphTexture> > & ( ::osgText::Font::*getGlyphTextureList_function_type )(  ) ;
             
             Font_exposer.def( 
                 "getGlyphTextureList"
@@ -482,7 +482,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getImplementation
         
-            typedef ::osgText::Font::FontImplementation * ( ::osgText::Font::*getImplementation_function_type)(  ) ;
+            typedef ::osgText::Font::FontImplementation * ( ::osgText::Font::*getImplementation_function_type )(  ) ;
             
             Font_exposer.def( 
                 "getImplementation"
@@ -492,7 +492,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getImplementation
         
-            typedef ::osgText::Font::FontImplementation const * ( ::osgText::Font::*getImplementation_function_type)(  ) const;
+            typedef ::osgText::Font::FontImplementation const * ( ::osgText::Font::*getImplementation_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getImplementation"
@@ -502,8 +502,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::getKerning
         
-            typedef ::osg::Vec2 ( ::osgText::Font::*getKerning_function_type)( unsigned int,unsigned int,::osgText::KerningType ) ;
-            typedef ::osg::Vec2 ( Font_wrapper::*default_getKerning_function_type)( unsigned int,unsigned int,::osgText::KerningType ) ;
+            typedef ::osg::Vec2 ( ::osgText::Font::*getKerning_function_type )( unsigned int,unsigned int,::osgText::KerningType ) ;
+            typedef ::osg::Vec2 ( Font_wrapper::*default_getKerning_function_type )( unsigned int,unsigned int,::osgText::KerningType ) ;
             
             Font_exposer.def( 
                 "getKerning"
@@ -514,7 +514,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getMagFilterHint
         
-            typedef ::osg::Texture::FilterMode ( ::osgText::Font::*getMagFilterHint_function_type)(  ) const;
+            typedef ::osg::Texture::FilterMode ( ::osgText::Font::*getMagFilterHint_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getMagFilterHint"
@@ -523,7 +523,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getMinFilterHint
         
-            typedef ::osg::Texture::FilterMode ( ::osgText::Font::*getMinFilterHint_function_type)(  ) const;
+            typedef ::osg::Texture::FilterMode ( ::osgText::Font::*getMinFilterHint_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getMinFilterHint"
@@ -532,7 +532,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getNumberCurveSamples
         
-            typedef unsigned int ( ::osgText::Font::*getNumberCurveSamples_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::Font::*getNumberCurveSamples_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getNumberCurveSamples"
@@ -541,7 +541,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Font::*getStateSet_function_type)(  ) ;
+            typedef ::osg::StateSet * ( ::osgText::Font::*getStateSet_function_type )(  ) ;
             
             Font_exposer.def( 
                 "getStateSet"
@@ -551,7 +551,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getStateSet
         
-            typedef ::osg::StateSet const * ( ::osgText::Font::*getStateSet_function_type)(  ) const;
+            typedef ::osg::StateSet const * ( ::osgText::Font::*getStateSet_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getStateSet"
@@ -561,7 +561,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getTexEnv
         
-            typedef ::osg::TexEnv * ( ::osgText::Font::*getTexEnv_function_type)(  ) ;
+            typedef ::osg::TexEnv * ( ::osgText::Font::*getTexEnv_function_type )(  ) ;
             
             Font_exposer.def( 
                 "getTexEnv"
@@ -571,7 +571,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getTexEnv
         
-            typedef ::osg::TexEnv const * ( ::osgText::Font::*getTexEnv_function_type)(  ) const;
+            typedef ::osg::TexEnv const * ( ::osgText::Font::*getTexEnv_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getTexEnv"
@@ -581,7 +581,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getTextureHeightHint
         
-            typedef unsigned int ( ::osgText::Font::*getTextureHeightHint_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::Font::*getTextureHeightHint_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getTextureHeightHint"
@@ -590,7 +590,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::getTextureWidthHint
         
-            typedef unsigned int ( ::osgText::Font::*getTextureWidthHint_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::Font::*getTextureWidthHint_function_type )(  ) const;
             
             Font_exposer.def( 
                 "getTextureWidthHint"
@@ -599,8 +599,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::getVerticalSize
         
-            typedef bool ( ::osgText::Font::*getVerticalSize_function_type)( float &,float & ) const;
-            typedef bool ( Font_wrapper::*default_getVerticalSize_function_type)( float &,float & ) const;
+            typedef bool ( ::osgText::Font::*getVerticalSize_function_type )( float &,float & ) const;
+            typedef bool ( Font_wrapper::*default_getVerticalSize_function_type )( float &,float & ) const;
             
             Font_exposer.def( 
                 "getVerticalSize"
@@ -611,8 +611,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::hasVertical
         
-            typedef bool ( ::osgText::Font::*hasVertical_function_type)(  ) const;
-            typedef bool ( Font_wrapper::*default_hasVertical_function_type)(  ) const;
+            typedef bool ( ::osgText::Font::*hasVertical_function_type )(  ) const;
+            typedef bool ( Font_wrapper::*default_hasVertical_function_type )(  ) const;
             
             Font_exposer.def( 
                 "hasVertical"
@@ -622,8 +622,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::isSameKindAs
         
-            typedef bool ( ::osgText::Font::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Font_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgText::Font::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Font_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Font_exposer.def( 
                 "isSameKindAs"
@@ -634,8 +634,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::libraryName
         
-            typedef char const * ( ::osgText::Font::*libraryName_function_type)(  ) const;
-            typedef char const * ( Font_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgText::Font::*libraryName_function_type )(  ) const;
+            typedef char const * ( Font_wrapper::*default_libraryName_function_type )(  ) const;
             
             Font_exposer.def( 
                 "libraryName"
@@ -645,8 +645,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::releaseGLObjects
         
-            typedef void ( ::osgText::Font::*releaseGLObjects_function_type)( ::osg::State * ) const;
-            typedef void ( Font_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( ::osgText::Font::*releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( Font_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
             
             Font_exposer.def( 
                 "releaseGLObjects"
@@ -657,8 +657,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::resizeGLObjectBuffers
         
-            typedef void ( ::osgText::Font::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Font_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::Font::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Font_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Font_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -669,7 +669,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setGlyphImageMargin
         
-            typedef void ( ::osgText::Font::*setGlyphImageMargin_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::Font::*setGlyphImageMargin_function_type )( unsigned int ) ;
             
             Font_exposer.def( 
                 "setGlyphImageMargin"
@@ -680,7 +680,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setGlyphImageMarginRatio
         
-            typedef void ( ::osgText::Font::*setGlyphImageMarginRatio_function_type)( float ) ;
+            typedef void ( ::osgText::Font::*setGlyphImageMarginRatio_function_type )( float ) ;
             
             Font_exposer.def( 
                 "setGlyphImageMarginRatio"
@@ -691,7 +691,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setImplementation
         
-            typedef void ( ::osgText::Font::*setImplementation_function_type)( ::osgText::Font::FontImplementation * ) ;
+            typedef void ( ::osgText::Font::*setImplementation_function_type )( ::osgText::Font::FontImplementation * ) ;
             
             Font_exposer.def( 
                 "setImplementation"
@@ -701,7 +701,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setMagFilterHint
         
-            typedef void ( ::osgText::Font::*setMagFilterHint_function_type)( ::osg::Texture::FilterMode ) ;
+            typedef void ( ::osgText::Font::*setMagFilterHint_function_type )( ::osg::Texture::FilterMode ) ;
             
             Font_exposer.def( 
                 "setMagFilterHint"
@@ -712,7 +712,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setMinFilterHint
         
-            typedef void ( ::osgText::Font::*setMinFilterHint_function_type)( ::osg::Texture::FilterMode ) ;
+            typedef void ( ::osgText::Font::*setMinFilterHint_function_type )( ::osg::Texture::FilterMode ) ;
             
             Font_exposer.def( 
                 "setMinFilterHint"
@@ -723,7 +723,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setNumberCurveSamples
         
-            typedef void ( ::osgText::Font::*setNumberCurveSamples_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::Font::*setNumberCurveSamples_function_type )( unsigned int ) ;
             
             Font_exposer.def( 
                 "setNumberCurveSamples"
@@ -733,7 +733,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setStateSet
         
-            typedef void ( ::osgText::Font::*setStateSet_function_type)( ::osg::StateSet * ) ;
+            typedef void ( ::osgText::Font::*setStateSet_function_type )( ::osg::StateSet * ) ;
             
             Font_exposer.def( 
                 "setStateSet"
@@ -743,7 +743,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setTexEnv
         
-            typedef void ( ::osgText::Font::*setTexEnv_function_type)( ::osg::TexEnv * ) ;
+            typedef void ( ::osgText::Font::*setTexEnv_function_type )( ::osg::TexEnv * ) ;
             
             Font_exposer.def( 
                 "setTexEnv"
@@ -753,7 +753,7 @@ void register_Font_class(){
         }
         { //::osgText::Font::setTextureSizeHint
         
-            typedef void ( ::osgText::Font::*setTextureSizeHint_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osgText::Font::*setTextureSizeHint_function_type )( unsigned int,unsigned int ) ;
             
             Font_exposer.def( 
                 "setTextureSizeHint"
@@ -764,8 +764,8 @@ void register_Font_class(){
         }
         { //::osgText::Font::setThreadSafeRefUnref
         
-            typedef void ( ::osgText::Font::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Font_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osgText::Font::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Font_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Font_exposer.def( 
                 "setThreadSafeRefUnref"

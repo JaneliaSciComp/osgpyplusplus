@@ -511,171 +511,171 @@ void register_Program_class(){
             .def( bp::init< osg::Program const *, unsigned int, bp::optional< GLuint > >(( bp::arg("program"), bp::arg("contextID"), bp::arg("programHandle")=(::GLuint)(0) ), "\n Use 0 as programHandle to let the PeContextProgram execute glCreateProgramand glDeleteProgram\n") )    
             .def( 
                 "addShaderToAttach"
-                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::Shader * ))( &::osg::Program::PerContextProgram::addShaderToAttach )
+                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::Shader * ) )( &::osg::Program::PerContextProgram::addShaderToAttach )
                 , ( bp::arg("shader") ) )    
             .def( 
                 "addShaderToDetach"
-                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::Shader * ))( &::osg::Program::PerContextProgram::addShaderToDetach )
+                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::Shader * ) )( &::osg::Program::PerContextProgram::addShaderToDetach )
                 , ( bp::arg("shader") ) )    
             .def( 
                 "compileProgramBinary"
-                , (::osg::Program::ProgramBinary * ( ::osg::Program::PerContextProgram::* )( ::osg::State & ))(&::osg::Program::PerContextProgram::compileProgramBinary)
-                , (::osg::Program::ProgramBinary * ( Program_wrapper::PerContextProgram_wrapper::* )( ::osg::State & ))(&Program_wrapper::PerContextProgram_wrapper::default_compileProgramBinary)
+                , (::osg::Program::ProgramBinary * ( ::osg::Program::PerContextProgram::* )( ::osg::State & ) )(&::osg::Program::PerContextProgram::compileProgramBinary)
+                , (::osg::Program::ProgramBinary * ( Program_wrapper::PerContextProgram_wrapper::* )( ::osg::State & ) )(&Program_wrapper::PerContextProgram_wrapper::default_compileProgramBinary)
                 , ( bp::arg("state") )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getActiveAttribs"
-                , (::std::map< std::string, osg::Program::ActiveVarInfo > const & ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::getActiveAttribs )
+                , (::std::map< std::string, osg::Program::ActiveVarInfo > const & ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::getActiveAttribs )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getActiveUniforms"
-                , (::std::map< unsigned int, osg::Program::ActiveVarInfo > const & ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::getActiveUniforms )
+                , (::std::map< unsigned int, osg::Program::ActiveVarInfo > const & ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::getActiveUniforms )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getAttribLocation"
-                , (::GLint ( ::osg::Program::PerContextProgram::* )( ::std::string const & )const)( &::osg::Program::PerContextProgram::getAttribLocation )
+                , (::GLint ( ::osg::Program::PerContextProgram::* )( ::std::string const & ) const)( &::osg::Program::PerContextProgram::getAttribLocation )
                 , ( bp::arg("name") ) )    
             .def( 
                 "getHandle"
-                , (::GLuint ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::getHandle ) )    
+                , (::GLuint ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::getHandle ) )    
             .def( 
                 "getInfoLog"
-                , (bool ( ::osg::Program::PerContextProgram::* )( ::std::string & )const)(&::osg::Program::PerContextProgram::getInfoLog)
-                , (bool ( Program_wrapper::PerContextProgram_wrapper::* )( ::std::string & )const)(&Program_wrapper::PerContextProgram_wrapper::default_getInfoLog)
+                , (bool ( ::osg::Program::PerContextProgram::* )( ::std::string & ) const)(&::osg::Program::PerContextProgram::getInfoLog)
+                , (bool ( Program_wrapper::PerContextProgram_wrapper::* )( ::std::string & ) const)(&Program_wrapper::PerContextProgram_wrapper::default_getInfoLog)
                 , ( bp::arg("infoLog") ) )    
             .def( 
                 "getUniformBlocks"
-                , (::std::map< std::string, osg::Program::UniformBlockInfo > const & ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::getUniformBlocks )
+                , (::std::map< std::string, osg::Program::UniformBlockInfo > const & ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::getUniformBlocks )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUniformLocation"
-                , (::GLint ( ::osg::Program::PerContextProgram::* )( unsigned int )const)( &::osg::Program::PerContextProgram::getUniformLocation )
+                , (::GLint ( ::osg::Program::PerContextProgram::* )( unsigned int ) const)( &::osg::Program::PerContextProgram::getUniformLocation )
                 , ( bp::arg("uniformNameID") ) )    
             .def( 
                 "getUniformLocation"
-                , (::GLint ( ::osg::Program::PerContextProgram::* )( ::std::string const & )const)( &::osg::Program::PerContextProgram::getUniformLocation )
+                , (::GLint ( ::osg::Program::PerContextProgram::* )( ::std::string const & ) const)( &::osg::Program::PerContextProgram::getUniformLocation )
                 , ( bp::arg("uniformName") )
                 , " Alternative version of getUniformLocation( unsigned int uniformNameID )\n retrofited into OSG for backward compatibility with osgCal,\n after uniform ids were refactored from std::strings to GLints in OSG version 2.9.10.\n\n Drawbacks: This method is not particularly fast. It has to access mutexed static\n map of uniform ids. So dont overuse it or your app performance will suffer." )    
             .def( 
                 "isLinked"
-                , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::isLinked ) )    
+                , (bool ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::isLinked ) )    
             .def( 
                 "linkProgram"
-                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::State & ))(&::osg::Program::PerContextProgram::linkProgram)
-                , (void ( Program_wrapper::PerContextProgram_wrapper::* )( ::osg::State & ))(&Program_wrapper::PerContextProgram_wrapper::default_linkProgram)
+                , (void ( ::osg::Program::PerContextProgram::* )( ::osg::State & ) )(&::osg::Program::PerContextProgram::linkProgram)
+                , (void ( Program_wrapper::PerContextProgram_wrapper::* )( ::osg::State & ) )(&Program_wrapper::PerContextProgram_wrapper::default_linkProgram)
                 , ( bp::arg("state") ) )    
             .def( 
                 "loadedBinary"
-                , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::loadedBinary )
+                , (bool ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::loadedBinary )
                 , " Was glProgramBinary called successfully?" )    
             .def( 
                 "needsLink"
-                , (bool ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::needsLink ) )    
+                , (bool ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::needsLink ) )    
             .def( 
                 "requestLink"
-                , (void ( ::osg::Program::PerContextProgram::* )(  ))( &::osg::Program::PerContextProgram::requestLink ) )    
+                , (void ( ::osg::Program::PerContextProgram::* )(  ) )( &::osg::Program::PerContextProgram::requestLink ) )    
             .def( 
                 "resetAppliedUniforms"
-                , (void ( ::osg::Program::PerContextProgram::* )(  )const)( &::osg::Program::PerContextProgram::resetAppliedUniforms ) )    
+                , (void ( ::osg::Program::PerContextProgram::* )(  ) const)( &::osg::Program::PerContextProgram::resetAppliedUniforms ) )    
             .def( 
                 "useProgram"
-                , (void ( ::osg::Program::PerContextProgram::* )(  )const)(&::osg::Program::PerContextProgram::useProgram)
-                , (void ( Program_wrapper::PerContextProgram_wrapper::* )(  )const)(&Program_wrapper::PerContextProgram_wrapper::default_useProgram) )    
+                , (void ( ::osg::Program::PerContextProgram::* )(  ) const)(&::osg::Program::PerContextProgram::useProgram)
+                , (void ( Program_wrapper::PerContextProgram_wrapper::* )(  ) const)(&Program_wrapper::PerContextProgram_wrapper::default_useProgram) )    
             .def( 
                 "validateProgram"
-                , (bool ( ::osg::Program::PerContextProgram::* )(  ))(&::osg::Program::PerContextProgram::validateProgram)
-                , (bool ( Program_wrapper::PerContextProgram_wrapper::* )(  ))(&Program_wrapper::PerContextProgram_wrapper::default_validateProgram) )    
+                , (bool ( ::osg::Program::PerContextProgram::* )(  ) )(&::osg::Program::PerContextProgram::validateProgram)
+                , (bool ( Program_wrapper::PerContextProgram_wrapper::* )(  ) )(&Program_wrapper::PerContextProgram_wrapper::default_validateProgram) )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Program_wrapper::PerContextProgram_wrapper::* )( bool ))(&Program_wrapper::PerContextProgram_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Program_wrapper::PerContextProgram_wrapper::* )( bool ) )(&Program_wrapper::PerContextProgram_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         bp::class_< Program_wrapper::ProgramBinary_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Program::ProgramBinary >, boost::noncopyable >( "ProgramBinary", "\n Simple class for wrapping up the data used in glProgramBinary and glGetProgramBinary.\n On the first run of your application Programs should be assigned an empty ProgramBinary.\n Before your application exits it should retrieve the program binary via\n Program::PerContextProgram::compileProgramBinary and save it to disk.\n When your application is run subsequently, load your binary from disk and use it to set\n the data of a ProgramBinary, and set the ProgramBinary on the associated Program.\n This will typically result in Program::compileGLObjects executing much faster.\n", bp::init< >("\n Simple class for wrapping up the data used in glProgramBinary and glGetProgramBinary.\n On the first run of your application Programs should be assigned an empty ProgramBinary.\n Before your application exits it should retrieve the program binary via\n Program::PerContextProgram::compileProgramBinary and save it to disk.\n When your application is run subsequently, load your binary from disk and use it to set\n the data of a ProgramBinary, and set the ProgramBinary on the associated Program.\n This will typically result in Program::compileGLObjects executing much faster.\n") )    
             .def( 
                 "allocate"
-                , (void ( ::osg::Program::ProgramBinary::* )( unsigned int ))( &::osg::Program::ProgramBinary::allocate )
+                , (void ( ::osg::Program::ProgramBinary::* )( unsigned int ) )( &::osg::Program::ProgramBinary::allocate )
                 , ( bp::arg("size") )
                 , " Allocated a data buffer of specified size" )    
             .def( 
                 "assign"
-                , (void ( ::osg::Program::ProgramBinary::* )( unsigned int,unsigned char const * ))( &::osg::Program::ProgramBinary::assign )
+                , (void ( ::osg::Program::ProgramBinary::* )( unsigned int,unsigned char const * ) )( &::osg::Program::ProgramBinary::assign )
                 , ( bp::arg("size"), bp::arg("data") )
                 , " Assign program binary data, copying the specified data into locally stored data buffer, the original data can then be deleted." )    
             .def( 
                 "className"
-                , (char const * ( ::osg::Program::ProgramBinary::* )(  )const)(&::osg::Program::ProgramBinary::className)
-                , (char const * ( Program_wrapper::ProgramBinary_wrapper::* )(  )const)(&Program_wrapper::ProgramBinary_wrapper::default_className) )    
+                , (char const * ( ::osg::Program::ProgramBinary::* )(  ) const)(&::osg::Program::ProgramBinary::className)
+                , (char const * ( Program_wrapper::ProgramBinary_wrapper::* )(  ) const)(&Program_wrapper::ProgramBinary_wrapper::default_className) )    
             .def( 
                 "clone"
-                , (::osg::Object * ( ::osg::Program::ProgramBinary::* )( ::osg::CopyOp const & )const)(&::osg::Program::ProgramBinary::clone)
-                , (::osg::Object * ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::CopyOp const & )const)(&Program_wrapper::ProgramBinary_wrapper::default_clone)
+                , (::osg::Object * ( ::osg::Program::ProgramBinary::* )( ::osg::CopyOp const & ) const)(&::osg::Program::ProgramBinary::clone)
+                , (::osg::Object * ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::CopyOp const & ) const)(&Program_wrapper::ProgramBinary_wrapper::default_clone)
                 , ( bp::arg("copyop") )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "cloneType"
-                , (::osg::Object * ( ::osg::Program::ProgramBinary::* )(  )const)(&::osg::Program::ProgramBinary::cloneType)
-                , (::osg::Object * ( Program_wrapper::ProgramBinary_wrapper::* )(  )const)(&Program_wrapper::ProgramBinary_wrapper::default_cloneType)
+                , (::osg::Object * ( ::osg::Program::ProgramBinary::* )(  ) const)(&::osg::Program::ProgramBinary::cloneType)
+                , (::osg::Object * ( Program_wrapper::ProgramBinary_wrapper::* )(  ) const)(&Program_wrapper::ProgramBinary_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "getFormat"
-                , (::GLenum ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getFormat )
+                , (::GLenum ( ::osg::Program::ProgramBinary::* )(  ) const)( &::osg::Program::ProgramBinary::getFormat )
                 , " Get the format of the program binary data." )    
             .def( 
                 "getSize"
-                , (unsigned int ( ::osg::Program::ProgramBinary::* )(  )const)( &::osg::Program::ProgramBinary::getSize )
+                , (unsigned int ( ::osg::Program::ProgramBinary::* )(  ) const)( &::osg::Program::ProgramBinary::getSize )
                 , " Get the size of the program binary data." )    
             .def( 
                 "isSameKindAs"
-                , (bool ( ::osg::Program::ProgramBinary::* )( ::osg::Object const * )const)(&::osg::Program::ProgramBinary::isSameKindAs)
-                , (bool ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::Object const * )const)(&Program_wrapper::ProgramBinary_wrapper::default_isSameKindAs)
+                , (bool ( ::osg::Program::ProgramBinary::* )( ::osg::Object const * ) const)(&::osg::Program::ProgramBinary::isSameKindAs)
+                , (bool ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::Object const * ) const)(&Program_wrapper::ProgramBinary_wrapper::default_isSameKindAs)
                 , ( bp::arg("obj") ) )    
             .def( 
                 "libraryName"
-                , (char const * ( ::osg::Program::ProgramBinary::* )(  )const)(&::osg::Program::ProgramBinary::libraryName)
-                , (char const * ( Program_wrapper::ProgramBinary_wrapper::* )(  )const)(&Program_wrapper::ProgramBinary_wrapper::default_libraryName) )    
+                , (char const * ( ::osg::Program::ProgramBinary::* )(  ) const)(&::osg::Program::ProgramBinary::libraryName)
+                , (char const * ( Program_wrapper::ProgramBinary_wrapper::* )(  ) const)(&Program_wrapper::ProgramBinary_wrapper::default_libraryName) )    
             .def( 
                 "setFormat"
-                , (void ( ::osg::Program::ProgramBinary::* )( ::GLenum ))( &::osg::Program::ProgramBinary::setFormat )
+                , (void ( ::osg::Program::ProgramBinary::* )( ::GLenum ) )( &::osg::Program::ProgramBinary::setFormat )
                 , ( bp::arg("format") )
                 , " Set the format of the program binary data." )    
             .def( 
                 "computeDataVariance"
-                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-                , (void ( Program_wrapper::ProgramBinary_wrapper::* )(  ))(&Program_wrapper::ProgramBinary_wrapper::default_computeDataVariance) )    
+                , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+                , (void ( Program_wrapper::ProgramBinary_wrapper::* )(  ) )(&Program_wrapper::ProgramBinary_wrapper::default_computeDataVariance) )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-                , (::osg::Referenced * ( Program_wrapper::ProgramBinary_wrapper::* )(  ))(&Program_wrapper::ProgramBinary_wrapper::default_getUserData)
+                , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( Program_wrapper::ProgramBinary_wrapper::* )(  ) )(&Program_wrapper::ProgramBinary_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-                , (::osg::Referenced const * ( Program_wrapper::ProgramBinary_wrapper::* )(  )const)(&Program_wrapper::ProgramBinary_wrapper::default_getUserData)
+                , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( Program_wrapper::ProgramBinary_wrapper::* )(  ) const)(&Program_wrapper::ProgramBinary_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "resizeGLObjectBuffers"
-                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
-                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( unsigned int ))(&Program_wrapper::ProgramBinary_wrapper::default_resizeGLObjectBuffers)
+                , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( unsigned int ) )(&Program_wrapper::ProgramBinary_wrapper::default_resizeGLObjectBuffers)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( ::std::string const & ))(&Program_wrapper::ProgramBinary_wrapper::default_setName)
+                , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( ::std::string const & ) )(&Program_wrapper::ProgramBinary_wrapper::default_setName)
                 , ( bp::arg("name") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+                , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
                 , ( bp::arg("name") )
                 , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( bool ))(&Program_wrapper::ProgramBinary_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( bool ) )(&Program_wrapper::ProgramBinary_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) )    
             .def( 
                 "setUserData"
-                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::Referenced * ))(&Program_wrapper::ProgramBinary_wrapper::default_setUserData)
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+                , (void ( Program_wrapper::ProgramBinary_wrapper::* )( ::osg::Referenced * ) )(&Program_wrapper::ProgramBinary_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         bp::class_< osg::Program::UniformBlockInfo >( "UniformBlockInfo", bp::init< >() )    
             .def( bp::init< GLuint, GLsizei >(( bp::arg("index"), bp::arg("size") )) )    
@@ -684,7 +684,7 @@ void register_Program_class(){
         Program_exposer.def( bp::init< >("\n osg::Program is an application-level abstraction of an OpenGL glProgram.\n It is an osg::StateAttribute that, when applied, will activate a\n glProgram for subsequent rendering.\n osg::Shaders containing the actual shader source code are\n attached to a Program, which will then manage the compilation,\n linking, and activation of the GLSL program.\n osg::Program will automatically manage per-context instancing of the\n OpenGL glPrograms, if that is necessary for a particular display\n configuration.\n") );
         { //::osg::Program::addBindAttribLocation
         
-            typedef void ( ::osg::Program::*addBindAttribLocation_function_type)( ::std::string const &,::GLuint ) ;
+            typedef void ( ::osg::Program::*addBindAttribLocation_function_type )( ::std::string const &,::GLuint ) ;
             
             Program_exposer.def( 
                 "addBindAttribLocation"
@@ -695,7 +695,7 @@ void register_Program_class(){
         }
         { //::osg::Program::addBindFragDataLocation
         
-            typedef void ( ::osg::Program::*addBindFragDataLocation_function_type)( ::std::string const &,::GLuint ) ;
+            typedef void ( ::osg::Program::*addBindFragDataLocation_function_type )( ::std::string const &,::GLuint ) ;
             
             Program_exposer.def( 
                 "addBindFragDataLocation"
@@ -706,7 +706,7 @@ void register_Program_class(){
         }
         { //::osg::Program::addBindUniformBlock
         
-            typedef void ( ::osg::Program::*addBindUniformBlock_function_type)( ::std::string const &,::GLuint ) ;
+            typedef void ( ::osg::Program::*addBindUniformBlock_function_type )( ::std::string const &,::GLuint ) ;
             
             Program_exposer.def( 
                 "addBindUniformBlock"
@@ -717,7 +717,7 @@ void register_Program_class(){
         }
         { //::osg::Program::addShader
         
-            typedef bool ( ::osg::Program::*addShader_function_type)( ::osg::Shader * ) ;
+            typedef bool ( ::osg::Program::*addShader_function_type )( ::osg::Shader * ) ;
             
             Program_exposer.def( 
                 "addShader"
@@ -728,8 +728,8 @@ void register_Program_class(){
         }
         { //::osg::Program::className
         
-            typedef char const * ( ::osg::Program::*className_function_type)(  ) const;
-            typedef char const * ( Program_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Program::*className_function_type )(  ) const;
+            typedef char const * ( Program_wrapper::*default_className_function_type )(  ) const;
             
             Program_exposer.def( 
                 "className"
@@ -739,8 +739,8 @@ void register_Program_class(){
         }
         { //::osg::Program::clone
         
-            typedef ::osg::Object * ( ::osg::Program::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Program_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Program::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Program_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Program_exposer.def( 
                 "clone"
@@ -752,8 +752,8 @@ void register_Program_class(){
         }
         { //::osg::Program::cloneType
         
-            typedef ::osg::Object * ( ::osg::Program::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Program_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Program::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Program_wrapper::*default_cloneType_function_type )(  ) const;
             
             Program_exposer.def( 
                 "cloneType"
@@ -764,8 +764,8 @@ void register_Program_class(){
         }
         { //::osg::Program::compileGLObjects
         
-            typedef void ( ::osg::Program::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Program_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Program::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Program_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Program_exposer.def( 
                 "compileGLObjects"
@@ -787,7 +787,7 @@ void register_Program_class(){
         }
         { //::osg::Program::dirtyProgram
         
-            typedef void ( ::osg::Program::*dirtyProgram_function_type)(  ) ;
+            typedef void ( ::osg::Program::*dirtyProgram_function_type )(  ) ;
             
             Program_exposer.def( 
                 "dirtyProgram"
@@ -819,7 +819,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getActiveAttribs
         
-            typedef ::std::map< std::string, osg::Program::ActiveVarInfo > const & ( ::osg::Program::*getActiveAttribs_function_type)( unsigned int ) const;
+            typedef ::std::map< std::string, osg::Program::ActiveVarInfo > const & ( ::osg::Program::*getActiveAttribs_function_type )( unsigned int ) const;
             
             Program_exposer.def( 
                 "getActiveAttribs"
@@ -830,7 +830,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getActiveUniforms
         
-            typedef ::std::map< unsigned int, osg::Program::ActiveVarInfo > const & ( ::osg::Program::*getActiveUniforms_function_type)( unsigned int ) const;
+            typedef ::std::map< unsigned int, osg::Program::ActiveVarInfo > const & ( ::osg::Program::*getActiveUniforms_function_type )( unsigned int ) const;
             
             Program_exposer.def( 
                 "getActiveUniforms"
@@ -841,7 +841,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getAttribBindingList
         
-            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getAttribBindingList_function_type)(  ) const;
+            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getAttribBindingList_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getAttribBindingList"
@@ -851,7 +851,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getComputeGroups
         
-            typedef void ( ::osg::Program::*getComputeGroups_function_type)( ::GLint &,::GLint &,::GLint & ) const;
+            typedef void ( ::osg::Program::*getComputeGroups_function_type )( ::GLint &,::GLint &,::GLint & ) const;
             
             Program_exposer.def( 
                 "getComputeGroups"
@@ -861,7 +861,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getFragDataBindingList
         
-            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getFragDataBindingList_function_type)(  ) const;
+            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getFragDataBindingList_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getFragDataBindingList"
@@ -871,7 +871,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getGlProgramInfoLog
         
-            typedef bool ( ::osg::Program::*getGlProgramInfoLog_function_type)( unsigned int,::std::string & ) const;
+            typedef bool ( ::osg::Program::*getGlProgramInfoLog_function_type )( unsigned int,::std::string & ) const;
             
             Program_exposer.def( 
                 "getGlProgramInfoLog"
@@ -882,7 +882,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getNumShaders
         
-            typedef unsigned int ( ::osg::Program::*getNumShaders_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Program::*getNumShaders_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getNumShaders"
@@ -891,7 +891,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getPCP
         
-            typedef ::osg::Program::PerContextProgram * ( ::osg::Program::*getPCP_function_type)( unsigned int ) const;
+            typedef ::osg::Program::PerContextProgram * ( ::osg::Program::*getPCP_function_type )( unsigned int ) const;
             
             Program_exposer.def( 
                 "getPCP"
@@ -903,7 +903,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getParameter
         
-            typedef ::GLint ( ::osg::Program::*getParameter_function_type)( ::GLenum ) const;
+            typedef ::GLint ( ::osg::Program::*getParameter_function_type )( ::GLenum ) const;
             
             Program_exposer.def( 
                 "getParameter"
@@ -913,7 +913,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getProgramBinary
         
-            typedef ::osg::Program::ProgramBinary * ( ::osg::Program::*getProgramBinary_function_type)(  ) ;
+            typedef ::osg::Program::ProgramBinary * ( ::osg::Program::*getProgramBinary_function_type )(  ) ;
             
             Program_exposer.def( 
                 "getProgramBinary"
@@ -924,7 +924,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getProgramBinary
         
-            typedef ::osg::Program::ProgramBinary const * ( ::osg::Program::*getProgramBinary_function_type)(  ) const;
+            typedef ::osg::Program::ProgramBinary const * ( ::osg::Program::*getProgramBinary_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getProgramBinary"
@@ -935,7 +935,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getShader
         
-            typedef ::osg::Shader * ( ::osg::Program::*getShader_function_type)( unsigned int ) ;
+            typedef ::osg::Shader * ( ::osg::Program::*getShader_function_type )( unsigned int ) ;
             
             Program_exposer.def( 
                 "getShader"
@@ -946,7 +946,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getShader
         
-            typedef ::osg::Shader const * ( ::osg::Program::*getShader_function_type)( unsigned int ) const;
+            typedef ::osg::Shader const * ( ::osg::Program::*getShader_function_type )( unsigned int ) const;
             
             Program_exposer.def( 
                 "getShader"
@@ -957,8 +957,8 @@ void register_Program_class(){
         }
         { //::osg::Program::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Program::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Program_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Program::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Program_wrapper::*default_getType_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getType"
@@ -968,7 +968,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getUniformBlockBindingList
         
-            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getUniformBlockBindingList_function_type)(  ) const;
+            typedef ::std::map< std::string, unsigned int > const & ( ::osg::Program::*getUniformBlockBindingList_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getUniformBlockBindingList"
@@ -978,7 +978,7 @@ void register_Program_class(){
         }
         { //::osg::Program::getUniformBlocks
         
-            typedef ::std::map< std::string, osg::Program::UniformBlockInfo > const & ( ::osg::Program::*getUniformBlocks_function_type)( unsigned int ) const;
+            typedef ::std::map< std::string, osg::Program::UniformBlockInfo > const & ( ::osg::Program::*getUniformBlocks_function_type )( unsigned int ) const;
             
             Program_exposer.def( 
                 "getUniformBlocks"
@@ -989,7 +989,7 @@ void register_Program_class(){
         }
         { //::osg::Program::isFixedFunction
         
-            typedef bool ( ::osg::Program::*isFixedFunction_function_type)(  ) const;
+            typedef bool ( ::osg::Program::*isFixedFunction_function_type )(  ) const;
             
             Program_exposer.def( 
                 "isFixedFunction"
@@ -999,8 +999,8 @@ void register_Program_class(){
         }
         { //::osg::Program::isSameKindAs
         
-            typedef bool ( ::osg::Program::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Program_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Program::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Program_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Program_exposer.def( 
                 "isSameKindAs"
@@ -1011,8 +1011,8 @@ void register_Program_class(){
         }
         { //::osg::Program::libraryName
         
-            typedef char const * ( ::osg::Program::*libraryName_function_type)(  ) const;
-            typedef char const * ( Program_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Program::*libraryName_function_type )(  ) const;
+            typedef char const * ( Program_wrapper::*default_libraryName_function_type )(  ) const;
             
             Program_exposer.def( 
                 "libraryName"
@@ -1022,7 +1022,7 @@ void register_Program_class(){
         }
         { //::osg::Program::removeBindAttribLocation
         
-            typedef void ( ::osg::Program::*removeBindAttribLocation_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Program::*removeBindAttribLocation_function_type )( ::std::string const & ) ;
             
             Program_exposer.def( 
                 "removeBindAttribLocation"
@@ -1033,7 +1033,7 @@ void register_Program_class(){
         }
         { //::osg::Program::removeBindFragDataLocation
         
-            typedef void ( ::osg::Program::*removeBindFragDataLocation_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Program::*removeBindFragDataLocation_function_type )( ::std::string const & ) ;
             
             Program_exposer.def( 
                 "removeBindFragDataLocation"
@@ -1044,7 +1044,7 @@ void register_Program_class(){
         }
         { //::osg::Program::removeBindUniformBlock
         
-            typedef void ( ::osg::Program::*removeBindUniformBlock_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Program::*removeBindUniformBlock_function_type )( ::std::string const & ) ;
             
             Program_exposer.def( 
                 "removeBindUniformBlock"
@@ -1055,7 +1055,7 @@ void register_Program_class(){
         }
         { //::osg::Program::removeShader
         
-            typedef bool ( ::osg::Program::*removeShader_function_type)( ::osg::Shader * ) ;
+            typedef bool ( ::osg::Program::*removeShader_function_type )( ::osg::Shader * ) ;
             
             Program_exposer.def( 
                 "removeShader"
@@ -1066,8 +1066,8 @@ void register_Program_class(){
         }
         { //::osg::Program::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Program::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Program_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Program::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Program_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Program_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1078,7 +1078,7 @@ void register_Program_class(){
         }
         { //::osg::Program::setComputeGroups
         
-            typedef void ( ::osg::Program::*setComputeGroups_function_type)( ::GLint,::GLint,::GLint ) ;
+            typedef void ( ::osg::Program::*setComputeGroups_function_type )( ::GLint,::GLint,::GLint ) ;
             
             Program_exposer.def( 
                 "setComputeGroups"
@@ -1089,7 +1089,7 @@ void register_Program_class(){
         }
         { //::osg::Program::setParameter
         
-            typedef void ( ::osg::Program::*setParameter_function_type)( ::GLenum,::GLint ) ;
+            typedef void ( ::osg::Program::*setParameter_function_type )( ::GLenum,::GLint ) ;
             
             Program_exposer.def( 
                 "setParameter"
@@ -1100,7 +1100,7 @@ void register_Program_class(){
         }
         { //::osg::Program::setProgramBinary
         
-            typedef void ( ::osg::Program::*setProgramBinary_function_type)( ::osg::Program::ProgramBinary * ) ;
+            typedef void ( ::osg::Program::*setProgramBinary_function_type )( ::osg::Program::ProgramBinary * ) ;
             
             Program_exposer.def( 
                 "setProgramBinary"
@@ -1111,8 +1111,8 @@ void register_Program_class(){
         }
         { //::osg::Program::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Program::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Program_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Program::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Program_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Program_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1123,8 +1123,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Program_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Program_wrapper::*default_asTexture_function_type )(  ) ;
             
             Program_exposer.def( 
                 "asTexture"
@@ -1135,8 +1135,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Program_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Program_wrapper::*default_asTexture_function_type )(  ) const;
             
             Program_exposer.def( 
                 "asTexture"
@@ -1147,8 +1147,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Program_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Program_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Program_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -1159,8 +1159,8 @@ void register_Program_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Program_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Program_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Program_exposer.def( 
                 "computeDataVariance"
@@ -1170,8 +1170,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Program_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Program_wrapper::*default_getMember_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getMember"
@@ -1181,8 +1181,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Program_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Program_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Program_exposer.def( 
                 "getModeUsage"
@@ -1193,8 +1193,8 @@ void register_Program_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Program_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Program_wrapper::*default_getUserData_function_type )(  ) ;
             
             Program_exposer.def( 
                 "getUserData"
@@ -1205,8 +1205,8 @@ void register_Program_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Program_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Program_wrapper::*default_getUserData_function_type )(  ) const;
             
             Program_exposer.def( 
                 "getUserData"
@@ -1217,8 +1217,8 @@ void register_Program_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Program_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Program_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Program_exposer.def( 
                 "isTextureAttribute"
@@ -1228,8 +1228,8 @@ void register_Program_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Program_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Program_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Program_exposer.def( 
                 "setName"
@@ -1240,7 +1240,7 @@ void register_Program_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Program_exposer.def( 
                 "setName"
@@ -1251,8 +1251,8 @@ void register_Program_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Program_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Program_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Program_exposer.def( 
                 "setUserData"

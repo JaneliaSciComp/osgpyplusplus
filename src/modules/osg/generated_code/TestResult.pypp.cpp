@@ -40,8 +40,8 @@ void register_TestResult_class(){
         .def_readwrite( "_numPixels", &osg::TestResult::_numPixels )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( TestResult_wrapper::* )( bool ))(&TestResult_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( TestResult_wrapper::* )( bool ) )(&TestResult_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

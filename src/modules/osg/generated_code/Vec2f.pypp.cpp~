@@ -149,6 +149,7 @@ void register_Vec2f_class(){
         
         }
         Vec2f_exposer.def( bp::self_ns::str( bp::self ) );
+        Vec2f_exposer.def( bp::self_ns::str(bp::self) );
     }
 
 }

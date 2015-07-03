@@ -33,7 +33,7 @@ void register_String_class(){
         String_exposer.def( bp::init< std::string const &, osgText::String::Encoding >(( bp::arg("text"), bp::arg("encoding") )) );
         { //::osgText::String::createUTF8EncodedString
         
-            typedef ::std::string ( ::osgText::String::*createUTF8EncodedString_function_type)(  ) const;
+            typedef ::std::string ( ::osgText::String::*createUTF8EncodedString_function_type )(  ) const;
             
             String_exposer.def( 
                 "createUTF8EncodedString"
@@ -43,7 +43,7 @@ void register_String_class(){
         }
         { //::osgText::String::operator=
         
-            typedef ::osgText::String & ( ::osgText::String::*assign_function_type)( ::osgText::String const & ) ;
+            typedef ::osgText::String & ( ::osgText::String::*assign_function_type )( ::osgText::String const & ) ;
             
             String_exposer.def( 
                 "assign"
@@ -54,7 +54,7 @@ void register_String_class(){
         }
         { //::osgText::String::set
         
-            typedef void ( ::osgText::String::*set_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgText::String::*set_function_type )( ::std::string const & ) ;
             
             String_exposer.def( 
                 "set"
@@ -64,7 +64,7 @@ void register_String_class(){
         }
         { //::osgText::String::set
         
-            typedef void ( ::osgText::String::*set_function_type)( wchar_t const * ) ;
+            typedef void ( ::osgText::String::*set_function_type )( wchar_t const * ) ;
             
             String_exposer.def( 
                 "set"
@@ -75,7 +75,7 @@ void register_String_class(){
         }
         { //::osgText::String::set
         
-            typedef void ( ::osgText::String::*set_function_type)( ::std::string const &,::osgText::String::Encoding ) ;
+            typedef void ( ::osgText::String::*set_function_type )( ::std::string const &,::osgText::String::Encoding ) ;
             
             String_exposer.def( 
                 "set"

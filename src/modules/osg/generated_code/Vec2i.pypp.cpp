@@ -26,7 +26,7 @@ void register_Vec2i_class(){
         Vec2i_exposer.def( bp::self == bp::self );
         { //::osg::Vec2i::operator[]
         
-            typedef int & ( ::osg::Vec2i::*__getitem___function_type)( int ) ;
+            typedef int & ( ::osg::Vec2i::*__getitem___function_type )( int ) ;
             
             Vec2i_exposer.def( 
                 "__getitem__"
@@ -37,7 +37,7 @@ void register_Vec2i_class(){
         }
         { //::osg::Vec2i::operator[]
         
-            typedef int ( ::osg::Vec2i::*__getitem___function_type)( int ) const;
+            typedef int ( ::osg::Vec2i::*__getitem___function_type )( int ) const;
             
             Vec2i_exposer.def( 
                 "__getitem__"
@@ -47,7 +47,7 @@ void register_Vec2i_class(){
         }
         { //::osg::Vec2i::set
         
-            typedef void ( ::osg::Vec2i::*set_function_type)( int,int ) ;
+            typedef void ( ::osg::Vec2i::*set_function_type )( int,int ) ;
             
             Vec2i_exposer.def( 
                 "set"
@@ -57,7 +57,7 @@ void register_Vec2i_class(){
         }
         { //::osg::Vec2i::set
         
-            typedef void ( ::osg::Vec2i::*set_function_type)( ::osg::Vec2i const & ) ;
+            typedef void ( ::osg::Vec2i::*set_function_type )( ::osg::Vec2i const & ) ;
             
             Vec2i_exposer.def( 
                 "set"
@@ -67,7 +67,7 @@ void register_Vec2i_class(){
         }
         { //property "x"[fget=::osg::Vec2i::x]
         
-            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget )(  ) ;
             
             Vec2i_exposer.add_property( 
                 "x"
@@ -78,7 +78,7 @@ void register_Vec2i_class(){
         }
         { //property "x"[fget=::osg::Vec2i::x]
         
-            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget )(  ) const;
             
             Vec2i_exposer.add_property( 
                 "x"
@@ -87,7 +87,7 @@ void register_Vec2i_class(){
         }
         { //property "y"[fget=::osg::Vec2i::y]
         
-            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget )(  ) ;
             
             Vec2i_exposer.add_property( 
                 "y"
@@ -98,7 +98,7 @@ void register_Vec2i_class(){
         }
         { //property "y"[fget=::osg::Vec2i::y]
         
-            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget )(  ) const;
             
             Vec2i_exposer.add_property( 
                 "y"
@@ -107,7 +107,7 @@ void register_Vec2i_class(){
         }
         { //property "r"[fget=::osg::Vec2i::r]
         
-            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget )(  ) ;
             
             Vec2i_exposer.add_property( 
                 "r"
@@ -118,7 +118,7 @@ void register_Vec2i_class(){
         }
         { //property "r"[fget=::osg::Vec2i::r]
         
-            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget )(  ) const;
             
             Vec2i_exposer.add_property( 
                 "r"
@@ -127,7 +127,7 @@ void register_Vec2i_class(){
         }
         { //property "g"[fget=::osg::Vec2i::g]
         
-            typedef int & ( ::osg::Vec2i::*fget)(  ) ;
+            typedef int & ( ::osg::Vec2i::*fget )(  ) ;
             
             Vec2i_exposer.add_property( 
                 "g"
@@ -138,7 +138,7 @@ void register_Vec2i_class(){
         }
         { //property "g"[fget=::osg::Vec2i::g]
         
-            typedef int ( ::osg::Vec2i::*fget)(  ) const;
+            typedef int ( ::osg::Vec2i::*fget )(  ) const;
             
             Vec2i_exposer.add_property( 
                 "g"

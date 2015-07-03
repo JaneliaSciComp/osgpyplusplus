@@ -30,7 +30,7 @@ void register_OutputStream_class(){
         bp::implicitly_convertible< osgDB::Options const *, osgDB::OutputStream >();
         { //::osgDB::OutputStream::compress
         
-            typedef void ( ::osgDB::OutputStream::*compress_function_type)( ::std::ostream * ) ;
+            typedef void ( ::osgDB::OutputStream::*compress_function_type )( ::std::ostream * ) ;
             
             OutputStream_exposer.def( 
                 "compress"
@@ -40,7 +40,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::getException
         
-            typedef ::osgDB::OutputException const * ( ::osgDB::OutputStream::*getException_function_type)(  ) const;
+            typedef ::osgDB::OutputException const * ( ::osgDB::OutputStream::*getException_function_type )(  ) const;
             
             OutputStream_exposer.def( 
                 "getException"
@@ -50,7 +50,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::getFileVersion
         
-            typedef int ( ::osgDB::OutputStream::*getFileVersion_function_type)( ::std::string const & ) const;
+            typedef int ( ::osgDB::OutputStream::*getFileVersion_function_type )( ::std::string const & ) const;
             
             OutputStream_exposer.def( 
                 "getFileVersion"
@@ -60,7 +60,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::getOptions
         
-            typedef ::osgDB::Options const * ( ::osgDB::OutputStream::*getOptions_function_type)(  ) const;
+            typedef ::osgDB::Options const * ( ::osgDB::OutputStream::*getOptions_function_type )(  ) const;
             
             OutputStream_exposer.def( 
                 "getOptions"
@@ -70,7 +70,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::getSchemaName
         
-            typedef ::std::string const & ( ::osgDB::OutputStream::*getSchemaName_function_type)(  ) const;
+            typedef ::std::string const & ( ::osgDB::OutputStream::*getSchemaName_function_type )(  ) const;
             
             OutputStream_exposer.def( 
                 "getSchemaName"
@@ -80,7 +80,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::getWriteImageHint
         
-            typedef ::osgDB::OutputStream::WriteImageHint ( ::osgDB::OutputStream::*getWriteImageHint_function_type)(  ) const;
+            typedef ::osgDB::OutputStream::WriteImageHint ( ::osgDB::OutputStream::*getWriteImageHint_function_type )(  ) const;
             
             OutputStream_exposer.def( 
                 "getWriteImageHint"
@@ -89,7 +89,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::isBinary
         
-            typedef bool ( ::osgDB::OutputStream::*isBinary_function_type)(  ) const;
+            typedef bool ( ::osgDB::OutputStream::*isBinary_function_type )(  ) const;
             
             OutputStream_exposer.def( 
                 "isBinary"
@@ -98,7 +98,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::setFileVersion
         
-            typedef void ( ::osgDB::OutputStream::*setFileVersion_function_type)( ::std::string const &,int ) ;
+            typedef void ( ::osgDB::OutputStream::*setFileVersion_function_type )( ::std::string const &,int ) ;
             
             OutputStream_exposer.def( 
                 "setFileVersion"
@@ -108,7 +108,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::setOutputIterator
         
-            typedef void ( ::osgDB::OutputStream::*setOutputIterator_function_type)( ::osgDB::OutputIterator * ) ;
+            typedef void ( ::osgDB::OutputStream::*setOutputIterator_function_type )( ::osgDB::OutputIterator * ) ;
             
             OutputStream_exposer.def( 
                 "setOutputIterator"
@@ -118,7 +118,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::setWriteImageHint
         
-            typedef void ( ::osgDB::OutputStream::*setWriteImageHint_function_type)( ::osgDB::OutputStream::WriteImageHint ) ;
+            typedef void ( ::osgDB::OutputStream::*setWriteImageHint_function_type )( ::osgDB::OutputStream::WriteImageHint ) ;
             
             OutputStream_exposer.def( 
                 "setWriteImageHint"
@@ -128,7 +128,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::start
         
-            typedef void ( ::osgDB::OutputStream::*start_function_type)( ::osgDB::OutputIterator *,::osgDB::OutputStream::WriteType ) ;
+            typedef void ( ::osgDB::OutputStream::*start_function_type )( ::osgDB::OutputIterator *,::osgDB::OutputStream::WriteType ) ;
             
             OutputStream_exposer.def( 
                 "start"
@@ -138,7 +138,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::throwException
         
-            typedef void ( ::osgDB::OutputStream::*throwException_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgDB::OutputStream::*throwException_function_type )( ::std::string const & ) ;
             
             OutputStream_exposer.def( 
                 "throwException"
@@ -148,7 +148,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeArray
         
-            typedef void ( ::osgDB::OutputStream::*writeArray_function_type)( ::osg::Array const * ) ;
+            typedef void ( ::osgDB::OutputStream::*writeArray_function_type )( ::osg::Array const * ) ;
             
             OutputStream_exposer.def( 
                 "writeArray"
@@ -158,7 +158,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeCharArray
         
-            typedef void ( ::osgDB::OutputStream::*writeCharArray_function_type)( char const *,unsigned int ) ;
+            typedef void ( ::osgDB::OutputStream::*writeCharArray_function_type )( char const *,unsigned int ) ;
             
             OutputStream_exposer.def( 
                 "writeCharArray"
@@ -168,7 +168,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeImage
         
-            typedef void ( ::osgDB::OutputStream::*writeImage_function_type)( ::osg::Image const * ) ;
+            typedef void ( ::osgDB::OutputStream::*writeImage_function_type )( ::osg::Image const * ) ;
             
             OutputStream_exposer.def( 
                 "writeImage"
@@ -178,7 +178,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeObject
         
-            typedef void ( ::osgDB::OutputStream::*writeObject_function_type)( ::osg::Object const * ) ;
+            typedef void ( ::osgDB::OutputStream::*writeObject_function_type )( ::osg::Object const * ) ;
             
             OutputStream_exposer.def( 
                 "writeObject"
@@ -188,7 +188,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeObjectFields
         
-            typedef void ( ::osgDB::OutputStream::*writeObjectFields_function_type)( ::osg::Object const * ) ;
+            typedef void ( ::osgDB::OutputStream::*writeObjectFields_function_type )( ::osg::Object const * ) ;
             
             OutputStream_exposer.def( 
                 "writeObjectFields"
@@ -198,7 +198,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writePrimitiveSet
         
-            typedef void ( ::osgDB::OutputStream::*writePrimitiveSet_function_type)( ::osg::PrimitiveSet const * ) ;
+            typedef void ( ::osgDB::OutputStream::*writePrimitiveSet_function_type )( ::osg::PrimitiveSet const * ) ;
             
             OutputStream_exposer.def( 
                 "writePrimitiveSet"
@@ -208,7 +208,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeSchema
         
-            typedef void ( ::osgDB::OutputStream::*writeSchema_function_type)( ::std::ostream & ) ;
+            typedef void ( ::osgDB::OutputStream::*writeSchema_function_type )( ::std::ostream & ) ;
             
             OutputStream_exposer.def( 
                 "writeSchema"
@@ -218,7 +218,7 @@ void register_OutputStream_class(){
         }
         { //::osgDB::OutputStream::writeWrappedString
         
-            typedef void ( ::osgDB::OutputStream::*writeWrappedString_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgDB::OutputStream::*writeWrappedString_function_type )( ::std::string const & ) ;
             
             OutputStream_exposer.def( 
                 "writeWrappedString"

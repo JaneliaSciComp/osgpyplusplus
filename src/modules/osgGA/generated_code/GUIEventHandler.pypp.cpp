@@ -259,32 +259,32 @@ void register_GUIEventHandler_class(){
     bp::class_< GUIEventHandler_wrapper, bp::bases< ::osg::NodeCallback, ::osg::Drawable::EventCallback >, osg::ref_ptr< ::osgGA::GUIEventHandler >, boost::noncopyable >( "GUIEventHandler", "\nGUIEventHandler provides a basic interface for any class which wants to handle\na GUI Events.\n\nThe GUIEvent is supplied by a GUIEventAdapter. Feedback resulting from the\nhandle method is supplied by a GUIActionAdapter, which allows the GUIEventHandler\nto ask the GUI to take some action in response to an incoming event.\n\nFor example, consider a Trackball Viewer class which takes mouse events and\nmanipulates a scene camera in response. The Trackball Viewer is a GUIEventHandler,\nand receives the events via the handle method. If the user throws the model,\nthe Trackball Viewer class can detect this via the incoming events, and\nrequest that the GUI set up a timer callback to continually redraw the view.\nThis request is made via the GUIActionAdapter class.\n", bp::init< >("\nGUIEventHandler provides a basic interface for any class which wants to handle\na GUI Events.\n\nThe GUIEvent is supplied by a GUIEventAdapter. Feedback resulting from the\nhandle method is supplied by a GUIActionAdapter, which allows the GUIEventHandler\nto ask the GUI to take some action in response to an incoming event.\n\nFor example, consider a Trackball Viewer class which takes mouse events and\nmanipulates a scene camera in response. The Trackball Viewer is a GUIEventHandler,\nand receives the events via the handle method. If the user throws the model,\nthe Trackball Viewer class can detect this via the incoming events, and\nrequest that the GUI set up a timer callback to continually redraw the view.\nThis request is made via the GUIActionAdapter class.\n") )    
         .def( 
             "className"
-            , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::className)
-            , (char const * ( GUIEventHandler_wrapper::* )(  )const)(&GUIEventHandler_wrapper::default_className) )    
+            , (char const * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::className)
+            , (char const * ( GUIEventHandler_wrapper::* )(  ) const)(&GUIEventHandler_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & )const)(&::osgGA::GUIEventHandler::clone)
-            , (::osg::Object * ( GUIEventHandler_wrapper::* )( ::osg::CopyOp const & )const)(&GUIEventHandler_wrapper::default_clone)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & ) const)(&::osgGA::GUIEventHandler::clone)
+            , (::osg::Object * ( GUIEventHandler_wrapper::* )( ::osg::CopyOp const & ) const)(&GUIEventHandler_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::cloneType)
-            , (::osg::Object * ( GUIEventHandler_wrapper::* )(  )const)(&GUIEventHandler_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::cloneType)
+            , (::osg::Object * ( GUIEventHandler_wrapper::* )(  ) const)(&GUIEventHandler_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "event"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&::osgGA::GUIEventHandler::event)
-            , (void ( GUIEventHandler_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&GUIEventHandler_wrapper::default_event)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&::osgGA::GUIEventHandler::event)
+            , (void ( GUIEventHandler_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&GUIEventHandler_wrapper::default_event)
             , ( bp::arg("nv"), bp::arg("drawable") ) )    
         .def( 
             "getIgnoreHandledEventsMask"
-            , (unsigned int ( ::osgGA::GUIEventHandler::* )(  )const)( &::osgGA::GUIEventHandler::getIgnoreHandledEventsMask )
+            , (unsigned int ( ::osgGA::GUIEventHandler::* )(  ) const)( &::osgGA::GUIEventHandler::getIgnoreHandledEventsMask )
             , " Get the event mask of the osgGA::GUIEeventAdapter::Event to be ignored if marked as handled" )    
         .def( 
             "getUsage"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::ApplicationUsage & )const)(&::osgGA::GUIEventHandler::getUsage)
-            , (void ( GUIEventHandler_wrapper::* )( ::osg::ApplicationUsage & )const)(&GUIEventHandler_wrapper::default_getUsage)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::ApplicationUsage & ) const)(&::osgGA::GUIEventHandler::getUsage)
+            , (void ( GUIEventHandler_wrapper::* )( ::osg::ApplicationUsage & ) const)(&GUIEventHandler_wrapper::default_getUsage)
             , ( bp::arg("arg0") ) )    
         .def( 
             "handle"
@@ -308,21 +308,21 @@ void register_GUIEventHandler_class(){
             , "\n Convenience method that only passes on to the handle(,) method events that either havent been\n handled yet, or have been handled but havent be set to be ignored by the IgnoreHandledEventsMask.\n Note, this method is an inline method, and not appropriate for users to override, override the handle(,)\n method instead.\n" )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * )const)(&::osgGA::GUIEventHandler::isSameKindAs)
-            , (bool ( GUIEventHandler_wrapper::* )( ::osg::Object const * )const)(&GUIEventHandler_wrapper::default_isSameKindAs)
+            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * ) const)(&::osgGA::GUIEventHandler::isSameKindAs)
+            , (bool ( GUIEventHandler_wrapper::* )( ::osg::Object const * ) const)(&GUIEventHandler_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::libraryName)
-            , (char const * ( GUIEventHandler_wrapper::* )(  )const)(&GUIEventHandler_wrapper::default_libraryName) )    
+            , (char const * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::libraryName)
+            , (char const * ( GUIEventHandler_wrapper::* )(  ) const)(&GUIEventHandler_wrapper::default_libraryName) )    
         .def( 
             "__call__"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::Node *,::osg::NodeVisitor * ))(&::osgGA::GUIEventHandler::operator())
-            , (void ( GUIEventHandler_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ))(&GUIEventHandler_wrapper::default___call__)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&::osgGA::GUIEventHandler::operator())
+            , (void ( GUIEventHandler_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&GUIEventHandler_wrapper::default___call__)
             , ( bp::arg("node"), bp::arg("nv") ) )    
         .def( 
             "setIgnoreHandledEventsMask"
-            , (void ( ::osgGA::GUIEventHandler::* )( unsigned int ))( &::osgGA::GUIEventHandler::setIgnoreHandledEventsMask )
+            , (void ( ::osgGA::GUIEventHandler::* )( unsigned int ) )( &::osgGA::GUIEventHandler::setIgnoreHandledEventsMask )
             , ( bp::arg("mask") )
             , " Set a mask of osgGA::GUIEeventAdapter::Event to be ignored if marked as handled" );
 

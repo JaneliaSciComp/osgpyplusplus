@@ -59,13 +59,13 @@ void register_FindFileCallback_class(){
     bp::class_< FindFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::FindFileCallback >, boost::noncopyable >( "FindFileCallback", bp::no_init )    
         .def( 
             "findDataFile"
-            , (::std::string ( ::osgDB::FindFileCallback::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ))(&::osgDB::FindFileCallback::findDataFile)
-            , (::std::string ( FindFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ))(&FindFileCallback_wrapper::default_findDataFile)
+            , (::std::string ( ::osgDB::FindFileCallback::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ) )(&::osgDB::FindFileCallback::findDataFile)
+            , (::std::string ( FindFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ) )(&FindFileCallback_wrapper::default_findDataFile)
             , ( bp::arg("filename"), bp::arg("options"), bp::arg("caseSensitivity") ) )    
         .def( 
             "findLibraryFile"
-            , (::std::string ( ::osgDB::FindFileCallback::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ))(&::osgDB::FindFileCallback::findLibraryFile)
-            , (::std::string ( FindFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ))(&FindFileCallback_wrapper::default_findLibraryFile)
+            , (::std::string ( ::osgDB::FindFileCallback::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ) )(&::osgDB::FindFileCallback::findLibraryFile)
+            , (::std::string ( FindFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ) )(&FindFileCallback_wrapper::default_findLibraryFile)
             , ( bp::arg("filename"), bp::arg("options"), bp::arg("caseSensitivity") ) );
 
 }

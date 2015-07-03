@@ -16,7 +16,7 @@ void register_NodeAcceptOp_class(){
         NodeAcceptOp_exposer.def( bp::init< osg::NodeAcceptOp const & >(( bp::arg("naop") ), "\n Convenience functor for assisting visiting of arrays of osg::Nodes.\n") );
         { //::osg::NodeAcceptOp::operator()
         
-            typedef void ( ::osg::NodeAcceptOp::*__call___function_type)( ::osg::Node * ) ;
+            typedef void ( ::osg::NodeAcceptOp::*__call___function_type )( ::osg::Node * ) ;
             
             NodeAcceptOp_exposer.def( 
                 "__call__"
@@ -27,7 +27,7 @@ void register_NodeAcceptOp_class(){
         }
         { //::osg::NodeAcceptOp::operator()
         
-            typedef void ( ::osg::NodeAcceptOp::*__call___function_type)( ::osg::ref_ptr< osg::Node > ) ;
+            typedef void ( ::osg::NodeAcceptOp::*__call___function_type )( ::osg::ref_ptr< osg::Node > ) ;
             
             NodeAcceptOp_exposer.def( 
                 "__call__"

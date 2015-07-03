@@ -372,50 +372,50 @@ void register_GlyphTexture_class(){
         .def( bp::init< >() )    
         .def( 
             "addGlyph"
-            , (void ( ::osgText::GlyphTexture::* )( ::osgText::Glyph *,int,int ))( &::osgText::GlyphTexture::addGlyph )
+            , (void ( ::osgText::GlyphTexture::* )( ::osgText::Glyph *,int,int ) )( &::osgText::GlyphTexture::addGlyph )
             , ( bp::arg("glyph"), bp::arg("posX"), bp::arg("posY") ) )    
         .def( 
             "apply"
-            , (void ( ::osgText::GlyphTexture::* )( ::osg::State & )const)(&::osgText::GlyphTexture::apply)
-            , (void ( GlyphTexture_wrapper::* )( ::osg::State & )const)(&GlyphTexture_wrapper::default_apply)
+            , (void ( ::osgText::GlyphTexture::* )( ::osg::State & ) const)(&::osgText::GlyphTexture::apply)
+            , (void ( GlyphTexture_wrapper::* )( ::osg::State & ) const)(&GlyphTexture_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgText::GlyphTexture::* )(  )const)(&::osgText::GlyphTexture::className)
-            , (char const * ( GlyphTexture_wrapper::* )(  )const)(&GlyphTexture_wrapper::default_className) )    
+            , (char const * ( ::osgText::GlyphTexture::* )(  ) const)(&::osgText::GlyphTexture::className)
+            , (char const * ( GlyphTexture_wrapper::* )(  ) const)(&GlyphTexture_wrapper::default_className) )    
         .def( 
             "createImage"
-            , (::osg::Image * ( ::osgText::GlyphTexture::* )(  ))( &::osgText::GlyphTexture::createImage )
+            , (::osg::Image * ( ::osgText::GlyphTexture::* )(  ) )( &::osgText::GlyphTexture::createImage )
             , bp::return_internal_reference< >()
             , " create an image that maps all the associated Glyphs onto a single image, that is equivilant to what will be downloaded to the texture." )    
         .def( 
             "getGlyphImageMargin"
-            , (unsigned int ( ::osgText::GlyphTexture::* )(  )const)( &::osgText::GlyphTexture::getGlyphImageMargin ) )    
+            , (unsigned int ( ::osgText::GlyphTexture::* )(  ) const)( &::osgText::GlyphTexture::getGlyphImageMargin ) )    
         .def( 
             "getGlyphImageMarginRatio"
-            , (float ( ::osgText::GlyphTexture::* )(  )const)( &::osgText::GlyphTexture::getGlyphImageMarginRatio ) )    
+            , (float ( ::osgText::GlyphTexture::* )(  ) const)( &::osgText::GlyphTexture::getGlyphImageMarginRatio ) )    
         .def( 
             "getSpaceForGlyph"
-            , (bool ( ::osgText::GlyphTexture::* )( ::osgText::Glyph *,int &,int & ))( &::osgText::GlyphTexture::getSpaceForGlyph )
+            , (bool ( ::osgText::GlyphTexture::* )( ::osgText::Glyph *,int &,int & ) )( &::osgText::GlyphTexture::getSpaceForGlyph )
             , ( bp::arg("glyph"), bp::arg("posX"), bp::arg("posY") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osgText::GlyphTexture::* )( unsigned int ))(&::osgText::GlyphTexture::resizeGLObjectBuffers)
-            , (void ( GlyphTexture_wrapper::* )( unsigned int ))(&GlyphTexture_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osgText::GlyphTexture::* )( unsigned int ) )(&::osgText::GlyphTexture::resizeGLObjectBuffers)
+            , (void ( GlyphTexture_wrapper::* )( unsigned int ) )(&GlyphTexture_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setGlyphImageMargin"
-            , (void ( ::osgText::GlyphTexture::* )( unsigned int ))( &::osgText::GlyphTexture::setGlyphImageMargin )
+            , (void ( ::osgText::GlyphTexture::* )( unsigned int ) )( &::osgText::GlyphTexture::setGlyphImageMargin )
             , ( bp::arg("margin") )
             , " Set the margin around each glyph, to ensure that texture filtering doesnt bleed adjacent glyphs into each other." )    
         .def( 
             "setGlyphImageMarginRatio"
-            , (void ( ::osgText::GlyphTexture::* )( float ))( &::osgText::GlyphTexture::setGlyphImageMarginRatio )
+            , (void ( ::osgText::GlyphTexture::* )( float ) )( &::osgText::GlyphTexture::setGlyphImageMarginRatio )
             , ( bp::arg("margin") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osgText::GlyphTexture::* )( bool ))(&::osgText::GlyphTexture::setThreadSafeRefUnref)
-            , (void ( GlyphTexture_wrapper::* )( bool ))(&GlyphTexture_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osgText::GlyphTexture::* )( bool ) )(&::osgText::GlyphTexture::setThreadSafeRefUnref)
+            , (void ( GlyphTexture_wrapper::* )( bool ) )(&GlyphTexture_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

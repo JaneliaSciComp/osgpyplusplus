@@ -396,201 +396,201 @@ void register_Geode_class(){
         .def( bp::init< >() )    
         .def( 
             "accept"
-            , (void ( ::osg::Geode::* )( ::osg::NodeVisitor & ))(&::osg::Geode::accept)
-            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ))(&Geode_wrapper::default_accept)
+            , (void ( ::osg::Geode::* )( ::osg::NodeVisitor & ) )(&::osg::Geode::accept)
+            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ) )(&Geode_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addDrawable"
-            , (bool ( ::osg::Geode::* )( ::osg::Drawable * ))(&::osg::Geode::addDrawable)
-            , (bool ( Geode_wrapper::* )( ::osg::Drawable * ))(&Geode_wrapper::default_addDrawable)
+            , (bool ( ::osg::Geode::* )( ::osg::Drawable * ) )(&::osg::Geode::addDrawable)
+            , (bool ( Geode_wrapper::* )( ::osg::Drawable * ) )(&Geode_wrapper::default_addDrawable)
             , ( bp::arg("drawable") ) )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Geode::* )(  ))(&::osg::Geode::asGeode)
-            , (::osg::Geode * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Geode::* )(  ) )(&::osg::Geode::asGeode)
+            , (::osg::Geode * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Geode::* )(  )const)(&::osg::Geode::asGeode)
-            , (::osg::Geode const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Geode::* )(  ) const)(&::osg::Geode::asGeode)
+            , (::osg::Geode const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::Geode::* )(  )const)(&::osg::Geode::className)
-            , (char const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_className) )    
+            , (char const * ( ::osg::Geode::* )(  ) const)(&::osg::Geode::className)
+            , (char const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Geode::* )( ::osg::CopyOp const & )const)(&::osg::Geode::clone)
-            , (::osg::Object * ( Geode_wrapper::* )( ::osg::CopyOp const & )const)(&Geode_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Geode::* )( ::osg::CopyOp const & ) const)(&::osg::Geode::clone)
+            , (::osg::Object * ( Geode_wrapper::* )( ::osg::CopyOp const & ) const)(&Geode_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Geode::* )(  )const)(&::osg::Geode::cloneType)
-            , (::osg::Object * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Geode::* )(  ) const)(&::osg::Geode::cloneType)
+            , (::osg::Object * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "compileDrawables"
-            , (void ( ::osg::Geode::* )( ::osg::RenderInfo & ))( &::osg::Geode::compileDrawables )
+            , (void ( ::osg::Geode::* )( ::osg::RenderInfo & ) )( &::osg::Geode::compileDrawables )
             , ( bp::arg("renderInfo") )
             , " Compile OpenGL Display List for each drawable." )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Geode::* )(  )const)(&::osg::Geode::computeBound)
-            , (::osg::BoundingSphere ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Geode::* )(  ) const)(&::osg::Geode::computeBound)
+            , (::osg::BoundingSphere ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_computeBound) )    
         .def( 
             "containsDrawable"
-            , (bool ( ::osg::Geode::* )( ::osg::Drawable const * )const)( &::osg::Geode::containsDrawable )
+            , (bool ( ::osg::Geode::* )( ::osg::Drawable const * ) const)( &::osg::Geode::containsDrawable )
             , ( bp::arg("gset") )
             , " Return  true if a given  Drawable is contained within  Geode." )    
         .def( 
             "getBoundingBox"
-            , (::osg::BoundingBox const & ( ::osg::Geode::* )(  )const)( &::osg::Geode::getBoundingBox )
+            , (::osg::BoundingBox const & ( ::osg::Geode::* )(  ) const)( &::osg::Geode::getBoundingBox )
             , bp::return_internal_reference< >()
             , " Return the Geodes bounding box, which is the union of all the\n bounding boxes of the geodes drawables." )    
         .def( 
             "getDrawable"
-            , (::osg::Drawable * ( ::osg::Geode::* )( unsigned int ))( &::osg::Geode::getDrawable )
+            , (::osg::Drawable * ( ::osg::Geode::* )( unsigned int ) )( &::osg::Geode::getDrawable )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Return the  Drawable at position  i." )    
         .def( 
             "getDrawable"
-            , (::osg::Drawable const * ( ::osg::Geode::* )( unsigned int )const)( &::osg::Geode::getDrawable )
+            , (::osg::Drawable const * ( ::osg::Geode::* )( unsigned int ) const)( &::osg::Geode::getDrawable )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Return the  Drawable at position  i." )    
         .def( 
             "getDrawableIndex"
-            , (unsigned int ( ::osg::Geode::* )( ::osg::Drawable const * )const)( &::osg::Geode::getDrawableIndex )
+            , (unsigned int ( ::osg::Geode::* )( ::osg::Drawable const * ) const)( &::osg::Geode::getDrawableIndex )
             , ( bp::arg("drawable") )
             , " Get the index number of  drawable.\n Return: A value between 0 and <tt>getNumDrawables()-1</tt> if\n          drawable is found; if not found, then\n         <tt>getNumDrawables()</tt> is returned." )    
         .def( 
             "getDrawableList"
-            , (::std::vector< osg::ref_ptr<osg::Drawable> > const & ( ::osg::Geode::* )(  )const)( &::osg::Geode::getDrawableList )
+            , (::std::vector< osg::ref_ptr<osg::Drawable> > const & ( ::osg::Geode::* )(  ) const)( &::osg::Geode::getDrawableList )
             , bp::return_internal_reference< >()
             , " Get the list of drawables." )    
         .def( 
             "getNumDrawables"
-            , (unsigned int ( ::osg::Geode::* )(  )const)( &::osg::Geode::getNumDrawables )
+            , (unsigned int ( ::osg::Geode::* )(  ) const)( &::osg::Geode::getNumDrawables )
             , " Return the number of <tt>Drawable</tt>s currently attached to the\n  Geode." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Geode::* )( ::osg::Object const * )const)(&::osg::Geode::isSameKindAs)
-            , (bool ( Geode_wrapper::* )( ::osg::Object const * )const)(&Geode_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Geode::* )( ::osg::Object const * ) const)(&::osg::Geode::isSameKindAs)
+            , (bool ( Geode_wrapper::* )( ::osg::Object const * ) const)(&Geode_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Geode::* )(  )const)(&::osg::Geode::libraryName)
-            , (char const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Geode::* )(  ) const)(&::osg::Geode::libraryName)
+            , (char const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_libraryName) )    
         .def( 
             "removeDrawable"
-            , (bool ( ::osg::Geode::* )( ::osg::Drawable * ))(&::osg::Geode::removeDrawable)
-            , (bool ( Geode_wrapper::* )( ::osg::Drawable * ))(&Geode_wrapper::default_removeDrawable)
+            , (bool ( ::osg::Geode::* )( ::osg::Drawable * ) )(&::osg::Geode::removeDrawable)
+            , (bool ( Geode_wrapper::* )( ::osg::Drawable * ) )(&Geode_wrapper::default_removeDrawable)
             , ( bp::arg("drawable") ) )    
         .def( 
             "removeDrawables"
-            , (bool ( ::osg::Geode::* )( unsigned int,unsigned int ))(&::osg::Geode::removeDrawables)
-            , (bool ( Geode_wrapper::* )( unsigned int,unsigned int ))(&Geode_wrapper::default_removeDrawables)
+            , (bool ( ::osg::Geode::* )( unsigned int,unsigned int ) )(&::osg::Geode::removeDrawables)
+            , (bool ( Geode_wrapper::* )( unsigned int,unsigned int ) )(&Geode_wrapper::default_removeDrawables)
             , ( bp::arg("i"), bp::arg("numDrawablesToRemove")=(unsigned int)(1) ) )    
         .def( 
             "replaceDrawable"
-            , (bool ( ::osg::Geode::* )( ::osg::Drawable *,::osg::Drawable * ))(&::osg::Geode::replaceDrawable)
-            , (bool ( Geode_wrapper::* )( ::osg::Drawable *,::osg::Drawable * ))(&Geode_wrapper::default_replaceDrawable)
+            , (bool ( ::osg::Geode::* )( ::osg::Drawable *,::osg::Drawable * ) )(&::osg::Geode::replaceDrawable)
+            , (bool ( Geode_wrapper::* )( ::osg::Drawable *,::osg::Drawable * ) )(&Geode_wrapper::default_replaceDrawable)
             , ( bp::arg("origDraw"), bp::arg("newDraw") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Geode::* )( unsigned int ))(&::osg::Geode::resizeGLObjectBuffers)
-            , (void ( Geode_wrapper::* )( unsigned int ))(&Geode_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Geode::* )( unsigned int ) )(&::osg::Geode::resizeGLObjectBuffers)
+            , (void ( Geode_wrapper::* )( unsigned int ) )(&Geode_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setDrawable"
-            , (bool ( ::osg::Geode::* )( unsigned int,::osg::Drawable * ))(&::osg::Geode::setDrawable)
-            , (bool ( Geode_wrapper::* )( unsigned int,::osg::Drawable * ))(&Geode_wrapper::default_setDrawable)
+            , (bool ( ::osg::Geode::* )( unsigned int,::osg::Drawable * ) )(&::osg::Geode::setDrawable)
+            , (bool ( Geode_wrapper::* )( unsigned int,::osg::Drawable * ) )(&Geode_wrapper::default_setDrawable)
             , ( bp::arg("i"), bp::arg("drawable") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Geode::* )( bool ))(&::osg::Geode::setThreadSafeRefUnref)
-            , (void ( Geode_wrapper::* )( bool ))(&Geode_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Geode::* )( bool ) )(&::osg::Geode::setThreadSafeRefUnref)
+            , (void ( Geode_wrapper::* )( bool ) )(&Geode_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
-            , (::osg::Camera * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
+            , (::osg::Camera * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Node::* )(  ))(&::osg::Node::asGroup)
-            , (::osg::Group * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Node::* )(  ) )(&::osg::Node::asGroup)
+            , (::osg::Group * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGroup)
-            , (::osg::Group const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGroup)
+            , (::osg::Group const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
-            , (::osg::Switch * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Node::* )(  ) )(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
-            , (::osg::Switch const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
-            , (::osg::Transform * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Node::* )(  ) )(&::osg::Node::asTransform)
+            , (::osg::Transform * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
-            , (::osg::Transform const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
-            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ))(&Geode_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
+            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ) )(&Geode_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Geode_wrapper::* )(  ))(&Geode_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Geode_wrapper::* )(  ) )(&Geode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Geode_wrapper::* )(  )const)(&Geode_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Geode_wrapper::* )(  ) const)(&Geode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Geode_wrapper::* )( ::std::string const & ))(&Geode_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Geode_wrapper::* )( ::std::string const & ) )(&Geode_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Geode_wrapper::* )( ::osg::Referenced * ))(&Geode_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Geode_wrapper::* )( ::osg::Referenced * ) )(&Geode_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::traverse)
-            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ))(&Geode_wrapper::default_traverse)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::traverse)
+            , (void ( Geode_wrapper::* )( ::osg::NodeVisitor & ) )(&Geode_wrapper::default_traverse)
             , ( bp::arg("arg0") ) );
 
 }

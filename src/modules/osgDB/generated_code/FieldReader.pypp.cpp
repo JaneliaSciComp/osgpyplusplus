@@ -45,7 +45,7 @@ void register_FieldReader_class(){
         FieldReader_exposer.def( bp::init< osgDB::FieldReader const & >(( bp::arg("ic") )) );
         { //::osgDB::FieldReader::attach
         
-            typedef void ( ::osgDB::FieldReader::*attach_function_type)( ::std::istream * ) ;
+            typedef void ( ::osgDB::FieldReader::*attach_function_type )( ::std::istream * ) ;
             
             FieldReader_exposer.def( 
                 "attach"
@@ -55,7 +55,7 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::detach
         
-            typedef void ( ::osgDB::FieldReader::*detach_function_type)(  ) ;
+            typedef void ( ::osgDB::FieldReader::*detach_function_type )(  ) ;
             
             FieldReader_exposer.def( 
                 "detach"
@@ -64,8 +64,8 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::eof
         
-            typedef bool ( ::osgDB::FieldReader::*eof_function_type)(  ) const;
-            typedef bool ( FieldReader_wrapper::*default_eof_function_type)(  ) const;
+            typedef bool ( ::osgDB::FieldReader::*eof_function_type )(  ) const;
+            typedef bool ( FieldReader_wrapper::*default_eof_function_type )(  ) const;
             
             FieldReader_exposer.def( 
                 "eof"
@@ -75,7 +75,7 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::getNoNestedBrackets
         
-            typedef int ( ::osgDB::FieldReader::*getNoNestedBrackets_function_type)(  ) const;
+            typedef int ( ::osgDB::FieldReader::*getNoNestedBrackets_function_type )(  ) const;
             
             FieldReader_exposer.def( 
                 "getNoNestedBrackets"
@@ -84,7 +84,7 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::ignoreField
         
-            typedef void ( ::osgDB::FieldReader::*ignoreField_function_type)(  ) ;
+            typedef void ( ::osgDB::FieldReader::*ignoreField_function_type )(  ) ;
             
             FieldReader_exposer.def( 
                 "ignoreField"
@@ -93,7 +93,7 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::operator=
         
-            typedef ::osgDB::FieldReader & ( ::osgDB::FieldReader::*assign_function_type)( ::osgDB::FieldReader const & ) ;
+            typedef ::osgDB::FieldReader & ( ::osgDB::FieldReader::*assign_function_type )( ::osgDB::FieldReader const & ) ;
             
             FieldReader_exposer.def( 
                 "assign"
@@ -104,7 +104,7 @@ void register_FieldReader_class(){
         }
         { //::osgDB::FieldReader::readField
         
-            typedef bool ( ::osgDB::FieldReader::*readField_function_type)( ::osgDB::Field & ) ;
+            typedef bool ( ::osgDB::FieldReader::*readField_function_type )( ::osgDB::Field & ) ;
             
             FieldReader_exposer.def( 
                 "readField"

@@ -39,7 +39,7 @@ void register_Referenced_class(){
         Referenced_exposer.def( bp::init< >("\n Base class for providing reference counted objects.\n") );
         { //::osg::Referenced::addObserver
         
-            typedef void ( ::osg::Referenced::*addObserver_function_type)( ::osg::Observer * ) const;
+            typedef void ( ::osg::Referenced::*addObserver_function_type )( ::osg::Observer * ) const;
             
             Referenced_exposer.def( 
                 "addObserver"
@@ -72,7 +72,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::getObserverSet
         
-            typedef ::osg::ObserverSet * ( ::osg::Referenced::*getObserverSet_function_type)(  ) const;
+            typedef ::osg::ObserverSet * ( ::osg::Referenced::*getObserverSet_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "getObserverSet"
@@ -83,7 +83,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::getOrCreateObserverSet
         
-            typedef ::osg::ObserverSet * ( ::osg::Referenced::*getOrCreateObserverSet_function_type)(  ) const;
+            typedef ::osg::ObserverSet * ( ::osg::Referenced::*getOrCreateObserverSet_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "getOrCreateObserverSet"
@@ -94,7 +94,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::getRefMutex
         
-            typedef ::OpenThreads::Mutex * ( ::osg::Referenced::*getRefMutex_function_type)(  ) const;
+            typedef ::OpenThreads::Mutex * ( ::osg::Referenced::*getRefMutex_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "getRefMutex"
@@ -105,7 +105,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::getThreadSafeRefUnref
         
-            typedef bool ( ::osg::Referenced::*getThreadSafeRefUnref_function_type)(  ) const;
+            typedef bool ( ::osg::Referenced::*getThreadSafeRefUnref_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "getThreadSafeRefUnref"
@@ -125,7 +125,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::ref
         
-            typedef int ( ::osg::Referenced::*ref_function_type)(  ) const;
+            typedef int ( ::osg::Referenced::*ref_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "ref"
@@ -134,7 +134,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::referenceCount
         
-            typedef int ( ::osg::Referenced::*referenceCount_function_type)(  ) const;
+            typedef int ( ::osg::Referenced::*referenceCount_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "referenceCount"
@@ -144,7 +144,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::removeObserver
         
-            typedef void ( ::osg::Referenced::*removeObserver_function_type)( ::osg::Observer * ) const;
+            typedef void ( ::osg::Referenced::*removeObserver_function_type )( ::osg::Observer * ) const;
             
             Referenced_exposer.def( 
                 "removeObserver"
@@ -166,8 +166,8 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Referenced_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Referenced_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Referenced_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -189,7 +189,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::unref
         
-            typedef int ( ::osg::Referenced::*unref_function_type)(  ) const;
+            typedef int ( ::osg::Referenced::*unref_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "unref"
@@ -198,7 +198,7 @@ void register_Referenced_class(){
         }
         { //::osg::Referenced::unref_nodelete
         
-            typedef int ( ::osg::Referenced::*unref_nodelete_function_type)(  ) const;
+            typedef int ( ::osg::Referenced::*unref_nodelete_function_type )(  ) const;
             
             Referenced_exposer.def( 
                 "unref_nodelete"

@@ -29,7 +29,7 @@ void register_Vec4s_class(){
         Vec4s_exposer.def( bp::self == bp::self );
         { //::osg::Vec4s::operator[]
         
-            typedef short int & ( ::osg::Vec4s::*__getitem___function_type)( unsigned int ) ;
+            typedef short int & ( ::osg::Vec4s::*__getitem___function_type )( unsigned int ) ;
             
             Vec4s_exposer.def( 
                 "__getitem__"
@@ -40,7 +40,7 @@ void register_Vec4s_class(){
         }
         { //::osg::Vec4s::operator[]
         
-            typedef short int ( ::osg::Vec4s::*__getitem___function_type)( unsigned int ) const;
+            typedef short int ( ::osg::Vec4s::*__getitem___function_type )( unsigned int ) const;
             
             Vec4s_exposer.def( 
                 "__getitem__"
@@ -50,7 +50,7 @@ void register_Vec4s_class(){
         }
         { //::osg::Vec4s::set
         
-            typedef void ( ::osg::Vec4s::*set_function_type)( short int,short int,short int,short int ) ;
+            typedef void ( ::osg::Vec4s::*set_function_type )( short int,short int,short int,short int ) ;
             
             Vec4s_exposer.def( 
                 "set"
@@ -60,7 +60,7 @@ void register_Vec4s_class(){
         }
         { //property "x"[fget=::osg::Vec4s::x]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "x"
@@ -71,7 +71,7 @@ void register_Vec4s_class(){
         }
         { //property "x"[fget=::osg::Vec4s::x]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "x"
@@ -80,7 +80,7 @@ void register_Vec4s_class(){
         }
         { //property "y"[fget=::osg::Vec4s::y]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "y"
@@ -91,7 +91,7 @@ void register_Vec4s_class(){
         }
         { //property "y"[fget=::osg::Vec4s::y]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "y"
@@ -100,7 +100,7 @@ void register_Vec4s_class(){
         }
         { //property "z"[fget=::osg::Vec4s::z]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "z"
@@ -111,7 +111,7 @@ void register_Vec4s_class(){
         }
         { //property "z"[fget=::osg::Vec4s::z]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "z"
@@ -120,7 +120,7 @@ void register_Vec4s_class(){
         }
         { //property "w"[fget=::osg::Vec4s::w]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "w"
@@ -131,7 +131,7 @@ void register_Vec4s_class(){
         }
         { //property "w"[fget=::osg::Vec4s::w]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "w"
@@ -140,7 +140,7 @@ void register_Vec4s_class(){
         }
         { //property "r"[fget=::osg::Vec4s::r]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "r"
@@ -151,7 +151,7 @@ void register_Vec4s_class(){
         }
         { //property "r"[fget=::osg::Vec4s::r]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "r"
@@ -160,7 +160,7 @@ void register_Vec4s_class(){
         }
         { //property "g"[fget=::osg::Vec4s::g]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "g"
@@ -171,7 +171,7 @@ void register_Vec4s_class(){
         }
         { //property "g"[fget=::osg::Vec4s::g]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "g"
@@ -180,7 +180,7 @@ void register_Vec4s_class(){
         }
         { //property "b"[fget=::osg::Vec4s::b]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "b"
@@ -191,7 +191,7 @@ void register_Vec4s_class(){
         }
         { //property "b"[fget=::osg::Vec4s::b]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "b"
@@ -200,7 +200,7 @@ void register_Vec4s_class(){
         }
         { //property "a"[fget=::osg::Vec4s::a]
         
-            typedef short int & ( ::osg::Vec4s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec4s::*fget )(  ) ;
             
             Vec4s_exposer.add_property( 
                 "a"
@@ -211,7 +211,7 @@ void register_Vec4s_class(){
         }
         { //property "a"[fget=::osg::Vec4s::a]
         
-            typedef short int ( ::osg::Vec4s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec4s::*fget )(  ) const;
             
             Vec4s_exposer.add_property( 
                 "a"

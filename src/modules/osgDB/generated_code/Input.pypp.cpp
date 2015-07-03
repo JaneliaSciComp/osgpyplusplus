@@ -149,131 +149,131 @@ void register_Input_class(){
     bp::class_< Input_wrapper, bp::bases< osgDB::FieldReaderIterator > >( "Input", bp::init< >() )    
         .def( 
             "getOptions"
-            , (::osgDB::Options const * ( ::osgDB::Input::* )(  )const)( &::osgDB::Input::getOptions )
+            , (::osgDB::Options const * ( ::osgDB::Input::* )(  ) const)( &::osgDB::Input::getOptions )
             , bp::return_internal_reference< >() )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6"), bp::arg("value7") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( ::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6"), bp::arg("value7"), bp::arg("value8") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const * ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const * ) )( &::osgDB::Input::read )
             , ( bp::arg("str") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6"), bp::arg("value7") ) )    
         .def( 
             "read"
-            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ))( &::osgDB::Input::read )
+            , (bool ( ::osgDB::Input::* )( char const *,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) )( &::osgDB::Input::read )
             , ( bp::arg("str"), bp::arg("value1"), bp::arg("value2"), bp::arg("value3"), bp::arg("value4"), bp::arg("value5"), bp::arg("value6"), bp::arg("value7"), bp::arg("value8") ) )    
         .def( 
             "readDrawable"
-            , (::osg::Drawable * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readDrawable)
-            , (::osg::Drawable * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readDrawable)
+            , (::osg::Drawable * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readDrawable)
+            , (::osg::Drawable * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readDrawable)
             , bp::return_internal_reference< >() )    
         .def( 
             "readImage"
-            , (::osg::Image * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readImage)
-            , (::osg::Image * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readImage)
+            , (::osg::Image * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readImage)
+            , (::osg::Image * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readImage)
             , bp::return_internal_reference< >() )    
         .def( 
             "readImage"
-            , (::osg::Image * ( ::osgDB::Input::* )( ::std::string const & ))(&::osgDB::Input::readImage)
-            , (::osg::Image * ( Input_wrapper::* )( ::std::string const & ))(&Input_wrapper::default_readImage)
+            , (::osg::Image * ( ::osgDB::Input::* )( ::std::string const & ) )(&::osgDB::Input::readImage)
+            , (::osg::Image * ( Input_wrapper::* )( ::std::string const & ) )(&Input_wrapper::default_readImage)
             , ( bp::arg("fileName") )
             , bp::return_internal_reference< >() )    
         .def( 
             "readNode"
-            , (::osg::Node * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readNode)
-            , (::osg::Node * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readNode)
+            , (::osg::Node * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readNode)
+            , (::osg::Node * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "readNode"
-            , (::osg::Node * ( ::osgDB::Input::* )( ::std::string const & ))(&::osgDB::Input::readNode)
-            , (::osg::Node * ( Input_wrapper::* )( ::std::string const & ))(&Input_wrapper::default_readNode)
+            , (::osg::Node * ( ::osgDB::Input::* )( ::std::string const & ) )(&::osgDB::Input::readNode)
+            , (::osg::Node * ( Input_wrapper::* )( ::std::string const & ) )(&Input_wrapper::default_readNode)
             , ( bp::arg("fileName") )
             , bp::return_internal_reference< >() )    
         .def( 
             "readShader"
-            , (::osg::Shader * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readShader)
-            , (::osg::Shader * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readShader)
+            , (::osg::Shader * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readShader)
+            , (::osg::Shader * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readShader)
             , bp::return_internal_reference< >() )    
         .def( 
             "readShader"
-            , (::osg::Shader * ( ::osgDB::Input::* )( ::std::string const & ))(&::osgDB::Input::readShader)
-            , (::osg::Shader * ( Input_wrapper::* )( ::std::string const & ))(&Input_wrapper::default_readShader)
+            , (::osg::Shader * ( ::osgDB::Input::* )( ::std::string const & ) )(&::osgDB::Input::readShader)
+            , (::osg::Shader * ( Input_wrapper::* )( ::std::string const & ) )(&Input_wrapper::default_readShader)
             , ( bp::arg("fileName") )
             , bp::return_internal_reference< >() )    
         .def( 
             "readStateAttribute"
-            , (::osg::StateAttribute * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readStateAttribute)
-            , (::osg::StateAttribute * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readStateAttribute)
+            , (::osg::StateAttribute * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readStateAttribute)
+            , (::osg::StateAttribute * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readStateAttribute)
             , bp::return_internal_reference< >() )    
         .def( 
             "readUniform"
-            , (::osg::Uniform * ( ::osgDB::Input::* )(  ))(&::osgDB::Input::readUniform)
-            , (::osg::Uniform * ( Input_wrapper::* )(  ))(&Input_wrapper::default_readUniform)
+            , (::osg::Uniform * ( ::osgDB::Input::* )(  ) )(&::osgDB::Input::readUniform)
+            , (::osg::Uniform * ( Input_wrapper::* )(  ) )(&Input_wrapper::default_readUniform)
             , bp::return_internal_reference< >() )    
         .def( 
             "setOptions"
-            , (void ( ::osgDB::Input::* )( ::osgDB::Options const * ))( &::osgDB::Input::setOptions )
+            , (void ( ::osgDB::Input::* )( ::osgDB::Options const * ) )( &::osgDB::Input::setOptions )
             , ( bp::arg("options") ) )    
         .def( 
             "eof"
-            , (bool ( ::osgDB::FieldReaderIterator::* )(  )const)(&::osgDB::FieldReaderIterator::eof)
-            , (bool ( Input_wrapper::* )(  )const)(&Input_wrapper::default_eof) );
+            , (bool ( ::osgDB::FieldReaderIterator::* )(  ) const)(&::osgDB::FieldReaderIterator::eof)
+            , (bool ( Input_wrapper::* )(  ) const)(&Input_wrapper::default_eof) );
 
 }

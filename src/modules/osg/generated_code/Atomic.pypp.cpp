@@ -19,7 +19,7 @@ void register_Atomic_class(){
         bp::implicitly_convertible< unsigned int, OpenThreads::Atomic >();
         { //::OpenThreads::Atomic::AND
         
-            typedef unsigned int ( ::OpenThreads::Atomic::*AND_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::OpenThreads::Atomic::*AND_function_type )( unsigned int ) ;
             
             Atomic_exposer.def( 
                 "AND"
@@ -29,7 +29,7 @@ void register_Atomic_class(){
         }
         { //::OpenThreads::Atomic::OR
         
-            typedef unsigned int ( ::OpenThreads::Atomic::*OR_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::OpenThreads::Atomic::*OR_function_type )( unsigned int ) ;
             
             Atomic_exposer.def( 
                 "OR"
@@ -39,7 +39,7 @@ void register_Atomic_class(){
         }
         { //::OpenThreads::Atomic::XOR
         
-            typedef unsigned int ( ::OpenThreads::Atomic::*XOR_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::OpenThreads::Atomic::*XOR_function_type )( unsigned int ) ;
             
             Atomic_exposer.def( 
                 "XOR"
@@ -49,7 +49,7 @@ void register_Atomic_class(){
         }
         { //::OpenThreads::Atomic::exchange
         
-            typedef unsigned int ( ::OpenThreads::Atomic::*exchange_function_type)( unsigned int ) ;
+            typedef unsigned int ( ::OpenThreads::Atomic::*exchange_function_type )( unsigned int ) ;
             
             Atomic_exposer.def( 
                 "exchange"

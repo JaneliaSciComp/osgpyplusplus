@@ -146,10 +146,41 @@ class OsgWrapper(BaseWrapper):
             cls = osg.class_(cls_name)
             self.ignore_protected_destructor_problem_fns(cls)
 
-        cls = osg.class_("VertexProgram").class_("Extensions")
-        hack_osg_arg(cls, "lowestCommonDenominator", "rhs")
-        self.ignore_protected_destructor_problem_fns(cls)
-        cls.constructors(arg_types=[None]).exclude() # copy constructor
+        # TODO - do we need to exclude() these compare() methods, like we have been on other classes?
+        # These bb compare methods can apparently be rescued,
+        # BUT these are being discarded unnecessarily later. TODO fix this
+        for cls_name in ["TransformFeedbackBufferBinding", "UniformBufferBinding", ]:
+            cls = osg.class_(cls_name)
+            hack_osg_arg(cls, "compare", "bb")
+
+        # Exclude troublesome compare method of all StateAttribute derived classes
+        state_attribute = osg.class_("StateAttribute")
+        state_attribute_derived = DerivedClasses(state_attribute)
+        state_attribute_derived.include_module(osg)
+        for cls in state_attribute_derived:
+            # Changing the const-ness of these compare() "sa" arguments does not prevent compile errors
+            cls.member_functions("compare", allow_empty=True).exclude()
+            # Several similar "Extensions" inner classes
+            for ext in cls.classes("Extensions", allow_empty=True):
+                hack_osg_arg(ext, "lowestCommonDenominator", "rhs")
+                for ctor in ext.constructors():
+                    if ctor.is_copy_constructor:
+                        ctor.exclude() # copy constructor
+
+        for cls_name in ["RenderBuffer", ]:
+            osg.class_(cls_name).member_functions("compare").exclude()
+
+        osg.class_("PolygonStipple").member_functions("getMask").exclude()
+
+        # Exclude troublesome copy constructors
+        for cls_name in ["KdTreeBuilder", ]:
+            for ctor in osg.class_(cls_name).constructors():
+                if ctor.is_copy_constructor:
+                    ctor.exclude()
+
+        hack_osg_arg(self.mb.class_("ShadowVolumeOccluder"), "computeOccluder", "occluder")
+
+        self.mb.class_("CullingSet").member_function("computePixelSizeVector").exclude()
 
         # Call custom methods to wrap individual classes
         self.wrap_camera()
@@ -213,6 +244,8 @@ class OsgWrapper(BaseWrapper):
         
         # Exclude classes I'm too lazy to wrap right now
         for cls_name in [
+                "BufferIndexBinding",
+                "CullStack",
                 "StateAttributeCallback", 
                 # "StateAttribute", 
                 # "vector<osg::Group*>", 
@@ -237,11 +270,11 @@ class OsgWrapper(BaseWrapper):
                 # "Transform",
                 ]:
             self.mb.class_(cls_name).exclude()
-            self.mb.class_(lambda c: c.alias == "VertexAttribAliasList").exclude()
-            self.mb.classes(lambda c: c.name.startswith("observer_ptr<")).exclude()
-            self.mb.classes(lambda c: c.name.startswith("MixinVector<")).exclude()
-            # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
-            self.mb.class_("Texture").class_("TextureObject").exclude()
+        self.mb.class_(lambda c: c.alias == "VertexAttribAliasList").exclude()
+        self.mb.classes(lambda c: c.name.startswith("observer_ptr<")).exclude()
+        self.mb.classes(lambda c: c.name.startswith("MixinVector<")).exclude()
+        # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
+        self.mb.class_("Texture").class_("TextureObject").exclude()
         
         # Wrap Free functions
         for fn_name in [

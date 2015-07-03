@@ -17,7 +17,7 @@ void register_ObjectProperty_class(){
         ObjectProperty_exposer.def( bp::init< osgDB::ObjectProperty const & >(( bp::arg("copy") )) );
         { //::osgDB::ObjectProperty::get
         
-            typedef int ( ::osgDB::ObjectProperty::*get_function_type)(  ) const;
+            typedef int ( ::osgDB::ObjectProperty::*get_function_type )(  ) const;
             
             ObjectProperty_exposer.def( 
                 "get"
@@ -26,7 +26,7 @@ void register_ObjectProperty_class(){
         }
         { //::osgDB::ObjectProperty::operator()
         
-            typedef ::osgDB::ObjectProperty & ( ::osgDB::ObjectProperty::*__call___function_type)( char const * ) ;
+            typedef ::osgDB::ObjectProperty & ( ::osgDB::ObjectProperty::*__call___function_type )( char const * ) ;
             
             ObjectProperty_exposer.def( 
                 "__call__"
@@ -37,7 +37,7 @@ void register_ObjectProperty_class(){
         }
         { //::osgDB::ObjectProperty::set
         
-            typedef void ( ::osgDB::ObjectProperty::*set_function_type)( int ) ;
+            typedef void ( ::osgDB::ObjectProperty::*set_function_type )( int ) ;
             
             ObjectProperty_exposer.def( 
                 "set"

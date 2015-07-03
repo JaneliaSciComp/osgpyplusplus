@@ -64,18 +64,6 @@ struct TexEnv_wrapper : osg::TexEnv, bp::wrapper< osg::TexEnv > {
         return osg::TexEnv::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::TexEnv::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::TexEnv::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -300,8 +288,8 @@ void register_TexEnv_class(){
         bp::implicitly_convertible< osg::TexEnv::Mode, osg::TexEnv >();
         { //::osg::TexEnv::apply
         
-            typedef void ( ::osg::TexEnv::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnv_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::TexEnv::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnv_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             TexEnv_exposer.def( 
                 "apply"
@@ -312,8 +300,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::className
         
-            typedef char const * ( ::osg::TexEnv::*className_function_type)(  ) const;
-            typedef char const * ( TexEnv_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnv::*className_function_type )(  ) const;
+            typedef char const * ( TexEnv_wrapper::*default_className_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "className"
@@ -323,8 +311,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::clone
         
-            typedef ::osg::Object * ( ::osg::TexEnv::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TexEnv_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TexEnv::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TexEnv_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TexEnv_exposer.def( 
                 "clone"
@@ -336,8 +324,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::cloneType
         
-            typedef ::osg::Object * ( ::osg::TexEnv::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TexEnv_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TexEnv::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TexEnv_wrapper::*default_cloneType_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "cloneType"
@@ -346,21 +334,9 @@ void register_TexEnv_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::TexEnv::compare
-        
-            typedef int ( ::osg::TexEnv::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( TexEnv_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            TexEnv_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::TexEnv::compare)
-                , default_compare_function_type(&TexEnv_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
-        
-        }
         { //::osg::TexEnv::getColor
         
-            typedef ::osg::Vec4 & ( ::osg::TexEnv::*getColor_function_type)(  ) ;
+            typedef ::osg::Vec4 & ( ::osg::TexEnv::*getColor_function_type )(  ) ;
             
             TexEnv_exposer.def( 
                 "getColor"
@@ -370,7 +346,7 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::getColor
         
-            typedef ::osg::Vec4 const & ( ::osg::TexEnv::*getColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::TexEnv::*getColor_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "getColor"
@@ -380,7 +356,7 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::getMode
         
-            typedef ::osg::TexEnv::Mode ( ::osg::TexEnv::*getMode_function_type)(  ) const;
+            typedef ::osg::TexEnv::Mode ( ::osg::TexEnv::*getMode_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "getMode"
@@ -389,8 +365,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TexEnv::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TexEnv_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TexEnv::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TexEnv_wrapper::*default_getType_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "getType"
@@ -400,8 +376,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::isSameKindAs
         
-            typedef bool ( ::osg::TexEnv::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TexEnv_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TexEnv::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TexEnv_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TexEnv_exposer.def( 
                 "isSameKindAs"
@@ -412,8 +388,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::isTextureAttribute
         
-            typedef bool ( ::osg::TexEnv::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TexEnv_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::TexEnv::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TexEnv_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "isTextureAttribute"
@@ -423,8 +399,8 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::libraryName
         
-            typedef char const * ( ::osg::TexEnv::*libraryName_function_type)(  ) const;
-            typedef char const * ( TexEnv_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TexEnv::*libraryName_function_type )(  ) const;
+            typedef char const * ( TexEnv_wrapper::*default_libraryName_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "libraryName"
@@ -434,7 +410,7 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::setColor
         
-            typedef void ( ::osg::TexEnv::*setColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::TexEnv::*setColor_function_type )( ::osg::Vec4 const & ) ;
             
             TexEnv_exposer.def( 
                 "setColor"
@@ -444,7 +420,7 @@ void register_TexEnv_class(){
         }
         { //::osg::TexEnv::setMode
         
-            typedef void ( ::osg::TexEnv::*setMode_function_type)( ::osg::TexEnv::Mode ) ;
+            typedef void ( ::osg::TexEnv::*setMode_function_type )( ::osg::TexEnv::Mode ) ;
             
             TexEnv_exposer.def( 
                 "setMode"
@@ -454,8 +430,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TexEnv_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TexEnv_wrapper::*default_asTexture_function_type )(  ) ;
             
             TexEnv_exposer.def( 
                 "asTexture"
@@ -466,8 +442,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TexEnv_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TexEnv_wrapper::*default_asTexture_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "asTexture"
@@ -478,8 +454,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TexEnv_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TexEnv_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TexEnv_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -490,8 +466,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TexEnv_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TexEnv_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TexEnv_exposer.def( 
                 "compileGLObjects"
@@ -502,8 +478,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TexEnv_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TexEnv_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TexEnv_exposer.def( 
                 "computeDataVariance"
@@ -513,8 +489,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TexEnv_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( TexEnv_wrapper::*default_getMember_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "getMember"
@@ -524,8 +500,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TexEnv_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TexEnv_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TexEnv_exposer.def( 
                 "getModeUsage"
@@ -536,8 +512,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TexEnv_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TexEnv_wrapper::*default_getUserData_function_type )(  ) ;
             
             TexEnv_exposer.def( 
                 "getUserData"
@@ -548,8 +524,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TexEnv_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TexEnv_wrapper::*default_getUserData_function_type )(  ) const;
             
             TexEnv_exposer.def( 
                 "getUserData"
@@ -560,8 +536,8 @@ void register_TexEnv_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TexEnv_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TexEnv_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TexEnv_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -572,8 +548,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TexEnv_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TexEnv_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TexEnv_exposer.def( 
                 "setName"
@@ -584,7 +560,7 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TexEnv_exposer.def( 
                 "setName"
@@ -595,8 +571,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TexEnv_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TexEnv_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TexEnv_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -607,8 +583,8 @@ void register_TexEnv_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TexEnv_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TexEnv_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TexEnv_exposer.def( 
                 "setUserData"

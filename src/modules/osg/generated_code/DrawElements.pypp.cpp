@@ -328,171 +328,171 @@ void register_DrawElements_class(){
     bp::class_< DrawElements_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawElements >, boost::noncopyable >( "DrawElements", bp::no_init )    
         .def( 
             "addElement"
-            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ))(&::osg::DrawElements::addElement) )
+            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ) )(&::osg::DrawElements::addElement) )
             , ( bp::arg("arg0") ) )    
         .def( 
             "getDrawElements"
-            , (::osg::DrawElements * ( ::osg::DrawElements::* )(  ))(&::osg::DrawElements::getDrawElements)
-            , (::osg::DrawElements * ( DrawElements_wrapper::* )(  ))(&DrawElements_wrapper::default_getDrawElements)
+            , (::osg::DrawElements * ( ::osg::DrawElements::* )(  ) )(&::osg::DrawElements::getDrawElements)
+            , (::osg::DrawElements * ( DrawElements_wrapper::* )(  ) )(&DrawElements_wrapper::default_getDrawElements)
             , bp::return_internal_reference< >() )    
         .def( 
             "getDrawElements"
-            , (::osg::DrawElements const * ( ::osg::DrawElements::* )(  )const)(&::osg::DrawElements::getDrawElements)
-            , (::osg::DrawElements const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_getDrawElements)
+            , (::osg::DrawElements const * ( ::osg::DrawElements::* )(  ) const)(&::osg::DrawElements::getDrawElements)
+            , (::osg::DrawElements const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_getDrawElements)
             , bp::return_internal_reference< >() )    
         .def( 
             "getElement"
-            , bp::pure_virtual( (unsigned int ( ::osg::DrawElements::* )( unsigned int ))(&::osg::DrawElements::getElement) )
+            , bp::pure_virtual( (unsigned int ( ::osg::DrawElements::* )( unsigned int ) )(&::osg::DrawElements::getElement) )
             , ( bp::arg("arg0") ) )    
         .def( 
             "getElementBufferObject"
-            , (::osg::ElementBufferObject * ( ::osg::DrawElements::* )(  ))( &::osg::DrawElements::getElementBufferObject )
+            , (::osg::ElementBufferObject * ( ::osg::DrawElements::* )(  ) )( &::osg::DrawElements::getElementBufferObject )
             , bp::return_internal_reference< >()
             , " Get the ElementBufferObject. If no EBO is assigned returns NULL" )    
         .def( 
             "getElementBufferObject"
-            , (::osg::ElementBufferObject const * ( ::osg::DrawElements::* )(  )const)( &::osg::DrawElements::getElementBufferObject )
+            , (::osg::ElementBufferObject const * ( ::osg::DrawElements::* )(  ) const)( &::osg::DrawElements::getElementBufferObject )
             , bp::return_internal_reference< >()
             , " Get the const ElementBufferObject. If no EBO is assigned returns NULL" )    
         .def( 
             "reserveElements"
-            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ))(&::osg::DrawElements::reserveElements) )
+            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ) )(&::osg::DrawElements::reserveElements) )
             , ( bp::arg("numIndices") ) )    
         .def( 
             "setElement"
-            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int,unsigned int ))(&::osg::DrawElements::setElement) )
+            , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int,unsigned int ) )(&::osg::DrawElements::setElement) )
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setElementBufferObject"
-            , (void ( ::osg::DrawElements::* )( ::osg::ElementBufferObject * ))( &::osg::DrawElements::setElementBufferObject )
+            , (void ( ::osg::DrawElements::* )( ::osg::ElementBufferObject * ) )( &::osg::DrawElements::setElementBufferObject )
             , ( bp::arg("ebo") )
             , " Set the ElementBufferObject." )    
         .def( 
             "accept"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::PrimitiveFunctor & )const)(&::osg::PrimitiveSet::accept) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::PrimitiveFunctor & ) const)(&::osg::PrimitiveSet::accept) )
             , ( bp::arg("functor") ) )    
         .def( 
             "accept"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::PrimitiveIndexFunctor & )const)(&::osg::PrimitiveSet::accept) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::PrimitiveIndexFunctor & ) const)(&::osg::PrimitiveSet::accept) )
             , ( bp::arg("functor") ) )    
         .def( 
             "asArray"
-            , (::osg::Array * ( ::osg::BufferData::* )(  ))(&::osg::BufferData::asArray)
-            , (::osg::Array * ( DrawElements_wrapper::* )(  ))(&DrawElements_wrapper::default_asArray)
+            , (::osg::Array * ( ::osg::BufferData::* )(  ) )(&::osg::BufferData::asArray)
+            , (::osg::Array * ( DrawElements_wrapper::* )(  ) )(&DrawElements_wrapper::default_asArray)
             , bp::return_internal_reference< >() )    
         .def( 
             "asArray"
-            , (::osg::Array const * ( ::osg::BufferData::* )(  )const)(&::osg::BufferData::asArray)
-            , (::osg::Array const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_asArray)
+            , (::osg::Array const * ( ::osg::BufferData::* )(  ) const)(&::osg::BufferData::asArray)
+            , (::osg::Array const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_asArray)
             , bp::return_internal_reference< >() )    
         .def( 
             "asPrimitiveSet"
-            , (::osg::PrimitiveSet * ( ::osg::PrimitiveSet::* )(  ))(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet * ( DrawElements_wrapper::* )(  ))(&DrawElements_wrapper::default_asPrimitiveSet)
+            , (::osg::PrimitiveSet * ( ::osg::PrimitiveSet::* )(  ) )(&::osg::PrimitiveSet::asPrimitiveSet)
+            , (::osg::PrimitiveSet * ( DrawElements_wrapper::* )(  ) )(&DrawElements_wrapper::default_asPrimitiveSet)
             , bp::return_internal_reference< >() )    
         .def( 
             "asPrimitiveSet"
-            , (::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::asPrimitiveSet)
-            , (::osg::PrimitiveSet const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_asPrimitiveSet)
+            , (::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::asPrimitiveSet)
+            , (::osg::PrimitiveSet const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_asPrimitiveSet)
             , bp::return_internal_reference< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::className)
-            , (char const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_className) )    
+            , (char const * ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::className)
+            , (char const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_className) )    
         .def( 
             "clone"
-            , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )( ::osg::CopyOp const & )const)(&::osg::Object::clone) )
+            , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )( ::osg::CopyOp const & ) const)(&::osg::Object::clone) )
             , ( bp::arg("arg0") )
             , bp::return_value_policy< bp::reference_existing_object >()
             , "\n Clone an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "cloneType"
-            , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )(  )const)(&::osg::Object::cloneType) )
+            , bp::pure_virtual( (::osg::Object * ( ::osg::Object::* )(  ) const)(&::osg::Object::cloneType) )
             , bp::return_value_policy< bp::reference_existing_object >()
             , "\n Clone the type of an object, with Object* return type.\n            Must be defined by derived classes.\n" )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( DrawElements_wrapper::* )(  ))(&DrawElements_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( DrawElements_wrapper::* )(  ) )(&DrawElements_wrapper::default_computeDataVariance) )    
         .def( 
             "computeRange"
-            , (void ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::computeRange)
-            , (void ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_computeRange) )    
+            , (void ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::computeRange)
+            , (void ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_computeRange) )    
         .def( 
             "draw"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::State &,bool )const)(&::osg::PrimitiveSet::draw) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( ::osg::State &,bool ) const)(&::osg::PrimitiveSet::draw) )
             , ( bp::arg("state"), bp::arg("useVertexBufferObjects") ) )    
         .def( 
             "getDataPointer"
-            , (::GLvoid const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getDataPointer)
-            , (::GLvoid const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_getDataPointer)
+            , (::GLvoid const * ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::getDataPointer)
+            , (::GLvoid const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_getDataPointer)
             , bp::return_value_policy< bp::return_opaque_pointer >() )    
         .def( 
             "getNumIndices"
-            , bp::pure_virtual( (unsigned int ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getNumIndices) ) )    
+            , bp::pure_virtual( (unsigned int ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::getNumIndices) ) )    
         .def( 
             "getNumPrimitives"
-            , (unsigned int ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getNumPrimitives)
-            , (unsigned int ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_getNumPrimitives) )    
+            , (unsigned int ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::getNumPrimitives)
+            , (unsigned int ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_getNumPrimitives) )    
         .def( 
             "getTotalDataSize"
-            , (unsigned int ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::getTotalDataSize)
-            , (unsigned int ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_getTotalDataSize) )    
+            , (unsigned int ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::getTotalDataSize)
+            , (unsigned int ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_getTotalDataSize) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( DrawElements_wrapper::* )(  ))(&DrawElements_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( DrawElements_wrapper::* )(  ) )(&DrawElements_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "index"
-            , bp::pure_virtual( (unsigned int ( ::osg::PrimitiveSet::* )( unsigned int )const)(&::osg::PrimitiveSet::index) )
+            , bp::pure_virtual( (unsigned int ( ::osg::PrimitiveSet::* )( unsigned int ) const)(&::osg::PrimitiveSet::index) )
             , ( bp::arg("pos") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::PrimitiveSet::* )( ::osg::Object const * )const)(&::osg::PrimitiveSet::isSameKindAs)
-            , (bool ( DrawElements_wrapper::* )( ::osg::Object const * )const)(&DrawElements_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::PrimitiveSet::* )( ::osg::Object const * ) const)(&::osg::PrimitiveSet::isSameKindAs)
+            , (bool ( DrawElements_wrapper::* )( ::osg::Object const * ) const)(&DrawElements_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::libraryName)
-            , (char const * ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::libraryName)
+            , (char const * ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_libraryName) )    
         .def( 
             "offsetIndices"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( int ))(&::osg::PrimitiveSet::offsetIndices) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveSet::* )( int ) )(&::osg::PrimitiveSet::offsetIndices) )
             , ( bp::arg("offset") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::BufferData::* )( unsigned int ))(&::osg::BufferData::resizeGLObjectBuffers)
-            , (void ( DrawElements_wrapper::* )( unsigned int ))(&DrawElements_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::BufferData::* )( unsigned int ) )(&::osg::BufferData::resizeGLObjectBuffers)
+            , (void ( DrawElements_wrapper::* )( unsigned int ) )(&DrawElements_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( DrawElements_wrapper::* )( ::std::string const & ))(&DrawElements_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( DrawElements_wrapper::* )( ::std::string const & ) )(&DrawElements_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( DrawElements_wrapper::* )( bool ))(&DrawElements_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( DrawElements_wrapper::* )( bool ) )(&DrawElements_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( DrawElements_wrapper::* )( ::osg::Referenced * ))(&DrawElements_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( DrawElements_wrapper::* )( ::osg::Referenced * ) )(&DrawElements_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "supportsBufferObject"
-            , (bool ( ::osg::PrimitiveSet::* )(  )const)(&::osg::PrimitiveSet::supportsBufferObject)
-            , (bool ( DrawElements_wrapper::* )(  )const)(&DrawElements_wrapper::default_supportsBufferObject) );
+            , (bool ( ::osg::PrimitiveSet::* )(  ) const)(&::osg::PrimitiveSet::supportsBufferObject)
+            , (bool ( DrawElements_wrapper::* )(  ) const)(&DrawElements_wrapper::default_supportsBufferObject) );
 
 }

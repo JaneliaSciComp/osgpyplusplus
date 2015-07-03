@@ -328,16 +328,16 @@ void register_IncrementalCompileOperation_class(){
         bp::class_< IncrementalCompileOperation_wrapper::CompileCompletedCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileCompletedCallback >, boost::noncopyable >( "CompileCompletedCallback", bp::no_init )    
             .def( 
                 "compileCompleted"
-                , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::* )( ::osgUtil::IncrementalCompileOperation::CompileSet * ))(&::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted) )
+                , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::* )( ::osgUtil::IncrementalCompileOperation::CompileSet * ) )(&::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted) )
                 , ( bp::arg("compileSet") ) );
         bp::class_< IncrementalCompileOperation_wrapper::CompileOp_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileOp >, boost::noncopyable >( "CompileOp", bp::no_init )    
             .def( 
                 "compile"
-                , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ))(&::osgUtil::IncrementalCompileOperation::CompileOp::compile) )
+                , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) )(&::osgUtil::IncrementalCompileOperation::CompileOp::compile) )
                 , ( bp::arg("compileInfo") ) )    
             .def( 
                 "estimatedTimeForCompile"
-                , bp::pure_virtual( (double ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & )const)(&::osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile) )
+                , bp::pure_virtual( (double ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const)(&::osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile) )
                 , ( bp::arg("compileInfo") ) );
         { //::osgUtil::IncrementalCompileOperation::CompileDrawableOp
             typedef bp::class_< IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileDrawableOp >, boost::noncopyable > CompileDrawableOp_exposer_t;
@@ -346,8 +346,8 @@ void register_IncrementalCompileOperation_class(){
             bp::implicitly_convertible< osg::Drawable *, osgUtil::IncrementalCompileOperation::CompileDrawableOp >();
             { //::osgUtil::IncrementalCompileOperation::CompileDrawableOp::compile
             
-                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileDrawableOp::*compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
-                typedef bool ( IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper::*default_compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileDrawableOp::*compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper::*default_compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
                 
                 CompileDrawableOp_exposer.def( 
                     "compile"
@@ -358,8 +358,8 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileDrawableOp::estimatedTimeForCompile
             
-                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileDrawableOp::*estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
-                typedef double ( IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper::*default_estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileDrawableOp::*estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper::*default_estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
                 
                 CompileDrawableOp_exposer.def( 
                     "estimatedTimeForCompile"
@@ -373,7 +373,7 @@ void register_IncrementalCompileOperation_class(){
         bp::class_< IncrementalCompileOperation_wrapper::CompileInfo_wrapper, bp::bases< ::osg::RenderInfo > >( "CompileInfo", bp::init< osg::GraphicsContext *, osgUtil::IncrementalCompileOperation * >(( bp::arg("context"), bp::arg("ico") )) )    
             .def( 
                 "okToCompile"
-                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileInfo::* )( double )const)( &::osgUtil::IncrementalCompileOperation::CompileInfo::okToCompile )
+                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileInfo::* )( double ) const)( &::osgUtil::IncrementalCompileOperation::CompileInfo::okToCompile )
                 , ( bp::arg("estimatedTimeForCompile")=0.0 ) )    
             .def_readwrite( "allocatedTime", &osgUtil::IncrementalCompileOperation::CompileInfo::allocatedTime )    
             .def_readwrite( "compileAll", &osgUtil::IncrementalCompileOperation::CompileInfo::compileAll )    
@@ -385,30 +385,30 @@ void register_IncrementalCompileOperation_class(){
         bp::class_< osgUtil::IncrementalCompileOperation::CompileList >( "CompileList", bp::init< >() )    
             .def( 
                 "add"
-                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileOp * ))( &::osgUtil::IncrementalCompileOperation::CompileList::add )
+                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileOp * ) )( &::osgUtil::IncrementalCompileOperation::CompileList::add )
                 , ( bp::arg("compileOp") ) )    
             .def( 
                 "add"
-                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Drawable * ))( &::osgUtil::IncrementalCompileOperation::CompileList::add )
+                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Drawable * ) )( &::osgUtil::IncrementalCompileOperation::CompileList::add )
                 , ( bp::arg("drawable") ) )    
             .def( 
                 "add"
-                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Texture * ))( &::osgUtil::IncrementalCompileOperation::CompileList::add )
+                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Texture * ) )( &::osgUtil::IncrementalCompileOperation::CompileList::add )
                 , ( bp::arg("texture") ) )    
             .def( 
                 "add"
-                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Program * ))( &::osgUtil::IncrementalCompileOperation::CompileList::add )
+                , (void ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osg::Program * ) )( &::osgUtil::IncrementalCompileOperation::CompileList::add )
                 , ( bp::arg("program") ) )    
             .def( 
                 "compile"
-                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ))( &::osgUtil::IncrementalCompileOperation::CompileList::compile )
+                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) )( &::osgUtil::IncrementalCompileOperation::CompileList::compile )
                 , ( bp::arg("compileInfo") ) )    
             .def( 
                 "empty"
-                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileList::* )(  )const)( &::osgUtil::IncrementalCompileOperation::CompileList::empty ) )    
+                , (bool ( ::osgUtil::IncrementalCompileOperation::CompileList::* )(  ) const)( &::osgUtil::IncrementalCompileOperation::CompileList::empty ) )    
             .def( 
                 "estimatedTimeForCompile"
-                , (double ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & )const)( &::osgUtil::IncrementalCompileOperation::CompileList::estimatedTimeForCompile )
+                , (double ( ::osgUtil::IncrementalCompileOperation::CompileList::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const)( &::osgUtil::IncrementalCompileOperation::CompileList::estimatedTimeForCompile )
                 , ( bp::arg("compileInfo") ) )    
             .def_readwrite( "_compileOps", &osgUtil::IncrementalCompileOperation::CompileList::_compileOps );
         { //::osgUtil::IncrementalCompileOperation::CompileProgramOp
@@ -418,8 +418,8 @@ void register_IncrementalCompileOperation_class(){
             bp::implicitly_convertible< osg::Program *, osgUtil::IncrementalCompileOperation::CompileProgramOp >();
             { //::osgUtil::IncrementalCompileOperation::CompileProgramOp::compile
             
-                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileProgramOp::*compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
-                typedef bool ( IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper::*default_compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileProgramOp::*compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper::*default_compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
                 
                 CompileProgramOp_exposer.def( 
                     "compile"
@@ -430,8 +430,8 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileProgramOp::estimatedTimeForCompile
             
-                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileProgramOp::*estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
-                typedef double ( IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper::*default_estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileProgramOp::*estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper::*default_estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
                 
                 CompileProgramOp_exposer.def( 
                     "estimatedTimeForCompile"
@@ -452,7 +452,7 @@ void register_IncrementalCompileOperation_class(){
             CompileSet_exposer.def( bp::init< osg::Group *, osg::Node * >(( bp::arg("attachmentPoint"), bp::arg("subgraphToCompile") )) );
             { //::osgUtil::IncrementalCompileOperation::CompileSet::buildCompileMap
             
-                typedef void ( ::osgUtil::IncrementalCompileOperation::CompileSet::*buildCompileMap_function_type)( ::std::set< osg::GraphicsContext* > &,::osgUtil::StateToCompile & ) ;
+                typedef void ( ::osgUtil::IncrementalCompileOperation::CompileSet::*buildCompileMap_function_type )( ::std::set< osg::GraphicsContext* > &,::osgUtil::StateToCompile & ) ;
                 
                 CompileSet_exposer.def( 
                     "buildCompileMap"
@@ -462,7 +462,7 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileSet::buildCompileMap
             
-                typedef void ( ::osgUtil::IncrementalCompileOperation::CompileSet::*buildCompileMap_function_type)( ::std::set< osg::GraphicsContext* > &,unsigned int ) ;
+                typedef void ( ::osgUtil::IncrementalCompileOperation::CompileSet::*buildCompileMap_function_type )( ::std::set< osg::GraphicsContext* > &,unsigned int ) ;
                 
                 CompileSet_exposer.def( 
                     "buildCompileMap"
@@ -472,7 +472,7 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileSet::compile
             
-                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileSet::*compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileSet::*compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
                 
                 CompileSet_exposer.def( 
                     "compile"
@@ -482,7 +482,7 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileSet::compiled
             
-                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileSet::*compiled_function_type)(  ) const;
+                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileSet::*compiled_function_type )(  ) const;
                 
                 CompileSet_exposer.def( 
                     "compiled"
@@ -501,8 +501,8 @@ void register_IncrementalCompileOperation_class(){
             bp::implicitly_convertible< osg::Texture *, osgUtil::IncrementalCompileOperation::CompileTextureOp >();
             { //::osgUtil::IncrementalCompileOperation::CompileTextureOp::compile
             
-                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileTextureOp::*compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
-                typedef bool ( IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper::*default_compile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( ::osgUtil::IncrementalCompileOperation::CompileTextureOp::*compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
+                typedef bool ( IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper::*default_compile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) ;
                 
                 CompileTextureOp_exposer.def( 
                     "compile"
@@ -513,8 +513,8 @@ void register_IncrementalCompileOperation_class(){
             }
             { //::osgUtil::IncrementalCompileOperation::CompileTextureOp::estimatedTimeForCompile
             
-                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileTextureOp::*estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
-                typedef double ( IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper::*default_estimatedTimeForCompile_function_type)( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( ::osgUtil::IncrementalCompileOperation::CompileTextureOp::*estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
+                typedef double ( IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper::*default_estimatedTimeForCompile_function_type )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ) const;
                 
                 CompileTextureOp_exposer.def( 
                     "estimatedTimeForCompile"
@@ -528,7 +528,7 @@ void register_IncrementalCompileOperation_class(){
         IncrementalCompileOperation_exposer.def( bp::init< >() );
         { //::osgUtil::IncrementalCompileOperation::add
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type )( ::osg::Node * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "add"
@@ -538,7 +538,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::add
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type)( ::osg::Group *,::osg::Node * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type )( ::osg::Group *,::osg::Node * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "add"
@@ -548,7 +548,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::add
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type)( ::osgUtil::IncrementalCompileOperation::CompileSet *,bool ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*add_function_type )( ::osgUtil::IncrementalCompileOperation::CompileSet *,bool ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "add"
@@ -558,7 +558,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::addGraphicsContext
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*addGraphicsContext_function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*addGraphicsContext_function_type )( ::osg::GraphicsContext * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "addGraphicsContext"
@@ -568,7 +568,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::assignContexts
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*assignContexts_function_type)( ::std::vector< osg::GraphicsContext* > & ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*assignContexts_function_type )( ::std::vector< osg::GraphicsContext* > & ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "assignContexts"
@@ -578,7 +578,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::assignForceTextureDownloadGeometry
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*assignForceTextureDownloadGeometry_function_type)(  ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*assignForceTextureDownloadGeometry_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "assignForceTextureDownloadGeometry"
@@ -587,7 +587,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::compileAllForNextFrame
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*compileAllForNextFrame_function_type)( unsigned int ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*compileAllForNextFrame_function_type )( unsigned int ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "compileAllForNextFrame"
@@ -597,7 +597,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getCompileAllTillFrameNumber
         
-            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getCompileAllTillFrameNumber_function_type)(  ) const;
+            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getCompileAllTillFrameNumber_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getCompileAllTillFrameNumber"
@@ -606,7 +606,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getCompiled
         
-            typedef ::std::list< osg::ref_ptr<osgUtil::IncrementalCompileOperation::CompileSet> > & ( ::osgUtil::IncrementalCompileOperation::*getCompiled_function_type)(  ) ;
+            typedef ::std::list< osg::ref_ptr<osgUtil::IncrementalCompileOperation::CompileSet> > & ( ::osgUtil::IncrementalCompileOperation::*getCompiled_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getCompiled"
@@ -616,7 +616,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getCompiledMutex
         
-            typedef ::OpenThreads::Mutex * ( ::osgUtil::IncrementalCompileOperation::*getCompiledMutex_function_type)(  ) ;
+            typedef ::OpenThreads::Mutex * ( ::osgUtil::IncrementalCompileOperation::*getCompiledMutex_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getCompiledMutex"
@@ -626,7 +626,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getConservativeTimeRatio
         
-            typedef double ( ::osgUtil::IncrementalCompileOperation::*getConservativeTimeRatio_function_type)(  ) const;
+            typedef double ( ::osgUtil::IncrementalCompileOperation::*getConservativeTimeRatio_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getConservativeTimeRatio"
@@ -635,7 +635,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getContextSet
         
-            typedef ::std::set< osg::GraphicsContext* > & ( ::osgUtil::IncrementalCompileOperation::*getContextSet_function_type)(  ) ;
+            typedef ::std::set< osg::GraphicsContext* > & ( ::osgUtil::IncrementalCompileOperation::*getContextSet_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getContextSet"
@@ -645,7 +645,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getContextSet
         
-            typedef ::std::set< osg::GraphicsContext* > const & ( ::osgUtil::IncrementalCompileOperation::*getContextSet_function_type)(  ) const;
+            typedef ::std::set< osg::GraphicsContext* > const & ( ::osgUtil::IncrementalCompileOperation::*getContextSet_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getContextSet"
@@ -655,7 +655,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getCurrentFrameNumber
         
-            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getCurrentFrameNumber_function_type)(  ) const;
+            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getCurrentFrameNumber_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getCurrentFrameNumber"
@@ -664,7 +664,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getFlushTimeRatio
         
-            typedef double ( ::osgUtil::IncrementalCompileOperation::*getFlushTimeRatio_function_type)(  ) const;
+            typedef double ( ::osgUtil::IncrementalCompileOperation::*getFlushTimeRatio_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getFlushTimeRatio"
@@ -673,7 +673,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getForceTextureDownloadGeometry
         
-            typedef ::osg::Geometry * ( ::osgUtil::IncrementalCompileOperation::*getForceTextureDownloadGeometry_function_type)(  ) ;
+            typedef ::osg::Geometry * ( ::osgUtil::IncrementalCompileOperation::*getForceTextureDownloadGeometry_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getForceTextureDownloadGeometry"
@@ -683,7 +683,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getForceTextureDownloadGeometry
         
-            typedef ::osg::Geometry const * ( ::osgUtil::IncrementalCompileOperation::*getForceTextureDownloadGeometry_function_type)(  ) const;
+            typedef ::osg::Geometry const * ( ::osgUtil::IncrementalCompileOperation::*getForceTextureDownloadGeometry_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getForceTextureDownloadGeometry"
@@ -693,7 +693,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getMaximumNumOfObjectsToCompilePerFrame
         
-            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getMaximumNumOfObjectsToCompilePerFrame_function_type)(  ) const;
+            typedef unsigned int ( ::osgUtil::IncrementalCompileOperation::*getMaximumNumOfObjectsToCompilePerFrame_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getMaximumNumOfObjectsToCompilePerFrame"
@@ -702,7 +702,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getMinimumTimeAvailableForGLCompileAndDeletePerFrame
         
-            typedef double ( ::osgUtil::IncrementalCompileOperation::*getMinimumTimeAvailableForGLCompileAndDeletePerFrame_function_type)(  ) const;
+            typedef double ( ::osgUtil::IncrementalCompileOperation::*getMinimumTimeAvailableForGLCompileAndDeletePerFrame_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getMinimumTimeAvailableForGLCompileAndDeletePerFrame"
@@ -711,7 +711,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getTargetFrameRate
         
-            typedef double ( ::osgUtil::IncrementalCompileOperation::*getTargetFrameRate_function_type)(  ) const;
+            typedef double ( ::osgUtil::IncrementalCompileOperation::*getTargetFrameRate_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "getTargetFrameRate"
@@ -720,7 +720,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getToCompile
         
-            typedef ::std::list< osg::ref_ptr<osgUtil::IncrementalCompileOperation::CompileSet> > & ( ::osgUtil::IncrementalCompileOperation::*getToCompile_function_type)(  ) ;
+            typedef ::std::list< osg::ref_ptr<osgUtil::IncrementalCompileOperation::CompileSet> > & ( ::osgUtil::IncrementalCompileOperation::*getToCompile_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getToCompile"
@@ -730,7 +730,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::getToCompiledMutex
         
-            typedef ::OpenThreads::Mutex * ( ::osgUtil::IncrementalCompileOperation::*getToCompiledMutex_function_type)(  ) ;
+            typedef ::OpenThreads::Mutex * ( ::osgUtil::IncrementalCompileOperation::*getToCompiledMutex_function_type )(  ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "getToCompiledMutex"
@@ -740,7 +740,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::isActive
         
-            typedef bool ( ::osgUtil::IncrementalCompileOperation::*isActive_function_type)(  ) const;
+            typedef bool ( ::osgUtil::IncrementalCompileOperation::*isActive_function_type )(  ) const;
             
             IncrementalCompileOperation_exposer.def( 
                 "isActive"
@@ -749,7 +749,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::mergeCompiledSubgraphs
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*mergeCompiledSubgraphs_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*mergeCompiledSubgraphs_function_type )( ::osg::FrameStamp const * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "mergeCompiledSubgraphs"
@@ -759,8 +759,8 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::operator()
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*__call___function_type)( ::osg::GraphicsContext * ) ;
-            typedef void ( IncrementalCompileOperation_wrapper::*default___call___function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*__call___function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( IncrementalCompileOperation_wrapper::*default___call___function_type )( ::osg::GraphicsContext * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "__call__"
@@ -771,7 +771,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::remove
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*remove_function_type)( ::osgUtil::IncrementalCompileOperation::CompileSet * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*remove_function_type )( ::osgUtil::IncrementalCompileOperation::CompileSet * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "remove"
@@ -781,7 +781,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::removeContexts
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*removeContexts_function_type)( ::std::vector< osg::GraphicsContext* > & ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*removeContexts_function_type )( ::std::vector< osg::GraphicsContext* > & ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "removeContexts"
@@ -791,7 +791,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::removeGraphicsContext
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*removeGraphicsContext_function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*removeGraphicsContext_function_type )( ::osg::GraphicsContext * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "removeGraphicsContext"
@@ -801,7 +801,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::requiresCompile
         
-            typedef bool ( ::osgUtil::IncrementalCompileOperation::*requiresCompile_function_type)( ::osgUtil::StateToCompile & ) ;
+            typedef bool ( ::osgUtil::IncrementalCompileOperation::*requiresCompile_function_type )( ::osgUtil::StateToCompile & ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "requiresCompile"
@@ -811,7 +811,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setCompileAllTillFrameNumber
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setCompileAllTillFrameNumber_function_type)( unsigned int ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setCompileAllTillFrameNumber_function_type )( unsigned int ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setCompileAllTillFrameNumber"
@@ -821,7 +821,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setConservativeTimeRatio
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setConservativeTimeRatio_function_type)( double ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setConservativeTimeRatio_function_type )( double ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setConservativeTimeRatio"
@@ -831,7 +831,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setCurrentFrameNumber
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setCurrentFrameNumber_function_type)( unsigned int ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setCurrentFrameNumber_function_type )( unsigned int ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setCurrentFrameNumber"
@@ -841,7 +841,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setFlushTimeRatio
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setFlushTimeRatio_function_type)( double ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setFlushTimeRatio_function_type )( double ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setFlushTimeRatio"
@@ -851,7 +851,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setForceTextureDownloadGeometry
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setForceTextureDownloadGeometry_function_type)( ::osg::Geometry * ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setForceTextureDownloadGeometry_function_type )( ::osg::Geometry * ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setForceTextureDownloadGeometry"
@@ -861,7 +861,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setMaximumNumOfObjectsToCompilePerFrame
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setMaximumNumOfObjectsToCompilePerFrame_function_type)( unsigned int ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setMaximumNumOfObjectsToCompilePerFrame_function_type )( unsigned int ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setMaximumNumOfObjectsToCompilePerFrame"
@@ -871,7 +871,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setMinimumTimeAvailableForGLCompileAndDeletePerFrame
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setMinimumTimeAvailableForGLCompileAndDeletePerFrame_function_type)( double ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setMinimumTimeAvailableForGLCompileAndDeletePerFrame_function_type )( double ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setMinimumTimeAvailableForGLCompileAndDeletePerFrame"
@@ -881,7 +881,7 @@ void register_IncrementalCompileOperation_class(){
         }
         { //::osgUtil::IncrementalCompileOperation::setTargetFrameRate
         
-            typedef void ( ::osgUtil::IncrementalCompileOperation::*setTargetFrameRate_function_type)( double ) ;
+            typedef void ( ::osgUtil::IncrementalCompileOperation::*setTargetFrameRate_function_type )( double ) ;
             
             IncrementalCompileOperation_exposer.def( 
                 "setTargetFrameRate"

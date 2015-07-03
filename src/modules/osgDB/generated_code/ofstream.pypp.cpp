@@ -16,7 +16,7 @@ void register_ofstream_class(){
         bp::implicitly_convertible< char const *, osgDB::ofstream >();
         { //::osgDB::ofstream::open
         
-            typedef void ( ::osgDB::ofstream::*open_function_type)( char const *,int ) ;
+            typedef void ( ::osgDB::ofstream::*open_function_type )( char const *,int ) ;
             
             ofstream_exposer.def( 
                 "open"

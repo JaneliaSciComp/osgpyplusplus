@@ -203,7 +203,7 @@ void register_StatsHandler_class(){
             ;
         { //::osgViewer::StatsHandler::addUserStatsLine
         
-            typedef void ( ::osgViewer::StatsHandler::*addUserStatsLine_function_type)( ::std::string const &,::osg::Vec4 const &,::osg::Vec4 const &,::std::string const &,float,bool,bool,::std::string const &,::std::string const &,float ) ;
+            typedef void ( ::osgViewer::StatsHandler::*addUserStatsLine_function_type )( ::std::string const &,::osg::Vec4 const &,::osg::Vec4 const &,::std::string const &,float,bool,bool,::std::string const &,::std::string const &,float ) ;
             
             StatsHandler_exposer.def( 
                 "addUserStatsLine"
@@ -213,7 +213,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getBlockMultiplier
         
-            typedef double ( ::osgViewer::StatsHandler::*getBlockMultiplier_function_type)(  ) const;
+            typedef double ( ::osgViewer::StatsHandler::*getBlockMultiplier_function_type )(  ) const;
             
             StatsHandler_exposer.def( 
                 "getBlockMultiplier"
@@ -222,7 +222,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getCamera
         
-            typedef ::osg::Camera * ( ::osgViewer::StatsHandler::*getCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( ::osgViewer::StatsHandler::*getCamera_function_type )(  ) ;
             
             StatsHandler_exposer.def( 
                 "getCamera"
@@ -232,7 +232,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getCamera
         
-            typedef ::osg::Camera const * ( ::osgViewer::StatsHandler::*getCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( ::osgViewer::StatsHandler::*getCamera_function_type )(  ) const;
             
             StatsHandler_exposer.def( 
                 "getCamera"
@@ -242,7 +242,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getKeyEventPrintsOutStats
         
-            typedef int ( ::osgViewer::StatsHandler::*getKeyEventPrintsOutStats_function_type)(  ) const;
+            typedef int ( ::osgViewer::StatsHandler::*getKeyEventPrintsOutStats_function_type )(  ) const;
             
             StatsHandler_exposer.def( 
                 "getKeyEventPrintsOutStats"
@@ -251,7 +251,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getKeyEventToggleVSync
         
-            typedef int ( ::osgViewer::StatsHandler::*getKeyEventToggleVSync_function_type)(  ) const;
+            typedef int ( ::osgViewer::StatsHandler::*getKeyEventToggleVSync_function_type )(  ) const;
             
             StatsHandler_exposer.def( 
                 "getKeyEventToggleVSync"
@@ -260,7 +260,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getKeyEventTogglesOnScreenStats
         
-            typedef int ( ::osgViewer::StatsHandler::*getKeyEventTogglesOnScreenStats_function_type)(  ) const;
+            typedef int ( ::osgViewer::StatsHandler::*getKeyEventTogglesOnScreenStats_function_type )(  ) const;
             
             StatsHandler_exposer.def( 
                 "getKeyEventTogglesOnScreenStats"
@@ -269,8 +269,8 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::getUsage
         
-            typedef void ( ::osgViewer::StatsHandler::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( StatsHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::StatsHandler::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( StatsHandler_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
             
             StatsHandler_exposer.def( 
                 "getUsage"
@@ -281,7 +281,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::removeUserStatsLine
         
-            typedef void ( ::osgViewer::StatsHandler::*removeUserStatsLine_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgViewer::StatsHandler::*removeUserStatsLine_function_type )( ::std::string const & ) ;
             
             StatsHandler_exposer.def( 
                 "removeUserStatsLine"
@@ -291,7 +291,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::reset
         
-            typedef void ( ::osgViewer::StatsHandler::*reset_function_type)(  ) ;
+            typedef void ( ::osgViewer::StatsHandler::*reset_function_type )(  ) ;
             
             StatsHandler_exposer.def( 
                 "reset"
@@ -300,7 +300,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::setKeyEventPrintsOutStats
         
-            typedef void ( ::osgViewer::StatsHandler::*setKeyEventPrintsOutStats_function_type)( int ) ;
+            typedef void ( ::osgViewer::StatsHandler::*setKeyEventPrintsOutStats_function_type )( int ) ;
             
             StatsHandler_exposer.def( 
                 "setKeyEventPrintsOutStats"
@@ -310,7 +310,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::setKeyEventToggleVSync
         
-            typedef void ( ::osgViewer::StatsHandler::*setKeyEventToggleVSync_function_type)( int ) ;
+            typedef void ( ::osgViewer::StatsHandler::*setKeyEventToggleVSync_function_type )( int ) ;
             
             StatsHandler_exposer.def( 
                 "setKeyEventToggleVSync"
@@ -320,7 +320,7 @@ void register_StatsHandler_class(){
         }
         { //::osgViewer::StatsHandler::setKeyEventTogglesOnScreenStats
         
-            typedef void ( ::osgViewer::StatsHandler::*setKeyEventTogglesOnScreenStats_function_type)( int ) ;
+            typedef void ( ::osgViewer::StatsHandler::*setKeyEventTogglesOnScreenStats_function_type )( int ) ;
             
             StatsHandler_exposer.def( 
                 "setKeyEventTogglesOnScreenStats"

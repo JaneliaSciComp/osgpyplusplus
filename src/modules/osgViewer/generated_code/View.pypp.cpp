@@ -274,7 +274,7 @@ void register_View_class(){
         View_exposer.def( bp::init< >() );
         { //::osgViewer::View::addDevice
         
-            typedef void ( ::osgViewer::View::*addDevice_function_type)( ::osgGA::Device * ) ;
+            typedef void ( ::osgViewer::View::*addDevice_function_type )( ::osgGA::Device * ) ;
             
             View_exposer.def( 
                 "addDevice"
@@ -284,7 +284,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::addEventHandler
         
-            typedef void ( ::osgViewer::View::*addEventHandler_function_type)( ::osgGA::GUIEventHandler * ) ;
+            typedef void ( ::osgViewer::View::*addEventHandler_function_type )( ::osgGA::GUIEventHandler * ) ;
             
             View_exposer.def( 
                 "addEventHandler"
@@ -294,7 +294,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::apply
         
-            typedef void ( ::osgViewer::View::*apply_function_type)( ::osgViewer::ViewConfig * ) ;
+            typedef void ( ::osgViewer::View::*apply_function_type )( ::osgViewer::ViewConfig * ) ;
             
             View_exposer.def( 
                 "apply"
@@ -304,8 +304,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::asView
         
-            typedef ::osg::View * ( ::osgViewer::View::*asView_function_type)(  ) ;
-            typedef ::osg::View * ( View_wrapper::*default_asView_function_type)(  ) ;
+            typedef ::osg::View * ( ::osgViewer::View::*asView_function_type )(  ) ;
+            typedef ::osg::View * ( View_wrapper::*default_asView_function_type )(  ) ;
             
             View_exposer.def( 
                 "asView"
@@ -316,7 +316,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::assignKeystoneDistortionCamera
         
-            typedef ::osg::Camera * ( ::osgViewer::View::*assignKeystoneDistortionCamera_function_type)( ::osg::DisplaySettings *,::osg::GraphicsContext *,int,int,int,int,::GLenum,::osg::Texture *,::osgViewer::Keystone * ) ;
+            typedef ::osg::Camera * ( ::osgViewer::View::*assignKeystoneDistortionCamera_function_type )( ::osg::DisplaySettings *,::osg::GraphicsContext *,int,int,int,int,::GLenum,::osg::Texture *,::osgViewer::Keystone * ) ;
             
             View_exposer.def( 
                 "assignKeystoneDistortionCamera"
@@ -327,7 +327,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::assignRenderToTextureCamera
         
-            typedef ::osg::Camera * ( ::osgViewer::View::*assignRenderToTextureCamera_function_type)( ::osg::GraphicsContext *,int,int,::osg::Texture * ) ;
+            typedef ::osg::Camera * ( ::osgViewer::View::*assignRenderToTextureCamera_function_type )( ::osg::GraphicsContext *,int,int,::osg::Texture * ) ;
             
             View_exposer.def( 
                 "assignRenderToTextureCamera"
@@ -338,7 +338,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::assignSceneDataToCameras
         
-            typedef void ( ::osgViewer::View::*assignSceneDataToCameras_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*assignSceneDataToCameras_function_type )(  ) ;
             
             View_exposer.def( 
                 "assignSceneDataToCameras"
@@ -347,7 +347,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::assignStereoCamera
         
-            typedef ::osg::Camera * ( ::osgViewer::View::*assignStereoCamera_function_type)( ::osg::DisplaySettings *,::osg::GraphicsContext *,int,int,int,int,::GLenum,double ) ;
+            typedef ::osg::Camera * ( ::osgViewer::View::*assignStereoCamera_function_type )( ::osg::DisplaySettings *,::osg::GraphicsContext *,int,int,int,int,::GLenum,double ) ;
             
             View_exposer.def( 
                 "assignStereoCamera"
@@ -358,7 +358,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::assignStereoOrKeystoneToCamera
         
-            typedef void ( ::osgViewer::View::*assignStereoOrKeystoneToCamera_function_type)( ::osg::Camera *,::osg::DisplaySettings * ) ;
+            typedef void ( ::osgViewer::View::*assignStereoOrKeystoneToCamera_function_type )( ::osg::Camera *,::osg::DisplaySettings * ) ;
             
             View_exposer.def( 
                 "assignStereoOrKeystoneToCamera"
@@ -368,8 +368,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::className
         
-            typedef char const * ( ::osgViewer::View::*className_function_type)(  ) const;
-            typedef char const * ( View_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::View::*className_function_type )(  ) const;
+            typedef char const * ( View_wrapper::*default_className_function_type )(  ) const;
             
             View_exposer.def( 
                 "className"
@@ -379,8 +379,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::clone
         
-            typedef ::osg::Object * ( ::osgViewer::View::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( View_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgViewer::View::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( View_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             View_exposer.def( 
                 "clone"
@@ -392,8 +392,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::cloneType
         
-            typedef ::osg::Object * ( ::osgViewer::View::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( View_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgViewer::View::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( View_wrapper::*default_cloneType_function_type )(  ) const;
             
             View_exposer.def( 
                 "cloneType"
@@ -404,7 +404,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::computeActiveCoordinateSystemNodePath
         
-            typedef void ( ::osgViewer::View::*computeActiveCoordinateSystemNodePath_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*computeActiveCoordinateSystemNodePath_function_type )(  ) ;
             
             View_exposer.def( 
                 "computeActiveCoordinateSystemNodePath"
@@ -413,7 +413,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::containsCamera
         
-            typedef bool ( ::osgViewer::View::*containsCamera_function_type)( ::osg::Camera const * ) const;
+            typedef bool ( ::osgViewer::View::*containsCamera_function_type )( ::osg::Camera const * ) const;
             
             View_exposer.def( 
                 "containsCamera"
@@ -423,7 +423,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::createDistortionTexture
         
-            typedef ::osg::Texture * ( ::osgViewer::View::*createDistortionTexture_function_type)( int,int ) ;
+            typedef ::osg::Texture * ( ::osgViewer::View::*createDistortionTexture_function_type )( int,int ) ;
             
             View_exposer.def( 
                 "createDistortionTexture"
@@ -434,7 +434,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getCameraContainingPosition
         
-            typedef ::osg::Camera const * ( ::osgViewer::View::*getCameraContainingPosition_function_type)( float,float,float &,float & ) const;
+            typedef ::osg::Camera const * ( ::osgViewer::View::*getCameraContainingPosition_function_type )( float,float,float &,float & ) const;
             
             View_exposer.def( 
                 "getCameraContainingPosition"
@@ -445,7 +445,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getCameraManipulator
         
-            typedef ::osgGA::CameraManipulator * ( ::osgViewer::View::*getCameraManipulator_function_type)(  ) ;
+            typedef ::osgGA::CameraManipulator * ( ::osgViewer::View::*getCameraManipulator_function_type )(  ) ;
             
             View_exposer.def( 
                 "getCameraManipulator"
@@ -455,7 +455,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getCameraManipulator
         
-            typedef ::osgGA::CameraManipulator const * ( ::osgViewer::View::*getCameraManipulator_function_type)(  ) const;
+            typedef ::osgGA::CameraManipulator const * ( ::osgViewer::View::*getCameraManipulator_function_type )(  ) const;
             
             View_exposer.def( 
                 "getCameraManipulator"
@@ -465,7 +465,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getCoordinateSystemNodePath
         
-            typedef ::osg::NodePath ( ::osgViewer::View::*getCoordinateSystemNodePath_function_type)(  ) const;
+            typedef ::osg::NodePath ( ::osgViewer::View::*getCoordinateSystemNodePath_function_type )(  ) const;
             
             View_exposer.def( 
                 "getCoordinateSystemNodePath"
@@ -474,7 +474,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDatabasePager
         
-            typedef ::osgDB::DatabasePager * ( ::osgViewer::View::*getDatabasePager_function_type)(  ) ;
+            typedef ::osgDB::DatabasePager * ( ::osgViewer::View::*getDatabasePager_function_type )(  ) ;
             
             View_exposer.def( 
                 "getDatabasePager"
@@ -484,7 +484,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDatabasePager
         
-            typedef ::osgDB::DatabasePager const * ( ::osgViewer::View::*getDatabasePager_function_type)(  ) const;
+            typedef ::osgDB::DatabasePager const * ( ::osgViewer::View::*getDatabasePager_function_type )(  ) const;
             
             View_exposer.def( 
                 "getDatabasePager"
@@ -494,7 +494,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDevices
         
-            typedef ::std::vector< osg::ref_ptr<osgGA::Device> > & ( ::osgViewer::View::*getDevices_function_type)(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osgGA::Device> > & ( ::osgViewer::View::*getDevices_function_type )(  ) ;
             
             View_exposer.def( 
                 "getDevices"
@@ -504,7 +504,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDevices
         
-            typedef ::std::vector< osg::ref_ptr<osgGA::Device> > const & ( ::osgViewer::View::*getDevices_function_type)(  ) const;
+            typedef ::std::vector< osg::ref_ptr<osgGA::Device> > const & ( ::osgViewer::View::*getDevices_function_type )(  ) const;
             
             View_exposer.def( 
                 "getDevices"
@@ -514,7 +514,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDisplaySettings
         
-            typedef ::osg::DisplaySettings * ( ::osgViewer::View::*getDisplaySettings_function_type)(  ) ;
+            typedef ::osg::DisplaySettings * ( ::osgViewer::View::*getDisplaySettings_function_type )(  ) ;
             
             View_exposer.def( 
                 "getDisplaySettings"
@@ -524,7 +524,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getDisplaySettings
         
-            typedef ::osg::DisplaySettings const * ( ::osgViewer::View::*getDisplaySettings_function_type)(  ) const;
+            typedef ::osg::DisplaySettings const * ( ::osgViewer::View::*getDisplaySettings_function_type )(  ) const;
             
             View_exposer.def( 
                 "getDisplaySettings"
@@ -534,7 +534,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getEventHandlers
         
-            typedef ::std::list< osg::ref_ptr<osgGA::GUIEventHandler> > & ( ::osgViewer::View::*getEventHandlers_function_type)(  ) ;
+            typedef ::std::list< osg::ref_ptr<osgGA::GUIEventHandler> > & ( ::osgViewer::View::*getEventHandlers_function_type )(  ) ;
             
             View_exposer.def( 
                 "getEventHandlers"
@@ -544,7 +544,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getEventHandlers
         
-            typedef ::std::list< osg::ref_ptr<osgGA::GUIEventHandler> > const & ( ::osgViewer::View::*getEventHandlers_function_type)(  ) const;
+            typedef ::std::list< osg::ref_ptr<osgGA::GUIEventHandler> > const & ( ::osgViewer::View::*getEventHandlers_function_type )(  ) const;
             
             View_exposer.def( 
                 "getEventHandlers"
@@ -554,7 +554,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getEventQueue
         
-            typedef ::osgGA::EventQueue * ( ::osgViewer::View::*getEventQueue_function_type)(  ) ;
+            typedef ::osgGA::EventQueue * ( ::osgViewer::View::*getEventQueue_function_type )(  ) ;
             
             View_exposer.def( 
                 "getEventQueue"
@@ -564,7 +564,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getEventQueue
         
-            typedef ::osgGA::EventQueue const * ( ::osgViewer::View::*getEventQueue_function_type)(  ) const;
+            typedef ::osgGA::EventQueue const * ( ::osgViewer::View::*getEventQueue_function_type )(  ) const;
             
             View_exposer.def( 
                 "getEventQueue"
@@ -574,7 +574,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgViewer::View::*getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgViewer::View::*getFusionDistanceMode_function_type )(  ) const;
             
             View_exposer.def( 
                 "getFusionDistanceMode"
@@ -583,7 +583,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getFusionDistanceValue
         
-            typedef float ( ::osgViewer::View::*getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( ::osgViewer::View::*getFusionDistanceValue_function_type )(  ) const;
             
             View_exposer.def( 
                 "getFusionDistanceValue"
@@ -592,7 +592,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getImagePager
         
-            typedef ::osgDB::ImagePager * ( ::osgViewer::View::*getImagePager_function_type)(  ) ;
+            typedef ::osgDB::ImagePager * ( ::osgViewer::View::*getImagePager_function_type )(  ) ;
             
             View_exposer.def( 
                 "getImagePager"
@@ -602,7 +602,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getImagePager
         
-            typedef ::osgDB::ImagePager const * ( ::osgViewer::View::*getImagePager_function_type)(  ) const;
+            typedef ::osgDB::ImagePager const * ( ::osgViewer::View::*getImagePager_function_type )(  ) const;
             
             View_exposer.def( 
                 "getImagePager"
@@ -612,7 +612,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getLastAppliedViewConfig
         
-            typedef ::osgViewer::ViewConfig * ( ::osgViewer::View::*getLastAppliedViewConfig_function_type)(  ) ;
+            typedef ::osgViewer::ViewConfig * ( ::osgViewer::View::*getLastAppliedViewConfig_function_type )(  ) ;
             
             View_exposer.def( 
                 "getLastAppliedViewConfig"
@@ -622,7 +622,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getLastAppliedViewConfig
         
-            typedef ::osgViewer::ViewConfig const * ( ::osgViewer::View::*getLastAppliedViewConfig_function_type)(  ) const;
+            typedef ::osgViewer::ViewConfig const * ( ::osgViewer::View::*getLastAppliedViewConfig_function_type )(  ) const;
             
             View_exposer.def( 
                 "getLastAppliedViewConfig"
@@ -632,7 +632,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getScene
         
-            typedef ::osgViewer::Scene * ( ::osgViewer::View::*getScene_function_type)(  ) ;
+            typedef ::osgViewer::Scene * ( ::osgViewer::View::*getScene_function_type )(  ) ;
             
             View_exposer.def( 
                 "getScene"
@@ -642,7 +642,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getScene
         
-            typedef ::osgViewer::Scene const * ( ::osgViewer::View::*getScene_function_type)(  ) const;
+            typedef ::osgViewer::Scene const * ( ::osgViewer::View::*getScene_function_type )(  ) const;
             
             View_exposer.def( 
                 "getScene"
@@ -652,7 +652,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getSceneData
         
-            typedef ::osg::Node * ( ::osgViewer::View::*getSceneData_function_type)(  ) ;
+            typedef ::osg::Node * ( ::osgViewer::View::*getSceneData_function_type )(  ) ;
             
             View_exposer.def( 
                 "getSceneData"
@@ -662,7 +662,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getSceneData
         
-            typedef ::osg::Node const * ( ::osgViewer::View::*getSceneData_function_type)(  ) const;
+            typedef ::osg::Node const * ( ::osgViewer::View::*getSceneData_function_type )(  ) const;
             
             View_exposer.def( 
                 "getSceneData"
@@ -672,7 +672,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getStartTick
         
-            typedef ::osg::Timer_t ( ::osgViewer::View::*getStartTick_function_type)(  ) const;
+            typedef ::osg::Timer_t ( ::osgViewer::View::*getStartTick_function_type )(  ) const;
             
             View_exposer.def( 
                 "getStartTick"
@@ -681,7 +681,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::getViewerBase
         
-            typedef ::osgViewer::ViewerBase * ( ::osgViewer::View::*getViewerBase_function_type)(  ) ;
+            typedef ::osgViewer::ViewerBase * ( ::osgViewer::View::*getViewerBase_function_type )(  ) ;
             
             View_exposer.def( 
                 "getViewerBase"
@@ -691,7 +691,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::home
         
-            typedef void ( ::osgViewer::View::*home_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*home_function_type )(  ) ;
             
             View_exposer.def( 
                 "home"
@@ -700,7 +700,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::init
         
-            typedef void ( ::osgViewer::View::*init_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*init_function_type )(  ) ;
             
             View_exposer.def( 
                 "init"
@@ -709,8 +709,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::isSameKindAs
         
-            typedef bool ( ::osgViewer::View::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( View_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgViewer::View::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( View_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             View_exposer.def( 
                 "isSameKindAs"
@@ -721,8 +721,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::libraryName
         
-            typedef char const * ( ::osgViewer::View::*libraryName_function_type)(  ) const;
-            typedef char const * ( View_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::View::*libraryName_function_type )(  ) const;
+            typedef char const * ( View_wrapper::*default_libraryName_function_type )(  ) const;
             
             View_exposer.def( 
                 "libraryName"
@@ -732,7 +732,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::removeDevice
         
-            typedef void ( ::osgViewer::View::*removeDevice_function_type)( ::osgGA::Device * ) ;
+            typedef void ( ::osgViewer::View::*removeDevice_function_type )( ::osgGA::Device * ) ;
             
             View_exposer.def( 
                 "removeDevice"
@@ -742,7 +742,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::removeEventHandler
         
-            typedef void ( ::osgViewer::View::*removeEventHandler_function_type)( ::osgGA::GUIEventHandler * ) ;
+            typedef void ( ::osgViewer::View::*removeEventHandler_function_type )( ::osgGA::GUIEventHandler * ) ;
             
             View_exposer.def( 
                 "removeEventHandler"
@@ -752,8 +752,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::requestContinuousUpdate
         
-            typedef void ( ::osgViewer::View::*requestContinuousUpdate_function_type)( bool ) ;
-            typedef void ( View_wrapper::*default_requestContinuousUpdate_function_type)( bool ) ;
+            typedef void ( ::osgViewer::View::*requestContinuousUpdate_function_type )( bool ) ;
+            typedef void ( View_wrapper::*default_requestContinuousUpdate_function_type )( bool ) ;
             
             View_exposer.def( 
                 "requestContinuousUpdate"
@@ -764,8 +764,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::requestRedraw
         
-            typedef void ( ::osgViewer::View::*requestRedraw_function_type)(  ) ;
-            typedef void ( View_wrapper::*default_requestRedraw_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*requestRedraw_function_type )(  ) ;
+            typedef void ( View_wrapper::*default_requestRedraw_function_type )(  ) ;
             
             View_exposer.def( 
                 "requestRedraw"
@@ -775,8 +775,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::requestWarpPointer
         
-            typedef void ( ::osgViewer::View::*requestWarpPointer_function_type)( float,float ) ;
-            typedef void ( View_wrapper::*default_requestWarpPointer_function_type)( float,float ) ;
+            typedef void ( ::osgViewer::View::*requestWarpPointer_function_type )( float,float ) ;
+            typedef void ( View_wrapper::*default_requestWarpPointer_function_type )( float,float ) ;
             
             View_exposer.def( 
                 "requestWarpPointer"
@@ -787,7 +787,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setCameraManipulator
         
-            typedef void ( ::osgViewer::View::*setCameraManipulator_function_type)( ::osgGA::CameraManipulator *,bool ) ;
+            typedef void ( ::osgViewer::View::*setCameraManipulator_function_type )( ::osgGA::CameraManipulator *,bool ) ;
             
             View_exposer.def( 
                 "setCameraManipulator"
@@ -798,7 +798,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setCoordinateSystemNodePath
         
-            typedef void ( ::osgViewer::View::*setCoordinateSystemNodePath_function_type)( ::osg::NodePath const & ) ;
+            typedef void ( ::osgViewer::View::*setCoordinateSystemNodePath_function_type )( ::osg::NodePath const & ) ;
             
             View_exposer.def( 
                 "setCoordinateSystemNodePath"
@@ -808,7 +808,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setDatabasePager
         
-            typedef void ( ::osgViewer::View::*setDatabasePager_function_type)( ::osgDB::DatabasePager * ) ;
+            typedef void ( ::osgViewer::View::*setDatabasePager_function_type )( ::osgDB::DatabasePager * ) ;
             
             View_exposer.def( 
                 "setDatabasePager"
@@ -818,7 +818,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setDisplaySettings
         
-            typedef void ( ::osgViewer::View::*setDisplaySettings_function_type)( ::osg::DisplaySettings * ) ;
+            typedef void ( ::osgViewer::View::*setDisplaySettings_function_type )( ::osg::DisplaySettings * ) ;
             
             View_exposer.def( 
                 "setDisplaySettings"
@@ -828,7 +828,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setEventQueue
         
-            typedef void ( ::osgViewer::View::*setEventQueue_function_type)( ::osgGA::EventQueue * ) ;
+            typedef void ( ::osgViewer::View::*setEventQueue_function_type )( ::osgGA::EventQueue * ) ;
             
             View_exposer.def( 
                 "setEventQueue"
@@ -838,7 +838,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setFusionDistance
         
-            typedef void ( ::osgViewer::View::*setFusionDistance_function_type)( ::osgUtil::SceneView::FusionDistanceMode,float ) ;
+            typedef void ( ::osgViewer::View::*setFusionDistance_function_type )( ::osgUtil::SceneView::FusionDistanceMode,float ) ;
             
             View_exposer.def( 
                 "setFusionDistance"
@@ -848,7 +848,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setImagePager
         
-            typedef void ( ::osgViewer::View::*setImagePager_function_type)( ::osgDB::ImagePager * ) ;
+            typedef void ( ::osgViewer::View::*setImagePager_function_type )( ::osgDB::ImagePager * ) ;
             
             View_exposer.def( 
                 "setImagePager"
@@ -858,8 +858,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::setSceneData
         
-            typedef void ( ::osgViewer::View::*setSceneData_function_type)( ::osg::Node * ) ;
-            typedef void ( View_wrapper::*default_setSceneData_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgViewer::View::*setSceneData_function_type )( ::osg::Node * ) ;
+            typedef void ( View_wrapper::*default_setSceneData_function_type )( ::osg::Node * ) ;
             
             View_exposer.def( 
                 "setSceneData"
@@ -870,8 +870,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::setStartTick
         
-            typedef void ( ::osgViewer::View::*setStartTick_function_type)( ::osg::Timer_t ) ;
-            typedef void ( View_wrapper::*default_setStartTick_function_type)( ::osg::Timer_t ) ;
+            typedef void ( ::osgViewer::View::*setStartTick_function_type )( ::osg::Timer_t ) ;
+            typedef void ( View_wrapper::*default_setStartTick_function_type )( ::osg::Timer_t ) ;
             
             View_exposer.def( 
                 "setStartTick"
@@ -882,7 +882,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpDepthPartition
         
-            typedef bool ( ::osgViewer::View::*setUpDepthPartition_function_type)( ::osgViewer::DepthPartitionSettings * ) ;
+            typedef bool ( ::osgViewer::View::*setUpDepthPartition_function_type )( ::osgViewer::DepthPartitionSettings * ) ;
             
             View_exposer.def( 
                 "setUpDepthPartition"
@@ -892,7 +892,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpDepthPartitionForCamera
         
-            typedef bool ( ::osgViewer::View::*setUpDepthPartitionForCamera_function_type)( ::osg::Camera *,::osgViewer::DepthPartitionSettings * ) ;
+            typedef bool ( ::osgViewer::View::*setUpDepthPartitionForCamera_function_type )( ::osg::Camera *,::osgViewer::DepthPartitionSettings * ) ;
             
             View_exposer.def( 
                 "setUpDepthPartitionForCamera"
@@ -902,7 +902,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewAcrossAllScreens
         
-            typedef void ( ::osgViewer::View::*setUpViewAcrossAllScreens_function_type)(  ) ;
+            typedef void ( ::osgViewer::View::*setUpViewAcrossAllScreens_function_type )(  ) ;
             
             View_exposer.def( 
                 "setUpViewAcrossAllScreens"
@@ -911,7 +911,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewFor3DSphericalDisplay
         
-            typedef void ( ::osgViewer::View::*setUpViewFor3DSphericalDisplay_function_type)( double,double,unsigned int,::osg::Image *,::osg::Matrixd const & ) ;
+            typedef void ( ::osgViewer::View::*setUpViewFor3DSphericalDisplay_function_type )( double,double,unsigned int,::osg::Image *,::osg::Matrixd const & ) ;
             
             View_exposer.def( 
                 "setUpViewFor3DSphericalDisplay"
@@ -921,7 +921,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewForPanoramicSphericalDisplay
         
-            typedef void ( ::osgViewer::View::*setUpViewForPanoramicSphericalDisplay_function_type)( double,double,unsigned int,::osg::Image *,::osg::Matrixd const & ) ;
+            typedef void ( ::osgViewer::View::*setUpViewForPanoramicSphericalDisplay_function_type )( double,double,unsigned int,::osg::Image *,::osg::Matrixd const & ) ;
             
             View_exposer.def( 
                 "setUpViewForPanoramicSphericalDisplay"
@@ -931,7 +931,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewForWoWVxDisplay
         
-            typedef void ( ::osgViewer::View::*setUpViewForWoWVxDisplay_function_type)( unsigned int,unsigned char,unsigned char,unsigned char,float,float,float,float ) ;
+            typedef void ( ::osgViewer::View::*setUpViewForWoWVxDisplay_function_type )( unsigned int,unsigned char,unsigned char,unsigned char,float,float,float,float ) ;
             
             View_exposer.def( 
                 "setUpViewForWoWVxDisplay"
@@ -941,7 +941,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewInWindow
         
-            typedef void ( ::osgViewer::View::*setUpViewInWindow_function_type)( int,int,int,int,unsigned int ) ;
+            typedef void ( ::osgViewer::View::*setUpViewInWindow_function_type )( int,int,int,int,unsigned int ) ;
             
             View_exposer.def( 
                 "setUpViewInWindow"
@@ -951,7 +951,7 @@ void register_View_class(){
         }
         { //::osgViewer::View::setUpViewOnSingleScreen
         
-            typedef void ( ::osgViewer::View::*setUpViewOnSingleScreen_function_type)( unsigned int ) ;
+            typedef void ( ::osgViewer::View::*setUpViewOnSingleScreen_function_type )( unsigned int ) ;
             
             View_exposer.def( 
                 "setUpViewOnSingleScreen"
@@ -961,8 +961,8 @@ void register_View_class(){
         }
         { //::osgViewer::View::take
         
-            typedef void ( ::osgViewer::View::*take_function_type)( ::osg::View & ) ;
-            typedef void ( View_wrapper::*default_take_function_type)( ::osg::View & ) ;
+            typedef void ( ::osgViewer::View::*take_function_type )( ::osg::View & ) ;
+            typedef void ( View_wrapper::*default_take_function_type )( ::osg::View & ) ;
             
             View_exposer.def( 
                 "take"

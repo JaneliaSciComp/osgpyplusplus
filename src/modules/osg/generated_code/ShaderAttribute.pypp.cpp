@@ -64,18 +64,6 @@ struct ShaderAttribute_wrapper : osg::ShaderAttribute, bp::wrapper< osg::ShaderA
         return osg::ShaderAttribute::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::ShaderAttribute::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::ShaderAttribute::compare( boost::ref(sa) );
-    }
-
     virtual void compileGLObjects( ::osg::State & state ) const  {
         if( bp::override func_compileGLObjects = this->get_override( "compileGLObjects" ) )
             func_compileGLObjects( boost::ref(state) );
@@ -288,159 +276,154 @@ void register_ShaderAttribute_class(){
         .def( bp::init< >() )    
         .def( 
             "addShader"
-            , (unsigned int ( ::osg::ShaderAttribute::* )( ::osg::Shader * ))( &::osg::ShaderAttribute::addShader )
+            , (unsigned int ( ::osg::ShaderAttribute::* )( ::osg::Shader * ) )( &::osg::ShaderAttribute::addShader )
             , ( bp::arg("shader") ) )    
         .def( 
             "addUniform"
-            , (unsigned int ( ::osg::ShaderAttribute::* )( ::osg::Uniform * ))( &::osg::ShaderAttribute::addUniform )
+            , (unsigned int ( ::osg::ShaderAttribute::* )( ::osg::Uniform * ) )( &::osg::ShaderAttribute::addUniform )
             , ( bp::arg("uniform") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShaderAttribute::* )( ::osg::State & )const)(&::osg::ShaderAttribute::apply)
-            , (void ( ShaderAttribute_wrapper::* )( ::osg::State & )const)(&ShaderAttribute_wrapper::default_apply)
+            , (void ( ::osg::ShaderAttribute::* )( ::osg::State & ) const)(&::osg::ShaderAttribute::apply)
+            , (void ( ShaderAttribute_wrapper::* )( ::osg::State & ) const)(&ShaderAttribute_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::ShaderAttribute::* )(  )const)(&::osg::ShaderAttribute::className)
-            , (char const * ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_className) )    
+            , (char const * ( ::osg::ShaderAttribute::* )(  ) const)(&::osg::ShaderAttribute::className)
+            , (char const * ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::ShaderAttribute::* )( ::osg::CopyOp const & )const)(&::osg::ShaderAttribute::clone)
-            , (::osg::Object * ( ShaderAttribute_wrapper::* )( ::osg::CopyOp const & )const)(&ShaderAttribute_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::ShaderAttribute::* )( ::osg::CopyOp const & ) const)(&::osg::ShaderAttribute::clone)
+            , (::osg::Object * ( ShaderAttribute_wrapper::* )( ::osg::CopyOp const & ) const)(&ShaderAttribute_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::ShaderAttribute::* )(  )const)(&::osg::ShaderAttribute::cloneType)
-            , (::osg::Object * ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::ShaderAttribute::* )(  ) const)(&::osg::ShaderAttribute::cloneType)
+            , (::osg::Object * ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
-            "compare"
-            , (int ( ::osg::ShaderAttribute::* )( ::osg::StateAttribute const & )const)(&::osg::ShaderAttribute::compare)
-            , (int ( ShaderAttribute_wrapper::* )( ::osg::StateAttribute const & )const)(&ShaderAttribute_wrapper::default_compare)
-            , ( bp::arg("sa") ) )    
-        .def( 
             "compileGLObjects"
-            , (void ( ::osg::ShaderAttribute::* )( ::osg::State & )const)(&::osg::ShaderAttribute::compileGLObjects)
-            , (void ( ShaderAttribute_wrapper::* )( ::osg::State & )const)(&ShaderAttribute_wrapper::default_compileGLObjects)
+            , (void ( ::osg::ShaderAttribute::* )( ::osg::State & ) const)(&::osg::ShaderAttribute::compileGLObjects)
+            , (void ( ShaderAttribute_wrapper::* )( ::osg::State & ) const)(&ShaderAttribute_wrapper::default_compileGLObjects)
             , ( bp::arg("state") ) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::ShaderAttribute::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::ShaderAttribute::getModeUsage)
-            , (bool ( ShaderAttribute_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&ShaderAttribute_wrapper::default_getModeUsage)
+            , (bool ( ::osg::ShaderAttribute::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::ShaderAttribute::getModeUsage)
+            , (bool ( ShaderAttribute_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&ShaderAttribute_wrapper::default_getModeUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getNumShaders"
-            , (unsigned int ( ::osg::ShaderAttribute::* )(  )const)( &::osg::ShaderAttribute::getNumShaders ) )    
+            , (unsigned int ( ::osg::ShaderAttribute::* )(  ) const)( &::osg::ShaderAttribute::getNumShaders ) )    
         .def( 
             "getNumUniforms"
-            , (unsigned int ( ::osg::ShaderAttribute::* )(  )const)( &::osg::ShaderAttribute::getNumUniforms ) )    
+            , (unsigned int ( ::osg::ShaderAttribute::* )(  ) const)( &::osg::ShaderAttribute::getNumUniforms ) )    
         .def( 
             "getShader"
-            , (::osg::Shader * ( ::osg::ShaderAttribute::* )( unsigned int ))( &::osg::ShaderAttribute::getShader )
+            , (::osg::Shader * ( ::osg::ShaderAttribute::* )( unsigned int ) )( &::osg::ShaderAttribute::getShader )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getShader"
-            , (::osg::Shader const * ( ::osg::ShaderAttribute::* )( unsigned int )const)( &::osg::ShaderAttribute::getShader )
+            , (::osg::Shader const * ( ::osg::ShaderAttribute::* )( unsigned int ) const)( &::osg::ShaderAttribute::getShader )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::ShaderAttribute::* )(  )const)(&::osg::ShaderAttribute::getType)
-            , (::osg::StateAttribute::Type ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::ShaderAttribute::* )(  ) const)(&::osg::ShaderAttribute::getType)
+            , (::osg::StateAttribute::Type ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_getType) )    
         .def( 
             "getUniform"
-            , (::osg::Uniform * ( ::osg::ShaderAttribute::* )( unsigned int ))( &::osg::ShaderAttribute::getUniform )
+            , (::osg::Uniform * ( ::osg::ShaderAttribute::* )( unsigned int ) )( &::osg::ShaderAttribute::getUniform )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getUniform"
-            , (::osg::Uniform const * ( ::osg::ShaderAttribute::* )( unsigned int )const)( &::osg::ShaderAttribute::getUniform )
+            , (::osg::Uniform const * ( ::osg::ShaderAttribute::* )( unsigned int ) const)( &::osg::ShaderAttribute::getUniform )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::ShaderAttribute::* )( ::osg::Object const * )const)(&::osg::ShaderAttribute::isSameKindAs)
-            , (bool ( ShaderAttribute_wrapper::* )( ::osg::Object const * )const)(&ShaderAttribute_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::ShaderAttribute::* )( ::osg::Object const * ) const)(&::osg::ShaderAttribute::isSameKindAs)
+            , (bool ( ShaderAttribute_wrapper::* )( ::osg::Object const * ) const)(&ShaderAttribute_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::ShaderAttribute::* )(  )const)(&::osg::ShaderAttribute::libraryName)
-            , (char const * ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::ShaderAttribute::* )(  ) const)(&::osg::ShaderAttribute::libraryName)
+            , (char const * ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_libraryName) )    
         .def( 
             "removeShader"
-            , (void ( ::osg::ShaderAttribute::* )( unsigned int ))( &::osg::ShaderAttribute::removeShader )
+            , (void ( ::osg::ShaderAttribute::* )( unsigned int ) )( &::osg::ShaderAttribute::removeShader )
             , ( bp::arg("i") ) )    
         .def( 
             "removeUniform"
-            , (void ( ::osg::ShaderAttribute::* )( unsigned int ))( &::osg::ShaderAttribute::removeUniform )
+            , (void ( ::osg::ShaderAttribute::* )( unsigned int ) )( &::osg::ShaderAttribute::removeUniform )
             , ( bp::arg("i") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::ShaderAttribute::* )( unsigned int ))(&::osg::ShaderAttribute::resizeGLObjectBuffers)
-            , (void ( ShaderAttribute_wrapper::* )( unsigned int ))(&ShaderAttribute_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::ShaderAttribute::* )( unsigned int ) )(&::osg::ShaderAttribute::resizeGLObjectBuffers)
+            , (void ( ShaderAttribute_wrapper::* )( unsigned int ) )(&ShaderAttribute_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setType"
-            , (void ( ::osg::ShaderAttribute::* )( ::osg::StateAttribute::Type ))( &::osg::ShaderAttribute::setType )
+            , (void ( ::osg::ShaderAttribute::* )( ::osg::StateAttribute::Type ) )( &::osg::ShaderAttribute::setType )
             , ( bp::arg("type") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( ShaderAttribute_wrapper::* )(  ))(&ShaderAttribute_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( ShaderAttribute_wrapper::* )(  ) )(&ShaderAttribute_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( ShaderAttribute_wrapper::* )( ::osg::State & )const)(&ShaderAttribute_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( ShaderAttribute_wrapper::* )( ::osg::State & ) const)(&ShaderAttribute_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( ShaderAttribute_wrapper::* )(  ))(&ShaderAttribute_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( ShaderAttribute_wrapper::* )(  ) )(&ShaderAttribute_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_getMember) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( ShaderAttribute_wrapper::* )(  ))(&ShaderAttribute_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( ShaderAttribute_wrapper::* )(  ) )(&ShaderAttribute_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( ShaderAttribute_wrapper::* )(  )const)(&ShaderAttribute_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( ShaderAttribute_wrapper::* )(  ) const)(&ShaderAttribute_wrapper::default_isTextureAttribute) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( ShaderAttribute_wrapper::* )( ::std::string const & ))(&ShaderAttribute_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( ShaderAttribute_wrapper::* )( ::std::string const & ) )(&ShaderAttribute_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( ShaderAttribute_wrapper::* )( bool ))(&ShaderAttribute_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( ShaderAttribute_wrapper::* )( bool ) )(&ShaderAttribute_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( ShaderAttribute_wrapper::* )( ::osg::Referenced * ))(&ShaderAttribute_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( ShaderAttribute_wrapper::* )( ::osg::Referenced * ) )(&ShaderAttribute_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

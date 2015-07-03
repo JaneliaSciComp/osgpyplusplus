@@ -59,18 +59,6 @@ struct TransformFeedbackBufferBinding_wrapper : osg::TransformFeedbackBufferBind
         return osg::TransformFeedbackBufferBinding::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & bb ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(bb) );
-        else{
-            return this->osg::TransformFeedbackBufferBinding::compare( boost::ref(bb) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & bb ) const  {
-        return osg::TransformFeedbackBufferBinding::compare( boost::ref(bb) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -105,18 +93,6 @@ struct TransformFeedbackBufferBinding_wrapper : osg::TransformFeedbackBufferBind
     
     char const * default_libraryName(  ) const  {
         return osg::TransformFeedbackBufferBinding::libraryName( );
-    }
-
-    virtual void apply( ::osg::State & state ) const  {
-        if( bp::override func_apply = this->get_override( "apply" ) )
-            func_apply( boost::ref(state) );
-        else{
-            this->osg::BufferIndexBinding::apply( boost::ref(state) );
-        }
-    }
-    
-    void default_apply( ::osg::State & state ) const  {
-        osg::BufferIndexBinding::apply( boost::ref(state) );
     }
 
     virtual ::osg::Texture * asTexture(  ) {
@@ -177,18 +153,6 @@ struct TransformFeedbackBufferBinding_wrapper : osg::TransformFeedbackBufferBind
     
     void default_computeDataVariance(  ) {
         osg::Object::computeDataVariance( );
-    }
-
-    virtual unsigned int getMember(  ) const  {
-        if( bp::override func_getMember = this->get_override( "getMember" ) )
-            return func_getMember(  );
-        else{
-            return this->osg::BufferIndexBinding::getMember(  );
-        }
-    }
-    
-    unsigned int default_getMember(  ) const  {
-        return osg::BufferIndexBinding::getMember( );
     }
 
     virtual bool getModeUsage( ::osg::StateAttribute::ModeUsage & arg0 ) const  {
@@ -292,15 +256,15 @@ struct TransformFeedbackBufferBinding_wrapper : osg::TransformFeedbackBufferBind
 void register_TransformFeedbackBufferBinding_class(){
 
     { //::osg::TransformFeedbackBufferBinding
-        typedef bp::class_< TransformFeedbackBufferBinding_wrapper, bp::bases< osg::BufferIndexBinding >, osg::ref_ptr< ::osg::TransformFeedbackBufferBinding >, boost::noncopyable > TransformFeedbackBufferBinding_exposer_t;
+        typedef bp::class_< TransformFeedbackBufferBinding_wrapper, osg::ref_ptr< ::osg::TransformFeedbackBufferBinding >, boost::noncopyable > TransformFeedbackBufferBinding_exposer_t;
         TransformFeedbackBufferBinding_exposer_t TransformFeedbackBufferBinding_exposer = TransformFeedbackBufferBinding_exposer_t( "TransformFeedbackBufferBinding", "\n StateAttribute for binding a transform feedback index target.\n", bp::init< bp::optional< GLuint > >(( bp::arg("index")=(::GLuint)(0) ), "\n StateAttribute for binding a transform feedback index target.\n") );
         bp::scope TransformFeedbackBufferBinding_scope( TransformFeedbackBufferBinding_exposer );
         bp::implicitly_convertible< GLuint, osg::TransformFeedbackBufferBinding >();
         TransformFeedbackBufferBinding_exposer.def( bp::init< GLuint, osg::BufferObject *, GLintptr, GLsizeiptr >(( bp::arg("index"), bp::arg("bo"), bp::arg("offset"), bp::arg("size") )) );
         { //::osg::TransformFeedbackBufferBinding::className
         
-            typedef char const * ( ::osg::TransformFeedbackBufferBinding::*className_function_type)(  ) const;
-            typedef char const * ( TransformFeedbackBufferBinding_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::TransformFeedbackBufferBinding::*className_function_type )(  ) const;
+            typedef char const * ( TransformFeedbackBufferBinding_wrapper::*default_className_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "className"
@@ -310,8 +274,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::TransformFeedbackBufferBinding::clone
         
-            typedef ::osg::Object * ( ::osg::TransformFeedbackBufferBinding::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TransformFeedbackBufferBinding_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TransformFeedbackBufferBinding::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TransformFeedbackBufferBinding_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "clone"
@@ -323,8 +287,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::TransformFeedbackBufferBinding::cloneType
         
-            typedef ::osg::Object * ( ::osg::TransformFeedbackBufferBinding::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TransformFeedbackBufferBinding_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::TransformFeedbackBufferBinding::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TransformFeedbackBufferBinding_wrapper::*default_cloneType_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "cloneType"
@@ -333,22 +297,10 @@ void register_TransformFeedbackBufferBinding_class(){
                 , bp::return_value_policy< bp::reference_existing_object >() );
         
         }
-        { //::osg::TransformFeedbackBufferBinding::compare
-        
-            typedef int ( ::osg::TransformFeedbackBufferBinding::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( TransformFeedbackBufferBinding_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            TransformFeedbackBufferBinding_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::TransformFeedbackBufferBinding::compare)
-                , default_compare_function_type(&TransformFeedbackBufferBinding_wrapper::default_compare)
-                , ( bp::arg("bb") ) );
-        
-        }
         { //::osg::TransformFeedbackBufferBinding::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TransformFeedbackBufferBinding::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( TransformFeedbackBufferBinding_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TransformFeedbackBufferBinding::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( TransformFeedbackBufferBinding_wrapper::*default_getType_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "getType"
@@ -358,8 +310,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::TransformFeedbackBufferBinding::isSameKindAs
         
-            typedef bool ( ::osg::TransformFeedbackBufferBinding::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TransformFeedbackBufferBinding::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "isSameKindAs"
@@ -370,8 +322,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::TransformFeedbackBufferBinding::libraryName
         
-            typedef char const * ( ::osg::TransformFeedbackBufferBinding::*libraryName_function_type)(  ) const;
-            typedef char const * ( TransformFeedbackBufferBinding_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::TransformFeedbackBufferBinding::*libraryName_function_type )(  ) const;
+            typedef char const * ( TransformFeedbackBufferBinding_wrapper::*default_libraryName_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "libraryName"
@@ -379,22 +331,10 @@ void register_TransformFeedbackBufferBinding_class(){
                 , default_libraryName_function_type(&TransformFeedbackBufferBinding_wrapper::default_libraryName) );
         
         }
-        { //::osg::BufferIndexBinding::apply
-        
-            typedef void ( ::osg::BufferIndexBinding::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_apply_function_type)( ::osg::State & ) const;
-            
-            TransformFeedbackBufferBinding_exposer.def( 
-                "apply"
-                , apply_function_type(&::osg::BufferIndexBinding::apply)
-                , default_apply_function_type(&TransformFeedbackBufferBinding_wrapper::default_apply)
-                , ( bp::arg("state") ) );
-        
-        }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( TransformFeedbackBufferBinding_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( TransformFeedbackBufferBinding_wrapper::*default_asTexture_function_type )(  ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "asTexture"
@@ -405,8 +345,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( TransformFeedbackBufferBinding_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( TransformFeedbackBufferBinding_wrapper::*default_asTexture_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "asTexture"
@@ -417,8 +357,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -429,8 +369,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "compileGLObjects"
@@ -441,8 +381,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "computeDataVariance"
@@ -450,21 +390,10 @@ void register_TransformFeedbackBufferBinding_class(){
                 , default_computeDataVariance_function_type(&TransformFeedbackBufferBinding_wrapper::default_computeDataVariance) );
         
         }
-        { //::osg::BufferIndexBinding::getMember
-        
-            typedef unsigned int ( ::osg::BufferIndexBinding::*getMember_function_type)(  ) const;
-            typedef unsigned int ( TransformFeedbackBufferBinding_wrapper::*default_getMember_function_type)(  ) const;
-            
-            TransformFeedbackBufferBinding_exposer.def( 
-                "getMember"
-                , getMember_function_type(&::osg::BufferIndexBinding::getMember)
-                , default_getMember_function_type(&TransformFeedbackBufferBinding_wrapper::default_getMember) );
-        
-        }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "getModeUsage"
@@ -475,8 +404,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( TransformFeedbackBufferBinding_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( TransformFeedbackBufferBinding_wrapper::*default_getUserData_function_type )(  ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "getUserData"
@@ -487,8 +416,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( TransformFeedbackBufferBinding_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( TransformFeedbackBufferBinding_wrapper::*default_getUserData_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "getUserData"
@@ -499,8 +428,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( TransformFeedbackBufferBinding_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "isTextureAttribute"
@@ -510,8 +439,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -522,8 +451,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "setName"
@@ -534,7 +463,7 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "setName"
@@ -545,8 +474,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -557,8 +486,8 @@ void register_TransformFeedbackBufferBinding_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( TransformFeedbackBufferBinding_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             TransformFeedbackBufferBinding_exposer.def( 
                 "setUserData"

@@ -224,8 +224,8 @@ void register_AnimationPathCallback_class(){
         AnimationPathCallback_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") ), "\n Construct an AnimationPathCallback and automatically create an animation path to produce a rotation about a point.\n") );
         { //::osg::AnimationPathCallback::className
         
-            typedef char const * ( ::osg::AnimationPathCallback::*className_function_type)(  ) const;
-            typedef char const * ( AnimationPathCallback_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::AnimationPathCallback::*className_function_type )(  ) const;
+            typedef char const * ( AnimationPathCallback_wrapper::*default_className_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "className"
@@ -235,8 +235,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::clone
         
-            typedef ::osg::Object * ( ::osg::AnimationPathCallback::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( AnimationPathCallback_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::AnimationPathCallback::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( AnimationPathCallback_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             AnimationPathCallback_exposer.def( 
                 "clone"
@@ -248,8 +248,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::cloneType
         
-            typedef ::osg::Object * ( ::osg::AnimationPathCallback::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( AnimationPathCallback_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::AnimationPathCallback::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( AnimationPathCallback_wrapper::*default_cloneType_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "cloneType"
@@ -260,7 +260,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getAnimationPath
         
-            typedef ::osg::AnimationPath * ( ::osg::AnimationPathCallback::*getAnimationPath_function_type)(  ) ;
+            typedef ::osg::AnimationPath * ( ::osg::AnimationPathCallback::*getAnimationPath_function_type )(  ) ;
             
             AnimationPathCallback_exposer.def( 
                 "getAnimationPath"
@@ -270,7 +270,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getAnimationPath
         
-            typedef ::osg::AnimationPath const * ( ::osg::AnimationPathCallback::*getAnimationPath_function_type)(  ) const;
+            typedef ::osg::AnimationPath const * ( ::osg::AnimationPathCallback::*getAnimationPath_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getAnimationPath"
@@ -280,8 +280,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getAnimationTime
         
-            typedef double ( ::osg::AnimationPathCallback::*getAnimationTime_function_type)(  ) const;
-            typedef double ( AnimationPathCallback_wrapper::*default_getAnimationTime_function_type)(  ) const;
+            typedef double ( ::osg::AnimationPathCallback::*getAnimationTime_function_type )(  ) const;
+            typedef double ( AnimationPathCallback_wrapper::*default_getAnimationTime_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getAnimationTime"
@@ -291,7 +291,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getPause
         
-            typedef bool ( ::osg::AnimationPathCallback::*getPause_function_type)(  ) const;
+            typedef bool ( ::osg::AnimationPathCallback::*getPause_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getPause"
@@ -300,7 +300,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getPivotPoint
         
-            typedef ::osg::Vec3d const & ( ::osg::AnimationPathCallback::*getPivotPoint_function_type)(  ) const;
+            typedef ::osg::Vec3d const & ( ::osg::AnimationPathCallback::*getPivotPoint_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getPivotPoint"
@@ -310,7 +310,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getTimeMultiplier
         
-            typedef double ( ::osg::AnimationPathCallback::*getTimeMultiplier_function_type)(  ) const;
+            typedef double ( ::osg::AnimationPathCallback::*getTimeMultiplier_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getTimeMultiplier"
@@ -319,7 +319,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getTimeOffset
         
-            typedef double ( ::osg::AnimationPathCallback::*getTimeOffset_function_type)(  ) const;
+            typedef double ( ::osg::AnimationPathCallback::*getTimeOffset_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getTimeOffset"
@@ -328,7 +328,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::getUseInverseMatrix
         
-            typedef bool ( ::osg::AnimationPathCallback::*getUseInverseMatrix_function_type)(  ) const;
+            typedef bool ( ::osg::AnimationPathCallback::*getUseInverseMatrix_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getUseInverseMatrix"
@@ -337,8 +337,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::isSameKindAs
         
-            typedef bool ( ::osg::AnimationPathCallback::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( AnimationPathCallback_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::AnimationPathCallback::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( AnimationPathCallback_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             AnimationPathCallback_exposer.def( 
                 "isSameKindAs"
@@ -349,8 +349,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::libraryName
         
-            typedef char const * ( ::osg::AnimationPathCallback::*libraryName_function_type)(  ) const;
-            typedef char const * ( AnimationPathCallback_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::AnimationPathCallback::*libraryName_function_type )(  ) const;
+            typedef char const * ( AnimationPathCallback_wrapper::*default_libraryName_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "libraryName"
@@ -360,8 +360,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::operator()
         
-            typedef void ( ::osg::AnimationPathCallback::*__call___function_type)( ::osg::Node *,::osg::NodeVisitor * ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default___call___function_type)( ::osg::Node *,::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::AnimationPathCallback::*__call___function_type )( ::osg::Node *,::osg::NodeVisitor * ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default___call___function_type )( ::osg::Node *,::osg::NodeVisitor * ) ;
             
             AnimationPathCallback_exposer.def( 
                 "__call__"
@@ -372,8 +372,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::reset
         
-            typedef void ( ::osg::AnimationPathCallback::*reset_function_type)(  ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osg::AnimationPathCallback::*reset_function_type )(  ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_reset_function_type )(  ) ;
             
             AnimationPathCallback_exposer.def( 
                 "reset"
@@ -383,7 +383,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setAnimationPath
         
-            typedef void ( ::osg::AnimationPathCallback::*setAnimationPath_function_type)( ::osg::AnimationPath * ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setAnimationPath_function_type )( ::osg::AnimationPath * ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setAnimationPath"
@@ -393,7 +393,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setPause
         
-            typedef void ( ::osg::AnimationPathCallback::*setPause_function_type)( bool ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setPause_function_type )( bool ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setPause"
@@ -403,7 +403,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setPivotPoint
         
-            typedef void ( ::osg::AnimationPathCallback::*setPivotPoint_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setPivotPoint_function_type )( ::osg::Vec3d const & ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setPivotPoint"
@@ -413,7 +413,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setTimeMultiplier
         
-            typedef void ( ::osg::AnimationPathCallback::*setTimeMultiplier_function_type)( double ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setTimeMultiplier_function_type )( double ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setTimeMultiplier"
@@ -423,7 +423,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setTimeOffset
         
-            typedef void ( ::osg::AnimationPathCallback::*setTimeOffset_function_type)( double ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setTimeOffset_function_type )( double ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setTimeOffset"
@@ -433,7 +433,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::setUseInverseMatrix
         
-            typedef void ( ::osg::AnimationPathCallback::*setUseInverseMatrix_function_type)( bool ) ;
+            typedef void ( ::osg::AnimationPathCallback::*setUseInverseMatrix_function_type )( bool ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setUseInverseMatrix"
@@ -443,7 +443,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::AnimationPathCallback::update
         
-            typedef void ( ::osg::AnimationPathCallback::*update_function_type)( ::osg::Node & ) ;
+            typedef void ( ::osg::AnimationPathCallback::*update_function_type )( ::osg::Node & ) ;
             
             AnimationPathCallback_exposer.def( 
                 "update"
@@ -462,8 +462,8 @@ void register_AnimationPathCallback_class(){
         AnimationPathCallback_exposer.def_readwrite( "_useInverseMatrix", &osg::AnimationPathCallback::_useInverseMatrix );
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             AnimationPathCallback_exposer.def( 
                 "computeDataVariance"
@@ -473,8 +473,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( AnimationPathCallback_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( AnimationPathCallback_wrapper::*default_getUserData_function_type )(  ) ;
             
             AnimationPathCallback_exposer.def( 
                 "getUserData"
@@ -485,8 +485,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( AnimationPathCallback_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( AnimationPathCallback_wrapper::*default_getUserData_function_type )(  ) const;
             
             AnimationPathCallback_exposer.def( 
                 "getUserData"
@@ -497,8 +497,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             AnimationPathCallback_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -509,8 +509,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setName"
@@ -521,7 +521,7 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setName"
@@ -532,8 +532,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -544,8 +544,8 @@ void register_AnimationPathCallback_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( AnimationPathCallback_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( AnimationPathCallback_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             AnimationPathCallback_exposer.def( 
                 "setUserData"

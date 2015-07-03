@@ -64,18 +64,6 @@ struct FrameBufferObject_wrapper : osg::FrameBufferObject, bp::wrapper< osg::Fra
         return osg::FrameBufferObject::cloneType( );
     }
 
-    virtual int compare( ::osg::StateAttribute const & sa ) const  {
-        if( bp::override func_compare = this->get_override( "compare" ) )
-            return func_compare( boost::ref(sa) );
-        else{
-            return this->osg::FrameBufferObject::compare( boost::ref(sa) );
-        }
-    }
-    
-    int default_compare( ::osg::StateAttribute const & sa ) const  {
-        return osg::FrameBufferObject::compare( boost::ref(sa) );
-    }
-
     virtual ::osg::StateAttribute::Type getType(  ) const  {
         if( bp::override func_getType = this->get_override( "getType" ) )
             return func_getType(  );
@@ -297,8 +285,8 @@ void register_FrameBufferObject_class(){
         FrameBufferObject_exposer.def( bp::init< >() );
         { //::osg::FrameBufferObject::apply
         
-            typedef void ( ::osg::FrameBufferObject::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( FrameBufferObject_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::FrameBufferObject::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( FrameBufferObject_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             FrameBufferObject_exposer.def( 
                 "apply"
@@ -309,7 +297,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::apply
         
-            typedef void ( ::osg::FrameBufferObject::*apply_function_type)( ::osg::State &,::osg::FrameBufferObject::BindTarget ) const;
+            typedef void ( ::osg::FrameBufferObject::*apply_function_type )( ::osg::State &,::osg::FrameBufferObject::BindTarget ) const;
             
             FrameBufferObject_exposer.def( 
                 "apply"
@@ -320,8 +308,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::className
         
-            typedef char const * ( ::osg::FrameBufferObject::*className_function_type)(  ) const;
-            typedef char const * ( FrameBufferObject_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::FrameBufferObject::*className_function_type )(  ) const;
+            typedef char const * ( FrameBufferObject_wrapper::*default_className_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "className"
@@ -331,8 +319,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::clone
         
-            typedef ::osg::Object * ( ::osg::FrameBufferObject::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( FrameBufferObject_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::FrameBufferObject::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( FrameBufferObject_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             FrameBufferObject_exposer.def( 
                 "clone"
@@ -344,26 +332,14 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::cloneType
         
-            typedef ::osg::Object * ( ::osg::FrameBufferObject::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( FrameBufferObject_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::FrameBufferObject::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( FrameBufferObject_wrapper::*default_cloneType_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "cloneType"
                 , cloneType_function_type(&::osg::FrameBufferObject::cloneType)
                 , default_cloneType_function_type(&FrameBufferObject_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() );
-        
-        }
-        { //::osg::FrameBufferObject::compare
-        
-            typedef int ( ::osg::FrameBufferObject::*compare_function_type)( ::osg::StateAttribute const & ) const;
-            typedef int ( FrameBufferObject_wrapper::*default_compare_function_type)( ::osg::StateAttribute const & ) const;
-            
-            FrameBufferObject_exposer.def( 
-                "compare"
-                , compare_function_type(&::osg::FrameBufferObject::compare)
-                , default_compare_function_type(&FrameBufferObject_wrapper::default_compare)
-                , ( bp::arg("sa") ) );
         
         }
         { //::osg::FrameBufferObject::deleteFrameBufferObject
@@ -401,7 +377,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::getAttachment
         
-            typedef ::osg::FrameBufferAttachment const & ( ::osg::FrameBufferObject::*getAttachment_function_type)( ::osg::Camera::BufferComponent ) const;
+            typedef ::osg::FrameBufferAttachment const & ( ::osg::FrameBufferObject::*getAttachment_function_type )( ::osg::Camera::BufferComponent ) const;
             
             FrameBufferObject_exposer.def( 
                 "getAttachment"
@@ -412,7 +388,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::getAttachmentMap
         
-            typedef ::std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > const & ( ::osg::FrameBufferObject::*getAttachmentMap_function_type)(  ) const;
+            typedef ::std::map< osg::Camera::BufferComponent, osg::FrameBufferAttachment > const & ( ::osg::FrameBufferObject::*getAttachmentMap_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "getAttachmentMap"
@@ -422,7 +398,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::getHandle
         
-            typedef ::GLuint ( ::osg::FrameBufferObject::*getHandle_function_type)( unsigned int ) const;
+            typedef ::GLuint ( ::osg::FrameBufferObject::*getHandle_function_type )( unsigned int ) const;
             
             FrameBufferObject_exposer.def( 
                 "getHandle"
@@ -432,7 +408,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::getMultipleRenderingTargets
         
-            typedef ::std::vector< unsigned int > const & ( ::osg::FrameBufferObject::*getMultipleRenderingTargets_function_type)(  ) const;
+            typedef ::std::vector< unsigned int > const & ( ::osg::FrameBufferObject::*getMultipleRenderingTargets_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "getMultipleRenderingTargets"
@@ -442,8 +418,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::FrameBufferObject::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( FrameBufferObject_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::FrameBufferObject::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( FrameBufferObject_wrapper::*default_getType_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "getType"
@@ -453,7 +429,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::hasAttachment
         
-            typedef bool ( ::osg::FrameBufferObject::*hasAttachment_function_type)( ::osg::Camera::BufferComponent ) const;
+            typedef bool ( ::osg::FrameBufferObject::*hasAttachment_function_type )( ::osg::Camera::BufferComponent ) const;
             
             FrameBufferObject_exposer.def( 
                 "hasAttachment"
@@ -463,7 +439,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::hasMultipleRenderingTargets
         
-            typedef bool ( ::osg::FrameBufferObject::*hasMultipleRenderingTargets_function_type)(  ) const;
+            typedef bool ( ::osg::FrameBufferObject::*hasMultipleRenderingTargets_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "hasMultipleRenderingTargets"
@@ -472,7 +448,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::isMultisample
         
-            typedef bool ( ::osg::FrameBufferObject::*isMultisample_function_type)(  ) const;
+            typedef bool ( ::osg::FrameBufferObject::*isMultisample_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "isMultisample"
@@ -481,8 +457,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::isSameKindAs
         
-            typedef bool ( ::osg::FrameBufferObject::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( FrameBufferObject_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::FrameBufferObject::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( FrameBufferObject_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             FrameBufferObject_exposer.def( 
                 "isSameKindAs"
@@ -493,8 +469,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::libraryName
         
-            typedef char const * ( ::osg::FrameBufferObject::*libraryName_function_type)(  ) const;
-            typedef char const * ( FrameBufferObject_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::FrameBufferObject::*libraryName_function_type )(  ) const;
+            typedef char const * ( FrameBufferObject_wrapper::*default_libraryName_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "libraryName"
@@ -504,8 +480,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::resizeGLObjectBuffers
         
-            typedef void ( ::osg::FrameBufferObject::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( FrameBufferObject_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::FrameBufferObject::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( FrameBufferObject_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             FrameBufferObject_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -516,7 +492,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::FrameBufferObject::setAttachment
         
-            typedef void ( ::osg::FrameBufferObject::*setAttachment_function_type)( ::osg::Camera::BufferComponent,::osg::FrameBufferAttachment const & ) ;
+            typedef void ( ::osg::FrameBufferObject::*setAttachment_function_type )( ::osg::Camera::BufferComponent,::osg::FrameBufferAttachment const & ) ;
             
             FrameBufferObject_exposer.def( 
                 "setAttachment"
@@ -526,8 +502,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( FrameBufferObject_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( FrameBufferObject_wrapper::*default_asTexture_function_type )(  ) ;
             
             FrameBufferObject_exposer.def( 
                 "asTexture"
@@ -538,8 +514,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( FrameBufferObject_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( FrameBufferObject_wrapper::*default_asTexture_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "asTexture"
@@ -550,8 +526,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( FrameBufferObject_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( FrameBufferObject_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             FrameBufferObject_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -562,8 +538,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( FrameBufferObject_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( FrameBufferObject_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             FrameBufferObject_exposer.def( 
                 "compileGLObjects"
@@ -574,8 +550,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( FrameBufferObject_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( FrameBufferObject_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             FrameBufferObject_exposer.def( 
                 "computeDataVariance"
@@ -585,8 +561,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( FrameBufferObject_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( FrameBufferObject_wrapper::*default_getMember_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "getMember"
@@ -596,8 +572,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( FrameBufferObject_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( FrameBufferObject_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             FrameBufferObject_exposer.def( 
                 "getModeUsage"
@@ -608,8 +584,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( FrameBufferObject_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( FrameBufferObject_wrapper::*default_getUserData_function_type )(  ) ;
             
             FrameBufferObject_exposer.def( 
                 "getUserData"
@@ -620,8 +596,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( FrameBufferObject_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( FrameBufferObject_wrapper::*default_getUserData_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "getUserData"
@@ -632,8 +608,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( FrameBufferObject_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( FrameBufferObject_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             FrameBufferObject_exposer.def( 
                 "isTextureAttribute"
@@ -643,8 +619,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( FrameBufferObject_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( FrameBufferObject_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             FrameBufferObject_exposer.def( 
                 "setName"
@@ -655,7 +631,7 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             FrameBufferObject_exposer.def( 
                 "setName"
@@ -666,8 +642,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( FrameBufferObject_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( FrameBufferObject_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             FrameBufferObject_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -678,8 +654,8 @@ void register_FrameBufferObject_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( FrameBufferObject_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( FrameBufferObject_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             FrameBufferObject_exposer.def( 
                 "setUserData"
