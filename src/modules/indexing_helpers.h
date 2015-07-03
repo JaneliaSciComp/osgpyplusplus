@@ -68,11 +68,17 @@ template<class VecType, class ElemType, class IndexType> struct OsgArray_contain
               method_len
               | method_getitem
               | method_getitem_slice
-        //      | method_index // requires begin and end methods, which Vec3 lacks
+        //      | method_index // compile error
               | method_setitem
               | method_setitem_slice
-        //    | method_contains // requires begin and end methods, which Vec3 lacks
+        //     | method_contains // compile error
         //    | method_count // compile error
+              // | method_delitem // compile error
+              // | method_delitem_slice
+              // | method_reverse
+              | method_append
+              // | method_insert // compile error
+              | method_extend
         ));
 
     static boost::python::indexing::index_style_t const index_style

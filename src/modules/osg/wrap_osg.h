@@ -69,6 +69,8 @@
 // 
 #include <osg/Fog>
 #include <osg/Vec4>
+#include <osg/Vec3>
+#include <osg/Vec2>
 #include <osg/Object> // OK
 #include <osg/Referenced> // OK excluded copy methods
 #include <osg/GL>
