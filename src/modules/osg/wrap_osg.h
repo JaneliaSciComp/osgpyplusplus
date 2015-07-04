@@ -1,6 +1,7 @@
 #include "../default.h"
 
 // TODO wrap more classes
+#include <osg/Array>
 // StateAttribute classes
 #include <osg/StateAttribute>
 #include <osg/AlphaFunc>
@@ -116,9 +117,9 @@ template class std::vector<osg::Object*>;
 template class std::vector<osg::Node*>;
 template class std::vector<osg::StateSet*>;
 
-// TODO - instantiate more VecXArray types
 template class osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT >;
 template class osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT >;
+template class osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT >;
 
 template class osg::BoundingSphereImpl< osg::Vec3f >;
 
@@ -132,6 +133,7 @@ namespace pyplusplus { namespace aliases {
 	
 	typedef osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT > Vec4Array;
 	typedef osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > Vec3Array;
+	typedef osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT > Vec2Array;
 
 	typedef osg::BoundingSphereImpl< osg::Vec3f > BoundingSphereVec3f;
 

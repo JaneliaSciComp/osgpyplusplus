@@ -490,6 +490,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valuevisitor.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2array.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2b.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2d.pypp.hpp"
@@ -1056,6 +1058,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_Switch_class();
 
     register_TemplateArray_less__float_comma___obrace_osg_scope_Array_scope_Type_cbrace_7_comma__1_comma__5126__greater__class();
+
+    register_Vec2Array_class();
 
     register_Vec3Array_class();
 

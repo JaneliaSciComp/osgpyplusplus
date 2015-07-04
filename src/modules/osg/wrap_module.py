@@ -289,8 +289,8 @@ class OsgWrapper(BaseWrapper):
                 ]:
             mb.free_functions(fn_name).exclude()
         
-        # TODO - This is how to wrap one array type: Wrap more
-        for alias in ["Vec3Array", "Vec4Array"]:
+        # VecXArrays
+        for alias in ["Vec2Array", "Vec3Array", "Vec4Array"]:
             arr = osg.classes(lambda c: c.alias == alias)[0]
             arr.include_files.append("indexing_helpers.h")
             t = arr.demangled
