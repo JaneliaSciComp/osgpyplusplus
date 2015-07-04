@@ -182,6 +182,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsushort.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawpixels.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/elapsedtime.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ellipsoidmodel.pypp.hpp"
@@ -402,6 +404,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shape.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapedrawable.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapevisitor.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sphere.pypp.hpp"
@@ -435,6 +439,8 @@
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/switch.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/templatearray_less__float_comma___obrace_osg_scope_array_scope_type_cbrace_7_comma__1_comma__5126__greater_.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/tessellationhints.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/testresult.pypp.hpp"
 
@@ -885,6 +891,8 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_Drawable_class();
 
+    register_DrawPixels_class();
+
     register_Timer_class();
 
     register_ElapsedTime_class();
@@ -1038,6 +1046,10 @@ BOOST_PYTHON_MODULE(_osg){
     register_ShaderComposer_class();
 
     register_ShadowVolumeOccluder_class();
+
+    register_TessellationHints_class();
+
+    register_ShapeDrawable_class();
 
     register_ShapeVisitor_class();
 

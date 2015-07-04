@@ -56,10 +56,7 @@ def createPyramid():
    colors.append(osg.Vec4(0.0, 0.0, 1.0, 1.0) ) #index 2 blue
    colors.append(osg.Vec4(1.0, 1.0, 1.0, 1.0) ) #index 3 white
 
-   osg.TemplateIndexArray
-      <unsigned int, osg.Array.UIntArrayType,4,4> *colorIndexArray
-   colorIndexArray = 
-      osg.TemplateIndexArray<unsigned int, osg.Array.UIntArrayType,4,4>
+   colorIndexArray = osg.UIntArray()
    colorIndexArray.append(0) # vertex 0 assigned color array element 0
    colorIndexArray.append(1) # vertex 1 assigned color array element 1
    colorIndexArray.append(2) # vertex 2 assigned color array element 2
@@ -70,12 +67,12 @@ def createPyramid():
    pyramidGeometry.setColorIndices(colorIndexArray)
    pyramidGeometry.setColorBinding(osg.Geometry.BIND_PER_VERTEX)
 
-   osg.Vec2Array* texcoords = osg.Vec2Array(5)
-   (*texcoords)[0].set(0.00,0.0)
-   (*texcoords)[1].set(0.25,0.0)
-   (*texcoords)[2].set(0.50,0.0)
-   (*texcoords)[3].set(0.75,0.0)
-   (*texcoords)[4].set(0.50,1.0)
+   texcoords = osg.Vec2Array(5)
+   texcoords[0].set(0.00,0.0)
+   texcoords[1].set(0.25,0.0)
+   texcoords[2].set(0.50,0.0)
+   texcoords[3].set(0.75,0.0)
+   texcoords[4].set(0.50,1.0)
 
    pyramidGeometry.setTexCoordArray(0,texcoords)
    return pyramidGeode
@@ -83,27 +80,27 @@ def createPyramid():
 
 
 def main():
-   osgViewer.Viewer viewer
+   viewer = osgViewer.Viewer()
 
    # Declare a group to act as root node of a scene:
-   osg.Group* root = osg.Group()
+   root = osg.Group()
 
    # Declare a box class (derived from shape class) instance
    # This constructor takes an osg.Vec3 to define the center
    #  and a float to define the height, width and depth.
    #  (an overloaded constructor allows you to specify unique
    #   height, width and height values.)
-   osg.Box* unitCube = osg.Box( osg.Vec3(0,0,0), 1.0)
+   unitCube = osg.Box( osg.Vec3(0,0,0), 1.0)
    unitCube.setDataVariance(osg.Object.DYNAMIC)
 
    # Declare an instance of the shape drawable class and initialize 
    #  it with the unitCube shape we created above.
    #  This class is derived from 'drawable' so instances of this
    #  class can be added to Geode instances.
-   osg.ShapeDrawable* unitCubeDrawable = osg.ShapeDrawable(unitCube)
+   unitCubeDrawable = osg.ShapeDrawable(unitCube)
 
    # Declare a instance of the geode class: 
-   osg.Geode* basicShapesGeode = osg.Geode()
+   basicShapesGeode = osg.Geode()
 
    # Add the unit cube drawable to the geode:
    basicShapesGeode.addDrawable(unitCubeDrawable)
@@ -111,43 +108,40 @@ def main():
    # Add the goede to the scene:
    root.addChild(basicShapesGeode)
 
-   osg.Sphere* unitSphere = osg.Sphere( osg.Vec3(0,0,0), 1.0)
-   osg.ShapeDrawable* unitSphereDrawable = osg.ShapeDrawable(unitSphere)
+   unitSphere = osg.Sphere( osg.Vec3(0,0,0), 1.0)
+   unitSphereDrawable = osg.ShapeDrawable(unitSphere)
    unitSphereDrawable.setColor( osg.Vec4(0.1, 0.1, 0.1, 0.1) )
 
-   osg.PositionAttitudeTransform* unitSphereXForm = 
-      osg.PositionAttitudeTransform()
+   unitSphereXForm = osg.PositionAttitudeTransform()
    unitSphereXForm.setPosition(osg.Vec3(3.0,0,0))
 
-   osg.Geode* unitSphereGeode = osg.Geode()
+   unitSphereGeode = osg.Geode()
    root.addChild(unitSphereXForm)
    unitSphereXForm.addChild(unitSphereGeode)
    unitSphereGeode.addDrawable(unitSphereDrawable)
 
-   osg.Geode* pyramidGeode = createPyramid()
+   pyramidGeode = createPyramid()
    
-   osg.PositionAttitudeTransform* pyramidXForm = 
-      osg.PositionAttitudeTransform()
+   pyramidXForm = osg.PositionAttitudeTransform()
    pyramidXForm.setPosition(osg.Vec3(0,-3.0,0))
    root.addChild(pyramidXForm)
    pyramidXForm.addChild(pyramidGeode)
 
-   osg.Texture2D* KLN89FaceTexture = osg.Texture2D
+   KLN89FaceTexture = osg.Texture2D()
    # protect from being optimized away as static state:
    KLN89FaceTexture.setDataVariance(osg.Object.DYNAMIC) 
-   osg.Image* klnFace = osgDB.readImageFile("../NPS_Data/Textures/KLN89FaceB.tga")
-   if (!klnFace)
-   
-      std.cout << " couldn't find texture, quitting." << std.endl
-      return -1
+   klnFace = osgDB.readImageFile("../NPS_Data/Textures/KLN89FaceB.tga")
+   if klnFace is None:
+      print " couldn't find texture, quitting."
+      sys.exit(-1)
    
    KLN89FaceTexture.setImage(klnFace)
 
    # Declare a state set for 'BLEND' texture mode
-   osg.StateSet* blendStateSet = osg.StateSet()
+   blendStateSet = osg.StateSet()
 
    # Declare a TexEnv instance, set the mode to 'BLEND'
-   osg.TexEnv* blendTexEnv = osg.TexEnv
+   blendTexEnv = osg.TexEnv()
    blendTexEnv.setMode(osg.TexEnv.BLEND)
 
    # Turn the attribute of texture 0 'ON'
@@ -156,8 +150,8 @@ def main():
    #  texture envirnoment we declared above:
    blendStateSet.setTextureAttribute(0,blendTexEnv)
 
-   osg.StateSet* decalStateSet = osg.StateSet()
-   osg.TexEnv* decalTexEnv = osg.TexEnv()
+   decalStateSet = osg.StateSet()
+   decalTexEnv = osg.TexEnv()
    decalTexEnv.setMode(osg.TexEnv.DECAL)
 
    decalStateSet.setTextureAttributeAndModes(0,KLN89FaceTexture,osg.StateAttribute.ON)
@@ -168,13 +162,12 @@ def main():
 
    # OSG1 viewer.setUpViewer(osgProducer.Viewer.STANDARD_SETTINGS)
    viewer.setSceneData( root )
-   viewer.setCameraManipulator(new osgGA.TrackballManipulator())
+   viewer.setCameraManipulator(osgGA.TrackballManipulator())
    viewer.realize()
 
-   while( !viewer.done() )
-   
+   while not viewer.done():
       viewer.frame()
-    
+
    return 0
 
 

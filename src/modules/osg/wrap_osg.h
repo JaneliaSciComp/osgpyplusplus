@@ -19,11 +19,14 @@
 #include <osg/ColorMatrix>
 #include <osg/CullFace>
 #include <osg/Depth>
+#include <osg/Drawable>
+#include <osg/DrawPixels>
 #include <osg/Fog>
 #include <osg/FragmentProgram>
 #include <osg/FrameBufferObject>
 #include <osg/FrontFace>
 #include <osg/Geode>
+#include <osg/Geometry> // OK
 #include <osg/Hint>
 #include <osg/Light>
 #include <osg/LightModel>
@@ -34,6 +37,7 @@
 #include <osg/Material>
 #include <osg/MatrixTransform>
 #include <osg/Multisample>
+#include <osg/Object> // OK
 #include <osg/OcclusionQueryNode>
 #include <osg/PagedLOD>
 #include <osg/PatchParameter>
@@ -46,11 +50,13 @@
 #include <osg/PrimitiveRestartIndex>
 #include <osg/Program>
 #include <osg/ProxyNode>
+#include <osg/Referenced> // OK excluded copy methods
 #include <osg/SampleMaski>
 #include <osg/Scissor>
 #include <osg/Sequence>
 #include <osg/ShadeModel>
 #include <osg/ShaderAttribute>
+#include <osg/ShapeDrawable>
 #include <osg/Stencil>
 #include <osg/StencilTwoSided>
 #include <osg/TexEnv>
@@ -72,8 +78,6 @@
 #include <osg/Vec4>
 #include <osg/Vec3>
 #include <osg/Vec2>
-#include <osg/Object> // OK
-#include <osg/Referenced> // OK excluded copy methods
 #include <osg/GL>
 #include <osg/Texture2D> // OK
 #include <osg/PositionAttitudeTransform> // OK
@@ -85,7 +89,6 @@
 #include <osg/Projection> // OK
 #include <osg/ClipNode> // OK
 #include <osg/OccluderNode> // OK
-#include <osg/OcclusionQueryNode> // OK
 #include <osg/TexGenNode> // OK
 #include <osg/OcclusionQueryNode> // OK
 #include <osg/Billboard> // OK
@@ -93,7 +96,6 @@
 #include <osg/MatrixTransform> // OK
 #include <osg/PagedLOD> // OK
 #include <osg/ProxyNode> // OK
-#include <osg/Geometry> // OK
 #include <osg/Uniform> // OK
 #include <osg/Geode> // OK
 #include <osg/View> // OK
