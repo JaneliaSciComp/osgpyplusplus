@@ -39,10 +39,10 @@ def createPyramid():
     # Create a QUAD primitive for the base by specifying the 
     # vertices from our vertex list that make up this QUAD:
     pyramidBase = osg.DrawElementsUInt(osg.PrimitiveSet.QUADS, 0)
-    pyramidBase.addElement(3)
-    pyramidBase.addElement(2)
-    pyramidBase.addElement(1)
-    pyramidBase.addElement(0)
+    pyramidBase.append(3)
+    pyramidBase.append(2)
+    pyramidBase.append(1)
+    pyramidBase.append(0)
 
     # Add this primitive to the geometry: 
     # pyramidGeometry.addPrimitiveSet(pyramidBase)
@@ -50,27 +50,27 @@ def createPyramid():
     pyramidGeometry.addPrimitiveSet(pyramidBase) 
     # Repeat the same for each of the four sides. Again, vertices are specified in counter-clockwise order. 
     pyramidFaceOne = osg.DrawElementsUInt(osg.PrimitiveSet.TRIANGLES, 0)
-    pyramidFaceOne.addElement(0)
-    pyramidFaceOne.addElement(1)
-    pyramidFaceOne.addElement(4)
+    pyramidFaceOne.append(0)
+    pyramidFaceOne.append(1)
+    pyramidFaceOne.append(4)
     pyramidGeometry.addPrimitiveSet(pyramidFaceOne)
 
     pyramidFaceTwo = osg.DrawElementsUInt(osg.PrimitiveSet.TRIANGLES, 0)
-    pyramidFaceTwo.addElement(1)
-    pyramidFaceTwo.addElement(2)
-    pyramidFaceTwo.addElement(4)
+    pyramidFaceTwo.append(1)
+    pyramidFaceTwo.append(2)
+    pyramidFaceTwo.append(4)
     pyramidGeometry.addPrimitiveSet(pyramidFaceTwo)
 
     pyramidFaceThree = osg.DrawElementsUInt(osg.PrimitiveSet.TRIANGLES, 0)
-    pyramidFaceThree.addElement(2)
-    pyramidFaceThree.addElement(3)
-    pyramidFaceThree.addElement(4)
+    pyramidFaceThree.append(2)
+    pyramidFaceThree.append(3)
+    pyramidFaceThree.append(4)
     pyramidGeometry.addPrimitiveSet(pyramidFaceThree)
 
     pyramidFaceFour = osg.DrawElementsUInt(osg.PrimitiveSet.TRIANGLES, 0)
-    pyramidFaceFour.addElement(3)
-    pyramidFaceFour.addElement(0)
-    pyramidFaceFour.addElement(4)
+    pyramidFaceFour.append(3)
+    pyramidFaceFour.append(0)
+    pyramidFaceFour.append(4)
     pyramidGeometry.addPrimitiveSet(pyramidFaceFour)
 
     colors = osg.Vec4Array()
