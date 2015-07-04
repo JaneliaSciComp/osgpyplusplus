@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "indexing_helpers.h"
 #include "vec4d.pypp.hpp"
 
 namespace bp = boost::python;
@@ -296,6 +297,10 @@ void register_Vec4d_class(){
         Vec4d_exposer.def( bp::self * bp::other< osg::Vec3d >() );
         Vec4d_exposer.def( bp::self_ns::str( bp::self ) );
         Vec4d_exposer.def( bp::self_ns::str(bp::self) );
+        Vec4d_exposer.def(bp::indexing::container_suite<
+                            osg::Vec4d, 
+                            bp::indexing::all_methods, 
+                            OsgVec_algorithms<osg::Vec4d, osg::Vec4d::value_type, osg::Vec4d::num_components> >());
     }
 
 }

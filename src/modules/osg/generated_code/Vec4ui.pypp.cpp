@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "indexing_helpers.h"
 #include "vec4ui.pypp.hpp"
 
 namespace bp = boost::python;
@@ -215,6 +216,10 @@ void register_Vec4ui_class(){
                 , fget( &::osg::Vec4ui::a ) );
         
         }
+        Vec4ui_exposer.def(bp::indexing::container_suite<
+                            osg::Vec4ui, 
+                            bp::indexing::all_methods, 
+                            OsgVec_algorithms<osg::Vec4ui, osg::Vec4ui::value_type, osg::Vec4ui::num_components> >());
     }
 
 }

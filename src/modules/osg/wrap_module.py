@@ -289,8 +289,8 @@ class OsgWrapper(BaseWrapper):
                 ]:
             mb.free_functions(fn_name).exclude()
         
-        # VecXArrays
-        for alias in ["Vec2Array", "Vec3Array", "Vec4Array"]:
+        # Indexing for variable-sized VecXArrays
+        for alias in ["Vec2Array", "Vec3Array", "Vec4Array", "UIntArray", ]:
             arr = osg.classes(lambda c: c.alias == alias)[0]
             arr.include_files.append("indexing_helpers.h")
             t = arr.demangled
@@ -298,9 +298,61 @@ class OsgWrapper(BaseWrapper):
                 def(bp::indexing::container_suite<
                         %s, 
                         bp::indexing::all_methods, 
-                        list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType, int> > >())
+                        list_algorithms<OsgArray_container_traits<%s, %s::ElementDataType> > >())
                 """ % (t, t, t) )
-        # exit(0)
+
+        # Indexing for Mixin-based variable-sized VecXArrays
+        for alias in ["DrawElementsUInt"]:
+            arr = osg.classes(lambda c: c.alias == alias)[0]
+            arr.include_files.append("indexing_helpers.h")
+            t = arr.demangled
+            arr.add_registration_code("""
+                def(bp::indexing::container_suite<
+                        %s, 
+                        bp::indexing::all_methods, 
+                        list_algorithms<OsgArray_container_traits<%s, %s::vector_type::value_type> > >())
+                """ % (t, t, t) )
+
+        # TODO - lack of "size" method is causing trouble for indexing Vec classes
+        # Indexing methods for fixed-size vector types
+        for cls_prefix in ["Quat", ]:
+            for cls in osg.classes(lambda c: c.name.startswith(cls_prefix)):
+                if cls.name.endswith("Array"): # e.g. Vec4Array
+                    continue
+                cls.include_files.append("indexing_helpers.h")
+                t = cls.demangled
+                cls.add_registration_code("""
+                    def(bp::indexing::container_suite<
+                            %s, 
+                            bp::indexing::all_methods, 
+                            OsgVec_algorithms<%s, %s::value_type, 4> >())
+                    """ % (t, t, t) )
+        for cls_prefix in ["Vec4", "Vec3", "Vec2"]:
+            for cls in osg.classes(lambda c: c.name.startswith(cls_prefix)):
+                if cls.name.endswith("Array"): # e.g. Vec4Array
+                    continue
+                cls.include_files.append("indexing_helpers.h")
+                t = cls.demangled
+                cls.add_registration_code("""
+                    def(bp::indexing::container_suite<
+                            %s, 
+                            bp::indexing::all_methods, 
+                            OsgVec_algorithms<%s, %s::value_type, %s::num_components> >())
+                    """ % (t, t, t, t) )
+
+        # len() method for fixed-size vector types
+        # for cls_prefix in ["Vec4", "Quat"]:
+        #     for cls in osg.classes(lambda c: c.name.startswith(cls_prefix)):
+        #         if cls.name.endswith("Array"): # e.g. Vec4Array
+        #             continue
+        #         t = cls.demangled
+        #         cls.add_declaration_code("""
+        #             static size_t get4(const %s& lhs) {return 4;}
+        #             """ % t)
+        #         cls.add_registration_code("""
+        #             def("__len__", &get4)
+        #             """)
+
 
         # Create alias for Matrix, just like in <osg/Matrix> header
         self.mb.add_registration_code(textwrap.dedent("""

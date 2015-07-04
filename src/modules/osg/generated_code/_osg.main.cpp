@@ -476,6 +476,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglemesh.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uintarray.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniform.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformblockmap.pypp.hpp"
@@ -1064,6 +1066,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_Vec3Array_class();
 
     register_Vec4Array_class();
+
+    register_UIntArray_class();
 
     register_TestResult_class();
 

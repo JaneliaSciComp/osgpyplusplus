@@ -2,6 +2,7 @@
 
 #include "boost/python.hpp"
 #include "wrap_osg.h"
+#include "indexing_helpers.h"
 #include "vec2b.pypp.hpp"
 
 namespace bp = boost::python;
@@ -148,6 +149,10 @@ void register_Vec2b_class(){
         }
         Vec2b_exposer.def( bp::self_ns::str( bp::self ) );
         Vec2b_exposer.def( bp::self_ns::str(bp::self) );
+        Vec2b_exposer.def(bp::indexing::container_suite<
+                            osg::Vec2b, 
+                            bp::indexing::all_methods, 
+                            OsgVec_algorithms<osg::Vec2b, osg::Vec2b::value_type, osg::Vec2b::num_components> >());
     }
 
 }

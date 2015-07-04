@@ -706,7 +706,7 @@ void register_Vec3Array_class(){
         Vec3Array_exposer.def(bp::indexing::container_suite<
                         osg::TemplateArray<osg::Vec3f, (osg::Array::Type)28, 3, 5126>, 
                         bp::indexing::all_methods, 
-                        list_algorithms<OsgArray_container_traits<osg::TemplateArray<osg::Vec3f, (osg::Array::Type)28, 3, 5126>, osg::TemplateArray<osg::Vec3f, (osg::Array::Type)28, 3, 5126>::ElementDataType, int> > >());
+                        list_algorithms<OsgArray_container_traits<osg::TemplateArray<osg::Vec3f, (osg::Array::Type)28, 3, 5126>, osg::TemplateArray<osg::Vec3f, (osg::Array::Type)28, 3, 5126>::ElementDataType> > >());
     }
 
 }

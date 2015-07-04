@@ -39,7 +39,7 @@ using namespace boost::python::indexing;
 // is intended to help with the creation of this struct.  This struct will be invoked 
 // in "add_registration_code" calls in generate_whatever_source.py wrapping scripts.
 
-template<class VecType, class ElemType, class IndexType> struct OsgArray_container_traits {
+template<class VecType, class ElemType> struct OsgArray_container_traits {
     typedef VecType                        container;
     typedef int                            size_type;
     typedef ElemType                       value_type;
@@ -47,7 +47,7 @@ template<class VecType, class ElemType, class IndexType> struct OsgArray_contain
 
     typedef value_type&                    reference;
     typedef value_type                     key_type;
-    typedef IndexType                      index_type; // signed!
+    typedef int                            index_type; // signed!
 
     typedef value_type                     value_param;
     typedef key_type                       key_param;
@@ -95,6 +95,72 @@ template<class VecType, class ElemType, class IndexType> struct OsgArray_contain
     {
         // Empty
     }
+};
+
+template<class VecType, class ElemType> struct OsgVec_container_traits {
+    typedef VecType                        container;
+    typedef int                            size_type;
+    typedef ElemType                       value_type;
+    typedef value_type*                    iterator;
+
+    typedef value_type&                    reference;
+    typedef value_type                     key_type;
+    typedef int                            index_type; // signed!
+
+    typedef value_type                     value_param;
+    typedef key_type                       key_param;
+    typedef index_type                     index_param;
+
+    static bool const has_copyable_iter = true;
+    static bool const has_mutable_ref   = true;
+    static bool const has_find          = true;
+    static bool const has_insert        = false;
+    static bool const has_erase         = false;
+    static bool const has_pop_back      = false;
+    static bool const has_push_back     = false;
+    static bool const is_reorderable    = true;
+  
+    BOOST_STATIC_CONSTANT(
+        method_set_type,
+        supported_methods = (
+              method_len // no "size()" method
+              | method_getitem
+              | method_getitem_slice
+        //      | method_index // compile error
+              | method_setitem
+              | method_setitem_slice
+        //     | method_contains // compile error
+        //    | method_count // compile error
+              // | method_delitem // compile error
+              // | method_delitem_slice
+              // | method_reverse
+              // | method_append
+              // | method_insert // compile error
+              // | method_extend
+        ));
+
+    static boost::python::indexing::index_style_t const index_style
+        = boost::python::indexing::index_style_linear;
+
+    struct value_traits_ {
+        // Traits information for our value_type
+        static bool const equality_comparable = true;
+        static bool const lessthan_comparable = true;
+    };
+
+    template<typename PythonClass, typename Policy>
+        static void visit_container_class (PythonClass &, Policy const &)
+    {
+        // Empty
+    }
+};
+
+// Specialization of list_algorithms, because osg::vectors lack size() method
+// TODO - not yet tested
+template<class VecType, class ElemType, int vecSize> 
+struct OsgVec_algorithms : public list_algorithms <OsgVec_container_traits<VecType, ElemType>, OsgVec_algorithms<VecType, ElemType, vecSize>> 
+{
+    static const size_t size(container& c) {return vecSize;}
 };
 
 #endif // OSGPYPP_INDEXING_HELPERS_HPP_

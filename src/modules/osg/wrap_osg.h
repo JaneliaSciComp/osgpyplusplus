@@ -121,6 +121,8 @@ template class osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_F
 template class osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT >;
 template class osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT >;
 
+template class osg::TemplateArray< unsigned int, osg::Array::UIntArrayType, 4, 4 >;
+
 template class osg::BoundingSphereImpl< osg::Vec3f >;
 
 // template class std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > >;
@@ -134,6 +136,8 @@ namespace pyplusplus { namespace aliases {
 	typedef osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT > Vec4Array;
 	typedef osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > Vec3Array;
 	typedef osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT > Vec2Array;
+
+	typedef osg::TemplateArray< unsigned int, osg::Array::UIntArrayType, 4, 4 > UIntArray;
 
 	typedef osg::BoundingSphereImpl< osg::Vec3f > BoundingSphereVec3f;
 

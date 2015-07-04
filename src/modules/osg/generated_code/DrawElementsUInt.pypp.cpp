@@ -3,6 +3,7 @@
 #include "boost/python.hpp"
 #include "wrap_osg.h"
 #include "wrap_referenced.h"
+#include "indexing_helpers.h"
 #include "drawelementsuint.pypp.hpp"
 
 namespace bp = boost::python;
@@ -838,6 +839,10 @@ void register_DrawElementsUInt_class(){
                 , ( bp::arg("obj") ) );
         
         }
+        DrawElementsUInt_exposer.def(bp::indexing::container_suite<
+                        osg::DrawElementsUInt, 
+                        bp::indexing::all_methods, 
+                        list_algorithms<OsgArray_container_traits<osg::DrawElementsUInt, osg::DrawElementsUInt::vector_type::value_type> > >());
     }
 
 }
