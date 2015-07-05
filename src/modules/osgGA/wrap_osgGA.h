@@ -11,21 +11,7 @@
 #include <osg/Sequence>
 #include <osg/TexGenNode>
 
-// TODO - wrap more classes
-#include <osgGA/CameraManipulator>
-#include <osgGA/Device>
-#include <osgGA/EventQueue>
-#include <osgGA/EventVisitor> // NodeVisitor
-#include <osgGA/FirstPersonManipulator>
-#include <osgGA/GUIActionAdapter>
-#include <osgGA/GUIEventHandler>
-#include <osgGA/GUIEventAdapter> // OK
-#include <osgGA/StateSetManipulator>
-#include <osgGA/TrackballManipulator>
-#include <osgGA/Version> // OK
-
 /* Every header for osgGA is listed below */
-/* TODO - include them all */
 #include <osgGA/AnimationPathManipulator>
 #include <osgGA/CameraManipulator>
 #include <osgGA/CameraViewSwitchManipulator>
@@ -50,4 +36,3 @@
 #include <osgGA/TrackballManipulator>
 #include <osgGA/UFOManipulator>
 #include <osgGA/Version>
-/*  */
