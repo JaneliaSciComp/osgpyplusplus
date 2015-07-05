@@ -57,8 +57,9 @@ class OsgTextWrapper(BaseWrapper):
             
         hide_nonpublic(mb)
 
-        osgText.free_function("readFontFile").call_policies = return_value_policy(reference_existing_object)
-        osgText.free_function("readFontStream").call_policies = return_value_policy(reference_existing_object)
+        for fn_name in ["readFontFile", "readFontStream", "readFont3DFile", "readFont3DStream", ]:
+            osgText.free_function(fn_name).call_policies = return_value_policy(reference_existing_object)
+
         osgText.class_("GlyphTexture").member_functions("compare").exclude()
         
         self.generate_module_code('_osgText')

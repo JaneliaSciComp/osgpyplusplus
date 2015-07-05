@@ -8,6 +8,18 @@ namespace bp = boost::python;
 
 void register_free_functions(){
 
+    { //::osgText::findFont3DFile
+    
+        typedef ::std::string ( *findFont3DFile_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "findFont3DFile"
+            , findFont3DFile_function_type( &::osgText::findFont3DFile )
+            , ( bp::arg("str") )
+            , " deprecated, use findFontFile() instead." );
+    
+    }
+
     { //::osgText::findFontFile
     
         typedef ::std::string ( *findFontFile_function_type )( ::std::string const & );
@@ -41,6 +53,32 @@ void register_free_functions(){
     
     }
 
+    { //::osgText::readFont3DFile
+    
+        typedef ::osgText::Font * ( *readFont3DFile_function_type )( ::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readFont3DFile"
+            , readFont3DFile_function_type( &::osgText::readFont3DFile )
+            , ( bp::arg("filename"), bp::arg("userOptions")=bp::object() )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " deprecated, use readFontFile() instead." );
+    
+    }
+
+    { //::osgText::readFont3DStream
+    
+        typedef ::osgText::Font * ( *readFont3DStream_function_type )( ::std::istream &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readFont3DStream"
+            , readFont3DStream_function_type( &::osgText::readFont3DStream )
+            , ( bp::arg("stream"), bp::arg("userOptions")=bp::object() )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " deprecated, use readFontStream() instead." );
+    
+    }
+
     { //::osgText::readFontFile
     
         typedef ::osgText::Font * ( *readFontFile_function_type )( ::std::string const &,::osgDB::Options const * );
@@ -64,6 +102,30 @@ void register_free_functions(){
             , ( bp::arg("stream"), bp::arg("userOptions")=bp::object() )
             , bp::return_value_policy< bp::reference_existing_object >()
             , " read a font from specified stream." );
+    
+    }
+
+    { //::osgText::readRefFont3DFile
+    
+        typedef ::osg::ref_ptr< osgText::Font > ( *readRefFont3DFile_function_type )( ::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readRefFont3DFile"
+            , readRefFont3DFile_function_type( &::osgText::readRefFont3DFile )
+            , ( bp::arg("filename"), bp::arg("userOptions")=bp::object() )
+            , " deprecated, use readRefFontFile() instead." );
+    
+    }
+
+    { //::osgText::readRefFont3DStream
+    
+        typedef ::osg::ref_ptr< osgText::Font > ( *readRefFont3DStream_function_type )( ::std::istream &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readRefFont3DStream"
+            , readRefFont3DStream_function_type( &::osgText::readRefFont3DStream )
+            , ( bp::arg("stream"), bp::arg("userOptions")=bp::object() )
+            , " deprecated, use readRefFontStream() instead." );
     
     }
 

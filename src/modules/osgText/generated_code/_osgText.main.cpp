@@ -20,6 +20,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/bevel.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/fadetext.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/font.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/glyph.pypp.hpp"
@@ -39,6 +41,8 @@
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/style.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/text.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/text3d.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgtext/generated_code/textbase.pypp.hpp"
 
@@ -69,6 +73,16 @@ BOOST_PYTHON_MODULE(_osgText){
 
     register_Font_class();
 
+    register_VectorUInt_class();
+
+    register_String_class();
+
+    register_TextBase_class();
+
+    register_Text_class();
+
+    register_FadeText_class();
+
     register_Glyph_class();
 
     register_Glyph3D_class();
@@ -77,15 +91,9 @@ BOOST_PYTHON_MODULE(_osgText){
 
     register_GlyphTexture_class();
 
-    register_VectorUInt_class();
-
-    register_String_class();
-
     register_Style_class();
 
-    register_TextBase_class();
-
-    register_Text_class();
+    register_Text3D_class();
 
     register_free_functions();
 }
