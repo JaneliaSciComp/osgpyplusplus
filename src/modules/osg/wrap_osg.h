@@ -1,10 +1,9 @@
 #include "../default.h"
 
 // TODO wrap more classes
-#include <osg/Array>
-// StateAttribute classes
-#include <osg/StateAttribute>
 #include <osg/AlphaFunc>
+#include <osg/ArgumentParser>
+#include <osg/Array>
 #include <osg/Billboard>
 #include <osg/BlendColor>
 #include <osg/BlendEquation>
@@ -14,9 +13,11 @@
 #include <osg/ClampColor>
 #include <osg/ClipNode>
 #include <osg/ClipPlane>
+#include <osg/CollectOccludersVisitor>
 #include <osg/CoordinateSystemNode>
 #include <osg/ColorMask>
 #include <osg/ColorMatrix>
+#include <osg/ComputeBoundsVisitor>
 #include <osg/CullFace>
 #include <osg/Depth>
 #include <osg/Drawable>
@@ -28,6 +29,7 @@
 #include <osg/Geode>
 #include <osg/Geometry> // OK
 #include <osg/Hint>
+#include <osg/KdTree>
 #include <osg/Light>
 #include <osg/LightModel>
 #include <osg/LineStipple>
@@ -37,6 +39,7 @@
 #include <osg/Material>
 #include <osg/MatrixTransform>
 #include <osg/Multisample>
+#include <osg/NodeVisitor>
 #include <osg/Object> // OK
 #include <osg/OcclusionQueryNode>
 #include <osg/PagedLOD>
@@ -57,6 +60,7 @@
 #include <osg/ShadeModel>
 #include <osg/ShaderAttribute>
 #include <osg/ShapeDrawable>
+#include <osg/StateAttribute>
 #include <osg/Stencil>
 #include <osg/StencilTwoSided>
 #include <osg/TexEnv>
@@ -69,12 +73,7 @@
 #include <osg/VertexProgram>
 #include <osg/Viewport>
 // NodeVisitor classes
-#include <osg/NodeVisitor>
-#include <osg/CollectOccludersVisitor>
-#include <osg/ComputeBoundsVisitor>
-#include <osg/KdTree>
 // 
-#include <osg/Fog>
 #include <osg/Vec4>
 #include <osg/Vec3>
 #include <osg/Vec2>

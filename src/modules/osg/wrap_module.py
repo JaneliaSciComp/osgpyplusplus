@@ -172,6 +172,10 @@ class OsgWrapper(BaseWrapper):
 
         osg.class_("PolygonStipple").member_functions("getMask").exclude()
 
+        cls = osg.class_("ArgumentParser")
+        cls.member_operators("operator[]").exclude()
+        cls.member_functions("argv").exclude()
+
         # Exclude troublesome copy constructors
         for cls_name in ["KdTreeBuilder", ]:
             for ctor in osg.class_(cls_name).constructors():

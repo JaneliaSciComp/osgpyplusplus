@@ -40,6 +40,12 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpathcallback.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusage.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusageproxy.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/argumentparser.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/array.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraydispatchers.pypp.hpp"
@@ -189,6 +195,8 @@
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ellipsoidmodel.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/endofdynamicdrawblock.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/errormessagemap.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/eyepointstack.pypp.hpp"
 
@@ -494,6 +502,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformlist.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/usagemap.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/userdatacontainer.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valuevisitor.pypp.hpp"
@@ -701,11 +711,15 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_map_less__std_scope_string_comma__unsigned_int__greater__class();
 
+    register_UsageMap_class();
+
     register_UniformList_class();
 
     register_UniformBlockMap_class();
 
     register_ActiveVarInfoMap_class();
+
+    register_ErrorMessageMap_class();
 
     register_map_less__std_scope_string_comma__double__greater__class();
 
@@ -760,6 +774,12 @@ BOOST_PYTHON_MODULE(_osg){
     register_NodeCallback_class();
 
     register_AnimationPathCallback_class();
+
+    register_ApplicationUsage_class();
+
+    register_ApplicationUsageProxy_class();
+
+    register_ArgumentParser_class();
 
     register_BufferData_class();
 
