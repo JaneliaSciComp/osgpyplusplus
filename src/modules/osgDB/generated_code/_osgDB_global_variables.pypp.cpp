@@ -98,4 +98,8 @@ void register_global_variables(){
 
     bp::scope().attr("SHORT_SIZE") = osgDB::SHORT_SIZE;
 
+    bp::scope().attr("UNIX_PATH_SEPARATOR") = osgDB::UNIX_PATH_SEPARATOR;
+
+    bp::scope().attr("WINDOWS_PATH_SEPARATOR") = osgDB::WINDOWS_PATH_SEPARATOR;
+
 }

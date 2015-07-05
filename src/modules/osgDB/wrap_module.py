@@ -66,6 +66,8 @@ class OsgDBWrapper(BaseWrapper):
         osgDB.class_("ObjectWrapper").member_function("write").exclude()
         osgDB.class_("Field").member_function("takeStr").exclude()
 
+        hack_osg_arg(osgDB.class_("ExternalFileWriter"), "write", "obj")
+
         for fn_name in [
                 "getDataFilePathList",
                 "getLibraryFilePathList",
@@ -76,10 +78,18 @@ class OsgDBWrapper(BaseWrapper):
                 "readNodeFiles", 
                 "readObjectFile", 
                 "readShaderFile", 
+                "readXmlFile", 
+                "readXmlStream", 
                 ]:
             for fn in mb.free_functions(fn_name):
                 fn.call_policies = return_value_policy(reference_existing_object)
         mb.free_functions("fopen").exclude()
+        mb.free_functions("writeShaderFile").exclude()
+        mb.free_functions("writeImageFile").exclude()
+        mb.free_functions("writeNodeFile").exclude()
+        mb.free_functions("writeObjectFile").exclude()
+        mb.free_functions("writeShaderFile").exclude()
+        mb.free_functions("writeHeightFieldFile").exclude()
         
         # Exclude difficult classe for now
         for cls_name in [
@@ -118,14 +128,14 @@ class OsgDBWrapper(BaseWrapper):
         imagethread.constructors(arg_types=[None, None]).exclude()
     
     def wrap_input(self):
-        input = self.mb.class_("Input")
-        for fn_name in [
-                "getObjectForUniqueID",
-                "readObject",
-                "readObjectOfType",
-                "registerUniqueIDForObject",
-                    ]:
-            input.member_functions(fn_name).exclude()
+        for cls in self.mb.classes("Input"):
+            for fn_name in [
+                    "getObjectForUniqueID",
+                    "readObject",
+                    "readObjectOfType",
+                    "registerUniqueIDForObject",
+                        ]:
+                cls.member_functions(fn_name, allow_empty=True).exclude()
     
     def wrap_options(self):
         cls = self.mb.class_("Options")

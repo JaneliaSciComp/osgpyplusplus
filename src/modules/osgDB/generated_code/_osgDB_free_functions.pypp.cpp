@@ -30,6 +30,17 @@ void register_free_functions(){
     
     }
 
+    { //::osgDB::concatPaths
+    
+        typedef ::std::string ( *concatPaths_function_type )( ::std::string const &,::std::string const & );
+        
+        bp::def( 
+            "concatPaths"
+            , concatPaths_function_type( &::osgDB::concatPaths )
+            , ( bp::arg("left"), bp::arg("right") ) );
+    
+    }
+
     { //::osgDB::containsCurrentWorkingDirectoryReference
     
         typedef bool ( *containsCurrentWorkingDirectoryReference_function_type )( ::osgDB::FilePathList const & );
@@ -38,6 +49,116 @@ void register_free_functions(){
             "containsCurrentWorkingDirectoryReference"
             , containsCurrentWorkingDirectoryReference_function_type( &::osgDB::containsCurrentWorkingDirectoryReference )
             , ( bp::arg("paths") ) );
+    
+    }
+
+    { //::osgDB::containsServerAddress
+    
+        typedef bool ( *containsServerAddress_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "containsServerAddress"
+            , containsServerAddress_function_type( &::osgDB::containsServerAddress )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::convertFileNameToNativeStyle
+    
+        typedef ::std::string ( *convertFileNameToNativeStyle_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertFileNameToNativeStyle"
+            , convertFileNameToNativeStyle_function_type( &::osgDB::convertFileNameToNativeStyle )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::convertFileNameToUnixStyle
+    
+        typedef ::std::string ( *convertFileNameToUnixStyle_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertFileNameToUnixStyle"
+            , convertFileNameToUnixStyle_function_type( &::osgDB::convertFileNameToUnixStyle )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::convertFileNameToWindowsStyle
+    
+        typedef ::std::string ( *convertFileNameToWindowsStyle_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertFileNameToWindowsStyle"
+            , convertFileNameToWindowsStyle_function_type( &::osgDB::convertFileNameToWindowsStyle )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromCurrentCodePageToUTF8
+    
+        typedef ::std::string ( *convertStringFromCurrentCodePageToUTF8_function_type )( char const * );
+        
+        bp::def( 
+            "convertStringFromCurrentCodePageToUTF8"
+            , convertStringFromCurrentCodePageToUTF8_function_type( &::osgDB::convertStringFromCurrentCodePageToUTF8 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromCurrentCodePageToUTF8
+    
+        typedef ::std::string ( *convertStringFromCurrentCodePageToUTF8_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertStringFromCurrentCodePageToUTF8"
+            , convertStringFromCurrentCodePageToUTF8_function_type( &::osgDB::convertStringFromCurrentCodePageToUTF8 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromCurrentCodePageToUTF8
+    
+        typedef ::std::string ( *convertStringFromCurrentCodePageToUTF8_function_type )( char const *,unsigned int );
+        
+        bp::def( 
+            "convertStringFromCurrentCodePageToUTF8"
+            , convertStringFromCurrentCodePageToUTF8_function_type( &::osgDB::convertStringFromCurrentCodePageToUTF8 )
+            , ( bp::arg("source"), bp::arg("sourceLength") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromUTF8toCurrentCodePage
+    
+        typedef ::std::string ( *convertStringFromUTF8toCurrentCodePage_function_type )( char const * );
+        
+        bp::def( 
+            "convertStringFromUTF8toCurrentCodePage"
+            , convertStringFromUTF8toCurrentCodePage_function_type( &::osgDB::convertStringFromUTF8toCurrentCodePage )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromUTF8toCurrentCodePage
+    
+        typedef ::std::string ( *convertStringFromUTF8toCurrentCodePage_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertStringFromUTF8toCurrentCodePage"
+            , convertStringFromUTF8toCurrentCodePage_function_type( &::osgDB::convertStringFromUTF8toCurrentCodePage )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertStringFromUTF8toCurrentCodePage
+    
+        typedef ::std::string ( *convertStringFromUTF8toCurrentCodePage_function_type )( char const *,unsigned int );
+        
+        bp::def( 
+            "convertStringFromUTF8toCurrentCodePage"
+            , convertStringFromUTF8toCurrentCodePage_function_type( &::osgDB::convertStringFromUTF8toCurrentCodePage )
+            , ( bp::arg("source"), bp::arg("sourceLength") ) );
     
     }
 
@@ -52,6 +173,83 @@ void register_free_functions(){
     
     }
 
+    { //::osgDB::convertToLowerCase
+    
+        typedef ::std::string ( *convertToLowerCase_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertToLowerCase"
+            , convertToLowerCase_function_type( &::osgDB::convertToLowerCase )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::convertUTF16toUTF8
+    
+        typedef ::std::string ( *convertUTF16toUTF8_function_type )( wchar_t const * );
+        
+        bp::def( 
+            "convertUTF16toUTF8"
+            , convertUTF16toUTF8_function_type( &::osgDB::convertUTF16toUTF8 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertUTF16toUTF8
+    
+        typedef ::std::string ( *convertUTF16toUTF8_function_type )( ::std::wstring const & );
+        
+        bp::def( 
+            "convertUTF16toUTF8"
+            , convertUTF16toUTF8_function_type( &::osgDB::convertUTF16toUTF8 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertUTF16toUTF8
+    
+        typedef ::std::string ( *convertUTF16toUTF8_function_type )( wchar_t const *,unsigned int );
+        
+        bp::def( 
+            "convertUTF16toUTF8"
+            , convertUTF16toUTF8_function_type( &::osgDB::convertUTF16toUTF8 )
+            , ( bp::arg("source"), bp::arg("sourceLength") ) );
+    
+    }
+
+    { //::osgDB::convertUTF8toUTF16
+    
+        typedef ::std::wstring ( *convertUTF8toUTF16_function_type )( char const * );
+        
+        bp::def( 
+            "convertUTF8toUTF16"
+            , convertUTF8toUTF16_function_type( &::osgDB::convertUTF8toUTF16 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertUTF8toUTF16
+    
+        typedef ::std::wstring ( *convertUTF8toUTF16_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "convertUTF8toUTF16"
+            , convertUTF8toUTF16_function_type( &::osgDB::convertUTF8toUTF16 )
+            , ( bp::arg("s") ) );
+    
+    }
+
+    { //::osgDB::convertUTF8toUTF16
+    
+        typedef ::std::wstring ( *convertUTF8toUTF16_function_type )( char const *,unsigned int );
+        
+        bp::def( 
+            "convertUTF8toUTF16"
+            , convertUTF8toUTF16_function_type( &::osgDB::convertUTF8toUTF16 )
+            , ( bp::arg("source"), bp::arg("sourceLength") ) );
+    
+    }
+
     { //::osgDB::copyFile
     
         typedef ::osgDB::FileOpResult::Value ( *copyFile_function_type )( ::std::string const &,::std::string const & );
@@ -60,6 +258,28 @@ void register_free_functions(){
             "copyFile"
             , copyFile_function_type( &::osgDB::copyFile )
             , ( bp::arg("source"), bp::arg("destination") ) );
+    
+    }
+
+    { //::osgDB::equalCaseInsensitive
+    
+        typedef bool ( *equalCaseInsensitive_function_type )( ::std::string const &,char const * );
+        
+        bp::def( 
+            "equalCaseInsensitive"
+            , equalCaseInsensitive_function_type( &::osgDB::equalCaseInsensitive )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
+    
+    }
+
+    { //::osgDB::equalCaseInsensitive
+    
+        typedef bool ( *equalCaseInsensitive_function_type )( ::std::string const &,::std::string const & );
+        
+        bp::def( 
+            "equalCaseInsensitive"
+            , equalCaseInsensitive_function_type( &::osgDB::equalCaseInsensitive )
+            , ( bp::arg("lhs"), bp::arg("rhs") ) );
     
     }
 
@@ -183,6 +403,39 @@ void register_free_functions(){
     
     }
 
+    { //::osgDB::getFileExtension
+    
+        typedef ::std::string ( *getFileExtension_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getFileExtension"
+            , getFileExtension_function_type( &::osgDB::getFileExtension )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getFileExtensionIncludingDot
+    
+        typedef ::std::string ( *getFileExtensionIncludingDot_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getFileExtensionIncludingDot"
+            , getFileExtensionIncludingDot_function_type( &::osgDB::getFileExtensionIncludingDot )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getFilePath
+    
+        typedef ::std::string ( *getFilePath_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getFilePath"
+            , getFilePath_function_type( &::osgDB::getFilePath )
+            , ( bp::arg("filename") ) );
+    
+    }
+
     { //::osgDB::getLibraryFilePathList
     
         typedef ::osgDB::FilePathList & ( *getLibraryFilePathList_function_type )(  );
@@ -194,6 +447,137 @@ void register_free_functions(){
     
     }
 
+    { //::osgDB::getLowerCaseFileExtension
+    
+        typedef ::std::string ( *getLowerCaseFileExtension_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getLowerCaseFileExtension"
+            , getLowerCaseFileExtension_function_type( &::osgDB::getLowerCaseFileExtension )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getNameLessAllExtensions
+    
+        typedef ::std::string ( *getNameLessAllExtensions_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getNameLessAllExtensions"
+            , getNameLessAllExtensions_function_type( &::osgDB::getNameLessAllExtensions )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::getNameLessExtension
+    
+        typedef ::std::string ( *getNameLessExtension_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getNameLessExtension"
+            , getNameLessExtension_function_type( &::osgDB::getNameLessExtension )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::getNativePathSeparator
+    
+        typedef char ( *getNativePathSeparator_function_type )(  );
+        
+        bp::def( 
+            "getNativePathSeparator"
+            , getNativePathSeparator_function_type( &::osgDB::getNativePathSeparator ) );
+    
+    }
+
+    { //::osgDB::getPathElements
+    
+        typedef void ( *getPathElements_function_type )( ::std::string const &,::std::vector< std::string > & );
+        
+        bp::def( 
+            "getPathElements"
+            , getPathElements_function_type( &::osgDB::getPathElements )
+            , ( bp::arg("path"), bp::arg("out_elements") ) );
+    
+    }
+
+    { //::osgDB::getPathRelative
+    
+        typedef ::std::string ( *getPathRelative_function_type )( ::std::string const &,::std::string const & );
+        
+        bp::def( 
+            "getPathRelative"
+            , getPathRelative_function_type( &::osgDB::getPathRelative )
+            , ( bp::arg("from"), bp::arg("to") ) );
+    
+    }
+
+    { //::osgDB::getPathRoot
+    
+        typedef ::std::string ( *getPathRoot_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getPathRoot"
+            , getPathRoot_function_type( &::osgDB::getPathRoot )
+            , ( bp::arg("path") ) );
+    
+    }
+
+    { //::osgDB::getRealPath
+    
+        typedef ::std::string ( *getRealPath_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getRealPath"
+            , getRealPath_function_type( &::osgDB::getRealPath )
+            , ( bp::arg("path") ) );
+    
+    }
+
+    { //::osgDB::getServerAddress
+    
+        typedef ::std::string ( *getServerAddress_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getServerAddress"
+            , getServerAddress_function_type( &::osgDB::getServerAddress )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getServerFileName
+    
+        typedef ::std::string ( *getServerFileName_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getServerFileName"
+            , getServerFileName_function_type( &::osgDB::getServerFileName )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getServerProtocol
+    
+        typedef ::std::string ( *getServerProtocol_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getServerProtocol"
+            , getServerProtocol_function_type( &::osgDB::getServerProtocol )
+            , ( bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::getSimpleFileName
+    
+        typedef ::std::string ( *getSimpleFileName_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getSimpleFileName"
+            , getSimpleFileName_function_type( &::osgDB::getSimpleFileName )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
     { //::osgDB::getSortedDirectoryContents
     
         typedef ::osgDB::DirectoryContents ( *getSortedDirectoryContents_function_type )( ::std::string const & );
@@ -202,6 +586,49 @@ void register_free_functions(){
             "getSortedDirectoryContents"
             , getSortedDirectoryContents_function_type( &::osgDB::getSortedDirectoryContents )
             , ( bp::arg("dirName") ) );
+    
+    }
+
+    { //::osgDB::getStrippedName
+    
+        typedef ::std::string ( *getStrippedName_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "getStrippedName"
+            , getStrippedName_function_type( &::osgDB::getStrippedName )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::isAbsolutePath
+    
+        typedef bool ( *isAbsolutePath_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "isAbsolutePath"
+            , isAbsolutePath_function_type( &::osgDB::isAbsolutePath )
+            , ( bp::arg("path") ) );
+    
+    }
+
+    { //::osgDB::isFileNameNativeStyle
+    
+        typedef bool ( *isFileNameNativeStyle_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "isFileNameNativeStyle"
+            , isFileNameNativeStyle_function_type( &::osgDB::isFileNameNativeStyle )
+            , ( bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::listAllAvailablePlugins
+    
+        typedef ::osgDB::FileNameList ( *listAllAvailablePlugins_function_type )(  );
+        
+        bp::def( 
+            "listAllAvailablePlugins"
+            , listAllAvailablePlugins_function_type( &::osgDB::listAllAvailablePlugins ) );
     
     }
 
@@ -279,6 +706,28 @@ void register_free_functions(){
         bp::def( 
             "osgDBGetVersion"
             , osgDBGetVersion_function_type( &::osgDBGetVersion ) );
+    
+    }
+
+    { //::osgDB::outputPluginDetails
+    
+        typedef bool ( *outputPluginDetails_function_type )( ::std::ostream &,::std::string const & );
+        
+        bp::def( 
+            "outputPluginDetails"
+            , outputPluginDetails_function_type( &::osgDB::outputPluginDetails )
+            , ( bp::arg("out"), bp::arg("fileName") ) );
+    
+    }
+
+    { //::osgDB::queryPlugin
+    
+        typedef bool ( *queryPlugin_function_type )( ::std::string const &,::osgDB::ReaderWriterInfoList & );
+        
+        bp::def( 
+            "queryPlugin"
+            , queryPlugin_function_type( &::osgDB::queryPlugin )
+            , ( bp::arg("fileName"), bp::arg("infoList") ) );
     
     }
 
@@ -595,6 +1044,42 @@ void register_free_functions(){
     
     }
 
+    { //::osgDB::readXmlFile
+    
+        typedef ::osgDB::XmlNode * ( *readXmlFile_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "readXmlFile"
+            , readXmlFile_function_type( &::osgDB::readXmlFile )
+            , ( bp::arg("filename") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osgDB::readXmlFile
+    
+        typedef ::osgDB::XmlNode * ( *readXmlFile_function_type )( ::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "readXmlFile"
+            , readXmlFile_function_type( &::osgDB::readXmlFile )
+            , ( bp::arg("filename"), bp::arg("options") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
+    { //::osgDB::readXmlStream
+    
+        typedef ::osgDB::XmlNode * ( *readXmlStream_function_type )( ::std::istream & );
+        
+        bp::def( 
+            "readXmlStream"
+            , readXmlStream_function_type( &::osgDB::readXmlStream )
+            , ( bp::arg("fin") )
+            , bp::return_value_policy< bp::reference_existing_object >() );
+    
+    }
+
     { //::osgDB::setCurrentWorkingDirectory
     
         typedef bool ( *setCurrentWorkingDirectory_function_type )( ::std::string const & );
@@ -658,6 +1143,17 @@ void register_free_functions(){
             "split"
             , split_function_type( &::osgDB::split )
             , ( bp::arg("src"), bp::arg("list"), bp::arg("separator")=(char)(' ') ) );
+    
+    }
+
+    { //::osgDB::trimEnclosingSpaces
+    
+        typedef ::std::string ( *trimEnclosingSpaces_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "trimEnclosingSpaces"
+            , trimEnclosingSpaces_function_type( &::osgDB::trimEnclosingSpaces )
+            , ( bp::arg("str") ) );
     
     }
 

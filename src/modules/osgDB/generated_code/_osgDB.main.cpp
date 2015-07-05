@@ -2,11 +2,17 @@
 
 #include "boost/python.hpp"
 
+#include "__call_policies.pypp.hpp"
+
 #include "indexing_suite/value_traits.hpp"
 
 #include "indexing_suite/container_suite.hpp"
 
+#include "indexing_suite/vector.hpp"
+
 #include "indexing_suite/map.hpp"
+
+#include "indexing_suite/list.hpp"
 
 #include "indexing_suite/deque.hpp"
 
@@ -28,6 +34,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basic_type_wrapper.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/children.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/compressormap.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/databasepager.pypp.hpp"
@@ -35,6 +43,8 @@
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dotosgwrapper.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dynamiclibrary.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/externalfilewriter.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/field.pypp.hpp"
 
@@ -44,6 +54,8 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filelocationcallback.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filenamecomparator.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filepathlist.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/findfilecallback.pypp.hpp"
@@ -51,6 +63,8 @@
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/finishedobjectreadcallback.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ifstream.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageoptions.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imagepager.pypp.hpp"
 
@@ -66,11 +80,23 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/intlookup.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__osg_scope_ref_ptr_less_osgdb_scope_readerwriterinfo_greater___greater_.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__std_scope_string__greater_.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__int_comma__std_scope_string__greater_.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__std_scope_string_comma__int__greater_.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__std_scope_string_comma__std_scope_string__greater_.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectglenum.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectmark.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectproperty.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectsset.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrapper.pypp.hpp"
 
@@ -88,7 +114,11 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputstream.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/parameteroutput.pypp.hpp"
+
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/pluginfunctionproxy.pypp.hpp"
+
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriterinfo.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readfilecallback.pypp.hpp"
 
@@ -106,14 +136,30 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
 
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/xmlnode.pypp.hpp"
+
 namespace bp = boost::python;
 
 BOOST_PYTHON_MODULE(_osgDB){
     register_enumerations();
 
+    register_Children_class();
+
+    register_map_less__std_scope_string_comma__std_scope_string__greater__class();
+
     register_WrapperMap_class();
 
     register_CompressorMap_class();
+
+    register_map_less__std_scope_string_comma__int__greater__class();
+
+    register_ObjectsSet_class();
+
+    register_map_less__int_comma__std_scope_string__greater__class();
+
+    register_list_less__std_scope_string__greater__class();
+
+    register_list_less__osg_scope_ref_ptr_less_osgDB_scope_ReaderWriterInfo_greater___greater__class();
 
     register_FilePathList_class();
 
@@ -131,6 +177,8 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_DynamicLibrary_class();
 
+    register_ExternalFileWriter_class();
+
     register_Field_class();
 
     register_FieldReader_class();
@@ -139,9 +187,15 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_FileLocationCallback_class();
 
+    register_FileNameComparator_class();
+
     register_FindFileCallback_class();
 
     register_FinishedObjectReadCallback_class();
+
+    register_Options_class();
+
+    register_ImageOptions_class();
 
     register_ImagePager_class();
 
@@ -167,8 +221,6 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_ObjectWrapperManager_class();
 
-    register_Options_class();
-
     register_ofstream_class();
 
     register_Output_class();
@@ -179,9 +231,13 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_OutputStream_class();
 
+    register_ParameterOutput_class();
+
     register_PluginFunctionProxy_class();
 
     register_ReadFileCallback_class();
+
+    register_ReaderWriterInfo_class();
 
     register_RegisterCompressorProxy_class();
 
@@ -194,6 +250,10 @@ BOOST_PYTHON_MODULE(_osgDB){
     register_UpdateWrapperVersionProxy_class();
 
     register_UserLookupTableProxy_class();
+
+    register_XmlNode_class();
+
+    bp::implicitly_convertible< osgDB::XmlNode::Input, bool >();
 
     register_basic_type_wrapper_class();
 
