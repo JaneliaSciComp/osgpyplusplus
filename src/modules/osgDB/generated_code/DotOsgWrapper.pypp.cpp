@@ -36,7 +36,7 @@ void register_DotOsgWrapper_class(){
             ;
         { //::osgDB::DotOsgWrapper::getAssociates
         
-            typedef ::std::vector< std::string > const & ( ::osgDB::DotOsgWrapper::*getAssociates_function_type )(  ) const;
+            typedef ::std::vector< std::string > const & ( ::osgDB::DotOsgWrapper::*getAssociates_function_type)(  ) const;
             
             DotOsgWrapper_exposer.def( 
                 "getAssociates"
@@ -46,7 +46,7 @@ void register_DotOsgWrapper_class(){
         }
         { //::osgDB::DotOsgWrapper::getName
         
-            typedef ::std::string const & ( ::osgDB::DotOsgWrapper::*getName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgDB::DotOsgWrapper::*getName_function_type)(  ) const;
             
             DotOsgWrapper_exposer.def( 
                 "getName"
@@ -56,7 +56,7 @@ void register_DotOsgWrapper_class(){
         }
         { //::osgDB::DotOsgWrapper::getPrototype
         
-            typedef ::osg::Object const * ( ::osgDB::DotOsgWrapper::*getPrototype_function_type )(  ) const;
+            typedef ::osg::Object const * ( ::osgDB::DotOsgWrapper::*getPrototype_function_type)(  ) const;
             
             DotOsgWrapper_exposer.def( 
                 "getPrototype"
@@ -66,7 +66,7 @@ void register_DotOsgWrapper_class(){
         }
         { //::osgDB::DotOsgWrapper::getReadWriteMode
         
-            typedef ::osgDB::DotOsgWrapper::ReadWriteMode ( ::osgDB::DotOsgWrapper::*getReadWriteMode_function_type )(  ) const;
+            typedef ::osgDB::DotOsgWrapper::ReadWriteMode ( ::osgDB::DotOsgWrapper::*getReadWriteMode_function_type)(  ) const;
             
             DotOsgWrapper_exposer.def( 
                 "getReadWriteMode"

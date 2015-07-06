@@ -395,73 +395,73 @@ void register_PickVisitor_class(){
     bp::class_< PickVisitor_wrapper, bp::bases< osgUtil::IntersectVisitor >, osg::ref_ptr< ::osgUtil::PickVisitor >, boost::noncopyable >( "PickVisitor", bp::init< osg::Viewport const *, osg::Matrixd const &, osg::Matrixd const &, float, float >(( bp::arg("viewport"), bp::arg("proj"), bp::arg("view"), bp::arg("mx"), bp::arg("my") )) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Projection & ) )(&::osgUtil::PickVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Projection & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Projection & ))(&::osgUtil::PickVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Projection & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("projection") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Camera & ) )(&::osgUtil::PickVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Camera & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Camera & ))(&::osgUtil::PickVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Camera & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("camera") ) )    
         .def( 
             "runNestedPickVisitor"
-            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Node &,::osg::Viewport const *,::osg::Matrix const &,::osg::Matrix const &,float,float ) )( &::osgUtil::PickVisitor::runNestedPickVisitor )
+            , (void ( ::osgUtil::PickVisitor::* )( ::osg::Node &,::osg::Viewport const *,::osg::Matrix const &,::osg::Matrix const &,float,float ))( &::osgUtil::PickVisitor::runNestedPickVisitor )
             , ( bp::arg("node"), bp::arg("viewport"), bp::arg("proj"), bp::arg("view"), bp::arg("mx"), bp::arg("my") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Node & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Node & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Node & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Node & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Geode & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Geode & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Geode & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Geode & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Billboard & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Billboard & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Billboard & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Billboard & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Group & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Group & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Group & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Group & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Transform & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Transform & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Transform & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Transform & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Switch & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::Switch & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::Switch & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::Switch & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::LOD & ) )(&::osgUtil::IntersectVisitor::apply)
-            , (void ( PickVisitor_wrapper::* )( ::osg::LOD & ) )(&PickVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::IntersectVisitor::* )( ::osg::LOD & ))(&::osgUtil::IntersectVisitor::apply)
+            , (void ( PickVisitor_wrapper::* )( ::osg::LOD & ))(&PickVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::IntersectVisitor::* )(  ) const)(&::osgUtil::IntersectVisitor::className)
-            , (char const * ( PickVisitor_wrapper::* )(  ) const)(&PickVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::IntersectVisitor::* )(  )const)(&::osgUtil::IntersectVisitor::className)
+            , (char const * ( PickVisitor_wrapper::* )(  )const)(&PickVisitor_wrapper::default_className) )    
         .def( 
             "getDistanceToEyePoint"
-            , (float ( ::osgUtil::IntersectVisitor::* )( ::osg::Vec3 const &,bool ) const)(&::osgUtil::IntersectVisitor::getDistanceToEyePoint)
-            , (float ( PickVisitor_wrapper::* )( ::osg::Vec3 const &,bool ) const)(&PickVisitor_wrapper::default_getDistanceToEyePoint)
+            , (float ( ::osgUtil::IntersectVisitor::* )( ::osg::Vec3 const &,bool )const)(&::osgUtil::IntersectVisitor::getDistanceToEyePoint)
+            , (float ( PickVisitor_wrapper::* )( ::osg::Vec3 const &,bool )const)(&PickVisitor_wrapper::default_getDistanceToEyePoint)
             , ( bp::arg("pos"), bp::arg("withLODScale") ) )    
         .def( 
             "getEyePoint"
-            , (::osg::Vec3 ( ::osgUtil::IntersectVisitor::* )(  ) const)(&::osgUtil::IntersectVisitor::getEyePoint)
-            , (::osg::Vec3 ( PickVisitor_wrapper::* )(  ) const)(&PickVisitor_wrapper::default_getEyePoint) )    
+            , (::osg::Vec3 ( ::osgUtil::IntersectVisitor::* )(  )const)(&::osgUtil::IntersectVisitor::getEyePoint)
+            , (::osg::Vec3 ( PickVisitor_wrapper::* )(  )const)(&PickVisitor_wrapper::default_getEyePoint) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::IntersectVisitor::* )(  ) const)(&::osgUtil::IntersectVisitor::libraryName)
-            , (char const * ( PickVisitor_wrapper::* )(  ) const)(&PickVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osgUtil::IntersectVisitor::* )(  )const)(&::osgUtil::IntersectVisitor::libraryName)
+            , (char const * ( PickVisitor_wrapper::* )(  )const)(&PickVisitor_wrapper::default_libraryName) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::IntersectVisitor::* )(  ) )(&::osgUtil::IntersectVisitor::reset)
-            , (void ( PickVisitor_wrapper::* )(  ) )(&PickVisitor_wrapper::default_reset) );
+            , (void ( ::osgUtil::IntersectVisitor::* )(  ))(&::osgUtil::IntersectVisitor::reset)
+            , (void ( PickVisitor_wrapper::* )(  ))(&PickVisitor_wrapper::default_reset) );
 
 }

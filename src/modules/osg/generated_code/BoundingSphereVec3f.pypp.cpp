@@ -19,7 +19,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::center
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef ::osg::Vec3f & ( exported_class_t::*center_function_type )(  ) ;
+            typedef ::osg::Vec3f & ( exported_class_t::*center_function_type)(  ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "center"
@@ -31,7 +31,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::center
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef ::osg::Vec3f const & ( exported_class_t::*center_function_type )(  ) const;
+            typedef ::osg::Vec3f const & ( exported_class_t::*center_function_type)(  ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "center"
@@ -43,7 +43,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::contains
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef bool ( exported_class_t::*contains_function_type )( ::osg::Vec3f const & ) const;
+            typedef bool ( exported_class_t::*contains_function_type)( ::osg::Vec3f const & ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "contains"
@@ -55,7 +55,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::expandBy
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*expandBy_function_type )( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) ;
+            typedef void ( exported_class_t::*expandBy_function_type)( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "expandBy"
@@ -66,7 +66,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::expandRadiusBy
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*expandRadiusBy_function_type )( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) ;
+            typedef void ( exported_class_t::*expandRadiusBy_function_type)( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "expandRadiusBy"
@@ -77,7 +77,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::init
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*init_function_type )(  ) ;
+            typedef void ( exported_class_t::*init_function_type)(  ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "init"
@@ -88,7 +88,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::intersects
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef bool ( exported_class_t::*intersects_function_type )( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) const;
+            typedef bool ( exported_class_t::*intersects_function_type)( ::osg::BoundingSphereImpl< osg::Vec3f > const & ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "intersects"
@@ -102,7 +102,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::radius
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef float & ( exported_class_t::*radius_function_type )(  ) ;
+            typedef float & ( exported_class_t::*radius_function_type)(  ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "radius"
@@ -114,7 +114,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::radius
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef float ( exported_class_t::*radius_function_type )(  ) const;
+            typedef float ( exported_class_t::*radius_function_type)(  ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "radius"
@@ -125,7 +125,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::radius2
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef float ( exported_class_t::*radius2_function_type )(  ) const;
+            typedef float ( exported_class_t::*radius2_function_type)(  ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "radius2"
@@ -136,7 +136,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::set
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*set_function_type )( ::osg::Vec3f const &,float ) ;
+            typedef void ( exported_class_t::*set_function_type)( ::osg::Vec3f const &,float ) ;
             
             BoundingSphereVec3f_exposer.def( 
                 "set"
@@ -148,7 +148,7 @@ void register_BoundingSphereVec3f_class(){
         { //::osg::BoundingSphereImpl< osg::Vec3f >::valid
         
             typedef osg::BoundingSphereImpl< osg::Vec3f > exported_class_t;
-            typedef bool ( exported_class_t::*valid_function_type )(  ) const;
+            typedef bool ( exported_class_t::*valid_function_type)(  ) const;
             
             BoundingSphereVec3f_exposer.def( 
                 "valid"

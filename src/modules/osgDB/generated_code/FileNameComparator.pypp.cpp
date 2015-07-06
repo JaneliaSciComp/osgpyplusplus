@@ -11,7 +11,7 @@ void register_FileNameComparator_class(){
     bp::class_< osgDB::FileNameComparator >( "FileNameComparator" )    
         .def( 
             "__call__"
-            , (bool ( ::osgDB::FileNameComparator::* )( ::std::string const &,::std::string const & ) const)( &::osgDB::FileNameComparator::operator() )
+            , (bool ( ::osgDB::FileNameComparator::* )( ::std::string const &,::std::string const & )const)( &::osgDB::FileNameComparator::operator() )
             , ( bp::arg("lhs"), bp::arg("rhs") ) );
 
 }

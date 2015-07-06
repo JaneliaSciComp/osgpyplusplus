@@ -334,7 +334,7 @@ void register_Stencil_class(){
             bp::implicitly_convertible< unsigned int, osg::Stencil::Extensions >();
             { //::osg::Stencil::Extensions::isStencilWrapSupported
             
-                typedef bool ( ::osg::Stencil::Extensions::*isStencilWrapSupported_function_type )(  ) const;
+                typedef bool ( ::osg::Stencil::Extensions::*isStencilWrapSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isStencilWrapSupported"
@@ -353,7 +353,7 @@ void register_Stencil_class(){
             }
             { //::osg::Stencil::Extensions::setStencilWrapSupported
             
-                typedef void ( ::osg::Stencil::Extensions::*setStencilWrapSupported_function_type )( bool ) ;
+                typedef void ( ::osg::Stencil::Extensions::*setStencilWrapSupported_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setStencilWrapSupported"
@@ -363,7 +363,7 @@ void register_Stencil_class(){
             }
             { //::osg::Stencil::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::Stencil::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
+                typedef void ( ::osg::Stencil::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -373,8 +373,8 @@ void register_Stencil_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-                typedef void ( Stencil_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( Stencil_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -387,8 +387,8 @@ void register_Stencil_class(){
         Stencil_exposer.def( bp::init< >("\n Encapsulate OpenGL glStencilFunc/Op/Mask functions.\n\n   All functionality except INCR_WRAP and DECR_WRAP is supported by OpenGL 1.1.\n   INCR_WRAP an DECR_WRAP are available since OpenGL 1.4 or when\n   GL_EXT_stencil_wrap extension is present.\n\n   If INCR_WRAP or DECR_WRAP values are used while they are detected to be not supported,\n   the INCR or DECR values are sent to OpenGL instead. Note: do not use Stencil::getFunction()\n   to detect whether WRAP operations is used as the objects value is kept intact.\n   Use osg::Stencil::getExtensions() method instead.\n\n   OpenGL 2.0 introduced two side stenciling that is available through\n   osg::StencilTwoSided class.\n") );
         { //::osg::Stencil::apply
         
-            typedef void ( ::osg::Stencil::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( Stencil_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::Stencil::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( Stencil_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             Stencil_exposer.def( 
                 "apply"
@@ -399,8 +399,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::className
         
-            typedef char const * ( ::osg::Stencil::*className_function_type )(  ) const;
-            typedef char const * ( Stencil_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Stencil::*className_function_type)(  ) const;
+            typedef char const * ( Stencil_wrapper::*default_className_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "className"
@@ -410,8 +410,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::clone
         
-            typedef ::osg::Object * ( ::osg::Stencil::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Stencil_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Stencil::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Stencil_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Stencil_exposer.def( 
                 "clone"
@@ -423,8 +423,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::cloneType
         
-            typedef ::osg::Object * ( ::osg::Stencil::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Stencil_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Stencil::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Stencil_wrapper::*default_cloneType_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "cloneType"
@@ -447,7 +447,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getFunction
         
-            typedef ::osg::Stencil::Function ( ::osg::Stencil::*getFunction_function_type )(  ) const;
+            typedef ::osg::Stencil::Function ( ::osg::Stencil::*getFunction_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getFunction"
@@ -456,7 +456,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getFunctionMask
         
-            typedef unsigned int ( ::osg::Stencil::*getFunctionMask_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Stencil::*getFunctionMask_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getFunctionMask"
@@ -465,7 +465,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getFunctionRef
         
-            typedef int ( ::osg::Stencil::*getFunctionRef_function_type )(  ) const;
+            typedef int ( ::osg::Stencil::*getFunctionRef_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getFunctionRef"
@@ -474,8 +474,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getModeUsage
         
-            typedef bool ( ::osg::Stencil::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Stencil_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Stencil::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Stencil_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             Stencil_exposer.def( 
                 "getModeUsage"
@@ -486,7 +486,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getStencilFailOperation
         
-            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilFailOperation_function_type )(  ) const;
+            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilFailOperation_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getStencilFailOperation"
@@ -496,7 +496,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getStencilPassAndDepthFailOperation
         
-            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilPassAndDepthFailOperation_function_type )(  ) const;
+            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilPassAndDepthFailOperation_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getStencilPassAndDepthFailOperation"
@@ -506,7 +506,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getStencilPassAndDepthPassOperation
         
-            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilPassAndDepthPassOperation_function_type )(  ) const;
+            typedef ::osg::Stencil::Operation ( ::osg::Stencil::*getStencilPassAndDepthPassOperation_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getStencilPassAndDepthPassOperation"
@@ -516,8 +516,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Stencil::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( Stencil_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Stencil::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( Stencil_wrapper::*default_getType_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getType"
@@ -527,7 +527,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::getWriteMask
         
-            typedef unsigned int ( ::osg::Stencil::*getWriteMask_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Stencil::*getWriteMask_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getWriteMask"
@@ -536,8 +536,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::isSameKindAs
         
-            typedef bool ( ::osg::Stencil::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Stencil_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Stencil::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Stencil_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Stencil_exposer.def( 
                 "isSameKindAs"
@@ -548,8 +548,8 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::libraryName
         
-            typedef char const * ( ::osg::Stencil::*libraryName_function_type )(  ) const;
-            typedef char const * ( Stencil_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Stencil::*libraryName_function_type)(  ) const;
+            typedef char const * ( Stencil_wrapper::*default_libraryName_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "libraryName"
@@ -570,7 +570,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setFunction
         
-            typedef void ( ::osg::Stencil::*setFunction_function_type )( ::osg::Stencil::Function,int,unsigned int ) ;
+            typedef void ( ::osg::Stencil::*setFunction_function_type)( ::osg::Stencil::Function,int,unsigned int ) ;
             
             Stencil_exposer.def( 
                 "setFunction"
@@ -580,7 +580,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setFunction
         
-            typedef void ( ::osg::Stencil::*setFunction_function_type )( ::osg::Stencil::Function ) ;
+            typedef void ( ::osg::Stencil::*setFunction_function_type)( ::osg::Stencil::Function ) ;
             
             Stencil_exposer.def( 
                 "setFunction"
@@ -590,7 +590,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setFunctionMask
         
-            typedef void ( ::osg::Stencil::*setFunctionMask_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Stencil::*setFunctionMask_function_type)( unsigned int ) ;
             
             Stencil_exposer.def( 
                 "setFunctionMask"
@@ -600,7 +600,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setFunctionRef
         
-            typedef void ( ::osg::Stencil::*setFunctionRef_function_type )( int ) ;
+            typedef void ( ::osg::Stencil::*setFunctionRef_function_type)( int ) ;
             
             Stencil_exposer.def( 
                 "setFunctionRef"
@@ -610,7 +610,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setOperation
         
-            typedef void ( ::osg::Stencil::*setOperation_function_type )( ::osg::Stencil::Operation,::osg::Stencil::Operation,::osg::Stencil::Operation ) ;
+            typedef void ( ::osg::Stencil::*setOperation_function_type)( ::osg::Stencil::Operation,::osg::Stencil::Operation,::osg::Stencil::Operation ) ;
             
             Stencil_exposer.def( 
                 "setOperation"
@@ -621,7 +621,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setStencilFailOperation
         
-            typedef void ( ::osg::Stencil::*setStencilFailOperation_function_type )( ::osg::Stencil::Operation ) ;
+            typedef void ( ::osg::Stencil::*setStencilFailOperation_function_type)( ::osg::Stencil::Operation ) ;
             
             Stencil_exposer.def( 
                 "setStencilFailOperation"
@@ -632,7 +632,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setStencilPassAndDepthFailOperation
         
-            typedef void ( ::osg::Stencil::*setStencilPassAndDepthFailOperation_function_type )( ::osg::Stencil::Operation ) ;
+            typedef void ( ::osg::Stencil::*setStencilPassAndDepthFailOperation_function_type)( ::osg::Stencil::Operation ) ;
             
             Stencil_exposer.def( 
                 "setStencilPassAndDepthFailOperation"
@@ -643,7 +643,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setStencilPassAndDepthPassOperation
         
-            typedef void ( ::osg::Stencil::*setStencilPassAndDepthPassOperation_function_type )( ::osg::Stencil::Operation ) ;
+            typedef void ( ::osg::Stencil::*setStencilPassAndDepthPassOperation_function_type)( ::osg::Stencil::Operation ) ;
             
             Stencil_exposer.def( 
                 "setStencilPassAndDepthPassOperation"
@@ -654,7 +654,7 @@ void register_Stencil_class(){
         }
         { //::osg::Stencil::setWriteMask
         
-            typedef void ( ::osg::Stencil::*setWriteMask_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Stencil::*setWriteMask_function_type)( unsigned int ) ;
             
             Stencil_exposer.def( 
                 "setWriteMask"
@@ -664,8 +664,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( Stencil_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( Stencil_wrapper::*default_asTexture_function_type)(  ) ;
             
             Stencil_exposer.def( 
                 "asTexture"
@@ -676,8 +676,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( Stencil_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( Stencil_wrapper::*default_asTexture_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "asTexture"
@@ -688,8 +688,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( Stencil_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( Stencil_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             Stencil_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -700,8 +700,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( Stencil_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( Stencil_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             Stencil_exposer.def( 
                 "compileGLObjects"
@@ -712,8 +712,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Stencil_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Stencil_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Stencil_exposer.def( 
                 "computeDataVariance"
@@ -723,8 +723,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( Stencil_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( Stencil_wrapper::*default_getMember_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getMember"
@@ -734,8 +734,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Stencil_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Stencil_wrapper::*default_getUserData_function_type)(  ) ;
             
             Stencil_exposer.def( 
                 "getUserData"
@@ -746,8 +746,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Stencil_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Stencil_wrapper::*default_getUserData_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "getUserData"
@@ -758,8 +758,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( Stencil_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( Stencil_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             Stencil_exposer.def( 
                 "isTextureAttribute"
@@ -769,8 +769,8 @@ void register_Stencil_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Stencil_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Stencil_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Stencil_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -781,8 +781,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Stencil_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Stencil_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Stencil_exposer.def( 
                 "setName"
@@ -793,7 +793,7 @@ void register_Stencil_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Stencil_exposer.def( 
                 "setName"
@@ -804,8 +804,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Stencil_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Stencil_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Stencil_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -816,8 +816,8 @@ void register_Stencil_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Stencil_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Stencil_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Stencil_exposer.def( 
                 "setUserData"

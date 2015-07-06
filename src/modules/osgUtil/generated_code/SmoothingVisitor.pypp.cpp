@@ -395,15 +395,15 @@ void register_SmoothingVisitor_class(){
     bp::class_< SmoothingVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::SmoothingVisitor >, boost::noncopyable >( "SmoothingVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::SmoothingVisitor::* )( ::osg::Geode & ) )(&::osgUtil::SmoothingVisitor::apply)
-            , (void ( SmoothingVisitor_wrapper::* )( ::osg::Geode & ) )(&SmoothingVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::SmoothingVisitor::* )( ::osg::Geode & ))(&::osgUtil::SmoothingVisitor::apply)
+            , (void ( SmoothingVisitor_wrapper::* )( ::osg::Geode & ))(&SmoothingVisitor_wrapper::default_apply)
             , ( bp::arg("geode") ) )    
         .def( 
             "getCreaseAngle"
-            , (double ( ::osgUtil::SmoothingVisitor::* )(  ) const)( &::osgUtil::SmoothingVisitor::getCreaseAngle ) )    
+            , (double ( ::osgUtil::SmoothingVisitor::* )(  )const)( &::osgUtil::SmoothingVisitor::getCreaseAngle ) )    
         .def( 
             "setCreaseAngle"
-            , (void ( ::osgUtil::SmoothingVisitor::* )( double ) )( &::osgUtil::SmoothingVisitor::setCreaseAngle )
+            , (void ( ::osgUtil::SmoothingVisitor::* )( double ))( &::osgUtil::SmoothingVisitor::setCreaseAngle )
             , ( bp::arg("angle") ) )    
         .def( 
             "smooth"

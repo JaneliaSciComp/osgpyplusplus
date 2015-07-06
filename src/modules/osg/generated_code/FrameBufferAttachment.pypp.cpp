@@ -30,7 +30,7 @@ void register_FrameBufferAttachment_class(){
         bp::implicitly_convertible< osg::Camera::Attachment &, osg::FrameBufferAttachment >();
         { //::osg::FrameBufferAttachment::attach
         
-            typedef void ( ::osg::FrameBufferAttachment::*attach_function_type )( ::osg::State &,::GLenum,::GLenum,::osg::FBOExtensions const * ) const;
+            typedef void ( ::osg::FrameBufferAttachment::*attach_function_type)( ::osg::State &,::GLenum,::GLenum,::osg::FBOExtensions const * ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "attach"
@@ -40,7 +40,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::compare
         
-            typedef int ( ::osg::FrameBufferAttachment::*compare_function_type )( ::osg::FrameBufferAttachment const & ) const;
+            typedef int ( ::osg::FrameBufferAttachment::*compare_function_type)( ::osg::FrameBufferAttachment const & ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "compare"
@@ -50,7 +50,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::createRequiredTexturesAndApplyGenerateMipMap
         
-            typedef void ( ::osg::FrameBufferAttachment::*createRequiredTexturesAndApplyGenerateMipMap_function_type )( ::osg::State &,::osg::FBOExtensions const * ) const;
+            typedef void ( ::osg::FrameBufferAttachment::*createRequiredTexturesAndApplyGenerateMipMap_function_type)( ::osg::State &,::osg::FBOExtensions const * ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "createRequiredTexturesAndApplyGenerateMipMap"
@@ -60,7 +60,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getCubeMapFace
         
-            typedef unsigned int ( ::osg::FrameBufferAttachment::*getCubeMapFace_function_type )(  ) const;
+            typedef unsigned int ( ::osg::FrameBufferAttachment::*getCubeMapFace_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getCubeMapFace"
@@ -69,7 +69,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getRenderBuffer
         
-            typedef ::osg::RenderBuffer * ( ::osg::FrameBufferAttachment::*getRenderBuffer_function_type )(  ) ;
+            typedef ::osg::RenderBuffer * ( ::osg::FrameBufferAttachment::*getRenderBuffer_function_type)(  ) ;
             
             FrameBufferAttachment_exposer.def( 
                 "getRenderBuffer"
@@ -79,7 +79,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getRenderBuffer
         
-            typedef ::osg::RenderBuffer const * ( ::osg::FrameBufferAttachment::*getRenderBuffer_function_type )(  ) const;
+            typedef ::osg::RenderBuffer const * ( ::osg::FrameBufferAttachment::*getRenderBuffer_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getRenderBuffer"
@@ -89,7 +89,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getTexture
         
-            typedef ::osg::Texture * ( ::osg::FrameBufferAttachment::*getTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::FrameBufferAttachment::*getTexture_function_type)(  ) ;
             
             FrameBufferAttachment_exposer.def( 
                 "getTexture"
@@ -99,7 +99,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getTexture
         
-            typedef ::osg::Texture const * ( ::osg::FrameBufferAttachment::*getTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::FrameBufferAttachment::*getTexture_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getTexture"
@@ -109,7 +109,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getTexture3DZOffset
         
-            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTexture3DZOffset_function_type )(  ) const;
+            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTexture3DZOffset_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getTexture3DZOffset"
@@ -118,7 +118,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getTextureArrayLayer
         
-            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTextureArrayLayer_function_type )(  ) const;
+            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTextureArrayLayer_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getTextureArrayLayer"
@@ -127,7 +127,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::getTextureLevel
         
-            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTextureLevel_function_type )(  ) const;
+            typedef unsigned int ( ::osg::FrameBufferAttachment::*getTextureLevel_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "getTextureLevel"
@@ -136,7 +136,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::isMultisample
         
-            typedef bool ( ::osg::FrameBufferAttachment::*isMultisample_function_type )(  ) const;
+            typedef bool ( ::osg::FrameBufferAttachment::*isMultisample_function_type)(  ) const;
             
             FrameBufferAttachment_exposer.def( 
                 "isMultisample"
@@ -145,7 +145,7 @@ void register_FrameBufferAttachment_class(){
         }
         { //::osg::FrameBufferAttachment::operator=
         
-            typedef ::osg::FrameBufferAttachment & ( ::osg::FrameBufferAttachment::*assign_function_type )( ::osg::FrameBufferAttachment const & ) ;
+            typedef ::osg::FrameBufferAttachment & ( ::osg::FrameBufferAttachment::*assign_function_type)( ::osg::FrameBufferAttachment const & ) ;
             
             FrameBufferAttachment_exposer.def( 
                 "assign"

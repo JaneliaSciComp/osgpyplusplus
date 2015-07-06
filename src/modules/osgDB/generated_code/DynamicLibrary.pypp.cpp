@@ -28,19 +28,19 @@ void register_DynamicLibrary_class(){
     bp::class_< DynamicLibrary_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::DynamicLibrary >, boost::noncopyable >( "DynamicLibrary", bp::no_init )    
         .def( 
             "getFullName"
-            , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  ) const)( &::osgDB::DynamicLibrary::getFullName )
+            , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getFullName )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getHandle"
-            , (void * ( ::osgDB::DynamicLibrary::* )(  ) const)( &::osgDB::DynamicLibrary::getHandle )
+            , (void * ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getHandle )
             , bp::return_value_policy< bp::return_opaque_pointer >() )    
         .def( 
             "getName"
-            , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  ) const)( &::osgDB::DynamicLibrary::getName )
+            , (::std::string const & ( ::osgDB::DynamicLibrary::* )(  )const)( &::osgDB::DynamicLibrary::getName )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getProcAddress"
-            , (void * ( ::osgDB::DynamicLibrary::* )( ::std::string const & ) )( &::osgDB::DynamicLibrary::getProcAddress )
+            , (void * ( ::osgDB::DynamicLibrary::* )( ::std::string const & ))( &::osgDB::DynamicLibrary::getProcAddress )
             , ( bp::arg("procName") )
             , bp::return_value_policy< bp::return_opaque_pointer >() )    
         .def( 

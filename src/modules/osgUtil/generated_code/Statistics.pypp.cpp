@@ -259,7 +259,7 @@ void register_Statistics_class(){
             ;
         { //::osgUtil::Statistics::GetPrimitivesBegin
         
-            typedef ::std::_Tree< std::_Tmap_traits< unsigned int, unsigned int, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, unsigned int > >, false > >::iterator ( ::osgUtil::Statistics::*GetPrimitivesBegin_function_type )(  ) ;
+            typedef ::std::_Tree< std::_Tmap_traits< unsigned int, unsigned int, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, unsigned int > >, false > >::iterator ( ::osgUtil::Statistics::*GetPrimitivesBegin_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "GetPrimitivesBegin"
@@ -268,7 +268,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::GetPrimitivesEnd
         
-            typedef ::std::_Tree< std::_Tmap_traits< unsigned int, unsigned int, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, unsigned int > >, false > >::iterator ( ::osgUtil::Statistics::*GetPrimitivesEnd_function_type )(  ) ;
+            typedef ::std::_Tree< std::_Tmap_traits< unsigned int, unsigned int, std::less< unsigned int >, std::allocator< std::pair< unsigned int const, unsigned int > >, false > >::iterator ( ::osgUtil::Statistics::*GetPrimitivesEnd_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "GetPrimitivesEnd"
@@ -277,7 +277,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::add
         
-            typedef void ( ::osgUtil::Statistics::*add_function_type )( ::osgUtil::Statistics const & ) ;
+            typedef void ( ::osgUtil::Statistics::*add_function_type)( ::osgUtil::Statistics const & ) ;
             
             Statistics_exposer.def( 
                 "add"
@@ -287,7 +287,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addBins
         
-            typedef void ( ::osgUtil::Statistics::*addBins_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*addBins_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "addBins"
@@ -297,7 +297,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addDrawable
         
-            typedef void ( ::osgUtil::Statistics::*addDrawable_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*addDrawable_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "addDrawable"
@@ -306,7 +306,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addFastDrawable
         
-            typedef void ( ::osgUtil::Statistics::*addFastDrawable_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*addFastDrawable_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "addFastDrawable"
@@ -315,7 +315,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addImpostor
         
-            typedef void ( ::osgUtil::Statistics::*addImpostor_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*addImpostor_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "addImpostor"
@@ -325,7 +325,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addLight
         
-            typedef void ( ::osgUtil::Statistics::*addLight_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*addLight_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "addLight"
@@ -335,7 +335,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addMatrix
         
-            typedef void ( ::osgUtil::Statistics::*addMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*addMatrix_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "addMatrix"
@@ -344,7 +344,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addOrderedLeaves
         
-            typedef void ( ::osgUtil::Statistics::*addOrderedLeaves_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*addOrderedLeaves_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "addOrderedLeaves"
@@ -354,7 +354,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::addStateGraphs
         
-            typedef void ( ::osgUtil::Statistics::*addStateGraphs_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*addStateGraphs_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "addStateGraphs"
@@ -364,8 +364,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::begin
         
-            typedef void ( ::osgUtil::Statistics::*begin_function_type )( ::GLenum ) ;
-            typedef void ( Statistics_wrapper::*default_begin_function_type )( ::GLenum ) ;
+            typedef void ( ::osgUtil::Statistics::*begin_function_type)( ::GLenum ) ;
+            typedef void ( Statistics_wrapper::*default_begin_function_type)( ::GLenum ) ;
             
             Statistics_exposer.def( 
                 "begin"
@@ -376,8 +376,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::drawArrays
         
-            typedef void ( ::osgUtil::Statistics::*drawArrays_function_type )( ::GLenum,::GLint,::GLsizei ) ;
-            typedef void ( Statistics_wrapper::*default_drawArrays_function_type )( ::GLenum,::GLint,::GLsizei ) ;
+            typedef void ( ::osgUtil::Statistics::*drawArrays_function_type)( ::GLenum,::GLint,::GLsizei ) ;
+            typedef void ( Statistics_wrapper::*default_drawArrays_function_type)( ::GLenum,::GLint,::GLsizei ) ;
             
             Statistics_exposer.def( 
                 "drawArrays"
@@ -388,8 +388,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::drawElements
         
-            typedef void ( ::osgUtil::Statistics::*drawElements_function_type )( ::GLenum,::GLsizei,::GLubyte const * ) ;
-            typedef void ( Statistics_wrapper::*default_drawElements_function_type )( ::GLenum,::GLsizei,::GLubyte const * ) ;
+            typedef void ( ::osgUtil::Statistics::*drawElements_function_type)( ::GLenum,::GLsizei,::GLubyte const * ) ;
+            typedef void ( Statistics_wrapper::*default_drawElements_function_type)( ::GLenum,::GLsizei,::GLubyte const * ) ;
             
             Statistics_exposer.def( 
                 "drawElements"
@@ -400,8 +400,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::drawElements
         
-            typedef void ( ::osgUtil::Statistics::*drawElements_function_type )( ::GLenum,::GLsizei,::GLushort const * ) ;
-            typedef void ( Statistics_wrapper::*default_drawElements_function_type )( ::GLenum,::GLsizei,::GLushort const * ) ;
+            typedef void ( ::osgUtil::Statistics::*drawElements_function_type)( ::GLenum,::GLsizei,::GLushort const * ) ;
+            typedef void ( Statistics_wrapper::*default_drawElements_function_type)( ::GLenum,::GLsizei,::GLushort const * ) ;
             
             Statistics_exposer.def( 
                 "drawElements"
@@ -412,8 +412,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::drawElements
         
-            typedef void ( ::osgUtil::Statistics::*drawElements_function_type )( ::GLenum,::GLsizei,::GLuint const * ) ;
-            typedef void ( Statistics_wrapper::*default_drawElements_function_type )( ::GLenum,::GLsizei,::GLuint const * ) ;
+            typedef void ( ::osgUtil::Statistics::*drawElements_function_type)( ::GLenum,::GLsizei,::GLuint const * ) ;
+            typedef void ( Statistics_wrapper::*default_drawElements_function_type)( ::GLenum,::GLsizei,::GLuint const * ) ;
             
             Statistics_exposer.def( 
                 "drawElements"
@@ -424,8 +424,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::end
         
-            typedef void ( ::osgUtil::Statistics::*end_function_type )(  ) ;
-            typedef void ( Statistics_wrapper::*default_end_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*end_function_type)(  ) ;
+            typedef void ( Statistics_wrapper::*default_end_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "end"
@@ -435,7 +435,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::getBins
         
-            typedef int ( ::osgUtil::Statistics::*getBins_function_type )(  ) ;
+            typedef int ( ::osgUtil::Statistics::*getBins_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "getBins"
@@ -444,7 +444,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::getPrimitiveCountMap
         
-            typedef ::std::map< unsigned int, unsigned int > & ( ::osgUtil::Statistics::*getPrimitiveCountMap_function_type )(  ) ;
+            typedef ::std::map< unsigned int, unsigned int > & ( ::osgUtil::Statistics::*getPrimitiveCountMap_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "getPrimitiveCountMap"
@@ -454,7 +454,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::getPrimitiveCountMap
         
-            typedef ::std::map< unsigned int, unsigned int > const & ( ::osgUtil::Statistics::*getPrimitiveCountMap_function_type )(  ) const;
+            typedef ::std::map< unsigned int, unsigned int > const & ( ::osgUtil::Statistics::*getPrimitiveCountMap_function_type)(  ) const;
             
             Statistics_exposer.def( 
                 "getPrimitiveCountMap"
@@ -464,7 +464,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::getPrimitiveValueMap
         
-            typedef ::std::map< unsigned int, std::pair<unsigned int, unsigned int> > & ( ::osgUtil::Statistics::*getPrimitiveValueMap_function_type )(  ) ;
+            typedef ::std::map< unsigned int, std::pair<unsigned int, unsigned int> > & ( ::osgUtil::Statistics::*getPrimitiveValueMap_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "getPrimitiveValueMap"
@@ -474,7 +474,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::getPrimitiveValueMap
         
-            typedef ::std::map< unsigned int, std::pair<unsigned int, unsigned int> > const & ( ::osgUtil::Statistics::*getPrimitiveValueMap_function_type )(  ) const;
+            typedef ::std::map< unsigned int, std::pair<unsigned int, unsigned int> > const & ( ::osgUtil::Statistics::*getPrimitiveValueMap_function_type)(  ) const;
             
             Statistics_exposer.def( 
                 "getPrimitiveValueMap"
@@ -484,7 +484,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::reset
         
-            typedef void ( ::osgUtil::Statistics::*reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*reset_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "reset"
@@ -493,7 +493,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setBinNo
         
-            typedef void ( ::osgUtil::Statistics::*setBinNo_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*setBinNo_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "setBinNo"
@@ -503,7 +503,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setDepth
         
-            typedef void ( ::osgUtil::Statistics::*setDepth_function_type )( int ) ;
+            typedef void ( ::osgUtil::Statistics::*setDepth_function_type)( int ) ;
             
             Statistics_exposer.def( 
                 "setDepth"
@@ -513,7 +513,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setType
         
-            typedef void ( ::osgUtil::Statistics::*setType_function_type )( ::osgUtil::Statistics::StatsType ) ;
+            typedef void ( ::osgUtil::Statistics::*setType_function_type)( ::osgUtil::Statistics::StatsType ) ;
             
             Statistics_exposer.def( 
                 "setType"
@@ -523,8 +523,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec3 const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec3 const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec3 const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec3 const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -535,8 +535,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec2 const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec2 const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec2 const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec2 const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -547,8 +547,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec4 const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec4 const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec4 const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec4 const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -559,8 +559,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec3d const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec3d const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec3d const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec3d const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -571,8 +571,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec2d const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec2d const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec2d const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec2d const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -583,8 +583,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::setVertexArray
         
-            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type )( unsigned int,::osg::Vec4d const * ) ;
-            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type )( unsigned int,::osg::Vec4d const * ) ;
+            typedef void ( ::osgUtil::Statistics::*setVertexArray_function_type)( unsigned int,::osg::Vec4d const * ) ;
+            typedef void ( Statistics_wrapper::*default_setVertexArray_function_type)( unsigned int,::osg::Vec4d const * ) ;
             
             Statistics_exposer.def( 
                 "setVertexArray"
@@ -595,7 +595,7 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )(  ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)(  ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -604,8 +604,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( float,float,float ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( float,float,float ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( float,float,float ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( float,float,float ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -616,8 +616,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( ::osg::Vec3 const & ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( ::osg::Vec3 const & ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( ::osg::Vec3 const & ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( ::osg::Vec3 const & ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -628,8 +628,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( ::osg::Vec2 const & ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( ::osg::Vec2 const & ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( ::osg::Vec2 const & ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( ::osg::Vec2 const & ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -640,8 +640,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( ::osg::Vec4 const & ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( ::osg::Vec4 const & ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -652,8 +652,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( float,float ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( float,float ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( float,float ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( float,float ) ;
             
             Statistics_exposer.def( 
                 "vertex"
@@ -664,8 +664,8 @@ void register_Statistics_class(){
         }
         { //::osgUtil::Statistics::vertex
         
-            typedef void ( ::osgUtil::Statistics::*vertex_function_type )( float,float,float,float ) ;
-            typedef void ( Statistics_wrapper::*default_vertex_function_type )( float,float,float,float ) ;
+            typedef void ( ::osgUtil::Statistics::*vertex_function_type)( float,float,float,float ) ;
+            typedef void ( Statistics_wrapper::*default_vertex_function_type)( float,float,float,float ) ;
             
             Statistics_exposer.def( 
                 "vertex"

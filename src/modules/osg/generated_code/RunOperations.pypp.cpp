@@ -59,17 +59,17 @@ void register_RunOperations_class(){
     bp::class_< RunOperations_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< ::osg::RunOperations >, boost::noncopyable >( "RunOperations", bp::init< >() )    
         .def( 
             "__call__"
-            , (void ( ::osg::RunOperations::* )( ::osg::GraphicsContext * ) )(&::osg::RunOperations::operator())
-            , (void ( RunOperations_wrapper::* )( ::osg::GraphicsContext * ) )(&RunOperations_wrapper::default___call__)
+            , (void ( ::osg::RunOperations::* )( ::osg::GraphicsContext * ))(&::osg::RunOperations::operator())
+            , (void ( RunOperations_wrapper::* )( ::osg::GraphicsContext * ))(&RunOperations_wrapper::default___call__)
             , ( bp::arg("context") ) )    
         .def( 
             "release"
-            , (void ( ::osg::Operation::* )(  ) )(&::osg::Operation::release)
-            , (void ( RunOperations_wrapper::* )(  ) )(&RunOperations_wrapper::default_release) )    
+            , (void ( ::osg::Operation::* )(  ))(&::osg::Operation::release)
+            , (void ( RunOperations_wrapper::* )(  ))(&RunOperations_wrapper::default_release) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( RunOperations_wrapper::* )( bool ) )(&RunOperations_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( RunOperations_wrapper::* )( bool ))(&RunOperations_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

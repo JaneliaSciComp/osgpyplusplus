@@ -192,76 +192,76 @@ void register_ConvexHull_class(){
         .def( bp::init< >() )    
         .def( 
             "accept"
-            , (void ( ::osg::ConvexHull::* )( ::osg::ShapeVisitor & ) )(&::osg::ConvexHull::accept)
-            , (void ( ConvexHull_wrapper::* )( ::osg::ShapeVisitor & ) )(&ConvexHull_wrapper::default_accept)
+            , (void ( ::osg::ConvexHull::* )( ::osg::ShapeVisitor & ))(&::osg::ConvexHull::accept)
+            , (void ( ConvexHull_wrapper::* )( ::osg::ShapeVisitor & ))(&ConvexHull_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::ConvexHull::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::ConvexHull::accept)
-            , (void ( ConvexHull_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&ConvexHull_wrapper::default_accept)
+            , (void ( ::osg::ConvexHull::* )( ::osg::ConstShapeVisitor & )const)(&::osg::ConvexHull::accept)
+            , (void ( ConvexHull_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&ConvexHull_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::ConvexHull::* )(  ) const)(&::osg::ConvexHull::className)
-            , (char const * ( ConvexHull_wrapper::* )(  ) const)(&ConvexHull_wrapper::default_className) )    
+            , (char const * ( ::osg::ConvexHull::* )(  )const)(&::osg::ConvexHull::className)
+            , (char const * ( ConvexHull_wrapper::* )(  )const)(&ConvexHull_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::ConvexHull::* )( ::osg::CopyOp const & ) const)(&::osg::ConvexHull::clone)
-            , (::osg::Object * ( ConvexHull_wrapper::* )( ::osg::CopyOp const & ) const)(&ConvexHull_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::ConvexHull::* )( ::osg::CopyOp const & )const)(&::osg::ConvexHull::clone)
+            , (::osg::Object * ( ConvexHull_wrapper::* )( ::osg::CopyOp const & )const)(&ConvexHull_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::ConvexHull::* )(  ) const)(&::osg::ConvexHull::cloneType)
-            , (::osg::Object * ( ConvexHull_wrapper::* )(  ) const)(&ConvexHull_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::ConvexHull::* )(  )const)(&::osg::ConvexHull::cloneType)
+            , (::osg::Object * ( ConvexHull_wrapper::* )(  )const)(&ConvexHull_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::ConvexHull::* )( ::osg::Object const * ) const)(&::osg::ConvexHull::isSameKindAs)
-            , (bool ( ConvexHull_wrapper::* )( ::osg::Object const * ) const)(&ConvexHull_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::ConvexHull::* )( ::osg::Object const * )const)(&::osg::ConvexHull::isSameKindAs)
+            , (bool ( ConvexHull_wrapper::* )( ::osg::Object const * )const)(&ConvexHull_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::ConvexHull::* )(  ) const)(&::osg::ConvexHull::libraryName)
-            , (char const * ( ConvexHull_wrapper::* )(  ) const)(&ConvexHull_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::ConvexHull::* )(  )const)(&::osg::ConvexHull::libraryName)
+            , (char const * ( ConvexHull_wrapper::* )(  )const)(&ConvexHull_wrapper::default_libraryName) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( ConvexHull_wrapper::* )(  ) )(&ConvexHull_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( ConvexHull_wrapper::* )(  ))(&ConvexHull_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( ConvexHull_wrapper::* )(  ) )(&ConvexHull_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( ConvexHull_wrapper::* )(  ))(&ConvexHull_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( ConvexHull_wrapper::* )(  ) const)(&ConvexHull_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( ConvexHull_wrapper::* )(  )const)(&ConvexHull_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( ConvexHull_wrapper::* )( unsigned int ) )(&ConvexHull_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( ConvexHull_wrapper::* )( unsigned int ))(&ConvexHull_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( ConvexHull_wrapper::* )( ::std::string const & ) )(&ConvexHull_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( ConvexHull_wrapper::* )( ::std::string const & ))(&ConvexHull_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( ConvexHull_wrapper::* )( bool ) )(&ConvexHull_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( ConvexHull_wrapper::* )( bool ))(&ConvexHull_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( ConvexHull_wrapper::* )( ::osg::Referenced * ) )(&ConvexHull_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( ConvexHull_wrapper::* )( ::osg::Referenced * ))(&ConvexHull_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

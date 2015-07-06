@@ -22,597 +22,597 @@
 
 #include "wrap_osg.h"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_myvec.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_myvec.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_enumerations.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_enumerations.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_free_functions.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_free_functions.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_global_variables.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/_osg_global_variables.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activeuniformmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activeuniformmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activevarinfomap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/activevarinfomap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/alphafunc.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/alphafunc.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpath.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpath.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpathcallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/animationpathcallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusage.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusage.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusageproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/applicationusageproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/argumentparser.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/argumentparser.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/array.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/array.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraydispatchers.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraydispatchers.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraylist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arraylist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arrayvisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/arrayvisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomic.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomic.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomiccounterbufferbinding.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomiccounterbufferbinding.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomiccounterbufferobject.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomiccounterbufferobject.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomicptr.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/atomicptr.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attachmentmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attachmentmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attributedispatch.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attributedispatch.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attributevec.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attributevec.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrier.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrier.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrieroperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrieroperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/billboard.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/billboard.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendcolor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendcolor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendequation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendequation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendfunc.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blendfunc.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/block.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/block.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blockandflushoperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blockandflushoperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blockcount.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/blockcount.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingboximpl_less__osg_scope_vec3f__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingboximpl_less__osg_scope_vec3f__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingspherevec3f.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/boundingspherevec3f.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/box.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/box.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferattachmentmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferattachmentmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferdata.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferdata.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__osg_scope_ref_ptr_less__osg_scope_program_scope_percontextprogram__greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__osg_scope_ref_ptr_less__osg_scope_program_scope_percontextprogram__greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__osg_scope_ref_ptr_less__osg_scope_shader_scope_percontextshader__greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__osg_scope_ref_ptr_less__osg_scope_shader_scope_percontextshader__greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__unsigned_int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/buffered_value_less__unsigned_int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferobject.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferobject.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferobjectprofile.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/bufferobjectprofile.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camera.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camera.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camerarenderordersortop.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/camerarenderordersortop.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameras.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameras.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameraview.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cameraview.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/capsule.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/capsule.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clampcolor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clampcolor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clampedlinearcostfunction1d.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clampedlinearcostfunction1d.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clearnode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clearnode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipnode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipnode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplane.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplane.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplanelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplanelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/collectoccludersvisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/collectoccludersvisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormask.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormask.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormatrix.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormatrix.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/compositeshape.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/compositeshape.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/computeboundsvisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/computeboundsvisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/condition.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/condition.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cone.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cone.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/constshapevisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/constshapevisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/constvaluevisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/constvaluevisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexhull.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexhull.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanaroccluder.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanaroccluder.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanarpolygon.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/convexplanarpolygon.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/coordinatesystemnode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/coordinatesystemnode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/copyop.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/copyop.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullface.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullface.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullingset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullingset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullsettings.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cullsettings.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cylinder.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/cylinder.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/defaultuserdatacontainer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/defaultuserdatacontainer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/deletehandler.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/deletehandler.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/depth.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/depth.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/displaysettings.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/displaysettings.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawable.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawable.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawarraylengths.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawarraylengths.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawarrays.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawarrays.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelements.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelements.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsubyte.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsubyte.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsuint.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsuint.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsushort.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawelementsushort.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawpixels.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/drawpixels.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/elapsedtime.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/elapsedtime.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ellipsoidmodel.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ellipsoidmodel.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/endofdynamicdrawblock.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/endofdynamicdrawblock.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/errormessagemap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/errormessagemap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/eyepointstack.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/eyepointstack.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fboextensions.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fboextensions.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/flushdeletedglobjectsoperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/flushdeletedglobjectsoperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fog.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fog.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fragmentprogram.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fragmentprogram.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fragmentprogram_matrixlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/fragmentprogram_matrixlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framebufferattachment.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framebufferattachment.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framebufferobject.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framebufferobject.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framestamp.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/framestamp.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/frontface.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/frontface.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geometry.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geometry.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geometrycostestimator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/geometrycostestimator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/glbeginendadapter.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/glbeginendadapter.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/glbufferobjects.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/glbufferobjects.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscontext.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscontext.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscostestimator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicscostestimator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicsoperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicsoperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicsthread.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/graphicsthread.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/group.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/group.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/heightfield.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/heightfield.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/hint.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/hint.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/holelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/holelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/image.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/image.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/infiniteplane.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/infiniteplane.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdnodelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdnodelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdtree.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdtree.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdtreebuilder.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdtreebuilder.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/light.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/light.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightmodel.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightmodel.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightsource.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightsource.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linestipple.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linestipple.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linewidth.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linewidth.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/list_less__osg_scope_ref_ptr_less_osg_scope_operation_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/list_less__osg_scope_ref_ptr_less_osg_scope_operation_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/localparamlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/localparamlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lod.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lod.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/logicop.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/logicop.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/longclassname1.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/longclassname1.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__double__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__double__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__unsigned_int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__std_scope_string_comma__unsigned_int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__unsigned_int_comma__unsigned_int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/map_less__unsigned_int_comma__unsigned_int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/maskstack.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/maskstack.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/material.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/material.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixd.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixd.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixf.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixf.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixstack.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixstack.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixtransform.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/matrixtransform.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/multisample.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/multisample.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/mutex.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/node.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/node.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodeacceptop.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodeacceptop.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodecallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodecallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodevisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodevisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/object.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/object.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observers.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observers.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observerset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occludernode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occludernode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occlusionquerynode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/occlusionquerynode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationqueue.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationqueue.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthread.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthread.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthreads.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/operationthreads.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pagedlod.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pagedlod.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/patchparameter.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/patchparameter.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/plane.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/plane.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/point.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/point.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pointsprite.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pointsprite.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonmode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonmode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonoffset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonoffset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonstipple.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polygonstipple.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polytope.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/polytope.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/positionattitudetransform.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/positionattitudetransform.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitivefunctor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitivefunctor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiveindexfunctor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiveindexfunctor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiverestartindex.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiverestartindex.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiveset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitiveset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitivesetlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/primitivesetlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/program.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/program.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/programcostestimator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/programcostestimator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/projection.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/projection.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/proxynode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/proxynode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/quat.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/querygeometry.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/querygeometry.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/rangelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/rangelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ratiolist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/ratiolist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refblock.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refblock.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refblockcount.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refblockcount.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/referenced.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/referenced.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refmatrixd.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refmatrixd.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refmatrixf.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/refmatrixf.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/releasecontext_block_makecurrentoperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/releasecontext_block_makecurrentoperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/renderbuffer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/renderbuffer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/renderinfo.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/renderinfo.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/runoperations.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/runoperations.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/samplemaski.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/samplemaski.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scissor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scissor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scopedlock_less__openthreads_scope_mutex__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/scopedlock_less__openthreads_scope_mutex__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sequence.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sequence.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shademodel.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shademodel.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shaderattribute.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shaderattribute.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadercomposer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadercomposer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadowvolumeoccluder.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadowvolumeoccluder.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadowvolumeoccluderset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shadowvolumeoccluderset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shape.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shape.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapedrawable.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapedrawable.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapevisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/shapevisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sphere.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/sphere.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/standardnotifyhandler.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/standardnotifyhandler.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/state.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/state.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateattribute.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateattribute.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stateset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/statesetstack.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/statesetstack.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stats.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stats.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osggroupptr.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osggroupptr.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgnodeptr.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgnodeptr.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgobjectptr.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgobjectptr.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgstatesetptr.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/std_vector_osgstatesetptr.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stencil.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stencil.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stenciltwosided.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/stenciltwosided.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/swapbuffersoperation.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/swapbuffersoperation.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/switch.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/switch.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/templatearray_less__float_comma___obrace_osg_scope_array_scope_type_cbrace_7_comma__1_comma__5126__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/templatearray_less__float_comma___obrace_osg_scope_array_scope_type_cbrace_7_comma__1_comma__5126__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/tessellationhints.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/tessellationhints.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/testresult.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/testresult.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenv.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenv.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenvcombine.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenvcombine.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenvfilter.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texenvfilter.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgen.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgen.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgennode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texgennode.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texmat.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texmat.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2d.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2d.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureattributelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureattributelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturecostestimator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturecostestimator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturemodelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturemodelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureobjectbuffer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureobjectbuffer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/thread.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/thread.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timecontrolpointmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timecontrolpointmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transform.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transform.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transformfeedbackbufferbinding.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transformfeedbackbufferbinding.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglelist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglelist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglemesh.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/trianglemesh.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uintarray.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uintarray.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniform.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniform.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformblockmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformblockmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformbufferbinding.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformbufferbinding.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformbufferobject.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformbufferobject.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/uniformlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/usagemap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/usagemap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/userdatacontainer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/userdatacontainer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valuevisitor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valuevisitor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2array.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2array.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2b.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2b.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2d.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2d.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2f.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2f.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2i.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2i.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2s.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2s.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2ub.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2ub.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2ui.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2ui.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2us.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec2us.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3array.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3array.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3b.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3b.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3d.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3d.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3f.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3f.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3i.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3i.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3s.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3s.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3ub.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3ub.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3ui.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3ui.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3us.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec3us.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4array.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4array.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4b.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4b.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4d.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4d.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4f.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4f.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4i.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4i.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4s.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4s.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4ub.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4ub.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4ui.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4ui.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4us.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vec4us.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__bool__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__bool__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__const_osg_scope_shader_ptr___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__const_osg_scope_shader_ptr___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__float__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__float__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_drawelements_ptr___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_drawelements_ptr___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_ptr___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_ptr___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_scope_screensettings__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_graphicscontext_scope_screensettings__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_kdtree_scope_linesegmentintersection__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_kdtree_scope_linesegmentintersection__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_matrixd__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_matrixd__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_plane__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_plane__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_polytope__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_polytope__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_drawable_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_drawable_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_node_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_node_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_object_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_object_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_viewport_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_ref_ptr_less_osg_scope_viewport_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_shadercomponent_ptr___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_shadercomponent_ptr___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_vec3f__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__osg_scope_vec3f__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_pair_less_osg_scope_ref_ptr_less_osg_scope_stateset_greater__comma__osg_scope_polytope_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_pair_less_osg_scope_ref_ptr_less_osg_scope_stateset_greater__comma__osg_scope_polytope_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_string__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_string__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_vector_less__osg_scope_node_ptr___greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__std_scope_vector_less__osg_scope_node_ptr___greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__unsigned_int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vector_less__unsigned_int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vertexbufferobject.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vertexbufferobject.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vertexprogram.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/vertexprogram.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/view.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/view.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/viewport.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/viewport.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/viewportstack.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/viewportstack.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/windebugnotifyhandler.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/windebugnotifyhandler.pypp.hpp"
 
 namespace bp = boost::python;
 

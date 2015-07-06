@@ -17,7 +17,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::clear
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type )(  ) ;
+            typedef void ( exported_class_t::*clear_function_type)(  ) ;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "clear"
@@ -27,7 +27,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::empty
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "empty"
@@ -37,7 +37,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::operator=
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef ::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > & ( exported_class_t::*assign_function_type )( ::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > const & ) ;
+            typedef ::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > & ( exported_class_t::*assign_function_type)( ::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > const & ) ;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "assign"
@@ -50,7 +50,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::operator[]
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::Shader::PerContextShader > & ( exported_class_t::*__getitem___function_type )( unsigned int ) ;
+            typedef ::osg::ref_ptr< osg::Shader::PerContextShader > & ( exported_class_t::*__getitem___function_type)( unsigned int ) ;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "__getitem__"
@@ -62,7 +62,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::operator[]
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::Shader::PerContextShader > ( exported_class_t::*__getitem___function_type )( unsigned int ) const;
+            typedef ::osg::ref_ptr< osg::Shader::PerContextShader > ( exported_class_t::*__getitem___function_type)( unsigned int ) const;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "__getitem__"
@@ -73,7 +73,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::resize
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef void ( exported_class_t::*resize_function_type )( unsigned int ) ;
+            typedef void ( exported_class_t::*resize_function_type)( unsigned int ) ;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "resize"
@@ -84,7 +84,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::setAllElementsTo
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef void ( exported_class_t::*setAllElementsTo_function_type )( ::osg::ref_ptr< osg::Shader::PerContextShader > const & ) ;
+            typedef void ( exported_class_t::*setAllElementsTo_function_type)( ::osg::ref_ptr< osg::Shader::PerContextShader > const & ) ;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "setAllElementsTo"
@@ -95,7 +95,7 @@ void register_buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scop
         { //::osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > >::size
         
             typedef osg::buffered_value< osg::ref_ptr< osg::Shader::PerContextShader > > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
             
             buffered_value_less__osg_scope_ref_ptr_less__osg_scope_Shader_scope_PerContextShader__greater___greater__exposer.def( 
                 "size"

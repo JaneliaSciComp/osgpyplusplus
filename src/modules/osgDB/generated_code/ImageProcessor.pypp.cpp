@@ -206,8 +206,8 @@ void register_ImageProcessor_class(){
             ;
         { //::osgDB::ImageProcessor::className
         
-            typedef char const * ( ::osgDB::ImageProcessor::*className_function_type )(  ) const;
-            typedef char const * ( ImageProcessor_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgDB::ImageProcessor::*className_function_type)(  ) const;
+            typedef char const * ( ImageProcessor_wrapper::*default_className_function_type)(  ) const;
             
             ImageProcessor_exposer.def( 
                 "className"
@@ -217,8 +217,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::clone
         
-            typedef ::osg::Object * ( ::osgDB::ImageProcessor::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ImageProcessor_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgDB::ImageProcessor::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ImageProcessor_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             ImageProcessor_exposer.def( 
                 "clone"
@@ -230,8 +230,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::cloneType
         
-            typedef ::osg::Object * ( ::osgDB::ImageProcessor::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( ImageProcessor_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgDB::ImageProcessor::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ImageProcessor_wrapper::*default_cloneType_function_type)(  ) const;
             
             ImageProcessor_exposer.def( 
                 "cloneType"
@@ -242,8 +242,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::compress
         
-            typedef void ( ::osgDB::ImageProcessor::*compress_function_type )( ::osg::Image &,::osg::Texture::InternalFormatMode,bool,bool,::osgDB::ImageProcessor::CompressionMethod,::osgDB::ImageProcessor::CompressionQuality ) ;
-            typedef void ( ImageProcessor_wrapper::*default_compress_function_type )( ::osg::Image &,::osg::Texture::InternalFormatMode,bool,bool,::osgDB::ImageProcessor::CompressionMethod,::osgDB::ImageProcessor::CompressionQuality ) ;
+            typedef void ( ::osgDB::ImageProcessor::*compress_function_type)( ::osg::Image &,::osg::Texture::InternalFormatMode,bool,bool,::osgDB::ImageProcessor::CompressionMethod,::osgDB::ImageProcessor::CompressionQuality ) ;
+            typedef void ( ImageProcessor_wrapper::*default_compress_function_type)( ::osg::Image &,::osg::Texture::InternalFormatMode,bool,bool,::osgDB::ImageProcessor::CompressionMethod,::osgDB::ImageProcessor::CompressionQuality ) ;
             
             ImageProcessor_exposer.def( 
                 "compress"
@@ -254,8 +254,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::generateMipMap
         
-            typedef void ( ::osgDB::ImageProcessor::*generateMipMap_function_type )( ::osg::Image &,bool,::osgDB::ImageProcessor::CompressionMethod ) ;
-            typedef void ( ImageProcessor_wrapper::*default_generateMipMap_function_type )( ::osg::Image &,bool,::osgDB::ImageProcessor::CompressionMethod ) ;
+            typedef void ( ::osgDB::ImageProcessor::*generateMipMap_function_type)( ::osg::Image &,bool,::osgDB::ImageProcessor::CompressionMethod ) ;
+            typedef void ( ImageProcessor_wrapper::*default_generateMipMap_function_type)( ::osg::Image &,bool,::osgDB::ImageProcessor::CompressionMethod ) ;
             
             ImageProcessor_exposer.def( 
                 "generateMipMap"
@@ -266,8 +266,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::isSameKindAs
         
-            typedef bool ( ::osgDB::ImageProcessor::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( ImageProcessor_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgDB::ImageProcessor::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ImageProcessor_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             ImageProcessor_exposer.def( 
                 "isSameKindAs"
@@ -278,8 +278,8 @@ void register_ImageProcessor_class(){
         }
         { //::osgDB::ImageProcessor::libraryName
         
-            typedef char const * ( ::osgDB::ImageProcessor::*libraryName_function_type )(  ) const;
-            typedef char const * ( ImageProcessor_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgDB::ImageProcessor::*libraryName_function_type)(  ) const;
+            typedef char const * ( ImageProcessor_wrapper::*default_libraryName_function_type)(  ) const;
             
             ImageProcessor_exposer.def( 
                 "libraryName"

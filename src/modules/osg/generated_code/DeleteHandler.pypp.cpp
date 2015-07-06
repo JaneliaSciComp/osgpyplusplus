@@ -62,7 +62,7 @@ void register_DeleteHandler_class(){
         bp::implicitly_convertible< int, osg::DeleteHandler >();
         { //::osg::DeleteHandler::doDelete
         
-            typedef void ( ::osg::DeleteHandler::*doDelete_function_type )( ::osg::Referenced const * ) ;
+            typedef void ( ::osg::DeleteHandler::*doDelete_function_type)( ::osg::Referenced const * ) ;
             
             DeleteHandler_exposer.def( 
                 "doDelete"
@@ -72,8 +72,8 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::flush
         
-            typedef void ( ::osg::DeleteHandler::*flush_function_type )(  ) ;
-            typedef void ( DeleteHandler_wrapper::*default_flush_function_type )(  ) ;
+            typedef void ( ::osg::DeleteHandler::*flush_function_type)(  ) ;
+            typedef void ( DeleteHandler_wrapper::*default_flush_function_type)(  ) ;
             
             DeleteHandler_exposer.def( 
                 "flush"
@@ -83,8 +83,8 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::flushAll
         
-            typedef void ( ::osg::DeleteHandler::*flushAll_function_type )(  ) ;
-            typedef void ( DeleteHandler_wrapper::*default_flushAll_function_type )(  ) ;
+            typedef void ( ::osg::DeleteHandler::*flushAll_function_type)(  ) ;
+            typedef void ( DeleteHandler_wrapper::*default_flushAll_function_type)(  ) ;
             
             DeleteHandler_exposer.def( 
                 "flushAll"
@@ -94,7 +94,7 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::getFrameNumber
         
-            typedef unsigned int ( ::osg::DeleteHandler::*getFrameNumber_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DeleteHandler::*getFrameNumber_function_type)(  ) const;
             
             DeleteHandler_exposer.def( 
                 "getFrameNumber"
@@ -104,7 +104,7 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::getNumFramesToRetainObjects
         
-            typedef unsigned int ( ::osg::DeleteHandler::*getNumFramesToRetainObjects_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DeleteHandler::*getNumFramesToRetainObjects_function_type)(  ) const;
             
             DeleteHandler_exposer.def( 
                 "getNumFramesToRetainObjects"
@@ -113,8 +113,8 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::requestDelete
         
-            typedef void ( ::osg::DeleteHandler::*requestDelete_function_type )( ::osg::Referenced const * ) ;
-            typedef void ( DeleteHandler_wrapper::*default_requestDelete_function_type )( ::osg::Referenced const * ) ;
+            typedef void ( ::osg::DeleteHandler::*requestDelete_function_type)( ::osg::Referenced const * ) ;
+            typedef void ( DeleteHandler_wrapper::*default_requestDelete_function_type)( ::osg::Referenced const * ) ;
             
             DeleteHandler_exposer.def( 
                 "requestDelete"
@@ -125,7 +125,7 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::setFrameNumber
         
-            typedef void ( ::osg::DeleteHandler::*setFrameNumber_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DeleteHandler::*setFrameNumber_function_type)( unsigned int ) ;
             
             DeleteHandler_exposer.def( 
                 "setFrameNumber"
@@ -136,7 +136,7 @@ void register_DeleteHandler_class(){
         }
         { //::osg::DeleteHandler::setNumFramesToRetainObjects
         
-            typedef void ( ::osg::DeleteHandler::*setNumFramesToRetainObjects_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DeleteHandler::*setNumFramesToRetainObjects_function_type)( unsigned int ) ;
             
             DeleteHandler_exposer.def( 
                 "setNumFramesToRetainObjects"

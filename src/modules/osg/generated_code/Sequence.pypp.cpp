@@ -447,8 +447,8 @@ void register_Sequence_class(){
         Sequence_exposer.def( bp::init< >("\n Sequence is a Group node which allows automatic, time based\nswitching between children.\n") );
         { //::osg::Sequence::accept
         
-            typedef void ( ::osg::Sequence::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Sequence_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Sequence::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Sequence_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             Sequence_exposer.def( 
                 "accept"
@@ -459,8 +459,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::addChild
         
-            typedef bool ( ::osg::Sequence::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( Sequence_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Sequence::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( Sequence_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             Sequence_exposer.def( 
                 "addChild"
@@ -471,8 +471,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::addChild
         
-            typedef bool ( ::osg::Sequence::*addChild_function_type )( ::osg::Node *,double ) ;
-            typedef bool ( Sequence_wrapper::*default_addChild_function_type )( ::osg::Node *,double ) ;
+            typedef bool ( ::osg::Sequence::*addChild_function_type)( ::osg::Node *,double ) ;
+            typedef bool ( Sequence_wrapper::*default_addChild_function_type)( ::osg::Node *,double ) ;
             
             Sequence_exposer.def( 
                 "addChild"
@@ -483,8 +483,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::className
         
-            typedef char const * ( ::osg::Sequence::*className_function_type )(  ) const;
-            typedef char const * ( Sequence_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Sequence::*className_function_type)(  ) const;
+            typedef char const * ( Sequence_wrapper::*default_className_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "className"
@@ -494,8 +494,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::clone
         
-            typedef ::osg::Object * ( ::osg::Sequence::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Sequence_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Sequence::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Sequence_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Sequence_exposer.def( 
                 "clone"
@@ -507,8 +507,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::cloneType
         
-            typedef ::osg::Object * ( ::osg::Sequence::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Sequence_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Sequence::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Sequence_wrapper::*default_cloneType_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "cloneType"
@@ -519,7 +519,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getBegin
         
-            typedef int ( ::osg::Sequence::*getBegin_function_type )(  ) const;
+            typedef int ( ::osg::Sequence::*getBegin_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getBegin"
@@ -529,7 +529,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getClearOnStop
         
-            typedef bool ( ::osg::Sequence::*getClearOnStop_function_type )(  ) const;
+            typedef bool ( ::osg::Sequence::*getClearOnStop_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getClearOnStop"
@@ -539,7 +539,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getDefaultTime
         
-            typedef double ( ::osg::Sequence::*getDefaultTime_function_type )(  ) const;
+            typedef double ( ::osg::Sequence::*getDefaultTime_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getDefaultTime"
@@ -549,7 +549,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getDuration
         
-            typedef void ( ::osg::Sequence::*getDuration_function_type )( float &,int & ) const;
+            typedef void ( ::osg::Sequence::*getDuration_function_type)( float &,int & ) const;
             
             Sequence_exposer.def( 
                 "getDuration"
@@ -560,7 +560,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getEnd
         
-            typedef int ( ::osg::Sequence::*getEnd_function_type )(  ) const;
+            typedef int ( ::osg::Sequence::*getEnd_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getEnd"
@@ -570,7 +570,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getInterval
         
-            typedef void ( ::osg::Sequence::*getInterval_function_type )( ::osg::Sequence::LoopMode &,int &,int & ) const;
+            typedef void ( ::osg::Sequence::*getInterval_function_type)( ::osg::Sequence::LoopMode &,int &,int & ) const;
             
             Sequence_exposer.def( 
                 "getInterval"
@@ -581,7 +581,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getLastFrameTime
         
-            typedef double ( ::osg::Sequence::*getLastFrameTime_function_type )(  ) const;
+            typedef double ( ::osg::Sequence::*getLastFrameTime_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getLastFrameTime"
@@ -591,7 +591,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getLoopMode
         
-            typedef ::osg::Sequence::LoopMode ( ::osg::Sequence::*getLoopMode_function_type )(  ) const;
+            typedef ::osg::Sequence::LoopMode ( ::osg::Sequence::*getLoopMode_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getLoopMode"
@@ -601,7 +601,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getMode
         
-            typedef ::osg::Sequence::SequenceMode ( ::osg::Sequence::*getMode_function_type )(  ) const;
+            typedef ::osg::Sequence::SequenceMode ( ::osg::Sequence::*getMode_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getMode"
@@ -611,7 +611,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getNumFrames
         
-            typedef unsigned int ( ::osg::Sequence::*getNumFrames_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Sequence::*getNumFrames_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getNumFrames"
@@ -621,7 +621,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getNumRepeats
         
-            typedef int ( ::osg::Sequence::*getNumRepeats_function_type )(  ) const;
+            typedef int ( ::osg::Sequence::*getNumRepeats_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getNumRepeats"
@@ -631,7 +631,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getSpeed
         
-            typedef float ( ::osg::Sequence::*getSpeed_function_type )(  ) const;
+            typedef float ( ::osg::Sequence::*getSpeed_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getSpeed"
@@ -641,7 +641,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getSync
         
-            typedef bool ( ::osg::Sequence::*getSync_function_type )(  ) const;
+            typedef bool ( ::osg::Sequence::*getSync_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getSync"
@@ -651,7 +651,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getTime
         
-            typedef double ( ::osg::Sequence::*getTime_function_type )( unsigned int ) const;
+            typedef double ( ::osg::Sequence::*getTime_function_type)( unsigned int ) const;
             
             Sequence_exposer.def( 
                 "getTime"
@@ -662,7 +662,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getTimeList
         
-            typedef ::std::vector< double > const & ( ::osg::Sequence::*getTimeList_function_type )(  ) const;
+            typedef ::std::vector< double > const & ( ::osg::Sequence::*getTimeList_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getTimeList"
@@ -673,7 +673,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::getValue
         
-            typedef int ( ::osg::Sequence::*getValue_function_type )(  ) const;
+            typedef int ( ::osg::Sequence::*getValue_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getValue"
@@ -682,8 +682,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::insertChild
         
-            typedef bool ( ::osg::Sequence::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Sequence_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Sequence::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Sequence_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Sequence_exposer.def( 
                 "insertChild"
@@ -694,8 +694,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::insertChild
         
-            typedef bool ( ::osg::Sequence::*insertChild_function_type )( unsigned int,::osg::Node *,double ) ;
-            typedef bool ( Sequence_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node *,double ) ;
+            typedef bool ( ::osg::Sequence::*insertChild_function_type)( unsigned int,::osg::Node *,double ) ;
+            typedef bool ( Sequence_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node *,double ) ;
             
             Sequence_exposer.def( 
                 "insertChild"
@@ -706,8 +706,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::isSameKindAs
         
-            typedef bool ( ::osg::Sequence::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Sequence_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Sequence::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Sequence_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Sequence_exposer.def( 
                 "isSameKindAs"
@@ -718,8 +718,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::libraryName
         
-            typedef char const * ( ::osg::Sequence::*libraryName_function_type )(  ) const;
-            typedef char const * ( Sequence_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Sequence::*libraryName_function_type)(  ) const;
+            typedef char const * ( Sequence_wrapper::*default_libraryName_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "libraryName"
@@ -729,8 +729,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::removeChild
         
-            typedef bool ( ::osg::Sequence::*removeChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( Sequence_wrapper::*default_removeChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Sequence::*removeChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( Sequence_wrapper::*default_removeChild_function_type)( ::osg::Node * ) ;
             
             Sequence_exposer.def( 
                 "removeChild"
@@ -741,8 +741,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::removeChildren
         
-            typedef bool ( ::osg::Sequence::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( Sequence_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Sequence::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( Sequence_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             Sequence_exposer.def( 
                 "removeChildren"
@@ -753,7 +753,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setBegin
         
-            typedef void ( ::osg::Sequence::*setBegin_function_type )( int ) ;
+            typedef void ( ::osg::Sequence::*setBegin_function_type)( int ) ;
             
             Sequence_exposer.def( 
                 "setBegin"
@@ -764,7 +764,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setClearOnStop
         
-            typedef void ( ::osg::Sequence::*setClearOnStop_function_type )( bool ) ;
+            typedef void ( ::osg::Sequence::*setClearOnStop_function_type)( bool ) ;
             
             Sequence_exposer.def( 
                 "setClearOnStop"
@@ -775,7 +775,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setDefaultTime
         
-            typedef void ( ::osg::Sequence::*setDefaultTime_function_type )( double ) ;
+            typedef void ( ::osg::Sequence::*setDefaultTime_function_type)( double ) ;
             
             Sequence_exposer.def( 
                 "setDefaultTime"
@@ -786,7 +786,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setDuration
         
-            typedef void ( ::osg::Sequence::*setDuration_function_type )( float,int ) ;
+            typedef void ( ::osg::Sequence::*setDuration_function_type)( float,int ) ;
             
             Sequence_exposer.def( 
                 "setDuration"
@@ -797,7 +797,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setEnd
         
-            typedef void ( ::osg::Sequence::*setEnd_function_type )( int ) ;
+            typedef void ( ::osg::Sequence::*setEnd_function_type)( int ) ;
             
             Sequence_exposer.def( 
                 "setEnd"
@@ -808,7 +808,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setInterval
         
-            typedef void ( ::osg::Sequence::*setInterval_function_type )( ::osg::Sequence::LoopMode,int,int ) ;
+            typedef void ( ::osg::Sequence::*setInterval_function_type)( ::osg::Sequence::LoopMode,int,int ) ;
             
             Sequence_exposer.def( 
                 "setInterval"
@@ -819,7 +819,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setLastFrameTime
         
-            typedef void ( ::osg::Sequence::*setLastFrameTime_function_type )( double ) ;
+            typedef void ( ::osg::Sequence::*setLastFrameTime_function_type)( double ) ;
             
             Sequence_exposer.def( 
                 "setLastFrameTime"
@@ -830,7 +830,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setLoopMode
         
-            typedef void ( ::osg::Sequence::*setLoopMode_function_type )( ::osg::Sequence::LoopMode ) ;
+            typedef void ( ::osg::Sequence::*setLoopMode_function_type)( ::osg::Sequence::LoopMode ) ;
             
             Sequence_exposer.def( 
                 "setLoopMode"
@@ -841,7 +841,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setMode
         
-            typedef void ( ::osg::Sequence::*setMode_function_type )( ::osg::Sequence::SequenceMode ) ;
+            typedef void ( ::osg::Sequence::*setMode_function_type)( ::osg::Sequence::SequenceMode ) ;
             
             Sequence_exposer.def( 
                 "setMode"
@@ -852,7 +852,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setNumRepeats
         
-            typedef void ( ::osg::Sequence::*setNumRepeats_function_type )( int ) ;
+            typedef void ( ::osg::Sequence::*setNumRepeats_function_type)( int ) ;
             
             Sequence_exposer.def( 
                 "setNumRepeats"
@@ -863,7 +863,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setSpeed
         
-            typedef void ( ::osg::Sequence::*setSpeed_function_type )( float ) ;
+            typedef void ( ::osg::Sequence::*setSpeed_function_type)( float ) ;
             
             Sequence_exposer.def( 
                 "setSpeed"
@@ -874,7 +874,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setSync
         
-            typedef void ( ::osg::Sequence::*setSync_function_type )( bool ) ;
+            typedef void ( ::osg::Sequence::*setSync_function_type)( bool ) ;
             
             Sequence_exposer.def( 
                 "setSync"
@@ -885,7 +885,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setTime
         
-            typedef void ( ::osg::Sequence::*setTime_function_type )( unsigned int,double ) ;
+            typedef void ( ::osg::Sequence::*setTime_function_type)( unsigned int,double ) ;
             
             Sequence_exposer.def( 
                 "setTime"
@@ -896,7 +896,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setTimeList
         
-            typedef void ( ::osg::Sequence::*setTimeList_function_type )( ::std::vector< double > const & ) ;
+            typedef void ( ::osg::Sequence::*setTimeList_function_type)( ::std::vector< double > const & ) ;
             
             Sequence_exposer.def( 
                 "setTimeList"
@@ -907,7 +907,7 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::setValue
         
-            typedef void ( ::osg::Sequence::*setValue_function_type )( int ) ;
+            typedef void ( ::osg::Sequence::*setValue_function_type)( int ) ;
             
             Sequence_exposer.def( 
                 "setValue"
@@ -918,8 +918,8 @@ void register_Sequence_class(){
         }
         { //::osg::Sequence::traverse
         
-            typedef void ( ::osg::Sequence::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Sequence_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Sequence::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Sequence_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             Sequence_exposer.def( 
                 "traverse"
@@ -930,8 +930,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( Sequence_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Sequence_wrapper::*default_asCamera_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "asCamera"
@@ -942,8 +942,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( Sequence_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Sequence_wrapper::*default_asCamera_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "asCamera"
@@ -954,8 +954,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( Sequence_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Sequence_wrapper::*default_asGeode_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "asGeode"
@@ -966,8 +966,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( Sequence_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Sequence_wrapper::*default_asGeode_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "asGeode"
@@ -978,8 +978,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( Sequence_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Sequence_wrapper::*default_asGroup_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "asGroup"
@@ -990,8 +990,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( Sequence_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Sequence_wrapper::*default_asGroup_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "asGroup"
@@ -1002,8 +1002,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( Sequence_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Sequence_wrapper::*default_asSwitch_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "asSwitch"
@@ -1014,8 +1014,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( Sequence_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Sequence_wrapper::*default_asSwitch_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "asSwitch"
@@ -1026,8 +1026,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( Sequence_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Sequence_wrapper::*default_asTransform_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "asTransform"
@@ -1038,8 +1038,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( Sequence_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Sequence_wrapper::*default_asTransform_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "asTransform"
@@ -1050,8 +1050,8 @@ void register_Sequence_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Sequence_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Sequence_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             Sequence_exposer.def( 
                 "ascend"
@@ -1062,8 +1062,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::Group::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( Sequence_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::Group::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Sequence_wrapper::*default_computeBound_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "computeBound"
@@ -1073,8 +1073,8 @@ void register_Sequence_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Sequence_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Sequence_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "computeDataVariance"
@@ -1084,8 +1084,8 @@ void register_Sequence_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Sequence_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Sequence_wrapper::*default_getUserData_function_type)(  ) ;
             
             Sequence_exposer.def( 
                 "getUserData"
@@ -1096,8 +1096,8 @@ void register_Sequence_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Sequence_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Sequence_wrapper::*default_getUserData_function_type)(  ) const;
             
             Sequence_exposer.def( 
                 "getUserData"
@@ -1108,8 +1108,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( Sequence_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( Sequence_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             Sequence_exposer.def( 
                 "replaceChild"
@@ -1120,8 +1120,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Sequence_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Sequence_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Sequence_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1132,8 +1132,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Sequence_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Sequence_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Sequence_exposer.def( 
                 "setChild"
@@ -1144,8 +1144,8 @@ void register_Sequence_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Sequence_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Sequence_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Sequence_exposer.def( 
                 "setName"
@@ -1156,7 +1156,7 @@ void register_Sequence_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Sequence_exposer.def( 
                 "setName"
@@ -1167,8 +1167,8 @@ void register_Sequence_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Sequence_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Sequence_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Sequence_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1179,8 +1179,8 @@ void register_Sequence_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Sequence_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Sequence_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Sequence_exposer.def( 
                 "setUserData"

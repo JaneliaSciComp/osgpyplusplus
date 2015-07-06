@@ -47,13 +47,13 @@ void register_StandardNotifyHandler_class(){
     bp::class_< StandardNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::StandardNotifyHandler >, boost::noncopyable >( "StandardNotifyHandler", "\n Redirects notification stream to stderr (severity <= WARN) or stdout (severity > WARN).\n The fputs() function is used to write messages to standard files. Note that\n std::out and std::cerr streams are not used.\n aee setNotifyHandler\n" )    
         .def( 
             "notify"
-            , (void ( ::osg::StandardNotifyHandler::* )( ::osg::NotifySeverity,char const * ) )(&::osg::StandardNotifyHandler::notify)
-            , (void ( StandardNotifyHandler_wrapper::* )( ::osg::NotifySeverity,char const * ) )(&StandardNotifyHandler_wrapper::default_notify)
+            , (void ( ::osg::StandardNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::StandardNotifyHandler::notify)
+            , (void ( StandardNotifyHandler_wrapper::* )( ::osg::NotifySeverity,char const * ))(&StandardNotifyHandler_wrapper::default_notify)
             , ( bp::arg("severity"), bp::arg("message") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( StandardNotifyHandler_wrapper::* )( bool ) )(&StandardNotifyHandler_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( StandardNotifyHandler_wrapper::* )( bool ))(&StandardNotifyHandler_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

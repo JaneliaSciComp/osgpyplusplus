@@ -192,76 +192,76 @@ void register_InfinitePlane_class(){
         .def( bp::init< >() )    
         .def( 
             "accept"
-            , (void ( ::osg::InfinitePlane::* )( ::osg::ShapeVisitor & ) )(&::osg::InfinitePlane::accept)
-            , (void ( InfinitePlane_wrapper::* )( ::osg::ShapeVisitor & ) )(&InfinitePlane_wrapper::default_accept)
+            , (void ( ::osg::InfinitePlane::* )( ::osg::ShapeVisitor & ))(&::osg::InfinitePlane::accept)
+            , (void ( InfinitePlane_wrapper::* )( ::osg::ShapeVisitor & ))(&InfinitePlane_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::InfinitePlane::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::InfinitePlane::accept)
-            , (void ( InfinitePlane_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&InfinitePlane_wrapper::default_accept)
+            , (void ( ::osg::InfinitePlane::* )( ::osg::ConstShapeVisitor & )const)(&::osg::InfinitePlane::accept)
+            , (void ( InfinitePlane_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&InfinitePlane_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::InfinitePlane::* )(  ) const)(&::osg::InfinitePlane::className)
-            , (char const * ( InfinitePlane_wrapper::* )(  ) const)(&InfinitePlane_wrapper::default_className) )    
+            , (char const * ( ::osg::InfinitePlane::* )(  )const)(&::osg::InfinitePlane::className)
+            , (char const * ( InfinitePlane_wrapper::* )(  )const)(&InfinitePlane_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::InfinitePlane::* )( ::osg::CopyOp const & ) const)(&::osg::InfinitePlane::clone)
-            , (::osg::Object * ( InfinitePlane_wrapper::* )( ::osg::CopyOp const & ) const)(&InfinitePlane_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::InfinitePlane::* )( ::osg::CopyOp const & )const)(&::osg::InfinitePlane::clone)
+            , (::osg::Object * ( InfinitePlane_wrapper::* )( ::osg::CopyOp const & )const)(&InfinitePlane_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::InfinitePlane::* )(  ) const)(&::osg::InfinitePlane::cloneType)
-            , (::osg::Object * ( InfinitePlane_wrapper::* )(  ) const)(&InfinitePlane_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::InfinitePlane::* )(  )const)(&::osg::InfinitePlane::cloneType)
+            , (::osg::Object * ( InfinitePlane_wrapper::* )(  )const)(&InfinitePlane_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::InfinitePlane::* )( ::osg::Object const * ) const)(&::osg::InfinitePlane::isSameKindAs)
-            , (bool ( InfinitePlane_wrapper::* )( ::osg::Object const * ) const)(&InfinitePlane_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::InfinitePlane::* )( ::osg::Object const * )const)(&::osg::InfinitePlane::isSameKindAs)
+            , (bool ( InfinitePlane_wrapper::* )( ::osg::Object const * )const)(&InfinitePlane_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::InfinitePlane::* )(  ) const)(&::osg::InfinitePlane::libraryName)
-            , (char const * ( InfinitePlane_wrapper::* )(  ) const)(&InfinitePlane_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::InfinitePlane::* )(  )const)(&::osg::InfinitePlane::libraryName)
+            , (char const * ( InfinitePlane_wrapper::* )(  )const)(&InfinitePlane_wrapper::default_libraryName) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( InfinitePlane_wrapper::* )(  ) )(&InfinitePlane_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( InfinitePlane_wrapper::* )(  ))(&InfinitePlane_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( InfinitePlane_wrapper::* )(  ) )(&InfinitePlane_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( InfinitePlane_wrapper::* )(  ))(&InfinitePlane_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( InfinitePlane_wrapper::* )(  ) const)(&InfinitePlane_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( InfinitePlane_wrapper::* )(  )const)(&InfinitePlane_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( InfinitePlane_wrapper::* )( unsigned int ) )(&InfinitePlane_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( InfinitePlane_wrapper::* )( unsigned int ))(&InfinitePlane_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( InfinitePlane_wrapper::* )( ::std::string const & ) )(&InfinitePlane_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( InfinitePlane_wrapper::* )( ::std::string const & ))(&InfinitePlane_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( InfinitePlane_wrapper::* )( bool ) )(&InfinitePlane_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( InfinitePlane_wrapper::* )( bool ))(&InfinitePlane_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( InfinitePlane_wrapper::* )( ::osg::Referenced * ) )(&InfinitePlane_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( InfinitePlane_wrapper::* )( ::osg::Referenced * ))(&InfinitePlane_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

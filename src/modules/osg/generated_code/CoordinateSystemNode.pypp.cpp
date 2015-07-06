@@ -404,205 +404,205 @@ void register_CoordinateSystemNode_class(){
         .def( bp::init< std::string const &, std::string const & >(( bp::arg("format"), bp::arg("cs") )) )    
         .def( 
             "accept"
-            , (void ( ::osg::CoordinateSystemNode::* )( ::osg::NodeVisitor & ) )(&::osg::CoordinateSystemNode::accept)
-            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ) )(&CoordinateSystemNode_wrapper::default_accept)
+            , (void ( ::osg::CoordinateSystemNode::* )( ::osg::NodeVisitor & ))(&::osg::CoordinateSystemNode::accept)
+            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ))(&CoordinateSystemNode_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::CoordinateSystemNode::* )(  ) const)(&::osg::CoordinateSystemNode::className)
-            , (char const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_className) )    
+            , (char const * ( ::osg::CoordinateSystemNode::* )(  )const)(&::osg::CoordinateSystemNode::className)
+            , (char const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::CoordinateSystemNode::* )( ::osg::CopyOp const & ) const)(&::osg::CoordinateSystemNode::clone)
-            , (::osg::Object * ( CoordinateSystemNode_wrapper::* )( ::osg::CopyOp const & ) const)(&CoordinateSystemNode_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::CoordinateSystemNode::* )( ::osg::CopyOp const & )const)(&::osg::CoordinateSystemNode::clone)
+            , (::osg::Object * ( CoordinateSystemNode_wrapper::* )( ::osg::CopyOp const & )const)(&CoordinateSystemNode_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::CoordinateSystemNode::* )(  ) const)(&::osg::CoordinateSystemNode::cloneType)
-            , (::osg::Object * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::CoordinateSystemNode::* )(  )const)(&::osg::CoordinateSystemNode::cloneType)
+            , (::osg::Object * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeLocalCoordinateFrame"
-            , (::osg::CoordinateFrame ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & ) const)( &::osg::CoordinateSystemNode::computeLocalCoordinateFrame )
+            , (::osg::CoordinateFrame ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & )const)( &::osg::CoordinateSystemNode::computeLocalCoordinateFrame )
             , ( bp::arg("position") )
             , " Compute the local coordinate frame for specified point." )    
         .def( 
             "computeLocalUpVector"
-            , (::osg::Vec3d ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & ) const)( &::osg::CoordinateSystemNode::computeLocalUpVector )
+            , (::osg::Vec3d ( ::osg::CoordinateSystemNode::* )( ::osg::Vec3d const & )const)( &::osg::CoordinateSystemNode::computeLocalUpVector )
             , ( bp::arg("position") )
             , " Compute the local up-vector for specified point." )    
         .def( 
             "getCoordinateSystem"
-            , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  ) const)( &::osg::CoordinateSystemNode::getCoordinateSystem )
+            , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getCoordinateSystem )
             , bp::return_value_policy< bp::copy_const_reference >()
             , " Get the CoordinateSystem reference string." )    
         .def( 
             "getEllipsoidModel"
-            , (::osg::EllipsoidModel * ( ::osg::CoordinateSystemNode::* )(  ) )( &::osg::CoordinateSystemNode::getEllipsoidModel )
+            , (::osg::EllipsoidModel * ( ::osg::CoordinateSystemNode::* )(  ))( &::osg::CoordinateSystemNode::getEllipsoidModel )
             , bp::return_internal_reference< >()
             , " Get the EllipsoidModel." )    
         .def( 
             "getEllipsoidModel"
-            , (::osg::EllipsoidModel const * ( ::osg::CoordinateSystemNode::* )(  ) const)( &::osg::CoordinateSystemNode::getEllipsoidModel )
+            , (::osg::EllipsoidModel const * ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getEllipsoidModel )
             , bp::return_internal_reference< >()
             , " Get the const EllipsoidModel." )    
         .def( 
             "getFormat"
-            , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  ) const)( &::osg::CoordinateSystemNode::getFormat )
+            , (::std::string const & ( ::osg::CoordinateSystemNode::* )(  )const)( &::osg::CoordinateSystemNode::getFormat )
             , bp::return_value_policy< bp::copy_const_reference >()
             , " Get the coordinate system format string." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::CoordinateSystemNode::* )( ::osg::Object const * ) const)(&::osg::CoordinateSystemNode::isSameKindAs)
-            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Object const * ) const)(&CoordinateSystemNode_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::CoordinateSystemNode::* )( ::osg::Object const * )const)(&::osg::CoordinateSystemNode::isSameKindAs)
+            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Object const * )const)(&CoordinateSystemNode_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::CoordinateSystemNode::* )(  ) const)(&::osg::CoordinateSystemNode::libraryName)
-            , (char const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::CoordinateSystemNode::* )(  )const)(&::osg::CoordinateSystemNode::libraryName)
+            , (char const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_libraryName) )    
         .def( 
             "setCoordinateSystem"
-            , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ) )( &::osg::CoordinateSystemNode::setCoordinateSystem )
+            , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ))( &::osg::CoordinateSystemNode::setCoordinateSystem )
             , ( bp::arg("cs") )
             , " Set the CoordinateSystem reference string, should be stored in a form consistent with the Format." )    
         .def( 
             "setEllipsoidModel"
-            , (void ( ::osg::CoordinateSystemNode::* )( ::osg::EllipsoidModel * ) )( &::osg::CoordinateSystemNode::setEllipsoidModel )
+            , (void ( ::osg::CoordinateSystemNode::* )( ::osg::EllipsoidModel * ))( &::osg::CoordinateSystemNode::setEllipsoidModel )
             , ( bp::arg("ellipsode") )
             , " Set EllipsoidModel to describe the model used to map lat, long and height into geocentric XYZ and back." )    
         .def( 
             "setFormat"
-            , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ) )( &::osg::CoordinateSystemNode::setFormat )
+            , (void ( ::osg::CoordinateSystemNode::* )( ::std::string const & ))( &::osg::CoordinateSystemNode::setFormat )
             , ( bp::arg("format") )
             , " Set the coordinate system format string. Typical values would be WKT, PROJ4, USGS etc." )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ) )(&::osg::Group::addChild)
-            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Node * ) )(&CoordinateSystemNode_wrapper::default_addChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
+            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Node * ))(&CoordinateSystemNode_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
-            , (::osg::Camera * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
+            , (::osg::Camera * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Node::* )(  ) )(&::osg::Node::asGeode)
-            , (::osg::Geode * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
+            , (::osg::Geode * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGeode)
-            , (::osg::Geode const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ) )(&::osg::Group::asGroup)
-            , (::osg::Group * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
+            , (::osg::Group * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  ) const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
+            , (::osg::Group const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Node::* )(  ) )(&::osg::Node::asSwitch)
-            , (::osg::Switch * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asSwitch)
-            , (::osg::Switch const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Node::* )(  ) )(&::osg::Node::asTransform)
-            , (::osg::Transform * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
+            , (::osg::Transform * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asTransform)
-            , (::osg::Transform const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
-            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ) )(&CoordinateSystemNode_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
+            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ))(&CoordinateSystemNode_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Group::* )(  ) const)(&::osg::Group::computeBound)
-            , (::osg::BoundingSphere ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Group::* )(  )const)(&::osg::Group::computeBound)
+            , (::osg::BoundingSphere ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_computeBound) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( CoordinateSystemNode_wrapper::* )(  ) )(&CoordinateSystemNode_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( CoordinateSystemNode_wrapper::* )(  ))(&CoordinateSystemNode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( CoordinateSystemNode_wrapper::* )(  ) const)(&CoordinateSystemNode_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( CoordinateSystemNode_wrapper::* )(  )const)(&CoordinateSystemNode_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::insertChild)
-            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,::osg::Node * ) )(&CoordinateSystemNode_wrapper::default_insertChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
+            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,::osg::Node * ))(&CoordinateSystemNode_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child") ) )    
         .def( 
             "removeChildren"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ) )(&::osg::Group::removeChildren)
-            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,unsigned int ) )(&CoordinateSystemNode_wrapper::default_removeChildren)
+            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
+            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,unsigned int ))(&CoordinateSystemNode_wrapper::default_removeChildren)
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ) )(&::osg::Group::replaceChild)
-            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Node *,::osg::Node * ) )(&CoordinateSystemNode_wrapper::default_replaceChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
+            , (bool ( CoordinateSystemNode_wrapper::* )( ::osg::Node *,::osg::Node * ))(&CoordinateSystemNode_wrapper::default_replaceChild)
             , ( bp::arg("origChild"), bp::arg("newChild") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ) )(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( CoordinateSystemNode_wrapper::* )( unsigned int ) )(&CoordinateSystemNode_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
+            , (void ( CoordinateSystemNode_wrapper::* )( unsigned int ))(&CoordinateSystemNode_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::setChild)
-            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,::osg::Node * ) )(&CoordinateSystemNode_wrapper::default_setChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
+            , (bool ( CoordinateSystemNode_wrapper::* )( unsigned int,::osg::Node * ))(&CoordinateSystemNode_wrapper::default_setChild)
             , ( bp::arg("i"), bp::arg("node") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( CoordinateSystemNode_wrapper::* )( ::std::string const & ) )(&CoordinateSystemNode_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( CoordinateSystemNode_wrapper::* )( ::std::string const & ))(&CoordinateSystemNode_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ) )(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( CoordinateSystemNode_wrapper::* )( bool ) )(&CoordinateSystemNode_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
+            , (void ( CoordinateSystemNode_wrapper::* )( bool ))(&CoordinateSystemNode_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::Referenced * ) )(&CoordinateSystemNode_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::Referenced * ))(&CoordinateSystemNode_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ) )(&::osg::Group::traverse)
-            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ) )(&CoordinateSystemNode_wrapper::default_traverse)
+            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::traverse)
+            , (void ( CoordinateSystemNode_wrapper::* )( ::osg::NodeVisitor & ))(&CoordinateSystemNode_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

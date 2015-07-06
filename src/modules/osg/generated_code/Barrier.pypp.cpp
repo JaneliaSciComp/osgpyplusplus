@@ -74,8 +74,8 @@ void register_Barrier_class(){
         bp::implicitly_convertible< int, OpenThreads::Barrier >();
         { //::OpenThreads::Barrier::block
         
-            typedef void ( ::OpenThreads::Barrier::*block_function_type )( unsigned int ) ;
-            typedef void ( Barrier_wrapper::*default_block_function_type )( unsigned int ) ;
+            typedef void ( ::OpenThreads::Barrier::*block_function_type)( unsigned int ) ;
+            typedef void ( Barrier_wrapper::*default_block_function_type)( unsigned int ) ;
             
             Barrier_exposer.def( 
                 "block"
@@ -86,7 +86,7 @@ void register_Barrier_class(){
         }
         { //::OpenThreads::Barrier::invalidate
         
-            typedef void ( ::OpenThreads::Barrier::*invalidate_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Barrier::*invalidate_function_type)(  ) ;
             
             Barrier_exposer.def( 
                 "invalidate"
@@ -95,8 +95,8 @@ void register_Barrier_class(){
         }
         { //::OpenThreads::Barrier::numThreadsCurrentlyBlocked
         
-            typedef int ( ::OpenThreads::Barrier::*numThreadsCurrentlyBlocked_function_type )(  ) ;
-            typedef int ( Barrier_wrapper::*default_numThreadsCurrentlyBlocked_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Barrier::*numThreadsCurrentlyBlocked_function_type)(  ) ;
+            typedef int ( Barrier_wrapper::*default_numThreadsCurrentlyBlocked_function_type)(  ) ;
             
             Barrier_exposer.def( 
                 "numThreadsCurrentlyBlocked"
@@ -106,8 +106,8 @@ void register_Barrier_class(){
         }
         { //::OpenThreads::Barrier::release
         
-            typedef void ( ::OpenThreads::Barrier::*release_function_type )(  ) ;
-            typedef void ( Barrier_wrapper::*default_release_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Barrier::*release_function_type)(  ) ;
+            typedef void ( Barrier_wrapper::*default_release_function_type)(  ) ;
             
             Barrier_exposer.def( 
                 "release"
@@ -117,8 +117,8 @@ void register_Barrier_class(){
         }
         { //::OpenThreads::Barrier::reset
         
-            typedef void ( ::OpenThreads::Barrier::*reset_function_type )(  ) ;
-            typedef void ( Barrier_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Barrier::*reset_function_type)(  ) ;
+            typedef void ( Barrier_wrapper::*default_reset_function_type)(  ) ;
             
             Barrier_exposer.def( 
                 "reset"

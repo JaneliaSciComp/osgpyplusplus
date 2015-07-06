@@ -283,122 +283,122 @@ void register_Hint_class(){
         .def( bp::init< GLenum, GLenum >(( bp::arg("target"), bp::arg("mode") )) )    
         .def( 
             "apply"
-            , (void ( ::osg::Hint::* )( ::osg::State & ) const)(&::osg::Hint::apply)
-            , (void ( Hint_wrapper::* )( ::osg::State & ) const)(&Hint_wrapper::default_apply)
+            , (void ( ::osg::Hint::* )( ::osg::State & )const)(&::osg::Hint::apply)
+            , (void ( Hint_wrapper::* )( ::osg::State & )const)(&Hint_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Hint::* )(  ) const)(&::osg::Hint::className)
-            , (char const * ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_className) )    
+            , (char const * ( ::osg::Hint::* )(  )const)(&::osg::Hint::className)
+            , (char const * ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Hint::* )( ::osg::CopyOp const & ) const)(&::osg::Hint::clone)
-            , (::osg::Object * ( Hint_wrapper::* )( ::osg::CopyOp const & ) const)(&Hint_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Hint::* )( ::osg::CopyOp const & )const)(&::osg::Hint::clone)
+            , (::osg::Object * ( Hint_wrapper::* )( ::osg::CopyOp const & )const)(&Hint_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Hint::* )(  ) const)(&::osg::Hint::cloneType)
-            , (::osg::Object * ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Hint::* )(  )const)(&::osg::Hint::cloneType)
+            , (::osg::Object * ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::Hint::* )(  ) const)(&::osg::Hint::getMember)
-            , (unsigned int ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::Hint::* )(  )const)(&::osg::Hint::getMember)
+            , (unsigned int ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_getMember) )    
         .def( 
             "getMode"
-            , (::GLenum ( ::osg::Hint::* )(  ) const)( &::osg::Hint::getMode ) )    
+            , (::GLenum ( ::osg::Hint::* )(  )const)( &::osg::Hint::getMode ) )    
         .def( 
             "getTarget"
-            , (::GLenum ( ::osg::Hint::* )(  ) const)( &::osg::Hint::getTarget ) )    
+            , (::GLenum ( ::osg::Hint::* )(  )const)( &::osg::Hint::getTarget ) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::Hint::* )(  ) const)(&::osg::Hint::getType)
-            , (::osg::StateAttribute::Type ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::Hint::* )(  )const)(&::osg::Hint::getType)
+            , (::osg::StateAttribute::Type ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_getType) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Hint::* )( ::osg::Object const * ) const)(&::osg::Hint::isSameKindAs)
-            , (bool ( Hint_wrapper::* )( ::osg::Object const * ) const)(&Hint_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Hint::* )( ::osg::Object const * )const)(&::osg::Hint::isSameKindAs)
+            , (bool ( Hint_wrapper::* )( ::osg::Object const * )const)(&Hint_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Hint::* )(  ) const)(&::osg::Hint::libraryName)
-            , (char const * ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Hint::* )(  )const)(&::osg::Hint::libraryName)
+            , (char const * ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_libraryName) )    
         .def( 
             "setMode"
-            , (void ( ::osg::Hint::* )( ::GLenum ) )( &::osg::Hint::setMode )
+            , (void ( ::osg::Hint::* )( ::GLenum ))( &::osg::Hint::setMode )
             , ( bp::arg("mode") ) )    
         .def( 
             "setTarget"
-            , (void ( ::osg::Hint::* )( ::GLenum ) )( &::osg::Hint::setTarget )
+            , (void ( ::osg::Hint::* )( ::GLenum ))( &::osg::Hint::setTarget )
             , ( bp::arg("target") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( Hint_wrapper::* )(  ) )(&Hint_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( Hint_wrapper::* )(  ))(&Hint_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( Hint_wrapper::* )( ::osg::State & ) const)(&Hint_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( Hint_wrapper::* )( ::osg::State & )const)(&Hint_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::compileGLObjects)
-            , (void ( Hint_wrapper::* )( ::osg::State & ) const)(&Hint_wrapper::default_compileGLObjects)
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( Hint_wrapper::* )( ::osg::State & )const)(&Hint_wrapper::default_compileGLObjects)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( Hint_wrapper::* )(  ) )(&Hint_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( Hint_wrapper::* )(  ))(&Hint_wrapper::default_computeDataVariance) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::StateAttribute::getModeUsage)
-            , (bool ( Hint_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&Hint_wrapper::default_getModeUsage)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::StateAttribute::getModeUsage)
+            , (bool ( Hint_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&Hint_wrapper::default_getModeUsage)
             , ( bp::arg("arg0") ) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Hint_wrapper::* )(  ) )(&Hint_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Hint_wrapper::* )(  ))(&Hint_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( Hint_wrapper::* )(  ) const)(&Hint_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( Hint_wrapper::* )(  )const)(&Hint_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::StateAttribute::* )( unsigned int ) )(&::osg::StateAttribute::resizeGLObjectBuffers)
-            , (void ( Hint_wrapper::* )( unsigned int ) )(&Hint_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( Hint_wrapper::* )( unsigned int ))(&Hint_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( Hint_wrapper::* )( ::std::string const & ) )(&Hint_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( Hint_wrapper::* )( ::std::string const & ))(&Hint_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Hint_wrapper::* )( bool ) )(&Hint_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Hint_wrapper::* )( bool ))(&Hint_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( Hint_wrapper::* )( ::osg::Referenced * ) )(&Hint_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( Hint_wrapper::* )( ::osg::Referenced * ))(&Hint_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

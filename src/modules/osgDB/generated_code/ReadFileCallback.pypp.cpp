@@ -107,33 +107,33 @@ void register_ReadFileCallback_class(){
     bp::class_< ReadFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ReadFileCallback >, boost::noncopyable >( "ReadFileCallback", bp::no_init )    
         .def( 
             "openArchive"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::openArchive)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_openArchive)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::openArchive)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_openArchive)
             , ( bp::arg("filename"), bp::arg("status"), bp::arg("indexBlockSizeHint"), bp::arg("useObjectCache") ) )    
         .def( 
             "readHeightField"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::readHeightField)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_readHeightField)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::readHeightField)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_readHeightField)
             , ( bp::arg("filename"), bp::arg("options") ) )    
         .def( 
             "readImage"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::readImage)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_readImage)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::readImage)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_readImage)
             , ( bp::arg("filename"), bp::arg("options") ) )    
         .def( 
             "readNode"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::readNode)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_readNode)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::readNode)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_readNode)
             , ( bp::arg("filename"), bp::arg("options") ) )    
         .def( 
             "readObject"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::readObject)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_readObject)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::readObject)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_readObject)
             , ( bp::arg("filename"), bp::arg("options") ) )    
         .def( 
             "readShader"
-            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ) )(&::osgDB::ReadFileCallback::readShader)
-            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ) )(&ReadFileCallback_wrapper::default_readShader)
+            , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::readShader)
+            , (::osgDB::ReaderWriter::ReadResult ( ReadFileCallback_wrapper::* )( ::std::string const &,::osgDB::Options const * ))(&ReadFileCallback_wrapper::default_readShader)
             , ( bp::arg("filename"), bp::arg("options") ) );
 
 }

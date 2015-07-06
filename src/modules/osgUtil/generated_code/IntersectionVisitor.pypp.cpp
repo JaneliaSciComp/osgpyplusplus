@@ -432,14 +432,14 @@ void register_IntersectionVisitor_class(){
         bp::class_< IntersectionVisitor_wrapper::ReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IntersectionVisitor::ReadCallback >, boost::noncopyable >( "ReadCallback", bp::no_init )    
             .def( 
                 "readNodeFile"
-                , bp::pure_virtual( (::osg::Node * ( ::osgUtil::IntersectionVisitor::ReadCallback::* )( ::std::string const & ) )(&::osgUtil::IntersectionVisitor::ReadCallback::readNodeFile) )
+                , bp::pure_virtual( (::osg::Node * ( ::osgUtil::IntersectionVisitor::ReadCallback::* )( ::std::string const & ))(&::osgUtil::IntersectionVisitor::ReadCallback::readNodeFile) )
                 , ( bp::arg("filename") )
                 , bp::return_internal_reference< >() );
         bp::implicitly_convertible< osgUtil::Intersector *, osgUtil::IntersectionVisitor >();
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Node & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Node & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -450,8 +450,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -462,8 +462,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Billboard & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Billboard & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -474,8 +474,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Group & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Group & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -486,8 +486,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::LOD & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::LOD & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -498,8 +498,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::PagedLOD & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::PagedLOD & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::PagedLOD & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::PagedLOD & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -510,8 +510,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Transform & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Transform & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -522,8 +522,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Projection & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Projection & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Projection & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Projection & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -534,8 +534,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type )( ::osg::Camera & ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type )( ::osg::Camera & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*apply_function_type)( ::osg::Camera & ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_apply_function_type)( ::osg::Camera & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "apply"
@@ -546,8 +546,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::className
         
-            typedef char const * ( ::osgUtil::IntersectionVisitor::*className_function_type )(  ) const;
-            typedef char const * ( IntersectionVisitor_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::IntersectionVisitor::*className_function_type)(  ) const;
+            typedef char const * ( IntersectionVisitor_wrapper::*default_className_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "className"
@@ -557,8 +557,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getDistanceToEyePoint
         
-            typedef float ( ::osgUtil::IntersectionVisitor::*getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
-            typedef float ( IntersectionVisitor_wrapper::*default_getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osgUtil::IntersectionVisitor::*getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( IntersectionVisitor_wrapper::*default_getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getDistanceToEyePoint"
@@ -569,7 +569,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getDoDummyTraversal
         
-            typedef bool ( ::osgUtil::IntersectionVisitor::*getDoDummyTraversal_function_type )(  ) const;
+            typedef bool ( ::osgUtil::IntersectionVisitor::*getDoDummyTraversal_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getDoDummyTraversal"
@@ -578,8 +578,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getEyePoint
         
-            typedef ::osg::Vec3 ( ::osgUtil::IntersectionVisitor::*getEyePoint_function_type )(  ) const;
-            typedef ::osg::Vec3 ( IntersectionVisitor_wrapper::*default_getEyePoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ::osgUtil::IntersectionVisitor::*getEyePoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( IntersectionVisitor_wrapper::*default_getEyePoint_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getEyePoint"
@@ -589,7 +589,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getIntersector
         
-            typedef ::osgUtil::Intersector * ( ::osgUtil::IntersectionVisitor::*getIntersector_function_type )(  ) ;
+            typedef ::osgUtil::Intersector * ( ::osgUtil::IntersectionVisitor::*getIntersector_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getIntersector"
@@ -599,7 +599,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getIntersector
         
-            typedef ::osgUtil::Intersector const * ( ::osgUtil::IntersectionVisitor::*getIntersector_function_type )(  ) const;
+            typedef ::osgUtil::Intersector const * ( ::osgUtil::IntersectionVisitor::*getIntersector_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getIntersector"
@@ -609,7 +609,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getLODSelectionMode
         
-            typedef ::osgUtil::IntersectionVisitor::LODSelectionMode ( ::osgUtil::IntersectionVisitor::*getLODSelectionMode_function_type )(  ) const;
+            typedef ::osgUtil::IntersectionVisitor::LODSelectionMode ( ::osgUtil::IntersectionVisitor::*getLODSelectionMode_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getLODSelectionMode"
@@ -618,7 +618,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getModelMatrix
         
-            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getModelMatrix_function_type )(  ) ;
+            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getModelMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getModelMatrix"
@@ -628,7 +628,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getModelMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getModelMatrix_function_type )(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getModelMatrix_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getModelMatrix"
@@ -638,7 +638,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getProjectionMatrix
         
-            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getProjectionMatrix_function_type )(  ) ;
+            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getProjectionMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getProjectionMatrix"
@@ -648,7 +648,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getProjectionMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getProjectionMatrix_function_type )(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getProjectionMatrix_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getProjectionMatrix"
@@ -658,7 +658,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getReadCallback
         
-            typedef ::osgUtil::IntersectionVisitor::ReadCallback * ( ::osgUtil::IntersectionVisitor::*getReadCallback_function_type )(  ) ;
+            typedef ::osgUtil::IntersectionVisitor::ReadCallback * ( ::osgUtil::IntersectionVisitor::*getReadCallback_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getReadCallback"
@@ -668,7 +668,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getReadCallback
         
-            typedef ::osgUtil::IntersectionVisitor::ReadCallback const * ( ::osgUtil::IntersectionVisitor::*getReadCallback_function_type )(  ) const;
+            typedef ::osgUtil::IntersectionVisitor::ReadCallback const * ( ::osgUtil::IntersectionVisitor::*getReadCallback_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getReadCallback"
@@ -678,7 +678,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getReferenceEyePoint
         
-            typedef ::osg::Vec3 const & ( ::osgUtil::IntersectionVisitor::*getReferenceEyePoint_function_type )(  ) const;
+            typedef ::osg::Vec3 const & ( ::osgUtil::IntersectionVisitor::*getReferenceEyePoint_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getReferenceEyePoint"
@@ -688,7 +688,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getReferenceEyePointCoordinateFrame
         
-            typedef ::osgUtil::Intersector::CoordinateFrame ( ::osgUtil::IntersectionVisitor::*getReferenceEyePointCoordinateFrame_function_type )(  ) const;
+            typedef ::osgUtil::Intersector::CoordinateFrame ( ::osgUtil::IntersectionVisitor::*getReferenceEyePointCoordinateFrame_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getReferenceEyePointCoordinateFrame"
@@ -697,7 +697,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getUseKdTreeWhenAvailable
         
-            typedef bool ( ::osgUtil::IntersectionVisitor::*getUseKdTreeWhenAvailable_function_type )(  ) const;
+            typedef bool ( ::osgUtil::IntersectionVisitor::*getUseKdTreeWhenAvailable_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getUseKdTreeWhenAvailable"
@@ -706,7 +706,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getViewMatrix
         
-            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getViewMatrix_function_type )(  ) ;
+            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getViewMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getViewMatrix"
@@ -716,7 +716,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getViewMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getViewMatrix_function_type )(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getViewMatrix_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getViewMatrix"
@@ -726,7 +726,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getWindowMatrix
         
-            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getWindowMatrix_function_type )(  ) ;
+            typedef ::osg::RefMatrix * ( ::osgUtil::IntersectionVisitor::*getWindowMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "getWindowMatrix"
@@ -736,7 +736,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::getWindowMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getWindowMatrix_function_type )(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::IntersectionVisitor::*getWindowMatrix_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "getWindowMatrix"
@@ -746,8 +746,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::libraryName
         
-            typedef char const * ( ::osgUtil::IntersectionVisitor::*libraryName_function_type )(  ) const;
-            typedef char const * ( IntersectionVisitor_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::IntersectionVisitor::*libraryName_function_type)(  ) const;
+            typedef char const * ( IntersectionVisitor_wrapper::*default_libraryName_function_type)(  ) const;
             
             IntersectionVisitor_exposer.def( 
                 "libraryName"
@@ -757,7 +757,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::popModelMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*popModelMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*popModelMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "popModelMatrix"
@@ -766,7 +766,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::popProjectionMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*popProjectionMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*popProjectionMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "popProjectionMatrix"
@@ -775,7 +775,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::popViewMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*popViewMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*popViewMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "popViewMatrix"
@@ -784,7 +784,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::popWindowMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*popWindowMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*popWindowMatrix_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "popWindowMatrix"
@@ -793,7 +793,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::pushModelMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*pushModelMatrix_function_type )( ::osg::RefMatrix * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*pushModelMatrix_function_type)( ::osg::RefMatrix * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "pushModelMatrix"
@@ -803,7 +803,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::pushProjectionMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*pushProjectionMatrix_function_type )( ::osg::RefMatrix * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*pushProjectionMatrix_function_type)( ::osg::RefMatrix * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "pushProjectionMatrix"
@@ -813,7 +813,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::pushViewMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*pushViewMatrix_function_type )( ::osg::RefMatrix * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*pushViewMatrix_function_type)( ::osg::RefMatrix * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "pushViewMatrix"
@@ -823,7 +823,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::pushWindowMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*pushWindowMatrix_function_type )( ::osg::RefMatrix * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*pushWindowMatrix_function_type)( ::osg::RefMatrix * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "pushWindowMatrix"
@@ -833,7 +833,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::pushWindowMatrix
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*pushWindowMatrix_function_type )( ::osg::Viewport * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*pushWindowMatrix_function_type)( ::osg::Viewport * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "pushWindowMatrix"
@@ -843,8 +843,8 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::reset
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*reset_function_type )(  ) ;
-            typedef void ( IntersectionVisitor_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*reset_function_type)(  ) ;
+            typedef void ( IntersectionVisitor_wrapper::*default_reset_function_type)(  ) ;
             
             IntersectionVisitor_exposer.def( 
                 "reset"
@@ -854,7 +854,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setDoDummyTraversal
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setDoDummyTraversal_function_type )( bool ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setDoDummyTraversal_function_type)( bool ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setDoDummyTraversal"
@@ -864,7 +864,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setIntersector
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setIntersector_function_type )( ::osgUtil::Intersector * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setIntersector_function_type)( ::osgUtil::Intersector * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setIntersector"
@@ -874,7 +874,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setLODSelectionMode
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setLODSelectionMode_function_type )( ::osgUtil::IntersectionVisitor::LODSelectionMode ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setLODSelectionMode_function_type)( ::osgUtil::IntersectionVisitor::LODSelectionMode ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setLODSelectionMode"
@@ -884,7 +884,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setReadCallback
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setReadCallback_function_type )( ::osgUtil::IntersectionVisitor::ReadCallback * ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setReadCallback_function_type)( ::osgUtil::IntersectionVisitor::ReadCallback * ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setReadCallback"
@@ -894,7 +894,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setReferenceEyePoint
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setReferenceEyePoint_function_type )( ::osg::Vec3 const & ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setReferenceEyePoint_function_type)( ::osg::Vec3 const & ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setReferenceEyePoint"
@@ -904,7 +904,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setReferenceEyePointCoordinateFrame
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setReferenceEyePointCoordinateFrame_function_type )( ::osgUtil::Intersector::CoordinateFrame ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setReferenceEyePointCoordinateFrame_function_type)( ::osgUtil::Intersector::CoordinateFrame ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setReferenceEyePointCoordinateFrame"
@@ -914,7 +914,7 @@ void register_IntersectionVisitor_class(){
         }
         { //::osgUtil::IntersectionVisitor::setUseKdTreeWhenAvailable
         
-            typedef void ( ::osgUtil::IntersectionVisitor::*setUseKdTreeWhenAvailable_function_type )( bool ) ;
+            typedef void ( ::osgUtil::IntersectionVisitor::*setUseKdTreeWhenAvailable_function_type)( bool ) ;
             
             IntersectionVisitor_exposer.def( 
                 "setUseKdTreeWhenAvailable"

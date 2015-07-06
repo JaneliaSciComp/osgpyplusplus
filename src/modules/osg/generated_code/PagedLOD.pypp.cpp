@@ -450,8 +450,8 @@ void register_PagedLOD_class(){
         PagedLOD_exposer.def( bp::init< >("\n PagedLOD.\n") );
         { //::osg::PagedLOD::accept
         
-            typedef void ( ::osg::PagedLOD::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( PagedLOD_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::PagedLOD::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( PagedLOD_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             PagedLOD_exposer.def( 
                 "accept"
@@ -462,8 +462,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::addChild
         
-            typedef bool ( ::osg::PagedLOD::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::PagedLOD::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             PagedLOD_exposer.def( 
                 "addChild"
@@ -474,8 +474,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::addChild
         
-            typedef bool ( ::osg::PagedLOD::*addChild_function_type )( ::osg::Node *,float,float ) ;
-            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type )( ::osg::Node *,float,float ) ;
+            typedef bool ( ::osg::PagedLOD::*addChild_function_type)( ::osg::Node *,float,float ) ;
+            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type)( ::osg::Node *,float,float ) ;
             
             PagedLOD_exposer.def( 
                 "addChild"
@@ -486,8 +486,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::addChild
         
-            typedef bool ( ::osg::PagedLOD::*addChild_function_type )( ::osg::Node *,float,float,::std::string const &,float,float ) ;
-            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type )( ::osg::Node *,float,float,::std::string const &,float,float ) ;
+            typedef bool ( ::osg::PagedLOD::*addChild_function_type)( ::osg::Node *,float,float,::std::string const &,float,float ) ;
+            typedef bool ( PagedLOD_wrapper::*default_addChild_function_type)( ::osg::Node *,float,float,::std::string const &,float,float ) ;
             
             PagedLOD_exposer.def( 
                 "addChild"
@@ -498,8 +498,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::className
         
-            typedef char const * ( ::osg::PagedLOD::*className_function_type )(  ) const;
-            typedef char const * ( PagedLOD_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::PagedLOD::*className_function_type)(  ) const;
+            typedef char const * ( PagedLOD_wrapper::*default_className_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "className"
@@ -509,8 +509,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::clone
         
-            typedef ::osg::Object * ( ::osg::PagedLOD::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( PagedLOD_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::PagedLOD::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( PagedLOD_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             PagedLOD_exposer.def( 
                 "clone"
@@ -522,8 +522,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::cloneType
         
-            typedef ::osg::Object * ( ::osg::PagedLOD::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( PagedLOD_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::PagedLOD::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( PagedLOD_wrapper::*default_cloneType_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "cloneType"
@@ -534,7 +534,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDatabaseOptions
         
-            typedef ::osg::Referenced * ( ::osg::PagedLOD::*getDatabaseOptions_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::PagedLOD::*getDatabaseOptions_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "getDatabaseOptions"
@@ -545,7 +545,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDatabaseOptions
         
-            typedef ::osg::Referenced const * ( ::osg::PagedLOD::*getDatabaseOptions_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::PagedLOD::*getDatabaseOptions_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getDatabaseOptions"
@@ -556,7 +556,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDatabasePath
         
-            typedef ::std::string const & ( ::osg::PagedLOD::*getDatabasePath_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::PagedLOD::*getDatabasePath_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getDatabasePath"
@@ -567,7 +567,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDatabaseRequest
         
-            typedef ::osg::ref_ptr< osg::Referenced > & ( ::osg::PagedLOD::*getDatabaseRequest_function_type )( unsigned int ) ;
+            typedef ::osg::ref_ptr< osg::Referenced > & ( ::osg::PagedLOD::*getDatabaseRequest_function_type)( unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "getDatabaseRequest"
@@ -579,7 +579,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDatabaseRequest
         
-            typedef ::osg::ref_ptr< osg::Referenced > const & ( ::osg::PagedLOD::*getDatabaseRequest_function_type )( unsigned int ) const;
+            typedef ::osg::ref_ptr< osg::Referenced > const & ( ::osg::PagedLOD::*getDatabaseRequest_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getDatabaseRequest"
@@ -591,7 +591,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getDisableExternalChildrenPaging
         
-            typedef bool ( ::osg::PagedLOD::*getDisableExternalChildrenPaging_function_type )(  ) const;
+            typedef bool ( ::osg::PagedLOD::*getDisableExternalChildrenPaging_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getDisableExternalChildrenPaging"
@@ -600,7 +600,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getFileName
         
-            typedef ::std::string const & ( ::osg::PagedLOD::*getFileName_function_type )( unsigned int ) const;
+            typedef ::std::string const & ( ::osg::PagedLOD::*getFileName_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getFileName"
@@ -611,7 +611,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getFrameNumber
         
-            typedef unsigned int ( ::osg::PagedLOD::*getFrameNumber_function_type )( unsigned int ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getFrameNumber_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getFrameNumber"
@@ -621,7 +621,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getFrameNumberOfLastTraversal
         
-            typedef unsigned int ( ::osg::PagedLOD::*getFrameNumberOfLastTraversal_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getFrameNumberOfLastTraversal_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getFrameNumberOfLastTraversal"
@@ -631,7 +631,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getMinimumExpiryFrames
         
-            typedef unsigned int ( ::osg::PagedLOD::*getMinimumExpiryFrames_function_type )( unsigned int ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getMinimumExpiryFrames_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getMinimumExpiryFrames"
@@ -641,7 +641,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getMinimumExpiryTime
         
-            typedef double ( ::osg::PagedLOD::*getMinimumExpiryTime_function_type )( unsigned int ) const;
+            typedef double ( ::osg::PagedLOD::*getMinimumExpiryTime_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getMinimumExpiryTime"
@@ -651,7 +651,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumChildrenThatCannotBeExpired
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumChildrenThatCannotBeExpired_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumChildrenThatCannotBeExpired_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumChildrenThatCannotBeExpired"
@@ -661,7 +661,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumFileNames
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumFileNames_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumFileNames_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumFileNames"
@@ -670,7 +670,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumFrameNumbers
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumFrameNumbers_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumFrameNumbers_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumFrameNumbers"
@@ -679,7 +679,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumMinimumExpiryFrames
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumMinimumExpiryFrames_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumMinimumExpiryFrames_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumMinimumExpiryFrames"
@@ -688,7 +688,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumMinimumExpiryTimes
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumMinimumExpiryTimes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumMinimumExpiryTimes_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumMinimumExpiryTimes"
@@ -697,7 +697,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumPriorityOffsets
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumPriorityOffsets_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumPriorityOffsets_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumPriorityOffsets"
@@ -706,7 +706,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumPriorityScales
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumPriorityScales_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumPriorityScales_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumPriorityScales"
@@ -715,7 +715,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getNumTimeStamps
         
-            typedef unsigned int ( ::osg::PagedLOD::*getNumTimeStamps_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PagedLOD::*getNumTimeStamps_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getNumTimeStamps"
@@ -724,7 +724,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getPriorityOffset
         
-            typedef float ( ::osg::PagedLOD::*getPriorityOffset_function_type )( unsigned int ) const;
+            typedef float ( ::osg::PagedLOD::*getPriorityOffset_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getPriorityOffset"
@@ -734,7 +734,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getPriorityScale
         
-            typedef float ( ::osg::PagedLOD::*getPriorityScale_function_type )( unsigned int ) const;
+            typedef float ( ::osg::PagedLOD::*getPriorityScale_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getPriorityScale"
@@ -744,7 +744,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::getTimeStamp
         
-            typedef double ( ::osg::PagedLOD::*getTimeStamp_function_type )( unsigned int ) const;
+            typedef double ( ::osg::PagedLOD::*getTimeStamp_function_type)( unsigned int ) const;
             
             PagedLOD_exposer.def( 
                 "getTimeStamp"
@@ -754,8 +754,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::isSameKindAs
         
-            typedef bool ( ::osg::PagedLOD::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( PagedLOD_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::PagedLOD::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( PagedLOD_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             PagedLOD_exposer.def( 
                 "isSameKindAs"
@@ -766,8 +766,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::libraryName
         
-            typedef char const * ( ::osg::PagedLOD::*libraryName_function_type )(  ) const;
-            typedef char const * ( PagedLOD_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::PagedLOD::*libraryName_function_type)(  ) const;
+            typedef char const * ( PagedLOD_wrapper::*default_libraryName_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "libraryName"
@@ -777,8 +777,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::removeChildren
         
-            typedef bool ( ::osg::PagedLOD::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( PagedLOD_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::PagedLOD::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( PagedLOD_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "removeChildren"
@@ -789,8 +789,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::removeExpiredChildren
         
-            typedef bool ( ::osg::PagedLOD::*removeExpiredChildren_function_type )( double,unsigned int,::osg::NodeList & ) ;
-            typedef bool ( PagedLOD_wrapper::*default_removeExpiredChildren_function_type )( double,unsigned int,::osg::NodeList & ) ;
+            typedef bool ( ::osg::PagedLOD::*removeExpiredChildren_function_type)( double,unsigned int,::osg::NodeList & ) ;
+            typedef bool ( PagedLOD_wrapper::*default_removeExpiredChildren_function_type)( double,unsigned int,::osg::NodeList & ) ;
             
             PagedLOD_exposer.def( 
                 "removeExpiredChildren"
@@ -801,7 +801,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setDatabaseOptions
         
-            typedef void ( ::osg::PagedLOD::*setDatabaseOptions_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::PagedLOD::*setDatabaseOptions_function_type)( ::osg::Referenced * ) ;
             
             PagedLOD_exposer.def( 
                 "setDatabaseOptions"
@@ -812,7 +812,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setDatabasePath
         
-            typedef void ( ::osg::PagedLOD::*setDatabasePath_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::PagedLOD::*setDatabasePath_function_type)( ::std::string const & ) ;
             
             PagedLOD_exposer.def( 
                 "setDatabasePath"
@@ -823,7 +823,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setDisableExternalChildrenPaging
         
-            typedef void ( ::osg::PagedLOD::*setDisableExternalChildrenPaging_function_type )( bool ) ;
+            typedef void ( ::osg::PagedLOD::*setDisableExternalChildrenPaging_function_type)( bool ) ;
             
             PagedLOD_exposer.def( 
                 "setDisableExternalChildrenPaging"
@@ -834,7 +834,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setFileName
         
-            typedef void ( ::osg::PagedLOD::*setFileName_function_type )( unsigned int,::std::string const & ) ;
+            typedef void ( ::osg::PagedLOD::*setFileName_function_type)( unsigned int,::std::string const & ) ;
             
             PagedLOD_exposer.def( 
                 "setFileName"
@@ -844,7 +844,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setFrameNumber
         
-            typedef void ( ::osg::PagedLOD::*setFrameNumber_function_type )( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::PagedLOD::*setFrameNumber_function_type)( unsigned int,unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "setFrameNumber"
@@ -854,7 +854,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setFrameNumberOfLastTraversal
         
-            typedef void ( ::osg::PagedLOD::*setFrameNumberOfLastTraversal_function_type )( unsigned int ) ;
+            typedef void ( ::osg::PagedLOD::*setFrameNumberOfLastTraversal_function_type)( unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "setFrameNumberOfLastTraversal"
@@ -865,7 +865,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setMinimumExpiryFrames
         
-            typedef void ( ::osg::PagedLOD::*setMinimumExpiryFrames_function_type )( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::PagedLOD::*setMinimumExpiryFrames_function_type)( unsigned int,unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "setMinimumExpiryFrames"
@@ -876,7 +876,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setMinimumExpiryTime
         
-            typedef void ( ::osg::PagedLOD::*setMinimumExpiryTime_function_type )( unsigned int,double ) ;
+            typedef void ( ::osg::PagedLOD::*setMinimumExpiryTime_function_type)( unsigned int,double ) ;
             
             PagedLOD_exposer.def( 
                 "setMinimumExpiryTime"
@@ -887,7 +887,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setNumChildrenThatCannotBeExpired
         
-            typedef void ( ::osg::PagedLOD::*setNumChildrenThatCannotBeExpired_function_type )( unsigned int ) ;
+            typedef void ( ::osg::PagedLOD::*setNumChildrenThatCannotBeExpired_function_type)( unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "setNumChildrenThatCannotBeExpired"
@@ -898,7 +898,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setPriorityOffset
         
-            typedef void ( ::osg::PagedLOD::*setPriorityOffset_function_type )( unsigned int,float ) ;
+            typedef void ( ::osg::PagedLOD::*setPriorityOffset_function_type)( unsigned int,float ) ;
             
             PagedLOD_exposer.def( 
                 "setPriorityOffset"
@@ -908,7 +908,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setPriorityScale
         
-            typedef void ( ::osg::PagedLOD::*setPriorityScale_function_type )( unsigned int,float ) ;
+            typedef void ( ::osg::PagedLOD::*setPriorityScale_function_type)( unsigned int,float ) ;
             
             PagedLOD_exposer.def( 
                 "setPriorityScale"
@@ -918,7 +918,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::setTimeStamp
         
-            typedef void ( ::osg::PagedLOD::*setTimeStamp_function_type )( unsigned int,double ) ;
+            typedef void ( ::osg::PagedLOD::*setTimeStamp_function_type)( unsigned int,double ) ;
             
             PagedLOD_exposer.def( 
                 "setTimeStamp"
@@ -928,8 +928,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::PagedLOD::traverse
         
-            typedef void ( ::osg::PagedLOD::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( PagedLOD_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::PagedLOD::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( PagedLOD_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             PagedLOD_exposer.def( 
                 "traverse"
@@ -940,8 +940,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( PagedLOD_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( PagedLOD_wrapper::*default_asCamera_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "asCamera"
@@ -952,8 +952,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( PagedLOD_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( PagedLOD_wrapper::*default_asCamera_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "asCamera"
@@ -964,8 +964,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( PagedLOD_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( PagedLOD_wrapper::*default_asGeode_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "asGeode"
@@ -976,8 +976,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( PagedLOD_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( PagedLOD_wrapper::*default_asGeode_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "asGeode"
@@ -988,8 +988,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( PagedLOD_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( PagedLOD_wrapper::*default_asGroup_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "asGroup"
@@ -1000,8 +1000,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( PagedLOD_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( PagedLOD_wrapper::*default_asGroup_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "asGroup"
@@ -1012,8 +1012,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( PagedLOD_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( PagedLOD_wrapper::*default_asSwitch_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "asSwitch"
@@ -1024,8 +1024,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( PagedLOD_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( PagedLOD_wrapper::*default_asSwitch_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "asSwitch"
@@ -1036,8 +1036,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( PagedLOD_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( PagedLOD_wrapper::*default_asTransform_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "asTransform"
@@ -1048,8 +1048,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( PagedLOD_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( PagedLOD_wrapper::*default_asTransform_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "asTransform"
@@ -1060,8 +1060,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( PagedLOD_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( PagedLOD_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             PagedLOD_exposer.def( 
                 "ascend"
@@ -1072,8 +1072,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::LOD::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::LOD::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( PagedLOD_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::LOD::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( PagedLOD_wrapper::*default_computeBound_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "computeBound"
@@ -1083,8 +1083,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( PagedLOD_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( PagedLOD_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "computeDataVariance"
@@ -1094,8 +1094,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( PagedLOD_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( PagedLOD_wrapper::*default_getUserData_function_type)(  ) ;
             
             PagedLOD_exposer.def( 
                 "getUserData"
@@ -1106,8 +1106,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( PagedLOD_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( PagedLOD_wrapper::*default_getUserData_function_type)(  ) const;
             
             PagedLOD_exposer.def( 
                 "getUserData"
@@ -1118,8 +1118,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( PagedLOD_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( PagedLOD_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             PagedLOD_exposer.def( 
                 "insertChild"
@@ -1130,8 +1130,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( PagedLOD_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( PagedLOD_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             PagedLOD_exposer.def( 
                 "replaceChild"
@@ -1142,8 +1142,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( PagedLOD_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( PagedLOD_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             PagedLOD_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1154,8 +1154,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( PagedLOD_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( PagedLOD_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             PagedLOD_exposer.def( 
                 "setChild"
@@ -1166,8 +1166,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( PagedLOD_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( PagedLOD_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             PagedLOD_exposer.def( 
                 "setName"
@@ -1178,7 +1178,7 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             PagedLOD_exposer.def( 
                 "setName"
@@ -1189,8 +1189,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( PagedLOD_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( PagedLOD_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             PagedLOD_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1201,8 +1201,8 @@ void register_PagedLOD_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( PagedLOD_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( PagedLOD_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             PagedLOD_exposer.def( 
                 "setUserData"

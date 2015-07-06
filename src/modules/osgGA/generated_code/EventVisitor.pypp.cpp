@@ -395,104 +395,104 @@ void register_EventVisitor_class(){
     bp::class_< EventVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgGA::EventVisitor >, boost::noncopyable >( "EventVisitor", "\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n", bp::init< >("\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n") )    
         .def( 
             "addEvent"
-            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIEventAdapter * ) )( &::osgGA::EventVisitor::addEvent )
+            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIEventAdapter * ))( &::osgGA::EventVisitor::addEvent )
             , ( bp::arg("event") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Node & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Node & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Node & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Node & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Geode & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Geode & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Geode & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Geode & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Billboard & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Billboard & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Billboard & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Billboard & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::LightSource & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::LightSource & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::LightSource & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::LightSource & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Group & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Group & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Group & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Group & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Transform & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Transform & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Transform & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Transform & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Projection & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Projection & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Projection & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Projection & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::Switch & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::Switch & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::Switch & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::Switch & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::LOD & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::LOD & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::LOD & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::LOD & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgGA::EventVisitor::* )( ::osg::OccluderNode & ) )(&::osgGA::EventVisitor::apply)
-            , (void ( EventVisitor_wrapper::* )( ::osg::OccluderNode & ) )(&EventVisitor_wrapper::default_apply)
+            , (void ( ::osgGA::EventVisitor::* )( ::osg::OccluderNode & ))(&::osgGA::EventVisitor::apply)
+            , (void ( EventVisitor_wrapper::* )( ::osg::OccluderNode & ))(&EventVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgGA::EventVisitor::* )(  ) const)(&::osgGA::EventVisitor::className)
-            , (char const * ( EventVisitor_wrapper::* )(  ) const)(&EventVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgGA::EventVisitor::* )(  )const)(&::osgGA::EventVisitor::className)
+            , (char const * ( EventVisitor_wrapper::* )(  )const)(&EventVisitor_wrapper::default_className) )    
         .def( 
             "getActionAdapter"
-            , (::osgGA::GUIActionAdapter * ( ::osgGA::EventVisitor::* )(  ) )( &::osgGA::EventVisitor::getActionAdapter )
+            , (::osgGA::GUIActionAdapter * ( ::osgGA::EventVisitor::* )(  ))( &::osgGA::EventVisitor::getActionAdapter )
             , bp::return_internal_reference< >() )    
         .def( 
             "getActionAdapter"
-            , (::osgGA::GUIActionAdapter const * ( ::osgGA::EventVisitor::* )(  ) const)( &::osgGA::EventVisitor::getActionAdapter )
+            , (::osgGA::GUIActionAdapter const * ( ::osgGA::EventVisitor::* )(  )const)( &::osgGA::EventVisitor::getActionAdapter )
             , bp::return_internal_reference< >() )    
         .def( 
             "getEventHandled"
-            , (bool ( ::osgGA::EventVisitor::* )(  ) const)( &::osgGA::EventVisitor::getEventHandled ) )    
+            , (bool ( ::osgGA::EventVisitor::* )(  )const)( &::osgGA::EventVisitor::getEventHandled ) )    
         .def( 
             "getEvents"
-            , (::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ( ::osgGA::EventVisitor::* )(  ) )( &::osgGA::EventVisitor::getEvents )
+            , (::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ( ::osgGA::EventVisitor::* )(  ))( &::osgGA::EventVisitor::getEvents )
             , bp::return_internal_reference< >() )    
         .def( 
             "getEvents"
-            , (::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ( ::osgGA::EventVisitor::* )(  ) const)( &::osgGA::EventVisitor::getEvents )
+            , (::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ( ::osgGA::EventVisitor::* )(  )const)( &::osgGA::EventVisitor::getEvents )
             , bp::return_internal_reference< >() )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgGA::EventVisitor::* )(  ) const)(&::osgGA::EventVisitor::libraryName)
-            , (char const * ( EventVisitor_wrapper::* )(  ) const)(&EventVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osgGA::EventVisitor::* )(  )const)(&::osgGA::EventVisitor::libraryName)
+            , (char const * ( EventVisitor_wrapper::* )(  )const)(&EventVisitor_wrapper::default_libraryName) )    
         .def( 
             "removeEvent"
-            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIEventAdapter * ) )( &::osgGA::EventVisitor::removeEvent )
+            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIEventAdapter * ))( &::osgGA::EventVisitor::removeEvent )
             , ( bp::arg("event") ) )    
         .def( 
             "reset"
-            , (void ( ::osgGA::EventVisitor::* )(  ) )(&::osgGA::EventVisitor::reset)
-            , (void ( EventVisitor_wrapper::* )(  ) )(&EventVisitor_wrapper::default_reset) )    
+            , (void ( ::osgGA::EventVisitor::* )(  ))(&::osgGA::EventVisitor::reset)
+            , (void ( EventVisitor_wrapper::* )(  ))(&EventVisitor_wrapper::default_reset) )    
         .def( 
             "setActionAdapter"
-            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIActionAdapter * ) )( &::osgGA::EventVisitor::setActionAdapter )
+            , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIActionAdapter * ))( &::osgGA::EventVisitor::setActionAdapter )
             , ( bp::arg("actionAdapter") ) )    
         .def( 
             "setEventHandled"
-            , (void ( ::osgGA::EventVisitor::* )( bool ) )( &::osgGA::EventVisitor::setEventHandled )
+            , (void ( ::osgGA::EventVisitor::* )( bool ))( &::osgGA::EventVisitor::setEventHandled )
             , ( bp::arg("handled") ) )    
         .def( 
             "setEvents"
-            , (void ( ::osgGA::EventVisitor::* )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ) )( &::osgGA::EventVisitor::setEvents )
+            , (void ( ::osgGA::EventVisitor::* )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ))( &::osgGA::EventVisitor::setEvents )
             , ( bp::arg("events") ) );
 
 }

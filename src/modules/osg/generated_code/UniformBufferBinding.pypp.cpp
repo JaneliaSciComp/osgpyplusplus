@@ -271,8 +271,8 @@ void register_UniformBufferBinding_class(){
         UniformBufferBinding_exposer.def( bp::init< GLuint, osg::BufferObject *, GLintptr, GLsizeiptr >(( bp::arg("index"), bp::arg("bo"), bp::arg("offset"), bp::arg("size") ), "\n Create a binding for a uniform buffer index target.\n  @param index: the index target\n  @param bo: associated buffer object\n  @param offset: offset into buffer object\n  @param size: size of data in buffer object\n") );
         { //::osg::UniformBufferBinding::className
         
-            typedef char const * ( ::osg::UniformBufferBinding::*className_function_type )(  ) const;
-            typedef char const * ( UniformBufferBinding_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::UniformBufferBinding::*className_function_type)(  ) const;
+            typedef char const * ( UniformBufferBinding_wrapper::*default_className_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "className"
@@ -282,8 +282,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::UniformBufferBinding::clone
         
-            typedef ::osg::Object * ( ::osg::UniformBufferBinding::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( UniformBufferBinding_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::UniformBufferBinding::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( UniformBufferBinding_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             UniformBufferBinding_exposer.def( 
                 "clone"
@@ -295,8 +295,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::UniformBufferBinding::cloneType
         
-            typedef ::osg::Object * ( ::osg::UniformBufferBinding::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( UniformBufferBinding_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::UniformBufferBinding::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( UniformBufferBinding_wrapper::*default_cloneType_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "cloneType"
@@ -307,8 +307,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::UniformBufferBinding::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::UniformBufferBinding::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( UniformBufferBinding_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::UniformBufferBinding::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( UniformBufferBinding_wrapper::*default_getType_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "getType"
@@ -318,8 +318,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::UniformBufferBinding::isSameKindAs
         
-            typedef bool ( ::osg::UniformBufferBinding::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( UniformBufferBinding_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::UniformBufferBinding::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( UniformBufferBinding_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             UniformBufferBinding_exposer.def( 
                 "isSameKindAs"
@@ -330,8 +330,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::UniformBufferBinding::libraryName
         
-            typedef char const * ( ::osg::UniformBufferBinding::*libraryName_function_type )(  ) const;
-            typedef char const * ( UniformBufferBinding_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::UniformBufferBinding::*libraryName_function_type)(  ) const;
+            typedef char const * ( UniformBufferBinding_wrapper::*default_libraryName_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "libraryName"
@@ -341,8 +341,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( UniformBufferBinding_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( UniformBufferBinding_wrapper::*default_asTexture_function_type)(  ) ;
             
             UniformBufferBinding_exposer.def( 
                 "asTexture"
@@ -353,8 +353,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( UniformBufferBinding_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( UniformBufferBinding_wrapper::*default_asTexture_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "asTexture"
@@ -365,8 +365,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( UniformBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( UniformBufferBinding_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             UniformBufferBinding_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -377,8 +377,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( UniformBufferBinding_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( UniformBufferBinding_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             UniformBufferBinding_exposer.def( 
                 "compileGLObjects"
@@ -389,8 +389,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( UniformBufferBinding_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( UniformBufferBinding_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             UniformBufferBinding_exposer.def( 
                 "computeDataVariance"
@@ -400,8 +400,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( UniformBufferBinding_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( UniformBufferBinding_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             UniformBufferBinding_exposer.def( 
                 "getModeUsage"
@@ -412,8 +412,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( UniformBufferBinding_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( UniformBufferBinding_wrapper::*default_getUserData_function_type)(  ) ;
             
             UniformBufferBinding_exposer.def( 
                 "getUserData"
@@ -424,8 +424,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( UniformBufferBinding_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( UniformBufferBinding_wrapper::*default_getUserData_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "getUserData"
@@ -436,8 +436,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( UniformBufferBinding_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( UniformBufferBinding_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             UniformBufferBinding_exposer.def( 
                 "isTextureAttribute"
@@ -447,8 +447,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( UniformBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( UniformBufferBinding_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             UniformBufferBinding_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -459,8 +459,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( UniformBufferBinding_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( UniformBufferBinding_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             UniformBufferBinding_exposer.def( 
                 "setName"
@@ -471,7 +471,7 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             UniformBufferBinding_exposer.def( 
                 "setName"
@@ -482,8 +482,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( UniformBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( UniformBufferBinding_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             UniformBufferBinding_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -494,8 +494,8 @@ void register_UniformBufferBinding_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( UniformBufferBinding_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( UniformBufferBinding_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             UniformBufferBinding_exposer.def( 
                 "setUserData"

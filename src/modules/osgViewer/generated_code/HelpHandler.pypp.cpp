@@ -195,7 +195,7 @@ void register_HelpHandler_class(){
         bp::implicitly_convertible< osg::ApplicationUsage *, osgViewer::HelpHandler >();
         { //::osgViewer::HelpHandler::getApplicationUsage
         
-            typedef ::osg::ApplicationUsage * ( ::osgViewer::HelpHandler::*getApplicationUsage_function_type )(  ) ;
+            typedef ::osg::ApplicationUsage * ( ::osgViewer::HelpHandler::*getApplicationUsage_function_type)(  ) ;
             
             HelpHandler_exposer.def( 
                 "getApplicationUsage"
@@ -205,7 +205,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::getApplicationUsage
         
-            typedef ::osg::ApplicationUsage const * ( ::osgViewer::HelpHandler::*getApplicationUsage_function_type )(  ) const;
+            typedef ::osg::ApplicationUsage const * ( ::osgViewer::HelpHandler::*getApplicationUsage_function_type)(  ) const;
             
             HelpHandler_exposer.def( 
                 "getApplicationUsage"
@@ -215,7 +215,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::getCamera
         
-            typedef ::osg::Camera * ( ::osgViewer::HelpHandler::*getCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osgViewer::HelpHandler::*getCamera_function_type)(  ) ;
             
             HelpHandler_exposer.def( 
                 "getCamera"
@@ -225,7 +225,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::getCamera
         
-            typedef ::osg::Camera const * ( ::osgViewer::HelpHandler::*getCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osgViewer::HelpHandler::*getCamera_function_type)(  ) const;
             
             HelpHandler_exposer.def( 
                 "getCamera"
@@ -235,7 +235,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::getKeyEventTogglesOnScreenHelp
         
-            typedef int ( ::osgViewer::HelpHandler::*getKeyEventTogglesOnScreenHelp_function_type )(  ) const;
+            typedef int ( ::osgViewer::HelpHandler::*getKeyEventTogglesOnScreenHelp_function_type)(  ) const;
             
             HelpHandler_exposer.def( 
                 "getKeyEventTogglesOnScreenHelp"
@@ -244,8 +244,8 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::getUsage
         
-            typedef void ( ::osgViewer::HelpHandler::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
-            typedef void ( HelpHandler_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::HelpHandler::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( HelpHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             HelpHandler_exposer.def( 
                 "getUsage"
@@ -256,7 +256,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::reset
         
-            typedef void ( ::osgViewer::HelpHandler::*reset_function_type )(  ) ;
+            typedef void ( ::osgViewer::HelpHandler::*reset_function_type)(  ) ;
             
             HelpHandler_exposer.def( 
                 "reset"
@@ -265,7 +265,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::setApplicationUsage
         
-            typedef void ( ::osgViewer::HelpHandler::*setApplicationUsage_function_type )( ::osg::ApplicationUsage * ) ;
+            typedef void ( ::osgViewer::HelpHandler::*setApplicationUsage_function_type)( ::osg::ApplicationUsage * ) ;
             
             HelpHandler_exposer.def( 
                 "setApplicationUsage"
@@ -275,7 +275,7 @@ void register_HelpHandler_class(){
         }
         { //::osgViewer::HelpHandler::setKeyEventTogglesOnScreenHelp
         
-            typedef void ( ::osgViewer::HelpHandler::*setKeyEventTogglesOnScreenHelp_function_type )( int ) ;
+            typedef void ( ::osgViewer::HelpHandler::*setKeyEventTogglesOnScreenHelp_function_type)( int ) ;
             
             HelpHandler_exposer.def( 
                 "setKeyEventTogglesOnScreenHelp"

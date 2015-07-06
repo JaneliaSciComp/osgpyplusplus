@@ -507,7 +507,7 @@ void register_CullVisitor_class(){
         CullVisitor_exposer.def( bp::init< >() );
         { //::osgUtil::CullVisitor::addDrawable
         
-            typedef void ( ::osgUtil::CullVisitor::*addDrawable_function_type )( ::osg::Drawable *,::osg::RefMatrix * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*addDrawable_function_type)( ::osg::Drawable *,::osg::RefMatrix * ) ;
             
             CullVisitor_exposer.def( 
                 "addDrawable"
@@ -517,7 +517,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::addDrawableAndDepth
         
-            typedef void ( ::osgUtil::CullVisitor::*addDrawableAndDepth_function_type )( ::osg::Drawable *,::osg::RefMatrix *,float ) ;
+            typedef void ( ::osgUtil::CullVisitor::*addDrawableAndDepth_function_type)( ::osg::Drawable *,::osg::RefMatrix *,float ) ;
             
             CullVisitor_exposer.def( 
                 "addDrawableAndDepth"
@@ -527,7 +527,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::addPositionedAttribute
         
-            typedef void ( ::osgUtil::CullVisitor::*addPositionedAttribute_function_type )( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*addPositionedAttribute_function_type)( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
             
             CullVisitor_exposer.def( 
                 "addPositionedAttribute"
@@ -537,7 +537,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::addPositionedTextureAttribute
         
-            typedef void ( ::osgUtil::CullVisitor::*addPositionedTextureAttribute_function_type )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*addPositionedTextureAttribute_function_type)( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
             
             CullVisitor_exposer.def( 
                 "addPositionedTextureAttribute"
@@ -547,8 +547,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Node & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Node & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -559,8 +559,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -571,8 +571,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Billboard & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Billboard & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -583,8 +583,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::LightSource & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::LightSource & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::LightSource & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::LightSource & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -595,8 +595,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::ClipNode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::ClipNode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::ClipNode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::ClipNode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -607,8 +607,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::TexGenNode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::TexGenNode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::TexGenNode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::TexGenNode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -619,8 +619,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Group & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Group & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -631,8 +631,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Transform & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Transform & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -643,8 +643,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Projection & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Projection & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Projection & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Projection & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -655,8 +655,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Switch & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Switch & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Switch & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Switch & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -667,8 +667,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::LOD & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::LOD & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -679,8 +679,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::ClearNode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::ClearNode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::ClearNode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::ClearNode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -691,8 +691,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::Camera & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::Camera & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::Camera & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::Camera & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -703,8 +703,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::OccluderNode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::OccluderNode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::OccluderNode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::OccluderNode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -715,8 +715,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::apply
         
-            typedef void ( ::osgUtil::CullVisitor::*apply_function_type )( ::osg::OcclusionQueryNode & ) ;
-            typedef void ( CullVisitor_wrapper::*default_apply_function_type )( ::osg::OcclusionQueryNode & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*apply_function_type)( ::osg::OcclusionQueryNode & ) ;
+            typedef void ( CullVisitor_wrapper::*default_apply_function_type)( ::osg::OcclusionQueryNode & ) ;
             
             CullVisitor_exposer.def( 
                 "apply"
@@ -727,7 +727,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::clampProjectionMatrix
         
-            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrix_function_type )( ::osg::Matrixf &,double &,double & ) const;
+            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrix_function_type)( ::osg::Matrixf &,double &,double & ) const;
             
             CullVisitor_exposer.def( 
                 "clampProjectionMatrix"
@@ -737,7 +737,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::clampProjectionMatrix
         
-            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrix_function_type )( ::osg::Matrixd &,double &,double & ) const;
+            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrix_function_type)( ::osg::Matrixd &,double &,double & ) const;
             
             CullVisitor_exposer.def( 
                 "clampProjectionMatrix"
@@ -747,8 +747,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::clampProjectionMatrixImplementation
         
-            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrixImplementation_function_type )( ::osg::Matrixf &,double &,double & ) const;
-            typedef bool ( CullVisitor_wrapper::*default_clampProjectionMatrixImplementation_function_type )( ::osg::Matrixf &,double &,double & ) const;
+            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrixImplementation_function_type)( ::osg::Matrixf &,double &,double & ) const;
+            typedef bool ( CullVisitor_wrapper::*default_clampProjectionMatrixImplementation_function_type)( ::osg::Matrixf &,double &,double & ) const;
             
             CullVisitor_exposer.def( 
                 "clampProjectionMatrixImplementation"
@@ -759,8 +759,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::clampProjectionMatrixImplementation
         
-            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrixImplementation_function_type )( ::osg::Matrixd &,double &,double & ) const;
-            typedef bool ( CullVisitor_wrapper::*default_clampProjectionMatrixImplementation_function_type )( ::osg::Matrixd &,double &,double & ) const;
+            typedef bool ( ::osgUtil::CullVisitor::*clampProjectionMatrixImplementation_function_type)( ::osg::Matrixd &,double &,double & ) const;
+            typedef bool ( CullVisitor_wrapper::*default_clampProjectionMatrixImplementation_function_type)( ::osg::Matrixd &,double &,double & ) const;
             
             CullVisitor_exposer.def( 
                 "clampProjectionMatrixImplementation"
@@ -771,8 +771,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::className
         
-            typedef char const * ( ::osgUtil::CullVisitor::*className_function_type )(  ) const;
-            typedef char const * ( CullVisitor_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::CullVisitor::*className_function_type)(  ) const;
+            typedef char const * ( CullVisitor_wrapper::*default_className_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "className"
@@ -782,8 +782,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::clone
         
-            typedef ::osgUtil::CullVisitor * ( ::osgUtil::CullVisitor::*clone_function_type )(  ) const;
-            typedef ::osgUtil::CullVisitor * ( CullVisitor_wrapper::*default_clone_function_type )(  ) const;
+            typedef ::osgUtil::CullVisitor * ( ::osgUtil::CullVisitor::*clone_function_type)(  ) const;
+            typedef ::osgUtil::CullVisitor * ( CullVisitor_wrapper::*default_clone_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "clone"
@@ -794,7 +794,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::computeNearPlane
         
-            typedef void ( ::osgUtil::CullVisitor::*computeNearPlane_function_type )(  ) ;
+            typedef void ( ::osgUtil::CullVisitor::*computeNearPlane_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "computeNearPlane"
@@ -813,7 +813,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCalculatedFarPlane
         
-            typedef double ( ::osgUtil::CullVisitor::*getCalculatedFarPlane_function_type )(  ) const;
+            typedef double ( ::osgUtil::CullVisitor::*getCalculatedFarPlane_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getCalculatedFarPlane"
@@ -822,7 +822,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCalculatedNearPlane
         
-            typedef double ( ::osgUtil::CullVisitor::*getCalculatedNearPlane_function_type )(  ) const;
+            typedef double ( ::osgUtil::CullVisitor::*getCalculatedNearPlane_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getCalculatedNearPlane"
@@ -831,7 +831,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCurrentCamera
         
-            typedef ::osg::Camera * ( ::osgUtil::CullVisitor::*getCurrentCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osgUtil::CullVisitor::*getCurrentCamera_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getCurrentCamera"
@@ -841,7 +841,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCurrentRenderBin
         
-            typedef ::osgUtil::RenderBin * ( ::osgUtil::CullVisitor::*getCurrentRenderBin_function_type )(  ) ;
+            typedef ::osgUtil::RenderBin * ( ::osgUtil::CullVisitor::*getCurrentRenderBin_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getCurrentRenderBin"
@@ -851,7 +851,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCurrentRenderStage
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::CullVisitor::*getCurrentRenderStage_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::CullVisitor::*getCurrentRenderStage_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getCurrentRenderStage"
@@ -861,7 +861,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getCurrentStateGraph
         
-            typedef ::osgUtil::StateGraph * ( ::osgUtil::CullVisitor::*getCurrentStateGraph_function_type )(  ) ;
+            typedef ::osgUtil::StateGraph * ( ::osgUtil::CullVisitor::*getCurrentStateGraph_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getCurrentStateGraph"
@@ -871,8 +871,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getDistanceFromEyePoint
         
-            typedef float ( ::osgUtil::CullVisitor::*getDistanceFromEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
-            typedef float ( CullVisitor_wrapper::*default_getDistanceFromEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osgUtil::CullVisitor::*getDistanceFromEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( CullVisitor_wrapper::*default_getDistanceFromEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
             
             CullVisitor_exposer.def( 
                 "getDistanceFromEyePoint"
@@ -883,8 +883,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getDistanceToEyePoint
         
-            typedef float ( ::osgUtil::CullVisitor::*getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
-            typedef float ( CullVisitor_wrapper::*default_getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osgUtil::CullVisitor::*getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( CullVisitor_wrapper::*default_getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
             
             CullVisitor_exposer.def( 
                 "getDistanceToEyePoint"
@@ -895,8 +895,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getDistanceToViewPoint
         
-            typedef float ( ::osgUtil::CullVisitor::*getDistanceToViewPoint_function_type )( ::osg::Vec3 const &,bool ) const;
-            typedef float ( CullVisitor_wrapper::*default_getDistanceToViewPoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osgUtil::CullVisitor::*getDistanceToViewPoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( CullVisitor_wrapper::*default_getDistanceToViewPoint_function_type)( ::osg::Vec3 const &,bool ) const;
             
             CullVisitor_exposer.def( 
                 "getDistanceToViewPoint"
@@ -907,8 +907,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getEyePoint
         
-            typedef ::osg::Vec3 ( ::osgUtil::CullVisitor::*getEyePoint_function_type )(  ) const;
-            typedef ::osg::Vec3 ( CullVisitor_wrapper::*default_getEyePoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ::osgUtil::CullVisitor::*getEyePoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( CullVisitor_wrapper::*default_getEyePoint_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getEyePoint"
@@ -918,7 +918,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getIdentifier
         
-            typedef ::osgUtil::CullVisitor::Identifier * ( ::osgUtil::CullVisitor::*getIdentifier_function_type )(  ) ;
+            typedef ::osgUtil::CullVisitor::Identifier * ( ::osgUtil::CullVisitor::*getIdentifier_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getIdentifier"
@@ -928,7 +928,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getIdentifier
         
-            typedef ::osgUtil::CullVisitor::Identifier const * ( ::osgUtil::CullVisitor::*getIdentifier_function_type )(  ) const;
+            typedef ::osgUtil::CullVisitor::Identifier const * ( ::osgUtil::CullVisitor::*getIdentifier_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getIdentifier"
@@ -938,7 +938,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getRenderInfo
         
-            typedef ::osg::RenderInfo & ( ::osgUtil::CullVisitor::*getRenderInfo_function_type )(  ) ;
+            typedef ::osg::RenderInfo & ( ::osgUtil::CullVisitor::*getRenderInfo_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getRenderInfo"
@@ -948,7 +948,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getRenderInfo
         
-            typedef ::osg::RenderInfo const & ( ::osgUtil::CullVisitor::*getRenderInfo_function_type )(  ) const;
+            typedef ::osg::RenderInfo const & ( ::osgUtil::CullVisitor::*getRenderInfo_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getRenderInfo"
@@ -958,7 +958,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getRenderStage
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::CullVisitor::*getRenderStage_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::CullVisitor::*getRenderStage_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getRenderStage"
@@ -968,7 +968,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getRootStateGraph
         
-            typedef ::osgUtil::StateGraph * ( ::osgUtil::CullVisitor::*getRootStateGraph_function_type )(  ) ;
+            typedef ::osgUtil::StateGraph * ( ::osgUtil::CullVisitor::*getRootStateGraph_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getRootStateGraph"
@@ -978,7 +978,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getState
         
-            typedef ::osg::State * ( ::osgUtil::CullVisitor::*getState_function_type )(  ) ;
+            typedef ::osg::State * ( ::osgUtil::CullVisitor::*getState_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "getState"
@@ -988,7 +988,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getState
         
-            typedef ::osg::State const * ( ::osgUtil::CullVisitor::*getState_function_type )(  ) const;
+            typedef ::osg::State const * ( ::osgUtil::CullVisitor::*getState_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getState"
@@ -998,8 +998,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::getViewPoint
         
-            typedef ::osg::Vec3 ( ::osgUtil::CullVisitor::*getViewPoint_function_type )(  ) const;
-            typedef ::osg::Vec3 ( CullVisitor_wrapper::*default_getViewPoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ::osgUtil::CullVisitor::*getViewPoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( CullVisitor_wrapper::*default_getViewPoint_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "getViewPoint"
@@ -1009,8 +1009,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::libraryName
         
-            typedef char const * ( ::osgUtil::CullVisitor::*libraryName_function_type )(  ) const;
-            typedef char const * ( CullVisitor_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::CullVisitor::*libraryName_function_type)(  ) const;
+            typedef char const * ( CullVisitor_wrapper::*default_libraryName_function_type)(  ) const;
             
             CullVisitor_exposer.def( 
                 "libraryName"
@@ -1020,8 +1020,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::popProjectionMatrix
         
-            typedef void ( ::osgUtil::CullVisitor::*popProjectionMatrix_function_type )(  ) ;
-            typedef void ( CullVisitor_wrapper::*default_popProjectionMatrix_function_type )(  ) ;
+            typedef void ( ::osgUtil::CullVisitor::*popProjectionMatrix_function_type)(  ) ;
+            typedef void ( CullVisitor_wrapper::*default_popProjectionMatrix_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "popProjectionMatrix"
@@ -1031,7 +1031,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::popStateSet
         
-            typedef void ( ::osgUtil::CullVisitor::*popStateSet_function_type )(  ) ;
+            typedef void ( ::osgUtil::CullVisitor::*popStateSet_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "popStateSet"
@@ -1050,7 +1050,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::pushStateSet
         
-            typedef void ( ::osgUtil::CullVisitor::*pushStateSet_function_type )( ::osg::StateSet const * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*pushStateSet_function_type)( ::osg::StateSet const * ) ;
             
             CullVisitor_exposer.def( 
                 "pushStateSet"
@@ -1060,8 +1060,8 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::reset
         
-            typedef void ( ::osgUtil::CullVisitor::*reset_function_type )(  ) ;
-            typedef void ( CullVisitor_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::CullVisitor::*reset_function_type)(  ) ;
+            typedef void ( CullVisitor_wrapper::*default_reset_function_type)(  ) ;
             
             CullVisitor_exposer.def( 
                 "reset"
@@ -1071,7 +1071,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setCalculatedFarPlane
         
-            typedef void ( ::osgUtil::CullVisitor::*setCalculatedFarPlane_function_type )( double ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setCalculatedFarPlane_function_type)( double ) ;
             
             CullVisitor_exposer.def( 
                 "setCalculatedFarPlane"
@@ -1081,7 +1081,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setCalculatedNearPlane
         
-            typedef void ( ::osgUtil::CullVisitor::*setCalculatedNearPlane_function_type )( double ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setCalculatedNearPlane_function_type)( double ) ;
             
             CullVisitor_exposer.def( 
                 "setCalculatedNearPlane"
@@ -1091,7 +1091,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setCurrentRenderBin
         
-            typedef void ( ::osgUtil::CullVisitor::*setCurrentRenderBin_function_type )( ::osgUtil::RenderBin * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setCurrentRenderBin_function_type)( ::osgUtil::RenderBin * ) ;
             
             CullVisitor_exposer.def( 
                 "setCurrentRenderBin"
@@ -1101,7 +1101,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setIdentifier
         
-            typedef void ( ::osgUtil::CullVisitor::*setIdentifier_function_type )( ::osgUtil::CullVisitor::Identifier * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setIdentifier_function_type)( ::osgUtil::CullVisitor::Identifier * ) ;
             
             CullVisitor_exposer.def( 
                 "setIdentifier"
@@ -1111,7 +1111,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setRenderInfo
         
-            typedef void ( ::osgUtil::CullVisitor::*setRenderInfo_function_type )( ::osg::RenderInfo & ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setRenderInfo_function_type)( ::osg::RenderInfo & ) ;
             
             CullVisitor_exposer.def( 
                 "setRenderInfo"
@@ -1121,7 +1121,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setRenderStage
         
-            typedef void ( ::osgUtil::CullVisitor::*setRenderStage_function_type )( ::osgUtil::RenderStage * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setRenderStage_function_type)( ::osgUtil::RenderStage * ) ;
             
             CullVisitor_exposer.def( 
                 "setRenderStage"
@@ -1131,7 +1131,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setState
         
-            typedef void ( ::osgUtil::CullVisitor::*setState_function_type )( ::osg::State * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setState_function_type)( ::osg::State * ) ;
             
             CullVisitor_exposer.def( 
                 "setState"
@@ -1141,7 +1141,7 @@ void register_CullVisitor_class(){
         }
         { //::osgUtil::CullVisitor::setStateGraph
         
-            typedef void ( ::osgUtil::CullVisitor::*setStateGraph_function_type )( ::osgUtil::StateGraph * ) ;
+            typedef void ( ::osgUtil::CullVisitor::*setStateGraph_function_type)( ::osgUtil::StateGraph * ) ;
             
             CullVisitor_exposer.def( 
                 "setStateGraph"

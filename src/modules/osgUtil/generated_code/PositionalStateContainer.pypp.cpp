@@ -216,55 +216,55 @@ void register_PositionalStateContainer_class(){
         .def( bp::init< >() )    
         .def( 
             "addPositionedAttribute"
-            , (void ( ::osgUtil::PositionalStateContainer::* )( ::osg::RefMatrix *,::osg::StateAttribute const * ) )(&::osgUtil::PositionalStateContainer::addPositionedAttribute)
-            , (void ( PositionalStateContainer_wrapper::* )( ::osg::RefMatrix *,::osg::StateAttribute const * ) )(&PositionalStateContainer_wrapper::default_addPositionedAttribute)
+            , (void ( ::osgUtil::PositionalStateContainer::* )( ::osg::RefMatrix *,::osg::StateAttribute const * ))(&::osgUtil::PositionalStateContainer::addPositionedAttribute)
+            , (void ( PositionalStateContainer_wrapper::* )( ::osg::RefMatrix *,::osg::StateAttribute const * ))(&PositionalStateContainer_wrapper::default_addPositionedAttribute)
             , ( bp::arg("matrix"), bp::arg("attr") ) )    
         .def( 
             "addPositionedTextureAttribute"
-            , (void ( ::osgUtil::PositionalStateContainer::* )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) )(&::osgUtil::PositionalStateContainer::addPositionedTextureAttribute)
-            , (void ( PositionalStateContainer_wrapper::* )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) )(&PositionalStateContainer_wrapper::default_addPositionedTextureAttribute)
+            , (void ( ::osgUtil::PositionalStateContainer::* )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ))(&::osgUtil::PositionalStateContainer::addPositionedTextureAttribute)
+            , (void ( PositionalStateContainer_wrapper::* )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ))(&PositionalStateContainer_wrapper::default_addPositionedTextureAttribute)
             , ( bp::arg("textureUnit"), bp::arg("matrix"), bp::arg("attr") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::PositionalStateContainer::* )(  ) const)(&::osgUtil::PositionalStateContainer::className)
-            , (char const * ( PositionalStateContainer_wrapper::* )(  ) const)(&PositionalStateContainer_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::PositionalStateContainer::* )(  )const)(&::osgUtil::PositionalStateContainer::className)
+            , (char const * ( PositionalStateContainer_wrapper::* )(  )const)(&PositionalStateContainer_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgUtil::PositionalStateContainer::* )( ::osg::CopyOp const & ) const)(&::osgUtil::PositionalStateContainer::clone)
-            , (::osg::Object * ( PositionalStateContainer_wrapper::* )( ::osg::CopyOp const & ) const)(&PositionalStateContainer_wrapper::default_clone)
+            , (::osg::Object * ( ::osgUtil::PositionalStateContainer::* )( ::osg::CopyOp const & )const)(&::osgUtil::PositionalStateContainer::clone)
+            , (::osg::Object * ( PositionalStateContainer_wrapper::* )( ::osg::CopyOp const & )const)(&PositionalStateContainer_wrapper::default_clone)
             , ( bp::arg("arg0") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgUtil::PositionalStateContainer::* )(  ) const)(&::osgUtil::PositionalStateContainer::cloneType)
-            , (::osg::Object * ( PositionalStateContainer_wrapper::* )(  ) const)(&PositionalStateContainer_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgUtil::PositionalStateContainer::* )(  )const)(&::osgUtil::PositionalStateContainer::cloneType)
+            , (::osg::Object * ( PositionalStateContainer_wrapper::* )(  )const)(&PositionalStateContainer_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "draw"
-            , (void ( ::osgUtil::PositionalStateContainer::* )( ::osg::State &,::osgUtil::RenderLeaf * &,::osg::Matrix const * ) )(&::osgUtil::PositionalStateContainer::draw)
-            , (void ( PositionalStateContainer_wrapper::* )( ::osg::State &,::osgUtil::RenderLeaf * &,::osg::Matrix const * ) )(&PositionalStateContainer_wrapper::default_draw)
+            , (void ( ::osgUtil::PositionalStateContainer::* )( ::osg::State &,::osgUtil::RenderLeaf * &,::osg::Matrix const * ))(&::osgUtil::PositionalStateContainer::draw)
+            , (void ( PositionalStateContainer_wrapper::* )( ::osg::State &,::osgUtil::RenderLeaf * &,::osg::Matrix const * ))(&PositionalStateContainer_wrapper::default_draw)
             , ( bp::arg("state"), bp::arg("previous"), bp::arg("postMultMatrix")=bp::object() ) )    
         .def( 
             "getAttrMatrixList"
-            , (::std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > > & ( ::osgUtil::PositionalStateContainer::* )(  ) )( &::osgUtil::PositionalStateContainer::getAttrMatrixList )
+            , (::std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > > & ( ::osgUtil::PositionalStateContainer::* )(  ))( &::osgUtil::PositionalStateContainer::getAttrMatrixList )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTexUnitAttrMatrixListMap"
-            , (::std::map< unsigned int, std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > > > & ( ::osgUtil::PositionalStateContainer::* )(  ) )( &::osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap )
+            , (::std::map< unsigned int, std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > > > & ( ::osgUtil::PositionalStateContainer::* )(  ))( &::osgUtil::PositionalStateContainer::getTexUnitAttrMatrixListMap )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgUtil::PositionalStateContainer::* )( ::osg::Object const * ) const)(&::osgUtil::PositionalStateContainer::isSameKindAs)
-            , (bool ( PositionalStateContainer_wrapper::* )( ::osg::Object const * ) const)(&PositionalStateContainer_wrapper::default_isSameKindAs)
+            , (bool ( ::osgUtil::PositionalStateContainer::* )( ::osg::Object const * )const)(&::osgUtil::PositionalStateContainer::isSameKindAs)
+            , (bool ( PositionalStateContainer_wrapper::* )( ::osg::Object const * )const)(&PositionalStateContainer_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::PositionalStateContainer::* )(  ) const)(&::osgUtil::PositionalStateContainer::libraryName)
-            , (char const * ( PositionalStateContainer_wrapper::* )(  ) const)(&PositionalStateContainer_wrapper::default_libraryName) )    
+            , (char const * ( ::osgUtil::PositionalStateContainer::* )(  )const)(&::osgUtil::PositionalStateContainer::libraryName)
+            , (char const * ( PositionalStateContainer_wrapper::* )(  )const)(&PositionalStateContainer_wrapper::default_libraryName) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::PositionalStateContainer::* )(  ) )(&::osgUtil::PositionalStateContainer::reset)
-            , (void ( PositionalStateContainer_wrapper::* )(  ) )(&PositionalStateContainer_wrapper::default_reset) )    
+            , (void ( ::osgUtil::PositionalStateContainer::* )(  ))(&::osgUtil::PositionalStateContainer::reset)
+            , (void ( PositionalStateContainer_wrapper::* )(  ))(&PositionalStateContainer_wrapper::default_reset) )    
         .def_readwrite( "_attrList", &osgUtil::PositionalStateContainer::_attrList )    
         .def_readwrite( "_texAttrListMap", &osgUtil::PositionalStateContainer::_texAttrListMap );
 

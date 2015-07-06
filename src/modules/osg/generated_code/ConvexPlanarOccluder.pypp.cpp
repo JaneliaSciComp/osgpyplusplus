@@ -168,94 +168,94 @@ void register_ConvexPlanarOccluder_class(){
         .def( bp::init< >("\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n") )    
         .def( 
             "addHole"
-            , (void ( ::osg::ConvexPlanarOccluder::* )( ::osg::ConvexPlanarPolygon const & ) )( &::osg::ConvexPlanarOccluder::addHole )
+            , (void ( ::osg::ConvexPlanarOccluder::* )( ::osg::ConvexPlanarPolygon const & ))( &::osg::ConvexPlanarOccluder::addHole )
             , ( bp::arg("cpp") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::ConvexPlanarOccluder::* )(  ) const)(&::osg::ConvexPlanarOccluder::className)
-            , (char const * ( ConvexPlanarOccluder_wrapper::* )(  ) const)(&ConvexPlanarOccluder_wrapper::default_className) )    
+            , (char const * ( ::osg::ConvexPlanarOccluder::* )(  )const)(&::osg::ConvexPlanarOccluder::className)
+            , (char const * ( ConvexPlanarOccluder_wrapper::* )(  )const)(&ConvexPlanarOccluder_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::ConvexPlanarOccluder::* )( ::osg::CopyOp const & ) const)(&::osg::ConvexPlanarOccluder::clone)
-            , (::osg::Object * ( ConvexPlanarOccluder_wrapper::* )( ::osg::CopyOp const & ) const)(&ConvexPlanarOccluder_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::ConvexPlanarOccluder::* )( ::osg::CopyOp const & )const)(&::osg::ConvexPlanarOccluder::clone)
+            , (::osg::Object * ( ConvexPlanarOccluder_wrapper::* )( ::osg::CopyOp const & )const)(&ConvexPlanarOccluder_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::ConvexPlanarOccluder::* )(  ) const)(&::osg::ConvexPlanarOccluder::cloneType)
-            , (::osg::Object * ( ConvexPlanarOccluder_wrapper::* )(  ) const)(&ConvexPlanarOccluder_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::ConvexPlanarOccluder::* )(  )const)(&::osg::ConvexPlanarOccluder::cloneType)
+            , (::osg::Object * ( ConvexPlanarOccluder_wrapper::* )(  )const)(&ConvexPlanarOccluder_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getHoleList"
-            , (::std::vector< osg::ConvexPlanarPolygon > & ( ::osg::ConvexPlanarOccluder::* )(  ) )( &::osg::ConvexPlanarOccluder::getHoleList )
+            , (::std::vector< osg::ConvexPlanarPolygon > & ( ::osg::ConvexPlanarOccluder::* )(  ))( &::osg::ConvexPlanarOccluder::getHoleList )
             , bp::return_internal_reference< >() )    
         .def( 
             "getHoleList"
-            , (::std::vector< osg::ConvexPlanarPolygon > const & ( ::osg::ConvexPlanarOccluder::* )(  ) const)( &::osg::ConvexPlanarOccluder::getHoleList )
+            , (::std::vector< osg::ConvexPlanarPolygon > const & ( ::osg::ConvexPlanarOccluder::* )(  )const)( &::osg::ConvexPlanarOccluder::getHoleList )
             , bp::return_internal_reference< >() )    
         .def( 
             "getOccluder"
-            , (::osg::ConvexPlanarPolygon & ( ::osg::ConvexPlanarOccluder::* )(  ) )( &::osg::ConvexPlanarOccluder::getOccluder )
+            , (::osg::ConvexPlanarPolygon & ( ::osg::ConvexPlanarOccluder::* )(  ))( &::osg::ConvexPlanarOccluder::getOccluder )
             , bp::return_internal_reference< >() )    
         .def( 
             "getOccluder"
-            , (::osg::ConvexPlanarPolygon const & ( ::osg::ConvexPlanarOccluder::* )(  ) const)( &::osg::ConvexPlanarOccluder::getOccluder )
+            , (::osg::ConvexPlanarPolygon const & ( ::osg::ConvexPlanarOccluder::* )(  )const)( &::osg::ConvexPlanarOccluder::getOccluder )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::ConvexPlanarOccluder::* )( ::osg::Object const * ) const)(&::osg::ConvexPlanarOccluder::isSameKindAs)
-            , (bool ( ConvexPlanarOccluder_wrapper::* )( ::osg::Object const * ) const)(&ConvexPlanarOccluder_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::ConvexPlanarOccluder::* )( ::osg::Object const * )const)(&::osg::ConvexPlanarOccluder::isSameKindAs)
+            , (bool ( ConvexPlanarOccluder_wrapper::* )( ::osg::Object const * )const)(&ConvexPlanarOccluder_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::ConvexPlanarOccluder::* )(  ) const)(&::osg::ConvexPlanarOccluder::libraryName)
-            , (char const * ( ConvexPlanarOccluder_wrapper::* )(  ) const)(&ConvexPlanarOccluder_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::ConvexPlanarOccluder::* )(  )const)(&::osg::ConvexPlanarOccluder::libraryName)
+            , (char const * ( ConvexPlanarOccluder_wrapper::* )(  )const)(&ConvexPlanarOccluder_wrapper::default_libraryName) )    
         .def( 
             "setHoleList"
-            , (void ( ::osg::ConvexPlanarOccluder::* )( ::std::vector< osg::ConvexPlanarPolygon > const & ) )( &::osg::ConvexPlanarOccluder::setHoleList )
+            , (void ( ::osg::ConvexPlanarOccluder::* )( ::std::vector< osg::ConvexPlanarPolygon > const & ))( &::osg::ConvexPlanarOccluder::setHoleList )
             , ( bp::arg("holeList") ) )    
         .def( 
             "setOccluder"
-            , (void ( ::osg::ConvexPlanarOccluder::* )( ::osg::ConvexPlanarPolygon const & ) )( &::osg::ConvexPlanarOccluder::setOccluder )
+            , (void ( ::osg::ConvexPlanarOccluder::* )( ::osg::ConvexPlanarPolygon const & ))( &::osg::ConvexPlanarOccluder::setOccluder )
             , ( bp::arg("cpp") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( ConvexPlanarOccluder_wrapper::* )(  ) )(&ConvexPlanarOccluder_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( ConvexPlanarOccluder_wrapper::* )(  ))(&ConvexPlanarOccluder_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( ConvexPlanarOccluder_wrapper::* )(  ) )(&ConvexPlanarOccluder_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( ConvexPlanarOccluder_wrapper::* )(  ))(&ConvexPlanarOccluder_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( ConvexPlanarOccluder_wrapper::* )(  ) const)(&ConvexPlanarOccluder_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( ConvexPlanarOccluder_wrapper::* )(  )const)(&ConvexPlanarOccluder_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( ConvexPlanarOccluder_wrapper::* )( unsigned int ) )(&ConvexPlanarOccluder_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( ConvexPlanarOccluder_wrapper::* )( unsigned int ))(&ConvexPlanarOccluder_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( ConvexPlanarOccluder_wrapper::* )( ::std::string const & ) )(&ConvexPlanarOccluder_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( ConvexPlanarOccluder_wrapper::* )( ::std::string const & ))(&ConvexPlanarOccluder_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( ConvexPlanarOccluder_wrapper::* )( bool ) )(&ConvexPlanarOccluder_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( ConvexPlanarOccluder_wrapper::* )( bool ))(&ConvexPlanarOccluder_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( ConvexPlanarOccluder_wrapper::* )( ::osg::Referenced * ) )(&ConvexPlanarOccluder_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( ConvexPlanarOccluder_wrapper::* )( ::osg::Referenced * ))(&ConvexPlanarOccluder_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

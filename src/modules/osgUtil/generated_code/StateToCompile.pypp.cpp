@@ -435,8 +435,8 @@ void register_StateToCompile_class(){
         bp::implicitly_convertible< unsigned int, osgUtil::StateToCompile >();
         { //::osgUtil::StateToCompile::apply
         
-            typedef void ( ::osgUtil::StateToCompile::*apply_function_type )( ::osg::Node & ) ;
-            typedef void ( StateToCompile_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::StateToCompile::*apply_function_type)( ::osg::Node & ) ;
+            typedef void ( StateToCompile_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
             
             StateToCompile_exposer.def( 
                 "apply"
@@ -447,8 +447,8 @@ void register_StateToCompile_class(){
         }
         { //::osgUtil::StateToCompile::apply
         
-            typedef void ( ::osgUtil::StateToCompile::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( StateToCompile_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::StateToCompile::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( StateToCompile_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             StateToCompile_exposer.def( 
                 "apply"
@@ -459,8 +459,8 @@ void register_StateToCompile_class(){
         }
         { //::osgUtil::StateToCompile::apply
         
-            typedef void ( ::osgUtil::StateToCompile::*apply_function_type )( ::osg::Drawable & ) ;
-            typedef void ( StateToCompile_wrapper::*default_apply_function_type )( ::osg::Drawable & ) ;
+            typedef void ( ::osgUtil::StateToCompile::*apply_function_type)( ::osg::Drawable & ) ;
+            typedef void ( StateToCompile_wrapper::*default_apply_function_type)( ::osg::Drawable & ) ;
             
             StateToCompile_exposer.def( 
                 "apply"
@@ -471,8 +471,8 @@ void register_StateToCompile_class(){
         }
         { //::osgUtil::StateToCompile::apply
         
-            typedef void ( ::osgUtil::StateToCompile::*apply_function_type )( ::osg::StateSet & ) ;
-            typedef void ( StateToCompile_wrapper::*default_apply_function_type )( ::osg::StateSet & ) ;
+            typedef void ( ::osgUtil::StateToCompile::*apply_function_type)( ::osg::StateSet & ) ;
+            typedef void ( StateToCompile_wrapper::*default_apply_function_type)( ::osg::StateSet & ) ;
             
             StateToCompile_exposer.def( 
                 "apply"
@@ -483,8 +483,8 @@ void register_StateToCompile_class(){
         }
         { //::osgUtil::StateToCompile::apply
         
-            typedef void ( ::osgUtil::StateToCompile::*apply_function_type )( ::osg::Texture & ) ;
-            typedef void ( StateToCompile_wrapper::*default_apply_function_type )( ::osg::Texture & ) ;
+            typedef void ( ::osgUtil::StateToCompile::*apply_function_type)( ::osg::Texture & ) ;
+            typedef void ( StateToCompile_wrapper::*default_apply_function_type)( ::osg::Texture & ) ;
             
             StateToCompile_exposer.def( 
                 "apply"
@@ -495,7 +495,7 @@ void register_StateToCompile_class(){
         }
         { //::osgUtil::StateToCompile::empty
         
-            typedef bool ( ::osgUtil::StateToCompile::*empty_function_type )(  ) const;
+            typedef bool ( ::osgUtil::StateToCompile::*empty_function_type)(  ) const;
             
             StateToCompile_exposer.def( 
                 "empty"

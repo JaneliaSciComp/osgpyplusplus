@@ -396,99 +396,99 @@ void register_Glyph_class(){
         .def( bp::init< osgText::Font *, unsigned int >(( bp::arg("font"), bp::arg("glyphCode") )) )    
         .def( 
             "getFont"
-            , (::osgText::Font * ( ::osgText::Glyph::* )(  ) )( &::osgText::Glyph::getFont )
+            , (::osgText::Font * ( ::osgText::Glyph::* )(  ))( &::osgText::Glyph::getFont )
             , bp::return_internal_reference< >() )    
         .def( 
             "getFont"
-            , (::osgText::Font const * ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getFont )
+            , (::osgText::Font const * ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getFont )
             , bp::return_internal_reference< >() )    
         .def( 
             "getGlyphCode"
-            , (unsigned int ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getGlyphCode ) )    
+            , (unsigned int ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getGlyphCode ) )    
         .def( 
             "getHeight"
-            , (float ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getHeight ) )    
+            , (float ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getHeight ) )    
         .def( 
             "getHorizontalAdvance"
-            , (float ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getHorizontalAdvance ) )    
+            , (float ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getHorizontalAdvance ) )    
         .def( 
             "getHorizontalBearing"
-            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getHorizontalBearing )
+            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getHorizontalBearing )
             , bp::return_internal_reference< >() )    
         .def( 
             "getMaxTexCoord"
-            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getMaxTexCoord )
+            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getMaxTexCoord )
             , bp::return_internal_reference< >() )    
         .def( 
             "getMinTexCoord"
-            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getMinTexCoord )
+            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getMinTexCoord )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTexture"
-            , (::osgText::GlyphTexture * ( ::osgText::Glyph::* )(  ) )( &::osgText::Glyph::getTexture )
+            , (::osgText::GlyphTexture * ( ::osgText::Glyph::* )(  ))( &::osgText::Glyph::getTexture )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTexture"
-            , (::osgText::GlyphTexture const * ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getTexture )
+            , (::osgText::GlyphTexture const * ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getTexture )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTexturePositionX"
-            , (int ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getTexturePositionX ) )    
+            , (int ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getTexturePositionX ) )    
         .def( 
             "getTexturePositionY"
-            , (int ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getTexturePositionY ) )    
+            , (int ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getTexturePositionY ) )    
         .def( 
             "getVerticalAdvance"
-            , (float ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getVerticalAdvance ) )    
+            , (float ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getVerticalAdvance ) )    
         .def( 
             "getVerticalBearing"
-            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getVerticalBearing )
+            , (::osg::Vec2 const & ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getVerticalBearing )
             , bp::return_internal_reference< >() )    
         .def( 
             "getWidth"
-            , (float ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::getWidth ) )    
+            , (float ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::getWidth ) )    
         .def( 
             "setHeight"
-            , (void ( ::osgText::Glyph::* )( float ) )( &::osgText::Glyph::setHeight )
+            , (void ( ::osgText::Glyph::* )( float ))( &::osgText::Glyph::setHeight )
             , ( bp::arg("height") ) )    
         .def( 
             "setHorizontalAdvance"
-            , (void ( ::osgText::Glyph::* )( float ) )( &::osgText::Glyph::setHorizontalAdvance )
+            , (void ( ::osgText::Glyph::* )( float ))( &::osgText::Glyph::setHorizontalAdvance )
             , ( bp::arg("advance") ) )    
         .def( 
             "setHorizontalBearing"
-            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ) )( &::osgText::Glyph::setHorizontalBearing )
+            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ))( &::osgText::Glyph::setHorizontalBearing )
             , ( bp::arg("bearing") ) )    
         .def( 
             "setMaxTexCoord"
-            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ) )( &::osgText::Glyph::setMaxTexCoord )
+            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ))( &::osgText::Glyph::setMaxTexCoord )
             , ( bp::arg("coord") ) )    
         .def( 
             "setMinTexCoord"
-            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ) )( &::osgText::Glyph::setMinTexCoord )
+            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ))( &::osgText::Glyph::setMinTexCoord )
             , ( bp::arg("coord") ) )    
         .def( 
             "setTexture"
-            , (void ( ::osgText::Glyph::* )( ::osgText::GlyphTexture * ) )( &::osgText::Glyph::setTexture )
+            , (void ( ::osgText::Glyph::* )( ::osgText::GlyphTexture * ))( &::osgText::Glyph::setTexture )
             , ( bp::arg("texture") ) )    
         .def( 
             "setTexturePosition"
-            , (void ( ::osgText::Glyph::* )( int,int ) )( &::osgText::Glyph::setTexturePosition )
+            , (void ( ::osgText::Glyph::* )( int,int ))( &::osgText::Glyph::setTexturePosition )
             , ( bp::arg("posX"), bp::arg("posY") ) )    
         .def( 
             "setVerticalAdvance"
-            , (void ( ::osgText::Glyph::* )( float ) )( &::osgText::Glyph::setVerticalAdvance )
+            , (void ( ::osgText::Glyph::* )( float ))( &::osgText::Glyph::setVerticalAdvance )
             , ( bp::arg("advance") ) )    
         .def( 
             "setVerticalBearing"
-            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ) )( &::osgText::Glyph::setVerticalBearing )
+            , (void ( ::osgText::Glyph::* )( ::osg::Vec2 const & ))( &::osgText::Glyph::setVerticalBearing )
             , ( bp::arg("bearing") ) )    
         .def( 
             "setWidth"
-            , (void ( ::osgText::Glyph::* )( float ) )( &::osgText::Glyph::setWidth )
+            , (void ( ::osgText::Glyph::* )( float ))( &::osgText::Glyph::setWidth )
             , ( bp::arg("width") ) )    
         .def( 
             "subload"
-            , (void ( ::osgText::Glyph::* )(  ) const)( &::osgText::Glyph::subload ) );
+            , (void ( ::osgText::Glyph::* )(  )const)( &::osgText::Glyph::subload ) );
 
 }

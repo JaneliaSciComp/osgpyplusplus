@@ -206,8 +206,8 @@ void register_RefMatrixf_class(){
         RefMatrixf_exposer.def( bp::init< float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float >(( bp::arg("a00"), bp::arg("a01"), bp::arg("a02"), bp::arg("a03"), bp::arg("a10"), bp::arg("a11"), bp::arg("a12"), bp::arg("a13"), bp::arg("a20"), bp::arg("a21"), bp::arg("a22"), bp::arg("a23"), bp::arg("a30"), bp::arg("a31"), bp::arg("a32"), bp::arg("a33") )) );
         { //::osg::RefMatrixf::className
         
-            typedef char const * ( ::osg::RefMatrixf::*className_function_type )(  ) const;
-            typedef char const * ( RefMatrixf_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::RefMatrixf::*className_function_type)(  ) const;
+            typedef char const * ( RefMatrixf_wrapper::*default_className_function_type)(  ) const;
             
             RefMatrixf_exposer.def( 
                 "className"
@@ -217,8 +217,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::RefMatrixf::clone
         
-            typedef ::osg::Object * ( ::osg::RefMatrixf::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( RefMatrixf_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::RefMatrixf::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( RefMatrixf_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             RefMatrixf_exposer.def( 
                 "clone"
@@ -230,8 +230,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::RefMatrixf::cloneType
         
-            typedef ::osg::Object * ( ::osg::RefMatrixf::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( RefMatrixf_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::RefMatrixf::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( RefMatrixf_wrapper::*default_cloneType_function_type)(  ) const;
             
             RefMatrixf_exposer.def( 
                 "cloneType"
@@ -242,8 +242,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::RefMatrixf::isSameKindAs
         
-            typedef bool ( ::osg::RefMatrixf::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( RefMatrixf_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::RefMatrixf::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( RefMatrixf_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             RefMatrixf_exposer.def( 
                 "isSameKindAs"
@@ -254,8 +254,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::RefMatrixf::libraryName
         
-            typedef char const * ( ::osg::RefMatrixf::*libraryName_function_type )(  ) const;
-            typedef char const * ( RefMatrixf_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::RefMatrixf::*libraryName_function_type)(  ) const;
+            typedef char const * ( RefMatrixf_wrapper::*default_libraryName_function_type)(  ) const;
             
             RefMatrixf_exposer.def( 
                 "libraryName"
@@ -265,8 +265,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( RefMatrixf_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( RefMatrixf_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             RefMatrixf_exposer.def( 
                 "computeDataVariance"
@@ -276,8 +276,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( RefMatrixf_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( RefMatrixf_wrapper::*default_getUserData_function_type)(  ) ;
             
             RefMatrixf_exposer.def( 
                 "getUserData"
@@ -288,8 +288,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( RefMatrixf_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( RefMatrixf_wrapper::*default_getUserData_function_type)(  ) const;
             
             RefMatrixf_exposer.def( 
                 "getUserData"
@@ -300,8 +300,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( RefMatrixf_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( RefMatrixf_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             RefMatrixf_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -312,8 +312,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( RefMatrixf_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( RefMatrixf_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             RefMatrixf_exposer.def( 
                 "setName"
@@ -324,7 +324,7 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             RefMatrixf_exposer.def( 
                 "setName"
@@ -335,8 +335,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( RefMatrixf_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( RefMatrixf_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             RefMatrixf_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -347,8 +347,8 @@ void register_RefMatrixf_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( RefMatrixf_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( RefMatrixf_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             RefMatrixf_exposer.def( 
                 "setUserData"

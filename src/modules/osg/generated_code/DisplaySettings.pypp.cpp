@@ -122,8 +122,8 @@ void register_DisplaySettings_class(){
             ;
         { //::osg::DisplaySettings::computeLeftEyeProjectionImplementation
         
-            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeLeftEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeLeftEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeLeftEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeLeftEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             DisplaySettings_exposer.def( 
                 "computeLeftEyeProjectionImplementation"
@@ -134,8 +134,8 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::computeLeftEyeViewImplementation
         
-            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeLeftEyeViewImplementation_function_type )( ::osg::Matrixd const &,double ) const;
-            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeLeftEyeViewImplementation_function_type )( ::osg::Matrixd const &,double ) const;
+            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeLeftEyeViewImplementation_function_type)( ::osg::Matrixd const &,double ) const;
+            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeLeftEyeViewImplementation_function_type)( ::osg::Matrixd const &,double ) const;
             
             DisplaySettings_exposer.def( 
                 "computeLeftEyeViewImplementation"
@@ -146,8 +146,8 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::computeRightEyeProjectionImplementation
         
-            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeRightEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeRightEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeRightEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeRightEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             DisplaySettings_exposer.def( 
                 "computeRightEyeProjectionImplementation"
@@ -158,8 +158,8 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::computeRightEyeViewImplementation
         
-            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeRightEyeViewImplementation_function_type )( ::osg::Matrixd const &,double ) const;
-            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeRightEyeViewImplementation_function_type )( ::osg::Matrixd const &,double ) const;
+            typedef ::osg::Matrixd ( ::osg::DisplaySettings::*computeRightEyeViewImplementation_function_type)( ::osg::Matrixd const &,double ) const;
+            typedef ::osg::Matrixd ( DisplaySettings_wrapper::*default_computeRightEyeViewImplementation_function_type)( ::osg::Matrixd const &,double ) const;
             
             DisplaySettings_exposer.def( 
                 "computeRightEyeViewImplementation"
@@ -170,7 +170,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getAccumBuffer
         
-            typedef bool ( ::osg::DisplaySettings::*getAccumBuffer_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getAccumBuffer_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getAccumBuffer"
@@ -179,7 +179,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getAlphaBuffer
         
-            typedef bool ( ::osg::DisplaySettings::*getAlphaBuffer_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getAlphaBuffer_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getAlphaBuffer"
@@ -188,7 +188,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getApplication
         
-            typedef ::std::string const & ( ::osg::DisplaySettings::*getApplication_function_type )(  ) ;
+            typedef ::std::string const & ( ::osg::DisplaySettings::*getApplication_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "getApplication"
@@ -198,7 +198,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getCompileContextsHint
         
-            typedef bool ( ::osg::DisplaySettings::*getCompileContextsHint_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getCompileContextsHint_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getCompileContextsHint"
@@ -207,7 +207,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getDepthBuffer
         
-            typedef bool ( ::osg::DisplaySettings::*getDepthBuffer_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getDepthBuffer_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getDepthBuffer"
@@ -216,7 +216,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getDisplayType
         
-            typedef ::osg::DisplaySettings::DisplayType ( ::osg::DisplaySettings::*getDisplayType_function_type )(  ) const;
+            typedef ::osg::DisplaySettings::DisplayType ( ::osg::DisplaySettings::*getDisplayType_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getDisplayType"
@@ -225,7 +225,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getDoubleBuffer
         
-            typedef bool ( ::osg::DisplaySettings::*getDoubleBuffer_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getDoubleBuffer_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getDoubleBuffer"
@@ -234,7 +234,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getEyeSeparation
         
-            typedef float ( ::osg::DisplaySettings::*getEyeSeparation_function_type )(  ) const;
+            typedef float ( ::osg::DisplaySettings::*getEyeSeparation_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getEyeSeparation"
@@ -243,7 +243,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getGLContextFlags
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getGLContextFlags_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getGLContextFlags_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getGLContextFlags"
@@ -253,7 +253,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getGLContextProfileMask
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getGLContextProfileMask_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getGLContextProfileMask_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getGLContextProfileMask"
@@ -263,7 +263,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getGLContextVersion
         
-            typedef ::std::string const ( ::osg::DisplaySettings::*getGLContextVersion_function_type )(  ) const;
+            typedef ::std::string const ( ::osg::DisplaySettings::*getGLContextVersion_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getGLContextVersion"
@@ -273,7 +273,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getImplicitBufferAttachmentRenderMask
         
-            typedef int ( ::osg::DisplaySettings::*getImplicitBufferAttachmentRenderMask_function_type )(  ) const;
+            typedef int ( ::osg::DisplaySettings::*getImplicitBufferAttachmentRenderMask_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getImplicitBufferAttachmentRenderMask"
@@ -283,7 +283,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getImplicitBufferAttachmentResolveMask
         
-            typedef int ( ::osg::DisplaySettings::*getImplicitBufferAttachmentResolveMask_function_type )(  ) const;
+            typedef int ( ::osg::DisplaySettings::*getImplicitBufferAttachmentResolveMask_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getImplicitBufferAttachmentResolveMask"
@@ -293,7 +293,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getKeystoneFileNames
         
-            typedef ::std::vector< std::string > & ( ::osg::DisplaySettings::*getKeystoneFileNames_function_type )(  ) ;
+            typedef ::std::vector< std::string > & ( ::osg::DisplaySettings::*getKeystoneFileNames_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "getKeystoneFileNames"
@@ -303,7 +303,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getKeystoneFileNames
         
-            typedef ::std::vector< std::string > const & ( ::osg::DisplaySettings::*getKeystoneFileNames_function_type )(  ) const;
+            typedef ::std::vector< std::string > const & ( ::osg::DisplaySettings::*getKeystoneFileNames_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getKeystoneFileNames"
@@ -313,7 +313,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getKeystoneHint
         
-            typedef bool ( ::osg::DisplaySettings::*getKeystoneHint_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getKeystoneHint_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getKeystoneHint"
@@ -322,7 +322,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getKeystones
         
-            typedef ::std::vector< osg::ref_ptr<osg::Object> > & ( ::osg::DisplaySettings::*getKeystones_function_type )(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osg::Object> > & ( ::osg::DisplaySettings::*getKeystones_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "getKeystones"
@@ -332,7 +332,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getKeystones
         
-            typedef ::std::vector< osg::ref_ptr<osg::Object> > const & ( ::osg::DisplaySettings::*getKeystones_function_type )(  ) const;
+            typedef ::std::vector< osg::ref_ptr<osg::Object> > const & ( ::osg::DisplaySettings::*getKeystones_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getKeystones"
@@ -342,7 +342,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMaxBufferObjectPoolSize
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMaxBufferObjectPoolSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMaxBufferObjectPoolSize_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMaxBufferObjectPoolSize"
@@ -351,7 +351,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMaxNumberOfGraphicsContexts
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMaxNumberOfGraphicsContexts_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMaxNumberOfGraphicsContexts_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMaxNumberOfGraphicsContexts"
@@ -360,7 +360,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMaxTexturePoolSize
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMaxTexturePoolSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMaxTexturePoolSize_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMaxTexturePoolSize"
@@ -369,7 +369,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumAccumAlphaBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumAlphaBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumAlphaBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumAccumAlphaBits"
@@ -378,7 +378,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumAccumBlueBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumBlueBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumBlueBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumAccumBlueBits"
@@ -387,7 +387,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumAccumGreenBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumGreenBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumGreenBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumAccumGreenBits"
@@ -396,7 +396,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumAccumRedBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumRedBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAccumRedBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumAccumRedBits"
@@ -405,7 +405,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumAlphaBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAlphaBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumAlphaBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumAlphaBits"
@@ -414,7 +414,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMinimumNumStencilBits
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumStencilBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getMinimumNumStencilBits_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMinimumNumStencilBits"
@@ -423,7 +423,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getMultiSamples
         
-            typedef bool ( ::osg::DisplaySettings::*getMultiSamples_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getMultiSamples_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getMultiSamples"
@@ -432,7 +432,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getNumMultiSamples
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getNumMultiSamples_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getNumMultiSamples_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getNumMultiSamples"
@@ -441,7 +441,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getNumOfDatabaseThreadsHint
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getNumOfDatabaseThreadsHint_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getNumOfDatabaseThreadsHint_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getNumOfDatabaseThreadsHint"
@@ -451,7 +451,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getNumOfHttpDatabaseThreadsHint
         
-            typedef unsigned int ( ::osg::DisplaySettings::*getNumOfHttpDatabaseThreadsHint_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DisplaySettings::*getNumOfHttpDatabaseThreadsHint_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getNumOfHttpDatabaseThreadsHint"
@@ -461,7 +461,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getRGB
         
-            typedef bool ( ::osg::DisplaySettings::*getRGB_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getRGB_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getRGB"
@@ -470,7 +470,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getScreenDistance
         
-            typedef float ( ::osg::DisplaySettings::*getScreenDistance_function_type )(  ) const;
+            typedef float ( ::osg::DisplaySettings::*getScreenDistance_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getScreenDistance"
@@ -479,7 +479,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getScreenHeight
         
-            typedef float ( ::osg::DisplaySettings::*getScreenHeight_function_type )(  ) const;
+            typedef float ( ::osg::DisplaySettings::*getScreenHeight_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getScreenHeight"
@@ -488,7 +488,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getScreenWidth
         
-            typedef float ( ::osg::DisplaySettings::*getScreenWidth_function_type )(  ) const;
+            typedef float ( ::osg::DisplaySettings::*getScreenWidth_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getScreenWidth"
@@ -497,7 +497,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSerializeDrawDispatch
         
-            typedef bool ( ::osg::DisplaySettings::*getSerializeDrawDispatch_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getSerializeDrawDispatch_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSerializeDrawDispatch"
@@ -506,7 +506,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSplitStereoAutoAdjustAspectRatio
         
-            typedef bool ( ::osg::DisplaySettings::*getSplitStereoAutoAdjustAspectRatio_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getSplitStereoAutoAdjustAspectRatio_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSplitStereoAutoAdjustAspectRatio"
@@ -515,7 +515,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSplitStereoHorizontalEyeMapping
         
-            typedef ::osg::DisplaySettings::SplitStereoHorizontalEyeMapping ( ::osg::DisplaySettings::*getSplitStereoHorizontalEyeMapping_function_type )(  ) const;
+            typedef ::osg::DisplaySettings::SplitStereoHorizontalEyeMapping ( ::osg::DisplaySettings::*getSplitStereoHorizontalEyeMapping_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSplitStereoHorizontalEyeMapping"
@@ -524,7 +524,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSplitStereoHorizontalSeparation
         
-            typedef int ( ::osg::DisplaySettings::*getSplitStereoHorizontalSeparation_function_type )(  ) const;
+            typedef int ( ::osg::DisplaySettings::*getSplitStereoHorizontalSeparation_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSplitStereoHorizontalSeparation"
@@ -533,7 +533,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSplitStereoVerticalEyeMapping
         
-            typedef ::osg::DisplaySettings::SplitStereoVerticalEyeMapping ( ::osg::DisplaySettings::*getSplitStereoVerticalEyeMapping_function_type )(  ) const;
+            typedef ::osg::DisplaySettings::SplitStereoVerticalEyeMapping ( ::osg::DisplaySettings::*getSplitStereoVerticalEyeMapping_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSplitStereoVerticalEyeMapping"
@@ -542,7 +542,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSplitStereoVerticalSeparation
         
-            typedef int ( ::osg::DisplaySettings::*getSplitStereoVerticalSeparation_function_type )(  ) const;
+            typedef int ( ::osg::DisplaySettings::*getSplitStereoVerticalSeparation_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getSplitStereoVerticalSeparation"
@@ -551,7 +551,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getStencilBuffer
         
-            typedef bool ( ::osg::DisplaySettings::*getStencilBuffer_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getStencilBuffer_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getStencilBuffer"
@@ -560,7 +560,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getStereo
         
-            typedef bool ( ::osg::DisplaySettings::*getStereo_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getStereo_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getStereo"
@@ -569,7 +569,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getStereoMode
         
-            typedef ::osg::DisplaySettings::StereoMode ( ::osg::DisplaySettings::*getStereoMode_function_type )(  ) const;
+            typedef ::osg::DisplaySettings::StereoMode ( ::osg::DisplaySettings::*getStereoMode_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getStereoMode"
@@ -578,7 +578,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getSwapMethod
         
-            typedef ::osg::DisplaySettings::SwapMethod ( ::osg::DisplaySettings::*getSwapMethod_function_type )(  ) ;
+            typedef ::osg::DisplaySettings::SwapMethod ( ::osg::DisplaySettings::*getSwapMethod_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "getSwapMethod"
@@ -588,7 +588,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::getUseSceneViewForStereoHint
         
-            typedef bool ( ::osg::DisplaySettings::*getUseSceneViewForStereoHint_function_type )(  ) const;
+            typedef bool ( ::osg::DisplaySettings::*getUseSceneViewForStereoHint_function_type)(  ) const;
             
             DisplaySettings_exposer.def( 
                 "getUseSceneViewForStereoHint"
@@ -608,7 +608,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::readCommandLine
         
-            typedef void ( ::osg::DisplaySettings::*readCommandLine_function_type )( ::osg::ArgumentParser & ) ;
+            typedef void ( ::osg::DisplaySettings::*readCommandLine_function_type)( ::osg::ArgumentParser & ) ;
             
             DisplaySettings_exposer.def( 
                 "readCommandLine"
@@ -619,7 +619,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::readEnvironmentalVariables
         
-            typedef void ( ::osg::DisplaySettings::*readEnvironmentalVariables_function_type )(  ) ;
+            typedef void ( ::osg::DisplaySettings::*readEnvironmentalVariables_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "readEnvironmentalVariables"
@@ -629,7 +629,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setApplication
         
-            typedef void ( ::osg::DisplaySettings::*setApplication_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::DisplaySettings::*setApplication_function_type)( ::std::string const & ) ;
             
             DisplaySettings_exposer.def( 
                 "setApplication"
@@ -639,7 +639,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setCompileContextsHint
         
-            typedef void ( ::osg::DisplaySettings::*setCompileContextsHint_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setCompileContextsHint_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setCompileContextsHint"
@@ -649,7 +649,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setDefaults
         
-            typedef void ( ::osg::DisplaySettings::*setDefaults_function_type )(  ) ;
+            typedef void ( ::osg::DisplaySettings::*setDefaults_function_type)(  ) ;
             
             DisplaySettings_exposer.def( 
                 "setDefaults"
@@ -658,7 +658,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setDepthBuffer
         
-            typedef void ( ::osg::DisplaySettings::*setDepthBuffer_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setDepthBuffer_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setDepthBuffer"
@@ -668,7 +668,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setDisplayType
         
-            typedef void ( ::osg::DisplaySettings::*setDisplayType_function_type )( ::osg::DisplaySettings::DisplayType ) ;
+            typedef void ( ::osg::DisplaySettings::*setDisplayType_function_type)( ::osg::DisplaySettings::DisplayType ) ;
             
             DisplaySettings_exposer.def( 
                 "setDisplayType"
@@ -678,7 +678,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setDoubleBuffer
         
-            typedef void ( ::osg::DisplaySettings::*setDoubleBuffer_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setDoubleBuffer_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setDoubleBuffer"
@@ -688,7 +688,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setEyeSeparation
         
-            typedef void ( ::osg::DisplaySettings::*setEyeSeparation_function_type )( float ) ;
+            typedef void ( ::osg::DisplaySettings::*setEyeSeparation_function_type)( float ) ;
             
             DisplaySettings_exposer.def( 
                 "setEyeSeparation"
@@ -698,7 +698,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setGLContextFlags
         
-            typedef void ( ::osg::DisplaySettings::*setGLContextFlags_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setGLContextFlags_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setGLContextFlags"
@@ -709,7 +709,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setGLContextProfileMask
         
-            typedef void ( ::osg::DisplaySettings::*setGLContextProfileMask_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setGLContextProfileMask_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setGLContextProfileMask"
@@ -720,7 +720,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setGLContextVersion
         
-            typedef void ( ::osg::DisplaySettings::*setGLContextVersion_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::DisplaySettings::*setGLContextVersion_function_type)( ::std::string const & ) ;
             
             DisplaySettings_exposer.def( 
                 "setGLContextVersion"
@@ -731,7 +731,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setImplicitBufferAttachmentMask
         
-            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentMask_function_type )( int,int ) ;
+            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentMask_function_type)( int,int ) ;
             
             DisplaySettings_exposer.def( 
                 "setImplicitBufferAttachmentMask"
@@ -741,7 +741,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setImplicitBufferAttachmentRenderMask
         
-            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentRenderMask_function_type )( int ) ;
+            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentRenderMask_function_type)( int ) ;
             
             DisplaySettings_exposer.def( 
                 "setImplicitBufferAttachmentRenderMask"
@@ -751,7 +751,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setImplicitBufferAttachmentResolveMask
         
-            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentResolveMask_function_type )( int ) ;
+            typedef void ( ::osg::DisplaySettings::*setImplicitBufferAttachmentResolveMask_function_type)( int ) ;
             
             DisplaySettings_exposer.def( 
                 "setImplicitBufferAttachmentResolveMask"
@@ -761,7 +761,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setKeystoneFileNames
         
-            typedef void ( ::osg::DisplaySettings::*setKeystoneFileNames_function_type )( ::std::vector< std::string > const & ) ;
+            typedef void ( ::osg::DisplaySettings::*setKeystoneFileNames_function_type)( ::std::vector< std::string > const & ) ;
             
             DisplaySettings_exposer.def( 
                 "setKeystoneFileNames"
@@ -771,7 +771,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setKeystoneHint
         
-            typedef void ( ::osg::DisplaySettings::*setKeystoneHint_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setKeystoneHint_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setKeystoneHint"
@@ -781,7 +781,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setKeystones
         
-            typedef void ( ::osg::DisplaySettings::*setKeystones_function_type )( ::std::vector< osg::ref_ptr<osg::Object> > const & ) ;
+            typedef void ( ::osg::DisplaySettings::*setKeystones_function_type)( ::std::vector< osg::ref_ptr<osg::Object> > const & ) ;
             
             DisplaySettings_exposer.def( 
                 "setKeystones"
@@ -791,7 +791,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMaxBufferObjectPoolSize
         
-            typedef void ( ::osg::DisplaySettings::*setMaxBufferObjectPoolSize_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMaxBufferObjectPoolSize_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMaxBufferObjectPoolSize"
@@ -801,7 +801,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMaxNumberOfGraphicsContexts
         
-            typedef void ( ::osg::DisplaySettings::*setMaxNumberOfGraphicsContexts_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMaxNumberOfGraphicsContexts_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMaxNumberOfGraphicsContexts"
@@ -811,7 +811,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMaxTexturePoolSize
         
-            typedef void ( ::osg::DisplaySettings::*setMaxTexturePoolSize_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMaxTexturePoolSize_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMaxTexturePoolSize"
@@ -821,7 +821,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMinimumNumAccumBits
         
-            typedef void ( ::osg::DisplaySettings::*setMinimumNumAccumBits_function_type )( unsigned int,unsigned int,unsigned int,unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMinimumNumAccumBits_function_type)( unsigned int,unsigned int,unsigned int,unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMinimumNumAccumBits"
@@ -831,7 +831,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMinimumNumAlphaBits
         
-            typedef void ( ::osg::DisplaySettings::*setMinimumNumAlphaBits_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMinimumNumAlphaBits_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMinimumNumAlphaBits"
@@ -841,7 +841,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setMinimumNumStencilBits
         
-            typedef void ( ::osg::DisplaySettings::*setMinimumNumStencilBits_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setMinimumNumStencilBits_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setMinimumNumStencilBits"
@@ -851,7 +851,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setNumMultiSamples
         
-            typedef void ( ::osg::DisplaySettings::*setNumMultiSamples_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setNumMultiSamples_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setNumMultiSamples"
@@ -861,7 +861,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setNumOfDatabaseThreadsHint
         
-            typedef void ( ::osg::DisplaySettings::*setNumOfDatabaseThreadsHint_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setNumOfDatabaseThreadsHint_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setNumOfDatabaseThreadsHint"
@@ -872,7 +872,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setNumOfHttpDatabaseThreadsHint
         
-            typedef void ( ::osg::DisplaySettings::*setNumOfHttpDatabaseThreadsHint_function_type )( unsigned int ) ;
+            typedef void ( ::osg::DisplaySettings::*setNumOfHttpDatabaseThreadsHint_function_type)( unsigned int ) ;
             
             DisplaySettings_exposer.def( 
                 "setNumOfHttpDatabaseThreadsHint"
@@ -883,7 +883,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setRGB
         
-            typedef void ( ::osg::DisplaySettings::*setRGB_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setRGB_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setRGB"
@@ -893,7 +893,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setScreenDistance
         
-            typedef void ( ::osg::DisplaySettings::*setScreenDistance_function_type )( float ) ;
+            typedef void ( ::osg::DisplaySettings::*setScreenDistance_function_type)( float ) ;
             
             DisplaySettings_exposer.def( 
                 "setScreenDistance"
@@ -903,7 +903,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setScreenHeight
         
-            typedef void ( ::osg::DisplaySettings::*setScreenHeight_function_type )( float ) ;
+            typedef void ( ::osg::DisplaySettings::*setScreenHeight_function_type)( float ) ;
             
             DisplaySettings_exposer.def( 
                 "setScreenHeight"
@@ -913,7 +913,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setScreenWidth
         
-            typedef void ( ::osg::DisplaySettings::*setScreenWidth_function_type )( float ) ;
+            typedef void ( ::osg::DisplaySettings::*setScreenWidth_function_type)( float ) ;
             
             DisplaySettings_exposer.def( 
                 "setScreenWidth"
@@ -923,7 +923,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSerializeDrawDispatch
         
-            typedef void ( ::osg::DisplaySettings::*setSerializeDrawDispatch_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setSerializeDrawDispatch_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setSerializeDrawDispatch"
@@ -933,7 +933,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSplitStereoAutoAdjustAspectRatio
         
-            typedef void ( ::osg::DisplaySettings::*setSplitStereoAutoAdjustAspectRatio_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setSplitStereoAutoAdjustAspectRatio_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setSplitStereoAutoAdjustAspectRatio"
@@ -943,7 +943,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSplitStereoHorizontalEyeMapping
         
-            typedef void ( ::osg::DisplaySettings::*setSplitStereoHorizontalEyeMapping_function_type )( ::osg::DisplaySettings::SplitStereoHorizontalEyeMapping ) ;
+            typedef void ( ::osg::DisplaySettings::*setSplitStereoHorizontalEyeMapping_function_type)( ::osg::DisplaySettings::SplitStereoHorizontalEyeMapping ) ;
             
             DisplaySettings_exposer.def( 
                 "setSplitStereoHorizontalEyeMapping"
@@ -953,7 +953,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSplitStereoHorizontalSeparation
         
-            typedef void ( ::osg::DisplaySettings::*setSplitStereoHorizontalSeparation_function_type )( int ) ;
+            typedef void ( ::osg::DisplaySettings::*setSplitStereoHorizontalSeparation_function_type)( int ) ;
             
             DisplaySettings_exposer.def( 
                 "setSplitStereoHorizontalSeparation"
@@ -963,7 +963,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSplitStereoVerticalEyeMapping
         
-            typedef void ( ::osg::DisplaySettings::*setSplitStereoVerticalEyeMapping_function_type )( ::osg::DisplaySettings::SplitStereoVerticalEyeMapping ) ;
+            typedef void ( ::osg::DisplaySettings::*setSplitStereoVerticalEyeMapping_function_type)( ::osg::DisplaySettings::SplitStereoVerticalEyeMapping ) ;
             
             DisplaySettings_exposer.def( 
                 "setSplitStereoVerticalEyeMapping"
@@ -973,7 +973,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSplitStereoVerticalSeparation
         
-            typedef void ( ::osg::DisplaySettings::*setSplitStereoVerticalSeparation_function_type )( int ) ;
+            typedef void ( ::osg::DisplaySettings::*setSplitStereoVerticalSeparation_function_type)( int ) ;
             
             DisplaySettings_exposer.def( 
                 "setSplitStereoVerticalSeparation"
@@ -983,7 +983,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setStereo
         
-            typedef void ( ::osg::DisplaySettings::*setStereo_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setStereo_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setStereo"
@@ -993,7 +993,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setStereoMode
         
-            typedef void ( ::osg::DisplaySettings::*setStereoMode_function_type )( ::osg::DisplaySettings::StereoMode ) ;
+            typedef void ( ::osg::DisplaySettings::*setStereoMode_function_type)( ::osg::DisplaySettings::StereoMode ) ;
             
             DisplaySettings_exposer.def( 
                 "setStereoMode"
@@ -1003,7 +1003,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setSwapMethod
         
-            typedef void ( ::osg::DisplaySettings::*setSwapMethod_function_type )( ::osg::DisplaySettings::SwapMethod ) ;
+            typedef void ( ::osg::DisplaySettings::*setSwapMethod_function_type)( ::osg::DisplaySettings::SwapMethod ) ;
             
             DisplaySettings_exposer.def( 
                 "setSwapMethod"
@@ -1014,7 +1014,7 @@ void register_DisplaySettings_class(){
         }
         { //::osg::DisplaySettings::setUseSceneViewForStereoHint
         
-            typedef void ( ::osg::DisplaySettings::*setUseSceneViewForStereoHint_function_type )( bool ) ;
+            typedef void ( ::osg::DisplaySettings::*setUseSceneViewForStereoHint_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setUseSceneViewForStereoHint"
@@ -1024,8 +1024,8 @@ void register_DisplaySettings_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( DisplaySettings_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( DisplaySettings_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             DisplaySettings_exposer.def( 
                 "setThreadSafeRefUnref"

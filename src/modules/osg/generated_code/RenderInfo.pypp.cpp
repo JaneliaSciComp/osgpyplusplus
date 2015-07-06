@@ -16,7 +16,7 @@ void register_RenderInfo_class(){
         RenderInfo_exposer.def( bp::init< osg::State *, osg::View * >(( bp::arg("state"), bp::arg("view") )) );
         { //::osg::RenderInfo::getContextID
         
-            typedef unsigned int ( ::osg::RenderInfo::*getContextID_function_type )(  ) const;
+            typedef unsigned int ( ::osg::RenderInfo::*getContextID_function_type)(  ) const;
             
             RenderInfo_exposer.def( 
                 "getContextID"
@@ -25,7 +25,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getCurrentCamera
         
-            typedef ::osg::Camera * ( ::osg::RenderInfo::*getCurrentCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::RenderInfo::*getCurrentCamera_function_type)(  ) ;
             
             RenderInfo_exposer.def( 
                 "getCurrentCamera"
@@ -35,7 +35,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getState
         
-            typedef ::osg::State * ( ::osg::RenderInfo::*getState_function_type )(  ) ;
+            typedef ::osg::State * ( ::osg::RenderInfo::*getState_function_type)(  ) ;
             
             RenderInfo_exposer.def( 
                 "getState"
@@ -45,7 +45,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getState
         
-            typedef ::osg::State const * ( ::osg::RenderInfo::*getState_function_type )(  ) const;
+            typedef ::osg::State const * ( ::osg::RenderInfo::*getState_function_type)(  ) const;
             
             RenderInfo_exposer.def( 
                 "getState"
@@ -55,7 +55,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::RenderInfo::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::RenderInfo::*getUserData_function_type)(  ) ;
             
             RenderInfo_exposer.def( 
                 "getUserData"
@@ -65,7 +65,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::RenderInfo::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::RenderInfo::*getUserData_function_type)(  ) const;
             
             RenderInfo_exposer.def( 
                 "getUserData"
@@ -75,7 +75,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getView
         
-            typedef ::osg::View * ( ::osg::RenderInfo::*getView_function_type )(  ) ;
+            typedef ::osg::View * ( ::osg::RenderInfo::*getView_function_type)(  ) ;
             
             RenderInfo_exposer.def( 
                 "getView"
@@ -85,7 +85,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::getView
         
-            typedef ::osg::View const * ( ::osg::RenderInfo::*getView_function_type )(  ) const;
+            typedef ::osg::View const * ( ::osg::RenderInfo::*getView_function_type)(  ) const;
             
             RenderInfo_exposer.def( 
                 "getView"
@@ -95,7 +95,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::operator=
         
-            typedef ::osg::RenderInfo & ( ::osg::RenderInfo::*assign_function_type )( ::osg::RenderInfo const & ) ;
+            typedef ::osg::RenderInfo & ( ::osg::RenderInfo::*assign_function_type)( ::osg::RenderInfo const & ) ;
             
             RenderInfo_exposer.def( 
                 "assign"
@@ -106,7 +106,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::popCamera
         
-            typedef void ( ::osg::RenderInfo::*popCamera_function_type )(  ) ;
+            typedef void ( ::osg::RenderInfo::*popCamera_function_type)(  ) ;
             
             RenderInfo_exposer.def( 
                 "popCamera"
@@ -115,7 +115,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::pushCamera
         
-            typedef void ( ::osg::RenderInfo::*pushCamera_function_type )( ::osg::Camera * ) ;
+            typedef void ( ::osg::RenderInfo::*pushCamera_function_type)( ::osg::Camera * ) ;
             
             RenderInfo_exposer.def( 
                 "pushCamera"
@@ -125,7 +125,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::setState
         
-            typedef void ( ::osg::RenderInfo::*setState_function_type )( ::osg::State * ) ;
+            typedef void ( ::osg::RenderInfo::*setState_function_type)( ::osg::State * ) ;
             
             RenderInfo_exposer.def( 
                 "setState"
@@ -135,7 +135,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::setUserData
         
-            typedef void ( ::osg::RenderInfo::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::RenderInfo::*setUserData_function_type)( ::osg::Referenced * ) ;
             
             RenderInfo_exposer.def( 
                 "setUserData"
@@ -145,7 +145,7 @@ void register_RenderInfo_class(){
         }
         { //::osg::RenderInfo::setView
         
-            typedef void ( ::osg::RenderInfo::*setView_function_type )( ::osg::View * ) ;
+            typedef void ( ::osg::RenderInfo::*setView_function_type)( ::osg::View * ) ;
             
             RenderInfo_exposer.def( 
                 "setView"

@@ -11,19 +11,19 @@ void register_IntLookup_class(){
     bp::class_< osgDB::IntLookup >( "IntLookup", bp::init< >() )    
         .def( 
             "add"
-            , (void ( ::osgDB::IntLookup::* )( char const *,int ) )( &::osgDB::IntLookup::add )
+            , (void ( ::osgDB::IntLookup::* )( char const *,int ))( &::osgDB::IntLookup::add )
             , ( bp::arg("str"), bp::arg("value") ) )    
         .def( 
             "getString"
-            , (::std::string const & ( ::osgDB::IntLookup::* )( int ) )( &::osgDB::IntLookup::getString )
+            , (::std::string const & ( ::osgDB::IntLookup::* )( int ))( &::osgDB::IntLookup::getString )
             , ( bp::arg("value") )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getValue"
-            , (int ( ::osgDB::IntLookup::* )( char const * ) )( &::osgDB::IntLookup::getValue )
+            , (int ( ::osgDB::IntLookup::* )( char const * ))( &::osgDB::IntLookup::getValue )
             , ( bp::arg("str") ) )    
         .def( 
             "size"
-            , (unsigned int ( ::osgDB::IntLookup::* )(  ) const)( &::osgDB::IntLookup::size ) );
+            , (unsigned int ( ::osgDB::IntLookup::* )(  )const)( &::osgDB::IntLookup::size ) );
 
 }

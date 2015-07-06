@@ -628,7 +628,7 @@ void register_GUIEventAdapter_class(){
             TouchData_exposer.def( bp::init< >() );
             { //::osgGA::GUIEventAdapter::TouchData::begin
             
-                typedef ::std::_Vector_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*begin_function_type )(  ) ;
+                typedef ::std::_Vector_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*begin_function_type)(  ) ;
                 
                 TouchData_exposer.def( 
                     "begin"
@@ -637,7 +637,7 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::begin
             
-                typedef ::std::_Vector_const_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*begin_function_type )(  ) const;
+                typedef ::std::_Vector_const_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*begin_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "begin"
@@ -646,8 +646,8 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::className
             
-                typedef char const * ( ::osgGA::GUIEventAdapter::TouchData::*className_function_type )(  ) const;
-                typedef char const * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_className_function_type )(  ) const;
+                typedef char const * ( ::osgGA::GUIEventAdapter::TouchData::*className_function_type)(  ) const;
+                typedef char const * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_className_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "className"
@@ -657,8 +657,8 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::clone
             
-                typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::TouchData::*clone_function_type )( ::osg::CopyOp const & ) const;
-                typedef ::osg::Object * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::TouchData::*clone_function_type)( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
                 
                 TouchData_exposer.def( 
                     "clone"
@@ -670,8 +670,8 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::cloneType
             
-                typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::TouchData::*cloneType_function_type )(  ) const;
-                typedef ::osg::Object * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_cloneType_function_type )(  ) const;
+                typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::TouchData::*cloneType_function_type)(  ) const;
+                typedef ::osg::Object * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_cloneType_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "cloneType"
@@ -682,7 +682,7 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::end
             
-                typedef ::std::_Vector_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*end_function_type )(  ) ;
+                typedef ::std::_Vector_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*end_function_type)(  ) ;
                 
                 TouchData_exposer.def( 
                     "end"
@@ -691,7 +691,7 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::end
             
-                typedef ::std::_Vector_const_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*end_function_type )(  ) const;
+                typedef ::std::_Vector_const_iterator< osgGA::GUIEventAdapter::TouchData::TouchPoint, std::allocator< osgGA::GUIEventAdapter::TouchData::TouchPoint > > ( ::osgGA::GUIEventAdapter::TouchData::*end_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "end"
@@ -700,7 +700,7 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::get
             
-                typedef ::osgGA::GUIEventAdapter::TouchData::TouchPoint const ( ::osgGA::GUIEventAdapter::TouchData::*get_function_type )( unsigned int ) const;
+                typedef ::osgGA::GUIEventAdapter::TouchData::TouchPoint const ( ::osgGA::GUIEventAdapter::TouchData::*get_function_type)( unsigned int ) const;
                 
                 TouchData_exposer.def( 
                     "get"
@@ -710,7 +710,7 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::getNumTouchPoints
             
-                typedef unsigned int ( ::osgGA::GUIEventAdapter::TouchData::*getNumTouchPoints_function_type )(  ) const;
+                typedef unsigned int ( ::osgGA::GUIEventAdapter::TouchData::*getNumTouchPoints_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "getNumTouchPoints"
@@ -719,8 +719,8 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::isSameKindAs
             
-                typedef bool ( ::osgGA::GUIEventAdapter::TouchData::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-                typedef bool ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+                typedef bool ( ::osgGA::GUIEventAdapter::TouchData::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+                typedef bool ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
                 
                 TouchData_exposer.def( 
                     "isSameKindAs"
@@ -731,8 +731,8 @@ void register_GUIEventAdapter_class(){
             }
             { //::osgGA::GUIEventAdapter::TouchData::libraryName
             
-                typedef char const * ( ::osgGA::GUIEventAdapter::TouchData::*libraryName_function_type )(  ) const;
-                typedef char const * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_libraryName_function_type )(  ) const;
+                typedef char const * ( ::osgGA::GUIEventAdapter::TouchData::*libraryName_function_type)(  ) const;
+                typedef char const * ( GUIEventAdapter_wrapper::TouchData_wrapper::*default_libraryName_function_type)(  ) const;
                 
                 TouchData_exposer.def( 
                     "libraryName"
@@ -744,7 +744,7 @@ void register_GUIEventAdapter_class(){
         GUIEventAdapter_exposer.def( bp::init< >() );
         { //::osgGA::GUIEventAdapter::addPointerData
         
-            typedef void ( ::osgGA::GUIEventAdapter::*addPointerData_function_type )( ::osgGA::PointerData * ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*addPointerData_function_type)( ::osgGA::PointerData * ) ;
             
             GUIEventAdapter_exposer.def( 
                 "addPointerData"
@@ -754,7 +754,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::addTouchPoint
         
-            typedef void ( ::osgGA::GUIEventAdapter::*addTouchPoint_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*addTouchPoint_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "addTouchPoint"
@@ -764,8 +764,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::className
         
-            typedef char const * ( ::osgGA::GUIEventAdapter::*className_function_type )(  ) const;
-            typedef char const * ( GUIEventAdapter_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgGA::GUIEventAdapter::*className_function_type)(  ) const;
+            typedef char const * ( GUIEventAdapter_wrapper::*default_className_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "className"
@@ -775,8 +775,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::clone
         
-            typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( GUIEventAdapter_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( GUIEventAdapter_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             GUIEventAdapter_exposer.def( 
                 "clone"
@@ -788,8 +788,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( GUIEventAdapter_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgGA::GUIEventAdapter::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( GUIEventAdapter_wrapper::*default_cloneType_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "cloneType"
@@ -811,7 +811,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getButton
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getButton_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getButton_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getButton"
@@ -821,7 +821,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getButtonMask
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getButtonMask_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getButtonMask_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getButtonMask"
@@ -831,8 +831,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getEventType
         
-            typedef ::osgGA::GUIEventAdapter::EventType ( ::osgGA::GUIEventAdapter::*getEventType_function_type )(  ) const;
-            typedef ::osgGA::GUIEventAdapter::EventType ( GUIEventAdapter_wrapper::*default_getEventType_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter::EventType ( ::osgGA::GUIEventAdapter::*getEventType_function_type)(  ) const;
+            typedef ::osgGA::GUIEventAdapter::EventType ( GUIEventAdapter_wrapper::*default_getEventType_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getEventType"
@@ -842,7 +842,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getGraphicsContext
         
-            typedef ::osg::GraphicsContext * ( ::osgGA::GUIEventAdapter::*getGraphicsContext_function_type )(  ) ;
+            typedef ::osg::GraphicsContext * ( ::osgGA::GUIEventAdapter::*getGraphicsContext_function_type)(  ) ;
             
             GUIEventAdapter_exposer.def( 
                 "getGraphicsContext"
@@ -852,7 +852,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getGraphicsContext
         
-            typedef ::osg::GraphicsContext const * ( ::osgGA::GUIEventAdapter::*getGraphicsContext_function_type )(  ) const;
+            typedef ::osg::GraphicsContext const * ( ::osgGA::GUIEventAdapter::*getGraphicsContext_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getGraphicsContext"
@@ -862,7 +862,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getHandled
         
-            typedef bool ( ::osgGA::GUIEventAdapter::*getHandled_function_type )(  ) const;
+            typedef bool ( ::osgGA::GUIEventAdapter::*getHandled_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getHandled"
@@ -872,8 +872,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getKey
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getKey_function_type )(  ) const;
-            typedef int ( GUIEventAdapter_wrapper::*default_getKey_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getKey_function_type)(  ) const;
+            typedef int ( GUIEventAdapter_wrapper::*default_getKey_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getKey"
@@ -883,7 +883,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getModKeyMask
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getModKeyMask_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getModKeyMask_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getModKeyMask"
@@ -893,7 +893,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getMouseYOrientation
         
-            typedef ::osgGA::GUIEventAdapter::MouseYOrientation ( ::osgGA::GUIEventAdapter::*getMouseYOrientation_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter::MouseYOrientation ( ::osgGA::GUIEventAdapter::*getMouseYOrientation_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getMouseYOrientation"
@@ -903,7 +903,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getNumPointerData
         
-            typedef unsigned int ( ::osgGA::GUIEventAdapter::*getNumPointerData_function_type )(  ) const;
+            typedef unsigned int ( ::osgGA::GUIEventAdapter::*getNumPointerData_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getNumPointerData"
@@ -912,7 +912,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPenOrientation
         
-            typedef ::osg::Matrix const ( ::osgGA::GUIEventAdapter::*getPenOrientation_function_type )(  ) const;
+            typedef ::osg::Matrix const ( ::osgGA::GUIEventAdapter::*getPenOrientation_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPenOrientation"
@@ -922,7 +922,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPenPressure
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getPenPressure_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getPenPressure_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPenPressure"
@@ -932,7 +932,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPenRotation
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getPenRotation_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getPenRotation_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPenRotation"
@@ -942,7 +942,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPenTiltX
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getPenTiltX_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getPenTiltX_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPenTiltX"
@@ -952,7 +952,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPenTiltY
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getPenTiltY_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getPenTiltY_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPenTiltY"
@@ -962,7 +962,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerData
         
-            typedef ::osgGA::PointerData * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type )( unsigned int ) ;
+            typedef ::osgGA::PointerData * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type)( unsigned int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerData"
@@ -973,7 +973,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerData
         
-            typedef ::osgGA::PointerData const * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type )( unsigned int ) const;
+            typedef ::osgGA::PointerData const * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type)( unsigned int ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerData"
@@ -984,7 +984,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerData
         
-            typedef ::osgGA::PointerData * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type )( ::osg::Object * ) ;
+            typedef ::osgGA::PointerData * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type)( ::osg::Object * ) ;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerData"
@@ -995,7 +995,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerData
         
-            typedef ::osgGA::PointerData const * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type )( ::osg::Object * ) const;
+            typedef ::osgGA::PointerData const * ( ::osgGA::GUIEventAdapter::*getPointerData_function_type)( ::osg::Object * ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerData"
@@ -1006,7 +1006,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerDataList
         
-            typedef ::std::vector< osg::ref_ptr<osgGA::PointerData> > & ( ::osgGA::GUIEventAdapter::*getPointerDataList_function_type )(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osgGA::PointerData> > & ( ::osgGA::GUIEventAdapter::*getPointerDataList_function_type)(  ) ;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerDataList"
@@ -1016,7 +1016,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getPointerDataList
         
-            typedef ::std::vector< osg::ref_ptr<osgGA::PointerData> > const & ( ::osgGA::GUIEventAdapter::*getPointerDataList_function_type )(  ) const;
+            typedef ::std::vector< osg::ref_ptr<osgGA::PointerData> > const & ( ::osgGA::GUIEventAdapter::*getPointerDataList_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getPointerDataList"
@@ -1026,7 +1026,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getScrollingDeltaX
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getScrollingDeltaX_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getScrollingDeltaX_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingDeltaX"
@@ -1036,7 +1036,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getScrollingDeltaY
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getScrollingDeltaY_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getScrollingDeltaY_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingDeltaY"
@@ -1046,7 +1046,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getScrollingMotion
         
-            typedef ::osgGA::GUIEventAdapter::ScrollingMotion ( ::osgGA::GUIEventAdapter::*getScrollingMotion_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter::ScrollingMotion ( ::osgGA::GUIEventAdapter::*getScrollingMotion_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getScrollingMotion"
@@ -1056,7 +1056,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getTabletPointerType
         
-            typedef ::osgGA::GUIEventAdapter::TabletPointerType ( ::osgGA::GUIEventAdapter::*getTabletPointerType_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter::TabletPointerType ( ::osgGA::GUIEventAdapter::*getTabletPointerType_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getTabletPointerType"
@@ -1066,7 +1066,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getTime
         
-            typedef double ( ::osgGA::GUIEventAdapter::*getTime_function_type )(  ) const;
+            typedef double ( ::osgGA::GUIEventAdapter::*getTime_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getTime"
@@ -1076,7 +1076,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getTouchData
         
-            typedef ::osgGA::GUIEventAdapter::TouchData * ( ::osgGA::GUIEventAdapter::*getTouchData_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter::TouchData * ( ::osgGA::GUIEventAdapter::*getTouchData_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getTouchData"
@@ -1086,7 +1086,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getUnmodifiedKey
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getUnmodifiedKey_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getUnmodifiedKey_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getUnmodifiedKey"
@@ -1096,7 +1096,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getWindowHeight
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getWindowHeight_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getWindowHeight_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getWindowHeight"
@@ -1106,7 +1106,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getWindowWidth
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getWindowWidth_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getWindowWidth_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getWindowWidth"
@@ -1116,7 +1116,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getWindowX
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getWindowX_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getWindowX_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getWindowX"
@@ -1126,7 +1126,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getWindowY
         
-            typedef int ( ::osgGA::GUIEventAdapter::*getWindowY_function_type )(  ) const;
+            typedef int ( ::osgGA::GUIEventAdapter::*getWindowY_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getWindowY"
@@ -1136,7 +1136,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getX
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getX_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getX_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getX"
@@ -1146,7 +1146,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getXmax
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getXmax_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getXmax_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getXmax"
@@ -1156,7 +1156,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getXmin
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getXmin_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getXmin_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getXmin"
@@ -1166,7 +1166,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getXnormalized
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getXnormalized_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getXnormalized_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getXnormalized"
@@ -1175,7 +1175,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getY
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getY_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getY_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getY"
@@ -1185,7 +1185,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getYmax
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getYmax_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getYmax_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getYmax"
@@ -1195,7 +1195,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getYmin
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getYmin_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getYmin_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getYmin"
@@ -1205,7 +1205,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::getYnormalized
         
-            typedef float ( ::osgGA::GUIEventAdapter::*getYnormalized_function_type )(  ) const;
+            typedef float ( ::osgGA::GUIEventAdapter::*getYnormalized_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "getYnormalized"
@@ -1214,7 +1214,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::isMultiTouchEvent
         
-            typedef bool ( ::osgGA::GUIEventAdapter::*isMultiTouchEvent_function_type )(  ) const;
+            typedef bool ( ::osgGA::GUIEventAdapter::*isMultiTouchEvent_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "isMultiTouchEvent"
@@ -1223,8 +1223,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::isSameKindAs
         
-            typedef bool ( ::osgGA::GUIEventAdapter::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( GUIEventAdapter_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::GUIEventAdapter::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( GUIEventAdapter_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             GUIEventAdapter_exposer.def( 
                 "isSameKindAs"
@@ -1235,8 +1235,8 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::libraryName
         
-            typedef char const * ( ::osgGA::GUIEventAdapter::*libraryName_function_type )(  ) const;
-            typedef char const * ( GUIEventAdapter_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgGA::GUIEventAdapter::*libraryName_function_type)(  ) const;
+            typedef char const * ( GUIEventAdapter_wrapper::*default_libraryName_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "libraryName"
@@ -1246,7 +1246,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setButton
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setButton_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setButton_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setButton"
@@ -1257,7 +1257,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setButtonMask
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setButtonMask_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setButtonMask_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setButtonMask"
@@ -1268,7 +1268,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setEventType
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setEventType_function_type )( ::osgGA::GUIEventAdapter::EventType ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setEventType_function_type)( ::osgGA::GUIEventAdapter::EventType ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setEventType"
@@ -1279,7 +1279,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setGraphicsContext
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setGraphicsContext_function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setGraphicsContext_function_type)( ::osg::GraphicsContext * ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setGraphicsContext"
@@ -1289,7 +1289,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setHandled
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setHandled_function_type )( bool ) const;
+            typedef void ( ::osgGA::GUIEventAdapter::*setHandled_function_type)( bool ) const;
             
             GUIEventAdapter_exposer.def( 
                 "setHandled"
@@ -1300,7 +1300,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setInputRange
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setInputRange_function_type )( float,float,float,float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setInputRange_function_type)( float,float,float,float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setInputRange"
@@ -1311,7 +1311,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setKey
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setKey_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setKey_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setKey"
@@ -1322,7 +1322,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setModKeyMask
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setModKeyMask_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setModKeyMask_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setModKeyMask"
@@ -1333,7 +1333,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setMouseYOrientation
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setMouseYOrientation_function_type )( ::osgGA::GUIEventAdapter::MouseYOrientation ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setMouseYOrientation_function_type)( ::osgGA::GUIEventAdapter::MouseYOrientation ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setMouseYOrientation"
@@ -1344,7 +1344,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setPenPressure
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setPenPressure_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setPenPressure_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setPenPressure"
@@ -1355,7 +1355,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setPenRotation
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setPenRotation_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setPenRotation_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setPenRotation"
@@ -1366,7 +1366,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setPenTiltX
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setPenTiltX_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setPenTiltX_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setPenTiltX"
@@ -1377,7 +1377,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setPenTiltY
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setPenTiltY_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setPenTiltY_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setPenTiltY"
@@ -1388,7 +1388,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setPointerDataList
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setPointerDataList_function_type )( ::std::vector< osg::ref_ptr<osgGA::PointerData> > const & ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setPointerDataList_function_type)( ::std::vector< osg::ref_ptr<osgGA::PointerData> > const & ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setPointerDataList"
@@ -1398,7 +1398,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setScrollingDeltaX
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingDeltaX_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingDeltaX_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setScrollingDeltaX"
@@ -1409,7 +1409,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setScrollingDeltaY
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingDeltaY_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingDeltaY_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setScrollingDeltaY"
@@ -1420,7 +1420,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setScrollingMotion
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingMotion_function_type )( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingMotion_function_type)( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setScrollingMotion"
@@ -1431,7 +1431,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setScrollingMotionDelta
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingMotionDelta_function_type )( float,float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setScrollingMotionDelta_function_type)( float,float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setScrollingMotionDelta"
@@ -1442,7 +1442,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setTabletPointerType
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setTabletPointerType_function_type )( ::osgGA::GUIEventAdapter::TabletPointerType ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setTabletPointerType_function_type)( ::osgGA::GUIEventAdapter::TabletPointerType ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setTabletPointerType"
@@ -1453,7 +1453,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setTime
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setTime_function_type )( double ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setTime_function_type)( double ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setTime"
@@ -1464,7 +1464,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setUnmodifiedKey
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setUnmodifiedKey_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setUnmodifiedKey_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setUnmodifiedKey"
@@ -1475,7 +1475,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setWindowHeight
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setWindowHeight_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setWindowHeight_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setWindowHeight"
@@ -1486,7 +1486,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setWindowRectangle
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setWindowRectangle_function_type )( int,int,int,int,bool ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setWindowRectangle_function_type)( int,int,int,int,bool ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setWindowRectangle"
@@ -1497,7 +1497,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setWindowWidth
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setWindowWidth_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setWindowWidth_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setWindowWidth"
@@ -1508,7 +1508,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setWindowX
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setWindowX_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setWindowX_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setWindowX"
@@ -1519,7 +1519,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setWindowY
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setWindowY_function_type )( int ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setWindowY_function_type)( int ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setWindowY"
@@ -1530,7 +1530,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setX
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setX_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setX_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setX"
@@ -1541,7 +1541,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setXmax
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setXmax_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setXmax_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setXmax"
@@ -1552,7 +1552,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setXmin
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setXmin_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setXmin_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setXmin"
@@ -1563,7 +1563,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setY
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setY_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setY_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setY"
@@ -1574,7 +1574,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setYmax
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setYmax_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setYmax_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setYmax"
@@ -1585,7 +1585,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::setYmin
         
-            typedef void ( ::osgGA::GUIEventAdapter::*setYmin_function_type )( float ) ;
+            typedef void ( ::osgGA::GUIEventAdapter::*setYmin_function_type)( float ) ;
             
             GUIEventAdapter_exposer.def( 
                 "setYmin"
@@ -1596,7 +1596,7 @@ void register_GUIEventAdapter_class(){
         }
         { //::osgGA::GUIEventAdapter::time
         
-            typedef double ( ::osgGA::GUIEventAdapter::*time_function_type )(  ) const;
+            typedef double ( ::osgGA::GUIEventAdapter::*time_function_type)(  ) const;
             
             GUIEventAdapter_exposer.def( 
                 "time"

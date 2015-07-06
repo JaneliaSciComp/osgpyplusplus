@@ -16,7 +16,7 @@ void register_ParameterOutput_class(){
         ParameterOutput_exposer.def( bp::init< osgDB::Output &, int >(( bp::arg("fw"), bp::arg("numItemsPerLine") )) );
         { //::osgDB::ParameterOutput::begin
         
-            typedef void ( ::osgDB::ParameterOutput::*begin_function_type )(  ) ;
+            typedef void ( ::osgDB::ParameterOutput::*begin_function_type)(  ) ;
             
             ParameterOutput_exposer.def( 
                 "begin"
@@ -25,7 +25,7 @@ void register_ParameterOutput_class(){
         }
         { //::osgDB::ParameterOutput::end
         
-            typedef void ( ::osgDB::ParameterOutput::*end_function_type )(  ) ;
+            typedef void ( ::osgDB::ParameterOutput::*end_function_type)(  ) ;
             
             ParameterOutput_exposer.def( 
                 "end"
@@ -34,7 +34,7 @@ void register_ParameterOutput_class(){
         }
         { //::osgDB::ParameterOutput::newLine
         
-            typedef void ( ::osgDB::ParameterOutput::*newLine_function_type )(  ) ;
+            typedef void ( ::osgDB::ParameterOutput::*newLine_function_type)(  ) ;
             
             ParameterOutput_exposer.def( 
                 "newLine"
@@ -43,7 +43,7 @@ void register_ParameterOutput_class(){
         }
         { //::osgDB::ParameterOutput::write
         
-            typedef void ( ::osgDB::ParameterOutput::*write_function_type )( int const & ) ;
+            typedef void ( ::osgDB::ParameterOutput::*write_function_type)( int const & ) ;
             
             ParameterOutput_exposer.def( 
                 "write"

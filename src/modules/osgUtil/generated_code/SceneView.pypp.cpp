@@ -421,26 +421,26 @@ void register_SceneView_class(){
         bp::class_< SceneView_wrapper::ComputeStereoMatricesCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::SceneView::ComputeStereoMatricesCallback >, boost::noncopyable >( "ComputeStereoMatricesCallback", bp::no_init )    
             .def( 
                 "computeLeftEyeProjection"
-                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & ) const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection) )
+                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & )const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection) )
                 , ( bp::arg("projection") ) )    
             .def( 
                 "computeLeftEyeView"
-                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & ) const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView) )
+                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & )const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeView) )
                 , ( bp::arg("view") ) )    
             .def( 
                 "computeRightEyeProjection"
-                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & ) const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection) )
+                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & )const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeProjection) )
                 , ( bp::arg("projection") ) )    
             .def( 
                 "computeRightEyeView"
-                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & ) const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView) )
+                , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & )const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeRightEyeView) )
                 , ( bp::arg("view") ) );
         SceneView_exposer.def( bp::init< bp::optional< osg::DisplaySettings * > >(( bp::arg("ds")=bp::object() )) );
         bp::implicitly_convertible< osg::DisplaySettings *, osgUtil::SceneView >();
         { //::osgUtil::SceneView::className
         
-            typedef char const * ( ::osgUtil::SceneView::*className_function_type )(  ) const;
-            typedef char const * ( SceneView_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::SceneView::*className_function_type)(  ) const;
+            typedef char const * ( SceneView_wrapper::*default_className_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "className"
@@ -450,7 +450,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::clearReferencesToDependentCameras
         
-            typedef void ( ::osgUtil::SceneView::*clearReferencesToDependentCameras_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*clearReferencesToDependentCameras_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "clearReferencesToDependentCameras"
@@ -459,8 +459,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::clone
         
-            typedef ::osg::Object * ( ::osgUtil::SceneView::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( SceneView_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgUtil::SceneView::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( SceneView_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             SceneView_exposer.def( 
                 "clone"
@@ -472,8 +472,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::cloneType
         
-            typedef ::osg::Object * ( ::osgUtil::SceneView::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( SceneView_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgUtil::SceneView::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( SceneView_wrapper::*default_cloneType_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "cloneType"
@@ -484,7 +484,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::collateReferencesToDependentCameras
         
-            typedef void ( ::osgUtil::SceneView::*collateReferencesToDependentCameras_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*collateReferencesToDependentCameras_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "collateReferencesToDependentCameras"
@@ -493,7 +493,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeLeftEyeProjection
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeProjection_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeProjection_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeLeftEyeProjection"
@@ -503,8 +503,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeLeftEyeProjectionImplementation
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeLeftEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeLeftEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeLeftEyeProjectionImplementation"
@@ -515,7 +515,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeLeftEyeView
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeView_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeView_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeLeftEyeView"
@@ -525,8 +525,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeLeftEyeViewImplementation
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeViewImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeLeftEyeViewImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeLeftEyeViewImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeLeftEyeViewImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeLeftEyeViewImplementation"
@@ -537,7 +537,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeRightEyeProjection
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeProjection_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeProjection_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeRightEyeProjection"
@@ -547,8 +547,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeRightEyeProjectionImplementation
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeRightEyeProjectionImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeRightEyeProjectionImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeRightEyeProjectionImplementation"
@@ -559,7 +559,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeRightEyeView
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeView_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeView_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeRightEyeView"
@@ -569,8 +569,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::computeRightEyeViewImplementation
         
-            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeViewImplementation_function_type )( ::osg::Matrixd const & ) const;
-            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeRightEyeViewImplementation_function_type )( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( ::osgUtil::SceneView::*computeRightEyeViewImplementation_function_type)( ::osg::Matrixd const & ) const;
+            typedef ::osg::Matrixd ( SceneView_wrapper::*default_computeRightEyeViewImplementation_function_type)( ::osg::Matrixd const & ) const;
             
             SceneView_exposer.def( 
                 "computeRightEyeViewImplementation"
@@ -581,8 +581,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::cull
         
-            typedef void ( ::osgUtil::SceneView::*cull_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_cull_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*cull_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_cull_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "cull"
@@ -592,8 +592,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::draw
         
-            typedef void ( ::osgUtil::SceneView::*draw_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_draw_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*draw_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_draw_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "draw"
@@ -603,8 +603,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::flushAllDeletedGLObjects
         
-            typedef void ( ::osgUtil::SceneView::*flushAllDeletedGLObjects_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_flushAllDeletedGLObjects_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*flushAllDeletedGLObjects_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_flushAllDeletedGLObjects_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "flushAllDeletedGLObjects"
@@ -614,8 +614,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::flushDeletedGLObjects
         
-            typedef void ( ::osgUtil::SceneView::*flushDeletedGLObjects_function_type )( double & ) ;
-            typedef void ( SceneView_wrapper::*default_flushDeletedGLObjects_function_type )( double & ) ;
+            typedef void ( ::osgUtil::SceneView::*flushDeletedGLObjects_function_type)( double & ) ;
+            typedef void ( SceneView_wrapper::*default_flushDeletedGLObjects_function_type)( double & ) ;
             
             SceneView_exposer.def( 
                 "flushDeletedGLObjects"
@@ -626,7 +626,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getActiveUniforms
         
-            typedef int ( ::osgUtil::SceneView::*getActiveUniforms_function_type )(  ) const;
+            typedef int ( ::osgUtil::SceneView::*getActiveUniforms_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getActiveUniforms"
@@ -635,7 +635,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getAutomaticFlush
         
-            typedef bool ( ::osgUtil::SceneView::*getAutomaticFlush_function_type )(  ) const;
+            typedef bool ( ::osgUtil::SceneView::*getAutomaticFlush_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getAutomaticFlush"
@@ -644,7 +644,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCamera
         
-            typedef ::osg::Camera * ( ::osgUtil::SceneView::*getCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osgUtil::SceneView::*getCamera_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getCamera"
@@ -654,7 +654,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCamera
         
-            typedef ::osg::Camera const * ( ::osgUtil::SceneView::*getCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osgUtil::SceneView::*getCamera_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getCamera"
@@ -664,7 +664,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getClearColor
         
-            typedef ::osg::Vec4 const & ( ::osgUtil::SceneView::*getClearColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgUtil::SceneView::*getClearColor_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getClearColor"
@@ -674,7 +674,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCollectOccludersVisitor
         
-            typedef ::osg::CollectOccludersVisitor * ( ::osgUtil::SceneView::*getCollectOccludersVisitor_function_type )(  ) ;
+            typedef ::osg::CollectOccludersVisitor * ( ::osgUtil::SceneView::*getCollectOccludersVisitor_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getCollectOccludersVisitor"
@@ -684,7 +684,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCollectOccludersVisitor
         
-            typedef ::osg::CollectOccludersVisitor const * ( ::osgUtil::SceneView::*getCollectOccludersVisitor_function_type )(  ) const;
+            typedef ::osg::CollectOccludersVisitor const * ( ::osgUtil::SceneView::*getCollectOccludersVisitor_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getCollectOccludersVisitor"
@@ -694,7 +694,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getComputeStereoMatricesCallback
         
-            typedef ::osgUtil::SceneView::ComputeStereoMatricesCallback * ( ::osgUtil::SceneView::*getComputeStereoMatricesCallback_function_type )(  ) ;
+            typedef ::osgUtil::SceneView::ComputeStereoMatricesCallback * ( ::osgUtil::SceneView::*getComputeStereoMatricesCallback_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getComputeStereoMatricesCallback"
@@ -704,7 +704,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getComputeStereoMatricesCallback
         
-            typedef ::osgUtil::SceneView::ComputeStereoMatricesCallback const * ( ::osgUtil::SceneView::*getComputeStereoMatricesCallback_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::ComputeStereoMatricesCallback const * ( ::osgUtil::SceneView::*getComputeStereoMatricesCallback_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getComputeStereoMatricesCallback"
@@ -714,7 +714,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitor
         
-            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitor_function_type )(  ) ;
+            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitor_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getCullVisitor"
@@ -724,7 +724,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitor
         
-            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitor_function_type )(  ) const;
+            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitor_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getCullVisitor"
@@ -734,7 +734,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitorLeft
         
-            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitorLeft_function_type )(  ) ;
+            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitorLeft_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getCullVisitorLeft"
@@ -744,7 +744,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitorLeft
         
-            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitorLeft_function_type )(  ) const;
+            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitorLeft_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getCullVisitorLeft"
@@ -754,7 +754,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitorRight
         
-            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitorRight_function_type )(  ) ;
+            typedef ::osgUtil::CullVisitor * ( ::osgUtil::SceneView::*getCullVisitorRight_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getCullVisitorRight"
@@ -764,7 +764,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getCullVisitorRight
         
-            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitorRight_function_type )(  ) const;
+            typedef ::osgUtil::CullVisitor const * ( ::osgUtil::SceneView::*getCullVisitorRight_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getCullVisitorRight"
@@ -774,7 +774,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getDisplaySettings
         
-            typedef ::osg::DisplaySettings const * ( ::osgUtil::SceneView::*getDisplaySettings_function_type )(  ) const;
+            typedef ::osg::DisplaySettings const * ( ::osgUtil::SceneView::*getDisplaySettings_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getDisplaySettings"
@@ -784,7 +784,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getDisplaySettings
         
-            typedef ::osg::DisplaySettings * ( ::osgUtil::SceneView::*getDisplaySettings_function_type )(  ) ;
+            typedef ::osg::DisplaySettings * ( ::osgUtil::SceneView::*getDisplaySettings_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getDisplaySettings"
@@ -794,7 +794,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getDrawBufferValue
         
-            typedef ::GLenum ( ::osgUtil::SceneView::*getDrawBufferValue_function_type )(  ) const;
+            typedef ::GLenum ( ::osgUtil::SceneView::*getDrawBufferValue_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getDrawBufferValue"
@@ -803,7 +803,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getDynamicObjectCount
         
-            typedef unsigned int ( ::osgUtil::SceneView::*getDynamicObjectCount_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::SceneView::*getDynamicObjectCount_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getDynamicObjectCount"
@@ -812,7 +812,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getFrameStamp
         
-            typedef ::osg::FrameStamp const * ( ::osgUtil::SceneView::*getFrameStamp_function_type )(  ) const;
+            typedef ::osg::FrameStamp const * ( ::osgUtil::SceneView::*getFrameStamp_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getFrameStamp"
@@ -822,7 +822,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgUtil::SceneView::*getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgUtil::SceneView::*getFusionDistanceMode_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getFusionDistanceMode"
@@ -831,7 +831,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getFusionDistanceValue
         
-            typedef float ( ::osgUtil::SceneView::*getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( ::osgUtil::SceneView::*getFusionDistanceValue_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getFusionDistanceValue"
@@ -840,7 +840,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getGlobalStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getGlobalStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getGlobalStateSet_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getGlobalStateSet"
@@ -850,7 +850,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getGlobalStateSet
         
-            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getGlobalStateSet_function_type )(  ) const;
+            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getGlobalStateSet_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getGlobalStateSet"
@@ -860,7 +860,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getInitVisitor
         
-            typedef ::osg::NodeVisitor * ( ::osgUtil::SceneView::*getInitVisitor_function_type )(  ) ;
+            typedef ::osg::NodeVisitor * ( ::osgUtil::SceneView::*getInitVisitor_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getInitVisitor"
@@ -870,7 +870,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getInitVisitor
         
-            typedef ::osg::NodeVisitor const * ( ::osgUtil::SceneView::*getInitVisitor_function_type )(  ) const;
+            typedef ::osg::NodeVisitor const * ( ::osgUtil::SceneView::*getInitVisitor_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getInitVisitor"
@@ -880,7 +880,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getLight
         
-            typedef ::osg::Light * ( ::osgUtil::SceneView::*getLight_function_type )(  ) ;
+            typedef ::osg::Light * ( ::osgUtil::SceneView::*getLight_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getLight"
@@ -890,7 +890,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getLight
         
-            typedef ::osg::Light const * ( ::osgUtil::SceneView::*getLight_function_type )(  ) const;
+            typedef ::osg::Light const * ( ::osgUtil::SceneView::*getLight_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getLight"
@@ -900,7 +900,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getLightingMode
         
-            typedef ::osgUtil::SceneView::Options ( ::osgUtil::SceneView::*getLightingMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::Options ( ::osgUtil::SceneView::*getLightingMode_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getLightingMode"
@@ -909,7 +909,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getLocalStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getLocalStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getLocalStateSet_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getLocalStateSet"
@@ -919,7 +919,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getLocalStateSet
         
-            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getLocalStateSet_function_type )(  ) const;
+            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getLocalStateSet_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getLocalStateSet"
@@ -929,7 +929,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getNumSceneData
         
-            typedef unsigned int ( ::osgUtil::SceneView::*getNumSceneData_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::SceneView::*getNumSceneData_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getNumSceneData"
@@ -938,7 +938,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getPrioritizeTextures
         
-            typedef bool ( ::osgUtil::SceneView::*getPrioritizeTextures_function_type )(  ) const;
+            typedef bool ( ::osgUtil::SceneView::*getPrioritizeTextures_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getPrioritizeTextures"
@@ -947,7 +947,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getProjectionMatrix
         
-            typedef ::osg::Matrixd & ( ::osgUtil::SceneView::*getProjectionMatrix_function_type )(  ) ;
+            typedef ::osg::Matrixd & ( ::osgUtil::SceneView::*getProjectionMatrix_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getProjectionMatrix"
@@ -957,7 +957,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getProjectionMatrix
         
-            typedef ::osg::Matrixd const & ( ::osgUtil::SceneView::*getProjectionMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd const & ( ::osgUtil::SceneView::*getProjectionMatrix_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getProjectionMatrix"
@@ -967,7 +967,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getProjectionMatrixAsFrustum
         
-            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsFrustum_function_type )( double &,double &,double &,double &,double &,double & ) const;
+            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsFrustum_function_type)( double &,double &,double &,double &,double &,double & ) const;
             
             SceneView_exposer.def( 
                 "getProjectionMatrixAsFrustum"
@@ -977,7 +977,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getProjectionMatrixAsOrtho
         
-            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsOrtho_function_type )( double &,double &,double &,double &,double &,double & ) const;
+            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsOrtho_function_type)( double &,double &,double &,double &,double &,double & ) const;
             
             SceneView_exposer.def( 
                 "getProjectionMatrixAsOrtho"
@@ -987,7 +987,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getProjectionMatrixAsPerspective
         
-            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsPerspective_function_type )( double &,double &,double &,double & ) const;
+            typedef bool ( ::osgUtil::SceneView::*getProjectionMatrixAsPerspective_function_type)( double &,double &,double &,double & ) const;
             
             SceneView_exposer.def( 
                 "getProjectionMatrixAsPerspective"
@@ -997,7 +997,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRedrawInterlacedStereoStencilMask
         
-            typedef bool ( ::osgUtil::SceneView::*getRedrawInterlacedStereoStencilMask_function_type )(  ) const;
+            typedef bool ( ::osgUtil::SceneView::*getRedrawInterlacedStereoStencilMask_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getRedrawInterlacedStereoStencilMask"
@@ -1006,7 +1006,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderInfo
         
-            typedef ::osg::RenderInfo & ( ::osgUtil::SceneView::*getRenderInfo_function_type )(  ) ;
+            typedef ::osg::RenderInfo & ( ::osgUtil::SceneView::*getRenderInfo_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getRenderInfo"
@@ -1016,7 +1016,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderInfo
         
-            typedef ::osg::RenderInfo const & ( ::osgUtil::SceneView::*getRenderInfo_function_type )(  ) const;
+            typedef ::osg::RenderInfo const & ( ::osgUtil::SceneView::*getRenderInfo_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getRenderInfo"
@@ -1026,7 +1026,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStage
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStage_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStage_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getRenderStage"
@@ -1036,7 +1036,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStage
         
-            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStage_function_type )(  ) const;
+            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStage_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getRenderStage"
@@ -1046,7 +1046,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStageLeft
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStageLeft_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStageLeft_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getRenderStageLeft"
@@ -1056,7 +1056,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStageLeft
         
-            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStageLeft_function_type )(  ) const;
+            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStageLeft_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getRenderStageLeft"
@@ -1066,7 +1066,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStageRight
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStageRight_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::SceneView::*getRenderStageRight_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getRenderStageRight"
@@ -1076,7 +1076,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getRenderStageRight
         
-            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStageRight_function_type )(  ) const;
+            typedef ::osgUtil::RenderStage const * ( ::osgUtil::SceneView::*getRenderStageRight_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getRenderStageRight"
@@ -1086,7 +1086,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getResetColorMaskToAllOn
         
-            typedef bool ( ::osgUtil::SceneView::*getResetColorMaskToAllOn_function_type )(  ) const;
+            typedef bool ( ::osgUtil::SceneView::*getResetColorMaskToAllOn_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getResetColorMaskToAllOn"
@@ -1095,7 +1095,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getSceneData
         
-            typedef ::osg::Node * ( ::osgUtil::SceneView::*getSceneData_function_type )( unsigned int ) ;
+            typedef ::osg::Node * ( ::osgUtil::SceneView::*getSceneData_function_type)( unsigned int ) ;
             
             SceneView_exposer.def( 
                 "getSceneData"
@@ -1106,7 +1106,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getSceneData
         
-            typedef ::osg::Node const * ( ::osgUtil::SceneView::*getSceneData_function_type )( unsigned int ) const;
+            typedef ::osg::Node const * ( ::osgUtil::SceneView::*getSceneData_function_type)( unsigned int ) const;
             
             SceneView_exposer.def( 
                 "getSceneData"
@@ -1117,7 +1117,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getSecondaryStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getSecondaryStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osgUtil::SceneView::*getSecondaryStateSet_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getSecondaryStateSet"
@@ -1127,7 +1127,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getSecondaryStateSet
         
-            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getSecondaryStateSet_function_type )(  ) const;
+            typedef ::osg::StateSet const * ( ::osgUtil::SceneView::*getSecondaryStateSet_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getSecondaryStateSet"
@@ -1137,7 +1137,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getState
         
-            typedef ::osg::State * ( ::osgUtil::SceneView::*getState_function_type )(  ) ;
+            typedef ::osg::State * ( ::osgUtil::SceneView::*getState_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getState"
@@ -1147,7 +1147,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getState
         
-            typedef ::osg::State const * ( ::osgUtil::SceneView::*getState_function_type )(  ) const;
+            typedef ::osg::State const * ( ::osgUtil::SceneView::*getState_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getState"
@@ -1157,7 +1157,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraph
         
-            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraph_function_type )(  ) ;
+            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraph_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getStateGraph"
@@ -1167,7 +1167,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraph
         
-            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraph_function_type )(  ) const;
+            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraph_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getStateGraph"
@@ -1177,7 +1177,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraphLeft
         
-            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraphLeft_function_type )(  ) ;
+            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraphLeft_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getStateGraphLeft"
@@ -1187,7 +1187,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraphLeft
         
-            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraphLeft_function_type )(  ) const;
+            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraphLeft_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getStateGraphLeft"
@@ -1197,7 +1197,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraphRight
         
-            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraphRight_function_type )(  ) ;
+            typedef ::osgUtil::StateGraph * ( ::osgUtil::SceneView::*getStateGraphRight_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getStateGraphRight"
@@ -1207,7 +1207,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStateGraphRight
         
-            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraphRight_function_type )(  ) const;
+            typedef ::osgUtil::StateGraph const * ( ::osgUtil::SceneView::*getStateGraphRight_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getStateGraphRight"
@@ -1217,7 +1217,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getStats
         
-            typedef bool ( ::osgUtil::SceneView::*getStats_function_type )( ::osgUtil::Statistics & ) ;
+            typedef bool ( ::osgUtil::SceneView::*getStats_function_type)( ::osgUtil::Statistics & ) ;
             
             SceneView_exposer.def( 
                 "getStats"
@@ -1227,7 +1227,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getUpdateVisitor
         
-            typedef ::osg::NodeVisitor * ( ::osgUtil::SceneView::*getUpdateVisitor_function_type )(  ) ;
+            typedef ::osg::NodeVisitor * ( ::osgUtil::SceneView::*getUpdateVisitor_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getUpdateVisitor"
@@ -1237,7 +1237,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getUpdateVisitor
         
-            typedef ::osg::NodeVisitor const * ( ::osgUtil::SceneView::*getUpdateVisitor_function_type )(  ) const;
+            typedef ::osg::NodeVisitor const * ( ::osgUtil::SceneView::*getUpdateVisitor_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getUpdateVisitor"
@@ -1247,7 +1247,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getView
         
-            typedef ::osg::View * ( ::osgUtil::SceneView::*getView_function_type )(  ) ;
+            typedef ::osg::View * ( ::osgUtil::SceneView::*getView_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getView"
@@ -1257,7 +1257,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getView
         
-            typedef ::osg::View const * ( ::osgUtil::SceneView::*getView_function_type )(  ) const;
+            typedef ::osg::View const * ( ::osgUtil::SceneView::*getView_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getView"
@@ -1267,7 +1267,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getViewMatrix
         
-            typedef ::osg::Matrixd & ( ::osgUtil::SceneView::*getViewMatrix_function_type )(  ) ;
+            typedef ::osg::Matrixd & ( ::osgUtil::SceneView::*getViewMatrix_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getViewMatrix"
@@ -1277,7 +1277,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getViewMatrix
         
-            typedef ::osg::Matrixd const & ( ::osgUtil::SceneView::*getViewMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd const & ( ::osgUtil::SceneView::*getViewMatrix_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getViewMatrix"
@@ -1287,7 +1287,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getViewMatrixAsLookAt
         
-            typedef void ( ::osgUtil::SceneView::*getViewMatrixAsLookAt_function_type )( ::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 &,float ) const;
+            typedef void ( ::osgUtil::SceneView::*getViewMatrixAsLookAt_function_type)( ::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 &,float ) const;
             
             SceneView_exposer.def( 
                 "getViewMatrixAsLookAt"
@@ -1297,7 +1297,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getViewport
         
-            typedef ::osg::Viewport * ( ::osgUtil::SceneView::*getViewport_function_type )(  ) ;
+            typedef ::osg::Viewport * ( ::osgUtil::SceneView::*getViewport_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "getViewport"
@@ -1307,7 +1307,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::getViewport
         
-            typedef ::osg::Viewport const * ( ::osgUtil::SceneView::*getViewport_function_type )(  ) const;
+            typedef ::osg::Viewport const * ( ::osgUtil::SceneView::*getViewport_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "getViewport"
@@ -1317,8 +1317,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::inheritCullSettings
         
-            typedef void ( ::osgUtil::SceneView::*inheritCullSettings_function_type )( ::osg::CullSettings const & ) ;
-            typedef void ( SceneView_wrapper::*default_inheritCullSettings_function_type )( ::osg::CullSettings const & ) ;
+            typedef void ( ::osgUtil::SceneView::*inheritCullSettings_function_type)( ::osg::CullSettings const & ) ;
+            typedef void ( SceneView_wrapper::*default_inheritCullSettings_function_type)( ::osg::CullSettings const & ) ;
             
             SceneView_exposer.def( 
                 "inheritCullSettings"
@@ -1329,8 +1329,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::inheritCullSettings
         
-            typedef void ( ::osgUtil::SceneView::*inheritCullSettings_function_type )( ::osg::CullSettings const &,unsigned int ) ;
-            typedef void ( SceneView_wrapper::*default_inheritCullSettings_function_type )( ::osg::CullSettings const &,unsigned int ) ;
+            typedef void ( ::osgUtil::SceneView::*inheritCullSettings_function_type)( ::osg::CullSettings const &,unsigned int ) ;
+            typedef void ( SceneView_wrapper::*default_inheritCullSettings_function_type)( ::osg::CullSettings const &,unsigned int ) ;
             
             SceneView_exposer.def( 
                 "inheritCullSettings"
@@ -1341,8 +1341,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::init
         
-            typedef void ( ::osgUtil::SceneView::*init_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_init_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*init_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_init_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "init"
@@ -1352,8 +1352,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::isSameKindAs
         
-            typedef bool ( ::osgUtil::SceneView::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( SceneView_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgUtil::SceneView::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( SceneView_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             SceneView_exposer.def( 
                 "isSameKindAs"
@@ -1364,8 +1364,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::libraryName
         
-            typedef char const * ( ::osgUtil::SceneView::*libraryName_function_type )(  ) const;
-            typedef char const * ( SceneView_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::SceneView::*libraryName_function_type)(  ) const;
+            typedef char const * ( SceneView_wrapper::*default_libraryName_function_type)(  ) const;
             
             SceneView_exposer.def( 
                 "libraryName"
@@ -1375,7 +1375,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::projectObjectIntoWindow
         
-            typedef bool ( ::osgUtil::SceneView::*projectObjectIntoWindow_function_type )( ::osg::Vec3 const &,::osg::Vec3 & ) const;
+            typedef bool ( ::osgUtil::SceneView::*projectObjectIntoWindow_function_type)( ::osg::Vec3 const &,::osg::Vec3 & ) const;
             
             SceneView_exposer.def( 
                 "projectObjectIntoWindow"
@@ -1385,7 +1385,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::projectWindowIntoObject
         
-            typedef bool ( ::osgUtil::SceneView::*projectWindowIntoObject_function_type )( ::osg::Vec3 const &,::osg::Vec3 & ) const;
+            typedef bool ( ::osgUtil::SceneView::*projectWindowIntoObject_function_type)( ::osg::Vec3 const &,::osg::Vec3 & ) const;
             
             SceneView_exposer.def( 
                 "projectWindowIntoObject"
@@ -1395,7 +1395,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::projectWindowXYIntoObject
         
-            typedef bool ( ::osgUtil::SceneView::*projectWindowXYIntoObject_function_type )( int,int,::osg::Vec3 &,::osg::Vec3 & ) const;
+            typedef bool ( ::osgUtil::SceneView::*projectWindowXYIntoObject_function_type)( int,int,::osg::Vec3 &,::osg::Vec3 & ) const;
             
             SceneView_exposer.def( 
                 "projectWindowXYIntoObject"
@@ -1405,8 +1405,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::releaseAllGLObjects
         
-            typedef void ( ::osgUtil::SceneView::*releaseAllGLObjects_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_releaseAllGLObjects_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*releaseAllGLObjects_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_releaseAllGLObjects_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "releaseAllGLObjects"
@@ -1416,7 +1416,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setActiveUniforms
         
-            typedef void ( ::osgUtil::SceneView::*setActiveUniforms_function_type )( int ) ;
+            typedef void ( ::osgUtil::SceneView::*setActiveUniforms_function_type)( int ) ;
             
             SceneView_exposer.def( 
                 "setActiveUniforms"
@@ -1426,7 +1426,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setAutomaticFlush
         
-            typedef void ( ::osgUtil::SceneView::*setAutomaticFlush_function_type )( bool ) ;
+            typedef void ( ::osgUtil::SceneView::*setAutomaticFlush_function_type)( bool ) ;
             
             SceneView_exposer.def( 
                 "setAutomaticFlush"
@@ -1436,7 +1436,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setCamera
         
-            typedef void ( ::osgUtil::SceneView::*setCamera_function_type )( ::osg::Camera *,bool ) ;
+            typedef void ( ::osgUtil::SceneView::*setCamera_function_type)( ::osg::Camera *,bool ) ;
             
             SceneView_exposer.def( 
                 "setCamera"
@@ -1446,7 +1446,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setClearColor
         
-            typedef void ( ::osgUtil::SceneView::*setClearColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setClearColor_function_type)( ::osg::Vec4 const & ) ;
             
             SceneView_exposer.def( 
                 "setClearColor"
@@ -1456,7 +1456,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setCollectOccludersVisitor
         
-            typedef void ( ::osgUtil::SceneView::*setCollectOccludersVisitor_function_type )( ::osg::CollectOccludersVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setCollectOccludersVisitor_function_type)( ::osg::CollectOccludersVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setCollectOccludersVisitor"
@@ -1466,7 +1466,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setComputeStereoMatricesCallback
         
-            typedef void ( ::osgUtil::SceneView::*setComputeStereoMatricesCallback_function_type )( ::osgUtil::SceneView::ComputeStereoMatricesCallback * ) ;
+            typedef void ( ::osgUtil::SceneView::*setComputeStereoMatricesCallback_function_type)( ::osgUtil::SceneView::ComputeStereoMatricesCallback * ) ;
             
             SceneView_exposer.def( 
                 "setComputeStereoMatricesCallback"
@@ -1476,7 +1476,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setCullVisitor
         
-            typedef void ( ::osgUtil::SceneView::*setCullVisitor_function_type )( ::osgUtil::CullVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setCullVisitor_function_type)( ::osgUtil::CullVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setCullVisitor"
@@ -1486,7 +1486,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setCullVisitorLeft
         
-            typedef void ( ::osgUtil::SceneView::*setCullVisitorLeft_function_type )( ::osgUtil::CullVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setCullVisitorLeft_function_type)( ::osgUtil::CullVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setCullVisitorLeft"
@@ -1496,7 +1496,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setCullVisitorRight
         
-            typedef void ( ::osgUtil::SceneView::*setCullVisitorRight_function_type )( ::osgUtil::CullVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setCullVisitorRight_function_type)( ::osgUtil::CullVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setCullVisitorRight"
@@ -1506,8 +1506,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setDefaults
         
-            typedef void ( ::osgUtil::SceneView::*setDefaults_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_setDefaults_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*setDefaults_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_setDefaults_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "setDefaults"
@@ -1517,8 +1517,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setDefaults
         
-            typedef void ( ::osgUtil::SceneView::*setDefaults_function_type )( unsigned int ) ;
-            typedef void ( SceneView_wrapper::*default_setDefaults_function_type )( unsigned int ) ;
+            typedef void ( ::osgUtil::SceneView::*setDefaults_function_type)( unsigned int ) ;
+            typedef void ( SceneView_wrapper::*default_setDefaults_function_type)( unsigned int ) ;
             
             SceneView_exposer.def( 
                 "setDefaults"
@@ -1529,7 +1529,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setDisplaySettings
         
-            typedef void ( ::osgUtil::SceneView::*setDisplaySettings_function_type )( ::osg::DisplaySettings * ) ;
+            typedef void ( ::osgUtil::SceneView::*setDisplaySettings_function_type)( ::osg::DisplaySettings * ) ;
             
             SceneView_exposer.def( 
                 "setDisplaySettings"
@@ -1539,7 +1539,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setDrawBufferValue
         
-            typedef void ( ::osgUtil::SceneView::*setDrawBufferValue_function_type )( ::GLenum ) ;
+            typedef void ( ::osgUtil::SceneView::*setDrawBufferValue_function_type)( ::GLenum ) ;
             
             SceneView_exposer.def( 
                 "setDrawBufferValue"
@@ -1549,7 +1549,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setFrameStamp
         
-            typedef void ( ::osgUtil::SceneView::*setFrameStamp_function_type )( ::osg::FrameStamp * ) ;
+            typedef void ( ::osgUtil::SceneView::*setFrameStamp_function_type)( ::osg::FrameStamp * ) ;
             
             SceneView_exposer.def( 
                 "setFrameStamp"
@@ -1559,7 +1559,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setFusionDistance
         
-            typedef void ( ::osgUtil::SceneView::*setFusionDistance_function_type )( ::osgUtil::SceneView::FusionDistanceMode,float ) ;
+            typedef void ( ::osgUtil::SceneView::*setFusionDistance_function_type)( ::osgUtil::SceneView::FusionDistanceMode,float ) ;
             
             SceneView_exposer.def( 
                 "setFusionDistance"
@@ -1569,7 +1569,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setGlobalStateSet
         
-            typedef void ( ::osgUtil::SceneView::*setGlobalStateSet_function_type )( ::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::SceneView::*setGlobalStateSet_function_type)( ::osg::StateSet * ) ;
             
             SceneView_exposer.def( 
                 "setGlobalStateSet"
@@ -1579,7 +1579,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setInitVisitor
         
-            typedef void ( ::osgUtil::SceneView::*setInitVisitor_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setInitVisitor_function_type)( ::osg::NodeVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setInitVisitor"
@@ -1589,7 +1589,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setLight
         
-            typedef void ( ::osgUtil::SceneView::*setLight_function_type )( ::osg::Light * ) ;
+            typedef void ( ::osgUtil::SceneView::*setLight_function_type)( ::osg::Light * ) ;
             
             SceneView_exposer.def( 
                 "setLight"
@@ -1599,7 +1599,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setLightingMode
         
-            typedef void ( ::osgUtil::SceneView::*setLightingMode_function_type )( ::osgUtil::SceneView::Options ) ;
+            typedef void ( ::osgUtil::SceneView::*setLightingMode_function_type)( ::osgUtil::SceneView::Options ) ;
             
             SceneView_exposer.def( 
                 "setLightingMode"
@@ -1609,7 +1609,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setLocalStateSet
         
-            typedef void ( ::osgUtil::SceneView::*setLocalStateSet_function_type )( ::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::SceneView::*setLocalStateSet_function_type)( ::osg::StateSet * ) ;
             
             SceneView_exposer.def( 
                 "setLocalStateSet"
@@ -1619,7 +1619,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setPrioritizeTextures
         
-            typedef void ( ::osgUtil::SceneView::*setPrioritizeTextures_function_type )( bool ) ;
+            typedef void ( ::osgUtil::SceneView::*setPrioritizeTextures_function_type)( bool ) ;
             
             SceneView_exposer.def( 
                 "setPrioritizeTextures"
@@ -1629,7 +1629,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrix
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrix_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrix_function_type)( ::osg::Matrixf const & ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrix"
@@ -1639,7 +1639,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrix
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrix"
@@ -1649,7 +1649,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrixAsFrustum
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsFrustum_function_type )( double,double,double,double,double,double ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsFrustum_function_type)( double,double,double,double,double,double ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrixAsFrustum"
@@ -1659,7 +1659,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrixAsOrtho
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsOrtho_function_type )( double,double,double,double,double,double ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsOrtho_function_type)( double,double,double,double,double,double ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrixAsOrtho"
@@ -1669,7 +1669,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrixAsOrtho2D
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsOrtho2D_function_type )( double,double,double,double ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsOrtho2D_function_type)( double,double,double,double ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrixAsOrtho2D"
@@ -1679,7 +1679,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setProjectionMatrixAsPerspective
         
-            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsPerspective_function_type )( double,double,double,double ) ;
+            typedef void ( ::osgUtil::SceneView::*setProjectionMatrixAsPerspective_function_type)( double,double,double,double ) ;
             
             SceneView_exposer.def( 
                 "setProjectionMatrixAsPerspective"
@@ -1689,7 +1689,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setRedrawInterlacedStereoStencilMask
         
-            typedef void ( ::osgUtil::SceneView::*setRedrawInterlacedStereoStencilMask_function_type )( bool ) ;
+            typedef void ( ::osgUtil::SceneView::*setRedrawInterlacedStereoStencilMask_function_type)( bool ) ;
             
             SceneView_exposer.def( 
                 "setRedrawInterlacedStereoStencilMask"
@@ -1699,7 +1699,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setRenderInfo
         
-            typedef void ( ::osgUtil::SceneView::*setRenderInfo_function_type )( ::osg::RenderInfo & ) ;
+            typedef void ( ::osgUtil::SceneView::*setRenderInfo_function_type)( ::osg::RenderInfo & ) ;
             
             SceneView_exposer.def( 
                 "setRenderInfo"
@@ -1709,7 +1709,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setRenderStage
         
-            typedef void ( ::osgUtil::SceneView::*setRenderStage_function_type )( ::osgUtil::RenderStage * ) ;
+            typedef void ( ::osgUtil::SceneView::*setRenderStage_function_type)( ::osgUtil::RenderStage * ) ;
             
             SceneView_exposer.def( 
                 "setRenderStage"
@@ -1719,7 +1719,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setRenderStageLeft
         
-            typedef void ( ::osgUtil::SceneView::*setRenderStageLeft_function_type )( ::osgUtil::RenderStage * ) ;
+            typedef void ( ::osgUtil::SceneView::*setRenderStageLeft_function_type)( ::osgUtil::RenderStage * ) ;
             
             SceneView_exposer.def( 
                 "setRenderStageLeft"
@@ -1729,7 +1729,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setRenderStageRight
         
-            typedef void ( ::osgUtil::SceneView::*setRenderStageRight_function_type )( ::osgUtil::RenderStage * ) ;
+            typedef void ( ::osgUtil::SceneView::*setRenderStageRight_function_type)( ::osgUtil::RenderStage * ) ;
             
             SceneView_exposer.def( 
                 "setRenderStageRight"
@@ -1739,7 +1739,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setResetColorMaskToAllOn
         
-            typedef void ( ::osgUtil::SceneView::*setResetColorMaskToAllOn_function_type )( bool ) ;
+            typedef void ( ::osgUtil::SceneView::*setResetColorMaskToAllOn_function_type)( bool ) ;
             
             SceneView_exposer.def( 
                 "setResetColorMaskToAllOn"
@@ -1749,7 +1749,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setSceneData
         
-            typedef void ( ::osgUtil::SceneView::*setSceneData_function_type )( ::osg::Node * ) ;
+            typedef void ( ::osgUtil::SceneView::*setSceneData_function_type)( ::osg::Node * ) ;
             
             SceneView_exposer.def( 
                 "setSceneData"
@@ -1759,7 +1759,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setSecondaryStateSet
         
-            typedef void ( ::osgUtil::SceneView::*setSecondaryStateSet_function_type )( ::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::SceneView::*setSecondaryStateSet_function_type)( ::osg::StateSet * ) ;
             
             SceneView_exposer.def( 
                 "setSecondaryStateSet"
@@ -1769,7 +1769,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setState
         
-            typedef void ( ::osgUtil::SceneView::*setState_function_type )( ::osg::State * ) ;
+            typedef void ( ::osgUtil::SceneView::*setState_function_type)( ::osg::State * ) ;
             
             SceneView_exposer.def( 
                 "setState"
@@ -1779,7 +1779,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setStateGraph
         
-            typedef void ( ::osgUtil::SceneView::*setStateGraph_function_type )( ::osgUtil::StateGraph * ) ;
+            typedef void ( ::osgUtil::SceneView::*setStateGraph_function_type)( ::osgUtil::StateGraph * ) ;
             
             SceneView_exposer.def( 
                 "setStateGraph"
@@ -1789,7 +1789,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setStateGraphLeft
         
-            typedef void ( ::osgUtil::SceneView::*setStateGraphLeft_function_type )( ::osgUtil::StateGraph * ) ;
+            typedef void ( ::osgUtil::SceneView::*setStateGraphLeft_function_type)( ::osgUtil::StateGraph * ) ;
             
             SceneView_exposer.def( 
                 "setStateGraphLeft"
@@ -1799,7 +1799,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setStateGraphRight
         
-            typedef void ( ::osgUtil::SceneView::*setStateGraphRight_function_type )( ::osgUtil::StateGraph * ) ;
+            typedef void ( ::osgUtil::SceneView::*setStateGraphRight_function_type)( ::osgUtil::StateGraph * ) ;
             
             SceneView_exposer.def( 
                 "setStateGraphRight"
@@ -1809,7 +1809,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setUpdateVisitor
         
-            typedef void ( ::osgUtil::SceneView::*setUpdateVisitor_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osgUtil::SceneView::*setUpdateVisitor_function_type)( ::osg::NodeVisitor * ) ;
             
             SceneView_exposer.def( 
                 "setUpdateVisitor"
@@ -1819,7 +1819,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setView
         
-            typedef void ( ::osgUtil::SceneView::*setView_function_type )( ::osg::View * ) ;
+            typedef void ( ::osgUtil::SceneView::*setView_function_type)( ::osg::View * ) ;
             
             SceneView_exposer.def( 
                 "setView"
@@ -1829,7 +1829,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setViewMatrix
         
-            typedef void ( ::osgUtil::SceneView::*setViewMatrix_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setViewMatrix_function_type)( ::osg::Matrixf const & ) ;
             
             SceneView_exposer.def( 
                 "setViewMatrix"
@@ -1839,7 +1839,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setViewMatrix
         
-            typedef void ( ::osgUtil::SceneView::*setViewMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setViewMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             SceneView_exposer.def( 
                 "setViewMatrix"
@@ -1849,7 +1849,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setViewMatrixAsLookAt
         
-            typedef void ( ::osgUtil::SceneView::*setViewMatrixAsLookAt_function_type )( ::osg::Vec3 const &,::osg::Vec3 const &,::osg::Vec3 const & ) ;
+            typedef void ( ::osgUtil::SceneView::*setViewMatrixAsLookAt_function_type)( ::osg::Vec3 const &,::osg::Vec3 const &,::osg::Vec3 const & ) ;
             
             SceneView_exposer.def( 
                 "setViewMatrixAsLookAt"
@@ -1859,7 +1859,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setViewport
         
-            typedef void ( ::osgUtil::SceneView::*setViewport_function_type )( ::osg::Viewport * ) ;
+            typedef void ( ::osgUtil::SceneView::*setViewport_function_type)( ::osg::Viewport * ) ;
             
             SceneView_exposer.def( 
                 "setViewport"
@@ -1869,7 +1869,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::setViewport
         
-            typedef void ( ::osgUtil::SceneView::*setViewport_function_type )( int,int,int,int ) ;
+            typedef void ( ::osgUtil::SceneView::*setViewport_function_type)( int,int,int,int ) ;
             
             SceneView_exposer.def( 
                 "setViewport"
@@ -1879,8 +1879,8 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::update
         
-            typedef void ( ::osgUtil::SceneView::*update_function_type )(  ) ;
-            typedef void ( SceneView_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*update_function_type)(  ) ;
+            typedef void ( SceneView_wrapper::*default_update_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "update"
@@ -1890,7 +1890,7 @@ void register_SceneView_class(){
         }
         { //::osgUtil::SceneView::updateUniforms
         
-            typedef void ( ::osgUtil::SceneView::*updateUniforms_function_type )(  ) ;
+            typedef void ( ::osgUtil::SceneView::*updateUniforms_function_type)(  ) ;
             
             SceneView_exposer.def( 
                 "updateUniforms"

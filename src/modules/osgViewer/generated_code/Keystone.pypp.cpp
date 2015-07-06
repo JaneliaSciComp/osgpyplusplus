@@ -171,8 +171,8 @@ void register_Keystone_class(){
         Keystone_exposer.def( bp::init< >() );
         { //::osgViewer::Keystone::className
         
-            typedef char const * ( ::osgViewer::Keystone::*className_function_type )(  ) const;
-            typedef char const * ( Keystone_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgViewer::Keystone::*className_function_type)(  ) const;
+            typedef char const * ( Keystone_wrapper::*default_className_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "className"
@@ -182,8 +182,8 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::clone
         
-            typedef ::osg::Object * ( ::osgViewer::Keystone::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Keystone_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgViewer::Keystone::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Keystone_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Keystone_exposer.def( 
                 "clone"
@@ -195,8 +195,8 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::cloneType
         
-            typedef ::osg::Object * ( ::osgViewer::Keystone::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Keystone_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgViewer::Keystone::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Keystone_wrapper::*default_cloneType_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "cloneType"
@@ -207,7 +207,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::compute3DPositions
         
-            typedef void ( ::osgViewer::Keystone::*compute3DPositions_function_type )( ::osg::DisplaySettings *,::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 & ) const;
+            typedef void ( ::osgViewer::Keystone::*compute3DPositions_function_type)( ::osg::DisplaySettings *,::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 &,::osg::Vec3 & ) const;
             
             Keystone_exposer.def( 
                 "compute3DPositions"
@@ -217,7 +217,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::createGrid
         
-            typedef ::osg::Node * ( ::osgViewer::Keystone::*createGrid_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgViewer::Keystone::*createGrid_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "createGrid"
@@ -227,7 +227,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::createKeystoneDistortionMesh
         
-            typedef ::osg::Geode * ( ::osgViewer::Keystone::*createKeystoneDistortionMesh_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osgViewer::Keystone::*createKeystoneDistortionMesh_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "createKeystoneDistortionMesh"
@@ -237,7 +237,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getBottomLeft
         
-            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getBottomLeft_function_type )(  ) ;
+            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getBottomLeft_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "getBottomLeft"
@@ -247,7 +247,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getBottomLeft
         
-            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getBottomLeft_function_type )(  ) const;
+            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getBottomLeft_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getBottomLeft"
@@ -257,7 +257,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getBottomRight
         
-            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getBottomRight_function_type )(  ) ;
+            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getBottomRight_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "getBottomRight"
@@ -267,7 +267,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getBottomRight
         
-            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getBottomRight_function_type )(  ) const;
+            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getBottomRight_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getBottomRight"
@@ -277,7 +277,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getGridColor
         
-            typedef ::osg::Vec4 & ( ::osgViewer::Keystone::*getGridColor_function_type )(  ) ;
+            typedef ::osg::Vec4 & ( ::osgViewer::Keystone::*getGridColor_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "getGridColor"
@@ -287,7 +287,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getGridColor
         
-            typedef ::osg::Vec4 const & ( ::osgViewer::Keystone::*getGridColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgViewer::Keystone::*getGridColor_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getGridColor"
@@ -297,7 +297,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getKeystoneEditingEnabled
         
-            typedef bool ( ::osgViewer::Keystone::*getKeystoneEditingEnabled_function_type )(  ) const;
+            typedef bool ( ::osgViewer::Keystone::*getKeystoneEditingEnabled_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getKeystoneEditingEnabled"
@@ -306,7 +306,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getTopLeft
         
-            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getTopLeft_function_type )(  ) ;
+            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getTopLeft_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "getTopLeft"
@@ -316,7 +316,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getTopLeft
         
-            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getTopLeft_function_type )(  ) const;
+            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getTopLeft_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getTopLeft"
@@ -326,7 +326,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getTopRight
         
-            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getTopRight_function_type )(  ) ;
+            typedef ::osg::Vec2d & ( ::osgViewer::Keystone::*getTopRight_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "getTopRight"
@@ -336,7 +336,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::getTopRight
         
-            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getTopRight_function_type )(  ) const;
+            typedef ::osg::Vec2d const & ( ::osgViewer::Keystone::*getTopRight_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "getTopRight"
@@ -346,8 +346,8 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::isSameKindAs
         
-            typedef bool ( ::osgViewer::Keystone::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Keystone_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgViewer::Keystone::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Keystone_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Keystone_exposer.def( 
                 "isSameKindAs"
@@ -358,8 +358,8 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::libraryName
         
-            typedef char const * ( ::osgViewer::Keystone::*libraryName_function_type )(  ) const;
-            typedef char const * ( Keystone_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgViewer::Keystone::*libraryName_function_type)(  ) const;
+            typedef char const * ( Keystone_wrapper::*default_libraryName_function_type)(  ) const;
             
             Keystone_exposer.def( 
                 "libraryName"
@@ -379,7 +379,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::reset
         
-            typedef void ( ::osgViewer::Keystone::*reset_function_type )(  ) ;
+            typedef void ( ::osgViewer::Keystone::*reset_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "reset"
@@ -388,7 +388,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setBottomLeft
         
-            typedef void ( ::osgViewer::Keystone::*setBottomLeft_function_type )( ::osg::Vec2d const & ) ;
+            typedef void ( ::osgViewer::Keystone::*setBottomLeft_function_type)( ::osg::Vec2d const & ) ;
             
             Keystone_exposer.def( 
                 "setBottomLeft"
@@ -398,7 +398,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setBottomRight
         
-            typedef void ( ::osgViewer::Keystone::*setBottomRight_function_type )( ::osg::Vec2d const & ) ;
+            typedef void ( ::osgViewer::Keystone::*setBottomRight_function_type)( ::osg::Vec2d const & ) ;
             
             Keystone_exposer.def( 
                 "setBottomRight"
@@ -408,7 +408,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setGridColor
         
-            typedef void ( ::osgViewer::Keystone::*setGridColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgViewer::Keystone::*setGridColor_function_type)( ::osg::Vec4 const & ) ;
             
             Keystone_exposer.def( 
                 "setGridColor"
@@ -418,7 +418,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setKeystoneEditingEnabled
         
-            typedef void ( ::osgViewer::Keystone::*setKeystoneEditingEnabled_function_type )( bool ) ;
+            typedef void ( ::osgViewer::Keystone::*setKeystoneEditingEnabled_function_type)( bool ) ;
             
             Keystone_exposer.def( 
                 "setKeystoneEditingEnabled"
@@ -428,7 +428,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setTopLeft
         
-            typedef void ( ::osgViewer::Keystone::*setTopLeft_function_type )( ::osg::Vec2d const & ) ;
+            typedef void ( ::osgViewer::Keystone::*setTopLeft_function_type)( ::osg::Vec2d const & ) ;
             
             Keystone_exposer.def( 
                 "setTopLeft"
@@ -438,7 +438,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::setTopRight
         
-            typedef void ( ::osgViewer::Keystone::*setTopRight_function_type )( ::osg::Vec2d const & ) ;
+            typedef void ( ::osgViewer::Keystone::*setTopRight_function_type)( ::osg::Vec2d const & ) ;
             
             Keystone_exposer.def( 
                 "setTopRight"
@@ -448,7 +448,7 @@ void register_Keystone_class(){
         }
         { //::osgViewer::Keystone::writeToFile
         
-            typedef bool ( ::osgViewer::Keystone::*writeToFile_function_type )(  ) ;
+            typedef bool ( ::osgViewer::Keystone::*writeToFile_function_type)(  ) ;
             
             Keystone_exposer.def( 
                 "writeToFile"

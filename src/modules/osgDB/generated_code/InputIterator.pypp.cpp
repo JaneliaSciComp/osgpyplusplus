@@ -147,139 +147,139 @@ void register_InputIterator_class(){
     bp::class_< InputIterator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::InputIterator >, boost::noncopyable >( "InputIterator", bp::no_init )    
         .def( 
             "advanceToCurrentEndBracket"
-            , (void ( ::osgDB::InputIterator::* )(  ) )(&::osgDB::InputIterator::advanceToCurrentEndBracket)
-            , (void ( InputIterator_wrapper::* )(  ) )(&InputIterator_wrapper::default_advanceToCurrentEndBracket) )    
+            , (void ( ::osgDB::InputIterator::* )(  ))(&::osgDB::InputIterator::advanceToCurrentEndBracket)
+            , (void ( InputIterator_wrapper::* )(  ))(&InputIterator_wrapper::default_advanceToCurrentEndBracket) )    
         .def( 
             "checkStream"
-            , (void ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::checkStream ) )    
+            , (void ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::checkStream ) )    
         .def( 
             "getByteSwap"
-            , (int ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::getByteSwap ) )    
+            , (int ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::getByteSwap ) )    
         .def( 
             "getInputStream"
-            , (::osgDB::InputStream * ( ::osgDB::InputIterator::* )(  ) )( &::osgDB::InputIterator::getInputStream )
+            , (::osgDB::InputStream * ( ::osgDB::InputIterator::* )(  ))( &::osgDB::InputIterator::getInputStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getInputStream"
-            , (::osgDB::InputStream const * ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::getInputStream )
+            , (::osgDB::InputStream const * ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::getInputStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getStream"
-            , (::std::istream * ( ::osgDB::InputIterator::* )(  ) )( &::osgDB::InputIterator::getStream )
+            , (::std::istream * ( ::osgDB::InputIterator::* )(  ))( &::osgDB::InputIterator::getStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getStream"
-            , (::std::istream const * ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::getStream )
+            , (::std::istream const * ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::getStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getSupportBinaryBrackets"
-            , (bool ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::getSupportBinaryBrackets ) )    
+            , (bool ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::getSupportBinaryBrackets ) )    
         .def( 
             "isBinary"
-            , bp::pure_virtual( (bool ( ::osgDB::InputIterator::* )(  ) const)(&::osgDB::InputIterator::isBinary) ) )    
+            , bp::pure_virtual( (bool ( ::osgDB::InputIterator::* )(  )const)(&::osgDB::InputIterator::isBinary) ) )    
         .def( 
             "isFailed"
-            , (bool ( ::osgDB::InputIterator::* )(  ) const)( &::osgDB::InputIterator::isFailed ) )    
+            , (bool ( ::osgDB::InputIterator::* )(  )const)( &::osgDB::InputIterator::isFailed ) )    
         .def( 
             "matchString"
-            , (bool ( ::osgDB::InputIterator::* )( ::std::string const & ) )(&::osgDB::InputIterator::matchString)
-            , (bool ( InputIterator_wrapper::* )( ::std::string const & ) )(&InputIterator_wrapper::default_matchString)
+            , (bool ( ::osgDB::InputIterator::* )( ::std::string const & ))(&::osgDB::InputIterator::matchString)
+            , (bool ( InputIterator_wrapper::* )( ::std::string const & ))(&InputIterator_wrapper::default_matchString)
             , ( bp::arg("arg0") ) )    
         .def( 
             "readBool"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( bool & ) )(&::osgDB::InputIterator::readBool) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( bool & ))(&::osgDB::InputIterator::readBool) )
             , ( bp::arg("b") ) )    
         .def( 
             "readChar"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( char & ) )(&::osgDB::InputIterator::readChar) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( char & ))(&::osgDB::InputIterator::readChar) )
             , ( bp::arg("c") ) )    
         .def( 
             "readCharArray"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( char *,unsigned int ) )(&::osgDB::InputIterator::readCharArray) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( char *,unsigned int ))(&::osgDB::InputIterator::readCharArray) )
             , ( bp::arg("s"), bp::arg("size") ) )    
         .def( 
             "readComponentArray"
-            , (void ( ::osgDB::InputIterator::* )( char *,unsigned int,unsigned int,unsigned int ) )( &::osgDB::InputIterator::readComponentArray )
+            , (void ( ::osgDB::InputIterator::* )( char *,unsigned int,unsigned int,unsigned int ))( &::osgDB::InputIterator::readComponentArray )
             , ( bp::arg("s"), bp::arg("numElements"), bp::arg("numComponentsPerElements"), bp::arg("componentSizeInBytes") ) )    
         .def( 
             "readDouble"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( double & ) )(&::osgDB::InputIterator::readDouble) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( double & ))(&::osgDB::InputIterator::readDouble) )
             , ( bp::arg("d") ) )    
         .def( 
             "readFloat"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( float & ) )(&::osgDB::InputIterator::readFloat) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( float & ))(&::osgDB::InputIterator::readFloat) )
             , ( bp::arg("f") ) )    
         .def( 
             "readGLenum"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectGLenum & ) )(&::osgDB::InputIterator::readGLenum) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectGLenum & ))(&::osgDB::InputIterator::readGLenum) )
             , ( bp::arg("value") ) )    
         .def( 
             "readInt"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( int & ) )(&::osgDB::InputIterator::readInt) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( int & ))(&::osgDB::InputIterator::readInt) )
             , ( bp::arg("i") ) )    
         .def( 
             "readLong"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( long int & ) )(&::osgDB::InputIterator::readLong) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( long int & ))(&::osgDB::InputIterator::readLong) )
             , ( bp::arg("l") ) )    
         .def( 
             "readMark"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectMark & ) )(&::osgDB::InputIterator::readMark) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectMark & ))(&::osgDB::InputIterator::readMark) )
             , ( bp::arg("mark") ) )    
         .def( 
             "readProperty"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectProperty & ) )(&::osgDB::InputIterator::readProperty) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::osgDB::ObjectProperty & ))(&::osgDB::InputIterator::readProperty) )
             , ( bp::arg("prop") ) )    
         .def( 
             "readSChar"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( signed char & ) )(&::osgDB::InputIterator::readSChar) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( signed char & ))(&::osgDB::InputIterator::readSChar) )
             , ( bp::arg("c") ) )    
         .def( 
             "readShort"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( short int & ) )(&::osgDB::InputIterator::readShort) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( short int & ))(&::osgDB::InputIterator::readShort) )
             , ( bp::arg("s") ) )    
         .def( 
             "readString"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::std::string & ) )(&::osgDB::InputIterator::readString) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::std::string & ))(&::osgDB::InputIterator::readString) )
             , ( bp::arg("s") ) )    
         .def( 
             "readUChar"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( unsigned char & ) )(&::osgDB::InputIterator::readUChar) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( unsigned char & ))(&::osgDB::InputIterator::readUChar) )
             , ( bp::arg("c") ) )    
         .def( 
             "readUInt"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( unsigned int & ) )(&::osgDB::InputIterator::readUInt) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( unsigned int & ))(&::osgDB::InputIterator::readUInt) )
             , ( bp::arg("i") ) )    
         .def( 
             "readULong"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( long unsigned int & ) )(&::osgDB::InputIterator::readULong) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( long unsigned int & ))(&::osgDB::InputIterator::readULong) )
             , ( bp::arg("l") ) )    
         .def( 
             "readUShort"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( short unsigned int & ) )(&::osgDB::InputIterator::readUShort) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( short unsigned int & ))(&::osgDB::InputIterator::readUShort) )
             , ( bp::arg("s") ) )    
         .def( 
             "readWrappedString"
-            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::std::string & ) )(&::osgDB::InputIterator::readWrappedString) )
+            , bp::pure_virtual( (void ( ::osgDB::InputIterator::* )( ::std::string & ))(&::osgDB::InputIterator::readWrappedString) )
             , ( bp::arg("str") ) )    
         .def( 
             "setByteSwap"
-            , (void ( ::osgDB::InputIterator::* )( int ) )( &::osgDB::InputIterator::setByteSwap )
+            , (void ( ::osgDB::InputIterator::* )( int ))( &::osgDB::InputIterator::setByteSwap )
             , ( bp::arg("byteSwap") ) )    
         .def( 
             "setInputStream"
-            , (void ( ::osgDB::InputIterator::* )( ::osgDB::InputStream * ) )( &::osgDB::InputIterator::setInputStream )
+            , (void ( ::osgDB::InputIterator::* )( ::osgDB::InputStream * ))( &::osgDB::InputIterator::setInputStream )
             , ( bp::arg("inputStream") ) )    
         .def( 
             "setStream"
-            , (void ( ::osgDB::InputIterator::* )( ::std::istream * ) )( &::osgDB::InputIterator::setStream )
+            , (void ( ::osgDB::InputIterator::* )( ::std::istream * ))( &::osgDB::InputIterator::setStream )
             , ( bp::arg("istream") ) )    
         .def( 
             "setSupportBinaryBrackets"
-            , (void ( ::osgDB::InputIterator::* )( bool ) )( &::osgDB::InputIterator::setSupportBinaryBrackets )
+            , (void ( ::osgDB::InputIterator::* )( bool ))( &::osgDB::InputIterator::setSupportBinaryBrackets )
             , ( bp::arg("b") ) )    
         .def( 
             "throwException"
-            , (void ( ::osgDB::InputIterator::* )( ::std::string const & ) )( &::osgDB::InputIterator::throwException )
+            , (void ( ::osgDB::InputIterator::* )( ::std::string const & ))( &::osgDB::InputIterator::throwException )
             , ( bp::arg("msg") ) );
 
 }

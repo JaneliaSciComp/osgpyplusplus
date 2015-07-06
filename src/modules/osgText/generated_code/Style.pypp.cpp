@@ -167,22 +167,22 @@ void register_Style_class(){
     bp::class_< Style_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgText::Style >, boost::noncopyable >( "Style", bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osgText::Style::* )(  ) const)(&::osgText::Style::className)
-            , (char const * ( Style_wrapper::* )(  ) const)(&Style_wrapper::default_className) )    
+            , (char const * ( ::osgText::Style::* )(  )const)(&::osgText::Style::className)
+            , (char const * ( Style_wrapper::* )(  )const)(&Style_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgText::Style::* )( ::osg::CopyOp const & ) const)(&::osgText::Style::clone)
-            , (::osg::Object * ( Style_wrapper::* )( ::osg::CopyOp const & ) const)(&Style_wrapper::default_clone)
+            , (::osg::Object * ( ::osgText::Style::* )( ::osg::CopyOp const & )const)(&::osgText::Style::clone)
+            , (::osg::Object * ( Style_wrapper::* )( ::osg::CopyOp const & )const)(&Style_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgText::Style::* )(  ) const)(&::osgText::Style::cloneType)
-            , (::osg::Object * ( Style_wrapper::* )(  ) const)(&Style_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgText::Style::* )(  )const)(&::osgText::Style::cloneType)
+            , (::osg::Object * ( Style_wrapper::* )(  )const)(&Style_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getBevel"
-            , (::osgText::Bevel const * ( ::osgText::Style::* )(  ) const)( &::osgText::Style::getBevel )
+            , (::osgText::Bevel const * ( ::osgText::Style::* )(  )const)( &::osgText::Style::getBevel )
             , bp::return_internal_reference< >() )    
         .def( 
             "getDefaultStyle"
@@ -191,49 +191,49 @@ void register_Style_class(){
             , " default Layout implementation used if no other is specified on TextNode" )    
         .def( 
             "getOutlineRatio"
-            , (float ( ::osgText::Style::* )(  ) const)( &::osgText::Style::getOutlineRatio ) )    
+            , (float ( ::osgText::Style::* )(  )const)( &::osgText::Style::getOutlineRatio ) )    
         .def( 
             "getSampleDensity"
-            , (float ( ::osgText::Style::* )(  ) const)( &::osgText::Style::getSampleDensity ) )    
+            , (float ( ::osgText::Style::* )(  )const)( &::osgText::Style::getSampleDensity ) )    
         .def( 
             "getThicknessRatio"
-            , (float ( ::osgText::Style::* )(  ) const)( &::osgText::Style::getThicknessRatio ) )    
+            , (float ( ::osgText::Style::* )(  )const)( &::osgText::Style::getThicknessRatio ) )    
         .def( 
             "getWidthRatio"
-            , (float ( ::osgText::Style::* )(  ) const)( &::osgText::Style::getWidthRatio ) )    
+            , (float ( ::osgText::Style::* )(  )const)( &::osgText::Style::getWidthRatio ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgText::Style::* )( ::osg::Object const * ) const)(&::osgText::Style::isSameKindAs)
-            , (bool ( Style_wrapper::* )( ::osg::Object const * ) const)(&Style_wrapper::default_isSameKindAs)
+            , (bool ( ::osgText::Style::* )( ::osg::Object const * )const)(&::osgText::Style::isSameKindAs)
+            , (bool ( Style_wrapper::* )( ::osg::Object const * )const)(&Style_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgText::Style::* )(  ) const)(&::osgText::Style::libraryName)
-            , (char const * ( Style_wrapper::* )(  ) const)(&Style_wrapper::default_libraryName) )    
+            , (char const * ( ::osgText::Style::* )(  )const)(&::osgText::Style::libraryName)
+            , (char const * ( Style_wrapper::* )(  )const)(&Style_wrapper::default_libraryName) )    
         .def( bp::self == bp::self )    
         .def( 
             "setBevel"
-            , (void ( ::osgText::Style::* )( ::osgText::Bevel * ) )( &::osgText::Style::setBevel )
+            , (void ( ::osgText::Style::* )( ::osgText::Bevel * ))( &::osgText::Style::setBevel )
             , ( bp::arg("bevel") )
             , " NULL is no bevel" )    
         .def( 
             "setOutlineRatio"
-            , (void ( ::osgText::Style::* )( float ) )( &::osgText::Style::setOutlineRatio )
+            , (void ( ::osgText::Style::* )( float ))( &::osgText::Style::setOutlineRatio )
             , ( bp::arg("outlineRatio") )
             , " 0 is off" )    
         .def( 
             "setSampleDensity"
-            , (void ( ::osgText::Style::* )( float ) )( &::osgText::Style::setSampleDensity )
+            , (void ( ::osgText::Style::* )( float ))( &::osgText::Style::setSampleDensity )
             , ( bp::arg("sd") )
             , " 1.0 is default number of samples" )    
         .def( 
             "setThicknessRatio"
-            , (void ( ::osgText::Style::* )( float ) )( &::osgText::Style::setThicknessRatio )
+            , (void ( ::osgText::Style::* )( float ))( &::osgText::Style::setThicknessRatio )
             , ( bp::arg("thicknessRatio") )
             , " 0 is 2D text" )    
         .def( 
             "setWidthRatio"
-            , (void ( ::osgText::Style::* )( float ) )( &::osgText::Style::setWidthRatio )
+            , (void ( ::osgText::Style::* )( float ))( &::osgText::Style::setWidthRatio )
             , ( bp::arg("widthRatio") )
             , " 1 is the default width of the text" )    
         .staticmethod( "getDefaultStyle" );

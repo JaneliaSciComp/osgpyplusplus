@@ -284,8 +284,8 @@ void register_PointSprite_class(){
         PointSprite_exposer.def( bp::init< >("\n PointSprite base class which encapsulates enabling of point sprites .\n") );
         { //::osg::PointSprite::apply
         
-            typedef void ( ::osg::PointSprite::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( PointSprite_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::PointSprite::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( PointSprite_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             PointSprite_exposer.def( 
                 "apply"
@@ -296,8 +296,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::PointSprite::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( PointSprite_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::PointSprite::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( PointSprite_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             PointSprite_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -308,8 +308,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::className
         
-            typedef char const * ( ::osg::PointSprite::*className_function_type )(  ) const;
-            typedef char const * ( PointSprite_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::PointSprite::*className_function_type)(  ) const;
+            typedef char const * ( PointSprite_wrapper::*default_className_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "className"
@@ -319,8 +319,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::clone
         
-            typedef ::osg::Object * ( ::osg::PointSprite::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( PointSprite_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::PointSprite::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( PointSprite_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             PointSprite_exposer.def( 
                 "clone"
@@ -332,8 +332,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::cloneType
         
-            typedef ::osg::Object * ( ::osg::PointSprite::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( PointSprite_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::PointSprite::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( PointSprite_wrapper::*default_cloneType_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "cloneType"
@@ -344,7 +344,7 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::getCoordOriginMode
         
-            typedef ::osg::PointSprite::CoordOriginMode ( ::osg::PointSprite::*getCoordOriginMode_function_type )(  ) const;
+            typedef ::osg::PointSprite::CoordOriginMode ( ::osg::PointSprite::*getCoordOriginMode_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "getCoordOriginMode"
@@ -353,8 +353,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::getModeUsage
         
-            typedef bool ( ::osg::PointSprite::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( PointSprite_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::PointSprite::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( PointSprite_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             PointSprite_exposer.def( 
                 "getModeUsage"
@@ -365,8 +365,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::PointSprite::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( PointSprite_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::PointSprite::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( PointSprite_wrapper::*default_getType_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "getType"
@@ -386,8 +386,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::isSameKindAs
         
-            typedef bool ( ::osg::PointSprite::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( PointSprite_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::PointSprite::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( PointSprite_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             PointSprite_exposer.def( 
                 "isSameKindAs"
@@ -398,8 +398,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::isTextureAttribute
         
-            typedef bool ( ::osg::PointSprite::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( PointSprite_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::PointSprite::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( PointSprite_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "isTextureAttribute"
@@ -409,8 +409,8 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::libraryName
         
-            typedef char const * ( ::osg::PointSprite::*libraryName_function_type )(  ) const;
-            typedef char const * ( PointSprite_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::PointSprite::*libraryName_function_type)(  ) const;
+            typedef char const * ( PointSprite_wrapper::*default_libraryName_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "libraryName"
@@ -420,7 +420,7 @@ void register_PointSprite_class(){
         }
         { //::osg::PointSprite::setCoordOriginMode
         
-            typedef void ( ::osg::PointSprite::*setCoordOriginMode_function_type )( ::osg::PointSprite::CoordOriginMode ) ;
+            typedef void ( ::osg::PointSprite::*setCoordOriginMode_function_type)( ::osg::PointSprite::CoordOriginMode ) ;
             
             PointSprite_exposer.def( 
                 "setCoordOriginMode"
@@ -430,8 +430,8 @@ void register_PointSprite_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( PointSprite_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( PointSprite_wrapper::*default_asTexture_function_type)(  ) ;
             
             PointSprite_exposer.def( 
                 "asTexture"
@@ -442,8 +442,8 @@ void register_PointSprite_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( PointSprite_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( PointSprite_wrapper::*default_asTexture_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "asTexture"
@@ -454,8 +454,8 @@ void register_PointSprite_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( PointSprite_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( PointSprite_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             PointSprite_exposer.def( 
                 "compileGLObjects"
@@ -466,8 +466,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( PointSprite_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( PointSprite_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             PointSprite_exposer.def( 
                 "computeDataVariance"
@@ -477,8 +477,8 @@ void register_PointSprite_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( PointSprite_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( PointSprite_wrapper::*default_getMember_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "getMember"
@@ -488,8 +488,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( PointSprite_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( PointSprite_wrapper::*default_getUserData_function_type)(  ) ;
             
             PointSprite_exposer.def( 
                 "getUserData"
@@ -500,8 +500,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( PointSprite_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( PointSprite_wrapper::*default_getUserData_function_type)(  ) const;
             
             PointSprite_exposer.def( 
                 "getUserData"
@@ -512,8 +512,8 @@ void register_PointSprite_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( PointSprite_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( PointSprite_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             PointSprite_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -524,8 +524,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( PointSprite_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( PointSprite_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             PointSprite_exposer.def( 
                 "setName"
@@ -536,7 +536,7 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             PointSprite_exposer.def( 
                 "setName"
@@ -547,8 +547,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( PointSprite_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( PointSprite_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             PointSprite_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -559,8 +559,8 @@ void register_PointSprite_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( PointSprite_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( PointSprite_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             PointSprite_exposer.def( 
                 "setUserData"

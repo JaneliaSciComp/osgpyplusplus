@@ -276,108 +276,108 @@ void register_DefaultUserDataContainer_class(){
         .def( bp::init< >("\n Internal structure for storing all user data.\n") )    
         .def( 
             "addDescription"
-            , (void ( ::osg::DefaultUserDataContainer::* )( ::std::string const & ) )(&::osg::DefaultUserDataContainer::addDescription)
-            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::string const & ) )(&DefaultUserDataContainer_wrapper::default_addDescription)
+            , (void ( ::osg::DefaultUserDataContainer::* )( ::std::string const & ))(&::osg::DefaultUserDataContainer::addDescription)
+            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::string const & ))(&DefaultUserDataContainer_wrapper::default_addDescription)
             , ( bp::arg("desc") ) )    
         .def( 
             "addUserObject"
-            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::osg::Object * ) )(&::osg::DefaultUserDataContainer::addUserObject)
-            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::osg::Object * ) )(&DefaultUserDataContainer_wrapper::default_addUserObject)
+            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::osg::Object * ))(&::osg::DefaultUserDataContainer::addUserObject)
+            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::osg::Object * ))(&DefaultUserDataContainer_wrapper::default_addUserObject)
             , ( bp::arg("obj") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::className)
-            , (char const * ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_className) )    
+            , (char const * ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::className)
+            , (char const * ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::DefaultUserDataContainer::* )( ::osg::CopyOp const & ) const)(&::osg::DefaultUserDataContainer::clone)
-            , (::osg::Object * ( DefaultUserDataContainer_wrapper::* )( ::osg::CopyOp const & ) const)(&DefaultUserDataContainer_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::DefaultUserDataContainer::* )( ::osg::CopyOp const & )const)(&::osg::DefaultUserDataContainer::clone)
+            , (::osg::Object * ( DefaultUserDataContainer_wrapper::* )( ::osg::CopyOp const & )const)(&DefaultUserDataContainer_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::cloneType)
-            , (::osg::Object * ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::cloneType)
+            , (::osg::Object * ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getNumDescriptions"
-            , (unsigned int ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::getNumDescriptions)
-            , (unsigned int ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_getNumDescriptions) )    
+            , (unsigned int ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::getNumDescriptions)
+            , (unsigned int ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_getNumDescriptions) )    
         .def( 
             "getNumUserObjects"
-            , (unsigned int ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::getNumUserObjects)
-            , (unsigned int ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_getNumUserObjects) )    
+            , (unsigned int ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::getNumUserObjects)
+            , (unsigned int ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_getNumUserObjects) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::DefaultUserDataContainer::* )(  ) )(&::osg::DefaultUserDataContainer::getUserData)
-            , (::osg::Referenced * ( DefaultUserDataContainer_wrapper::* )(  ) )(&DefaultUserDataContainer_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::DefaultUserDataContainer::* )(  ))(&::osg::DefaultUserDataContainer::getUserData)
+            , (::osg::Referenced * ( DefaultUserDataContainer_wrapper::* )(  ))(&DefaultUserDataContainer_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::getUserData)
-            , (::osg::Referenced const * ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::getUserData)
+            , (::osg::Referenced const * ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserObjectIndex"
-            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::osg::Object const *,unsigned int ) const)(&::osg::DefaultUserDataContainer::getUserObjectIndex)
-            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::osg::Object const *,unsigned int ) const)(&DefaultUserDataContainer_wrapper::default_getUserObjectIndex)
+            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::osg::Object const *,unsigned int )const)(&::osg::DefaultUserDataContainer::getUserObjectIndex)
+            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::osg::Object const *,unsigned int )const)(&DefaultUserDataContainer_wrapper::default_getUserObjectIndex)
             , ( bp::arg("obj"), bp::arg("startPos")=(unsigned int)(0) ) )    
         .def( 
             "getUserObjectIndex"
-            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::std::string const &,unsigned int ) const)(&::osg::DefaultUserDataContainer::getUserObjectIndex)
-            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::std::string const &,unsigned int ) const)(&DefaultUserDataContainer_wrapper::default_getUserObjectIndex)
+            , (unsigned int ( ::osg::DefaultUserDataContainer::* )( ::std::string const &,unsigned int )const)(&::osg::DefaultUserDataContainer::getUserObjectIndex)
+            , (unsigned int ( DefaultUserDataContainer_wrapper::* )( ::std::string const &,unsigned int )const)(&DefaultUserDataContainer_wrapper::default_getUserObjectIndex)
             , ( bp::arg("name"), bp::arg("startPos")=(unsigned int)(0) ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::DefaultUserDataContainer::* )( ::osg::Object const * ) const)(&::osg::DefaultUserDataContainer::isSameKindAs)
-            , (bool ( DefaultUserDataContainer_wrapper::* )( ::osg::Object const * ) const)(&DefaultUserDataContainer_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::DefaultUserDataContainer::* )( ::osg::Object const * )const)(&::osg::DefaultUserDataContainer::isSameKindAs)
+            , (bool ( DefaultUserDataContainer_wrapper::* )( ::osg::Object const * )const)(&DefaultUserDataContainer_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::DefaultUserDataContainer::* )(  ) const)(&::osg::DefaultUserDataContainer::libraryName)
-            , (char const * ( DefaultUserDataContainer_wrapper::* )(  ) const)(&DefaultUserDataContainer_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::DefaultUserDataContainer::* )(  )const)(&::osg::DefaultUserDataContainer::libraryName)
+            , (char const * ( DefaultUserDataContainer_wrapper::* )(  )const)(&DefaultUserDataContainer_wrapper::default_libraryName) )    
         .def( 
             "removeUserObject"
-            , (void ( ::osg::DefaultUserDataContainer::* )( unsigned int ) )(&::osg::DefaultUserDataContainer::removeUserObject)
-            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int ) )(&DefaultUserDataContainer_wrapper::default_removeUserObject)
+            , (void ( ::osg::DefaultUserDataContainer::* )( unsigned int ))(&::osg::DefaultUserDataContainer::removeUserObject)
+            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int ))(&DefaultUserDataContainer_wrapper::default_removeUserObject)
             , ( bp::arg("i") ) )    
         .def( 
             "setDescriptions"
-            , (void ( ::osg::DefaultUserDataContainer::* )( ::std::vector< std::string > const & ) )(&::osg::DefaultUserDataContainer::setDescriptions)
-            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::vector< std::string > const & ) )(&DefaultUserDataContainer_wrapper::default_setDescriptions)
+            , (void ( ::osg::DefaultUserDataContainer::* )( ::std::vector< std::string > const & ))(&::osg::DefaultUserDataContainer::setDescriptions)
+            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::vector< std::string > const & ))(&DefaultUserDataContainer_wrapper::default_setDescriptions)
             , ( bp::arg("descriptions") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::DefaultUserDataContainer::* )( bool ) )(&::osg::DefaultUserDataContainer::setThreadSafeRefUnref)
-            , (void ( DefaultUserDataContainer_wrapper::* )( bool ) )(&DefaultUserDataContainer_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::DefaultUserDataContainer::* )( bool ))(&::osg::DefaultUserDataContainer::setThreadSafeRefUnref)
+            , (void ( DefaultUserDataContainer_wrapper::* )( bool ))(&DefaultUserDataContainer_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::DefaultUserDataContainer::* )( ::osg::Referenced * ) )(&::osg::DefaultUserDataContainer::setUserData)
-            , (void ( DefaultUserDataContainer_wrapper::* )( ::osg::Referenced * ) )(&DefaultUserDataContainer_wrapper::default_setUserData)
+            , (void ( ::osg::DefaultUserDataContainer::* )( ::osg::Referenced * ))(&::osg::DefaultUserDataContainer::setUserData)
+            , (void ( DefaultUserDataContainer_wrapper::* )( ::osg::Referenced * ))(&DefaultUserDataContainer_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "setUserObject"
-            , (void ( ::osg::DefaultUserDataContainer::* )( unsigned int,::osg::Object * ) )(&::osg::DefaultUserDataContainer::setUserObject)
-            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int,::osg::Object * ) )(&DefaultUserDataContainer_wrapper::default_setUserObject)
+            , (void ( ::osg::DefaultUserDataContainer::* )( unsigned int,::osg::Object * ))(&::osg::DefaultUserDataContainer::setUserObject)
+            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int,::osg::Object * ))(&DefaultUserDataContainer_wrapper::default_setUserObject)
             , ( bp::arg("i"), bp::arg("obj") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( DefaultUserDataContainer_wrapper::* )(  ) )(&DefaultUserDataContainer_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( DefaultUserDataContainer_wrapper::* )(  ))(&DefaultUserDataContainer_wrapper::default_computeDataVariance) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int ) )(&DefaultUserDataContainer_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( DefaultUserDataContainer_wrapper::* )( unsigned int ))(&DefaultUserDataContainer_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::string const & ) )(&DefaultUserDataContainer_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( DefaultUserDataContainer_wrapper::* )( ::std::string const & ))(&DefaultUserDataContainer_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." );
 

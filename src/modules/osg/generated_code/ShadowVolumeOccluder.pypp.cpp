@@ -23,74 +23,74 @@ void register_ShadowVolumeOccluder_class(){
             , " compute the shadow volume occluder." )    
         .def( 
             "contains"
-            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::std::vector< osg::Vec3f > const & ) )( &::osg::ShadowVolumeOccluder::contains )
+            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::std::vector< osg::Vec3f > const & ))( &::osg::ShadowVolumeOccluder::contains )
             , ( bp::arg("vertices") )
             , " return true if the specified vertex list is contained entirely\n within this shadow occluder volume." )    
         .def( 
             "contains"
-            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::BoundingSphere const & ) )( &::osg::ShadowVolumeOccluder::contains )
+            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::BoundingSphere const & ))( &::osg::ShadowVolumeOccluder::contains )
             , ( bp::arg("bound") )
             , " return true if the specified bounding sphere is contained entirely\n within this shadow occluder volume." )    
         .def( 
             "contains"
-            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::BoundingBox const & ) )( &::osg::ShadowVolumeOccluder::contains )
+            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::BoundingBox const & ))( &::osg::ShadowVolumeOccluder::contains )
             , ( bp::arg("bound") )
             , " return true if the specified bounding box is contained entirely\n within this shadow occluder volume." )    
         .def( 
             "disableResultMasks"
-            , (void ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::disableResultMasks ) )    
+            , (void ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::disableResultMasks ) )    
         .def( 
             "getHoleList"
-            , (::std::vector< osg::Polytope > & ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::getHoleList )
+            , (::std::vector< osg::Polytope > & ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::getHoleList )
             , bp::return_internal_reference< >()
             , " return the list of holes." )    
         .def( 
             "getHoleList"
-            , (::std::vector< osg::Polytope > const & ( ::osg::ShadowVolumeOccluder::* )(  ) const)( &::osg::ShadowVolumeOccluder::getHoleList )
+            , (::std::vector< osg::Polytope > const & ( ::osg::ShadowVolumeOccluder::* )(  )const)( &::osg::ShadowVolumeOccluder::getHoleList )
             , bp::return_internal_reference< >()
             , " return the const list of holes." )    
         .def( 
             "getNodePath"
-            , (::osg::NodePath & ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::getNodePath )
+            , (::osg::NodePath & ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::getNodePath )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNodePath"
-            , (::osg::NodePath const & ( ::osg::ShadowVolumeOccluder::* )(  ) const)( &::osg::ShadowVolumeOccluder::getNodePath )
+            , (::osg::NodePath const & ( ::osg::ShadowVolumeOccluder::* )(  )const)( &::osg::ShadowVolumeOccluder::getNodePath )
             , bp::return_internal_reference< >() )    
         .def( 
             "getOccluder"
-            , (::osg::Polytope & ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::getOccluder )
+            , (::osg::Polytope & ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::getOccluder )
             , bp::return_internal_reference< >()
             , " return the occluder polytope." )    
         .def( 
             "getOccluder"
-            , (::osg::Polytope const & ( ::osg::ShadowVolumeOccluder::* )(  ) const)( &::osg::ShadowVolumeOccluder::getOccluder )
+            , (::osg::Polytope const & ( ::osg::ShadowVolumeOccluder::* )(  )const)( &::osg::ShadowVolumeOccluder::getOccluder )
             , bp::return_internal_reference< >()
             , " return the const occluder polytope." )    
         .def( 
             "getVolume"
-            , (float ( ::osg::ShadowVolumeOccluder::* )(  ) const)( &::osg::ShadowVolumeOccluder::getVolume )
+            , (float ( ::osg::ShadowVolumeOccluder::* )(  )const)( &::osg::ShadowVolumeOccluder::getVolume )
             , " get the volume of the occluder minus its holes, in eye coords, the volume is normalized by dividing by\n the volume of the view frustum in eye coords." )    
         .def( 
             "matchProjectionMatrix"
-            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::Matrix const & ) const)( &::osg::ShadowVolumeOccluder::matchProjectionMatrix )
+            , (bool ( ::osg::ShadowVolumeOccluder::* )( ::osg::Matrix const & )const)( &::osg::ShadowVolumeOccluder::matchProjectionMatrix )
             , ( bp::arg("matrix") )
             , " return true if the matrix passed in matches the projection matrix that this ShadowVolumeOccluder is\n associated with." )    
         .def( bp::self < bp::self )    
         .def( 
             "popCurrentMask"
-            , (void ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::popCurrentMask ) )    
+            , (void ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::popCurrentMask ) )    
         .def( 
             "pushCurrentMask"
-            , (void ( ::osg::ShadowVolumeOccluder::* )(  ) )( &::osg::ShadowVolumeOccluder::pushCurrentMask ) )    
+            , (void ( ::osg::ShadowVolumeOccluder::* )(  ))( &::osg::ShadowVolumeOccluder::pushCurrentMask ) )    
         .def( 
             "setNodePath"
-            , (void ( ::osg::ShadowVolumeOccluder::* )( ::osg::NodePath & ) )( &::osg::ShadowVolumeOccluder::setNodePath )
+            , (void ( ::osg::ShadowVolumeOccluder::* )( ::osg::NodePath & ))( &::osg::ShadowVolumeOccluder::setNodePath )
             , ( bp::arg("nodePath") )
             , " Set the NodePath which describes which node in the scene graph\n that this occluder is attached to." )    
         .def( 
             "transformProvidingInverse"
-            , (void ( ::osg::ShadowVolumeOccluder::* )( ::osg::Matrix const & ) )( &::osg::ShadowVolumeOccluder::transformProvidingInverse )
+            , (void ( ::osg::ShadowVolumeOccluder::* )( ::osg::Matrix const & ))( &::osg::ShadowVolumeOccluder::transformProvidingInverse )
             , ( bp::arg("matrix") ) );
 
 }

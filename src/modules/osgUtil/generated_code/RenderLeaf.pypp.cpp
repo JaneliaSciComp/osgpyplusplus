@@ -55,19 +55,19 @@ void register_RenderLeaf_class(){
     bp::class_< RenderLeaf_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::RenderLeaf >, boost::noncopyable >( "RenderLeaf", bp::init< osg::Drawable *, osg::RefMatrix *, osg::RefMatrix *, bp::optional< float, unsigned int > >(( bp::arg("drawable"), bp::arg("projection"), bp::arg("modelview"), bp::arg("depth")=0.0f, bp::arg("traversalNumber")=(unsigned int)(0) )) )    
         .def( 
             "getDrawable"
-            , (::osg::Drawable const * ( ::osgUtil::RenderLeaf::* )(  ) const)( &::osgUtil::RenderLeaf::getDrawable )
+            , (::osg::Drawable const * ( ::osgUtil::RenderLeaf::* )(  )const)( &::osgUtil::RenderLeaf::getDrawable )
             , bp::return_internal_reference< >() )    
         .def( 
             "render"
-            , (void ( ::osgUtil::RenderLeaf::* )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * ) )(&::osgUtil::RenderLeaf::render)
-            , (void ( RenderLeaf_wrapper::* )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * ) )(&RenderLeaf_wrapper::default_render)
+            , (void ( ::osgUtil::RenderLeaf::* )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * ))(&::osgUtil::RenderLeaf::render)
+            , (void ( RenderLeaf_wrapper::* )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * ))(&RenderLeaf_wrapper::default_render)
             , ( bp::arg("renderInfo"), bp::arg("previous") ) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::RenderLeaf::* )(  ) )( &::osgUtil::RenderLeaf::reset ) )    
+            , (void ( ::osgUtil::RenderLeaf::* )(  ))( &::osgUtil::RenderLeaf::reset ) )    
         .def( 
             "set"
-            , (void ( ::osgUtil::RenderLeaf::* )( ::osg::Drawable *,::osg::RefMatrix *,::osg::RefMatrix *,float,unsigned int ) )( &::osgUtil::RenderLeaf::set )
+            , (void ( ::osgUtil::RenderLeaf::* )( ::osg::Drawable *,::osg::RefMatrix *,::osg::RefMatrix *,float,unsigned int ))( &::osgUtil::RenderLeaf::set )
             , ( bp::arg("drawable"), bp::arg("projection"), bp::arg("modelview"), bp::arg("depth")=0.0f, bp::arg("traversalNumber")=(unsigned int)(0) ) )    
         .def_readwrite( "_depth", &osgUtil::RenderLeaf::_depth )    
         .def_readwrite( "_drawable", &osgUtil::RenderLeaf::_drawable )    

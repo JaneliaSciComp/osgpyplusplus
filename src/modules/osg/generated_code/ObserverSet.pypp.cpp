@@ -40,7 +40,7 @@ void register_ObserverSet_class(){
         bp::implicitly_convertible< osg::Referenced const *, osg::ObserverSet >();
         { //::osg::ObserverSet::addObserver
         
-            typedef void ( ::osg::ObserverSet::*addObserver_function_type )( ::osg::Observer * ) ;
+            typedef void ( ::osg::ObserverSet::*addObserver_function_type)( ::osg::Observer * ) ;
             
             ObserverSet_exposer.def( 
                 "addObserver"
@@ -50,7 +50,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::addRefLock
         
-            typedef ::osg::Referenced * ( ::osg::ObserverSet::*addRefLock_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::ObserverSet::*addRefLock_function_type)(  ) ;
             
             ObserverSet_exposer.def( 
                 "addRefLock"
@@ -61,7 +61,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::getObserverSetMutex
         
-            typedef ::OpenThreads::Mutex * ( ::osg::ObserverSet::*getObserverSetMutex_function_type )(  ) const;
+            typedef ::OpenThreads::Mutex * ( ::osg::ObserverSet::*getObserverSetMutex_function_type)(  ) const;
             
             ObserverSet_exposer.def( 
                 "getObserverSetMutex"
@@ -71,7 +71,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::getObserverdObject
         
-            typedef ::osg::Referenced * ( ::osg::ObserverSet::*getObserverdObject_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::ObserverSet::*getObserverdObject_function_type)(  ) ;
             
             ObserverSet_exposer.def( 
                 "getObserverdObject"
@@ -81,7 +81,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::getObserverdObject
         
-            typedef ::osg::Referenced const * ( ::osg::ObserverSet::*getObserverdObject_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::ObserverSet::*getObserverdObject_function_type)(  ) const;
             
             ObserverSet_exposer.def( 
                 "getObserverdObject"
@@ -91,7 +91,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::getObservers
         
-            typedef ::std::set< osg::Observer* > & ( ::osg::ObserverSet::*getObservers_function_type )(  ) ;
+            typedef ::std::set< osg::Observer* > & ( ::osg::ObserverSet::*getObservers_function_type)(  ) ;
             
             ObserverSet_exposer.def( 
                 "getObservers"
@@ -101,7 +101,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::getObservers
         
-            typedef ::std::set< osg::Observer* > const & ( ::osg::ObserverSet::*getObservers_function_type )(  ) const;
+            typedef ::std::set< osg::Observer* > const & ( ::osg::ObserverSet::*getObservers_function_type)(  ) const;
             
             ObserverSet_exposer.def( 
                 "getObservers"
@@ -111,7 +111,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::removeObserver
         
-            typedef void ( ::osg::ObserverSet::*removeObserver_function_type )( ::osg::Observer * ) ;
+            typedef void ( ::osg::ObserverSet::*removeObserver_function_type)( ::osg::Observer * ) ;
             
             ObserverSet_exposer.def( 
                 "removeObserver"
@@ -121,7 +121,7 @@ void register_ObserverSet_class(){
         }
         { //::osg::ObserverSet::signalObjectDeleted
         
-            typedef void ( ::osg::ObserverSet::*signalObjectDeleted_function_type )( void * ) ;
+            typedef void ( ::osg::ObserverSet::*signalObjectDeleted_function_type)( void * ) ;
             
             ObserverSet_exposer.def( 
                 "signalObjectDeleted"
@@ -131,8 +131,8 @@ void register_ObserverSet_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( ObserverSet_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ObserverSet_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             ObserverSet_exposer.def( 
                 "setThreadSafeRefUnref"

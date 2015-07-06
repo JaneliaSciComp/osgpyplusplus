@@ -456,100 +456,100 @@ void register_FadeText_class(){
         .def( bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osgText::FadeText::* )(  ) const)(&::osgText::FadeText::className)
-            , (char const * ( FadeText_wrapper::* )(  ) const)(&FadeText_wrapper::default_className) )    
+            , (char const * ( ::osgText::FadeText::* )(  )const)(&::osgText::FadeText::className)
+            , (char const * ( FadeText_wrapper::* )(  )const)(&FadeText_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgText::FadeText::* )( ::osg::CopyOp const & ) const)(&::osgText::FadeText::clone)
-            , (::osg::Object * ( FadeText_wrapper::* )( ::osg::CopyOp const & ) const)(&FadeText_wrapper::default_clone)
+            , (::osg::Object * ( ::osgText::FadeText::* )( ::osg::CopyOp const & )const)(&::osgText::FadeText::clone)
+            , (::osg::Object * ( FadeText_wrapper::* )( ::osg::CopyOp const & )const)(&FadeText_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgText::FadeText::* )(  ) const)(&::osgText::FadeText::cloneType)
-            , (::osg::Object * ( FadeText_wrapper::* )(  ) const)(&FadeText_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgText::FadeText::* )(  )const)(&::osgText::FadeText::cloneType)
+            , (::osg::Object * ( FadeText_wrapper::* )(  )const)(&FadeText_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "drawImplementation"
-            , (void ( ::osgText::FadeText::* )( ::osg::RenderInfo & ) const)(&::osgText::FadeText::drawImplementation)
-            , (void ( FadeText_wrapper::* )( ::osg::RenderInfo & ) const)(&FadeText_wrapper::default_drawImplementation)
+            , (void ( ::osgText::FadeText::* )( ::osg::RenderInfo & )const)(&::osgText::FadeText::drawImplementation)
+            , (void ( FadeText_wrapper::* )( ::osg::RenderInfo & )const)(&FadeText_wrapper::default_drawImplementation)
             , ( bp::arg("renderInfo") ) )    
         .def( 
             "getFadeSpeed"
-            , (float ( ::osgText::FadeText::* )(  ) const)( &::osgText::FadeText::getFadeSpeed )
+            , (float ( ::osgText::FadeText::* )(  )const)( &::osgText::FadeText::getFadeSpeed )
             , " Get the speed that the alpha value changes." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgText::FadeText::* )( ::osg::Object const * ) const)(&::osgText::FadeText::isSameKindAs)
-            , (bool ( FadeText_wrapper::* )( ::osg::Object const * ) const)(&FadeText_wrapper::default_isSameKindAs)
+            , (bool ( ::osgText::FadeText::* )( ::osg::Object const * )const)(&::osgText::FadeText::isSameKindAs)
+            , (bool ( FadeText_wrapper::* )( ::osg::Object const * )const)(&FadeText_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgText::FadeText::* )(  ) const)(&::osgText::FadeText::libraryName)
-            , (char const * ( FadeText_wrapper::* )(  ) const)(&FadeText_wrapper::default_libraryName) )    
+            , (char const * ( ::osgText::FadeText::* )(  )const)(&::osgText::FadeText::libraryName)
+            , (char const * ( FadeText_wrapper::* )(  )const)(&FadeText_wrapper::default_libraryName) )    
         .def( 
             "setFadeSpeed"
-            , (void ( ::osgText::FadeText::* )( float ) )( &::osgText::FadeText::setFadeSpeed )
+            , (void ( ::osgText::FadeText::* )( float ))( &::osgText::FadeText::setFadeSpeed )
             , ( bp::arg("fadeSpeed") )
             , " Set the speed that the alpha value changes as the text is occluded or becomes visible." )    
         .def( 
             "accept"
-            , (void ( ::osgText::Text::* )( ::osg::Drawable::ConstAttributeFunctor & ) const)(&::osgText::Text::accept)
-            , (void ( FadeText_wrapper::* )( ::osg::Drawable::ConstAttributeFunctor & ) const)(&FadeText_wrapper::default_accept)
+            , (void ( ::osgText::Text::* )( ::osg::Drawable::ConstAttributeFunctor & )const)(&::osgText::Text::accept)
+            , (void ( FadeText_wrapper::* )( ::osg::Drawable::ConstAttributeFunctor & )const)(&FadeText_wrapper::default_accept)
             , ( bp::arg("af") ) )    
         .def( 
             "accept"
-            , (void ( ::osgText::Text::* )( ::osg::PrimitiveFunctor & ) const)(&::osgText::Text::accept)
-            , (void ( FadeText_wrapper::* )( ::osg::PrimitiveFunctor & ) const)(&FadeText_wrapper::default_accept)
+            , (void ( ::osgText::Text::* )( ::osg::PrimitiveFunctor & )const)(&::osgText::Text::accept)
+            , (void ( FadeText_wrapper::* )( ::osg::PrimitiveFunctor & )const)(&FadeText_wrapper::default_accept)
             , ( bp::arg("pf") ) )    
         .def( 
             "computeBound"
-            , (::osg::BoundingBox ( ::osgText::TextBase::* )(  ) const)(&::osgText::TextBase::computeBound)
-            , (::osg::BoundingBox ( FadeText_wrapper::* )(  ) const)(&FadeText_wrapper::default_computeBound) )    
+            , (::osg::BoundingBox ( ::osgText::TextBase::* )(  )const)(&::osgText::TextBase::computeBound)
+            , (::osg::BoundingBox ( FadeText_wrapper::* )(  )const)(&FadeText_wrapper::default_computeBound) )    
         .def( 
             "releaseGLObjects"
-            , (void ( ::osgText::Text::* )( ::osg::State * ) const)(&::osgText::Text::releaseGLObjects)
-            , (void ( FadeText_wrapper::* )( ::osg::State * ) const)(&FadeText_wrapper::default_releaseGLObjects)
+            , (void ( ::osgText::Text::* )( ::osg::State * )const)(&::osgText::Text::releaseGLObjects)
+            , (void ( FadeText_wrapper::* )( ::osg::State * )const)(&FadeText_wrapper::default_releaseGLObjects)
             , ( bp::arg("state")=bp::object() ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osgText::Text::* )( unsigned int ) )(&::osgText::Text::resizeGLObjectBuffers)
-            , (void ( FadeText_wrapper::* )( unsigned int ) )(&FadeText_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osgText::Text::* )( unsigned int ))(&::osgText::Text::resizeGLObjectBuffers)
+            , (void ( FadeText_wrapper::* )( unsigned int ))(&FadeText_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setFont"
-            , (void ( ::osgText::Text::* )( ::osgText::Font * ) )(&::osgText::Text::setFont)
-            , (void ( FadeText_wrapper::* )( ::osgText::Font * ) )(&FadeText_wrapper::default_setFont)
+            , (void ( ::osgText::Text::* )( ::osgText::Font * ))(&::osgText::Text::setFont)
+            , (void ( FadeText_wrapper::* )( ::osgText::Font * ))(&FadeText_wrapper::default_setFont)
             , ( bp::arg("font")=bp::object() ) )    
         .def( 
             "setFont"
-            , (void ( ::osgText::Text::* )( ::osg::ref_ptr< osgText::Font > ) )(&::osgText::Text::setFont)
-            , (void ( FadeText_wrapper::* )( ::osg::ref_ptr< osgText::Font > ) )(&FadeText_wrapper::default_setFont)
+            , (void ( ::osgText::Text::* )( ::osg::ref_ptr< osgText::Font > ))(&::osgText::Text::setFont)
+            , (void ( FadeText_wrapper::* )( ::osg::ref_ptr< osgText::Font > ))(&FadeText_wrapper::default_setFont)
             , ( bp::arg("font") ) )    
         .def( 
             "setFont"
-            , (void ( ::osgText::Text::* )( ::std::string const & ) )(&::osgText::Text::setFont)
-            , (void ( FadeText_wrapper::* )( ::std::string const & ) )(&FadeText_wrapper::default_setFont)
+            , (void ( ::osgText::Text::* )( ::std::string const & ))(&::osgText::Text::setFont)
+            , (void ( FadeText_wrapper::* )( ::std::string const & ))(&FadeText_wrapper::default_setFont)
             , ( bp::arg("fontfile") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osgText::Text::* )( bool ) )(&::osgText::Text::setThreadSafeRefUnref)
-            , (void ( FadeText_wrapper::* )( bool ) )(&FadeText_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osgText::Text::* )( bool ))(&::osgText::Text::setThreadSafeRefUnref)
+            , (void ( FadeText_wrapper::* )( bool ))(&FadeText_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "supports"
-            , (bool ( ::osgText::Text::* )( ::osg::Drawable::AttributeFunctor const & ) const)(&::osgText::Text::supports)
-            , (bool ( FadeText_wrapper::* )( ::osg::Drawable::AttributeFunctor const & ) const)(&FadeText_wrapper::default_supports)
+            , (bool ( ::osgText::Text::* )( ::osg::Drawable::AttributeFunctor const & )const)(&::osgText::Text::supports)
+            , (bool ( FadeText_wrapper::* )( ::osg::Drawable::AttributeFunctor const & )const)(&FadeText_wrapper::default_supports)
             , ( bp::arg("arg0") ) )    
         .def( 
             "supports"
-            , (bool ( ::osgText::Text::* )( ::osg::Drawable::ConstAttributeFunctor const & ) const)(&::osgText::Text::supports)
-            , (bool ( FadeText_wrapper::* )( ::osg::Drawable::ConstAttributeFunctor const & ) const)(&FadeText_wrapper::default_supports)
+            , (bool ( ::osgText::Text::* )( ::osg::Drawable::ConstAttributeFunctor const & )const)(&::osgText::Text::supports)
+            , (bool ( FadeText_wrapper::* )( ::osg::Drawable::ConstAttributeFunctor const & )const)(&FadeText_wrapper::default_supports)
             , ( bp::arg("arg0") ) )    
         .def( 
             "supports"
-            , (bool ( ::osgText::Text::* )( ::osg::PrimitiveFunctor const & ) const)(&::osgText::Text::supports)
-            , (bool ( FadeText_wrapper::* )( ::osg::PrimitiveFunctor const & ) const)(&FadeText_wrapper::default_supports)
+            , (bool ( ::osgText::Text::* )( ::osg::PrimitiveFunctor const & )const)(&::osgText::Text::supports)
+            , (bool ( FadeText_wrapper::* )( ::osg::PrimitiveFunctor const & )const)(&FadeText_wrapper::default_supports)
             , ( bp::arg("arg0") ) );
 
 }

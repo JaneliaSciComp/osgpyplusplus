@@ -551,7 +551,7 @@ void register_Image_class(){
             DataIterator_exposer.def( bp::init< osg::Image::DataIterator const & >(( bp::arg("ri") )) );
             { //::osg::Image::DataIterator::size
             
-                typedef unsigned int ( ::osg::Image::DataIterator::*size_function_type )(  ) const;
+                typedef unsigned int ( ::osg::Image::DataIterator::*size_function_type)(  ) const;
                 
                 DataIterator_exposer.def( 
                     "size"
@@ -561,7 +561,7 @@ void register_Image_class(){
             }
             { //::osg::Image::DataIterator::valid
             
-                typedef bool ( ::osg::Image::DataIterator::*valid_function_type )(  ) const;
+                typedef bool ( ::osg::Image::DataIterator::*valid_function_type)(  ) const;
                 
                 DataIterator_exposer.def( 
                     "valid"
@@ -574,63 +574,63 @@ void register_Image_class(){
         bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Image::DimensionsChangedCallback >, boost::noncopyable >( "DimensionsChangedCallback", "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n", bp::no_init )    
             .def( 
                 "__call__"
-                , bp::pure_virtual( (void ( ::osg::Image::DimensionsChangedCallback::* )( ::osg::Image * ) )(&::osg::Image::DimensionsChangedCallback::operator()) )
+                , bp::pure_virtual( (void ( ::osg::Image::DimensionsChangedCallback::* )( ::osg::Image * ))(&::osg::Image::DimensionsChangedCallback::operator()) )
                 , ( bp::arg("image") )
                 , "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n" )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Image_wrapper::DimensionsChangedCallback_wrapper::* )( bool ) )(&Image_wrapper::DimensionsChangedCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Image_wrapper::DimensionsChangedCallback_wrapper::* )( bool ))(&Image_wrapper::DimensionsChangedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< ::osg::Image::UpdateCallback >, boost::noncopyable >( "UpdateCallback", "\n Convenience update callback class that can be attached to a StateAttribute (such as Textures) to ensure\n that the Image::update(NodeVisitor*) method is called during the update traversal.  This callback\n is automatically attached when Image::requiresUpdateCall() is true (its false by default.)\n" )    
             .def( 
                 "__call__"
-                , (void ( ::osg::Image::UpdateCallback::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ) )(&::osg::Image::UpdateCallback::operator())
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ) )(&Image_wrapper::UpdateCallback_wrapper::default___call__)
+                , (void ( ::osg::Image::UpdateCallback::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ))(&::osg::Image::UpdateCallback::operator())
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ))(&Image_wrapper::UpdateCallback_wrapper::default___call__)
                 , ( bp::arg("attr"), bp::arg("nv") ) )    
             .def( 
                 "computeDataVariance"
-                , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )(  ) )(&Image_wrapper::UpdateCallback_wrapper::default_computeDataVariance) )    
+                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )(  ))(&Image_wrapper::UpdateCallback_wrapper::default_computeDataVariance) )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-                , (::osg::Referenced * ( Image_wrapper::UpdateCallback_wrapper::* )(  ) )(&Image_wrapper::UpdateCallback_wrapper::default_getUserData)
+                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( Image_wrapper::UpdateCallback_wrapper::* )(  ))(&Image_wrapper::UpdateCallback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-                , (::osg::Referenced const * ( Image_wrapper::UpdateCallback_wrapper::* )(  ) const)(&Image_wrapper::UpdateCallback_wrapper::default_getUserData)
+                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( Image_wrapper::UpdateCallback_wrapper::* )(  )const)(&Image_wrapper::UpdateCallback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "resizeGLObjectBuffers"
-                , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( unsigned int ) )(&Image_wrapper::UpdateCallback_wrapper::default_resizeGLObjectBuffers)
+                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( unsigned int ))(&Image_wrapper::UpdateCallback_wrapper::default_resizeGLObjectBuffers)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::std::string const & ) )(&Image_wrapper::UpdateCallback_wrapper::default_setName)
+                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::std::string const & ))(&Image_wrapper::UpdateCallback_wrapper::default_setName)
                 , ( bp::arg("name") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
                 , ( bp::arg("name") )
                 , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( bool ) )(&Image_wrapper::UpdateCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( bool ))(&Image_wrapper::UpdateCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) )    
             .def( 
                 "setUserData"
-                , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::osg::Referenced * ) )(&Image_wrapper::UpdateCallback_wrapper::default_setUserData)
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+                , (void ( Image_wrapper::UpdateCallback_wrapper::* )( ::osg::Referenced * ))(&Image_wrapper::UpdateCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         Image_exposer.def( bp::init< >("\n Image class for encapsulating the storage texture image data.\n") );
         { //::osg::Image::addDimensionsChangedCallback
         
-            typedef void ( ::osg::Image::*addDimensionsChangedCallback_function_type )( ::osg::Image::DimensionsChangedCallback * ) ;
+            typedef void ( ::osg::Image::*addDimensionsChangedCallback_function_type)( ::osg::Image::DimensionsChangedCallback * ) ;
             
             Image_exposer.def( 
                 "addDimensionsChangedCallback"
@@ -640,8 +640,8 @@ void register_Image_class(){
         }
         { //::osg::Image::allocateImage
         
-            typedef void ( ::osg::Image::*allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( Image_wrapper::*default_allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( Image_wrapper::*default_allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
             
             Image_exposer.def( 
                 "allocateImage"
@@ -652,8 +652,8 @@ void register_Image_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type )(  ) ;
-            typedef ::osg::Image * ( Image_wrapper::*default_asImage_function_type )(  ) ;
+            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type)(  ) ;
+            typedef ::osg::Image * ( Image_wrapper::*default_asImage_function_type)(  ) ;
             
             Image_exposer.def( 
                 "asImage"
@@ -664,8 +664,8 @@ void register_Image_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type )(  ) const;
-            typedef ::osg::Image const * ( Image_wrapper::*default_asImage_function_type )(  ) const;
+            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type)(  ) const;
+            typedef ::osg::Image const * ( Image_wrapper::*default_asImage_function_type)(  ) const;
             
             Image_exposer.def( 
                 "asImage"
@@ -676,8 +676,8 @@ void register_Image_class(){
         }
         { //::osg::Image::className
         
-            typedef char const * ( ::osg::Image::*className_function_type )(  ) const;
-            typedef char const * ( Image_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Image::*className_function_type)(  ) const;
+            typedef char const * ( Image_wrapper::*default_className_function_type)(  ) const;
             
             Image_exposer.def( 
                 "className"
@@ -687,8 +687,8 @@ void register_Image_class(){
         }
         { //::osg::Image::clone
         
-            typedef ::osg::Object * ( ::osg::Image::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Image_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Image::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Image_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Image_exposer.def( 
                 "clone"
@@ -700,8 +700,8 @@ void register_Image_class(){
         }
         { //::osg::Image::cloneType
         
-            typedef ::osg::Object * ( ::osg::Image::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Image_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Image::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Image_wrapper::*default_cloneType_function_type)(  ) const;
             
             Image_exposer.def( 
                 "cloneType"
@@ -802,8 +802,8 @@ void register_Image_class(){
         }
         { //::osg::Image::copySubImage
         
-            typedef void ( ::osg::Image::*copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
-            typedef void ( Image_wrapper::*default_copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
+            typedef void ( ::osg::Image::*copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
+            typedef void ( Image_wrapper::*default_copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
             
             Image_exposer.def( 
                 "copySubImage"
@@ -814,7 +814,7 @@ void register_Image_class(){
         }
         { //::osg::Image::ensureValidSizeForTexturing
         
-            typedef void ( ::osg::Image::*ensureValidSizeForTexturing_function_type )( ::GLint ) ;
+            typedef void ( ::osg::Image::*ensureValidSizeForTexturing_function_type)( ::GLint ) ;
             
             Image_exposer.def( 
                 "ensureValidSizeForTexturing"
@@ -825,7 +825,7 @@ void register_Image_class(){
         }
         { //::osg::Image::flipDepth
         
-            typedef void ( ::osg::Image::*flipDepth_function_type )(  ) ;
+            typedef void ( ::osg::Image::*flipDepth_function_type)(  ) ;
             
             Image_exposer.def( 
                 "flipDepth"
@@ -835,7 +835,7 @@ void register_Image_class(){
         }
         { //::osg::Image::flipHorizontal
         
-            typedef void ( ::osg::Image::*flipHorizontal_function_type )(  ) ;
+            typedef void ( ::osg::Image::*flipHorizontal_function_type)(  ) ;
             
             Image_exposer.def( 
                 "flipHorizontal"
@@ -845,7 +845,7 @@ void register_Image_class(){
         }
         { //::osg::Image::flipVertical
         
-            typedef void ( ::osg::Image::*flipVertical_function_type )(  ) ;
+            typedef void ( ::osg::Image::*flipVertical_function_type)(  ) ;
             
             Image_exposer.def( 
                 "flipVertical"
@@ -855,7 +855,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getAllocationMode
         
-            typedef ::osg::Image::AllocationMode ( ::osg::Image::*getAllocationMode_function_type )(  ) const;
+            typedef ::osg::Image::AllocationMode ( ::osg::Image::*getAllocationMode_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getAllocationMode"
@@ -865,7 +865,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getColor
         
-            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type )( unsigned int,unsigned int,unsigned int ) const;
+            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type)( unsigned int,unsigned int,unsigned int ) const;
             
             Image_exposer.def( 
                 "getColor"
@@ -876,7 +876,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getColor
         
-            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type )( ::osg::Vec2 const & ) const;
+            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type)( ::osg::Vec2 const & ) const;
             
             Image_exposer.def( 
                 "getColor"
@@ -887,7 +887,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getColor
         
-            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type )( ::osg::Vec3 const & ) const;
+            typedef ::osg::Vec4 ( ::osg::Image::*getColor_function_type)( ::osg::Vec3 const & ) const;
             
             Image_exposer.def( 
                 "getColor"
@@ -898,8 +898,8 @@ void register_Image_class(){
         }
         { //::osg::Image::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type )(  ) const;
-            typedef ::GLvoid const * ( Image_wrapper::*default_getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( Image_wrapper::*default_getDataPointer_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getDataPointer"
@@ -910,7 +910,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getDataType
         
-            typedef ::GLenum ( ::osg::Image::*getDataType_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::Image::*getDataType_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getDataType"
@@ -919,7 +919,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getFileName
         
-            typedef ::std::string const & ( ::osg::Image::*getFileName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::Image::*getFileName_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getFileName"
@@ -929,7 +929,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getImageSizeInBytes
         
-            typedef unsigned int ( ::osg::Image::*getImageSizeInBytes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getImageSizeInBytes_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getImageSizeInBytes"
@@ -939,7 +939,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getImageStepInBytes
         
-            typedef unsigned int ( ::osg::Image::*getImageStepInBytes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getImageStepInBytes_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getImageStepInBytes"
@@ -949,7 +949,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getInternalTextureFormat
         
-            typedef ::GLint ( ::osg::Image::*getInternalTextureFormat_function_type )(  ) const;
+            typedef ::GLint ( ::osg::Image::*getInternalTextureFormat_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getInternalTextureFormat"
@@ -958,7 +958,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getMipmapLevels
         
-            typedef ::std::vector< unsigned int > const & ( ::osg::Image::*getMipmapLevels_function_type )(  ) const;
+            typedef ::std::vector< unsigned int > const & ( ::osg::Image::*getMipmapLevels_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getMipmapLevels"
@@ -968,7 +968,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getMipmapOffset
         
-            typedef unsigned int ( ::osg::Image::*getMipmapOffset_function_type )( unsigned int ) const;
+            typedef unsigned int ( ::osg::Image::*getMipmapOffset_function_type)( unsigned int ) const;
             
             Image_exposer.def( 
                 "getMipmapOffset"
@@ -978,7 +978,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getNumMipmapLevels
         
-            typedef unsigned int ( ::osg::Image::*getNumMipmapLevels_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getNumMipmapLevels_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getNumMipmapLevels"
@@ -987,7 +987,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getOrigin
         
-            typedef ::osg::Image::Origin ( ::osg::Image::*getOrigin_function_type )(  ) const;
+            typedef ::osg::Image::Origin ( ::osg::Image::*getOrigin_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getOrigin"
@@ -997,7 +997,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPacking
         
-            typedef unsigned int ( ::osg::Image::*getPacking_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getPacking_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getPacking"
@@ -1006,7 +1006,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPixelAspectRatio
         
-            typedef float ( ::osg::Image::*getPixelAspectRatio_function_type )(  ) const;
+            typedef float ( ::osg::Image::*getPixelAspectRatio_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getPixelAspectRatio"
@@ -1016,7 +1016,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPixelBufferObject
         
-            typedef ::osg::PixelBufferObject * ( ::osg::Image::*getPixelBufferObject_function_type )(  ) ;
+            typedef ::osg::PixelBufferObject * ( ::osg::Image::*getPixelBufferObject_function_type)(  ) ;
             
             Image_exposer.def( 
                 "getPixelBufferObject"
@@ -1027,7 +1027,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPixelBufferObject
         
-            typedef ::osg::PixelBufferObject const * ( ::osg::Image::*getPixelBufferObject_function_type )(  ) const;
+            typedef ::osg::PixelBufferObject const * ( ::osg::Image::*getPixelBufferObject_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getPixelBufferObject"
@@ -1038,7 +1038,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPixelFormat
         
-            typedef ::GLenum ( ::osg::Image::*getPixelFormat_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::Image::*getPixelFormat_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getPixelFormat"
@@ -1047,7 +1047,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getPixelSizeInBits
         
-            typedef unsigned int ( ::osg::Image::*getPixelSizeInBits_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getPixelSizeInBits_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getPixelSizeInBits"
@@ -1057,7 +1057,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getRowLength
         
-            typedef int ( ::osg::Image::*getRowLength_function_type )(  ) const;
+            typedef int ( ::osg::Image::*getRowLength_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getRowLength"
@@ -1066,7 +1066,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getRowSizeInBytes
         
-            typedef unsigned int ( ::osg::Image::*getRowSizeInBytes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getRowSizeInBytes_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getRowSizeInBytes"
@@ -1076,7 +1076,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getRowStepInBytes
         
-            typedef unsigned int ( ::osg::Image::*getRowStepInBytes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getRowStepInBytes_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getRowStepInBytes"
@@ -1086,8 +1086,8 @@ void register_Image_class(){
         }
         { //::osg::Image::getTotalDataSize
         
-            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type )(  ) const;
-            typedef unsigned int ( Image_wrapper::*default_getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( Image_wrapper::*default_getTotalDataSize_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getTotalDataSize"
@@ -1097,7 +1097,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getTotalSizeInBytes
         
-            typedef unsigned int ( ::osg::Image::*getTotalSizeInBytes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getTotalSizeInBytes_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getTotalSizeInBytes"
@@ -1107,7 +1107,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getTotalSizeInBytesIncludingMipmaps
         
-            typedef unsigned int ( ::osg::Image::*getTotalSizeInBytesIncludingMipmaps_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getTotalSizeInBytesIncludingMipmaps_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getTotalSizeInBytesIncludingMipmaps"
@@ -1117,7 +1117,7 @@ void register_Image_class(){
         }
         { //::osg::Image::getWriteHint
         
-            typedef ::osg::Image::WriteHint ( ::osg::Image::*getWriteHint_function_type )(  ) const;
+            typedef ::osg::Image::WriteHint ( ::osg::Image::*getWriteHint_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getWriteHint"
@@ -1126,7 +1126,7 @@ void register_Image_class(){
         }
         { //::osg::Image::isCompressed
         
-            typedef bool ( ::osg::Image::*isCompressed_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*isCompressed_function_type)(  ) const;
             
             Image_exposer.def( 
                 "isCompressed"
@@ -1136,7 +1136,7 @@ void register_Image_class(){
         }
         { //::osg::Image::isDataContiguous
         
-            typedef bool ( ::osg::Image::*isDataContiguous_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*isDataContiguous_function_type)(  ) const;
             
             Image_exposer.def( 
                 "isDataContiguous"
@@ -1146,8 +1146,8 @@ void register_Image_class(){
         }
         { //::osg::Image::isImageTranslucent
         
-            typedef bool ( ::osg::Image::*isImageTranslucent_function_type )(  ) const;
-            typedef bool ( Image_wrapper::*default_isImageTranslucent_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*isImageTranslucent_function_type)(  ) const;
+            typedef bool ( Image_wrapper::*default_isImageTranslucent_function_type)(  ) const;
             
             Image_exposer.def( 
                 "isImageTranslucent"
@@ -1157,7 +1157,7 @@ void register_Image_class(){
         }
         { //::osg::Image::isMipmap
         
-            typedef bool ( ::osg::Image::*isMipmap_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*isMipmap_function_type)(  ) const;
             
             Image_exposer.def( 
                 "isMipmap"
@@ -1176,8 +1176,8 @@ void register_Image_class(){
         }
         { //::osg::Image::isSameKindAs
         
-            typedef bool ( ::osg::Image::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Image_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Image::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Image_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Image_exposer.def( 
                 "isSameKindAs"
@@ -1188,8 +1188,8 @@ void register_Image_class(){
         }
         { //::osg::Image::libraryName
         
-            typedef char const * ( ::osg::Image::*libraryName_function_type )(  ) const;
-            typedef char const * ( Image_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Image::*libraryName_function_type)(  ) const;
+            typedef char const * ( Image_wrapper::*default_libraryName_function_type)(  ) const;
             
             Image_exposer.def( 
                 "libraryName"
@@ -1199,7 +1199,7 @@ void register_Image_class(){
         }
         { //::osg::Image::r
         
-            typedef int ( ::osg::Image::*r_function_type )(  ) const;
+            typedef int ( ::osg::Image::*r_function_type)(  ) const;
             
             Image_exposer.def( 
                 "r"
@@ -1209,8 +1209,8 @@ void register_Image_class(){
         }
         { //::osg::Image::readImageFromCurrentTexture
         
-            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
-            typedef void ( Image_wrapper::*default_readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( Image_wrapper::*default_readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
             
             Image_exposer.def( 
                 "readImageFromCurrentTexture"
@@ -1221,8 +1221,8 @@ void register_Image_class(){
         }
         { //::osg::Image::readPixels
         
-            typedef void ( ::osg::Image::*readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( Image_wrapper::*default_readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( Image_wrapper::*default_readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
             
             Image_exposer.def( 
                 "readPixels"
@@ -1233,7 +1233,7 @@ void register_Image_class(){
         }
         { //::osg::Image::removeDimensionsChangedCallback
         
-            typedef void ( ::osg::Image::*removeDimensionsChangedCallback_function_type )( ::osg::Image::DimensionsChangedCallback * ) ;
+            typedef void ( ::osg::Image::*removeDimensionsChangedCallback_function_type)( ::osg::Image::DimensionsChangedCallback * ) ;
             
             Image_exposer.def( 
                 "removeDimensionsChangedCallback"
@@ -1243,8 +1243,8 @@ void register_Image_class(){
         }
         { //::osg::Image::requiresUpdateCall
         
-            typedef bool ( ::osg::Image::*requiresUpdateCall_function_type )(  ) const;
-            typedef bool ( Image_wrapper::*default_requiresUpdateCall_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*requiresUpdateCall_function_type)(  ) const;
+            typedef bool ( Image_wrapper::*default_requiresUpdateCall_function_type)(  ) const;
             
             Image_exposer.def( 
                 "requiresUpdateCall"
@@ -1254,7 +1254,7 @@ void register_Image_class(){
         }
         { //::osg::Image::s
         
-            typedef int ( ::osg::Image::*s_function_type )(  ) const;
+            typedef int ( ::osg::Image::*s_function_type)(  ) const;
             
             Image_exposer.def( 
                 "s"
@@ -1264,7 +1264,7 @@ void register_Image_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int ) ;
             
             Image_exposer.def( 
                 "scaleImage"
@@ -1275,8 +1275,8 @@ void register_Image_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int,::GLenum ) ;
-            typedef void ( Image_wrapper::*default_scaleImage_function_type )( int,int,int,::GLenum ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int,::GLenum ) ;
+            typedef void ( Image_wrapper::*default_scaleImage_function_type)( int,int,int,::GLenum ) ;
             
             Image_exposer.def( 
                 "scaleImage"
@@ -1287,8 +1287,8 @@ void register_Image_class(){
         }
         { //::osg::Image::sendFocusHint
         
-            typedef bool ( ::osg::Image::*sendFocusHint_function_type )( bool ) ;
-            typedef bool ( Image_wrapper::*default_sendFocusHint_function_type )( bool ) ;
+            typedef bool ( ::osg::Image::*sendFocusHint_function_type)( bool ) ;
+            typedef bool ( Image_wrapper::*default_sendFocusHint_function_type)( bool ) ;
             
             Image_exposer.def( 
                 "sendFocusHint"
@@ -1299,8 +1299,8 @@ void register_Image_class(){
         }
         { //::osg::Image::sendKeyEvent
         
-            typedef bool ( ::osg::Image::*sendKeyEvent_function_type )( int,bool ) ;
-            typedef bool ( Image_wrapper::*default_sendKeyEvent_function_type )( int,bool ) ;
+            typedef bool ( ::osg::Image::*sendKeyEvent_function_type)( int,bool ) ;
+            typedef bool ( Image_wrapper::*default_sendKeyEvent_function_type)( int,bool ) ;
             
             Image_exposer.def( 
                 "sendKeyEvent"
@@ -1311,8 +1311,8 @@ void register_Image_class(){
         }
         { //::osg::Image::sendPointerEvent
         
-            typedef bool ( ::osg::Image::*sendPointerEvent_function_type )( int,int,int ) ;
-            typedef bool ( Image_wrapper::*default_sendPointerEvent_function_type )( int,int,int ) ;
+            typedef bool ( ::osg::Image::*sendPointerEvent_function_type)( int,int,int ) ;
+            typedef bool ( Image_wrapper::*default_sendPointerEvent_function_type)( int,int,int ) ;
             
             Image_exposer.def( 
                 "sendPointerEvent"
@@ -1323,7 +1323,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setAllocationMode
         
-            typedef void ( ::osg::Image::*setAllocationMode_function_type )( ::osg::Image::AllocationMode ) ;
+            typedef void ( ::osg::Image::*setAllocationMode_function_type)( ::osg::Image::AllocationMode ) ;
             
             Image_exposer.def( 
                 "setAllocationMode"
@@ -1334,7 +1334,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setDataType
         
-            typedef void ( ::osg::Image::*setDataType_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::Image::*setDataType_function_type)( ::GLenum ) ;
             
             Image_exposer.def( 
                 "setDataType"
@@ -1344,7 +1344,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setFileName
         
-            typedef void ( ::osg::Image::*setFileName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Image::*setFileName_function_type)( ::std::string const & ) ;
             
             Image_exposer.def( 
                 "setFileName"
@@ -1354,8 +1354,8 @@ void register_Image_class(){
         }
         { //::osg::Image::setFrameLastRendered
         
-            typedef void ( ::osg::Image::*setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
-            typedef void ( Image_wrapper::*default_setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osg::Image::*setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( Image_wrapper::*default_setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
             
             Image_exposer.def( 
                 "setFrameLastRendered"
@@ -1366,8 +1366,8 @@ void register_Image_class(){
         }
         { //::osg::Image::setImage
         
-            typedef void ( ::osg::Image::*setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
-            typedef void ( Image_wrapper::*default_setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( ::osg::Image::*setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( Image_wrapper::*default_setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
             
             Image_exposer.def( 
                 "setImage"
@@ -1378,7 +1378,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setInternalTextureFormat
         
-            typedef void ( ::osg::Image::*setInternalTextureFormat_function_type )( ::GLint ) ;
+            typedef void ( ::osg::Image::*setInternalTextureFormat_function_type)( ::GLint ) ;
             
             Image_exposer.def( 
                 "setInternalTextureFormat"
@@ -1388,7 +1388,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setMipmapLevels
         
-            typedef void ( ::osg::Image::*setMipmapLevels_function_type )( ::std::vector< unsigned int > const & ) ;
+            typedef void ( ::osg::Image::*setMipmapLevels_function_type)( ::std::vector< unsigned int > const & ) ;
             
             Image_exposer.def( 
                 "setMipmapLevels"
@@ -1399,7 +1399,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setOrigin
         
-            typedef void ( ::osg::Image::*setOrigin_function_type )( ::osg::Image::Origin ) ;
+            typedef void ( ::osg::Image::*setOrigin_function_type)( ::osg::Image::Origin ) ;
             
             Image_exposer.def( 
                 "setOrigin"
@@ -1410,7 +1410,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setPacking
         
-            typedef void ( ::osg::Image::*setPacking_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Image::*setPacking_function_type)( unsigned int ) ;
             
             Image_exposer.def( 
                 "setPacking"
@@ -1420,7 +1420,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setPixelAspectRatio
         
-            typedef void ( ::osg::Image::*setPixelAspectRatio_function_type )( float ) ;
+            typedef void ( ::osg::Image::*setPixelAspectRatio_function_type)( float ) ;
             
             Image_exposer.def( 
                 "setPixelAspectRatio"
@@ -1431,7 +1431,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setPixelBufferObject
         
-            typedef void ( ::osg::Image::*setPixelBufferObject_function_type )( ::osg::PixelBufferObject * ) ;
+            typedef void ( ::osg::Image::*setPixelBufferObject_function_type)( ::osg::PixelBufferObject * ) ;
             
             Image_exposer.def( 
                 "setPixelBufferObject"
@@ -1442,7 +1442,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setPixelFormat
         
-            typedef void ( ::osg::Image::*setPixelFormat_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::Image::*setPixelFormat_function_type)( ::GLenum ) ;
             
             Image_exposer.def( 
                 "setPixelFormat"
@@ -1452,7 +1452,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setRowLength
         
-            typedef void ( ::osg::Image::*setRowLength_function_type )( int ) ;
+            typedef void ( ::osg::Image::*setRowLength_function_type)( int ) ;
             
             Image_exposer.def( 
                 "setRowLength"
@@ -1462,7 +1462,7 @@ void register_Image_class(){
         }
         { //::osg::Image::setWriteHint
         
-            typedef void ( ::osg::Image::*setWriteHint_function_type )( ::osg::Image::WriteHint ) ;
+            typedef void ( ::osg::Image::*setWriteHint_function_type)( ::osg::Image::WriteHint ) ;
             
             Image_exposer.def( 
                 "setWriteHint"
@@ -1472,7 +1472,7 @@ void register_Image_class(){
         }
         { //::osg::Image::supportsTextureSubloading
         
-            typedef bool ( ::osg::Image::*supportsTextureSubloading_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*supportsTextureSubloading_function_type)(  ) const;
             
             Image_exposer.def( 
                 "supportsTextureSubloading"
@@ -1482,7 +1482,7 @@ void register_Image_class(){
         }
         { //::osg::Image::swap
         
-            typedef void ( ::osg::Image::*swap_function_type )( ::osg::Image & ) ;
+            typedef void ( ::osg::Image::*swap_function_type)( ::osg::Image & ) ;
             
             Image_exposer.def( 
                 "swap"
@@ -1493,7 +1493,7 @@ void register_Image_class(){
         }
         { //::osg::Image::t
         
-            typedef int ( ::osg::Image::*t_function_type )(  ) const;
+            typedef int ( ::osg::Image::*t_function_type)(  ) const;
             
             Image_exposer.def( 
                 "t"
@@ -1503,8 +1503,8 @@ void register_Image_class(){
         }
         { //::osg::Image::update
         
-            typedef void ( ::osg::Image::*update_function_type )( ::osg::NodeVisitor * ) ;
-            typedef void ( Image_wrapper::*default_update_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::Image::*update_function_type)( ::osg::NodeVisitor * ) ;
+            typedef void ( Image_wrapper::*default_update_function_type)( ::osg::NodeVisitor * ) ;
             
             Image_exposer.def( 
                 "update"
@@ -1515,7 +1515,7 @@ void register_Image_class(){
         }
         { //::osg::Image::valid
         
-            typedef bool ( ::osg::Image::*valid_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*valid_function_type)(  ) const;
             
             Image_exposer.def( 
                 "valid"
@@ -1525,8 +1525,8 @@ void register_Image_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
-            typedef ::osg::Array * ( Image_wrapper::*default_asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( Image_wrapper::*default_asArray_function_type)(  ) ;
             
             Image_exposer.def( 
                 "asArray"
@@ -1537,8 +1537,8 @@ void register_Image_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
-            typedef ::osg::Array const * ( Image_wrapper::*default_asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( Image_wrapper::*default_asArray_function_type)(  ) const;
             
             Image_exposer.def( 
                 "asArray"
@@ -1549,8 +1549,8 @@ void register_Image_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Image_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Image_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Image_exposer.def( 
                 "computeDataVariance"
@@ -1560,8 +1560,8 @@ void register_Image_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Image_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Image_wrapper::*default_getUserData_function_type)(  ) ;
             
             Image_exposer.def( 
                 "getUserData"
@@ -1572,8 +1572,8 @@ void register_Image_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Image_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Image_wrapper::*default_getUserData_function_type)(  ) const;
             
             Image_exposer.def( 
                 "getUserData"
@@ -1584,8 +1584,8 @@ void register_Image_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Image_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Image_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Image_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1596,8 +1596,8 @@ void register_Image_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Image_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Image_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Image_exposer.def( 
                 "setName"
@@ -1608,7 +1608,7 @@ void register_Image_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Image_exposer.def( 
                 "setName"
@@ -1619,8 +1619,8 @@ void register_Image_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Image_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Image_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Image_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1631,8 +1631,8 @@ void register_Image_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Image_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Image_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Image_exposer.def( 
                 "setUserData"

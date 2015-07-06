@@ -49,7 +49,7 @@ void register_XmlNode_class(){
         bp::class_< osgDB::XmlNode::ControlMap >( "ControlMap", bp::init< >() )    
             .def( 
                 "addControlToCharacter"
-                , (void ( ::osgDB::XmlNode::ControlMap::* )( ::std::string const &,int ) )( &::osgDB::XmlNode::ControlMap::addControlToCharacter )
+                , (void ( ::osgDB::XmlNode::ControlMap::* )( ::std::string const &,int ))( &::osgDB::XmlNode::ControlMap::addControlToCharacter )
                 , ( bp::arg("control"), bp::arg("c") ) )    
             .def_readwrite( "_characterToControlMap", &osgDB::XmlNode::ControlMap::_characterToControlMap )    
             .def_readwrite( "_controlToCharacterMap", &osgDB::XmlNode::ControlMap::_controlToCharacterMap );
@@ -58,45 +58,45 @@ void register_XmlNode_class(){
             .def( bp::init< osgDB::XmlNode::Input const & >(( bp::arg("arg0") )) )    
             .def( 
                 "attach"
-                , (void ( ::osgDB::XmlNode::Input::* )( ::std::istream & ) )( &::osgDB::XmlNode::Input::attach )
+                , (void ( ::osgDB::XmlNode::Input::* )( ::std::istream & ))( &::osgDB::XmlNode::Input::attach )
                 , ( bp::arg("istream") ) )    
             .def( 
                 "currentPosition"
-                , (::size_t ( ::osgDB::XmlNode::Input::* )(  ) const)( &::osgDB::XmlNode::Input::currentPosition ) )    
+                , (::size_t ( ::osgDB::XmlNode::Input::* )(  )const)( &::osgDB::XmlNode::Input::currentPosition ) )    
             .def( 
                 "find"
-                , (::size_t ( ::osgDB::XmlNode::Input::* )( ::std::string const & ) )( &::osgDB::XmlNode::Input::find )
+                , (::size_t ( ::osgDB::XmlNode::Input::* )( ::std::string const & ))( &::osgDB::XmlNode::Input::find )
                 , ( bp::arg("str") ) )    
             .def( 
                 "get"
-                , (int ( ::osgDB::XmlNode::Input::* )(  ) )( &::osgDB::XmlNode::Input::get ) )    
+                , (int ( ::osgDB::XmlNode::Input::* )(  ))( &::osgDB::XmlNode::Input::get ) )    
             .def( 
                 "match"
-                , (bool ( ::osgDB::XmlNode::Input::* )( ::std::string const & ) )( &::osgDB::XmlNode::Input::match )
+                , (bool ( ::osgDB::XmlNode::Input::* )( ::std::string const & ))( &::osgDB::XmlNode::Input::match )
                 , ( bp::arg("str") ) )    
             .def( 
                 "open"
-                , (void ( ::osgDB::XmlNode::Input::* )( ::std::string const & ) )( &::osgDB::XmlNode::Input::open )
+                , (void ( ::osgDB::XmlNode::Input::* )( ::std::string const & ))( &::osgDB::XmlNode::Input::open )
                 , ( bp::arg("filename") ) )    
             .def( "__int__", &osgDB::XmlNode::Input::operator bool  )    
             .def( bp::self += bp::other< size_t >() )    
             .def( 
                 "__getitem__"
-                , (int ( ::osgDB::XmlNode::Input::* )( ::size_t ) const)( &::osgDB::XmlNode::Input::operator[] )
+                , (int ( ::osgDB::XmlNode::Input::* )( ::size_t )const)( &::osgDB::XmlNode::Input::operator[] )
                 , ( bp::arg("i") ) )    
             .def( 
                 "readAllDataIntoBuffer"
-                , (void ( ::osgDB::XmlNode::Input::* )(  ) )( &::osgDB::XmlNode::Input::readAllDataIntoBuffer ) )    
+                , (void ( ::osgDB::XmlNode::Input::* )(  ))( &::osgDB::XmlNode::Input::readAllDataIntoBuffer ) )    
             .def( 
                 "skipWhiteSpace"
-                , (void ( ::osgDB::XmlNode::Input::* )(  ) )( &::osgDB::XmlNode::Input::skipWhiteSpace ) )    
+                , (void ( ::osgDB::XmlNode::Input::* )(  ))( &::osgDB::XmlNode::Input::skipWhiteSpace ) )    
             .def( 
                 "substr"
-                , (::std::string ( ::osgDB::XmlNode::Input::* )( ::size_t,::size_t ) )( &::osgDB::XmlNode::Input::substr )
+                , (::std::string ( ::osgDB::XmlNode::Input::* )( ::size_t,::size_t ))( &::osgDB::XmlNode::Input::substr )
                 , ( bp::arg("pos"), bp::arg("n")=(::size_t)(std::basic_string<char, std::char_traits<char>, std::allocator<char> >::npos) ) );
         { //::osgDB::XmlNode::getTrimmedContents
         
-            typedef ::std::string ( ::osgDB::XmlNode::*getTrimmedContents_function_type )(  ) const;
+            typedef ::std::string ( ::osgDB::XmlNode::*getTrimmedContents_function_type)(  ) const;
             
             XmlNode_exposer.def( 
                 "getTrimmedContents"
@@ -105,7 +105,7 @@ void register_XmlNode_class(){
         }
         { //::osgDB::XmlNode::read
         
-            typedef bool ( ::osgDB::XmlNode::*read_function_type )( ::osgDB::XmlNode::Input & ) ;
+            typedef bool ( ::osgDB::XmlNode::*read_function_type)( ::osgDB::XmlNode::Input & ) ;
             
             XmlNode_exposer.def( 
                 "read"
@@ -115,7 +115,7 @@ void register_XmlNode_class(){
         }
         { //::osgDB::XmlNode::write
         
-            typedef bool ( ::osgDB::XmlNode::*write_function_type )( ::std::ostream &,::std::string const & ) const;
+            typedef bool ( ::osgDB::XmlNode::*write_function_type)( ::std::ostream &,::std::string const & ) const;
             
             XmlNode_exposer.def( 
                 "write"
@@ -125,7 +125,7 @@ void register_XmlNode_class(){
         }
         { //::osgDB::XmlNode::write
         
-            typedef bool ( ::osgDB::XmlNode::*write_function_type )( ::osgDB::XmlNode::ControlMap const &,::std::ostream &,::std::string const & ) const;
+            typedef bool ( ::osgDB::XmlNode::*write_function_type)( ::osgDB::XmlNode::ControlMap const &,::std::ostream &,::std::string const & ) const;
             
             XmlNode_exposer.def( 
                 "write"
@@ -135,7 +135,7 @@ void register_XmlNode_class(){
         }
         { //::osgDB::XmlNode::writeString
         
-            typedef bool ( ::osgDB::XmlNode::*writeString_function_type )( ::osgDB::XmlNode::ControlMap const &,::std::ostream &,::std::string const & ) const;
+            typedef bool ( ::osgDB::XmlNode::*writeString_function_type)( ::osgDB::XmlNode::ControlMap const &,::std::ostream &,::std::string const & ) const;
             
             XmlNode_exposer.def( 
                 "writeString"

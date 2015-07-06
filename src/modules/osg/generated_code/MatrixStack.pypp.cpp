@@ -18,7 +18,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::RefMatrixd > & ( exported_class_t::*back_function_type )(  ) ;
+            typedef ::osg::ref_ptr< osg::RefMatrixd > & ( exported_class_t::*back_function_type)(  ) ;
             
             MatrixStack_exposer.def( 
                 "back"
@@ -29,7 +29,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::RefMatrixd > const & ( exported_class_t::*back_function_type )(  ) const;
+            typedef ::osg::ref_ptr< osg::RefMatrixd > const & ( exported_class_t::*back_function_type)(  ) const;
             
             MatrixStack_exposer.def( 
                 "back"
@@ -40,7 +40,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::clear
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type )(  ) ;
+            typedef void ( exported_class_t::*clear_function_type)(  ) ;
             
             MatrixStack_exposer.def( 
                 "clear"
@@ -50,7 +50,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::empty
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
             
             MatrixStack_exposer.def( 
                 "empty"
@@ -60,7 +60,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::operator=
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef ::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > & ( exported_class_t::*assign_function_type )( ::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > const & ) ;
+            typedef ::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > & ( exported_class_t::*assign_function_type)( ::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > const & ) ;
             
             MatrixStack_exposer.def( 
                 "assign"
@@ -73,7 +73,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::pop_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef void ( exported_class_t::*pop_back_function_type )(  ) ;
+            typedef void ( exported_class_t::*pop_back_function_type)(  ) ;
             
             MatrixStack_exposer.def( 
                 "pop_back"
@@ -83,7 +83,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::push_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type )(  ) ;
+            typedef void ( exported_class_t::*push_back_function_type)(  ) ;
             
             MatrixStack_exposer.def( 
                 "push_back"
@@ -93,7 +93,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::push_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type )( ::osg::ref_ptr< osg::RefMatrixd > const & ) ;
+            typedef void ( exported_class_t::*push_back_function_type)( ::osg::ref_ptr< osg::RefMatrixd > const & ) ;
             
             MatrixStack_exposer.def( 
                 "push_back"
@@ -104,7 +104,7 @@ void register_MatrixStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > >::size
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::RefMatrixd > > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
             
             MatrixStack_exposer.def( 
                 "size"

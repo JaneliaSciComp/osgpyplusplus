@@ -60,13 +60,13 @@ void register_AuthenticationMap_class(){
         .def( bp::init< >() )    
         .def( 
             "addAuthenticationDetails"
-            , (void ( ::osgDB::AuthenticationMap::* )( ::std::string const &,::osgDB::AuthenticationDetails * ) )(&::osgDB::AuthenticationMap::addAuthenticationDetails)
-            , (void ( AuthenticationMap_wrapper::* )( ::std::string const &,::osgDB::AuthenticationDetails * ) )(&AuthenticationMap_wrapper::default_addAuthenticationDetails)
+            , (void ( ::osgDB::AuthenticationMap::* )( ::std::string const &,::osgDB::AuthenticationDetails * ))(&::osgDB::AuthenticationMap::addAuthenticationDetails)
+            , (void ( AuthenticationMap_wrapper::* )( ::std::string const &,::osgDB::AuthenticationDetails * ))(&AuthenticationMap_wrapper::default_addAuthenticationDetails)
             , ( bp::arg("path"), bp::arg("details") ) )    
         .def( 
             "getAuthenticationDetails"
-            , (::osgDB::AuthenticationDetails const * ( ::osgDB::AuthenticationMap::* )( ::std::string const & ) const)(&::osgDB::AuthenticationMap::getAuthenticationDetails)
-            , (::osgDB::AuthenticationDetails const * ( AuthenticationMap_wrapper::* )( ::std::string const & ) const)(&AuthenticationMap_wrapper::default_getAuthenticationDetails)
+            , (::osgDB::AuthenticationDetails const * ( ::osgDB::AuthenticationMap::* )( ::std::string const & )const)(&::osgDB::AuthenticationMap::getAuthenticationDetails)
+            , (::osgDB::AuthenticationDetails const * ( AuthenticationMap_wrapper::* )( ::std::string const & )const)(&AuthenticationMap_wrapper::default_getAuthenticationDetails)
             , ( bp::arg("path") )
             , bp::return_internal_reference< >() );
 

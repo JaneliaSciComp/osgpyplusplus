@@ -480,8 +480,8 @@ void register_MatrixTransform_class(){
         bp::implicitly_convertible< osg::Matrix const &, osg::MatrixTransform >();
         { //::osg::MatrixTransform::accept
         
-            typedef void ( ::osg::MatrixTransform::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( MatrixTransform_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::MatrixTransform::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             MatrixTransform_exposer.def( 
                 "accept"
@@ -492,8 +492,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::asMatrixTransform
         
-            typedef ::osg::MatrixTransform * ( ::osg::MatrixTransform::*asMatrixTransform_function_type )(  ) ;
-            typedef ::osg::MatrixTransform * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type )(  ) ;
+            typedef ::osg::MatrixTransform * ( ::osg::MatrixTransform::*asMatrixTransform_function_type)(  ) ;
+            typedef ::osg::MatrixTransform * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asMatrixTransform"
@@ -504,8 +504,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::asMatrixTransform
         
-            typedef ::osg::MatrixTransform const * ( ::osg::MatrixTransform::*asMatrixTransform_function_type )(  ) const;
-            typedef ::osg::MatrixTransform const * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type )(  ) const;
+            typedef ::osg::MatrixTransform const * ( ::osg::MatrixTransform::*asMatrixTransform_function_type)(  ) const;
+            typedef ::osg::MatrixTransform const * ( MatrixTransform_wrapper::*default_asMatrixTransform_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asMatrixTransform"
@@ -516,8 +516,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::className
         
-            typedef char const * ( ::osg::MatrixTransform::*className_function_type )(  ) const;
-            typedef char const * ( MatrixTransform_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::MatrixTransform::*className_function_type)(  ) const;
+            typedef char const * ( MatrixTransform_wrapper::*default_className_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "className"
@@ -527,8 +527,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::clone
         
-            typedef ::osg::Object * ( ::osg::MatrixTransform::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::MatrixTransform::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             MatrixTransform_exposer.def( 
                 "clone"
@@ -540,8 +540,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::cloneType
         
-            typedef ::osg::Object * ( ::osg::MatrixTransform::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::MatrixTransform::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( MatrixTransform_wrapper::*default_cloneType_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "cloneType"
@@ -552,8 +552,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::computeLocalToWorldMatrix
         
-            typedef bool ( ::osg::MatrixTransform::*computeLocalToWorldMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
-            typedef bool ( MatrixTransform_wrapper::*default_computeLocalToWorldMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( ::osg::MatrixTransform::*computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
             
             MatrixTransform_exposer.def( 
                 "computeLocalToWorldMatrix"
@@ -564,8 +564,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::computeWorldToLocalMatrix
         
-            typedef bool ( ::osg::MatrixTransform::*computeWorldToLocalMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
-            typedef bool ( MatrixTransform_wrapper::*default_computeWorldToLocalMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( ::osg::MatrixTransform::*computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
             
             MatrixTransform_exposer.def( 
                 "computeWorldToLocalMatrix"
@@ -576,7 +576,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::getInverseMatrix
         
-            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getInverseMatrix_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "getInverseMatrix"
@@ -587,7 +587,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::getMatrix
         
-            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrix const & ( ::osg::MatrixTransform::*getMatrix_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "getMatrix"
@@ -598,8 +598,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::isSameKindAs
         
-            typedef bool ( ::osg::MatrixTransform::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( MatrixTransform_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::MatrixTransform::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( MatrixTransform_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             MatrixTransform_exposer.def( 
                 "isSameKindAs"
@@ -610,8 +610,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::libraryName
         
-            typedef char const * ( ::osg::MatrixTransform::*libraryName_function_type )(  ) const;
-            typedef char const * ( MatrixTransform_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::MatrixTransform::*libraryName_function_type)(  ) const;
+            typedef char const * ( MatrixTransform_wrapper::*default_libraryName_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "libraryName"
@@ -621,7 +621,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::postMult
         
-            typedef void ( ::osg::MatrixTransform::*postMult_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::MatrixTransform::*postMult_function_type)( ::osg::Matrix const & ) ;
             
             MatrixTransform_exposer.def( 
                 "postMult"
@@ -632,7 +632,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::preMult
         
-            typedef void ( ::osg::MatrixTransform::*preMult_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::MatrixTransform::*preMult_function_type)( ::osg::Matrix const & ) ;
             
             MatrixTransform_exposer.def( 
                 "preMult"
@@ -643,7 +643,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::MatrixTransform::setMatrix
         
-            typedef void ( ::osg::MatrixTransform::*setMatrix_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::MatrixTransform::*setMatrix_function_type)( ::osg::Matrix const & ) ;
             
             MatrixTransform_exposer.def( 
                 "setMatrix"
@@ -654,8 +654,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::addChild
         
-            typedef bool ( ::osg::Group::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( MatrixTransform_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             MatrixTransform_exposer.def( 
                 "addChild"
@@ -666,8 +666,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( MatrixTransform_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( MatrixTransform_wrapper::*default_asCamera_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asCamera"
@@ -678,8 +678,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( MatrixTransform_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( MatrixTransform_wrapper::*default_asCamera_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asCamera"
@@ -690,8 +690,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( MatrixTransform_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( MatrixTransform_wrapper::*default_asGeode_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asGeode"
@@ -702,8 +702,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( MatrixTransform_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( MatrixTransform_wrapper::*default_asGeode_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asGeode"
@@ -714,8 +714,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( MatrixTransform_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( MatrixTransform_wrapper::*default_asGroup_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asGroup"
@@ -726,8 +726,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( MatrixTransform_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( MatrixTransform_wrapper::*default_asGroup_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asGroup"
@@ -738,8 +738,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Transform::asPositionAttitudeTransform
         
-            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type )(  ) ;
-            typedef ::osg::PositionAttitudeTransform * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type )(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asPositionAttitudeTransform"
@@ -750,8 +750,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Transform::asPositionAttitudeTransform
         
-            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type )(  ) const;
-            typedef ::osg::PositionAttitudeTransform const * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type )(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( MatrixTransform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asPositionAttitudeTransform"
@@ -762,8 +762,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( MatrixTransform_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( MatrixTransform_wrapper::*default_asSwitch_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asSwitch"
@@ -774,8 +774,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( MatrixTransform_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( MatrixTransform_wrapper::*default_asSwitch_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asSwitch"
@@ -786,8 +786,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Transform::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( MatrixTransform_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( MatrixTransform_wrapper::*default_asTransform_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "asTransform"
@@ -798,8 +798,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Transform::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( MatrixTransform_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( MatrixTransform_wrapper::*default_asTransform_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "asTransform"
@@ -810,8 +810,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( MatrixTransform_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             MatrixTransform_exposer.def( 
                 "ascend"
@@ -822,8 +822,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Transform::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( MatrixTransform_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( MatrixTransform_wrapper::*default_computeBound_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "computeBound"
@@ -833,8 +833,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( MatrixTransform_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( MatrixTransform_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "computeDataVariance"
@@ -844,8 +844,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( MatrixTransform_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( MatrixTransform_wrapper::*default_getUserData_function_type)(  ) ;
             
             MatrixTransform_exposer.def( 
                 "getUserData"
@@ -856,8 +856,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( MatrixTransform_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( MatrixTransform_wrapper::*default_getUserData_function_type)(  ) const;
             
             MatrixTransform_exposer.def( 
                 "getUserData"
@@ -868,8 +868,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( MatrixTransform_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             MatrixTransform_exposer.def( 
                 "insertChild"
@@ -880,8 +880,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::removeChildren
         
-            typedef bool ( ::osg::Group::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( MatrixTransform_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Group::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             MatrixTransform_exposer.def( 
                 "removeChildren"
@@ -892,8 +892,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( MatrixTransform_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             MatrixTransform_exposer.def( 
                 "replaceChild"
@@ -904,8 +904,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( MatrixTransform_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( MatrixTransform_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             MatrixTransform_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -916,8 +916,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( MatrixTransform_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( MatrixTransform_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             MatrixTransform_exposer.def( 
                 "setChild"
@@ -928,8 +928,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( MatrixTransform_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             MatrixTransform_exposer.def( 
                 "setName"
@@ -940,7 +940,7 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             MatrixTransform_exposer.def( 
                 "setName"
@@ -951,8 +951,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( MatrixTransform_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             MatrixTransform_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -963,8 +963,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( MatrixTransform_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( MatrixTransform_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             MatrixTransform_exposer.def( 
                 "setUserData"
@@ -975,8 +975,8 @@ void register_MatrixTransform_class(){
         }
         { //::osg::Group::traverse
         
-            typedef void ( ::osg::Group::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( MatrixTransform_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Group::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( MatrixTransform_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             MatrixTransform_exposer.def( 
                 "traverse"

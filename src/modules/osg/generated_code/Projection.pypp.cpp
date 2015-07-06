@@ -408,8 +408,8 @@ void register_Projection_class(){
         bp::implicitly_convertible< osg::Matrix const &, osg::Projection >();
         { //::osg::Projection::accept
         
-            typedef void ( ::osg::Projection::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Projection_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Projection::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Projection_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             Projection_exposer.def( 
                 "accept"
@@ -420,8 +420,8 @@ void register_Projection_class(){
         }
         { //::osg::Projection::className
         
-            typedef char const * ( ::osg::Projection::*className_function_type )(  ) const;
-            typedef char const * ( Projection_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Projection::*className_function_type)(  ) const;
+            typedef char const * ( Projection_wrapper::*default_className_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "className"
@@ -431,8 +431,8 @@ void register_Projection_class(){
         }
         { //::osg::Projection::clone
         
-            typedef ::osg::Object * ( ::osg::Projection::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Projection_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Projection::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Projection_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Projection_exposer.def( 
                 "clone"
@@ -444,8 +444,8 @@ void register_Projection_class(){
         }
         { //::osg::Projection::cloneType
         
-            typedef ::osg::Object * ( ::osg::Projection::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Projection_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Projection::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Projection_wrapper::*default_cloneType_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "cloneType"
@@ -456,7 +456,7 @@ void register_Projection_class(){
         }
         { //::osg::Projection::getMatrix
         
-            typedef ::osg::Matrix const & ( ::osg::Projection::*getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrix const & ( ::osg::Projection::*getMatrix_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "getMatrix"
@@ -467,8 +467,8 @@ void register_Projection_class(){
         }
         { //::osg::Projection::isSameKindAs
         
-            typedef bool ( ::osg::Projection::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Projection_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Projection::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Projection_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Projection_exposer.def( 
                 "isSameKindAs"
@@ -479,8 +479,8 @@ void register_Projection_class(){
         }
         { //::osg::Projection::libraryName
         
-            typedef char const * ( ::osg::Projection::*libraryName_function_type )(  ) const;
-            typedef char const * ( Projection_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Projection::*libraryName_function_type)(  ) const;
+            typedef char const * ( Projection_wrapper::*default_libraryName_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "libraryName"
@@ -490,7 +490,7 @@ void register_Projection_class(){
         }
         { //::osg::Projection::postMult
         
-            typedef void ( ::osg::Projection::*postMult_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Projection::*postMult_function_type)( ::osg::Matrix const & ) ;
             
             Projection_exposer.def( 
                 "postMult"
@@ -501,7 +501,7 @@ void register_Projection_class(){
         }
         { //::osg::Projection::preMult
         
-            typedef void ( ::osg::Projection::*preMult_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Projection::*preMult_function_type)( ::osg::Matrix const & ) ;
             
             Projection_exposer.def( 
                 "preMult"
@@ -512,7 +512,7 @@ void register_Projection_class(){
         }
         { //::osg::Projection::setMatrix
         
-            typedef void ( ::osg::Projection::*setMatrix_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Projection::*setMatrix_function_type)( ::osg::Matrix const & ) ;
             
             Projection_exposer.def( 
                 "setMatrix"
@@ -523,8 +523,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::addChild
         
-            typedef bool ( ::osg::Group::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( Projection_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( Projection_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             Projection_exposer.def( 
                 "addChild"
@@ -535,8 +535,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( Projection_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Projection_wrapper::*default_asCamera_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "asCamera"
@@ -547,8 +547,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( Projection_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Projection_wrapper::*default_asCamera_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "asCamera"
@@ -559,8 +559,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( Projection_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Projection_wrapper::*default_asGeode_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "asGeode"
@@ -571,8 +571,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( Projection_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Projection_wrapper::*default_asGeode_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "asGeode"
@@ -583,8 +583,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( Projection_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Projection_wrapper::*default_asGroup_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "asGroup"
@@ -595,8 +595,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( Projection_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Projection_wrapper::*default_asGroup_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "asGroup"
@@ -607,8 +607,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( Projection_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Projection_wrapper::*default_asSwitch_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "asSwitch"
@@ -619,8 +619,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( Projection_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Projection_wrapper::*default_asSwitch_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "asSwitch"
@@ -631,8 +631,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( Projection_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Projection_wrapper::*default_asTransform_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "asTransform"
@@ -643,8 +643,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( Projection_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Projection_wrapper::*default_asTransform_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "asTransform"
@@ -655,8 +655,8 @@ void register_Projection_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Projection_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Projection_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             Projection_exposer.def( 
                 "ascend"
@@ -667,8 +667,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::Group::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( Projection_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::Group::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Projection_wrapper::*default_computeBound_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "computeBound"
@@ -678,8 +678,8 @@ void register_Projection_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Projection_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Projection_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "computeDataVariance"
@@ -689,8 +689,8 @@ void register_Projection_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Projection_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Projection_wrapper::*default_getUserData_function_type)(  ) ;
             
             Projection_exposer.def( 
                 "getUserData"
@@ -701,8 +701,8 @@ void register_Projection_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Projection_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Projection_wrapper::*default_getUserData_function_type)(  ) const;
             
             Projection_exposer.def( 
                 "getUserData"
@@ -713,8 +713,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Projection_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Projection_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Projection_exposer.def( 
                 "insertChild"
@@ -725,8 +725,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::removeChildren
         
-            typedef bool ( ::osg::Group::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( Projection_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Group::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( Projection_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             Projection_exposer.def( 
                 "removeChildren"
@@ -737,8 +737,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( Projection_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( Projection_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             Projection_exposer.def( 
                 "replaceChild"
@@ -749,8 +749,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Projection_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Projection_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Projection_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -761,8 +761,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Projection_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Projection_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Projection_exposer.def( 
                 "setChild"
@@ -773,8 +773,8 @@ void register_Projection_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Projection_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Projection_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Projection_exposer.def( 
                 "setName"
@@ -785,7 +785,7 @@ void register_Projection_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Projection_exposer.def( 
                 "setName"
@@ -796,8 +796,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Projection_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Projection_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Projection_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -808,8 +808,8 @@ void register_Projection_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Projection_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Projection_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Projection_exposer.def( 
                 "setUserData"
@@ -820,8 +820,8 @@ void register_Projection_class(){
         }
         { //::osg::Group::traverse
         
-            typedef void ( ::osg::Group::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Projection_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Group::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Projection_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             Projection_exposer.def( 
                 "traverse"

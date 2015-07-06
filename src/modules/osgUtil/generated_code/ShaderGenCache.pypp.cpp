@@ -47,7 +47,7 @@ void register_ShaderGenCache_class(){
         ShaderGenCache_exposer.def( bp::init< >() );
         { //::osgUtil::ShaderGenCache::getOrCreateStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenCache::*getOrCreateStateSet_function_type )( int ) ;
+            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenCache::*getOrCreateStateSet_function_type)( int ) ;
             
             ShaderGenCache_exposer.def( 
                 "getOrCreateStateSet"
@@ -58,7 +58,7 @@ void register_ShaderGenCache_class(){
         }
         { //::osgUtil::ShaderGenCache::getStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenCache::*getStateSet_function_type )( int ) const;
+            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenCache::*getStateSet_function_type)( int ) const;
             
             ShaderGenCache_exposer.def( 
                 "getStateSet"
@@ -69,7 +69,7 @@ void register_ShaderGenCache_class(){
         }
         { //::osgUtil::ShaderGenCache::setStateSet
         
-            typedef void ( ::osgUtil::ShaderGenCache::*setStateSet_function_type )( int,::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::ShaderGenCache::*setStateSet_function_type)( int,::osg::StateSet * ) ;
             
             ShaderGenCache_exposer.def( 
                 "setStateSet"

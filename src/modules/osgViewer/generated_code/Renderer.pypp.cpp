@@ -136,8 +136,8 @@ void register_Renderer_class(){
         bp::implicitly_convertible< osg::Camera *, osgViewer::Renderer >();
         { //::osgViewer::Renderer::compile
         
-            typedef void ( ::osgViewer::Renderer::*compile_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_compile_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*compile_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_compile_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "compile"
@@ -147,8 +147,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::cull
         
-            typedef void ( ::osgViewer::Renderer::*cull_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_cull_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*cull_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_cull_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "cull"
@@ -158,8 +158,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::cull_draw
         
-            typedef void ( ::osgViewer::Renderer::*cull_draw_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_cull_draw_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*cull_draw_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_cull_draw_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "cull_draw"
@@ -169,8 +169,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::draw
         
-            typedef void ( ::osgViewer::Renderer::*draw_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_draw_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*draw_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_draw_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "draw"
@@ -180,7 +180,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getCameraRequiresSetUp
         
-            typedef bool ( ::osgViewer::Renderer::*getCameraRequiresSetUp_function_type )(  ) const;
+            typedef bool ( ::osgViewer::Renderer::*getCameraRequiresSetUp_function_type)(  ) const;
             
             Renderer_exposer.def( 
                 "getCameraRequiresSetUp"
@@ -189,7 +189,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getCompileOnNextDraw
         
-            typedef bool ( ::osgViewer::Renderer::*getCompileOnNextDraw_function_type )(  ) const;
+            typedef bool ( ::osgViewer::Renderer::*getCompileOnNextDraw_function_type)(  ) const;
             
             Renderer_exposer.def( 
                 "getCompileOnNextDraw"
@@ -198,7 +198,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getDone
         
-            typedef bool ( ::osgViewer::Renderer::*getDone_function_type )(  ) ;
+            typedef bool ( ::osgViewer::Renderer::*getDone_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "getDone"
@@ -207,7 +207,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getGraphicsThreadDoesCull
         
-            typedef bool ( ::osgViewer::Renderer::*getGraphicsThreadDoesCull_function_type )(  ) const;
+            typedef bool ( ::osgViewer::Renderer::*getGraphicsThreadDoesCull_function_type)(  ) const;
             
             Renderer_exposer.def( 
                 "getGraphicsThreadDoesCull"
@@ -216,7 +216,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getSceneView
         
-            typedef ::osgUtil::SceneView * ( ::osgViewer::Renderer::*getSceneView_function_type )( unsigned int ) ;
+            typedef ::osgUtil::SceneView * ( ::osgViewer::Renderer::*getSceneView_function_type)( unsigned int ) ;
             
             Renderer_exposer.def( 
                 "getSceneView"
@@ -227,7 +227,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::getSceneView
         
-            typedef ::osgUtil::SceneView const * ( ::osgViewer::Renderer::*getSceneView_function_type )( unsigned int ) const;
+            typedef ::osgUtil::SceneView const * ( ::osgViewer::Renderer::*getSceneView_function_type)( unsigned int ) const;
             
             Renderer_exposer.def( 
                 "getSceneView"
@@ -238,8 +238,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::operator()
         
-            typedef void ( ::osgViewer::Renderer::*__call___function_type )( ::osg::Object * ) ;
-            typedef void ( Renderer_wrapper::*default___call___function_type )( ::osg::Object * ) ;
+            typedef void ( ::osgViewer::Renderer::*__call___function_type)( ::osg::Object * ) ;
+            typedef void ( Renderer_wrapper::*default___call___function_type)( ::osg::Object * ) ;
             
             Renderer_exposer.def( 
                 "__call__"
@@ -250,8 +250,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::operator()
         
-            typedef void ( ::osgViewer::Renderer::*__call___function_type )( ::osg::GraphicsContext * ) ;
-            typedef void ( Renderer_wrapper::*default___call___function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgViewer::Renderer::*__call___function_type)( ::osg::GraphicsContext * ) ;
+            typedef void ( Renderer_wrapper::*default___call___function_type)( ::osg::GraphicsContext * ) ;
             
             Renderer_exposer.def( 
                 "__call__"
@@ -262,8 +262,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::release
         
-            typedef void ( ::osgViewer::Renderer::*release_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_release_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*release_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_release_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "release"
@@ -273,8 +273,8 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::reset
         
-            typedef void ( ::osgViewer::Renderer::*reset_function_type )(  ) ;
-            typedef void ( Renderer_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgViewer::Renderer::*reset_function_type)(  ) ;
+            typedef void ( Renderer_wrapper::*default_reset_function_type)(  ) ;
             
             Renderer_exposer.def( 
                 "reset"
@@ -284,7 +284,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::setCameraRequiresSetUp
         
-            typedef void ( ::osgViewer::Renderer::*setCameraRequiresSetUp_function_type )( bool ) ;
+            typedef void ( ::osgViewer::Renderer::*setCameraRequiresSetUp_function_type)( bool ) ;
             
             Renderer_exposer.def( 
                 "setCameraRequiresSetUp"
@@ -294,7 +294,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::setCompileOnNextDraw
         
-            typedef void ( ::osgViewer::Renderer::*setCompileOnNextDraw_function_type )( bool ) ;
+            typedef void ( ::osgViewer::Renderer::*setCompileOnNextDraw_function_type)( bool ) ;
             
             Renderer_exposer.def( 
                 "setCompileOnNextDraw"
@@ -304,7 +304,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::setDone
         
-            typedef void ( ::osgViewer::Renderer::*setDone_function_type )( bool ) ;
+            typedef void ( ::osgViewer::Renderer::*setDone_function_type)( bool ) ;
             
             Renderer_exposer.def( 
                 "setDone"
@@ -314,7 +314,7 @@ void register_Renderer_class(){
         }
         { //::osgViewer::Renderer::setGraphicsThreadDoesCull
         
-            typedef void ( ::osgViewer::Renderer::*setGraphicsThreadDoesCull_function_type )( bool ) ;
+            typedef void ( ::osgViewer::Renderer::*setGraphicsThreadDoesCull_function_type)( bool ) ;
             
             Renderer_exposer.def( 
                 "setGraphicsThreadDoesCull"

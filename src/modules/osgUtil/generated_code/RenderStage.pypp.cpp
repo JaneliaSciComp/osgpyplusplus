@@ -388,8 +388,8 @@ void register_RenderStage_class(){
         bp::implicitly_convertible< osgUtil::RenderBin::SortMode, osgUtil::RenderStage >();
         { //::osgUtil::RenderStage::addPositionedAttribute
         
-            typedef void ( ::osgUtil::RenderStage::*addPositionedAttribute_function_type )( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
-            typedef void ( RenderStage_wrapper::*default_addPositionedAttribute_function_type )( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( ::osgUtil::RenderStage::*addPositionedAttribute_function_type)( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( RenderStage_wrapper::*default_addPositionedAttribute_function_type)( ::osg::RefMatrix *,::osg::StateAttribute const * ) ;
             
             RenderStage_exposer.def( 
                 "addPositionedAttribute"
@@ -400,8 +400,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::addPositionedTextureAttribute
         
-            typedef void ( ::osgUtil::RenderStage::*addPositionedTextureAttribute_function_type )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
-            typedef void ( RenderStage_wrapper::*default_addPositionedTextureAttribute_function_type )( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( ::osgUtil::RenderStage::*addPositionedTextureAttribute_function_type)( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
+            typedef void ( RenderStage_wrapper::*default_addPositionedTextureAttribute_function_type)( unsigned int,::osg::RefMatrix *,::osg::StateAttribute const * ) ;
             
             RenderStage_exposer.def( 
                 "addPositionedTextureAttribute"
@@ -412,7 +412,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::addPostRenderStage
         
-            typedef void ( ::osgUtil::RenderStage::*addPostRenderStage_function_type )( ::osgUtil::RenderStage *,int ) ;
+            typedef void ( ::osgUtil::RenderStage::*addPostRenderStage_function_type)( ::osgUtil::RenderStage *,int ) ;
             
             RenderStage_exposer.def( 
                 "addPostRenderStage"
@@ -422,7 +422,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::addPreRenderStage
         
-            typedef void ( ::osgUtil::RenderStage::*addPreRenderStage_function_type )( ::osgUtil::RenderStage *,int ) ;
+            typedef void ( ::osgUtil::RenderStage::*addPreRenderStage_function_type)( ::osgUtil::RenderStage *,int ) ;
             
             RenderStage_exposer.def( 
                 "addPreRenderStage"
@@ -432,7 +432,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::addToDependencyList
         
-            typedef void ( ::osgUtil::RenderStage::*addToDependencyList_function_type )( ::osgUtil::RenderStage * ) ;
+            typedef void ( ::osgUtil::RenderStage::*addToDependencyList_function_type)( ::osgUtil::RenderStage * ) ;
             
             RenderStage_exposer.def( 
                 "addToDependencyList"
@@ -442,7 +442,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::attach
         
-            typedef void ( ::osgUtil::RenderStage::*attach_function_type )( ::osg::Camera::BufferComponent,::osg::Image * ) ;
+            typedef void ( ::osgUtil::RenderStage::*attach_function_type)( ::osg::Camera::BufferComponent,::osg::Image * ) ;
             
             RenderStage_exposer.def( 
                 "attach"
@@ -452,8 +452,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::className
         
-            typedef char const * ( ::osgUtil::RenderStage::*className_function_type )(  ) const;
-            typedef char const * ( RenderStage_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::RenderStage::*className_function_type)(  ) const;
+            typedef char const * ( RenderStage_wrapper::*default_className_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "className"
@@ -463,7 +463,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::clearReferencesToDependentCameras
         
-            typedef void ( ::osgUtil::RenderStage::*clearReferencesToDependentCameras_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderStage::*clearReferencesToDependentCameras_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "clearReferencesToDependentCameras"
@@ -472,8 +472,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::clone
         
-            typedef ::osg::Object * ( ::osgUtil::RenderStage::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( RenderStage_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgUtil::RenderStage::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( RenderStage_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             RenderStage_exposer.def( 
                 "clone"
@@ -485,8 +485,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::cloneType
         
-            typedef ::osg::Object * ( ::osgUtil::RenderStage::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( RenderStage_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgUtil::RenderStage::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( RenderStage_wrapper::*default_cloneType_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "cloneType"
@@ -497,7 +497,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::collateReferencesToDependentCameras
         
-            typedef void ( ::osgUtil::RenderStage::*collateReferencesToDependentCameras_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderStage::*collateReferencesToDependentCameras_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "collateReferencesToDependentCameras"
@@ -506,8 +506,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::computeNumberOfDynamicRenderLeaves
         
-            typedef unsigned int ( ::osgUtil::RenderStage::*computeNumberOfDynamicRenderLeaves_function_type )(  ) const;
-            typedef unsigned int ( RenderStage_wrapper::*default_computeNumberOfDynamicRenderLeaves_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::RenderStage::*computeNumberOfDynamicRenderLeaves_function_type)(  ) const;
+            typedef unsigned int ( RenderStage_wrapper::*default_computeNumberOfDynamicRenderLeaves_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "computeNumberOfDynamicRenderLeaves"
@@ -517,7 +517,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::copyTexture
         
-            typedef void ( ::osgUtil::RenderStage::*copyTexture_function_type )( ::osg::RenderInfo & ) ;
+            typedef void ( ::osgUtil::RenderStage::*copyTexture_function_type)( ::osg::RenderInfo & ) ;
             
             RenderStage_exposer.def( 
                 "copyTexture"
@@ -527,8 +527,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::draw
         
-            typedef void ( ::osgUtil::RenderStage::*draw_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderStage_wrapper::*default_draw_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderStage::*draw_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderStage_wrapper::*default_draw_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderStage_exposer.def( 
                 "draw"
@@ -539,8 +539,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::drawImplementation
         
-            typedef void ( ::osgUtil::RenderStage::*drawImplementation_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderStage_wrapper::*default_drawImplementation_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderStage::*drawImplementation_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderStage_wrapper::*default_drawImplementation_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderStage_exposer.def( 
                 "drawImplementation"
@@ -551,8 +551,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::drawInner
         
-            typedef void ( ::osgUtil::RenderStage::*drawInner_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * &,bool & ) ;
-            typedef void ( RenderStage_wrapper::*default_drawInner_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * &,bool & ) ;
+            typedef void ( ::osgUtil::RenderStage::*drawInner_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * &,bool & ) ;
+            typedef void ( RenderStage_wrapper::*default_drawInner_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * &,bool & ) ;
             
             RenderStage_exposer.def( 
                 "drawInner"
@@ -563,8 +563,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::drawPostRenderStages
         
-            typedef void ( ::osgUtil::RenderStage::*drawPostRenderStages_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderStage_wrapper::*default_drawPostRenderStages_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderStage::*drawPostRenderStages_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderStage_wrapper::*default_drawPostRenderStages_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderStage_exposer.def( 
                 "drawPostRenderStages"
@@ -575,8 +575,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::drawPreRenderStages
         
-            typedef void ( ::osgUtil::RenderStage::*drawPreRenderStages_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderStage_wrapper::*default_drawPreRenderStages_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderStage::*drawPreRenderStages_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderStage_wrapper::*default_drawPreRenderStages_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderStage_exposer.def( 
                 "drawPreRenderStages"
@@ -587,7 +587,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getCamera
         
-            typedef ::osg::Camera * ( ::osgUtil::RenderStage::*getCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osgUtil::RenderStage::*getCamera_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getCamera"
@@ -597,7 +597,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getCamera
         
-            typedef ::osg::Camera const * ( ::osgUtil::RenderStage::*getCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osgUtil::RenderStage::*getCamera_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getCamera"
@@ -607,7 +607,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getCameraRequiresSetUp
         
-            typedef bool ( ::osgUtil::RenderStage::*getCameraRequiresSetUp_function_type )(  ) const;
+            typedef bool ( ::osgUtil::RenderStage::*getCameraRequiresSetUp_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getCameraRequiresSetUp"
@@ -616,7 +616,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getClearAccum
         
-            typedef ::osg::Vec4 const & ( ::osgUtil::RenderStage::*getClearAccum_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgUtil::RenderStage::*getClearAccum_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getClearAccum"
@@ -626,7 +626,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getClearColor
         
-            typedef ::osg::Vec4 const & ( ::osgUtil::RenderStage::*getClearColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgUtil::RenderStage::*getClearColor_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getClearColor"
@@ -636,7 +636,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getClearDepth
         
-            typedef double ( ::osgUtil::RenderStage::*getClearDepth_function_type )(  ) const;
+            typedef double ( ::osgUtil::RenderStage::*getClearDepth_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getClearDepth"
@@ -645,7 +645,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getClearMask
         
-            typedef ::GLbitfield ( ::osgUtil::RenderStage::*getClearMask_function_type )(  ) const;
+            typedef ::GLbitfield ( ::osgUtil::RenderStage::*getClearMask_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getClearMask"
@@ -654,7 +654,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getClearStencil
         
-            typedef int ( ::osgUtil::RenderStage::*getClearStencil_function_type )(  ) const;
+            typedef int ( ::osgUtil::RenderStage::*getClearStencil_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getClearStencil"
@@ -663,7 +663,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getColorMask
         
-            typedef ::osg::ColorMask * ( ::osgUtil::RenderStage::*getColorMask_function_type )(  ) ;
+            typedef ::osg::ColorMask * ( ::osgUtil::RenderStage::*getColorMask_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getColorMask"
@@ -673,7 +673,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getColorMask
         
-            typedef ::osg::ColorMask const * ( ::osgUtil::RenderStage::*getColorMask_function_type )(  ) const;
+            typedef ::osg::ColorMask const * ( ::osgUtil::RenderStage::*getColorMask_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getColorMask"
@@ -683,7 +683,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getDisableFboAfterRender
         
-            typedef bool ( ::osgUtil::RenderStage::*getDisableFboAfterRender_function_type )(  ) const;
+            typedef bool ( ::osgUtil::RenderStage::*getDisableFboAfterRender_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getDisableFboAfterRender"
@@ -692,7 +692,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getDrawBuffer
         
-            typedef ::GLenum ( ::osgUtil::RenderStage::*getDrawBuffer_function_type )(  ) const;
+            typedef ::GLenum ( ::osgUtil::RenderStage::*getDrawBuffer_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getDrawBuffer"
@@ -701,7 +701,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getDrawBufferApplyMask
         
-            typedef bool ( ::osgUtil::RenderStage::*getDrawBufferApplyMask_function_type )(  ) const;
+            typedef bool ( ::osgUtil::RenderStage::*getDrawBufferApplyMask_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getDrawBufferApplyMask"
@@ -710,7 +710,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getFrameBufferObject
         
-            typedef ::osg::FrameBufferObject * ( ::osgUtil::RenderStage::*getFrameBufferObject_function_type )(  ) ;
+            typedef ::osg::FrameBufferObject * ( ::osgUtil::RenderStage::*getFrameBufferObject_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getFrameBufferObject"
@@ -720,7 +720,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getFrameBufferObject
         
-            typedef ::osg::FrameBufferObject const * ( ::osgUtil::RenderStage::*getFrameBufferObject_function_type )(  ) const;
+            typedef ::osg::FrameBufferObject const * ( ::osgUtil::RenderStage::*getFrameBufferObject_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getFrameBufferObject"
@@ -730,7 +730,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getGraphicsContext
         
-            typedef ::osg::GraphicsContext * ( ::osgUtil::RenderStage::*getGraphicsContext_function_type )(  ) ;
+            typedef ::osg::GraphicsContext * ( ::osgUtil::RenderStage::*getGraphicsContext_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getGraphicsContext"
@@ -740,7 +740,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getGraphicsContext
         
-            typedef ::osg::GraphicsContext const * ( ::osgUtil::RenderStage::*getGraphicsContext_function_type )(  ) const;
+            typedef ::osg::GraphicsContext const * ( ::osgUtil::RenderStage::*getGraphicsContext_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getGraphicsContext"
@@ -750,7 +750,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getImage
         
-            typedef ::osg::Image * ( ::osgUtil::RenderStage::*getImage_function_type )(  ) ;
+            typedef ::osg::Image * ( ::osgUtil::RenderStage::*getImage_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getImage"
@@ -760,7 +760,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getImageReadPixelDataType
         
-            typedef ::GLenum ( ::osgUtil::RenderStage::*getImageReadPixelDataType_function_type )(  ) const;
+            typedef ::GLenum ( ::osgUtil::RenderStage::*getImageReadPixelDataType_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getImageReadPixelDataType"
@@ -769,7 +769,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getImageReadPixelFormat
         
-            typedef ::GLenum ( ::osgUtil::RenderStage::*getImageReadPixelFormat_function_type )(  ) const;
+            typedef ::GLenum ( ::osgUtil::RenderStage::*getImageReadPixelFormat_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getImageReadPixelFormat"
@@ -778,7 +778,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getInheritedPositionalStateContainer
         
-            typedef ::osgUtil::PositionalStateContainer * ( ::osgUtil::RenderStage::*getInheritedPositionalStateContainer_function_type )(  ) ;
+            typedef ::osgUtil::PositionalStateContainer * ( ::osgUtil::RenderStage::*getInheritedPositionalStateContainer_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getInheritedPositionalStateContainer"
@@ -788,7 +788,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getInheritedPositionalStateContainerMatrix
         
-            typedef ::osg::Matrix const & ( ::osgUtil::RenderStage::*getInheritedPositionalStateContainerMatrix_function_type )(  ) const;
+            typedef ::osg::Matrix const & ( ::osgUtil::RenderStage::*getInheritedPositionalStateContainerMatrix_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getInheritedPositionalStateContainerMatrix"
@@ -798,7 +798,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getInitialViewMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::RenderStage::*getInitialViewMatrix_function_type )(  ) ;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::RenderStage::*getInitialViewMatrix_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getInitialViewMatrix"
@@ -808,7 +808,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getMultisampleResolveFramebufferObject
         
-            typedef ::osg::FrameBufferObject * ( ::osgUtil::RenderStage::*getMultisampleResolveFramebufferObject_function_type )(  ) ;
+            typedef ::osg::FrameBufferObject * ( ::osgUtil::RenderStage::*getMultisampleResolveFramebufferObject_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getMultisampleResolveFramebufferObject"
@@ -818,7 +818,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getMultisampleResolveFramebufferObject
         
-            typedef ::osg::FrameBufferObject const * ( ::osgUtil::RenderStage::*getMultisampleResolveFramebufferObject_function_type )(  ) const;
+            typedef ::osg::FrameBufferObject const * ( ::osgUtil::RenderStage::*getMultisampleResolveFramebufferObject_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getMultisampleResolveFramebufferObject"
@@ -828,7 +828,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getPositionalStateContainer
         
-            typedef ::osgUtil::PositionalStateContainer * ( ::osgUtil::RenderStage::*getPositionalStateContainer_function_type )(  ) const;
+            typedef ::osgUtil::PositionalStateContainer * ( ::osgUtil::RenderStage::*getPositionalStateContainer_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getPositionalStateContainer"
@@ -838,7 +838,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getReadBuffer
         
-            typedef ::GLenum ( ::osgUtil::RenderStage::*getReadBuffer_function_type )(  ) const;
+            typedef ::GLenum ( ::osgUtil::RenderStage::*getReadBuffer_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getReadBuffer"
@@ -847,7 +847,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getReadBufferApplyMask
         
-            typedef bool ( ::osgUtil::RenderStage::*getReadBufferApplyMask_function_type )(  ) const;
+            typedef bool ( ::osgUtil::RenderStage::*getReadBufferApplyMask_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getReadBufferApplyMask"
@@ -856,7 +856,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getStats
         
-            typedef bool ( ::osgUtil::RenderStage::*getStats_function_type )( ::osgUtil::Statistics & ) const;
+            typedef bool ( ::osgUtil::RenderStage::*getStats_function_type)( ::osgUtil::Statistics & ) const;
             
             RenderStage_exposer.def( 
                 "getStats"
@@ -866,7 +866,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getTexture
         
-            typedef ::osg::Texture * ( ::osgUtil::RenderStage::*getTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osgUtil::RenderStage::*getTexture_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getTexture"
@@ -876,7 +876,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getViewport
         
-            typedef ::osg::Viewport const * ( ::osgUtil::RenderStage::*getViewport_function_type )(  ) const;
+            typedef ::osg::Viewport const * ( ::osgUtil::RenderStage::*getViewport_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "getViewport"
@@ -886,7 +886,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::getViewport
         
-            typedef ::osg::Viewport * ( ::osgUtil::RenderStage::*getViewport_function_type )(  ) ;
+            typedef ::osg::Viewport * ( ::osgUtil::RenderStage::*getViewport_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "getViewport"
@@ -896,8 +896,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::isSameKindAs
         
-            typedef bool ( ::osgUtil::RenderStage::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( RenderStage_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgUtil::RenderStage::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( RenderStage_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             RenderStage_exposer.def( 
                 "isSameKindAs"
@@ -908,8 +908,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::releaseGLObjects
         
-            typedef void ( ::osgUtil::RenderStage::*releaseGLObjects_function_type )( ::osg::State * ) const;
-            typedef void ( RenderStage_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( ::osgUtil::RenderStage::*releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( RenderStage_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
             
             RenderStage_exposer.def( 
                 "releaseGLObjects"
@@ -920,8 +920,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::reset
         
-            typedef void ( ::osgUtil::RenderStage::*reset_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderStage::*reset_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_reset_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "reset"
@@ -931,7 +931,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::runCameraSetUp
         
-            typedef void ( ::osgUtil::RenderStage::*runCameraSetUp_function_type )( ::osg::RenderInfo & ) ;
+            typedef void ( ::osgUtil::RenderStage::*runCameraSetUp_function_type)( ::osg::RenderInfo & ) ;
             
             RenderStage_exposer.def( 
                 "runCameraSetUp"
@@ -941,7 +941,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setCamera
         
-            typedef void ( ::osgUtil::RenderStage::*setCamera_function_type )( ::osg::Camera * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setCamera_function_type)( ::osg::Camera * ) ;
             
             RenderStage_exposer.def( 
                 "setCamera"
@@ -951,7 +951,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setCameraRequiresSetUp
         
-            typedef void ( ::osgUtil::RenderStage::*setCameraRequiresSetUp_function_type )( bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setCameraRequiresSetUp_function_type)( bool ) ;
             
             RenderStage_exposer.def( 
                 "setCameraRequiresSetUp"
@@ -961,7 +961,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setClearAccum
         
-            typedef void ( ::osgUtil::RenderStage::*setClearAccum_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgUtil::RenderStage::*setClearAccum_function_type)( ::osg::Vec4 const & ) ;
             
             RenderStage_exposer.def( 
                 "setClearAccum"
@@ -971,7 +971,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setClearColor
         
-            typedef void ( ::osgUtil::RenderStage::*setClearColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgUtil::RenderStage::*setClearColor_function_type)( ::osg::Vec4 const & ) ;
             
             RenderStage_exposer.def( 
                 "setClearColor"
@@ -981,7 +981,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setClearDepth
         
-            typedef void ( ::osgUtil::RenderStage::*setClearDepth_function_type )( double ) ;
+            typedef void ( ::osgUtil::RenderStage::*setClearDepth_function_type)( double ) ;
             
             RenderStage_exposer.def( 
                 "setClearDepth"
@@ -991,7 +991,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setClearMask
         
-            typedef void ( ::osgUtil::RenderStage::*setClearMask_function_type )( ::GLbitfield ) ;
+            typedef void ( ::osgUtil::RenderStage::*setClearMask_function_type)( ::GLbitfield ) ;
             
             RenderStage_exposer.def( 
                 "setClearMask"
@@ -1001,7 +1001,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setClearStencil
         
-            typedef void ( ::osgUtil::RenderStage::*setClearStencil_function_type )( int ) ;
+            typedef void ( ::osgUtil::RenderStage::*setClearStencil_function_type)( int ) ;
             
             RenderStage_exposer.def( 
                 "setClearStencil"
@@ -1011,7 +1011,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setColorMask
         
-            typedef void ( ::osgUtil::RenderStage::*setColorMask_function_type )( ::osg::ColorMask * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setColorMask_function_type)( ::osg::ColorMask * ) ;
             
             RenderStage_exposer.def( 
                 "setColorMask"
@@ -1021,7 +1021,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setDisableFboAfterRender
         
-            typedef void ( ::osgUtil::RenderStage::*setDisableFboAfterRender_function_type )( bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setDisableFboAfterRender_function_type)( bool ) ;
             
             RenderStage_exposer.def( 
                 "setDisableFboAfterRender"
@@ -1031,7 +1031,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setDrawBuffer
         
-            typedef void ( ::osgUtil::RenderStage::*setDrawBuffer_function_type )( ::GLenum,bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setDrawBuffer_function_type)( ::GLenum,bool ) ;
             
             RenderStage_exposer.def( 
                 "setDrawBuffer"
@@ -1041,7 +1041,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setDrawBufferApplyMask
         
-            typedef void ( ::osgUtil::RenderStage::*setDrawBufferApplyMask_function_type )( bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setDrawBufferApplyMask_function_type)( bool ) ;
             
             RenderStage_exposer.def( 
                 "setDrawBufferApplyMask"
@@ -1051,7 +1051,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setFrameBufferObject
         
-            typedef void ( ::osgUtil::RenderStage::*setFrameBufferObject_function_type )( ::osg::FrameBufferObject * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setFrameBufferObject_function_type)( ::osg::FrameBufferObject * ) ;
             
             RenderStage_exposer.def( 
                 "setFrameBufferObject"
@@ -1061,7 +1061,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setGraphicsContext
         
-            typedef void ( ::osgUtil::RenderStage::*setGraphicsContext_function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setGraphicsContext_function_type)( ::osg::GraphicsContext * ) ;
             
             RenderStage_exposer.def( 
                 "setGraphicsContext"
@@ -1071,7 +1071,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setImage
         
-            typedef void ( ::osgUtil::RenderStage::*setImage_function_type )( ::osg::Image * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setImage_function_type)( ::osg::Image * ) ;
             
             RenderStage_exposer.def( 
                 "setImage"
@@ -1081,7 +1081,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setImageReadPixelDataType
         
-            typedef void ( ::osgUtil::RenderStage::*setImageReadPixelDataType_function_type )( ::GLenum ) ;
+            typedef void ( ::osgUtil::RenderStage::*setImageReadPixelDataType_function_type)( ::GLenum ) ;
             
             RenderStage_exposer.def( 
                 "setImageReadPixelDataType"
@@ -1091,7 +1091,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setImageReadPixelFormat
         
-            typedef void ( ::osgUtil::RenderStage::*setImageReadPixelFormat_function_type )( ::GLenum ) ;
+            typedef void ( ::osgUtil::RenderStage::*setImageReadPixelFormat_function_type)( ::GLenum ) ;
             
             RenderStage_exposer.def( 
                 "setImageReadPixelFormat"
@@ -1101,7 +1101,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setInheritedPositionalStateContainer
         
-            typedef void ( ::osgUtil::RenderStage::*setInheritedPositionalStateContainer_function_type )( ::osgUtil::PositionalStateContainer * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setInheritedPositionalStateContainer_function_type)( ::osgUtil::PositionalStateContainer * ) ;
             
             RenderStage_exposer.def( 
                 "setInheritedPositionalStateContainer"
@@ -1111,7 +1111,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setInheritedPositionalStateContainerMatrix
         
-            typedef void ( ::osgUtil::RenderStage::*setInheritedPositionalStateContainerMatrix_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osgUtil::RenderStage::*setInheritedPositionalStateContainerMatrix_function_type)( ::osg::Matrix const & ) ;
             
             RenderStage_exposer.def( 
                 "setInheritedPositionalStateContainerMatrix"
@@ -1121,7 +1121,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setInitialViewMatrix
         
-            typedef void ( ::osgUtil::RenderStage::*setInitialViewMatrix_function_type )( ::osg::RefMatrix const * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setInitialViewMatrix_function_type)( ::osg::RefMatrix const * ) ;
             
             RenderStage_exposer.def( 
                 "setInitialViewMatrix"
@@ -1131,7 +1131,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setMultisampleResolveFramebufferObject
         
-            typedef void ( ::osgUtil::RenderStage::*setMultisampleResolveFramebufferObject_function_type )( ::osg::FrameBufferObject * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setMultisampleResolveFramebufferObject_function_type)( ::osg::FrameBufferObject * ) ;
             
             RenderStage_exposer.def( 
                 "setMultisampleResolveFramebufferObject"
@@ -1141,7 +1141,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setPositionalStateContainer
         
-            typedef void ( ::osgUtil::RenderStage::*setPositionalStateContainer_function_type )( ::osgUtil::PositionalStateContainer * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setPositionalStateContainer_function_type)( ::osgUtil::PositionalStateContainer * ) ;
             
             RenderStage_exposer.def( 
                 "setPositionalStateContainer"
@@ -1151,7 +1151,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setReadBuffer
         
-            typedef void ( ::osgUtil::RenderStage::*setReadBuffer_function_type )( ::GLenum,bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setReadBuffer_function_type)( ::GLenum,bool ) ;
             
             RenderStage_exposer.def( 
                 "setReadBuffer"
@@ -1161,7 +1161,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setReadBufferApplyMask
         
-            typedef void ( ::osgUtil::RenderStage::*setReadBufferApplyMask_function_type )( bool ) ;
+            typedef void ( ::osgUtil::RenderStage::*setReadBufferApplyMask_function_type)( bool ) ;
             
             RenderStage_exposer.def( 
                 "setReadBufferApplyMask"
@@ -1171,7 +1171,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setTexture
         
-            typedef void ( ::osgUtil::RenderStage::*setTexture_function_type )( ::osg::Texture *,unsigned int,unsigned int ) ;
+            typedef void ( ::osgUtil::RenderStage::*setTexture_function_type)( ::osg::Texture *,unsigned int,unsigned int ) ;
             
             RenderStage_exposer.def( 
                 "setTexture"
@@ -1181,7 +1181,7 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::setViewport
         
-            typedef void ( ::osgUtil::RenderStage::*setViewport_function_type )( ::osg::Viewport * ) ;
+            typedef void ( ::osgUtil::RenderStage::*setViewport_function_type)( ::osg::Viewport * ) ;
             
             RenderStage_exposer.def( 
                 "setViewport"
@@ -1191,8 +1191,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderStage::sort
         
-            typedef void ( ::osgUtil::RenderStage::*sort_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sort_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderStage::*sort_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sort_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sort"
@@ -1202,8 +1202,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::libraryName
         
-            typedef char const * ( ::osgUtil::RenderBin::*libraryName_function_type )(  ) const;
-            typedef char const * ( RenderStage_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::RenderBin::*libraryName_function_type)(  ) const;
+            typedef char const * ( RenderStage_wrapper::*default_libraryName_function_type)(  ) const;
             
             RenderStage_exposer.def( 
                 "libraryName"
@@ -1213,8 +1213,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortBackToFront
         
-            typedef void ( ::osgUtil::RenderBin::*sortBackToFront_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortBackToFront_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortBackToFront_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortBackToFront_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortBackToFront"
@@ -1224,8 +1224,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortByState
         
-            typedef void ( ::osgUtil::RenderBin::*sortByState_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortByState_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortByState_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortByState_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortByState"
@@ -1235,8 +1235,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortByStateThenFrontToBack
         
-            typedef void ( ::osgUtil::RenderBin::*sortByStateThenFrontToBack_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortByStateThenFrontToBack_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortByStateThenFrontToBack_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortByStateThenFrontToBack_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortByStateThenFrontToBack"
@@ -1246,8 +1246,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortFrontToBack
         
-            typedef void ( ::osgUtil::RenderBin::*sortFrontToBack_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortFrontToBack_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortFrontToBack_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortFrontToBack_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortFrontToBack"
@@ -1257,8 +1257,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortImplementation
         
-            typedef void ( ::osgUtil::RenderBin::*sortImplementation_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortImplementation_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortImplementation_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortImplementation_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortImplementation"
@@ -1268,8 +1268,8 @@ void register_RenderStage_class(){
         }
         { //::osgUtil::RenderBin::sortTraversalOrder
         
-            typedef void ( ::osgUtil::RenderBin::*sortTraversalOrder_function_type )(  ) ;
-            typedef void ( RenderStage_wrapper::*default_sortTraversalOrder_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortTraversalOrder_function_type)(  ) ;
+            typedef void ( RenderStage_wrapper::*default_sortTraversalOrder_function_type)(  ) ;
             
             RenderStage_exposer.def( 
                 "sortTraversalOrder"

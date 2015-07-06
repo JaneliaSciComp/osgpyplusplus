@@ -344,7 +344,7 @@ void register_BlendFunc_class(){
             bp::implicitly_convertible< unsigned int, osg::BlendFunc::Extensions >();
             { //::osg::BlendFunc::Extensions::glBlendFuncSeparate
             
-                typedef void ( ::osg::BlendFunc::Extensions::*glBlendFuncSeparate_function_type )( ::GLenum,::GLenum,::GLenum,::GLenum ) const;
+                typedef void ( ::osg::BlendFunc::Extensions::*glBlendFuncSeparate_function_type)( ::GLenum,::GLenum,::GLenum,::GLenum ) const;
                 
                 Extensions_exposer.def( 
                     "glBlendFuncSeparate"
@@ -354,7 +354,7 @@ void register_BlendFunc_class(){
             }
             { //::osg::BlendFunc::Extensions::isBlendFuncSeparateSupported
             
-                typedef bool ( ::osg::BlendFunc::Extensions::*isBlendFuncSeparateSupported_function_type )(  ) const;
+                typedef bool ( ::osg::BlendFunc::Extensions::*isBlendFuncSeparateSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isBlendFuncSeparateSupported"
@@ -373,7 +373,7 @@ void register_BlendFunc_class(){
             }
             { //::osg::BlendFunc::Extensions::setBlendFuncSeparateSupported
             
-                typedef void ( ::osg::BlendFunc::Extensions::*setBlendFuncSeparateSupported_function_type )( bool ) ;
+                typedef void ( ::osg::BlendFunc::Extensions::*setBlendFuncSeparateSupported_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setBlendFuncSeparateSupported"
@@ -383,7 +383,7 @@ void register_BlendFunc_class(){
             }
             { //::osg::BlendFunc::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::BlendFunc::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
+                typedef void ( ::osg::BlendFunc::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -393,8 +393,8 @@ void register_BlendFunc_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-                typedef void ( BlendFunc_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( BlendFunc_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -409,8 +409,8 @@ void register_BlendFunc_class(){
         BlendFunc_exposer.def( bp::init< GLenum, GLenum, GLenum, GLenum >(( bp::arg("source"), bp::arg("destination"), bp::arg("source_alpha"), bp::arg("destination_alpha") )) );
         { //::osg::BlendFunc::apply
         
-            typedef void ( ::osg::BlendFunc::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( BlendFunc_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::BlendFunc::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( BlendFunc_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             BlendFunc_exposer.def( 
                 "apply"
@@ -421,8 +421,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::className
         
-            typedef char const * ( ::osg::BlendFunc::*className_function_type )(  ) const;
-            typedef char const * ( BlendFunc_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::BlendFunc::*className_function_type)(  ) const;
+            typedef char const * ( BlendFunc_wrapper::*default_className_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "className"
@@ -432,8 +432,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::clone
         
-            typedef ::osg::Object * ( ::osg::BlendFunc::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( BlendFunc_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::BlendFunc::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( BlendFunc_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             BlendFunc_exposer.def( 
                 "clone"
@@ -445,8 +445,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::cloneType
         
-            typedef ::osg::Object * ( ::osg::BlendFunc::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( BlendFunc_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::BlendFunc::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( BlendFunc_wrapper::*default_cloneType_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "cloneType"
@@ -457,7 +457,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getDestination
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getDestination_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getDestination_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getDestination"
@@ -466,7 +466,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getDestinationAlpha
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getDestinationAlpha_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getDestinationAlpha_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getDestinationAlpha"
@@ -475,7 +475,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getDestinationRGB
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getDestinationRGB_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getDestinationRGB_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getDestinationRGB"
@@ -496,8 +496,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getModeUsage
         
-            typedef bool ( ::osg::BlendFunc::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( BlendFunc_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::BlendFunc::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( BlendFunc_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             BlendFunc_exposer.def( 
                 "getModeUsage"
@@ -508,7 +508,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getSource
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getSource_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getSource_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getSource"
@@ -517,7 +517,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getSourceAlpha
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getSourceAlpha_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getSourceAlpha_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getSourceAlpha"
@@ -526,7 +526,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getSourceRGB
         
-            typedef ::GLenum ( ::osg::BlendFunc::*getSourceRGB_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::BlendFunc::*getSourceRGB_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getSourceRGB"
@@ -535,8 +535,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::BlendFunc::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( BlendFunc_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::BlendFunc::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( BlendFunc_wrapper::*default_getType_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getType"
@@ -546,8 +546,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::isSameKindAs
         
-            typedef bool ( ::osg::BlendFunc::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( BlendFunc_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::BlendFunc::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( BlendFunc_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             BlendFunc_exposer.def( 
                 "isSameKindAs"
@@ -558,8 +558,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::libraryName
         
-            typedef char const * ( ::osg::BlendFunc::*libraryName_function_type )(  ) const;
-            typedef char const * ( BlendFunc_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::BlendFunc::*libraryName_function_type)(  ) const;
+            typedef char const * ( BlendFunc_wrapper::*default_libraryName_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "libraryName"
@@ -569,7 +569,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setDestination
         
-            typedef void ( ::osg::BlendFunc::*setDestination_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setDestination_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setDestination"
@@ -579,7 +579,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setDestinationAlpha
         
-            typedef void ( ::osg::BlendFunc::*setDestinationAlpha_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setDestinationAlpha_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setDestinationAlpha"
@@ -589,7 +589,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setDestinationRGB
         
-            typedef void ( ::osg::BlendFunc::*setDestinationRGB_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setDestinationRGB_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setDestinationRGB"
@@ -610,7 +610,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setFunction
         
-            typedef void ( ::osg::BlendFunc::*setFunction_function_type )( ::GLenum,::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setFunction_function_type)( ::GLenum,::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setFunction"
@@ -620,7 +620,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setFunction
         
-            typedef void ( ::osg::BlendFunc::*setFunction_function_type )( ::GLenum,::GLenum,::GLenum,::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setFunction_function_type)( ::GLenum,::GLenum,::GLenum,::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setFunction"
@@ -630,7 +630,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setSource
         
-            typedef void ( ::osg::BlendFunc::*setSource_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setSource_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setSource"
@@ -640,7 +640,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setSourceAlpha
         
-            typedef void ( ::osg::BlendFunc::*setSourceAlpha_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setSourceAlpha_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setSourceAlpha"
@@ -650,7 +650,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::BlendFunc::setSourceRGB
         
-            typedef void ( ::osg::BlendFunc::*setSourceRGB_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::BlendFunc::*setSourceRGB_function_type)( ::GLenum ) ;
             
             BlendFunc_exposer.def( 
                 "setSourceRGB"
@@ -660,8 +660,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( BlendFunc_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( BlendFunc_wrapper::*default_asTexture_function_type)(  ) ;
             
             BlendFunc_exposer.def( 
                 "asTexture"
@@ -672,8 +672,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( BlendFunc_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( BlendFunc_wrapper::*default_asTexture_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "asTexture"
@@ -684,8 +684,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( BlendFunc_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( BlendFunc_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             BlendFunc_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -696,8 +696,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( BlendFunc_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( BlendFunc_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             BlendFunc_exposer.def( 
                 "compileGLObjects"
@@ -708,8 +708,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( BlendFunc_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( BlendFunc_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             BlendFunc_exposer.def( 
                 "computeDataVariance"
@@ -719,8 +719,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( BlendFunc_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( BlendFunc_wrapper::*default_getMember_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getMember"
@@ -730,8 +730,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( BlendFunc_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( BlendFunc_wrapper::*default_getUserData_function_type)(  ) ;
             
             BlendFunc_exposer.def( 
                 "getUserData"
@@ -742,8 +742,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( BlendFunc_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( BlendFunc_wrapper::*default_getUserData_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "getUserData"
@@ -754,8 +754,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( BlendFunc_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( BlendFunc_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             BlendFunc_exposer.def( 
                 "isTextureAttribute"
@@ -765,8 +765,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( BlendFunc_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( BlendFunc_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             BlendFunc_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -777,8 +777,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( BlendFunc_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( BlendFunc_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             BlendFunc_exposer.def( 
                 "setName"
@@ -789,7 +789,7 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             BlendFunc_exposer.def( 
                 "setName"
@@ -800,8 +800,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( BlendFunc_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( BlendFunc_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             BlendFunc_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -812,8 +812,8 @@ void register_BlendFunc_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( BlendFunc_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( BlendFunc_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             BlendFunc_exposer.def( 
                 "setUserData"

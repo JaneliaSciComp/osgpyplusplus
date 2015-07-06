@@ -619,7 +619,7 @@ void register_StandardManipulator_class(){
             ;
         { //::osgGA::StandardManipulator::allocAnimationData
         
-            typedef void ( StandardManipulator_wrapper::*allocAnimationData_function_type )(  ) ;
+            typedef void ( StandardManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
             
             StandardManipulator_exposer.def( 
                 "allocAnimationData"
@@ -637,7 +637,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::applyAnimationStep
         
-            typedef void ( StandardManipulator_wrapper::*applyAnimationStep_function_type )( double const,double const ) ;
+            typedef void ( StandardManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
             
             StandardManipulator_exposer.def( 
                 "applyAnimationStep"
@@ -647,8 +647,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::className
         
-            typedef char const * ( ::osgGA::StandardManipulator::*className_function_type )(  ) const;
-            typedef char const * ( StandardManipulator_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgGA::StandardManipulator::*className_function_type)(  ) const;
+            typedef char const * ( StandardManipulator_wrapper::*default_className_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "className"
@@ -658,8 +658,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::finishAnimation
         
-            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type )(  ) ;
-            typedef void ( StandardManipulator_wrapper::*default_finishAnimation_function_type )(  ) ;
+            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type)(  ) ;
+            typedef void ( StandardManipulator_wrapper::*default_finishAnimation_function_type)(  ) ;
             
             StandardManipulator_exposer.def( 
                 "finishAnimation"
@@ -679,7 +679,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::fixVerticalAxis
         
-            typedef void ( StandardManipulator_wrapper::*fixVerticalAxis_function_type )( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            typedef void ( StandardManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
             
             StandardManipulator_exposer.def( 
                 "fixVerticalAxis"
@@ -699,7 +699,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::flushMouseEventStack
         
-            typedef void ( StandardManipulator_wrapper::*flushMouseEventStack_function_type )(  ) ;
+            typedef void ( StandardManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
             
             StandardManipulator_exposer.def( 
                 "flushMouseEventStack"
@@ -708,7 +708,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getAllowThrow
         
-            typedef bool ( ::osgGA::StandardManipulator::*getAllowThrow_function_type )(  ) const;
+            typedef bool ( ::osgGA::StandardManipulator::*getAllowThrow_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getAllowThrow"
@@ -718,7 +718,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getAnimationTime
         
-            typedef double ( ::osgGA::StandardManipulator::*getAnimationTime_function_type )(  ) const;
+            typedef double ( ::osgGA::StandardManipulator::*getAnimationTime_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getAnimationTime"
@@ -727,8 +727,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) const;
-            typedef ::osg::Node const * ( StandardManipulator_wrapper::*default_getNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( StandardManipulator_wrapper::*default_getNode_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getNode"
@@ -739,8 +739,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) ;
-            typedef ::osg::Node * ( StandardManipulator_wrapper::*default_getNode_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) ;
+            typedef ::osg::Node * ( StandardManipulator_wrapper::*default_getNode_function_type)(  ) ;
             
             StandardManipulator_exposer.def( 
                 "getNode"
@@ -751,7 +751,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getRelativeFlag
         
-            typedef bool ( StandardManipulator_wrapper::*getRelativeFlag_function_type )( int ) const;
+            typedef bool ( StandardManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
             
             StandardManipulator_exposer.def( 
                 "getRelativeFlag"
@@ -761,7 +761,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getThrowScale
         
-            typedef float ( StandardManipulator_wrapper::*getThrowScale_function_type )( double const ) const;
+            typedef float ( StandardManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
             
             StandardManipulator_exposer.def( 
                 "getThrowScale"
@@ -771,7 +771,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getTransformation
         
-            typedef void ( ::osgGA::StandardManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
             
             StandardManipulator_exposer.def( 
                 "getTransformation"
@@ -782,7 +782,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getTransformation
         
-            typedef void ( ::osgGA::StandardManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             StandardManipulator_exposer.def( 
                 "getTransformation"
@@ -793,8 +793,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getUsage
         
-            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
-            typedef void ( StandardManipulator_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( StandardManipulator_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             StandardManipulator_exposer.def( 
                 "getUsage"
@@ -805,7 +805,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getVerticalAxisFixed
         
-            typedef bool ( ::osgGA::StandardManipulator::*getVerticalAxisFixed_function_type )(  ) const;
+            typedef bool ( ::osgGA::StandardManipulator::*getVerticalAxisFixed_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getVerticalAxisFixed"
@@ -835,8 +835,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::home
         
-            typedef void ( ::osgGA::StandardManipulator::*home_function_type )( double ) ;
-            typedef void ( StandardManipulator_wrapper::*default_home_function_type )( double ) ;
+            typedef void ( ::osgGA::StandardManipulator::*home_function_type)( double ) ;
+            typedef void ( StandardManipulator_wrapper::*default_home_function_type)( double ) ;
             
             StandardManipulator_exposer.def( 
                 "home"
@@ -857,7 +857,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isAnimating
         
-            typedef bool ( ::osgGA::StandardManipulator::*isAnimating_function_type )(  ) const;
+            typedef bool ( ::osgGA::StandardManipulator::*isAnimating_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "isAnimating"
@@ -866,7 +866,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isMouseMoving
         
-            typedef bool ( StandardManipulator_wrapper::*isMouseMoving_function_type )(  ) const;
+            typedef bool ( StandardManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "isMouseMoving"
@@ -875,7 +875,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::performMovementLeftMouseButton
         
-            typedef bool ( StandardManipulator_wrapper::*performMovementLeftMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( StandardManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
             
             StandardManipulator_exposer.def( 
                 "performMovementLeftMouseButton"
@@ -885,7 +885,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::performMovementMiddleMouseButton
         
-            typedef bool ( StandardManipulator_wrapper::*performMovementMiddleMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( StandardManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
             
             StandardManipulator_exposer.def( 
                 "performMovementMiddleMouseButton"
@@ -895,7 +895,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::performMovementRightMouseButton
         
-            typedef bool ( StandardManipulator_wrapper::*performMovementRightMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( StandardManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
             
             StandardManipulator_exposer.def( 
                 "performMovementRightMouseButton"
@@ -915,8 +915,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAllowThrow
         
-            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type )( bool ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setAllowThrow_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setAllowThrow_function_type)( bool ) ;
             
             StandardManipulator_exposer.def( 
                 "setAllowThrow"
@@ -927,8 +927,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAnimationTime
         
-            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type )( double const ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setAnimationTime_function_type )( double const ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type)( double const ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setAnimationTime_function_type)( double const ) ;
             
             StandardManipulator_exposer.def( 
                 "setAnimationTime"
@@ -939,8 +939,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setNode
         
-            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type )( ::osg::Node * ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setNode_function_type )( ::osg::Node * ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type)( ::osg::Node * ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setNode_function_type)( ::osg::Node * ) ;
             
             StandardManipulator_exposer.def( 
                 "setNode"
@@ -951,7 +951,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setRelativeFlag
         
-            typedef void ( StandardManipulator_wrapper::*setRelativeFlag_function_type )( int,bool ) ;
+            typedef void ( StandardManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
             
             StandardManipulator_exposer.def( 
                 "setRelativeFlag"
@@ -961,7 +961,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setTransformation
         
-            typedef void ( ::osgGA::StandardManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
             
             StandardManipulator_exposer.def( 
                 "setTransformation"
@@ -972,7 +972,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setTransformation
         
-            typedef void ( ::osgGA::StandardManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             StandardManipulator_exposer.def( 
                 "setTransformation"
@@ -983,8 +983,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
-            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type )( bool ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setVerticalAxisFixed_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setVerticalAxisFixed_function_type)( bool ) ;
             
             StandardManipulator_exposer.def( 
                 "setVerticalAxisFixed"
@@ -995,8 +995,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::clone
         
-            typedef ::osg::Object * ( ::osgGA::GUIEventHandler::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( StandardManipulator_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::GUIEventHandler::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( StandardManipulator_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             StandardManipulator_exposer.def( 
                 "clone"
@@ -1008,8 +1008,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::GUIEventHandler::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( StandardManipulator_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgGA::GUIEventHandler::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( StandardManipulator_wrapper::*default_cloneType_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "cloneType"
@@ -1020,8 +1020,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
-            typedef void ( StandardManipulator_wrapper::*default_computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
+            typedef void ( StandardManipulator_wrapper::*default_computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
             
             StandardManipulator_exposer.def( 
                 "computeHomePosition"
@@ -1032,8 +1032,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::event
         
-            typedef void ( ::osgGA::GUIEventHandler::*event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
-            typedef void ( StandardManipulator_wrapper::*default_event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( ::osgGA::GUIEventHandler::*event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( StandardManipulator_wrapper::*default_event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
             
             StandardManipulator_exposer.def( 
                 "event"
@@ -1044,8 +1044,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::*getFusionDistanceMode_function_type )(  ) const;
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( StandardManipulator_wrapper::*default_getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::*getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( StandardManipulator_wrapper::*default_getFusionDistanceMode_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getFusionDistanceMode"
@@ -1055,8 +1055,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getFusionDistanceValue
         
-            typedef float ( ::osgGA::CameraManipulator::*getFusionDistanceValue_function_type )(  ) const;
-            typedef float ( StandardManipulator_wrapper::*default_getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( ::osgGA::CameraManipulator::*getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( StandardManipulator_wrapper::*default_getFusionDistanceValue_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getFusionDistanceValue"
@@ -1066,8 +1066,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( StandardManipulator_wrapper::*default_getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( StandardManipulator_wrapper::*default_getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             StandardManipulator_exposer.def( 
                 "getHomePosition"
@@ -1078,7 +1078,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getInverseMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::CameraManipulator::*getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::CameraManipulator::*getInverseMatrix_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getInverseMatrix"
@@ -1088,7 +1088,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::CameraManipulator::*getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::CameraManipulator::*getMatrix_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "getMatrix"
@@ -1109,8 +1109,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::isSameKindAs
         
-            typedef bool ( ::osgGA::GUIEventHandler::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( StandardManipulator_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::GUIEventHandler::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( StandardManipulator_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             StandardManipulator_exposer.def( 
                 "isSameKindAs"
@@ -1121,8 +1121,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::libraryName
         
-            typedef char const * ( ::osgGA::GUIEventHandler::*libraryName_function_type )(  ) const;
-            typedef char const * ( StandardManipulator_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgGA::GUIEventHandler::*libraryName_function_type)(  ) const;
+            typedef char const * ( StandardManipulator_wrapper::*default_libraryName_function_type)(  ) const;
             
             StandardManipulator_exposer.def( 
                 "libraryName"
@@ -1132,8 +1132,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type )( bool ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setAutoComputeHomePosition_function_type )( bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type)( bool ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setAutoComputeHomePosition_function_type)( bool ) ;
             
             StandardManipulator_exposer.def( 
                 "setAutoComputeHomePosition"
@@ -1144,7 +1144,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setByInverseMatrix
         
-            typedef void ( ::osgGA::CameraManipulator::*setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             StandardManipulator_exposer.def( 
                 "setByInverseMatrix"
@@ -1155,7 +1155,7 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setByMatrix
         
-            typedef void ( ::osgGA::CameraManipulator::*setByMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setByMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             StandardManipulator_exposer.def( 
                 "setByMatrix"
@@ -1166,8 +1166,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
         
-            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
             
             StandardManipulator_exposer.def( 
                 "setCoordinateFrameCallback"
@@ -1178,8 +1178,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
-            typedef void ( StandardManipulator_wrapper::*default_setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( StandardManipulator_wrapper::*default_setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
             
             StandardManipulator_exposer.def( 
                 "setHomePosition"
@@ -1190,8 +1190,8 @@ void register_StandardManipulator_class(){
         }
         { //::osgGA::CameraManipulator::updateCamera
         
-            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type )( ::osg::Camera & ) ;
-            typedef void ( StandardManipulator_wrapper::*default_updateCamera_function_type )( ::osg::Camera & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type)( ::osg::Camera & ) ;
+            typedef void ( StandardManipulator_wrapper::*default_updateCamera_function_type)( ::osg::Camera & ) ;
             
             StandardManipulator_exposer.def( 
                 "updateCamera"

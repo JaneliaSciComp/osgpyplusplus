@@ -245,8 +245,8 @@ void register_KdTree_class(){
             .def_readwrite( "p2", &osg::KdTree::Triangle::p2 );
         { //::osg::KdTree::accept
         
-            typedef void ( ::osg::KdTree::*accept_function_type )( ::osg::ShapeVisitor & ) ;
-            typedef void ( KdTree_wrapper::*default_accept_function_type )( ::osg::ShapeVisitor & ) ;
+            typedef void ( ::osg::KdTree::*accept_function_type)( ::osg::ShapeVisitor & ) ;
+            typedef void ( KdTree_wrapper::*default_accept_function_type)( ::osg::ShapeVisitor & ) ;
             
             KdTree_exposer.def( 
                 "accept"
@@ -257,8 +257,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::accept
         
-            typedef void ( ::osg::KdTree::*accept_function_type )( ::osg::ConstShapeVisitor & ) const;
-            typedef void ( KdTree_wrapper::*default_accept_function_type )( ::osg::ConstShapeVisitor & ) const;
+            typedef void ( ::osg::KdTree::*accept_function_type)( ::osg::ConstShapeVisitor & ) const;
+            typedef void ( KdTree_wrapper::*default_accept_function_type)( ::osg::ConstShapeVisitor & ) const;
             
             KdTree_exposer.def( 
                 "accept"
@@ -269,7 +269,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::addNode
         
-            typedef int ( ::osg::KdTree::*addNode_function_type )( ::osg::KdTree::KdNode const & ) ;
+            typedef int ( ::osg::KdTree::*addNode_function_type)( ::osg::KdTree::KdNode const & ) ;
             
             KdTree_exposer.def( 
                 "addNode"
@@ -279,7 +279,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::addTriangle
         
-            typedef unsigned int ( ::osg::KdTree::*addTriangle_function_type )( ::osg::KdTree::Triangle const & ) ;
+            typedef unsigned int ( ::osg::KdTree::*addTriangle_function_type)( ::osg::KdTree::Triangle const & ) ;
             
             KdTree_exposer.def( 
                 "addTriangle"
@@ -289,8 +289,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::build
         
-            typedef bool ( ::osg::KdTree::*build_function_type )( ::osg::KdTree::BuildOptions &,::osg::Geometry * ) ;
-            typedef bool ( KdTree_wrapper::*default_build_function_type )( ::osg::KdTree::BuildOptions &,::osg::Geometry * ) ;
+            typedef bool ( ::osg::KdTree::*build_function_type)( ::osg::KdTree::BuildOptions &,::osg::Geometry * ) ;
+            typedef bool ( KdTree_wrapper::*default_build_function_type)( ::osg::KdTree::BuildOptions &,::osg::Geometry * ) ;
             
             KdTree_exposer.def( 
                 "build"
@@ -301,8 +301,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::className
         
-            typedef char const * ( ::osg::KdTree::*className_function_type )(  ) const;
-            typedef char const * ( KdTree_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::KdTree::*className_function_type)(  ) const;
+            typedef char const * ( KdTree_wrapper::*default_className_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "className"
@@ -312,8 +312,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::clone
         
-            typedef ::osg::Object * ( ::osg::KdTree::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( KdTree_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::KdTree::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( KdTree_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             KdTree_exposer.def( 
                 "clone"
@@ -325,8 +325,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::cloneType
         
-            typedef ::osg::Object * ( ::osg::KdTree::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( KdTree_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::KdTree::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( KdTree_wrapper::*default_cloneType_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "cloneType"
@@ -337,7 +337,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getNode
         
-            typedef ::osg::KdTree::KdNode & ( ::osg::KdTree::*getNode_function_type )( int ) ;
+            typedef ::osg::KdTree::KdNode & ( ::osg::KdTree::*getNode_function_type)( int ) ;
             
             KdTree_exposer.def( 
                 "getNode"
@@ -348,7 +348,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getNode
         
-            typedef ::osg::KdTree::KdNode const & ( ::osg::KdTree::*getNode_function_type )( int ) const;
+            typedef ::osg::KdTree::KdNode const & ( ::osg::KdTree::*getNode_function_type)( int ) const;
             
             KdTree_exposer.def( 
                 "getNode"
@@ -359,7 +359,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getNodes
         
-            typedef ::std::vector< osg::KdTree::KdNode > & ( ::osg::KdTree::*getNodes_function_type )(  ) ;
+            typedef ::std::vector< osg::KdTree::KdNode > & ( ::osg::KdTree::*getNodes_function_type)(  ) ;
             
             KdTree_exposer.def( 
                 "getNodes"
@@ -369,7 +369,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getNodes
         
-            typedef ::std::vector< osg::KdTree::KdNode > const & ( ::osg::KdTree::*getNodes_function_type )(  ) const;
+            typedef ::std::vector< osg::KdTree::KdNode > const & ( ::osg::KdTree::*getNodes_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "getNodes"
@@ -379,7 +379,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getTriangle
         
-            typedef ::osg::KdTree::Triangle & ( ::osg::KdTree::*getTriangle_function_type )( unsigned int ) ;
+            typedef ::osg::KdTree::Triangle & ( ::osg::KdTree::*getTriangle_function_type)( unsigned int ) ;
             
             KdTree_exposer.def( 
                 "getTriangle"
@@ -390,7 +390,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getTriangle
         
-            typedef ::osg::KdTree::Triangle const & ( ::osg::KdTree::*getTriangle_function_type )( unsigned int ) const;
+            typedef ::osg::KdTree::Triangle const & ( ::osg::KdTree::*getTriangle_function_type)( unsigned int ) const;
             
             KdTree_exposer.def( 
                 "getTriangle"
@@ -401,7 +401,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getTriangles
         
-            typedef ::std::vector< osg::KdTree::Triangle > & ( ::osg::KdTree::*getTriangles_function_type )(  ) ;
+            typedef ::std::vector< osg::KdTree::Triangle > & ( ::osg::KdTree::*getTriangles_function_type)(  ) ;
             
             KdTree_exposer.def( 
                 "getTriangles"
@@ -411,7 +411,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getTriangles
         
-            typedef ::std::vector< osg::KdTree::Triangle > const & ( ::osg::KdTree::*getTriangles_function_type )(  ) const;
+            typedef ::std::vector< osg::KdTree::Triangle > const & ( ::osg::KdTree::*getTriangles_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "getTriangles"
@@ -421,7 +421,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::getVertices
         
-            typedef ::osg::Vec3Array const * ( ::osg::KdTree::*getVertices_function_type )(  ) const;
+            typedef ::osg::Vec3Array const * ( ::osg::KdTree::*getVertices_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "getVertices"
@@ -431,8 +431,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::intersect
         
-            typedef bool ( ::osg::KdTree::*intersect_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::std::vector< osg::KdTree::LineSegmentIntersection > & ) const;
-            typedef bool ( KdTree_wrapper::*default_intersect_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::std::vector< osg::KdTree::LineSegmentIntersection > & ) const;
+            typedef bool ( ::osg::KdTree::*intersect_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::std::vector< osg::KdTree::LineSegmentIntersection > & ) const;
+            typedef bool ( KdTree_wrapper::*default_intersect_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::std::vector< osg::KdTree::LineSegmentIntersection > & ) const;
             
             KdTree_exposer.def( 
                 "intersect"
@@ -443,8 +443,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::isSameKindAs
         
-            typedef bool ( ::osg::KdTree::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( KdTree_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::KdTree::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( KdTree_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             KdTree_exposer.def( 
                 "isSameKindAs"
@@ -455,8 +455,8 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::libraryName
         
-            typedef char const * ( ::osg::KdTree::*libraryName_function_type )(  ) const;
-            typedef char const * ( KdTree_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::KdTree::*libraryName_function_type)(  ) const;
+            typedef char const * ( KdTree_wrapper::*default_libraryName_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "libraryName"
@@ -466,7 +466,7 @@ void register_KdTree_class(){
         }
         { //::osg::KdTree::setVertices
         
-            typedef void ( ::osg::KdTree::*setVertices_function_type )( ::osg::Vec3Array * ) ;
+            typedef void ( ::osg::KdTree::*setVertices_function_type)( ::osg::Vec3Array * ) ;
             
             KdTree_exposer.def( 
                 "setVertices"
@@ -476,8 +476,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( KdTree_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( KdTree_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             KdTree_exposer.def( 
                 "computeDataVariance"
@@ -487,8 +487,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( KdTree_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( KdTree_wrapper::*default_getUserData_function_type)(  ) ;
             
             KdTree_exposer.def( 
                 "getUserData"
@@ -499,8 +499,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( KdTree_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( KdTree_wrapper::*default_getUserData_function_type)(  ) const;
             
             KdTree_exposer.def( 
                 "getUserData"
@@ -511,8 +511,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( KdTree_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( KdTree_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             KdTree_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -523,8 +523,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( KdTree_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( KdTree_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             KdTree_exposer.def( 
                 "setName"
@@ -535,7 +535,7 @@ void register_KdTree_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             KdTree_exposer.def( 
                 "setName"
@@ -546,8 +546,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( KdTree_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( KdTree_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             KdTree_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -558,8 +558,8 @@ void register_KdTree_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( KdTree_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( KdTree_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             KdTree_exposer.def( 
                 "setUserData"

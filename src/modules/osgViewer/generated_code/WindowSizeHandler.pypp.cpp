@@ -191,43 +191,43 @@ void register_WindowSizeHandler_class(){
     bp::class_< WindowSizeHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::WindowSizeHandler >, boost::noncopyable >( "WindowSizeHandler", bp::init< >() )    
         .def( 
             "getChangeWindowedResolution"
-            , (bool ( ::osgViewer::WindowSizeHandler::* )(  ) const)( &::osgViewer::WindowSizeHandler::getChangeWindowedResolution ) )    
+            , (bool ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getChangeWindowedResolution ) )    
         .def( 
             "getKeyEventToggleFullscreen"
-            , (int ( ::osgViewer::WindowSizeHandler::* )(  ) const)( &::osgViewer::WindowSizeHandler::getKeyEventToggleFullscreen ) )    
+            , (int ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getKeyEventToggleFullscreen ) )    
         .def( 
             "getKeyEventWindowedResolutionDown"
-            , (int ( ::osgViewer::WindowSizeHandler::* )(  ) const)( &::osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionDown ) )    
+            , (int ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionDown ) )    
         .def( 
             "getKeyEventWindowedResolutionUp"
-            , (int ( ::osgViewer::WindowSizeHandler::* )(  ) const)( &::osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionUp ) )    
+            , (int ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getKeyEventWindowedResolutionUp ) )    
         .def( 
             "getToggleFullscreen"
-            , (bool ( ::osgViewer::WindowSizeHandler::* )(  ) const)( &::osgViewer::WindowSizeHandler::getToggleFullscreen ) )    
+            , (bool ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getToggleFullscreen ) )    
         .def( 
             "getUsage"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( ::osg::ApplicationUsage & ) const)(&::osgViewer::WindowSizeHandler::getUsage)
-            , (void ( WindowSizeHandler_wrapper::* )( ::osg::ApplicationUsage & ) const)(&WindowSizeHandler_wrapper::default_getUsage)
+            , (void ( ::osgViewer::WindowSizeHandler::* )( ::osg::ApplicationUsage & )const)(&::osgViewer::WindowSizeHandler::getUsage)
+            , (void ( WindowSizeHandler_wrapper::* )( ::osg::ApplicationUsage & )const)(&WindowSizeHandler_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "setChangeWindowedResolution"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( bool ) )( &::osgViewer::WindowSizeHandler::setChangeWindowedResolution )
+            , (void ( ::osgViewer::WindowSizeHandler::* )( bool ))( &::osgViewer::WindowSizeHandler::setChangeWindowedResolution )
             , ( bp::arg("flag") ) )    
         .def( 
             "setKeyEventToggleFullscreen"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( int ) )( &::osgViewer::WindowSizeHandler::setKeyEventToggleFullscreen )
+            , (void ( ::osgViewer::WindowSizeHandler::* )( int ))( &::osgViewer::WindowSizeHandler::setKeyEventToggleFullscreen )
             , ( bp::arg("key") ) )    
         .def( 
             "setKeyEventWindowedResolutionDown"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( int ) )( &::osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionDown )
+            , (void ( ::osgViewer::WindowSizeHandler::* )( int ))( &::osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionDown )
             , ( bp::arg("key") ) )    
         .def( 
             "setKeyEventWindowedResolutionUp"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( int ) )( &::osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionUp )
+            , (void ( ::osgViewer::WindowSizeHandler::* )( int ))( &::osgViewer::WindowSizeHandler::setKeyEventWindowedResolutionUp )
             , ( bp::arg("key") ) )    
         .def( 
             "setToggleFullscreen"
-            , (void ( ::osgViewer::WindowSizeHandler::* )( bool ) )( &::osgViewer::WindowSizeHandler::setToggleFullscreen )
+            , (void ( ::osgViewer::WindowSizeHandler::* )( bool ))( &::osgViewer::WindowSizeHandler::setToggleFullscreen )
             , ( bp::arg("flag") ) );
 
 }

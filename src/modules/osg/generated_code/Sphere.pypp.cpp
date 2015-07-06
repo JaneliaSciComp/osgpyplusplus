@@ -200,98 +200,98 @@ void register_Sphere_class(){
         .def( bp::init< osg::Vec3 const &, float >(( bp::arg("center"), bp::arg("radius") )) )    
         .def( 
             "accept"
-            , (void ( ::osg::Sphere::* )( ::osg::ShapeVisitor & ) )(&::osg::Sphere::accept)
-            , (void ( Sphere_wrapper::* )( ::osg::ShapeVisitor & ) )(&Sphere_wrapper::default_accept)
+            , (void ( ::osg::Sphere::* )( ::osg::ShapeVisitor & ))(&::osg::Sphere::accept)
+            , (void ( Sphere_wrapper::* )( ::osg::ShapeVisitor & ))(&Sphere_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::Sphere::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::Sphere::accept)
-            , (void ( Sphere_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&Sphere_wrapper::default_accept)
+            , (void ( ::osg::Sphere::* )( ::osg::ConstShapeVisitor & )const)(&::osg::Sphere::accept)
+            , (void ( Sphere_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&Sphere_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Sphere::* )(  ) const)(&::osg::Sphere::className)
-            , (char const * ( Sphere_wrapper::* )(  ) const)(&Sphere_wrapper::default_className) )    
+            , (char const * ( ::osg::Sphere::* )(  )const)(&::osg::Sphere::className)
+            , (char const * ( Sphere_wrapper::* )(  )const)(&Sphere_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Sphere::* )( ::osg::CopyOp const & ) const)(&::osg::Sphere::clone)
-            , (::osg::Object * ( Sphere_wrapper::* )( ::osg::CopyOp const & ) const)(&Sphere_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Sphere::* )( ::osg::CopyOp const & )const)(&::osg::Sphere::clone)
+            , (::osg::Object * ( Sphere_wrapper::* )( ::osg::CopyOp const & )const)(&Sphere_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Sphere::* )(  ) const)(&::osg::Sphere::cloneType)
-            , (::osg::Object * ( Sphere_wrapper::* )(  ) const)(&Sphere_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Sphere::* )(  )const)(&::osg::Sphere::cloneType)
+            , (::osg::Object * ( Sphere_wrapper::* )(  )const)(&Sphere_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getCenter"
-            , (::osg::Vec3 const & ( ::osg::Sphere::* )(  ) const)( &::osg::Sphere::getCenter )
+            , (::osg::Vec3 const & ( ::osg::Sphere::* )(  )const)( &::osg::Sphere::getCenter )
             , bp::return_internal_reference< >() )    
         .def( 
             "getRadius"
-            , (float ( ::osg::Sphere::* )(  ) const)( &::osg::Sphere::getRadius ) )    
+            , (float ( ::osg::Sphere::* )(  )const)( &::osg::Sphere::getRadius ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Sphere::* )( ::osg::Object const * ) const)(&::osg::Sphere::isSameKindAs)
-            , (bool ( Sphere_wrapper::* )( ::osg::Object const * ) const)(&Sphere_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Sphere::* )( ::osg::Object const * )const)(&::osg::Sphere::isSameKindAs)
+            , (bool ( Sphere_wrapper::* )( ::osg::Object const * )const)(&Sphere_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Sphere::* )(  ) const)(&::osg::Sphere::libraryName)
-            , (char const * ( Sphere_wrapper::* )(  ) const)(&Sphere_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Sphere::* )(  )const)(&::osg::Sphere::libraryName)
+            , (char const * ( Sphere_wrapper::* )(  )const)(&Sphere_wrapper::default_libraryName) )    
         .def( 
             "set"
-            , (void ( ::osg::Sphere::* )( ::osg::Vec3 const &,float ) )( &::osg::Sphere::set )
+            , (void ( ::osg::Sphere::* )( ::osg::Vec3 const &,float ))( &::osg::Sphere::set )
             , ( bp::arg("center"), bp::arg("radius") ) )    
         .def( 
             "setCenter"
-            , (void ( ::osg::Sphere::* )( ::osg::Vec3 const & ) )( &::osg::Sphere::setCenter )
+            , (void ( ::osg::Sphere::* )( ::osg::Vec3 const & ))( &::osg::Sphere::setCenter )
             , ( bp::arg("center") ) )    
         .def( 
             "setRadius"
-            , (void ( ::osg::Sphere::* )( float ) )( &::osg::Sphere::setRadius )
+            , (void ( ::osg::Sphere::* )( float ))( &::osg::Sphere::setRadius )
             , ( bp::arg("radius") ) )    
         .def( 
             "valid"
-            , (bool ( ::osg::Sphere::* )(  ) const)( &::osg::Sphere::valid ) )    
+            , (bool ( ::osg::Sphere::* )(  )const)( &::osg::Sphere::valid ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( Sphere_wrapper::* )(  ) )(&Sphere_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( Sphere_wrapper::* )(  ))(&Sphere_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Sphere_wrapper::* )(  ) )(&Sphere_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Sphere_wrapper::* )(  ))(&Sphere_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Sphere_wrapper::* )(  ) const)(&Sphere_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Sphere_wrapper::* )(  )const)(&Sphere_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( Sphere_wrapper::* )( unsigned int ) )(&Sphere_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( Sphere_wrapper::* )( unsigned int ))(&Sphere_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( Sphere_wrapper::* )( ::std::string const & ) )(&Sphere_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( Sphere_wrapper::* )( ::std::string const & ))(&Sphere_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Sphere_wrapper::* )( bool ) )(&Sphere_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Sphere_wrapper::* )( bool ))(&Sphere_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( Sphere_wrapper::* )( ::osg::Referenced * ) )(&Sphere_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( Sphere_wrapper::* )( ::osg::Referenced * ))(&Sphere_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

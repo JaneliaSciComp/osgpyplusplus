@@ -89,7 +89,7 @@ void register_BaseSerializer_class(){
             ;
         { //::osgDB::BaseSerializer::getName
         
-            typedef ::std::string const & ( ::osgDB::BaseSerializer::*getName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgDB::BaseSerializer::*getName_function_type)(  ) const;
             
             BaseSerializer_exposer.def( 
                 "getName"
@@ -99,7 +99,7 @@ void register_BaseSerializer_class(){
         }
         { //::osgDB::BaseSerializer::read
         
-            typedef bool ( ::osgDB::BaseSerializer::*read_function_type )( ::osgDB::InputStream &,::osg::Object & ) ;
+            typedef bool ( ::osgDB::BaseSerializer::*read_function_type)( ::osgDB::InputStream &,::osg::Object & ) ;
             
             BaseSerializer_exposer.def( 
                 "read"

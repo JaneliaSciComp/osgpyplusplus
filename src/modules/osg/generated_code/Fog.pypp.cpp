@@ -290,8 +290,8 @@ void register_Fog_class(){
         Fog_exposer.def( bp::init< >("\n Fog - encapsulates OpenGL fog state.\n") );
         { //::osg::Fog::apply
         
-            typedef void ( ::osg::Fog::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( Fog_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::Fog::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( Fog_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             Fog_exposer.def( 
                 "apply"
@@ -302,8 +302,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::className
         
-            typedef char const * ( ::osg::Fog::*className_function_type )(  ) const;
-            typedef char const * ( Fog_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Fog::*className_function_type)(  ) const;
+            typedef char const * ( Fog_wrapper::*default_className_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "className"
@@ -313,8 +313,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::clone
         
-            typedef ::osg::Object * ( ::osg::Fog::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Fog_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Fog::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Fog_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Fog_exposer.def( 
                 "clone"
@@ -326,8 +326,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::cloneType
         
-            typedef ::osg::Object * ( ::osg::Fog::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Fog_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Fog::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Fog_wrapper::*default_cloneType_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "cloneType"
@@ -338,7 +338,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getColor
         
-            typedef ::osg::Vec4 const & ( ::osg::Fog::*getColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Fog::*getColor_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getColor"
@@ -348,7 +348,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getDensity
         
-            typedef float ( ::osg::Fog::*getDensity_function_type )(  ) const;
+            typedef float ( ::osg::Fog::*getDensity_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getDensity"
@@ -357,7 +357,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getEnd
         
-            typedef float ( ::osg::Fog::*getEnd_function_type )(  ) const;
+            typedef float ( ::osg::Fog::*getEnd_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getEnd"
@@ -366,7 +366,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getFogCoordinateSource
         
-            typedef ::GLint ( ::osg::Fog::*getFogCoordinateSource_function_type )(  ) const;
+            typedef ::GLint ( ::osg::Fog::*getFogCoordinateSource_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getFogCoordinateSource"
@@ -375,7 +375,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getMode
         
-            typedef ::osg::Fog::Mode ( ::osg::Fog::*getMode_function_type )(  ) const;
+            typedef ::osg::Fog::Mode ( ::osg::Fog::*getMode_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getMode"
@@ -384,8 +384,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getModeUsage
         
-            typedef bool ( ::osg::Fog::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Fog_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Fog::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Fog_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             Fog_exposer.def( 
                 "getModeUsage"
@@ -396,7 +396,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getStart
         
-            typedef float ( ::osg::Fog::*getStart_function_type )(  ) const;
+            typedef float ( ::osg::Fog::*getStart_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getStart"
@@ -405,8 +405,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Fog::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( Fog_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Fog::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( Fog_wrapper::*default_getType_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getType"
@@ -416,7 +416,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::getUseRadialFog
         
-            typedef bool ( ::osg::Fog::*getUseRadialFog_function_type )(  ) const;
+            typedef bool ( ::osg::Fog::*getUseRadialFog_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getUseRadialFog"
@@ -425,8 +425,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::isSameKindAs
         
-            typedef bool ( ::osg::Fog::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Fog_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Fog::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Fog_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Fog_exposer.def( 
                 "isSameKindAs"
@@ -437,8 +437,8 @@ void register_Fog_class(){
         }
         { //::osg::Fog::libraryName
         
-            typedef char const * ( ::osg::Fog::*libraryName_function_type )(  ) const;
-            typedef char const * ( Fog_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Fog::*libraryName_function_type)(  ) const;
+            typedef char const * ( Fog_wrapper::*default_libraryName_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "libraryName"
@@ -448,7 +448,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setColor
         
-            typedef void ( ::osg::Fog::*setColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Fog::*setColor_function_type)( ::osg::Vec4 const & ) ;
             
             Fog_exposer.def( 
                 "setColor"
@@ -458,7 +458,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setDensity
         
-            typedef void ( ::osg::Fog::*setDensity_function_type )( float ) ;
+            typedef void ( ::osg::Fog::*setDensity_function_type)( float ) ;
             
             Fog_exposer.def( 
                 "setDensity"
@@ -468,7 +468,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setEnd
         
-            typedef void ( ::osg::Fog::*setEnd_function_type )( float ) ;
+            typedef void ( ::osg::Fog::*setEnd_function_type)( float ) ;
             
             Fog_exposer.def( 
                 "setEnd"
@@ -478,7 +478,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setFogCoordinateSource
         
-            typedef void ( ::osg::Fog::*setFogCoordinateSource_function_type )( ::GLint ) ;
+            typedef void ( ::osg::Fog::*setFogCoordinateSource_function_type)( ::GLint ) ;
             
             Fog_exposer.def( 
                 "setFogCoordinateSource"
@@ -488,7 +488,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setMode
         
-            typedef void ( ::osg::Fog::*setMode_function_type )( ::osg::Fog::Mode ) ;
+            typedef void ( ::osg::Fog::*setMode_function_type)( ::osg::Fog::Mode ) ;
             
             Fog_exposer.def( 
                 "setMode"
@@ -498,7 +498,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setStart
         
-            typedef void ( ::osg::Fog::*setStart_function_type )( float ) ;
+            typedef void ( ::osg::Fog::*setStart_function_type)( float ) ;
             
             Fog_exposer.def( 
                 "setStart"
@@ -508,7 +508,7 @@ void register_Fog_class(){
         }
         { //::osg::Fog::setUseRadialFog
         
-            typedef void ( ::osg::Fog::*setUseRadialFog_function_type )( bool ) ;
+            typedef void ( ::osg::Fog::*setUseRadialFog_function_type)( bool ) ;
             
             Fog_exposer.def( 
                 "setUseRadialFog"
@@ -518,8 +518,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( Fog_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( Fog_wrapper::*default_asTexture_function_type)(  ) ;
             
             Fog_exposer.def( 
                 "asTexture"
@@ -530,8 +530,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( Fog_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( Fog_wrapper::*default_asTexture_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "asTexture"
@@ -542,8 +542,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( Fog_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( Fog_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             Fog_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -554,8 +554,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( Fog_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( Fog_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             Fog_exposer.def( 
                 "compileGLObjects"
@@ -566,8 +566,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Fog_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Fog_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Fog_exposer.def( 
                 "computeDataVariance"
@@ -577,8 +577,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( Fog_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( Fog_wrapper::*default_getMember_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getMember"
@@ -588,8 +588,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Fog_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Fog_wrapper::*default_getUserData_function_type)(  ) ;
             
             Fog_exposer.def( 
                 "getUserData"
@@ -600,8 +600,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Fog_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Fog_wrapper::*default_getUserData_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "getUserData"
@@ -612,8 +612,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( Fog_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( Fog_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             Fog_exposer.def( 
                 "isTextureAttribute"
@@ -623,8 +623,8 @@ void register_Fog_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Fog_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Fog_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Fog_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -635,8 +635,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Fog_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Fog_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Fog_exposer.def( 
                 "setName"
@@ -647,7 +647,7 @@ void register_Fog_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Fog_exposer.def( 
                 "setName"
@@ -658,8 +658,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Fog_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Fog_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Fog_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -670,8 +670,8 @@ void register_Fog_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Fog_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Fog_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Fog_exposer.def( 
                 "setUserData"

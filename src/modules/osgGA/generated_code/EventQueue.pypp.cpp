@@ -40,7 +40,7 @@ void register_EventQueue_class(){
         bp::implicitly_convertible< osgGA::GUIEventAdapter::MouseYOrientation, osgGA::EventQueue >();
         { //::osgGA::EventQueue::addEvent
         
-            typedef void ( ::osgGA::EventQueue::*addEvent_function_type )( ::osgGA::GUIEventAdapter * ) ;
+            typedef void ( ::osgGA::EventQueue::*addEvent_function_type)( ::osgGA::GUIEventAdapter * ) ;
             
             EventQueue_exposer.def( 
                 "addEvent"
@@ -51,7 +51,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::appendEvents
         
-            typedef void ( ::osgGA::EventQueue::*appendEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
+            typedef void ( ::osgGA::EventQueue::*appendEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
             
             EventQueue_exposer.def( 
                 "appendEvents"
@@ -62,7 +62,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::clear
         
-            typedef void ( ::osgGA::EventQueue::*clear_function_type )(  ) ;
+            typedef void ( ::osgGA::EventQueue::*clear_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "clear"
@@ -72,7 +72,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::closeWindow
         
-            typedef void ( ::osgGA::EventQueue::*closeWindow_function_type )(  ) ;
+            typedef void ( ::osgGA::EventQueue::*closeWindow_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "closeWindow"
@@ -82,7 +82,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::closeWindow
         
-            typedef void ( ::osgGA::EventQueue::*closeWindow_function_type )( double ) ;
+            typedef void ( ::osgGA::EventQueue::*closeWindow_function_type)( double ) ;
             
             EventQueue_exposer.def( 
                 "closeWindow"
@@ -93,7 +93,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::copyEvents
         
-            typedef bool ( ::osgGA::EventQueue::*copyEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) const;
+            typedef bool ( ::osgGA::EventQueue::*copyEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) const;
             
             EventQueue_exposer.def( 
                 "copyEvents"
@@ -104,7 +104,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::createEvent
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*createEvent_function_type )(  ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*createEvent_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "createEvent"
@@ -115,7 +115,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::empty
         
-            typedef bool ( ::osgGA::EventQueue::*empty_function_type )(  ) const;
+            typedef bool ( ::osgGA::EventQueue::*empty_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "empty"
@@ -124,7 +124,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::frame
         
-            typedef void ( ::osgGA::EventQueue::*frame_function_type )( double ) ;
+            typedef void ( ::osgGA::EventQueue::*frame_function_type)( double ) ;
             
             EventQueue_exposer.def( 
                 "frame"
@@ -135,7 +135,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getCurrentEventState
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*getCurrentEventState_function_type )(  ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*getCurrentEventState_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "getCurrentEventState"
@@ -145,7 +145,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getCurrentEventState
         
-            typedef ::osgGA::GUIEventAdapter const * ( ::osgGA::EventQueue::*getCurrentEventState_function_type )(  ) const;
+            typedef ::osgGA::GUIEventAdapter const * ( ::osgGA::EventQueue::*getCurrentEventState_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "getCurrentEventState"
@@ -155,7 +155,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getFirstTouchEmulatesMouse
         
-            typedef bool ( ::osgGA::EventQueue::*getFirstTouchEmulatesMouse_function_type )(  ) const;
+            typedef bool ( ::osgGA::EventQueue::*getFirstTouchEmulatesMouse_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "getFirstTouchEmulatesMouse"
@@ -164,7 +164,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getGraphicsContext
         
-            typedef ::osg::GraphicsContext * ( ::osgGA::EventQueue::*getGraphicsContext_function_type )(  ) ;
+            typedef ::osg::GraphicsContext * ( ::osgGA::EventQueue::*getGraphicsContext_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "getGraphicsContext"
@@ -174,7 +174,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getGraphicsContext
         
-            typedef ::osg::GraphicsContext const * ( ::osgGA::EventQueue::*getGraphicsContext_function_type )(  ) const;
+            typedef ::osg::GraphicsContext const * ( ::osgGA::EventQueue::*getGraphicsContext_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "getGraphicsContext"
@@ -184,7 +184,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getStartTick
         
-            typedef ::osg::Timer_t ( ::osgGA::EventQueue::*getStartTick_function_type )(  ) const;
+            typedef ::osg::Timer_t ( ::osgGA::EventQueue::*getStartTick_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "getStartTick"
@@ -193,7 +193,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getTime
         
-            typedef double ( ::osgGA::EventQueue::*getTime_function_type )(  ) const;
+            typedef double ( ::osgGA::EventQueue::*getTime_function_type)(  ) const;
             
             EventQueue_exposer.def( 
                 "getTime"
@@ -202,7 +202,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::getUseFixedMouseInputRange
         
-            typedef bool ( ::osgGA::EventQueue::*getUseFixedMouseInputRange_function_type )(  ) ;
+            typedef bool ( ::osgGA::EventQueue::*getUseFixedMouseInputRange_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "getUseFixedMouseInputRange"
@@ -212,7 +212,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::keyPress
         
-            typedef void ( ::osgGA::EventQueue::*keyPress_function_type )( int,int ) ;
+            typedef void ( ::osgGA::EventQueue::*keyPress_function_type)( int,int ) ;
             
             EventQueue_exposer.def( 
                 "keyPress"
@@ -223,7 +223,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::keyPress
         
-            typedef void ( ::osgGA::EventQueue::*keyPress_function_type )( int,double,int ) ;
+            typedef void ( ::osgGA::EventQueue::*keyPress_function_type)( int,double,int ) ;
             
             EventQueue_exposer.def( 
                 "keyPress"
@@ -234,7 +234,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::keyRelease
         
-            typedef void ( ::osgGA::EventQueue::*keyRelease_function_type )( int,int ) ;
+            typedef void ( ::osgGA::EventQueue::*keyRelease_function_type)( int,int ) ;
             
             EventQueue_exposer.def( 
                 "keyRelease"
@@ -245,7 +245,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::keyRelease
         
-            typedef void ( ::osgGA::EventQueue::*keyRelease_function_type )( int,double,int ) ;
+            typedef void ( ::osgGA::EventQueue::*keyRelease_function_type)( int,double,int ) ;
             
             EventQueue_exposer.def( 
                 "keyRelease"
@@ -256,7 +256,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseButtonPress
         
-            typedef void ( ::osgGA::EventQueue::*mouseButtonPress_function_type )( float,float,unsigned int ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseButtonPress_function_type)( float,float,unsigned int ) ;
             
             EventQueue_exposer.def( 
                 "mouseButtonPress"
@@ -267,7 +267,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseButtonPress
         
-            typedef void ( ::osgGA::EventQueue::*mouseButtonPress_function_type )( float,float,unsigned int,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseButtonPress_function_type)( float,float,unsigned int,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseButtonPress"
@@ -278,7 +278,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseButtonRelease
         
-            typedef void ( ::osgGA::EventQueue::*mouseButtonRelease_function_type )( float,float,unsigned int ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseButtonRelease_function_type)( float,float,unsigned int ) ;
             
             EventQueue_exposer.def( 
                 "mouseButtonRelease"
@@ -289,7 +289,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseButtonRelease
         
-            typedef void ( ::osgGA::EventQueue::*mouseButtonRelease_function_type )( float,float,unsigned int,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseButtonRelease_function_type)( float,float,unsigned int,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseButtonRelease"
@@ -300,7 +300,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseDoubleButtonPress
         
-            typedef void ( ::osgGA::EventQueue::*mouseDoubleButtonPress_function_type )( float,float,unsigned int ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseDoubleButtonPress_function_type)( float,float,unsigned int ) ;
             
             EventQueue_exposer.def( 
                 "mouseDoubleButtonPress"
@@ -311,7 +311,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseDoubleButtonPress
         
-            typedef void ( ::osgGA::EventQueue::*mouseDoubleButtonPress_function_type )( float,float,unsigned int,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseDoubleButtonPress_function_type)( float,float,unsigned int,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseDoubleButtonPress"
@@ -322,7 +322,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseMotion
         
-            typedef void ( ::osgGA::EventQueue::*mouseMotion_function_type )( float,float ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseMotion_function_type)( float,float ) ;
             
             EventQueue_exposer.def( 
                 "mouseMotion"
@@ -333,7 +333,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseMotion
         
-            typedef void ( ::osgGA::EventQueue::*mouseMotion_function_type )( float,float,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseMotion_function_type)( float,float,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseMotion"
@@ -344,7 +344,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseScroll
         
-            typedef void ( ::osgGA::EventQueue::*mouseScroll_function_type )( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseScroll_function_type)( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
             
             EventQueue_exposer.def( 
                 "mouseScroll"
@@ -355,7 +355,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseScroll
         
-            typedef void ( ::osgGA::EventQueue::*mouseScroll_function_type )( ::osgGA::GUIEventAdapter::ScrollingMotion,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseScroll_function_type)( ::osgGA::GUIEventAdapter::ScrollingMotion,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseScroll"
@@ -366,7 +366,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseScroll2D
         
-            typedef void ( ::osgGA::EventQueue::*mouseScroll2D_function_type )( float,float ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseScroll2D_function_type)( float,float ) ;
             
             EventQueue_exposer.def( 
                 "mouseScroll2D"
@@ -377,7 +377,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseScroll2D
         
-            typedef void ( ::osgGA::EventQueue::*mouseScroll2D_function_type )( float,float,double ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseScroll2D_function_type)( float,float,double ) ;
             
             EventQueue_exposer.def( 
                 "mouseScroll2D"
@@ -388,7 +388,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::mouseWarped
         
-            typedef void ( ::osgGA::EventQueue::*mouseWarped_function_type )( float,float ) ;
+            typedef void ( ::osgGA::EventQueue::*mouseWarped_function_type)( float,float ) ;
             
             EventQueue_exposer.def( 
                 "mouseWarped"
@@ -399,7 +399,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penOrientation
         
-            typedef void ( ::osgGA::EventQueue::*penOrientation_function_type )( float,float,float ) ;
+            typedef void ( ::osgGA::EventQueue::*penOrientation_function_type)( float,float,float ) ;
             
             EventQueue_exposer.def( 
                 "penOrientation"
@@ -410,7 +410,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penOrientation
         
-            typedef void ( ::osgGA::EventQueue::*penOrientation_function_type )( float,float,float,double ) ;
+            typedef void ( ::osgGA::EventQueue::*penOrientation_function_type)( float,float,float,double ) ;
             
             EventQueue_exposer.def( 
                 "penOrientation"
@@ -421,7 +421,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penPressure
         
-            typedef void ( ::osgGA::EventQueue::*penPressure_function_type )( float ) ;
+            typedef void ( ::osgGA::EventQueue::*penPressure_function_type)( float ) ;
             
             EventQueue_exposer.def( 
                 "penPressure"
@@ -432,7 +432,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penPressure
         
-            typedef void ( ::osgGA::EventQueue::*penPressure_function_type )( float,double ) ;
+            typedef void ( ::osgGA::EventQueue::*penPressure_function_type)( float,double ) ;
             
             EventQueue_exposer.def( 
                 "penPressure"
@@ -443,7 +443,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penProximity
         
-            typedef void ( ::osgGA::EventQueue::*penProximity_function_type )( ::osgGA::GUIEventAdapter::TabletPointerType,bool ) ;
+            typedef void ( ::osgGA::EventQueue::*penProximity_function_type)( ::osgGA::GUIEventAdapter::TabletPointerType,bool ) ;
             
             EventQueue_exposer.def( 
                 "penProximity"
@@ -454,7 +454,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::penProximity
         
-            typedef void ( ::osgGA::EventQueue::*penProximity_function_type )( ::osgGA::GUIEventAdapter::TabletPointerType,bool,double ) ;
+            typedef void ( ::osgGA::EventQueue::*penProximity_function_type)( ::osgGA::GUIEventAdapter::TabletPointerType,bool,double ) ;
             
             EventQueue_exposer.def( 
                 "penProximity"
@@ -465,7 +465,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::quitApplication
         
-            typedef void ( ::osgGA::EventQueue::*quitApplication_function_type )(  ) ;
+            typedef void ( ::osgGA::EventQueue::*quitApplication_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "quitApplication"
@@ -475,7 +475,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::quitApplication
         
-            typedef void ( ::osgGA::EventQueue::*quitApplication_function_type )( double ) ;
+            typedef void ( ::osgGA::EventQueue::*quitApplication_function_type)( double ) ;
             
             EventQueue_exposer.def( 
                 "quitApplication"
@@ -486,7 +486,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setCurrentEventState
         
-            typedef void ( ::osgGA::EventQueue::*setCurrentEventState_function_type )( ::osgGA::GUIEventAdapter * ) ;
+            typedef void ( ::osgGA::EventQueue::*setCurrentEventState_function_type)( ::osgGA::GUIEventAdapter * ) ;
             
             EventQueue_exposer.def( 
                 "setCurrentEventState"
@@ -496,7 +496,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setEvents
         
-            typedef void ( ::osgGA::EventQueue::*setEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
+            typedef void ( ::osgGA::EventQueue::*setEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
             
             EventQueue_exposer.def( 
                 "setEvents"
@@ -507,7 +507,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setFirstTouchEmulatesMouse
         
-            typedef void ( ::osgGA::EventQueue::*setFirstTouchEmulatesMouse_function_type )( bool ) ;
+            typedef void ( ::osgGA::EventQueue::*setFirstTouchEmulatesMouse_function_type)( bool ) ;
             
             EventQueue_exposer.def( 
                 "setFirstTouchEmulatesMouse"
@@ -517,7 +517,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setGraphicsContext
         
-            typedef void ( ::osgGA::EventQueue::*setGraphicsContext_function_type )( ::osg::GraphicsContext * ) ;
+            typedef void ( ::osgGA::EventQueue::*setGraphicsContext_function_type)( ::osg::GraphicsContext * ) ;
             
             EventQueue_exposer.def( 
                 "setGraphicsContext"
@@ -528,7 +528,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setMouseInputRange
         
-            typedef void ( ::osgGA::EventQueue::*setMouseInputRange_function_type )( float,float,float,float ) ;
+            typedef void ( ::osgGA::EventQueue::*setMouseInputRange_function_type)( float,float,float,float ) ;
             
             EventQueue_exposer.def( 
                 "setMouseInputRange"
@@ -539,7 +539,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setStartTick
         
-            typedef void ( ::osgGA::EventQueue::*setStartTick_function_type )( ::osg::Timer_t ) ;
+            typedef void ( ::osgGA::EventQueue::*setStartTick_function_type)( ::osg::Timer_t ) ;
             
             EventQueue_exposer.def( 
                 "setStartTick"
@@ -549,7 +549,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::setUseFixedMouseInputRange
         
-            typedef void ( ::osgGA::EventQueue::*setUseFixedMouseInputRange_function_type )( bool ) ;
+            typedef void ( ::osgGA::EventQueue::*setUseFixedMouseInputRange_function_type)( bool ) ;
             
             EventQueue_exposer.def( 
                 "setUseFixedMouseInputRange"
@@ -560,7 +560,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::syncWindowRectangleWithGraphcisContext
         
-            typedef void ( ::osgGA::EventQueue::*syncWindowRectangleWithGraphcisContext_function_type )(  ) ;
+            typedef void ( ::osgGA::EventQueue::*syncWindowRectangleWithGraphcisContext_function_type)(  ) ;
             
             EventQueue_exposer.def( 
                 "syncWindowRectangleWithGraphcisContext"
@@ -570,7 +570,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::takeEvents
         
-            typedef bool ( ::osgGA::EventQueue::*takeEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
+            typedef bool ( ::osgGA::EventQueue::*takeEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > & ) ;
             
             EventQueue_exposer.def( 
                 "takeEvents"
@@ -581,7 +581,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::takeEvents
         
-            typedef bool ( ::osgGA::EventQueue::*takeEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > &,double ) ;
+            typedef bool ( ::osgGA::EventQueue::*takeEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > &,double ) ;
             
             EventQueue_exposer.def( 
                 "takeEvents"
@@ -592,7 +592,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchBegan
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchBegan_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,double ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchBegan_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,double ) ;
             
             EventQueue_exposer.def( 
                 "touchBegan"
@@ -603,7 +603,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchBegan
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchBegan_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchBegan_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float ) ;
             
             EventQueue_exposer.def( 
                 "touchBegan"
@@ -614,7 +614,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchEnded
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchEnded_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int,double ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchEnded_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int,double ) ;
             
             EventQueue_exposer.def( 
                 "touchEnded"
@@ -625,7 +625,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchEnded
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchEnded_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchEnded_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,unsigned int ) ;
             
             EventQueue_exposer.def( 
                 "touchEnded"
@@ -636,7 +636,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchMoved
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchMoved_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,double ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchMoved_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float,double ) ;
             
             EventQueue_exposer.def( 
                 "touchMoved"
@@ -647,7 +647,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::touchMoved
         
-            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchMoved_function_type )( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float ) ;
+            typedef ::osgGA::GUIEventAdapter * ( ::osgGA::EventQueue::*touchMoved_function_type)( unsigned int,::osgGA::GUIEventAdapter::TouchPhase,float,float ) ;
             
             EventQueue_exposer.def( 
                 "touchMoved"
@@ -658,7 +658,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::userEvent
         
-            typedef void ( ::osgGA::EventQueue::*userEvent_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osgGA::EventQueue::*userEvent_function_type)( ::osg::Referenced * ) ;
             
             EventQueue_exposer.def( 
                 "userEvent"
@@ -669,7 +669,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::userEvent
         
-            typedef void ( ::osgGA::EventQueue::*userEvent_function_type )( ::osg::Referenced *,double ) ;
+            typedef void ( ::osgGA::EventQueue::*userEvent_function_type)( ::osg::Referenced *,double ) ;
             
             EventQueue_exposer.def( 
                 "userEvent"
@@ -680,7 +680,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::windowResize
         
-            typedef void ( ::osgGA::EventQueue::*windowResize_function_type )( int,int,int,int ) ;
+            typedef void ( ::osgGA::EventQueue::*windowResize_function_type)( int,int,int,int ) ;
             
             EventQueue_exposer.def( 
                 "windowResize"
@@ -691,7 +691,7 @@ void register_EventQueue_class(){
         }
         { //::osgGA::EventQueue::windowResize
         
-            typedef void ( ::osgGA::EventQueue::*windowResize_function_type )( int,int,int,int,double ) ;
+            typedef void ( ::osgGA::EventQueue::*windowResize_function_type)( int,int,int,int,double ) ;
             
             EventQueue_exposer.def( 
                 "windowResize"

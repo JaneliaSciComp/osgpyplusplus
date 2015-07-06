@@ -158,24 +158,24 @@ void register_CullSettings_class(){
         bp::class_< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::CullSettings::ClampProjectionMatrixCallback >, boost::noncopyable >( "ClampProjectionMatrixCallback", "\n Callback for overriding the CullVisitors default clamping of the projection matrix to computed near and far values.\n Note, both Matrixf and Matrixd versions of clampProjectionMatrixImplementation must be implemented as the CullVisitor\n can target either Matrix data type, configured at compile time.\n", bp::no_init )    
             .def( 
                 "clampProjectionMatrixImplementation"
-                , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixf &,double &,double & ) const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )
+                , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixf &,double &,double & )const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )
                 , ( bp::arg("projection"), bp::arg("znear"), bp::arg("zfar") )
                 , "\n Callback for overriding the CullVisitors default clamping of the projection matrix to computed near and far values.\n Note, both Matrixf and Matrixd versions of clampProjectionMatrixImplementation must be implemented as the CullVisitor\n can target either Matrix data type, configured at compile time.\n" )    
             .def( 
                 "clampProjectionMatrixImplementation"
-                , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixd &,double &,double & ) const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )
+                , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixd &,double &,double & )const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )
                 , ( bp::arg("projection"), bp::arg("znear"), bp::arg("zfar") ) )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper::* )( bool ) )(&CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper::* )( bool ))(&CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         CullSettings_exposer.def( bp::init< osg::ArgumentParser & >(( bp::arg("arguments") )) );
         bp::implicitly_convertible< osg::ArgumentParser &, osg::CullSettings >();
         CullSettings_exposer.def( bp::init< osg::CullSettings const & >(( bp::arg("cs") )) );
         { //::osg::CullSettings::applyMaskAction
         
-            typedef void ( ::osg::CullSettings::*applyMaskAction_function_type )( unsigned int ) ;
+            typedef void ( ::osg::CullSettings::*applyMaskAction_function_type)( unsigned int ) ;
             
             CullSettings_exposer.def( 
                 "applyMaskAction"
@@ -186,7 +186,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getClampProjectionMatrixCallback
         
-            typedef ::osg::CullSettings::ClampProjectionMatrixCallback * ( ::osg::CullSettings::*getClampProjectionMatrixCallback_function_type )(  ) ;
+            typedef ::osg::CullSettings::ClampProjectionMatrixCallback * ( ::osg::CullSettings::*getClampProjectionMatrixCallback_function_type)(  ) ;
             
             CullSettings_exposer.def( 
                 "getClampProjectionMatrixCallback"
@@ -197,7 +197,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getClampProjectionMatrixCallback
         
-            typedef ::osg::CullSettings::ClampProjectionMatrixCallback const * ( ::osg::CullSettings::*getClampProjectionMatrixCallback_function_type )(  ) const;
+            typedef ::osg::CullSettings::ClampProjectionMatrixCallback const * ( ::osg::CullSettings::*getClampProjectionMatrixCallback_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getClampProjectionMatrixCallback"
@@ -208,7 +208,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getComputeNearFarMode
         
-            typedef ::osg::CullSettings::ComputeNearFarMode ( ::osg::CullSettings::*getComputeNearFarMode_function_type )(  ) const;
+            typedef ::osg::CullSettings::ComputeNearFarMode ( ::osg::CullSettings::*getComputeNearFarMode_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getComputeNearFarMode"
@@ -217,7 +217,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getCullMask
         
-            typedef unsigned int ( ::osg::CullSettings::*getCullMask_function_type )(  ) const;
+            typedef unsigned int ( ::osg::CullSettings::*getCullMask_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getCullMask"
@@ -226,7 +226,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getCullMaskLeft
         
-            typedef unsigned int ( ::osg::CullSettings::*getCullMaskLeft_function_type )(  ) const;
+            typedef unsigned int ( ::osg::CullSettings::*getCullMaskLeft_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getCullMaskLeft"
@@ -235,7 +235,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getCullMaskRight
         
-            typedef unsigned int ( ::osg::CullSettings::*getCullMaskRight_function_type )(  ) const;
+            typedef unsigned int ( ::osg::CullSettings::*getCullMaskRight_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getCullMaskRight"
@@ -244,7 +244,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getCullingMode
         
-            typedef int ( ::osg::CullSettings::*getCullingMode_function_type )(  ) const;
+            typedef int ( ::osg::CullSettings::*getCullingMode_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getCullingMode"
@@ -254,7 +254,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getDepthSortImpostorSprites
         
-            typedef bool ( ::osg::CullSettings::*getDepthSortImpostorSprites_function_type )(  ) const;
+            typedef bool ( ::osg::CullSettings::*getDepthSortImpostorSprites_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getDepthSortImpostorSprites"
@@ -264,7 +264,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getImpostorPixelErrorThreshold
         
-            typedef float ( ::osg::CullSettings::*getImpostorPixelErrorThreshold_function_type )(  ) const;
+            typedef float ( ::osg::CullSettings::*getImpostorPixelErrorThreshold_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getImpostorPixelErrorThreshold"
@@ -274,7 +274,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getImpostorsActive
         
-            typedef bool ( ::osg::CullSettings::*getImpostorsActive_function_type )(  ) const;
+            typedef bool ( ::osg::CullSettings::*getImpostorsActive_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getImpostorsActive"
@@ -284,7 +284,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getInheritanceMask
         
-            typedef int ( ::osg::CullSettings::*getInheritanceMask_function_type )(  ) const;
+            typedef int ( ::osg::CullSettings::*getInheritanceMask_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getInheritanceMask"
@@ -294,7 +294,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getInheritanceMaskActionOnAttributeSetting
         
-            typedef ::osg::CullSettings::InheritanceMaskActionOnAttributeSetting ( ::osg::CullSettings::*getInheritanceMaskActionOnAttributeSetting_function_type )(  ) const;
+            typedef ::osg::CullSettings::InheritanceMaskActionOnAttributeSetting ( ::osg::CullSettings::*getInheritanceMaskActionOnAttributeSetting_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getInheritanceMaskActionOnAttributeSetting"
@@ -303,7 +303,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getLODScale
         
-            typedef float ( ::osg::CullSettings::*getLODScale_function_type )(  ) const;
+            typedef float ( ::osg::CullSettings::*getLODScale_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getLODScale"
@@ -313,7 +313,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getNearFarRatio
         
-            typedef double ( ::osg::CullSettings::*getNearFarRatio_function_type )(  ) const;
+            typedef double ( ::osg::CullSettings::*getNearFarRatio_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getNearFarRatio"
@@ -322,7 +322,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getNumberOfFrameToKeepImpostorSprites
         
-            typedef int ( ::osg::CullSettings::*getNumberOfFrameToKeepImpostorSprites_function_type )(  ) const;
+            typedef int ( ::osg::CullSettings::*getNumberOfFrameToKeepImpostorSprites_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getNumberOfFrameToKeepImpostorSprites"
@@ -332,7 +332,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::getSmallFeatureCullingPixelSize
         
-            typedef float ( ::osg::CullSettings::*getSmallFeatureCullingPixelSize_function_type )(  ) const;
+            typedef float ( ::osg::CullSettings::*getSmallFeatureCullingPixelSize_function_type)(  ) const;
             
             CullSettings_exposer.def( 
                 "getSmallFeatureCullingPixelSize"
@@ -342,8 +342,8 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::inheritCullSettings
         
-            typedef void ( ::osg::CullSettings::*inheritCullSettings_function_type )( ::osg::CullSettings const & ) ;
-            typedef void ( CullSettings_wrapper::*default_inheritCullSettings_function_type )( ::osg::CullSettings const & ) ;
+            typedef void ( ::osg::CullSettings::*inheritCullSettings_function_type)( ::osg::CullSettings const & ) ;
+            typedef void ( CullSettings_wrapper::*default_inheritCullSettings_function_type)( ::osg::CullSettings const & ) ;
             
             CullSettings_exposer.def( 
                 "inheritCullSettings"
@@ -354,8 +354,8 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::inheritCullSettings
         
-            typedef void ( ::osg::CullSettings::*inheritCullSettings_function_type )( ::osg::CullSettings const &,unsigned int ) ;
-            typedef void ( CullSettings_wrapper::*default_inheritCullSettings_function_type )( ::osg::CullSettings const &,unsigned int ) ;
+            typedef void ( ::osg::CullSettings::*inheritCullSettings_function_type)( ::osg::CullSettings const &,unsigned int ) ;
+            typedef void ( CullSettings_wrapper::*default_inheritCullSettings_function_type)( ::osg::CullSettings const &,unsigned int ) ;
             
             CullSettings_exposer.def( 
                 "inheritCullSettings"
@@ -366,7 +366,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::operator=
         
-            typedef ::osg::CullSettings & ( ::osg::CullSettings::*assign_function_type )( ::osg::CullSettings const & ) ;
+            typedef ::osg::CullSettings & ( ::osg::CullSettings::*assign_function_type)( ::osg::CullSettings const & ) ;
             
             CullSettings_exposer.def( 
                 "assign"
@@ -377,7 +377,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::readCommandLine
         
-            typedef void ( ::osg::CullSettings::*readCommandLine_function_type )( ::osg::ArgumentParser & ) ;
+            typedef void ( ::osg::CullSettings::*readCommandLine_function_type)( ::osg::ArgumentParser & ) ;
             
             CullSettings_exposer.def( 
                 "readCommandLine"
@@ -388,7 +388,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::readEnvironmentalVariables
         
-            typedef void ( ::osg::CullSettings::*readEnvironmentalVariables_function_type )(  ) ;
+            typedef void ( ::osg::CullSettings::*readEnvironmentalVariables_function_type)(  ) ;
             
             CullSettings_exposer.def( 
                 "readEnvironmentalVariables"
@@ -398,7 +398,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setClampProjectionMatrixCallback
         
-            typedef void ( ::osg::CullSettings::*setClampProjectionMatrixCallback_function_type )( ::osg::CullSettings::ClampProjectionMatrixCallback * ) ;
+            typedef void ( ::osg::CullSettings::*setClampProjectionMatrixCallback_function_type)( ::osg::CullSettings::ClampProjectionMatrixCallback * ) ;
             
             CullSettings_exposer.def( 
                 "setClampProjectionMatrixCallback"
@@ -409,7 +409,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setComputeNearFarMode
         
-            typedef void ( ::osg::CullSettings::*setComputeNearFarMode_function_type )( ::osg::CullSettings::ComputeNearFarMode ) ;
+            typedef void ( ::osg::CullSettings::*setComputeNearFarMode_function_type)( ::osg::CullSettings::ComputeNearFarMode ) ;
             
             CullSettings_exposer.def( 
                 "setComputeNearFarMode"
@@ -419,7 +419,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setCullMask
         
-            typedef void ( ::osg::CullSettings::*setCullMask_function_type )( unsigned int ) ;
+            typedef void ( ::osg::CullSettings::*setCullMask_function_type)( unsigned int ) ;
             
             CullSettings_exposer.def( 
                 "setCullMask"
@@ -429,7 +429,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setCullMaskLeft
         
-            typedef void ( ::osg::CullSettings::*setCullMaskLeft_function_type )( unsigned int ) ;
+            typedef void ( ::osg::CullSettings::*setCullMaskLeft_function_type)( unsigned int ) ;
             
             CullSettings_exposer.def( 
                 "setCullMaskLeft"
@@ -439,7 +439,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setCullMaskRight
         
-            typedef void ( ::osg::CullSettings::*setCullMaskRight_function_type )( unsigned int ) ;
+            typedef void ( ::osg::CullSettings::*setCullMaskRight_function_type)( unsigned int ) ;
             
             CullSettings_exposer.def( 
                 "setCullMaskRight"
@@ -449,7 +449,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setCullSettings
         
-            typedef void ( ::osg::CullSettings::*setCullSettings_function_type )( ::osg::CullSettings const & ) ;
+            typedef void ( ::osg::CullSettings::*setCullSettings_function_type)( ::osg::CullSettings const & ) ;
             
             CullSettings_exposer.def( 
                 "setCullSettings"
@@ -460,7 +460,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setCullingMode
         
-            typedef void ( ::osg::CullSettings::*setCullingMode_function_type )( int ) ;
+            typedef void ( ::osg::CullSettings::*setCullingMode_function_type)( int ) ;
             
             CullSettings_exposer.def( 
                 "setCullingMode"
@@ -471,8 +471,8 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setDefaults
         
-            typedef void ( ::osg::CullSettings::*setDefaults_function_type )(  ) ;
-            typedef void ( CullSettings_wrapper::*default_setDefaults_function_type )(  ) ;
+            typedef void ( ::osg::CullSettings::*setDefaults_function_type)(  ) ;
+            typedef void ( CullSettings_wrapper::*default_setDefaults_function_type)(  ) ;
             
             CullSettings_exposer.def( 
                 "setDefaults"
@@ -482,7 +482,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setDepthSortImpostorSprites
         
-            typedef void ( ::osg::CullSettings::*setDepthSortImpostorSprites_function_type )( bool ) ;
+            typedef void ( ::osg::CullSettings::*setDepthSortImpostorSprites_function_type)( bool ) ;
             
             CullSettings_exposer.def( 
                 "setDepthSortImpostorSprites"
@@ -493,7 +493,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setImpostorPixelErrorThreshold
         
-            typedef void ( ::osg::CullSettings::*setImpostorPixelErrorThreshold_function_type )( float ) ;
+            typedef void ( ::osg::CullSettings::*setImpostorPixelErrorThreshold_function_type)( float ) ;
             
             CullSettings_exposer.def( 
                 "setImpostorPixelErrorThreshold"
@@ -504,7 +504,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setImpostorsActive
         
-            typedef void ( ::osg::CullSettings::*setImpostorsActive_function_type )( bool ) ;
+            typedef void ( ::osg::CullSettings::*setImpostorsActive_function_type)( bool ) ;
             
             CullSettings_exposer.def( 
                 "setImpostorsActive"
@@ -515,7 +515,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setInheritanceMask
         
-            typedef void ( ::osg::CullSettings::*setInheritanceMask_function_type )( int ) ;
+            typedef void ( ::osg::CullSettings::*setInheritanceMask_function_type)( int ) ;
             
             CullSettings_exposer.def( 
                 "setInheritanceMask"
@@ -526,7 +526,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setInheritanceMaskActionOnAttributeSetting
         
-            typedef void ( ::osg::CullSettings::*setInheritanceMaskActionOnAttributeSetting_function_type )( ::osg::CullSettings::InheritanceMaskActionOnAttributeSetting ) ;
+            typedef void ( ::osg::CullSettings::*setInheritanceMaskActionOnAttributeSetting_function_type)( ::osg::CullSettings::InheritanceMaskActionOnAttributeSetting ) ;
             
             CullSettings_exposer.def( 
                 "setInheritanceMaskActionOnAttributeSetting"
@@ -536,7 +536,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setLODScale
         
-            typedef void ( ::osg::CullSettings::*setLODScale_function_type )( float ) ;
+            typedef void ( ::osg::CullSettings::*setLODScale_function_type)( float ) ;
             
             CullSettings_exposer.def( 
                 "setLODScale"
@@ -547,7 +547,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setNearFarRatio
         
-            typedef void ( ::osg::CullSettings::*setNearFarRatio_function_type )( double ) ;
+            typedef void ( ::osg::CullSettings::*setNearFarRatio_function_type)( double ) ;
             
             CullSettings_exposer.def( 
                 "setNearFarRatio"
@@ -557,7 +557,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setNumberOfFrameToKeepImpostorSprites
         
-            typedef void ( ::osg::CullSettings::*setNumberOfFrameToKeepImpostorSprites_function_type )( int ) ;
+            typedef void ( ::osg::CullSettings::*setNumberOfFrameToKeepImpostorSprites_function_type)( int ) ;
             
             CullSettings_exposer.def( 
                 "setNumberOfFrameToKeepImpostorSprites"
@@ -568,7 +568,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::setSmallFeatureCullingPixelSize
         
-            typedef void ( ::osg::CullSettings::*setSmallFeatureCullingPixelSize_function_type )( float ) ;
+            typedef void ( ::osg::CullSettings::*setSmallFeatureCullingPixelSize_function_type)( float ) ;
             
             CullSettings_exposer.def( 
                 "setSmallFeatureCullingPixelSize"
@@ -579,7 +579,7 @@ void register_CullSettings_class(){
         }
         { //::osg::CullSettings::write
         
-            typedef void ( ::osg::CullSettings::*write_function_type )( ::std::ostream & ) ;
+            typedef void ( ::osg::CullSettings::*write_function_type)( ::std::ostream & ) ;
             
             CullSettings_exposer.def( 
                 "write"

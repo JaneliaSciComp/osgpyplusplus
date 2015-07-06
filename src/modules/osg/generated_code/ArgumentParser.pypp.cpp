@@ -44,7 +44,7 @@ void register_ArgumentParser_class(){
             Parameter_exposer.def( bp::init< osg::ArgumentParser::Parameter const & >(( bp::arg("param") )) );
             { //::osg::ArgumentParser::Parameter::assign
             
-                typedef bool ( ::osg::ArgumentParser::Parameter::*assign_function_type )( char const * ) ;
+                typedef bool ( ::osg::ArgumentParser::Parameter::*assign_function_type)( char const * ) ;
                 
                 Parameter_exposer.def( 
                     "assign"
@@ -54,7 +54,7 @@ void register_ArgumentParser_class(){
             }
             { //::osg::ArgumentParser::Parameter::operator=
             
-                typedef ::osg::ArgumentParser::Parameter & ( ::osg::ArgumentParser::Parameter::*assign_function_type )( ::osg::ArgumentParser::Parameter const & ) ;
+                typedef ::osg::ArgumentParser::Parameter & ( ::osg::ArgumentParser::Parameter::*assign_function_type)( ::osg::ArgumentParser::Parameter const & ) ;
                 
                 Parameter_exposer.def( 
                     "assign"
@@ -65,7 +65,7 @@ void register_ArgumentParser_class(){
             }
             { //::osg::ArgumentParser::Parameter::valid
             
-                typedef bool ( ::osg::ArgumentParser::Parameter::*valid_function_type )( char const * ) const;
+                typedef bool ( ::osg::ArgumentParser::Parameter::*valid_function_type)( char const * ) const;
                 
                 Parameter_exposer.def( 
                     "valid"
@@ -76,7 +76,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::argc
         
-            typedef int & ( ::osg::ArgumentParser::*argc_function_type )(  ) ;
+            typedef int & ( ::osg::ArgumentParser::*argc_function_type)(  ) ;
             
             ArgumentParser_exposer.def( 
                 "argc"
@@ -87,7 +87,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::containsOptions
         
-            typedef bool ( ::osg::ArgumentParser::*containsOptions_function_type )(  ) const;
+            typedef bool ( ::osg::ArgumentParser::*containsOptions_function_type)(  ) const;
             
             ArgumentParser_exposer.def( 
                 "containsOptions"
@@ -96,7 +96,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::errors
         
-            typedef bool ( ::osg::ArgumentParser::*errors_function_type )( ::osg::ArgumentParser::ErrorSeverity ) const;
+            typedef bool ( ::osg::ArgumentParser::*errors_function_type)( ::osg::ArgumentParser::ErrorSeverity ) const;
             
             ArgumentParser_exposer.def( 
                 "errors"
@@ -107,7 +107,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::find
         
-            typedef int ( ::osg::ArgumentParser::*find_function_type )( ::std::string const & ) const;
+            typedef int ( ::osg::ArgumentParser::*find_function_type)( ::std::string const & ) const;
             
             ArgumentParser_exposer.def( 
                 "find"
@@ -118,7 +118,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::getApplicationName
         
-            typedef ::std::string ( ::osg::ArgumentParser::*getApplicationName_function_type )(  ) const;
+            typedef ::std::string ( ::osg::ArgumentParser::*getApplicationName_function_type)(  ) const;
             
             ArgumentParser_exposer.def( 
                 "getApplicationName"
@@ -128,7 +128,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::getApplicationUsage
         
-            typedef ::osg::ApplicationUsage * ( ::osg::ArgumentParser::*getApplicationUsage_function_type )(  ) ;
+            typedef ::osg::ApplicationUsage * ( ::osg::ArgumentParser::*getApplicationUsage_function_type)(  ) ;
             
             ArgumentParser_exposer.def( 
                 "getApplicationUsage"
@@ -138,7 +138,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::getApplicationUsage
         
-            typedef ::osg::ApplicationUsage const * ( ::osg::ArgumentParser::*getApplicationUsage_function_type )(  ) const;
+            typedef ::osg::ApplicationUsage const * ( ::osg::ArgumentParser::*getApplicationUsage_function_type)(  ) const;
             
             ArgumentParser_exposer.def( 
                 "getApplicationUsage"
@@ -148,7 +148,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::getErrorMessageMap
         
-            typedef ::std::map< std::string, osg::ArgumentParser::ErrorSeverity > & ( ::osg::ArgumentParser::*getErrorMessageMap_function_type )(  ) ;
+            typedef ::std::map< std::string, osg::ArgumentParser::ErrorSeverity > & ( ::osg::ArgumentParser::*getErrorMessageMap_function_type)(  ) ;
             
             ArgumentParser_exposer.def( 
                 "getErrorMessageMap"
@@ -159,7 +159,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::getErrorMessageMap
         
-            typedef ::std::map< std::string, osg::ArgumentParser::ErrorSeverity > const & ( ::osg::ArgumentParser::*getErrorMessageMap_function_type )(  ) const;
+            typedef ::std::map< std::string, osg::ArgumentParser::ErrorSeverity > const & ( ::osg::ArgumentParser::*getErrorMessageMap_function_type)(  ) const;
             
             ArgumentParser_exposer.def( 
                 "getErrorMessageMap"
@@ -192,7 +192,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::isNumber
         
-            typedef bool ( ::osg::ArgumentParser::*isNumber_function_type )( int ) const;
+            typedef bool ( ::osg::ArgumentParser::*isNumber_function_type)( int ) const;
             
             ArgumentParser_exposer.def( 
                 "isNumber"
@@ -214,7 +214,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::isOption
         
-            typedef bool ( ::osg::ArgumentParser::*isOption_function_type )( int ) const;
+            typedef bool ( ::osg::ArgumentParser::*isOption_function_type)( int ) const;
             
             ArgumentParser_exposer.def( 
                 "isOption"
@@ -236,7 +236,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::isString
         
-            typedef bool ( ::osg::ArgumentParser::*isString_function_type )( int ) const;
+            typedef bool ( ::osg::ArgumentParser::*isString_function_type)( int ) const;
             
             ArgumentParser_exposer.def( 
                 "isString"
@@ -247,7 +247,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::match
         
-            typedef bool ( ::osg::ArgumentParser::*match_function_type )( int,::std::string const & ) const;
+            typedef bool ( ::osg::ArgumentParser::*match_function_type)( int,::std::string const & ) const;
             
             ArgumentParser_exposer.def( 
                 "match"
@@ -258,7 +258,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const & ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -269,7 +269,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -279,7 +279,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -289,7 +289,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -299,7 +299,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -309,7 +309,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -319,7 +319,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -329,7 +329,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -339,7 +339,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( ::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -349,7 +349,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const & ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const & ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -360,7 +360,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -370,7 +370,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -380,7 +380,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -390,7 +390,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -400,7 +400,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -410,7 +410,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -420,7 +420,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -430,7 +430,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::read
         
-            typedef bool ( ::osg::ArgumentParser::*read_function_type )( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
+            typedef bool ( ::osg::ArgumentParser::*read_function_type)( int,::std::string const &,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter,::osg::ArgumentParser::Parameter ) ;
             
             ArgumentParser_exposer.def( 
                 "read"
@@ -440,7 +440,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::readHelpType
         
-            typedef ::osg::ApplicationUsage::Type ( ::osg::ArgumentParser::*readHelpType_function_type )(  ) ;
+            typedef ::osg::ApplicationUsage::Type ( ::osg::ArgumentParser::*readHelpType_function_type)(  ) ;
             
             ArgumentParser_exposer.def( 
                 "readHelpType"
@@ -450,7 +450,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::remove
         
-            typedef void ( ::osg::ArgumentParser::*remove_function_type )( int,int ) ;
+            typedef void ( ::osg::ArgumentParser::*remove_function_type)( int,int ) ;
             
             ArgumentParser_exposer.def( 
                 "remove"
@@ -461,7 +461,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::reportError
         
-            typedef void ( ::osg::ArgumentParser::*reportError_function_type )( ::std::string const &,::osg::ArgumentParser::ErrorSeverity ) ;
+            typedef void ( ::osg::ArgumentParser::*reportError_function_type)( ::std::string const &,::osg::ArgumentParser::ErrorSeverity ) ;
             
             ArgumentParser_exposer.def( 
                 "reportError"
@@ -472,7 +472,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::reportRemainingOptionsAsUnrecognized
         
-            typedef void ( ::osg::ArgumentParser::*reportRemainingOptionsAsUnrecognized_function_type )( ::osg::ArgumentParser::ErrorSeverity ) ;
+            typedef void ( ::osg::ArgumentParser::*reportRemainingOptionsAsUnrecognized_function_type)( ::osg::ArgumentParser::ErrorSeverity ) ;
             
             ArgumentParser_exposer.def( 
                 "reportRemainingOptionsAsUnrecognized"
@@ -483,7 +483,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::setApplicationUsage
         
-            typedef void ( ::osg::ArgumentParser::*setApplicationUsage_function_type )( ::osg::ApplicationUsage * ) ;
+            typedef void ( ::osg::ArgumentParser::*setApplicationUsage_function_type)( ::osg::ApplicationUsage * ) ;
             
             ArgumentParser_exposer.def( 
                 "setApplicationUsage"
@@ -493,7 +493,7 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::writeErrorMessages
         
-            typedef void ( ::osg::ArgumentParser::*writeErrorMessages_function_type )( ::std::ostream &,::osg::ArgumentParser::ErrorSeverity ) ;
+            typedef void ( ::osg::ArgumentParser::*writeErrorMessages_function_type)( ::std::ostream &,::osg::ArgumentParser::ErrorSeverity ) ;
             
             ArgumentParser_exposer.def( 
                 "writeErrorMessages"

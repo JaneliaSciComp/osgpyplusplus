@@ -191,36 +191,36 @@ void register_ThreadingHandler_class(){
     bp::class_< ThreadingHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::ThreadingHandler >, boost::noncopyable >( "ThreadingHandler", bp::init< >() )    
         .def( 
             "getChangeEndBarrierPosition"
-            , (bool ( ::osgViewer::ThreadingHandler::* )(  ) const)( &::osgViewer::ThreadingHandler::getChangeEndBarrierPosition ) )    
+            , (bool ( ::osgViewer::ThreadingHandler::* )(  )const)( &::osgViewer::ThreadingHandler::getChangeEndBarrierPosition ) )    
         .def( 
             "getChangeThreadingModel"
-            , (bool ( ::osgViewer::ThreadingHandler::* )(  ) const)( &::osgViewer::ThreadingHandler::getChangeThreadingModel ) )    
+            , (bool ( ::osgViewer::ThreadingHandler::* )(  )const)( &::osgViewer::ThreadingHandler::getChangeThreadingModel ) )    
         .def( 
             "getKeyEventChangeEndBarrierPosition"
-            , (int ( ::osgViewer::ThreadingHandler::* )(  ) const)( &::osgViewer::ThreadingHandler::getKeyEventChangeEndBarrierPosition ) )    
+            , (int ( ::osgViewer::ThreadingHandler::* )(  )const)( &::osgViewer::ThreadingHandler::getKeyEventChangeEndBarrierPosition ) )    
         .def( 
             "getKeyEventChangeThreadingModel"
-            , (int ( ::osgViewer::ThreadingHandler::* )(  ) const)( &::osgViewer::ThreadingHandler::getKeyEventChangeThreadingModel ) )    
+            , (int ( ::osgViewer::ThreadingHandler::* )(  )const)( &::osgViewer::ThreadingHandler::getKeyEventChangeThreadingModel ) )    
         .def( 
             "getUsage"
-            , (void ( ::osgViewer::ThreadingHandler::* )( ::osg::ApplicationUsage & ) const)(&::osgViewer::ThreadingHandler::getUsage)
-            , (void ( ThreadingHandler_wrapper::* )( ::osg::ApplicationUsage & ) const)(&ThreadingHandler_wrapper::default_getUsage)
+            , (void ( ::osgViewer::ThreadingHandler::* )( ::osg::ApplicationUsage & )const)(&::osgViewer::ThreadingHandler::getUsage)
+            , (void ( ThreadingHandler_wrapper::* )( ::osg::ApplicationUsage & )const)(&ThreadingHandler_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "setChangeEndBarrierPosition"
-            , (void ( ::osgViewer::ThreadingHandler::* )( bool ) )( &::osgViewer::ThreadingHandler::setChangeEndBarrierPosition )
+            , (void ( ::osgViewer::ThreadingHandler::* )( bool ))( &::osgViewer::ThreadingHandler::setChangeEndBarrierPosition )
             , ( bp::arg("flag") ) )    
         .def( 
             "setChangeThreadingModel"
-            , (void ( ::osgViewer::ThreadingHandler::* )( bool ) )( &::osgViewer::ThreadingHandler::setChangeThreadingModel )
+            , (void ( ::osgViewer::ThreadingHandler::* )( bool ))( &::osgViewer::ThreadingHandler::setChangeThreadingModel )
             , ( bp::arg("flag") ) )    
         .def( 
             "setKeyEventChangeEndBarrierPosition"
-            , (void ( ::osgViewer::ThreadingHandler::* )( int ) )( &::osgViewer::ThreadingHandler::setKeyEventChangeEndBarrierPosition )
+            , (void ( ::osgViewer::ThreadingHandler::* )( int ))( &::osgViewer::ThreadingHandler::setKeyEventChangeEndBarrierPosition )
             , ( bp::arg("key") ) )    
         .def( 
             "setKeyEventChangeThreadingModel"
-            , (void ( ::osgViewer::ThreadingHandler::* )( int ) )( &::osgViewer::ThreadingHandler::setKeyEventChangeThreadingModel )
+            , (void ( ::osgViewer::ThreadingHandler::* )( int ))( &::osgViewer::ThreadingHandler::setKeyEventChangeThreadingModel )
             , ( bp::arg("key") ) );
 
 }

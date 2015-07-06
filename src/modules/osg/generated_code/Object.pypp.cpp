@@ -141,7 +141,7 @@ void register_Object_class(){
             ;
         { //::osg::Object::className
         
-            typedef char const * ( ::osg::Object::*className_function_type )(  ) const;
+            typedef char const * ( ::osg::Object::*className_function_type)(  ) const;
             
             Object_exposer.def( 
                 "className"
@@ -151,7 +151,7 @@ void register_Object_class(){
         }
         { //::osg::Object::clone
         
-            typedef ::osg::Object * ( ::osg::Object::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Object::*clone_function_type)( ::osg::CopyOp const & ) const;
             
             Object_exposer.def( 
                 "clone"
@@ -163,7 +163,7 @@ void register_Object_class(){
         }
         { //::osg::Object::cloneType
         
-            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type)(  ) const;
             
             Object_exposer.def( 
                 "cloneType"
@@ -174,8 +174,8 @@ void register_Object_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Object_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Object_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Object_exposer.def( 
                 "computeDataVariance"
@@ -185,7 +185,7 @@ void register_Object_class(){
         }
         { //::osg::Object::getDataVariance
         
-            typedef ::osg::Object::DataVariance ( ::osg::Object::*getDataVariance_function_type )(  ) const;
+            typedef ::osg::Object::DataVariance ( ::osg::Object::*getDataVariance_function_type)(  ) const;
             
             Object_exposer.def( 
                 "getDataVariance"
@@ -195,7 +195,7 @@ void register_Object_class(){
         }
         { //::osg::Object::getName
         
-            typedef ::std::string const & ( ::osg::Object::*getName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::Object::*getName_function_type)(  ) const;
             
             Object_exposer.def( 
                 "getName"
@@ -206,7 +206,7 @@ void register_Object_class(){
         }
         { //::osg::Object::getOrCreateUserDataContainer
         
-            typedef ::osg::UserDataContainer * ( ::osg::Object::*getOrCreateUserDataContainer_function_type )(  ) ;
+            typedef ::osg::UserDataContainer * ( ::osg::Object::*getOrCreateUserDataContainer_function_type)(  ) ;
             
             Object_exposer.def( 
                 "getOrCreateUserDataContainer"
@@ -217,8 +217,8 @@ void register_Object_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Object_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Object_wrapper::*default_getUserData_function_type)(  ) ;
             
             Object_exposer.def( 
                 "getUserData"
@@ -229,8 +229,8 @@ void register_Object_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Object_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Object_wrapper::*default_getUserData_function_type)(  ) const;
             
             Object_exposer.def( 
                 "getUserData"
@@ -241,7 +241,7 @@ void register_Object_class(){
         }
         { //::osg::Object::getUserDataContainer
         
-            typedef ::osg::UserDataContainer * ( ::osg::Object::*getUserDataContainer_function_type )(  ) ;
+            typedef ::osg::UserDataContainer * ( ::osg::Object::*getUserDataContainer_function_type)(  ) ;
             
             Object_exposer.def( 
                 "getUserDataContainer"
@@ -252,7 +252,7 @@ void register_Object_class(){
         }
         { //::osg::Object::getUserDataContainer
         
-            typedef ::osg::UserDataContainer const * ( ::osg::Object::*getUserDataContainer_function_type )(  ) const;
+            typedef ::osg::UserDataContainer const * ( ::osg::Object::*getUserDataContainer_function_type)(  ) const;
             
             Object_exposer.def( 
                 "getUserDataContainer"
@@ -263,8 +263,8 @@ void register_Object_class(){
         }
         { //::osg::Object::isSameKindAs
         
-            typedef bool ( ::osg::Object::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Object_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Object::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Object_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Object_exposer.def( 
                 "isSameKindAs"
@@ -275,7 +275,7 @@ void register_Object_class(){
         }
         { //::osg::Object::libraryName
         
-            typedef char const * ( ::osg::Object::*libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Object::*libraryName_function_type)(  ) const;
             
             Object_exposer.def( 
                 "libraryName"
@@ -285,8 +285,8 @@ void register_Object_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Object_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Object_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Object_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -297,7 +297,7 @@ void register_Object_class(){
         }
         { //::osg::Object::setDataVariance
         
-            typedef void ( ::osg::Object::*setDataVariance_function_type )( ::osg::Object::DataVariance ) ;
+            typedef void ( ::osg::Object::*setDataVariance_function_type)( ::osg::Object::DataVariance ) ;
             
             Object_exposer.def( 
                 "setDataVariance"
@@ -308,8 +308,8 @@ void register_Object_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Object_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Object_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Object_exposer.def( 
                 "setName"
@@ -320,7 +320,7 @@ void register_Object_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Object_exposer.def( 
                 "setName"
@@ -331,8 +331,8 @@ void register_Object_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Object_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Object_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Object_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -343,8 +343,8 @@ void register_Object_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Object_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Object_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Object_exposer.def( 
                 "setUserData"
@@ -355,7 +355,7 @@ void register_Object_class(){
         }
         { //::osg::Object::setUserDataContainer
         
-            typedef void ( ::osg::Object::*setUserDataContainer_function_type )( ::osg::UserDataContainer * ) ;
+            typedef void ( ::osg::Object::*setUserDataContainer_function_type)( ::osg::UserDataContainer * ) ;
             
             Object_exposer.def( 
                 "setUserDataContainer"

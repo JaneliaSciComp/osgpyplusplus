@@ -446,14 +446,14 @@ void register_Simplifier_class(){
         bp::class_< Simplifier_wrapper::ContinueSimplificationCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Simplifier::ContinueSimplificationCallback >, boost::noncopyable >( "ContinueSimplificationCallback", bp::no_init )    
             .def( 
                 "continueSimplification"
-                , (bool ( ::osgUtil::Simplifier::ContinueSimplificationCallback::* )( ::osgUtil::Simplifier const &,float,unsigned int,unsigned int ) const)(&::osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification)
-                , (bool ( Simplifier_wrapper::ContinueSimplificationCallback_wrapper::* )( ::osgUtil::Simplifier const &,float,unsigned int,unsigned int ) const)(&Simplifier_wrapper::ContinueSimplificationCallback_wrapper::default_continueSimplification)
+                , (bool ( ::osgUtil::Simplifier::ContinueSimplificationCallback::* )( ::osgUtil::Simplifier const &,float,unsigned int,unsigned int )const)(&::osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification)
+                , (bool ( Simplifier_wrapper::ContinueSimplificationCallback_wrapper::* )( ::osgUtil::Simplifier const &,float,unsigned int,unsigned int )const)(&Simplifier_wrapper::ContinueSimplificationCallback_wrapper::default_continueSimplification)
                 , ( bp::arg("simplifier"), bp::arg("nextError"), bp::arg("numOriginalPrimitives"), bp::arg("numRemainingPrimitives") ) );
         bp::implicitly_convertible< double, osgUtil::Simplifier >();
         { //::osgUtil::Simplifier::apply
         
-            typedef void ( ::osgUtil::Simplifier::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( Simplifier_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::Simplifier::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( Simplifier_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             Simplifier_exposer.def( 
                 "apply"
@@ -464,8 +464,8 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::className
         
-            typedef char const * ( ::osgUtil::Simplifier::*className_function_type )(  ) const;
-            typedef char const * ( Simplifier_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::Simplifier::*className_function_type)(  ) const;
+            typedef char const * ( Simplifier_wrapper::*default_className_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "className"
@@ -475,7 +475,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::continueSimplification
         
-            typedef bool ( ::osgUtil::Simplifier::*continueSimplification_function_type )( float,unsigned int,unsigned int ) const;
+            typedef bool ( ::osgUtil::Simplifier::*continueSimplification_function_type)( float,unsigned int,unsigned int ) const;
             
             Simplifier_exposer.def( 
                 "continueSimplification"
@@ -485,8 +485,8 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::continueSimplificationImplementation
         
-            typedef bool ( ::osgUtil::Simplifier::*continueSimplificationImplementation_function_type )( float,unsigned int,unsigned int ) const;
-            typedef bool ( Simplifier_wrapper::*default_continueSimplificationImplementation_function_type )( float,unsigned int,unsigned int ) const;
+            typedef bool ( ::osgUtil::Simplifier::*continueSimplificationImplementation_function_type)( float,unsigned int,unsigned int ) const;
+            typedef bool ( Simplifier_wrapper::*default_continueSimplificationImplementation_function_type)( float,unsigned int,unsigned int ) const;
             
             Simplifier_exposer.def( 
                 "continueSimplificationImplementation"
@@ -497,7 +497,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getContinueSimplificationCallback
         
-            typedef ::osgUtil::Simplifier::ContinueSimplificationCallback * ( ::osgUtil::Simplifier::*getContinueSimplificationCallback_function_type )(  ) ;
+            typedef ::osgUtil::Simplifier::ContinueSimplificationCallback * ( ::osgUtil::Simplifier::*getContinueSimplificationCallback_function_type)(  ) ;
             
             Simplifier_exposer.def( 
                 "getContinueSimplificationCallback"
@@ -507,7 +507,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getContinueSimplificationCallback
         
-            typedef ::osgUtil::Simplifier::ContinueSimplificationCallback const * ( ::osgUtil::Simplifier::*getContinueSimplificationCallback_function_type )(  ) const;
+            typedef ::osgUtil::Simplifier::ContinueSimplificationCallback const * ( ::osgUtil::Simplifier::*getContinueSimplificationCallback_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getContinueSimplificationCallback"
@@ -517,7 +517,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getDoTriStrip
         
-            typedef bool ( ::osgUtil::Simplifier::*getDoTriStrip_function_type )(  ) const;
+            typedef bool ( ::osgUtil::Simplifier::*getDoTriStrip_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getDoTriStrip"
@@ -526,7 +526,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getMaximumError
         
-            typedef float ( ::osgUtil::Simplifier::*getMaximumError_function_type )(  ) const;
+            typedef float ( ::osgUtil::Simplifier::*getMaximumError_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getMaximumError"
@@ -535,7 +535,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getMaximumLength
         
-            typedef float ( ::osgUtil::Simplifier::*getMaximumLength_function_type )(  ) const;
+            typedef float ( ::osgUtil::Simplifier::*getMaximumLength_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getMaximumLength"
@@ -544,7 +544,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getSampleRatio
         
-            typedef float ( ::osgUtil::Simplifier::*getSampleRatio_function_type )(  ) const;
+            typedef float ( ::osgUtil::Simplifier::*getSampleRatio_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getSampleRatio"
@@ -553,7 +553,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::getSmoothing
         
-            typedef bool ( ::osgUtil::Simplifier::*getSmoothing_function_type )(  ) const;
+            typedef bool ( ::osgUtil::Simplifier::*getSmoothing_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "getSmoothing"
@@ -562,8 +562,8 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::libraryName
         
-            typedef char const * ( ::osgUtil::Simplifier::*libraryName_function_type )(  ) const;
-            typedef char const * ( Simplifier_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::Simplifier::*libraryName_function_type)(  ) const;
+            typedef char const * ( Simplifier_wrapper::*default_libraryName_function_type)(  ) const;
             
             Simplifier_exposer.def( 
                 "libraryName"
@@ -573,7 +573,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setContinueSimplificationCallback
         
-            typedef void ( ::osgUtil::Simplifier::*setContinueSimplificationCallback_function_type )( ::osgUtil::Simplifier::ContinueSimplificationCallback * ) ;
+            typedef void ( ::osgUtil::Simplifier::*setContinueSimplificationCallback_function_type)( ::osgUtil::Simplifier::ContinueSimplificationCallback * ) ;
             
             Simplifier_exposer.def( 
                 "setContinueSimplificationCallback"
@@ -583,7 +583,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setDoTriStrip
         
-            typedef void ( ::osgUtil::Simplifier::*setDoTriStrip_function_type )( bool ) ;
+            typedef void ( ::osgUtil::Simplifier::*setDoTriStrip_function_type)( bool ) ;
             
             Simplifier_exposer.def( 
                 "setDoTriStrip"
@@ -593,7 +593,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setMaximumError
         
-            typedef void ( ::osgUtil::Simplifier::*setMaximumError_function_type )( float ) ;
+            typedef void ( ::osgUtil::Simplifier::*setMaximumError_function_type)( float ) ;
             
             Simplifier_exposer.def( 
                 "setMaximumError"
@@ -603,7 +603,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setMaximumLength
         
-            typedef void ( ::osgUtil::Simplifier::*setMaximumLength_function_type )( float ) ;
+            typedef void ( ::osgUtil::Simplifier::*setMaximumLength_function_type)( float ) ;
             
             Simplifier_exposer.def( 
                 "setMaximumLength"
@@ -613,7 +613,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setSampleRatio
         
-            typedef void ( ::osgUtil::Simplifier::*setSampleRatio_function_type )( float ) ;
+            typedef void ( ::osgUtil::Simplifier::*setSampleRatio_function_type)( float ) ;
             
             Simplifier_exposer.def( 
                 "setSampleRatio"
@@ -623,7 +623,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::setSmoothing
         
-            typedef void ( ::osgUtil::Simplifier::*setSmoothing_function_type )( bool ) ;
+            typedef void ( ::osgUtil::Simplifier::*setSmoothing_function_type)( bool ) ;
             
             Simplifier_exposer.def( 
                 "setSmoothing"
@@ -633,7 +633,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::simplify
         
-            typedef void ( ::osgUtil::Simplifier::*simplify_function_type )( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::Simplifier::*simplify_function_type)( ::osg::Geometry & ) ;
             
             Simplifier_exposer.def( 
                 "simplify"
@@ -643,7 +643,7 @@ void register_Simplifier_class(){
         }
         { //::osgUtil::Simplifier::simplify
         
-            typedef void ( ::osgUtil::Simplifier::*simplify_function_type )( ::osg::Geometry &,::std::vector< unsigned int > const & ) ;
+            typedef void ( ::osgUtil::Simplifier::*simplify_function_type)( ::osg::Geometry &,::std::vector< unsigned int > const & ) ;
             
             Simplifier_exposer.def( 
                 "simplify"

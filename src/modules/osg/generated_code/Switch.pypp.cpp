@@ -420,214 +420,214 @@ void register_Switch_class(){
         .def( bp::init< >("\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n") )    
         .def( 
             "accept"
-            , (void ( ::osg::Switch::* )( ::osg::NodeVisitor & ) )(&::osg::Switch::accept)
-            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ) )(&Switch_wrapper::default_accept)
+            , (void ( ::osg::Switch::* )( ::osg::NodeVisitor & ))(&::osg::Switch::accept)
+            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ))(&Switch_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Switch::* )( ::osg::Node * ) )(&::osg::Switch::addChild)
-            , (bool ( Switch_wrapper::* )( ::osg::Node * ) )(&Switch_wrapper::default_addChild)
+            , (bool ( ::osg::Switch::* )( ::osg::Node * ))(&::osg::Switch::addChild)
+            , (bool ( Switch_wrapper::* )( ::osg::Node * ))(&Switch_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Switch::* )( ::osg::Node *,bool ) )(&::osg::Switch::addChild)
-            , (bool ( Switch_wrapper::* )( ::osg::Node *,bool ) )(&Switch_wrapper::default_addChild)
+            , (bool ( ::osg::Switch::* )( ::osg::Node *,bool ))(&::osg::Switch::addChild)
+            , (bool ( Switch_wrapper::* )( ::osg::Node *,bool ))(&Switch_wrapper::default_addChild)
             , ( bp::arg("child"), bp::arg("value") ) )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Switch::* )(  ) )(&::osg::Switch::asSwitch)
-            , (::osg::Switch * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Switch::* )(  ))(&::osg::Switch::asSwitch)
+            , (::osg::Switch * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Switch::* )(  ) const)(&::osg::Switch::asSwitch)
-            , (::osg::Switch const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Switch::* )(  )const)(&::osg::Switch::asSwitch)
+            , (::osg::Switch const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::Switch::* )(  ) const)(&::osg::Switch::className)
-            , (char const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_className) )    
+            , (char const * ( ::osg::Switch::* )(  )const)(&::osg::Switch::className)
+            , (char const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Switch::* )( ::osg::CopyOp const & ) const)(&::osg::Switch::clone)
-            , (::osg::Object * ( Switch_wrapper::* )( ::osg::CopyOp const & ) const)(&Switch_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Switch::* )( ::osg::CopyOp const & )const)(&::osg::Switch::clone)
+            , (::osg::Object * ( Switch_wrapper::* )( ::osg::CopyOp const & )const)(&Switch_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Switch::* )(  ) const)(&::osg::Switch::cloneType)
-            , (::osg::Object * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Switch::* )(  )const)(&::osg::Switch::cloneType)
+            , (::osg::Object * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Switch::* )(  ) const)(&::osg::Switch::computeBound)
-            , (::osg::BoundingSphere ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Switch::* )(  )const)(&::osg::Switch::computeBound)
+            , (::osg::BoundingSphere ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_computeBound) )    
         .def( 
             "getChildValue"
-            , (bool ( ::osg::Switch::* )( ::osg::Node const * ) const)( &::osg::Switch::getChildValue )
+            , (bool ( ::osg::Switch::* )( ::osg::Node const * )const)( &::osg::Switch::getChildValue )
             , ( bp::arg("child") ) )    
         .def( 
             "getNewChildDefaultValue"
-            , (bool ( ::osg::Switch::* )(  ) const)( &::osg::Switch::getNewChildDefaultValue ) )    
+            , (bool ( ::osg::Switch::* )(  )const)( &::osg::Switch::getNewChildDefaultValue ) )    
         .def( 
             "getValue"
-            , (bool ( ::osg::Switch::* )( unsigned int ) const)( &::osg::Switch::getValue )
+            , (bool ( ::osg::Switch::* )( unsigned int )const)( &::osg::Switch::getValue )
             , ( bp::arg("pos") ) )    
         .def( 
             "getValueList"
-            , (::std::vector< bool > const & ( ::osg::Switch::* )(  ) const)( &::osg::Switch::getValueList )
+            , (::std::vector< bool > const & ( ::osg::Switch::* )(  )const)( &::osg::Switch::getValueList )
             , bp::return_internal_reference< >() )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Switch::* )( unsigned int,::osg::Node * ) )(&::osg::Switch::insertChild)
-            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node * ) )(&Switch_wrapper::default_insertChild)
+            , (bool ( ::osg::Switch::* )( unsigned int,::osg::Node * ))(&::osg::Switch::insertChild)
+            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node * ))(&Switch_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child") ) )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Switch::* )( unsigned int,::osg::Node *,bool ) )(&::osg::Switch::insertChild)
-            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node *,bool ) )(&Switch_wrapper::default_insertChild)
+            , (bool ( ::osg::Switch::* )( unsigned int,::osg::Node *,bool ))(&::osg::Switch::insertChild)
+            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node *,bool ))(&Switch_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child"), bp::arg("value") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Switch::* )( ::osg::Object const * ) const)(&::osg::Switch::isSameKindAs)
-            , (bool ( Switch_wrapper::* )( ::osg::Object const * ) const)(&Switch_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Switch::* )( ::osg::Object const * )const)(&::osg::Switch::isSameKindAs)
+            , (bool ( Switch_wrapper::* )( ::osg::Object const * )const)(&Switch_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Switch::* )(  ) const)(&::osg::Switch::libraryName)
-            , (char const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Switch::* )(  )const)(&::osg::Switch::libraryName)
+            , (char const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_libraryName) )    
         .def( 
             "removeChildren"
-            , (bool ( ::osg::Switch::* )( unsigned int,unsigned int ) )(&::osg::Switch::removeChildren)
-            , (bool ( Switch_wrapper::* )( unsigned int,unsigned int ) )(&Switch_wrapper::default_removeChildren)
+            , (bool ( ::osg::Switch::* )( unsigned int,unsigned int ))(&::osg::Switch::removeChildren)
+            , (bool ( Switch_wrapper::* )( unsigned int,unsigned int ))(&Switch_wrapper::default_removeChildren)
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "setAllChildrenOff"
-            , (bool ( ::osg::Switch::* )(  ) )( &::osg::Switch::setAllChildrenOff )
+            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOff )
             , " Set all the children off (false), and set the new default child\n value to off (false)." )    
         .def( 
             "setAllChildrenOn"
-            , (bool ( ::osg::Switch::* )(  ) )( &::osg::Switch::setAllChildrenOn )
+            , (bool ( ::osg::Switch::* )(  ))( &::osg::Switch::setAllChildrenOn )
             , " Set all the children on (true), and set the new default child\n value to on (true)." )    
         .def( 
             "setChildValue"
-            , (void ( ::osg::Switch::* )( ::osg::Node const *,bool ) )( &::osg::Switch::setChildValue )
+            , (void ( ::osg::Switch::* )( ::osg::Node const *,bool ))( &::osg::Switch::setChildValue )
             , ( bp::arg("child"), bp::arg("value") ) )    
         .def( 
             "setNewChildDefaultValue"
-            , (void ( ::osg::Switch::* )( bool ) )( &::osg::Switch::setNewChildDefaultValue )
+            , (void ( ::osg::Switch::* )( bool ))( &::osg::Switch::setNewChildDefaultValue )
             , ( bp::arg("value") ) )    
         .def( 
             "setSingleChildOn"
-            , (bool ( ::osg::Switch::* )( unsigned int ) )( &::osg::Switch::setSingleChildOn )
+            , (bool ( ::osg::Switch::* )( unsigned int ))( &::osg::Switch::setSingleChildOn )
             , ( bp::arg("pos") )
             , " Set a single child on, switch off all other children." )    
         .def( 
             "setValue"
-            , (void ( ::osg::Switch::* )( unsigned int,bool ) )( &::osg::Switch::setValue )
+            , (void ( ::osg::Switch::* )( unsigned int,bool ))( &::osg::Switch::setValue )
             , ( bp::arg("pos"), bp::arg("value") ) )    
         .def( 
             "setValueList"
-            , (void ( ::osg::Switch::* )( ::std::vector< bool > const & ) )( &::osg::Switch::setValueList )
+            , (void ( ::osg::Switch::* )( ::std::vector< bool > const & ))( &::osg::Switch::setValueList )
             , ( bp::arg("values") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Switch::* )( ::osg::NodeVisitor & ) )(&::osg::Switch::traverse)
-            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ) )(&Switch_wrapper::default_traverse)
+            , (void ( ::osg::Switch::* )( ::osg::NodeVisitor & ))(&::osg::Switch::traverse)
+            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ))(&Switch_wrapper::default_traverse)
             , ( bp::arg("nv") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
-            , (::osg::Camera * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
+            , (::osg::Camera * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Node::* )(  ) )(&::osg::Node::asGeode)
-            , (::osg::Geode * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
+            , (::osg::Geode * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGeode)
-            , (::osg::Geode const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ) )(&::osg::Group::asGroup)
-            , (::osg::Group * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
+            , (::osg::Group * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  ) const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
+            , (::osg::Group const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Node::* )(  ) )(&::osg::Node::asTransform)
-            , (::osg::Transform * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Node::* )(  ))(&::osg::Node::asTransform)
+            , (::osg::Transform * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asTransform)
-            , (::osg::Transform const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Node::* )(  )const)(&::osg::Node::asTransform)
+            , (::osg::Transform const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
-            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ) )(&Switch_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
+            , (void ( Switch_wrapper::* )( ::osg::NodeVisitor & ))(&Switch_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Switch_wrapper::* )(  ) )(&Switch_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Switch_wrapper::* )(  ))(&Switch_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Switch_wrapper::* )(  ) const)(&Switch_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Switch_wrapper::* )(  )const)(&Switch_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ) )(&::osg::Group::replaceChild)
-            , (bool ( Switch_wrapper::* )( ::osg::Node *,::osg::Node * ) )(&Switch_wrapper::default_replaceChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
+            , (bool ( Switch_wrapper::* )( ::osg::Node *,::osg::Node * ))(&Switch_wrapper::default_replaceChild)
             , ( bp::arg("origChild"), bp::arg("newChild") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ) )(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( Switch_wrapper::* )( unsigned int ) )(&Switch_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
+            , (void ( Switch_wrapper::* )( unsigned int ))(&Switch_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::setChild)
-            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node * ) )(&Switch_wrapper::default_setChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
+            , (bool ( Switch_wrapper::* )( unsigned int,::osg::Node * ))(&Switch_wrapper::default_setChild)
             , ( bp::arg("i"), bp::arg("node") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( Switch_wrapper::* )( ::std::string const & ) )(&Switch_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( Switch_wrapper::* )( ::std::string const & ))(&Switch_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ) )(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( Switch_wrapper::* )( bool ) )(&Switch_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
+            , (void ( Switch_wrapper::* )( bool ))(&Switch_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( Switch_wrapper::* )( ::osg::Referenced * ) )(&Switch_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( Switch_wrapper::* )( ::osg::Referenced * ))(&Switch_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

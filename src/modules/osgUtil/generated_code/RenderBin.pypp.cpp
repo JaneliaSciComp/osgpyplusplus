@@ -386,12 +386,12 @@ void register_RenderBin_class(){
         bp::class_< RenderBin_wrapper::DrawCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::RenderBin::DrawCallback >, boost::noncopyable >( "DrawCallback", bp::no_init )    
             .def( 
                 "drawImplementation"
-                , bp::pure_virtual( (void ( ::osgUtil::RenderBin::DrawCallback::* )( ::osgUtil::RenderBin *,::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) )(&::osgUtil::RenderBin::DrawCallback::drawImplementation) )
+                , bp::pure_virtual( (void ( ::osgUtil::RenderBin::DrawCallback::* )( ::osgUtil::RenderBin *,::osg::RenderInfo &,::osgUtil::RenderLeaf * & ))(&::osgUtil::RenderBin::DrawCallback::drawImplementation) )
                 , ( bp::arg("bin"), bp::arg("renderInfo"), bp::arg("previous") ) );
         bp::class_< RenderBin_wrapper::SortCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::RenderBin::SortCallback >, boost::noncopyable >( "SortCallback", bp::no_init )    
             .def( 
                 "sortImplementation"
-                , bp::pure_virtual( (void ( ::osgUtil::RenderBin::SortCallback::* )( ::osgUtil::RenderBin * ) )(&::osgUtil::RenderBin::SortCallback::sortImplementation) )
+                , bp::pure_virtual( (void ( ::osgUtil::RenderBin::SortCallback::* )( ::osgUtil::RenderBin * ))(&::osgUtil::RenderBin::SortCallback::sortImplementation) )
                 , ( bp::arg("arg0") ) );
         RenderBin_exposer.def( bp::init< >() );
         RenderBin_exposer.def( bp::init< osgUtil::RenderBin::SortMode >(( bp::arg("mode") )) );
@@ -408,7 +408,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::addStateGraph
         
-            typedef void ( ::osgUtil::RenderBin::*addStateGraph_function_type )( ::osgUtil::StateGraph * ) ;
+            typedef void ( ::osgUtil::RenderBin::*addStateGraph_function_type)( ::osgUtil::StateGraph * ) ;
             
             RenderBin_exposer.def( 
                 "addStateGraph"
@@ -418,8 +418,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::className
         
-            typedef char const * ( ::osgUtil::RenderBin::*className_function_type )(  ) const;
-            typedef char const * ( RenderBin_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::RenderBin::*className_function_type)(  ) const;
+            typedef char const * ( RenderBin_wrapper::*default_className_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "className"
@@ -429,8 +429,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::clone
         
-            typedef ::osg::Object * ( ::osgUtil::RenderBin::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( RenderBin_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgUtil::RenderBin::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( RenderBin_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             RenderBin_exposer.def( 
                 "clone"
@@ -442,8 +442,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::cloneType
         
-            typedef ::osg::Object * ( ::osgUtil::RenderBin::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( RenderBin_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgUtil::RenderBin::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( RenderBin_wrapper::*default_cloneType_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "cloneType"
@@ -454,8 +454,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::computeNumberOfDynamicRenderLeaves
         
-            typedef unsigned int ( ::osgUtil::RenderBin::*computeNumberOfDynamicRenderLeaves_function_type )(  ) const;
-            typedef unsigned int ( RenderBin_wrapper::*default_computeNumberOfDynamicRenderLeaves_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::RenderBin::*computeNumberOfDynamicRenderLeaves_function_type)(  ) const;
+            typedef unsigned int ( RenderBin_wrapper::*default_computeNumberOfDynamicRenderLeaves_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "computeNumberOfDynamicRenderLeaves"
@@ -465,7 +465,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::copyLeavesFromStateGraphListToRenderLeafList
         
-            typedef void ( ::osgUtil::RenderBin::*copyLeavesFromStateGraphListToRenderLeafList_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*copyLeavesFromStateGraphListToRenderLeafList_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "copyLeavesFromStateGraphListToRenderLeafList"
@@ -485,8 +485,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::draw
         
-            typedef void ( ::osgUtil::RenderBin::*draw_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderBin_wrapper::*default_draw_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderBin::*draw_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderBin_wrapper::*default_draw_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderBin_exposer.def( 
                 "draw"
@@ -497,8 +497,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::drawImplementation
         
-            typedef void ( ::osgUtil::RenderBin::*drawImplementation_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
-            typedef void ( RenderBin_wrapper::*default_drawImplementation_function_type )( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( ::osgUtil::RenderBin::*drawImplementation_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
+            typedef void ( RenderBin_wrapper::*default_drawImplementation_function_type)( ::osg::RenderInfo &,::osgUtil::RenderLeaf * & ) ;
             
             RenderBin_exposer.def( 
                 "drawImplementation"
@@ -509,7 +509,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::find_or_insert
         
-            typedef ::osgUtil::RenderBin * ( ::osgUtil::RenderBin::*find_or_insert_function_type )( int,::std::string const & ) ;
+            typedef ::osgUtil::RenderBin * ( ::osgUtil::RenderBin::*find_or_insert_function_type)( int,::std::string const & ) ;
             
             RenderBin_exposer.def( 
                 "find_or_insert"
@@ -520,7 +520,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getBinNum
         
-            typedef int ( ::osgUtil::RenderBin::*getBinNum_function_type )(  ) const;
+            typedef int ( ::osgUtil::RenderBin::*getBinNum_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getBinNum"
@@ -538,7 +538,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getDrawCallback
         
-            typedef ::osgUtil::RenderBin::DrawCallback * ( ::osgUtil::RenderBin::*getDrawCallback_function_type )(  ) ;
+            typedef ::osgUtil::RenderBin::DrawCallback * ( ::osgUtil::RenderBin::*getDrawCallback_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getDrawCallback"
@@ -548,7 +548,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getDrawCallback
         
-            typedef ::osgUtil::RenderBin::DrawCallback const * ( ::osgUtil::RenderBin::*getDrawCallback_function_type )(  ) const;
+            typedef ::osgUtil::RenderBin::DrawCallback const * ( ::osgUtil::RenderBin::*getDrawCallback_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getDrawCallback"
@@ -558,7 +558,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getParent
         
-            typedef ::osgUtil::RenderBin * ( ::osgUtil::RenderBin::*getParent_function_type )(  ) ;
+            typedef ::osgUtil::RenderBin * ( ::osgUtil::RenderBin::*getParent_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getParent"
@@ -568,7 +568,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getParent
         
-            typedef ::osgUtil::RenderBin const * ( ::osgUtil::RenderBin::*getParent_function_type )(  ) const;
+            typedef ::osgUtil::RenderBin const * ( ::osgUtil::RenderBin::*getParent_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getParent"
@@ -578,7 +578,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getRenderBinList
         
-            typedef ::std::map< int, osg::ref_ptr<osgUtil::RenderBin> > & ( ::osgUtil::RenderBin::*getRenderBinList_function_type )(  ) ;
+            typedef ::std::map< int, osg::ref_ptr<osgUtil::RenderBin> > & ( ::osgUtil::RenderBin::*getRenderBinList_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getRenderBinList"
@@ -588,7 +588,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getRenderBinList
         
-            typedef ::std::map< int, osg::ref_ptr<osgUtil::RenderBin> > const & ( ::osgUtil::RenderBin::*getRenderBinList_function_type )(  ) const;
+            typedef ::std::map< int, osg::ref_ptr<osgUtil::RenderBin> > const & ( ::osgUtil::RenderBin::*getRenderBinList_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getRenderBinList"
@@ -609,7 +609,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getRenderLeafList
         
-            typedef ::std::vector< osgUtil::RenderLeaf* > & ( ::osgUtil::RenderBin::*getRenderLeafList_function_type )(  ) ;
+            typedef ::std::vector< osgUtil::RenderLeaf* > & ( ::osgUtil::RenderBin::*getRenderLeafList_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getRenderLeafList"
@@ -619,7 +619,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getRenderLeafList
         
-            typedef ::std::vector< osgUtil::RenderLeaf* > const & ( ::osgUtil::RenderBin::*getRenderLeafList_function_type )(  ) const;
+            typedef ::std::vector< osgUtil::RenderLeaf* > const & ( ::osgUtil::RenderBin::*getRenderLeafList_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getRenderLeafList"
@@ -629,7 +629,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getSortCallback
         
-            typedef ::osgUtil::RenderBin::SortCallback * ( ::osgUtil::RenderBin::*getSortCallback_function_type )(  ) ;
+            typedef ::osgUtil::RenderBin::SortCallback * ( ::osgUtil::RenderBin::*getSortCallback_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getSortCallback"
@@ -639,7 +639,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getSortCallback
         
-            typedef ::osgUtil::RenderBin::SortCallback const * ( ::osgUtil::RenderBin::*getSortCallback_function_type )(  ) const;
+            typedef ::osgUtil::RenderBin::SortCallback const * ( ::osgUtil::RenderBin::*getSortCallback_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getSortCallback"
@@ -649,7 +649,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getSortMode
         
-            typedef ::osgUtil::RenderBin::SortMode ( ::osgUtil::RenderBin::*getSortMode_function_type )(  ) const;
+            typedef ::osgUtil::RenderBin::SortMode ( ::osgUtil::RenderBin::*getSortMode_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getSortMode"
@@ -658,7 +658,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStage
         
-            typedef ::osgUtil::RenderStage * ( ::osgUtil::RenderBin::*getStage_function_type )(  ) ;
+            typedef ::osgUtil::RenderStage * ( ::osgUtil::RenderBin::*getStage_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getStage"
@@ -668,7 +668,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStage
         
-            typedef ::osgUtil::RenderStage const * ( ::osgUtil::RenderBin::*getStage_function_type )(  ) const;
+            typedef ::osgUtil::RenderStage const * ( ::osgUtil::RenderBin::*getStage_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getStage"
@@ -678,7 +678,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStateGraphList
         
-            typedef ::std::vector< osgUtil::StateGraph* > & ( ::osgUtil::RenderBin::*getStateGraphList_function_type )(  ) ;
+            typedef ::std::vector< osgUtil::StateGraph* > & ( ::osgUtil::RenderBin::*getStateGraphList_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getStateGraphList"
@@ -688,7 +688,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStateGraphList
         
-            typedef ::std::vector< osgUtil::StateGraph* > const & ( ::osgUtil::RenderBin::*getStateGraphList_function_type )(  ) const;
+            typedef ::std::vector< osgUtil::StateGraph* > const & ( ::osgUtil::RenderBin::*getStateGraphList_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getStateGraphList"
@@ -698,7 +698,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::RenderBin::*getStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osgUtil::RenderBin::*getStateSet_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "getStateSet"
@@ -708,7 +708,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStateSet
         
-            typedef ::osg::StateSet const * ( ::osgUtil::RenderBin::*getStateSet_function_type )(  ) const;
+            typedef ::osg::StateSet const * ( ::osgUtil::RenderBin::*getStateSet_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "getStateSet"
@@ -718,7 +718,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::getStats
         
-            typedef bool ( ::osgUtil::RenderBin::*getStats_function_type )( ::osgUtil::Statistics & ) const;
+            typedef bool ( ::osgUtil::RenderBin::*getStats_function_type)( ::osgUtil::Statistics & ) const;
             
             RenderBin_exposer.def( 
                 "getStats"
@@ -728,8 +728,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::isSameKindAs
         
-            typedef bool ( ::osgUtil::RenderBin::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( RenderBin_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgUtil::RenderBin::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( RenderBin_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             RenderBin_exposer.def( 
                 "isSameKindAs"
@@ -740,8 +740,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::libraryName
         
-            typedef char const * ( ::osgUtil::RenderBin::*libraryName_function_type )(  ) const;
-            typedef char const * ( RenderBin_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::RenderBin::*libraryName_function_type)(  ) const;
+            typedef char const * ( RenderBin_wrapper::*default_libraryName_function_type)(  ) const;
             
             RenderBin_exposer.def( 
                 "libraryName"
@@ -751,8 +751,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::releaseGLObjects
         
-            typedef void ( ::osgUtil::RenderBin::*releaseGLObjects_function_type )( ::osg::State * ) const;
-            typedef void ( RenderBin_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( ::osgUtil::RenderBin::*releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( RenderBin_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
             
             RenderBin_exposer.def( 
                 "releaseGLObjects"
@@ -773,8 +773,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::reset
         
-            typedef void ( ::osgUtil::RenderBin::*reset_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*reset_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_reset_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "reset"
@@ -794,7 +794,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::setDrawCallback
         
-            typedef void ( ::osgUtil::RenderBin::*setDrawCallback_function_type )( ::osgUtil::RenderBin::DrawCallback * ) ;
+            typedef void ( ::osgUtil::RenderBin::*setDrawCallback_function_type)( ::osgUtil::RenderBin::DrawCallback * ) ;
             
             RenderBin_exposer.def( 
                 "setDrawCallback"
@@ -804,7 +804,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::setSortCallback
         
-            typedef void ( ::osgUtil::RenderBin::*setSortCallback_function_type )( ::osgUtil::RenderBin::SortCallback * ) ;
+            typedef void ( ::osgUtil::RenderBin::*setSortCallback_function_type)( ::osgUtil::RenderBin::SortCallback * ) ;
             
             RenderBin_exposer.def( 
                 "setSortCallback"
@@ -814,7 +814,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::setSortMode
         
-            typedef void ( ::osgUtil::RenderBin::*setSortMode_function_type )( ::osgUtil::RenderBin::SortMode ) ;
+            typedef void ( ::osgUtil::RenderBin::*setSortMode_function_type)( ::osgUtil::RenderBin::SortMode ) ;
             
             RenderBin_exposer.def( 
                 "setSortMode"
@@ -824,7 +824,7 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::setStateSet
         
-            typedef void ( ::osgUtil::RenderBin::*setStateSet_function_type )( ::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::RenderBin::*setStateSet_function_type)( ::osg::StateSet * ) ;
             
             RenderBin_exposer.def( 
                 "setStateSet"
@@ -834,8 +834,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sort
         
-            typedef void ( ::osgUtil::RenderBin::*sort_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sort_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sort_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sort_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sort"
@@ -845,8 +845,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortBackToFront
         
-            typedef void ( ::osgUtil::RenderBin::*sortBackToFront_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortBackToFront_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortBackToFront_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortBackToFront_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortBackToFront"
@@ -856,8 +856,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortByState
         
-            typedef void ( ::osgUtil::RenderBin::*sortByState_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortByState_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortByState_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortByState_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortByState"
@@ -867,8 +867,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortByStateThenFrontToBack
         
-            typedef void ( ::osgUtil::RenderBin::*sortByStateThenFrontToBack_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortByStateThenFrontToBack_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortByStateThenFrontToBack_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortByStateThenFrontToBack_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortByStateThenFrontToBack"
@@ -878,8 +878,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortFrontToBack
         
-            typedef void ( ::osgUtil::RenderBin::*sortFrontToBack_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortFrontToBack_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortFrontToBack_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortFrontToBack_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortFrontToBack"
@@ -889,8 +889,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortImplementation
         
-            typedef void ( ::osgUtil::RenderBin::*sortImplementation_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortImplementation_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortImplementation_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortImplementation_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortImplementation"
@@ -900,8 +900,8 @@ void register_RenderBin_class(){
         }
         { //::osgUtil::RenderBin::sortTraversalOrder
         
-            typedef void ( ::osgUtil::RenderBin::*sortTraversalOrder_function_type )(  ) ;
-            typedef void ( RenderBin_wrapper::*default_sortTraversalOrder_function_type )(  ) ;
+            typedef void ( ::osgUtil::RenderBin::*sortTraversalOrder_function_type)(  ) ;
+            typedef void ( RenderBin_wrapper::*default_sortTraversalOrder_function_type)(  ) ;
             
             RenderBin_exposer.def( 
                 "sortTraversalOrder"

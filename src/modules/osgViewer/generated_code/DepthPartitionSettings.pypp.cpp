@@ -56,8 +56,8 @@ void register_DepthPartitionSettings_class(){
         bp::implicitly_convertible< osgViewer::DepthPartitionSettings::DepthMode, osgViewer::DepthPartitionSettings >();
         { //::osgViewer::DepthPartitionSettings::getDepthRange
         
-            typedef bool ( ::osgViewer::DepthPartitionSettings::*getDepthRange_function_type )( ::osg::View &,unsigned int,double &,double & ) ;
-            typedef bool ( DepthPartitionSettings_wrapper::*default_getDepthRange_function_type )( ::osg::View &,unsigned int,double &,double & ) ;
+            typedef bool ( ::osgViewer::DepthPartitionSettings::*getDepthRange_function_type)( ::osg::View &,unsigned int,double &,double & ) ;
+            typedef bool ( DepthPartitionSettings_wrapper::*default_getDepthRange_function_type)( ::osg::View &,unsigned int,double &,double & ) ;
             
             DepthPartitionSettings_exposer.def( 
                 "getDepthRange"

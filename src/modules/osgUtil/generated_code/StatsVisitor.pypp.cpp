@@ -443,65 +443,65 @@ void register_StatsVisitor_class(){
     bp::class_< StatsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::StatsVisitor >, boost::noncopyable >( "StatsVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Node & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Node & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Node & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Node & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Group & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Group & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Group & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Group & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Transform & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Transform & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Transform & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Transform & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::LOD & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::LOD & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::LOD & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::LOD & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Switch & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Switch & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Switch & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Switch & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Geode & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Geode & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Geode & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Geode & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Drawable & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::Drawable & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Drawable & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::Drawable & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("drawable") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::StateSet & ) )(&::osgUtil::StatsVisitor::apply)
-            , (void ( StatsVisitor_wrapper::* )( ::osg::StateSet & ) )(&StatsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::osg::StateSet & ))(&::osgUtil::StatsVisitor::apply)
+            , (void ( StatsVisitor_wrapper::* )( ::osg::StateSet & ))(&StatsVisitor_wrapper::default_apply)
             , ( bp::arg("ss") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::StatsVisitor::* )(  ) const)(&::osgUtil::StatsVisitor::className)
-            , (char const * ( StatsVisitor_wrapper::* )(  ) const)(&StatsVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::StatsVisitor::* )(  )const)(&::osgUtil::StatsVisitor::className)
+            , (char const * ( StatsVisitor_wrapper::* )(  )const)(&StatsVisitor_wrapper::default_className) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::StatsVisitor::* )(  ) const)(&::osgUtil::StatsVisitor::libraryName)
-            , (char const * ( StatsVisitor_wrapper::* )(  ) const)(&StatsVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osgUtil::StatsVisitor::* )(  )const)(&::osgUtil::StatsVisitor::libraryName)
+            , (char const * ( StatsVisitor_wrapper::* )(  )const)(&StatsVisitor_wrapper::default_libraryName) )    
         .def( 
             "print"
-            , (void ( ::osgUtil::StatsVisitor::* )( ::std::ostream & ) )(&::osgUtil::StatsVisitor::print)
-            , (void ( StatsVisitor_wrapper::* )( ::std::ostream & ) )(&StatsVisitor_wrapper::default_print)
+            , (void ( ::osgUtil::StatsVisitor::* )( ::std::ostream & ))(&::osgUtil::StatsVisitor::print)
+            , (void ( StatsVisitor_wrapper::* )( ::std::ostream & ))(&StatsVisitor_wrapper::default_print)
             , ( bp::arg("out") ) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::StatsVisitor::* )(  ) )(&::osgUtil::StatsVisitor::reset)
-            , (void ( StatsVisitor_wrapper::* )(  ) )(&StatsVisitor_wrapper::default_reset) )    
+            , (void ( ::osgUtil::StatsVisitor::* )(  ))(&::osgUtil::StatsVisitor::reset)
+            , (void ( StatsVisitor_wrapper::* )(  ))(&StatsVisitor_wrapper::default_reset) )    
         .def( 
             "totalUpStats"
-            , (void ( ::osgUtil::StatsVisitor::* )(  ) )(&::osgUtil::StatsVisitor::totalUpStats)
-            , (void ( StatsVisitor_wrapper::* )(  ) )(&StatsVisitor_wrapper::default_totalUpStats) )    
+            , (void ( ::osgUtil::StatsVisitor::* )(  ))(&::osgUtil::StatsVisitor::totalUpStats)
+            , (void ( StatsVisitor_wrapper::* )(  ))(&StatsVisitor_wrapper::default_totalUpStats) )    
         .def_readwrite( "_drawableSet", &osgUtil::StatsVisitor::_drawableSet )    
         .def_readwrite( "_fastGeometrySet", &osgUtil::StatsVisitor::_fastGeometrySet )    
         .def_readwrite( "_geodeSet", &osgUtil::StatsVisitor::_geodeSet )    

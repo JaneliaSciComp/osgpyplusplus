@@ -344,75 +344,75 @@ void register_BufferData_class(){
         bp::class_< BufferData_wrapper::ModifiedCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferData::ModifiedCallback >, boost::noncopyable >( "ModifiedCallback" )    
             .def( 
                 "className"
-                , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  ) const)(&::osg::BufferData::ModifiedCallback::className)
-                , (char const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_className) )    
+                , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  )const)(&::osg::BufferData::ModifiedCallback::className)
+                , (char const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_className) )    
             .def( 
                 "clone"
-                , (::osg::Object * ( ::osg::BufferData::ModifiedCallback::* )( ::osg::CopyOp const & ) const)(&::osg::BufferData::ModifiedCallback::clone)
-                , (::osg::Object * ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::CopyOp const & ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_clone)
+                , (::osg::Object * ( ::osg::BufferData::ModifiedCallback::* )( ::osg::CopyOp const & )const)(&::osg::BufferData::ModifiedCallback::clone)
+                , (::osg::Object * ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::CopyOp const & )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_clone)
                 , ( bp::arg("copyop") )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "cloneType"
-                , (::osg::Object * ( ::osg::BufferData::ModifiedCallback::* )(  ) const)(&::osg::BufferData::ModifiedCallback::cloneType)
-                , (::osg::Object * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_cloneType)
+                , (::osg::Object * ( ::osg::BufferData::ModifiedCallback::* )(  )const)(&::osg::BufferData::ModifiedCallback::cloneType)
+                , (::osg::Object * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "isSameKindAs"
-                , (bool ( ::osg::BufferData::ModifiedCallback::* )( ::osg::Object const * ) const)(&::osg::BufferData::ModifiedCallback::isSameKindAs)
-                , (bool ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::Object const * ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_isSameKindAs)
+                , (bool ( ::osg::BufferData::ModifiedCallback::* )( ::osg::Object const * )const)(&::osg::BufferData::ModifiedCallback::isSameKindAs)
+                , (bool ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::Object const * )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_isSameKindAs)
                 , ( bp::arg("obj") ) )    
             .def( 
                 "libraryName"
-                , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  ) const)(&::osg::BufferData::ModifiedCallback::libraryName)
-                , (char const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_libraryName) )    
+                , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  )const)(&::osg::BufferData::ModifiedCallback::libraryName)
+                , (char const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_libraryName) )    
             .def( 
                 "modified"
-                , (void ( ::osg::BufferData::ModifiedCallback::* )( ::osg::BufferData * ) const)(&::osg::BufferData::ModifiedCallback::modified)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::BufferData * ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_modified)
+                , (void ( ::osg::BufferData::ModifiedCallback::* )( ::osg::BufferData * )const)(&::osg::BufferData::ModifiedCallback::modified)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::BufferData * )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_modified)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "computeDataVariance"
-                , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_computeDataVariance) )    
+                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_computeDataVariance) )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-                , (::osg::Referenced * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_getUserData)
+                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-                , (::osg::Referenced const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  ) const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_getUserData)
+                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( BufferData_wrapper::ModifiedCallback_wrapper::* )(  )const)(&BufferData_wrapper::ModifiedCallback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "resizeGLObjectBuffers"
-                , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( unsigned int ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_resizeGLObjectBuffers)
+                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( unsigned int ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_resizeGLObjectBuffers)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::std::string const & ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_setName)
+                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::std::string const & ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_setName)
                 , ( bp::arg("name") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
                 , ( bp::arg("name") )
                 , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( bool ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( bool ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) )    
             .def( 
                 "setUserData"
-                , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::Referenced * ) )(&BufferData_wrapper::ModifiedCallback_wrapper::default_setUserData)
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+                , (void ( BufferData_wrapper::ModifiedCallback_wrapper::* )( ::osg::Referenced * ))(&BufferData_wrapper::ModifiedCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         { //::osg::BufferData::addClient
         
-            typedef void ( ::osg::BufferData::*addClient_function_type )( ::osg::Object * ) ;
+            typedef void ( ::osg::BufferData::*addClient_function_type)( ::osg::Object * ) ;
             
             BufferData_exposer.def( 
                 "addClient"
@@ -422,8 +422,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
-            typedef ::osg::Array * ( BufferData_wrapper::*default_asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( BufferData_wrapper::*default_asArray_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "asArray"
@@ -434,8 +434,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
-            typedef ::osg::Array const * ( BufferData_wrapper::*default_asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( BufferData_wrapper::*default_asArray_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "asArray"
@@ -446,8 +446,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::className
         
-            typedef char const * ( ::osg::BufferData::*className_function_type )(  ) const;
-            typedef char const * ( BufferData_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::BufferData::*className_function_type)(  ) const;
+            typedef char const * ( BufferData_wrapper::*default_className_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "className"
@@ -457,7 +457,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::dirty
         
-            typedef void ( ::osg::BufferData::*dirty_function_type )(  ) ;
+            typedef void ( ::osg::BufferData::*dirty_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "dirty"
@@ -467,7 +467,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getBufferIndex
         
-            typedef unsigned int ( ::osg::BufferData::*getBufferIndex_function_type )(  ) const;
+            typedef unsigned int ( ::osg::BufferData::*getBufferIndex_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getBufferIndex"
@@ -476,7 +476,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getBufferObject
         
-            typedef ::osg::BufferObject * ( ::osg::BufferData::*getBufferObject_function_type )(  ) ;
+            typedef ::osg::BufferObject * ( ::osg::BufferData::*getBufferObject_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "getBufferObject"
@@ -486,7 +486,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getBufferObject
         
-            typedef ::osg::BufferObject const * ( ::osg::BufferData::*getBufferObject_function_type )(  ) const;
+            typedef ::osg::BufferObject const * ( ::osg::BufferData::*getBufferObject_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getBufferObject"
@@ -496,7 +496,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::BufferData::*getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( ::osg::BufferData::*getDataPointer_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getDataPointer"
@@ -506,7 +506,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getGLBufferObject
         
-            typedef ::osg::GLBufferObject * ( ::osg::BufferData::*getGLBufferObject_function_type )( unsigned int ) const;
+            typedef ::osg::GLBufferObject * ( ::osg::BufferData::*getGLBufferObject_function_type)( unsigned int ) const;
             
             BufferData_exposer.def( 
                 "getGLBufferObject"
@@ -517,7 +517,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getModifiedCallback
         
-            typedef ::osg::BufferData::ModifiedCallback * ( ::osg::BufferData::*getModifiedCallback_function_type )(  ) ;
+            typedef ::osg::BufferData::ModifiedCallback * ( ::osg::BufferData::*getModifiedCallback_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "getModifiedCallback"
@@ -527,7 +527,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getModifiedCallback
         
-            typedef ::osg::BufferData::ModifiedCallback const * ( ::osg::BufferData::*getModifiedCallback_function_type )(  ) const;
+            typedef ::osg::BufferData::ModifiedCallback const * ( ::osg::BufferData::*getModifiedCallback_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getModifiedCallback"
@@ -537,7 +537,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getModifiedCount
         
-            typedef unsigned int ( ::osg::BufferData::*getModifiedCount_function_type )(  ) const;
+            typedef unsigned int ( ::osg::BufferData::*getModifiedCount_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getModifiedCount"
@@ -547,7 +547,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getNumClients
         
-            typedef unsigned int ( ::osg::BufferData::*getNumClients_function_type )(  ) const;
+            typedef unsigned int ( ::osg::BufferData::*getNumClients_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getNumClients"
@@ -556,7 +556,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getOrCreateGLBufferObject
         
-            typedef ::osg::GLBufferObject * ( ::osg::BufferData::*getOrCreateGLBufferObject_function_type )( unsigned int ) const;
+            typedef ::osg::GLBufferObject * ( ::osg::BufferData::*getOrCreateGLBufferObject_function_type)( unsigned int ) const;
             
             BufferData_exposer.def( 
                 "getOrCreateGLBufferObject"
@@ -567,7 +567,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::getTotalDataSize
         
-            typedef unsigned int ( ::osg::BufferData::*getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::BufferData::*getTotalDataSize_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getTotalDataSize"
@@ -576,8 +576,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::isSameKindAs
         
-            typedef bool ( ::osg::BufferData::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( BufferData_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::BufferData::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( BufferData_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             BufferData_exposer.def( 
                 "isSameKindAs"
@@ -588,8 +588,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::libraryName
         
-            typedef char const * ( ::osg::BufferData::*libraryName_function_type )(  ) const;
-            typedef char const * ( BufferData_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::BufferData::*libraryName_function_type)(  ) const;
+            typedef char const * ( BufferData_wrapper::*default_libraryName_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "libraryName"
@@ -599,7 +599,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::removeClient
         
-            typedef void ( ::osg::BufferData::*removeClient_function_type )( ::osg::Object * ) ;
+            typedef void ( ::osg::BufferData::*removeClient_function_type)( ::osg::Object * ) ;
             
             BufferData_exposer.def( 
                 "removeClient"
@@ -609,8 +609,8 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( BufferData_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( BufferData_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             BufferData_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -621,7 +621,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::setBufferIndex
         
-            typedef void ( ::osg::BufferData::*setBufferIndex_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*setBufferIndex_function_type)( unsigned int ) ;
             
             BufferData_exposer.def( 
                 "setBufferIndex"
@@ -631,7 +631,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::setBufferObject
         
-            typedef void ( ::osg::BufferData::*setBufferObject_function_type )( ::osg::BufferObject * ) ;
+            typedef void ( ::osg::BufferData::*setBufferObject_function_type)( ::osg::BufferObject * ) ;
             
             BufferData_exposer.def( 
                 "setBufferObject"
@@ -641,7 +641,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::setModifiedCallback
         
-            typedef void ( ::osg::BufferData::*setModifiedCallback_function_type )( ::osg::BufferData::ModifiedCallback * ) ;
+            typedef void ( ::osg::BufferData::*setModifiedCallback_function_type)( ::osg::BufferData::ModifiedCallback * ) ;
             
             BufferData_exposer.def( 
                 "setModifiedCallback"
@@ -651,7 +651,7 @@ void register_BufferData_class(){
         }
         { //::osg::BufferData::setModifiedCount
         
-            typedef void ( ::osg::BufferData::*setModifiedCount_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*setModifiedCount_function_type)( unsigned int ) ;
             
             BufferData_exposer.def( 
                 "setModifiedCount"
@@ -662,7 +662,7 @@ void register_BufferData_class(){
         }
         { //::osg::Object::clone
         
-            typedef ::osg::Object * ( ::osg::Object::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Object::*clone_function_type)( ::osg::CopyOp const & ) const;
             
             BufferData_exposer.def( 
                 "clone"
@@ -674,7 +674,7 @@ void register_BufferData_class(){
         }
         { //::osg::Object::cloneType
         
-            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "cloneType"
@@ -685,8 +685,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( BufferData_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( BufferData_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "computeDataVariance"
@@ -696,8 +696,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( BufferData_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( BufferData_wrapper::*default_getUserData_function_type)(  ) ;
             
             BufferData_exposer.def( 
                 "getUserData"
@@ -708,8 +708,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( BufferData_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( BufferData_wrapper::*default_getUserData_function_type)(  ) const;
             
             BufferData_exposer.def( 
                 "getUserData"
@@ -720,8 +720,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( BufferData_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( BufferData_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             BufferData_exposer.def( 
                 "setName"
@@ -732,7 +732,7 @@ void register_BufferData_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             BufferData_exposer.def( 
                 "setName"
@@ -743,8 +743,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( BufferData_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( BufferData_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             BufferData_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -755,8 +755,8 @@ void register_BufferData_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( BufferData_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( BufferData_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             BufferData_exposer.def( 
                 "setUserData"

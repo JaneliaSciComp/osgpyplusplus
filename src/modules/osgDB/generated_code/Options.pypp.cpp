@@ -196,8 +196,8 @@ void register_Options_class(){
         Options_exposer.def( bp::init< std::string const & >(( bp::arg("str") )) );
         { //::osgDB::Options::clone
         
-            typedef ::osg::Object * ( ::osgDB::Options::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Options_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgDB::Options::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Options_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Options_exposer.def( 
                 "clone"
@@ -209,7 +209,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::cloneOptions
         
-            typedef ::osgDB::Options * ( ::osgDB::Options::*cloneOptions_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osgDB::Options * ( ::osgDB::Options::*cloneOptions_function_type)( ::osg::CopyOp const & ) const;
             
             Options_exposer.def( 
                 "cloneOptions"
@@ -220,8 +220,8 @@ void register_Options_class(){
         }
         { //::osgDB::Options::cloneType
         
-            typedef ::osg::Object * ( ::osgDB::Options::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Options_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgDB::Options::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Options_wrapper::*default_cloneType_function_type)(  ) const;
             
             Options_exposer.def( 
                 "cloneType"
@@ -232,7 +232,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getAuthenticationMap
         
-            typedef ::osgDB::AuthenticationMap const * ( ::osgDB::Options::*getAuthenticationMap_function_type )(  ) const;
+            typedef ::osgDB::AuthenticationMap const * ( ::osgDB::Options::*getAuthenticationMap_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getAuthenticationMap"
@@ -242,7 +242,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getBuildKdTreesHint
         
-            typedef ::osgDB::Options::BuildKdTreesHint ( ::osgDB::Options::*getBuildKdTreesHint_function_type )(  ) const;
+            typedef ::osgDB::Options::BuildKdTreesHint ( ::osgDB::Options::*getBuildKdTreesHint_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getBuildKdTreesHint"
@@ -251,7 +251,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getDatabasePathList
         
-            typedef ::osgDB::FilePathList & ( ::osgDB::Options::*getDatabasePathList_function_type )(  ) ;
+            typedef ::osgDB::FilePathList & ( ::osgDB::Options::*getDatabasePathList_function_type)(  ) ;
             
             Options_exposer.def( 
                 "getDatabasePathList"
@@ -261,7 +261,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getDatabasePathList
         
-            typedef ::osgDB::FilePathList const & ( ::osgDB::Options::*getDatabasePathList_function_type )(  ) const;
+            typedef ::osgDB::FilePathList const & ( ::osgDB::Options::*getDatabasePathList_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getDatabasePathList"
@@ -271,7 +271,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getFileCache
         
-            typedef ::osgDB::FileCache * ( ::osgDB::Options::*getFileCache_function_type )(  ) const;
+            typedef ::osgDB::FileCache * ( ::osgDB::Options::*getFileCache_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getFileCache"
@@ -281,7 +281,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getFileLocationCallback
         
-            typedef ::osgDB::FileLocationCallback * ( ::osgDB::Options::*getFileLocationCallback_function_type )(  ) const;
+            typedef ::osgDB::FileLocationCallback * ( ::osgDB::Options::*getFileLocationCallback_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getFileLocationCallback"
@@ -291,7 +291,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getFindFileCallback
         
-            typedef ::osgDB::FindFileCallback * ( ::osgDB::Options::*getFindFileCallback_function_type )(  ) const;
+            typedef ::osgDB::FindFileCallback * ( ::osgDB::Options::*getFindFileCallback_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getFindFileCallback"
@@ -301,7 +301,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getNumPluginData
         
-            typedef unsigned int ( ::osgDB::Options::*getNumPluginData_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::Options::*getNumPluginData_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getNumPluginData"
@@ -310,7 +310,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getNumPluginStringData
         
-            typedef unsigned int ( ::osgDB::Options::*getNumPluginStringData_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::Options::*getNumPluginStringData_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getNumPluginStringData"
@@ -319,7 +319,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getObjectCacheHint
         
-            typedef ::osgDB::Options::CacheHintOptions ( ::osgDB::Options::*getObjectCacheHint_function_type )(  ) const;
+            typedef ::osgDB::Options::CacheHintOptions ( ::osgDB::Options::*getObjectCacheHint_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getObjectCacheHint"
@@ -328,7 +328,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getOptionString
         
-            typedef ::std::string const & ( ::osgDB::Options::*getOptionString_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgDB::Options::*getOptionString_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getOptionString"
@@ -338,7 +338,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getPluginStringData
         
-            typedef ::std::string & ( ::osgDB::Options::*getPluginStringData_function_type )( ::std::string const & ) ;
+            typedef ::std::string & ( ::osgDB::Options::*getPluginStringData_function_type)( ::std::string const & ) ;
             
             Options_exposer.def( 
                 "getPluginStringData"
@@ -349,7 +349,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getPluginStringData
         
-            typedef ::std::string const ( ::osgDB::Options::*getPluginStringData_function_type )( ::std::string const & ) const;
+            typedef ::std::string const ( ::osgDB::Options::*getPluginStringData_function_type)( ::std::string const & ) const;
             
             Options_exposer.def( 
                 "getPluginStringData"
@@ -359,7 +359,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getPrecisionHint
         
-            typedef ::osgDB::Options::PrecisionHint ( ::osgDB::Options::*getPrecisionHint_function_type )(  ) const;
+            typedef ::osgDB::Options::PrecisionHint ( ::osgDB::Options::*getPrecisionHint_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getPrecisionHint"
@@ -368,7 +368,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getReadFileCallback
         
-            typedef ::osgDB::ReadFileCallback * ( ::osgDB::Options::*getReadFileCallback_function_type )(  ) const;
+            typedef ::osgDB::ReadFileCallback * ( ::osgDB::Options::*getReadFileCallback_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getReadFileCallback"
@@ -378,7 +378,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getTerrain
         
-            typedef ::osg::observer_ptr< osg::Node > const & ( ::osgDB::Options::*getTerrain_function_type )(  ) const;
+            typedef ::osg::observer_ptr< osg::Node > const & ( ::osgDB::Options::*getTerrain_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getTerrain"
@@ -388,7 +388,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::getWriteFileCallback
         
-            typedef ::osgDB::WriteFileCallback * ( ::osgDB::Options::*getWriteFileCallback_function_type )(  ) const;
+            typedef ::osgDB::WriteFileCallback * ( ::osgDB::Options::*getWriteFileCallback_function_type)(  ) const;
             
             Options_exposer.def( 
                 "getWriteFileCallback"
@@ -398,8 +398,8 @@ void register_Options_class(){
         }
         { //::osgDB::Options::isSameKindAs
         
-            typedef bool ( ::osgDB::Options::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Options_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgDB::Options::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Options_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Options_exposer.def( 
                 "isSameKindAs"
@@ -410,8 +410,8 @@ void register_Options_class(){
         }
         { //::osgDB::Options::libraryName
         
-            typedef char const * ( ::osgDB::Options::*libraryName_function_type )(  ) const;
-            typedef char const * ( Options_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgDB::Options::*libraryName_function_type)(  ) const;
+            typedef char const * ( Options_wrapper::*default_libraryName_function_type)(  ) const;
             
             Options_exposer.def( 
                 "libraryName"
@@ -421,7 +421,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::parsePluginStringData
         
-            typedef void ( ::osgDB::Options::*parsePluginStringData_function_type )( ::std::string const &,char,char ) ;
+            typedef void ( ::osgDB::Options::*parsePluginStringData_function_type)( ::std::string const &,char,char ) ;
             
             Options_exposer.def( 
                 "parsePluginStringData"
@@ -431,7 +431,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::removePluginData
         
-            typedef void ( ::osgDB::Options::*removePluginData_function_type )( ::std::string const & ) const;
+            typedef void ( ::osgDB::Options::*removePluginData_function_type)( ::std::string const & ) const;
             
             Options_exposer.def( 
                 "removePluginData"
@@ -441,7 +441,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::removePluginStringData
         
-            typedef void ( ::osgDB::Options::*removePluginStringData_function_type )( ::std::string const & ) const;
+            typedef void ( ::osgDB::Options::*removePluginStringData_function_type)( ::std::string const & ) const;
             
             Options_exposer.def( 
                 "removePluginStringData"
@@ -451,7 +451,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setAuthenticationMap
         
-            typedef void ( ::osgDB::Options::*setAuthenticationMap_function_type )( ::osgDB::AuthenticationMap * ) ;
+            typedef void ( ::osgDB::Options::*setAuthenticationMap_function_type)( ::osgDB::AuthenticationMap * ) ;
             
             Options_exposer.def( 
                 "setAuthenticationMap"
@@ -461,7 +461,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setBuildKdTreesHint
         
-            typedef void ( ::osgDB::Options::*setBuildKdTreesHint_function_type )( ::osgDB::Options::BuildKdTreesHint ) ;
+            typedef void ( ::osgDB::Options::*setBuildKdTreesHint_function_type)( ::osgDB::Options::BuildKdTreesHint ) ;
             
             Options_exposer.def( 
                 "setBuildKdTreesHint"
@@ -471,7 +471,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setDatabasePath
         
-            typedef void ( ::osgDB::Options::*setDatabasePath_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgDB::Options::*setDatabasePath_function_type)( ::std::string const & ) ;
             
             Options_exposer.def( 
                 "setDatabasePath"
@@ -481,7 +481,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setFileCache
         
-            typedef void ( ::osgDB::Options::*setFileCache_function_type )( ::osgDB::FileCache * ) ;
+            typedef void ( ::osgDB::Options::*setFileCache_function_type)( ::osgDB::FileCache * ) ;
             
             Options_exposer.def( 
                 "setFileCache"
@@ -491,7 +491,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setFileLocationCallback
         
-            typedef void ( ::osgDB::Options::*setFileLocationCallback_function_type )( ::osgDB::FileLocationCallback * ) ;
+            typedef void ( ::osgDB::Options::*setFileLocationCallback_function_type)( ::osgDB::FileLocationCallback * ) ;
             
             Options_exposer.def( 
                 "setFileLocationCallback"
@@ -501,7 +501,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setFindFileCallback
         
-            typedef void ( ::osgDB::Options::*setFindFileCallback_function_type )( ::osgDB::FindFileCallback * ) ;
+            typedef void ( ::osgDB::Options::*setFindFileCallback_function_type)( ::osgDB::FindFileCallback * ) ;
             
             Options_exposer.def( 
                 "setFindFileCallback"
@@ -511,7 +511,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setObjectCacheHint
         
-            typedef void ( ::osgDB::Options::*setObjectCacheHint_function_type )( ::osgDB::Options::CacheHintOptions ) ;
+            typedef void ( ::osgDB::Options::*setObjectCacheHint_function_type)( ::osgDB::Options::CacheHintOptions ) ;
             
             Options_exposer.def( 
                 "setObjectCacheHint"
@@ -521,7 +521,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setOptionString
         
-            typedef void ( ::osgDB::Options::*setOptionString_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgDB::Options::*setOptionString_function_type)( ::std::string const & ) ;
             
             Options_exposer.def( 
                 "setOptionString"
@@ -531,7 +531,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setPluginData
         
-            typedef void ( ::osgDB::Options::*setPluginData_function_type )( ::std::string const &,void * ) const;
+            typedef void ( ::osgDB::Options::*setPluginData_function_type)( ::std::string const &,void * ) const;
             
             Options_exposer.def( 
                 "setPluginData"
@@ -541,7 +541,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setPluginStringData
         
-            typedef void ( ::osgDB::Options::*setPluginStringData_function_type )( ::std::string const &,::std::string const & ) const;
+            typedef void ( ::osgDB::Options::*setPluginStringData_function_type)( ::std::string const &,::std::string const & ) const;
             
             Options_exposer.def( 
                 "setPluginStringData"
@@ -551,7 +551,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setPrecisionHint
         
-            typedef void ( ::osgDB::Options::*setPrecisionHint_function_type )( ::osgDB::Options::PrecisionHint ) ;
+            typedef void ( ::osgDB::Options::*setPrecisionHint_function_type)( ::osgDB::Options::PrecisionHint ) ;
             
             Options_exposer.def( 
                 "setPrecisionHint"
@@ -561,7 +561,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setReadFileCallback
         
-            typedef void ( ::osgDB::Options::*setReadFileCallback_function_type )( ::osgDB::ReadFileCallback * ) ;
+            typedef void ( ::osgDB::Options::*setReadFileCallback_function_type)( ::osgDB::ReadFileCallback * ) ;
             
             Options_exposer.def( 
                 "setReadFileCallback"
@@ -571,7 +571,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setTerrain
         
-            typedef void ( ::osgDB::Options::*setTerrain_function_type )( ::osg::observer_ptr< osg::Node > & ) ;
+            typedef void ( ::osgDB::Options::*setTerrain_function_type)( ::osg::observer_ptr< osg::Node > & ) ;
             
             Options_exposer.def( 
                 "setTerrain"
@@ -581,7 +581,7 @@ void register_Options_class(){
         }
         { //::osgDB::Options::setWriteFileCallback
         
-            typedef void ( ::osgDB::Options::*setWriteFileCallback_function_type )( ::osgDB::WriteFileCallback * ) ;
+            typedef void ( ::osgDB::Options::*setWriteFileCallback_function_type)( ::osgDB::WriteFileCallback * ) ;
             
             Options_exposer.def( 
                 "setWriteFileCallback"
