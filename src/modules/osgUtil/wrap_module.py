@@ -48,7 +48,13 @@ class OsgUtilWrapper(BaseWrapper):
         self.mb.class_("Optimizer").variables("_billboards").exclude()
         self.mb.class_("StateGraph").variables("_children").exclude()
 
-        for cls_name in ["IntersectorGroup", "Intersector"]:
+        for cls_name in [
+                "IntersectorGroup", 
+                "Intersector", 
+                "LineSegmentIntersector", 
+                "PlaneIntersector", 
+                "PolytopeIntersector", 
+                ]:
             cls = self.mb.class_(cls_name)
             hack_osg_arg(cls, "enter", "node")
 

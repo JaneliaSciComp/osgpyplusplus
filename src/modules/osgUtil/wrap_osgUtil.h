@@ -23,7 +23,10 @@
 #include <osgUtil/IncrementalCompileOperation>
 #include <osgUtil/IntersectionVisitor>
 #include <osgUtil/IntersectVisitor>
+#include <osgUtil/LineSegmentIntersector>
 #include <osgUtil/Optimizer>
+#include <osgUtil/PlaneIntersector>
+#include <osgUtil/PolytopeIntersector>
 #include <osgUtil/PrintVisitor>
 #include <osgUtil/SceneView>
 #include <osgUtil/ShaderGen>
@@ -38,4 +41,10 @@ template class ::std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>,
 
 namespace pyplusplus { namespace aliases {
     typedef ::std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > > std_vector_pair_StateAttribute_RefMatrixd;
+
+    // Avoid duplicate aliases
+    typedef osgUtil::PolytopeIntersector::Intersection PolytopeIntersection;
+    typedef osgUtil::PlaneIntersector::Intersection PlaneIntersection;
+    typedef osgUtil::PolytopeIntersector::Intersections PolytopeIntersections;
+    typedef osgUtil::PlaneIntersector::Intersections PlaneIntersections;
 }}

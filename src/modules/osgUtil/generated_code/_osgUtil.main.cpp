@@ -6,6 +6,8 @@
 
 #include "__convenience.pypp.hpp"
 
+#include "__array_1.pypp.hpp"
+
 #include "indexing_suite/value_traits.hpp"
 
 #include "indexing_suite/container_suite.hpp"
@@ -62,9 +64,19 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/linesegmenthitlistmap.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/linesegmentintersector.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/optimizer.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/pickvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/planeintersections.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/planeintersector.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/polytopeintersections.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/polytopeintersector.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/positionalstatecontainer.pypp.hpp"
 
@@ -137,6 +149,8 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_RenderLeafList_class();
 
+    register_PlaneIntersections_class();
+
     register_vector_less__osgUtil_scope_Hit__greater__class();
 
     register_vector_less__osg_scope_ref_ptr_less_osgUtil_scope_RenderLeaf_greater___greater__class();
@@ -144,6 +158,8 @@ BOOST_PYTHON_MODULE(_osgUtil){
     register_Intersectors_class();
 
     register_vector_less__int__greater__class();
+
+    register_PolytopeIntersections_class();
 
     register_TextureSet_class();
 
@@ -201,9 +217,15 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_LessDepthSortFunctor_class();
 
+    register_LineSegmentIntersector_class();
+
     register_Optimizer_class();
 
     register_PickVisitor_class();
+
+    register_PlaneIntersector_class();
+
+    register_PolytopeIntersector_class();
 
     register_PositionalStateContainer_class();
 
