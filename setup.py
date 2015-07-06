@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Increment this version before a release
-OSG_PYPP_VERSION = '3.2.1.2pre'
+OSG_PYPP_VERSION = '3.2.1.2'
 
 """
 File: setup.py
@@ -86,9 +86,10 @@ for module_name in ['osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
     moduleInfo[module_name]["libraries"].append('osg')
 for module_name in ['osgGA', 'osgDB', 'osgText', 'osgViewer']:
     moduleInfo[module_name]["libraries"].append('osgUtil')
-for module_name in ['osgText', 'osgViewer']:
+for module_name in ['osgGA', 'osgText', 'osgViewer']:
     moduleInfo[module_name]["libraries"].append('osgDB')
 moduleInfo['osgViewer']["libraries"].append('osgGA')
+moduleInfo['osgViewer']["libraries"].append('osgText')
 
 # Create final list of extension modules
 extension_modules = []

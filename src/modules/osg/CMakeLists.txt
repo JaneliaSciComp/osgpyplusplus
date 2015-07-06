@@ -5,4 +5,4 @@ find_library(OSG_OPENTHREADS_LIBRARY
     NAME OpenThreads
     PATHS ${OSG_DIR}/lib
 )
-target_link_libraries(_osg ${OSG_OPENTHREADS_LIBRARY})
+target_link_libraries(_osg ${OSG_OPENTHREADS_LIBRARY} ${OSG_LIBRARY})
