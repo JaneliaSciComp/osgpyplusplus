@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Increment this version before a release
-OSG_PYPP_VERSION = '3.2.1.2'
+OSG_PYPP_VERSION = '3.2.1.3pre'
 
 """
 File: setup.py

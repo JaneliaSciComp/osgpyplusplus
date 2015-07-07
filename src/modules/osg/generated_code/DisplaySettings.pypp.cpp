@@ -602,7 +602,7 @@ void register_DisplaySettings_class(){
             DisplaySettings_exposer.def( 
                 "instance"
                 , instance_function_type( &::osg::DisplaySettings::instance )
-                , bp::return_internal_reference< >()
+                , bp::return_value_policy< bp::copy_non_const_reference >()
                 , " Maintain a DisplaySettings singleton for objects to query at runtime." );
         
         }

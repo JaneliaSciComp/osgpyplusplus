@@ -524,6 +524,8 @@ class OsgWrapper(BaseWrapper):
         cls.member_functions("setDisplaySettings").exclude()
         cls.constructors().exclude()
         cls.noncopyable = True
+        cls.member_functions("instance").call_policies = return_value_policy(
+            copy_non_const_reference)
     
     def wrap_stateset(self):
         cls = self.mb.class_("StateSet")
