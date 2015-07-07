@@ -39,8 +39,10 @@ class OsgTextWrapper(BaseWrapper):
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         # For base classes to be properly referenced, we really need to register all of the dependencies...
-        self.mb.register_module_dependency('../osgDB/generated_code/')
         self.mb.register_module_dependency('../osg/generated_code/')
+        self.mb.register_module_dependency('../osgUtil/generated_code/')
+        self.mb.register_module_dependency('../osgDB/generated_code/')
+        self.mb.register_module_dependency('../osgGA/generated_code/') # Included to linearize dependency chain
             
     def wrap(self):
         mb = self.mb
