@@ -245,6 +245,7 @@ class OsgWrapper(BaseWrapper):
         self.wrap_image()
         self.wrap_drawable()
         self.wrap_gl_symbols()
+        self.wrap_argument_parser()
 
         self.mb.class_("ConstShapeVisitor").member_functions("apply").exclude()
         self.mb.class_("NodeVisitor").member_functions("validNodeMask").exclude()
@@ -347,6 +348,8 @@ class OsgWrapper(BaseWrapper):
         self.mb.classes(lambda c: c.name.startswith("MixinVector<")).exclude()
         # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
         self.mb.class_("Texture").class_("TextureObject").exclude()
+
+        self.mb.class_("ClusterCullingCallback").exclude()
         
         self.mb.class_("ValueObject").constructors(arg_types=[None, None]).exclude()
 
@@ -444,6 +447,31 @@ class OsgWrapper(BaseWrapper):
         for op_name in ["operator<", "operator==", "operator!="]:
             cls.member_operators(op_name, allow_empty=True).exclude() # TODO confusing protected destructor compile errors
     
+    def wrap_argument_parser(self):
+        cls = self.mb.class_("ArgumentParser")
+        # Convert from python sys.argv, to C/C++ argc/argv
+        # http://stackoverflow.com/questions/18793952/boost-python-how-do-i-provide-a-custom-constructor-wrapper-function
+        cls.no_init = True
+        cls.add_declaration_code("""
+            boost::shared_ptr<osg::ArgumentParser> initArgumentParser( bp::object const & sys_argv )
+            {
+                int * argc = new int(bp::len(sys_argv));
+                char ** argv = new char*[*argc];
+                for (int i = 0; i < *argc; ++i) {
+                    std::string str = bp::extract<std::string>(sys_argv[i]);
+                    int sz = str.size();
+                    argv[i] = new char[sz+1];
+                    argv[i][sz] = '\\0'; // null terminate string
+                    for (int c = 0; c < sz; ++c)
+                        argv[i][c] = str[c];
+                }
+                return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
+            }
+            """)
+        cls.add_registration_code("""
+            def( "__init__", bp::make_constructor( &initArgumentParser ) )
+            """)
+
     def wrap_nodevisitor(self):
         cls = self.mb.class_("NodeVisitor")
 

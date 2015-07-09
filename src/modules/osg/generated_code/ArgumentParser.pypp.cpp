@@ -6,11 +6,26 @@
 
 namespace bp = boost::python;
 
+boost::shared_ptr<osg::ArgumentParser> initArgumentParser( bp::object const & sys_argv )
+            {
+                int * argc = new int(bp::len(sys_argv));
+                char ** argv = new char*[*argc];
+                for (int i = 0; i < *argc; ++i) {
+                    std::string str = bp::extract<std::string>(sys_argv[i]);
+                    int sz = str.size();
+                    argv[i] = new char[sz+1];
+                    argv[i][sz] = '\0'; // null terminate string
+                    for (int c = 0; c < sz; ++c)
+                        argv[i][c] = str[c];
+                }
+                return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
+            }
+
 void register_ArgumentParser_class(){
 
     { //::osg::ArgumentParser
         typedef bp::class_< osg::ArgumentParser > ArgumentParser_exposer_t;
-        ArgumentParser_exposer_t ArgumentParser_exposer = ArgumentParser_exposer_t( "ArgumentParser", bp::init< int *, char * * >(( bp::arg("argc"), bp::arg("argv") )) );
+        ArgumentParser_exposer_t ArgumentParser_exposer = ArgumentParser_exposer_t( "ArgumentParser", bp::no_init );
         bp::scope ArgumentParser_scope( ArgumentParser_exposer );
         bp::enum_< osg::ArgumentParser::ErrorSeverity>("ErrorSeverity")
             .value("BENIGN", osg::ArgumentParser::BENIGN)
@@ -74,6 +89,7 @@ void register_ArgumentParser_class(){
             
             }
         }
+        ArgumentParser_exposer.def( bp::init< int *, char * * >(( bp::arg("argc"), bp::arg("argv") )) );
         { //::osg::ArgumentParser::argc
         
             typedef int & ( ::osg::ArgumentParser::*argc_function_type)(  ) ;
@@ -506,6 +522,7 @@ void register_ArgumentParser_class(){
         ArgumentParser_exposer.staticmethod( "isNumber" );
         ArgumentParser_exposer.staticmethod( "isOption" );
         ArgumentParser_exposer.staticmethod( "isString" );
+        ArgumentParser_exposer.def( "__init__", bp::make_constructor( &initArgumentParser ) );
     }
 
 }

@@ -72,7 +72,7 @@
 // Avoid compile errors with insufficiently scoped templates
 static int UIntArrayType = osg::Array::UIntArrayType; 
 
-// Instantiate container classes that will be aliased farther down
+// Instantiate template classes that will be aliased farther down
 template class ::std::vector< std::pair<osg::ref_ptr<osg::StateAttribute const>, osg::ref_ptr<osg::RefMatrixd> > >;
 template class ::std::list< osg::ref_ptr<osg::TemplateIndexArray<unsigned int, osg::Array::UIntArrayType, 1, 5125> > >;
 

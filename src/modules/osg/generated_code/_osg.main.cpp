@@ -138,8 +138,6 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplanelist.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clustercullingcallback.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/collectoccludersvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormap.pypp.hpp"
@@ -952,8 +950,6 @@ BOOST_PYTHON_MODULE(_osg){
     register_ClipNode_class();
 
     register_ClipPlane_class();
-
-    register_ClusterCullingCallback_class();
 
     register_NodeVisitor_class();
 

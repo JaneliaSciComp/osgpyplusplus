@@ -25,8 +25,9 @@ include(UsePythonTest)
 
 # Value of PYTHONPATH variable for in-build-area testing.
 set(TEST_PATH "${STAGING_FOLDER}")
-file(TO_NATIVE_PATH TEST_PATH ${TEST_PATH})
-set(TEST_PYTHON_PATH ${TEST_PATH} $ENV{PYTHONPATH})
+set(OTHER_PYTHONPATH "$ENV{PYTHONPATH}")
+file(TO_CMAKE_PATH "${OTHER_PYTHONPATH}" OTHER_PYTHONPATH ) # Avoid backslashes in literal text
+set(TEST_PYTHON_PATH ${TEST_PATH} ${OTHER_PYTHONPATH})
 
 # Run all the testWhatever.py programs
 file(GLOB TEST_PROGS "test*.py")
