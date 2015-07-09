@@ -8,6 +8,21 @@ namespace bp = boost::python;
 
 void register_enumerations(){
 
+    bp::enum_< osg::ColorSpaceOperation>("ColorSpaceOperation")
+        .value("NO_COLOR_SPACE_OPERATION", osg::NO_COLOR_SPACE_OPERATION)
+        .value("MODULATE_ALPHA_BY_LUMINANCE", osg::MODULATE_ALPHA_BY_LUMINANCE)
+        .value("MODULATE_ALPHA_BY_COLOR", osg::MODULATE_ALPHA_BY_COLOR)
+        .value("REPLACE_ALPHA_WITH_LUMINANCE", osg::REPLACE_ALPHA_WITH_LUMINANCE)
+        .value("REPLACE_RGB_WITH_LUMINANCE", osg::REPLACE_RGB_WITH_LUMINANCE)
+        .export_values()
+        ;
+
+    bp::enum_< osg::Endian>("Endian")
+        .value("BigEndian", osg::BigEndian)
+        .value("LittleEndian", osg::LittleEndian)
+        .export_values()
+        ;
+
     bp::enum_< osg::NotifySeverity>("NotifySeverity")
         .value("ALWAYS", osg::ALWAYS)
         .value("FATAL", osg::FATAL)

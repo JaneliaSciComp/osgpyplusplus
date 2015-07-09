@@ -68,6 +68,14 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/attributevec.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/audiosink.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/audiostream.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/audiostreams.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/autotransform.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrier.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/barrieroperation.pypp.hpp"
@@ -130,7 +138,11 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clipplanelist.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/clustercullingcallback.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/collectoccludersvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormap.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/colormask.pypp.hpp"
 
@@ -246,6 +258,14 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/image.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/imagedatalist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/imagelist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/imagesequence.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/imagestream.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/infiniteplane.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/kdnodelist.pypp.hpp"
@@ -259,6 +279,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightmodel.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/lightsource.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linesegment.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/linestipple.pypp.hpp"
 
@@ -304,6 +326,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodecallback.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodetrackercallback.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/nodevisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/notifyhandler.pypp.hpp"
@@ -311,6 +335,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/object.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observernodepath.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/observers.pypp.hpp"
 
@@ -331,6 +357,8 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pagedlod.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/patchparameter.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/pixelstoragemodes.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/plane.pypp.hpp"
 
@@ -466,21 +494,39 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture1d.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2d.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2darray.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture2dmultisample.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texture3d.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureattributelist.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturebuffer.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturecostestimator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturecubemap.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturemodelist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/textureobjectbuffer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/texturerectangle.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/thread.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timecontrolpointmap.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/timer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transferfunction.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transferfunction1d.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/transform.pypp.hpp"
 
@@ -505,6 +551,48 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/usagemap.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/userdatacontainer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobject.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__bool__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__char__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__double__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__float__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__int__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_matrixd__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_matrixf__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_plane__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_quat__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec2d__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec2f__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec3d__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec3f__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec4d__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__osg_scope_vec4f__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__short__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__std_scope_string__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__unsigned_char__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__unsigned_int__greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valueobjectclassnametrait_less__unsigned_short__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osg/generated_code/valuevisitor.pypp.hpp"
 
@@ -645,9 +733,13 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_vector_less__osg_scope_ref_ptr_less_osg_scope_Node_greater___greater__class();
 
+    register_ImageList_class();
+
     register_vector_less__osg_scope_ref_ptr_less_osg_scope_Drawable_greater___greater__class();
 
     register_ClipPlaneList_class();
+
+    register_AudioStreams_class();
 
     register_ArrayList_class();
 
@@ -676,6 +768,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_vector_less__osg_scope_KdTree_scope_LineSegmentIntersection__greater__class();
 
     register_KdNodeList_class();
+
+    register_ImageDataList_class();
 
     register_std_vector_osgGroupPtr_class();
 
@@ -728,6 +822,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_AttachmentMap_class();
 
     register_BufferAttachmentMap_class();
+
+    register_ColorMap_class();
 
     register_TimeControlPointMap_class();
 
@@ -797,11 +893,21 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_AttributeDispatch_class();
 
+    register_AudioSink_class();
+
+    register_AudioStream_class();
+
+    register_Node_class();
+
+    register_Group_class();
+
+    register_Transform_class();
+
+    register_AutoTransform_class();
+
     register_Operation_class();
 
     register_BarrierOperation_class();
-
-    register_Node_class();
 
     register_Geode_class();
 
@@ -829,10 +935,6 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_CullSettings_class();
 
-    register_Group_class();
-
-    register_Transform_class();
-
     register_Camera_class();
 
     register_CameraRenderOrderSortOp_class();
@@ -850,6 +952,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_ClipNode_class();
 
     register_ClipPlane_class();
+
+    register_ClusterCullingCallback_class();
 
     register_NodeVisitor_class();
 
@@ -957,6 +1061,10 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_Image_class();
 
+    register_ImageStream_class();
+
+    register_ImageSequence_class();
+
     register_Plane_class();
 
     register_InfinitePlane_class();
@@ -972,6 +1080,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_LightModel_class();
 
     register_LightSource_class();
+
+    register_LineSegment_class();
 
     register_LineStipple_class();
 
@@ -991,7 +1101,11 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_NodeAcceptOp_class();
 
+    register_NodeTrackerCallback_class();
+
     register_NotifyHandler_class();
+
+    register_ObserverNodePath_class();
 
     register_ObserverSet_class();
 
@@ -1004,6 +1118,8 @@ BOOST_PYTHON_MODULE(_osg){
     register_PagedLOD_class();
 
     register_PatchParameter_class();
+
+    register_PixelStorageModes_class();
 
     register_Point_class();
 
@@ -1117,15 +1233,77 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_Texture_class();
 
+    register_Texture1D_class();
+
     register_Texture2D_class();
 
+    register_Texture2DArray_class();
+
+    register_Texture2DMultisample_class();
+
+    register_Texture3D_class();
+
+    register_TextureBuffer_class();
+
     register_TextureCostEstimator_class();
+
+    register_TextureCubeMap_class();
+
+    register_TextureRectangle_class();
+
+    register_TransferFunction_class();
+
+    register_Vec4f_class();
+
+    register_TransferFunction1D_class();
 
     register_TransformFeedbackBufferBinding_class();
 
     register_UniformBufferBinding_class();
 
     register_UniformBufferObject_class();
+
+    register_ValueObject_class();
+
+    register_ValueObjectClassNameTrait_less__bool__greater__class();
+
+    register_ValueObjectClassNameTrait_less__char__greater__class();
+
+    register_ValueObjectClassNameTrait_less__double__greater__class();
+
+    register_ValueObjectClassNameTrait_less__float__greater__class();
+
+    register_ValueObjectClassNameTrait_less__int__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Matrixd__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Matrixf__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Plane__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Quat__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec2d__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec2f__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec3d__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec3f__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec4d__greater__class();
+
+    register_ValueObjectClassNameTrait_less__osg_scope_Vec4f__greater__class();
+
+    register_ValueObjectClassNameTrait_less__short__greater__class();
+
+    register_ValueObjectClassNameTrait_less__std_scope_string__greater__class();
+
+    register_ValueObjectClassNameTrait_less__unsigned_char__greater__class();
+
+    register_ValueObjectClassNameTrait_less__unsigned_int__greater__class();
+
+    register_ValueObjectClassNameTrait_less__unsigned_short__greater__class();
 
     register_ValueVisitor_class();
 
@@ -1170,8 +1348,6 @@ BOOST_PYTHON_MODULE(_osg){
     register_Vec4d_class();
 
     bp::implicitly_convertible< osg::Vec4d, osg::Vec4f >();
-
-    register_Vec4f_class();
 
     register_Vec4i_class();
 

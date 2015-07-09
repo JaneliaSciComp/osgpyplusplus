@@ -121,6 +121,31 @@ void register_free_functions(){
     
     }
 
+    { //::osg::clearImageToColor
+    
+        typedef bool ( *clearImageToColor_function_type )( ::osg::Image *,::osg::Vec4 const & );
+        
+        bp::def( 
+            "clearImageToColor"
+            , clearImageToColor_function_type( &::osg::clearImageToColor )
+            , ( bp::arg("image"), bp::arg("colour") )
+            , " Compute the min max colour values in the image." );
+    
+    }
+
+    { //::osg::colorSpaceConversion
+    
+        typedef ::osg::Image * ( *colorSpaceConversion_function_type )( ::osg::ColorSpaceOperation,::osg::Image *,::osg::Vec4 const & );
+        
+        bp::def( 
+            "colorSpaceConversion"
+            , colorSpaceConversion_function_type( &::osg::colorSpaceConversion )
+            , ( bp::arg("op"), bp::arg("image"), bp::arg("colour") )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " Convert the RGBA values in a Image based on a ColorSpaceOperation defined scheme." );
+    
+    }
+
     { //::osg::componentDivide
     
         typedef ::osg::Vec4us ( *componentDivide_function_type )( ::osg::Vec4us const &,::osg::Vec4us const & );
@@ -493,6 +518,18 @@ void register_free_functions(){
     
     }
 
+    { //::osg::computeMinMax
+    
+        typedef bool ( *computeMinMax_function_type )( ::osg::Image const *,::osg::Vec4 &,::osg::Vec4 & );
+        
+        bp::def( 
+            "computeMinMax"
+            , computeMinMax_function_type( &::osg::computeMinMax )
+            , ( bp::arg("image"), bp::arg("min"), bp::arg("max") )
+            , " Compute the min max colour values in the image." );
+    
+    }
+
     { //::osg::computeWorldToLocal
     
         typedef ::osg::Matrix ( *computeWorldToLocal_function_type )( ::osg::NodePath const &,bool );
@@ -502,6 +539,18 @@ void register_free_functions(){
             , computeWorldToLocal_function_type( &::osg::computeWorldToLocal )
             , ( bp::arg("nodePath"), bp::arg("ignoreCameras")=(bool)(true) )
             , " Compute the matrix which transforms objects in world coords to local coords,\n by accumulating the Transform world to local matrices along the specified node path." );
+    
+    }
+
+    { //::osg::copyImage
+    
+        typedef bool ( *copyImage_function_type )( ::osg::Image const *,int,int,int,int,int,int,::osg::Image *,int,int,int,bool );
+        
+        bp::def( 
+            "copyImage"
+            , copyImage_function_type( &::osg::copyImage )
+            , ( bp::arg("srcImage"), bp::arg("src_s"), bp::arg("src_t"), bp::arg("src_r"), bp::arg("width"), bp::arg("height"), bp::arg("depth"), bp::arg("destImage"), bp::arg("dest_s"), bp::arg("dest_t"), bp::arg("dest_r"), bp::arg("doRescale")=(bool)(false) )
+            , " Compute source image to destination image." );
     
     }
 
@@ -531,6 +580,45 @@ void register_free_functions(){
     
     }
 
+    { //::osg::createImage3D
+    
+        typedef ::osg::Image * ( *createImage3D_function_type )( ::osg::ImageList const &,::GLenum,int,int,int,bool );
+        
+        bp::def( 
+            "createImage3D"
+            , createImage3D_function_type( &::osg::createImage3D )
+            , ( bp::arg("imageList"), bp::arg("desiredPixelFormat"), bp::arg("s_maximumImageSize")=(int)(1024), bp::arg("t_maximumImageSize")=(int)(1024), bp::arg("r_maximumImageSize")=(int)(1024), bp::arg("resizeToPowerOfTwo")=(bool)(false) )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " create a 3D osg::Image from a list of osg::Image." );
+    
+    }
+
+    { //::osg::createImage3DWithAlpha
+    
+        typedef ::osg::Image * ( *createImage3DWithAlpha_function_type )( ::osg::ImageList const &,int,int,int,bool );
+        
+        bp::def( 
+            "createImage3DWithAlpha"
+            , createImage3DWithAlpha_function_type( &::osg::createImage3DWithAlpha )
+            , ( bp::arg("imageList"), bp::arg("s_maximumImageSize")=(int)(1024), bp::arg("t_maximumImageSize")=(int)(1024), bp::arg("r_maximumImageSize")=(int)(1024), bp::arg("resizeToPowerOfTwo")=(bool)(false) )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " create a 3D osg::Image from a list of osg::Image." );
+    
+    }
+
+    { //::osg::createSpotLightImage
+    
+        typedef ::osg::Image * ( *createSpotLightImage_function_type )( ::osg::Vec4 const &,::osg::Vec4 const &,unsigned int,float );
+        
+        bp::def( 
+            "createSpotLightImage"
+            , createSpotLightImage_function_type( &::osg::createSpotLightImage )
+            , ( bp::arg("centerColour"), bp::arg("backgroudColour"), bp::arg("size"), bp::arg("power") )
+            , bp::return_value_policy< bp::reference_existing_object >()
+            , " create a 2D osg::Image that provides a point at the center of the image.\n  The colour across th image is computed from a balance between the center color and the background color controlled by the power of the radius from the center." );
+    
+    }
+
     { //::osg::createTexturedQuadGeometry
     
         typedef ::osg::Geometry * ( *createTexturedQuadGeometry_function_type )( ::osg::Vec3 const &,::osg::Vec3 const &,::osg::Vec3 const &,float,float );
@@ -554,6 +642,30 @@ void register_free_functions(){
             , ( bp::arg("corner"), bp::arg("widthVec"), bp::arg("heightVec"), bp::arg("l"), bp::arg("b"), bp::arg("r"), bp::arg("t") )
             , bp::return_value_policy< bp::reference_existing_object >()
             , " Convenience function to be used for creating quad geometry with texture coords.\n Tex coords go from left bottom (l,b) to right top (r,t)." );
+    
+    }
+
+    { //::osg::deleteAllGLObjects
+    
+        typedef void ( *deleteAllGLObjects_function_type )( unsigned int );
+        
+        bp::def( 
+            "deleteAllGLObjects"
+            , deleteAllGLObjects_function_type( &::osg::deleteAllGLObjects )
+            , ( bp::arg("contextID") )
+            , " Do a GL delete all OpenGL objects.\n Note, must be called from a thread which has current the graphics context associated with contextID." );
+    
+    }
+
+    { //::osg::discardAllGLObjects
+    
+        typedef void ( *discardAllGLObjects_function_type )( unsigned int );
+        
+        bp::def( 
+            "discardAllGLObjects"
+            , discardAllGLObjects_function_type( &::osg::discardAllGLObjects )
+            , ( bp::arg("contextID") )
+            , " Discard all OpenGL objects.\n Note, unlike deleteAllGLjects discard does not\n do any OpenGL calls so can be called from any thread, but as a consequence it\n also doesnt remove the associated OpenGL resource so discard should only be\n called when the associated graphics context is being/has been closed." );
     
     }
 
@@ -605,6 +717,30 @@ void register_free_functions(){
     
     }
 
+    { //::osg::flushAllDeletedGLObjects
+    
+        typedef void ( *flushAllDeletedGLObjects_function_type )( unsigned int );
+        
+        bp::def( 
+            "flushAllDeletedGLObjects"
+            , flushAllDeletedGLObjects_function_type( &::osg::flushAllDeletedGLObjects )
+            , ( bp::arg("contextID") )
+            , " Flush all deleted OpenGL objects.\n Note, must be called from a thread which has current the graphics context associated with contextID." );
+    
+    }
+
+    { //::osg::flushDeletedGLObjects
+    
+        typedef void ( *flushDeletedGLObjects_function_type )( unsigned int,double,double & );
+        
+        bp::def( 
+            "flushDeletedGLObjects"
+            , flushDeletedGLObjects_function_type( &::osg::flushDeletedGLObjects )
+            , ( bp::arg("contextID"), bp::arg("currentTime"), bp::arg("availableTime") )
+            , " Flush all deleted OpenGL objects within the specified availableTime.\n Note, must be called from a thread which has current the graphics context associated with contextID." );
+    
+    }
+
     { //::osg::getBinding
     
         typedef ::osg::Array::Binding ( *getBinding_function_type )( ::osg::Array const * );
@@ -614,6 +750,78 @@ void register_free_functions(){
             , getBinding_function_type( &::osg::getBinding )
             , ( bp::arg("array") )
             , " convinience function for getting the binding of array via a ptr that may be null." );
+    
+    }
+
+    { //::osg::getCpuByteOrder
+    
+        typedef ::osg::Endian ( *getCpuByteOrder_function_type )(  );
+        
+        bp::def( 
+            "getCpuByteOrder"
+            , getCpuByteOrder_function_type( &::osg::getCpuByteOrder ) );
+    
+    }
+
+    { //::osg::getGLExtensionDisableString
+    
+        typedef ::std::string & ( *getGLExtensionDisableString_function_type )(  );
+        
+        bp::def( 
+            "getGLExtensionDisableString"
+            , getGLExtensionDisableString_function_type( &::osg::getGLExtensionDisableString )
+            , bp::return_value_policy< bp::copy_non_const_reference >()
+            , " Get the list of extensions that are disabled for various OpenGL renderers." );
+    
+    }
+
+    { //::osg::getGLExtensionFuncPtr
+    
+        typedef void * ( *getGLExtensionFuncPtr_function_type )( char const *,char const *,char const * );
+        
+        bp::def( 
+            "getGLExtensionFuncPtr"
+            , getGLExtensionFuncPtr_function_type( &::osg::getGLExtensionFuncPtr )
+            , ( bp::arg("funcName1"), bp::arg("funcName2"), bp::arg("funcName3") )
+            , bp::return_value_policy< bp::return_opaque_pointer >()
+            , " Return the address of the specified OpenGL function. If not found then\n check a second function name, if this fails then return NULL as function is\n not supported by OpenGL library. This is used for checking something\n like glActiveTexture (which is in OGL1.3) or glActiveTextureARB." );
+    
+    }
+
+    { //::osg::getGLExtensionFuncPtr
+    
+        typedef void * ( *getGLExtensionFuncPtr_function_type )( char const *,char const * );
+        
+        bp::def( 
+            "getGLExtensionFuncPtr"
+            , getGLExtensionFuncPtr_function_type( &::osg::getGLExtensionFuncPtr )
+            , ( bp::arg("funcName"), bp::arg("fallbackFuncName") )
+            , bp::return_value_policy< bp::return_opaque_pointer >()
+            , " Return the address of the specified OpenGL function. If not found then\n check a second function name, if this fails then return NULL as function is\n not supported by OpenGL library. This is used for checking something\n like glActiveTexture (which is in OGL1.3) or glActiveTextureARB." );
+    
+    }
+
+    { //::osg::getGLExtensionFuncPtr
+    
+        typedef void * ( *getGLExtensionFuncPtr_function_type )( char const * );
+        
+        bp::def( 
+            "getGLExtensionFuncPtr"
+            , getGLExtensionFuncPtr_function_type( &::osg::getGLExtensionFuncPtr )
+            , ( bp::arg("funcName") )
+            , bp::return_value_policy< bp::return_opaque_pointer >()
+            , " Return the address of the specified OpenGL function.\n Return NULL if function not supported by OpenGL library.\n Note, glGLExtensionFuncPtr is declared inline so that the code\n is compiled locally to the calling code.  This should get by Windows\n dumb implementation of having different GL function ptrs for each\n library when linked to it." );
+    
+    }
+
+    { //::osg::getGLVersionNumber
+    
+        typedef float ( *getGLVersionNumber_function_type )(  );
+        
+        bp::def( 
+            "getGLVersionNumber"
+            , getGLVersionNumber_function_type( &::osg::getGLVersionNumber )
+            , " Return floating-point OpenGL version number.\n Note: Must only be called within a valid OpenGL context,\n undefined behavior may occur otherwise." );
     
     }
 
@@ -649,6 +857,173 @@ void register_free_functions(){
             "getNotifyLevel"
             , getNotifyLevel_function_type( &::osg::getNotifyLevel )
             , " get the notify level." );
+    
+    }
+
+    { //::osg::gluBuild1DMipmapLevels
+    
+        typedef ::GLint ( *gluBuild1DMipmapLevels_function_type )( ::GLenum,::GLint,::GLsizei,::GLenum,::GLenum,::GLint,::GLint,::GLint,void const * );
+        
+        bp::def( 
+            "gluBuild1DMipmapLevels"
+            , gluBuild1DMipmapLevels_function_type( &::osg::gluBuild1DMipmapLevels )
+            , ( bp::arg("target"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("format"), bp::arg("type"), bp::arg("level"), bp::arg("base"), bp::arg("max"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluBuild1DMipmaps
+    
+        typedef ::GLint ( *gluBuild1DMipmaps_function_type )( ::GLenum,::GLint,::GLsizei,::GLenum,::GLenum,void const * );
+        
+        bp::def( 
+            "gluBuild1DMipmaps"
+            , gluBuild1DMipmaps_function_type( &::osg::gluBuild1DMipmaps )
+            , ( bp::arg("target"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("format"), bp::arg("type"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluBuild2DMipmapLevels
+    
+        typedef ::GLint ( *gluBuild2DMipmapLevels_function_type )( ::GLenum,::GLint,::GLsizei,::GLsizei,::GLenum,::GLenum,::GLint,::GLint,::GLint,void const * );
+        
+        bp::def( 
+            "gluBuild2DMipmapLevels"
+            , gluBuild2DMipmapLevels_function_type( &::osg::gluBuild2DMipmapLevels )
+            , ( bp::arg("target"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("format"), bp::arg("type"), bp::arg("level"), bp::arg("base"), bp::arg("max"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluBuild2DMipmaps
+    
+        typedef ::GLint ( *gluBuild2DMipmaps_function_type )( ::GLenum,::GLint,::GLsizei,::GLsizei,::GLenum,::GLenum,void const * );
+        
+        bp::def( 
+            "gluBuild2DMipmaps"
+            , gluBuild2DMipmaps_function_type( &::osg::gluBuild2DMipmaps )
+            , ( bp::arg("target"), bp::arg("internalFormat"), bp::arg("width"), bp::arg("height"), bp::arg("format"), bp::arg("type"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluDeleteTess
+    
+        typedef void ( *gluDeleteTess_function_type )( ::osg::GLUtesselator * );
+        
+        bp::def( 
+            "gluDeleteTess"
+            , gluDeleteTess_function_type( &::osg::gluDeleteTess )
+            , ( bp::arg("tess") ) );
+    
+    }
+
+    { //::osg::gluGetTessProperty
+    
+        typedef void ( *gluGetTessProperty_function_type )( ::osg::GLUtesselator *,::GLenum,double * );
+        
+        bp::def( 
+            "gluGetTessProperty"
+            , gluGetTessProperty_function_type( &::osg::gluGetTessProperty )
+            , ( bp::arg("tess"), bp::arg("which"), bp::arg("value") ) );
+    
+    }
+
+    { //::osg::gluScaleImage
+    
+        typedef ::GLint ( *gluScaleImage_function_type )( ::GLenum,::GLsizei,::GLsizei,::GLenum,void const *,::GLsizei,::GLsizei,::GLenum,::GLvoid * );
+        
+        bp::def( 
+            "gluScaleImage"
+            , gluScaleImage_function_type( &::osg::gluScaleImage )
+            , ( bp::arg("format"), bp::arg("wIn"), bp::arg("hIn"), bp::arg("typeIn"), bp::arg("dataIn"), bp::arg("wOut"), bp::arg("hOut"), bp::arg("typeOut"), bp::arg("dataOut") )
+            , " Traditional GLU gluScaleImage function that sets up the PixelStoreModes automatically by doing glGets.;\n The use of glGets means that you can only call this function from a thread with a valid graphics context.\n The use of glGets will also result in lower performance due to the round trip to the OpenGL driver." );
+    
+    }
+
+    { //::osg::gluScaleImage
+    
+        typedef ::GLint ( *gluScaleImage_function_type )( ::osg::PixelStorageModes *,::GLenum,::GLsizei,::GLsizei,::GLenum,void const *,::GLsizei,::GLsizei,::GLenum,::GLvoid * );
+        
+        bp::def( 
+            "gluScaleImage"
+            , gluScaleImage_function_type( &::osg::gluScaleImage )
+            , ( bp::arg("psm"), bp::arg("format"), bp::arg("wIn"), bp::arg("hIn"), bp::arg("typeIn"), bp::arg("dataIn"), bp::arg("wOut"), bp::arg("hOut"), bp::arg("typeOut"), bp::arg("dataOut") )
+            , " OSG specific gluScaleImage function that allows you to pass in the PixelStoreModes, which\n enables the code to avoid glGets that are associated with the conventional gluScaleImage function.\n Avoiding glGets allows this gluScaleImage function to be called at any time, from any thread, there\n is no need to have a graphics context current." );
+    
+    }
+
+    { //::osg::gluTessBeginContour
+    
+        typedef void ( *gluTessBeginContour_function_type )( ::osg::GLUtesselator * );
+        
+        bp::def( 
+            "gluTessBeginContour"
+            , gluTessBeginContour_function_type( &::osg::gluTessBeginContour )
+            , ( bp::arg("tess") ) );
+    
+    }
+
+    { //::osg::gluTessBeginPolygon
+    
+        typedef void ( *gluTessBeginPolygon_function_type )( ::osg::GLUtesselator *,::GLvoid * );
+        
+        bp::def( 
+            "gluTessBeginPolygon"
+            , gluTessBeginPolygon_function_type( &::osg::gluTessBeginPolygon )
+            , ( bp::arg("tess"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluTessEndContour
+    
+        typedef void ( *gluTessEndContour_function_type )( ::osg::GLUtesselator * );
+        
+        bp::def( 
+            "gluTessEndContour"
+            , gluTessEndContour_function_type( &::osg::gluTessEndContour )
+            , ( bp::arg("tess") ) );
+    
+    }
+
+    { //::osg::gluTessEndPolygon
+    
+        typedef void ( *gluTessEndPolygon_function_type )( ::osg::GLUtesselator * );
+        
+        bp::def( 
+            "gluTessEndPolygon"
+            , gluTessEndPolygon_function_type( &::osg::gluTessEndPolygon )
+            , ( bp::arg("tess") ) );
+    
+    }
+
+    { //::osg::gluTessNormal
+    
+        typedef void ( *gluTessNormal_function_type )( ::osg::GLUtesselator *,double,double,double );
+        
+        bp::def( 
+            "gluTessNormal"
+            , gluTessNormal_function_type( &::osg::gluTessNormal )
+            , ( bp::arg("tess"), bp::arg("valueX"), bp::arg("valueY"), bp::arg("valueZ") ) );
+    
+    }
+
+    { //::osg::gluTessProperty
+    
+        typedef void ( *gluTessProperty_function_type )( ::osg::GLUtesselator *,::GLenum,double );
+        
+        bp::def( 
+            "gluTessProperty"
+            , gluTessProperty_function_type( &::osg::gluTessProperty )
+            , ( bp::arg("tess"), bp::arg("which"), bp::arg("data") ) );
+    
+    }
+
+    { //::osg::gluTessVertex
+    
+        typedef void ( *gluTessVertex_function_type )( ::osg::GLUtesselator *,double *,::GLvoid * );
+        
+        bp::def( 
+            "gluTessVertex"
+            , gluTessVertex_function_type( &::osg::gluTessVertex )
+            , ( bp::arg("tess"), bp::arg("location"), bp::arg("data") ) );
     
     }
 
@@ -707,6 +1082,42 @@ void register_free_functions(){
     
     }
 
+    { //::osg::isExtensionInExtensionString
+    
+        typedef bool ( *isExtensionInExtensionString_function_type )( char const *,char const * );
+        
+        bp::def( 
+            "isExtensionInExtensionString"
+            , isExtensionInExtensionString_function_type( &::osg::isExtensionInExtensionString )
+            , ( bp::arg("extension"), bp::arg("extensionString") )
+            , " Return true if extension is contained in extensionString." );
+    
+    }
+
+    { //::osg::isGLExtensionOrVersionSupported
+    
+        typedef bool ( *isGLExtensionOrVersionSupported_function_type )( unsigned int,char const *,float );
+        
+        bp::def( 
+            "isGLExtensionOrVersionSupported"
+            , isGLExtensionOrVersionSupported_function_type( &::osg::isGLExtensionOrVersionSupported )
+            , ( bp::arg("contextID"), bp::arg("extension"), bp::arg("requiredGlVersion") )
+            , " Return true if OpenGL extension or minimum OpenGL version number is supported.\n Note: Must only be called within a valid OpenGL context,\n undefined behavior may occur otherwise." );
+    
+    }
+
+    { //::osg::isGLExtensionSupported
+    
+        typedef bool ( *isGLExtensionSupported_function_type )( unsigned int,char const * );
+        
+        bp::def( 
+            "isGLExtensionSupported"
+            , isGLExtensionSupported_function_type( &::osg::isGLExtensionSupported )
+            , ( bp::arg("contextID"), bp::arg("extension") )
+            , " Return true if OpenGL extension is supported.\n Note: Must only be called within a valid OpenGL context,\n undefined behavior may occur otherwise." );
+    
+    }
+
     { //::osg::isNaN
     
         typedef bool ( *isNaN_function_type )( double );
@@ -738,6 +1149,18 @@ void register_free_functions(){
             "isTextureMode"
             , isTextureMode_function_type( &::osg::isTextureMode )
             , ( bp::arg("mode") ) );
+    
+    }
+
+    { //::osg::maximimNumOfComponents
+    
+        typedef unsigned int ( *maximimNumOfComponents_function_type )( ::osg::ImageList const & );
+        
+        bp::def( 
+            "maximimNumOfComponents"
+            , maximimNumOfComponents_function_type( &::osg::maximimNumOfComponents )
+            , ( bp::arg("imageList") )
+            , " Search through the list of Images and find the maximum number of components used amoung the images." );
     
     }
 
@@ -774,6 +1197,18 @@ void register_free_functions(){
             , ( bp::arg("severity") )
             , bp::return_value_policy< bp::reference_existing_object >()
             , " notify messaging function for providing fatal through to verbose\n debugging messages.  Level of messages sent to the console can\n be controlled by setting the NotifyLevel either within your\n application or via the an environmental variable i.e.\n - setenv OSGNOTIFYLEVEL DEBUG (for tsh)\n - export OSGNOTIFYLEVEL=DEBUG (for bourne shell)\n - set OSGNOTIFYLEVEL=DEBUG (for Windows)\n\n All tell the osg to redirect all debugging and more important messages\n to the notification stream (useful for debugging) setting ALWAYS will force\n all messages to be absorbed, which might be appropriate for final\n applications.  Default NotifyLevel is NOTICE.  Check the enum\n #NotifySeverity for full range of possibilities.  To use the notify\n with your code simply use the notify function as a normal file\n stream (like std::cout) i.e\n [Code]\n osg::notify(osg::DEBUG) << Hello Bugs! << std::endl;\n E:ndcode\n aee setNotifyLevel, setNotifyHandler" );
+    
+    }
+
+    { //::osg::offsetAndScaleImage
+    
+        typedef bool ( *offsetAndScaleImage_function_type )( ::osg::Image *,::osg::Vec4 const &,::osg::Vec4 const & );
+        
+        bp::def( 
+            "offsetAndScaleImage"
+            , offsetAndScaleImage_function_type( &::osg::offsetAndScaleImage )
+            , ( bp::arg("image"), bp::arg("offset"), bp::arg("scale") )
+            , " Compute the min max colour values in the image." );
     
     }
 
@@ -832,6 +1267,18 @@ void register_free_functions(){
     
     }
 
+    { //::osg::setGLExtensionDisableString
+    
+        typedef void ( *setGLExtensionDisableString_function_type )( ::std::string const & );
+        
+        bp::def( 
+            "setGLExtensionDisableString"
+            , setGLExtensionDisableString_function_type( &::osg::setGLExtensionDisableString )
+            , ( bp::arg("disableString") )
+            , " Set a list of extensions to disable for different OpenGL renderers. This allows\n OSG applications to work around OpenGL drivers bugs which are due to problematic extension support.\n The format of the string is:\n GLRendererString : ExtensionName, ExtensionName; GLRenderString2 : ExtensionName;\n An example of is : SUN_XVR1000:GL_EXT_texture_filter_anisotropic\n The default setting of GLExtensionDisableString is obtained from the OSG_GL_EXTENSION_DISABLE\n environmental variable." );
+    
+    }
+
     { //::osg::setNotifyHandler
     
         typedef void ( *setNotifyHandler_function_type )( ::osg::NotifyHandler * );
@@ -853,6 +1300,61 @@ void register_free_functions(){
             , setNotifyLevel_function_type( &::osg::setNotifyLevel )
             , ( bp::arg("severity") )
             , " set the notify level, overriding the default or the value set by\n the environmental variable OSGNOTIFYLEVEL or OSG_NOTIFY_LEVEL." );
+    
+    }
+
+    { //::osg::swapBytes
+    
+        typedef void ( *swapBytes_function_type )( char *,unsigned int );
+        
+        bp::def( 
+            "swapBytes"
+            , swapBytes_function_type( &::osg::swapBytes )
+            , ( bp::arg("in"), bp::arg("size") ) );
+    
+    }
+
+    { //::osg::swapBytes16
+    
+        typedef void ( *swapBytes16_function_type )( char * );
+        
+        bp::def( 
+            "swapBytes16"
+            , swapBytes16_function_type( &::osg::swapBytes16 )
+            , ( bp::arg("in") ) );
+    
+    }
+
+    { //::osg::swapBytes2
+    
+        typedef void ( *swapBytes2_function_type )( char * );
+        
+        bp::def( 
+            "swapBytes2"
+            , swapBytes2_function_type( &::osg::swapBytes2 )
+            , ( bp::arg("in") ) );
+    
+    }
+
+    { //::osg::swapBytes4
+    
+        typedef void ( *swapBytes4_function_type )( char * );
+        
+        bp::def( 
+            "swapBytes4"
+            , swapBytes4_function_type( &::osg::swapBytes4 )
+            , ( bp::arg("in") ) );
+    
+    }
+
+    { //::osg::swapBytes8
+    
+        typedef void ( *swapBytes8_function_type )( char * );
+        
+        bp::def( 
+            "swapBytes8"
+            , swapBytes8_function_type( &::osg::swapBytes8 )
+            , ( bp::arg("in") ) );
     
     }
 

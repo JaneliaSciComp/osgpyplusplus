@@ -1,68 +1,144 @@
 #include "../default.h"
 
-// TODO wrap more classes
+// Full set of OSG 3.2.1 osg headers below
+/* */
 #include <osg/AlphaFunc>
+#include <osg/AnimationPath>
+#include <osg/ApplicationUsage>
 #include <osg/ArgumentParser>
 #include <osg/Array>
+#include <osg/ArrayDispatchers>
+#include <osg/AudioStream>
+#include <osg/AutoTransform>
 #include <osg/Billboard>
 #include <osg/BlendColor>
 #include <osg/BlendEquation>
 #include <osg/BlendFunc>
+#include <osg/BoundingBox>
+#include <osg/BoundingSphere>
+#include <osg/BoundsChecking>
+#include <osg/buffered_value>
 #include <osg/BufferIndexBinding>
+#include <osg/BufferObject>
+#include <osg/Camera>
+#include <osg/CameraNode>
 #include <osg/CameraView>
 #include <osg/ClampColor>
+#include <osg/ClearNode>
 #include <osg/ClipNode>
 #include <osg/ClipPlane>
+#include <osg/ClusterCullingCallback>
 #include <osg/CollectOccludersVisitor>
-#include <osg/CoordinateSystemNode>
 #include <osg/ColorMask>
 #include <osg/ColorMatrix>
 #include <osg/ComputeBoundsVisitor>
+#include <osg/Config>
+#include <osg/ConvexPlanarOccluder>
+#include <osg/ConvexPlanarPolygon>
+#include <osg/CoordinateSystemNode>
+#include <osg/CopyOp>
 #include <osg/CullFace>
+#include <osg/CullingSet>
+#include <osg/CullSettings>
+#include <osg/CullStack>
+#include <osg/DeleteHandler>
 #include <osg/Depth>
+#include <osg/DisplaySettings>
 #include <osg/Drawable>
 #include <osg/DrawPixels>
+#include <osg/Endian>
+#include <osg/Export>
+#include <osg/fast_back_stack>
 #include <osg/Fog>
 #include <osg/FragmentProgram>
 #include <osg/FrameBufferObject>
+#include <osg/FrameStamp>
 #include <osg/FrontFace>
 #include <osg/Geode>
-#include <osg/Geometry> // OK
+#include <osg/Geometry>
+#include <osg/GL>
+#include <osg/GL2Extensions>
+#include <osg/GLBeginEndAdapter>
+#include <osg/GLExtensions>
+#include <osg/GLObjects>
+#include <osg/GLU>
+#include <osg/GraphicsContext>
+#include <osg/GraphicsCostEstimator>
+#include <osg/GraphicsThread>
+#include <osg/Group>
 #include <osg/Hint>
+#include <osg/Image>
+#include <osg/ImageSequence>
+#include <osg/ImageStream>
+#include <osg/ImageUtils>
+#include <osg/io_utils>
 #include <osg/KdTree>
 #include <osg/Light>
 #include <osg/LightModel>
+#include <osg/LightSource>
+#include <osg/LineSegment>
 #include <osg/LineStipple>
 #include <osg/LineWidth>
 #include <osg/LOD>
 #include <osg/LogicOp>
 #include <osg/Material>
+#include <osg/Math>
+#include <osg/Matrix>
+#include <osg/Matrixd>
+#include <osg/Matrixf>
 #include <osg/MatrixTransform>
+#include <osg/MixinVector>
 #include <osg/Multisample>
+#include <osg/Node>
+#include <osg/NodeCallback>
+#include <osg/NodeTrackerCallback>
 #include <osg/NodeVisitor>
-#include <osg/Object> // OK
+#include <osg/Notify>
+#include <osg/Object>
+#include <osg/Observer>
+#include <osg/observer_ptr>
+#include <osg/ObserverNodePath>
+#include <osg/OccluderNode>
 #include <osg/OcclusionQueryNode>
+#include <osg/OperationThread>
 #include <osg/PagedLOD>
 #include <osg/PatchParameter>
+#include <osg/Plane>
 #include <osg/Point>
 #include <osg/PointSprite>
 #include <osg/PolygonMode>
 #include <osg/PolygonOffset>
 #include <osg/PolygonStipple>
+#include <osg/Polytope>
 #include <osg/PositionAttitudeTransform>
 #include <osg/PrimitiveRestartIndex>
+#include <osg/PrimitiveSet>
 #include <osg/Program>
+#include <osg/Projection>
 #include <osg/ProxyNode>
-#include <osg/Referenced> // OK excluded copy methods
+#include <osg/Quat>
+#include <osg/ref_ptr>
+#include <osg/Referenced>
+#include <osg/RenderInfo>
 #include <osg/SampleMaski>
 #include <osg/Scissor>
 #include <osg/Sequence>
 #include <osg/ShadeModel>
+#include <osg/Shader>
 #include <osg/ShaderAttribute>
+#include <osg/ShaderComposer>
+#include <osg/ShadowVolumeOccluder>
+#include <osg/Shape>
 #include <osg/ShapeDrawable>
+#include <osg/State>
 #include <osg/StateAttribute>
+#include <osg/StateAttributeCallback>
+#include <osg/StateSet>
+#include <osg/Stats>
 #include <osg/Stencil>
 #include <osg/StencilTwoSided>
+#include <osg/Switch>
+#include <osg/TemplatePrimitiveFunctor>
 #include <osg/TexEnv>
 #include <osg/TexEnvCombine>
 #include <osg/TexEnvFilter>
@@ -70,47 +146,55 @@
 #include <osg/TexGenNode>
 #include <osg/TexMat>
 #include <osg/Texture>
-#include <osg/VertexProgram>
-#include <osg/Viewport>
-// NodeVisitor classes
-// 
-#include <osg/Vec4>
-#include <osg/Vec3>
+#include <osg/Texture1D>
+#include <osg/Texture2D>
+#include <osg/Texture2DArray>
+#include <osg/Texture2DMultisample>
+#include <osg/Texture3D>
+#include <osg/TextureBuffer>
+#include <osg/TextureCubeMap>
+#include <osg/TextureRectangle>
+#include <osg/Timer>
+#include <osg/TransferFunction>
+#include <osg/Transform>
+#include <osg/TriangleFunctor>
+#include <osg/TriangleIndexFunctor>
+#include <osg/Uniform>
+#include <osg/UserDataContainer>
+#include <osg/ValueObject>
 #include <osg/Vec2>
-#include <osg/GL>
-#include <osg/Texture2D> // OK
-#include <osg/PositionAttitudeTransform> // OK
-#include <osg/Sequence> // OK
-#include <osg/Switch> // OK
-#include <osg/CameraView> // OK
-#include <osg/LightSource> // OK
-#include <osg/CoordinateSystemNode> // OK
-#include <osg/Projection> // OK
-#include <osg/ClipNode> // OK
-#include <osg/OccluderNode> // OK
-#include <osg/TexGenNode> // OK
-#include <osg/OcclusionQueryNode> // OK
-#include <osg/Billboard> // OK
-#include <osg/LOD> // OK
-#include <osg/MatrixTransform> // OK
-#include <osg/PagedLOD> // OK
-#include <osg/ProxyNode> // OK
-#include <osg/Uniform> // OK
-#include <osg/Geode> // OK
-#include <osg/View> // OK
-#include <osg/Quat> // OK
-#include <osg/Vec2f> // OK
-#include <osg/CopyOp> // OK
-#include <osg/UserDataContainer> // OK
-#include <osg/Node> // OK
-#include <osg/StateSet> // OK
-#include <osg/Notify> // OK
-#include <osg/Stats> // OK excluded getAttribute methods
-#include <osg/Observer> // OK
-#include <osg/DeleteHandler> // OK
-#include <osg/Export> // OK
-#include <osg/Version> // OK
-#include <osg/io_utils>
+#include <osg/Vec2b>
+#include <osg/Vec2d>
+#include <osg/Vec2f>
+#include <osg/Vec2i>
+#include <osg/Vec2s>
+#include <osg/Vec2ub>
+#include <osg/Vec2ui>
+#include <osg/Vec2us>
+#include <osg/Vec3>
+#include <osg/Vec3b>
+#include <osg/Vec3d>
+#include <osg/Vec3f>
+#include <osg/Vec3i>
+#include <osg/Vec3s>
+#include <osg/Vec3ub>
+#include <osg/Vec3ui>
+#include <osg/Vec3us>
+#include <osg/Vec4>
+#include <osg/Vec4b>
+#include <osg/Vec4d>
+#include <osg/Vec4f>
+#include <osg/Vec4i>
+#include <osg/Vec4s>
+#include <osg/Vec4ub>
+#include <osg/Vec4ui>
+#include <osg/Vec4us>
+#include <osg/Version>
+#include <osg/VertexProgram>
+#include <osg/View>
+#include <osg/Viewport>
+/* */
+
 
 // Disambiguate aliases for file names
 template class std::vector<osg::Group*>;
@@ -170,6 +254,3 @@ namespace osg {
 		return true;
 	}	
 }
-
-// #include <osg/Matrixf>
-

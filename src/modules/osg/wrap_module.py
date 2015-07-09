@@ -88,8 +88,39 @@ class OsgWrapper(BaseWrapper):
         # Special treatment for classes that need to be called back from C++
         expose_overridable_ref_ptr_class(mb.class_("NodeVisitor"))
 
-        for fn in mb.free_functions("createGeodeForImage"):
-            fn.call_policies = return_value_policy(reference_existing_object)
+        # Free functions
+        for fn_name in [
+                "colorSpaceConversion", # protected Image destructor problem... 
+                "createGeodeForImage", 
+                "createImage3D", # protected Image destructor problem... 
+                "createImage3DWithAlpha", # protected Image destructor problem... 
+                "createSpotLightImage", # protected Image destructor problem... 
+                "createTexturedQuadGeometry",
+                "getNotifyHandler",
+                "notify",
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.call_policies = return_value_policy(reference_existing_object)
+
+        for fn_name in [
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.call_policies = return_value_policy(manage_new_object)
+
+        for fn_name in [
+                "getGLExtensionDisableString", # returns non-const std::string&
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.call_policies = return_value_policy(copy_non_const_reference)
+
+        for fn_name in [
+                "gluErrorString", # TODO - requires more work to convert GLubyte* to string...
+                "gluNewTess", # GluTesselator object may be opaque?
+                "initOQState", # link error
+                "initOQDebugState", # link error
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.exclude()
         
         expose_increment_operators(self.mb)
         
@@ -170,6 +201,15 @@ class OsgWrapper(BaseWrapper):
         for cls_name in ["RenderBuffer", ]:
             osg.class_(cls_name).member_functions("compare").exclude()
 
+        # C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osg::ImageStream::~ImageStream' : cannot access protected member declared in class 'osg::ImageStream'
+        for cls_name in [
+                "ImageSequence", 
+                "ImageStream", 
+                ]:
+            cls = osg.class_(cls_name)
+            # hack_osg_arg(cls, "compare", "rhs")
+            cls.member_functions("compare").exclude()
+
         osg.class_("PolygonStipple").member_functions("getMask").exclude()
 
         cls = osg.class_("ArgumentParser")
@@ -210,8 +250,28 @@ class OsgWrapper(BaseWrapper):
         self.mb.class_("NodeVisitor").member_functions("validNodeMask").exclude()
         # osg.class_("Texture").member_functions("compare").exclude()
         osg.class_("CoordinateSystemNode").member_functions("set").exclude()
-        osg.class_("Texture2D").class_("SubloadCallback").exclude()
+        # osg.class_("Texture2D").class_("SubloadCallback").exclude()
         osg.class_("Timer").member_functions("instance").call_policies = return_value_policy(reference_existing_object)
+
+        # C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osg::Texture1D::~Texture1D' : cannot access protected member declared in class 'osg::Texture1D'
+        for cls_name in [
+                "Texture1D", 
+                "Texture2D", 
+                "Texture2DArray", 
+                "Texture3D", 
+                "TextureCubeMap", 
+                ]:
+            slc = osg.class_(cls_name).class_("SubloadCallback")
+            slc.member_functions("load").exclude()
+            slc.member_functions("subload").exclude()
+            # hack_osg_arg(cls, "generateTextureObject", 0)
+            # hack_osg_arg(cls, "textureObjectValid", 1)
+            slc.member_functions("generateTextureObject", allow_empty=True).exclude()
+            slc.member_functions("textureObjectValid", allow_empty=True).exclude()
+
+        cls = osg.class_("TextureRectangle").class_("SubloadCallback")
+        hack_osg_arg(cls, "load", "arg0")
+        hack_osg_arg(cls, "subload", "arg0")
 
         osg.class_("Fog").member_function("compare").exclude()
 
@@ -274,25 +334,22 @@ class OsgWrapper(BaseWrapper):
                 # "Transform",
                 ]:
             self.mb.class_(cls_name).exclude()
+
+        # ..\..\..\..\src\modules\osg\generated_code\TextureBufferObjectList.pypp.cpp(12) : error C2248: 'osg::TextureBuffer::TextureBufferObject' : cannot access protected class declared in class 'osg::TextureBuffer'
+        osg.classes(lambda c: c.alias == "TextureBufferObjectList").exclude()
+
+        cls = osg.class_("LineSegment")
+        hack_osg_arg(cls, "mult", "seg")
+        cls.constructors(lambda c: c.is_copy_constructor).exclude()
+
         self.mb.class_(lambda c: c.alias == "VertexAttribAliasList").exclude()
         self.mb.classes(lambda c: c.name.startswith("observer_ptr<")).exclude()
         self.mb.classes(lambda c: c.name.startswith("MixinVector<")).exclude()
         # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
         self.mb.class_("Texture").class_("TextureObject").exclude()
         
-        # Wrap Free functions
-        for fn_name in [
-                "createTexturedQuadGeometry",
-                "getNotifyHandler",
-                "notify",
-                ]:
-            mb.free_functions(fn_name).call_policies = return_value_policy(reference_existing_object)
-        for fn_name in [
-                "initOQState", # link error
-                "initOQDebugState", # link error
-                ]:
-            mb.free_functions(fn_name).exclude()
-        
+        self.mb.class_("ValueObject").constructors(arg_types=[None, None]).exclude()
+
         # Indexing for variable-sized VecXArrays
         for alias in ["Vec2Array", "Vec3Array", "Vec4Array", "UIntArray", ]:
             arr = osg.classes(lambda c: c.alias == alias)[0]
