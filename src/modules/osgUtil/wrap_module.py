@@ -58,6 +58,14 @@ class OsgUtilWrapper(BaseWrapper):
             cls = self.mb.class_(cls_name)
             hack_osg_arg(cls, "enter", "node")
 
+        for fn_name in [
+                "create3DNoiseImage", 
+                "create3DNoiseTexture",
+                ]:
+            for fn in self.mb.free_functions(fn_name):
+                # Because "manage_new_object" causes trouble with protected destructors, so let's leak this memory
+                fn.call_policies = return_value_policy(reference_existing_object)
+
         self.mb.build_code_creator(module_name='_osgUtil')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))
         # Create a file to indicate completion of wrapping script

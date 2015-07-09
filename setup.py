@@ -20,8 +20,8 @@ If necessary, regenerate the binding source code using CMake.
 (For example, if you have added features to the bindings).
 """
 
-from distutils.core import setup
-from distutils.extension import Extension
+from setuptools import setup
+from setuptools.extension import Extension
 from shutil import copy
 from glob import glob
 import os

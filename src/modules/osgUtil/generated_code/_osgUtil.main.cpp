@@ -24,6 +24,10 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/_osgutil_free_functions.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/_osgutil_global_variables.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/addrangeoperator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/baseoptimizervisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/compileops.pypp.hpp"
@@ -32,7 +36,17 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/contextset.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/cubemapgenerator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/cullvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/delaunayconstraint.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/delaunaytriangulator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/dereference_clear.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/dereference_less.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/displayrequirementsvisitor.pypp.hpp"
 
@@ -40,15 +54,31 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/drawelementtypesimplifiervisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/edgecollector.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/edgelist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/edgeset.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/geodestodividelist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/geometrycollector.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/geometrylist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/globjectsoperation.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/globjectsvisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/halfwaymapgenerator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/highlightmapgenerator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/hit.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/incrementalcompileoperation.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/indexmeshvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/intersectionvisitor.pypp.hpp"
 
@@ -66,13 +96,23 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/linesegmentintersector.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/list_less__osg_scope_ref_ptr_less_osgutil_scope_edgecollector_scope_edgeloop_greater___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/multiplyrangeoperator.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/optimizer.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/perlinnoise.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/pickvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/planeintersections.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/planeintersector.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/pointlist.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/pointset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/polytopeintersections.pypp.hpp"
 
@@ -82,9 +122,13 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/primitivevaluemap.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/primlist.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/printvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/programset.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/reflectionmapgenerator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/renderbin.pypp.hpp"
 
@@ -95,6 +139,10 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/renderleaflist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/renderstage.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/reverseprimitivefunctor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/scenegraphbuilder.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/sceneview.pypp.hpp"
 
@@ -122,15 +170,29 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/statsvisitor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/std_list_tiarray_uint_5125.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/std_vector_pair_stateattribute_refmatrixd.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/tangentspacegenerator.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/tessellator.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/textureset.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/texunitattrmatrixlistmap.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/transformattributefunctor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/transformcallback.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/triangleset.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/tristripvisitor.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/updatevisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/veclist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__int__greater_.pypp.hpp"
 
@@ -139,6 +201,12 @@
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__osgutil_scope_hit__greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vector_less__osgutil_scope_stategraph_ptr___greater_.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vertexaccessordervisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vertexcachemissvisitor.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgutil/generated_code/vertexcachevisitor.pypp.hpp"
 
 namespace bp = boost::python;
 
@@ -153,13 +221,27 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_vector_less__osgUtil_scope_Hit__greater__class();
 
+    register_PrimList_class();
+
     register_vector_less__osg_scope_ref_ptr_less_osgUtil_scope_RenderLeaf_greater___greater__class();
 
     register_Intersectors_class();
 
+    register_PointList_class();
+
+    register_EdgeList_class();
+
+    register_VecList_class();
+
     register_vector_less__int__greater__class();
 
     register_PolytopeIntersections_class();
+
+    register_TriangleSet_class();
+
+    register_PointSet_class();
+
+    register_EdgeSet_class();
 
     register_TextureSet_class();
 
@@ -172,6 +254,8 @@ BOOST_PYTHON_MODULE(_osgUtil){
     register_set_less__osg_scope_Group_ptr___greater__class();
 
     register_ContextSet_class();
+
+    register_GeometryList_class();
 
     register_GeodesToDivideList_class();
 
@@ -189,9 +273,21 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_CompileOps_class();
 
+    register_list_less__osg_scope_ref_ptr_less_osgUtil_scope_EdgeCollector_scope_Edgeloop_greater___greater__class();
+
+    register_std_list_tiarray_uint_5125_class();
+
+    register_AddRangeOperator_class();
+
     register_BaseOptimizerVisitor_class();
 
+    register_CubeMapGenerator_class();
+
     register_CullVisitor_class();
+
+    register_DelaunayConstraint_class();
+
+    register_DelaunayTriangulator_class();
 
     register_DisplayRequirementsVisitor_class();
 
@@ -199,13 +295,25 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_DrawElementTypeSimplifierVisitor_class();
 
+    register_EdgeCollector_class();
+
     register_GLObjectsOperation_class();
 
     register_GLObjectsVisitor_class();
 
+    register_Optimizer_class();
+
+    register_GeometryCollector_class();
+
+    register_HalfWayMapGenerator_class();
+
+    register_HighlightMapGenerator_class();
+
     register_Hit_class();
 
     register_IncrementalCompileOperation_class();
+
+    register_IndexMeshVisitor_class();
 
     register_IntersectVisitor_class();
 
@@ -219,7 +327,9 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_LineSegmentIntersector_class();
 
-    register_Optimizer_class();
+    register_MultiplyRangeOperator_class();
+
+    register_PerlinNoise_class();
 
     register_PickVisitor_class();
 
@@ -231,11 +341,17 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_PrintVisitor_class();
 
+    register_ReflectionMapGenerator_class();
+
     register_RenderBin_class();
 
     register_RenderLeaf_class();
 
     register_RenderStage_class();
+
+    register_ReversePrimitiveFunctor_class();
+
+    register_SceneGraphBuilder_class();
 
     register_SceneView_class();
 
@@ -255,9 +371,29 @@ BOOST_PYTHON_MODULE(_osgUtil){
 
     register_StatsVisitor_class();
 
+    register_TangentSpaceGenerator_class();
+
+    register_Tessellator_class();
+
+    register_TransformAttributeFunctor_class();
+
+    register_TransformCallback_class();
+
     register_TriStripVisitor_class();
 
     register_UpdateVisitor_class();
+
+    register_VertexAccessOrderVisitor_class();
+
+    register_VertexCacheMissVisitor_class();
+
+    register_VertexCacheVisitor_class();
+
+    register_dereference_clear_class();
+
+    register_dereference_less_class();
+
+    register_global_variables();
 
     register_free_functions();
 }

@@ -13,3 +13,4 @@ wrap_log.txt
 /osgpyplusplus.egg-info
 /src/osgpypp/*.dll
 /src/osgpypp/osgPlugins-3.2.1/*.dll
+/osgpypp.egg-info
