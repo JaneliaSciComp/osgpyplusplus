@@ -349,6 +349,7 @@ class OsgWrapper(BaseWrapper):
         # self.mb.classes(lambda c: c.name.startswith("TemplateArray<")).exclude()
         self.mb.class_("Texture").class_("TextureObject").exclude()
 
+        # RuntimeError: extension class wrapper for base class struct osg::Drawable::CullCallback has not been created yet
         self.mb.class_("ClusterCullingCallback").exclude()
         
         self.mb.class_("ValueObject").constructors(arg_types=[None, None]).exclude()

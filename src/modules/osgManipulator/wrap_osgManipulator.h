@@ -36,6 +36,9 @@
 #include <osgManipulator/TranslatePlaneDragger>
 #include <osgManipulator/Version>
 
+// Avoid under-scoped symbols
+static int HANDLE_ALL = osgManipulator::DraggerTransformCallback::HANDLE_ALL;
+
 // Instantiate template classes that will be aliased farther down
 
 // Aliases defined within this block will influence the generated wrapper source file names for those classes

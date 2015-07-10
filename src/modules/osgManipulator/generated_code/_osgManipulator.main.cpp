@@ -2,6 +2,10 @@
 
 #include "boost/python.hpp"
 
+#include "__call_policies.pypp.hpp"
+
+#include "__convenience.pypp.hpp"
+
 #include "indexing_suite/value_traits.hpp"
 
 #include "indexing_suite/container_suite.hpp"
@@ -13,6 +17,8 @@
 #include "wrap_osgmanipulator.h"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgmanipulator/generated_code/_osgmanipulator_free_functions.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgmanipulator/generated_code/_osgmanipulator_global_variables.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgmanipulator/generated_code/antisquish.pypp.hpp"
 
@@ -180,6 +186,8 @@ BOOST_PYTHON_MODULE(_osgManipulator){
     register_TranslateInPlaneCommand_class();
 
     register_TranslatePlaneDragger_class();
+
+    register_global_variables();
 
     register_free_functions();
 }
