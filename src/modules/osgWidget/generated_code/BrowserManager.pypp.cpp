@@ -33,11 +33,95 @@ struct BrowserManager_wrapper : osgWidget::BrowserManager, bp::wrapper< osgWidge
         osgWidget::BrowserManager::init( application );
     }
 
+    virtual void computeDataVariance(  ) {
+        if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
+            func_computeDataVariance(  );
+        else{
+            this->osg::Object::computeDataVariance(  );
+        }
+    }
+    
+    void default_computeDataVariance(  ) {
+        osg::Object::computeDataVariance( );
+    }
+
+    virtual ::osg::Referenced * getUserData(  ) {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced * default_getUserData(  ) {
+        return osg::Object::getUserData( );
+    }
+
+    virtual ::osg::Referenced const * getUserData(  ) const  {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced const * default_getUserData(  ) const  {
+        return osg::Object::getUserData( );
+    }
+
+    virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( arg0 );
+        else{
+            this->osg::Object::resizeGLObjectBuffers( arg0 );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int arg0 ) {
+        osg::Object::resizeGLObjectBuffers( arg0 );
+    }
+
+    virtual void setName( ::std::string const & name ) {
+        if( bp::override func_setName = this->get_override( "setName" ) )
+            func_setName( name );
+        else{
+            this->osg::Object::setName( name );
+        }
+    }
+    
+    void default_setName( ::std::string const & name ) {
+        osg::Object::setName( name );
+    }
+
+    virtual void setThreadSafeRefUnref( bool threadSafe ) {
+        if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+            func_setThreadSafeRefUnref( threadSafe );
+        else{
+            this->osg::Object::setThreadSafeRefUnref( threadSafe );
+        }
+    }
+    
+    void default_setThreadSafeRefUnref( bool threadSafe ) {
+        osg::Object::setThreadSafeRefUnref( threadSafe );
+    }
+
+    virtual void setUserData( ::osg::Referenced * obj ) {
+        if( bp::override func_setUserData = this->get_override( "setUserData" ) )
+            func_setUserData( boost::python::ptr(obj) );
+        else{
+            this->osg::Object::setUserData( boost::python::ptr(obj) );
+        }
+    }
+    
+    void default_setUserData( ::osg::Referenced * obj ) {
+        osg::Object::setUserData( boost::python::ptr(obj) );
+    }
+
 };
 
 void register_BrowserManager_class(){
 
-    bp::class_< BrowserManager_wrapper, osg::ref_ptr< ::osgWidget::BrowserManager >, boost::noncopyable >( "BrowserManager", bp::no_init )    
+    bp::class_< BrowserManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::BrowserManager >, boost::noncopyable >( "BrowserManager", bp::no_init )    
         .def( 
             "createBrowserImage"
             , (::osgWidget::BrowserImage * ( ::osgWidget::BrowserManager::* )( ::std::string const &,int,int ) )(&::osgWidget::BrowserManager::createBrowserImage)

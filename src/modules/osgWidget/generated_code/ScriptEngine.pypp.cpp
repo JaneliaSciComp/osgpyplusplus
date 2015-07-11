@@ -64,11 +64,23 @@ struct ScriptEngine_wrapper : osgWidget::ScriptEngine, bp::wrapper< osgWidget::S
         return osgWidget::ScriptEngine::runFile( arg0 );
     }
 
+    virtual void setThreadSafeRefUnref( bool threadSafe ) {
+        if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+            func_setThreadSafeRefUnref( threadSafe );
+        else{
+            this->osg::Referenced::setThreadSafeRefUnref( threadSafe );
+        }
+    }
+    
+    void default_setThreadSafeRefUnref( bool threadSafe ) {
+        osg::Referenced::setThreadSafeRefUnref( threadSafe );
+    }
+
 };
 
 void register_ScriptEngine_class(){
 
-    bp::class_< ScriptEngine_wrapper, osg::ref_ptr< ::osgWidget::ScriptEngine >, boost::noncopyable >( "ScriptEngine" )    
+    bp::class_< ScriptEngine_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::ScriptEngine >, boost::noncopyable >( "ScriptEngine" )    
         .def( 
             "close"
             , (bool ( ::osgWidget::ScriptEngine::* )(  ) )(&::osgWidget::ScriptEngine::close)

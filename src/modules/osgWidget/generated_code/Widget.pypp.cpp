@@ -136,6 +136,138 @@ struct Widget_wrapper : osgWidget::Widget, bp::wrapper< osgWidget::Widget > {
         osgWidget::Widget::unparented( boost::python::ptr(arg0) );
     }
 
+    virtual void accept( ::osg::Drawable::AttributeFunctor & af ) {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(af) );
+        else{
+            this->osg::Geometry::accept( boost::ref(af) );
+        }
+    }
+    
+    void default_accept( ::osg::Drawable::AttributeFunctor & af ) {
+        osg::Geometry::accept( boost::ref(af) );
+    }
+
+    virtual void accept( ::osg::Drawable::ConstAttributeFunctor & af ) const  {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(af) );
+        else{
+            this->osg::Geometry::accept( boost::ref(af) );
+        }
+    }
+    
+    void default_accept( ::osg::Drawable::ConstAttributeFunctor & af ) const  {
+        osg::Geometry::accept( boost::ref(af) );
+    }
+
+    virtual void accept( ::osg::PrimitiveFunctor & pf ) const  {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(pf) );
+        else{
+            this->osg::Geometry::accept( boost::ref(pf) );
+        }
+    }
+    
+    void default_accept( ::osg::PrimitiveFunctor & pf ) const  {
+        osg::Geometry::accept( boost::ref(pf) );
+    }
+
+    virtual void accept( ::osg::PrimitiveIndexFunctor & pf ) const  {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(pf) );
+        else{
+            this->osg::Geometry::accept( boost::ref(pf) );
+        }
+    }
+    
+    void default_accept( ::osg::PrimitiveIndexFunctor & pf ) const  {
+        osg::Geometry::accept( boost::ref(pf) );
+    }
+
+    virtual ::osg::Geometry * asGeometry(  ) {
+        if( bp::override func_asGeometry = this->get_override( "asGeometry" ) )
+            return func_asGeometry(  );
+        else{
+            return this->osg::Geometry::asGeometry(  );
+        }
+    }
+    
+    ::osg::Geometry * default_asGeometry(  ) {
+        return osg::Geometry::asGeometry( );
+    }
+
+    virtual ::osg::Geometry const * asGeometry(  ) const  {
+        if( bp::override func_asGeometry = this->get_override( "asGeometry" ) )
+            return func_asGeometry(  );
+        else{
+            return this->osg::Geometry::asGeometry(  );
+        }
+    }
+    
+    ::osg::Geometry const * default_asGeometry(  ) const  {
+        return osg::Geometry::asGeometry( );
+    }
+
+    virtual void compileGLObjects( ::osg::RenderInfo & renderInfo ) const  {
+        if( bp::override func_compileGLObjects = this->get_override( "compileGLObjects" ) )
+            func_compileGLObjects( boost::ref(renderInfo) );
+        else{
+            this->osg::Geometry::compileGLObjects( boost::ref(renderInfo) );
+        }
+    }
+    
+    void default_compileGLObjects( ::osg::RenderInfo & renderInfo ) const  {
+        osg::Geometry::compileGLObjects( boost::ref(renderInfo) );
+    }
+
+    virtual ::osg::BoundingBox computeBound(  ) const  {
+        if( bp::override func_computeBound = this->get_override( "computeBound" ) )
+            return func_computeBound(  );
+        else{
+            return this->osg::Drawable::computeBound(  );
+        }
+    }
+    
+    ::osg::BoundingBox default_computeBound(  ) const  {
+        return osg::Drawable::computeBound( );
+    }
+
+    virtual void computeDataVariance(  ) {
+        if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
+            func_computeDataVariance(  );
+        else{
+            this->osg::Drawable::computeDataVariance(  );
+        }
+    }
+    
+    void default_computeDataVariance(  ) {
+        osg::Drawable::computeDataVariance( );
+    }
+
+    virtual void dirtyDisplayList(  ) {
+        if( bp::override func_dirtyDisplayList = this->get_override( "dirtyDisplayList" ) )
+            func_dirtyDisplayList(  );
+        else{
+            this->osg::Geometry::dirtyDisplayList(  );
+        }
+    }
+    
+    void default_dirtyDisplayList(  ) {
+        osg::Geometry::dirtyDisplayList( );
+    }
+
+    virtual void drawImplementation( ::osg::RenderInfo & renderInfo ) const  {
+        if( bp::override func_drawImplementation = this->get_override( "drawImplementation" ) )
+            func_drawImplementation( boost::ref(renderInfo) );
+        else{
+            this->osg::Geometry::drawImplementation( boost::ref(renderInfo) );
+        }
+    }
+    
+    void default_drawImplementation( ::osg::RenderInfo & renderInfo ) const  {
+        osg::Geometry::drawImplementation( boost::ref(renderInfo) );
+    }
+
     virtual bool focus( ::osgWidget::WindowManager const * arg0 ) {
         if( bp::override func_focus = this->get_override( "focus" ) )
             return func_focus( boost::python::ptr(arg0) );
@@ -146,6 +278,42 @@ struct Widget_wrapper : osgWidget::Widget, bp::wrapper< osgWidget::Widget > {
     
     bool default_focus( ::osgWidget::WindowManager const * arg0 ) {
         return osgWidget::EventInterface::focus( boost::python::ptr(arg0) );
+    }
+
+    virtual unsigned int getGLObjectSizeHint(  ) const  {
+        if( bp::override func_getGLObjectSizeHint = this->get_override( "getGLObjectSizeHint" ) )
+            return func_getGLObjectSizeHint(  );
+        else{
+            return this->osg::Geometry::getGLObjectSizeHint(  );
+        }
+    }
+    
+    unsigned int default_getGLObjectSizeHint(  ) const  {
+        return osg::Geometry::getGLObjectSizeHint( );
+    }
+
+    virtual ::osg::Referenced * getUserData(  ) {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced * default_getUserData(  ) {
+        return osg::Object::getUserData( );
+    }
+
+    virtual ::osg::Referenced const * getUserData(  ) const  {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced const * default_getUserData(  ) const  {
+        return osg::Object::getUserData( );
     }
 
     virtual bool keyDown( int arg0, int arg1, ::osgWidget::WindowManager const * arg2 ) {
@@ -256,6 +424,162 @@ struct Widget_wrapper : osgWidget::Widget, bp::wrapper< osgWidget::Widget > {
         return osgWidget::EventInterface::mouseScroll( arg0, arg1, boost::python::ptr(arg2) );
     }
 
+    virtual void resizeGLObjectBuffers( unsigned int maxSize ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( maxSize );
+        else{
+            this->osg::Geometry::resizeGLObjectBuffers( maxSize );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int maxSize ) {
+        osg::Geometry::resizeGLObjectBuffers( maxSize );
+    }
+
+    virtual void setCullCallback( ::osg::Drawable::CullCallback * cc ) {
+        if( bp::override func_setCullCallback = this->get_override( "setCullCallback" ) )
+            func_setCullCallback( boost::python::ptr(cc) );
+        else{
+            this->osg::Drawable::setCullCallback( boost::python::ptr(cc) );
+        }
+    }
+    
+    void default_setCullCallback( ::osg::Drawable::CullCallback * cc ) {
+        osg::Drawable::setCullCallback( boost::python::ptr(cc) );
+    }
+
+    virtual void setDrawCallback( ::osg::Drawable::DrawCallback * dc ) {
+        if( bp::override func_setDrawCallback = this->get_override( "setDrawCallback" ) )
+            func_setDrawCallback( boost::python::ptr(dc) );
+        else{
+            this->osg::Drawable::setDrawCallback( boost::python::ptr(dc) );
+        }
+    }
+    
+    void default_setDrawCallback( ::osg::Drawable::DrawCallback * dc ) {
+        osg::Drawable::setDrawCallback( boost::python::ptr(dc) );
+    }
+
+    virtual void setEventCallback( ::osg::Drawable::EventCallback * ac ) {
+        if( bp::override func_setEventCallback = this->get_override( "setEventCallback" ) )
+            func_setEventCallback( boost::python::ptr(ac) );
+        else{
+            this->osg::Drawable::setEventCallback( boost::python::ptr(ac) );
+        }
+    }
+    
+    void default_setEventCallback( ::osg::Drawable::EventCallback * ac ) {
+        osg::Drawable::setEventCallback( boost::python::ptr(ac) );
+    }
+
+    virtual void setName( ::std::string const & name ) {
+        if( bp::override func_setName = this->get_override( "setName" ) )
+            func_setName( name );
+        else{
+            this->osg::Object::setName( name );
+        }
+    }
+    
+    void default_setName( ::std::string const & name ) {
+        osg::Object::setName( name );
+    }
+
+    virtual void setThreadSafeRefUnref( bool threadSafe ) {
+        if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+            func_setThreadSafeRefUnref( threadSafe );
+        else{
+            this->osg::Drawable::setThreadSafeRefUnref( threadSafe );
+        }
+    }
+    
+    void default_setThreadSafeRefUnref( bool threadSafe ) {
+        osg::Drawable::setThreadSafeRefUnref( threadSafe );
+    }
+
+    virtual void setUpdateCallback( ::osg::Drawable::UpdateCallback * ac ) {
+        if( bp::override func_setUpdateCallback = this->get_override( "setUpdateCallback" ) )
+            func_setUpdateCallback( boost::python::ptr(ac) );
+        else{
+            this->osg::Drawable::setUpdateCallback( boost::python::ptr(ac) );
+        }
+    }
+    
+    void default_setUpdateCallback( ::osg::Drawable::UpdateCallback * ac ) {
+        osg::Drawable::setUpdateCallback( boost::python::ptr(ac) );
+    }
+
+    virtual void setUseVertexBufferObjects( bool flag ) {
+        if( bp::override func_setUseVertexBufferObjects = this->get_override( "setUseVertexBufferObjects" ) )
+            func_setUseVertexBufferObjects( flag );
+        else{
+            this->osg::Geometry::setUseVertexBufferObjects( flag );
+        }
+    }
+    
+    void default_setUseVertexBufferObjects( bool flag ) {
+        osg::Geometry::setUseVertexBufferObjects( flag );
+    }
+
+    virtual void setUserData( ::osg::Referenced * obj ) {
+        if( bp::override func_setUserData = this->get_override( "setUserData" ) )
+            func_setUserData( boost::python::ptr(obj) );
+        else{
+            this->osg::Object::setUserData( boost::python::ptr(obj) );
+        }
+    }
+    
+    void default_setUserData( ::osg::Referenced * obj ) {
+        osg::Object::setUserData( boost::python::ptr(obj) );
+    }
+
+    virtual bool supports( ::osg::Drawable::AttributeFunctor const & arg0 ) const  {
+        if( bp::override func_supports = this->get_override( "supports" ) )
+            return func_supports( boost::ref(arg0) );
+        else{
+            return this->osg::Geometry::supports( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_supports( ::osg::Drawable::AttributeFunctor const & arg0 ) const  {
+        return osg::Geometry::supports( boost::ref(arg0) );
+    }
+
+    virtual bool supports( ::osg::Drawable::ConstAttributeFunctor const & arg0 ) const  {
+        if( bp::override func_supports = this->get_override( "supports" ) )
+            return func_supports( boost::ref(arg0) );
+        else{
+            return this->osg::Geometry::supports( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_supports( ::osg::Drawable::ConstAttributeFunctor const & arg0 ) const  {
+        return osg::Geometry::supports( boost::ref(arg0) );
+    }
+
+    virtual bool supports( ::osg::PrimitiveFunctor const & arg0 ) const  {
+        if( bp::override func_supports = this->get_override( "supports" ) )
+            return func_supports( boost::ref(arg0) );
+        else{
+            return this->osg::Geometry::supports( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_supports( ::osg::PrimitiveFunctor const & arg0 ) const  {
+        return osg::Geometry::supports( boost::ref(arg0) );
+    }
+
+    virtual bool supports( ::osg::PrimitiveIndexFunctor const & arg0 ) const  {
+        if( bp::override func_supports = this->get_override( "supports" ) )
+            return func_supports( boost::ref(arg0) );
+        else{
+            return this->osg::Geometry::supports( boost::ref(arg0) );
+        }
+    }
+    
+    bool default_supports( ::osg::PrimitiveIndexFunctor const & arg0 ) const  {
+        return osg::Geometry::supports( boost::ref(arg0) );
+    }
+
     virtual bool unfocus( ::osgWidget::WindowManager const * arg0 ) {
         if( bp::override func_unfocus = this->get_override( "unfocus" ) )
             return func_unfocus( boost::python::ptr(arg0) );
@@ -273,7 +597,7 @@ struct Widget_wrapper : osgWidget::Widget, bp::wrapper< osgWidget::Widget > {
 void register_Widget_class(){
 
     { //::osgWidget::Widget
-        typedef bp::class_< Widget_wrapper, bp::bases< osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< ::osgWidget::Widget >, boost::noncopyable > Widget_exposer_t;
+        typedef bp::class_< Widget_wrapper, bp::bases< ::osg::Geometry, osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< ::osgWidget::Widget >, boost::noncopyable > Widget_exposer_t;
         Widget_exposer_t Widget_exposer = Widget_exposer_t( "Widget", bp::init< bp::optional< std::string const &, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("arg0")="", bp::arg("arg1")=0.0f, bp::arg("arg2")=0.0f )) );
         bp::scope Widget_scope( Widget_exposer );
         bp::enum_< osgWidget::Widget::CoordinateMode>("CoordinateMode")

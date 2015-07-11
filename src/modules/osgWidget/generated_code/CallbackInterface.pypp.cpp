@@ -33,11 +33,23 @@ struct CallbackInterface_wrapper : osgWidget::CallbackInterface, bp::wrapper< os
         return func___call__( boost::ref(arg0) );
     }
 
+    virtual void setThreadSafeRefUnref( bool threadSafe ) {
+        if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+            func_setThreadSafeRefUnref( threadSafe );
+        else{
+            this->osg::Referenced::setThreadSafeRefUnref( threadSafe );
+        }
+    }
+    
+    void default_setThreadSafeRefUnref( bool threadSafe ) {
+        osg::Referenced::setThreadSafeRefUnref( threadSafe );
+    }
+
 };
 
 void register_CallbackInterface_class(){
 
-    bp::class_< CallbackInterface_wrapper, osg::ref_ptr< ::osgWidget::CallbackInterface >, boost::noncopyable >( "CallbackInterface", bp::no_init )    
+    bp::class_< CallbackInterface_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::CallbackInterface >, boost::noncopyable >( "CallbackInterface", bp::no_init )    
         .def( 
             "className"
             , (char const * ( ::osgWidget::CallbackInterface::* )(  ) const)(&::osgWidget::CallbackInterface::className)

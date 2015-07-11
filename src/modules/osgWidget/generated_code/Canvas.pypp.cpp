@@ -88,6 +88,30 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
         return osgWidget::Canvas::libraryName( );
     }
 
+    virtual void accept( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_accept = this->get_override( "accept" ) )
+            func_accept( boost::ref(nv) );
+        else{
+            this->osg::MatrixTransform::accept( boost::ref(nv) );
+        }
+    }
+    
+    void default_accept( ::osg::NodeVisitor & nv ) {
+        osg::MatrixTransform::accept( boost::ref(nv) );
+    }
+
+    virtual bool addChild( ::osg::Node * child ) {
+        if( bp::override func_addChild = this->get_override( "addChild" ) )
+            return func_addChild( boost::python::ptr(child) );
+        else{
+            return this->osg::Group::addChild( boost::python::ptr(child) );
+        }
+    }
+    
+    bool default_addChild( ::osg::Node * child ) {
+        return osg::Group::addChild( boost::python::ptr(child) );
+    }
+
     virtual bool addWidget( ::osgWidget::Widget * arg0 ) {
         if( bp::override func_addWidget = this->get_override( "addWidget" ) )
             return func_addWidget( boost::python::ptr(arg0) );
@@ -100,6 +124,234 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
         return osgWidget::Window::addWidget( boost::python::ptr(arg0) );
     }
 
+    virtual ::osg::Camera * asCamera(  ) {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera * default_asCamera(  ) {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Camera const * asCamera(  ) const  {
+        if( bp::override func_asCamera = this->get_override( "asCamera" ) )
+            return func_asCamera(  );
+        else{
+            return this->osg::Node::asCamera(  );
+        }
+    }
+    
+    ::osg::Camera const * default_asCamera(  ) const  {
+        return osg::Node::asCamera( );
+    }
+
+    virtual ::osg::Geode * asGeode(  ) {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode * default_asGeode(  ) {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Geode const * asGeode(  ) const  {
+        if( bp::override func_asGeode = this->get_override( "asGeode" ) )
+            return func_asGeode(  );
+        else{
+            return this->osg::Node::asGeode(  );
+        }
+    }
+    
+    ::osg::Geode const * default_asGeode(  ) const  {
+        return osg::Node::asGeode( );
+    }
+
+    virtual ::osg::Group * asGroup(  ) {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Group::asGroup(  );
+        }
+    }
+    
+    ::osg::Group * default_asGroup(  ) {
+        return osg::Group::asGroup( );
+    }
+
+    virtual ::osg::Group const * asGroup(  ) const  {
+        if( bp::override func_asGroup = this->get_override( "asGroup" ) )
+            return func_asGroup(  );
+        else{
+            return this->osg::Group::asGroup(  );
+        }
+    }
+    
+    ::osg::Group const * default_asGroup(  ) const  {
+        return osg::Group::asGroup( );
+    }
+
+    virtual ::osg::MatrixTransform * asMatrixTransform(  ) {
+        if( bp::override func_asMatrixTransform = this->get_override( "asMatrixTransform" ) )
+            return func_asMatrixTransform(  );
+        else{
+            return this->osg::MatrixTransform::asMatrixTransform(  );
+        }
+    }
+    
+    ::osg::MatrixTransform * default_asMatrixTransform(  ) {
+        return osg::MatrixTransform::asMatrixTransform( );
+    }
+
+    virtual ::osg::MatrixTransform const * asMatrixTransform(  ) const  {
+        if( bp::override func_asMatrixTransform = this->get_override( "asMatrixTransform" ) )
+            return func_asMatrixTransform(  );
+        else{
+            return this->osg::MatrixTransform::asMatrixTransform(  );
+        }
+    }
+    
+    ::osg::MatrixTransform const * default_asMatrixTransform(  ) const  {
+        return osg::MatrixTransform::asMatrixTransform( );
+    }
+
+    virtual ::osg::PositionAttitudeTransform * asPositionAttitudeTransform(  ) {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform * default_asPositionAttitudeTransform(  ) {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::PositionAttitudeTransform const * asPositionAttitudeTransform(  ) const  {
+        if( bp::override func_asPositionAttitudeTransform = this->get_override( "asPositionAttitudeTransform" ) )
+            return func_asPositionAttitudeTransform(  );
+        else{
+            return this->osg::Transform::asPositionAttitudeTransform(  );
+        }
+    }
+    
+    ::osg::PositionAttitudeTransform const * default_asPositionAttitudeTransform(  ) const  {
+        return osg::Transform::asPositionAttitudeTransform( );
+    }
+
+    virtual ::osg::Switch * asSwitch(  ) {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch * default_asSwitch(  ) {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Switch const * asSwitch(  ) const  {
+        if( bp::override func_asSwitch = this->get_override( "asSwitch" ) )
+            return func_asSwitch(  );
+        else{
+            return this->osg::Node::asSwitch(  );
+        }
+    }
+    
+    ::osg::Switch const * default_asSwitch(  ) const  {
+        return osg::Node::asSwitch( );
+    }
+
+    virtual ::osg::Transform * asTransform(  ) {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform * default_asTransform(  ) {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual ::osg::Transform const * asTransform(  ) const  {
+        if( bp::override func_asTransform = this->get_override( "asTransform" ) )
+            return func_asTransform(  );
+        else{
+            return this->osg::Transform::asTransform(  );
+        }
+    }
+    
+    ::osg::Transform const * default_asTransform(  ) const  {
+        return osg::Transform::asTransform( );
+    }
+
+    virtual void ascend( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_ascend = this->get_override( "ascend" ) )
+            func_ascend( boost::ref(nv) );
+        else{
+            this->osg::Node::ascend( boost::ref(nv) );
+        }
+    }
+    
+    void default_ascend( ::osg::NodeVisitor & nv ) {
+        osg::Node::ascend( boost::ref(nv) );
+    }
+
+    virtual ::osg::BoundingSphere computeBound(  ) const  {
+        if( bp::override func_computeBound = this->get_override( "computeBound" ) )
+            return func_computeBound(  );
+        else{
+            return this->osg::Transform::computeBound(  );
+        }
+    }
+    
+    ::osg::BoundingSphere default_computeBound(  ) const  {
+        return osg::Transform::computeBound( );
+    }
+
+    virtual void computeDataVariance(  ) {
+        if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
+            func_computeDataVariance(  );
+        else{
+            this->osg::Object::computeDataVariance(  );
+        }
+    }
+    
+    void default_computeDataVariance(  ) {
+        osg::Object::computeDataVariance( );
+    }
+
+    virtual bool computeLocalToWorldMatrix( ::osg::Matrix & matrix, ::osg::NodeVisitor * arg1 ) const  {
+        if( bp::override func_computeLocalToWorldMatrix = this->get_override( "computeLocalToWorldMatrix" ) )
+            return func_computeLocalToWorldMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+        else{
+            return this->osg::MatrixTransform::computeLocalToWorldMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+        }
+    }
+    
+    bool default_computeLocalToWorldMatrix( ::osg::Matrix & matrix, ::osg::NodeVisitor * arg1 ) const  {
+        return osg::MatrixTransform::computeLocalToWorldMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+    }
+
+    virtual bool computeWorldToLocalMatrix( ::osg::Matrix & matrix, ::osg::NodeVisitor * arg1 ) const  {
+        if( bp::override func_computeWorldToLocalMatrix = this->get_override( "computeWorldToLocalMatrix" ) )
+            return func_computeWorldToLocalMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+        else{
+            return this->osg::MatrixTransform::computeWorldToLocalMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+        }
+    }
+    
+    bool default_computeWorldToLocalMatrix( ::osg::Matrix & matrix, ::osg::NodeVisitor * arg1 ) const  {
+        return osg::MatrixTransform::computeWorldToLocalMatrix( boost::ref(matrix), boost::python::ptr(arg1) );
+    }
+
     virtual bool focus( ::osgWidget::WindowManager const * arg0 ) {
         if( bp::override func_focus = this->get_override( "focus" ) )
             return func_focus( boost::python::ptr(arg0) );
@@ -110,6 +362,42 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
     
     bool default_focus( ::osgWidget::WindowManager const * arg0 ) {
         return osgWidget::EventInterface::focus( boost::python::ptr(arg0) );
+    }
+
+    virtual ::osg::Referenced * getUserData(  ) {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced * default_getUserData(  ) {
+        return osg::Object::getUserData( );
+    }
+
+    virtual ::osg::Referenced const * getUserData(  ) const  {
+        if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+            return func_getUserData(  );
+        else{
+            return this->osg::Object::getUserData(  );
+        }
+    }
+    
+    ::osg::Referenced const * default_getUserData(  ) const  {
+        return osg::Object::getUserData( );
+    }
+
+    virtual bool insertChild( unsigned int index, ::osg::Node * child ) {
+        if( bp::override func_insertChild = this->get_override( "insertChild" ) )
+            return func_insertChild( index, boost::python::ptr(child) );
+        else{
+            return this->osg::Group::insertChild( index, boost::python::ptr(child) );
+        }
+    }
+    
+    bool default_insertChild( unsigned int index, ::osg::Node * child ) {
+        return osg::Group::insertChild( index, boost::python::ptr(child) );
     }
 
     virtual bool insertWidget( ::osgWidget::Widget * arg0, unsigned int arg1 ) {
@@ -244,6 +532,18 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
         return osgWidget::EventInterface::mouseScroll( arg0, arg1, boost::python::ptr(arg2) );
     }
 
+    virtual bool removeChildren( unsigned int pos, unsigned int numChildrenToRemove ) {
+        if( bp::override func_removeChildren = this->get_override( "removeChildren" ) )
+            return func_removeChildren( pos, numChildrenToRemove );
+        else{
+            return this->osg::Group::removeChildren( pos, numChildrenToRemove );
+        }
+    }
+    
+    bool default_removeChildren( unsigned int pos, unsigned int numChildrenToRemove ) {
+        return osg::Group::removeChildren( pos, numChildrenToRemove );
+    }
+
     virtual bool removeWidget( ::osgWidget::Widget * arg0 ) {
         if( bp::override func_removeWidget = this->get_override( "removeWidget" ) )
             return func_removeWidget( boost::python::ptr(arg0) );
@@ -256,6 +556,18 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
         return osgWidget::Window::removeWidget( boost::python::ptr(arg0) );
     }
 
+    virtual bool replaceChild( ::osg::Node * origChild, ::osg::Node * newChild ) {
+        if( bp::override func_replaceChild = this->get_override( "replaceChild" ) )
+            return func_replaceChild( boost::python::ptr(origChild), boost::python::ptr(newChild) );
+        else{
+            return this->osg::Group::replaceChild( boost::python::ptr(origChild), boost::python::ptr(newChild) );
+        }
+    }
+    
+    bool default_replaceChild( ::osg::Node * origChild, ::osg::Node * newChild ) {
+        return osg::Group::replaceChild( boost::python::ptr(origChild), boost::python::ptr(newChild) );
+    }
+
     virtual bool replaceWidget( ::osgWidget::Widget * arg0, ::osgWidget::Widget * arg1 ) {
         if( bp::override func_replaceWidget = this->get_override( "replaceWidget" ) )
             return func_replaceWidget( boost::python::ptr(arg0), boost::python::ptr(arg1) );
@@ -266,6 +578,78 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
     
     bool default_replaceWidget( ::osgWidget::Widget * arg0, ::osgWidget::Widget * arg1 ) {
         return osgWidget::Window::replaceWidget( boost::python::ptr(arg0), boost::python::ptr(arg1) );
+    }
+
+    virtual void resizeGLObjectBuffers( unsigned int maxSize ) {
+        if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+            func_resizeGLObjectBuffers( maxSize );
+        else{
+            this->osg::Group::resizeGLObjectBuffers( maxSize );
+        }
+    }
+    
+    void default_resizeGLObjectBuffers( unsigned int maxSize ) {
+        osg::Group::resizeGLObjectBuffers( maxSize );
+    }
+
+    virtual bool setChild( unsigned int i, ::osg::Node * node ) {
+        if( bp::override func_setChild = this->get_override( "setChild" ) )
+            return func_setChild( i, boost::python::ptr(node) );
+        else{
+            return this->osg::Group::setChild( i, boost::python::ptr(node) );
+        }
+    }
+    
+    bool default_setChild( unsigned int i, ::osg::Node * node ) {
+        return osg::Group::setChild( i, boost::python::ptr(node) );
+    }
+
+    virtual void setName( ::std::string const & name ) {
+        if( bp::override func_setName = this->get_override( "setName" ) )
+            func_setName( name );
+        else{
+            this->osg::Object::setName( name );
+        }
+    }
+    
+    void default_setName( ::std::string const & name ) {
+        osg::Object::setName( name );
+    }
+
+    virtual void setThreadSafeRefUnref( bool threadSafe ) {
+        if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+            func_setThreadSafeRefUnref( threadSafe );
+        else{
+            this->osg::Group::setThreadSafeRefUnref( threadSafe );
+        }
+    }
+    
+    void default_setThreadSafeRefUnref( bool threadSafe ) {
+        osg::Group::setThreadSafeRefUnref( threadSafe );
+    }
+
+    virtual void setUserData( ::osg::Referenced * obj ) {
+        if( bp::override func_setUserData = this->get_override( "setUserData" ) )
+            func_setUserData( boost::python::ptr(obj) );
+        else{
+            this->osg::Object::setUserData( boost::python::ptr(obj) );
+        }
+    }
+    
+    void default_setUserData( ::osg::Referenced * obj ) {
+        osg::Object::setUserData( boost::python::ptr(obj) );
+    }
+
+    virtual void traverse( ::osg::NodeVisitor & nv ) {
+        if( bp::override func_traverse = this->get_override( "traverse" ) )
+            func_traverse( boost::ref(nv) );
+        else{
+            this->osg::Group::traverse( boost::ref(nv) );
+        }
+    }
+    
+    void default_traverse( ::osg::NodeVisitor & nv ) {
+        osg::Group::traverse( boost::ref(nv) );
     }
 
     virtual bool unfocus( ::osgWidget::WindowManager const * arg0 ) {

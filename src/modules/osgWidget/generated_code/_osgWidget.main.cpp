@@ -88,8 +88,6 @@
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgwidget/generated_code/vector.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgwidget/generated_code/vector_less__float__greater_.pypp.hpp"
-
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgwidget/generated_code/vector_less__osg_scope_observer_ptr_less_osgwidget_scope_widget_greater___greater_.pypp.hpp"
 
 #include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgwidget/generated_code/vncclient.pypp.hpp"
@@ -112,8 +110,6 @@ BOOST_PYTHON_MODULE(_osgWidget){
     register_Vector_class();
 
     register_vector_less__osg_scope_observer_ptr_less_osgWidget_scope_Widget_greater___greater__class();
-
-    register_vector_less__float__greater__class();
 
     register_CallbackList_class();
 
