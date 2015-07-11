@@ -9,23 +9,26 @@ import sys
 from osgpypp import osg
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgprerendercubemap.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgprerendercubemap.cpp'
+
+# OpenSceneGraph example, osgprerendercubemap.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 
@@ -56,89 +59,93 @@ from osgpypp import osgViewer
 using namespace osg
 
 
-ref_ptr<Group> _create_scene()
-  ref_ptr<Group> scene = new Group
-  ref_ptr<Geode> geode_1 = new Geode
+def _create_scene():
+
+
+    
+  scene = Group()
+  geode_1 = Geode()
   scene.addChild(geode_1.get())
 
-  ref_ptr<Geode> geode_2 = new Geode
-  ref_ptr<MatrixTransform> transform_2 = new MatrixTransform
+  geode_2 = Geode()
+  transform_2 = MatrixTransform()
   transform_2.addChild(geode_2.get())
-  transform_2.setUpdateCallback(new osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(45.0f)))
+  transform_2.setUpdateCallback(osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(45.0)))
   scene.addChild(transform_2.get())
 
-  ref_ptr<Geode> geode_3 = new Geode
-  ref_ptr<MatrixTransform> transform_3 = new MatrixTransform
+  geode_3 = Geode()
+  transform_3 = MatrixTransform()
   transform_3.addChild(geode_3.get())
-  transform_3.setUpdateCallback(new osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(-22.5f)))
+  transform_3.setUpdateCallback(osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(-22.5)))
   scene.addChild(transform_3.get())
 
-  radius =  0.8f
-  height =  1.0f
-  ref_ptr<TessellationHints> hints = new TessellationHints
-  hints.setDetailRatio(2.0f)
-  ref_ptr<ShapeDrawable> shape
+  radius = 0.8
+  height = 1.0
+  hints = TessellationHints()
+  hints.setDetailRatio(2.0)
+  shape = ref_ptr<ShapeDrawable>()
 
-  shape = new ShapeDrawable(new Box(Vec3(0.0f, -2.0f, 0.0f), 10, 0.1f, 10), hints.get())
-  shape.setColor(Vec4(0.5f, 0.5f, 0.7f, 1.0f))
+  shape = ShapeDrawable(Box(Vec3(0.0, -2.0, 0.0), 10, 0.1, 10), hints.get())
+  shape.setColor(Vec4(0.5, 0.5, 0.7, 1.0))
   geode_1.addDrawable(shape.get())
 
 
-  shape = new ShapeDrawable(new Sphere(Vec3(-3.0f, 0.0f, 0.0f), radius), hints.get())
-  shape.setColor(Vec4(0.6f, 0.8f, 0.8f, 1.0f))
+  shape = ShapeDrawable(Sphere(Vec3(-3.0, 0.0, 0.0), radius), hints.get())
+  shape.setColor(Vec4(0.6, 0.8, 0.8, 1.0))
   geode_2.addDrawable(shape.get())
 
-  shape = new ShapeDrawable(new Box(Vec3(3.0f, 0.0f, 0.0f), 2 * radius), hints.get())
-  shape.setColor(Vec4(0.4f, 0.9f, 0.3f, 1.0f))
+  shape = ShapeDrawable(Box(Vec3(3.0, 0.0, 0.0), 2 * radius), hints.get())
+  shape.setColor(Vec4(0.4, 0.9, 0.3, 1.0))
   geode_2.addDrawable(shape.get())
 
-  shape = new ShapeDrawable(new Cone(Vec3(0.0f, 0.0f, -3.0f), radius, height), hints.get())
-  shape.setColor(Vec4(0.2f, 0.5f, 0.7f, 1.0f))
+  shape = ShapeDrawable(Cone(Vec3(0.0, 0.0, -3.0), radius, height), hints.get())
+  shape.setColor(Vec4(0.2, 0.5, 0.7, 1.0))
   geode_2.addDrawable(shape.get())
 
-  shape = new ShapeDrawable(new Cylinder(Vec3(0.0f, 0.0f, 3.0f), radius, height), hints.get())
-  shape.setColor(Vec4(1.0f, 0.3f, 0.3f, 1.0f))
+  shape = ShapeDrawable(Cylinder(Vec3(0.0, 0.0, 3.0), radius, height), hints.get())
+  shape.setColor(Vec4(1.0, 0.3, 0.3, 1.0))
   geode_2.addDrawable(shape.get())
 
-  shape = new ShapeDrawable(new Box(Vec3(0.0f, 3.0f, 0.0f), 2, 0.1f, 2), hints.get())
-  shape.setColor(Vec4(0.8f, 0.8f, 0.4f, 1.0f))
+  shape = ShapeDrawable(Box(Vec3(0.0, 3.0, 0.0), 2, 0.1, 2), hints.get())
+  shape.setColor(Vec4(0.8, 0.8, 0.4, 1.0))
   geode_3.addDrawable(shape.get())
 
   # material
-  ref_ptr<Material> matirial = new Material
+  matirial = Material()
   matirial.setColorMode(Material.DIFFUSE)
   matirial.setAmbient(Material.FRONT_AND_BACK, Vec4(0, 0, 0, 1))
   matirial.setSpecular(Material.FRONT_AND_BACK, Vec4(1, 1, 1, 1))
-  matirial.setShininess(Material.FRONT_AND_BACK, 64.0f)
+  matirial.setShininess(Material.FRONT_AND_BACK, 64.0)
   scene.getOrCreateStateSet().setAttributeAndModes(matirial.get(), StateAttribute.ON)
 
-  scene = return()
+  return scene
 
 def createReflector():
-  pat =  new osg.PositionAttitudeTransform
-  pat.setPosition(osg.Vec3(0.0f,0.0f,0.0f))
-  pat.setAttitude(osg.Quat(osg.inDegrees(0.0f),osg.Vec3(0.0f,0.0f,1.0f)))
+
+    
+  pat = osg.PositionAttitudeTransform()
+  pat.setPosition(osg.Vec3(0.0,0.0,0.0))
+  pat.setAttitude(osg.Quat(osg.inDegrees(0.0),osg.Vec3(0.0,0.0,1.0)))
   
-  geode_1 =  new Geode
+  geode_1 = Geode()
   pat.addChild(geode_1)
 
-  radius =  0.8f
-  ref_ptr<TessellationHints> hints = new TessellationHints
-  hints.setDetailRatio(2.0f)
-  shape =  new ShapeDrawable(new Sphere(Vec3(0.0f, 0.0f, 0.0f), radius * 1.5f), hints.get())
-  shape.setColor(Vec4(0.8f, 0.8f, 0.8f, 1.0f))
+  radius = 0.8
+  hints = TessellationHints()
+  hints.setDetailRatio(2.0)
+  shape = ShapeDrawable(Sphere(Vec3(0.0, 0.0, 0.0), radius * 1.5), hints.get())
+  shape.setColor(Vec4(0.8, 0.8, 0.8, 1.0))
   geode_1.addDrawable(shape)
   
   nodeList = osg.NodePath()
   nodeList.push_back(pat)
   nodeList.push_back(geode_1)
   
-  nodeList = return()
+  return nodeList
 
-class UpdateCameraAndTexGenCallback : public osg.NodeCallback
-    public:
+class UpdateCameraAndTexGenCallback (osg.NodeCallback) :
     
-        typedef std.vector< osg.ref_ptr<osg.Camera> >  CameraList
+        typedef std.vector< osg.Camera >  CameraList
 
         UpdateCameraAndTexGenCallback(osg.NodePath reflectorNodePath, CameraList Cameras):
             _reflectorNodePath(reflectorNodePath),
@@ -149,9 +156,9 @@ class UpdateCameraAndTexGenCallback : public osg.NodeCallback
             traverse(node,nv)
 
             # compute the position of the center of the reflector subgraph
-            worldToLocal =  osg.computeWorldToLocal(_reflectorNodePath)
-            bs =  _reflectorNodePath.back().getBound()
-            position =  bs.center()
+            worldToLocal = osg.computeWorldToLocal(_reflectorNodePath)
+            bs = _reflectorNodePath.back().getBound()
+            position = bs.center()
 
             typedef std.pair<osg.Vec3, osg.Vec3> ImageData
              ImageData id[] =
@@ -169,13 +176,11 @@ class UpdateCameraAndTexGenCallback : public osg.NodeCallback
                 localOffset = osg.Matrix()
                 localOffset.makeLookAt(position,position+id[i].first,id[i].second)
                 
-                viewMatrix =  worldToLocal*localOffset
+                viewMatrix = worldToLocal*localOffset
             
                 _Cameras[i].setReferenceFrame(osg.Camera.ABSOLUTE_RF)
                 _Cameras[i].setProjectionMatrixAsFrustum(-1.0,1.0,-1.0,1.0,1.0,10000.0)
                 _Cameras[i].setViewMatrix(viewMatrix)
-        
-    protected:
     
         virtual ~UpdateCameraAndTexGenCallback() 
         
@@ -183,8 +188,7 @@ class UpdateCameraAndTexGenCallback : public osg.NodeCallback
         _Cameras = CameraList()
 
 
-class TexMatCullCallback : public osg.NodeCallback
-    public:
+class TexMatCullCallback (osg.NodeCallback) :
     
         TexMatCullCallback(osg.TexMat* texmat):
             _texmat(texmat)
@@ -193,22 +197,23 @@ class TexMatCullCallback : public osg.NodeCallback
             # first update subgraph to make sure objects are all moved into position
             traverse(node,nv)
             
-            cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+            cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
             if cv :
-                quat =  cv.getModelViewMatrix().getRotate()
+                quat = cv.getModelViewMatrix().getRotate()
                 _texmat.setMatrix(osg.Matrix.rotate(quat.inverse()))
-        
-    protected:
     
-        osg.ref_ptr<TexMat>    _texmat
+        _texmat = TexMat()
 
 
 
-osg.Group* createShadowedScene(osg.Node* reflectedSubgraph, osg.NodePath reflectorNodePath, unsigned int unit,  osg.Vec4 clearColor, unsigned tex_width, unsigned tex_height, osg.Camera.RenderTargetImplementation renderImplementation)
+def createShadowedScene(reflectedSubgraph, reflectorNodePath, unit, clearColor, tex_width, tex_height, renderImplementation):
 
-    group =  new osg.Group
+
     
-    texture =  new osg.TextureCubeMap
+
+    group = osg.Group()
+    
+    texture = osg.TextureCubeMap()
     texture.setTextureSize(tex_width, tex_height)
 
     texture.setInternalFormat(GL_RGB)
@@ -222,7 +227,7 @@ osg.Group* createShadowedScene(osg.Node* reflectedSubgraph, osg.NodePath reflect
     Cameras = UpdateCameraAndTexGenCallback.CameraList()
     for(unsigned int i=0 i<6 ++i)
         # create the camera
-        camera =  new osg.Camera
+        camera = osg.Camera()
 
         camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         camera.setClearColor(clearColor)
@@ -247,37 +252,40 @@ osg.Group* createShadowedScene(osg.Node* reflectedSubgraph, osg.NodePath reflect
         Cameras.push_back(camera)
    
     # create the texgen node to project the tex coords onto the subgraph
-    texgenNode =  new osg.TexGenNode
+    texgenNode = osg.TexGenNode()
     texgenNode.getTexGen().setMode(osg.TexGen.REFLECTION_MAP)
     texgenNode.setTextureUnit(unit)
     group.addChild(texgenNode)
 
     # set the reflected subgraph so that it uses the texture and tex gen settings.    
-        reflectorNode =  reflectorNodePath.front()
+        reflectorNode = reflectorNodePath.front()
         group.addChild(reflectorNode)
                 
-        stateset =  reflectorNode.getOrCreateStateSet()
+        stateset = reflectorNode.getOrCreateStateSet()
         stateset.setTextureAttributeAndModes(unit,texture,osg.StateAttribute.ON)
         stateset.setTextureMode(unit,GL_TEXTURE_GEN_S,osg.StateAttribute.ON)
         stateset.setTextureMode(unit,GL_TEXTURE_GEN_T,osg.StateAttribute.ON)
         stateset.setTextureMode(unit,GL_TEXTURE_GEN_R,osg.StateAttribute.ON)
         stateset.setTextureMode(unit,GL_TEXTURE_GEN_Q,osg.StateAttribute.ON)
 
-        texmat =  new osg.TexMat
+        texmat = osg.TexMat()
         stateset.setTextureAttributeAndModes(unit,texmat,osg.StateAttribute.ON)
         
-        reflectorNode.setCullCallback(new TexMatCullCallback(texmat))
+        reflectorNode.setCullCallback(TexMatCullCallback(texmat))
     
     # add the reflector scene to draw just as normal
     group.addChild(reflectedSubgraph)
     
     # set an update callback to keep moving the camera and tex gen in the right direction.
-    group.setUpdateCallback(new UpdateCameraAndTexGenCallback(reflectorNodePath, Cameras))
+    group.setUpdateCallback(UpdateCameraAndTexGenCallback(reflectorNodePath, Cameras))
 
-    group = return()
+    return group
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = ArgumentParser(argc, argv)
 
@@ -300,12 +308,12 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
-    tex_width =  256
-    tex_height =  256
+    tex_width = 256
+    tex_height = 256
     while arguments.read("--width", tex_width) : 
     while arguments.read("--height", tex_height) : 
 
-    renderImplementation =  osg.Camera.FRAME_BUFFER_OBJECT
+    renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT
     
     while arguments.read("--fbo") :  renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT 
     while arguments.read("--pbuffer") :  renderImplementation = osg.Camera.PIXEL_BUFFER 
@@ -321,13 +329,13 @@ def main(argc, argv):
       arguments.writeErrorMessages(std.cout)
       return 1
 
-    ref_ptr<MatrixTransform> scene = new MatrixTransform
+    scene = MatrixTransform()
     scene.setMatrix(osg.Matrix.rotate(osg.DegreesToRadians(125.0),1.0,0.0,0.0))
 
-    ref_ptr<Group> reflectedSubgraph = _create_scene()    
+    reflectedSubgraph = _create_scene()    
     if !reflectedSubgraph.valid() : return 1
 
-    ref_ptr<Group> reflectedScene = createShadowedScene(reflectedSubgraph.get(), createReflector(), 0, viewer.getCamera().getClearColor(),
+    reflectedScene = createShadowedScene(reflectedSubgraph.get(), createReflector(), 0, viewer.getCamera().getClearColor(),
                                                         tex_width, tex_height, renderImplementation)
 
     scene.addChild(reflectedScene.get())

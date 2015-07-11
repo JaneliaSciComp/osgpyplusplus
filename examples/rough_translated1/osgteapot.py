@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgteapot.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgteapot.cpp'
+
+# OpenSceneGraph example, osgteapot.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Geode>
 #include <osg/TexGen>
@@ -42,51 +45,51 @@ from osgpypp import osgViewer
 # Copyright (c) Mark J. Kilgard, 1994. 
 
 #*
-(c) Copyright 1993, Silicon Graphics, Inc.
-
-ALL RIGHTS RESERVED
-
-Permission to use, copy, modify, and distribute this software
-for any purpose and without fee is hereby granted, provided
-that the above copyright notice appear in all copies and that
-both the copyright notice and this permission notice appear in
-supporting documentation, and that the name of Silicon
-Graphics, Inc. not be used in advertising or publicity
-pertaining to distribution of the software without specific,
-written prior permission.
-
-THE MATERIAL EMBODIED ON THIS SOFTWARE IS PROVIDED TO YOU
-"AS-IS" AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR
-OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.  IN NO
-EVENT SHALL SILICON GRAPHICS, INC.  BE LIABLE TO YOU OR ANYONE
-ELSE FOR ANY DIRECT, SPECIAL, INCIDENTAL, INDIRECT OR
-CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY DAMAGES WHATSOEVER,
-INCLUDING WITHOUT LIMITATION, LOSS OF PROFIT, LOSS OF USE,
-SAVINGS OR REVENUE, OR THE CLAIMS OF THIRD PARTIES, WHETHER OR
-NOT SILICON GRAPHICS, INC.  HAS BEEN ADVISED OF THE POSSIBILITY
-OF SUCH LOSS, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE OR
-PERFORMANCE OF THIS SOFTWARE.
-
-US Government Users Restricted Rights
-
-Use, duplication, or disclosure by the Government is subject to
-restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
-(c)(1)(ii) of the Rights in Technical Data and Computer
-Software clause at DFARS 252.227-7013 and/or in similar or
-successor clauses in the FAR or the DOD or NASA FAR
-Supplement.  Unpublished-- rights reserved under the copyright
-laws of the United States.  Contractor/manufacturer is Silicon
-Graphics, Inc., 2011 N.  Shoreline Blvd., Mountain View, CA
-94039-7311.
-
-OpenGL(TM) is a trademark of Silicon Graphics, Inc.
-
+#(c) Copyright 1993, Silicon Graphics, Inc.
+#
+#ALL RIGHTS RESERVED
+#
+#Permission to use, copy, modify, and distribute this software
+#for any purpose and without fee is hereby granted, provided
+#that the above copyright notice appear in all copies and that
+#both the copyright notice and this permission notice appear in
+#supporting documentation, and that the name of Silicon
+#Graphics, Inc. not be used in advertising or publicity
+#pertaining to distribution of the software without specific,
+#written prior permission.
+#
+#THE MATERIAL EMBODIED ON THIS SOFTWARE IS PROVIDED TO YOU
+#"AS-IS" AND WITHOUT WARRANTY OF ANY KIND, EXPRESS, IMPLIED OR
+#OTHERWISE, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
+#MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE.  IN NO
+#EVENT SHALL SILICON GRAPHICS, INC.  BE LIABLE TO YOU OR ANYONE
+#ELSE FOR ANY DIRECT, SPECIAL, INCIDENTAL, INDIRECT OR
+#CONSEQUENTIAL DAMAGES OF ANY KIND, OR ANY DAMAGES WHATSOEVER,
+#INCLUDING WITHOUT LIMITATION, LOSS OF PROFIT, LOSS OF USE,
+#SAVINGS OR REVENUE, OR THE CLAIMS OF THIRD PARTIES, WHETHER OR
+#NOT SILICON GRAPHICS, INC.  HAS BEEN ADVISED OF THE POSSIBILITY
+#OF SUCH LOSS, HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+#ARISING OUT OF OR IN CONNECTION WITH THE POSSESSION, USE OR
+#PERFORMANCE OF THIS SOFTWARE.
+#
+#US Government Users Restricted Rights
+#
+#Use, duplication, or disclosure by the Government is subject to
+#restrictions set forth in FAR 52.227.19(c)(2) or subparagraph
+#(c)(1)(ii) of the Rights in Technical Data and Computer
+#Software clause at DFARS 252.227-7013 and/or in similar or
+#successor clauses in the FAR or the DOD or NASA FAR
+#Supplement.  Unpublished-- rights reserved under the copyright
+#laws of the United States.  Contractor/manufacturer is Silicon
+#Graphics, Inc., 2011 N.  Shoreline Blvd., Mountain View, CA
+#94039-7311.
+#
+#OpenGL(TM) is a trademark of Silicon Graphics, Inc.
+#
 
 
 # Rim, body, lid, and bottom data must be reflected in x and
-   y handle and spout data across the y axis only.  
+#   y handle and spout data across the y axis only.  
 
 static int patchdata[][16] =
     # rim 
@@ -220,8 +223,7 @@ teapot(GLint grid, GLenum type)
 
 # Now the OSG wrapper for the above OpenGL code, the most complicated bit is computing
 # the bounding box for the above example, normally you'll find this the easy bit.
-class Teapot : public osg.Drawable
-    public:
+class Teapot (osg.Drawable) :
         Teapot() 
 
         #* Copy constructor using CopyOp to manage deep vs shallow copy.
@@ -244,7 +246,8 @@ class Teapot : public osg.Drawable
         
         # we need to set up the bounding box of the data too, so that the scene graph knows where this
         # objects is, for both positioning the camera at start up, and most importantly for culling.
-        virtual osg.BoundingBox computeBound() 
+        def computeBound():
+            
             bbox = osg.BoundingBox()
 
             # follow is some truely horrible code required to calculate the 
@@ -283,9 +286,7 @@ class Teapot : public osg.Drawable
                   
                   
 
-            bbox = return()
-
-    protected:
+            return bbox
     
         virtual ~Teapot() 
         
@@ -293,27 +294,30 @@ class Teapot : public osg.Drawable
 
 
 def createTeapot():
-    geode =  new osg.Geode()
+
+
+    
+    geode = osg.Geode()
 
     # add the teapot to the geode.
-    geode.addDrawable( new Teapot )
+    geode.addDrawable( Teapot )()
 
     # add a reflection map to the teapot.     
-    image =  osgDB.readImageFile("Images/reflect.rgb")
+    image = osgDB.readImageFile("Images/reflect.rgb")
     if image :
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
         texture.setImage(image)
 
-        texgen =  new osg.TexGen
+        texgen = osg.TexGen()
         texgen.setMode(osg.TexGen.SPHERE_MAP)
 
-        stateset =  new osg.StateSet
+        stateset = osg.StateSet()
         stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
         stateset.setTextureAttributeAndModes(0,texgen,osg.StateAttribute.ON)
         
         geode.setStateSet(stateset)
    
-    geode = return()
+    return geode
 
 int main(int , char **)
 #if 1
@@ -323,14 +327,14 @@ int main(int , char **)
     # Normal stack based version below works fine though... 
 
     # construct the viewer.
-    osg.ref_ptr<osgViewer.Viewer> viewer = new osgViewer.Viewer
+    viewer = osgViewer.Viewer()
 
     # add model to viewer.
     viewer.setSceneData( createTeapot() )
 
     return viewer.run()
     
-#else:
+#else :
 
     # construct the viewer.
     viewer = osgViewer.Viewer()

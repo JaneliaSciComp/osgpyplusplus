@@ -9,6 +9,9 @@ import sys
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetscrolled.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetframe.cpp 34 2008-04-07 03:12:41Z cubicool $
 
@@ -19,34 +22,34 @@ from osgpypp import osgWidget
 #include <osgWidget/Frame>
 #include <osgWidget/Box>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
 # NOTE: THIS IS JUST A TEMPORARY HACK! :) This functionality will all eventually be
 # encapsulate into another class in osgWidget proper.
 def scrollWindow(ev):
+    
     # The first thing we need to do is make sure we have a Frame object...
-    frame =  dynamic_cast<osgWidget.Frame*>(ev.getWindow())
+    frame = dynamic_cast<osgWidget.Frame*>(ev.getWindow())
 
-    if !frame : return false
+    if !frame : return False
 
     # And now we need to make sure our Frame has a valid internal EmbeddedWindow widget.
-    ew = 
-        dynamic_cast<osgWidget.Window.EmbeddedWindow*>(frame.getEmbeddedWindow())
+    ew = dynamic_cast<osgWidget.Window.EmbeddedWindow*>(frame.getEmbeddedWindow())
     
         
-    if !ew : return false
+    if !ew : return False
     
     # Lets get the visible area so that we can use it to make sure our scrolling action
     # is necessary in the first place.
-    va =  ew.getWindow().getVisibleArea()
+    va = ew.getWindow().getVisibleArea()
 
     # The user wants to scroll up make sure that the visible area's Y origin isn't already
-    # at 0.0f, 0.0f.
-    if ev.getWindowManager().isMouseScrollingUp()  va[1] != 0.0f :
+    # at 0.0, 0.0.
+    if ev.getWindowManager().isMouseScrollingUp()  va[1] != 0.0 :
         ew.getWindow().addVisibleArea(0, -20)
     
     
-    else: if va[1] <= (ew.getWindow().getHeight() - ew.getHeight()) :
+    elif va[1] <= (ew.getWindow().getHeight() - ew.getHeight()) :
         ew.getWindow().addVisibleArea(0, 20)
     
 
@@ -54,24 +57,26 @@ def scrollWindow(ev):
     # properly.
     frame.update()
 
-    true = return()
+    return True
 
 def changeTheme(ev):
+
+    
     theme = str()
 
     if ev.key == osgGA.GUIEventAdapter.KEY_Right :
         theme = "osgWidget/theme-1.png"
     
 
-    else: if ev.key == osgGA.GUIEventAdapter.KEY_Left :
+    elif ev.key == osgGA.GUIEventAdapter.KEY_Left :
         theme = "osgWidget/theme-2.png"
     
 
-    else: return false
+    else : return False
 
-    frame =  dynamic_cast<osgWidget.Frame*>(ev.getWindow())
+    frame = dynamic_cast<osgWidget.Frame*>(ev.getWindow())
 
-    if !frame : return false
+    if !frame : return False
 
     # This is just one way to access all our Widgets we could just as well have used:
     #
@@ -82,46 +87,48 @@ def changeTheme(ev):
         for(unsigned int col = 0 col < 3 col++) 
             frame.getByRowCol(row, col).setImage(theme)
 
-    true = return()
+    return True
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
         #osgWidget.WindowManager.WM_NO_INVERT_Y
     )
     
-    frame =  osgWidget.Frame.createSimpleFrameFromTheme(
+    frame = osgWidget.Frame.createSimpleFrameFromTheme(
         "frame",
         osgDB.readImageFile("osgWidget/theme.png"),
-        40.0f,
-        40.0f,
+        40.0,
+        40.0,
 	osgWidget.Frame.FRAME_ALL
     )
 
-    frame.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
+    frame.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
 
     # This is our Transformers box. :)
-    box =  new osgWidget.Box("images", osgWidget.Box.VERTICAL)
-    img1 =  new osgWidget.Widget("im1", 512.0f, 512.0f)
-    img2 =  new osgWidget.Widget("im2", 512.0f, 512.0f)
-    img3 =  new osgWidget.Widget("im3", 512.0f, 512.0f)
-    img4 =  new osgWidget.Widget("im4", 512.0f, 512.0f)
+    box = osgWidget.Box("images", osgWidget.Box.VERTICAL)
+    img1 = osgWidget.Widget("im1", 512.0, 512.0)
+    img2 = osgWidget.Widget("im2", 512.0, 512.0)
+    img3 = osgWidget.Widget("im3", 512.0, 512.0)
+    img4 = osgWidget.Widget("im4", 512.0, 512.0)
 
-    img1.setImage("osgWidget/scrolled1.jpg", true)
-    img2.setImage("osgWidget/scrolled2.jpg", true)
-    img3.setImage("osgWidget/scrolled3.jpg", true)
-    img4.setImage("osgWidget/scrolled4.jpg", true)
+    img1.setImage("osgWidget/scrolled1.jpg", True)
+    img2.setImage("osgWidget/scrolled2.jpg", True)
+    img3.setImage("osgWidget/scrolled3.jpg", True)
+    img4.setImage("osgWidget/scrolled4.jpg", True)
 
-    img1.setMinimumSize(10.0f, 10.0f)
-    img2.setMinimumSize(10.0f, 10.0f)
-    img3.setMinimumSize(10.0f, 10.0f)
-    img4.setMinimumSize(10.0f, 10.0f)
+    img1.setMinimumSize(10.0, 10.0)
+    img2.setMinimumSize(10.0, 10.0)
+    img3.setMinimumSize(10.0, 10.0)
+    img4.setMinimumSize(10.0, 10.0)
 
     box.addWidget(img1)
     box.addWidget(img2)
@@ -131,10 +138,10 @@ def main(argc, argv):
 
     #frame.getEmbeddedWindow().setWindow(box)
     frame.setWindow(box)
-    frame.getEmbeddedWindow().setColor(1.0f, 1.0f, 1.0f, 1.0f)
-    frame.resize(300.0f, 300.0f)
-    frame.addCallback(new osgWidget.Callback(scrollWindow, osgWidget.EVENT_MOUSE_SCROLL))
-    frame.addCallback(new osgWidget.Callback(changeTheme, osgWidget.EVENT_KEY_DOWN))
+    frame.getEmbeddedWindow().setColor(1.0, 1.0, 1.0, 1.0)
+    frame.resize(300.0, 300.0)
+    frame.addCallback(osgWidget.Callback(scrollWindow, osgWidget.EVENT_MOUSE_SCROLL))
+    frame.addCallback(osgWidget.Callback(changeTheme, osgWidget.EVENT_KEY_DOWN))
 
     wm.addChild(frame)
 

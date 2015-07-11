@@ -9,6 +9,9 @@ import sys
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetprogress.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id$
 
@@ -17,39 +20,39 @@ from osgpypp import osgWidget
 #include <osgWidget/WindowManager>
 #include <osgWidget/Canvas>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
-struct UpdateProgressNode: public osg.NodeCallback 
-    start = float()
+class UpdateProgressNode (osg.NodeCallback) :
+start = float()
     done = float()
 
     UpdateProgressNode():
-    start (0.0f),
-    done  (5.0f) 
+    start (0.0),
+    done  (5.0) 
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv) 
-        fs =  nv.getFrameStamp()
+        fs = nv.getFrameStamp()
 
-        t =  fs.getSimulationTime()
+        t = fs.getSimulationTime()
 
-        if start == 0.0f : start = t
+        if start == 0.0 : start = t
 
-        width =  ((t - start) / done) * 512.0f
-        percent =  (width / 512.0f) * 100.0f
+        width = ((t - start) / done) * 512.0
+        percent = (width / 512.0) * 100.0
     
-        if width < 1.0f || width > 512.0f : return
+        if width < 1.0 || width > 512.0 : return
 
-        window =  dynamic_cast<osgWidget.Window*>(node)
+        window = dynamic_cast<osgWidget.Window*>(node)
 
         if !window : return
 
-        w =  window.getByName("pMeter")
-        l =  dynamic_cast<osgWidget.Label*>(window.getByName("pLabel"))
+        w = window.getByName("pMeter")
+        l = dynamic_cast<osgWidget.Label*>(window.getByName("pLabel"))
 
         if !w || !l : return
 
         w.setWidth(width)
-        w.setTexCoordRegion(0.0f, 0.0f, width, 64.0f)
+        w.setTexCoordRegion(0.0, 0.0, width, 64.0)
 
         ss = std.ostringstream()
 
@@ -59,40 +62,42 @@ struct UpdateProgressNode: public osg.NodeCallback
 
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
     
-    canvas =  new osgWidget.Canvas("canvas")
-    pOutline =  new osgWidget.Widget("pOutline", 512.0f, 64.0f)
-    pMeter =  new osgWidget.Widget("pMeter", 0.0f, 64.0f)
-    pLabel =  new osgWidget.Label("pLabel", "0% Done")
+    canvas = osgWidget.Canvas("canvas")
+    pOutline = osgWidget.Widget("pOutline", 512.0, 64.0)
+    pMeter = osgWidget.Widget("pMeter", 0.0, 64.0)
+    pLabel = osgWidget.Label("pLabel", "0% Done")
 
-    pOutline.setImage("osgWidget/progress-outline.png", true)
+    pOutline.setImage("osgWidget/progress-outline.png", True)
     pOutline.setLayer(osgWidget.Widget.LAYER_MIDDLE, 2)
     
     pMeter.setImage("osgWidget/progress-meter.png")
-    pMeter.setColor(0.7f, 0.1f, 0.1f, 0.7f)
+    pMeter.setColor(0.7, 0.1, 0.1, 0.7)
     pMeter.setLayer(osgWidget.Widget.LAYER_MIDDLE, 1)
 
     pLabel.setFont("fonts/VeraMono.ttf")
     pLabel.setFontSize(20)
-    pLabel.setFontColor(1.0f, 1.0f, 1.0f, 1.0f)
-    pLabel.setSize(512.0f, 64.0f)
+    pLabel.setFontColor(1.0, 1.0, 1.0, 1.0)
+    pLabel.setSize(512.0, 64.0)
     pLabel.setLayer(osgWidget.Widget.LAYER_MIDDLE, 3)
 
-    canvas.setOrigin(300.0f, 300.0f)
-    canvas.addWidget(pMeter, 0.0f, 0.0f)
-    canvas.addWidget(pOutline, 0.0f, 0.0f)
-    canvas.addWidget(pLabel, 0.0f, 0.0f)
-    canvas.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
-    canvas.setUpdateCallback(new UpdateProgressNode())
+    canvas.setOrigin(300.0, 300.0)
+    canvas.addWidget(pMeter, 0.0, 0.0)
+    canvas.addWidget(pOutline, 0.0, 0.0)
+    canvas.addWidget(pLabel, 0.0, 0.0)
+    canvas.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
+    canvas.setUpdateCallback(UpdateProgressNode())
 
     wm.addChild(canvas)
 

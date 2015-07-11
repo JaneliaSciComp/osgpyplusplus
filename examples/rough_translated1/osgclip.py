@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgclip.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgclip.cpp'
+
+# OpenSceneGraph example, osgclip.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/MatrixTransform>
 #include <osg/ClipNode>
@@ -55,80 +58,86 @@ from osgpypp import osgViewer
 
 
 def decorate_with_clip_node(subgraph):
-    rootnode =  new osg.Group
+
+
+    
+    rootnode = osg.Group()
     
 
     # create wireframe view of the model so the user can see
     # what parts are being culled away.
-    stateset =  new osg.StateSet
-    #osg.Material* material = new osg.Material
-    polymode =  new osg.PolygonMode
+    stateset = osg.StateSet()
+    #osg.Material* material = osg.Material()
+    polymode = osg.PolygonMode()
     polymode.setMode(osg.PolygonMode.FRONT_AND_BACK,osg.PolygonMode.LINE)
     stateset.setAttributeAndModes(polymode,osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
     
-    wireframe_subgraph =  new osg.Group
+    wireframe_subgraph = osg.Group()
     wireframe_subgraph.setStateSet(stateset)
     wireframe_subgraph.addChild(subgraph)
     rootnode.addChild(wireframe_subgraph)
 
 #
-    # simple approach to adding a clipnode above a subrgaph.
-
-    # create clipped part.
-    clipped_subgraph =  new osg.ClipNode
-
-    bs =  subgraph.getBound()
-    bs.radius()*= 0.4f
-
-    bb = osg.BoundingBox()
-    bb.expandBy(bs)
-
-
-    clipped_subgraph.createClipBox(bb)
-    clipped_subgraph.addChild(subgraph)
-    rootnode.addChild(clipped_subgraph)
-
+#    # simple approach to adding a clipnode above a subrgaph.
+#
+#    # create clipped part.
+#    clipped_subgraph = osg.ClipNode()
+#
+#    bs = subgraph.getBound()
+#    bs.radius()*= 0.4
+#
+#    bb = osg.BoundingBox()
+#    bb.expandBy(bs)
+#
+#
+#    clipped_subgraph.createClipBox(bb)
+#    clipped_subgraph.addChild(subgraph)
+#    rootnode.addChild(clipped_subgraph)
+#
 
 
     # more complex approach to managing ClipNode, allowing
     # ClipNode node to be transformed independantly from the subgraph
     # that it is clipping.
     
-    transform =  new osg.MatrixTransform
+    transform = osg.MatrixTransform()
 
-    nc =  new osg.AnimationPathCallback(subgraph.getBound().center(),osg.Vec3(0.0f,0.0f,1.0f),osg.inDegrees(45.0f))
+    nc = osg.AnimationPathCallback(subgraph.getBound().center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(45.0))
     transform.setUpdateCallback(nc)
 
-    clipnode =  new osg.ClipNode
-    bs =  subgraph.getBound()
-    bs.radius()*= 0.4f
+    clipnode = osg.ClipNode()
+    bs = subgraph.getBound()
+    bs.radius()*= 0.4
 
     bb = osg.BoundingBox()
     bb.expandBy(bs)
 
     clipnode.createClipBox(bb)
-    clipnode.setCullingActive(false)
+    clipnode.setCullingActive(False)
 
     transform.addChild(clipnode)
     rootnode.addChild(transform)
 
 
     # create clipped part.
-    clipped_subgraph =  new osg.Group
+    clipped_subgraph = osg.Group()
 
     clipped_subgraph.setStateSet(clipnode.getStateSet())
     clipped_subgraph.addChild(subgraph)
     rootnode.addChild(clipped_subgraph)
 
-    rootnode = return()
+    return rootnode
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
     # load the nodes from the commandline arguments.
-    loadedModel =  osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
 
     # if not loaded assume no arguments passed in, try use default mode instead.
@@ -140,7 +149,7 @@ def main(argc, argv):
         return 1
   
     # decorate the scenegraph with a clip node.
-    rootnode =  decorate_with_clip_node(loadedModel)
+    rootnode = decorate_with_clip_node(loadedModel)
       
     # run optimization over the scene graph
     optimzer = osgUtil.Optimizer()

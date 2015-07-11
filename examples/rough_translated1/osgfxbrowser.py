@@ -14,23 +14,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgfxbrowser.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'Frame.cpp'
+
+# OpenSceneGraph example, osgfxbrowser.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "Frame.h"
 
@@ -40,7 +43,7 @@ namespace osgfxbrowser
 
 Frame.Frame()
 :    osg.Geode(),
-    bgcolor_(0.5f, 0.5f, 0.5f, 1.0f),
+    bgcolor_(0.5, 0.5, 0.5, 1.0),
     rect_(0, 0, 100, 100),
     caption_("Frame")
 
@@ -51,30 +54,30 @@ Frame.Frame( Frame copy,  osg.CopyOp copyop)
     caption_(copy.caption_)
 
 void Frame.rebuild()
-    zPos =  -0.1f
+    zPos = -0.1
 
     removeDrawables(0, getNumDrawables())
     addDrawable(build_quad(rect_, bgcolor_))
-    addDrawable(build_quad(Rect(rect_.x0 + 4, rect_.y1 - 24, rect_.x1 - 4, rect_.y1 - 4), osg.Vec4(0, 0, 0, bgcolor_.w()), false, zPos))
+    addDrawable(build_quad(Rect(rect_.x0 + 4, rect_.y1 - 24, rect_.x1 - 4, rect_.y1 - 4), osg.Vec4(0, 0, 0, bgcolor_.w()), False, zPos))
 
-    osg.ref_ptr<osgText.Text> caption_text = new osgText.Text
+    caption_text = osgText.Text()
     caption_text.setText(caption_)
     caption_text.setColor(osg.Vec4(1, 1, 1, 1))
     caption_text.setAlignment(osgText.Text.CENTER_CENTER)
     caption_text.setFont("fonts/arial.ttf")
     caption_text.setCharacterSize(16)
     caption_text.setFontResolution(16, 16)
-    caption_text.setPosition(osg.Vec3((rect_.x0 + rect_.x1) / 2, rect_.y1 - 15, zPos*2.0f))
+    caption_text.setPosition(osg.Vec3((rect_.x0 + rect_.x1) / 2, rect_.y1 - 15, zPos*2.0))
     addDrawable(caption_text.get())
 
     rebuild_client_area(Rect(rect_.x0 + 4, rect_.y0 + 4, rect_.x1 - 4, rect_.y1 - 28))
 
 osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z)
-    shadow_space =  8
-    shadow_size =  10
+    shadow_space = 8
+    shadow_size = 10
 
-    osg.ref_ptr<osg.Geometry> geo = new osg.Geometry
-    osg.ref_ptr<osg.Vec3Array> vx = new osg.Vec3Array
+    geo = osg.Geometry()
+    vx = osg.Vec3Array()
 
     vx.push_back(osg.Vec3(rect.x0, rect.y0, z))
     vx.push_back(osg.Vec3(rect.x1, rect.y0, z))
@@ -94,7 +97,7 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
 
     geo.setVertexArray(vx.get())
 
-    osg.ref_ptr<osg.Vec4Array> clr = new osg.Vec4Array
+    clr = osg.Vec4Array()
     clr.push_back(color)
     clr.push_back(color)
     clr.push_back(color)
@@ -102,7 +105,7 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
 
     if shadow : 
 
-        alpha =  color.w() * 0.5f
+        alpha = color.w() * 0.5
         black =  osg.Vec3(0, 0, 0)
 
         clr.push_back(osg.Vec4(black, 0))
@@ -117,29 +120,32 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
 
     geo.setColorArray(clr.get(), osg.Array.BIND_PER_VERTEX)
 
-    geo.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, shadow? 12: 4))
+    geo.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, shadow? 12: 4))
 
     return geo.release()
 
-# -*-c++-*-
-*
-*  OpenSceneGraph example, osgfxbrowser.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'Frame.h'
+
+# -*-c++-*-
+#*
+#*  OpenSceneGraph example, osgfxbrowser.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef FRAME_H_
 #define FRAME_H_
@@ -149,16 +155,15 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
 
 namespace osgfxbrowser 
 
-struct Rect 
-	float x0, y0, x1, y1
+class Rect :
+float x0, y0, x1, y1
 	Rect() 
 	Rect(float x0_, float y0_, float x1_, float y1_): x0(x0_), y0(y0_), x1(x1_), y1(y1_) 
 	inline float width()   return x1 - x0 
 	inline float height()   return y0 - y1 
 
 
-class Frame: public osg.Geode 
-public:
+class Frame (osg.Geode) :
 	Frame()
 	Frame( Frame copy,  osg.CopyOp copyop = osg.CopyOp.SHALLOW_COPY)
 
@@ -173,17 +178,13 @@ public:
 	inline  Rect getRect()                  return rect_ 
 	inline void setRect( Rect rect)              rect_ = rect 
 
-	static osg.Geometry *build_quad( Rect rect,  osg.Vec4 color, bool shadow = true, float z = 0)
+	static osg.Geometry *build_quad( Rect rect,  osg.Vec4 color, bool shadow = True, float z = 0)
 
-	virtual void rebuild()
-
-protected:
+	rebuild = virtual void()
 	virtual ~Frame() 
 	Frame operator()( Frame )  return *this 	
 
 	virtual void rebuild_client_area( Rect  #client_rect) 
-
-private:
 	bgcolor_ = osg.Vec4()
 	rect_ = Rect()
 	caption_ = str()
@@ -191,23 +192,26 @@ private:
 
 
 #endif
-# OpenSceneGraph example, osgfxbrowser.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgfxbrowser.cpp'
+
+# OpenSceneGraph example, osgfxbrowser.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Group>
 #include <osg/Geometry>
@@ -238,13 +242,12 @@ private:
 #include <string>
 #include <iostream>
 
-class RotateCallback: public osg.NodeCallback 
-public:
-    RotateCallback(): osg.NodeCallback(), enabled_(true) 
+class RotateCallback (osg.NodeCallback) :
+    RotateCallback(): osg.NodeCallback(), enabled_(True) 
     void operator()(osg.Node* node, osg.NodeVisitor *nv)
-        xform =  dynamic_cast<osg.MatrixTransform *>(node)
+        xform = dynamic_cast<osg.MatrixTransform *>(node)
         if xform  enabled_ : 
-            t =  nv.getFrameStamp().getSimulationTime()
+            t = nv.getFrameStamp().getSimulationTime()
             xform.setMatrix(osg.Matrix.rotate(t, osg.Vec3(0, 0, 1)))
         traverse(node, nv)
 
@@ -257,56 +260,52 @@ public:
 *rotate_cb = RotateCallback()
 
 
-class EffectPanel: public osgfxbrowser.Frame 
-public:
+class EffectPanel (osgfxbrowser.Frame) :
 
-    class KeyboardHandler: public osgGA.GUIEventHandler 
-    public:
+    class KeyboardHandler (osgGA.GUIEventHandler) :
         KeyboardHandler(EffectPanel* ep): ep_(ep) 
 
         bool handle( osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter )
             if ea.getEventType() == osgGA.GUIEventAdapter.KEYDOWN : 
                 if ea.getKey() == osgGA.GUIEventAdapter.KEY_Right : 
                     ep_.setEffectIndex(ep_.getEffectIndex()+1)
-                    true = return()
+                    return True
                 if ea.getKey() == osgGA.GUIEventAdapter.KEY_Left : 
                     ep_.setEffectIndex(ep_.getEffectIndex()-1)
-                    true = return()
+                    return True
                 if ea.getKey() == osgGA.GUIEventAdapter.KEY_Return : 
                     ep_.setNodeMask(0xffffffff - ep_.getNodeMask())
-                    true = return()
+                    return True
                 if ea.getKey() == osgGA.GUIEventAdapter.KEY_Delete : 
                     ep_.setEffectsEnabled(!ep_.getEffectsEnabled())
-                    true = return()
+                    return True
                 if ea.getKey() == 'x' : 
                     osgDB.writeNodeFile(*ep_.getRoot(), "osgfx_model.osgt")
                     print "written nodes to \"osgfx_model.osgt\"\n"
-                    true = return()
+                    return True
                 if ea.getKey() == 'r' : 
                     rotate_cb.enabled_ = !rotate_cb.enabled_
-                    true = return()
+                    return True
 
-            false = return()
-
-    private:
-        osg.ref_ptr<EffectPanel> ep_
+            return False
+        ep_ = EffectPanel()
     
 
     EffectPanel()
     :    osgfxbrowser.Frame(),
         _selected_fx(-1),
-        _fxen(true),
-        _root(new osg.Group),
-        _hints_color(0.75f, 0.75f, 0.75f, 1.0f),
+        _fxen(True),
+        _root(osg.Group),
+        _hints_color(0.75, 0.75, 0.75, 1.0),
         _name_color(1, 1, 1, 1),
-        _desc_color(1, 1, 0.7f, 1)
-        setBackgroundColor(osg.Vec4(0.3f, 0.1f, 0.15f, 0.75f))
+        _desc_color(1, 1, 0.7, 1)
+        setBackgroundColor(osg.Vec4(0.3, 0.1, 0.15, 0.75))
 
         print "INFO: available osgFX effects:\n"
-        emap =  osgFX.Registry.instance().getEffectMap()
+        emap = osgFX.Registry.instance().getEffectMap()
         for (osgFX.Registry.EffectMap.const_iterator i=emap.begin() i!=emap.end() ++i) 
             print "INFO: \t", i.first, "\n"
-            osg.ref_ptr<osgFX.Effect> effect = static_cast<osgFX.Effect *>(i.second.cloneType())
+            effect = static_cast<osgFX.Effect *>(i.second.cloneType())
             _effects.push_back(effect.get())            
 
         print "INFO: ", emap.size(), " effect(s) ready.\n"
@@ -337,15 +336,14 @@ public:
         if _selected_fx >= 0  _selected_fx < static_cast<int>(_effects.size()) : 
             return _effects[_selected_fx].get()
         return 0
-
-protected:
     def rebuild_client_area(client_rect):
-                zPos =  -0.1 # note from Robert, was 0.1f, but now must be -0.1f to keep text visible??#!? due
+        
+                zPos = -0.1 # note from Robert, was 0.1, but now must be -0.1 to keep text visible??#!? due
                                    # to some other change in the OSG not tracked down yet...
         
-        osg.ref_ptr<osgText.Font> arial = osgText.readFontFile("fonts/arial.ttf")
+        arial = osgText.readFontFile("fonts/arial.ttf")
 
-        osg.ref_ptr<osgText.Text> hints = new osgText.Text
+        hints = osgText.Text()
         hints.setFont(arial.get())
         hints.setColor(_hints_color)
         hints.setAlignment(osgText.Text.CENTER_BOTTOM)
@@ -354,26 +352,26 @@ protected:
         hints.setText("<RETURN> show/hide this panel      <LEFT> previous effect      <RIGHT> next effect      <DEL> enable/disable effects      'x' save to file      'r' rotate/stop")
         addDrawable(hints.get())
 
-        effect_name =  "No Effect Selected"
-        effect_description =  ""
+        effect_name = "No Effect Selected"
+        effect_description = ""
 
         if _selected_fx >= 0  _selected_fx < static_cast<int>(_effects.size()) : 
             effect_name = _effects[_selected_fx].effectName()
-            author_name =  _effects[_selected_fx].effectAuthor()
+            author_name = _effects[_selected_fx].effectAuthor()
             if !author_name.empty() : 
                 effect_description = author_name = "AUTHOR: " + str(_effects[_selected_fx].effectAuthor()) + str("\n\n")
             effect_description += "DESCRIPTION:\n" + str(_effects[_selected_fx].effectDescription())            
 
             if _scene.valid()  _root.valid() : 
                 _root.removeChildren(0, _root.getNumChildren())
-                osg.ref_ptr<osgFX.Effect> effect = _effects[_selected_fx].get()
+                effect = _effects[_selected_fx].get()
                 effect.setEnabled(_fxen)
                 effect.removeChildren(0, effect.getNumChildren())
                 effect.addChild(_scene.get())
                 effect.setUpDemo()
                 _root.addChild(effect.get())
 
-        osg.ref_ptr<osgText.Text> ename = new osgText.Text
+        ename = osgText.Text()
         ename.setFont(arial.get())
         ename.setColor(_name_color)
         ename.setAlignment(osgText.Text.CENTER_TOP)
@@ -382,7 +380,7 @@ protected:
         ename.setText(effect_name)
         addDrawable(ename.get())
 
-        osg.ref_ptr<osgText.Text> edesc = new osgText.Text
+        edesc = osgText.Text()
         edesc.setMaximumWidth(client_rect.width() - 16)
         edesc.setFont(arial.get())
         edesc.setColor(_desc_color)
@@ -391,14 +389,12 @@ protected:
         edesc.setPosition(osg.Vec3(client_rect.x0 + 8, client_rect.y1 - 60, zPos))
         edesc.setText(effect_description)
         addDrawable(edesc.get())
-
-private:
     _selected_fx = int()
-    typedef std.vector<osg.ref_ptr<osgFX.Effect> > Effect_list
+    typedef std.vector<osgFX.Effect > Effect_list
     _effects = Effect_list()
     _fxen = bool()
-    osg.ref_ptr<osg.Group> _root
-    osg.ref_ptr<osg.Node> _scene
+    _root = osg.Group()
+    _scene = osg.Node()
     _hints_color = osg.Vec4()
     _name_color = osg.Vec4()
     _desc_color = osg.Vec4()
@@ -406,28 +402,33 @@ private:
 
 
 def build_hud_base(root):
-    osg.ref_ptr<osg.Projection> proj = new osg.Projection(osg.Matrix.ortho2D(0, 1024, 0, 768))
-    proj.setCullingActive(false)
+
+
+    
+    proj = osg.Projection(osg.Matrix.ortho2D(0, 1024, 0, 768))
+    proj.setCullingActive(False)
     root.addChild(proj.get())
 
-    osg.ref_ptr<osg.MatrixTransform> xform = new osg.MatrixTransform(osg.Matrix.identity())
+    xform = osg.MatrixTransform(osg.Matrix.identity())
     xform.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     proj.addChild(xform.get())
 
-    ss =  xform.getOrCreateStateSet()
+    ss = xform.getOrCreateStateSet()
     ss.setRenderBinDetails(100, "RenderBin")
     ss.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
     ss.setMode(GL_DEPTH_TEST, osg.StateAttribute.OFF)
 
-    osg.ref_ptr<osg.BlendFunc> bf = new osg.BlendFunc
+    bf = osg.BlendFunc()
     ss.setAttributeAndModes(bf.get())
 
     return xform.release()
 
 def build_gui(root):
-    osg.ref_ptr<osg.Group> hud = build_hud_base(root)
 
-    osg.ref_ptr<EffectPanel> effect_panel = new EffectPanel
+    
+    hud = build_hud_base(root)
+
+    effect_panel = EffectPanel()
     effect_panel.setCaption("osgFX Effect Browser")
     effect_panel.setRect(osgfxbrowser.Rect(20, 20, 1000, 280))    
 
@@ -436,11 +437,13 @@ def build_gui(root):
     return effect_panel.release()
 
 def build_world(root, scene, viewer):
-    osg.ref_ptr<EffectPanel> effect_panel = build_gui(root)
+
+    
+    effect_panel = build_gui(root)
     effect_panel.setScene(scene)
     effect_panel.rebuild()
 
-    viewer.addEventHandler(new EffectPanel.KeyboardHandler(effect_panel.get()))
+    viewer.addEventHandler(EffectPanel.KeyboardHandler(effect_panel.get()))
 
     root.addChild(effect_panel.getRoot())
 
@@ -468,7 +471,7 @@ int main(int argc, char *argv[])
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    threading =  osgViewer.Viewer.SingleThreaded
+    threading = osgViewer.Viewer.SingleThreaded
     while arguments.read("--SingleThreaded") : threading = osgViewer.Viewer.SingleThreaded
     while arguments.read("--CullDrawThreadPerContext") : threading = osgViewer.Viewer.CullDrawThreadPerContext
     while arguments.read("--DrawThreadPerContext") : threading = osgViewer.Viewer.DrawThreadPerContext
@@ -478,7 +481,7 @@ int main(int argc, char *argv[])
 
     # setup stencil buffer for Outline f/x.
     osg.DisplaySettings.instance().setMinimumNumStencilBits(1)
-    unsigned int clearMask = viewer.getCamera().getClearMask()
+    clearMask = viewer.getCamera().getClearMask()
     viewer.getCamera().setClearMask(clearMask | GL_STENCIL_BUFFER_BIT)
     viewer.getCamera().setClearStencil(0)
  
@@ -491,7 +494,7 @@ int main(int argc, char *argv[])
         return 1
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
@@ -505,19 +508,19 @@ int main(int argc, char *argv[])
     optimizer.optimize(loadedModel.get())
 
     # set up a transform to rotate the model
-    osg.ref_ptr<osg.MatrixTransform> xform = new osg.MatrixTransform
-    rotate_cb = new RotateCallback
+    xform = osg.MatrixTransform()
+    rotate_cb = RotateCallback()
     xform.setUpdateCallback(rotate_cb)
     xform.addChild(loadedModel.get())
 
-    osg.ref_ptr<osg.Light> light = new osg.Light
+    light = osg.Light()
     light.setLightNum(0)
     light.setDiffuse(osg.Vec4(1, 1, 1, 1))
-    light.setSpecular(osg.Vec4(1, 1, 0.8f, 1))
-    light.setAmbient(osg.Vec4(0.2f, 0.2f, 0.2f, 0.2f))
+    light.setSpecular(osg.Vec4(1, 1, 0.8, 1))
+    light.setAmbient(osg.Vec4(0.2, 0.2, 0.2, 0.2))
     light.setPosition(osg.Vec4(1, -1, 1, 0))
 
-    osg.ref_ptr<osg.LightSource> root = new osg.LightSource
+    root = osg.LightSource()
     root.setLight(light.get())
     root.setLocalStateSetModes()
 

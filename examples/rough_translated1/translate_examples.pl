@@ -14,7 +14,7 @@ sub translate_source_file {
     die unless open( my $fh, $file );
     my $file_block = join("", <$fh>); # Read entire file at once
 
-    # TODO: translate code
+    # TODO - break these task blocks into separate subroutines
 
     # Parse osg modules used, from headers
     # #include <osg/ApplicationUsage>
@@ -23,8 +23,13 @@ sub translate_source_file {
         $modules{$1} += 1;
     }
     while (my ($mod, $count) = each %modules ) {
+        # debugging loop
         # print $mod, ": ", $count, "\n";
     }
+
+    # Strip away osg::ref_ptr<...> shell
+    # osg::ref_ptr<whatever> is already secretly inside the python classes
+    $file_block =~ s/osg::ref_ptr<([^>]+)>/$1/g;
 
     # Regexes can only do finite nesting of parentheses
     my $paren_rx = "\\([^()]*\\)";
@@ -34,12 +39,12 @@ sub translate_source_file {
 
     # Regular expressions to help (mostly) identify function declarations
     my $ident_rx = "[a-zA-Z_][a-zA-Z0-9_]*"; # identifiers
-    my $type_rx = "(?:$ident_rx\\:\\:)*$ident_rx"; # type names
-    my $dec_type_rx = "(?:(?:virtual|const)\\s+)*$type_rx(?:\\s*\\*+|&)?"; # type names
+    my $type_rx = "(?:$ident_rx\\:\\:)*$ident_rx(?:<.*>)?"; # type names
+    my $dec_type_rx = "(?:(?:virtual|const|unsigned)\\s+)*$type_rx(?:\\s*\\*+|&)?"; # type names
     my $arg_ident_rx = "(?:\\*+|&)?($ident_rx)"; # e.g. "**argv"
     my $funcarg_rx = "$dec_type_rx\\s+$arg_ident_rx(\\s*=\\s*\\S+)?"; # one argument to a function
     my $funcargs_rx = "\\(\\s*($funcarg_rx(?:\\s*,\\s*$funcarg_rx)*)?\\s*\\)"; # parentheses and arguments to a function
-    my $func_rx = "^(\\s*)$dec_type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*(?:const\\s*)?{\\s*\$\\n";
+    my $func_rx = "^(\\s*)$dec_type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*(?:const\\s*)?{";
 
     # Translate class declarations, like
     # "class PlaneConstraint : public osgManipulator::Constraint {"
@@ -59,6 +64,11 @@ sub translate_source_file {
     }
     $file_block =~ s/\n\s*(public|protected|private)://g;
     $file_block =~ s/(public|protected|private)://g;
+
+    # Loop for debugging...
+    while ( $file_block =~ m/($func_rx)/mg ) {
+        # print "$1\n";
+    }
 
     # Translate function declarations
     # Like "int main(int foo) {"
@@ -80,14 +90,14 @@ sub translate_source_file {
         }
         my $py_func = "${indent}def $fn_name(";
         $py_func .= join ", ", @arg_names;
-        $py_func .= "):\n";
+        $py_func .= "):\n$indent    ";
 
         # print $cpp_func, "\n";
         # print $py_func;
         $file_block =~ s/\Q${cpp_func}/${py_func}/;
     }
 
-    my $dec_ass_rx = "(^([\\t\ ]*)$dec_type_rx\\s+$arg_ident_rx\\s*=([^;]*);)";
+    my $dec_ass_rx = "(^([\\t\ ]*)$dec_type_rx\\s+$arg_ident_rx\\s*=\\s*([^;]*);)";
 
     # Translate declare-and-assign; "int foo = 3;"
     while ( $file_block =~ m/$dec_ass_rx/mg) {
@@ -134,14 +144,14 @@ sub translate_source_file {
     }
 
     # "new" constructor
-    $file_block =~ s/=\s*new\b([^;()]*\S)\s*;/=\1();/g; # "new" no parentheses
-    $file_block =~ s/=\s*new\b/=/g; # "new" with parentheses
+    $file_block =~ s/\bnew\b\s*([^;()]*\S)\s*;/$1();/g; # "new" no parentheses
+    $file_block =~ s/\bnew\b\s*//g; # "new" already with parentheses
 
     # If/While statements
     my $ifwhile_rx = "(else\\s+if|if|while)\\s*$paren4_rx";
     while ( $file_block =~ m/($ifwhile_rx)/mg) {
         my $cpp_while = $1;
-        print "$1\n";
+        # print "$1\n";
         # strip one set of parentheses
         my $kw = $2;
         my $contents = $3;
@@ -153,7 +163,7 @@ sub translate_source_file {
         $file_block =~ s/\Q${cpp_while}/${py_while}/;
     }
 
-    $file_block =~ s/\belse\b/else:/g;
+    $file_block =~ s/\belse\b/else :/g;
 
     # Translate console output statements
     $file_block =~ s/(?:std::)?cout\s*<<\s*/print /g;
@@ -195,7 +205,7 @@ sub translate_source_file {
     $file_block =~ s/\bfalse\b/False/g;   
 
     # floating point numbers, like "1.0f"
-    $file_block =~ s/\b([-+0-9\.]+)[f]\b/\1/g;   
+    $file_block =~ s/\b([-+0-9\.]+)[f]\b/$1/g;   
 
     return $file_block, \%modules;
 }
@@ -217,6 +227,7 @@ sub translate_example {
             # print "$mod: $count\n";
             $osg_modules{$mod} += $count;
         }
+        $source_block = "\n# Translated from file '$_'\n\n" . $source_block;
         push @file_blocks, $source_block;
     }
     die unless open( my $pyfh, ">$example.py" );
@@ -265,8 +276,8 @@ sub translate_all_examples {
 
         # Subset for testing
         $count += 1;
-        # last if $count > 100; # Just one for now while testing...
-        next unless $example =~ /manip/;
+        # last if $count > 10; # Just one for now while testing...
+        # next unless $example =~ /manip/;
 
         print "Translating OSG example: ", $_, "\n";
         translate_example($example, $folder);

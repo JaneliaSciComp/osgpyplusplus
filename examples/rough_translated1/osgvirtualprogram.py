@@ -11,6 +11,9 @@ from osgpypp import osgDB
 from osgpypp import osgText
 from osgpypp import osgViewer
 
+
+# Translated from file 'CreateAdvancedHierachy.cpp'
+
 #include <iostream>
 #include <osg/Geode>
 #include <osg/TexGen>
@@ -149,25 +152,26 @@ char PerFragmentDirectionalLightingFragmentShaderSource[] =
 ########################################
 # Convenience method to simplify code a little ...
 def SetVirtualProgramShader(virtualProgram, shader_semantics, shader_type, shader_name, shader_source):
-    shader =  new osg.Shader( shader_type )
+    
+    shader = osg.Shader( shader_type )
     shader.setName( shader_name )
     shader.setShaderSource( shader_source )
     virtualProgram.setShader( shader_semantics, shader )
 #######################################/
 void AddLabel( osg.Group * group,  str  label, float offset )
     center = osg.Vec3( 0, 0, offset * 0.5 )
-    geode =  new osg.Geode
+    geode = osg.Geode()
 
     # Make sure no program breaks text outputs 
     geode.getOrCreateStateSet().setAttribute
-      ( new osg.Program, osg.StateAttribute.ON | osg.StateAttribute.PROTECTED )
+      ( osg.Program, osg.StateAttribute.ON | osg.StateAttribute.PROTECTED )()
 
     # Turn off stage 1 texture set in parent transform (otherwise it darkens text)
     geode.getOrCreateStateSet().setTextureMode( 1, GL_TEXTURE_2D, osg.StateAttribute.OFF )
 
     group.addChild( geode )
 
-    text =  new osgText.Text
+    text = osgText.Text()
     geode.addDrawable( text )
     text.setFont("fonts/times.ttf")
     text.setCharacterSize( offset * 0.1 )
@@ -175,7 +179,7 @@ void AddLabel( osg.Group * group,  str  label, float offset )
     text.setAlignment( osgText.TextBase.CENTER_CENTER )
     text.setAxisAlignment(osgText.Text.SCREEN)
 
-    characterSizeModeColor = osg.Vec4(1.0f,0.0f,0.5f,1.0f)
+    characterSizeModeColor = osg.Vec4(1.0,0.0,0.5,1.0)
 #if 1
     # reproduce outline bounding box compute problem with backdrop on.
     text.setBackdropType(osgText.Text.OUTLINE)
@@ -185,30 +189,31 @@ void AddLabel( osg.Group * group,  str  label, float offset )
     text.setText( label )
 ########################################
 def CreateAdvancedHierarchy(model):
+    
     if  !model  : return NULL
-    offset =  model.getBound().radius() * 1.3 # diameter
+    offset = model.getBound().radius() * 1.3 # diameter
 
     # Create transforms for translated instances of the model
-    transformCenterMiddle =  new osg.MatrixTransform( )
+    transformCenterMiddle = osg.MatrixTransform( )
     transformCenterMiddle.setMatrix( osg.Matrix.translate( 0,0, offset * 0.5 ) )
     transformCenterMiddle.addChild( model )
 
-    transformCenterTop =  new osg.MatrixTransform( )
+    transformCenterTop = osg.MatrixTransform( )
     transformCenterMiddle.addChild( transformCenterTop )
     transformCenterTop.setMatrix( osg.Matrix.translate( 0,0,offset ) )
     transformCenterTop.addChild( model )
 
-    transformCenterBottom =  new osg.MatrixTransform( )
+    transformCenterBottom = osg.MatrixTransform( )
     transformCenterMiddle.addChild( transformCenterBottom )
     transformCenterBottom.setMatrix( osg.Matrix.translate( 0,0,-offset ) )
     transformCenterBottom.addChild( model )
 
-    transformLeftBottom =  new osg.MatrixTransform( )
+    transformLeftBottom = osg.MatrixTransform( )
     transformCenterBottom.addChild( transformLeftBottom )
     transformLeftBottom.setMatrix( osg.Matrix.translate( -offset * 0.8,0, -offset * 0.8 ) )
     transformLeftBottom.addChild( model )
 
-    transformRightBottom =  new osg.MatrixTransform( )
+    transformRightBottom = osg.MatrixTransform( )
     transformCenterBottom.addChild( transformRightBottom )
     transformRightBottom.setMatrix( osg.Matrix.translate( offset * 0.8,0, -offset * 0.8 ) )
     transformRightBottom.addChild( model )
@@ -225,7 +230,7 @@ def CreateAdvancedHierarchy(model):
         # is only possible if its used for shaders of differing types
         # here for VERTEX and FRAGMENT
 
-        vp =  new VirtualProgram( )
+        vp = VirtualProgram( )
         transformCenterMiddle.getOrCreateStateSet().setAttribute( vp )
         AddLabel( transformCenterMiddle, "Per Vertex Lighting Virtual Program", offset )
 
@@ -248,14 +253,14 @@ def CreateAdvancedHierarchy(model):
             "Fragment Lighting", PerVertexLightingFragmentShaderSource )
 
         transformCenterMiddle.getOrCreateStateSet().
-            addUniform( new osg.Uniform( "baseTexture", 0 ) )
+            addUniform( osg.Uniform( "baseTexture", 0 ) )
 
 
     # Override default vertex ligting with pixel lighting shaders
     # For three bottom models
     if  1  : 
         AddLabel( transformCenterBottom, "Per Pixel Lighting VP", offset )
-        vp =  new VirtualProgram( )
+        vp = VirtualProgram( )
         transformCenterBottom.getOrCreateStateSet().setAttribute( vp )
 
         SetVirtualProgramShader( vp, "lighting",osg.Shader.VERTEX,
@@ -270,7 +275,7 @@ def CreateAdvancedHierarchy(model):
     # better observe smooth speculars done through per pixel lighting
     if  1  : 
         AddLabel( transformLeftBottom, "Blue Tex VP", offset )
-        vp =  new VirtualProgram( )
+        vp = VirtualProgram( )
         transformLeftBottom.getOrCreateStateSet().setAttribute( vp )
 
         SetVirtualProgramShader( vp, "texture",osg.Shader.FRAGMENT,
@@ -281,13 +286,13 @@ def CreateAdvancedHierarchy(model):
     if  1  :
         AddLabel( transformRightBottom, "EnvMap Sphere VP", offset )
 
-        ss =  transformRightBottom.getOrCreateStateSet()
-        vp =  new VirtualProgram( )
+        ss = transformRightBottom.getOrCreateStateSet()
+        vp = VirtualProgram( )
         ss.setAttribute( vp )
         SetVirtualProgramShader( vp, "texture",osg.Shader.VERTEX,
             "Vertex Texture Sphere Map", SphereMapTextureVertexShaderSource )
 
-        texture =   new osg.Texture2D(
+        texture = osg.Texture2D(
 #            osgDB.readImageFile("Images/reflect.rgb") 
             osgDB.readImageFile("Images/skymap.jpg") 
         )
@@ -296,10 +301,10 @@ def CreateAdvancedHierarchy(model):
         # The same could be achieved with texture override 
         # but such approach also turns off label texture
         ss.setTextureAttributeAndModes( 1, texture, osg.StateAttribute.ON )
-        ss.addUniform( new osg.Uniform( "baseTexture", 1 ) )
+        ss.addUniform( osg.Uniform( "baseTexture", 1 ) )
 
 #if 0 # Could be useful with Fixed Vertex Pipeline
-        texGen =  new osg.TexGen()
+        texGen = osg.TexGen()
         texGen.setMode( osg.TexGen.SPHERE_MAP )
 
         # Texture states applied
@@ -311,13 +316,13 @@ def CreateAdvancedHierarchy(model):
     # Top center model usues osg.Program overriding VirtualProgram in model
     if  1  : 
         AddLabel( transformCenterTop, "Fixed Vertex + Simple Fragment osg.Program", offset )
-        program =  new osg.Program
+        program = osg.Program()
         program.setName( "Trivial Fragment + Fixed Vertex Program" )
 
         transformCenterTop.getOrCreateStateSet( ).setAttributeAndModes
             ( program, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
-        shader =  new osg.Shader( osg.Shader.FRAGMENT )
+        shader = osg.Shader( osg.Shader.FRAGMENT )
         shader.setName( "Trivial Fragment Shader" )
         shader.setShaderSource(
             "uniform sampler2D baseTexture                                          \n"
@@ -329,7 +334,7 @@ def CreateAdvancedHierarchy(model):
 
         program.addShader( shader )
 
-    transformCenterMiddle = return()
+    return transformCenterMiddle
 
 ########################################
 # Shders not used in the example but left for fun if anyone wants to play 
@@ -362,9 +367,9 @@ char LightingVertexShaderSource[] =
 "                                                                          \n" #26
 "       if gl_LightSource[i].position.w == 0.0 :                            \n" #27
 "           DirectionalLight(i, normal, amb, diff, spec)                   \n" #28
-"       else: if gl_LightSource[i].spotCutoff == 180.0 :                     \n" #29
+"       elif gl_LightSource[i].spotCutoff == 180.0 :                     \n" #29
 "           PointLight(i, eye, position, normal, amb, diff, spec)          \n" #30
-"       else:                                                                \n" #31
+"       else :                                                                \n" #31
 "           SpotLight(i, eye, position, normal, amb, diff, spec)           \n" #32
 "                                                                          \n" #33
 "                                                                           \n" #34
@@ -416,7 +421,7 @@ char SpotLightShaderSource[] =
 "                                                                           \n" #35
 "    if spotDot < gl_LightSource[i].spotCosCutoff :                         \n" #36
 "        spotAttenuation = 0.0 # light adds no contribution               \n" #37
-"    else:                                                                   \n" #38
+"    else :                                                                   \n" #38
 "        spotAttenuation = pow(spotDot, gl_LightSource[i].spotExponent)    \n" #39
 "                                                                           \n" #40
 "    # Combine the spotlight and distance attenuation.                     \n" #41
@@ -429,7 +434,7 @@ char SpotLightShaderSource[] =
 "                                                                           \n" #48
 "    if nDotVP == 0.0 :                                                     \n" #49
 "        pf = 0.0                                                          \n" #50
-"    else:                                                                   \n" #51
+"    else :                                                                   \n" #51
 "        pf = pow(nDotHV, gl_FrontMaterial.shininess)                      \n" #52
 "                                                                           \n" #53
 "    ambient  += gl_LightSource[i].ambient * attenuation                   \n" #54
@@ -475,7 +480,7 @@ char PointLightShaderSource[] =
 "                                                                           \n" #35
 "    if nDotVP == 0.0 :                                                     \n" #36
 "        pf = 0.0                                                          \n" #37
-"    else:                                                                   \n" #38
+"    else :                                                                   \n" #38
 "        pf = pow(nDotHV, gl_FrontMaterial.shininess)                      \n" #39
 "                                                                           \n" #40
 "    ambient += gl_LightSource[i].ambient * attenuation                    \n" #41
@@ -501,13 +506,16 @@ char DirectionalLightShaderSource[] =
 "                                                                           \n" #15
 "     if nDotVP == 0.0 :                                                    \n" #16
 "         pf = 0.0                                                         \n" #17
-"     else:                                                                  \n" #18
+"     else :                                                                  \n" #18
 "         pf = pow(nDotHV, gl_FrontMaterial.shininess)                     \n" #19
 "                                                                           \n" #20
 "     ambient  += gl_LightSource[i].ambient                                \n" #21
 "     diffuse  += gl_LightSource[i].diffuse * nDotVP                       \n" #22
 "     specular += gl_LightSource[i].specular * pf                          \n" #23
 "                                                                          \n"#24
+
+
+# Translated from file 'CreateSimpleHierachy.cpp'
 
 #include <iostream>
 #include <osg/Geode>
@@ -523,22 +531,23 @@ using osgCandidate.VirtualProgram
 
 ########################################
 def CreateSimpleHierarchy(node):
+    
     if  !node  : return NULL
-    r =  node.getBound().radius() # diameter
-    root =  new osg.Group()
-    group =  new osg.Group()
+    r = node.getBound().radius() # diameter
+    root = osg.Group()
+    group = osg.Group()
 
     # Create four matrices for translated instances of the cow
-    transform0 =  new osg.MatrixTransform( )
+    transform0 = osg.MatrixTransform( )
     transform0.setMatrix( osg.Matrix.translate( 0,0,r ) )
 
-    transform1 =  new osg.MatrixTransform( )
+    transform1 = osg.MatrixTransform( )
     transform1.setMatrix( osg.Matrix.translate( 0,0,0 ) )
 
-    transform2 =  new osg.MatrixTransform( )
+    transform2 = osg.MatrixTransform( )
     transform2.setMatrix( osg.Matrix.translate( -r,0,-r ) )
 
-    transform3 =  new osg.MatrixTransform( )
+    transform3 = osg.MatrixTransform( )
     transform3.setMatrix( osg.Matrix.translate(  r,0,-r ) )
 
     root.addChild( transform0 )
@@ -554,8 +563,8 @@ def CreateSimpleHierarchy(node):
 
     # At the scene root apply standard program 
     if  1  :
-        program =  new osg.Program
-        main =  new osg.Shader( osg.Shader.FRAGMENT )
+        program = osg.Program()
+        main = osg.Shader( osg.Shader.FRAGMENT )
 
         main.setShaderSource(
             "uniform sampler2D base \n"
@@ -573,10 +582,10 @@ def CreateSimpleHierarchy(node):
 
     # Now override root program with default VirtualProgram for three bottom cows
     if  1  :
-        virtualProgram =  new VirtualProgram( )
+        virtualProgram = VirtualProgram( )
 
         # Create main shader which declares and calls ColorFilter function 
-        main =  new osg.Shader( osg.Shader.FRAGMENT )
+        main = osg.Shader( osg.Shader.FRAGMENT )
 
         main.setShaderSource( 
             "vec4 ColorFilter( in vec4 color ) \n"
@@ -593,7 +602,7 @@ def CreateSimpleHierarchy(node):
         main.setName( "Virtual Main" )
 
         # Create filter shader which implements greem ColorFilter function 
-        colorFilter =  new osg.Shader( osg.Shader.FRAGMENT )
+        colorFilter = osg.Shader( osg.Shader.FRAGMENT )
 
         colorFilter.setShaderSource(       
             "vec4 ColorFilter( in vec4 color ) \n"
@@ -611,9 +620,9 @@ def CreateSimpleHierarchy(node):
     # Create "incomplete" VirtualProgram overriding ColorFilter function
     # Lower left cow drawn will be red
     if  1  :
-        virtualProgram =  new VirtualProgram()
+        virtualProgram = VirtualProgram()
       
-        redFilter =  new osg.Shader( osg.Shader.FRAGMENT )
+        redFilter = osg.Shader( osg.Shader.FRAGMENT )
         redFilter.setShaderSource( 
             "vec4 ColorFilter( in vec4 color ) \n"
             " \n"
@@ -629,9 +638,9 @@ def CreateSimpleHierarchy(node):
     # Create "incomplete" VirtualProgram overriding ColorFilter function
     # Lower right cow will be drawn with grid pattern on yellow background
     if  1  :
-        virtualProgram =  new VirtualProgram()
+        virtualProgram = VirtualProgram()
 
-        gridFilter =  new osg.Shader( osg.Shader.FRAGMENT )
+        gridFilter = osg.Shader( osg.Shader.FRAGMENT )
         gridFilter.setShaderSource(         
             "vec4 ColorFilter( in vec4 color ) \n"
             " \n"
@@ -645,8 +654,11 @@ def CreateSimpleHierarchy(node):
        
         transform3.getOrCreateStateSet( ).setAttribute( virtualProgram )
 
-    root = return()
+    return root
 #####################
+
+# Translated from file 'osgvirtualprogram.cpp'
+
 #include <iostream>
 #include <osg/Geode>
 #include <osg/TexGen>
@@ -663,29 +675,29 @@ extern osg.Node * CreateAdvancedHierarchy( osg.Node * model )
 ########################################
 osg.Node * CreateGlobe( void )
     # File not found - create textured sphere 
-    geode =  new osg.Geode
-    osg.ref_ptr<osg.TessellationHints> hints = new osg.TessellationHints
+    geode = osg.Geode()
+    hints = osg.TessellationHints()
     hints.setDetailRatio( 0.3 )
 
 #if 1
-    osg.ref_ptr<osg.ShapeDrawable> shape = new osg.ShapeDrawable
-        ( new osg.Sphere(osg.Vec3(0.0f, 0.0f, 0.0f), 4.0 ), hints.get() )
-#else:
-    osg.ref_ptr<osg.ShapeDrawable> shape = new osg.ShapeDrawable
-        ( new osg.Box( osg.Vec3(-1.0f, -1.0f, -1.0f), 2.0, 2.0, 2.0 ) )
+    shape = osg.ShapeDrawable
+        ( osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), 4.0 ), hints.get() )
+#else :
+    shape = osg.ShapeDrawable
+        ( osg.Box( osg.Vec3(-1.0, -1.0, -1.0), 2.0, 2.0, 2.0 ) )
 #endif
 
-    shape.setColor(osg.Vec4(0.8f, 0.8f, 0.8f, 1.0f))
+    shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
 
     geode.addDrawable( shape.get() )
 
-    stateSet =  new osg.StateSet
+    stateSet = osg.StateSet()
 
-    texture =   new osg.Texture2D( 
+    texture = osg.Texture2D( 
         osgDB.readImageFile("Images/land_shallow_topo_2048.jpg") 
     )
 
-    material =  new osg.Material
+    material = osg.Material()
 
     material.setAmbient
         ( osg.Material.FRONT_AND_BACK, osg.Vec4( 0.9, 0.9, 0.9, 1.0 ) )
@@ -705,19 +717,20 @@ osg.Node * CreateGlobe( void )
     stateSet.setTextureAttributeAndModes( 0,texture, osg.StateAttribute.ON )
 
     geode.setStateSet( stateSet )
-    geode = return()
+    return geode
 ########################################
 def main(argc, argv):
+    
     # construct the viewer.
     arguments = osg.ArgumentParser( argc, argv )
     viewer = osgViewer.Viewer( arguments )
 
-    useSimpleExample =  arguments.read("-s") || arguments.read("--simple") 
+    useSimpleExample = arguments.read("-s") || arguments.read("--simple") 
 
-    model =  NULL
+    model = NULL
 
     if arguments.argc()>1  !arguments.isOption(1)  : 
-        filename =  arguments[1]
+        filename = arguments[1]
         model = osgDB.readNodeFile( filename )
         if  !model  : 
             osg.notify( osg.NOTICE ), "Error, cannot read ", filename, ". Loading default earth model instead."
@@ -725,7 +738,7 @@ def main(argc, argv):
     if  model == NULL  :
         model = CreateGlobe( )
 
-    node =  useSimpleExample ?        
+    node = useSimpleExample ?        
         CreateSimpleHierarchy( model ):
         CreateAdvancedHierarchy( model )
 
@@ -734,6 +747,9 @@ def main(argc, argv):
     viewer.run()
 
     return 0
+
+# Translated from file 'VirtualProgram.cpp'
+
 ########################################
 #include<osg/Shader>
 #include<osg/Program>
@@ -772,11 +788,11 @@ osg.Shader * VirtualProgram.getShader
 osg.Shader * VirtualProgram.setShader
 (  str  shaderSemantic, osg.Shader * shader )
     if  shader.getType() == osg.Shader.UNDEFINED  : 
-        NULL = return()
+        return NULL
 
     key = ShaderMap.key_type( shaderSemantic, shader.getType() )
 
-    ref_ptr< osg.Shader >   shaderNew     = shader
+    shaderNew = shader
     ref_ptr< osg.Shader >  shaderCurrent = _shaderMap[ key ]
 
 #if 0 # Good for debugging of shader linking problems. 
@@ -800,23 +816,23 @@ void VirtualProgram.apply( osg.State  state )
     if  _shaderMap.empty()  : # Virtual Program works as normal Program
         return Program.apply( state )
 
-    av =  state.getAttributeVec(this)
+    av = state.getAttributeVec(this)
 
 #if NOTIFICATION_MESSAGES
-    os =  osg.notify( osg.NOTICE )
+    os = osg.notify( osg.NOTICE )
     os, "VirtualProgram cumulate Begin"
 #endif
 
     shaderMap = ShaderMap()
     for( State.AttributeVec.iterator i = av.begin() i != av.end() ++i )
-        sa =  i.first
-        vp =  dynamic_cast<  VirtualProgram *>( sa )
+        sa = i.first
+        vp = dynamic_cast<  VirtualProgram *>( sa )
         if  vp  ( vp._mask  _mask )  : 
 
 #if NOTIFICATION_MESSAGES
             if  vp.getName().empty()  :
                 os, "VirtualProgram cumulate [ Unnamed VP ] apply"
-            else: 
+            else : 
                 os, "VirtualProgram cumulate [", vp.getName(), "] apply"
 #endif
 
@@ -824,7 +840,7 @@ void VirtualProgram.apply( osg.State  state )
                                            i != vp._shaderMap.end() ++i )
                                                     shaderMap[ i.first ] = i.second
 
-         else: 
+         else : 
 #if NOTIFICATION_MESSAGES
             os, "VirtualProgram cumulate ( not VP or mask not match ) ignored"
 #endif
@@ -844,14 +860,14 @@ void VirtualProgram.apply( osg.State  state )
         for( ShaderMap.iterator i = shaderMap.begin() i != shaderMap.end() ++i )
             sl.push_back( i.second )
 
-        osg.ref_ptr< osg.Program >  program = _programMap[ sl ]
+         osg.Program   program = _programMap[ sl ]
 
         if  !program.valid()  : 
-            program = new osg.Program
+            program = osg.Program()
 #if !MERGE_SHADERS
             for( ShaderList.iterator i = sl.begin() i != sl.end() ++i )
                 program.addShader( i.get() )
-#else:
+#else :
             strFragment = str()
             strVertex = str()
             strGeometry = str()
@@ -859,32 +875,32 @@ void VirtualProgram.apply( osg.State  state )
             for( ShaderList.iterator i = sl.begin() i != sl.end() ++i )
                 if  i.get().getType() == osg.Shader.FRAGMENT  :
                     strFragment += i.get().getShaderSource()
-                else: if  i.get().getType() == osg.Shader.VERTEX  :
+                elif  i.get().getType() == osg.Shader.VERTEX  :
                     strVertex += i.get().getShaderSource()
-                else: if  i.get().getType() == osg.Shader.GEOMETRY  :
+                elif  i.get().getType() == osg.Shader.GEOMETRY  :
                     strGeometry += i.get().getShaderSource()
 
             if  strFragment.length() > 0  : 
-                program.addShader( new osg.Shader( osg.Shader.FRAGMENT, strFragment ) )
+                program.addShader( osg.Shader( osg.Shader.FRAGMENT, strFragment ) )
 #if NOTIFICATION_MESSAGES
                 os, "====VirtualProgram merged Fragment Shader:", strFragment, "===="
 #endif
 
             if  strVertex.length() > 0   : 
-                program.addShader( new osg.Shader( osg.Shader.VERTEX, strVertex ) )
+                program.addShader( osg.Shader( osg.Shader.VERTEX, strVertex ) )
 #if NOTIFICATION_MESSAGES
                 os, "VirtualProgram merged Vertex Shader:", strVertex, "===="
 #endif
 
             if  strGeometry.length() > 0   : 
-                program.addShader( new osg.Shader( osg.Shader.GEOMETRY, strGeometry ) )
+                program.addShader( osg.Shader( osg.Shader.GEOMETRY, strGeometry ) )
 #if NOTIFICATION_MESSAGES
                 os, "VirtualProgram merged Geometry Shader:", strGeometry, "===="
 #endif
 #endif
 
         state.applyAttribute( program.get() )
-     else: 
+     else : 
         Program.apply( state )
 
 #if NOTIFICATION_MESSAGES
@@ -893,6 +909,9 @@ void VirtualProgram.apply( osg.State  state )
 
 ########################################
  # namespace osgExt
+
+# Translated from file 'VirtualProgram.h'
+
 #ifndef _VIRTUAL_PROGRAM__
 #define _VIRTUAL_PROGRAM__ 1
 
@@ -904,8 +923,7 @@ void VirtualProgram.apply( osg.State  state )
 ########################################
 namespace osgCandidate 
 ########################################
-class VirtualProgram: public osg.Program
-public: 
+class VirtualProgram (osg.Program) : 
     VirtualProgram( unsigned int mask = 0xFFFFFFFFUL )
 
     virtual ~VirtualProgram( void )
@@ -916,7 +934,8 @@ public:
     META_StateAttribute( osgCandidate, VirtualProgram, Type( PROGRAM ) )
 
     #* return -1 if *this < *rhs, 0 if *this==*rhs, 1 if *this>*rhs.
-    virtual int compare( StateAttribute sa) 
+    def compare(sa):
+        
        # check the types are equal and then create the rhs variable
        # used by the COMPARE_StateAttribute_Parameter macros below.
        COMPARE_StateAttribute_Types(VirtualProgram,sa)
@@ -927,7 +946,7 @@ public:
        return 0 # passed all the above comparison macros, must be equal.
 
     #* If enabled, activate our program in the GL pipeline,
-     * performing any rebuild operations that might be pending. 
+#     * performing any rebuild operations that might be pending. 
     virtual void  apply(osg.State state) 
 
     getShader = osg.Shader*(  str  shaderSemantic,
@@ -935,16 +954,14 @@ public:
     
     setShader = osg.Shader*(  str  shaderSemantic,
                                         osg.Shader * shader )
-
-protected:
-    typedef std.vector< osg.ref_ptr< osg.Shader > >            ShaderList
+    typedef std.vector<  osg.Shader  >            ShaderList
     typedef std.pair< str, osg.Shader.Type >           ShaderSemantic
-    typedef std.map< ShaderSemantic, osg.ref_ptr<osg.Shader> > ShaderMap
-    typedef std.map< ShaderList, osg.ref_ptr<osg.Program> >    ProgramMap
+    typedef std.map< ShaderSemantic, osg.Shader > ShaderMap
+    typedef std.map< ShaderList, osg.Program >    ProgramMap
 
     mutable ProgramMap                   _programMap
     _shaderMap = ShaderMap()
-    unsigned int                         _mask
+    _mask = unsigned int()
  # class VirtualProgram
 ########################################
 

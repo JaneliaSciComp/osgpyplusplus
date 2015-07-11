@@ -13,6 +13,9 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
+
+# Translated from file 'osgmanipulator.cpp'
+
 # OpenSceneGraph example, osgmanipulator.
 #*
 #*  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -62,21 +65,27 @@ class PlaneConstraint (osgManipulator.Constraint) :
         PlaneConstraint() 
     
         def constrain(command):
+    
+            
             OSG_NOTICE, "PlaneConstraint TranslateInLineCommand ", command.getTranslation()
             return True            
         def constrain(command):
+            
             #command.setTranslation(osg.Vec3(0.0,0.0,0.0))
             OSG_NOTICE, "PlaneConstraint TranslateInPlaneCommand ", command.getTranslation()
             return True
         def constrain(command):
+            
             #command.setScale(1.0)
             OSG_NOTICE, "PlaneConstraint Scale1DCommand", command.getScale()
             return True            
         def constrain(command):
+            
             #command.setScale(osg.Vec2d(1.0,1.0))
             OSG_NOTICE, "PlaneConstraint Scale2DCommand ", command.getScale()
             return True
         def constrain(command):
+            
             OSG_NOTICE, "PlaneConstraint ScaleUniformCommand", command.getScale()
             return True            
 
@@ -84,11 +93,15 @@ class PlaneConstraint (osgManipulator.Constraint) :
 
 
 def createDragger(name):
-    dragger =  0
+
+
+
+    
+    dragger = 0
     if "TabPlaneDragger" == name :
         d = osgManipulator.TabPlaneDragger()
         d.setupDefaultGeometry()
-        d.addConstraint(new PlaneConstraint())
+        d.addConstraint(PlaneConstraint())
         dragger = d
     elif "TabPlaneTrackballDragger" == name :
         d = osgManipulator.TabPlaneTrackballDragger()
@@ -134,7 +147,7 @@ def createDragger(name):
         d = osgManipulator.RotateSphereDragger()
         d.setupDefaultGeometry()
         dragger = d
-    else:
+    else :
         d = osgManipulator.TabBoxDragger()
         d.setupDefaultGeometry()
         dragger = d
@@ -155,43 +168,58 @@ class DraggerContainer (osg.Group) :
     META_Node( osgManipulator, DraggerContainer )
     
     def setDragger(dragger):
+    
+        
         _dragger = dragger
         if  !containsNode(dragger)  : addChild( dragger )
     
-    osgManipulator.Dragger* getDragger()  return _dragger.get() 
-     osgManipulator.Dragger* getDragger()   return _dragger.get() 
+    def getDragger():
     
-    void setDraggerSize( float size )  _draggerSize = size 
-    float getDraggerSize()   return _draggerSize 
+         return _dragger.get() 
+    def getDragger():
+         return _dragger.get() 
     
-    void setActive( bool b )  _active = b 
-    bool getActive()   return _active 
+    def setDraggerSize(size):
+    
+         _draggerSize = size 
+    def getDraggerSize():
+         return _draggerSize 
+    
+    def setActive(b):
+    
+         _active = b 
+    def getActive():
+         return _active 
     
     def traverse(nv):
+    
+        
         if  _dragger.valid()  :
             if  _active  nv.getVisitorType()==osg.NodeVisitor.CULL_VISITOR  :
-                cv =  static_cast<osgUtil.CullVisitor*>(nv)
+                cv = static_cast<osgUtil.CullVisitor*>(nv)
                 
-                pixelSize =  cv.pixelSize(_dragger.getBound().center(), 0.48)
+                pixelSize = cv.pixelSize(_dragger.getBound().center(), 0.48)
                 if  pixelSize!=_draggerSize  :
-                    pixelScale =  pixelSize>0.0 ? _draggerSize/pixelSize : 1.0
+                    pixelScale = pixelSize>0.0 ? _draggerSize/pixelSize : 1.0
                     scaleFactor = osg.Vec3d(pixelScale, pixelScale, pixelScale)
                     
-                    trans =  _dragger.getMatrix().getTrans()
+                    trans = _dragger.getMatrix().getTrans()
                     _dragger.setMatrix( osg.Matrix.scale(scaleFactor) * osg.Matrix.translate(trans) )
         osg.Group.traverse(nv)
-    osg.ref_ptr<osgManipulator.Dragger> _dragger
+    _dragger = osgManipulator.Dragger()
     _draggerSize = float()
     _active = bool()
 
 
 def addDraggerToScene(scene, name, fixedSizeInScreen):
+
+    
     scene.getOrCreateStateSet().setMode(GL_NORMALIZE, osg.StateAttribute.ON)
 
     transform = osg.MatrixTransform()
     transform.addChild(scene)
 
-    dragger =  createDragger(name)
+    dragger = createDragger(name)
 
     root = osg.Group()
     root.addChild(transform)
@@ -200,16 +228,16 @@ def addDraggerToScene(scene, name, fixedSizeInScreen):
         draggerContainer = DraggerContainer()
         draggerContainer.setDragger( dragger )
         root.addChild(draggerContainer)
-    else:
+    else :
         root.addChild(dragger)
 
-    scale =  scene.getBound().radius() * 1.6
+    scale = scene.getBound().radius() * 1.6
     dragger.setMatrix(osg.Matrix.scale(scale, scale, scale) *
                        osg.Matrix.translate(scene.getBound().center()))
 
     if dynamic_cast<osgManipulator.TabPlaneDragger*>(dragger) :
         dragger.addTransformUpdating(transform, osgManipulator.DraggerTransformCallback.HANDLE_TRANSLATE_IN_LINE)
-    else:
+    else :
         dragger.addTransformUpdating(transform)
 
     # we want the dragger to handle it's own events automatically
@@ -226,64 +254,67 @@ def addDraggerToScene(scene, name, fixedSizeInScreen):
     return root
 
 def createDemoScene(fixedSizeInScreen):
+
+    
+ 
     root = osg.Group()
 
-    osg.ref_ptr<osg.Geode> geode_1 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_1 = osg.MatrixTransform()
+    geode_1 = osg.Geode()
+    transform_1 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_2 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_2 = osg.MatrixTransform()
+    geode_2 = osg.Geode()
+    transform_2 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_3 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_3 = osg.MatrixTransform()
+    geode_3 = osg.Geode()
+    transform_3 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_4 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_4 = osg.MatrixTransform()
+    geode_4 = osg.Geode()
+    transform_4 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_5 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_5 = osg.MatrixTransform()
+    geode_5 = osg.Geode()
+    transform_5 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_6 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_6 = osg.MatrixTransform()
+    geode_6 = osg.Geode()
+    transform_6 = osg.MatrixTransform()
 
-    osg.ref_ptr<osg.Geode> geode_7 = osg.Geode()
-    osg.ref_ptr<osg.MatrixTransform> transform_7 = osg.MatrixTransform()
+    geode_7 = osg.Geode()
+    transform_7 = osg.MatrixTransform()
 
  
 
 
 
-    radius =  0.8
-    height =  1.0
-    osg.ref_ptr<osg.TessellationHints> hints = osg.TessellationHints()
+    radius = 0.8
+    height = 1.0
+    hints = osg.TessellationHints()
     hints.setDetailRatio(2.0)
-    osg.ref_ptr<osg.ShapeDrawable> shape
+    shape = osg.ShapeDrawable()
 
-    shape = osg.ShapeDrawable(new osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints.get())
+    shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints.get())
     shape.setColor(osg.Vec4(0.5, 0.5, 0.7, 1.0))
     geode_1.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(0.0, 0.0, 0.0), radius * 2,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 0.0, 0.0), radius * 2,radius), hints.get())
     shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
     geode_2.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(-3.0, 0.0, 0.0), radius,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(-3.0, 0.0, 0.0), radius,radius), hints.get())
     shape.setColor(osg.Vec4(0.6, 0.8, 0.8, 1.0))
     geode_3.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cone(osg.Vec3(3.0, 0.0, 0.0), 2 * radius,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(3.0, 0.0, 0.0), 2 * radius,radius), hints.get())
     shape.setColor(osg.Vec4(0.4, 0.9, 0.3, 1.0))
     geode_4.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints.get())
     shape.setColor(osg.Vec4(0.2, 0.5, 0.7, 1.0))
     geode_5.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints.get())
     shape.setColor(osg.Vec4(1.0, 0.3, 0.3, 1.0))
     geode_6.addDrawable(shape.get())
 
-    shape = osg.ShapeDrawable(new osg.Cone(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0), hints.get())
     shape.setColor(osg.Vec4(0.8, 0.8, 0.4, 1.0))
     geode_7.addDrawable(shape.get())
 
@@ -293,7 +324,7 @@ def createDemoScene(fixedSizeInScreen):
 
 
     # material
-    osg.ref_ptr<osg.Material> matirial = osg.Material()
+    matirial = osg.Material()
     matirial.setColorMode(osg.Material.DIFFUSE)
     matirial.setAmbient(osg.Material.FRONT_AND_BACK, osg.Vec4(0, 0, 0, 1))
     matirial.setSpecular(osg.Material.FRONT_AND_BACK, osg.Vec4(1, 1, 1, 1))
@@ -321,6 +352,8 @@ def createDemoScene(fixedSizeInScreen):
     return root
 # 
 def main(argc, argv):
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -337,7 +370,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--dragger <draggername>","Use the specified dragger for manipulation [TabPlaneDragger, TabPlaneTrackballDragger, TrackballDragger, Translate1DDragger, Translate2DDragger, TranslateAxisDragger, TabBoxDragger, TranslatePlaneDragger, Scale1DDragger, Scale2DDragger, RotateCylinderDragger, RotateSphereDragger]")
     arguments.getApplicationUsage().addCommandLineOption("--fixedDraggerSize","Fix the size of the dragger geometry in the screen space")
     
-    fixedSizeInScreen =  False
+    fixedSizeInScreen = False
     while arguments.read("--fixedDraggerSize") :  fixedSizeInScreen = True 
 
     # construct the viewer.
@@ -347,8 +380,8 @@ def main(argc, argv):
     viewer.getUsage(*arguments.getApplicationUsage())
 
     # if user request help write it out to cout.
-    helpAll =  arguments.read("--help-all")
-    unsigned int helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
+    helpAll = arguments.read("--help-all")
+    helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
                             ((helpAll ||  arguments.read("--help-env"))? osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE : 0 ) |
                             ((helpAll ||  arguments.read("--help-keys"))? osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING : 0 )
     if helpType :
@@ -360,13 +393,13 @@ def main(argc, argv):
         arguments.writeErrorMessages(std.cout)
         return 1
 
-    dragger_name =  "TabBoxDragger"
+    dragger_name = "TabBoxDragger"
     arguments.read("--dragger", dragger_name)
 
-    start_tick =  osg.Timer.instance().tick()
+    start_tick = osg.Timer.instance().tick()
 
     # read the scene from the list of file specified command line args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if no model has been successfully loaded report failure.
     tragger2Scene = bool(True)
@@ -383,7 +416,7 @@ def main(argc, argv):
     if arguments.errors() :
         arguments.writeErrorMessages(std.cout)
 
-    end_tick =  osg.Timer.instance().tick()
+    end_tick = osg.Timer.instance().tick()
 
     print "Time to load = ", osg.Timer.instance().delta_s(start_tick,end_tick)
 
@@ -396,7 +429,7 @@ def main(argc, argv):
     # pass the loaded scene graph to the viewer.
     if  tragger2Scene  : 
         viewer.setSceneData(addDraggerToScene(loadedModel.get(), dragger_name, fixedSizeInScreen))
-     else:  
+     else :  
         viewer.setSceneData(loadedModel.get())
 
 

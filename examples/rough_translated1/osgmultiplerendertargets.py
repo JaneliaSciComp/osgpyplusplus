@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgmultiplerendertargets.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgmultiplerendertargets.cpp'
+
+# OpenSceneGraph example, osgmultiplerendertargets.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/GLExtensions>
 #include <osg/Node>
@@ -56,22 +59,22 @@ from osgpypp import osgViewer
 
 
 # The callback modifies an input image.
-struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
-    MyCameraPostDrawCallback(osg.Image* image):
+class MyCameraPostDrawCallback (osg.Camera.DrawCallback) :
+MyCameraPostDrawCallback(osg.Image* image):
         _image(image)
 
     virtual void operator () ( osg.Camera #camera) 
         if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_UNSIGNED_BYTE :
             # we'll pick out the center 1/2 of the whole image,
-            column_start =  _image.s()/4
-            column_end =  3*column_start
+            column_start = _image.s()/4
+            column_end = 3*column_start
 
-            row_start =  _image.t()/4
-            row_end =  3*row_start
+            row_start = _image.t()/4
+            row_end = 3*row_start
 
             # and then halve their contribution
             for(int r=row_start r<row_end ++r)
-                unsigned char* data = _image.data(column_start, r)
+                data = _image.data(column_start, r)
                 for(int c=column_start c<column_end ++c)
                     (*data) = (*data)/2 ++data
                     (*data) = (*data)/2 ++data
@@ -79,27 +82,27 @@ struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
                     (*data) = 255 ++data
 
             _image.dirty()
-        else: if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
+        elif _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
             # we'll pick out the center 1/2 of the whole image,
-            column_start =  _image.s()/4
-            column_end =  3*column_start
+            column_start = _image.s()/4
+            column_end = 3*column_start
 
-            row_start =  _image.t()/4
-            row_end =  3*row_start
+            row_start = _image.t()/4
+            row_end = 3*row_start
 
             # and then halve their contribution
             for(int r=row_start r<row_end ++r)
-                data =  (float*)_image.data(column_start, r)
+                data = (float*)_image.data(column_start, r)
                 for(int c=column_start c<column_end ++c)
                     (*data) = (*data)/2.0 ++data
                     (*data) = (*data)/2.0 ++data
                     (*data) = (*data)/2.0 ++data
-                    (*data) = 1.0f ++data
+                    (*data) = 1.0 ++data
 
             _image.dirty()
 
             #print out the first three values
-            data =  (float*)_image.data(0, 0)
+            data = (float*)_image.data(0, 0)
             fprintf(stderr,"Float pixel data: r %e g %e b %e\n", data[0], data[1], data[2])
 
     _image = osg.Image*()
@@ -108,39 +111,40 @@ struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
 #define NUM_TEXTURES 4
 
 # The quad geometry is used by the render to texture camera to generate multiple textures.
-osg.Group* createRTTQuad(unsigned int tex_width, unsigned int tex_height, bool useHDR)
-    top_group =  new osg.Group
+def createRTTQuad(tex_width, tex_height, useHDR):
+    
+    top_group = osg.Group()
 
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(tex_width, 0))
     quad_tcoords.push_back(osg.Vec2(tex_width, tex_height))
     quad_tcoords.push_back(osg.Vec2(0, tex_height))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> quad_colors = new osg.Vec4Array
-    quad_colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    quad_colors = osg.Vec4Array()
+    quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
     quad_geom.addPrimitiveSet(quad_da.get())
     quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
 
-    stateset =  quad_geom.getOrCreateStateSet()
+    stateset = quad_geom.getOrCreateStateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-    stateset.addUniform(new osg.Uniform("width", (int)tex_width))
+    stateset.addUniform(osg.Uniform("width", (int)tex_width))
 
     # Attach shader, glFragData is used to create data for multiple render targets
 
@@ -156,11 +160,11 @@ osg.Group* createRTTQuad(unsigned int tex_width, unsigned int tex_height, bool u
             "\n"
         
 
-        osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT , shaderSource)
-        osg.ref_ptr<osg.Program> program = new osg.Program
+        fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
+        program = osg.Program()
         program.addShader(fshader.get())
         stateset.setAttributeAndModes(program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
-     else: 
+     else : 
         static  char *shaderSource = 
             "uniform int width"
             "void main(void)\n"
@@ -172,8 +176,8 @@ osg.Group* createRTTQuad(unsigned int tex_width, unsigned int tex_height, bool u
             "\n"
         
 
-        osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT , shaderSource)
-        osg.ref_ptr<osg.Program> program = new osg.Program
+        fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
+        program = osg.Program()
         program.addShader(fshader.get())
         stateset.setAttributeAndModes(program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
@@ -181,21 +185,22 @@ osg.Group* createRTTQuad(unsigned int tex_width, unsigned int tex_height, bool u
 
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 # Here a scene consisting of a single quad is created. This scene is viewed by the screen camera.
 # The quad is textured using a shader and the multiple textures generated in the RTT stage.
-osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned int tex_height, bool useHDR, bool useImage, bool useMultiSample)
+def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiSample):
+    
     if !cam_subgraph : return 0
 
     # create a group to contain the quad and the pre render camera.
-    parent =  new osg.Group
+    parent = osg.Group()
 
     # textures to render to and to use for texturing of the final quad
     osg.TextureRectangle* textureRect[NUM_TEXTURES] = 0,0,0,0
 
     for (int i=0i<NUM_TEXTURESi++) 
-        textureRect[i] = new osg.TextureRectangle
+        textureRect[i] = osg.TextureRectangle()
         textureRect[i].setTextureSize(tex_width, tex_height)
         textureRect[i].setInternalFormat(GL_RGBA)
         textureRect[i].setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
@@ -216,12 +221,12 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
             textureRect[i].setSourceType(GL_FLOAT)
 
     # first create the geometry of the quad
-        polyGeom =  new osg.Geometry()
+        polyGeom = osg.Geometry()
 
-        polyGeom.setSupportsDisplayList(false)
+        polyGeom.setSupportsDisplayList(False)
 
-        vertices =  new osg.Vec3Array
-        texcoords =  new osg.Vec2Array
+        vertices = osg.Vec3Array()
+        texcoords = osg.Vec2Array()
 
         vertices.push_back(osg.Vec3d(0,0,0))
         texcoords.push_back(osg.Vec2(0,0))
@@ -238,14 +243,14 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
         polyGeom.setVertexArray(vertices)
         polyGeom.setTexCoordArray(0,texcoords)
 
-        colors =  new osg.Vec4Array
-        colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+        colors = osg.Vec4Array()
+        colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
         polyGeom.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-        polyGeom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,vertices.size()))
+        polyGeom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,vertices.size()))
 
         # now we need to add the textures (generated by RTT) to the Drawable.
-        stateset =  new osg.StateSet
+        stateset = osg.StateSet()
         for (int i=0i<NUM_TEXTURESi++)
             stateset.setTextureAttributeAndModes(i, textureRect[i], osg.StateAttribute.ON)
 
@@ -269,11 +274,11 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
                 "     vec4(-0.5e12 * texture2DRect( textureID3, gl_TexCoord[0].st ).rgb, 1)  \n"
                 "\n"
             
-            osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT , shaderSource)
-            osg.ref_ptr<osg.Program> program = new osg.Program
+            fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
+            program = osg.Program()
             program.addShader( fshader.get())
             stateset.setAttributeAndModes( program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
-         else: 
+         else : 
             static  char *shaderSource = 
                 "uniform sampler2DRect textureID0\n"
                 "uniform sampler2DRect textureID1\n"
@@ -288,29 +293,29 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
                 "     -0.5*vec4(texture2DRect( textureID3, gl_TexCoord[0].st ).rgb, 1)  \n"
                 "\n"
             
-            osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT , shaderSource)
-            osg.ref_ptr<osg.Program> program = new osg.Program
+            fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
+            program = osg.Program()
             program.addShader( fshader.get())
             stateset.setAttributeAndModes( program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 
-        stateset.addUniform(new osg.Uniform("textureID0", 0))
-        stateset.addUniform(new osg.Uniform("textureID1", 1))
-        stateset.addUniform(new osg.Uniform("textureID2", 2))
-        stateset.addUniform(new osg.Uniform("textureID3", 3))
+        stateset.addUniform(osg.Uniform("textureID0", 0))
+        stateset.addUniform(osg.Uniform("textureID1", 1))
+        stateset.addUniform(osg.Uniform("textureID2", 2))
+        stateset.addUniform(osg.Uniform("textureID3", 3))
 
         #stateset.setDataVariance(osg.Object.DYNAMIC)
 
-        geode =  new osg.Geode()
+        geode = osg.Geode()
         geode.addDrawable(polyGeom)
 
         parent.addChild(geode)
 
     # now create the camera to do the multiple render to texture
-        camera =  new osg.Camera
+        camera = osg.Camera()
 
         # set up the background color and clear mask.
-        camera.setClearColor(osg.Vec4(0.1f,0.1f,0.3f,1.0f))
+        camera.setClearColor(osg.Vec4(0.1,0.1,0.3,1.0))
         camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         # the camera is going to look at our input quad
@@ -330,8 +335,8 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
         # attach the textures to use
         for (int i=0 i<NUM_TEXTURES i++) 
             if useMultiSample :
-                camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), textureRect[i], 0, 0, false, 4, 4)
-            else:
+                camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), textureRect[i], 0, 0, False, 4, 4)
+            else :
                 camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), textureRect[i])
 
 
@@ -339,18 +344,18 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
         # we can also read back any of the targets as an image, modify this image and push it back
         if useImage : 
             # which texture to get the image from
-            tex_to_get =  0
+            tex_to_get = 0
 
-            image =  new osg.Image
+            image = osg.Image()
             if useHDR : 
                 image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_FLOAT)
-             else: 
+             else : 
                 image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_UNSIGNED_BYTE)
 
             # attach the image so its copied on each frame.
             camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0 + tex_to_get), image)
 
-            camera.setPostDrawCallback(new MyCameraPostDrawCallback(image))
+            camera.setPostDrawCallback(MyCameraPostDrawCallback(image))
 
             # push back the image to the texture
             textureRect[tex_to_get].setImage(0, image)
@@ -360,9 +365,11 @@ osg.Node* createScene(osg.Node* cam_subgraph, unsigned int tex_width, unsigned i
 
         parent.addChild(camera)
 
-    parent = return()
+    return parent
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -383,23 +390,23 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    tex_width =  512
-    tex_height =  512
+    tex_width = 512
+    tex_height = 512
     while arguments.read("--width", tex_width) : 
     while arguments.read("--height", tex_height) : 
 
-    useHDR =  false
-    while arguments.read("--hdr") :  useHDR = true 
+    useHDR = False
+    while arguments.read("--hdr") :  useHDR = True 
 
-    useImage =  false
-    while arguments.read("--image") :  useImage = true 
+    useImage = False
+    while arguments.read("--image") :  useImage = True 
 
-    useMultiSample =  false
-    while arguments.read("--ms") :  useMultiSample = true 
+    useMultiSample = False
+    while arguments.read("--ms") :  useMultiSample = True 
 
-    subGraph =  createRTTQuad(tex_width, tex_height, useHDR)
+    subGraph = createRTTQuad(tex_width, tex_height, useHDR)
 
-    rootNode =  new osg.Group()
+    rootNode = osg.Group()
     rootNode.addChild(createScene(subGraph, tex_width, tex_height, useHDR, useImage, useMultiSample))
 
     # add model to the viewer.

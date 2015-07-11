@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osguserdata.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osguserdata.cpp'
+
+# OpenSceneGraph example, osguserdata.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 
 #include <osgViewer/Viewer>
@@ -43,75 +46,103 @@ from osgpypp import osgViewer
 namespace MyNamespace
 
 #* Provide an simple example of customizing the default UserDataContainer.
-class MyUserDataContainer : public osg.DefaultUserDataContainer
-    public:
+class MyUserDataContainer (osg.DefaultUserDataContainer) :
         MyUserDataContainer() 
         MyUserDataContainer( MyUserDataContainer udc,  osg.CopyOp copyop=osg.CopyOp.SHALLOW_COPY):
             DefaultUserDataContainer(udc, copyop) 
 
         META_Object(MyNamespace, MyUserDataContainer)
 
-        virtual Object* getUserObject(unsigned int i)
+        def getUserObject(i):
+
+            
             OSG_NOTICE, "MyUserDataContainer.getUserObject(", i, ")"
             return  osg.DefaultUserDataContainer.getUserObject(i)
 
-        virtual  Object* getUserObject(unsigned int i) 
+        def getUserObject(i):
+
+            
             OSG_NOTICE, "MyUserDataContainer.getUserObject(", i, ") "
             return osg.DefaultUserDataContainer.getUserObject(i)
-
-
-    protected:
         virtual ~MyUserDataContainer() 
 
 
 
 #* Provide basic example of providing serialization support for the MyUserDataContainer.
 REGISTER_OBJECT_WRAPPER( MyUserDataContainer,
-                         new MyNamespace.MyUserDataContainer,
+                         MyNamespace.MyUserDataContainer,
                          MyNamespace.MyUserDataContainer,
                          "osg.Object osg.UserDataContainer osg.DefaultUserDataContainer MyNamespace.MyUserDataContainer" )
 
-class MyGetValueVisitor : public osg.ValueObject.GetValueVisitor
-    public:
-        virtual void apply(bool value)  OSG_NOTICE, " bool ", value 
-        virtual void apply(char value)  OSG_NOTICE, " char ", value 
-        virtual void apply(unsigned char value)  OSG_NOTICE, " uchar ", value 
-        virtual void apply(short value)  OSG_NOTICE, " short ", value 
-        virtual void apply(unsigned short value)  OSG_NOTICE, " ushort ", value 
-        virtual void apply(int value)  OSG_NOTICE, " int ", value 
-        virtual void apply(unsigned int value)  OSG_NOTICE, " uint ", value 
-        virtual void apply(float value)  OSG_NOTICE, " float ", value 
-        virtual void apply(double value)  OSG_NOTICE, " double ", value 
-        virtual void apply( str value)  OSG_NOTICE, " string ", value 
-        virtual void apply( osg.Vec2f value)  OSG_NOTICE, " Vec2f ", value 
-        virtual void apply( osg.Vec3f value)  OSG_NOTICE, " Vec3f ", value 
-        virtual void apply( osg.Vec4f value)  OSG_NOTICE, " Vec4f ", value 
-        virtual void apply( osg.Vec2d value)  OSG_NOTICE, " Vec2d ", value 
-        virtual void apply( osg.Vec3d value)  OSG_NOTICE, " Vec3d ", value 
-        virtual void apply( osg.Vec4d value)  OSG_NOTICE, " Vec4d ", value 
-        virtual void apply( osg.Quat value)  OSG_NOTICE, " Quat ", value 
-        virtual void apply( osg.Plane value)  OSG_NOTICE, " Plane ", value 
-        virtual void apply( osg.Matrixf value)  OSG_NOTICE, " Matrixf ", value 
-        virtual void apply( osg.Matrixd value)  OSG_NOTICE, " Matrixd ", value 
+class MyGetValueVisitor (osg.ValueObject.GetValueVisitor) :
+        def apply(value):
+             OSG_NOTICE, " bool ", value 
+        def apply(value):
+             OSG_NOTICE, " char ", value 
+        def apply(value):
+             OSG_NOTICE, " uchar ", value 
+        def apply(value):
+             OSG_NOTICE, " short ", value 
+        def apply(value):
+             OSG_NOTICE, " ushort ", value 
+        def apply(value):
+             OSG_NOTICE, " int ", value 
+        def apply(value):
+             OSG_NOTICE, " uint ", value 
+        def apply(value):
+             OSG_NOTICE, " float ", value 
+        def apply(value):
+             OSG_NOTICE, " double ", value 
+        def apply(value):
+             OSG_NOTICE, " string ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec2f ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec3f ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec4f ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec2d ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec3d ", value 
+        def apply(value):
+             OSG_NOTICE, " Vec4d ", value 
+        def apply(value):
+             OSG_NOTICE, " Quat ", value 
+        def apply(value):
+             OSG_NOTICE, " Plane ", value 
+        def apply(value):
+             OSG_NOTICE, " Matrixf ", value 
+        def apply(value):
+             OSG_NOTICE, " Matrixd ", value 
 
 
 template<typename T>
-class GetNumeric : public osg.ValueObject.GetValueVisitor
-    public:
+class GetNumeric (osg.ValueObject.GetValueVisitor) :
 
         GetNumeric():
-            _set(false),
+            _set(False),
             _value(0) 
         
-        virtual void apply(bool value)  _value = value _set = true 
-        virtual void apply(char value)  _value = value _set = true  
-        virtual void apply(unsigned char value)  _value = value _set = true  
-        virtual void apply(short value)  _value = value _set = true  
-        virtual void apply(unsigned short value)  _value = value _set = true  
-        virtual void apply(int value)  _value = value _set = true  
-        virtual void apply(unsigned int value)  _value = value _set = true  
-        virtual void apply(float value)  _value = value _set = true  
-        virtual void apply(double value)  _value = value _set = true 
+        def apply(value):
+        
+             _value = value _set = True 
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True  
+        def apply(value):
+             _value = value _set = True 
 
         _set = bool()
         _value = T()
@@ -119,38 +150,41 @@ class GetNumeric : public osg.ValueObject.GetValueVisitor
 
 template<typename T>
 def getNumeric(object):
-    bvo =  dynamic_cast<osg.ValueObject*>(object)
+    
+    bvo = dynamic_cast<osg.ValueObject*>(object)
     if bvo :
-        GetNumeric<T> gn
+        gn = GetNumeric<T>()
         if bvo.get(gn)  gn._set : return gn._value
     T = return(0)
 
 def testResults(node):
-    j =  0
+
+    
+    j = 0
     if node.getUserValue("Int value",j) :
         OSG_NOTICE, "Int value=", j
-    else:
+    else :
         OSG_NOTICE, "Int value not found"
 
     readString = str()
     if node.getUserValue("Status",readString) :
         OSG_NOTICE, "Status=", readString
-    else:
+    else :
         OSG_NOTICE, "Status not found"
 
-    height = 0.0f
+    height = 0.0
     if node.getUserValue("Height",height) :
         OSG_NOTICE, "Height=", height
-    else:
+    else :
         OSG_NOTICE, "Height not found"
 
-    udc =  node.getUserDataContainer()
+    udc = node.getUserDataContainer()
     if udc :
         OSG_NOTICE, "udc.getNumUserObjects()=", udc.getNumUserObjects()
         for(unsigned int i=0 i<udc.getNumUserObjects() ++i)
             mgvv = MyGetValueVisitor()
-            userObject =  udc.getUserObject(i)
-            valueObject =  dynamic_cast<osg.ValueObject*>(userObject)
+            userObject = udc.getUserObject(i)
+            valueObject = dynamic_cast<osg.ValueObject*>(userObject)
             OSG_NOTICE, "userObject=", userObject, ", className=", userObject.className(), ", getName()=", userObject.getName(), " valueObject=", valueObject, " getNumeric ", getNumeric<float>(userObject), " "
             if valueObject : valueObject.get(mgvv)
             OSG_NOTICE
@@ -159,14 +193,17 @@ def testResults(node):
 
 
 def main(argc, argv):
+
+
+    
     arguments = osg.ArgumentParser(argc, argv)
     
-    osg.ref_ptr<osg.Group> node = new osg.Group
+    node = osg.Group()
 
     if arguments.read("--MyUserDataContainer") || arguments.read("--mydc") :
-        node.setUserDataContainer(new MyNamespace.MyUserDataContainer)
+        node.setUserDataContainer(MyNamespace.MyUserDataContainer)()
     
-    i =  10
+    i = 10
     node.setUserValue("Int value",i)
 
     testString = str("All seems fine")
@@ -174,38 +211,38 @@ def main(argc, argv):
 
     node.setUserValue("Height",float(1.4))
 
-    osg.ref_ptr<osg.Drawable> drawable = new osg.Geometry
+    drawable = osg.Geometry()
     drawable.setName("myDrawable")
     node.getOrCreateUserDataContainer().addUserObject(drawable.get())
 
     node.setUserValue("fred",12)
     node.setUserValue("john",1.1)
-    node.setUserValue("david",1.9f)
+    node.setUserValue("david",1.9)
     node.setUserValue("char",char(65))
     node.setUserValue("matrixd",osg.Matrixd.translate(1.0,2.0,3.0))
-    node.setUserValue("flag-on",true)
-    node.setUserValue("flag-off",false)
+    node.setUserValue("flag-on",True)
+    node.setUserValue("flag-off",False)
 
     OSG_NOTICE, "Testing results for values set directly on scene graph"
     testResults(node.get())
 
         osgDB.writeNodeFile(*node, "results.osgt")
 
-        osg.ref_ptr<osg.Node> from_osgt = osgDB.readNodeFile("results.osgt")
+        from_osgt = osgDB.readNodeFile("results.osgt")
         if from_osgt.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgt file"
             testResults(from_osgt.get())
     
         osgDB.writeNodeFile(*node, "results.osgb")
 
-        osg.ref_ptr<osg.Node> from_osgb = osgDB.readNodeFile("results.osgb")
+        from_osgb = osgDB.readNodeFile("results.osgb")
         if from_osgb.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgb file"
             testResults(from_osgb.get())
 
         osgDB.writeNodeFile(*node, "results.osgx")
 
-        osg.ref_ptr<osg.Node> from_osgx = osgDB.readNodeFile("results.osgx")
+        from_osgx = osgDB.readNodeFile("results.osgx")
         if from_osgx.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgx file"
             testResults(from_osgx.get())

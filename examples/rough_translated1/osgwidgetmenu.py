@@ -9,6 +9,9 @@ import sys
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetmenu.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetmenu.cpp 66 2008-07-14 21:54:09Z cubicool $
 
@@ -22,58 +25,58 @@ from osgpypp import osgWidget
 # For now this is just an example, but osgWidget.Menu will later be it's own Window.
 # I just wanted to get this out there so that people could see it was possible.
 
- unsigned int MASK_2D = 0xF0000000
- unsigned int MASK_3D = 0x0F000000
+MASK_2D = 0xF0000000
+MASK_3D = 0x0F000000
 
-struct ColorLabel: public osgWidget.Label 
-    ColorLabel( char* label):
+class ColorLabel (osgWidget.Label) :
+ColorLabel( char* label):
     osgWidget.Label("", "") 
         setFont("fonts/Vera.ttf")
         setFontSize(14)
-        setFontColor(1.0f, 1.0f, 1.0f, 1.0f)
-        setColor(0.3f, 0.3f, 0.3f, 1.0f)
-        addHeight(18.0f)
-        setCanFill(true)
+        setFontColor(1.0, 1.0, 1.0, 1.0)
+        setColor(0.3, 0.3, 0.3, 1.0)
+        addHeight(18.0)
+        setCanFill(True)
         setLabel(label)
         setEventMask(osgWidget.EVENT_MOUSE_PUSH | osgWidget.EVENT_MASK_MOUSE_MOVE)
 
     bool mousePush(double, double,  osgWidget.WindowManager*) 
-        true = return()
+        return True
 
     bool mouseEnter(double, double,  osgWidget.WindowManager*) 
-        setColor(0.6f, 0.6f, 0.6f, 1.0f)
+        setColor(0.6, 0.6, 0.6, 1.0)
         
-        true = return()
+        return True
 
     bool mouseLeave(double, double,  osgWidget.WindowManager*) 
-        setColor(0.3f, 0.3f, 0.3f, 1.0f)
+        setColor(0.3, 0.3, 0.3, 1.0)
         
-        true = return()
+        return True
 
 
-class ColorLabelMenu: public ColorLabel 
-    osg.ref_ptr<osgWidget.Window> _window
-
-public:
+class ColorLabelMenu (ColorLabel) :
+_window = osgWidget.Window()
     ColorLabelMenu( char* label):
     ColorLabel(label) 
-        _window = new osgWidget.Box(
+        _window = osgWidget.Box(
             str("Menu_") + label,
             osgWidget.Box.VERTICAL,
-            true
+            True
         )
 
-        _window.addWidget(new ColorLabel("Open Some Stuff"))
-        _window.addWidget(new ColorLabel("Do It Now"))
-        _window.addWidget(new ColorLabel("Hello, How Are U?"))
-        _window.addWidget(new ColorLabel("Hmmm..."))
-        _window.addWidget(new ColorLabel("Option 5"))
+        _window.addWidget(ColorLabel("Open Some Stuff"))
+        _window.addWidget(ColorLabel("Do It Now"))
+        _window.addWidget(ColorLabel("Hello, How Are U?"))
+        _window.addWidget(ColorLabel("Hmmm..."))
+        _window.addWidget(ColorLabel("Option 5"))
 
         _window.resize()
 
-        setColor(0.8f, 0.8f, 0.8f, 0.8f)
+        setColor(0.8, 0.8, 0.8, 0.8)
 
     def managed(wm):
+
+        
         osgWidget.Label.managed(wm)
 
         wm.addChild(_window.get())
@@ -81,6 +84,8 @@ public:
         _window.hide()
 
     def positioned():
+
+        
         osgWidget.Label.positioned()
 
         _window.setOrigin(getX(), getHeight())
@@ -89,40 +94,42 @@ public:
     bool mousePush(double, double,  osgWidget.WindowManager*) 
         if !_window.isVisible() : _window.show()
 
-        else: _window.hide()
+        else : _window.hide()
 
-        true = return()
+        return True
 
     bool mouseLeave(double, double,  osgWidget.WindowManager*) 
-        if !_window.isVisible() : setColor(0.8f, 0.8f, 0.8f, 0.8f)
+        if !_window.isVisible() : setColor(0.8, 0.8, 0.8, 0.8)
 
-        true = return()
+        return True
 
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
 
-    menu =  new osgWidget.Box("menu", osgWidget.Box.HORIZONTAL)
+    menu = osgWidget.Box("menu", osgWidget.Box.HORIZONTAL)
 
-    menu.addWidget(new ColorLabelMenu("Pick me!"))
-    menu.addWidget(new ColorLabelMenu("No, wait, pick me!"))
-    menu.addWidget(new ColorLabelMenu("Don't pick them..."))
-    menu.addWidget(new ColorLabelMenu("Grarar!?!"))
+    menu.addWidget(ColorLabelMenu("Pick me!"))
+    menu.addWidget(ColorLabelMenu("No, wait, pick me!"))
+    menu.addWidget(ColorLabelMenu("Don't pick them..."))
+    menu.addWidget(ColorLabelMenu("Grarar!?!"))
 
     wm.addChild(menu)
     
-    menu.getBackground().setColor(1.0f, 1.0f, 1.0f, 0.0f)
-    menu.resizePercent(100.0f)
+    menu.getBackground().setColor(1.0, 1.0, 1.0, 0.0)
+    menu.resizePercent(100.0)
 
-    model =  osgDB.readNodeFile("osgcool.osgt")
+    model = osgDB.readNodeFile("osgcool.osgt")
 
     model.setNodeMask(MASK_3D)
 

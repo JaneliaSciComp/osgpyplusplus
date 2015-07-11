@@ -11,13 +11,16 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
+
+# Translated from file 'CameraPathProperty.cpp'
+
 #include "CameraPathProperty.h"
 
 using namespace gsc
 
 void CameraPathProperty.update(osgViewer.View* view)
-    camera =  view.getCamera()
-    fs =  view.getFrameStamp()
+    camera = view.getCamera()
+    fs = view.getFrameStamp()
 
     if _animationPath.valid() :
         cp = osg.AnimationPath.ControlPoint()
@@ -30,7 +33,7 @@ void CameraPathProperty.update(osgViewer.View* view)
         camera.setViewMatrix( osg.Matrix.inverse(matrix) )
 
 void CameraPathProperty.loadAnimationPath()
-    _animationPath = new osg.AnimationPath
+    _animationPath = osg.AnimationPath()
     #_animationPath.setLoopMode(osg.AnimationPath.LOOP)
 
     in = osgDB.ifstream(_filename.c_str())
@@ -41,27 +44,27 @@ void CameraPathProperty.loadAnimationPath()
     _animationPath.read(in)
 
 bool CameraPathProperty.getTimeRange(double startTime, double endTime) 
-    if !_animationPath : return false
+    if !_animationPath : return False
     
-    tcpm =  _animationPath.getTimeControlPointMap()
-    if tcpm.empty() : return false
+    tcpm = _animationPath.getTimeControlPointMap()
+    if tcpm.empty() : return False
 
     startTime = tcpm.begin().first
     endTime = tcpm.rbegin().first
     
-    true = return()
+    return True
 
 void CameraPathProperty.resetTimeRange(double startTime, double endTime)
     if !_animationPath : return
 
-    tcpm =  _animationPath.getTimeControlPointMap()
+    tcpm = _animationPath.getTimeControlPointMap()
     if tcpm.empty() : return
 
-    copy_tcpm =  tcpm
+    copy_tcpm = tcpm
 
-    offset =  tcpm.begin().first
-    originalLength =  tcpm.rbegin().first - tcpm.begin().first 
-    scale =  originalLength>0.0 ? (endTime-startTime)/originalLength : 1.0
+    offset = tcpm.begin().first
+    originalLength = tcpm.rbegin().first - tcpm.begin().first 
+    scale = originalLength>0.0 ? (endTime-startTime)/originalLength : 1.0
 
     tcpm.clear()
 
@@ -75,13 +78,16 @@ void CameraPathProperty.resetTimeRange(double startTime, double endTime)
 # Serialization support
 #
 REGISTER_OBJECT_WRAPPER( gsc_CameraPathProperty,
-                         new gsc.CameraPathProperty,
+                         gsc.CameraPathProperty,
                          gsc.CameraPathProperty,
                          "osg.Object gsc.CameraPathProperty" )
     ADD_STRING_SERIALIZER( AnimationPathFileName, "" )
 
 
 
+
+
+# Translated from file 'CameraPathProperty.h'
 
 #ifndef CAMERAPATHPROPERTY_H
 #define CAMERAPATHPROPERTY_H
@@ -92,8 +98,7 @@ REGISTER_OBJECT_WRAPPER( gsc_CameraPathProperty,
 
 namespace gsc
 
-class CameraPathProperty : public gsc.UpdateProperty
-public:
+class CameraPathProperty (gsc.UpdateProperty) :
 
     CameraPathProperty() 
     CameraPathProperty( str filename)  setAnimationPathFileName(filename) 
@@ -101,50 +106,58 @@ public:
  
     META_Object(gsc, CameraPathProperty)
 
-    void setAnimationPathFileName( str filename)  _filename = filename loadAnimationPath() 
-     str getAnimationPathFileName()   return _filename 
+    def setAnimationPathFileName(filename):
 
-    void setAnimationPath(osg.AnimationPath* ap)  _animationPath = ap 
-    osg.AnimationPath* getAnimationPath()  return _animationPath.get() 
-     osg.AnimationPath* getAnimationPath()   return _animationPath.get() 
+         _filename = filename loadAnimationPath() 
+    def getAnimationPathFileName():
+         return _filename 
+
+    def setAnimationPath(ap):
+
+         _animationPath = ap 
+    def getAnimationPath():
+         return _animationPath.get() 
+    def getAnimationPath():
+         return _animationPath.get() 
 
     bool getTimeRange(double startTime, double endTime) 
 
     resetTimeRange = void(double startTime, double endTime)
 
-    virtual void update(osgViewer.View* view)
-
-protected:
+    update = virtual void(osgViewer.View* view)
 
     virtual ~CameraPathProperty() 
 
     loadAnimationPath = void()
 
     _filename = str()
-    osg.ref_ptr<osg.AnimationPath>    _animationPath
+    _animationPath = osg.AnimationPath()
 
 
 
-#endif#include "CameraProperty.h"
+#endif
+# Translated from file 'CameraProperty.cpp'
+
+#include "CameraProperty.h"
 
 using namespace gsc
 
 void CameraProperty.setToModel( osg.Node* node)
-    bs =  node.getBound()
+    bs = node.getBound()
 
-    dist =  osg.DisplaySettings.instance().getScreenDistance()
+    dist = osg.DisplaySettings.instance().getScreenDistance()
 
     OSG_NOTICE, "Node name ", node.getName()
     
 #if 1
     if node.getName().find("Presentation")==str.npos :
-        screenWidth =  osg.DisplaySettings.instance().getScreenWidth()
-        screenHeight =  osg.DisplaySettings.instance().getScreenHeight()
-        screenDistance =  osg.DisplaySettings.instance().getScreenDistance()
+        screenWidth = osg.DisplaySettings.instance().getScreenWidth()
+        screenHeight = osg.DisplaySettings.instance().getScreenHeight()
+        screenDistance = osg.DisplaySettings.instance().getScreenDistance()
 
-        vfov =  atan2(screenHeight/2.0,screenDistance)*2.0
-        hfov =  atan2(screenWidth/2.0,screenDistance)*2.0
-        viewAngle =  vfov<hfov ? vfov : hfov
+        vfov = atan2(screenHeight/2.0,screenDistance)*2.0
+        hfov = atan2(screenWidth/2.0,screenDistance)*2.0
+        viewAngle = vfov<hfov ? vfov : hfov
 
         dist = bs.radius() / sin(viewAngle*0.5)
 #endif
@@ -159,8 +172,8 @@ void CameraProperty.setToModel( osg.Node* node)
 
 
 void CameraProperty.update(osgViewer.View* view)
-    camera =  view.getCamera()
-    fs =  view.getFrameStamp()
+    camera = view.getCamera()
+    fs = view.getFrameStamp()
 
     matrix = osg.Matrixd()
     matrix.makeLookAt(_eye, _center, _up)
@@ -182,7 +195,7 @@ void CameraProperty.update(osgViewer.View* view)
 # Serialization support
 #
 REGISTER_OBJECT_WRAPPER( gsc_CameraProperty,
-                         new gsc.CameraProperty,
+                         gsc.CameraProperty,
                          gsc.CameraProperty,
                          "osg.Object gsc.CameraProperty" )
     ADD_VEC3D_SERIALIZER( Center, osg.Vec3d(0.0,0.0,0.0) )
@@ -196,6 +209,9 @@ REGISTER_OBJECT_WRAPPER( gsc_CameraProperty,
 
 
 
+
+# Translated from file 'CameraProperty.h'
+
 #ifndef CAMERAPROPERTY_H
 #define CAMERAPROPERTY_H
 
@@ -205,8 +221,7 @@ REGISTER_OBJECT_WRAPPER( gsc_CameraProperty,
 
 namespace gsc
 
-class CameraProperty : public gsc.UpdateProperty
-public:
+class CameraProperty (gsc.UpdateProperty) :
 
     CameraProperty():
         _center(0.0,0.0,0.0),
@@ -229,27 +244,43 @@ public:
 
     setToModel = void( osg.Node* node)
 
-    void setCenter( osg.Vec3d center)  _center = center 
-     osg.Vec3d getCenter()   return _center 
+    def setCenter(center):
 
-    void setEyePoint( osg.Vec3d eye)  _eye = eye 
-     osg.Vec3d getEyePoint()   return _eye 
+         _center = center 
+    def getCenter():
+         return _center 
+
+    def setEyePoint(eye):
+
+         _eye = eye 
+    def getEyePoint():
+         return _eye 
     
-    void setUpVector( osg.Vec3d up)  _up = up 
-     osg.Vec3d getUpVector()   return _up 
+    def setUpVector(up):
+    
+         _up = up 
+    def getUpVector():
+         return _up 
 
-    void setRotationCenter( osg.Vec3d center)  _rotationCenter = center 
-     osg.Vec3d getRotationCenter()   return _rotationCenter 
+    def setRotationCenter(center):
 
-    void setRotationAxis( osg.Vec3d axis)  _rotationAxis = axis 
-     osg.Vec3d getRotationAxis()   return _rotationAxis 
+         _rotationCenter = center 
+    def getRotationCenter():
+         return _rotationCenter 
 
-    void setRotationSpeed(double speed)  _rotationSpeed = speed 
-    double getRotationSpeed()   return _rotationSpeed 
+    def setRotationAxis(axis):
 
-    virtual void update(osgViewer.View* view)
+         _rotationAxis = axis 
+    def getRotationAxis():
+         return _rotationAxis 
 
-protected:
+    def setRotationSpeed(speed):
+
+         _rotationSpeed = speed 
+    def getRotationSpeed():
+         return _rotationSpeed 
+
+    update = virtual void(osgViewer.View* view)
 
     virtual ~CameraProperty() 
 
@@ -264,14 +295,17 @@ protected:
 
 
 
-#endif#include "CaptureSettings.h"
+#endif
+# Translated from file 'CaptureSettings.cpp'
+
+#include "CaptureSettings.h"
 
 using namespace gsc
 
 CaptureSettings.CaptureSettings():
     _stereoMode(OFF),
-    _offscreen(false),
-    _outputImageFlip(false),
+    _offscreen(False),
+    _outputImageFlip(False),
     _width(1024),
     _height(512),
     _screenWidth(0.0),
@@ -315,7 +349,7 @@ void CaptureSettings.setOutputFileName( str filename)
     _outputExtension = osgDB.getFileExtensionIncludingDot(filename)
 
  str CaptureSettings.getOutputFileName() 
-    _outputFileName = return()
+    return _outputFileName
 
 str CaptureSettings.getOutputFileName(unsigned int frameNumber) 
     str = strstream()
@@ -338,46 +372,46 @@ static bool checkEventHandlers(  gsc.CaptureSettings cs )
     return !cs.getEventHandlers().empty()
 
 static bool readEventHandlers( osgDB.InputStream is, gsc.CaptureSettings cs )
-    unsigned int size = 0 is >> size >> is.BEGIN_BRACKET
+    size = 0 is >> size >> is.BEGIN_BRACKET
     for ( unsigned int i=0 i<size ++i )
-        osg.ref_ptr<osg.Object> obj = is.readObject()
-        up =  dynamic_cast<gsc.UpdateProperty*>( obj.get() )
+        obj = is.readObject()
+        up = dynamic_cast<gsc.UpdateProperty*>( obj.get() )
         if  up  : cs.addUpdateProperty( up )
     is >> is.END_BRACKET
-    true = return()
+    return True
 
 static bool writeEventHandlers( osgDB.OutputStream os,  gsc.CaptureSettings cs )
-    pl =  cs.getEventHandlers()
-    unsigned int size = pl.size()
+    pl = cs.getEventHandlers()
+    size = pl.size()
     os, size, os.BEGIN_BRACKET
     for ( unsigned int i=0 i<size ++i )
         os, pl[i].get()
     os, os.END_BRACKET
-    true = return()
+    return True
 
 static bool checkProperties(  gsc.CaptureSettings cs )
     return !cs.getProperties().empty()
 
 static bool readProperties( osgDB.InputStream is, gsc.CaptureSettings cs )
-    unsigned int size = 0 is >> size >> is.BEGIN_BRACKET
+    size = 0 is >> size >> is.BEGIN_BRACKET
     for ( unsigned int i=0 i<size ++i )
-        osg.ref_ptr<osg.Object> obj = is.readObject()
-        up =  dynamic_cast<gsc.UpdateProperty*>( obj.get() )
+        obj = is.readObject()
+        up = dynamic_cast<gsc.UpdateProperty*>( obj.get() )
         if  up  : cs.addUpdateProperty( up )
     is >> is.END_BRACKET
-    true = return()
+    return True
 
 static bool writeProperties( osgDB.OutputStream os,  gsc.CaptureSettings cs )
-    pl =  cs.getProperties()
-    unsigned int size = pl.size()
+    pl = cs.getProperties()
+    size = pl.size()
     os, size, os.BEGIN_BRACKET
     for ( unsigned int i=0 i<size ++i )
         os, pl[i].get()
     os, os.END_BRACKET
-    true = return()
+    return True
 
 REGISTER_OBJECT_WRAPPER( gsc_CaptureSettings,
-                         new gsc.CaptureSettings,
+                         gsc.CaptureSettings,
                          gsc.CaptureSettings,
                          "osg.Object gsc.CaptureSettings" )
     ADD_STRING_SERIALIZER( InputFileName, "" )
@@ -390,8 +424,8 @@ REGISTER_OBJECT_WRAPPER( gsc_CaptureSettings,
         ADD_ENUM_VALUE( VERTICAL_SPLIT )
     END_ENUM_SERIALIZER()
 
-    ADD_BOOL_SERIALIZER( Offscreen, false )
-    ADD_BOOL_SERIALIZER( OutputImageFlip, false )
+    ADD_BOOL_SERIALIZER( Offscreen, False )
+    ADD_BOOL_SERIALIZER( OutputImageFlip, False )
 
     ADD_UINT_SERIALIZER( Width, 1024 )
     ADD_UINT_SERIALIZER( Height, 512 )
@@ -415,6 +449,9 @@ REGISTER_OBJECT_WRAPPER( gsc_CaptureSettings,
 
     
 
+
+# Translated from file 'CaptureSettings.h'
+
 #ifndef CAPTURESETTINGS_H
 #define CAPTURESETTINGS_H
 
@@ -428,15 +465,17 @@ REGISTER_OBJECT_WRAPPER( gsc_CaptureSettings,
 
 namespace gsc
 
-class CaptureSettings : public osg.Object
-public:
+class CaptureSettings (osg.Object) :
     CaptureSettings()
     CaptureSettings( CaptureSettings cs,  osg.CopyOp copyop=osg.CopyOp.SHALLOW_COPY)
 
     META_Object(gsc, CaptureSettings)
 
-    void setInputFileName( str filename)  _inputFileName = filename 
-     str getInputFileName()   return _inputFileName 
+    def setInputFileName(filename):
+
+         _inputFileName = filename 
+    def getInputFileName():
+         return _inputFileName 
     
     setOutputFileName = void( str filename)
      str getOutputFileName() 
@@ -450,29 +489,53 @@ public:
         VERTICAL_SPLIT
     
 
-    void setStereoMode(StereoMode mode)  _stereoMode = mode 
-    StereoMode getStereoMode()   return _stereoMode 
+    def setStereoMode(mode):
 
-    void setOffscreen(bool o)  _offscreen = o 
-    bool getOffscreen()   return _offscreen 
+         _stereoMode = mode 
+    def getStereoMode():
+         return _stereoMode 
 
-    void setOutputImageFlip(bool flip)  _outputImageFlip = flip 
-    bool getOutputImageFlip()   return _outputImageFlip 
+    def setOffscreen(o):
 
-    void setWidth(unsigned int width)  _width = width 
-    unsigned int getWidth()   return _width 
+         _offscreen = o 
+    def getOffscreen():
+         return _offscreen 
 
-    void setHeight(unsigned int height)  _height = height 
-    unsigned int getHeight()   return _height 
+    def setOutputImageFlip(flip):
 
-    void setScreenWidth(float width)  _screenWidth = width 
-    float getScreenWidth()   return _screenWidth 
+         _outputImageFlip = flip 
+    def getOutputImageFlip():
+         return _outputImageFlip 
 
-    void setScreenHeight(float height)  _screenHeight = height 
-    float getScreenHeight()   return _screenHeight 
+    def setWidth(width):
 
-    void setScreenDistance(float distance)  _screenDistance = distance 
-    float getScreenDistance()   return _screenDistance 
+         _width = width 
+    def getWidth():
+         return _width 
+
+    def setHeight(height):
+
+         _height = height 
+    def getHeight():
+         return _height 
+
+    def setScreenWidth(width):
+
+         _screenWidth = width 
+    def getScreenWidth():
+         return _screenWidth 
+
+    def setScreenHeight(height):
+
+         _screenHeight = height 
+    def getScreenHeight():
+         return _screenHeight 
+
+    def setScreenDistance(distance):
+
+         _screenDistance = distance 
+    def getScreenDistance():
+         return _screenDistance 
 
 
     enum PixelFormat
@@ -480,46 +543,68 @@ public:
         RGBA
     
     
-    void setPixelFormat(PixelFormat format)  _pixelFormat = format 
-    PixelFormat getPixelFormat()   return _pixelFormat 
-
-    void setSamples(unsigned int s)  _samples = s 
-    unsigned int getSamples()   return _samples 
-
-    void setSampleBuffers(unsigned int s)  _sampleBuffers = s 
-    unsigned int getSampleBuffers()   return _sampleBuffers 
-
-    void setFrameRate(double fr)  _frameRate = fr 
-    double getFrameRate()   return _frameRate 
-
-    void setNumberOfFrames(unsigned int nf)  _numberOfFrames = nf 
-    unsigned int getNumberOfFrames()   return _numberOfFrames 
-
-    typedef std.vector< osg.ref_ptr<osgGA.GUIEventHandler> > EventHandlers
-    setEventHandlers = void( EventHandlers eh)
-    EventHandlers getEventHandlers()  return _eventHandlers 
-     EventHandlers getEventHandlers()   return _eventHandlers 
-
-    typedef std.vector< osg.ref_ptr<UpdateProperty> > Properties
-
-    void addUpdateProperty(UpdateProperty* up)  _properties.push_back(up) 
+    def setPixelFormat(format):
     
-    void setProperties( Properties pl)  _properties = pl 
-    Properties getProperties()  return _properties 
-     Properties getProperties()   return _properties 
+         _pixelFormat = format 
+    def getPixelFormat():
+         return _pixelFormat 
+
+    def setSamples(s):
+
+         _samples = s 
+    def getSamples():
+         return _samples 
+
+    def setSampleBuffers(s):
+
+         _sampleBuffers = s 
+    def getSampleBuffers():
+         return _sampleBuffers 
+
+    def setFrameRate(fr):
+
+         _frameRate = fr 
+    def getFrameRate():
+         return _frameRate 
+
+    def setNumberOfFrames(nf):
+
+         _numberOfFrames = nf 
+    def getNumberOfFrames():
+         return _numberOfFrames 
+
+    typedef std.vector< osgGA.GUIEventHandler > EventHandlers
+    setEventHandlers = void( EventHandlers eh)
+    def getEventHandlers():
+         return _eventHandlers 
+    def getEventHandlers():
+         return _eventHandlers 
+
+    typedef std.vector< UpdateProperty > Properties
+
+    def addUpdateProperty(up):
+
+         _properties.push_back(up) 
+    
+    def setProperties(pl):
+    
+         _properties = pl 
+    def getProperties():
+         return _properties 
+    def getProperties():
+         return _properties 
 
     template<typename T>
     def getPropertyOfType():
+        
         for(Properties.iterator itr = _properties.begin()
             itr != _properties.end()
             ++itr)
-            p =  dynamic_cast<T*>(itr.get())
+            p = dynamic_cast<T*>(itr.get())
             if p : return p
         return 0
     
     bool valid() 
-
-protected:
     virtual ~CaptureSettings() 
 
     _inputFileName = str()
@@ -533,19 +618,19 @@ protected:
     _offscreen = bool()
     _outputImageFlip = bool()
     
-    unsigned int                        _width
-    unsigned int                        _height
+    _width = unsigned int()
+    _height = unsigned int()
     
     _screenWidth = float()
     _screenHeight = float()
     _screenDistance = float()
 
     _pixelFormat = PixelFormat()
-    unsigned int                        _samples
-    unsigned int                        _sampleBuffers
+    _samples = unsigned int()
+    _sampleBuffers = unsigned int()
     
     _frameRate = double()
-    unsigned int                        _numberOfFrames
+    _numberOfFrames = unsigned int()
 
     _eventHandlers = EventHandlers()
     _properties = Properties()
@@ -554,6 +639,9 @@ protected:
     
 
 #endif
+
+# Translated from file 'EventProperty.cpp'
+
 #include "EventProperty.h"
 
 namespace gsc
@@ -567,7 +655,7 @@ void EventProperty.update(osgViewer.View* view)
 # Serialization support
 #
 REGISTER_OBJECT_WRAPPER( gsc_EventProperty,
-                         new gsc.EventProperty,
+                         gsc.EventProperty,
                          gsc.EventProperty,
                          "osg.Object gsc.EventProperty" )
     ADD_OBJECT_SERIALIZER( Event, osgGA.GUIEventAdapter, NULL )
@@ -583,6 +671,9 @@ namespace B
 
 
  
+
+# Translated from file 'EventProperty.h'
+
 #ifndef EVENTPROPERTY_H
 #define EVENTPROPERTY_H
 
@@ -591,8 +682,7 @@ namespace B
 
 namespace gsc
 
-class EventProperty : public gsc.UpdateProperty
-public:
+class EventProperty (gsc.UpdateProperty) :
 
     EventProperty() 
     EventProperty(osgGA.GUIEventAdapter* event):_event(event) 
@@ -600,24 +690,29 @@ public:
 
     META_Object(gsc, EventProperty)
 
-    void setEvent(osgGA.GUIEventAdapter* ea)  _event = ea 
-    osgGA.GUIEventAdapter* getEvent()  return _event.get() 
-     osgGA.GUIEventAdapter* getEvent()   return _event.get() 
-    
-    virtual void update(osgViewer.View* view)
+    def setEvent(ea):
 
-protected:
+         _event = ea 
+    def getEvent():
+         return _event.get() 
+    def getEvent():
+         return _event.get() 
+    
+    update = virtual void(osgViewer.View* view)
 
     virtual ~EventProperty() 
 
     _previousFrameTime = double()
-    osg.ref_ptr<osgGA.GUIEventAdapter> _event
+    _event = osgGA.GUIEventAdapter()
 
 
 
 
 
-#endif#include <osgDB/ReadFile>
+#endif
+# Translated from file 'osgframerenderer.cpp'
+
+#include <osgDB/ReadFile>
 #include <osgDB/FileUtils>
 #include <osgDB/FileNameUtils>
 #include <osgDB/WriteFile>
@@ -634,8 +729,8 @@ protected:
 #include <osgGA/StateSetManipulator>
 
 
-struct ScreenShot : public osg.Camera.DrawCallback
-    ScreenShot(GLenum pixelFormat, bool flip):
+class ScreenShot (osg.Camera.DrawCallback) :
+ScreenShot(GLenum pixelFormat, bool flip):
         _pixelFormat(pixelFormat),
         _flip(flip) 
 
@@ -644,22 +739,22 @@ struct ScreenShot : public osg.Camera.DrawCallback
             OSG_NOTICE, "No FrameCamera assigned"
             return
 
-        unsigned int frameNumber = renderInfo.getState().getFrameStamp().getFrameNumber()
+        frameNumber = renderInfo.getState().getFrameStamp().getFrameNumber()
         
-        itr =  _cameraNumMap.find(renderInfo.getCurrentCamera())
-        outputFileName =  (itr!=_cameraNumMap.end()) ?
+        itr = _cameraNumMap.find(renderInfo.getCurrentCamera())
+        outputFileName = (itr!=_cameraNumMap.end()) ?
                                      _frameCapture.getOutputFileName(itr.second, frameNumber) :
                                      _frameCapture.getOutputFileName(frameNumber)
                                      
         OSG_NOTICE, "outputFileName=", outputFileName
 
-        camera =  renderInfo.getCurrentCamera()
-        viewport =  camera ? camera.getViewport() : 0
+        camera = renderInfo.getCurrentCamera()
+        viewport = camera ? camera.getViewport() : 0
         if viewport :
             OSG_NOTICE, "Doing read of =", viewport.x(), ", ", viewport.y(), ", ", viewport.width(), ", ", viewport.height(), " with pixelFormat=0x", std.hex, _pixelFormat, std.dec
 
             glReadBuffer(camera.getDrawBuffer())
-            osg.ref_ptr<osg.Image> image = new osg.Image
+            image = osg.Image()
             
             image.readPixels(viewport.x(),viewport.y(),viewport.width(),viewport.height(),
                               _pixelFormat, GL_UNSIGNED_BYTE, 1)
@@ -673,11 +768,13 @@ struct ScreenShot : public osg.Camera.DrawCallback
 
     _pixelFormat = GLenum()
     _flip = bool()
-    osg.ref_ptr<gsc.CaptureSettings>          _frameCapture
+    _frameCapture = gsc.CaptureSettings()
     _cameraNumMap = CameraNumMap()
 
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -710,40 +807,40 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--rotation-speed <v>","Degrees per second.")
     arguments.getApplicationUsage().addCommandLineOption("--stereo <mode>","OFF | HORIZONTAL_SPLIT | VERTICAL_SPLIT")
 
-    unsigned int helpType = 0
+    helpType = 0
     if helpType = arguments.readHelpType() : :
         arguments.getApplicationUsage().write(std.cout, helpType)
         return 1
 
     viewer = osgViewer.Viewer()
 
-    typedef std.list< osg.ref_ptr<gsc.CaptureSettings> > CaptureSettingsList
+    typedef std.list< gsc.CaptureSettings > CaptureSettingsList
     frameCaptureList = CaptureSettingsList()
 
-    osg.ref_ptr<gsc.CaptureSettings> fc = new gsc.CaptureSettings
+    fc = gsc.CaptureSettings()
 
-    duration =  0.0
-    fps =  0.0f
-    unsigned int nframes = 0
+    duration = 0.0
+    fps = 0.0
+    nframes = 0
 
-    readCaptureSettings =  false
+    readCaptureSettings = False
     filename = str()
     if arguments.read("--cs",filename) :
-        osg.ref_ptr<osg.Object> object = osgDB.readObjectFile(filename)
-        input_cs =  dynamic_cast<gsc.CaptureSettings*>(object.get())
-        if input_cs :  fc = input_cs readCaptureSettings = true 
-        else:
+        object = osgDB.readObjectFile(filename)
+        input_cs = dynamic_cast<gsc.CaptureSettings*>(object.get())
+        if input_cs :  fc = input_cs readCaptureSettings = True 
+        else :
             OSG_NOTICE, "Unable to read CaptureSettings from file: ", filename
             if object.valid() : OSG_NOTICE, "Object read, ", object.get(), ", className()=", object.className()
             return 1
 
-    screenWidth =  fc.getScreenWidth()!=0.0 ? fc.getScreenWidth() : osg.DisplaySettings.instance().getScreenWidth()
+    screenWidth = fc.getScreenWidth()!=0.0 ? fc.getScreenWidth() : osg.DisplaySettings.instance().getScreenWidth()
     if arguments.read("--screen-width",screenWidth) : 
 
-    screenHeight =  fc.getScreenHeight()!=0.0 ? fc.getScreenHeight() : osg.DisplaySettings.instance().getScreenHeight()
+    screenHeight = fc.getScreenHeight()!=0.0 ? fc.getScreenHeight() : osg.DisplaySettings.instance().getScreenHeight()
     if arguments.read("--screen-height",screenHeight) : 
 
-    screenDistance =  fc.getScreenDistance()!=0.0 ? fc.getScreenDistance() : osg.DisplaySettings.instance().getScreenDistance()
+    screenDistance = fc.getScreenDistance()!=0.0 ? fc.getScreenDistance() : osg.DisplaySettings.instance().getScreenDistance()
     if arguments.read("--screen-distance",screenDistance) : 
 
     fc.setScreenWidth(screenWidth)
@@ -755,53 +852,53 @@ def main(argc, argv):
     fc.setScreenDistance(screenDistance)
     osg.DisplaySettings.instance().setScreenDistance(screenDistance)
 
-    useScreenSizeForProjectionMatrix =  true
+    useScreenSizeForProjectionMatrix = True
 
     if arguments.read("-i",filename) : fc.setInputFileName(filename)
     if arguments.read("-o",filename) : fc.setOutputFileName(filename)
     if arguments.read("-p",filename) :
-        osg.ref_ptr<gsc.CameraPathProperty> cpp = new gsc.CameraPathProperty
+        cpp = gsc.CameraPathProperty()
         cpp.setAnimationPathFileName(filename)
 
-        startTime =  0, endTime = 1.0f
+        startTime = 0, endTime = 1.0
         if cpp.getTimeRange(startTime, endTime) :
             OSG_NOTICE, "Camera path time range ", startTime, ", ", endTime
             if startTime!=0.0 :
                 cpp.resetTimeRange(0.0, endTime-startTime)
                 if cpp.getTimeRange(startTime, endTime) :
-                    OSG_NOTICE, "   new time range ", startTime, ", ", endTime
-                else:
-                    OSG_NOTICE, "   failed to set new time range ", startTime, ", ", endTime
+                    OSG_NOTICE, "   time range ", startTime, ", ", endTime()
+                else :
+                    OSG_NOTICE, "   failed to set time range ", startTime, ", ", endTime()
             duration = endTime            
-        else:
+        else :
             OSG_NOTICE, "Camera path time range ", startTime, ", ", endTime
 
         fc.addUpdateProperty(cpp.get())
-    else:
-        osg.ref_ptr<gsc.CameraProperty> cp = fc.getPropertyOfType<gsc.CameraProperty>()
+    else :
+        cp = fc.getPropertyOfType<gsc.CameraProperty>()
 
-        newCameraProperty =  false
-        valueSet =  false
+        newCameraProperty = False
+        valueSet = False
         
         if !cp :
-            newCameraProperty = true
-            cp = new gsc.CameraProperty
+            newCameraProperty = True
+            cp = gsc.CameraProperty()
 
-            osg.ref_ptr<osg.Node> node = fc.getInputFileName().empty() ? 0 : osgDB.readNodeFile(fc.getInputFileName())
+            node = fc.getInputFileName().empty() ? 0 : osgDB.readNodeFile(fc.getInputFileName())
             if node.valid() :
                 cp.setToModel(node.get())
-                valueSet = true
+                valueSet = True
             
         
         vec = osg.Vec3d()
-        while arguments.read("--center",vec.x(), vec.y(), vec.z()) :  cp.setCenter(vec) valueSet = true 
-        while arguments.read("--eye",vec.x(), vec.y(), vec.z()) :  cp.setEyePoint(vec) valueSet = true 
-        while arguments.read("--up",vec.x(), vec.y(), vec.z()) :  cp.setUpVector(vec) valueSet = true 
-        while arguments.read("--rotation-center",vec.x(), vec.y(), vec.z()) :  cp.setRotationCenter(vec) valueSet = true 
-        while arguments.read("--rotation-axis",vec.x(), vec.y(), vec.z()) :  cp.setRotationAxis(vec) valueSet = true 
+        while arguments.read("--center",vec.x(), vec.y(), vec.z()) :  cp.setCenter(vec) valueSet = True 
+        while arguments.read("--eye",vec.x(), vec.y(), vec.z()) :  cp.setEyePoint(vec) valueSet = True 
+        while arguments.read("--up",vec.x(), vec.y(), vec.z()) :  cp.setUpVector(vec) valueSet = True 
+        while arguments.read("--rotation-center",vec.x(), vec.y(), vec.z()) :  cp.setRotationCenter(vec) valueSet = True 
+        while arguments.read("--rotation-axis",vec.x(), vec.y(), vec.z()) :  cp.setRotationAxis(vec) valueSet = True 
 
         speed = double()
-        while arguments.read("--rotation-speed",speed) :  cp.setRotationSpeed(speed) valueSet = true 
+        while arguments.read("--rotation-speed",speed) :  cp.setRotationSpeed(speed) valueSet = True 
 
         if newCameraProperty  valueSet :
             fc.addUpdateProperty(cp.get())
@@ -809,35 +906,35 @@ def main(argc, argv):
     stereoMode = str()
     if arguments.read("--stereo", stereoMode) :
         if stereoMode=="HORIZONTAL_SPLIT" : fc.setStereoMode(gsc.CaptureSettings.HORIZONTAL_SPLIT)
-        else: if stereoMode=="VERTICAL_SPLIT" : fc.setStereoMode(gsc.CaptureSettings.VERTICAL_SPLIT)
-        else: if stereoMode=="OFF" : fc.setStereoMode(gsc.CaptureSettings.OFF)
+        elif stereoMode=="VERTICAL_SPLIT" : fc.setStereoMode(gsc.CaptureSettings.VERTICAL_SPLIT)
+        elif stereoMode=="OFF" : fc.setStereoMode(gsc.CaptureSettings.OFF)
 
-    if arguments.read("--offscreen") : fc.setOffscreen(true)
-    if arguments.read("--screen") : fc.setOffscreen(false)
+    if arguments.read("--offscreen") : fc.setOffscreen(True)
+    if arguments.read("--screen") : fc.setOffscreen(False)
 
-    if arguments.read("--flip") : fc.setOutputImageFlip(true)
-    if arguments.read("--no-flip") : fc.setOutputImageFlip(false)
+    if arguments.read("--flip") : fc.setOutputImageFlip(True)
+    if arguments.read("--no-flip") : fc.setOutputImageFlip(False)
 
-    unsigned int width = 1024
+    width = 1024
     if arguments.read("--width",width) : fc.setWidth(width)
 
-    unsigned int height = 512
+    height = 512
     if arguments.read("--height",height) : fc.setHeight(height)
 
     if arguments.read("--rgb") : fc.setPixelFormat(gsc.CaptureSettings.RGB)
     if arguments.read("--rgba") : fc.setPixelFormat(gsc.CaptureSettings.RGBA)
     
-    clearColor = osg.Vec4(0.0f,0.0f,0.0f,0.0f)
+    clearColor = osg.Vec4(0.0,0.0,0.0,0.0)
     while arguments.read("--clear-color",clearColor[0],clearColor[1],clearColor[2],clearColor[3]) : 
 
 
-    unsigned int samples = 0
+    samples = 0
     if arguments.read("--samples",samples) : fc.setSamples(samples)
 
-    unsigned int sampleBuffers = 0
+    sampleBuffers = 0
     if arguments.read("--sampleBuffers",sampleBuffers) : fc.setSampleBuffers(sampleBuffers)
 
-    unsigned int ms = 0
+    ms = 0
     if arguments.read("--ms",ms) :
         fc.setSamples(ms)
         fc.setSampleBuffers(1)
@@ -853,48 +950,48 @@ def main(argc, argv):
     time = double()
     while arguments.read("--key-down",time, key)  key.size()>=1 :
         OSG_NOTICE, "keydown ", key, ", ", time
-        osg.ref_ptr<osgGA.GUIEventAdapter> event = new osgGA.GUIEventAdapter
+        event = osgGA.GUIEventAdapter()
         event.setTime(time)
         event.setEventType(osgGA.GUIEventAdapter.KEYDOWN)
         event.setKey(key[0])
-        fc.addUpdateProperty(new gsc.EventProperty(event.get()))
+        fc.addUpdateProperty(gsc.EventProperty(event.get()))
 
     while arguments.read("--key-up",time, key)  key.size()>=1 :
         OSG_NOTICE, "keyup ", key, ", ", time
-        osg.ref_ptr<osgGA.GUIEventAdapter> event = new osgGA.GUIEventAdapter
+        event = osgGA.GUIEventAdapter()
         event.setTime(time)
         event.setEventType(osgGA.GUIEventAdapter.KEYUP)
         event.setKey(key[0])
-        fc.addUpdateProperty(new gsc.EventProperty(event.get()))
+        fc.addUpdateProperty(gsc.EventProperty(event.get()))
 
     double mouse_x, mouse_y
     while arguments.read("--mouse-move",time, mouse_x, mouse_y) :
         OSG_NOTICE, "mouse move ", time, ", ", mouse_x, ", ", mouse_y
-        osg.ref_ptr<osgGA.GUIEventAdapter> event = new osgGA.GUIEventAdapter
+        event = osgGA.GUIEventAdapter()
         event.setTime(time)
         event.setEventType(osgGA.GUIEventAdapter.MOVE)
         event.setX(mouse_x)
         event.setY(mouse_y)
-        fc.addUpdateProperty(new gsc.EventProperty(event.get()))
+        fc.addUpdateProperty(gsc.EventProperty(event.get()))
 
     while arguments.read("--mouse-drag",time, mouse_x, mouse_y) :
         OSG_NOTICE, "mouse drag ", time, ", ", mouse_x, ", ", mouse_y
-        osg.ref_ptr<osgGA.GUIEventAdapter> event = new osgGA.GUIEventAdapter
+        event = osgGA.GUIEventAdapter()
         event.setTime(time)
         event.setEventType(osgGA.GUIEventAdapter.DRAG)
         event.setX(mouse_x)
         event.setY(mouse_y)
-        fc.addUpdateProperty(new gsc.EventProperty(event.get()))
+        fc.addUpdateProperty(gsc.EventProperty(event.get()))
 
 
     if !readCaptureSettings :
         if duration!=0.0 :
             if fps!=0.0 : nframes = static_cast<unsigned int>(ceil(duration*fps))
-            else: if nframes!=0 : fps = duration/static_cast<double>(nframes)
-            else:
+            elif nframes!=0 : fps = duration/static_cast<double>(nframes)
+            else :
                 fps = 60.0
                 nframes = static_cast<unsigned int>(ceil(duration/fps))
-        else: # duration == 0.0
+        else : # duration == 0.0
             if fps==0.0 : fps=60.0
             if nframes==0 : nframes=1
 
@@ -922,12 +1019,12 @@ def main(argc, argv):
 
 
     # setup viewer
-        osg.ref_ptr<osg.DisplaySettings> ds = new osg.DisplaySettings
+        ds = osg.DisplaySettings()
 
-        stereo =  fc.getStereoMode()!=gsc.CaptureSettings.OFF
-        stereoMode =  fc.getStereoMode()==gsc.CaptureSettings.VERTICAL_SPLIT ? osg.DisplaySettings.VERTICAL_SPLIT : osg.DisplaySettings.HORIZONTAL_SPLIT
-        fovx_multiple =  fc.getStereoMode()==gsc.CaptureSettings.HORIZONTAL_SPLIT ? 2.0 : 1
-        fovy_multiple =  fc.getStereoMode()==gsc.CaptureSettings.VERTICAL_SPLIT ? 2.0 : 1
+        stereo = fc.getStereoMode()!=gsc.CaptureSettings.OFF
+        stereoMode = fc.getStereoMode()==gsc.CaptureSettings.VERTICAL_SPLIT ? osg.DisplaySettings.VERTICAL_SPLIT : osg.DisplaySettings.HORIZONTAL_SPLIT
+        fovx_multiple = fc.getStereoMode()==gsc.CaptureSettings.HORIZONTAL_SPLIT ? 2.0 : 1
+        fovy_multiple = fc.getStereoMode()==gsc.CaptureSettings.VERTICAL_SPLIT ? 2.0 : 1
         ds.setStereoMode(stereoMode)
         ds.setStereo(stereo)
 
@@ -936,7 +1033,7 @@ def main(argc, argv):
         if fc.getScreenDistance()!=0.0 : ds.setScreenDistance(fc.getScreenDistance())
 
         
-        osg.ref_ptr<osg.GraphicsContext.Traits> traits = new osg.GraphicsContext.Traits(ds.get())
+        traits = osg.GraphicsContext.Traits(ds.get())
 
         traits.readDISPLAY()
         if traits.displayNum<0 : traits.displayNum = 0
@@ -949,11 +1046,11 @@ def main(argc, argv):
         traits.samples = fc.getSamples()
         traits.sampleBuffers = fc.getSampleBuffers()
         traits.windowDecoration = !(fc.getOffscreen())
-        traits.doubleBuffer = true
+        traits.doubleBuffer = True
         traits.sharedContext = 0
         traits.pbuffer = fc.getOffscreen()
 
-        osg.ref_ptr<osg.GraphicsContext> gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
         if !gc :
             OSG_NOTICE, "Failed to created requested graphics context"
             return 1
@@ -962,30 +1059,30 @@ def main(argc, argv):
         viewer.getCamera().setGraphicsContext(gc.get())
         viewer.getCamera().setDisplaySettings(ds.get())
 
-        gw =  dynamic_cast<osgViewer.GraphicsWindow*>(gc.get())
+        gw = dynamic_cast<osgViewer.GraphicsWindow*>(gc.get())
         if gw :
             OSG_INFO, "GraphicsWindow has been created successfully."
             gw.getEventQueue().getCurrentEventState().setWindowRectangle(0, 0, fc.getWidth(),  fc.getHeight())
-        else:
+        else :
             OSG_NOTICE, "PixelBuffer has been created succseffully ", traits.width, ", ", traits.height
 
         if useScreenSizeForProjectionMatrix :
             OSG_NOTICE, "Setting projection matrix"
             
-            vfov =  osg.RadiansToDegrees(atan2(screenHeight/2.0f,screenDistance)*2.0)
-            # double hfov = osg.RadiansToDegrees(atan2(width/2.0f,distance)*2.0)
+            vfov = osg.RadiansToDegrees(atan2(screenHeight/2.0,screenDistance)*2.0)
+            # double hfov = osg.RadiansToDegrees(atan2(width/2.0,distance)*2.0)
 
             viewer.getCamera().setProjectionMatrixAsPerspective( vfov*fovy_multiple, (screenWidth/screenHeight)*fovx_multiple, 0.1, 1000.0)
 
             OSG_NOTICE, "setProjectionMatrixAsPerspective( ", vfov*fovy_multiple, ", ", (screenWidth/screenHeight)*fovx_multiple, ", ", 0.1, ", ", 1000.0, ")"
 
             
-        else:
+        else :
             double fovy, aspectRatio, zNear, zFar
             viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar)
 
-            newAspectRatio =  double(traits.width) / double(traits.height)
-            aspectRatioChange =  newAspectRatio / aspectRatio
+            newAspectRatio = double(traits.width) / double(traits.height)
+            aspectRatioChange = newAspectRatio / aspectRatio
             if aspectRatioChange != 1.0 :
                 viewer.getCamera().getProjectionMatrix() *= osg.Matrix.scale(fovx_multiple/aspectRatioChange,fovy_multiple,1.0)
 
@@ -994,16 +1091,16 @@ def main(argc, argv):
         viewer.getCamera().setCullMaskLeft(0x00000001)
         viewer.getCamera().setCullMaskRight(0x00000002)
 
-        viewer.getCamera().setViewport(new osg.Viewport(0, 0, traits.width, traits.height))
+        viewer.getCamera().setViewport(osg.Viewport(0, 0, traits.width, traits.height))
 
-        buffer =  traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
 
         viewer.getCamera().setDrawBuffer(buffer)
         viewer.getCamera().setReadBuffer(buffer)
 
-    outputPath =  osgDB.getFilePath(fc.getOutputFileName())
+    outputPath = osgDB.getFilePath(fc.getOutputFileName())
     if !outputPath.empty() :
-        type =  osgDB.fileType(outputPath)
+        type = osgDB.fileType(outputPath)
         switch(type)
             case(osgDB.FILE_NOT_FOUND):
                 if !osgDB.makeDirectory(outputPath) :
@@ -1018,51 +1115,51 @@ def main(argc, argv):
                 OSG_NOTICE, "Valid path[", outputPath, "] provided for output files."
                 break
 
-    pixelFormat =  (fc.getPixelFormat()==gsc.CaptureSettings.RGBA) ? GL_RGBA : GL_RGB
+    pixelFormat = (fc.getPixelFormat()==gsc.CaptureSettings.RGBA) ? GL_RGBA : GL_RGB
     
 
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
     viewer.realize()
 
     # set up screen shot
-    osg.ref_ptr<ScreenShot> screenShot = new ScreenShot(pixelFormat, fc.getOutputImageFlip())
+    screenShot = ScreenShot(pixelFormat, fc.getOutputImageFlip())
 
         cameras = osgViewer.Viewer.Cameras()
         viewer.getCameras(cameras)
         if cameras.size()>1 :
-            unsigned int cameraNum = 0
+            cameraNum = 0
             for(osgViewer.Viewer.Cameras.iterator itr = cameras.begin()
                 itr != cameras.end()
                 ++itr, ++cameraNum)
-                camera =  *itr
+                camera = *itr
                 camera.setFinalDrawCallback(screenShot.get())
                 screenShot._cameraNumMap[camera] = cameraNum
-        else: if cameras.size()==1 :
-            camera =  cameras.front()
+        elif cameras.size()==1 :
+            camera = cameras.front()
             camera.setFinalDrawCallback(screenShot.get())
-        else:
+        else :
             OSG_NOTICE, "No usable Cameras created."
             return 1
 
     for(CaptureSettingsList.iterator itr = frameCaptureList.begin()
         itr != frameCaptureList.end()
         ++itr)
-        fc =  itr.get()
+        fc = itr.get()
         screenShot._frameCapture = fc
 
-        osg.ref_ptr<osg.Node> model = osgDB.readNodeFile(fc.getInputFileName())
+        model = osgDB.readNodeFile(fc.getInputFileName())
         if !model : break
 
         viewer.setSceneData(model.get())
 
-        simulationTime =  0.0
+        simulationTime = 0.0
                 
         for(unsigned int i=0 i<fc.getNumberOfFrames() ++i)
             OSG_NOTICE, "fc.getOutputFileName(", i, ")=", fc.getOutputFileName(i)
 
             viewer.advance(simulationTime)
             
-            pl =  fc.getProperties()
+            pl = fc.getProperties()
             for(gsc.CaptureSettings.Properties.iterator plitr = pl.begin()
                 plitr != pl.end()
                 ++plitr)
@@ -1075,13 +1172,19 @@ def main(argc, argv):
             # advance simulationTime and number of frames rendered
             simulationTime += 1.0/fc.getFrameRate()
 
-    osg.ref_ptr<osg.Object> object = new osgGA.StateSetManipulator
-    osg.ref_ptr<osgGA.StateSetManipulator> ss = dynamic_cast<osgGA.StateSetManipulator*>(object.get())
+    object = osgGA.StateSetManipulator()
+    ss = dynamic_cast<osgGA.StateSetManipulator*>(object.get())
    
     return 0
+
+# Translated from file 'UpdateProperty.cpp'
+
 #include "UpdateProperty.h"
 
 using namespace gsc
+
+
+# Translated from file 'UpdateProperty.h'
 
 #ifndef UPDATEPROPERTY_H
 #define UPDATEPROPERTY_H
@@ -1094,17 +1197,15 @@ using namespace gsc
 
 namespace gsc
 
-class UpdateProperty : public osg.Object
-public:
+class UpdateProperty (osg.Object) :
 
     UpdateProperty() 
     UpdateProperty( UpdateProperty up,  osg.CopyOp copyop=osg.CopyOp.SHALLOW_COPY) 
 
     META_Object(gsc, UpdateProperty)
 
-    virtual void update(osgViewer.View* view) 
+    def update(view):
 
-protected:
 
     virtual ~UpdateProperty() 
 

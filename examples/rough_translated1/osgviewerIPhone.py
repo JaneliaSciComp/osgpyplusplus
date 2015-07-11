@@ -11,6 +11,9 @@ from osgpypp import osgDB
 from osgpypp import osgText
 from osgpypp import osgViewer
 
+
+# Translated from file 'iphoneViewerAppDelegate.h'
+
 #Created by Thomas Hogarth 2009
 
 #force the link to our desired osgPlugins
@@ -31,8 +34,8 @@ from osgpypp import osgViewer
     
     _displayLink = CADisplayLink*()
     
-    osg.ref_ptr<osgViewer.Viewer> _viewer
-    osg.ref_ptr<osg.MatrixTransform> _root
+    _viewer = osgViewer.Viewer()
+    _root = osg.MatrixTransform()
     
 
 @property (nonatomic, retain) #IBOutlet UIWindow *_window
@@ -40,6 +43,9 @@ from osgpypp import osgViewer
 - (void)updateScene
 
 @end
+
+
+# Translated from file 'osgPlugins.h'
 
 #pragma once 
 

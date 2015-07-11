@@ -11,6 +11,9 @@ from osgpypp import osgGA
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetwindow.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetwindow.cpp 66 2008-07-14 21:54:09Z cubicool $
 
@@ -23,47 +26,53 @@ from osgpypp import osgWidget
 #include <osgWidget/ViewerEventHandlers>
 #include <osgWidget/Box>
 
- unsigned int MASK_2D = 0xF0000000
- unsigned int MASK_3D = 0x0F000000
+MASK_2D = 0xF0000000
+MASK_3D = 0x0F000000
 
 # Here we create (and later demonstrate) the use of a simple function callback.
 def windowClicked(ev):
+    
     print "windowClicked: ", ev.getWindow().getName()
 
     if ev.getData() : 
-        s =  static_cast<str*>(ev.getData())
+        s = static_cast<str*>(ev.getData())
 
         print "This is data attached to the event: ", *s
 
-    true = return()
+    return True
 
 def windowScrolled(ev):
+
+    
     osgWidget.warn(), "scrolling up? ", ev.getWindowManager().isMouseScrollingUp()
     
 
-    true = return()
+    return True
 
-# Here we dcreate a new class and show how to use a method callback (which differs from
+# Here we dcreate a class and show how to use a method callback (which differs from
 # a function callback in that we are required to also pass the "this" argument).
-struct Object 
-    def windowClicked(ev):
+class Object :
+def windowClicked(ev):
+    
         print "Object.windowClicked ", ev.getWindow().getName()
 
-        true = return()
+        return True
 
 
 # This is the more "traditional" method of creating a callback.
-struct CallbackObject: public osgWidget.Callback 
-    CallbackObject(osgWidget.EventType evType):
+class CallbackObject (osgWidget.Callback) :
+CallbackObject(osgWidget.EventType evType):
     osgWidget.Callback(evType) 
 
     virtual bool operator()(osgWidget.Event ev) 
         print "here"
         
-        false = return()
+        return False
 
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
     
     # Let's get busy! The WindowManager class is actually an osg.Switch,
@@ -76,10 +85,10 @@ def main(argc, argv):
     # to demonstrate (and test) their usage. Finally, we pass the temporary WM_NO_BETA_WARN
     # argument, which prevents creating the orange warning window. :) It will be shown
     # in other examples...
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_USE_LUA |
         osgWidget.WindowManager.WM_USE_PYTHON |
@@ -89,7 +98,7 @@ def main(argc, argv):
     # An actual osgWidget.Window is pure virtual, so we've got to use the osgWidget.Box
     # implementation for now. At a later time, support for Tables and other kinds of
     # advanced layout Window types will be added.
-    box =  new osgWidget.Box("box", osgWidget.Box.HORIZONTAL)
+    box = osgWidget.Box("box", osgWidget.Box.HORIZONTAL)
 
     # Now we actually attach our two types of callbacks to the box instance. The first
     # uses the simple function signature, the second uses a bound method, passing "this"
@@ -99,37 +108,37 @@ def main(argc, argv):
     static str data = "lol ur face!"
 
     #
-    box.addCallback(new osgWidget.Callback(windowClicked, osgWidget.EVENT_MOUSE_PUSH, data))
-    box.addCallback(new osgWidget.Callback(windowScrolled, osgWidget.EVENT_MOUSE_SCROLL))
-    box.addCallback(osgWidget.Callback(
-        Object.windowClicked,
-        obj,
-        osgWidget.EVENT_MOUSE_PUSH
-    ))
-    
+#    box.addCallback(osgWidget.Callback(windowClicked, osgWidget.EVENT_MOUSE_PUSH, data))
+#    box.addCallback(osgWidget.Callback(windowScrolled, osgWidget.EVENT_MOUSE_SCROLL))
+#    box.addCallback(osgWidget.Callback(
+#        Object.windowClicked,
+#        obj,
+#        osgWidget.EVENT_MOUSE_PUSH
+#    ))
+#    
 
-    box.addCallback(new CallbackObject(osgWidget.EVENT_MOUSE_PUSH))
+    box.addCallback(CallbackObject(osgWidget.EVENT_MOUSE_PUSH))
 
     # Create some of our "testing" Widgets included are two Widget subclasses I made
     # during testing which I've kept around for testing purposes. You'll notice
     # that you cannot move the box using the NullWidget, and that the NotifyWidget
     # is a bit verbose. :)
-    widget1 =  new osgWidget.NotifyWidget("widget1", 300.0f, 100.0f)
-    widget2 =  new osgWidget.NullWidget("widget2", 400.0f, 75.0f)
-    widget3 =  new osgWidget.Widget("widget3", 100.0f, 100.0f)
+    widget1 = osgWidget.NotifyWidget("widget1", 300.0, 100.0)
+    widget2 = osgWidget.NullWidget("widget2", 400.0, 75.0)
+    widget3 = osgWidget.Widget("widget3", 100.0, 100.0)
     # Set the colors of widget1 and widget3 to green.
-    widget1.setColor(0.0f, 1.0f, 0.0f, 1.0f)
-    widget1.setCanFill(true)
-    widget3.setColor(0.0f, 1.0f, 0.0f, 1.0f)
+    widget1.setColor(0.0, 1.0, 0.0, 1.0)
+    widget1.setCanFill(True)
+    widget3.setColor(0.0, 1.0, 0.0, 1.0)
 
-    widget1.setImage(osgDB.readImageFile("Images/Saturn.TGA"), true)
+    widget1.setImage(osgDB.readImageFile("Images/Saturn.TGA"), True)
 
     # Set the color of widget2, to differentiate it and make it sassy. This is
     # like a poor man's gradient!
-    widget2.setColor(0.9f, 0.0f, 0.0f, 0.9f, osgWidget.Widget.LOWER_LEFT)
-    widget2.setColor(0.9f, 0.0f, 0.0f, 0.9f, osgWidget.Widget.LOWER_RIGHT)
-    widget2.setColor(0.0f, 0.0f, 0.9f, 0.9f, osgWidget.Widget.UPPER_RIGHT)
-    widget2.setColor(0.0f, 0.0f, 0.9f, 0.9f, osgWidget.Widget.UPPER_LEFT)
+    widget2.setColor(0.9, 0.0, 0.0, 0.9, osgWidget.Widget.LOWER_LEFT)
+    widget2.setColor(0.9, 0.0, 0.0, 0.9, osgWidget.Widget.LOWER_RIGHT)
+    widget2.setColor(0.0, 0.0, 0.9, 0.9, osgWidget.Widget.UPPER_RIGHT)
+    widget2.setColor(0.0, 0.0, 0.9, 0.9, osgWidget.Widget.UPPER_LEFT)
 
     # Now add our newly created widgets to our box.
     box.addWidget(widget1)
@@ -142,24 +151,24 @@ def main(argc, argv):
     # Window.resize when we're ready.
     box.resize()
 
-    # Now, lets clone our existing box and create a new copy of of it, also adding that
+    # Now, lets clone our existing box and create a copy of of it, also adding that
     # to the WindowManager. This demonstrates the usages of OSG's .clone() support,
     # though that is abstracted by our META_UIObject macro.
-    boxCopy =  osg.clone(box, "newBox", osg.CopyOp.DEEP_COPY_ALL)
+    boxCopy = osg.clone(box, "newBox", osg.CopyOp.DEEP_COPY_ALL)
 
     # Move our copy to make it visible.
-    boxCopy.setOrigin(0.0f, 125.0f)
+    boxCopy.setOrigin(0.0, 125.0)
 
-    boxCopy.getByName("widget1").setColor(0.5f, 0.0f, 1.0f, 1.0f)
-    boxCopy.getByName("widget3").setColor(0.5f, 0.0f, 1.0f, 1.0f)
+    boxCopy.getByName("widget1").setColor(0.5, 0.0, 1.0, 1.0)
+    boxCopy.getByName("widget3").setColor(0.5, 0.0, 1.0, 1.0)
 
     # Add the successfully created Box (if we get this far) into the WindowManager, so
     # that they can receive events.
     wm.addChild(box)
     wm.addChild(boxCopy)
 
-    # Now, ask our new box to be 100% the width of the WindowManager.
-    boxCopy.resizePercent(100.0f, 0.0f)
+    # Now, ask our box to be 100% the width of the WindowManager.
+    boxCopy.resizePercent(100.0, 0.0)
 
     # Here we demonstrate the use of osgWidget/io_utils. This is really only useful for
     # debugging at the moment.
@@ -171,19 +180,19 @@ def main(argc, argv):
     # simply use the createParentOrthoCamera method of the WindowManager class,
     # which will wrap the calls to createOrthoCamera and addChild for us! Check out
     # some of the other examples to see this in action...
-    group =  new osg.Group()
-    camera =  osgWidget.createOrthoCamera(1280.0f, 1024.0f)
-    model =  osgDB.readNodeFile("cow.osgt")
+    group = osg.Group()
+    camera = osgWidget.createOrthoCamera(1280.0, 1024.0)
+    model = osgDB.readNodeFile("cow.osgt")
 
     # Add our event handler is this better as a MatrixManipulator? Add a few other
     # helpful ViewerEventHandlers.
-    viewer.addEventHandler(new osgWidget.MouseHandler(wm))
-    viewer.addEventHandler(new osgWidget.KeyboardHandler(wm))
-    viewer.addEventHandler(new osgWidget.ResizeHandler(wm, camera))
-    viewer.addEventHandler(new osgWidget.CameraSwitchHandler(wm, camera))
-    viewer.addEventHandler(new osgViewer.StatsHandler())
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler())
-    viewer.addEventHandler(new osgGA.StateSetManipulator(
+    viewer.addEventHandler(osgWidget.MouseHandler(wm))
+    viewer.addEventHandler(osgWidget.KeyboardHandler(wm))
+    viewer.addEventHandler(osgWidget.ResizeHandler(wm, camera))
+    viewer.addEventHandler(osgWidget.CameraSwitchHandler(wm, camera))
+    viewer.addEventHandler(osgViewer.StatsHandler())
+    viewer.addEventHandler(osgViewer.WindowSizeHandler())
+    viewer.addEventHandler(osgGA.StateSetManipulator(
         viewer.getCamera().getOrCreateStateSet()
     ))
 
@@ -215,12 +224,12 @@ def main(argc, argv):
     viewer.setSceneData(group)
 
     #
-    cameras = osgViewer.Viewer.Cameras() 
-    viewer.getCameras(cameras)
-    c =  cameras[0]
-    s =  osg.Matrix.scale(1.0f, -1.0f, 1.0f)
-    c.setProjectionMatrix(s * c.getProjectionMatrix())
-    
+#    cameras = osgViewer.Viewer.Cameras() 
+#    viewer.getCameras(cameras)
+#    c = cameras[0]
+#    s = osg.Matrix.scale(1.0, -1.0, 1.0)
+#    c.setProjectionMatrix(s * c.getProjectionMatrix())
+#    
 
     return viewer.run()
 

@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgSim
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgimpostor.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgimpostor.cpp'
+
+# OpenSceneGraph example, osgimpostor.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Geometry>
 #include <osg/Material>
@@ -50,28 +53,29 @@ from osgpypp import osgViewer
 #include <list>
 
 # container storing all house nodes
-typedef osg.ref_ptr<osg.Node>    NodePtr
+typedef osg.Node    NodePtr
 typedef std.list<NodePtr>        NodeContainer
 typedef NodeContainer.iterator    NodeIterator
 
 nodes = NodeContainer()
 
 #
-osg.ref_ptr<osg.Group> Root = 0
+Root = 0
 
-HOUSES_SIZE =  25000        # total number of houses
-XDim =  5000.0f                # area dimension +/- XDim
-ZDim =  5000.0f                # area dimension +/- YDim
+HOUSES_SIZE = 25000        # total number of houses
+XDim = 5000.0                # area dimension +/- XDim
+ZDim = 5000.0                # area dimension +/- YDim
 
-GridX =  20                        # number of grids in x direction
-GridY =  20                        # number of grids in y direction
+GridX = 20                        # number of grids in x direction
+GridY = 20                        # number of grids in y direction
 
-UseImpostor =  true            # use impostor (or do not use)
+UseImpostor = True            # use impostor (or do not use)
 
-Threshold =  3000.0f            # distance where impostor are shown
+Threshold = 3000.0            # distance where impostor are shown
 
 # create houses and store nodes in container
 def CreateHouses():
+    
     i = int()
 
     GLubyte indices[48] = 
@@ -94,66 +98,66 @@ def CreateHouses():
     
 
     # use the same color, normal and indices for all houses.
-    osg.ref_ptr<osg.Vec4Array> colors = new osg.Vec4Array(1)
-    (*colors)[0] = osg.Vec4(1.0f, 1.0f, 1.0f, 1.0f)
+    colors = osg.Vec4Array(1)
+    (*colors)[0] = osg.Vec4(1.0, 1.0, 1.0, 1.0)
 
     # normals
-    osg.ref_ptr<osg.Vec3Array> normals = new osg.Vec3Array(16)
-    (*normals)[0] = osg.Vec3( 0.0f,  -0.0f, -1.0f)
-    (*normals)[1] = osg.Vec3( 0.0f,  -0.0f, -1.0f)
-    (*normals)[2] = osg.Vec3( 0.0f,  -1.0f,  0.0f)
-    (*normals)[3] = osg.Vec3( 0.0f,  -1.0f,  0.0f)
-    (*normals)[4] = osg.Vec3( 1.0f,  -0.0f,  0.0f)
-    (*normals)[5] = osg.Vec3( 1.0f,  -0.0f,  0.0f)
-    (*normals)[6] = osg.Vec3( 0.0f, 1.0f,  0.0f)
-    (*normals)[7] = osg.Vec3( 0.0f, 1.0f,  0.0f)
-    (*normals)[8] = osg.Vec3(-1.0f,  -0.0f,  0.0f)
-    (*normals)[9] = osg.Vec3(-1.0f,  -0.0f,  0.0f)
-    (*normals)[10] = osg.Vec3( 0.0f,  -0.928477f, 0.371391f)
-    (*normals)[11] = osg.Vec3( 0.0f, 0.928477f, 0.371391f)
-    (*normals)[12] = osg.Vec3( 0.707107f,  0.0f, 0.707107f)
-    (*normals)[13] = osg.Vec3( 0.707107f,  0.0f, 0.707107f)
-    (*normals)[14] = osg.Vec3(-0.707107f,  0.0f, 0.707107f)
-    (*normals)[15] = osg.Vec3(-0.707107f,  0.0f, 0.707107f)
+    normals = osg.Vec3Array(16)
+    (*normals)[0] = osg.Vec3( 0.0,  -0.0, -1.0)
+    (*normals)[1] = osg.Vec3( 0.0,  -0.0, -1.0)
+    (*normals)[2] = osg.Vec3( 0.0,  -1.0,  0.0)
+    (*normals)[3] = osg.Vec3( 0.0,  -1.0,  0.0)
+    (*normals)[4] = osg.Vec3( 1.0,  -0.0,  0.0)
+    (*normals)[5] = osg.Vec3( 1.0,  -0.0,  0.0)
+    (*normals)[6] = osg.Vec3( 0.0, 1.0,  0.0)
+    (*normals)[7] = osg.Vec3( 0.0, 1.0,  0.0)
+    (*normals)[8] = osg.Vec3(-1.0,  -0.0,  0.0)
+    (*normals)[9] = osg.Vec3(-1.0,  -0.0,  0.0)
+    (*normals)[10] = osg.Vec3( 0.0,  -0.928477, 0.371391)
+    (*normals)[11] = osg.Vec3( 0.0, 0.928477, 0.371391)
+    (*normals)[12] = osg.Vec3( 0.707107,  0.0, 0.707107)
+    (*normals)[13] = osg.Vec3( 0.707107,  0.0, 0.707107)
+    (*normals)[14] = osg.Vec3(-0.707107,  0.0, 0.707107)
+    (*normals)[15] = osg.Vec3(-0.707107,  0.0, 0.707107)
 
     # coordIndices
-    osg.ref_ptr<osg.UByteArray> coordIndices = new osg.UByteArray(48,indices)
+    coordIndices = osg.UByteArray(48,indices)
 
     # share the primitive set.
-    primitives =  new osg.DrawArrays(osg.PrimitiveSet.TRIANGLES,0,48)
+    primitives = osg.DrawArrays(osg.PrimitiveSet.TRIANGLES,0,48)
 
     for (int q = 0 q < HOUSES_SIZE q++)
-        xPos =  ((static_cast<double> (rand()) /
+        xPos = ((static_cast<double> (rand()) /
                       static_cast<double> (RAND_MAX))
                      * 2.0 * XDim) - XDim
 
-        yPos =  ((static_cast<double> (rand()) /
+        yPos = ((static_cast<double> (rand()) /
                       static_cast<double> (RAND_MAX))
                      * 2 * ZDim) - ZDim
 
-        scale =  10.0f
+        scale = 10.0
 
-        offset = osg.Vec3(xPos,yPos,0.0f)
+        offset = osg.Vec3(xPos,yPos,0.0)
 
         # coords
-        osg.ref_ptr<osg.Vec3Array> coords = new osg.Vec3Array(10)
-        (*coords)[0] = osg.Vec3( 0.5f, -0.7f, 0.0f)
-        (*coords)[1] = osg.Vec3( 0.5f,  0.7f, 0.0f)
-        (*coords)[2] = osg.Vec3(-0.5f, 0.7f, 0.0f)
-        (*coords)[3] = osg.Vec3(-0.5f, -0.7f, 0.0f)
-        (*coords)[4] = osg.Vec3( 0.5f, -0.7f, 1.0f)
-        (*coords)[5] = osg.Vec3( 0.5f,  0.7f, 1.0f)
-        (*coords)[6] = osg.Vec3(-0.5f,  0.7f, 1.0f)
-        (*coords)[7] = osg.Vec3(-0.5f, -0.7f, 1.0f)
-        (*coords)[8] = osg.Vec3( 0.0f, -0.5f, 1.5f)
-        (*coords)[9] = osg.Vec3( 0.0f,  0.5f, 1.5f)
+        coords = osg.Vec3Array(10)
+        (*coords)[0] = osg.Vec3( 0.5, -0.7, 0.0)
+        (*coords)[1] = osg.Vec3( 0.5,  0.7, 0.0)
+        (*coords)[2] = osg.Vec3(-0.5, 0.7, 0.0)
+        (*coords)[3] = osg.Vec3(-0.5, -0.7, 0.0)
+        (*coords)[4] = osg.Vec3( 0.5, -0.7, 1.0)
+        (*coords)[5] = osg.Vec3( 0.5,  0.7, 1.0)
+        (*coords)[6] = osg.Vec3(-0.5,  0.7, 1.0)
+        (*coords)[7] = osg.Vec3(-0.5, -0.7, 1.0)
+        (*coords)[8] = osg.Vec3( 0.0, -0.5, 1.5)
+        (*coords)[9] = osg.Vec3( 0.0,  0.5, 1.5)
 
         for (i = 0 i < 10 i++)
             (*coords)[i] = (*coords)[i] * scale + offset
 
 
         # create geometry
-        osg.ref_ptr<deprecated_osg.Geometry> geometry = new deprecated_osg.Geometry()
+        geometry = deprecated_osg.Geometry()
 
         geometry.addPrimitiveSet(primitives)
 
@@ -166,49 +170,51 @@ def CreateHouses():
         geometry.setNormalArray(normals.get())
         geometry.setNormalBinding(deprecated_osg.Geometry.BIND_PER_PRIMITIVE)
 
-        osg.ref_ptr<osg.Geode> geode = new osg.Geode()
+        geode = osg.Geode()
         geode.addDrawable(geometry.get())
 
         nodes.push_back(geode.get())
 
 def LayoutAsGrid():
+
+    
     # calculate bounding box
     bbox = osg.BoundingBox()
     for (NodeIterator node = nodes.begin() node != nodes.end() ++node)
         bbox.expandBy((*node).getBound())
 
     # setup grid information
-    groups =  new osg.Group*[GridX * GridY]
+    groups = osg.Group*[GridX * GridY]()
         i = int()
     for (i = 0 i < GridX * GridY i++)
-        groups[i] = new osg.Group()
+        groups[i] = osg.Group()
 
-    xGridStart =  bbox.xMin()
-    xGridSize =  (bbox.xMax() - bbox.xMin()) / GridX
+    xGridStart = bbox.xMin()
+    xGridSize = (bbox.xMax() - bbox.xMin()) / GridX
 
-    yGridStart =  bbox.yMin()
-    yGridSize =  (bbox.yMax() - bbox.yMin()) / GridY
+    yGridStart = bbox.yMin()
+    yGridSize = (bbox.yMax() - bbox.yMin()) / GridY
 
     # arrange buildings into right grid
     for (NodeIterator nodeIter = nodes.begin() nodeIter != nodes.end() ++nodeIter)
-        node =  nodeIter.get()
-        center =  node.getBound().center()
+        node = nodeIter.get()
+        center = node.getBound().center()
 
-        x =  (int)floor((center.x() - xGridStart) / xGridSize)
-        z =  (int)floor((center.y() - yGridStart) / yGridSize)
+        x = (int)floor((center.x() - xGridStart) / xGridSize)
+        z = (int)floor((center.y() - yGridStart) / yGridSize)
 
         groups[z * GridX + x].addChild(node)
 
     # add nodes to building root
     for (i = 0 i < GridX * GridY i++)
-        stateset =  new osg.StateSet()
+        stateset = osg.StateSet()
 
-        material =  new osg.Material()
-        color =  osg.Vec4(
-            0.5f + (static_cast<double> (rand()) / (2.0*static_cast<double> (RAND_MAX))),
-            0.5f + (static_cast<double> (rand()) / (2.0*static_cast<double> (RAND_MAX))),
-            0.5f + (static_cast<double> (rand()) / ( 2.0*static_cast<double>(RAND_MAX))),
-            1.0f)
+        material = osg.Material()
+        color = osg.Vec4(
+            0.5 + (static_cast<double> (rand()) / (2.0*static_cast<double> (RAND_MAX))),
+            0.5 + (static_cast<double> (rand()) / (2.0*static_cast<double> (RAND_MAX))),
+            0.5 + (static_cast<double> (rand()) / ( 2.0*static_cast<double>(RAND_MAX))),
+            1.0)
 
         material.setAmbient(osg.Material.FRONT_AND_BACK, color)
         material.setDiffuse(osg.Material.FRONT_AND_BACK, color)
@@ -217,19 +223,22 @@ def LayoutAsGrid():
         groups[i].setStateSet(stateset)
 
         if UseImpostor :
-            impostor =  new osgSim.Impostor()
+            impostor = osgSim.Impostor()
             impostor.setImpostorThreshold(static_cast<float> (Threshold))
             impostor.addChild(groups[i])
-            impostor.setRange(0, 0.0f, 1e7f)
+            impostor.setRange(0, 0.0, 1e7f)
             impostor.setCenter(groups[i].getBound().center())
             Root.addChild(impostor)
-        else:
+        else :
             Root.addChild(groups[i])
 
     delete[] groups
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -237,41 +246,41 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # add local test manipulator more suitable for testing impostors.
-    viewer.setCameraManipulator(new TestManipulator)
+    viewer.setCameraManipulator(TestManipulator)()
 
 
     # load the nodes from the commandline arguments.
-    osg.ref_ptr<osg.Node> model = osgDB.readNodeFiles(arguments)
+    model = osgDB.readNodeFiles(arguments)
     if model :
         # the osgSim.InsertImpostorsVisitor used lower down to insert impostors
         # only operators on subclass of Group's, if the model top node is not
         # a group then it won't be able to insert an impostor.  We therefore
         # manually insert an impostor above the model.
         if dynamic_cast<osg.Group*>(model.get())==0 :
-            bs =  model.getBound()
+            bs = model.getBound()
             if bs.valid() :
 
-                impostor =  new osgSim.Impostor
+                impostor = osgSim.Impostor()
 
                 # standard LOD settings
                 impostor.addChild(model.get())
-                impostor.setRange(0,0.0f,1e7f)
+                impostor.setRange(0,0.0,1e7f)
                 impostor.setCenter(bs.center())
 
                 # impostor specfic settings.
-                impostor.setImpostorThresholdToBound(5.0f)
+                impostor.setImpostorThresholdToBound(5.0)
 
                 model = impostor
 
 
         # we insert an impostor node above the model, so we keep a handle
         # on the rootnode of the model, the is required since the
-        # InsertImpostorsVisitor can add a new root in automatically and
+        # InsertImpostorsVisitor can add a root in automatically and
         # we would know about it, other than by following the parent path
         # up from model.  This is really what should be done, but I'll pass
         # on it right now as it requires a getRoots() method to be added to
-        # osg.Node, and we're about to make a release so no new features!
-        osg.ref_ptr<osg.Group> rootnode = new osg.Group
+        # osg.Node, and we're about to make a release so no features!
+        rootnode = osg.Group()
         rootnode.addChild(model.get())
 
 
@@ -286,9 +295,9 @@ def main(argc, argv):
 
         # insert the Impostors above groups and LOD's
         ov.insertImpostors()
-    else:
+    else :
         # no user model so we'll create our own world.
-        model = Root = new osg.Group()
+        model = Root = osg.Group()
         CreateHouses()
         LayoutAsGrid()
 
@@ -296,23 +305,26 @@ def main(argc, argv):
     viewer.setSceneData(model.get())
 
     return viewer.run()
-# OpenSceneGraph example, osgimpostor.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'TestManipulator.cpp'
+
+# OpenSceneGraph example, osgimpostor.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "TestManipulator.h"
 #include <osg/Notify>
@@ -321,11 +333,11 @@ using namespace osg
 using namespace osgGA
 
 TestManipulator.TestManipulator()
-    _modelScale = 0.01f
-    _minimumZoomScale = 0.05f
-    _thrown = false
+    _modelScale = 0.01
+    _minimumZoomScale = 0.05
+    _thrown = False
 
-    _distance = 1.0f
+    _distance = 1.0
 
 
 TestManipulator.~TestManipulator()
@@ -352,9 +364,9 @@ void TestManipulator.home( GUIEventAdapter ,GUIActionAdapter us)
 
         boundingSphere = _node.getBound()
 
-        computePosition(boundingSphere.center()+osg.Vec3(0.0f, 0.0f, 20.0f),
-                        osg.Vec3(0.0f, 1.0f, 0.0f),
-                        osg.Vec3(0.0f,  0.0f,  1.0f))
+        computePosition(boundingSphere.center()+osg.Vec3(0.0, 0.0, 20.0),
+                        osg.Vec3(0.0, 1.0, 0.0),
+                        osg.Vec3(0.0,  0.0,  1.0))
 
         us.requestRedraw()
 
@@ -368,9 +380,9 @@ bool TestManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
             flushMouseEventStack()
             addMouseEvent(ea)
             if calcMovement() : us.requestRedraw()
-            us.requestContinuousUpdate(false)
-            _thrown = false
-            true = return()
+            us.requestContinuousUpdate(False)
+            _thrown = False
+            return True
 
         case(GUIEventAdapter.RELEASE):
             if ea.getButtonMask()==0 :
@@ -378,60 +390,60 @@ bool TestManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
                 if isMouseMoving() :
                     if calcMovement() :
                         us.requestRedraw()
-                        us.requestContinuousUpdate(true)
-                        _thrown = true
-                else:
+                        us.requestContinuousUpdate(True)
+                        _thrown = True
+                else :
                     flushMouseEventStack()
                     addMouseEvent(ea)
                     if calcMovement() : us.requestRedraw()
-                    us.requestContinuousUpdate(false)
-                    _thrown = false
+                    us.requestContinuousUpdate(False)
+                    _thrown = False
 
-            else:
+            else :
                 flushMouseEventStack()
                 addMouseEvent(ea)
                 if calcMovement() : us.requestRedraw()
-                us.requestContinuousUpdate(false)
-                _thrown = false
-            true = return()
+                us.requestContinuousUpdate(False)
+                _thrown = False
+            return True
 
         case(GUIEventAdapter.DRAG):
             addMouseEvent(ea)
             if calcMovement() : us.requestRedraw()
-            us.requestContinuousUpdate(false)
-            _thrown = false
-            true = return()
+            us.requestContinuousUpdate(False)
+            _thrown = False
+            return True
 
         case(GUIEventAdapter.MOVE):
-            false = return()
+            return False
 
         case(GUIEventAdapter.KEYDOWN):
             if ea.getKey()==' ' :
                 flushMouseEventStack()
-                _thrown = false
+                _thrown = False
                 home(ea,us)
                 us.requestRedraw()
-                us.requestContinuousUpdate(false)
-                true = return()
-            false = return()
+                us.requestContinuousUpdate(False)
+                return True
+            return False
         case(GUIEventAdapter.FRAME):
             if _thrown :
                 if calcMovement() : us.requestRedraw()
-                true = return()
-            false = return()
+                return True
+            return False
         default:
-            false = return()
+            return False
 
 
 bool TestManipulator.isMouseMoving()
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return false
+    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
 
-    static  float velocity = 0.1f
+    static  float velocity = 0.1
 
-    dx =  _ga_t0.getXnormalized()-_ga_t1.getXnormalized()
-    dy =  _ga_t0.getYnormalized()-_ga_t1.getYnormalized()
-    len =  sqrtf(dx*dx+dy*dy)
-    dt =  _ga_t0.getTime()-_ga_t1.getTime()
+    dx = _ga_t0.getXnormalized()-_ga_t1.getXnormalized()
+    dy = _ga_t0.getYnormalized()-_ga_t1.getYnormalized()
+    len = sqrtf(dx*dx+dy*dy)
+    dt = _ga_t0.getTime()-_ga_t1.getTime()
 
     return (len>dt*velocity)
 
@@ -448,7 +460,7 @@ void TestManipulator.addMouseEvent( GUIEventAdapter ea)
 void TestManipulator.setByMatrix( osg.Matrixd matrix)
     _center = matrix.getTrans()
     _rotation = matrix.getRotate()
-    _distance = 1.0f
+    _distance = 1.0
 
 osg.Matrixd TestManipulator.getMatrix() 
     return osg.Matrixd.rotate(_rotation)*osg.Matrixd.translate(_center)
@@ -464,10 +476,10 @@ void TestManipulator.computePosition( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
     u = osg.Vec3(s^f)
     u.normalize()
     
-    rotation_matrix = osg.Matrixd(s[0],     u[0],     -f[0],     0.0f,
-                                s[1],     u[1],     -f[1],     0.0f,
-                                s[2],     u[2],     -f[2],     0.0f,
-                                0.0f,     0.0f,     0.0f,      1.0f)
+    rotation_matrix = osg.Matrixd(s[0],     u[0],     -f[0],     0.0,
+                                s[1],     u[1],     -f[1],     0.0,
+                                s[2],     u[2],     -f[2],     0.0,
+                                0.0,     0.0,     0.0,      1.0)
                    
     _center = eye+lv
     _distance = lv.length()
@@ -477,70 +489,73 @@ void TestManipulator.computePosition( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
 bool TestManipulator.calcMovement()
 
     # return if less then two events have been added.
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return false
+    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
 
-    dx =  _ga_t0.getXnormalized()-_ga_t1.getXnormalized()
-    dy =  _ga_t0.getYnormalized()-_ga_t1.getYnormalized()
+    dx = _ga_t0.getXnormalized()-_ga_t1.getXnormalized()
+    dy = _ga_t0.getYnormalized()-_ga_t1.getYnormalized()
 
 
     # return if there is no movement.
-    if dx==0  dy==0 : return false
+    if dx==0  dy==0 : return False
 
-    unsigned int buttonMask = _ga_t1.getButtonMask()
+    buttonMask = _ga_t1.getButtonMask()
     if buttonMask==GUIEventAdapter.LEFT_MOUSE_BUTTON :
 
         # rotate camera.
 
         new_rotate = osg.Quat()
-        new_rotate.makeRotate(dx / 3.0f, osg.Vec3(0.0f, 0.0f, 1.0f))
+        new_rotate.makeRotate(dx / 3.0, osg.Vec3(0.0, 0.0, 1.0))
         
         _rotation = _rotation*new_rotate
 
-        true = return()
+        return True
 
-    else: if buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON :
+    elif buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON :
 
         # pan model.
 
-        dv =  osg.Vec3(0.0f, 0.0f, -500.0f) * dy
+        dv = osg.Vec3(0.0, 0.0, -500.0) * dy
 
         _center += dv
         
-        true = return()
+        return True
 
-    else: if buttonMask==GUIEventAdapter.RIGHT_MOUSE_BUTTON :
+    elif buttonMask==GUIEventAdapter.RIGHT_MOUSE_BUTTON :
         rotation_matrix = osg.Matrixd(_rotation)
     
                         
-        uv =  osg.Vec3(0.0f,1.0f,0.0f)*rotation_matrix
-        sv =  osg.Vec3(1.0f,0.0f,0.0f)*rotation_matrix
-        fv =  uv ^ sv
-        dv =  fv*(dy*-500.0f)-sv*(dx*500.0f)
+        uv = osg.Vec3(0.0,1.0,0.0)*rotation_matrix
+        sv = osg.Vec3(1.0,0.0,0.0)*rotation_matrix
+        fv = uv ^ sv
+        dv = fv*(dy*-500.0)-sv*(dx*500.0)
 
         _center += dv
 
-        true = return()
+        return True
 
-    false = return()
+    return False
+
+# Translated from file 'TestManipulator.h'
+
 # -*-c++-*- 
-*
-*  OpenSceneGraph example, osgimpostor.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-
+#*
+#*  OpenSceneGraph example, osgimpostor.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef OSGGA_TESTMANIPULATOR
 #define OSGGA_TESTMANIPULATOR 1
@@ -548,17 +563,17 @@ bool TestManipulator.calcMovement()
 #include <osgGA/CameraManipulator>
 #include <osg/Quat>
 
-class TestManipulator : public osgGA.CameraManipulator
-    public:
+class TestManipulator (osgGA.CameraManipulator) :
 
         TestManipulator()
         virtual ~TestManipulator()
 
         #* set the position of the matrix manipulator using a 4x4 Matrix.
-        virtual void setByMatrix( osg.Matrixd matrix)
+        setByMatrix = virtual void( osg.Matrixd matrix)
 
         #* set the position of the matrix manipulator using a 4x4 Matrix.
-        virtual void setByInverseMatrix( osg.Matrixd matrix)  setByMatrix(osg.Matrixd.inverse(matrix)) 
+        def setByInverseMatrix(matrix):
+             setByMatrix(osg.Matrixd.inverse(matrix)) 
 
         #* get the position of the manipulator as 4x4 Matrix.
         virtual osg.Matrixd getMatrix() 
@@ -567,29 +582,27 @@ class TestManipulator : public osgGA.CameraManipulator
         virtual osg.Matrixd getInverseMatrix() 
 
         #* Attach a node to the manipulator. 
-            Automatically detaches previously attached node.
-            setNode(NULL) detaches previously nodes.
-            Is ignored by manipulators which do not require a reference model.
-        virtual void setNode(osg.Node*)
+#            Automatically detaches previously attached node.
+#            setNode(NULL) detaches previously nodes.
+#            Is ignored by manipulators which do not require a reference model.
+        setNode = virtual void(osg.Node*)
 
         #* Return node if attached.
         virtual  osg.Node* getNode() 
 
         #* Return node if attached.
-        virtual osg.Node* getNode()
+        getNode = virtual osg.Node*()
 
         #* Move the camera to the default position. 
-            May be ignored by manipulators if home functionality is not appropriate.
-        virtual void home( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
+#            May be ignored by manipulators if home functionality is not appropriate.
+        home = virtual void( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
         
         #* Start/restart the manipulator.
-        virtual void init( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
+        init = virtual void( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
 
 
-        #* handle events, return true if handled, false otherwise.
-        virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
-
-    private:
+        #* handle events, return True if handled, False otherwise.
+        handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
 
         #* Reset the internal GUIEvent stack.
         flushMouseEventStack = void()
@@ -599,18 +612,18 @@ class TestManipulator : public osgGA.CameraManipulator
         computePosition = void( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
 
         #* For the give mouse movement calculate the movement of the camera.
-            Return true is camera has moved and a redraw is required.
+#            Return True is camera has moved and a redraw is required.
         calcMovement = bool()
         
         #* Check the speed at which the mouse is moving.
-            If speed is below a threshold then return false, otherwise return true.
+#            If speed is below a threshold then return False, otherwise return True.
         isMouseMoving = bool()
 
         # Internal event stack comprising last three mouse events.
-        osg.ref_ptr< osgGA.GUIEventAdapter> _ga_t1
-        osg.ref_ptr< osgGA.GUIEventAdapter> _ga_t0
+        _ga_t1 =  osgGA.GUIEventAdapter()
+        _ga_t0 =  osgGA.GUIEventAdapter()
 
-        osg.ref_ptr<osg.Node>       _node
+        _node = osg.Node()
 
         _modelScale = float()
         _minimumZoomScale = float()

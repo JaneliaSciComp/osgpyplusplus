@@ -11,23 +11,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgsimplifier.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgsimplifier.cpp'
+
+# OpenSceneGraph example, osgsimplifier.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgUtil/Optimizer>
@@ -36,8 +39,7 @@ from osgpypp import osgViewer
 #include <osgGA/TrackballManipulator>
 #include <iostream>
 
-class KeyboardEventHandler : public osgGA.GUIEventHandler
-public:
+class KeyboardEventHandler (osgGA.GUIEventHandler) :
     
     KeyboardEventHandler(unsigned int flag) : _flag(flag)
     
@@ -47,22 +49,24 @@ public:
             case(osgGA.GUIEventAdapter.KEYDOWN):
                 if ea.getKey()=='n' :
                     _flag = 1
-                    true = return()
+                    return True
                 if ea.getKey()=='p' :
                     _flag = 2
-                    true = return()
+                    return True
                 break
             default:
                 break
-        false = return()
+        return False
 
-private:
-
-    unsigned int _flag
+    _flag = unsigned int()
 
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -75,8 +79,8 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--max-error <error>","Specify the maximum error","4.0")
     
 
-    sampleRatio =  0.5f
-    maxError =  4.0f
+    sampleRatio = 0.5
+    maxError = 4.0
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -95,7 +99,7 @@ def main(argc, argv):
         return 1
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
   
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
@@ -107,20 +111,20 @@ def main(argc, argv):
     
     #loadedModel.accept(simplifier)
 
-    unsigned int keyFlag = 0
-    viewer.addEventHandler(new KeyboardEventHandler(keyFlag))
+    keyFlag = 0
+    viewer.addEventHandler(KeyboardEventHandler(keyFlag))
 
     # set the scene to render
     viewer.setSceneData(loadedModel.get())
 
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator())
+    viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
     # create the windows and run the threads.
     viewer.realize()
 
-    multiplier =  0.8f
-    minRatio =  0.001f
-    ratio =  sampleRatio
+    multiplier = 0.8
+    minRatio = 0.001
+    ratio = sampleRatio
 
 
     while  !viewer.done()  :
@@ -137,7 +141,7 @@ def main(argc, argv):
             print "Runing osgUtil.Simplifier with SampleRatio=", ratio, " maxError=", maxError, " ..."
             std.cout.flush()
             
-            osg.ref_ptr<osg.Node> root = (osg.Node*)loadedModel.clone(osg.CopyOp.DEEP_COPY_ALL)
+            root = (osg.Node*)loadedModel.clone(osg.CopyOp.DEEP_COPY_ALL)
 
             root.accept(simplifier)
             

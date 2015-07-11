@@ -13,23 +13,26 @@ from osgpypp import osgQt
 from osgpypp import osgText
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgtext.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgqfont.cpp'
+
+# OpenSceneGraph example, osgtext.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <QApplication>
 #include <QGridLayout>
@@ -57,16 +60,19 @@ from osgpypp import osgViewer
 #include <osgText/Text>
 
 def createHUDText():
-    rootNode =  new osg.Group
 
-    font =  new osgText.Font(new osgQt.QFontImplementation(QFont("Arial")))
+    
 
-    geode =  new osg.Geode
+    rootNode = osg.Group()
+
+    font = osgText.Font(osgQt.QFontImplementation(QFont("Arial")))
+
+    geode = osg.Geode()
     rootNode.addChild(geode)
 
-    windowHeight =  1024.0f
-    windowWidth =  1280.0f
-    margin =  50.0f
+    windowHeight = 1024.0
+    windowWidth = 1280.0
+    margin = 50.0
 
 
 ####################################################
@@ -74,14 +80,14 @@ def createHUDText():
 # Examples of how to set up different text layout
 #
 
-    layoutColor = osg.Vec4(1.0f,1.0f,0.0f,1.0f)
-    layoutCharacterSize =  20.0f    
+    layoutColor = osg.Vec4(1.0,1.0,0.0,1.0)
+    layoutCharacterSize = 20.0    
     
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(layoutColor)
         text.setCharacterSize(layoutCharacterSize)
-        text.setPosition(osg.Vec3(margin,windowHeight-margin,0.0f))
+        text.setPosition(osg.Vec3(margin,windowHeight-margin,0.0))
 
         # the default layout is left to right, typically used in languages
         # originating from europe such as English, French, German, Spanish etc..
@@ -90,11 +96,11 @@ def createHUDText():
         text.setText("text.setLayout(osgText.Text.LEFT_TO_RIGHT)")
         geode.addDrawable(text)
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(layoutColor)
         text.setCharacterSize(layoutCharacterSize)
-        text.setPosition(osg.Vec3(windowWidth-margin,windowHeight-margin,0.0f))
+        text.setPosition(osg.Vec3(windowWidth-margin,windowHeight-margin,0.0))
 
         # right to left layouts would be used for hebrew or arabic fonts.
         text.setLayout(osgText.Text.RIGHT_TO_LEFT)
@@ -103,10 +109,10 @@ def createHUDText():
         text.setText("text.setLayout(osgText.Text.RIGHT_TO_LEFT)")
         geode.addDrawable(text)
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(layoutColor)
-        text.setPosition(osg.Vec3(margin,windowHeight-margin,0.0f))
+        text.setPosition(osg.Vec3(margin,windowHeight-margin,0.0))
         text.setCharacterSize(layoutCharacterSize)
 
         # vertical font layout would be used for asian fonts.
@@ -121,12 +127,12 @@ def createHUDText():
 # Examples of how to set up different font resolution
 #
 
-    fontSizeColor = osg.Vec4(0.0f,1.0f,1.0f,1.0f)
-    fontSizeCharacterSize =  30
+    fontSizeColor = osg.Vec4(0.0,1.0,1.0,1.0)
+    fontSizeCharacterSize = 30
     
-    cursor =  osg.Vec3(margin*2,windowHeight-margin*2,0.0f)
+    cursor = osg.Vec3(margin*2,windowHeight-margin*2,0.0)
     
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(fontSizeColor)
         text.setCharacterSize(fontSizeCharacterSize)
@@ -139,7 +145,7 @@ def createHUDText():
         geode.addDrawable(text)
     
     cursor.y() -= fontSizeCharacterSize
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(fontSizeColor)
         text.setCharacterSize(fontSizeCharacterSize)
@@ -152,7 +158,7 @@ def createHUDText():
         geode.addDrawable(text)
     
     cursor.y() -= fontSizeCharacterSize
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(fontSizeColor)
         text.setCharacterSize(fontSizeCharacterSize)
@@ -170,11 +176,11 @@ def createHUDText():
 # Examples of how to set up different sized text
 #
 
-    characterSizeColor = osg.Vec4(1.0f,0.0f,1.0f,1.0f)
+    characterSizeColor = osg.Vec4(1.0,0.0,1.0,1.0)
     
-    cursor.y() -= fontSizeCharacterSize*2.0f
+    cursor.y() -= fontSizeCharacterSize*2.0
     
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(characterSizeColor)
         text.setFontResolution(20,20)
@@ -183,33 +189,33 @@ def createHUDText():
         # use text that is 20 units high.
         text.setCharacterSize(20) # small
         
-        text.setText("text.setCharacterSize(20.0f) # small")
+        text.setText("text.setCharacterSize(20.0) # small")
         geode.addDrawable(text)
     
-    cursor.y() -= 30.0f
-        text =  new osgText.Text
+    cursor.y() -= 30.0
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(characterSizeColor)
         text.setFontResolution(30,30)
         text.setPosition(cursor)
         
         # use text that is 30 units high.
-        text.setCharacterSize(30.0f) # medium
+        text.setCharacterSize(30.0) # medium
         
-        text.setText("text.setCharacterSize(30.0f) # medium")
+        text.setText("text.setCharacterSize(30.0) # medium")
         geode.addDrawable(text)
     
-    cursor.y() -= 50.0f
-        text =  new osgText.Text
+    cursor.y() -= 50.0
+        text = osgText.Text()
         text.setFont(font)
         text.setColor(characterSizeColor)
         text.setFontResolution(40,40)
         text.setPosition(cursor)
         
         # use text that is 60 units high.
-        text.setCharacterSize(60.0f) # large
+        text.setCharacterSize(60.0) # large
         
-        text.setText("text.setCharacterSize(60.0f) # large")
+        text.setText("text.setCharacterSize(60.0) # large")
         geode.addDrawable(text)
 
 
@@ -218,10 +224,10 @@ def createHUDText():
 # Examples of how to set up different alignments
 #
 
-    alignmentSizeColor = osg.Vec4(0.0f,1.0f,0.0f,1.0f)
-    alignmentCharacterSize =  25.0f
+    alignmentSizeColor = osg.Vec4(0.0,1.0,0.0,1.0)
+    alignmentCharacterSize = 25.0
     cursor.x() = 640
-    cursor.y() = margin*4.0f
+    cursor.y() = margin*4.0
     
     typedef std.pair<osgText.Text.AlignmentType,str> AlignmentPair
     typedef std.vector<AlignmentPair> AlignmentList
@@ -243,15 +249,15 @@ def createHUDText():
     alignmentList.push_back(AlignmentPair(osgText.Text.RIGHT_BOTTOM_BASE_LINE,"text.setAlignment(\nosgText.Text.RIGHT_BOTTOM_BASE_LINE)"))
 
 
-    sequence =  new osg.Sequence
+    sequence = osg.Sequence()
         for(AlignmentList.iterator itr=alignmentList.begin()
             itr!=alignmentList.end()
             ++itr)
-            alignmentGeode =  new osg.Geode
+            alignmentGeode = osg.Geode()
             sequence.addChild(alignmentGeode)
-            sequence.setTime(sequence.getNumChildren(), 1.0f)
+            sequence.setTime(sequence.getNumChildren(), 1.0)
 
-            text =  new osgText.Text
+            text = osgText.Text()
             text.setFont(font)
             text.setColor(alignmentSizeColor)
             text.setCharacterSize(alignmentCharacterSize)
@@ -268,7 +274,7 @@ def createHUDText():
 
     sequence.setMode(osg.Sequence.START)
     sequence.setInterval(osg.Sequence.LOOP, 0, -1)
-    sequence.setDuration(1.0f, -1)
+    sequence.setDuration(1.0, -1)
     
     rootNode.addChild(sequence)
 
@@ -278,14 +284,14 @@ def createHUDText():
 # Examples of how to set up different fonts...
 #
 
-    cursor.x() = margin*2.0f
-    cursor.y() = margin*2.0f
+    cursor.x() = margin*2.0
+    cursor.y() = margin*2.0
     
-    fontColor = osg.Vec4(1.0f,0.5f,0.0f,1.0f)
-    fontCharacterSize =  20.0f
-    spacing =  40.0f
+    fontColor = osg.Vec4(1.0,0.5,0.0,1.0)
+    fontCharacterSize = 20.0
+    spacing = 40.0
     
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setColor(fontColor)
         text.setPosition(cursor)
         text.setCharacterSize(fontCharacterSize)
@@ -296,9 +302,9 @@ def createHUDText():
 
         cursor.x() = text.getBound().xMax() + spacing 
     
-        arial =  new osgText.Font(new osgQt.QFontImplementation(QFont("Arial")))
+        arial = osgText.Font(osgQt.QFontImplementation(QFont("Arial")))
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setColor(fontColor)
         text.setPosition(cursor)
         text.setCharacterSize(fontCharacterSize)
@@ -311,9 +317,9 @@ def createHUDText():
 
         cursor.x() = text.getBound().xMax() + spacing 
     
-        times =  new osgText.Font(new osgQt.QFontImplementation(QFont("Times")))
+        times = osgText.Font(osgQt.QFontImplementation(QFont("Times")))
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setColor(fontColor)
         text.setPosition(cursor)
         text.setCharacterSize(fontCharacterSize)
@@ -326,12 +332,12 @@ def createHUDText():
 
         cursor.x() = text.getBound().xMax() + spacing 
     
-    cursor.x() = margin*2.0f
+    cursor.x() = margin*2.0
     cursor.y() = margin
 
-        dirtydoz =  new osgText.Font(new osgQt.QFontImplementation(QFont("Times")))
+        dirtydoz = osgText.Font(osgQt.QFontImplementation(QFont("Times")))
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setColor(fontColor)
         text.setPosition(cursor)
         text.setCharacterSize(fontCharacterSize)
@@ -344,9 +350,9 @@ def createHUDText():
 
         cursor.x() = text.getBound().xMax() + spacing 
     
-        fudd =  new osgText.Font(new osgQt.QFontImplementation(QFont("Times")))
+        fudd = osgText.Font(osgQt.QFontImplementation(QFont("Times")))
     
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setColor(fontColor)
         text.setPosition(cursor)
         text.setCharacterSize(fontCharacterSize)
@@ -359,42 +365,44 @@ def createHUDText():
 
         cursor.x() = text.getBound().xMax() + spacing 
             
-    rootNode = return()    
+    return rootNode    
 
 
 
 
 # create text which sits in 3D space such as would be inserted into a normal model
 def create3DText(center, radius):
-    geode =  new osg.Geode
+    
+
+    geode = osg.Geode()
 
 ####################################################
 #    
 # Examples of how to set up axis/orientation alignments
 #
 
-    characterSize = radius*0.2f
+    characterSize = radius*0.2
     
-    pos = osg.Vec3(center.x()-radius*.5f,center.y()-radius*.5f,center.z()-radius*.5f)
+    pos = osg.Vec3(center.x()-radius*.5,center.y()-radius*.5,center.z()-radius*.5)
 
-    text1 =  new osgText.Text
-    text1.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text1 = osgText.Text()
+    text1.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text1.setCharacterSize(characterSize)
     text1.setPosition(pos)
     text1.setAxisAlignment(osgText.Text.XY_PLANE)
     text1.setText("XY_PLANE")
     geode.addDrawable(text1)
 
-    text2 =  new osgText.Text
-    text2.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text2 = osgText.Text()
+    text2.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text2.setCharacterSize(characterSize)
     text2.setPosition(pos)
     text2.setAxisAlignment(osgText.Text.YZ_PLANE)
     text2.setText("YZ_PLANE")
     geode.addDrawable(text2)
 
-    text3 =  new osgText.Text
-    text3.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text3 = osgText.Text()
+    text3.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text3.setCharacterSize(characterSize)
     text3.setPosition(pos)
     text3.setAxisAlignment(osgText.Text.XZ_PLANE)
@@ -402,28 +410,28 @@ def create3DText(center, radius):
     geode.addDrawable(text3)
 
 
-    text4 =  new osgText.Text
-    text4.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text4 = osgText.Text()
+    text4.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text4.setCharacterSize(characterSize)
     text4.setPosition(center)
     text4.setAxisAlignment(osgText.Text.SCREEN)
 
-    characterSizeModeColor = osg.Vec4(1.0f,0.0f,0.5f,1.0f)
+    characterSizeModeColor = osg.Vec4(1.0,0.0,0.5,1.0)
 
-    text5 =  new osgText.Text
+    text5 = osgText.Text()
     text5.setColor(characterSizeModeColor)
-    text5.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text5.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     #text5.setCharacterSize(characterSize)
-    text5.setCharacterSize(32.0f) # medium
+    text5.setCharacterSize(32.0) # medium
     text5.setPosition(center - osg.Vec3(0.0, 0.0, 0.2))
     text5.setAxisAlignment(osgText.Text.SCREEN)
     text5.setCharacterSizeMode(osgText.Text.SCREEN_COORDS)
     text5.setText("CharacterSizeMode SCREEN_COORDS(size 32.0)")
     geode.addDrawable(text5)
 
-    text6 =  new osgText.Text
+    text6 = osgText.Text()
     text6.setColor(characterSizeModeColor)
-    text6.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text6.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text6.setCharacterSize(characterSize)
     text6.setPosition(center - osg.Vec3(0.0, 0.0, 0.4))
     text6.setAxisAlignment(osgText.Text.SCREEN)
@@ -431,9 +439,9 @@ def create3DText(center, radius):
     text6.setText("CharacterSizeMode OBJECT_COORDS_WITH_MAXIMUM_SCREEN_SIZE_CAPPED_BY_FONT_HEIGHT")
     geode.addDrawable(text6)
 
-    text7 =  new osgText.Text
+    text7 = osgText.Text()
     text7.setColor(characterSizeModeColor)
-    text7.setFont(new osgText.Font(new osgQt.QFontImplementation(QFont("Times"))))
+    text7.setFont(osgText.Font(osgQt.QFontImplementation(QFont("Times"))))
     text7.setCharacterSize(characterSize)
     text7.setPosition(center - osg.Vec3(0.0, 0.0, 0.6))
     text7.setAxisAlignment(osgText.Text.SCREEN)
@@ -450,60 +458,65 @@ def create3DText(center, radius):
     text4.setText("SCREEN")
     geode.addDrawable(text4)
 
-    shape =  new osg.ShapeDrawable(new osg.Sphere(center,characterSize*0.2f))
+    shape = osg.ShapeDrawable(osg.Sphere(center,characterSize*0.2))
     shape.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.ON)
     geode.addDrawable(shape)
 
-    rootNode =  new osg.Group
+    rootNode = osg.Group()
     rootNode.addChild(geode)
 
-    rootNode = return()    
+    return rootNode    
 
-class MainWindow : public QWidget 
-public:
+class MainWindow (QWidget) :
     MainWindow()
-        osg.ref_ptr<osg.GraphicsContext.Traits> traits = new osg.GraphicsContext.Traits(osg.DisplaySettings.instance().get())
+        traits = osg.GraphicsContext.Traits(osg.DisplaySettings.instance().get())
         traits.width = width()
         traits.height = height()
-        traits.doubleBuffer = true
-        graphicsWindow =  new osgQt.GraphicsWindowQt(traits.get())
+        traits.doubleBuffer = True
+        graphicsWindow = osgQt.GraphicsWindowQt(traits.get())
 
-        grid =  new QGridLayout
+        grid = QGridLayout()
         grid.setMargin(0)
         grid.addWidget(graphicsWindow.getGLWidget(), 0, 0)
         setLayout(grid)
 
         _viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
-        camera =  _viewer.getCamera()
+        camera = _viewer.getCamera()
         camera.setGraphicsContext(graphicsWindow)
-        camera.setViewport(new osg.Viewport(0, 0, width(), height()))
+        camera.setViewport(osg.Viewport(0, 0, width(), height()))
 
         startTimer(10)
 
-    virtual void paintEvent(QPaintEvent* event)
+    def paintEvent(event):
+
+        
         _viewer.frame()
-    virtual void timerEvent(QTimerEvent* event)
+    def timerEvent(event):
+        
         _viewer.frame()
 
     def setSceneData(node):
+
+        
         _viewer.setSceneData(node)
     def setCameraManipulator(manipulator, resetPosition):
+        
         _viewer.setCameraManipulator(manipulator, resetPosition)
-
-private:
     _viewer = osgViewer.Viewer()
 
 
 def main(argc, argv):
+
+    
     app = QApplication(argc, argv)
 
     # prepare scene.
-    center = osg.Vec3(0.0f,0.0f,0.0f)
-    radius =  1.0f
+    center = osg.Vec3(0.0,0.0,0.0)
+    radius = 1.0
     
     # create the hud.
-    osg.ref_ptr<osg.Camera> camera = new osg.Camera
+    camera = osg.Camera()
     camera.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     camera.setProjectionMatrixAsOrtho2D(0,1280,0,1024)
     camera.setViewMatrix(osg.Matrix.identity())
@@ -512,7 +525,7 @@ def main(argc, argv):
     camera.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     
     # make sure the root node is group so we can add extra nodes to it.
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
     group.addChild(camera.get())
     group.addChild(create3DText(center, radius))
 
@@ -521,7 +534,7 @@ def main(argc, argv):
     
     # set the scene to render
     widget.setSceneData(group.get())
-    widget.setCameraManipulator(new osgGA.TrackballManipulator)
+    widget.setCameraManipulator(osgGA.TrackballManipulator)()
 
     widget.setGeometry(100, 100, 800, 600)
     widget.show()

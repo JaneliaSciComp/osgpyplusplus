@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgUtil
 
-# OpenSceneGraph example, osgpagedlod.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgpagedlod.cpp'
+
+# OpenSceneGraph example, osgpagedlod.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Group>
 #include <osg/Notify>
@@ -47,13 +50,14 @@ from osgpypp import osgUtil
 #include <iostream>
 #include <sstream>
 
-class NameVistor : public osg.NodeVisitor
-public:
+class NameVistor (osg.NodeVisitor) :
     NameVistor():
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _count(0)
     
-    virtual void apply(osg.Node node)
+    def apply(node):
+    
+        
         os = std.ostringstream()
         os, node.className(), "_", _count++
 
@@ -61,32 +65,34 @@ public:
     
         traverse(node)
     
-    unsigned int _count
+    _count = unsigned int()
 
 
-class CheckVisitor : public osg.NodeVisitor
-public:
+class CheckVisitor (osg.NodeVisitor) :
     CheckVisitor():
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
     
-    virtual void apply(osg.PagedLOD plod)
+    def apply(plod):
+    
+        
         print "PagedLOD ", plod.getName(), "  numRanges = ", plod.getNumRanges(), "  numFiles = ", plod.getNumFileNames()
         for(unsigned int i=0i<plod.getNumFileNames()++i)
             print "  files = '", plod.getFileName(i), "'"
 
 
 
-class WriteOutPagedLODSubgraphsVistor : public osg.NodeVisitor
-public:
+class WriteOutPagedLODSubgraphsVistor (osg.NodeVisitor) :
     WriteOutPagedLODSubgraphsVistor():
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
     
-    virtual void apply(osg.PagedLOD plod)
+    def apply(plod):
+    
+        
 
         # go through all the named children and write them out to disk.
         for(unsigned int i=0i<plod.getNumChildren()++i)
-            child =  plod.getChild(i)
-            filename =  plod.getFileName(i)
+            child = plod.getChild(i)
+            filename = plod.getFileName(i)
             if !filename.empty() :
                 osg.notify(osg.NOTICE), "Writing out ", filename
                 osgDB.writeNodeFile(*child,filename)
@@ -94,8 +100,7 @@ public:
         traverse(plod)
 
 
-class ConvertToPageLODVistor : public osg.NodeVisitor
-public:
+class ConvertToPageLODVistor (osg.NodeVisitor) :
     ConvertToPageLODVistor( str basename,  str extension, bool makeAllChildrenPaged):
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _basename(basename),
@@ -104,21 +109,27 @@ public:
     
     virtual ~ConvertToPageLODVistor()
 
-    virtual void apply(osg.LOD lod)
+    def apply(lod):
+
+        
         _lodSet.insert(lod)
     
         traverse(lod)
 
-    virtual void apply(osg.PagedLOD plod)
+    def apply(plod):
+
+        
         # do thing, but want to avoid call LOD.
         traverse(plod)
 
     def convert():
-        unsigned int lodNum = 0
+
+        
+        lodNum = 0
         for(LODSet.iterator itr = _lodSet.begin()
             itr != _lodSet.end()
             ++itr, ++lodNum)
-            osg.ref_ptr<osg.LOD> lod = const_cast<osg.LOD*>(itr.get())
+            lod = const_cast<osg.LOD*>(itr.get())
             
             if lod.getNumParents()==0 :
                 osg.notify(osg.NOTICE), "Warning can't operator on root node."
@@ -130,12 +141,12 @@ public:
 
             osg.notify(osg.NOTICE), "Converting LOD to PagedLOD."
             
-            plod =  new osg.PagedLOD
+            plod = osg.PagedLOD()
             
-            originalRangeList =  lod.getRangeList()
+            originalRangeList = lod.getRangeList()
             typedef std.multimap< osg.LOD.MinMaxPair , unsigned int > MinMaxPairMap
             rangeMap = MinMaxPairMap()
-            unsigned int pos = 0
+            pos = 0
             for(osg.LOD.RangeList.const_iterator ritr = originalRangeList.begin()
                 ritr != originalRangeList.end()
                 ++ritr, ++pos)
@@ -147,14 +158,14 @@ public:
                 ++mitr, ++pos)
                 if pos==0  !_makeAllChildrenPaged :
                     plod.addChild(lod.getChild(mitr.second), mitr.first.first, mitr.first.second)
-                else:
-                    filename =  _basename
+                else :
+                    filename = _basename
                     os = std.ostringstream()
                     os, _basename, "_", lodNum, "_", pos, _extension
                     
                     plod.addChild(lod.getChild(mitr.second), mitr.first.first, mitr.first.second, os.str())
             
-            parents =  lod.getParents()
+            parents = lod.getParents()
             for(osg.Node.ParentList.iterator pitr=parents.begin()
                 pitr!=parents.end()
                 ++pitr)
@@ -165,7 +176,7 @@ public:
 
 
     
-    typedef std.set< osg.ref_ptr<osg.LOD> >  LODSet
+    typedef std.set< osg.LOD >  LODSet
     _lodSet = LODSet()
     _basename = str()
     _extension = str()
@@ -174,6 +185,10 @@ public:
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -194,8 +209,8 @@ def main(argc, argv):
     while arguments.read("-o",outputfile) : 
     
     
-    makeAllChildrenPaged =  false
-    while arguments.read("--makeAllChildrenPaged") :  makeAllChildrenPaged = true 
+    makeAllChildrenPaged = False
+    while arguments.read("--makeAllChildrenPaged") :  makeAllChildrenPaged = True 
 
     # any option left unread are converted into errors to write out later.
     arguments.reportRemainingOptionsAsUnrecognized()
@@ -212,14 +227,14 @@ def main(argc, argv):
 #     
 
 
-    osg.ref_ptr<osg.Node> model = osgDB.readNodeFiles(arguments)
+    model = osgDB.readNodeFiles(arguments)
     
     if !model :
         osg.notify(osg.NOTICE), "No model loaded."
         return 1
     
     basename = str( osgDB.getNameLessExtension(outputfile) )
-    ext =  '.'+ osgDB.getFileExtension(outputfile)
+    ext = '.'+ osgDB.getFileExtension(outputfile)
     
     converter = ConvertToPageLODVistor(basename,ext, makeAllChildrenPaged)
     model.accept(converter)

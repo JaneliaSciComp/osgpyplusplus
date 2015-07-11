@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgstereomatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgstereomatch.cpp'
+
+# OpenSceneGraph example, osgstereomatch.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Vec3>
 #include <osg/Vec4>
@@ -48,34 +51,36 @@ from osgpypp import osgViewer
 #include "StereoPass.h"
 #include "StereoMultipass.h"
 
-osg.Node* createScene(osg.Image *left, osg.Image *right, unsigned int min_disp, unsigned int max_disp, unsigned int window_size, bool single_pass)
-    width =  left.s()
-    height =  left.t()
+def createScene(left, right, min_disp, max_disp, window_size, single_pass):
 
-    topnode =  new osg.Group
+    
+    width = left.s()
+    height = left.t()
+
+    topnode = osg.Group()
 
     # create four quads so we can display up to four images
 
-    osg.ref_ptr<osg.Geode> geode = new osg.Geode()
+    geode = osg.Geode()
 
     # each geom will contain a quad
-    osg.ref_ptr<osg.DrawArrays> da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> colors = new osg.Vec4Array
-    colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    colors = osg.Vec4Array()
+    colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    osg.ref_ptr<osg.Vec2Array> tcoords = new osg.Vec2Array # texture coords
+    tcoords = osg.Vec2Array() # texture coords
     tcoords.push_back(osg.Vec2(0, 0))
     tcoords.push_back(osg.Vec2(width, 0))
     tcoords.push_back(osg.Vec2(width, height))
     tcoords.push_back(osg.Vec2(0, height))
 
-    osg.ref_ptr<osg.StateSet> geomss[4] # stateset where we can attach textures
-    osg.ref_ptr<osg.TextureRectangle> texture[4]
+    osg.StateSet geomss[4] # stateset where we can attach textures
+    osg.TextureRectangle texture[4]
 
     for (int i=0i<4i++) 
-	osg.ref_ptr<osg.Vec3Array> vcoords = new osg.Vec3Array # vertex coords
-	osg.ref_ptr<osg.Geometry> geom = new osg.Geometry
+	vcoords = osg.Vec3Array() # vertex coords
+	geom = osg.Geometry()
 
 	# tile the quads on the screen
 	# 2 3
@@ -97,8 +102,8 @@ osg.Node* createScene(osg.Image *left, osg.Image *right, unsigned int min_disp, 
 	geomss[i] = geom.getOrCreateStateSet()
 	geomss[i].setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
-	texture[i] = new osg.TextureRectangle
-	texture[i].setResizeNonPowerOfTwoHint(false)
+	texture[i] = osg.TextureRectangle()
+	texture[i].setResizeNonPowerOfTwoHint(False)
 	texture[i].setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
 	texture[i].setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
 
@@ -114,7 +119,7 @@ osg.Node* createScene(osg.Image *left, osg.Image *right, unsigned int min_disp, 
 
     # create the processing passes
     if single_pass : 
-	stereopass =  new StereoPass(texture[0].get(), texture[1].get(),
+	stereopass = StereoPass(texture[0].get(), texture[1].get(),
 						width, height,
 						min_disp, max_disp, window_size)
 
@@ -124,8 +129,8 @@ osg.Node* createScene(osg.Image *left, osg.Image *right, unsigned int min_disp, 
 	geomss[2].setTextureAttributeAndModes(0,
 					       stereopass.getOutputTexture().get(),
 					       osg.StateAttribute.ON)
-     else: 
-	stereomp =  new StereoMultipass(texture[0].get(), texture[1].get(),
+     else : 
+	stereomp = StereoMultipass(texture[0].get(), texture[1].get(),
 						width, height,
 						min_disp, max_disp, window_size)
 	topnode.addChild(stereomp.getRoot().get())
@@ -134,7 +139,7 @@ osg.Node* createScene(osg.Image *left, osg.Image *right, unsigned int min_disp, 
 					       stereomp.getOutputTexture().get(),
 					       osg.StateAttribute.ON)
 
-    topnode = return()
+    return topnode
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
@@ -162,57 +167,60 @@ int main(int argc, char *argv[])
     rightName = str("")
     while arguments.read("--right", rightName) : 
 
-    unsigned int minDisparity = 0
+    minDisparity = 0
     while arguments.read("--min", minDisparity) : 
 
-    unsigned int maxDisparity = 31
+    maxDisparity = 31
     while arguments.read("--max", maxDisparity) : 
 
-    unsigned int windowSize = 5
+    windowSize = 5
     while arguments.read("--window", windowSize) : 
 
-    useSinglePass =  false
-    while arguments.read("--single") :  useSinglePass = true 
+    useSinglePass = False
+    while arguments.read("--single") :  useSinglePass = True 
 
     if leftName == "" || rightName=="" : 
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
     # load the images
-    osg.ref_ptr<osg.Image> leftIm = osgDB.readImageFile(leftName)
-    osg.ref_ptr<osg.Image> rightIm = osgDB.readImageFile(rightName)
+    leftIm = osgDB.readImageFile(leftName)
+    rightIm = osgDB.readImageFile(rightName)
 
-    scene =  createScene(leftIm.get(), rightIm.get(), minDisparity, maxDisparity, windowSize, useSinglePass)
+    scene = createScene(leftIm.get(), rightIm.get(), minDisparity, maxDisparity, windowSize, useSinglePass)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     viewer.setSceneData(scene)
 
     return viewer.run()
+
+# Translated from file 'StereoMultipass.cpp'
+
 # -*- Mode: C++ tab-width: 4 indent-tabs-mode: t c-basic-offset: 4 -*- 
 
 # OpenSceneGraph example, osgstereomatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "StereoMultipass.h"
 #include <osgDB/FileUtils>
@@ -225,13 +233,13 @@ SubtractPass.SubtractPass(osg.TextureRectangle *left_tex,
     _TextureWidth(width),
     _TextureHeight(height),
     _StartDisparity(start_disparity)
-    _RootGroup = new osg.Group
+    _RootGroup = osg.Group()
     _InTextureLeft = left_tex
     _InTextureRight = right_tex
 
     createOutputTextures()
 
-    _Camera = new osg.Camera
+    _Camera = osg.Camera()
     setupCamera()
     _Camera.addChild(createTexturedQuad().get())
 
@@ -241,29 +249,29 @@ SubtractPass.SubtractPass(osg.TextureRectangle *left_tex,
 
 SubtractPass.~SubtractPass()
 
-osg.ref_ptr<osg.Group> SubtractPass.createTexturedQuad()
-    osg.ref_ptr<osg.Group> top_group = new osg.Group
+osg.Group SubtractPass.createTexturedQuad()
+    top_group = osg.Group()
 
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, _TextureHeight))
     quad_tcoords.push_back(osg.Vec2(0, _TextureHeight))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> quad_colors = new osg.Vec4Array
-    quad_colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    quad_colors = osg.Vec4Array()
+    quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
@@ -275,19 +283,19 @@ osg.ref_ptr<osg.Group> SubtractPass.createTexturedQuad()
     _StateSet.setTextureAttributeAndModes(0, _InTextureLeft.get(), osg.StateAttribute.ON)
     _StateSet.setTextureAttributeAndModes(1, _InTextureRight.get(), osg.StateAttribute.ON)
 
-    _StateSet.addUniform(new osg.Uniform("textureLeft", 0))
-    _StateSet.addUniform(new osg.Uniform("textureRight", 1))
-    _StateSet.addUniform(new osg.Uniform("start_disparity", _StartDisparity))
+    _StateSet.addUniform(osg.Uniform("textureLeft", 0))
+    _StateSet.addUniform(osg.Uniform("textureRight", 1))
+    _StateSet.addUniform(osg.Uniform("start_disparity", _StartDisparity))
 
     quad_geode.addDrawable(quad_geom.get())
 
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 void SubtractPass.setupCamera()
     # clearing
-    _Camera.setClearColor(osg.Vec4(0.1f,0.1f,0.3f,1.0f))
+    _Camera.setClearColor(osg.Vec4(0.1,0.1,0.3,1.0))
     _Camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # projection and view
@@ -307,7 +315,7 @@ void SubtractPass.setupCamera()
 
 void SubtractPass.createOutputTextures()
     for (int i=0 i<4 i++) 
-		_OutTexture[i] = new osg.TextureRectangle
+		_OutTexture[i] = osg.TextureRectangle()
 
 		_OutTexture[i].setTextureSize(_TextureWidth, _TextureHeight)
 		_OutTexture[i].setInternalFormat(GL_RGBA)
@@ -315,11 +323,11 @@ void SubtractPass.createOutputTextures()
 		_OutTexture[i].setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
 
 void SubtractPass.setShader(str filename)
-    osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT )
+    fshader = osg.Shader( osg.Shader.FRAGMENT )
     fshader.loadShaderSourceFromFile(osgDB.findDataFile(filename))
 
     _FragmentProgram = 0
-    _FragmentProgram = new osg.Program
+    _FragmentProgram = osg.Program()
 
     _FragmentProgram.addShader(fshader.get())
 
@@ -339,7 +347,7 @@ AggregatePass.AggregatePass(osg.TextureRectangle *diff_tex0,
     _TextureHeight(height),
     _StartDisparity(start_disparity),
     _WindowSize(window_size)
-    _RootGroup = new osg.Group
+    _RootGroup = osg.Group()
 
     _InTextureDifference[0] = diff_tex0
     _InTextureDifference[1] = diff_tex1
@@ -351,7 +359,7 @@ AggregatePass.AggregatePass(osg.TextureRectangle *diff_tex0,
 
     _OutTexture = _OutTextureAggregate
 
-    _Camera = new osg.Camera
+    _Camera = osg.Camera()
     setupCamera()
     _Camera.addChild(createTexturedQuad().get())
 
@@ -362,29 +370,29 @@ AggregatePass.AggregatePass(osg.TextureRectangle *diff_tex0,
 
 AggregatePass.~AggregatePass()
 
-osg.ref_ptr<osg.Group> AggregatePass.createTexturedQuad()
-    osg.ref_ptr<osg.Group> top_group = new osg.Group
+osg.Group AggregatePass.createTexturedQuad()
+    top_group = osg.Group()
 
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, _TextureHeight))
     quad_tcoords.push_back(osg.Vec2(0, _TextureHeight))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> quad_colors = new osg.Vec4Array
-    quad_colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    quad_colors = osg.Vec4Array()
+    quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
@@ -399,23 +407,23 @@ osg.ref_ptr<osg.Group> AggregatePass.createTexturedQuad()
     _StateSet.setTextureAttributeAndModes(3, _InTextureDifference[3].get(), osg.StateAttribute.ON)
     _StateSet.setTextureAttributeAndModes(4, _InTextureAggregate.get(), osg.StateAttribute.ON)
 
-    _StateSet.addUniform(new osg.Uniform("textureDiff0", 0))
-    _StateSet.addUniform(new osg.Uniform("textureDiff1", 1))
-    _StateSet.addUniform(new osg.Uniform("textureDiff2", 2))
-    _StateSet.addUniform(new osg.Uniform("textureDiff3", 3))
-    _StateSet.addUniform(new osg.Uniform("textureAggIn", 4))
-    _StateSet.addUniform(new osg.Uniform("start_disparity", _StartDisparity))
-    _StateSet.addUniform(new osg.Uniform("window_size", _WindowSize))
+    _StateSet.addUniform(osg.Uniform("textureDiff0", 0))
+    _StateSet.addUniform(osg.Uniform("textureDiff1", 1))
+    _StateSet.addUniform(osg.Uniform("textureDiff2", 2))
+    _StateSet.addUniform(osg.Uniform("textureDiff3", 3))
+    _StateSet.addUniform(osg.Uniform("textureAggIn", 4))
+    _StateSet.addUniform(osg.Uniform("start_disparity", _StartDisparity))
+    _StateSet.addUniform(osg.Uniform("window_size", _WindowSize))
 
     quad_geode.addDrawable(quad_geom.get())
 
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 void AggregatePass.setupCamera()
     # clearing
-    _Camera.setClearColor(osg.Vec4(0.1f,0.1f,0.3f,1.0f))
+    _Camera.setClearColor(osg.Vec4(0.1,0.1,0.3,1.0))
     _Camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # projection and view
@@ -432,11 +440,11 @@ void AggregatePass.setupCamera()
     _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture.get())
 
 void AggregatePass.setShader(str filename)
-    osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT )
+    fshader = osg.Shader( osg.Shader.FRAGMENT )
     fshader.loadShaderSourceFromFile(osgDB.findDataFile(filename))
 
     _FragmentProgram = 0
-    _FragmentProgram = new osg.Program
+    _FragmentProgram = osg.Program()
 
     _FragmentProgram.addShader(fshader.get())
 
@@ -451,12 +459,12 @@ SelectPass.SelectPass(osg.TextureRectangle *in_tex,
     _TextureHeight(height),
     _MinDisparity(min_disparity),
     _MaxDisparity(max_disparity)
-    _RootGroup = new osg.Group
+    _RootGroup = osg.Group()
     _InTexture = in_tex
 
     createOutputTextures()
 
-    _Camera = new osg.Camera
+    _Camera = osg.Camera()
     setupCamera()
     _Camera.addChild(createTexturedQuad().get())
 
@@ -466,29 +474,29 @@ SelectPass.SelectPass(osg.TextureRectangle *in_tex,
 
 SelectPass.~SelectPass()
 
-osg.ref_ptr<osg.Group> SelectPass.createTexturedQuad()
-    osg.ref_ptr<osg.Group> top_group = new osg.Group
+osg.Group SelectPass.createTexturedQuad()
+    top_group = osg.Group()
 
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, _TextureHeight))
     quad_tcoords.push_back(osg.Vec2(0, _TextureHeight))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> quad_colors = new osg.Vec4Array
-    quad_colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    quad_colors = osg.Vec4Array()
+    quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
@@ -499,19 +507,19 @@ osg.ref_ptr<osg.Group> SelectPass.createTexturedQuad()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     _StateSet.setTextureAttributeAndModes(0, _InTexture.get(), osg.StateAttribute.ON)
 
-    _StateSet.addUniform(new osg.Uniform("textureIn", 0))
-    _StateSet.addUniform(new osg.Uniform("min_disparity", _MinDisparity))
-    _StateSet.addUniform(new osg.Uniform("max_disparity", _MaxDisparity))
+    _StateSet.addUniform(osg.Uniform("textureIn", 0))
+    _StateSet.addUniform(osg.Uniform("min_disparity", _MinDisparity))
+    _StateSet.addUniform(osg.Uniform("max_disparity", _MaxDisparity))
 
     quad_geode.addDrawable(quad_geom.get())
 
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 void SelectPass.setupCamera()
     # clearing
-    _Camera.setClearColor(osg.Vec4(0.1f,0.1f,0.3f,1.0f))
+    _Camera.setClearColor(osg.Vec4(0.1,0.1,0.3,1.0))
     _Camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # projection and view
@@ -528,7 +536,7 @@ void SelectPass.setupCamera()
 	_Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture.get())
 
 void SelectPass.createOutputTextures()
-    _OutTexture = new osg.TextureRectangle
+    _OutTexture = osg.TextureRectangle()
 
     _OutTexture.setTextureSize(_TextureWidth, _TextureHeight)
     _OutTexture.setInternalFormat(GL_RGBA)
@@ -536,11 +544,11 @@ void SelectPass.createOutputTextures()
     _OutTexture.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
 
 void SelectPass.setShader(str filename)
-    osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT )
+    fshader = osg.Shader( osg.Shader.FRAGMENT )
     fshader.loadShaderSourceFromFile(osgDB.findDataFile(filename))
 
     _FragmentProgram = 0
-    _FragmentProgram = new osg.Program
+    _FragmentProgram = osg.Program()
 
     _FragmentProgram.addShader(fshader.get())
 
@@ -554,11 +562,11 @@ StereoMultipass.StereoMultipass(osg.TextureRectangle *left_tex,
 								 int min_disparity, int max_disparity, int window_size) :
     _TextureWidth(width),
     _TextureHeight(height)
-    _RootGroup = new osg.Group
+    _RootGroup = osg.Group()
 
     createOutputTextures()
 
-    _Camera = new osg.Camera
+    _Camera = osg.Camera()
     setupCamera()
     _Camera.addChild(createTexturedQuad().get())
 
@@ -572,10 +580,10 @@ StereoMultipass.StereoMultipass(osg.TextureRectangle *left_tex,
 	# but we must ping-pong the aggregate textures between passes
 	# add passes until we cover the disparity range
 	for (int i=min_disparity i<=max_disparity i+=16) 
-		subp =  new SubtractPass(left_tex, right_tex,
+		subp = SubtractPass(left_tex, right_tex,
 											  width, height,
 											  i)
-		aggp =  new AggregatePass(subp.getOutputTexture(0).get(),
+		aggp = AggregatePass(subp.getOutputTexture(0).get(),
 												subp.getOutputTexture(1).get(),
 												subp.getOutputTexture(2).get(),
 												subp.getOutputTexture(3).get(),
@@ -589,36 +597,36 @@ StereoMultipass.StereoMultipass(osg.TextureRectangle *left_tex,
 		flip = flip ? 0 : 1
 		flop = flop ? 0 : 1
     # add select pass
-    _SelectPass = new SelectPass(_OutTexture[flip].get(),
+    _SelectPass = SelectPass(_OutTexture[flip].get(),
 								 width, height,
 								 min_disparity, max_disparity)
     _RootGroup.addChild(_SelectPass.getRoot().get())
 
 StereoMultipass.~StereoMultipass()
 
-osg.ref_ptr<osg.Group> StereoMultipass.createTexturedQuad()
-    osg.ref_ptr<osg.Group> top_group = new osg.Group
+osg.Group StereoMultipass.createTexturedQuad()
+    top_group = osg.Group()
 
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, _TextureHeight))
     quad_tcoords.push_back(osg.Vec2(0, _TextureHeight))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    osg.ref_ptr<osg.Vec4Array> quad_colors = new osg.Vec4Array
-    quad_colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    quad_colors = osg.Vec4Array()
+    quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
@@ -632,11 +640,11 @@ osg.ref_ptr<osg.Group> StereoMultipass.createTexturedQuad()
 
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 void StereoMultipass.setupCamera()
     # clearing
-    _Camera.setClearColor(osg.Vec4(10.0f,0.0f,0.0f,1.0f))
+    _Camera.setClearColor(osg.Vec4(10.0,0.0,0.0,1.0))
     _Camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # projection and view
@@ -656,7 +664,7 @@ void StereoMultipass.setupCamera()
 
 void StereoMultipass.createOutputTextures()
     for (int i=0 i<2 i++) 
-		_OutTexture[i] = new osg.TextureRectangle
+		_OutTexture[i] = osg.TextureRectangle()
 
 		_OutTexture[i].setTextureSize(_TextureWidth, _TextureHeight)
 		_OutTexture[i].setInternalFormat(GL_RGBA)
@@ -671,35 +679,38 @@ void StereoMultipass.createOutputTextures()
 		_OutTexture[i].setSourceType(GL_FLOAT)
 
 void StereoMultipass.setShader(str filename)
-    osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT )
+    fshader = osg.Shader( osg.Shader.FRAGMENT )
     fshader.loadShaderSourceFromFile(osgDB.findDataFile(filename))
 
     _FragmentProgram = 0
-    _FragmentProgram = new osg.Program
+    _FragmentProgram = osg.Program()
 
     _FragmentProgram.addShader(fshader.get())
 
     _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
+
+# Translated from file 'StereoMultipass.h'
+
 # -*- Mode: C++ tab-width: 4 indent-tabs-mode: t c-basic-offset: 4 -*- 
 
 # OpenSceneGraph example, osgstereomatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef STEREOMULTIPASS_H
 #define STEREOMULTIPASS_H 1
@@ -714,36 +725,34 @@ void StereoMultipass.setShader(str filename)
 #include <osg/Texture2D>
 #include <osg/TextureRectangle>
 
-class SubtractPass 
-public:
+class SubtractPass :
     SubtractPass(osg.TextureRectangle *left_tex, 
 				 osg.TextureRectangle *right_tex,
 				 int width, int height,
 				 int start_disparity)
     ~SubtractPass()
-    osg.ref_ptr<osg.Group> getRoot()  return _RootGroup 
-    osg.ref_ptr<osg.TextureRectangle> getOutputTexture(int i)  return _OutTexture[i] 
+    def getRoot():
+         return _RootGroup 
+    def getOutputTexture(i):
+         return _OutTexture[i] 
     setShader = void(str filename)
-
-private:
-    osg.ref_ptr<osg.Group> createTexturedQuad()
+    createTexturedQuad = osg.Group()
     createOutputTextures = void()
     setupCamera = void()
 
-    osg.ref_ptr<osg.Group> _RootGroup
-    osg.ref_ptr<osg.Camera> _Camera
-    osg.ref_ptr<osg.TextureRectangle> _InTextureLeft
-    osg.ref_ptr<osg.TextureRectangle> _InTextureRight
-    osg.ref_ptr<osg.TextureRectangle> _OutTexture[4]
+    _RootGroup = osg.Group()
+    _Camera = osg.Camera()
+    _InTextureLeft = osg.TextureRectangle()
+    _InTextureRight = osg.TextureRectangle()
+    osg.TextureRectangle _OutTexture[4]
     _TextureWidth = int()
     _TextureHeight = int()
     _StartDisparity = int()
-    osg.ref_ptr<osg.Program> _FragmentProgram
-    osg.ref_ptr<osg.StateSet> _StateSet
+    _FragmentProgram = osg.Program()
+    _StateSet = osg.StateSet()
 
 
-class AggregatePass 
-public:
+class AggregatePass :
     AggregatePass(osg.TextureRectangle *diff_tex0,
 				  osg.TextureRectangle *diff_tex1,
 				  osg.TextureRectangle *diff_tex2,
@@ -753,80 +762,78 @@ public:
 				  int width, int height,
 				  int start_disparity, int window_size)
     ~AggregatePass()
-    osg.ref_ptr<osg.Group> getRoot()  return _RootGroup 
-    osg.ref_ptr<osg.TextureRectangle> getOutputTexture()  return _OutTexture 
+    def getRoot():
+         return _RootGroup 
+    def getOutputTexture():
+         return _OutTexture 
     setShader = void(str filename)
-
-private:
-    osg.ref_ptr<osg.Group> createTexturedQuad()
+    createTexturedQuad = osg.Group()
     setupCamera = void()
     
-    osg.ref_ptr<osg.Group> _RootGroup
-    osg.ref_ptr<osg.Camera> _Camera
-    osg.ref_ptr<osg.TextureRectangle> _InTextureDifference[4]
-    osg.ref_ptr<osg.TextureRectangle> _InTextureAggregate
-    osg.ref_ptr<osg.TextureRectangle> _OutTextureAggregate
-    osg.ref_ptr<osg.TextureRectangle> _OutTexture
+    _RootGroup = osg.Group()
+    _Camera = osg.Camera()
+    osg.TextureRectangle _InTextureDifference[4]
+    _InTextureAggregate = osg.TextureRectangle()
+    _OutTextureAggregate = osg.TextureRectangle()
+    _OutTexture = osg.TextureRectangle()
     _TextureWidth = int()
     _TextureHeight = int()
     _StartDisparity = int()
     _WindowSize = int()
-    osg.ref_ptr<osg.Program> _FragmentProgram
-    osg.ref_ptr<osg.StateSet> _StateSet
+    _FragmentProgram = osg.Program()
+    _StateSet = osg.StateSet()
 
 
-class SelectPass 
-public:
+class SelectPass :
     SelectPass(osg.TextureRectangle *in_tex, 
 			   int width, int height,
 			   int min_disparity, int max_disparity)
     ~SelectPass()
-    osg.ref_ptr<osg.Group> getRoot()  return _RootGroup 
-    osg.ref_ptr<osg.TextureRectangle> getOutputTexture()  return _OutTexture 
+    def getRoot():
+         return _RootGroup 
+    def getOutputTexture():
+         return _OutTexture 
     setShader = void(str filename)
-	
-private:
-    osg.ref_ptr<osg.Group> createTexturedQuad()
+    createTexturedQuad = osg.Group()
     createOutputTextures = void()
     setupCamera = void()
 
-    osg.ref_ptr<osg.Group> _RootGroup
-    osg.ref_ptr<osg.Camera> _Camera
-    osg.ref_ptr<osg.TextureRectangle> _InTexture
-	osg.ref_ptr<osg.TextureRectangle> _OutTexture
-	osg.ref_ptr<osg.Image> _OutImage
+    _RootGroup = osg.Group()
+    _Camera = osg.Camera()
+    _InTexture = osg.TextureRectangle()
+	_OutTexture = osg.TextureRectangle()
+	_OutImage = osg.Image()
 	_TextureWidth = int()
     _TextureHeight = int()
     _MinDisparity = int()
     _MaxDisparity = int()
-	osg.ref_ptr<osg.Program> _FragmentProgram
-    osg.ref_ptr<osg.StateSet> _StateSet
+	_FragmentProgram = osg.Program()
+    _StateSet = osg.StateSet()
 
 
-class StereoMultipass 
-public:
+class StereoMultipass :
     StereoMultipass(osg.TextureRectangle *left_tex, 
 					osg.TextureRectangle *right_tex,
 					int width, int height, 
 					int min_disparity, int max_disparity, int window_size)
     ~StereoMultipass()
-    osg.ref_ptr<osg.Group> getRoot()  return _RootGroup 
-    osg.ref_ptr<osg.TextureRectangle> getOutputTexture()  return _SelectPass.getOutputTexture().get() 
+    def getRoot():
+         return _RootGroup 
+    def getOutputTexture():
+         return _SelectPass.getOutputTexture().get() 
     setShader = void(str filename)
-
-private:
-    osg.ref_ptr<osg.Group> createTexturedQuad()
+    createTexturedQuad = osg.Group()
     createOutputTextures = void()
     setupCamera = void()
     
-    osg.ref_ptr<osg.Group> _RootGroup
-    osg.ref_ptr<osg.Camera> _Camera
-    osg.ref_ptr<osg.TextureRectangle> _InTexture
-    osg.ref_ptr<osg.TextureRectangle> _OutTexture[2]
+    _RootGroup = osg.Group()
+    _Camera = osg.Camera()
+    _InTexture = osg.TextureRectangle()
+    osg.TextureRectangle _OutTexture[2]
 	_TextureWidth = int()
     _TextureHeight = int()
-	osg.ref_ptr<osg.Program> _FragmentProgram
-    osg.ref_ptr<osg.StateSet> _StateSet
+	_FragmentProgram = osg.Program()
+    _StateSet = osg.StateSet()
 
     *_SelectPass = SelectPass()
 
@@ -835,25 +842,28 @@ private:
 
 
 #endif #STEREOMULTIPASS_H
+
+# Translated from file 'StereoPass.cpp'
+
 # -*- Mode: C++ tab-width: 4 indent-tabs-mode: t c-basic-offset: 4 -*- 
 
 # OpenSceneGraph example, osgstereomatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "StereoPass.h"
 #include <osgDB/FileUtils>
@@ -868,14 +878,14 @@ StereoPass.StereoPass(osg.TextureRectangle *left_tex,
     _MinDisparity(min_disparity),
     _MaxDisparity(max_disparity),
     _WindowSize(window_size)
-    _RootGroup = new osg.Group
+    _RootGroup = osg.Group()
     
 	_InTextureLeft = left_tex
     _InTextureRight = right_tex
    
     createOutputTextures()
 
-    _Camera = new osg.Camera
+    _Camera = osg.Camera()
     setupCamera()
     _Camera.addChild(createTexturedQuad().get())
 
@@ -885,26 +895,26 @@ StereoPass.StereoPass(osg.TextureRectangle *left_tex,
 
 StereoPass.~StereoPass()
 
-osg.ref_ptr<osg.Group> StereoPass.createTexturedQuad()
-    osg.ref_ptr<osg.Group> top_group = new osg.Group
+osg.Group StereoPass.createTexturedQuad()
+    top_group = osg.Group()
     
-    osg.ref_ptr<osg.Geode> quad_geode = new osg.Geode
+    quad_geode = osg.Geode()
 
-    osg.ref_ptr<osg.Vec3Array> quad_coords = new osg.Vec3Array # vertex coords
+    quad_coords = osg.Vec3Array() # vertex coords
     # counter-clockwise
     quad_coords.push_back(osg.Vec3d(0, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 0, -1))
     quad_coords.push_back(osg.Vec3d(1, 1, -1))
     quad_coords.push_back(osg.Vec3d(0, 1, -1))
 
-    osg.ref_ptr<osg.Vec2Array> quad_tcoords = new osg.Vec2Array # texture coords
+    quad_tcoords = osg.Vec2Array() # texture coords
     quad_tcoords.push_back(osg.Vec2(0, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, 0))
     quad_tcoords.push_back(osg.Vec2(_TextureWidth, _TextureHeight))
     quad_tcoords.push_back(osg.Vec2(0, _TextureHeight))
 
-    osg.ref_ptr<osg.Geometry> quad_geom = new osg.Geometry
-    osg.ref_ptr<osg.DrawArrays> quad_da = new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
+    quad_geom = osg.Geometry()
+    quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
     quad_geom.setVertexArray(quad_coords.get())
     quad_geom.setTexCoordArray(0, quad_tcoords.get())
@@ -915,21 +925,21 @@ osg.ref_ptr<osg.Group> StereoPass.createTexturedQuad()
     _StateSet.setTextureAttributeAndModes(0, _InTextureLeft.get(), osg.StateAttribute.ON)
     _StateSet.setTextureAttributeAndModes(1, _InTextureRight.get(), osg.StateAttribute.ON)
 
-    _StateSet.addUniform(new osg.Uniform("textureID0", 0))
-    _StateSet.addUniform(new osg.Uniform("textureID1", 1))
-    _StateSet.addUniform(new osg.Uniform("min_disparity", _MinDisparity))
-    _StateSet.addUniform(new osg.Uniform("max_disparity", _MaxDisparity))
-    _StateSet.addUniform(new osg.Uniform("window_size", _WindowSize))
+    _StateSet.addUniform(osg.Uniform("textureID0", 0))
+    _StateSet.addUniform(osg.Uniform("textureID1", 1))
+    _StateSet.addUniform(osg.Uniform("min_disparity", _MinDisparity))
+    _StateSet.addUniform(osg.Uniform("max_disparity", _MaxDisparity))
+    _StateSet.addUniform(osg.Uniform("window_size", _WindowSize))
 
     quad_geode.addDrawable(quad_geom.get())
     
     top_group.addChild(quad_geode.get())
 
-    top_group = return()
+    return top_group
 
 void StereoPass.setupCamera()
     # clearing
-    _Camera.setClearColor(osg.Vec4(1.0f,0.0f,0.0f,1.0f))
+    _Camera.setClearColor(osg.Vec4(1.0,0.0,0.0,1.0))
     _Camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
     # projection and view
@@ -947,7 +957,7 @@ void StereoPass.setupCamera()
 	_Camera.attach(osg.Camera.COLOR_BUFFER, _OutTexture.get())
 
 void StereoPass.createOutputTextures()
-    _OutTexture = new osg.TextureRectangle
+    _OutTexture = osg.TextureRectangle()
     
     _OutTexture.setTextureSize(_TextureWidth, _TextureHeight)
     _OutTexture.setInternalFormat(GL_RGBA)
@@ -955,34 +965,37 @@ void StereoPass.createOutputTextures()
     _OutTexture.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
 
 void StereoPass.setShader(str filename)
-    osg.ref_ptr<osg.Shader> fshader = new osg.Shader( osg.Shader.FRAGMENT ) 
+    fshader = osg.Shader( osg.Shader.FRAGMENT ) 
     fshader.loadShaderSourceFromFile(osgDB.findDataFile(filename))
 
     _FragmentProgram = 0
-    _FragmentProgram = new osg.Program
+    _FragmentProgram = osg.Program()
 
     _FragmentProgram.addShader(fshader.get())
 
     _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+
+# Translated from file 'StereoPass.h'
+
 # -*- Mode: C++ tab-width: 4 indent-tabs-mode: t c-basic-offset: 4 -*- 
 
 # OpenSceneGraph example, osgstereomatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
-
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef STEREOPASS_H
 #define STEREOPASS_H 1
@@ -997,27 +1010,26 @@ void StereoPass.setShader(str filename)
 #include <osg/Texture2D>
 #include <osg/TextureRectangle>
 
-class StereoPass 
-public:
+class StereoPass :
     StereoPass(osg.TextureRectangle *left_tex, 
 			   osg.TextureRectangle *right_tex,
 			   int width, int height,
 			   int min_disparity, int max_disparity, int window_size)
     ~StereoPass()
-    osg.ref_ptr<osg.Group> getRoot()  return _RootGroup 
-    osg.ref_ptr<osg.TextureRectangle> getOutputTexture()  return _OutTexture 
+    def getRoot():
+         return _RootGroup 
+    def getOutputTexture():
+         return _OutTexture 
     setShader = void(str filename)
-	
-private:
-    osg.ref_ptr<osg.Group> createTexturedQuad()
+    createTexturedQuad = osg.Group()
     createOutputTextures = void()
     setupCamera = void()
 
-    osg.ref_ptr<osg.Group> _RootGroup
-    osg.ref_ptr<osg.Camera> _Camera
-    osg.ref_ptr<osg.TextureRectangle> _InTextureLeft
-    osg.ref_ptr<osg.TextureRectangle> _InTextureRight
-	osg.ref_ptr<osg.TextureRectangle> _OutTexture
+    _RootGroup = osg.Group()
+    _Camera = osg.Camera()
+    _InTextureLeft = osg.TextureRectangle()
+    _InTextureRight = osg.TextureRectangle()
+	_OutTexture = osg.TextureRectangle()
 	
 	_TextureWidth = int()
     _TextureHeight = int()
@@ -1025,8 +1037,8 @@ private:
     _MaxDisparity = int()
     _WindowSize = int()
 	
-    osg.ref_ptr<osg.Program> _FragmentProgram
-    osg.ref_ptr<osg.StateSet> _StateSet
+    _FragmentProgram = osg.Program()
+    _StateSet = osg.StateSet()
 
 
 #endif #STEREOPASS_H

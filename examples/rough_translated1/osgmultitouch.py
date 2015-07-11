@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osghud.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgmultitouch.cpp'
+
+# OpenSceneGraph example, osghud.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgUtil/Optimizer>
 #include <osgDB/ReadFile>
@@ -59,9 +62,12 @@ from osgpypp import osgViewer
 #endif
 
 
-osg.Camera* createHUD(unsigned int w, unsigned int h)
+def createHUD(w, h):
+
+
+    
     # create a camera to set up the projection and model view matrices, and the subgraph to draw in the HUD
-    camera =  new osg.Camera
+    camera = osg.Camera()
 
     # set the projection matrix
     camera.setProjectionMatrix(osg.Matrix.ortho2D(0,w,0,h))
@@ -77,23 +83,23 @@ osg.Camera* createHUD(unsigned int w, unsigned int h)
     camera.setRenderOrder(osg.Camera.POST_RENDER)
 
     # we don't want the camera to grab event focus from the viewers main camera(s).
-    camera.setAllowEventFocus(false)
+    camera.setAllowEventFocus(False)
     
 
 
     # add to this camera a subgraph to render
 
-        geode =  new osg.Geode()
+        geode = osg.Geode()
 
         timesFont = str("fonts/arial.ttf")
 
         # turn lighting off for the text and disable depth test to ensure it's always ontop.
-        stateset =  geode.getOrCreateStateSet()
+        stateset = geode.getOrCreateStateSet()
         stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-        position = osg.Vec3(50.0f,h-50,0.0f)
+        position = osg.Vec3(50.0,h-50,0.0)
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -102,31 +108,29 @@ osg.Camera* createHUD(unsigned int w, unsigned int h)
 
         camera.addChild(geode)
 
-    camera = return()
+    return camera
 
 
-class TestMultiTouchEventHandler : public osgGA.GUIEventHandler 
-public:
+class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
     TestMultiTouchEventHandler(osg.Group* parent_group)
     :   osgGA.GUIEventHandler(),
-        _cleanupOnNextFrame(false)
+        _cleanupOnNextFrame(False)
         createTouchRepresentations(parent_group, 10)
-    
-private:
-    void createTouchRepresentations(osg.Group* parent_group, unsigned int num_objects) 
+    def createTouchRepresentations(parent_group, num_objects):
+        
         # create some geometry which is shown for every touch-point
         for(unsigned int i = 0 i != num_objects ++i) 
             ss = std.ostringstream()
             
-            geode =  new osg.Geode()
+            geode = osg.Geode()
             
-            drawable =  new osg.ShapeDrawable(new osg.Box(osg.Vec3(0,0,0), 100))
+            drawable = osg.ShapeDrawable(osg.Box(osg.Vec3(0,0,0), 100))
             drawable.setColor(osg.Vec4(0.5, 0.5, 0.5,1))
             geode.addDrawable(drawable)
             
             ss, "Touch ", i
             
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
             drawable.setDataVariance(osg.Object.DYNAMIC)
             _drawables.push_back(drawable)
@@ -140,7 +144,7 @@ private:
             
             
             
-            mat =  new osg.MatrixTransform()
+            mat = osg.MatrixTransform()
             mat.addChild(geode)
             mat.setNodeMask(0x0)
             
@@ -155,7 +159,7 @@ private:
             case osgGA.GUIEventAdapter.FRAME:
                 if _cleanupOnNextFrame : 
                     cleanup(0)
-                    _cleanupOnNextFrame = false
+                    _cleanupOnNextFrame = False
                 break
             
             case osgGA.GUIEventAdapter.PUSH:
@@ -163,15 +167,15 @@ private:
             case osgGA.GUIEventAdapter.RELEASE:
                     # is this a multi-touch event?
                     if !ea.isMultiTouchEvent() :
-                        false = return()
+                        return False
                     
-                    unsigned int j(0)
+                    j = unsigned int(0)
                     
                     # iterate over all touch-points and update the geometry
                     num_touch_ended = unsigned(0)
                     
                     for(osgGA.GUIEventAdapter.TouchData.iterator i = ea.getTouchData().begin() i != ea.getTouchData().end() ++i, ++j)
-                        tp =  (*i)
+                        tp = (*i)
                         _mats[j].setMatrix(osg.Matrix.translate(tp.x, ea.getWindowHeight() - tp.y, 0))
                         _mats[j].setNodeMask(0xffff)
                         
@@ -206,7 +210,7 @@ private:
                     
                     #check if all touches ended
                     if ea.getTouchData().getNumTouchPoints() > 0 :  (ea.getTouchData().getNumTouchPoints() == num_touch_ended) :
-                        _cleanupOnNextFrame = true
+                        _cleanupOnNextFrame = True
                     
                     # reposition mouse-pointer
                     aa.requestWarpPointer((ea.getWindowX() + ea.getWindowWidth()) / 2.0, (ea.getWindowY() + ea.getWindowHeight()) / 2.0)
@@ -215,34 +219,39 @@ private:
             default:
                 break
         
-        false = return()
+        return False
     
-    void cleanup(unsigned int j) 
+    def cleanup(j):
+    
+        
         for(unsigned k = j k < _mats.size() ++k) 
             _mats[k].setNodeMask(0x0)
 
-    std.vector<osg.ShapeDrawable*> _drawables
-    std.vector<osg.MatrixTransform*> _mats
-    std.vector<osgText.Text*> _texts
+    _drawables = std.vector<osg.ShapeDrawable*>()
+    _mats = std.vector<osg.MatrixTransform*>()
+    _texts = std.vector<osgText.Text*>()
     _cleanupOnNextFrame = bool()
 
 
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> scene = osgDB.readNodeFiles(arguments)
+    scene = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default model instead.
     if !scene : scene = osgDB.readNodeFile("dumptruck.osgt")
     
     if !scene : 
-            geode =  new osg.Geode()
-            drawable =  new osg.ShapeDrawable(new osg.Box(osg.Vec3(0,0,0), 100))
+            geode = osg.Geode()
+            drawable = osg.ShapeDrawable(osg.Box(osg.Vec3(0,0,0), 100))
             drawable.setColor(osg.Vec4(0.5, 0.5, 0.5,1))
             geode.addDrawable(drawable)
             scene = geode
@@ -252,27 +261,27 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
     
     
-    osg.ref_ptr<osg.Group> group  = new osg.Group
+    group = osg.Group()
 
     # add the HUD subgraph.    
     if scene.valid() : group.addChild(scene.get())
     
-    viewer.setCameraManipulator(new osgGA.MultiTouchTrackballManipulator())
+    viewer.setCameraManipulator(osgGA.MultiTouchTrackballManipulator())
     viewer.realize()
     
-    gc =  viewer.getCamera().getGraphicsContext()
+    gc = viewer.getCamera().getGraphicsContext()
     
     #ifdef __APPLE__
         # as multitouch is disabled by default, enable it now
-        win =  dynamic_cast<osgViewer.GraphicsWindowCocoa*>(gc)
-        if win : win.setMultiTouchEnabled(true)
+        win = dynamic_cast<osgViewer.GraphicsWindowCocoa*>(gc)
+        if win : win.setMultiTouchEnabled(True)
     #endif
     
     print "creating hud with ", gc.getTraits().width, "x", gc.getTraits().height
-    hud_camera =  createHUD(gc.getTraits().width, gc.getTraits().height)
+    hud_camera = createHUD(gc.getTraits().width, gc.getTraits().height)
     
     
-    viewer.addEventHandler(new TestMultiTouchEventHandler(hud_camera))
+    viewer.addEventHandler(TestMultiTouchEventHandler(hud_camera))
     
     
     group.addChild(hud_camera)

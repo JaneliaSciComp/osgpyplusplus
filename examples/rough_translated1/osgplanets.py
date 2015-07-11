@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgplanets.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgplanets.cpp'
+
+# OpenSceneGraph example, osgplanets.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # details about distances and rotation on http:#www.solarviews.com/eng/solarsys.htm 
 
@@ -68,16 +71,17 @@ from osgpypp import osgViewer
 #include <osgViewer/Viewer>
 
 
-static osg.Vec3 defaultPos( 0.0f, 0.0f, 0.0f )
-static osg.Vec3 centerScope(0.0f, 0.0f, 0.0f)
+static osg.Vec3 defaultPos( 0.0, 0.0, 0.0 )
+static osg.Vec3 centerScope(0.0, 0.0, 0.0)
 
 
 #* create quad at specified position. 
 def createSquare(corner, width, height, image):
+    
     # set up the Geometry.
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
-    coords =  new osg.Vec3Array(4)
+    coords = osg.Vec3Array(4)
     (*coords)[0] = corner
     (*coords)[1] = corner+width
     (*coords)[2] = corner+width+height
@@ -86,29 +90,29 @@ def createSquare(corner, width, height, image):
 
     geom.setVertexArray(coords)
 
-    norms =  new osg.Vec3Array(1)
+    norms = osg.Vec3Array(1)
     (*norms)[0] = width^height
     (*norms)[0].normalize()
 
     geom.setNormalArray(norms, osg.Array.BIND_OVERALL)
 
-    tcoords =  new osg.Vec2Array(4)
-    (*tcoords)[0].set(0.0f,0.0f)
-    (*tcoords)[1].set(1.0f,0.0f)
-    (*tcoords)[2].set(1.0f,1.0f)
-    (*tcoords)[3].set(0.0f,1.0f)
+    tcoords = osg.Vec2Array(4)
+    (*tcoords)[0].set(0.0,0.0)
+    (*tcoords)[1].set(1.0,0.0)
+    (*tcoords)[2].set(1.0,1.0)
+    (*tcoords)[3].set(0.0,1.0)
     geom.setTexCoordArray(0,tcoords)
 
-    colours =  new osg.Vec4Array(1)
-    (*colours)[0].set(1.0f,1.0f,1.0f,1.0f)
+    colours = osg.Vec4Array(1)
+    (*colours)[0].set(1.0,1.0,1.0,1.0)
     geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
 
-    geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+    geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
     if image :
-        stateset =  new osg.StateSet
-        texture =  new osg.Texture2D
+        stateset = osg.StateSet()
+        texture = osg.Texture2D()
         texture.setImage(image)
         stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
         stateset.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
@@ -116,64 +120,66 @@ def createSquare(corner, width, height, image):
         stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
         geom.setStateSet(stateset)
 
-    geom = return()
+    return geom
 
-osg.Image* createBillboardImage( osg.Vec4 centerColour, unsigned int size, float power)
-    backgroundColour =  centerColour
-    backgroundColour[3] = 0.0f
+def createBillboardImage(centerColour, size, power):
 
-    image =  new osg.Image
+    
+    backgroundColour = centerColour
+    backgroundColour[3] = 0.0
+
+    image = osg.Image()
     image.allocateImage(size,size,1,
                          GL_RGBA,GL_UNSIGNED_BYTE)
 
 
-    mid =  (float(size)-1)*0.5f
-    div =  2.0f/float(size)
+    mid = (float(size)-1)*0.5
+    div = 2.0/float(size)
     for(unsigned int r=0r<size++r)
-        unsigned char* ptr = image.data(0,r,0)
+        ptr = image.data(0,r,0)
         for(unsigned int c=0c<size++c)
-            dx =  (float(c) - mid)*div
-            dy =  (float(r) - mid)*div
-            r =  powf(1.0f-sqrtf(dx*dx+dy*dy),power)
-            if r<0.0f : r=0.0f
-            color =  centerColour*r+backgroundColour*(1.0f-r)
-            # color.set(1.0f,1.0f,1.0f,0.5f)
-            *ptr++ = (unsigned char)((color[0])*255.0f)
-            *ptr++ = (unsigned char)((color[1])*255.0f)
-            *ptr++ = (unsigned char)((color[2])*255.0f)
-            *ptr++ = (unsigned char)((color[3])*255.0f)
-    image = return()
+            dx = (float(c) - mid)*div
+            dy = (float(r) - mid)*div
+            r = powf(1.0-sqrtf(dx*dx+dy*dy),power)
+            if r<0.0 : r=0.0
+            color = centerColour*r+backgroundColour*(1.0-r)
+            # color.set(1.0,1.0,1.0,0.5)
+            *ptr++ = (unsigned char)((color[0])*255.0)
+            *ptr++ = (unsigned char)((color[1])*255.0)
+            *ptr++ = (unsigned char)((color[2])*255.0)
+            *ptr++ = (unsigned char)((color[3])*255.0)
+    return image
 
     #return osgDB.readImageFile("spot.dds")
 
 def createAnimationPath(center, radius, looptime):
+
+    
     # set up the animation path
-    animationPath =  new osg.AnimationPath
+    animationPath = osg.AnimationPath()
     animationPath.setLoopMode(osg.AnimationPath.LOOP)
 
-    numSamples =  1000
-    yaw =  0.0f
-    yaw_delta =  -2.0f*osg.PI/((float)numSamples-1.0f)
-    roll =  osg.inDegrees(30.0f)
+    numSamples = 1000
+    yaw = 0.0
+    yaw_delta = -2.0*osg.PI/((float)numSamples-1.0)
+    roll = osg.inDegrees(30.0)
 
-    time = 0.0f
-    time_delta =  looptime/(double)numSamples
+    time = 0.0
+    time_delta = looptime/(double)numSamples
     for(int i=0i<numSamples++i)
-        position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0f))
-        rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0f)),osg.Vec3(0.0,0.0,1.0)))
+        position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0))
+        rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0)))
 
         animationPath.insert(time,osg.AnimationPath.ControlPoint(position,rotation))
 
         yaw += yaw_delta
         time += time_delta
 
-    animationPath = return()
+    return animationPath
 # end createAnimationPath
 
 
-class SolarSystem
-
-public:
+class SolarSystem :
     _radiusSpace = double()
     _radiusSun = double()
     _radiusMercury = double()
@@ -267,6 +273,8 @@ public:
     createSunLight = osg.Group*()
 
     def rotateSpeedCorrection():
+
+        
         _rotateSpeedSun             *= _rotateSpeedFactor
         _rotateSpeedMercury         *= _rotateSpeedFactor
         _rotateSpeedVenus           *= _rotateSpeedFactor
@@ -279,6 +287,8 @@ public:
         print "rotateSpeed corrected by factor ", _rotateSpeedFactor
 
     def RorbitCorrection():
+
+        
         _RorbitMercury  *= _RorbitFactor
         _RorbitVenus    *= _RorbitFactor
         _RorbitEarth    *= _RorbitFactor
@@ -289,6 +299,8 @@ public:
         print "Rorbits corrected by factor ", _RorbitFactor
 
     def radiusCorrection():
+
+        
         _radiusSpace    *= _radiusFactor
         #_radiusSun      *= _radiusFactor
         _radiusMercury  *= _radiusFactor
@@ -303,18 +315,19 @@ public:
 
   # end SolarSystem
 
-class FindNamedNodeVisitor : public osg.NodeVisitor
-public:
+class FindNamedNodeVisitor (osg.NodeVisitor) :
     FindNamedNodeVisitor( str name):
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _name(name) 
 
-    virtual void apply(osg.Node node)
+    def apply(node):
+
+        
         if node.getName()==_name :
             _foundNodes.push_back(node)
         traverse(node)
 
-    typedef std.vector< osg.ref_ptr<osg.Node> > NodeList
+    typedef std.vector< osg.Node > NodeList
 
     _name = str()
     _foundNodes = NodeList()
@@ -323,40 +336,40 @@ public:
 
 osg.MatrixTransform* SolarSystem.createRotation( double orbit, double speed )
     center = osg.Vec3( 0.0, 0.0, 0.0 )
-    animationLength =  10.0f
-    animationPath =  createAnimationPath( center, orbit, animationLength )
+    animationLength = 10.0
+    animationPath = createAnimationPath( center, orbit, animationLength )
 
-    rotation =  new osg.MatrixTransform
-    rotation.setUpdateCallback( new osg.AnimationPathCallback( animationPath, 0.0f, speed ) )
+    rotation = osg.MatrixTransform()
+    rotation.setUpdateCallback( osg.AnimationPathCallback( animationPath, 0.0, speed ) )
 
-    rotation = return()
+    return rotation
 # end SolarSystem.createEarthRotation
 
 
 osg.MatrixTransform* SolarSystem.createTranslationAndTilt( double #translation, double tilt )
-    moonPositioned =  new osg.MatrixTransform
+    moonPositioned = osg.MatrixTransform()
     moonPositioned.setMatrix(osg.Matrix.translate(osg.Vec3( 0.0, _RorbitMoon, 0.0 ) )*
                                  osg.Matrix.scale(1.0, 1.0, 1.0)*
-                                 osg.Matrix.rotate(osg.inDegrees( tilt ),0.0f,0.0f,1.0f))
+                                 osg.Matrix.rotate(osg.inDegrees( tilt ),0.0,0.0,1.0))
 
-    moonPositioned = return()
+    return moonPositioned
 # end SolarSystem.createTranslationAndTilt
 
 
 osg.Geode* SolarSystem.createSpace(  str name,  str textureName )
-    spaceSphere =  new osg.Sphere( osg.Vec3( 0.0, 0.0, 0.0 ), _radiusSpace )
+    spaceSphere = osg.Sphere( osg.Vec3( 0.0, 0.0, 0.0 ), _radiusSpace )
 
-    sSpaceSphere =  new osg.ShapeDrawable( spaceSphere )
+    sSpaceSphere = osg.ShapeDrawable( spaceSphere )
 
     if  !textureName.empty()  :
-        image =  osgDB.readImageFile( textureName )
+        image = osgDB.readImageFile( textureName )
         if  image  :
-            sSpaceSphere.getOrCreateStateSet().setTextureAttributeAndModes( 0, new osg.Texture2D( image ), osg.StateAttribute.ON )
+            sSpaceSphere.getOrCreateStateSet().setTextureAttributeAndModes( 0, osg.Texture2D( image ), osg.StateAttribute.ON )
 
             # reset the object color to white to allow the texture to set the colour.
-            sSpaceSphere.setColor( osg.Vec4(1.0f,1.0f,1.0f,1.0f) )
+            sSpaceSphere.setColor( osg.Vec4(1.0,1.0,1.0,1.0) )
 
-    geodeSpace =  new osg.Geode()
+    geodeSpace = osg.Geode()
     geodeSpace.setName( name )
 
     geodeSpace.addDrawable( sSpaceSphere )
@@ -368,43 +381,43 @@ osg.Geode* SolarSystem.createSpace(  str name,  str textureName )
 
 osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,  str textureName)
     # create a container that makes the sphere drawable
-    sPlanetSphere =  new osg.Geometry()
+    sPlanetSphere = osg.Geometry()
 
         # set the single colour so bind overall
-        colours =  new osg.Vec4Array(1)
+        colours = osg.Vec4Array(1)
         (*colours)[0] = color
         sPlanetSphere.setColorArray(colours, osg.Array.BIND_OVERALL)
 
 
         # now set up the coords, normals and texcoords for geometry
-        unsigned int numX = 100
-        unsigned int numY = 50
-        unsigned int numVertices = numX*numY
+        numX = 100
+        numY = 50
+        numVertices = numX*numY
 
-        coords =  new osg.Vec3Array(numVertices)
+        coords = osg.Vec3Array(numVertices)
         sPlanetSphere.setVertexArray(coords)
 
-        normals =  new osg.Vec3Array(numVertices)
+        normals = osg.Vec3Array(numVertices)
         sPlanetSphere.setNormalArray(normals, osg.Array.BIND_PER_VERTEX)
 
-        texcoords =  new osg.Vec2Array(numVertices)
+        texcoords = osg.Vec2Array(numVertices)
         sPlanetSphere.setTexCoordArray(0,texcoords)
         sPlanetSphere.setTexCoordArray(1,texcoords)
 
-        delta_elevation =  osg.PI / (double)(numY-1)
-        delta_azim =  2.0*osg.PI / (double)(numX-1)
-        delta_tx =  1.0 / (float)(numX-1)
-        delta_ty =  1.0 / (float)(numY-1)
+        delta_elevation = osg.PI / (double)(numY-1)
+        delta_azim = 2.0*osg.PI / (double)(numX-1)
+        delta_tx = 1.0 / (float)(numX-1)
+        delta_ty = 1.0 / (float)(numY-1)
 
-        elevation =  -osg.PI*0.5
-        ty =  0.0
-        unsigned int vert = 0
+        elevation = -osg.PI*0.5
+        ty = 0.0
+        vert = 0
         j = unsigned()
         for(j=0
             j<numY
             ++j, elevation+=delta_elevation, ty+=delta_ty )
-            azim =  0.0
-            tx =  0.0
+            azim = 0.0
+            tx = 0.0
             for(unsigned int i=0
                 i<numX
                 ++i, ++vert, azim+=delta_azim, tx+=delta_tx)
@@ -416,9 +429,9 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
         for(j=0
             j<numY-1
             ++j)
-            unsigned int curr_row = j*numX
-            unsigned int next_row = curr_row+numX
-            elements =  new osg.DrawElementsUShort(GL_QUAD_STRIP)
+            curr_row = j*numX
+            next_row = curr_row+numX
+            elements = osg.DrawElementsUShort(GL_QUAD_STRIP)
             for(unsigned int i=0
                 i<numX
                 ++i)
@@ -431,19 +444,19 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
     #sPlanetSphere.setColor( color )
 
     # create a geode object to as a container for our drawable sphere object
-    geodePlanet =  new osg.Geode()
+    geodePlanet = osg.Geode()
     geodePlanet.setName( name )
 
     if  !textureName.empty()  :
-        image =  osgDB.readImageFile( textureName )
+        image = osgDB.readImageFile( textureName )
         if  image  :
-            tex2d =  new osg.Texture2D( image )
+            tex2d = osg.Texture2D( image )
             tex2d.setWrap( osg.Texture.WRAP_S, osg.Texture.REPEAT )
             tex2d.setWrap( osg.Texture.WRAP_T, osg.Texture.REPEAT )
             geodePlanet.getOrCreateStateSet().setTextureAttributeAndModes( 0, tex2d, osg.StateAttribute.ON )
 
             # reset the object color to white to allow the texture to set the colour.
-            #sPlanetSphere.setColor( osg.Vec4(1.0f,1.0f,1.0f,1.0f) )
+            #sPlanetSphere.setColor( osg.Vec4(1.0,1.0,1.0,1.0) )
 
     # add our drawable sphere to the geode container
     geodePlanet.addDrawable( sPlanetSphere )
@@ -453,14 +466,14 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
 # end SolarSystem.createPlanet
 
 osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,  str textureName1,  str textureName2)
-    geodePlanet =  createPlanet( radius, name, color , textureName1)
+    geodePlanet = createPlanet( radius, name, color , textureName1)
 
     if  !textureName2.empty()  :
-        image =  osgDB.readImageFile( textureName2 )
+        image = osgDB.readImageFile( textureName2 )
         if  image  :
-            stateset =  geodePlanet.getOrCreateStateSet()
+            stateset = geodePlanet.getOrCreateStateSet()
 
-            texenv =  new osg.TexEnvCombine
+            texenv = osg.TexEnvCombine()
 
             texenv.setCombine_RGB(osg.TexEnvCombine.INTERPOLATE)
             texenv.setSource0_RGB(osg.TexEnvCombine.PREVIOUS)
@@ -471,7 +484,7 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
             texenv.setOperand2_RGB(osg.TexEnvCombine.SRC_COLOR)
 
             stateset.setTextureAttribute( 1, texenv )
-            tex2d =  new osg.Texture2D( image )
+            tex2d = osg.Texture2D( image )
             tex2d.setWrap( osg.Texture.WRAP_S, osg.Texture.REPEAT )
             tex2d.setWrap( osg.Texture.WRAP_T, osg.Texture.REPEAT )
             stateset.setTextureAttributeAndModes( 1, tex2d, osg.StateAttribute.ON )
@@ -482,22 +495,22 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
 
 osg.Group* SolarSystem.createSunLight()
 
-    sunLightSource =  new osg.LightSource
+    sunLightSource = osg.LightSource()
 
-    sunLight =  sunLightSource.getLight()
-    sunLight.setPosition( osg.Vec4( 0.0f, 0.0f, 0.0f, 1.0f ) )
-    sunLight.setAmbient( osg.Vec4( 0.0f, 0.0f, 0.0f, 1.0f ) )
+    sunLight = sunLightSource.getLight()
+    sunLight.setPosition( osg.Vec4( 0.0, 0.0, 0.0, 1.0 ) )
+    sunLight.setAmbient( osg.Vec4( 0.0, 0.0, 0.0, 1.0 ) )
 
     sunLightSource.setLight( sunLight )
     sunLightSource.setLocalStateSetModes( osg.StateAttribute.ON )
     sunLightSource.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.ON)
 
-    lightModel =  new osg.LightModel
-    lightModel.setAmbientIntensity(osg.Vec4(0.0f,0.0f,0.0f,1.0f))
+    lightModel = osg.LightModel()
+    lightModel.setAmbientIntensity(osg.Vec4(0.0,0.0,0.0,1.0))
     sunLightSource.getOrCreateStateSet().setAttribute(lightModel)
 
 
-    sunLightSource = return()
+    return sunLightSource
 # end SolarSystem.createSunLight
 
 void SolarSystem.printParameters()
@@ -543,6 +556,9 @@ void SolarSystem.printParameters()
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -555,7 +571,7 @@ def main(argc, argv):
     # initialize the viewer.
     viewer = osgViewer.Viewer()
 
-    osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+    keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
     viewer.setCameraManipulator( keyswitchManipulator.get() )
 
     solarSystem = SolarSystem()
@@ -594,13 +610,13 @@ def main(argc, argv):
     while arguments.read("-o",writeFileName) :  
 
 
-    trackerMode =  osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
+    trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
     mode = str()
     while arguments.read("--tracker-mode",mode) :
         if mode=="NODE_CENTER_AND_ROTATION" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
-        else: if mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
-        else: if mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
-        else:
+        elif mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
+        elif mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
+        else :
             print "Unrecognized --tracker-mode option ", mode, ", valid options are:"
             print "    NODE_CENTER_AND_ROTATION"
             print "    NODE_CENTER_AND_AZIM"
@@ -608,11 +624,11 @@ def main(argc, argv):
             return 1
 
 
-    rotationMode =  osgGA.NodeTrackerManipulator.TRACKBALL
+    rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
     while arguments.read("--rotation-mode",mode) :
         if mode=="TRACKBALL" : rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
-        else: if mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
-        else:
+        elif mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
+        else :
             print "Unrecognized --rotation-mode option ", mode, ", valid options are:"
             print "    TRACKBALL"
             print "    ELEVATION_AZIM"
@@ -675,27 +691,27 @@ def main(argc, argv):
         return 1
 
 
-    root =  new osg.Group
+    root = osg.Group()
 
-    clearNode =  new osg.ClearNode
-    clearNode.setClearColor(osg.Vec4(0.0f,0.0f,0.0f,1.0f))
+    clearNode = osg.ClearNode()
+    clearNode.setClearColor(osg.Vec4(0.0,0.0,0.0,1.0))
     root.addChild(clearNode)
 
-    sunLight =  solarSystem.createSunLight()
+    sunLight = solarSystem.createSunLight()
     root.addChild(sunLight)
 
     # create the sun
-    solarSun =  solarSystem.createPlanet( solarSystem._radiusSun, "Sun", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f), solarSystem._mapSun )
-    sunStateSet =  solarSun.getOrCreateStateSet()
-    material =  new osg.Material
-    material.setEmission( osg.Material.FRONT_AND_BACK, osg.Vec4( 1.0f, 1.0f, 0.0f, 0.0f ) )
+    solarSun = solarSystem.createPlanet( solarSystem._radiusSun, "Sun", osg.Vec4( 1.0, 1.0, 1.0, 1.0), solarSystem._mapSun )
+    sunStateSet = solarSun.getOrCreateStateSet()
+    material = osg.Material()
+    material.setEmission( osg.Material.FRONT_AND_BACK, osg.Vec4( 1.0, 1.0, 0.0, 0.0 ) )
     sunStateSet.setAttributeAndModes( material, osg.StateAttribute.ON )
 
-    sunBillboard =  new osg.Billboard()
+    sunBillboard = osg.Billboard()
     sunBillboard.setMode(osg.Billboard.POINT_ROT_EYE)
     sunBillboard.addDrawable(
-        createSquare(osg.Vec3(-150.0f,0.0f,-150.0f),osg.Vec3(300.0f,0.0f,0.0f),osg.Vec3(0.0f,0.0f,300.0f),createBillboardImage( osg.Vec4( 1.0, 1.0, 0, 1.0f), 64, 1.0) ),
-        osg.Vec3(0.0f,0.0f,0.0f))
+        createSquare(osg.Vec3(-150.0,0.0,-150.0),osg.Vec3(300.0,0.0,0.0),osg.Vec3(0.0,0.0,300.0),createBillboardImage( osg.Vec4( 1.0, 1.0, 0, 1.0), 64, 1.0) ),
+        osg.Vec3(0.0,0.0,0.0))
 
     sunLight.addChild( sunBillboard )
 
@@ -706,29 +722,29 @@ def main(argc, argv):
     # create light source in the sun
 
 #
-*********************************************
-**  earthMoonGroup and Transformations
-*********************************************
-
+#*********************************************
+#**  earthMoonGroup and Transformations
+#*********************************************
+#
     # create earth and moon
-    earth =  solarSystem.createPlanet( solarSystem._radiusEarth, "Earth", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f), solarSystem._mapEarth, solarSystem._mapEarthNight )
-    moon =  solarSystem.createPlanet( solarSystem._radiusMoon, "Moon", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f), solarSystem._mapMoon )
+    earth = solarSystem.createPlanet( solarSystem._radiusEarth, "Earth", osg.Vec4( 1.0, 1.0, 1.0, 1.0), solarSystem._mapEarth, solarSystem._mapEarthNight )
+    moon = solarSystem.createPlanet( solarSystem._radiusMoon, "Moon", osg.Vec4( 1.0, 1.0, 1.0, 1.0), solarSystem._mapMoon )
 
     # create transformations for the earthMoonGroup
-    aroundSunRotationEarthMoonGroup =  solarSystem.createRotation( solarSystem._RorbitEarth, solarSystem._rotateSpeedEarthAndMoon )
+    aroundSunRotationEarthMoonGroup = solarSystem.createRotation( solarSystem._RorbitEarth, solarSystem._rotateSpeedEarthAndMoon )
 #    osg.MatrixTransform* earthMoonGroupPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitEarth, solarSystem._tiltEarth )
-    earthMoonGroupPosition =  solarSystem.createTranslationAndTilt( solarSystem._RorbitEarth, 0.0 )
+    earthMoonGroupPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitEarth, 0.0 )
 
 
     #Group with earth and moon under it
-    earthMoonGroup =  new osg.Group
+    earthMoonGroup = osg.Group()
 
     #transformation to rotate the earth around itself
-    earthAroundItselfRotation =  solarSystem.createRotation ( 0.0, solarSystem._rotateSpeedEarth )
+    earthAroundItselfRotation = solarSystem.createRotation ( 0.0, solarSystem._rotateSpeedEarth )
 
     #transformations for the moon
-    moonAroundEarthRotation =  solarSystem.createRotation( solarSystem._RorbitMoon, solarSystem._rotateSpeedMoon )
-    moonTranslation =  solarSystem.createTranslationAndTilt( solarSystem._RorbitMoon, 0.0 )
+    moonAroundEarthRotation = solarSystem.createRotation( solarSystem._RorbitMoon, solarSystem._rotateSpeedMoon )
+    moonTranslation = solarSystem.createTranslationAndTilt( solarSystem._RorbitMoon, 0.0 )
 
 
     moonTranslation.addChild( moon )
@@ -744,97 +760,97 @@ def main(argc, argv):
 
     sunLight.addChild( aroundSunRotationEarthMoonGroup )
 #
-*********************************************
-**  end earthMoonGroup and Transformations
-*********************************************
-
+#*********************************************
+#**  end earthMoonGroup and Transformations
+#*********************************************
+#
 
 #
-*********************************************
-**  Mercury and Transformations
-*********************************************
+#*********************************************
+#**  Mercury and Transformations
+#*********************************************
+#
+    mercury = solarSystem.createPlanet( solarSystem._radiusMercury, "Mercury", osg.Vec4( 1.0, 1.0, 1.0, 1.0 ), solarSystem._mapMercury, "" )
 
-    mercury =  solarSystem.createPlanet( solarSystem._radiusMercury, "Mercury", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f ), solarSystem._mapMercury, "" )
-
-    aroundSunRotationMercury =  solarSystem.createRotation( solarSystem._RorbitMercury, solarSystem._rotateSpeedMercury )
-    mercuryPosition =  solarSystem.createTranslationAndTilt( solarSystem._RorbitMercury, 0.0f )
+    aroundSunRotationMercury = solarSystem.createRotation( solarSystem._RorbitMercury, solarSystem._rotateSpeedMercury )
+    mercuryPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitMercury, 0.0 )
 
     mercuryPosition.addChild( mercury )
     aroundSunRotationMercury.addChild( mercuryPosition )
 
     sunLight.addChild( aroundSunRotationMercury )
 #
-*********************************************
-**  end Mercury and Transformations
-*********************************************
-
+#*********************************************
+#**  end Mercury and Transformations
+#*********************************************
+#
 
 #
-*********************************************
-**  Venus and Transformations
-*********************************************
+#*********************************************
+#**  Venus and Transformations
+#*********************************************
+#
+    venus = solarSystem.createPlanet( solarSystem._radiusVenus, "Venus", osg.Vec4( 1.0, 1.0, 1.0, 1.0 ), solarSystem._mapVenus, "" )
 
-    venus =  solarSystem.createPlanet( solarSystem._radiusVenus, "Venus", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f ), solarSystem._mapVenus, "" )
-
-    aroundSunRotationVenus =  solarSystem.createRotation( solarSystem._RorbitVenus, solarSystem._rotateSpeedVenus )
-    venusPosition =  solarSystem.createTranslationAndTilt( solarSystem._RorbitVenus, 0.0f )
+    aroundSunRotationVenus = solarSystem.createRotation( solarSystem._RorbitVenus, solarSystem._rotateSpeedVenus )
+    venusPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitVenus, 0.0 )
 
     venusPosition.addChild( venus )
     aroundSunRotationVenus.addChild( venusPosition )
 
     sunLight.addChild( aroundSunRotationVenus )
 #
-*********************************************
-**  end Venus and Transformations
-*********************************************
-
+#*********************************************
+#**  end Venus and Transformations
+#*********************************************
+#
 
 #
-*********************************************
-**  Mars and Transformations
-*********************************************
+#*********************************************
+#**  Mars and Transformations
+#*********************************************
+#
+    mars = solarSystem.createPlanet( solarSystem._radiusMars, "Mars", osg.Vec4( 1.0, 1.0, 1.0, 1.0 ), solarSystem._mapMars, "" )
 
-    mars =  solarSystem.createPlanet( solarSystem._radiusMars, "Mars", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f ), solarSystem._mapMars, "" )
-
-    aroundSunRotationMars =  solarSystem.createRotation( solarSystem._RorbitMars, solarSystem._rotateSpeedMars )
-    marsPosition =  solarSystem.createTranslationAndTilt( solarSystem._RorbitMars, 0.0f )
+    aroundSunRotationMars = solarSystem.createRotation( solarSystem._RorbitMars, solarSystem._rotateSpeedMars )
+    marsPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitMars, 0.0 )
 
     marsPosition.addChild( mars )
     aroundSunRotationMars.addChild( marsPosition )
 
     sunLight.addChild( aroundSunRotationMars )
 #
-*********************************************
-**  end Mars and Transformations
-*********************************************
-
+#*********************************************
+#**  end Mars and Transformations
+#*********************************************
+#
 
 #
-*********************************************
-**  Jupiter and Transformations
-*********************************************
+#*********************************************
+#**  Jupiter and Transformations
+#*********************************************
+#
+    jupiter = solarSystem.createPlanet( solarSystem._radiusJupiter, "Jupiter", osg.Vec4( 1.0, 1.0, 1.0, 1.0 ), solarSystem._mapJupiter, "" )
 
-    jupiter =  solarSystem.createPlanet( solarSystem._radiusJupiter, "Jupiter", osg.Vec4( 1.0f, 1.0f, 1.0f, 1.0f ), solarSystem._mapJupiter, "" )
-
-    aroundSunRotationJupiter =  solarSystem.createRotation( solarSystem._RorbitJupiter, solarSystem._rotateSpeedJupiter )
-    jupiterPosition =  solarSystem.createTranslationAndTilt( solarSystem._RorbitJupiter, 0.0f )
+    aroundSunRotationJupiter = solarSystem.createRotation( solarSystem._RorbitJupiter, solarSystem._rotateSpeedJupiter )
+    jupiterPosition = solarSystem.createTranslationAndTilt( solarSystem._RorbitJupiter, 0.0 )
 
     jupiterPosition.addChild( jupiter )
     aroundSunRotationJupiter.addChild( jupiterPosition )
 
     sunLight.addChild( aroundSunRotationJupiter )
 #
-*********************************************
-**  end Jupiter and Transformations
-*********************************************
-
+#*********************************************
+#**  end Jupiter and Transformations
+#*********************************************
+#
 
 #
-    # add space, but don't light it, as its not illuminated by our sun
-    space =  solarSystem.createSpace( "Space", solarSystem._mapSpace )
-    space.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
-    root.addChild( space )
-
+#    # add space, but don't light it, as its not illuminated by our sun
+#    space = solarSystem.createSpace( "Space", solarSystem._mapSpace )
+#    space.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
+#    root.addChild( space )
+#
 
     if !writeFileName.empty() :
         osgDB.writeNodeFile(*root, writeFileName)
@@ -856,12 +872,12 @@ def main(argc, argv):
 
         if !fnnv._foundNodes.empty() :
             # set up the node tracker.
-            tm =  new osgGA.NodeTrackerManipulator
+            tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
             tm.setTrackNode( fnnv._foundNodes.front().get() )
 
-            unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+            num = keyswitchManipulator.getNumMatrixManipulators()
             keyswitchManipulator.addMatrixManipulator( 'm', "moon", tm )
             keyswitchManipulator.selectMatrixManipulator( num )
 
@@ -870,12 +886,12 @@ def main(argc, argv):
 
         if !fnnv._foundNodes.empty() :
             # set up the node tracker.
-            tm =  new osgGA.NodeTrackerManipulator
+            tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
             tm.setTrackNode( fnnv._foundNodes.front().get() )
 
-            unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+            num = keyswitchManipulator.getNumMatrixManipulators()
             keyswitchManipulator.addMatrixManipulator( 'e', "earth", tm)
             keyswitchManipulator.selectMatrixManipulator( num )
 
@@ -884,12 +900,12 @@ def main(argc, argv):
 
         if !fnnv._foundNodes.empty() :
             # set up the node tracker.
-            tm =  new osgGA.NodeTrackerManipulator
+            tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
             tm.setTrackNode( fnnv._foundNodes.front().get() )
 
-            unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+            num = keyswitchManipulator.getNumMatrixManipulators()
             keyswitchManipulator.addMatrixManipulator( 's', "sun", tm)
             keyswitchManipulator.selectMatrixManipulator( num )
 

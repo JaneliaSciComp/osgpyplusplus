@@ -11,6 +11,9 @@ from osgpypp import osgAnimation
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetmessagebox.cpp'
+
 # -*-c++-*- osgWidget - Copyright Cedric Pinson 2008
 
 
@@ -25,18 +28,15 @@ from osgpypp import osgWidget
 #include <osg/io_utils>
 #include <iostream>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
-class MessageBox
-protected:
+class MessageBox :
         
     createButtonOk = osgWidget.Frame*( str theme,  str text,  str font, int fontSize)
     createLabel = osgWidget.Label*( str string,  str font, int size,  osgWidget.Color color)
         
-    osg.ref_ptr<osgWidget.Frame> _window
-    osg.ref_ptr<osgWidget.Frame> _button
-
-public:
+    _window = osgWidget.Frame()
+    _button = osgWidget.Frame()
         
     getButton = osgWidget.Frame*()
     getWindow = osgWidget.Frame*()
@@ -53,12 +53,14 @@ public:
 osgWidget.Frame* MessageBox.getButton()  return _button.get() 
 osgWidget.Frame* MessageBox.getWindow()  return _window.get() 
 
-struct AlphaSetterVisitor : public osg.NodeVisitor
-    _alpha = float()
+class AlphaSetterVisitor (osg.NodeVisitor) :
+_alpha = float()
     AlphaSetterVisitor( float alpha = 1.0):osg.NodeVisitor(TRAVERSE_ALL_CHILDREN)  _alpha = alpha
 
     def apply(node):
-        win =  dynamic_cast<osgWidget.Window*>(node)
+
+        
+        win = dynamic_cast<osgWidget.Window*>(node)
 
         if win : 
 #             osgWidget.warn(), "I am in Window: ", win.getName()
@@ -66,22 +68,24 @@ struct AlphaSetterVisitor : public osg.NodeVisitor
             for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
 #                 osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
                 
-                color =  it.get().getColor()
+                color = it.get().getColor()
                 color[3] = color[3] *_alpha
                 it.get().setColor(color)
-                color =  win.getBackground().getColor()
+                color = win.getBackground().getColor()
                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(color)
         traverse(node)
 
 
 
-struct ColorSetterVisitor : public osg.NodeVisitor
-    _color = osgWidget.Color()
+class ColorSetterVisitor (osg.NodeVisitor) :
+_color = osgWidget.Color()
     ColorSetterVisitor(  osgWidget.Color color):osg.NodeVisitor(TRAVERSE_ALL_CHILDREN)  _color = color
 
     def apply(node):
-        win =  dynamic_cast<osgWidget.Window*>(node)
+
+        
+        win = dynamic_cast<osgWidget.Window*>(node)
 
         if win : 
 #            osgWidget.warn(), "I am in Window: ", win.getName()
@@ -89,10 +93,10 @@ struct ColorSetterVisitor : public osg.NodeVisitor
             for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
 #                osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
                 
-#                 color =  it.get().getColor()
+#                 color = it.get().getColor()
 #                 color[3] = color[3] *_alpha
                 it.get().setColor(_color)
-#                 color =  win.getBackground().getColor()
+#                 color = win.getBackground().getColor()
 #                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(osgWidget.Color(0,0,0,0))
         traverse(node)
@@ -110,7 +114,7 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
     _defaultColor = osgWidget.Color()
     _overColor = osgWidget.Color()
     _over = bool()
-    osg.ref_ptr<osgWidget.Frame> _frame
+    _frame = osgWidget.Frame()
     _width = float()
     _height = float()
     _matrix = osg.Matrix()
@@ -122,34 +126,34 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                                       103.0/255.0,
                                       17.0/255,
                                       _defaultColor[3])
-        _over  = false
+        _over  = False
 
     bool operator()(osgWidget.Event ev)
         if ev.type == osgWidget.EVENT_MOUSE_ENTER :
-            _over = true
+            _over = True
             _width = _frame.getWidth()
             _height = _frame.getHeight()
             _motionOver.reset()
             _matrix = _frame.getMatrix()
             #_frame.setMatrix(osg.Matrix.scale(2, 2, 1) * _frame.getMatrix())
-            _frame.setScale(1.1f) #osg.Matrix.scale(2, 2, 1) * _frame.getMatrix())
+            _frame.setScale(1.1) #osg.Matrix.scale(2, 2, 1) * _frame.getMatrix())
             _frame.update() #osg.Matrix.scale(2, 2, 1) * _frame.getMatrix())
             print "enter"
-            true = return()
-        else: if ev.type == osgWidget.EVENT_MOUSE_LEAVE :
-            _over = false
+            return True
+        elif ev.type == osgWidget.EVENT_MOUSE_LEAVE :
+            _over = False
             _motionLeave.reset()
             #_frame.setMatrix(_matrix)
-            _frame.setScale(1.0f)
+            _frame.setScale(1.0)
             _frame.update()
             print "leave"
-            true = return()
-        false = return()
+            return True
+        return False
 
     void operator()(osg.Node* node, osg.NodeVisitor* nv)
         if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR :
-            fs =  nv.getFrameStamp()
-            dt =  fs.getSimulationTime() - _lastUpdate
+            fs = nv.getFrameStamp()
+            dt = fs.getSimulationTime() - _lastUpdate
             _lastUpdate = fs.getSimulationTime()
 
             if _frame.valid() :
@@ -157,11 +161,11 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                 if _over :
                     _motionOver.update(dt)
                     value = _motionOver.getValue()
-                else:
+                else :
                     _motionLeave.update(dt)
                     value = 1.0 - _motionLeave.getValue()
 
-                c =  _defaultColor + ((_overColor - _defaultColor) * value)
+                c = _defaultColor + ((_overColor - _defaultColor) * value)
                 colorSetter = ColorSetterVisitor(c)
                 _frame.accept(colorSetter)
         node.traverse(*nv)
@@ -170,34 +174,34 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
 
 
 osgWidget.Label* MessageBox.createLabel( str string,  str font, int size,  osgWidget.Color color)
-    label =  new osgWidget.Label("", "")
+    label = osgWidget.Label("", "")
     label.setFont(font)
     label.setFontSize(size)
     label.setFontColor(color)
     label.setColor(osgWidget.Color(0,0,0,0))
     label.setLabel(string)
-    label.setCanFill(true)
-    label = return()
+    label.setCanFill(True)
+    return label
 
 osgWidget.Frame* MessageBox.createButtonOk( str theme, 
                                                   str text, 
                                                   str font, 
                                                  int fontSize)
-    osg.ref_ptr<osgWidget.Frame> frame = osgWidget.Frame.createSimpleFrameFromTheme(
+    frame = osgWidget.Frame.createSimpleFrameFromTheme(
         "ButtonOK",
         osgDB.readImageFile(theme),
-        300.0f, 
-        50.0f,
+        300.0, 
+        50.0,
         osgWidget.Frame.FRAME_TEXTURE
         )
-    frame.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
+    frame.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
 
-    label =  createLabel(text, font, fontSize, osgWidget.Color(0,0,0,1))
+    label = createLabel(text, font, fontSize, osgWidget.Color(0,0,0,1))
 
-    box =  new osgWidget.Box("HBOX", osgWidget.Box.HORIZONTAL)
+    box = osgWidget.Box("HBOX", osgWidget.Box.HORIZONTAL)
     box.addWidget(label)
     box.resize()
-    colorBack =  frame.getEmbeddedWindow().getColor()
+    colorBack = frame.getEmbeddedWindow().getColor()
     box.getBackground().setColor(colorBack)
     frame.getEmbeddedWindow().setWindow(box)
     box.setVisibilityMode(osgWidget.Window.VM_ENTIRE)
@@ -207,7 +211,7 @@ osgWidget.Frame* MessageBox.createButtonOk( str theme,
     frame.resizeFrame(box.getWidth(), box.getHeight())
     frame.resizeAdd(0, 0)
 
-    event =  new EventOK(frame.get())
+    event = EventOK(frame.get())
     frame.setUpdateCallback(event)
     frame.addCallback(event)
 
@@ -221,34 +225,34 @@ bool MessageBox.create( str themeMessage,
                          str font,
                         int fontSize)
 
-    osg.ref_ptr<osgWidget.Frame> frame = osgWidget.Frame.createSimpleFrameFromTheme(
+    frame = osgWidget.Frame.createSimpleFrameFromTheme(
         "error",
         osgDB.readImageFile(themeMessage),
-        300.0f,
-        50.0f,
+        300.0,
+        50.0,
         osgWidget.Frame.FRAME_ALL
         )
-    frame.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
+    frame.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
 
-    labelText =  createLabel(messageText, font, fontSize, osgWidget.Color(0,0,0,1))
-    labelTitle =  createLabel(titleText, font, fontSize+5, osgWidget.Color(0.4,0,0,1))
+    labelText = createLabel(messageText, font, fontSize, osgWidget.Color(0,0,0,1))
+    labelTitle = createLabel(titleText, font, fontSize+5, osgWidget.Color(0.4,0,0,1))
 
-    box =  new osgWidget.Box("VBOX", osgWidget.Box.VERTICAL)
+    box = osgWidget.Box("VBOX", osgWidget.Box.VERTICAL)
 
     _button = createButtonOk(themeButton, buttonText, font, fontSize)
-    buttonOK =  _button.embed()
+    buttonOK = _button.embed()
     _button.setVisibilityMode(osgWidget.Window.VM_ENTIRE)
     buttonOK.setColor(osgWidget.Color(0,0,0,0))
-    buttonOK.setCanFill(false)
+    buttonOK.setCanFill(False)
 
-    labelTitle.setPadBottom(30.0f)
-    labelText.setPadBottom(30.0f)
+    labelTitle.setPadBottom(30.0)
+    labelText.setPadBottom(30.0)
 
     box.addWidget(buttonOK)
     box.addWidget(labelText)
     box.addWidget(labelTitle)
 
-    colorBack =  frame.getEmbeddedWindow().getColor()
+    colorBack = frame.getEmbeddedWindow().getColor()
     box.getBackground().setColor(colorBack)
 
     frame.setWindow(box)
@@ -256,7 +260,7 @@ bool MessageBox.create( str themeMessage,
     box.resize()
     frame.resizeFrame(box.getWidth(), box.getHeight())
     _window = frame
-    true = return()
+    return True
 
 
 
@@ -264,28 +268,30 @@ bool MessageBox.create( str themeMessage,
 
 
 
-LABEL1 = 
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
+LABEL1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
     "do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
     "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris\n"
     "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in..."
 
 
 def main(argc, argv):
+
+    
+
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
 
-    fontSize =  20
+    fontSize = 20
     font = "fonts/arial.ttf"
-    buttonTheme =  "osgWidget/theme-8-shadow.png"
-    borderTheme =  "osgWidget/theme-8.png"
+    buttonTheme = "osgWidget/theme-8-shadow.png"
+    borderTheme = "osgWidget/theme-8.png"
 
     message = MessageBox()
     message.create(borderTheme, 
@@ -296,24 +302,24 @@ def main(argc, argv):
                    font,
                    fontSize)
 
-    alpha = AlphaSetterVisitor(.8f)
+    alpha = AlphaSetterVisitor(.8)
     message.getWindow().accept(alpha)
 
     wm.addChild(message.getWindow())
 
     # center
-    w =  wm.getWidth()
-    h =  wm.getHeight()
-    ww =  message.getWindow().getWidth()
-    hw =  message.getWindow().getHeight()
-    ox =  (w - ww) / 2
-    oy =  (h - hw) / 2
+    w = wm.getWidth()
+    h = wm.getHeight()
+    ww = message.getWindow().getWidth()
+    hw = message.getWindow().getHeight()
+    ox = (w - ww) / 2
+    oy = (h - hw) / 2
     message.getWindow().setPosition(osgWidget.Point(
         osg.round(ox), osg.round(oy), message.getWindow().getPosition()[2])
     )
 #    frame.resizeAdd(30, 30)
 
-#    alpha = AlphaSetterVisitor(.8f)
+#    alpha = AlphaSetterVisitor(.8)
 #    frame.accept(alpha)
     return osgWidget.createExample(viewer, wm) #osgDB.readNodeFile("cow.osgt"))
 
@@ -375,12 +381,14 @@ def main(argc, argv):
 
 
 #if 0
-struct AlphaSetterVisitor : public osg.NodeVisitor
-    _alpha = float()
+class AlphaSetterVisitor (osg.NodeVisitor) :
+_alpha = float()
     AlphaSetterVisitor( float alpha = 1.0):osg.NodeVisitor(TRAVERSE_ALL_CHILDREN)  _alpha = alpha
 
     def apply(node):
-        win =  dynamic_cast<osgWidget.Window*>(node)
+
+        
+        win = dynamic_cast<osgWidget.Window*>(node)
 
         if win : 
 #             osgWidget.warn(), "I am in Window: ", win.getName()
@@ -388,22 +396,24 @@ struct AlphaSetterVisitor : public osg.NodeVisitor
             for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
 #                 osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
                 
-                color =  it.get().getColor()
+                color = it.get().getColor()
                 color[3] = color[3] *_alpha
                 it.get().setColor(color)
-                color =  win.getBackground().getColor()
+                color = win.getBackground().getColor()
                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(color)
         traverse(node)
 
 
 
-struct ColorSetterVisitor : public osg.NodeVisitor
-    _color = osgWidget.Color()
+class ColorSetterVisitor (osg.NodeVisitor) :
+_color = osgWidget.Color()
     ColorSetterVisitor(  osgWidget.Color color):osg.NodeVisitor(TRAVERSE_ALL_CHILDREN)  _color = color
 
     def apply(node):
-        win =  dynamic_cast<osgWidget.Window*>(node)
+
+        
+        win = dynamic_cast<osgWidget.Window*>(node)
 
         if win : 
 #            osgWidget.warn(), "I am in Window: ", win.getName()
@@ -430,7 +440,7 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
     _defaultColor = osgWidget.Color()
     _overColor = osgWidget.Color()
     _over = bool()
-    osg.ref_ptr<osgWidget.Frame> _frame
+    _frame = osgWidget.Frame()
     _width = float()
     _height = float()
     EventOK(osgWidget.Frame* frame) : osgWidget.Callback(osgWidget.EVENT_ALL), _frame(frame) 
@@ -441,30 +451,30 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                                       103.0/255.0,
                                       17.0/255,
                                       _defaultColor[3])
-        _over  = false
+        _over  = False
 
     bool operator()(osgWidget.Event ev)
         if ev.type == osgWidget.EVENT_MOUSE_ENTER :
-            _over = true
+            _over = True
 #            print "Enter"
             _width = _frame.getWidth()
             _height = _frame.getHeight()
             _motionOver.reset()
 
 #             _frame.resize(_width * 1.2, _height * 1.2)
-            true = return()
-        else: if ev.type == osgWidget.EVENT_MOUSE_LEAVE : 
-            _over = false
+            return True
+        elif ev.type == osgWidget.EVENT_MOUSE_LEAVE : 
+            _over = False
 #            print "Leave"
 #             _frame.resize(_width, _height)
             _motionLeave.reset()
-            true = return()
-        false = return()
+            return True
+        return False
 
     void operator()(osg.Node* node, osg.NodeVisitor* nv)
         if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR :
-            fs =  nv.getFrameStamp()
-            dt =  fs.getSimulationTime() - _lastUpdate
+            fs = nv.getFrameStamp()
+            dt = fs.getSimulationTime() - _lastUpdate
             _lastUpdate = fs.getSimulationTime()
 
             if _frame.valid() :
@@ -472,11 +482,11 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                 if _over :
                     _motionOver.update(dt)
                     value = _motionOver.getValue()
-                else:
+                else :
                     _motionLeave.update(dt)
                     value = 1.0 - _motionLeave.getValue()
 
-                c =  _defaultColor + ((_overColor - _defaultColor) * value)
+                c = _defaultColor + ((_overColor - _defaultColor) * value)
                 colorSetter = ColorSetterVisitor(c)
                 _frame.accept(colorSetter)
         node.traverse(*nv)
@@ -485,31 +495,37 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
 
 
 def createLabel(string, font, size, color):
-    label =  new osgWidget.Label("", "")
+
+
+
+    
+    label = osgWidget.Label("", "")
     label.setFont(font)
     label.setFontSize(size)
     label.setFontColor(color)
     label.setColor(osgWidget.Color(0,0,0,0))
     label.setLabel(string)
-    label.setCanFill(true)
-    label = return()
+    label.setCanFill(True)
+    return label
 
 def createButtonOk(theme, text, fontSize):
-    osg.ref_ptr<osgWidget.Frame> frame = osgWidget.Frame.createSimpleFrameFromTheme(
+
+    
+    frame = osgWidget.Frame.createSimpleFrameFromTheme(
         "ButtonOK",
         osgDB.readImageFile(theme),
-        300.0f, 
-        50.0f,
+        300.0, 
+        50.0,
         osgWidget.Frame.FRAME_TEXTURE
         )
-    frame.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
+    frame.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
 
-    label =  createLabel(text, "fonts/Vera.ttf", fontSize, osgWidget.Color(0,0,0,1))
+    label = createLabel(text, "fonts/Vera.ttf", fontSize, osgWidget.Color(0,0,0,1))
 
-    box =  new osgWidget.Box("HBOX", osgWidget.Box.HORIZONTAL)
+    box = osgWidget.Box("HBOX", osgWidget.Box.HORIZONTAL)
     box.addWidget(label)
     box.resize()
-    colorBack =  frame.getEmbeddedWindow().getColor()
+    colorBack = frame.getEmbeddedWindow().getColor()
     box.getBackground().setColor(colorBack)
     frame.getEmbeddedWindow().setWindow(box)
     box.setVisibilityMode(osgWidget.Window.VM_ENTIRE)
@@ -518,7 +534,7 @@ def createButtonOk(theme, text, fontSize):
     frame.resizeFrame(box.getWidth(), box.getHeight())
     frame.resizeAdd(0, 0)
 
-    event =  new EventOK(frame)
+    event = EventOK(frame)
     frame.setUpdateCallback(event)
     frame.addCallback(event)
 
@@ -526,29 +542,32 @@ def createButtonOk(theme, text, fontSize):
     return frame.release()
 
 def createErrorMessage(themeMessage, themeButton, titleText, messageText, buttonText, font, fontSize):
-    osg.ref_ptr<osgWidget.Frame> frame = osgWidget.Frame.createSimpleFrameFromTheme(
+
+    
+
+    frame = osgWidget.Frame.createSimpleFrameFromTheme(
         "error",
         osgDB.readImageFile(themeMessage),
-        300.0f,
-        50.0f,
+        300.0,
+        50.0,
         osgWidget.Frame.FRAME_ALL
         )
-    frame.getBackground().setColor(0.0f, 0.0f, 0.0f, 0.0f)
+    frame.getBackground().setColor(0.0, 0.0, 0.0, 0.0)
 
-    labelText =  createLabel(messageText, font, fontSize, osgWidget.Color(0,0,0,1))
-    labelTitle =  createLabel(titleText, font, fontSize+5, osgWidget.Color(0.4,0,0,1))
+    labelText = createLabel(messageText, font, fontSize, osgWidget.Color(0,0,0,1))
+    labelTitle = createLabel(titleText, font, fontSize+5, osgWidget.Color(0.4,0,0,1))
 
-    box =  new osgWidget.Box("VBOX", osgWidget.Box.VERTICAL)
+    box = osgWidget.Box("VBOX", osgWidget.Box.VERTICAL)
 
-    buttonOK =  createButtonOk(themeButton, buttonText, fontSize).embed()
+    buttonOK = createButtonOk(themeButton, buttonText, fontSize).embed()
     buttonOK.setColor(osgWidget.Color(0,0,0,0))
-    buttonOK.setCanFill(false)
+    buttonOK.setCanFill(False)
 
     box.addWidget(buttonOK)
     box.addWidget(labelText)
     box.addWidget(labelTitle)
 
-    colorBack =  frame.getEmbeddedWindow().getColor()
+    colorBack = frame.getEmbeddedWindow().getColor()
     box.getBackground().setColor(colorBack)
 
     frame.setWindow(box)
@@ -558,29 +577,30 @@ def createErrorMessage(themeMessage, themeButton, titleText, messageText, button
     return frame.release()
 
 
-LABEL1 = 
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
+LABEL1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
     "do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n"
     "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris\n"
     "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in..."
 
 
 def main(argc, argv):
-    theme =  "osgWidget/theme-1.png"
+
+    
+    theme = "osgWidget/theme-1.png"
     if argc > 1 :
         theme = str(argv[1])
 
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
 
-    frame =  createErrorMessage(theme,
+    frame = createErrorMessage(theme,
                                           "osgWidget/theme-8-shadow.png",
                                           "Error - Critical",
                                           LABEL1,
@@ -591,7 +611,7 @@ def main(argc, argv):
     wm.addChild(frame)
     frame.resizeAdd(30, 30)
 
-    alpha = AlphaSetterVisitor(.8f)
+    alpha = AlphaSetterVisitor(.8)
     frame.accept(alpha)
     return osgWidget.createExample(viewer, wm, osgDB.readNodeFile("cow.osgt"))
 #endif

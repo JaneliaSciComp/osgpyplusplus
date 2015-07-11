@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgbillboard.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgbillboard.cpp'
+
+# OpenSceneGraph example, osgbillboard.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Node>
 #include <osg/Geometry>
@@ -52,14 +55,15 @@ from osgpypp import osgViewer
 #
 
 
-typedef std.vector< osg.ref_ptr<osg.Image> > ImageList
+typedef std.vector< osg.Image > ImageList
 
 #* create quad at specified position. 
 def createSquare(corner, width, height, image):
+    
     # set up the Geometry.
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
-    coords =  new osg.Vec3Array(4)
+    coords = osg.Vec3Array(4)
     (*coords)[0] = corner
     (*coords)[1] = corner+width
     (*coords)[2] = corner+width+height
@@ -68,35 +72,37 @@ def createSquare(corner, width, height, image):
 
     geom.setVertexArray(coords)
 
-    norms =  new osg.Vec3Array(1)
+    norms = osg.Vec3Array(1)
     (*norms)[0] = width^height
     (*norms)[0].normalize()
 
     geom.setNormalArray(norms, osg.Array.BIND_OVERALL)
 
-    tcoords =  new osg.Vec2Array(4)
-    (*tcoords)[0].set(0.0f,0.0f)
-    (*tcoords)[1].set(1.0f,0.0f)
-    (*tcoords)[2].set(1.0f,1.0f)
-    (*tcoords)[3].set(0.0f,1.0f)
+    tcoords = osg.Vec2Array(4)
+    (*tcoords)[0].set(0.0,0.0)
+    (*tcoords)[1].set(1.0,0.0)
+    (*tcoords)[2].set(1.0,1.0)
+    (*tcoords)[3].set(0.0,1.0)
     geom.setTexCoordArray(0,tcoords)
 
-    geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+    geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
     if image :
-        stateset =  new osg.StateSet
-        texture =  new osg.Texture2D
+        stateset = osg.StateSet()
+        texture = osg.Texture2D()
         texture.setImage(image)
         stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
         geom.setStateSet(stateset)
 
-    geom = return()
+    return geom
 
 def createAxis(corner, xdir, ydir, zdir):
-    # set up the Geometry.
-    geom =  new osg.Geometry
 
-    coords =  new osg.Vec3Array(6)
+    
+    # set up the Geometry.
+    geom = osg.Geometry()
+
+    coords = osg.Vec3Array(6)
     (*coords)[0] = corner
     (*coords)[1] = corner+xdir
     (*coords)[2] = corner
@@ -106,11 +112,11 @@ def createAxis(corner, xdir, ydir, zdir):
 
     geom.setVertexArray(coords)
 
-    x_color = osg.Vec4(0.0f,1.0f,1.0f,1.0f)
-    y_color = osg.Vec4(0.0f,1.0f,1.0f,1.0f)
-    z_color = osg.Vec4(1.0f,0.0f,0.0f,1.0f)
+    x_color = osg.Vec4(0.0,1.0,1.0,1.0)
+    y_color = osg.Vec4(0.0,1.0,1.0,1.0)
+    z_color = osg.Vec4(1.0,0.0,0.0,1.0)
 
-    color =  new osg.Vec4Array(6)
+    color = osg.Vec4Array(6)
     (*color)[0] = x_color
     (*color)[1] = x_color
     (*color)[2] = y_color
@@ -120,56 +126,59 @@ def createAxis(corner, xdir, ydir, zdir):
 
     geom.setColorArray(color, osg.Array.BIND_PER_VERTEX)
 
-    geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.LINES,0,6))
+    geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINES,0,6))
 
-    stateset =  new osg.StateSet
-    linewidth =  new osg.LineWidth()
-    linewidth.setWidth(4.0f)
+    stateset = osg.StateSet()
+    linewidth = osg.LineWidth()
+    linewidth.setWidth(4.0)
     stateset.setAttributeAndModes(linewidth,osg.StateAttribute.ON)
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     geom.setStateSet(stateset)
 
-    geom = return()
+    return geom
 
 def createModel():
+
+    
+
     # create the root node which will hold the model.
-    root =  new osg.Group()
+    root = osg.Group()
 
     # add the drawable into a single goede to be shared...
-    center =  new osg.Billboard()
+    center = osg.Billboard()
     center.setMode(osg.Billboard.POINT_ROT_EYE)
     center.addDrawable(
-        createSquare(osg.Vec3(-0.5f,0.0f,-0.5f),osg.Vec3(1.0f,0.0f,0.0f),osg.Vec3(0.0f,0.0f,1.0f),osgDB.readImageFile("Images/reflect.rgb")),
-        osg.Vec3(0.0f,0.0f,0.0f))
+        createSquare(osg.Vec3(-0.5,0.0,-0.5),osg.Vec3(1.0,0.0,0.0),osg.Vec3(0.0,0.0,1.0),osgDB.readImageFile("Images/reflect.rgb")),
+        osg.Vec3(0.0,0.0,0.0))
 
-    x_arrow =  new osg.Billboard()
+    x_arrow = osg.Billboard()
     x_arrow.setMode(osg.Billboard.AXIAL_ROT)
-    x_arrow.setAxis(osg.Vec3(1.0f,0.0f,0.0f))
-    x_arrow.setNormal(osg.Vec3(0.0f,-1.0f,0.0f))
+    x_arrow.setAxis(osg.Vec3(1.0,0.0,0.0))
+    x_arrow.setNormal(osg.Vec3(0.0,-1.0,0.0))
     x_arrow.addDrawable(
-       createSquare(osg.Vec3(-0.5f,0.0f,-0.5f),osg.Vec3(1.0f,0.0f,0.0f),osg.Vec3(0.0f,0.0f,1.0f),osgDB.readImageFile("Cubemap_axis/posx.png")),
-       osg.Vec3(5.0f,0.0f,0.0f))
+       createSquare(osg.Vec3(-0.5,0.0,-0.5),osg.Vec3(1.0,0.0,0.0),osg.Vec3(0.0,0.0,1.0),osgDB.readImageFile("Cubemap_axis/posx.png")),
+       osg.Vec3(5.0,0.0,0.0))
 
-    y_arrow =  new osg.Billboard()
+    y_arrow = osg.Billboard()
     y_arrow.setMode(osg.Billboard.AXIAL_ROT)
-    y_arrow.setAxis(osg.Vec3(0.0f,1.0f,0.0f))
-    y_arrow.setNormal(osg.Vec3(1.0f,0.0f,0.0f))
+    y_arrow.setAxis(osg.Vec3(0.0,1.0,0.0))
+    y_arrow.setNormal(osg.Vec3(1.0,0.0,0.0))
     y_arrow.addDrawable(
-        createSquare(osg.Vec3(0.0f,-0.5f,-0.5f),osg.Vec3(0.0f,1.0f,0.0f),osg.Vec3(0.0f,0.0f,1.0f),osgDB.readImageFile("Cubemap_axis/posy.png")),
-        osg.Vec3(0.0f,5.0f,0.0f))
+        createSquare(osg.Vec3(0.0,-0.5,-0.5),osg.Vec3(0.0,1.0,0.0),osg.Vec3(0.0,0.0,1.0),osgDB.readImageFile("Cubemap_axis/posy.png")),
+        osg.Vec3(0.0,5.0,0.0))
 
-    z_arrow =  new osg.Billboard()
+    z_arrow = osg.Billboard()
     z_arrow.setMode(osg.Billboard.AXIAL_ROT)
-    z_arrow.setAxis(osg.Vec3(0.0f,0.0f,1.0f))
-    z_arrow.setNormal(osg.Vec3(0.0f,-1.0f,0.0f))
+    z_arrow.setAxis(osg.Vec3(0.0,0.0,1.0))
+    z_arrow.setNormal(osg.Vec3(0.0,-1.0,0.0))
     z_arrow.addDrawable(
-        createSquare(osg.Vec3(-0.5f,0.0f,-0.5f),osg.Vec3(1.0f,0.0f,0.0f),osg.Vec3(0.0f,0.0f,1.0f),osgDB.readImageFile("Cubemap_axis/posz.png")),
-        osg.Vec3(0.0f,0.0f,5.0f))
+        createSquare(osg.Vec3(-0.5,0.0,-0.5),osg.Vec3(1.0,0.0,0.0),osg.Vec3(0.0,0.0,1.0),osgDB.readImageFile("Cubemap_axis/posz.png")),
+        osg.Vec3(0.0,0.0,5.0))
 
 
 
-    axis =  new osg.Geode()
-    axis.addDrawable(createAxis(osg.Vec3(0.0f,0.0f,0.0f),osg.Vec3(5.0f,0.0f,0.0f),osg.Vec3(0.0f,5.0f,0.0f),osg.Vec3(0.0f,0.0f,5.0f)))
+    axis = osg.Geode()
+    axis.addDrawable(createAxis(osg.Vec3(0.0,0.0,0.0),osg.Vec3(5.0,0.0,0.0),osg.Vec3(0.0,5.0,0.0),osg.Vec3(0.0,0.0,5.0)))
 
 
     root.addChild(center)
@@ -178,7 +187,7 @@ def createModel():
     root.addChild(z_arrow)
     root.addChild(axis)
 
-    root = return()
+    return root
 
 int main(int, char**)
     # construct the viewer

@@ -14,23 +14,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgcompositeviewer.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgcompositeviewer.cpp'
+
+# OpenSceneGraph example, osgcompositeviewer.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <iostream>
 
@@ -61,18 +64,19 @@ from osgpypp import osgViewer
 #include <osg/io_utils>
 
 # class to handle events with a pick
-class PickHandler : public osgGA.GUIEventHandler 
-public:
+class PickHandler (osgGA.GUIEventHandler) :
 
     PickHandler():
-        _mx(0.0f),
-        _my(0.0f) 
+        _mx(0.0),
+        _my(0.0) 
 
     ~PickHandler() 
 
     def handle(ea, aa):
-        view =  dynamic_cast<osgViewer.View*>(aa)
-        if !view : return false
+
+        
+        view = dynamic_cast<osgViewer.View*>(aa)
+        if !view : return False
 
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.PUSH):
@@ -85,30 +89,32 @@ public:
                 break
             default:
                 break
-        false = return()
+        return False
 
     def pick(view, event):
-        node =  0
-        parent =  0
+
+        
+        node = 0
+        parent = 0
 
         intersections = osgUtil.LineSegmentIntersector.Intersections()
         if view.computeIntersections(event, intersections) :
-            intersection =  *intersections.begin()
-            nodePath =  intersection.nodePath
+            intersection = *intersections.begin()
+            nodePath = intersection.nodePath
             node = (nodePath.size()>=1)?nodePath[nodePath.size()-1]:0
             parent = (nodePath.size()>=2)?dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]):0
 
         # now we try to decorate the hit node by the osgFX.Scribe to show that its been "picked"
         if parent  node :
-            parentAsScribe =  dynamic_cast<osgFX.Scribe*>(parent)
+            parentAsScribe = dynamic_cast<osgFX.Scribe*>(parent)
             if !parentAsScribe :
                 # node not already picked, so highlight it with an osgFX.Scribe
-                scribe =  new osgFX.Scribe()
+                scribe = osgFX.Scribe()
                 scribe.addChild(node)
                 parent.replaceChild(node,scribe)
-            else:
+            else :
                 # node already picked so we want to remove scribe to unpick it.
-                parentList =  parentAsScribe.getParents()
+                parentList = parentAsScribe.getParents()
                 for(osg.Node.ParentList.iterator itr=parentList.begin()
                     itr!=parentList.end()
                     ++itr)
@@ -121,11 +127,15 @@ public:
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> scene = osgDB.readNodeFiles(arguments)
+    scene = osgDB.readNodeFiles(arguments)
 
     if !scene :
         print argv[0], ": requires filename argument."
@@ -135,52 +145,52 @@ def main(argc, argv):
     viewer = osgViewer.CompositeViewer(arguments)
 
     if arguments.read("-1") :
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("Single view")
             view.setSceneData(osgDB.readNodeFile("fountain.osgt"))
 
-            view.addEventHandler( new osgViewer.StatsHandler )
+            view.addEventHandler( osgViewer.StatsHandler )()
 
             view.setUpViewAcrossAllScreens()
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
             viewer.addView(view)
 
     if arguments.read("-2") :
 
         # view one
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("View one")
             viewer.addView(view)
 
             view.setUpViewOnSingleScreen(0)
             view.setSceneData(scene.get())
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the state manipulator
-            osg.ref_ptr<osgGA.StateSetManipulator> statesetManipulator = new osgGA.StateSetManipulator
+            statesetManipulator = osgGA.StateSetManipulator()
             statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
             view.addEventHandler( statesetManipulator.get() )
 
         # view two
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("View two")
             viewer.addView(view)
 
             view.setUpViewOnSingleScreen(1)
             view.setSceneData(scene.get())
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
 
-            view.addEventHandler( new osgViewer.StatsHandler )
+            view.addEventHandler( osgViewer.StatsHandler )()
 
 
             # add the handler for doing the picking
-            view.addEventHandler(new PickHandler())
+            view.addEventHandler(PickHandler())
 
 
     if arguments.read("-3") || viewer.getNumViews()==0 :
 
-        wsi =  osg.GraphicsContext.getWindowingSystemInterface()
+        wsi = osg.GraphicsContext.getWindowingSystemInterface()
         if !wsi :
             osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
             return 1
@@ -188,66 +198,66 @@ def main(argc, argv):
         unsigned int width, height
         wsi.getScreenResolution(osg.GraphicsContext.ScreenIdentifier(0), width, height)
 
-        osg.ref_ptr<osg.GraphicsContext.Traits> traits = new osg.GraphicsContext.Traits
+        traits = osg.GraphicsContext.Traits()
         traits.x = 100
         traits.y = 100
         traits.width = 1000
         traits.height = 800
-        traits.windowDecoration = true
-        traits.doubleBuffer = true
+        traits.windowDecoration = True
+        traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        osg.ref_ptr<osg.GraphicsContext> gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
         if gc.valid() :
             osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
 
             # need to ensure that the window is cleared make sure that the complete window is set the correct colour
             # rather than just the parts of the window that are under the camera's viewports
-            gc.setClearColor(osg.Vec4f(0.2f,0.2f,0.6f,1.0f))
+            gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
             gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        else:
+        else :
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
         # view one
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("View one")
             viewer.addView(view)
 
             view.setSceneData(scene.get())
             view.getCamera().setName("Cam one")
-            view.getCamera().setViewport(new osg.Viewport(0,0, traits.width/2, traits.height/2))
+            view.getCamera().setViewport(osg.Viewport(0,0, traits.width/2, traits.height/2))
             view.getCamera().setGraphicsContext(gc.get())
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the state manipulator
-            osg.ref_ptr<osgGA.StateSetManipulator> statesetManipulator = new osgGA.StateSetManipulator
+            statesetManipulator = osgGA.StateSetManipulator()
             statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
             view.addEventHandler( statesetManipulator.get() )
 
-            view.addEventHandler( new osgViewer.StatsHandler )
-            view.addEventHandler( new osgViewer.HelpHandler )
-            view.addEventHandler( new osgViewer.WindowSizeHandler )
-            view.addEventHandler( new osgViewer.ThreadingHandler )
-            view.addEventHandler( new osgViewer.RecordCameraPathHandler )
+            view.addEventHandler( osgViewer.StatsHandler )()
+            view.addEventHandler( osgViewer.HelpHandler )()
+            view.addEventHandler( osgViewer.WindowSizeHandler )()
+            view.addEventHandler( osgViewer.ThreadingHandler )()
+            view.addEventHandler( osgViewer.RecordCameraPathHandler )()
 
         # view two
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("View two")
             viewer.addView(view)
 
             view.setSceneData(scene.get())
             view.getCamera().setName("Cam two")
-            view.getCamera().setViewport(new osg.Viewport(traits.width/2,0, traits.width/2, traits.height/2))
+            view.getCamera().setViewport(osg.Viewport(traits.width/2,0, traits.width/2, traits.height/2))
             view.getCamera().setGraphicsContext(gc.get())
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the handler for doing the picking
-            view.addEventHandler(new PickHandler())
+            view.addEventHandler(PickHandler())
 
 
         # view three
-            view =  new osgViewer.View
+            view = osgViewer.View()
             view.setName("View three")
             viewer.addView(view)
 
@@ -255,9 +265,9 @@ def main(argc, argv):
 
             view.getCamera().setName("Cam three")
             view.getCamera().setProjectionMatrixAsPerspective(30.0, double(traits.width) / double(traits.height/2), 1.0, 1000.0)
-            view.getCamera().setViewport(new osg.Viewport(0, traits.height/2, traits.width, traits.height/2))
+            view.getCamera().setViewport(osg.Viewport(0, traits.height/2, traits.width, traits.height/2))
             view.getCamera().setGraphicsContext(gc.get())
-            view.setCameraManipulator(new osgGA.TrackballManipulator)
+            view.setCameraManipulator(osgGA.TrackballManipulator)()
 
 
 

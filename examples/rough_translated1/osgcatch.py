@@ -14,23 +14,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgcatch.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgcatch.cpp'
+
+# OpenSceneGraph example, osgcatch.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgDB/WriteFile>
@@ -63,12 +66,11 @@ from osgpypp import osgViewer
 #include <sstream>
 
 typedef std.vector<str> FileList
-typedef std.map<str, osg.ref_ptr<osg.Node> >  ObjectMap
+typedef std.map<str, osg.Node >  ObjectMap
 
 static ObjectMap    s_objectMap
 
-class Character : public osg.Referenced
-public:
+class Character (osg.Referenced) :
     Character()
     
     setCharacter = void( str filename,  str name,  osg.Vec3 orgin,  osg.Vec3 width,  osg.Vec3 catchPos, float positionRatio)
@@ -89,25 +91,31 @@ public:
     
     looseLife = bool()
 
-    osg.Vec3 getCurrentCenterOfBasket()   return _character.getPosition()+_centerBasket 
-    float getCurrentRadiusOfBasket()   return _radiusBasket 
+    def getCurrentCenterOfBasket():
 
-    osg.Vec3 getLowerLeft()   return _character.getPosition() 
-    osg.Vec3 getUpperRight()   return _character.getPosition() 
+         return _character.getPosition()+_centerBasket 
+    def getCurrentRadiusOfBasket():
+         return _radiusBasket 
+
+    def getLowerLeft():
+
+         return _character.getPosition() 
+    def getUpperRight():
+         return _character.getPosition() 
 
     _origin = osg.Vec3()
     _width = osg.Vec3()
 
     _positionRatio = float()
-    osg.ref_ptr<osg.PositionAttitudeTransform> _character
+    _character = osg.PositionAttitudeTransform()
 
-    unsigned int                                 _numLives
-    osg.ref_ptr<osg.Switch>                    _livesSwitch
+    _numLives = unsigned int()
+    _livesSwitch = osg.Switch()
 
-    unsigned int                                 _numCatches
-    osg.ref_ptr<osg.Switch>                    _catchSwitch
+    _numCatches = unsigned int()
+    _catchSwitch = osg.Switch()
     
-    osg.ref_ptr<osg.Group>                     _objectsGroup
+    _objectsGroup = osg.Group()
     
     _centerBasket = osg.Vec3()
     _radiusBasket = float()
@@ -115,7 +123,7 @@ public:
 
 
 Character.Character():
-    _positionRatio(0.5f),
+    _positionRatio(0.5),
     _numLives(3),
     _numCatches(0)
 
@@ -127,24 +135,24 @@ void Character.setCharacter( str filename,  str name,  osg.Vec3 origin,  osg.Vec
     _numLives = 3
     _numCatches = 0
 
-    _characterSize =  _width.length()*0.2f
+    _characterSize = _width.length()*0.2
 
-    image =  osgDB.readImageFile(filename)
+    image = osgDB.readImageFile(filename)
     if image :
-        pos = osg.Vec3(-0.5f*_characterSize,0.0f,0.0f)
-        width = osg.Vec3(_characterSize*((float)image.s())/(float)(image.t()),0.0f,0.0)
-        height = osg.Vec3(0.0f,0.0f,_characterSize)
+        pos = osg.Vec3(-0.5*_characterSize,0.0,0.0)
+        width = osg.Vec3(_characterSize*((float)image.s())/(float)(image.t()),0.0,0.0)
+        height = osg.Vec3(0.0,0.0,_characterSize)
 
-        geometry =  osg.createTexturedQuadGeometry(pos,width,height)
-        stateset =  geometry.getOrCreateStateSet()
-        stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+        geometry = osg.createTexturedQuadGeometry(pos,width,height)
+        stateset = geometry.getOrCreateStateSet()
+        stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
         stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
         stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geometry)
 
-        _character = new osg.PositionAttitudeTransform
+        _character = osg.PositionAttitudeTransform()
         _character.setName(name)
         _character.addChild(geode)
         
@@ -156,68 +164,68 @@ void Character.setCharacter( str filename,  str name,  osg.Vec3 origin,  osg.Vec
     
 
 void Character.setLives( str filename,  osg.Vec3 origin,  osg.Vec3 delta, unsigned int numLives)
-    characterSize =  delta.length()
+    characterSize = delta.length()
 
     _numLives = numLives
-    _livesSwitch = new osg.Switch
+    _livesSwitch = osg.Switch()
 
-    image =  osgDB.readImageFile(filename)
+    image = osgDB.readImageFile(filename)
     if image :
-        stateset =  _livesSwitch.getOrCreateStateSet()
-        stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+        stateset = _livesSwitch.getOrCreateStateSet()
+        stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
         stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
         stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
 
         for(unsigned int i=0 i<numLives ++i)
-            pos =  origin + delta*(float)i + osg.Vec3(0.0f,0.0f,0.0f)
-            width = osg.Vec3(characterSize*((float)image.s())/(float)(image.t()),0.0f,0.0)
-            height = osg.Vec3(0.0f,0.0f,characterSize)
+            pos = origin + delta*(float)i + osg.Vec3(0.0,0.0,0.0)
+            width = osg.Vec3(characterSize*((float)image.s())/(float)(image.t()),0.0,0.0)
+            height = osg.Vec3(0.0,0.0,characterSize)
 
-            geometry =  osg.createTexturedQuadGeometry(pos,width,height)
+            geometry = osg.createTexturedQuadGeometry(pos,width,height)
 
-            geode =  new osg.Geode
+            geode = osg.Geode()
             geode.addDrawable(geometry)
 
-            _livesSwitch.addChild(geode,true)
+            _livesSwitch.addChild(geode,True)
 
 
 
 void Character.setCatches( str filename,  osg.Vec3 origin,  osg.Vec3 delta, unsigned int numCatches)
-    characterSize =  delta.length()
+    characterSize = delta.length()
 
     _numCatches = 0
-    _catchSwitch = new osg.Switch
+    _catchSwitch = osg.Switch()
 
-    image =  osgDB.readImageFile(filename)
+    image = osgDB.readImageFile(filename)
     if image :
-        stateset =  _catchSwitch.getOrCreateStateSet()
-        stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+        stateset = _catchSwitch.getOrCreateStateSet()
+        stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
         stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
         stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
 
         for(unsigned int i=0 i<numCatches ++i)
-            pos =  origin + delta*(float)i + osg.Vec3(0.0f,0.0f,0.0f)
-            width = osg.Vec3(characterSize,0.0f,0.0)
-            height = osg.Vec3(0.0f,0.0f,characterSize*((float)image.t())/(float)(image.s()))
+            pos = origin + delta*(float)i + osg.Vec3(0.0,0.0,0.0)
+            width = osg.Vec3(characterSize,0.0,0.0)
+            height = osg.Vec3(0.0,0.0,characterSize*((float)image.t())/(float)(image.s()))
 
-            geometry =  osg.createTexturedQuadGeometry(pos,width,height)
+            geometry = osg.createTexturedQuadGeometry(pos,width,height)
 
-            geode =  new osg.Geode
+            geode = osg.Geode()
             geode.addDrawable(geometry)
 
-            _catchSwitch.addChild(geode,false)
+            _catchSwitch.addChild(geode,False)
 
 
 
 void Character.moveLeft()
-    moveTo(_positionRatio - 0.01f)
+    moveTo(_positionRatio - 0.01)
 
 void Character.moveRight()
-    moveTo(_positionRatio + 0.01f)
+    moveTo(_positionRatio + 0.01)
 
 void Character.moveTo(float positionRatio)
-    if positionRatio<0.0f : positionRatio = 0.0f
-    if positionRatio>1.0f : positionRatio = 1.0f
+    if positionRatio<0.0 : positionRatio = 0.0
+    if positionRatio>1.0 : positionRatio = 1.0
 
     _positionRatio = positionRatio
     _character.setPosition(_origin+_width*+positionRatio)
@@ -234,26 +242,25 @@ void Character.resetCatches()
     _catchSwitch.setAllChildrenOff()
 
 bool Character.addCatch()
-    if !_catchSwitch || _numCatches>=_catchSwitch.getNumChildren() : return false
+    if !_catchSwitch || _numCatches>=_catchSwitch.getNumChildren() : return False
     
-    _catchSwitch.setValue(_numCatches,true)
+    _catchSwitch.setValue(_numCatches,True)
     ++_numCatches
     
-    true = return()
+    return True
 
 bool Character.looseLife()
-    if !_livesSwitch || _numLives==0 : return false
+    if !_livesSwitch || _numLives==0 : return False
     
     --_numLives
-    _livesSwitch.setValue(_numLives,false)
+    _livesSwitch.setValue(_numLives,False)
     
     return (_numLives!=0)
 
 
 #############################################################
 #
-class CatchableObject  : public osg.Referenced
-    public:
+class CatchableObject (osg.Referenced) :
         CatchableObject()
 
         setObject = void( str filename,  str name,  osg.Vec3 center, float size,  osg.Vec3 direction)
@@ -264,19 +271,31 @@ class CatchableObject  : public osg.Referenced
         
         explode = void()
         
-        bool dangerous()  return _dangerous 
+        def dangerous():
+        
+             return _dangerous 
 
-        void stop()  _stopped = true 
+        def stop():
+
+             _stopped = True 
         
-        bool stopped()  return _stopped 
+        def stopped():
         
-        void setTimeToRemove(double time)  _timeToRemove=time 
+             return _stopped 
         
-        double getTimeToRemove()  return _timeToRemove 
+        def setTimeToRemove(time):
         
-        bool needToRemove(double time)  return  _timeToRemove>=0.0  time>_timeToRemove 
+             _timeToRemove=time 
         
-        osg.ref_ptr<osg.PositionAttitudeTransform> _object
+        def getTimeToRemove():
+        
+             return _timeToRemove 
+        
+        def needToRemove(time):
+        
+             return  _timeToRemove>=0.0  time>_timeToRemove 
+        
+        _object = osg.PositionAttitudeTransform()
         _velocity = osg.Vec3()
         _mass = float()
         _radius = float()
@@ -287,8 +306,6 @@ class CatchableObject  : public osg.Referenced
         _timeToRemove = double()
 
         static void setUpCatchablesMap( FileList fileList)
-
-    public:
     
         # update position and velocity
         update = void(double dt)
@@ -304,7 +321,7 @@ class CatchableObject  : public osg.Referenced
         #/ Set the density of the fluid.
         inline void setFluidDensity(float d)
             _density = d
-            _densityCoefficeint = 0.2f * osg.PI * _density
+            _densityCoefficeint = 0.2 * osg.PI * _density
 
         #/ Get the density of the fluid.
         inline float getFluidDensity()   return _density 
@@ -323,24 +340,21 @@ class CatchableObject  : public osg.Referenced
         inline  osg.Vec3 getAcceleration()   return _acceleration 
 
         #* Set the acceleration vector to the gravity on earth (0, 0, -9.81).
-            The acceleration will be multiplied by the <CODE>scale</CODE> parameter.
-        
-        inline void setToGravity(float scale = 1.0f)  _acceleration.set(0, 0, -9.81f*scale) 
+#            The acceleration will be multiplied by the <CODE>scale</CODE> parameter.
+#        
+        inline void setToGravity(float scale = 1.0)  _acceleration.set(0, 0, -9.81*scale) 
 
         #/ Set the fluid parameters as for air (20°C temperature).
         inline void setFluidToAir()
-            setToGravity(1.0f)
-            setFluidDensity(1.2929f)
-            setFluidViscosity(1.8e-5f)
+            setToGravity(1.0)
+            setFluidDensity(1.2929)
+            setFluidViscosity(1.8e-5)
         
         #/ Set the fluid parameters as for pure water (20°C temperature).
         inline void setFluidToWater()
-            setToGravity(1.0f)
-            setFluidDensity(1.0f)
-            setFluidViscosity(1.002e-3f)
-            
-
-    protected:
+            setToGravity(1.0)
+            setFluidDensity(1.0)
+            setFluidViscosity(1.002e-3)
 
         _acceleration = osg.Vec3()
         _viscosity = float()
@@ -354,8 +368,8 @@ class CatchableObject  : public osg.Referenced
 
 
 CatchableObject.CatchableObject()
-    _stopped = false
-    _dangerous = false
+    _stopped = False
+    _dangerous = False
     
     _timeToRemove = -1.0 # do not remove.
     setFluidToAir()
@@ -364,57 +378,57 @@ void CatchableObject.setUpCatchablesMap( FileList fileList)
     for(FileList.const_iterator itr=fileList.begin()
         itr!=fileList.end()
         ++itr)
-        filename =  *itr
-        image =  osgDB.readImageFile(filename)
+        filename = *itr
+        image = osgDB.readImageFile(filename)
         if image :
-            osg.ref_ptr<osg.StateSet> stateset = new osg.StateSet()
-            stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+            stateset = osg.StateSet()
+            stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
             stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
             stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
             
-            width = osg.Vec3((float)(image.s())/(float)(image.t()),0.0f,0.0)
-            height = osg.Vec3(0.0f,0.0f,1.0f)
-            pos =  (width+height)*-0.5f
+            width = osg.Vec3((float)(image.s())/(float)(image.t()),0.0,0.0)
+            height = osg.Vec3(0.0,0.0,1.0)
+            pos = (width+height)*-0.5
 
-            geometry =  osg.createTexturedQuadGeometry(pos,width,height)
+            geometry = osg.createTexturedQuadGeometry(pos,width,height)
             geometry.setStateSet(stateset.get())
 
-            geode =  new osg.Geode
+            geode = osg.Geode()
             geode.addDrawable(geometry)
 
             s_objectMap[filename] = geode
 
 void CatchableObject.setObject( str filename,  str name,  osg.Vec3 center, float characterSize,  osg.Vec3 velocity)
-    _radius = 0.5f*characterSize
-    Area =  osg.PI*_radius*_radius
-    Volume =  Area*_radius*4.0f/3.0f
+    _radius = 0.5*characterSize
+    Area = osg.PI*_radius*_radius
+    Volume = Area*_radius*4.0/3.0
 
     _velocity = velocity
     _mass = 1000.0*Volume
 
     if s_objectMap.count(filename)!=0 :
-        scaleTransform =  new osg.PositionAttitudeTransform
+        scaleTransform = osg.PositionAttitudeTransform()
         scaleTransform.setScale(osg.Vec3(characterSize,characterSize,characterSize))
         scaleTransform.addChild(s_objectMap[filename].get())
 
-        _object = new osg.PositionAttitudeTransform
+        _object = osg.PositionAttitudeTransform()
         _object.setName(name)
         _object.setPosition(center)
         _object.addChild(scaleTransform)
-    else:
+    else :
         osg.notify(osg.NOTICE), "CatchableObject.setObject(", filename, ") not able to create catchable object."
 
 void CatchableObject.update(double dt)
     if _stopped : return
 
-    Area =  osg.PI*_radius*_radius
-    Volume =  Area*_radius*4.0f/3.0f
+    Area = osg.PI*_radius*_radius
+    Volume = Area*_radius*4.0/3.0
 
     # compute force due to gravity + boyancy of displacing the fluid that the particle is emersed in.
-    force =  _acceleration * (_mass - _density*Volume)
+    force = _acceleration * (_mass - _density*Volume)
 
     # compute force due to friction
-    relative_wind =  _velocity-_wind            
+    relative_wind = _velocity-_wind            
     force -= relative_wind * Area * (_viscosityCoefficient + _densityCoefficeint*relative_wind.length())            
 
     # divide force by mass to get acceleration.
@@ -422,26 +436,26 @@ void CatchableObject.update(double dt)
     _object.setPosition(_object.getPosition()+_velocity*dt)
 
 bool CatchableObject.anyInside( osg.Vec3 lower_left,  osg.Vec3 upper_right)
-    pos =  _object.getPosition()
+    pos = _object.getPosition()
     
-    if pos.x()+_radius < lower_left.x() : return false
-    if pos.x()-_radius > upper_right.x() : return false
-    if pos.z()+_radius < lower_left.z() : return false
-    if pos.z()-_radius > upper_right.z() : return false
+    if pos.x()+_radius < lower_left.x() : return False
+    if pos.x()-_radius > upper_right.x() : return False
+    if pos.z()+_radius < lower_left.z() : return False
+    if pos.z()-_radius > upper_right.z() : return False
 
-    true = return()
+    return True
 
 bool CatchableObject.centerInside( osg.Vec3 center, float radius)
-    delta =  _object.getPosition() - center
+    delta = _object.getPosition() - center
     return (delta.length()<radius)
 
 
 void CatchableObject.explode()
-    position = osg.Vec3(0.0f,0.0f,0.0f)
-    explosion =  new osgParticle.ExplosionEffect(position, _radius)
-    explosionDebri =  new osgParticle.ExplosionDebrisEffect(position, _radius)
-    smoke =  new osgParticle.SmokeEffect(position, _radius)
-    fire =  new osgParticle.FireEffect(position, _radius)
+    position = osg.Vec3(0.0,0.0,0.0)
+    explosion = osgParticle.ExplosionEffect(position, _radius)
+    explosionDebri = osgParticle.ExplosionDebrisEffect(position, _radius)
+    smoke = osgParticle.SmokeEffect(position, _radius)
+    fire = osgParticle.FireEffect(position, _radius)
 
     explosion.setWind(_wind)
     explosionDebri.setWind(_wind)
@@ -453,27 +467,28 @@ void CatchableObject.explode()
     _object.addChild(smoke)
     _object.addChild(fire)
 
-    _dangerous = true
+    _dangerous = True
 
 
 
 
 #############################################################
 #
-class GameEventHandler : public osgGA.GUIEventHandler
-public:
+class GameEventHandler (osgGA.GUIEventHandler) :
 
     GameEventHandler()
     
     META_Object(osgStereImageApp,GameEventHandler)
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     
     virtual void getUsage(osg.ApplicationUsage usage) 
     
     getCameraPosition = osg.Matrix()
     
     def compileGLObjects(state):
+    
+        
         compile = osgUtil.GLObjectsVisitor()
         compile.setState(state)
     
@@ -484,19 +499,24 @@ public:
     
     createScene = osg.Node*()
     
-    void setFOVY(float fovy)  _fovy = fovy 
-    float getFOVY()   return _fovy 
+    def setFOVY(fovy):
+    
+         _fovy = fovy 
+    def getFOVY():
+         return _fovy 
     
     createNewCatchable = void()
     
     def clearCatchables():
+    
+        
         for(CatchableObjectList.iterator itr=_catchableObjects.begin()
             itr!=_catchableObjects.end()
             ++itr)
             # need to remove
             # remove child from parents.
-            osg.ref_ptr<osg.PositionAttitudeTransform> child = (*itr)._object
-            parents =  child.getParents()
+            child = (*itr)._object
+            parents = child.getParents()
             for(osg.Node.ParentList.iterator pitr=parents.begin()
                 pitr!=parents.end()
                 ++pitr)
@@ -505,6 +525,8 @@ public:
         _catchableObjects.clear()
     
     def resetLevel():
+    
+        
         _level = 0
         _levelSwitch.setSingleChildOn(_level)
         clearCatchables()
@@ -514,6 +536,8 @@ public:
         _levelStartTick = osg.Timer.instance().tick()
     
     def nextLevel():
+    
+        
         ++_level
         if _level < _levelSwitch.getNumChildren() :
             _levelSwitch.setSingleChildOn(_level)
@@ -524,9 +548,13 @@ public:
         _levelStartTick = osg.Timer.instance().tick()
 
     def gameComplete():
+
+        
         return _level >= _levelSwitch.getNumChildren()
 
     def resetGame():
+
+        
         _currentScore = 0
         
         updateTextWithScore()
@@ -544,60 +572,68 @@ public:
     
 
     def addPlayer(player):
+
+        
         livesPosition = osg.Vec3()
         catchesPosition = osg.Vec3()
         if _numberOfPlayers==0 :
-            livesPosition = _originBaseLine+osg.Vec3(0.0f,-0.5f,0.0f)
-            catchesPosition = _originBaseLine+osg.Vec3(100.0f,-0.5f,0.0f)
-        else:
-            livesPosition = _originBaseLine+osg.Vec3(1000.0f,-0.5f,000.0f)
-            catchesPosition = _originBaseLine+osg.Vec3(1100.0f,-0.5f,0.0f)
+            livesPosition = _originBaseLine+osg.Vec3(0.0,-0.5,0.0)
+            catchesPosition = _originBaseLine+osg.Vec3(100.0,-0.5,0.0)
+        else :
+            livesPosition = _originBaseLine+osg.Vec3(1000.0,-0.5,000.0)
+            catchesPosition = _originBaseLine+osg.Vec3(1100.0,-0.5,0.0)
         
         switch(player)
             case PLAYER_GIRL:
-                player_one =  "Catch/girl.png" 
+                player_one = "Catch/girl.png" 
                 catchPos = osg.Vec3(0.2, 0.57, 0.34)
 
-                _players[_numberOfPlayers].setCharacter(player_one,"girl", _originBaseLine + osg.Vec3(0.0f,-1.0f,0.0f), _widthBaseLine, catchPos, 0.5f)
-                _players[_numberOfPlayers].setLives(player_one,livesPosition, osg.Vec3(0.0f,0.0f,100.0f),3)
-                _players[_numberOfPlayers].setCatches("Catch/broach.png",catchesPosition, osg.Vec3(0.0f,0.0f,100.0f),10)
+                _players[_numberOfPlayers].setCharacter(player_one,"girl", _originBaseLine + osg.Vec3(0.0,-1.0,0.0), _widthBaseLine, catchPos, 0.5)
+                _players[_numberOfPlayers].setLives(player_one,livesPosition, osg.Vec3(0.0,0.0,100.0),3)
+                _players[_numberOfPlayers].setCatches("Catch/broach.png",catchesPosition, osg.Vec3(0.0,0.0,100.0),10)
 
                 ++_numberOfPlayers
                 break
             case PLAYER_BOY:
-                player_two =  "Catch/boy.png" 
+                player_two = "Catch/boy.png" 
                 catchPos = osg.Vec3(0.8, 0.57, 0.34)
 
-                _players[_numberOfPlayers].setCharacter(player_two,"boy", _originBaseLine + osg.Vec3(0.0f,-2.0f,0.0f), _widthBaseLine, catchPos, 0.5f)
-                _players[_numberOfPlayers].setLives(player_two,livesPosition, osg.Vec3(0.0f,0.0f,100.0f),3)
-                _players[_numberOfPlayers].setCatches("Catch/broach.png",catchesPosition, osg.Vec3(0.0f,0.0f,100.0f),10)
+                _players[_numberOfPlayers].setCharacter(player_two,"boy", _originBaseLine + osg.Vec3(0.0,-2.0,0.0), _widthBaseLine, catchPos, 0.5)
+                _players[_numberOfPlayers].setLives(player_two,livesPosition, osg.Vec3(0.0,0.0,100.0),3)
+                _players[_numberOfPlayers].setCatches("Catch/broach.png",catchesPosition, osg.Vec3(0.0,0.0,100.0),10)
 
                  ++_numberOfPlayers
                break
     
     
-    typedef std.vector< osg.ref_ptr<osgText.Text> > TextList
+    typedef std.vector< osgText.Text > TextList
 
     def updateScoreWithCatch():
+
+        
         _currentScore += 1
         updateTextWithScore()
 
     def updateScoreWithLevel():
-        newTick =  osg.Timer.instance().tick()
-        timeForLevel =  osg.Timer.instance().delta_s(_levelStartTick, newTick)
+
+        
+        newTick = osg.Timer.instance().tick()
+        timeForLevel = osg.Timer.instance().delta_s(_levelStartTick, newTick)
 
         # a ten second level gets you 10 points, 
         # a twenty second levels gets you 5 points.        
-        _currentScore += static_cast<unsigned int>(10000.0f/(timeForLevel*timeForLevel))
+        _currentScore += static_cast<unsigned int>(10000.0/(timeForLevel*timeForLevel))
 
         updateTextWithScore()
 
 
     def updateTextWithScore():
+
+        
         os = std.ostringstream()
         os, "Score: ", _currentScore
         
-        textString =  os.str()
+        textString = os.str()
     
         for(TextList.iterator itr = _scoreTextList.begin()
             itr != _scoreTextList.end()
@@ -605,12 +641,11 @@ public:
             (*itr).setText(textString)
     
     def updateLevelText():
+    
+        
         os = std.ostringstream()
         os, "Level: ", _level+1
         _levelText.setText(os.str())
-        
-
-protected:
 
     ~GameEventHandler() 
     GameEventHandler( GameEventHandler, osg.CopyOp) 
@@ -629,26 +664,26 @@ protected:
     _chanceOfExplodingAtStart = float()
     _initialNumDropsPerSecond = float()
     
-    osg.ref_ptr<osg.Switch>   _gameSwitch
-    osg.ref_ptr<osg.Group>    _gameGroup
-    osg.ref_ptr<osg.Switch>   _levelSwitch
+    _gameSwitch = osg.Switch()
+    _gameGroup = osg.Group()
+    _levelSwitch = osg.Switch()
     
-    unsigned int                _currentIndex
-    unsigned int                _welcomeIndex
-    unsigned int                _lostIndex
-    unsigned int                _wonIndex
-    unsigned int                _gameIndex
+    _currentIndex = unsigned int()
+    _welcomeIndex = unsigned int()
+    _lostIndex = unsigned int()
+    _wonIndex = unsigned int()
+    _gameIndex = unsigned int()
     
     _levelStartTick = osg.Timer_t()
-    unsigned int                _currentScore
+    _currentScore = unsigned int()
     
-    osg.ref_ptr<osgText.Text> _levelText
+    _levelText = osgText.Text()
     _scoreTextList = TextList()
     
-    unsigned int _numberOfPlayers
+    _numberOfPlayers = unsigned int()
     Character _players[2]
 
-    typedef std.list< osg.ref_ptr<CatchableObject> > CatchableObjectList
+    typedef std.list< CatchableObject > CatchableObjectList
     _catchableObjects = CatchableObjectList()
     
     _backgroundFiles = FileList()
@@ -657,7 +692,7 @@ protected:
     _leftKeyPressed = bool()
     _rightKeyPressed = bool()
     
-    osg.ref_ptr<CatchableObject> _dummyCatchable
+    _dummyCatchable = CatchableObject()
     
         
 
@@ -666,21 +701,21 @@ protected:
 
 
 GameEventHandler.GameEventHandler()
-    _origin.set(0.0f,0.0f,0.0f)
-    _width.set(1280.0f,0.0f,0.0f)
-    _height.set(0.0f,0.0f,1024.0f)
-    _widthBaseLine = _width*0.9f
-    _originBaseLine = _origin+_width*0.5-_widthBaseLine*0.5f
-    _characterSize = _width.length()*0.2f
+    _origin.set(0.0,0.0,0.0)
+    _width.set(1280.0,0.0,0.0)
+    _height.set(0.0,0.0,1024.0)
+    _widthBaseLine = _width*0.9
+    _originBaseLine = _origin+_width*0.5-_widthBaseLine*0.5
+    _characterSize = _width.length()*0.2
 
     _numberOfPlayers = 0
     _level = 0
 
-    _chanceOfExplodingAtStart = 0.1f
-    _initialNumDropsPerSecond = 1.0f
+    _chanceOfExplodingAtStart = 0.1
+    _initialNumDropsPerSecond = 1.0
 
-    _leftKeyPressed=false
-    _rightKeyPressed=false
+    _leftKeyPressed=False
+    _rightKeyPressed=False
 
     _backgroundFiles.push_back("Catch/sky1.JPG")
     _backgroundFiles.push_back("Catch/sky3.JPG")
@@ -712,33 +747,33 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                 _currentIndex = _gameIndex
                 _gameSwitch.setSingleChildOn(_currentIndex)
                 resetGame()
-                true = return()
+                return True
             default:
-                false = return()
+                return False
         
-    else: if _currentIndex==_lostIndex :
+    elif _currentIndex==_lostIndex :
         # lost screen
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
                 _currentIndex = _gameIndex
                 _gameSwitch.setSingleChildOn(_currentIndex)
                 resetGame()
-                true = return()
+                return True
             default:
-                false = return()
+                return False
         
-    else: if _currentIndex==_wonIndex :
+    elif _currentIndex==_wonIndex :
         # won screen
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
                 _currentIndex = _gameIndex
                 _gameSwitch.setSingleChildOn(_currentIndex)
                 resetGame()
-                true = return()
+                return True
             default:
-                false = return()
+                return False
         
-    else: if _currentIndex==_gameIndex :
+    elif _currentIndex==_gameIndex :
         # in game.
 
         switch(ea.getEventType())
@@ -751,7 +786,7 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                     if _numberOfPlayers>=2 : _players[1].moveRight()
 
                 static double previous_time = ea.getTime()
-                dt =  ea.getTime()-previous_time
+                dt = ea.getTime()-previous_time
                 previous_time = ea.getTime()
 
                 # move objects
@@ -760,10 +795,10 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                     ++itr)
                     (*itr).update(dt)
 
-                    removeEntry =  false
+                    removeEntry = False
 
                     for(unsigned int i=0i<_numberOfPlayers++i)
-                        inBasket =  ((*itr).centerInside(_players[i].getCurrentCenterOfBasket(),_players[i].getCurrentRadiusOfBasket()))
+                        inBasket = ((*itr).centerInside(_players[i].getCurrentCenterOfBasket(),_players[i].getCurrentRadiusOfBasket()))
                     
                         if *itr :.dangerous() :
                             if *itr :.anyInside(_players[i].getLowerLeft(),_players[i].getUpperRight()) || inBasket :
@@ -772,11 +807,11 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                                     _currentIndex = _lostIndex
                                     _gameSwitch.setSingleChildOn(_currentIndex)
 
-                                    true = return()
-                                else:
+                                    return True
+                                else :
                                     clearCatchables()
-                                    true = return()
-                        else: if inBasket :
+                                    return True
+                        elif inBasket :
                             # player has caught a safe object.
                             updateScoreWithCatch()
                             
@@ -787,17 +822,17 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                                 if gameComplete() :
                                     _currentIndex = _wonIndex
                                     _gameSwitch.setSingleChildOn(_currentIndex)
-                                true = return()
+                                return True
 
-                            removeEntry = true
+                            removeEntry = True
 
                     if !(*itr).anyInside(_origin, _origin+_width+_height) || 
                         (*itr).needToRemove(ea.getTime()) ||
                         removeEntry :
                         # need to remove
                         # remove child from parents.
-                        osg.ref_ptr<osg.PositionAttitudeTransform> child = (*itr)._object
-                        parents =  child.getParents()
+                        child = (*itr)._object
+                        parents = child.getParents()
                         for(osg.Node.ParentList.iterator pitr=parents.begin()
                             pitr!=parents.end()
                             ++pitr)
@@ -806,7 +841,7 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                         # remove child from catchable list
                         itr = _catchableObjects.erase(itr)
 
-                    else: if *itr :.anyInside(_origin, _origin+_width)  !(*itr).stopped() :
+                    elif *itr :.anyInside(_origin, _origin+_width)  !(*itr).stopped() :
                         # hit base line
                         (*itr).explode()
                         (*itr).stop()
@@ -814,13 +849,13 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
 
 
-                # create new catchable objects
+                # create catchable objects
                 static double previousTime = ea.getTime()
-                deltaTime =  ea.getTime()-previousTime
+                deltaTime = ea.getTime()-previousTime
                 previousTime = ea.getTime()
 
-                numDropsPerSecond =  _initialNumDropsPerSecond * (_level+1)
-                r =  (float)rand()/(float)RAND_MAX
+                numDropsPerSecond = _initialNumDropsPerSecond * (_level+1)
+                r = (float)rand()/(float)RAND_MAX
                 if r < deltaTime*numDropsPerSecond :
                     createNewCatchable()
 
@@ -828,106 +863,106 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
             case(osgGA.GUIEventAdapter.KEYDOWN):
                 if ea.getKey()==osgGA.GUIEventAdapter.KEY_Left :
-                    _leftKeyPressed=true
-                    true = return()
-                else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right :
-                    _rightKeyPressed=true
-                    true = return()
+                    _leftKeyPressed=True
+                    return True
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Right :
+                    _rightKeyPressed=True
+                    return True
             case(osgGA.GUIEventAdapter.KEYUP):
                 if ea.getKey()==osgGA.GUIEventAdapter.KEY_Left :
-                    _leftKeyPressed=false
-                    true = return()
-                else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right :
-                    _rightKeyPressed=false
-                    true = return()
+                    _leftKeyPressed=False
+                    return True
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Right :
+                    _rightKeyPressed=False
+                    return True
             case(osgGA.GUIEventAdapter.DRAG):
             case(osgGA.GUIEventAdapter.MOVE):
-                px =  (ea.getXnormalized()+1.0f)*0.5f
+                px = (ea.getXnormalized()+1.0)*0.5
 
                 if _numberOfPlayers>=1 : _players[0].moveTo(px)
 
-                true = return()
+                return True
 
             default:
-                false = return()
-    false = return()    
+                return False
+    return False    
 
 void GameEventHandler.getUsage(osg.ApplicationUsage) 
 
 osg.Matrix GameEventHandler.getCameraPosition()
     cameraPosition = osg.Matrix()
-    center =  _origin+(_width+_height)*0.5f
+    center = _origin+(_width+_height)*0.5
     
-    distance =  _height.length()/(2.0f*tanf(_fovy*0.5f))
+    distance = _height.length()/(2.0*tanf(_fovy*0.5))
     
-    cameraPosition.makeLookAt(center-osg.Vec3(0.0f,distance,0.0f),center,osg.Vec3(0.0f,0.0f,1.0f))
-    cameraPosition = return()
+    cameraPosition.makeLookAt(center-osg.Vec3(0.0,distance,0.0),center,osg.Vec3(0.0,0.0,1.0))
+    return cameraPosition
 
 osg.Node* GameEventHandler.createScene()
-    _gameSwitch = new osg.Switch
+    _gameSwitch = osg.Switch()
     
     # create a dummy catchable to load all the particule textures to reduce 
     # latency later on..
-    _dummyCatchable = new CatchableObject
-    _dummyCatchable.setObject("Catch/a.png","a",osg.Vec3(0.0f,0.0,0.0f),1.0f,osg.Vec3(0.0f,0.0,0.0f))
+    _dummyCatchable = CatchableObject()
+    _dummyCatchable.setObject("Catch/a.png","a",osg.Vec3(0.0,0.0,0.0),1.0,osg.Vec3(0.0,0.0,0.0))
     _dummyCatchable.explode()
 
     # set up welcome subgraph
-        geode =  new osg.Geode
+        geode = osg.Geode()
 
         # set up the background
-        image =  osgDB.readImageFile("Catch/Welcome.jpg")
+        image = osgDB.readImageFile("Catch/Welcome.jpg")
         if image :
-            geometry =  osg.createTexturedQuadGeometry(_origin,_width,_height)
-            stateset =  geometry.getOrCreateStateSet()
-            stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+            geometry = osg.createTexturedQuadGeometry(_origin,_width,_height)
+            stateset = geometry.getOrCreateStateSet()
+            stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
 
             geode.addDrawable(geometry)
         
         # set up the text
-        textPosition =  _origin+_width*0.5f+_height*0.8f -osg.Vec3(0.0f,0.1f,0.0f)
-            text =  new osgText.Text
+        textPosition = _origin+_width*0.5+_height*0.8 -osg.Vec3(0.0,0.1,0.0)
+            text = osgText.Text()
             text.setText("osgcatch is a childrens catching game\nMove your character using the mouse to\ncatch falling objects in your net\nbut avoid burning objects - they kill!!")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
         
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Move mouse left and right to move character\nCatch ten objects to advance to next level\nComplete four levels to win.")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
 
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Game concept and artwork - Caitlin Osfield, aged 5!\nSoftware development - Robert Osfield")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
 
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Press any key to start game.\nPress Escape to exit game at any time.")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
@@ -937,36 +972,36 @@ osg.Node* GameEventHandler.createScene()
         _gameSwitch.addChild(geode)
 
     # set up you've lost subgraph
-        geode =  new osg.Geode
+        geode = osg.Geode()
 
-        image =  osgDB.readImageFile("Catch/YouLost.jpg")
+        image = osgDB.readImageFile("Catch/YouLost.jpg")
         if image :
-            geometry =  osg.createTexturedQuadGeometry(_origin,_width,_height)
-            stateset =  geometry.getOrCreateStateSet()
-            stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+            geometry = osg.createTexturedQuadGeometry(_origin,_width,_height)
+            stateset = geometry.getOrCreateStateSet()
+            stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
 
             geode.addDrawable(geometry)
         
         # set up the text
-        textPosition =  _origin+_width*0.5f+_height*0.75f -osg.Vec3(0.0f,0.1f,0.0f)
-            text =  new osgText.Text
+        textPosition = _origin+_width*0.5+_height*0.75 -osg.Vec3(0.0,0.1,0.0)
+            text = osgText.Text()
             text.setText("Game Over\nYou lost all three lives")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.04f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.04)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
         
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Score: 0")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.04f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.04)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
             text.setDataVariance(osg.Object.DYNAMIC)
@@ -974,13 +1009,13 @@ osg.Node* GameEventHandler.createScene()
             geode.addDrawable(text)
             _scoreTextList.push_back(text)
 
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Press any key to have another game.\nPress Escape to exit game.")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
@@ -990,49 +1025,49 @@ osg.Node* GameEventHandler.createScene()
         _gameSwitch.addChild(geode)
 
     # set up you've won subgraph
-        geode =  new osg.Geode
+        geode = osg.Geode()
 
-        image =  osgDB.readImageFile("Catch/YouWon.jpg")
+        image = osgDB.readImageFile("Catch/YouWon.jpg")
         if image :
-            geometry =  osg.createTexturedQuadGeometry(_origin,_width,_height)
-            stateset =  geometry.getOrCreateStateSet()
-            stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+            geometry = osg.createTexturedQuadGeometry(_origin,_width,_height)
+            stateset = geometry.getOrCreateStateSet()
+            stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
 
             geode.addDrawable(geometry)
         
         # set up the text
-        textPosition =  _origin+_width*0.5f+_height*0.75f -osg.Vec3(0.0f,0.1f,0.0f)
-            text =  new osgText.Text
+        textPosition = _origin+_width*0.5+_height*0.75 -osg.Vec3(0.0,0.1,0.0)
+            text = osgText.Text()
             text.setText("Well done!!!\nYou completed all levels!")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.04f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.04)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
         
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Score: 0")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.04f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.04)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
             geode.addDrawable(text)
             _scoreTextList.push_back(text)
 
-            textPosition -= _height*0.25f
-            text =  new osgText.Text
+            textPosition -= _height*0.25
+            text = osgText.Text()
             text.setText("Press any key to have another game.\nPress Escape to exit game.")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.025f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.025)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setAlignment(osgText.Text.CENTER_CENTER)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
@@ -1042,7 +1077,7 @@ osg.Node* GameEventHandler.createScene()
         _gameSwitch.addChild(geode)
 
     # set up game subgraph.
-        _gameGroup = new osg.Group
+        _gameGroup = osg.Group()
 
         if _numberOfPlayers==0 :
             addPlayer(PLAYER_GIRL)
@@ -1053,19 +1088,19 @@ osg.Node* GameEventHandler.createScene()
             _gameGroup.addChild(_players[i]._catchSwitch.get())
 
         # background
-            _levelSwitch = new osg.Switch
+            _levelSwitch = osg.Switch()
 
             for(FileList.const_iterator itr = _backgroundFiles.begin()
                 itr != _backgroundFiles.end()
                 ++itr)
 
-                image =  osgDB.readImageFile(*itr)
+                image = osgDB.readImageFile(*itr)
                 if image :
-                    geometry =  osg.createTexturedQuadGeometry(_origin,_width,_height)
-                    stateset =  geometry.getOrCreateStateSet()
-                    stateset.setTextureAttributeAndModes(0,new osg.Texture2D(image),osg.StateAttribute.ON)
+                    geometry = osg.createTexturedQuadGeometry(_origin,_width,_height)
+                    stateset = geometry.getOrCreateStateSet()
+                    stateset.setTextureAttributeAndModes(0,osg.Texture2D(image),osg.StateAttribute.ON)
 
-                    geode =  new osg.Geode
+                    geode = osg.Geode()
                     geode.addDrawable(geometry)
 
                     _levelSwitch.addChild(geode)
@@ -1077,27 +1112,27 @@ osg.Node* GameEventHandler.createScene()
         _gameSwitch.addChild(_gameGroup.get())
 
         # set up the text
-        textPosition =  _origin+_width*0.05f+_height*0.95f-osg.Vec3(0.0f,0.1f,0.0f)
-            text =  new osgText.Text
+        textPosition = _origin+_width*0.05+_height*0.95-osg.Vec3(0.0,0.1,0.0)
+            text = osgText.Text()
             text.setText("Score : 0")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
-            text.setCharacterSize(_width.length()*0.04f)
-            text.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            text.setCharacterSize(_width.length()*0.04)
+            text.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             text.setDataVariance(osg.Object.DYNAMIC)
             text.setAxisAlignment(osgText.Text.XZ_PLANE)
 
-            geode =  new osg.Geode
+            geode = osg.Geode()
             geode.addDrawable(text)
             _scoreTextList.push_back(text)
             
-            textPosition -= _height*0.05f
-            _levelText = new osgText.Text
+            textPosition -= _height*0.05
+            _levelText = osgText.Text()
             _levelText.setText("Level : 0")
             _levelText.setFont("fonts/dirtydoz.ttf")
             _levelText.setPosition(textPosition)
-            _levelText.setCharacterSize(_width.length()*0.04f)
-            _levelText.setColor(osg.Vec4(0.0f,0.2f,0.2f,1.0f))
+            _levelText.setCharacterSize(_width.length()*0.04)
+            _levelText.setColor(osg.Vec4(0.0,0.2,0.2,1.0))
             _levelText.setDataVariance(osg.Object.DYNAMIC)
             _levelText.setAxisAlignment(osgText.Text.XZ_PLANE)
 
@@ -1117,37 +1152,36 @@ osg.Node* GameEventHandler.createScene()
 void GameEventHandler.createNewCatchable()
     if _benignCatachables.empty() : return
 
-    unsigned int catachableIndex = (unsigned int)((float)_benignCatachables.size()*(float)rand()/(float)RAND_MAX)
+    catachableIndex = (unsigned int)((float)_benignCatachables.size()*(float)rand()/(float)RAND_MAX)
     if catachableIndex>=_benignCatachables.size() : catachableIndex = _benignCatachables.size()-1
     
-    filename =  _benignCatachables[catachableIndex]
+    filename = _benignCatachables[catachableIndex]
 
-    ratio =  ((float)rand() / (float)RAND_MAX)
-    size =  20.0f+100.0f*((float)rand() / (float)RAND_MAX)
-    angle =  osg.PI*0.25f + 0.5f*osg.PI*((float)rand() / (float)RAND_MAX)
-    speed =  200.0f*((float)rand() / (float)RAND_MAX)
+    ratio = ((float)rand() / (float)RAND_MAX)
+    size = 20.0+100.0*((float)rand() / (float)RAND_MAX)
+    angle = osg.PI*0.25 + 0.5*osg.PI*((float)rand() / (float)RAND_MAX)
+    speed = 200.0*((float)rand() / (float)RAND_MAX)
 
-    catchableObject =  new CatchableObject
-    position =  _origin+_height+_width*ratio + osg.Vec3(0.0f,-0.7f,0.0f)
-    velocity = osg.Vec3(-cosf(angle)*speed,0.0f,-sinf(angle)*speed)
+    catchableObject = CatchableObject()
+    position = _origin+_height+_width*ratio + osg.Vec3(0.0,-0.7,0.0)
+    velocity = osg.Vec3(-cosf(angle)*speed,0.0,-sinf(angle)*speed)
     #print "angle = ", angle, " velocity=", velocity
     catchableObject.setObject(filename,"boy",position,size,velocity)
     _catchableObjects.push_back(catchableObject)
 
-    r =  (float)rand() / (float)RAND_MAX
+    r = (float)rand() / (float)RAND_MAX
     if r < _chanceOfExplodingAtStart :
        catchableObject.explode() 
 
     _gameGroup.addChild(catchableObject._object.get())
 
-class CompileStateCallback : public osg.Operation
-    public:
+class CompileStateCallback (osg.Operation) :
         CompileStateCallback(GameEventHandler* eh):
-            osg.Operation("CompileStateCallback", false),
+            osg.Operation("CompileStateCallback", False),
             _gameEventHandler(eh) 
         
         virtual void operator () (osg.Object* object)
-            context =  dynamic_cast<osg.GraphicsContext*>(object)
+            context = dynamic_cast<osg.GraphicsContext*>(object)
             if !context : return
 
             if _gameEventHandler :
@@ -1158,6 +1192,9 @@ class CompileStateCallback : public osg.Operation
 
 
 def main(argc, argv):
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -1175,7 +1212,7 @@ def main(argc, argv):
 
 
     # register the handler to add keyboard and mouse handling.
-    seh =  new GameEventHandler()
+    seh = GameEventHandler()
     viewer.addEventHandler(seh)
 
     while arguments.read("--boy") : seh.addPlayer(GameEventHandler.PLAYER_BOY)
@@ -1197,26 +1234,26 @@ def main(argc, argv):
     
     
     # enable the image cache so we don't need to keep loading the particle files
-    options =  new osgDB.ReaderWriter.Options
+    options = osgDB.ReaderWriter.Options()
     options.setObjectCacheHint(osgDB.ReaderWriter.Options.CACHE_IMAGES)
     osgDB.Registry.instance().setOptions(options)
 
 
     # creat the scene from the file list.
-    osg.ref_ptr<osg.Node> rootNode = seh.createScene()
+    rootNode = seh.createScene()
 
     rootNode.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
     #osgDB.writeNodeFile(*rootNode,"test.osgt")
 
-    # for some reason osgcatch is hanging on exit inside the new TextureObject clean up code when the it's
+    # for some reason osgcatch is hanging on exit inside the TextureObject clean up code when the it's
     # run as multi-threaded view, switching to SingleThreaded cures this.
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # set the scene to render
     viewer.setSceneData(rootNode.get())
 
-    viewer.setRealizeOperation(new CompileStateCallback(seh))
+    viewer.setRealizeOperation(CompileStateCallback(seh))
 
     double fovy, aspectRatio, zNear, zFar
     viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar)
@@ -1233,10 +1270,10 @@ def main(argc, argv):
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
         itr != windows.end()
         ++itr)
-        (*itr).useCursor(false)
+        (*itr).useCursor(False)
 
     # todo for osgViewer - implement warp pointer that can be done relative to different coordinate frames
-    # viewer.requestWarpPointer(0.5f,0.5f)        
+    # viewer.requestWarpPointer(0.5,0.5)        
 
     while  !viewer.done()  :
         viewer.getCamera().setViewMatrix(seh.getCameraPosition())

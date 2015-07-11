@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgphotoalbum.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'ImageReaderWriter.cpp'
+
+# OpenSceneGraph example, osgphotoalbum.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 
 #include "ImageReaderWriter.h"
@@ -45,20 +48,20 @@ ImageReaderWriter.DataReference.DataReference():
     _fileName(),
     _resolutionX(256),
     _resolutionY(256),
-    _center(0.625f,0.0f,0.0f),
-    _maximumWidth(1.25f,0.0f,0.0f),
-    _maximumHeight(0.0f,0.0f,1.0f),
+    _center(0.625,0.0,0.0),
+    _maximumWidth(1.25,0.0,0.0),
+    _maximumHeight(0.0,0.0,1.0),
     _numPointsAcross(10),
     _numPointsUp(10),
-    _backPage(false) 
+    _backPage(False) 
 
 ImageReaderWriter.DataReference.DataReference( str fileName, unsigned int res, float width, float height,bool backPage):
     _fileName(fileName),
     _resolutionX(res),
     _resolutionY(res),
-    _center(width*0.5f,0.0f,height*0.5f),
-    _maximumWidth(width,0.0f,0.0f),
-    _maximumHeight(0.0f,0.0f,height),
+    _center(width*0.5,0.0,height*0.5),
+    _maximumWidth(width,0.0,0.0),
+    _maximumHeight(0.0,0.0,height),
     _numPointsAcross(10),
     _numPointsUp(10),
     _backPage(backPage) 
@@ -82,49 +85,49 @@ str ImageReaderWriter.local_insertReference( str fileName, unsigned int res, flo
     ostr = strstream()
     ostr, "res_", res, "_", fileName
 
-    myReference =  ostr.str()
+    myReference = ostr.str()
     _dataReferences[myReference] = DataReference(fileName,res,width,height,backPage)
-    myReference = return()
+    return myReference
 
 osg.Image* ImageReaderWriter.readImage_Archive(DataReference dr, float s,float t)
     for(PhotoArchiveList.iterator itr=_photoArchiveList.begin()
         itr!=_photoArchiveList.end()
         ++itr)
-        image =  (*itr).readImage(dr._fileName,dr._resolutionX,dr._resolutionY,s,t)
+        image = (*itr).readImage(dr._fileName,dr._resolutionX,dr._resolutionY,s,t)
         if image : return image
     return 0
 
 osg.Image* ImageReaderWriter.readImage_DynamicSampling(DataReference dr, float s,float t)
 
     # record previous options.
-    osg.ref_ptr<osgDB.ReaderWriter.Options> previousOptions = osgDB.Registry.instance().getOptions()
+    previousOptions = osgDB.Registry.instance().getOptions()
 
-    osg.ref_ptr<osgDB.ImageOptions> options = new osgDB.ImageOptions
+    options = osgDB.ImageOptions()
     options._destinationImageWindowMode = osgDB.ImageOptions.PIXEL_WINDOW
     options._destinationPixelWindow.set(0,0,dr._resolutionX,dr._resolutionY)
 
     osgDB.Registry.instance().setOptions(options.get())
 
-    image =  osgDB.readImageFile(dr._fileName)
+    image = osgDB.readImageFile(dr._fileName)
 
     # restore previous options.
     osgDB.Registry.instance().setOptions(previousOptions.get())
 
-    s = options.valid()?options._sourcePixelWindow.windowWidth:1.0f
-    t = options.valid()?options._sourcePixelWindow.windowHeight:1.0f
+    s = options.valid()?options._sourcePixelWindow.windowWidth:1.0
+    t = options.valid()?options._sourcePixelWindow.windowHeight:1.0
 
-    image = return()
+    return image
 
 
 
 osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  Options*)
-    itr =  _dataReferences.find(fileName)
+    itr = _dataReferences.find(fileName)
     if itr==_dataReferences.end() : return osgDB.ReaderWriter.ReadResult.FILE_NOT_HANDLED
 
-    dr =  itr.second
+    dr = itr.second
 
-    image =  0
-    s = 1.0f,t=1.0f
+    image = 0
+    s = 1.0,t=1.0
 
     # try to load photo from any loaded PhotoArchives
     if !_photoArchiveList.empty() :
@@ -138,10 +141,10 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
     if image :
 
 
-        photoWidth =  0.0f
-        photoHeight =  0.0f
-        maxWidth =  dr._maximumWidth.length()
-        maxHeight =  dr._maximumHeight.length()
+        photoWidth = 0.0
+        photoHeight = 0.0
+        maxWidth = dr._maximumWidth.length()
+        maxHeight = dr._maximumHeight.length()
 
 
         if s/t :>(maxWidth/maxHeight) :
@@ -151,7 +154,7 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
 
             photoWidth = maxWidth
             photoHeight = photoWidth*(t/s)
-        else:
+        else :
             # photo tall than wide relative to the required pictures size.
             # so need to clamp the height to the maximum height and then
             # set the width to keep the original photo aspect ratio.
@@ -162,82 +165,85 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
         photoWidth*=0.95
         photoHeight*=0.95
 
-        halfWidthVector = osg.Vec3(dr._maximumWidth*(photoWidth*0.5f/maxWidth))
-        halfHeightVector = osg.Vec3(dr._maximumHeight*(photoHeight*0.5f/maxHeight))
+        halfWidthVector = osg.Vec3(dr._maximumWidth*(photoWidth*0.5/maxWidth))
+        halfHeightVector = osg.Vec3(dr._maximumHeight*(photoHeight*0.5/maxHeight))
 
 
         # set up the texture.
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
         texture.setImage(image)
-        texture.setResizeNonPowerOfTwoHint(false)
+        texture.setResizeNonPowerOfTwoHint(False)
         texture.setFilter(osg.Texture.MIN_FILTER,osg.Texture.LINEAR)
         texture.setFilter(osg.Texture.MAG_FILTER,osg.Texture.LINEAR)
 
         # set up the drawstate.
-        dstate =  new osg.StateSet
+        dstate = osg.StateSet()
         dstate.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
         dstate.setTextureAttributeAndModes(0, texture,osg.StateAttribute.ON)
 
         # set up the geoset.
-        geom =  new osg.Geometry
+        geom = osg.Geometry()
         geom.setStateSet(dstate)
 
-        coords =  new osg.Vec3Array(4)
+        coords = osg.Vec3Array(4)
 
         if !dr._backPage :
             (*coords)[0] = dr._center - halfWidthVector + halfHeightVector
             (*coords)[1] = dr._center - halfWidthVector - halfHeightVector
             (*coords)[2] = dr._center + halfWidthVector - halfHeightVector
             (*coords)[3] = dr._center + halfWidthVector + halfHeightVector
-        else:
+        else :
             (*coords)[3] = dr._center - halfWidthVector + halfHeightVector
             (*coords)[2] = dr._center - halfWidthVector - halfHeightVector
             (*coords)[1] = dr._center + halfWidthVector - halfHeightVector
             (*coords)[0] = dr._center + halfWidthVector + halfHeightVector
         geom.setVertexArray(coords)
 
-        tcoords =  new osg.Vec2Array(4)
-        (*tcoords)[0].set(0.0f,1.0f)
-        (*tcoords)[1].set(0.0f,0.0f)
-        (*tcoords)[2].set(1.0f,0.0f)
-        (*tcoords)[3].set(1.0f,1.0f)
+        tcoords = osg.Vec2Array(4)
+        (*tcoords)[0].set(0.0,1.0)
+        (*tcoords)[1].set(0.0,0.0)
+        (*tcoords)[2].set(1.0,0.0)
+        (*tcoords)[3].set(1.0,1.0)
         geom.setTexCoordArray(0,tcoords)
 
-        colours =  new osg.Vec4Array(1)
-        (*colours)[0].set(1.0f,1.0f,1.0,1.0f)
+        colours = osg.Vec4Array(1)
+        (*colours)[0].set(1.0,1.0,1.0,1.0)
         geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
-        geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+        geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
         # set up the geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geom)
 
-        geode = return()
+        return geode
 
-    else:
+    else :
         return osgDB.ReaderWriter.ReadResult.FILE_NOT_HANDLED
 
 
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgphotoalbum.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'ImageReaderWriter.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgphotoalbum.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef IMAGEREADERWRITER_H
 #define IMAGEREADERWRITER_H
@@ -253,25 +259,29 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
 
 #define SERIALIZER() OpenThreads.ScopedLock<OpenThreads.ReentrantMutex> lock(_serializerMutex)  
 
-class ImageReaderWriter : public osgDB.ReaderWriter
-    public:
+class ImageReaderWriter (osgDB.ReaderWriter) :
         
         ImageReaderWriter()
         
-        virtual  char* className()   return "ImageReader" 
+        def className():
+        
+             return "ImageReader" 
 
-        void addPhotoArchive(PhotoArchive* archive)  _photoArchiveList.push_back(archive) 
+        def addPhotoArchive(archive):
 
-        str insertReference( str fileName, unsigned int res, float width, float height, bool backPage)
+             _photoArchiveList.push_back(archive) 
+
+        def insertReference(fileName, res, width, height, backPage):
+
+            
             SERIALIZER()
             return const_cast<ImageReaderWriter*>(this).local_insertReference(fileName, res, width, height, backPage)
 
-        virtual ReadResult readNode( str fileName,  Options* options) 
+        def readNode(fileName, options):
+
+            
             SERIALIZER()
             return const_cast<ImageReaderWriter*>(this).local_readNode(fileName, options)
-
-        
-    protected:
 
         local_insertReference = str( str fileName, unsigned int res, float width, float height, bool backPage)
 
@@ -279,19 +289,19 @@ class ImageReaderWriter : public osgDB.ReaderWriter
 
         mutable OpenThreads.ReentrantMutex _serializerMutex
 
-        struct DataReference
-            DataReference()
+        class DataReference :
+DataReference()
             DataReference( str fileName, unsigned int res, float width, float height,bool backPage)
             DataReference( DataReference rhs)
 
             _fileName = str()
-            unsigned int    _resolutionX
-            unsigned int    _resolutionY
+            _resolutionX = unsigned int()
+            _resolutionY = unsigned int()
             _center = osg.Vec3()
             _maximumWidth = osg.Vec3() 
             _maximumHeight = osg.Vec3()
-            unsigned int    _numPointsAcross 
-            unsigned int    _numPointsUp
+            _numPointsAcross = unsigned int() 
+            _numPointsUp = unsigned int()
             _backPage = bool()
         
         
@@ -300,7 +310,7 @@ class ImageReaderWriter : public osgDB.ReaderWriter
         readImage_DynamicSampling = osg.Image*(DataReference dr, float s,float t)
 
         typedef std.map< str,DataReference > DataReferenceMap
-        typedef std.vector< osg.ref_ptr<PhotoArchive> > PhotoArchiveList
+        typedef std.vector< PhotoArchive > PhotoArchiveList
 
         _dataReferences = DataReferenceMap()
         _photoArchiveList = PhotoArchiveList()
@@ -309,23 +319,26 @@ class ImageReaderWriter : public osgDB.ReaderWriter
 
 
 #endif
-# OpenSceneGraph example, osgphotoalbum.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgphotoalbum.cpp'
+
+# OpenSceneGraph example, osgphotoalbum.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Notify>
 #include <osg/MatrixTransform>
@@ -350,65 +363,76 @@ using namespace osg
 # now register with Registry to instantiate the above reader/writer,
 # declaring in main so that the code to set up PagedLOD can get a handle
 # to the ImageReaderWriter's
-osgDB.RegisterReaderWriterProxy<ImageReaderWriter> g_ImageReaderWriter
+g_ImageReaderWriter = osgDB.RegisterReaderWriterProxy<ImageReaderWriter>()
 
 Album = class()
 
-class Page : public osg.Transform
-public:
+class Page (osg.Transform) :
 
 
     static Page* createPage(Album* album, unsigned int pageNo,  str frontFileName,  str backFileName, float width, float height)
-        osg.ref_ptr<Page> page = new Page(album, pageNo, frontFileName, backFileName, width, height)
+        page = Page(album, pageNo, frontFileName, backFileName, width, height)
         if page.valid() : return page.release()
-        else: return 0
+        else : return 0
 
-    virtual void traverse(osg.NodeVisitor nv)
+    traverse = virtual void(osg.NodeVisitor nv)
 
     def setRotation(angle):
+
+        
         _rotation = angle
         _targetRotation = angle
         dirtyBound()
 
-    float getRotation()   return _rotation 
+    def getRotation():
+
+         return _rotation 
 
     def rotateTo(angle, timeToRotateBy):
+
+        
         _targetRotation = angle
         _targetTime = timeToRotateBy
 
-    bool rotating()   return _targetRotation!=_rotation 
+    def rotating():
+
+         return _targetRotation!=_rotation 
 
     def setPageVisible(frontVisible, backVisible):
+
+        
         _switch.setValue(0,!frontVisible  !backVisible)
         _switch.setValue(1,frontVisible)
         _switch.setValue(2,backVisible)
 
-    osg.Switch* getSwitch()  return _switch.get() 
-     osg.Switch* getSwitch()   return _switch.get() 
+    def getSwitch():
 
-public:
+         return _switch.get() 
+    def getSwitch():
+         return _switch.get() 
 
     virtual bool computeLocalToWorldMatrix(osg.Matrix matrix,osg.NodeVisitor*) 
         if _referenceFrame==RELATIVE_RF :
             matrix.preMult(getMatrix())
-        else: # absolute
+        else : # absolute
             matrix = getMatrix()
-        true = return()
+        return True
 
     #* Get the transformation matrix which moves from world coords to local coords.
     virtual bool computeWorldToLocalMatrix(osg.Matrix matrix,osg.NodeVisitor*) 
-        inverse =  getInverseMatrix()
+        inverse = getInverseMatrix()
 
         if _referenceFrame==RELATIVE_RF :
             matrix.postMult(inverse)
-        else: # absolute
+        else : # absolute
             matrix = inverse
-        true = return()
+        return True
 
-    osg.Matrix getMatrix()   return _pageOffset*osg.Matrix.rotate(-_rotation,0.0f,0.0f,1.0f) 
-    osg.Matrix getInverseMatrix()   return osg.Matrix.inverse(getMatrix()) 
+    def getMatrix():
 
-protected:
+         return _pageOffset*osg.Matrix.rotate(-_rotation,0.0,0.0,1.0) 
+    def getInverseMatrix():
+         return osg.Matrix.inverse(getMatrix()) 
 
     Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileName, float width, float height)
 
@@ -419,42 +443,49 @@ protected:
     _targetTime = float()
     _lastTimeTraverse = float()
 
-    osg.ref_ptr<osg.Switch>     _switch
+    _switch = osg.Switch()
 
 
 
 
-class Album : public osg.Referenced
-public:
+class Album (osg.Referenced) :
 
     Album(osg.ArgumentParser ap, float width, float height)
 
-    osg.Group* getScene()  return _group.get() 
+    def getScene():
 
-     osg.Group* getScene()   return _group.get() 
+         return _group.get() 
+
+    def getScene():
+
+         return _group.get() 
 
     osg.Matrix getPageOffset(unsigned int pageNo) 
 
-    bool nextPage(float timeToRotateBy)  return gotoPage(_currentPageNo+1,timeToRotateBy) 
+    def nextPage(timeToRotateBy):
 
-    bool previousPage(float timeToRotateBy)  return _currentPageNo>=1?gotoPage(_currentPageNo-1,timeToRotateBy):false 
+         gotoPage = return(_currentPageNo+1,timeToRotateBy) 
+
+    def previousPage(timeToRotateBy):
+
+         return _currentPageNo>=1?gotoPage(_currentPageNo-1,timeToRotateBy):False 
 
     gotoPage = bool(unsigned int pageNo, float timeToRotateBy)
 
-    osg.StateSet* getBackgroundStateSet()  return _backgroundStateSet.get() 
+    def getBackgroundStateSet():
+
+         return _backgroundStateSet.get() 
 
     setVisibility = void()
 
-protected:
+    typedef std.vector< Page > PageList
 
-    typedef std.vector< osg.ref_ptr<Page> > PageList
-
-    osg.ref_ptr<osg.Group>    _group
+    _group = osg.Group()
     _pages = PageList()
 
-    osg.ref_ptr<osg.StateSet> _backgroundStateSet
+    _backgroundStateSet = osg.StateSet()
 
-    unsigned int                _currentPageNo
+    _currentPageNo = unsigned int()
     _radiusOfRings = float()
     _startAngleOfPages = float()
     _deltaAngleBetweenPages = float()
@@ -478,63 +509,63 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
 
     # set up subgraph
-    readerWriter =  osgDB.Registry.instance().getReaderWriterForExtension("gdal")
+    readerWriter = osgDB.Registry.instance().getReaderWriterForExtension("gdal")
     if !readerWriter :
         print "Error: GDAL plugin not available, cannot preceed with database creation"
 
-    _switch = new osg.Switch
+    _switch = osg.Switch()
 
-    rw =  g_ImageReaderWriter.get()
+    rw = g_ImageReaderWriter.get()
 
 
     # set up non visible page.
-    non_visible_page =  new osg.Group
+    non_visible_page = osg.Group()
     _switch.addChild(non_visible_page)
-        geom =  new osg.Geometry
+        geom = osg.Geometry()
         geom.setStateSet(album.getBackgroundStateSet())
 
-        coords =  new osg.Vec3Array(8)
-        (*coords)[0].set(0.0f,0.0f,0.0f)
-        (*coords)[1].set(0.0f,0.0f,height)
-        (*coords)[2].set(0.0f,0.0f,height)
-        (*coords)[3].set(width,0.0f,height)
-        (*coords)[4].set(width,0.0f,height)
-        (*coords)[5].set(width,0.0f,0.0f)
-        (*coords)[6].set(width,0.0f,0.0f)
-        (*coords)[7].set(0.0f,0.0f,0.0f)
+        coords = osg.Vec3Array(8)
+        (*coords)[0].set(0.0,0.0,0.0)
+        (*coords)[1].set(0.0,0.0,height)
+        (*coords)[2].set(0.0,0.0,height)
+        (*coords)[3].set(width,0.0,height)
+        (*coords)[4].set(width,0.0,height)
+        (*coords)[5].set(width,0.0,0.0)
+        (*coords)[6].set(width,0.0,0.0)
+        (*coords)[7].set(0.0,0.0,0.0)
         geom.setVertexArray(coords)
 
 
-        normals =  new osg.Vec3Array(8)
-        (*normals)[0].set(-1.0f,0.0f,0.0f)
-        (*normals)[1].set(-1.0f,0.0f,0.0f)
-        (*normals)[2].set(0.0f,0.0f,-1.0f)
-        (*normals)[3].set(0.0f,0.0f,-1.0f)
-        (*normals)[4].set(1.0f,0.0f,0.0f)
-        (*normals)[5].set(1.0f,0.0f,0.0f)
-        (*normals)[6].set(0.0f,0.0f,1.0f)
-        (*normals)[7].set(0.0f,0.0f,1.0f)
+        normals = osg.Vec3Array(8)
+        (*normals)[0].set(-1.0,0.0,0.0)
+        (*normals)[1].set(-1.0,0.0,0.0)
+        (*normals)[2].set(0.0,0.0,-1.0)
+        (*normals)[3].set(0.0,0.0,-1.0)
+        (*normals)[4].set(1.0,0.0,0.0)
+        (*normals)[5].set(1.0,0.0,0.0)
+        (*normals)[6].set(0.0,0.0,1.0)
+        (*normals)[7].set(0.0,0.0,1.0)
         geom.setNormalArray(normals, osg.Array.BIND_PER_VERTEX)
 
-        tcoords =  new osg.Vec2Array(8)
-        (*tcoords)[0].set(0.0f,0.0f)
-        (*tcoords)[1].set(0.0f,1.0f)
-        (*tcoords)[2].set(0.0f,1.0f)
-        (*tcoords)[3].set(1.0f,1.0f)
-        (*tcoords)[4].set(1.0f,1.0f)
-        (*tcoords)[5].set(0.0f,1.0f)
-        (*tcoords)[6].set(0.0f,1.0f)
-        (*tcoords)[7].set(0.0f,0.0f)
+        tcoords = osg.Vec2Array(8)
+        (*tcoords)[0].set(0.0,0.0)
+        (*tcoords)[1].set(0.0,1.0)
+        (*tcoords)[2].set(0.0,1.0)
+        (*tcoords)[3].set(1.0,1.0)
+        (*tcoords)[4].set(1.0,1.0)
+        (*tcoords)[5].set(0.0,1.0)
+        (*tcoords)[6].set(0.0,1.0)
+        (*tcoords)[7].set(0.0,0.0)
         geom.setTexCoordArray(0,tcoords)
 
-        colours =  new osg.Vec4Array(1)
-        (*colours)[0].set(1.0f,1.0f,1.0,1.0f)
+        colours = osg.Vec4Array(1)
+        (*colours)[0].set(1.0,1.0,1.0,1.0)
         geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
-        geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.LINES,0,8))
+        geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINES,0,8))
 
         # set up the geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geom)
 
 
@@ -542,149 +573,149 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
 
     # set up visible page.
-    front_page =  new osg.Group
+    front_page = osg.Group()
     _switch.addChild(front_page)
 
 
-        geom =  new osg.Geometry
+        geom = osg.Geometry()
         geom.setStateSet(album.getBackgroundStateSet())
 
-        coords =  new osg.Vec3Array(4)
-        (*coords)[0].set(0.0f,0.0,height)
-        (*coords)[1].set(0.0f,0.0,0)
+        coords = osg.Vec3Array(4)
+        (*coords)[0].set(0.0,0.0,height)
+        (*coords)[1].set(0.0,0.0,0)
         (*coords)[2].set(width,0.0,0)
         (*coords)[3].set(width,0.0,height)
         geom.setVertexArray(coords)
 
-        normals =  new osg.Vec3Array(1)
-        (*normals)[0].set(0.0f,-1.0f,0.0f)
+        normals = osg.Vec3Array(1)
+        (*normals)[0].set(0.0,-1.0,0.0)
         geom.setNormalArray(normals, osg.Array.BIND_OVERALL)
 
-        tcoords =  new osg.Vec2Array(4)
-        (*tcoords)[0].set(0.0f,1.0f)
-        (*tcoords)[1].set(0.0f,0.0f)
-        (*tcoords)[2].set(1.0f,0.0f)
-        (*tcoords)[3].set(1.0f,1.0f)
+        tcoords = osg.Vec2Array(4)
+        (*tcoords)[0].set(0.0,1.0)
+        (*tcoords)[1].set(0.0,0.0)
+        (*tcoords)[2].set(1.0,0.0)
+        (*tcoords)[3].set(1.0,1.0)
         geom.setTexCoordArray(0,tcoords)
 
-        colours =  new osg.Vec4Array(1)
-        (*colours)[0].set(1.0f,1.0f,1.0,1.0f)
+        colours = osg.Vec4Array(1)
+        (*colours)[0].set(1.0,1.0,1.0,1.0)
         geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
-        geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+        geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
         # set up the geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geom)
 
 
         front_page.addChild(geode)
 
     if !frontFileName.empty() :
-        cut_off_distance =  8.0f
-        max_visible_distance =  300.0f
+        cut_off_distance = 8.0
+        max_visible_distance = 300.0
 
-        center = osg.Vec3(width*0.5f,0.0f,height*0.5f)
+        center = osg.Vec3(width*0.5,0.0,height*0.5)
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont("fonts/arial.ttf")
         text.setPosition(center)
-        text.setCharacterSize(height/20.0f)
+        text.setCharacterSize(height/20.0)
         text.setAlignment(osgText.Text.CENTER_CENTER)
         text.setAxisAlignment(osgText.Text.XZ_PLANE)
-        text.setColor(osg.Vec4(1.0f,1.0f,0.0f,1.0f))
+        text.setColor(osg.Vec4(1.0,1.0,0.0,1.0))
         text.setText(str("Loading ")+frontFileName)
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(text)
 
-        pagedlod =  new osg.PagedLOD
+        pagedlod = osg.PagedLOD()
         pagedlod.setCenter(center)
-        pagedlod.setRadius(1.6f)
+        pagedlod.setRadius(1.6)
         pagedlod.setNumChildrenThatCannotBeExpired(2)
 
         pagedlod.setRange(0,max_visible_distance,1e7)
         pagedlod.addChild(geode)
 
         pagedlod.setRange(1,cut_off_distance,max_visible_distance)
-        pagedlod.setFileName(1,rw.insertReference(frontFileName,256,width,height,false))
+        pagedlod.setFileName(1,rw.insertReference(frontFileName,256,width,height,False))
 
-        pagedlod.setRange(2,0.0f,cut_off_distance)
-        pagedlod.setFileName(2,rw.insertReference(frontFileName,1024,width,height,false))
+        pagedlod.setRange(2,0.0,cut_off_distance)
+        pagedlod.setFileName(2,rw.insertReference(frontFileName,1024,width,height,False))
 
         front_page.addChild(pagedlod)
 
 
     # set up back of page.
-    back_page =  new osg.Group
+    back_page = osg.Group()
     _switch.addChild(back_page)
 
 
-        geom =  new osg.Geometry
+        geom = osg.Geometry()
         geom.setStateSet(album.getBackgroundStateSet())
 
-        coords =  new osg.Vec3Array(4)
+        coords = osg.Vec3Array(4)
         (*coords)[0].set(width,0.0,height)
         (*coords)[1].set(width,0.0,0)
-        (*coords)[2].set(0.0f,0.0,0)
-        (*coords)[3].set(0.0f,0.0,height)
+        (*coords)[2].set(0.0,0.0,0)
+        (*coords)[3].set(0.0,0.0,height)
         geom.setVertexArray(coords)
 
-        normals =  new osg.Vec3Array(1)
-        (*normals)[0].set(0.0f,1.0f,0.0f)
+        normals = osg.Vec3Array(1)
+        (*normals)[0].set(0.0,1.0,0.0)
         geom.setNormalArray(normals, osg.Array.BIND_OVERALL)
 
-        tcoords =  new osg.Vec2Array(4)
-        (*tcoords)[0].set(1.0f,1.0f)
-        (*tcoords)[1].set(1.0f,0.0f)
-        (*tcoords)[2].set(0.0f,0.0f)
-        (*tcoords)[3].set(0.0f,1.0f)
+        tcoords = osg.Vec2Array(4)
+        (*tcoords)[0].set(1.0,1.0)
+        (*tcoords)[1].set(1.0,0.0)
+        (*tcoords)[2].set(0.0,0.0)
+        (*tcoords)[3].set(0.0,1.0)
         geom.setTexCoordArray(0,tcoords)
 
-        colours =  new osg.Vec4Array(1)
-        (*colours)[0].set(1.0f,1.0f,1.0,1.0f)
+        colours = osg.Vec4Array(1)
+        (*colours)[0].set(1.0,1.0,1.0,1.0)
         geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
-        geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+        geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
         # set up the geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geom)
 
 
         back_page.addChild(geode)
 
     if !backFileName.empty() :
-        cut_off_distance =  8.0f
-        max_visible_distance =  300.0f
+        cut_off_distance = 8.0
+        max_visible_distance = 300.0
 
-        center = osg.Vec3(width*0.5f,0.0f,height*0.5f)
+        center = osg.Vec3(width*0.5,0.0,height*0.5)
 
-        text =  new osgText.Text
+        text = osgText.Text()
         text.setFont("fonts/arial.ttf")
         text.setPosition(center)
-        text.setCharacterSize(height/20.0f)
+        text.setCharacterSize(height/20.0)
         text.setAlignment(osgText.Text.CENTER_CENTER)
         text.setAxisAlignment(osgText.Text.REVERSED_XZ_PLANE)
-        text.setColor(osg.Vec4(1.0f,1.0f,0.0f,1.0f))
+        text.setColor(osg.Vec4(1.0,1.0,0.0,1.0))
         text.setText(str("Loading ")+backFileName)
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(text)
 
-        pagedlod =  new osg.PagedLOD
+        pagedlod = osg.PagedLOD()
         pagedlod.setCenter(center)
-        pagedlod.setRadius(1.6f)
+        pagedlod.setRadius(1.6)
         pagedlod.setNumChildrenThatCannotBeExpired(2)
 
         pagedlod.setRange(0,max_visible_distance,1e7)
         pagedlod.addChild(geode)
 
         pagedlod.setRange(1,cut_off_distance,max_visible_distance)
-        pagedlod.setFileName(1,rw.insertReference(backFileName,256,width,height,true))
+        pagedlod.setFileName(1,rw.insertReference(backFileName,256,width,height,True))
 
-        pagedlod.setRange(2,0.0f,cut_off_distance)
-        pagedlod.setFileName(2,rw.insertReference(backFileName,1024,width,height,true))
+        pagedlod.setRange(2,0.0,cut_off_distance)
+        pagedlod.setFileName(2,rw.insertReference(backFileName,1024,width,height,True))
 
         back_page.addChild(pagedlod)
 
@@ -693,13 +724,13 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 void Page.traverse(osg.NodeVisitor nv)
     # if app traversal update the frame count.
     if nv.getVisitorType()==osg.NodeVisitor.UPDATE_VISITOR :
-        framestamp =  nv.getFrameStamp()
+        framestamp = nv.getFrameStamp()
         if framestamp :
-            t =  framestamp.getSimulationTime()
+            t = framestamp.getSimulationTime()
 
             if _rotation!=_targetRotation :
                 if t>=_targetTime : _rotation = _targetRotation
-                else: _rotation += (_targetRotation-_rotation)*(t-_lastTimeTraverse)/(_targetTime-_lastTimeTraverse)
+                else : _rotation += (_targetRotation-_rotation)*(t-_lastTimeTraverse)/(_targetTime-_lastTimeTraverse)
 
                 dirtyBound()
 
@@ -720,28 +751,28 @@ Album.Album(osg.ArgumentParser arguments, float width, float height)
         if arguments.isString(pos) :
             filename = str(arguments[pos])
             if osgDB.getLowerCaseFileExtension(filename)=="album" :
-                photoArchive =  PhotoArchive.open(filename)
+                photoArchive = PhotoArchive.open(filename)
                 if photoArchive :
                     g_ImageReaderWriter.get().addPhotoArchive(photoArchive)
                     photoArchive.getImageFileNameList(fileList)
 
-            else:
+            else :
                 fileList.push_back(arguments[pos])
 
     _radiusOfRings = 0.02
-    _startAngleOfPages = 0.0f
+    _startAngleOfPages = 0.0
     _deltaAngleBetweenPages = osg.PI/(float)fileList.size()
 
-    _group = new osg.Group
-    _group.getOrCreateStateSet().setAttributeAndModes(new osg.CullFace,osg.StateAttribute.ON)
+    _group = osg.Group()
+    _group.getOrCreateStateSet().setAttributeAndModes(osg.CullFace,osg.StateAttribute.ON)()
 
-    _backgroundStateSet = new osg.StateSet
-    _backgroundStateSet.setAttributeAndModes(new osg.PolygonOffset(1.0f,1.0f),osg.StateAttribute.ON)
+    _backgroundStateSet = osg.StateSet()
+    _backgroundStateSet.setAttributeAndModes(osg.PolygonOffset(1.0,1.0),osg.StateAttribute.ON)
 
     # load the images.
-    unsigned int i
+    i = unsigned int()
     for(i=0i<fileList.size()i+=2)
-        page =  i+1<fileList.size()?
+        page = i+1<fileList.size()?
                      Page.createPage(this,_pages.size(),fileList[i],fileList[i+1], width, height):
                      Page.createPage(this,_pages.size(),fileList[i],"", width, height)
         if page :
@@ -752,37 +783,37 @@ Album.Album(osg.ArgumentParser arguments, float width, float height)
 
 
 osg.Matrix Album.getPageOffset(unsigned int pageNo) 
-    angleForPage =  _startAngleOfPages+_deltaAngleBetweenPages*(float)pageNo
-    delta = osg.Vec3(_radiusOfRings*sinf(angleForPage),-_radiusOfRings*cosf(angleForPage),0.0f)
+    angleForPage = _startAngleOfPages+_deltaAngleBetweenPages*(float)pageNo
+    delta = osg.Vec3(_radiusOfRings*sinf(angleForPage),-_radiusOfRings*cosf(angleForPage),0.0)
     return osg.Matrix.translate(delta)
 
 bool Album.gotoPage(unsigned int pageNo, float timeToRotateBy)
-    if pageNo>=_pages.size() : return false
+    if pageNo>=_pages.size() : return False
 
     if pageNo>_currentPageNo :
         for(unsigned int i=_currentPageNoi<pageNo++i)
             _pages[i].rotateTo(osg.PI,timeToRotateBy)
         _currentPageNo = pageNo
 
-        true = return()
-    else: if pageNo<_currentPageNo :
+        return True
+    elif pageNo<_currentPageNo :
         for(unsigned int i=pageNoi<_currentPageNo++i)
             _pages[i].rotateTo(0,timeToRotateBy)
         _currentPageNo = pageNo
 
-        true = return()
+        return True
 
-    false = return()
+    return False
 
 void Album.setVisibility()
     for(unsigned int i=0i<_pages.size()++i)
-        front_visible =  _pages[i].rotating() ||
-                             (i>0?_pages[i-1].rotating():false) ||
+        front_visible = _pages[i].rotating() ||
+                             (i>0?_pages[i-1].rotating():False) ||
                              i==_currentPageNo ||
                              i==0
 
-        back_visible =  _pages[i].rotating() ||
-                            ((i+1)<_pages.size()?_pages[i+1].rotating():false) ||
+        back_visible = _pages[i].rotating() ||
+                            ((i+1)<_pages.size()?_pages[i+1].rotating():False) ||
                             i==_currentPageNo-1 ||
                             i==_pages.size()-1
 
@@ -793,8 +824,7 @@ void Album.setVisibility()
 ##############################################################
 
 
-class SlideEventHandler : public osgGA.GUIEventHandler
-public:
+class SlideEventHandler (osgGA.GUIEventHandler) :
 
     SlideEventHandler()
 
@@ -802,16 +832,14 @@ public:
 
     set = void(Album* album, float timePerSlide, bool autoSteppingActive)
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
     virtual void getUsage(osg.ApplicationUsage usage) 
-
-protected:
 
     ~SlideEventHandler() 
     SlideEventHandler( SlideEventHandler, osg.CopyOp) 
 
-    osg.ref_ptr<Album>         _album
+    _album = Album()
     _firstTraversal = bool()
     _previousTime = double()
     _timePerSlide = double()
@@ -820,10 +848,10 @@ protected:
 
 SlideEventHandler.SlideEventHandler():
     _album(0),
-    _firstTraversal(true),
-    _previousTime(-1.0f),
+    _firstTraversal(True),
+    _previousTime(-1.0),
     _timePerSlide(5.0),
-    _autoSteppingActive(false)
+    _autoSteppingActive(False)
 
 void SlideEventHandler.set(Album* album, float timePerSlide, bool autoSteppingActive)
     _album = album
@@ -838,29 +866,29 @@ bool SlideEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
             if ea.getKey()=='a' :
                 _autoSteppingActive = !_autoSteppingActive
                 _previousTime = ea.getTime()
-                true = return()
-            else: if ea.getKey()=='n' :
-                _album.nextPage(ea.getTime()+1.0f)
-                true = return()
-            else: if ea.getKey()=='p' :
-                _album.previousPage(ea.getTime()+1.0f)
-                true = return()
-            false = return()
+                return True
+            elif ea.getKey()=='n' :
+                _album.nextPage(ea.getTime()+1.0)
+                return True
+            elif ea.getKey()=='p' :
+                _album.previousPage(ea.getTime()+1.0)
+                return True
+            return False
         case(osgGA.GUIEventAdapter.FRAME):
             if _autoSteppingActive :
                 if _firstTraversal :
-                    _firstTraversal = false
+                    _firstTraversal = False
                     _previousTime = ea.getTime()
-                else: if ea.getTime()-_previousTime>_timePerSlide :
+                elif ea.getTime()-_previousTime>_timePerSlide :
                     _previousTime = ea.getTime()
 
-                    _album.nextPage(ea.getTime()+1.0f)
+                    _album.nextPage(ea.getTime()+1.0)
 
             _album.setVisibility()
 
 
         default:
-            false = return()
+            return False
 
 void SlideEventHandler.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("Space","Reset the image position to center")
@@ -869,6 +897,9 @@ void SlideEventHandler.getUsage(osg.ApplicationUsage usage)
     usage.addKeyboardMouseBinding("p","Move to previous image")
 
 def main(argc, argv):
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -887,15 +918,15 @@ def main(argc, argv):
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # register the handler to add keyboard and mouse handling.
-    seh =  new SlideEventHandler()
+    seh = SlideEventHandler()
     viewer.addEventHandler(seh)
 
     # read any time delay argument.
-    timeDelayBetweenSlides =  5.0f
+    timeDelayBetweenSlides = 5.0
     while arguments.read("-d",timeDelayBetweenSlides) : 
 
-    autoSteppingActive =  false
-    while arguments.read("-a") : autoSteppingActive = true
+    autoSteppingActive = False
+    while arguments.read("-a") : autoSteppingActive = True
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
@@ -935,16 +966,16 @@ def main(argc, argv):
     viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar)
 
     fovy = osg.DegreesToRadians(fovy)
-    fovx =  atan(tan(fovy*0.5)*aspectRatio)*2.0
+    fovx = atan(tan(fovy*0.5)*aspectRatio)*2.0
 
-    radius =  1.0f
-    width =  2*radius*tan(fovx*0.5f)
-    height =  2*radius*tan(fovy*0.5f)
+    radius = 1.0
+    width = 2*radius*tan(fovx*0.5)
+    height = 2*radius*tan(fovy*0.5)
 
-    osg.ref_ptr<Album> album = new Album(arguments,width,height)
+    album = Album(arguments,width,height)
 
     # creat the scene from the file list.
-    osg.ref_ptr<osg.Group> rootNode = album.getScene()
+    rootNode = album.getScene()
 
     if !rootNode : return 0
 
@@ -965,28 +996,31 @@ def main(argc, argv):
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
         itr != windows.end()
         ++itr)
-        (*itr).useCursor(false)
+        (*itr).useCursor(False)
 
 
     return viewer.run()
 
-# OpenSceneGraph example, osgphotoalbum.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'PhotoArchive.cpp'
+
+# OpenSceneGraph example, osgphotoalbum.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "PhotoArchive.h"
 
@@ -1008,14 +1042,14 @@ PhotoArchive.PhotoArchive( str filename)
 bool PhotoArchive.readPhotoIndex( str filename)
     in = osgDB.ifstream(filename.c_str())
     
-    fileIndentifier =  new char [FILE_IDENTIFER.size()]
+    fileIndentifier = char [FILE_IDENTIFER.size()]
     in.read(fileIndentifier,FILE_IDENTIFER.size())
     if FILE_IDENTIFER!=fileIndentifier :
         delete [] fileIndentifier
-        false = return()
+        return False
     delete [] fileIndentifier
     
-    unsigned int numPhotos
+    numPhotos = unsigned int()
     in.read((char*)numPhotos,sizeof(numPhotos))
 
     _photoIndex.resize(numPhotos)
@@ -1025,7 +1059,7 @@ bool PhotoArchive.readPhotoIndex( str filename)
     # success record filename.
     _archiveFileName = filename
     
-    true = return()
+    return True
 
 void PhotoArchive.getImageFileNameList(FileNameList filenameList)
     for(PhotoIndexList.const_iterator itr=_photoIndex.begin()
@@ -1041,7 +1075,7 @@ osg.Image* PhotoArchive.readImage( str filename,
         itr!=_photoIndex.end()
         ++itr)
         if filename==itr.filename :
-            photoHeader =  *itr
+            photoHeader = *itr
         
             if target_s <= photoHeader.thumbnail_s 
                  target_t <= photoHeader.thumbnail_t 
@@ -1054,10 +1088,10 @@ osg.Image* PhotoArchive.readImage( str filename,
                 # read image header
                 imageHeader = ImageHeader()
                 in.read((char*)imageHeader,sizeof(ImageHeader))
-                unsigned char* data = new unsigned char[imageHeader.size]
+                data = unsigned char[imageHeader.size]()
                 in.read((char*)data,imageHeader.size)
                 
-                image =  new osg.Image
+                image = osg.Image()
                 image.setImage(photoHeader.thumbnail_s,photoHeader.thumbnail_t,1,
                                 imageHeader.pixelFormat,imageHeader.pixelFormat,imageHeader.type,
                                 data,osg.Image.USE_NEW_DELETE)
@@ -1065,7 +1099,7 @@ osg.Image* PhotoArchive.readImage( str filename,
                 original_s =  photoHeader.original_s
                 original_t =  photoHeader.original_t
                 
-                image = return()
+                return image
                  
             if photoHeader.fullsize_s 
                  photoHeader.fullsize_t 
@@ -1078,10 +1112,10 @@ osg.Image* PhotoArchive.readImage( str filename,
                 # read image header
                 imageHeader = ImageHeader()
                 in.read((char*)imageHeader,sizeof(ImageHeader))
-                unsigned char* data = new unsigned char[imageHeader.size]
+                data = unsigned char[imageHeader.size]()
                 in.read((char*)data,imageHeader.size)
                 
-                image =  new osg.Image
+                image = osg.Image()
                 image.setImage(photoHeader.fullsize_s,photoHeader.fullsize_t,1,
                                 imageHeader.pixelFormat,imageHeader.pixelFormat,imageHeader.type,
                                 data,osg.Image.USE_NEW_DELETE)
@@ -1089,10 +1123,10 @@ osg.Image* PhotoArchive.readImage( str filename,
                 original_s =  photoHeader.original_s
                 original_t =  photoHeader.original_t
                 
-                image = return()
+                return image
 
 
-    NULL = return()
+    return NULL
 
 void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned int thumbnailSize, unsigned int maximumSize, bool #compressed)
 
@@ -1126,25 +1160,25 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
     # write out file indentifier.
     out.write(FILE_IDENTIFER.c_str(),FILE_IDENTIFER.size())
 
-    unsigned int numPhotos = photoIndex.size()
+    numPhotos = photoIndex.size()
     out.write((char*)numPhotos,sizeof(unsigned int))
 
     # write the photo index to ensure we can the correct amount of space
     # available.
-    unsigned int startOfPhotoIndex = out.tellp()
+    startOfPhotoIndex = out.tellp()
     out.write((char*)photoIndex.front(),sizeof(PhotoHeader)*photoIndex.size())
 
-    unsigned int photoCount=1    
+    photoCount = 1    
     for(PhotoIndexList.iterator pitr=photoIndex.begin()
         pitr!=photoIndex.end()
         ++pitr,++photoCount)
-        photoHeader =  *pitr
+        photoHeader = *pitr
         
         
         print "Processing image ", photoCount, " of ", photoIndex.size(), " filename=", photoHeader.filename
         print "    reading image..."std.cout.flush()
         
-        osg.ref_ptr<osg.Image> image = osgDB.readImageFile(photoHeader.filename)
+        image = osgDB.readImageFile(photoHeader.filename)
         
         print "done."
         
@@ -1154,12 +1188,11 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
 
             print "    creating thumbnail image..."
             # first need to rescale image to the require thumbnail size
-            unsigned int newTotalSize = 
-                image.computeRowWidthInBytes(thumbnailSize,image.getPixelFormat(),image.getDataType(),image.getPacking())*
+            newTotalSize = image.computeRowWidthInBytes(thumbnailSize,image.getPixelFormat(),image.getDataType(),image.getPacking())*
                 thumbnailSize
 
             # need to sort out what size to really use...
-            unsigned char* newData = new unsigned char [newTotalSize]
+            newData = unsigned char [newTotalSize]()
             if !newData :
                 # should we throw an exception???  Just return for time being.
                 osg.notify(osg.FATAL), "Error scaleImage() did not succeed : out of memory.", newTotalSize
@@ -1170,7 +1203,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
             psm.pack_row_length = image.getRowLength()
             psm.unpack_alignment = image.getPacking()
 
-            status =  osg.gluScaleImage(psm, image.getPixelFormat(),
+            status = osg.gluScaleImage(psm, image.getPixelFormat(),
                 image.s(),
                 image.t(),
                 image.getDataType(),
@@ -1216,12 +1249,11 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
             photoHeader.fullsize_position = (unsigned int)out.tellp()
 
             # first need to rescale image to the require thumbnail size
-            unsigned int newTotalSize = 
-                image.computeRowWidthInBytes(photoHeader.fullsize_s,image.getPixelFormat(),image.getDataType(),image.getPacking())*
+            newTotalSize = image.computeRowWidthInBytes(photoHeader.fullsize_s,image.getPixelFormat(),image.getDataType(),image.getPacking())*
                 photoHeader.fullsize_t
 
             # need to sort out what size to really use...
-            unsigned char* newData = new unsigned char [newTotalSize]
+            newData = unsigned char [newTotalSize]()
             if !newData :
                 # should we throw an exception???  Just return for time being.
                 osg.notify(osg.FATAL), "Error scaleImage() did not succeed : out of memory.", newTotalSize
@@ -1232,7 +1264,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
             psm.pack_row_length = image.getRowLength()
             psm.unpack_alignment = image.getPacking()
 
-            status =  osg.gluScaleImage(psm, image.getPixelFormat(),
+            status = osg.gluScaleImage(psm, image.getPixelFormat(),
                 image.s(),
                 image.t(),
                 image.getDataType(),
@@ -1268,54 +1300,54 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
     out.seekp(startOfPhotoIndex)
     out.write((char*)photoIndex.front(),sizeof(PhotoHeader)*photoIndex.size())
 
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgphotoalbum.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'PhotoArchive.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgphotoalbum.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef PHOTOARCHIVE_H
 #define PHOTOARCHIVE_H
 
 #include <osg/Image>
 
-class PhotoArchive : public osg.Referenced
-public:
+class PhotoArchive (osg.Referenced) :
 
     static PhotoArchive* open( str filename)
-        osg.ref_ptr<PhotoArchive> archive = new PhotoArchive(filename)
+        archive = PhotoArchive(filename)
         if !archive.empty() : return archive.release()
-        else: return 0
+        else : return 0
 
     typedef std.vector<str> FileNameList
     
-    bool empty()  return _photoIndex.empty() 
+    def empty():
+    
+         return _photoIndex.empty() 
 
     getImageFileNameList = void(FileNameList filenameList)
     
-    static void buildArchive( str filename,  FileNameList imageList, unsigned int thumbnailSize=256, unsigned int maximumSize=1024, bool compressed=true)
+    static void buildArchive( str filename,  FileNameList imageList, unsigned int thumbnailSize=256, unsigned int maximumSize=1024, bool compressed=True)
 
     readImage = osg.Image*( str filename,
                           unsigned int target_s, unsigned target_t,
                           float original_s, float original_t)
-                          
-    
-    
-protected:
 
     PhotoArchive( str filename)
 
@@ -1323,8 +1355,8 @@ protected:
 
     readPhotoIndex = bool( str filename)
     
-    struct PhotoHeader
-        PhotoHeader():
+    class PhotoHeader :
+PhotoHeader():
             original_s(0),
             original_t(0),
             thumbnail_s(0),
@@ -1336,21 +1368,21 @@ protected:
             filename[0]='\0'
     
         char filename[256]
-        unsigned int original_s
-        unsigned int original_t
+        original_s = unsigned int()
+        original_t = unsigned int()
 
-        unsigned int thumbnail_s
-        unsigned int thumbnail_t
-        unsigned int thumbnail_position
+        thumbnail_s = unsigned int()
+        thumbnail_t = unsigned int()
+        thumbnail_position = unsigned int()
 
-        unsigned int fullsize_s
-        unsigned int fullsize_t
-        unsigned int fullsize_position
+        fullsize_s = unsigned int()
+        fullsize_t = unsigned int()
+        fullsize_position = unsigned int()
     
 
     
-    struct ImageHeader
-        ImageHeader():
+    class ImageHeader :
+ImageHeader():
             s(0),
             t(0),
             internalTextureformat(0),
@@ -1358,12 +1390,12 @@ protected:
             type(0),
             size(0) 
     
-        unsigned int s
-        unsigned int t
+        s = unsigned int()
+        t = unsigned int()
         internalTextureformat = GLint()
         pixelFormat = GLenum()
         type = GLenum()
-        unsigned int size
+        size = unsigned int()
     
 
 

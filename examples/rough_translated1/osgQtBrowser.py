@@ -13,23 +13,26 @@ from osgpypp import osgQt
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
-# OpenSceneGraph example, osgcompositeviewer.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgQtBrowser.cpp'
+
+# OpenSceneGraph example, osgcompositeviewer.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <iostream>
 
@@ -47,7 +50,7 @@ from osgpypp import osgWidget
 #include <QtGlobal>
 #if QT_VERSION >= 0x050000
 # include <QtWebKitWidgets>
-#else:
+#else :
 # include <QtWebKit>
 #endif
 
@@ -64,8 +67,7 @@ from osgpypp import osgWidget
 
 
 # Thread that runs the viewer's frame loop as we can't run Qt in the background...
-class ViewerFrameThread : public OpenThreads.Thread
-    public:
+class ViewerFrameThread (OpenThreads.Thread) :
 
         ViewerFrameThread(osgViewer.ViewerBase* viewerBase, bool doQApplicationExit):
             _viewerBase(viewerBase),
@@ -77,62 +79,69 @@ class ViewerFrameThread : public OpenThreads.Thread
                 OpenThreads.Thread.YieldCurrentThread()
 
         def cancel():
-            _viewerBase.setDone(true)
+
+            
+            _viewerBase.setDone(True)
             return 0
 
         def run():
-            result =  _viewerBase.run()
+
+            
+            result = _viewerBase.run()
 
             if _doQApplicationExit : QApplication.exit(result)
 
-        osg.ref_ptr<osgViewer.ViewerBase> _viewerBase
+        _viewerBase = osgViewer.ViewerBase()
         _doQApplicationExit = bool()
 
 
 
 def main(argc, argv):
+
+
+    
     # Qt requires that we construct the global QApplication before creating any widgets.
     app = QApplication(argc, argv)
 
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
-    useFrameLoopThread =  false
-    if arguments.read("--no-frame-thread") : useFrameLoopThread = false
-    if arguments.read("--frame-thread") : useFrameLoopThread = true
+    useFrameLoopThread = False
+    if arguments.read("--no-frame-thread") : useFrameLoopThread = False
+    if arguments.read("--frame-thread") : useFrameLoopThread = True
 
-    osg.ref_ptr<osgQt.QWebViewImage> image = new osgQt.QWebViewImage
+    image = osgQt.QWebViewImage()
 
     if arguments.argc()>1 : image.navigateTo((arguments[1]))
-    else: image.navigateTo("http:#www.youtube.com/")
+    else : image.navigateTo("http:#www.youtube.com/")
 
-    hints = osgWidget.GeometryHints(osg.Vec3(0.0f,0.0f,0.0f),
-                                   osg.Vec3(1.0f,0.0f,0.0f),
-                                   osg.Vec3(0.0f,0.0f,1.0f),
-                                   osg.Vec4(1.0f,1.0f,1.0f,1.0f),
+    hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
+                                   osg.Vec3(1.0,0.0,0.0),
+                                   osg.Vec3(0.0,0.0,1.0),
+                                   osg.Vec4(1.0,1.0,1.0,1.0),
                                    osgWidget.GeometryHints.RESIZE_HEIGHT_TO_MAINTAINCE_ASPECT_RATIO)
 
 
-    osg.ref_ptr<osgWidget.Browser> browser = new osgWidget.Browser
+    browser = osgWidget.Browser()
     browser.assign(image.get(), hints)
 
-    # image.focusBrowser(true)
+    # image.focusBrowser(True)
 
-    osg.ref_ptr<osgViewer.Viewer> viewer = new osgViewer.Viewer(arguments)
+    viewer = osgViewer.Viewer(arguments)
     viewer.setSceneData(browser.get())
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator())
-    viewer.addEventHandler(new osgViewer.StatsHandler)
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator())
+    viewer.addEventHandler(osgViewer.StatsHandler)()
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     if useFrameLoopThread :
         # create a thread to run the viewer's frame loop
-        viewerThread = ViewerFrameThread(viewer.get(), true)
+        viewerThread = ViewerFrameThread(viewer.get(), True)
         viewerThread.startThread()
 
         # now start the standard Qt event loop, then exists when the viewerThead sends the QApplication.exit() signal.
         return QApplication.exec()
 
-    else:
+    else :
         # run the frame loop, interleaving Qt and the main OSG frame loop
         while !viewer.done() :
             # process Qt events - this handles both events and paints the browser image

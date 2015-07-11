@@ -9,30 +9,33 @@ import sys
 from osgpypp import osg
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgminimalglsl.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgsimpleshaders.cpp'
+
+# OpenSceneGraph example, osgminimalglsl.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # file:        examples/osgminimalglsl.cpp
- *
- * A minimal demo of the OpenGL Shading Language shaders using core OSG.
- *
- * blocky shader taken from osgshaders sample (Author: Mike Weiblein)
-
+# *
+# * A minimal demo of the OpenGL Shading Language shaders using core OSG.
+# *
+# * blocky shader taken from osgshaders sample (Author: Mike Weiblein)
+#
 
 #include <osgViewer/Viewer>
 
@@ -105,16 +108,14 @@ static  char *blockyFragSource =
 #####################################/
 # callback for animating various Uniforms (currently only the SIN uniform)
 
-class AnimateCallback: public osg.Uniform.Callback
-    public:
+class AnimateCallback (osg.Uniform.Callback) :
         enum Operation  SIN 
         AnimateCallback(Operation op) : _operation(op) 
         virtual void operator() ( osg.Uniform* uniform, osg.NodeVisitor* nv )
-            angle =  2.0 * nv.getFrameStamp().getSimulationTime()
-            sine =  sinf( angle )            # -1 . 1
+            angle = 2.0 * nv.getFrameStamp().getSimulationTime()
+            sine = sinf( angle )            # -1 . 1
             switch(_operation) 
                 case SIN : uniform.set( sine ) break
-    private:
         _operation = Operation()
 
 
@@ -123,21 +124,21 @@ int main(int, char **)
     viewer = osgViewer.Viewer()
 
     # use a geode with a Box ShapeDrawable
-    basicModel =  new osg.Geode()
-    basicModel.addDrawable(new osg.ShapeDrawable(new osg.Box(osg.Vec3(0.0f,0.0f,0.0f),1.0f)))
+    basicModel = osg.Geode()
+    basicModel.addDrawable(osg.ShapeDrawable(osg.Box(osg.Vec3(0.0,0.0,0.0),1.0)))
 
     # create the "blocky" shader, a simple animation test
-    ss =  basicModel.getOrCreateStateSet()
-    program =  new osg.Program
+    ss = basicModel.getOrCreateStateSet()
+    program = osg.Program()
     program.setName( "blocky" )
-    program.addShader( new osg.Shader( osg.Shader.VERTEX, blockyVertSource ) )
-    program.addShader( new osg.Shader( osg.Shader.FRAGMENT, blockyFragSource ) )
+    program.addShader( osg.Shader( osg.Shader.VERTEX, blockyVertSource ) )
+    program.addShader( osg.Shader( osg.Shader.FRAGMENT, blockyFragSource ) )
     ss.setAttributeAndModes(program, osg.StateAttribute.ON)
 
     # attach some animated Uniform variable to the state set
-    SineUniform =  new osg.Uniform( "Sine", 0.0f )
+    SineUniform = osg.Uniform( "Sine", 0.0 )
     ss.addUniform( SineUniform )
-    SineUniform.setUpdateCallback(new AnimateCallback(AnimateCallback.SIN))
+    SineUniform.setUpdateCallback(AnimateCallback(AnimateCallback.SIN))
 
     # run the osg.Viewer using our model
     viewer.setSceneData( basicModel )

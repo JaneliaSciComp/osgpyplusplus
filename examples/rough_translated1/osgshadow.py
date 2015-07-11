@@ -14,6 +14,9 @@ from osgpypp import osgTerrain
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
+
+# Translated from file 'IslandScene.cpp'
+
 #include <stdlib.h>
 #include <osg/ArgumentParser>
 #include <osg/Group>
@@ -232,19 +235,19 @@ static unsigned int objectTexture[] =
 # If you happen to find a bug let us know or better fix it and let us know.
 ########################################
 static unsigned char * orderBytes( unsigned int *raster, unsigned int size )
-    unsigned int endian_check = 0x1
+    endian_check = 0x1
 
     unsigned char  little_endian = *(unsigned char*)endian_check
-    unsigned char * dst = (unsigned char*)raster
-    unsigned char * src = (unsigned char*)raster
+    dst = (unsigned char*)raster
+    src = (unsigned char*)raster
 
-    unsigned int dst_step = 4
-    unsigned int src_step = sizeof( unsigned int )
+    dst_step = 4
+    src_step = sizeof( unsigned int )
 
     if  little_endian  src_step == dst_step  :
-        src = return()
+        return src
 
-    counter =  size / src_step
+    counter = size / src_step
 
     # pack bytes if 64 (or more) bit machine
     if  src_step > dst_step  : 
@@ -272,13 +275,13 @@ static unsigned char * orderBytes( unsigned int *raster, unsigned int size )
 static void addTree
     (  osg.Vec3  p,
       osg.Vec3Array* vertices, osg.Vec3Array* normals, osg.Vec2Array* texCoords,
-      r =  sqrt( 3.f ), float h = 10.f, float s = 5.f )
-    te =  1.0 / 64
+      r = sqrt( 3. ), float h = 10., float s = 5. )
+    te = 1.0 / 64
 
     for( unsigned i = 0 i < 6 i ++ ) 
 
-        x =  sin( i * osg.PI / 3.f )
-        y =  cos( i * osg.PI / 3.f )
+        x = sin( i * osg.PI / 3. )
+        y = cos( i * osg.PI / 3. )
 
         vertices.push_back( p + osg.Vec3(  x * r + y, y * r - x,  0 ) * s )
         vertices.push_back( p + osg.Vec3(  x * r - y, y * r + x,  0 ) * s )
@@ -297,8 +300,8 @@ static void addTree
 
     for( unsigned i = 0 i < 6 i ++ ) 
 
-        x =  sin( i * osg.PI / 3.f )
-        y =  cos( i * osg.PI / 3.f )
+        x = sin( i * osg.PI / 3. )
+        y = cos( i * osg.PI / 3. )
 
         vertices.push_back( p + osg.Vec3(  x * r + 4 * y, y * r - 4 * x,  h * 2 / 3 - r - 4 ) * s )
         vertices.push_back( p + osg.Vec3(  x * r - 4 * y, y * r + 4 * x,  h * 2 / 3 - r - 4 ) * s )
@@ -334,13 +337,13 @@ static void addTree
 static void addHouse
     (  osg.Vec3  p,
       osg.Vec3Array* vertices, osg.Vec3Array* normals, osg.Vec2Array* texCoords,
-      r =  3, float h = 10.f, float s = 3.f )
-    te =  0.5 / 64
-    rot =  osg.PI * rand() / RAND_MAX
+      r = 3, float h = 10., float s = 3. )
+    te = 0.5 / 64
+    rot = osg.PI * rand() / RAND_MAX
     for( unsigned i = 0 i < 4 i ++ ) 
 
-        x =  sin( rot + i * osg.PI / 2.f )
-        y =  cos( rot + i * osg.PI / 2.f )
+        x = sin( rot + i * osg.PI / 2. )
+        y = cos( rot + i * osg.PI / 2. )
 
         vertices.push_back( p + osg.Vec3(  x * r + y * r, y * r - x * r,  0 ) * s )
         vertices.push_back( p + osg.Vec3(  x * r - y * r, y * r + x * r,  0 ) * s )
@@ -360,8 +363,8 @@ static void addHouse
     for( unsigned i = 0 i < 4 i ++ ) 
 
         r ++
-        x =  sin( rot + i * osg.PI / 2.f )
-        y =  cos( rot + i * osg.PI / 2.f )
+        x = sin( rot + i * osg.PI / 2. )
+        y = cos( rot + i * osg.PI / 2. )
 
         vertices.push_back( p + osg.Vec3(  x * r + y * r, y * r - x * r,  h * 2 / 3 ) * s )
         vertices.push_back( p + osg.Vec3(  x * r - y * r, y * r + x * r,  h * 2 / 3 ) * s )
@@ -380,12 +383,12 @@ static void addHouse
         r--
 ########################################
 static osg.Geode* createObjects( osg.HeightField * grid, unsigned int density )
-    geode =  new osg.Geode
+    geode = osg.Geode()
 
     # set up the texture of the base.
-    stateset =  new osg.StateSet()
+    stateset = osg.StateSet()
 
-    image =  new osg.Image()
+    image = osg.Image()
     image.setImage( 64,64,1,
                      GL_COMPRESSED_RGBA_S3TC_DXT1_EXT,
                      GL_COMPRESSED_RGBA_S3TC_DXT1_EXT,
@@ -393,89 +396,89 @@ static osg.Geode* createObjects( osg.HeightField * grid, unsigned int density )
                      orderBytes( objectTexture, sizeof( objectTexture ) ),
                      osg.Image.NO_DELETE )
 
-    texture =  new osg.Texture2D
+    texture = osg.Texture2D()
     texture.setImage(image)
 
     stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
     stateset.setMode( GL_BLEND,osg.StateAttribute.ON )
 
-    stateset.setAttributeAndModes( new osg.CullFace() )
-    stateset.setAttributeAndModes( new osg.Depth( osg.Depth.LESS, 0.f, 1.f, true ) )
-    stateset.setAttributeAndModes( new osg.AlphaFunc( osg.AlphaFunc.GEQUAL, 0.5f ) )
+    stateset.setAttributeAndModes( osg.CullFace() )
+    stateset.setAttributeAndModes( osg.Depth( osg.Depth.LESS, 0., 1., True ) )
+    stateset.setAttributeAndModes( osg.AlphaFunc( osg.AlphaFunc.GEQUAL, 0.5 ) )
 
     geode.setStateSet( stateset )
 
-    geometry =  new osg.Geometry
+    geometry = osg.Geometry()
     geode.addDrawable(geometry)
 
-    vertices =  new osg.Vec3Array
+    vertices = osg.Vec3Array()
     geometry.setVertexArray(vertices)
 
-    normals =  new osg.Vec3Array
+    normals = osg.Vec3Array()
     geometry.setNormalArray(normals, osg.Array.BIND_PER_VERTEX)
 
-    texCoords =  new osg.Vec2Array
+    texCoords = osg.Vec2Array()
     geometry.setTexCoordArray(0, texCoords)
 
-    colours =  new osg.Vec4Array
+    colours = osg.Vec4Array()
     geometry.setColorArray(colours, osg.Array.BIND_OVERALL)
-    colours.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    colours.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
     for( unsigned int x = 0 x < grid.getNumColumns() - 1 x++ )
         for( unsigned int y = 0 y < grid.getNumRows() - 1 y++ )
 
-            z00 =  grid.getHeight( x,y )
-            z01 =  grid.getHeight( x,y+1 )
-            z10 =  grid.getHeight( x+1,y )
-            z11 =  grid.getHeight( x+1,y+1 )
+            z00 = grid.getHeight( x,y )
+            z01 = grid.getHeight( x,y+1 )
+            z10 = grid.getHeight( x+1,y )
+            z11 = grid.getHeight( x+1,y+1 )
 
-            z =  0.25 * ( z00 + z10 + z11 + z01 )
+            z = 0.25 * ( z00 + z10 + z11 + z01 )
 
             if  z < 400  : continue
             if  z > 500  : continue
 
-            o = osg.Vec3( float(x) * grid.getXInterval(), float(y) * grid.getYInterval(), 0.0f )
+            o = osg.Vec3( float(x) * grid.getXInterval(), float(y) * grid.getYInterval(), 0.0 )
             o += grid.getOrigin()
 
             for( unsigned int d = 0 d < density d++  )
                 p = osg.Vec3( float( rand() ) / RAND_MAX, float( rand() ) / RAND_MAX, 0 )
 
-                z = ( 1.f - p[0] ) * ( 1.f - p[1] ) * z00 +
-                    ( 1.f - p[0] ) * ( p[1] ) * z01 +
+                z = ( 1. - p[0] ) * ( 1. - p[1] ) * z00 +
+                    ( 1. - p[0] ) * ( p[1] ) * z01 +
                     ( p[0] ) * ( p[1] ) * z11 +
-                    ( p[0] ) * ( 1.f - p[1] ) * z10
+                    ( p[0] ) * ( 1. - p[1] ) * z10
 
                 pos = osg.Vec3(o + osg.Vec3(p.x() * grid.getXInterval(), p.y() * grid.getYInterval(), z))
 
                 if  rand() % 3 > 0  :
                     addTree( pos, vertices, normals, texCoords )
-                addHouse = else:( pos, vertices, normals, texCoords )
+                addHouse = else :( pos, vertices, normals, texCoords )
 
 
-    geometry.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, vertices.size()))
+    geometry.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, vertices.size()))
 
     geode.addDrawable(geometry)
-    geode = return()
+    return geode
 ########################################
 osg.Node* createIsland( osg.Vec3 center = osg.Vec3( 0,0,0 ), float radius = 8192 * 0.5 )
-    height =  1000
+    height = 1000
 
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
 
-    osg.ref_ptr<osg.Image> heightMap = new osg.Image()
+    heightMap = osg.Image()
     heightMap.setImage( 64, 64, 1,
                          GL_LUMINANCE, GL_LUMINANCE, GL_UNSIGNED_BYTE,
                          orderBytes( heightTexture, sizeof( heightTexture ) ),
                          osg.Image.NO_DELETE )
 
-    osg.ref_ptr<osg.Image> colorMap = NULL # osgDB.readImageFile("Images/colorMap.png")
+    colorMap = NULL # osgDB.readImageFile("Images/colorMap.png")
     if  !colorMap  :
 
-        struct colorElevation
-            colorElevation(unsigned int elev,  osg.Vec4ub c):
+        class colorElevation :
+colorElevation(unsigned int elev,  osg.Vec4ub c):
                 elevation(elev), color(c) 
 
-            unsigned int elevation
+            elevation = unsigned int()
             color = osg.Vec4ub()
         
 
@@ -489,19 +492,19 @@ osg.Node* createIsland( osg.Vec3 center = osg.Vec3( 0,0,0 ), float radius = 8192
                 colorElevation(256, osg.Vec4ub( 255, 255, 255, 255 ))
             
 
-        colorMap = new osg.Image()
+        colorMap = osg.Image()
         colorMap.allocateImage( heightMap.s(), heightMap.t(),1, GL_RGBA, GL_UNSIGNED_BYTE )
-        unsigned int margin = 0
+        margin = 0
         for( unsigned int r=margin r< colorMap.t()-margin ++r)
             for(unsigned int c=margin c< colorMap.s()-margin ++c)
-                unsigned int h = *heightMap.data(c,r)
-                unsigned int i = 0
+                h = *heightMap.data(c,r)
+                i = 0
                 while  h > colorElevationMap[i+1].elevation  : ++i
 
-                f0 =  float( h - colorElevationMap[i].elevation ) /
+                f0 = float( h - colorElevationMap[i].elevation ) /
                            ( colorElevationMap[i+1].elevation - colorElevationMap[i].elevation )
 
-                f1 =  1.f - f0
+                f1 = 1. - f0
 
 
                 *(osg.Vec4ub*)colorMap.data(c,r) =
@@ -510,36 +513,36 @@ osg.Node* createIsland( osg.Vec3 center = osg.Vec3( 0,0,0 ), float radius = 8192
     origin = osg.Vec3(center - osg.Vec3( radius, radius, 0 ))
     origin.z() = 0.0
 
-    grid =  new osg.HeightField
+    grid = osg.HeightField()
     grid.allocate(heightMap.s(),heightMap.t())
     grid.setOrigin( origin )
-    grid.setXInterval( radius*2.0f/(grid.getNumColumns()-1.0) )
-    grid.setYInterval( radius*2.0f/(grid.getNumRows()-1.0) )
+    grid.setXInterval( radius*2.0/(grid.getNumColumns()-1.0) )
+    grid.setYInterval( radius*2.0/(grid.getNumRows()-1.0) )
 
     for( unsigned int r=0r<grid.getNumRows()-0++r)
         for(unsigned int c=0c<grid.getNumColumns()-0++c)
-            grid.setHeight( c, r, height * exp( *heightMap.data(c,r) / 255.f ) / exp( 1.0 ) )
+            grid.setHeight( c, r, height * exp( *heightMap.data(c,r) / 255. ) / exp( 1.0 ) )
 
-    osg.ref_ptr<osgTerrain.TerrainTile> terrainTile = new osgTerrain.TerrainTile
+    terrainTile = osgTerrain.TerrainTile()
 
-    osg.ref_ptr<osgTerrain.Locator> locator = new osgTerrain.Locator
+    locator = osgTerrain.Locator()
     locator.setCoordinateSystemType(osgTerrain.Locator.PROJECTED)
     locator.setTransformAsExtents(center.x()-radius, center.y()-radius, center.x()+radius, center.y()+radius)
 
     terrainTile.setLocator(locator.get())
 
-    osg.ref_ptr<osgTerrain.HeightFieldLayer> hfl = new osgTerrain.HeightFieldLayer
+    hfl = osgTerrain.HeightFieldLayer()
     hfl.setHeightField(grid)
     hfl.setLocator(locator.get())
     terrainTile.setElevationLayer(hfl.get())
 
-    osg.ref_ptr<osgTerrain.ImageLayer> imageLayer = new osgTerrain.ImageLayer
+    imageLayer = osgTerrain.ImageLayer()
     imageLayer.setImage(colorMap.get())
     imageLayer.setLocator(locator.get())
     terrainTile.setColorLayer(0, imageLayer.get())
 
-    stateset =  terrainTile.getOrCreateStateSet()
-    stateset.setAttributeAndModes( new osg.CullFace(), osg.StateAttribute.ON )
+    stateset = terrainTile.getOrCreateStateSet()
+    stateset.setAttributeAndModes( osg.CullFace(), osg.StateAttribute.ON )
 
     group.addChild(terrainTile.get())
 
@@ -553,6 +556,9 @@ osg.Node* createModel(osg.ArgumentParser #arguments)
     createIsland = return()
 
 ########################################
+
+# Translated from file 'IslandScene.h'
+
 #ifndef ISLANDSCENE_H
 #define ISLANDSCENE_H
 
@@ -561,23 +567,26 @@ namespace ModelFour
     createModel = osg.Node*(osg.ArgumentParser #arguments) 
 
 #endif
-# OpenSceneGraph example, osgshadow.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgshadow.cpp'
+
+# OpenSceneGraph example, osgshadow.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/ArgumentParser>
 #include <osg/ComputeBoundsVisitor>
@@ -623,16 +632,16 @@ namespace ModelFour
 #include "IslandScene.h"
 
 
-class ChangeFOVHandler : public osgGA.GUIEventHandler
-public:
+class ChangeFOVHandler (osgGA.GUIEventHandler) :
     ChangeFOVHandler(osg.Camera* camera)
         : _camera(camera)
         double fovy, aspectRatio, zNear, zFar
         _camera.getProjectionMatrix().getPerspective(fovy, aspectRatio, zNear, zFar)
         print "FOV is ", fovy
 
-    #* Deprecated, Handle events, return true if handled, false otherwise. 
-    virtual bool handle( osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter aa)
+    #* Deprecated, Handle events, return True if handled, False otherwise. 
+    def handle(ea, aa):
+        
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
             if ea.getKey() == '-' || ea.getKey() == '=' || ea.getKey() == '0' :
                 double fovy, aspectRatio, zNear, zFar
@@ -650,50 +659,56 @@ public:
                 print "Setting FOV to ", fovy
                 _camera.getProjectionMatrix().makePerspective(fovy, aspectRatio, zNear, zFar)
 
-                true = return()
+                return True
 
-        false = return()
+        return False
 
-    osg.ref_ptr<osg.Camera> _camera
+    _camera = osg.Camera()
 
 
 
-class DumpShadowVolumesHandler : public osgGA.GUIEventHandler
-public:
+class DumpShadowVolumesHandler (osgGA.GUIEventHandler) :
     DumpShadowVolumesHandler(  )
-        set( false )
+        set( False )
 
-    bool get()  return _value 
-    void set( bool value )  _value = value 
+    def get():
 
-    #* Deprecated, Handle events, return true if handled, false otherwise. 
-    virtual bool handle( osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter aa)
+         return _value 
+    def set(value):
+         _value = value 
+
+    #* Deprecated, Handle events, return True if handled, False otherwise. 
+    def handle(ea, aa):
+        
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
             if ea.getKey() == 'D'  :
-                set( true )
-                true = return()
+                set( True )
+                return True
 
-        false = return()
+        return False
 
     _value = bool()
 
 
 
-class LightAnimationHandler : public osgGA.GUIEventHandler
-public:
-    LightAnimationHandler(bool flag=true): _animating(flag) 
+class LightAnimationHandler (osgGA.GUIEventHandler) :
+    LightAnimationHandler(bool flag=True): _animating(flag) 
 
-    void setAnimating(bool flag)  _animating = flag 
-    bool getAnimating()   return _animating 
+    def setAnimating(flag):
 
-    #* Deprecated, Handle events, return true if handled, false otherwise. 
-    virtual bool handle( osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter aa)
+         _animating = flag 
+    def getAnimating():
+         return _animating 
+
+    #* Deprecated, Handle events, return True if handled, False otherwise. 
+    def handle(ea, aa):
+        
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
             if ea.getKey() == 'p'  :
                 _animating = !_animating
-                true = return()
+                return True
 
-        false = return()
+        return False
 
     _animating = bool()
 
@@ -713,34 +728,36 @@ namespace ModelOne
         BOTTOM_FACE = 32
     
 
-    osg.Node* createCube(unsigned int mask)
-        geode =  new osg.Geode
+    def createCube(mask):
 
-        geometry =  new osg.Geometry
+        
+        geode = osg.Geode()
+
+        geometry = osg.Geometry()
         geode.addDrawable(geometry)
 
-        vertices =  new osg.Vec3Array
+        vertices = osg.Vec3Array()
         geometry.setVertexArray(vertices)
 
-        normals =  new osg.Vec3Array
+        normals = osg.Vec3Array()
         geometry.setNormalArray(normals, osg.Array.BIND_PER_VERTEX)
 
-        colours =  new osg.Vec4Array
+        colours = osg.Vec4Array()
         geometry.setColorArray(colours, osg.Array.BIND_OVERALL)
-        colours.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+        colours.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
 
-        origin = osg.Vec3(0.0f,0.0f,0.0f)
-        dx = osg.Vec3(2.0f,0.0f,0.0f)
-        dy = osg.Vec3(0.0f,1.0f,0.0f)
-        dz = osg.Vec3(0.0f,0.0f,1.0f)
+        origin = osg.Vec3(0.0,0.0,0.0)
+        dx = osg.Vec3(2.0,0.0,0.0)
+        dy = osg.Vec3(0.0,1.0,0.0)
+        dz = osg.Vec3(0.0,0.0,1.0)
 
-        px = osg.Vec3(1.0f,0.0,0.0f)
-        nx = osg.Vec3(-1.0f,0.0,0.0f)
-        py = osg.Vec3(0.0f,1.0f,0.0f)
-        ny = osg.Vec3(0.0f,-1.0f,0.0f)
-        pz = osg.Vec3(0.0f,0.0f,1.0f)
-        nz = osg.Vec3(0.0f,0.0f,-1.0f)
+        px = osg.Vec3(1.0,0.0,0.0)
+        nx = osg.Vec3(-1.0,0.0,0.0)
+        py = osg.Vec3(0.0,1.0,0.0)
+        ny = osg.Vec3(0.0,-1.0,0.0)
+        pz = osg.Vec3(0.0,0.0,1.0)
+        nz = osg.Vec3(0.0,0.0,-1.0)
 
         if mask  FRONT_FACE :
             # front face
@@ -808,21 +825,20 @@ namespace ModelOne
             normals.push_back(nz)
             normals.push_back(nz)
 
-        geometry.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, vertices.size()))
+        geometry.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, vertices.size()))
 
-        geode = return()
+        return geode
 
-    class SwitchHandler : public osgGA.GUIEventHandler
-    public:
+    class SwitchHandler (osgGA.GUIEventHandler) :
 
         SwitchHandler():
             _childNum(0) 
 
         virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter #aa, osg.Object* object, osg.NodeVisitor* #nv)
-            sw =  dynamic_cast<osg.Switch*>(object)
-            if !sw : return false
+            sw = dynamic_cast<osg.Switch*>(object)
+            if !sw : return False
 
-            if ea.getHandled() : return false
+            if ea.getHandled() : return False
 
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYDOWN):
@@ -831,271 +847,283 @@ namespace ModelOne
                         if _childNum >= sw.getNumChildren() : _childNum = 0
 
                         sw.setSingleChildOn(_childNum)
-                        true = return()
+                        return True
                     break
                 default:
                     break
-            false = return()
-
-    protected:
+            return False
 
         virtual ~SwitchHandler() 
-        unsigned int    _childNum
+        _childNum = unsigned int()
 
     
 
 
     osg.Node* createModel(osg.ArgumentParser #arguments)
-        sw =  new osg.Switch
-        sw.setEventCallback(new ModelOne.SwitchHandler)
+        sw = osg.Switch()
+        sw.setEventCallback(ModelOne.SwitchHandler)()
 
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE), true)
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE), false)
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE), false)
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE), false)
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE | ModelOne.TOP_FACE), false)
-        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE | ModelOne.TOP_FACE | ModelOne.BOTTOM_FACE), false)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE), True)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE), False)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE), False)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE), False)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE | ModelOne.TOP_FACE), False)
+        sw.addChild(ModelOne.createCube(ModelOne.FRONT_FACE | ModelOne.BACK_FACE | ModelOne.LEFT_FACE | ModelOne.RIGHT_FACE | ModelOne.TOP_FACE | ModelOne.BOTTOM_FACE), False)
 
-        sw = return()
+        return sw
 
 namespace ModelTwo
     def createAnimationPath(center, radius, looptime):
+        
         # set up the animation path
-        animationPath =  new osg.AnimationPath
+        animationPath = osg.AnimationPath()
         animationPath.setLoopMode(osg.AnimationPath.LOOP)
 
-        numSamples =  40
-        yaw =  0.0f
-        yaw_delta =  2.0f*osg.PI/((float)numSamples-1.0f)
-        roll =  osg.inDegrees(30.0f)
+        numSamples = 40
+        yaw = 0.0
+        yaw_delta = 2.0*osg.PI/((float)numSamples-1.0)
+        roll = osg.inDegrees(30.0)
 
-        time = 0.0f
-        time_delta =  looptime/(double)numSamples
+        time = 0.0
+        time_delta = looptime/(double)numSamples
         for(int i=0i<numSamples++i)
-            position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0f))
-            rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0f)),osg.Vec3(0.0,0.0,1.0)))
+            position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0))
+            rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0)))
 
             animationPath.insert(time,osg.AnimationPath.ControlPoint(position,rotation))
 
             yaw += yaw_delta
             time += time_delta
 
-        animationPath = return()
+        return animationPath
 
     def createBase(center, radius):
-        geode =  new osg.Geode
+
+        
+
+        geode = osg.Geode()
 
         # set up the texture of the base.
-        stateset =  new osg.StateSet()
-        image =  osgDB.readImageFile("Images/lz.rgb")
+        stateset = osg.StateSet()
+        image = osgDB.readImageFile("Images/lz.rgb")
         if image :
-            texture =  new osg.Texture2D
+            texture = osg.Texture2D()
             texture.setImage(image)
             stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
 
         geode.setStateSet( stateset )
 
 
-        grid =  new osg.HeightField
+        grid = osg.HeightField()
         grid.allocate(38,39)
-        grid.setOrigin(center+osg.Vec3(-radius,-radius,0.0f))
-        grid.setXInterval(radius*2.0f/(float)(38-1))
-        grid.setYInterval(radius*2.0f/(float)(39-1))
+        grid.setOrigin(center+osg.Vec3(-radius,-radius,0.0))
+        grid.setXInterval(radius*2.0/(float)(38-1))
+        grid.setYInterval(radius*2.0/(float)(39-1))
 
-        minHeight =  FLT_MAX
-        maxHeight =  -FLT_MAX
+        minHeight = FLT_MAX
+        maxHeight = -FLT_MAX
 
 
-        unsigned int r
+        r = unsigned int()
         for(r=0r<39++r)
             for(unsigned int c=0c<38++c)
-                h =  vertex[r+c*39][2]
+                h = vertex[r+c*39][2]
                 if h>maxHeight : maxHeight=h
                 if h<minHeight : minHeight=h
 
-        hieghtScale =  radius*0.5f/(maxHeight-minHeight)
-        hieghtOffset =  -(minHeight+maxHeight)*0.5f
+        hieghtScale = radius*0.5/(maxHeight-minHeight)
+        hieghtOffset = -(minHeight+maxHeight)*0.5
 
         for(r=0r<39++r)
             for(unsigned int c=0c<38++c)
-                h =  vertex[r+c*39][2]
+                h = vertex[r+c*39][2]
                 grid.setHeight(c,r,(h+hieghtOffset)*hieghtScale)
 
-        geode.addDrawable(new osg.ShapeDrawable(grid))
+        geode.addDrawable(osg.ShapeDrawable(grid))
 
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(geode)
 
-        group = return()
+        return group
 
 
     def createMovingModel(center, radius):
-        animationLength =  10.0f
 
-        animationPath =  createAnimationPath(center,radius,animationLength)
+        
+        animationLength = 10.0
 
-        model =  new osg.Group
+        animationPath = createAnimationPath(center,radius,animationLength)
 
-        cessna =  osgDB.readNodeFile("cessna.osgt")
+        model = osg.Group()
+
+        cessna = osgDB.readNodeFile("cessna.osgt")
         if cessna :
-            bs =  cessna.getBound()
+            bs = cessna.getBound()
 
-            size =  radius/bs.radius()*0.3f
-            positioned =  new osg.MatrixTransform
+            size = radius/bs.radius()*0.3
+            positioned = osg.MatrixTransform()
             positioned.setDataVariance(osg.Object.STATIC)
             positioned.setMatrix(osg.Matrix.translate(-bs.center())*
                                   osg.Matrix.scale(size,size,size)*
-                                  osg.Matrix.rotate(osg.inDegrees(180.0f),0.0f,0.0f,2.0f))
+                                  osg.Matrix.rotate(osg.inDegrees(180.0),0.0,0.0,2.0))
 
             positioned.addChild(cessna)
 
-            xform =  new osg.MatrixTransform
-            xform.setUpdateCallback(new osg.AnimationPathCallback(animationPath,0.0f,2.0))
+            xform = osg.MatrixTransform()
+            xform.setUpdateCallback(osg.AnimationPathCallback(animationPath,0.0,2.0))
             xform.addChild(positioned)
 
             model.addChild(xform)
 
-        model = return()
+        return model
 
     osg.Node* createModel(osg.ArgumentParser #arguments)
-        center = osg.Vec3(0.0f,0.0f,0.0f)
-        radius =  100.0f
-        lightPosition = osg.Vec3(center+osg.Vec3(0.0f,0.0f,radius))
+        center = osg.Vec3(0.0,0.0,0.0)
+        radius = 100.0
+        lightPosition = osg.Vec3(center+osg.Vec3(0.0,0.0,radius))
 
         # the shadower model
-        shadower =  createMovingModel(center,radius*0.5f)
+        shadower = createMovingModel(center,radius*0.5)
         shadower.setNodeMask(CastsShadowTraversalMask)
 
         # the shadowed model
-        shadowed =  createBase(center-osg.Vec3(0.0f,0.0f,radius*0.25),radius)
+        shadowed = createBase(center-osg.Vec3(0.0,0.0,radius*0.25),radius)
         shadowed.setNodeMask(ReceivesShadowTraversalMask)
 
-        group =  new osg.Group
+        group = osg.Group()
 
         group.addChild(shadowed)
         group.addChild(shadower)
 
-        group = return()
+        return group
 
 namespace ModelThree
     def createModel(arguments):
-        scene =  new osg.Group
+        
+        scene = osg.Group()
 
-        osg.ref_ptr<osg.Geode> geode_1 = new osg.Geode
+        geode_1 = osg.Geode()
         scene.addChild(geode_1.get())
 
-        osg.ref_ptr<osg.Geode> geode_2 = new osg.Geode
-        osg.ref_ptr<osg.MatrixTransform> transform_2 = new osg.MatrixTransform
+        geode_2 = osg.Geode()
+        transform_2 = osg.MatrixTransform()
         transform_2.addChild(geode_2.get())
-#        transform_2.setUpdateCallback(new osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(45.0f)))
+#        transform_2.setUpdateCallback(osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(45.0)))
         scene.addChild(transform_2.get())
 
-        osg.ref_ptr<osg.Geode> geode_3 = new osg.Geode
-        osg.ref_ptr<osg.MatrixTransform> transform_3 = new osg.MatrixTransform
+        geode_3 = osg.Geode()
+        transform_3 = osg.MatrixTransform()
         transform_3.addChild(geode_3.get())
-#        transform_3.setUpdateCallback(new osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(-22.5f)))
+#        transform_3.setUpdateCallback(osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(-22.5)))
         scene.addChild(transform_3.get())
 
-        radius =  0.8f
-        height =  1.0f
-        osg.ref_ptr<osg.TessellationHints> hints = new osg.TessellationHints
-        hints.setDetailRatio(2.0f)
-        osg.ref_ptr<osg.ShapeDrawable> shape
-        shape = new osg.ShapeDrawable(new osg.Box(osg.Vec3(0.0f, 0.0f, -2.0f), 10, 10.0f, 0.1f), hints.get())
-        shape.setColor(osg.Vec4(0.5f, 0.5f, 0.7f, 1.0f))
+        radius = 0.8
+        height = 1.0
+        hints = osg.TessellationHints()
+        hints.setDetailRatio(2.0)
+        shape = osg.ShapeDrawable()
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints.get())
+        shape.setColor(osg.Vec4(0.5, 0.5, 0.7, 1.0))
         shape.setName("base box")
         geode_1.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f, 0.0f, 0.0f), radius * 2), hints.get())
-        shape.setColor(osg.Vec4(0.8f, 0.8f, 0.8f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), radius * 2), hints.get())
+        shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
         shape.setName("center sphere")
         geode_1.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(-3.0f, 0.0f, 0.0f), radius), hints.get())
-        shape.setColor(osg.Vec4(0.6f, 0.8f, 0.8f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(-3.0, 0.0, 0.0), radius), hints.get())
+        shape.setColor(osg.Vec4(0.6, 0.8, 0.8, 1.0))
         shape.setName("cyan sphere")
         geode_2.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Box(osg.Vec3(3.0f, 0.0f, 0.0f), 2 * radius), hints.get())
-        shape.setColor(osg.Vec4(0.4f, 0.9f, 0.3f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(3.0, 0.0, 0.0), 2 * radius), hints.get())
+        shape.setColor(osg.Vec4(0.4, 0.9, 0.3, 1.0))
         shape.setName("green box")
         geode_2.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Cone(osg.Vec3(0.0f, -3.0f, 0.0f), radius, height), hints.get())
-        shape.setColor(osg.Vec4(0.2f, 0.5f, 0.7f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints.get())
+        shape.setColor(osg.Vec4(0.2, 0.5, 0.7, 1.0))
         shape.setName("blue cone")
         geode_2.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(0.0f, 3.0f, 0.0f), radius, height), hints.get())
-        shape.setColor(osg.Vec4(1.0f, 0.3f, 0.3f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints.get())
+        shape.setColor(osg.Vec4(1.0, 0.3, 0.3, 1.0))
         shape.setName("red cyclinder")
         geode_2.addDrawable(shape.get())
 
-        shape = new osg.ShapeDrawable(new osg.Box(osg.Vec3(0.0f, 0.0f, 3.0f), 2.0f, 2.0f, 0.1f), hints.get())
-        shape.setColor(osg.Vec4(0.8f, 0.8f, 0.4f, 1.0f))
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0, 0.1), hints.get())
+        shape.setColor(osg.Vec4(0.8, 0.8, 0.4, 1.0))
         shape.setName("rotating box")
         geode_3.addDrawable(shape.get())
 
         # material
-        osg.ref_ptr<osg.Material> matirial = new osg.Material
+        matirial = osg.Material()
         matirial.setColorMode(osg.Material.DIFFUSE)
         matirial.setAmbient(osg.Material.FRONT_AND_BACK, osg.Vec4(0, 0, 0, 1))
         matirial.setSpecular(osg.Material.FRONT_AND_BACK, osg.Vec4(1, 1, 1, 1))
-        matirial.setShininess(osg.Material.FRONT_AND_BACK, 64.0f)
+        matirial.setShininess(osg.Material.FRONT_AND_BACK, 64.0)
         scene.getOrCreateStateSet().setAttributeAndModes(matirial.get(), osg.StateAttribute.ON)
 
-        withBaseTexture =  true
-        while arguments.read("--with-base-texture") :  withBaseTexture = true 
-        while arguments.read("--no-base-texture") :  withBaseTexture = false 
+        withBaseTexture = True
+        while arguments.read("--with-base-texture") :  withBaseTexture = True 
+        while arguments.read("--no-base-texture") :  withBaseTexture = False 
 
         if withBaseTexture :
-            scene.getOrCreateStateSet().setTextureAttributeAndModes( 0, new osg.Texture2D(osgDB.readImageFile("Images/lz.rgb")), osg.StateAttribute.ON)
+            scene.getOrCreateStateSet().setTextureAttributeAndModes( 0, osg.Texture2D(osgDB.readImageFile("Images/lz.rgb")), osg.StateAttribute.ON)
 
-        scene = return()
+        return scene
 
 
 
 namespace ModelFive
-    struct UseVBOVisitor : public osg.NodeVisitor
-        UseVBOVisitor():
+    class UseVBOVisitor (osg.NodeVisitor) :
+UseVBOVisitor():
             osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN) 
 
-        virtual void apply(osg.Geode geode)
+        def apply(geode):
+
+            
             for(unsigned int i=0 i<geode.getNumDrawables() ++i)
-                geometry =  dynamic_cast<osg.Geometry*>(geode.getDrawable(i))
+                geometry = dynamic_cast<osg.Geometry*>(geode.getDrawable(i))
                 if geometry :
-                    geometry.setUseVertexBufferObjects(true)
+                    geometry.setUseVertexBufferObjects(True)
     
 
 
     def createAnimationPathCallback(radius, time):
-        osg.ref_ptr<osg.AnimationPath> path = new osg.AnimationPath
+
+
+        
+        path = osg.AnimationPath()
         path.setLoopMode( osg.AnimationPath.LOOP )
 
-        unsigned int numSamples = 32
-        delta_yaw =  2.0f * osg.PI/((float)numSamples - 1.0f)
-        delta_time =  time / (float)numSamples
+        numSamples = 32
+        delta_yaw = 2.0 * osg.PI/((float)numSamples - 1.0)
+        delta_time = time / (float)numSamples
         for ( unsigned int i=0 i<numSamples ++i )
-            yaw =  delta_yaw * (float)i
-            pos = osg.Vec3( sinf(yaw)*radius, cosf(yaw)*radius, 0.0f )
+            yaw = delta_yaw * (float)i
+            pos = osg.Vec3( sinf(yaw)*radius, cosf(yaw)*radius, 0.0 )
             rot = osg.Quat( -yaw, osg.Z_AXIS )
             path.insert( delta_time * (float)i, osg.AnimationPath.ControlPoint(pos, rot) )
 
-        osg.ref_ptr<osg.AnimationPathCallback> apcb = new osg.AnimationPathCallback
+        apcb = osg.AnimationPathCallback()
         apcb.setAnimationPath( path.get() )
         return apcb.release()
 
     def createModel(arguments):
+
+        
         # Set the ground (only receives shadow)
-        osg.ref_ptr<osg.MatrixTransform> groundNode = new osg.MatrixTransform
+        groundNode = osg.MatrixTransform()
         groundNode.addChild( osgDB.readNodeFile("lz.osg") )
-        groundNode.setMatrix( osg.Matrix.translate(200.0f, 200.0f,-200.0f) )
+        groundNode.setMatrix( osg.Matrix.translate(200.0, 200.0,-200.0) )
         groundNode.setNodeMask( ReceivesShadowTraversalMask )
 
         # Set the cessna (only casts shadow)
-        osg.ref_ptr<osg.MatrixTransform> cessnaNode = new osg.MatrixTransform
+        cessnaNode = osg.MatrixTransform()
         cessnaNode.addChild( osgDB.readNodeFile("cessna.osg.0,0,90.rot") )
-        cessnaNode.addUpdateCallback( createAnimationPathCallback(50.0f, 6.0f) )
+        cessnaNode.addUpdateCallback( createAnimationPathCallback(50.0, 6.0) )
         cessnaNode.setNodeMask( CastsShadowTraversalMask )
 
         # cessna is really poorly optimized so fix this by optimizing the mesh and use VBO's.
@@ -1108,12 +1136,12 @@ namespace ModelFive
         cessnaNode.accept(useVBOVisitor)
 
 
-        osg.ref_ptr<osg.Group> shadowRoot = new osg.Group
+        shadowRoot = osg.Group()
         shadowRoot.addChild( groundNode.get() )
         for ( unsigned int i=0 i<10 ++i )
             for ( unsigned int j=0 j<10 ++j )
-                osg.ref_ptr<osg.MatrixTransform> cessnaInstance = new osg.MatrixTransform
-                cessnaInstance.setMatrix( osg.Matrix.translate((float)i*50.0f-25.0f, (float)j*50.0f-25.0f, 0.0f) )
+                cessnaInstance = osg.MatrixTransform()
+                cessnaInstance.setMatrix( osg.Matrix.translate((float)i*50.0-25.0, (float)j*50.0-25.0, 0.0) )
                 cessnaInstance.addChild( cessnaNode.get() )
                 shadowRoot.addChild( cessnaInstance.get() )
 
@@ -1121,20 +1149,25 @@ namespace ModelFive
         return shadowRoot.release()
 
 def createTestModel(arguments):
+
+    
     if arguments.read("-1") :
         return ModelOne.createModel(arguments)
-    else: if arguments.read("-2") :
+    elif arguments.read("-2") :
         return ModelTwo.createModel(arguments)
-    else: if arguments.read("-4") :
+    elif arguments.read("-4") :
         return ModelFour.createModel(arguments)
-    else: if arguments.read("-5") :
+    elif arguments.read("-5") :
         return ModelFive.createModel(arguments)
-    else: #if arguments.read("-3") :
+    else : #if arguments.read("-3") :
         return ModelThree.createModel(arguments)
 
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc, argv)
 
@@ -1194,7 +1227,7 @@ def main(argc, argv):
     zNear = 1.0, zMid=10.0, zFar=1000.0
     if arguments.read("--depth-partition",zNear, zMid, zFar) :
         # set up depth partitioning
-        osg.ref_ptr<osgViewer.DepthPartitionSettings> dps = new osgViewer.DepthPartitionSettings
+        dps = osgViewer.DepthPartitionSettings()
         dps._mode = osgViewer.DepthPartitionSettings.FIXED_RANGE
         dps._zNear = zNear
         dps._zMid = zMid
@@ -1205,43 +1238,43 @@ def main(argc, argv):
         # set up depth partitioning
         viewer.setUpDepthPartition()
 
-    fov =  0.0
+    fov = 0.0
     while arguments.read("--fov",fov) : 
 
     lightpos = osg.Vec4(0.0,0.0,1,0.0)
-    spotlight =  false
+    spotlight = False
     while arguments.read("--positionalLight") :  lightpos.set(0.5,0.5,1.5,1.0) 
     while arguments.read("--directionalLight") :  lightpos.set(0.0,0.0,1,0.0) 
-    while arguments.read("--spotLight") :  lightpos.set(0.5,0.5,1.5,1.0) spotlight = true 
+    while arguments.read("--spotLight") :  lightpos.set(0.5,0.5,1.5,1.0) spotlight = True 
 
-    keepLightPos =  false
+    keepLightPos = False
     spotLookat = osg.Vec3(0.0,0.0,0.0)
-    while  arguments.read("--light-pos", lightpos.x(), lightpos.y(), lightpos.z(), lightpos.w()) :  keepLightPos = true 
-    while  arguments.read("--light-pos", lightpos.x(), lightpos.y(), lightpos.z()) :  lightpos.w()=1.0 keepLightPos = true 
-    while  arguments.read("--light-dir", lightpos.x(), lightpos.y(), lightpos.z()) :  lightpos.w()=0.0 keepLightPos = true 
+    while  arguments.read("--light-pos", lightpos.x(), lightpos.y(), lightpos.z(), lightpos.w()) :  keepLightPos = True 
+    while  arguments.read("--light-pos", lightpos.x(), lightpos.y(), lightpos.z()) :  lightpos.w()=1.0 keepLightPos = True 
+    while  arguments.read("--light-dir", lightpos.x(), lightpos.y(), lightpos.z()) :  lightpos.w()=0.0 keepLightPos = True 
     while  arguments.read("--spot-lookat", spotLookat.x(), spotLookat.y(), spotLookat.z()) :  
 
 
     while arguments.read("--castsShadowMask", CastsShadowTraversalMask ) :
     while arguments.read("--receivesShadowMask", ReceivesShadowTraversalMask ) :
 
-    updateLightPosition =  true
-    while arguments.read("--noUpdate") : updateLightPosition = false
+    updateLightPosition = True
+    while arguments.read("--noUpdate") : updateLightPosition = False
 
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() :
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -1249,32 +1282,32 @@ def main(argc, argv):
         viewer.setCameraManipulator( keyswitchManipulator.get() )
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
     # add stats
-    viewer.addEventHandler( new osgViewer.StatsHandler() )
+    viewer.addEventHandler( osgViewer.StatsHandler() )
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     # add the threading handler
-    viewer.addEventHandler( new osgViewer.ThreadingHandler() )
+    viewer.addEventHandler( osgViewer.ThreadingHandler() )
 
-    osg.ref_ptr<osgShadow.ShadowedScene> shadowedScene = new osgShadow.ShadowedScene
+    shadowedScene = osgShadow.ShadowedScene()
 
-    settings =  shadowedScene.getShadowSettings()
+    settings = shadowedScene.getShadowSettings()
     settings.setReceivesShadowTraversalMask(ReceivesShadowTraversalMask)
     settings.setCastsShadowTraversalMask(CastsShadowTraversalMask)
 
     nearFarMode = str("")
     if arguments.read("--near-far-mode",nearFarMode) :
         if nearFarMode=="COMPUTE_NEAR_USING_PRIMITIVES" :                settings.setComputeNearFarModeOverride(osg.CullSettings.COMPUTE_NEAR_USING_PRIMITIVES)
-        else: if nearFarMode=="COMPUTE_NEAR_FAR_USING_PRIMITIVES" :       settings.setComputeNearFarModeOverride(osg.CullSettings.COMPUTE_NEAR_FAR_USING_PRIMITIVES)
-        else: if nearFarMode=="DO_NOT_COMPUTE_NEAR_FAR" :                 settings.setComputeNearFarModeOverride(osg.CullSettings.DO_NOT_COMPUTE_NEAR_FAR)
-        else: if nearFarMode=="COMPUTE_NEAR_FAR_USING_BOUNDING_VOLUMES" : settings.setComputeNearFarModeOverride(osg.CullSettings.COMPUTE_NEAR_FAR_USING_BOUNDING_VOLUMES)
+        elif nearFarMode=="COMPUTE_NEAR_FAR_USING_PRIMITIVES" :       settings.setComputeNearFarModeOverride(osg.CullSettings.COMPUTE_NEAR_FAR_USING_PRIMITIVES)
+        elif nearFarMode=="DO_NOT_COMPUTE_NEAR_FAR" :                 settings.setComputeNearFarModeOverride(osg.CullSettings.DO_NOT_COMPUTE_NEAR_FAR)
+        elif nearFarMode=="COMPUTE_NEAR_FAR_USING_BOUNDING_VOLUMES" : settings.setComputeNearFarModeOverride(osg.CullSettings.COMPUTE_NEAR_FAR_USING_BOUNDING_VOLUMES)
 
         OSG_NOTICE, "ComputeNearFarModeOverride set to "
         switch(settings.getComputeNearFarModeOverride())
@@ -1290,32 +1323,32 @@ def main(argc, argv):
         OSG_NOTICE, "MaximumShadowMapDistance set to ", settings.getMaximumShadowMapDistance()
 
 
-    osg.ref_ptr<osgShadow.MinimalShadowMap> msm = NULL
+    msm = NULL
     if arguments.read("--no-shadows") :
         OSG_NOTICE, "Not using a ShadowTechnique"
         shadowedScene.setShadowTechnique(0)
-    else: if arguments.read("--sv") :
+    elif arguments.read("--sv") :
         # hint to tell viewer to request stencil buffer when setting up windows
         osg.DisplaySettings.instance().setMinimumNumStencilBits(8)
 
-        osg.ref_ptr<osgShadow.ShadowVolume> sv = new osgShadow.ShadowVolume
+        sv = osgShadow.ShadowVolume()
         sv.setDynamicShadowVolumes(updateLightPosition)
         while arguments.read("--two-sided") : sv.setDrawMode(osgShadow.ShadowVolumeGeometry.STENCIL_TWO_SIDED)
         while arguments.read("--two-pass") : sv.setDrawMode(osgShadow.ShadowVolumeGeometry.STENCIL_TWO_PASS)
 
         shadowedScene.setShadowTechnique(sv.get())
-    else: if arguments.read("--st") :
-        osg.ref_ptr<osgShadow.ShadowTexture> st = new osgShadow.ShadowTexture
+    elif arguments.read("--st") :
+        st = osgShadow.ShadowTexture()
         shadowedScene.setShadowTechnique(st.get())
-    else: if arguments.read("--stsm") :
-        osg.ref_ptr<osgShadow.StandardShadowMap> st = new osgShadow.StandardShadowMap
+    elif arguments.read("--stsm") :
+        st = osgShadow.StandardShadowMap()
         shadowedScene.setShadowTechnique(st.get())
-    else: if arguments.read("--pssm") :
-        mapcount =  3
+    elif arguments.read("--pssm") :
+        mapcount = 3
         while arguments.read("--mapcount", mapcount) :
-        osg.ref_ptr<osgShadow.ParallelSplitShadowMap> pssm = new osgShadow.ParallelSplitShadowMap(NULL,mapcount)
+        pssm = osgShadow.ParallelSplitShadowMap(NULL,mapcount)
 
-        mapres =  1024
+        mapres = 1024
         while arguments.read("--mapres", mapres) :
             pssm.setTextureResolution(mapres)
 
@@ -1328,13 +1361,13 @@ def main(argc, argv):
                 pssm.setMinNearDistanceForSplits(minNearSplit)
                 print "ParallelSplitShadowMap : setMinNearDistanceForSplits(", minNearSplit, ")"
 
-        maxfardist =  0
+        maxfardist = 0
         while arguments.read("--maxFarDist", maxfardist) :
             if  maxfardist > 0  : 
                 pssm.setMaxFarDistance(maxfardist)
                 print "ParallelSplitShadowMap : setMaxFarDistance(", maxfardist, ")"
 
-        moveVCamFactor =  0
+        moveVCamFactor = 0
         while arguments.read("--moveVCamFactor", moveVCamFactor) :
             if  maxfardist > 0  : 
                 pssm.setMoveVCamBehindRCamFactor(moveVCamFactor)
@@ -1342,71 +1375,71 @@ def main(argc, argv):
 
 
 
-        polyoffsetfactor =  pssm.getPolygonOffset().x()
-        polyoffsetunit =  pssm.getPolygonOffset().y()
+        polyoffsetfactor = pssm.getPolygonOffset().x()
+        polyoffsetunit = pssm.getPolygonOffset().y()
         while arguments.read("--PolyOffset-Factor", polyoffsetfactor) :
         while arguments.read("--PolyOffset-Unit", polyoffsetunit) :
         pssm.setPolygonOffset(osg.Vec2(polyoffsetfactor,polyoffsetunit))
 
         shadowedScene.setShadowTechnique(pssm.get())
-    else: if arguments.read("--ssm") :
-        osg.ref_ptr<osgShadow.SoftShadowMap> sm = new osgShadow.SoftShadowMap
+    elif arguments.read("--ssm") :
+        sm = osgShadow.SoftShadowMap()
         shadowedScene.setShadowTechnique(sm.get())
-    else: if  arguments.read("--vdsm")  :
-        while  arguments.read("--debugHUD")  : settings.setDebugDraw( true )
+    elif  arguments.read("--vdsm")  :
+        while  arguments.read("--debugHUD")  : settings.setDebugDraw( True )
         if arguments.read("--persp") : settings.setShadowMapProjectionHint(osgShadow.ShadowSettings.PERSPECTIVE_SHADOW_MAP)
         if arguments.read("--ortho") : settings.setShadowMapProjectionHint(osgShadow.ShadowSettings.ORTHOGRAPHIC_SHADOW_MAP)
 
-        unsigned int unit=1
+        unit = 1
         if arguments.read("--unit",unit) : settings.setBaseShadowTextureUnit(unit)
 
         n = 0.0
         if arguments.read("-n",n) : settings.setMinimumShadowMapNearFarRatio(n)
 
-        unsigned int numShadowMaps
+        numShadowMaps = unsigned int()
         if arguments.read("--num-sm",numShadowMaps) : settings.setNumShadowMapsPerLight(numShadowMaps)
 
         if arguments.read("--parallel-split") || arguments.read("--ps")  : settings.setMultipleShadowMapHint(osgShadow.ShadowSettings.PARALLEL_SPLIT)
         if arguments.read("--cascaded") : settings.setMultipleShadowMapHint(osgShadow.ShadowSettings.CASCADED)
 
 
-        mapres =  1024
+        mapres = 1024
         while arguments.read("--mapres", mapres) :
             settings.setTextureSize(osg.Vec2s(mapres,mapres))
 
-        osg.ref_ptr<osgShadow.ViewDependentShadowMap> vdsm = new osgShadow.ViewDependentShadowMap
+        vdsm = osgShadow.ViewDependentShadowMap()
         shadowedScene.setShadowTechnique(vdsm.get())
-    else: if  arguments.read("--lispsm")  :
+    elif  arguments.read("--lispsm")  :
         if  arguments.read( "--ViewBounds" )  :
-            msm = new osgShadow.LightSpacePerspectiveShadowMapVB
-        else: if  arguments.read( "--CullBounds" )  :
-            msm = new osgShadow.LightSpacePerspectiveShadowMapCB
-        else: # if  arguments.read( "--DrawBounds" )  : # default
-            msm = new osgShadow.LightSpacePerspectiveShadowMapDB
-    else: if  arguments.read("--msm")  :
+            msm = osgShadow.LightSpacePerspectiveShadowMapVB()
+        elif  arguments.read( "--CullBounds" )  :
+            msm = osgShadow.LightSpacePerspectiveShadowMapCB()
+        else : # if  arguments.read( "--DrawBounds" )  : # default
+            msm = osgShadow.LightSpacePerspectiveShadowMapDB()
+    elif  arguments.read("--msm")  :
        if  arguments.read( "--ViewBounds" )  :
-            msm = new osgShadow.MinimalShadowMap
-       else: if  arguments.read( "--CullBounds" )  :
-            msm = new osgShadow.MinimalCullBoundsShadowMap
-       else: # if  arguments.read( "--DrawBounds" )  : # default
-            msm = new osgShadow.MinimalDrawBoundsShadowMap
-    else: # if arguments.read("--sm") : 
-        osg.ref_ptr<osgShadow.ShadowMap> sm = new osgShadow.ShadowMap
+            msm = osgShadow.MinimalShadowMap()
+       elif  arguments.read( "--CullBounds" )  :
+            msm = osgShadow.MinimalCullBoundsShadowMap()
+       else : # if  arguments.read( "--DrawBounds" )  : # default
+            msm = osgShadow.MinimalDrawBoundsShadowMap()
+    else : # if arguments.read("--sm") : 
+        sm = osgShadow.ShadowMap()
         shadowedScene.setShadowTechnique(sm.get())
 
-        mapres =  1024
+        mapres = 1024
         while arguments.read("--mapres", mapres) :
             sm.setTextureSize(osg.Vec2s(mapres,mapres))
 
     if  msm  :# Set common MSM  LISPSM arguments
         shadowedScene.setShadowTechnique( msm.get() )
-        while  arguments.read("--debugHUD")  : msm.setDebugDraw( true )
+        while  arguments.read("--debugHUD")  : msm.setDebugDraw( True )
 
-        minLightMargin =  10.f
-        maxFarPlane =  0
-        unsigned int texSize = 1024
-        unsigned int baseTexUnit = 0
-        unsigned int shadowTexUnit = 1
+        minLightMargin = 10.
+        maxFarPlane = 0
+        texSize = 1024
+        baseTexUnit = 0
+        shadowTexUnit = 1
 
         while  arguments.read("--moveVCamFactor", minLightMargin )  :
         while  arguments.read("--minLightMargin", minLightMargin )  :
@@ -1425,16 +1458,16 @@ def main(argc, argv):
 
     OSG_INFO, "shadowedScene.getShadowTechnique()=", shadowedScene.getShadowTechnique()
 
-    osg.ref_ptr<osg.Node> model = osgDB.readNodeFiles(arguments)
+    model = osgDB.readNodeFiles(arguments)
     if model.valid() :
         model.setNodeMask(CastsShadowTraversalMask | ReceivesShadowTraversalMask)
-    else:
+    else :
         model = createTestModel(arguments)
 
     # get the bounds of the model.
     cbbv = osg.ComputeBoundsVisitor()
     model.accept(cbbv)
-    bb =  cbbv.getBoundingBox()
+    bb = cbbv.getBoundingBox()
 
     if lightpos.w()==1.0  !keepLightPos :
         lightpos.x() = bb.xMin()+(bb.xMax()-bb.xMin())*lightpos.x()
@@ -1443,39 +1476,39 @@ def main(argc, argv):
 
     if  arguments.read("--base") :
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
 
-        widthVec = osg.Vec3(bb.radius(), 0.0f, 0.0f)
-        depthVec = osg.Vec3(0.0f, bb.radius(), 0.0f)
-        centerBase = osg.Vec3( (bb.xMin()+bb.xMax())*0.5f, (bb.yMin()+bb.yMax())*0.5f, bb.zMin()-bb.radius()*0.1f )
+        widthVec = osg.Vec3(bb.radius(), 0.0, 0.0)
+        depthVec = osg.Vec3(0.0, bb.radius(), 0.0)
+        centerBase = osg.Vec3( (bb.xMin()+bb.xMax())*0.5, (bb.yMin()+bb.yMax())*0.5, bb.zMin()-bb.radius()*0.1 )
 
-        geode.addDrawable( osg.createTexturedQuadGeometry( centerBase-widthVec*1.5f-depthVec*1.5f,
-                                                             widthVec*3.0f, depthVec*3.0f) )
+        geode.addDrawable( osg.createTexturedQuadGeometry( centerBase-widthVec*1.5-depthVec*1.5,
+                                                             widthVec*3.0, depthVec*3.0) )
 
         geode.setNodeMask(shadowedScene.getReceivesShadowTraversalMask())
 
-        geode.getOrCreateStateSet().setTextureAttributeAndModes(0, new osg.Texture2D(osgDB.readImageFile("Images/lz.rgb")))
+        geode.getOrCreateStateSet().setTextureAttributeAndModes(0, osg.Texture2D(osgDB.readImageFile("Images/lz.rgb")))
 
         shadowedScene.addChild(geode)
 
-    osg.ref_ptr<osg.LightSource> ls = new osg.LightSource
+    ls = osg.LightSource()
     ls.getLight().setPosition(lightpos)
 
     if spotlight :
-        center =  spotLookat
-        lightdir =  center - osg.Vec3(lightpos.x(), lightpos.y(), lightpos.z())
+        center = spotLookat
+        lightdir = center - osg.Vec3(lightpos.x(), lightpos.y(), lightpos.z())
         lightdir.normalize()
         ls.getLight().setDirection(lightdir)
-        ls.getLight().setSpotCutoff(25.0f)
+        ls.getLight().setSpotCutoff(25.0)
 
         #set the LightSource, only for checking, there is only 1 light in the scene
-        shadowMap =  dynamic_cast<osgShadow.ShadowMap*>(shadowedScene.getShadowTechnique())
+        shadowMap = dynamic_cast<osgShadow.ShadowMap*>(shadowedScene.getShadowTechnique())
         if  shadowMap  : shadowMap.setLight(ls.get())
 
     if  arguments.read("--coloured-light") :
         ls.getLight().setAmbient(osg.Vec4(1.0,0.0,0.0,1.0))
         ls.getLight().setDiffuse(osg.Vec4(0.0,1.0,0.0,1.0))
-    else:
+    else :
         ls.getLight().setAmbient(osg.Vec4(0.2,0.2,0.2,1.0))
         ls.getLight().setDiffuse(osg.Vec4(0.8,0.8,0.8,1.0))
 
@@ -1484,9 +1517,9 @@ def main(argc, argv):
 
     viewer.setSceneData(shadowedScene.get())
 
-    osg.ref_ptr< DumpShadowVolumesHandler > dumpShadowVolumes = new DumpShadowVolumesHandler
+     dumpShadowVolumes = DumpShadowVolumesHandler()
 
-    viewer.addEventHandler(new ChangeFOVHandler(viewer.getCamera()))
+    viewer.addEventHandler(ChangeFOVHandler(viewer.getCamera()))
     viewer.addEventHandler( dumpShadowVolumes.get() )
 
     # create the windows and run the threads.
@@ -1506,49 +1539,47 @@ def main(argc, argv):
 
         if windows.empty() : return 1
 
-        sm =  dynamic_cast<osgShadow.ShadowMap*>(shadowedScene.getShadowTechnique())
+        sm = dynamic_cast<osgShadow.ShadowMap*>(shadowedScene.getShadowTechnique())
         if  sm  : 
-            osg.ref_ptr<osg.Camera> hudCamera = sm.makeDebugHUD()
+            hudCamera = sm.makeDebugHUD()
 
             # set up cameras to rendering on the first window available.
             hudCamera.setGraphicsContext(windows[0])
             hudCamera.setViewport(0,0,windows[0].getTraits().width, windows[0].getTraits().height)
 
-            viewer.addSlave(hudCamera.get(), false)
+            viewer.addSlave(hudCamera.get(), False)
 
-    osg.ref_ptr<LightAnimationHandler> lightAnimationHandler = updateLightPosition ? new LightAnimationHandler : 0
+    lightAnimationHandler = updateLightPosition ? LightAnimationHandler : 0()
     if lightAnimationHandler : viewer.addEventHandler(lightAnimationHandler.get())
 
 
     # osgDB.writeNodeFile(*group,"test.osgt")
 
     while !viewer.done() :
-            msm =  dynamic_cast<osgShadow.MinimalShadowMap*>( shadowedScene.getShadowTechnique() )
+            msm = dynamic_cast<osgShadow.MinimalShadowMap*>( shadowedScene.getShadowTechnique() )
 
             if  msm  : 
 
                 # If scene decorated by CoordinateSystemNode try to find localToWorld
                 # and set modellingSpaceToWorld matrix to optimize scene bounds computation
 
-                np =  viewer.getCoordinateSystemNodePath()
+                np = viewer.getCoordinateSystemNodePath()
                 if  !np.empty()  : 
-                    csn = 
-                        dynamic_cast<osg.CoordinateSystemNode *>( np.back() )
+                    csn = dynamic_cast<osg.CoordinateSystemNode *>( np.back() )
 
                     if  csn  : 
-                        pos = 
-                            viewer.getCameraManipulator().getMatrix().getTrans()
+                        pos = viewer.getCameraManipulator().getMatrix().getTrans()
 
                         msm.setModellingSpaceToWorldTransform
                             ( csn.computeLocalCoordinateFrame( pos ) )
 
         if lightAnimationHandler.valid()  lightAnimationHandler .getAnimating() :
-            t =  viewer.getFrameStamp().getSimulationTime()
+            t = viewer.getFrameStamp().getSimulationTime()
 
             if lightpos.w()==1.0 :
-                lightpos.set(bb.center().x()+sinf(t)*bb.radius(), bb.center().y() + cosf(t)*bb.radius(), bb.zMax() + bb.radius()*3.0f  ,1.0f)
-            else:
-                lightpos.set(sinf(t),cosf(t),1.0f,0.0f)
+                lightpos.set(bb.center().x()+sinf(t)*bb.radius(), bb.center().y() + cosf(t)*bb.radius(), bb.zMax() + bb.radius()*3.0  ,1.0)
+            else :
+                lightpos.set(sinf(t),cosf(t),1.0,0.0)
             ls.getLight().setPosition(lightpos)
 
             lightDir = osg.Vec3f(-lightpos.x(),-lightpos.y(),-lightpos.z())
@@ -1559,39 +1590,42 @@ def main(argc, argv):
             ls.getLight().setDirection(lightDir)
 
         if  dumpShadowVolumes.get()  :
-            dumpShadowVolumes.set( false )
+            dumpShadowVolumes.set( False )
 
             static int dumpFileNo = 0
             dumpFileNo ++
             char filename[256]
             std.sprintf( filename, "shadowDump%d.osgt", dumpFileNo )
 
-            msm =  dynamic_cast<osgShadow.MinimalShadowMap*>( shadowedScene.getShadowTechnique() )
+            msm = dynamic_cast<osgShadow.MinimalShadowMap*>( shadowedScene.getShadowTechnique() )
 
             if  msm  : msm.setDebugDump( filename )
 
         viewer.frame()
 
     return 0
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'terrain_coords.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
     # disable the double to float errors.

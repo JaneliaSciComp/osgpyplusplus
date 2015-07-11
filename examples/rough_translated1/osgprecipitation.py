@@ -13,23 +13,26 @@ from osgpypp import osgParticle
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgprecipitation.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgprecipitation.cpp'
+
+# OpenSceneGraph example, osgprecipitation.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgDB/FileUtils>
@@ -54,19 +57,17 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-class MyGustCallback : public osg.NodeCallback
-
-    public:
+class MyGustCallback (osg.NodeCallback) :
 
         MyGustCallback() 
 
         virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-            pe =  dynamic_cast<osgParticle.PrecipitationEffect*>(node)
+            pe = dynamic_cast<osgParticle.PrecipitationEffect*>(node)
             
-            value =  sin(nv.getFrameStamp().getSimulationTime())
+            value = sin(nv.getFrameStamp().getSimulationTime())
             if value<-0.5 :
                 pe.snow(1.0)
-            else:
+            else :
                 pe.rain(0.5)
         
             traverse(node, nv)
@@ -74,6 +75,10 @@ class MyGustCallback : public osg.NodeCallback
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -101,26 +106,26 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
         viewer.setCameraManipulator( keyswitchManipulator.get() )
 
-    osg.ref_ptr<osgParticle.PrecipitationEffect> precipitationEffect = new osgParticle.PrecipitationEffect
+    precipitationEffect = osgParticle.PrecipitationEffect()
 
     intensity = float()
     while arguments.read("--snow", intensity) : precipitationEffect.snow(intensity)
@@ -146,7 +151,7 @@ def main(argc, argv):
     cellSize = osg.Vec3()
     while arguments.read("--cellSize", cellSize.x(), cellSize.y(), cellSize.z()) : precipitationEffect.setCellSize(cellSize) 
 
-    clipDistance =  0.0
+    clipDistance = 0.0
     while arguments.read("--clip",clipDistance) : 
 
     bb = osg.BoundingBox()
@@ -161,7 +166,7 @@ def main(argc, argv):
     while arguments.read("--fogColor", color.r(), color.g(), color.b(), color.a() ) :  precipitationEffect.getFog().setColor(color)
     while arguments.read("--fogColour", color.r(), color.g(), color.b(), color.a() ) :  precipitationEffect.getFog().setColor(color)
  
-    while arguments.read("--useFarLineSegments") :  precipitationEffect.setUseFarLineSegments(true) 
+    while arguments.read("--useFarLineSegments") :  precipitationEffect.setUseFarLineSegments(True) 
 
     
     viewer.getCamera().setClearColor( precipitationEffect.getFog().getColor() )
@@ -173,24 +178,24 @@ def main(argc, argv):
         return 1
     
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     if !loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
     
-    # precipitationEffect.setUpdateCallback(new MyGustCallback)
+    # precipitationEffect.setUpdateCallback(MyGustCallback)()
     
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
     
     if clipDistance!=0.0 :
-        osg.ref_ptr<osg.ClipNode> clipNode = new osg.ClipNode
-        clipNode.addClipPlane( new osg.ClipPlane( 0 ) )
+        clipNode = osg.ClipNode()
+        clipNode.addClipPlane( osg.ClipPlane( 0 ) )
         clipNode.getClipPlane(0).setClipPlane( 0.0, 0.0, -1.0, -clipDistance )
         clipNode.setReferenceFrame(osg.ClipNode.ABSOLUTE_RF)
         clipNode.addChild(precipitationEffect.get())
 
         group.addChild(clipNode.get())
-    else:
+    else :
         group.addChild(precipitationEffect.get())
     
     group.addChild(loadedModel.get())
@@ -198,15 +203,15 @@ def main(argc, argv):
     loadedModel.getOrCreateStateSet().setAttributeAndModes(precipitationEffect.getFog())
     
     # create the light    
-    lightSource =  new osg.LightSource
+    lightSource = osg.LightSource()
     group.addChild(lightSource)
 
-    light =  lightSource.getLight()
+    light = lightSource.getLight()
     light.setLightNum(0)
-    light.setPosition(osg.Vec4(0.0f,0.0f,1.0f,0.0f)) # directional light from above
-    light.setAmbient(osg.Vec4(0.8f,0.8f,0.8f,1.0f))
-    light.setDiffuse(osg.Vec4(0.2f,0.2f,0.2f,1.0f))
-    light.setSpecular(osg.Vec4(0.2f,0.2f,0.2f,1.0f))
+    light.setPosition(osg.Vec4(0.0,0.0,1.0,0.0)) # directional light from above
+    light.setAmbient(osg.Vec4(0.8,0.8,0.8,1.0))
+    light.setDiffuse(osg.Vec4(0.2,0.2,0.2,1.0))
+    light.setSpecular(osg.Vec4(0.2,0.2,0.2,1.0))
 
 
     # set the scene to render

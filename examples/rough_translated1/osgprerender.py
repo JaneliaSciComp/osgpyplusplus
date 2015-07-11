@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgprerender.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgprerender.cpp'
+
+# OpenSceneGraph example, osgprerender.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/GLExtensions>
 #include <osg/Node>
@@ -63,12 +66,11 @@ from osgpypp import osgViewer
 class MyGeometryCallback :
     public osg.Drawable.UpdateCallback,
     public osg.Drawable.AttributeFunctor
-    public:
 
         MyGeometryCallback( osg.Vec3 o,
                             osg.Vec3 x, osg.Vec3 y, osg.Vec3 z,
                            double period,double xphase,double amplitude):
-            _firstCall(true),
+            _firstCall(True),
             _startTime(0.0),
             _time(0.0),
             _period(period),
@@ -79,13 +81,15 @@ class MyGeometryCallback :
             _yAxis(y),
             _zAxis(z) 
 
-        virtual void update(osg.NodeVisitor* nv,osg.Drawable* drawable)
+        def update(nv, drawable):
+
+            
             # OpenThreads.Thread.microSleep( 1000 )
 
-            fs =  nv.getFrameStamp()
-            simulationTime =  fs.getSimulationTime()
+            fs = nv.getFrameStamp()
+            simulationTime = fs.getSimulationTime()
             if _firstCall :
-                _firstCall = false
+                _firstCall = False
                 _startTime = simulationTime
 
             _time = simulationTime-_startTime
@@ -93,17 +97,19 @@ class MyGeometryCallback :
             drawable.accept(*this)
             drawable.dirtyBound()
 
-            geometry =  dynamic_cast<osg.Geometry*>(drawable)
+            geometry = dynamic_cast<osg.Geometry*>(drawable)
             if geometry :
                 osgUtil.SmoothingVisitor.smooth(*geometry)
 
 
-        virtual void apply(osg.Drawable.AttributeType type,unsigned int count,osg.Vec3* begin)
-            if type == osg.Drawable.VERTICES :
-                TwoPI = 2.0f*osg.PI
-                phase =  -_time/_period
+        def apply(type, count, begin):
 
-                end =  begin+count
+            
+            if type == osg.Drawable.VERTICES :
+                TwoPI = 2.0*osg.PI
+                phase = -_time/_period
+
+                end = begin+count
                 for (osg.Vec3* itr=beginitr<end++itr)
                     dv = osg.Vec3(*itr-_origin)
                     local = osg.Vec3(dv*_xAxis,dv*_yAxis,dv*_zAxis)
@@ -132,23 +138,23 @@ class MyGeometryCallback :
 
 
 
-struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
-    MyCameraPostDrawCallback(osg.Image* image):
+class MyCameraPostDrawCallback (osg.Camera.DrawCallback) :
+MyCameraPostDrawCallback(osg.Image* image):
         _image(image)
 
     virtual void operator () ( osg.Camera #camera) 
         if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_UNSIGNED_BYTE :
             # we'll pick out the center 1/2 of the whole image,
-            column_start =  _image.s()/4
-            column_end =  3*column_start
+            column_start = _image.s()/4
+            column_end = 3*column_start
 
-            row_start =  _image.t()/4
-            row_end =  3*row_start
+            row_start = _image.t()/4
+            row_end = 3*row_start
 
 
             # and then invert these pixels
             for(int r=row_start r<row_end ++r)
-                unsigned char* data = _image.data(column_start, r)
+                data = _image.data(column_start, r)
                 for(int c=column_start c<column_end ++c)
                     (*data) = 255-(*data) ++data
                     (*data) = 255-(*data) ++data
@@ -159,22 +165,22 @@ struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
             # dirty the image (increments the modified count) so that any textures
             # using the image can be informed that they need to update.
             _image.dirty()
-        else: if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
+        elif _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
             # we'll pick out the center 1/2 of the whole image,
-            column_start =  _image.s()/4
-            column_end =  3*column_start
+            column_start = _image.s()/4
+            column_end = 3*column_start
 
-            row_start =  _image.t()/4
-            row_end =  3*row_start
+            row_start = _image.t()/4
+            row_end = 3*row_start
 
             # and then invert these pixels
             for(int r=row_start r<row_end ++r)
-                data =  (float*)_image.data(column_start, r)
+                data = (float*)_image.data(column_start, r)
                 for(int c=column_start c<column_end ++c)
-                    (*data) = 1.0f-(*data) ++data
-                    (*data) = 1.0f-(*data) ++data
-                    (*data) = 1.0f-(*data) ++data
-                    (*data) = 1.0f ++data
+                    (*data) = 1.0-(*data) ++data
+                    (*data) = 1.0-(*data) ++data
+                    (*data) = 1.0-(*data) ++data
+                    (*data) = 1.0 ++data
 
             # dirty the image (increments the modified count) so that any textures
             # using the image can be informed that they need to update.
@@ -185,28 +191,27 @@ struct MyCameraPostDrawCallback : public osg.Camera.DrawCallback
 
 
 
-osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
-                                   unsigned tex_width, unsigned tex_height,
-                                   osg.Camera.RenderTargetImplementation renderImplementation,
-                                   bool useImage, bool useTextureRectangle, bool useHDR,
-                                   unsigned int samples, unsigned int colorSamples)
+def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementation, useImage, useTextureRectangle, useHDR, samples, colorSamples):
+
+
+    
     if !subgraph : return 0
 
     # create a group to contain the flag and the pre rendering camera.
-    parent =  new osg.Group
+    parent = osg.Group()
 
     # texture to render to and to use for rendering of flag.
-    texture =  0
+    texture = 0
     if useTextureRectangle :
-        textureRect =  new osg.TextureRectangle
+        textureRect = osg.TextureRectangle()
         textureRect.setTextureSize(tex_width, tex_height)
         textureRect.setInternalFormat(GL_RGBA)
         textureRect.setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
         textureRect.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
 
         texture = textureRect
-    else:
-        texture2D =  new osg.Texture2D
+    else :
+        texture2D = osg.Texture2D()
         texture2D.setTextureSize(tex_width, tex_height)
         texture2D.setInternalFormat(GL_RGBA)
         texture2D.setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
@@ -221,32 +226,32 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
 
     # first create the geometry of the flag of which to view.
         # create the to visualize.
-        polyGeom =  new osg.Geometry()
+        polyGeom = osg.Geometry()
 
         polyGeom.setName( "PolyGeom" )
 
         polyGeom.setDataVariance( osg.Object.DYNAMIC )
-        polyGeom.setSupportsDisplayList(false)
+        polyGeom.setSupportsDisplayList(False)
 
-        origin = osg.Vec3(0.0f,0.0f,0.0f)
-        xAxis = osg.Vec3(1.0f,0.0f,0.0f)
-        yAxis = osg.Vec3(0.0f,0.0f,1.0f)
-        zAxis = osg.Vec3(0.0f,-1.0f,0.0f)
-        height =  100.0f
-        width =  200.0f
-        noSteps =  20
+        origin = osg.Vec3(0.0,0.0,0.0)
+        xAxis = osg.Vec3(1.0,0.0,0.0)
+        yAxis = osg.Vec3(0.0,0.0,1.0)
+        zAxis = osg.Vec3(0.0,-1.0,0.0)
+        height = 100.0
+        width = 200.0
+        noSteps = 20
 
-        vertices =  new osg.Vec3Array
-        bottom =  origin
-        top =  origin top.z()+= height
-        dv =  xAxis*(width/((float)(noSteps-1)))
+        vertices = osg.Vec3Array()
+        bottom = origin
+        top = origin top.z()+= height
+        dv = xAxis*(width/((float)(noSteps-1)))
 
-        texcoords =  new osg.Vec2Array
+        texcoords = osg.Vec2Array()
 
         # note, when we use TextureRectangle we have to scale the tex coords up to compensate.
-        bottom_texcoord = osg.Vec2(0.0f,0.0f)
-        top_texcoord = osg.Vec2(0.0f, useTextureRectangle ? tex_height : 1.0f)
-        dv_texcoord = osg.Vec2((useTextureRectangle ? tex_width : 1.0f)/(float)(noSteps-1),0.0f)
+        bottom_texcoord = osg.Vec2(0.0,0.0)
+        top_texcoord = osg.Vec2(0.0, useTextureRectangle ? tex_height : 1.0)
+        dv_texcoord = osg.Vec2((useTextureRectangle ? tex_width : 1.0)/(float)(noSteps-1),0.0)
 
         for(int i=0i<noSteps++i)
             vertices.push_back(top)
@@ -265,23 +270,23 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
 
         polyGeom.setTexCoordArray(0,texcoords)
 
-        colors =  new osg.Vec4Array
-        colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+        colors = osg.Vec4Array()
+        colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
         polyGeom.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-        polyGeom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,vertices.size()))
+        polyGeom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,vertices.size()))
 
-        # new we need to add the texture to the Drawable, we do so by creating a
+        # we need to add the texture to the Drawable, we do so by creating a
         # StateSet to contain the Texture StateAttribute.
-        stateset =  new osg.StateSet
+        stateset = osg.StateSet()
 
         stateset.setTextureAttributeAndModes(0, texture,osg.StateAttribute.ON)
 
         polyGeom.setStateSet(stateset)
 
-        polyGeom.setUpdateCallback(new MyGeometryCallback(origin,xAxis,yAxis,zAxis,1.0,1.0/width,0.2f))
+        polyGeom.setUpdateCallback(MyGeometryCallback(origin,xAxis,yAxis,zAxis,1.0,1.0/width,0.2))
 
-        geode =  new osg.Geode()
+        geode = osg.Geode()
         geode.addDrawable(polyGeom)
 
         parent.addChild(geode)
@@ -289,32 +294,32 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
 
 
     # then create the camera node to do the render to texture
-        camera =  new osg.Camera
+        camera = osg.Camera()
 
         # set up the background color and clear mask.
-        camera.setClearColor(osg.Vec4(0.1f,0.1f,0.3f,1.0f))
+        camera.setClearColor(osg.Vec4(0.1,0.1,0.3,1.0))
         camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-        bs =  subgraph.getBound()
+        bs = subgraph.getBound()
         if !bs.valid() :
-            subgraph = return()
+            return subgraph
 
-        znear =  1.0f*bs.radius()
-        zfar =  3.0f*bs.radius()
+        znear = 1.0*bs.radius()
+        zfar = 3.0*bs.radius()
 
         # 2:1 aspect ratio as per flag geometry below.
-        proj_top =  0.25f*znear
-        proj_right =  0.5f*znear
+        proj_top = 0.25*znear
+        proj_right = 0.5*znear
 
-        znear *= 0.9f
-        zfar *= 1.1f
+        znear *= 0.9
+        zfar *= 1.1
 
         # set up projection.
         camera.setProjectionMatrixAsFrustum(-proj_right,proj_right,-proj_top,proj_top,znear,zfar)
 
         # set view
         camera.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
-        camera.setViewMatrixAsLookAt(bs.center()-osg.Vec3(0.0f,2.0f,0.0f)*bs.radius(),bs.center(),osg.Vec3(0.0f,0.0f,1.0f))
+        camera.setViewMatrixAsLookAt(bs.center()-osg.Vec3(0.0,2.0,0.0)*bs.radius(),bs.center(),osg.Vec3(0.0,0.0,1.0))
 
         # set viewport
         camera.setViewport(0,0,tex_width,tex_height)
@@ -327,7 +332,7 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
 
 
         if useImage :
-            image =  new osg.Image
+            image = osg.Image()
             #image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_UNSIGNED_BYTE)
             image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_FLOAT)
 
@@ -335,7 +340,7 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
             camera.attach(osg.Camera.COLOR_BUFFER, image,
                            samples, colorSamples)
 
-            camera.setPostDrawCallback(new MyCameraPostDrawCallback(image))
+            camera.setPostDrawCallback(MyCameraPostDrawCallback(image))
 
             # Rather than attach the texture directly to illustrate the texture's ability to
             # detect an image update and to subload the image onto the texture.  You needn't
@@ -346,10 +351,10 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
             # The long way round allows us to manually modify the copied image via the callback
             # and then let this modified image by reloaded back.
             texture.setImage(0, image)
-        else:
+        else :
             # attach the texture and use it as the color buffer.
             camera.attach(osg.Camera.COLOR_BUFFER, texture,
-                           0, 0, false,
+                           0, 0, False,
                            samples, colorSamples)
 
 
@@ -359,9 +364,11 @@ osg.Node* createPreRenderSubGraph(osg.Node* subgraph,
         parent.addChild(camera)
 
 
-    parent = return()
+    return parent
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -382,28 +389,28 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # add stats
-    viewer.addEventHandler( new osgViewer.StatsHandler() )
+    viewer.addEventHandler( osgViewer.StatsHandler() )
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # add the threading handler
-    viewer.addEventHandler( new osgViewer.ThreadingHandler() )
+    viewer.addEventHandler( osgViewer.ThreadingHandler() )
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    unsigned int tex_width = 1024
-    unsigned int tex_height = 512
-    unsigned int samples = 0
-    unsigned int colorSamples = 0
+    tex_width = 1024
+    tex_height = 512
+    samples = 0
+    colorSamples = 0
 
     while arguments.read("--width", tex_width) : 
     while arguments.read("--height", tex_height) : 
 
-    renderImplementation =  osg.Camera.FRAME_BUFFER_OBJECT
+    renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT
 
     while arguments.read("--fbo") :  renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT 
     while arguments.read("--pbuffer") :  renderImplementation = osg.Camera.PIXEL_BUFFER 
@@ -413,18 +420,18 @@ def main(argc, argv):
     while arguments.read("--fbo-samples", samples) : 
     while arguments.read("--color-samples", colorSamples) : 
 
-    useImage =  false
-    while arguments.read("--image") :  useImage = true 
+    useImage = False
+    while arguments.read("--image") :  useImage = True 
 
-    useTextureRectangle =  false
-    while arguments.read("--texture-rectangle") :  useTextureRectangle = true 
+    useTextureRectangle = False
+    while arguments.read("--texture-rectangle") :  useTextureRectangle = True 
 
-    useHDR =  false
-    while arguments.read("--hdr") :  useHDR = true 
+    useHDR = False
+    while arguments.read("--hdr") :  useHDR = True 
 
 
     # load the nodes from the commandline arguments.
-    loadedModel =  osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
@@ -433,13 +440,13 @@ def main(argc, argv):
         return 1
 
     # create a transform to spin the model.
-    loadedModelTransform =  new osg.MatrixTransform
+    loadedModelTransform = osg.MatrixTransform()
     loadedModelTransform.addChild(loadedModel)
 
-    nc =  new osg.AnimationPathCallback(loadedModelTransform.getBound().center(),osg.Vec3(0.0f,0.0f,1.0f),osg.inDegrees(45.0f))
+    nc = osg.AnimationPathCallback(loadedModelTransform.getBound().center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(45.0))
     loadedModelTransform.setUpdateCallback(nc)
 
-    rootNode =  new osg.Group()
+    rootNode = osg.Group()
     rootNode.addChild(createPreRenderSubGraph(loadedModelTransform,tex_width,tex_height, renderImplementation, useImage, useTextureRectangle, useHDR, samples, colorSamples))
 
     #osgDB.writeNodeFile(*rootNode, "test.osgb")

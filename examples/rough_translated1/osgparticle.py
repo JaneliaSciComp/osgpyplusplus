@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgParticle
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgparticle.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgparticle.cpp'
+
+# OpenSceneGraph example, osgparticle.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
@@ -54,10 +57,9 @@ from osgpypp import osgViewer
 # This class demonstrates Operator subclassing. This way you can create
 # custom operators to apply your motion effects to the particles. See docs
 # for more details.
-class VortexOperator: public osgParticle.Operator 
-public:
+class VortexOperator (osgParticle.Operator) :
     VortexOperator() 
-        : osgParticle.Operator(), center_(0, 0, 0), axis_(0, 0, 1), intensity_(0.1f) 
+        : osgParticle.Operator(), center_(0, 0, 0), axis_(0, 0, 1), intensity_(0.1) 
 
     VortexOperator( VortexOperator copy,  osg.CopyOp copyop = osg.CopyOp.SHALLOW_COPY)
         : osgParticle.Operator(copy, copyop), center_(copy.center_), axis_(copy.axis_), intensity_(copy.intensity_) 
@@ -65,14 +67,19 @@ public:
     META_Object(osgParticle, VortexOperator)
 
     def setCenter(c):
+
+        
         center_ = c
 
     def setAxis(a):
+
+        
         axis_ = a / a.length()
 
     # this method is called by ModularProgram before applying
     # operators on the particle set via the operate() method.    
     def beginOperate(prg):
+        
         # we have to check whether the reference frame is RELATIVE_RF to parents
         # or it's absolute in the first case, we must transform the vectors
         # from local to world space.
@@ -81,31 +88,28 @@ public:
             xf_center_ = prg.transformLocalToWorld(center_)
             # transform the axis vector (only rotation and scale)
             xf_axis_ = prg.rotateLocalToWorld(axis_)
-         else: 
+         else : 
             xf_center_ = center_
             xf_axis_ = axis_
 
     # apply a vortex-like acceleration. This code is not optimized,
     # it's here only for demonstration purposes.
     def operate(P, dt):
-        l =  xf_axis_ * (P.getPosition() - xf_center_)
-        lc =  xf_center_ + xf_axis_ * l
-        R =  P.getPosition() - lc
-        v =  (R ^ xf_axis_) * P.getMassInv() * intensity_
+        
+        l = xf_axis_ * (P.getPosition() - xf_center_)
+        lc = xf_center_ + xf_axis_ * l
+        R = P.getPosition() - lc
+        v = (R ^ xf_axis_) * P.getMassInv() * intensity_
 
-        # compute new position
-        newpos =  P.getPosition() + v * dt
+        # compute position
+        newpos = P.getPosition() + v * dt
 
         # update the position of the particle without modifying its
         # velocity vector (this is unusual, normally you should call
         # the Particle.setVelocity() or Particle.addVelocity()
         # methods).
         P.setPosition(newpos)    
-
-protected:
     virtual ~VortexOperator() 
-
-private:
     center_ = osg.Vec3()
     xf_center_ = osg.Vec3()
     axis_ = osg.Vec3()
@@ -129,7 +133,7 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
     # our particles and expose the interface for managing them this object
     # is a Drawable, so we'll have to add it to a Geode later.
 
-    ps =  new osgParticle.ParticleSystem
+    ps = osgParticle.ParticleSystem()
 
     # As for other Drawable classes, the aspect of graphical elements of
     # ParticleSystem (the particles) depends on the StateAttribute's we
@@ -140,16 +144,16 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
     # sets whether particles have to be "emissive" (additive blending) or not
     # the third parameter enables or disables lighting.
 
-    ps.setDefaultAttributes("", true, false)
+    ps.setDefaultAttributes("", True, False)
 
     # Now that our particle system is set we have to create an emitter, that is
-    # an object (actually a Node descendant) that generate new particles at 
+    # an object (actually a Node descendant) that generate particles at 
     # each frame. The best choice is to use a ModularEmitter, which allow us to
     # achieve a wide variety of emitting styles by composing the emitter using
     # three objects: a "counter", a "placer" and a "shooter". The counter must
     # tell the ModularEmitter how many particles it has to create for the
-    # current frame then, the ModularEmitter creates these particles, and for
-    # each new particle it instructs the placer and the shooter to set its
+    # current frame() then, the ModularEmitter creates these particles, and for
+    # each particle it instructs the placer and the shooter to set its
     # position vector and its velocity vector, respectively.
     # By default, a ModularEmitter object initializes itself with a counter of
     # type RandomRateCounter, a placer of type PointPlacer and a shooter of
@@ -157,21 +161,20 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
     # these default objects there, but we'll modify the counter so that it
     # counts faster (more particles are emitted at each frame).
 
-    emitter =  new osgParticle.ModularEmitter
+    emitter = osgParticle.ModularEmitter()
 
     # the first thing you *MUST* do after creating an emitter is to set the
     # destination particle system, otherwise it won't know where to create
-    # new particles.
+    # particles.
 
     emitter.setParticleSystem(ps)
 
     # Ok, get a pointer to the emitter's Counter object. We could also
-    # create a new RandomRateCounter object and assign it to the emitter,
+    # create a RandomRateCounter object and assign it to the emitter,
     # but since the default counter is already a RandomRateCounter, we
     # just get a pointer to it and change a value.
 
-    rrc =  
-        static_cast<osgParticle.RandomRateCounter *>(emitter.getCounter())
+    rrc = static_cast<osgParticle.RandomRateCounter *>(emitter.getCounter())
 
     # Now set the rate range to a better value. The actual rate at each frame
     # will be chosen randomly within that range.
@@ -189,13 +192,13 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
     # to create a Geode and add the particle system to it, so it can be
     # displayed.
 
-    geode =  new osg.Geode    
+    geode = osg.Geode()    
     geode.addDrawable(ps)
 
     # add the geode to the scene graph
     root.addChild(geode)
 
-    ps = return()
+    return ps
 
 
 
@@ -211,10 +214,10 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
     # Now we take one step we didn't before: create a particle template.
     # A particle template is simply a Particle object for which you set
     # the desired properties (see documentation for details). When the
-    # particle system has to create a new particle and it's been assigned
-    # a particle template, the new particle will inherit the template's
+    # particle system has to create a particle and it's been assigned
+    # a particle template, the particle will inherit the template's
     # properties.
-    # You can even assign different particle templates to each emitter in
+    # You can even assign different particle templates to each emitter() in
     # this case, the emitter's template will override the particle system's
     # default template.
 
@@ -224,23 +227,23 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
 
     # the following ranges set the envelope of the respective 
     # graphical properties in time.
-    ptemplate.setSizeRange(osgParticle.rangef(0.75f, 3.0f))
-    ptemplate.setAlphaRange(osgParticle.rangef(0.0f, 1.5f))
+    ptemplate.setSizeRange(osgParticle.rangef(0.75, 3.0))
+    ptemplate.setAlphaRange(osgParticle.rangef(0.0, 1.5))
     ptemplate.setColorRange(osgParticle.rangev4(
-        osg.Vec4(1, 0.5f, 0.3f, 1.5f), 
-        osg.Vec4(0, 0.7f, 1.0f, 0.0f)))
+        osg.Vec4(1, 0.5, 0.3, 1.5), 
+        osg.Vec4(0, 0.7, 1.0, 0.0)))
 
     # these are physical properties of the particle
-    ptemplate.setRadius(0.05f)    # 5 cm wide particles
-    ptemplate.setMass(0.05f)    # 50 g heavy
+    ptemplate.setRadius(0.05)    # 5 cm wide particles
+    ptemplate.setMass(0.05)    # 50 g heavy
 
     # As usual, let's create the ParticleSystem object and set its
     # default state attributes. This time we use a texture named
     # "smoke.rgb", you can find it in the data distribution of OSG.
     # We turn off the additive blending, because smoke has no self-
     # illumination.
-    ps =  new osgParticle.ParticleSystem
-    ps.setDefaultAttributes("Images/smoke.rgb", false, false)
+    ps = osgParticle.ParticleSystem()
+    ps.setDefaultAttributes("Images/smoke.rgb", False, False)
 
     # assign the particle template to the system.
     ps.setDefaultParticleTemplate(ptemplate)
@@ -248,17 +251,17 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
     # now we have to create an emitter this will be a ModularEmitter, for which
     # we define a RandomRateCounter as counter, a SectorPlacer as placer, and
     # a RadialShooter as shooter.
-    emitter =  new osgParticle.ModularEmitter
+    emitter = osgParticle.ModularEmitter()
     emitter.setParticleSystem(ps)
 
     # setup the counter
-    counter =  new osgParticle.RandomRateCounter
+    counter = osgParticle.RandomRateCounter()
     counter.setRateRange(60, 60)
     emitter.setCounter(counter)
 
     # setup the placer it will be a circle of radius 5 (the particles will
     # be placed inside this circle).
-    placer =  new osgParticle.SectorPlacer
+    placer = osgParticle.SectorPlacer()
     placer.setCenter(8, 0, 10)
     placer.setRadiusRange(2.5, 5)
     placer.setPhiRange(0, 2 * osg.PI)    # 360° angle to make a circle
@@ -268,7 +271,7 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
     # initial speed to zero, because we want the particles to fall down
     # only under the effect of the gravity force. Since we se the speed
     # to zero, there is no need to setup the shooting angles.
-    shooter =  new osgParticle.RadialShooter
+    shooter = osgParticle.RadialShooter()
     shooter.setInitialSpeedRange(0, 0)
     emitter.setShooter(shooter)
 
@@ -290,22 +293,22 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
     # Program (and its descendants) should be placed *after* the instances
     # of Emitter objects in the scene graph.
 
-    program =  new osgParticle.ModularProgram
+    program = osgParticle.ModularProgram()
     program.setParticleSystem(ps)
 
     # create an operator that simulates the gravity acceleration.
-    op1 =  new osgParticle.AccelOperator
+    op1 = osgParticle.AccelOperator()
     op1.setToGravity()
     program.addOperator(op1)
 
     # now create a custom operator, we have defined it before (see
     # class VortexOperator).
-    op2 =  new VortexOperator
+    op2 = VortexOperator()
     op2.setCenter(osg.Vec3(8, 0, 0))
     program.addOperator(op2)
 
     # let's add a fluid operator to simulate air friction.
-    op3 =  new osgParticle.FluidFrictionOperator
+    op3 = osgParticle.FluidFrictionOperator()
     op3.setFluidToAir()
     program.addOperator(op3)
 
@@ -313,13 +316,13 @@ osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
     root.addChild(program)
 
     # create a Geode to contain our particle system.
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(ps)
 
     # add the geode to the scene graph.
     root.addChild(geode)
 
-    ps = return()
+    return ps
 
 
 
@@ -348,13 +351,13 @@ osgParticle.ParticleSystem *create_animated_particle_system(osg.Group *root)
     pexplosion.setLifeTime(1)
 
     # some other particle properties just as in the last example.
-    pexplosion.setSizeRange(osgParticle.rangef(0.75f, 3.0f))
-    pexplosion.setAlphaRange(osgParticle.rangef(0.5f, 1.0f))
+    pexplosion.setSizeRange(osgParticle.rangef(0.75, 3.0))
+    pexplosion.setAlphaRange(osgParticle.rangef(0.5, 1.0))
     pexplosion.setColorRange(osgParticle.rangev4(
         osg.Vec4(1, 1, 1, 1), 
         osg.Vec4(1, 1, 1, 1)))
-    pexplosion.setRadius(0.05f)
-    pexplosion.setMass(0.05f)
+    pexplosion.setRadius(0.05)
+    pexplosion.setMass(0.05)
 
     # This command sets the animation tiles to be shown for the particle.
     # The first two parameters define the tile layout of the texture image.
@@ -363,36 +366,36 @@ osgParticle.ParticleSystem *create_animated_particle_system(osg.Group *root)
     pexplosion.setTextureTileRange(8, 8, 0, 15)
 
     # The smoke particle is just the same, only plays another tile range.
-    psmoke =  pexplosion
+    psmoke = pexplosion
     psmoke.setTextureTileRange(8, 8, 32, 45)
 
     # Create a single particle system for both particle types
-    ps =  new osgParticle.ParticleSystem
+    ps = osgParticle.ParticleSystem()
 
     # Assign the tiled texture
-    ps.setDefaultAttributes("Images/fireparticle8x8.png", false, false)
+    ps.setDefaultAttributes("Images/fireparticle8x8.png", False, False)
 
     # Create two emitters, one for the explosions, one for the smoke balls.
-    emitter1 =  new osgParticle.ModularEmitter
+    emitter1 = osgParticle.ModularEmitter()
     emitter1.setParticleSystem(ps)
     emitter1.setParticleTemplate(pexplosion)
 
-    emitter2 =  new osgParticle.ModularEmitter
+    emitter2 = osgParticle.ModularEmitter()
     emitter2.setParticleSystem(ps)
     emitter2.setParticleTemplate(psmoke)
 
     # create a counter each. We could reuse the counter for both emitters, but
     # then we could not control the ratio of smoke balls to explosions
-    counter1 =  new osgParticle.RandomRateCounter
+    counter1 = osgParticle.RandomRateCounter()
     counter1.setRateRange(10, 10)
     emitter1.setCounter(counter1)
 
-    counter2 =  new osgParticle.RandomRateCounter
+    counter2 = osgParticle.RandomRateCounter()
     counter2.setRateRange(3, 4)
     emitter2.setCounter(counter2)
 
     # setup a single placer for both emitters.
-    placer =  new osgParticle.SectorPlacer
+    placer = osgParticle.SectorPlacer()
     placer.setCenter(-8, 0, 0)
     placer.setRadiusRange(2.5, 5)
     placer.setPhiRange(0, 2 * osg.PI)    # 360° angle to make a circle
@@ -400,7 +403,7 @@ osgParticle.ParticleSystem *create_animated_particle_system(osg.Group *root)
     emitter2.setPlacer(placer)
 
     # the shooter is reused for both emitters
-    shooter =  new osgParticle.RadialShooter
+    shooter = osgParticle.RadialShooter()
     shooter.setInitialSpeedRange(0, 0)
 
     # give particles a little spin
@@ -415,25 +418,25 @@ osgParticle.ParticleSystem *create_animated_particle_system(osg.Group *root)
     root.addChild(emitter2)
    
     # create a program, just as before
-    program =  new osgParticle.ModularProgram
+    program = osgParticle.ModularProgram()
     program.setParticleSystem(ps)
 
     # create an operator that moves the particles upwards
-    op1 =  new osgParticle.AccelOperator
-    op1.setAcceleration(osg.Vec3(0, 0, 2.0f))
+    op1 = osgParticle.AccelOperator()
+    op1.setAcceleration(osg.Vec3(0, 0, 2.0))
     program.addOperator(op1)  
 
     # add the program to the scene graph
     root.addChild(program)
 
     # create a Geode to contain our particle system.
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(ps)
 
     # add the geode to the scene graph.
     root.addChild(geode)
 
-    ps = return()
+    return ps
 
 #######################################
 # MAIN SCENE GRAPH BUILDING FUNCTION
@@ -441,6 +444,10 @@ osgParticle.ParticleSystem *create_animated_particle_system(osg.Group *root)
 
 
 def build_world(root):
+
+
+    
+
     # In this function we are going to create two particle systems
     # the first one will be very simple, based mostly on default properties
     # the second one will be a little bit more complex, showing how to
@@ -449,15 +456,15 @@ def build_world(root):
     # splitted the work into two functions which accept a Group node as
     # parameter, and return a pointer to the particle system they created.
 
-    ps1 =  create_simple_particle_system(root)
-    ps2 =  create_complex_particle_system(root)
-    ps3 =  create_animated_particle_system(root)
+    ps1 = create_simple_particle_system(root)
+    ps2 = create_complex_particle_system(root)
+    ps3 = create_animated_particle_system(root)
 
     # Now that the particle systems and all other related objects have been
     # created, we have to add an "updater" node to the scene graph. This node
     # will react to cull traversal by updating the specified particles system.
 
-    psu =  new osgParticle.ParticleSystemUpdater
+    psu = osgParticle.ParticleSystemUpdater()
     psu.addParticleSystem(ps1)
     psu.addParticleSystem(ps2)
     psu.addParticleSystem(ps3)
@@ -476,11 +483,11 @@ int main(int, char **)
     # construct the viewer.
     viewer = osgViewer.Viewer()
     
-    root =  new osg.Group
+    root = osg.Group()
     build_world(root)
    
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add a viewport to the viewer and attach the scene graph.
     viewer.setSceneData(root)

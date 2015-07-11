@@ -8,6 +8,9 @@ import sys
 
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetstyled.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetshader.cpp 28 2008-03-26 15:26:48Z cubicool $
 
@@ -16,63 +19,62 @@ from osgpypp import osgWidget
 #include <osgWidget/StyleManager>
 #include <osgWidget/Box>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
-STYLE1 = 
-    "color 0 0 0 128\n"
+STYLE1 = "color 0 0 0 128\n"
     "padding 5\n"
 
 
-STYLE2 = 
-    "color 1.0 0.5 0.0\n"
+STYLE2 = "color 1.0 0.5 0.0\n"
 
 
-STYLE3 = 
-    "fill true\n"
+STYLE3 = "fill True\n"
 
 
-STYLE4 = 
-    "pos 100.0 100.0\n"
+STYLE4 = "pos 100.0 100.0\n"
     "size 600 600\n"
 
 
-class CustomStyled: public osgWidget.Widget 
+class CustomStyled (osgWidget.Widget) :
 
 
-class CustomStyle: public osgWidget.Style 
-    virtual bool applyStyle(osgWidget.Widget* w, osgWidget.Reader r) 
-        cs =  dynamic_cast<CustomStyled*>(w)
+class CustomStyle (osgWidget.Style) :
+def applyStyle(w, r):
+    
+        cs = dynamic_cast<CustomStyled*>(w)
 
-        if !cs : return false
+        if !cs : return False
 
         osgWidget.warn(), "Here, okay."
 
-        true = return()
+        return True
 
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D
     )
 
-    box =  new osgWidget.Box("box", osgWidget.Box.VERTICAL)
+    box = osgWidget.Box("box", osgWidget.Box.VERTICAL)
 
-    widget1 =  new osgWidget.Widget("w1", 200.0f, 200.0f)
-    widget2 =  new osgWidget.Widget("w2", 100.0f, 100.0f)
-    widget3 =  new osgWidget.Widget("w3", 0.0f, 0.0f)
-    # CustomStyled*      cs      = new CustomStyled()
+    widget1 = osgWidget.Widget("w1", 200.0, 200.0)
+    widget2 = osgWidget.Widget("w2", 100.0, 100.0)
+    widget3 = osgWidget.Widget("w3", 0.0, 0.0)
+    # CustomStyled*      cs      = CustomStyled()
 
     # Yep.
-    wm.getStyleManager().addStyle(new osgWidget.Style("widget.style1", STYLE1))
-    wm.getStyleManager().addStyle(new osgWidget.Style("widget.style2", STYLE2))
-    wm.getStyleManager().addStyle(new osgWidget.Style("spacer", STYLE3))
-    wm.getStyleManager().addStyle(new osgWidget.Style("window", STYLE4))
-    # wm.getStyleManager().addStyle(new CustomStyle("widget", ""))
+    wm.getStyleManager().addStyle(osgWidget.Style("widget.style1", STYLE1))
+    wm.getStyleManager().addStyle(osgWidget.Style("widget.style2", STYLE2))
+    wm.getStyleManager().addStyle(osgWidget.Style("spacer", STYLE3))
+    wm.getStyleManager().addStyle(osgWidget.Style("window", STYLE4))
+    # wm.getStyleManager().addStyle(CustomStyle("widget", ""))
 
     widget1.setStyle("widget.style1")
     widget2.setStyle("widget.style2")
@@ -86,7 +88,7 @@ def main(argc, argv):
 
     wm.addChild(box)
 
-    # box.resizePercent(0.0f, 100.0f)
+    # box.resizePercent(0.0, 100.0)
 
     return osgWidget.createExample(viewer, wm)
 

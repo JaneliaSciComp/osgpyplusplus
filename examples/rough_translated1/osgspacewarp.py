@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgspacewarp.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgspacewarp.cpp'
+
+# OpenSceneGraph example, osgspacewarp.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Group>
 #include <osg/Geometry>
@@ -36,16 +39,19 @@ from osgpypp import osgViewer
 #include <osgUtil/Optimizer>
 #include <osgViewer/Viewer>
 
-float random(float min,float max)  return min + (max-min)*(float)rand()/(float)RAND_MAX 
+def random(min, max):
+
+     return min + (max-min)*(float)rand()/(float)RAND_MAX 
 
 
-struct DrawCallback : public osg.Drawable.DrawCallback
+class DrawCallback (osg.Drawable.DrawCallback) :
+DrawCallback():
+        _firstTime(True) 
 
-    DrawCallback():
-        _firstTime(true) 
+    def drawImplementation(renderInfo, drawable):
 
-    virtual void drawImplementation(osg.RenderInfo renderInfo, osg.Drawable* drawable) 
-        state =  *renderInfo.getState()
+        
+        state = *renderInfo.getState()
 
         if !_firstTime :
             _previousModelViewMatrix = _currentModelViewMatrix
@@ -54,14 +60,14 @@ struct DrawCallback : public osg.Drawable.DrawCallback
 
             T = osg.Matrix(_previousModelViewMatrix*_inverseModelViewMatrix)
 
-            geometry =  dynamic_cast<osg.Geometry*>(const_cast<osg.Drawable*>(drawable))
-            vertices =  dynamic_cast<osg.Vec3Array*>(geometry.getVertexArray())
+            geometry = dynamic_cast<osg.Geometry*>(const_cast<osg.Drawable*>(drawable))
+            vertices = dynamic_cast<osg.Vec3Array*>(geometry.getVertexArray())
             for(unsigned int i=0i+1<vertices.size()i+=2)
                 (*vertices)[i+1] = (*vertices)[i]*T
-        else:
+        else :
             _currentModelViewMatrix = state.getModelViewMatrix()
 
-        _firstTime = false
+        _firstTime = False
 
         drawable.drawImplementation(renderInfo)
 
@@ -74,47 +80,52 @@ struct DrawCallback : public osg.Drawable.DrawCallback
 
 
 
-osg.Node* createScene(unsigned int noStars)
+def createScene(noStars):
 
-    geometry =  new osg.Geometry
+
+
+
+    
+
+    geometry = osg.Geometry()
 
     # set up vertices
-    vertices =  new osg.Vec3Array(noStars*2)
+    vertices = osg.Vec3Array(noStars*2)
     geometry.setVertexArray(vertices)
 
-    min =  -1.0f
-    max =  1.0f
-    unsigned int j = 0
-    unsigned int i = 0
+    min = -1.0
+    max = 1.0
+    j = 0
+    i = 0
     for(i=0i<noStars++i,j+=2)
         (*vertices)[j].set(random(min,max),random(min,max),random(min,max))
-        (*vertices)[j+1] = (*vertices)[j]+osg.Vec3(0.0f,0.0f,0.001f)
+        (*vertices)[j+1] = (*vertices)[j]+osg.Vec3(0.0,0.0,0.001)
 
     # set up colours
-    colours =  new osg.Vec4Array(1)
+    colours = osg.Vec4Array(1)
     geometry.setColorArray(colours, osg.Array.BIND_OVERALL)
-    (*colours)[0].set(1.0f,1.0f,1.0f,1.0f)
+    (*colours)[0].set(1.0,1.0,1.0,1.0)
 
     # set up the primitive set to draw lines
-    geometry.addPrimitiveSet(new osg.DrawArrays(GL_LINES,0,noStars*2))
+    geometry.addPrimitiveSet(osg.DrawArrays(GL_LINES,0,noStars*2))
 
     # set up the points for the stars.
-    points =  new osg.DrawElementsUShort(GL_POINTS,noStars)
+    points = osg.DrawElementsUShort(GL_POINTS,noStars)
     geometry.addPrimitiveSet(points)
     for(i=0i<noStars++i)
         (*points)[i] = i*2
 
-    geometry.setUseDisplayList(false)
-    geometry.setDrawCallback(new DrawCallback)
+    geometry.setUseDisplayList(False)
+    geometry.setDrawCallback(DrawCallback)()
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geometry)
     geode.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-    group =  new osg.Group
+    group = osg.Group()
     group.addChild(geode)
 
-    group = return()
+    return group
 
 int main(int , char **)
     # construct the viewer.

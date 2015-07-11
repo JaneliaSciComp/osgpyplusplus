@@ -10,69 +10,75 @@ from osgpypp import osgDB
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgvnc.cpp'
+
 #include <osgWidget/VncClient>
 
 #include <osgDB/Registry>
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 
-class EscapeHandler : public osgGA.GUIEventHandler
-    public:
+class EscapeHandler (osgGA.GUIEventHandler) :
     
         EscapeHandler() 
 
         def handle(ea, aa):
-            if ea.getHandled() : return false
+
+            
+            if ea.getHandled() : return False
 
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYUP):
                     if ea.getKey()==osgGA.GUIEventAdapter.KEY_Escape :
-                        view =  dynamic_cast<osgViewer.View*>(aa)
-                        if view : view.getViewerBase().setDone(true)
+                        view = dynamic_cast<osgViewer.View*>(aa)
+                        if view : view.getViewerBase().setDone(True)
                         
-                        true = return()
+                        return True
 
                 default:
-                    false = return()
-            false = return()
+                    return False
+            return False
 
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
     viewer = osgViewer.Viewer(arguments)
 
-    hints = osgWidget.GeometryHints(osg.Vec3(0.0f,0.0f,0.0f),
-                                   osg.Vec3(1.0f,0.0f,0.0f),
-                                   osg.Vec3(0.0f,0.0f,1.0f),
-                                   osg.Vec4(1.0f,1.0f,1.0f,1.0f),
+    hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
+                                   osg.Vec3(1.0,0.0,0.0),
+                                   osg.Vec3(0.0,0.0,1.0),
+                                   osg.Vec4(1.0,1.0,1.0,1.0),
                                    osgWidget.GeometryHints.RESIZE_HEIGHT_TO_MAINTAINCE_ASPECT_RATIO)
 
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
 
     password = str()
     while arguments.read("--password",password) :
 
     for(int i=1 i<arguments.argc() ++i)
         if !arguments.isOption(i) :
-            hostname =  arguments[i]
+            hostname = arguments[i]
 
             if !password.empty() :
-                if !osgDB.Registry.instance().getAuthenticationMap() : osgDB.Registry.instance().setAuthenticationMap(new osgDB.AuthenticationMap)
-                osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(hostname, new osgDB.AuthenticationDetails("", password))
+                if !osgDB.Registry.instance().getAuthenticationMap() : osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
+                osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(hostname, osgDB.AuthenticationDetails("", password))
 
-            osg.ref_ptr<osgWidget.VncClient> vncClient = new osgWidget.VncClient
+            vncClient = osgWidget.VncClient()
             if vncClient.connect(arguments[i], hints) :
                 group.addChild(vncClient.get())
                 
-                hints.position.x() += 1.1f
+                hints.position.x() += 1.1
 
     viewer.setSceneData(group.get())
 
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add a custom escape handler, but disable the standard viewer one to enable the vnc images to handle
     # the escape without it getting caught by the viewer.
-    viewer.addEventHandler(new EscapeHandler)    
+    viewer.addEventHandler(EscapeHandler)()    
     viewer.setKeyEventSetsDone(0)
 
     return viewer.run()

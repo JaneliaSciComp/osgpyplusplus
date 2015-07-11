@@ -8,6 +8,9 @@ import sys
 
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetaddremove.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetaddremove.cpp 45 2008-04-23 16:46:11Z cubicool $
 
@@ -17,30 +20,28 @@ from osgpypp import osgWidget
 #include <osgWidget/Box>
 #include <osgWidget/Label>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
-class ABCWidget: public osgWidget.Label 
-public:
+class ABCWidget (osgWidget.Label) :
     ABCWidget( str label):
     osgWidget.Label("", label) 
         setFont("fonts/Vera.ttf")
         setFontSize(20)
-        setCanFill(true)
-        setShadow(0.08f)
-        addSize(10.0f, 10.0f)
+        setCanFill(True)
+        setShadow(0.08)
+        addSize(10.0, 10.0)
 
 
-class Button: public osgWidget.Label 
-public:
+class Button (osgWidget.Label) :
     Button( str label):
     osgWidget.Label("", label) 
         setFont("fonts/Vera.ttf")
         setFontSize(30)
-        setColor(0.8f, 0.2f, 0.2f, 0.8f)
-        setCanFill(true)
-        setShadow(0.1f)
+        setColor(0.8, 0.2, 0.2, 0.8)
+        setCanFill(True)
+        setShadow(0.1)
         setEventMask(osgWidget.EVENT_MASK_MOUSE_CLICK)
-        addSize(20.0f, 20.0f)
+        addSize(20.0, 20.0)
 
     # NOTE! I need to make it clearer than Push/Release can happen so fast that
     # the changes you make aren't visible with your refresh rate. Throttling state
@@ -48,85 +49,91 @@ public:
     # annoying...
 
     virtual bool mousePush(double, double,  osgWidget.WindowManager*) 
-        addColor(0.2f, 0.2f, 0.2f, 0.0f)
+        addColor(0.2, 0.2, 0.2, 0.0)
         
-        true = return()
+        return True
 
     virtual bool mouseRelease(double, double,  osgWidget.WindowManager*) 
-        addColor(-0.2f, -0.2f, -0.2f, 0.0f)
+        addColor(-0.2, -0.2, -0.2, 0.0)
         
-        true = return()
+        return True
 
 
-class AddRemove: public osgWidget.Box 
-    osg.ref_ptr<osgWidget.Window> _win1
-
-public:
+class AddRemove (osgWidget.Box) :
+_win1 = osgWidget.Window()
     AddRemove():
     osgWidget.Box ("buttons", osgWidget.Box.VERTICAL),
-    _win1          (new osgWidget.Box("win1", osgWidget.Box.VERTICAL)) 
-        addWidget(new Button("Add Widget"))
-        addWidget(new Button("Remove Widget"))
+    _win1          (osgWidget.Box("win1", osgWidget.Box.VERTICAL)) 
+        addWidget(Button("Add Widget"))
+        addWidget(Button("Remove Widget"))
 
         # Take special note here! Not only do the Button objects have their
         # own overridden methods for changing the color, but they have attached
         # callbacks for doing the work with local data.
-        getByName("Widget_1").addCallback(new osgWidget.Callback(
+        getByName("Widget_1").addCallback(osgWidget.Callback(
             AddRemove.handlePressAdd,
             this,
             osgWidget.EVENT_MOUSE_PUSH
         ))
 
-        getByName("Widget_2").addCallback(new osgWidget.Callback(
+        getByName("Widget_2").addCallback(osgWidget.Callback(
             AddRemove.handlePressRemove,
             this,
             osgWidget.EVENT_MOUSE_PUSH
         ))
 
-    virtual void managed(osgWidget.WindowManager* wm) 
+    def managed(wm):
+
+        
         osgWidget.Box.managed(wm)
 
-        _win1.setOrigin(250.0f, 0.0f)
+        _win1.setOrigin(250.0, 0.0)
 
         wm.addChild(_win1.get())
 
     def handlePressAdd(ev):
+
+        
         static unsigned int num = 0
 
         ss = strstream()
 
         ss, "a random widget ", num
 
-        _win1.addWidget(new ABCWidget(ss.str()))
+        _win1.addWidget(ABCWidget(ss.str()))
 
         num++
 
-        true = return()
+        return True
 
     def handlePressRemove(ev):
-        # TODO: Temporary hack!
-        v =  _win1.getObjects()
-    
-        if !v.size() : return false
 
-        w =  _win1.getObjects()[v.size() - 1].get()
+        
+        # TODO: Temporary hack!
+        v = _win1.getObjects()
+    
+        if !v.size() : return False
+
+        w = _win1.getObjects()[v.size() - 1].get()
 
         _win1.removeWidget(w)
 
-        true = return()
+        return True
 
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D
     )
     
-    buttons =  new AddRemove()
+    buttons = AddRemove()
 
     wm.addChild(buttons)
 

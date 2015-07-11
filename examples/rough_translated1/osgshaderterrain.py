@@ -12,23 +12,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgshaderterrain.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgshaderterrain.cpp'
+
+# OpenSceneGraph example, osgshaderterrain.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/AlphaFunc>
 #include <osg/Billboard>
@@ -65,81 +68,83 @@ from osgpypp import osgViewer
 #include "../osghangglide/terrain_coords.h"
 
 def createScene():
-    scene =  new osg.Group
 
-    unsigned int numColumns = 38
-    unsigned int numRows = 39
-    unsigned int r
-    unsigned int c
+    
+    scene = osg.Group()
 
-    origin = osg.Vec3(0.0f,0.0f,0.0f)
-    size = osg.Vec3(1000.0f,1000.0f,250.0f)
-    scaleDown = osg.Vec3(1.0f/size.x(),1.0f/size.y(),1.0f/size.z())
+    numColumns = 38
+    numRows = 39
+    r = unsigned int()
+    c = unsigned int()
+
+    origin = osg.Vec3(0.0,0.0,0.0)
+    size = osg.Vec3(1000.0,1000.0,250.0)
+    scaleDown = osg.Vec3(1.0/size.x(),1.0/size.y(),1.0/size.z())
 
     # ---------------------------------------
     # Set up a StateSet to texture the objects
     # ---------------------------------------
-    stateset =  new osg.StateSet()
+    stateset = osg.StateSet()
 
 
-    originUniform =  new osg.Uniform("terrainOrigin",origin)
+    originUniform = osg.Uniform("terrainOrigin",origin)
     stateset.addUniform(originUniform)
 
-    sizeUniform =  new osg.Uniform("terrainSize",size)
+    sizeUniform = osg.Uniform("terrainSize",size)
     stateset.addUniform(sizeUniform)
 
-    scaleDownUniform =  new osg.Uniform("terrainScaleDown",scaleDown)
+    scaleDownUniform = osg.Uniform("terrainScaleDown",scaleDown)
     stateset.addUniform(scaleDownUniform)
 
-    terrainTextureSampler =  new osg.Uniform("terrainTexture",0)
+    terrainTextureSampler = osg.Uniform("terrainTexture",0)
     stateset.addUniform(terrainTextureSampler)
 
-    baseTextureSampler =  new osg.Uniform("baseTexture",1)
+    baseTextureSampler = osg.Uniform("baseTexture",1)
     stateset.addUniform(baseTextureSampler)
 
-    treeTextureSampler =  new osg.Uniform("treeTexture",1)
+    treeTextureSampler = osg.Uniform("treeTexture",1)
     stateset.addUniform(treeTextureSampler)
 
 
     # compute z range of z values of grid data so we can scale it.
-    min_z =  FLT_MAX
-    max_z =  -FLT_MAX
+    min_z = FLT_MAX
+    max_z = -FLT_MAX
     for(r=0r<numRows++r)
         for(c=0c<numColumns++c)
             min_z = osg.minimum(min_z,vertex[r+c*numRows][2])
             max_z = osg.maximum(max_z,vertex[r+c*numRows][2])
 
-    scale_z =  size.z()/(max_z-min_z)
+    scale_z = size.z()/(max_z-min_z)
 
-    terrainImage =  new osg.Image
+    terrainImage = osg.Image()
     terrainImage.allocateImage(numColumns,numRows,1,GL_LUMINANCE, GL_FLOAT)
     terrainImage.setInternalTextureFormat(GL_LUMINANCE_FLOAT32_ATI)
     for(r=0r<numRows++r)
         for(c=0c<numColumns++c)
             *((float*)(terrainImage.data(c,r))) = (vertex[r+c*numRows][2]-min_z)*scale_z
 
-    terrainTexture =  new osg.Texture2D
+    terrainTexture = osg.Texture2D()
     terrainTexture.setImage(terrainImage)
     terrainTexture.setFilter(osg.Texture2D.MIN_FILTER, osg.Texture2D.NEAREST)
     terrainTexture.setFilter(osg.Texture2D.MAG_FILTER, osg.Texture2D.NEAREST)
-    terrainTexture.setResizeNonPowerOfTwoHint(false)
+    terrainTexture.setResizeNonPowerOfTwoHint(False)
     stateset.setTextureAttributeAndModes(0,terrainTexture,osg.StateAttribute.ON)
 
 
-    image =  osgDB.readImageFile("Images/lz.rgb")
+    image = osgDB.readImageFile("Images/lz.rgb")
     if image :
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
 
         texture.setImage(image)
         stateset.setTextureAttributeAndModes(1,texture,osg.StateAttribute.ON)
 
         print "Creating terrain..."
 
-        geode =  new osg.Geode()
+        geode = osg.Geode()
         geode.setStateSet( stateset )
 
 
-            program =  new osg.Program
+            program = osg.Program()
             stateset.setAttribute(program)
 
 #if 1
@@ -182,10 +187,10 @@ def createScene():
                 "    gl_FragColor = texture2D( baseTexture, texcoord) \n"
                 "\n"
 
-            program.addShader(new osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
-            program.addShader(new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
+            program.addShader(osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
+            program.addShader(osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
 
-#else:
+#else :
 
             # get shaders from source
             program.addShader(osg.Shader.readShaderFile(osg.Shader.VERTEX, osgDB.findDataFile("shaders/terrain.vert")))
@@ -196,25 +201,25 @@ def createScene():
             # get shaders from source
 
 
-            geometry =  new osg.Geometry
+            geometry = osg.Geometry()
 
-            v =  *(new osg.Vec3Array(numColumns*numRows))
-            color =  *(new osg.Vec4ubArray(1))
+            v = *(osg.Vec3Array(numColumns*numRows))
+            color = *(osg.Vec4ubArray(1))
 
             color[0].set(255,255,255,255)
 
-            rowCoordDelta =  size.y()/(float)(numRows-1)
-            columnCoordDelta =  size.x()/(float)(numColumns-1)
+            rowCoordDelta = size.y()/(float)(numRows-1)
+            columnCoordDelta = size.x()/(float)(numColumns-1)
 
-            rowTexDelta =  1.0f/(float)(numRows-1)
-            columnTexDelta =  1.0f/(float)(numColumns-1)
+            rowTexDelta = 1.0/(float)(numRows-1)
+            columnTexDelta = 1.0/(float)(numColumns-1)
 
-            pos =  origin
-            tex = osg.Vec2(0.0f,0.0f)
+            pos = origin
+            tex = osg.Vec2(0.0,0.0)
             vi = 0
             for(r=0r<numRows++r)
                 pos.x() = origin.x()
-                tex.x() = 0.0f
+                tex.x() = 0.0
                 for(c=0c<numColumns++c)
                     v[vi].set(pos.x(),pos.y(),pos.z())
                     pos.x()+=columnCoordDelta
@@ -227,7 +232,7 @@ def createScene():
             geometry.setColorArray(color, osg.Array.BIND_OVERALL)
 
             for(r=0r<numRows-1++r)
-                drawElements =  *(new osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
+                drawElements = *(osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
                 geometry.addPrimitiveSet(drawElements)
                 ei = 0
                 for(c=0c<numColumns++c)
@@ -242,33 +247,32 @@ def createScene():
 
     print "done."
 
-    scene = return()
+    return scene
 
-class TestSupportOperation: public osg.GraphicsOperation
-public:
+class TestSupportOperation (osg.GraphicsOperation) :
 
     TestSupportOperation():
-        osg.GraphicsOperation("TestSupportOperation",false),
-        _supported(true),
+        osg.GraphicsOperation("TestSupportOperation",False),
+        _supported(True),
         _errorMessage() 
 
     virtual void operator () (osg.GraphicsContext* gc)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
 
-        unsigned int contextID = gc.getState().getContextID()
-        gl2ext =  osg.GL2Extensions.Get(contextID,true)
+        contextID = gc.getState().getContextID()
+        gl2ext = osg.GL2Extensions.Get(contextID,True)
         if  gl2ext  :
             if  !gl2ext.isGlslSupported()  :
-                _supported = false
+                _supported = False
                 _errorMessage = "ERROR: GLSL not supported by OpenGL driver."
 
-            numVertexTexUnits =  0
+            numVertexTexUnits = 0
             glGetIntegerv( GL_MAX_VERTEX_TEXTURE_IMAGE_UNITS, numVertexTexUnits )
             if  numVertexTexUnits <= 0  :
-                _supported = false
+                _supported = False
                 _errorMessage = "ERROR: vertex texturing not supported by OpenGL driver."
-        else:
-            _supported = false
+        else :
+            _supported = False
             _errorMessage = "ERROR: GLSL not supported."
 
     _mutex = OpenThreads.Mutex()
@@ -280,14 +284,14 @@ int main(int, char **)
     # construct the viewer.
     viewer = osgViewer.Viewer()
 
-    node =  createScene()
+    node = createScene()
 
     # add model to viewer.
     viewer.setSceneData( node )
 
     viewer.setUpViewAcrossAllScreens()
 
-    osg.ref_ptr<TestSupportOperation> testSupportOperation = new TestSupportOperation
+    testSupportOperation = TestSupportOperation()
 #if 0
     # temporily commenting out as its causing the viewer to crash... no clue yet to why
     viewer.setRealizeOperation(testSupportOperation.get())

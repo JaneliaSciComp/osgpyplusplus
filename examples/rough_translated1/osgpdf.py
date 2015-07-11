@@ -9,34 +9,39 @@ import sys
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgpdf.cpp'
+
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 
 #include <osgWidget/PdfReader>
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
     viewer = osgViewer.Viewer(arguments)
 
-    hints = osgWidget.GeometryHints(osg.Vec3(0.0f,0.0f,0.0f),
-                                   osg.Vec3(1.0f,0.0f,0.0f),
-                                   osg.Vec3(0.0f,0.0f,1.0f),
-                                   osg.Vec4(1.0f,1.0f,1.0f,1.0f),
+    hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
+                                   osg.Vec3(1.0,0.0,0.0),
+                                   osg.Vec3(0.0,0.0,1.0),
+                                   osg.Vec4(1.0,1.0,1.0,1.0),
                                    osgWidget.GeometryHints.RESIZE_HEIGHT_TO_MAINTAINCE_ASPECT_RATIO)
 
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
 
     for(int i=1 i<arguments.argc() ++i)
         if !arguments.isOption(i) :
-            osg.ref_ptr<osgWidget.PdfReader> pdfReader = new osgWidget.PdfReader
+            pdfReader = osgWidget.PdfReader()
             if pdfReader.open(arguments[i], hints) :
                 group.addChild(pdfReader.get())
                 
-                hints.position.x() += 1.1f
+                hints.position.x() += 1.1
 
     viewer.setSceneData(group.get())
 
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     return viewer.run()
 

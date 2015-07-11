@@ -11,16 +11,19 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2010 Robert Osfield
- *
- * This application is open source and may be redistributed and/or modified
- * freely and without restriction, both in commercial and non commercial applications,
- * as long as this copyright notice is maintained.
- *
- * This application is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# Translated from file 'osguserstats.cpp'
+
+# -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2010 Robert Osfield
+# *
+# * This application is open source and may be redistributed and/or modified
+# * freely and without restriction, both in commercial and non commercial applications,
+# * as long as this copyright notice is maintained.
+# *
+# * This application is distributed in the hope that it will be useful,
+# * but WITHOUT ANY WARRANTY without even the implied warranty of
+# * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgUtil/Optimizer>
@@ -51,41 +54,47 @@ from osgpypp import osgViewer
 # Anything you want to time has to use a consistent name in both the stats 
 # handler and the viewer stats, so it's a good idea to use constants to make
 # sure the names are the same everywhere.
-frameNumberName =  "Custom Frame Number"
-frameTimeName =  "Custom Frame Time"
-customTimeName =  "Custom"
-operation1TimeName =  "Operation1"
-operation2TimeName =  "Operation2"
-otherThreadTimeName =  "Thread"
+frameNumberName = "Custom Frame Number"
+frameTimeName = "Custom Frame Time"
+customTimeName = "Custom"
+operation1TimeName = "Operation1"
+operation2TimeName = "Operation2"
+otherThreadTimeName = "Thread"
 
 
 def initUserStats(statsHandler):
+
+
+    
     # This line displays the frame number. It's not averaged, just displayed as is.
     statsHandler.addUserStatsLine("Frame", osg.Vec4(0.7,0.7,0.7,1), osg.Vec4(0.7,0.7,0.7,0.5), 
-                                   frameNumberName, 1.0, false, false, "", "", 0.0)
+                                   frameNumberName, 1.0, False, False, "", "", 0.0)
 
     # This line displays the frame time (from beginning of event to end of draw). No bars.
     statsHandler.addUserStatsLine("MS/frame", osg.Vec4(1,0,1,1), osg.Vec4(1,0,1,0.5), 
-                                   frameTimeName, 1000.0, true, false, "", "", 0.02)
+                                   frameTimeName, 1000.0, True, False, "", "", 0.02)
 
     # This line displays the sum of update and main camera cull times.
     statsHandler.addUserStatsLine("Custom", osg.Vec4(1,1,1,1), osg.Vec4(1,1,1,0.5), 
-                                   customTimeName + " time taken", 1000.0, true, false, customTimeName + " begin", customTimeName + " end", 0.016)
+                                   customTimeName + " time taken", 1000.0, True, False, customTimeName + " begin", customTimeName + " end", 0.016)
 
     # This line displays the time taken by a function below ( doSomethingAndTimeIt() )
     statsHandler.addUserStatsLine("Sleep1", osg.Vec4(1,0,0,1), osg.Vec4(1,0,0,0.5), 
-                                   operation1TimeName + " time taken", 1000.0, true, false, operation1TimeName + " begin", operation1TimeName + " end", 0.016)
+                                   operation1TimeName + " time taken", 1000.0, True, False, operation1TimeName + " begin", operation1TimeName + " end", 0.016)
 
     # This line displays the time taken by a function below ( doSomethingAndTimeIt() )
     statsHandler.addUserStatsLine("Sleep2", osg.Vec4(1,0.5,0.5,1), osg.Vec4(1,0.5,0.5,0.5), 
-                                   operation2TimeName + " time taken", 1000.0, true, false, operation2TimeName + " begin", operation2TimeName + " end", 0.016)
+                                   operation2TimeName + " time taken", 1000.0, True, False, operation2TimeName + " begin", operation2TimeName + " end", 0.016)
 
     # This line displays the time taken by a function below ( doSomethingAndTimeIt() )
     statsHandler.addUserStatsLine("Thread", osg.Vec4(0,0.5,0,1), osg.Vec4(0,0.5,0,0.5), 
-                                   otherThreadTimeName + " time taken", 1000.0, true, false, otherThreadTimeName + " begin", otherThreadTimeName + " end", 0.016)
+                                   otherThreadTimeName + " time taken", 1000.0, True, False, otherThreadTimeName + " begin", otherThreadTimeName + " end", 0.016)
 
 
 def updateUserStats(viewer):
+
+
+    
     # Test the custom stats line by just adding up the update and cull 
     # times for the viewer main camera for the previous frame.
     if viewer.getViewerStats().collectStats("update")  viewer.getCamera().getStats().collectStats("rendering") :
@@ -96,18 +105,18 @@ def updateUserStats(viewer):
         # use that frame's timings because it's probably not finished 
         # rendering yet (in multithreaded viewer modes). So we'll use the
         # timings for framenumber-2 for this demo.
-        unsigned int framenumber = viewer.getFrameStamp().getFrameNumber()
+        framenumber = viewer.getFrameStamp().getFrameNumber()
 
         # Get the update time and the viewer main camera's cull time. We use 
         # getAveragedAttribute() in order to get the actual time elapsed as 
         # calculated by the stats.
-        update =  0.0, cull = 0.0
+        update = 0.0, cull = 0.0
         viewer.getViewerStats().getAveragedAttribute("Update traversal time taken", update)
         viewer.getCamera().getStats().getAveragedAttribute("Cull traversal time taken", cull)
 
         # Get various begin and end times, note these are not elapsed times 
         # in a frame but rather the simulation time at those moments.
-        eventBegin =  0.0, updateBegin = 0.0, cullEnd = 0.0, drawEnd = 0.0
+        eventBegin = 0.0, updateBegin = 0.0, cullEnd = 0.0, drawEnd = 0.0
         viewer.getViewerStats().getAttribute(framenumber-2, "Event traversal begin time", eventBegin)
         viewer.getViewerStats().getAttribute(framenumber-2, "Update traversal begin time", updateBegin)
         viewer.getCamera().getStats().getAttribute(framenumber-2, "Cull traversal end time", cullEnd)
@@ -135,23 +144,25 @@ def updateUserStats(viewer):
 #/ Utility function you call before something you want to time, so that the 
 #/ recorded times will all be consistent using the viewer's time.
 def startTiming(viewer, name):
-    tick =  osg.Timer.instance().tick()
-    currentTime =  osg.Timer.instance().delta_s(viewer.getStartTick(), tick)
-    unsigned int framenumber = viewer.getFrameStamp().getFrameNumber()
+    
+    tick = osg.Timer.instance().tick()
+    currentTime = osg.Timer.instance().delta_s(viewer.getStartTick(), tick)
+    framenumber = viewer.getFrameStamp().getFrameNumber()
 
     viewer.getViewerStats().setAttribute(framenumber, name + " begin", currentTime)
 
 #/ Utility function you call after something you want to time, so that the 
 #/ recorded times will all be consistent using the viewer's time.
 def endTiming(viewer, name):
-    tick =  osg.Timer.instance().tick()
-    currentTime =  osg.Timer.instance().delta_s(viewer.getStartTick(), tick)
-    unsigned int framenumber = viewer.getFrameStamp().getFrameNumber()
+    
+    tick = osg.Timer.instance().tick()
+    currentTime = osg.Timer.instance().delta_s(viewer.getStartTick(), tick)
+    framenumber = viewer.getFrameStamp().getFrameNumber()
 
     viewer.getViewerStats().setAttribute(framenumber, name + " end", currentTime)
 
-    begin =  0.0
-    elapsed =  0.0
+    begin = 0.0
+    elapsed = 0.0
     if viewer.getViewerStats().getAttribute(framenumber, name + " begin", begin) :
         elapsed = currentTime - begin
 
@@ -161,6 +172,7 @@ def endTiming(viewer, name):
 #/ Will just sleep for the given number of milliseconds in the same thread 
 #/ as the caller, recording the time taken in the viewer's stats.
 def doSomethingAndTimeIt(viewer, name, milliseconds):
+    
     startTiming(viewer, name)
 
     #------------------------------------------------------------
@@ -168,7 +180,7 @@ def doSomethingAndTimeIt(viewer, name, milliseconds):
 
     # Do nothing for the specified number of  milliseconds, just so we can 
     # see it in the stats.
-    startTick =  osg.Timer.instance().tick()
+    startTick = osg.Timer.instance().tick()
     while osg.Timer.instance().delta_m(startTick, osg.Timer.instance().tick()) < milliseconds :
         OpenThreads.Thread.YieldCurrentThread()
     #------------------------------------------------------------
@@ -179,15 +191,16 @@ def doSomethingAndTimeIt(viewer, name, milliseconds):
 #/ Thread that will sleep for the given number of milliseconds, recording 
 #/ the time taken in the viewer's stats, whenever its process() method is 
 #/ called.
-class UselessThread : public OpenThreads.Thread
-public:
+class UselessThread (OpenThreads.Thread) :
     UselessThread(osgViewer.Viewer viewer, double timeToRun)
         : _viewer(viewer)
         , _timeToRun(timeToRun)
-        , _done(false)
-        , _process(false)
+        , _done(False)
+        , _process(False)
 
     def run():
+
+        
         while !_done :
             if _process :
                 startTiming(_viewer, otherThreadTimeName)
@@ -197,25 +210,27 @@ public:
 
                 # Do nothing for the specified number of  milliseconds, just so we can 
                 # see it in the stats.
-                startTick =  osg.Timer.instance().tick()
+                startTick = osg.Timer.instance().tick()
                 while osg.Timer.instance().delta_m(startTick, osg.Timer.instance().tick()) < _timeToRun :
                     OpenThreads.Thread.YieldCurrentThread()
                 #------------------------------------------------------------
 
                 endTiming(_viewer, otherThreadTimeName)
 
-                _process = false
-            else:
+                _process = False
+            else :
                 OpenThreads.Thread.microSleep(50)
 
     def cancel():
-        _done = true
+
+        
+        _done = True
         return OpenThreads.Thread.cancel()
 
     def process():
-        _process = true
 
-protected:
+        
+        _process = True
     _viewer = osgViewer.Viewer()
     _timeToRun = double()
     _done = bool()
@@ -224,6 +239,9 @@ protected:
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -236,7 +254,7 @@ def main(argc, argv):
 
     viewer = osgViewer.Viewer(arguments)
 
-    unsigned int helpType = 0
+    helpType = 0
     if helpType = arguments.readHelpType() : :
         arguments.getApplicationUsage().write(std.cout, helpType)
         return 1
@@ -253,34 +271,34 @@ def main(argc, argv):
     str url, username, password
     while arguments.read("--login",url, username, password) :
         if !osgDB.Registry.instance().getAuthenticationMap() :
-            osgDB.Registry.instance().setAuthenticationMap(new osgDB.AuthenticationMap)
+            osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
             osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(
                 url,
-                new osgDB.AuthenticationDetails(username, password)
+                osgDB.AuthenticationDetails(username, password)
             )
 
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator)()
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
     # add the thread model handler
-    viewer.addEventHandler(new osgViewer.ThreadingHandler)
+    viewer.addEventHandler(osgViewer.ThreadingHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     # add the stats handler
-    statsHandler =  new osgViewer.StatsHandler
+    statsHandler = osgViewer.StatsHandler()
     viewer.addEventHandler(statsHandler)
 
     initUserStats(statsHandler)
 
     # add the help handler
-    viewer.addEventHandler(new osgViewer.HelpHandler(arguments.getApplicationUsage()))
+    viewer.addEventHandler(osgViewer.HelpHandler(arguments.getApplicationUsage()))
 
     # load the data
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     if !loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1

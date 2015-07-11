@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgTerrain
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgterrain.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgterrain.cpp'
+
+# OpenSceneGraph example, osgterrain.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/ArgumentParser>
 #include <osgDB/ReadFile>
@@ -52,18 +55,19 @@ from osgpypp import osgViewer
 #include <iostream>
 
 template<class T>
-class FindTopMostNodeOfTypeVisitor : public osg.NodeVisitor
-public:
+class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
     FindTopMostNodeOfTypeVisitor():
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _foundNode(0)
     
 
     def apply(node):
-        result =  dynamic_cast<T*>(node)
+
+        
+        result = dynamic_cast<T*>(node)
         if result :
             _foundNode = result
-        else:
+        else :
             traverse(node)
 
     _foundNode = T*()
@@ -71,71 +75,73 @@ public:
 
 template<class T>
 def findTopMostNodeOfType(node):
+    
     if !node : return 0
 
-    FindTopMostNodeOfTypeVisitor<T> fnotv
+    fnotv = FindTopMostNodeOfTypeVisitor<T>()
     node.accept(fnotv)
 
     return fnotv._foundNode
 
 # class to handle events with a pick
-class TerrainHandler : public osgGA.GUIEventHandler 
-public:
+class TerrainHandler (osgGA.GUIEventHandler) :
 
     TerrainHandler(osgTerrain.Terrain* terrain):
         _terrain(terrain) 
 
     def handle(ea, aa):
+
+        
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
                 if ea.getKey()=='r' :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()*0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
-                    true = return()
-                else: if ea.getKey()=='R' :
+                    return True
+                elif ea.getKey()=='R' :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()/0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
-                    true = return()
-                else: if ea.getKey()=='v' :
+                    return True
+                elif ea.getKey()=='v' :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()*1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
-                    true = return()
-                else: if ea.getKey()=='V' :
+                    return True
+                elif ea.getKey()=='V' :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()/1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
-                    true = return()
+                    return True
 
-                false = return()
+                return False
             default:
-                false = return()
-
-protected:
+                return False
 
     ~TerrainHandler() 
 
-    osg.ref_ptr<osgTerrain.Terrain>  _terrain
+    _terrain = osgTerrain.Terrain()
 
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
 
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -144,52 +150,52 @@ def main(argc, argv):
 
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     # obtain the vertical scale
-    verticalScale =  1.0f
+    verticalScale = 1.0
     while arguments.read("-v",verticalScale) : 
 
     # obtain the sample ratio
-    sampleRatio =  1.0f
+    sampleRatio = 1.0
     while arguments.read("-r",sampleRatio) : 
 
-    blendingPolicy =  osgTerrain.TerrainTile.INHERIT
+    blendingPolicy = osgTerrain.TerrainTile.INHERIT
     strBlendingPolicy = str()
     while arguments.read("--blending-policy", strBlendingPolicy) :
         if strBlendingPolicy == "INHERIT" : blendingPolicy = osgTerrain.TerrainTile.INHERIT
-        else: if strBlendingPolicy == "DO_NOT_SET_BLENDING" : blendingPolicy = osgTerrain.TerrainTile.DO_NOT_SET_BLENDING
-        else: if strBlendingPolicy == "ENABLE_BLENDING" : blendingPolicy = osgTerrain.TerrainTile.ENABLE_BLENDING
-        else: if strBlendingPolicy == "ENABLE_BLENDING_WHEN_ALPHA_PRESENT" : blendingPolicy = osgTerrain.TerrainTile.ENABLE_BLENDING_WHEN_ALPHA_PRESENT
+        elif strBlendingPolicy == "DO_NOT_SET_BLENDING" : blendingPolicy = osgTerrain.TerrainTile.DO_NOT_SET_BLENDING
+        elif strBlendingPolicy == "ENABLE_BLENDING" : blendingPolicy = osgTerrain.TerrainTile.ENABLE_BLENDING
+        elif strBlendingPolicy == "ENABLE_BLENDING_WHEN_ALPHA_PRESENT" : blendingPolicy = osgTerrain.TerrainTile.ENABLE_BLENDING_WHEN_ALPHA_PRESENT
 
     # load the nodes from the commandline arguments.
-    osg.ref_ptr<osg.Node> rootnode = osgDB.readNodeFiles(arguments)
+    rootnode = osgDB.readNodeFiles(arguments)
 
     if !rootnode :
         osg.notify(osg.NOTICE), "Warning: no valid data loaded, please specify a database on the command line."
         return 1
 
-    osg.ref_ptr<osgTerrain.Terrain> terrain = findTopMostNodeOfType<osgTerrain.Terrain>(rootnode.get())
+    terrain = findTopMostNodeOfType<osgTerrain.Terrain>(rootnode.get())
     if !terrain :
         # no Terrain node present insert one above the loaded model.
-        terrain = new osgTerrain.Terrain
+        terrain = osgTerrain.Terrain()
 
         # if CoordinateSystemNode is present copy it's contents into the Terrain, and discard it.
-        csn =  findTopMostNodeOfType<osg.CoordinateSystemNode>(rootnode.get())
+        csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(rootnode.get())
         if csn :
             terrain.set(*csn)
             for(unsigned int i=0 i<csn.getNumChildren()++i)
                 terrain.addChild(csn.getChild(i))
-        else:
+        else :
             terrain.addChild(rootnode.get())
 
         rootnode = terrain.get()
@@ -199,7 +205,7 @@ def main(argc, argv):
     terrain.setBlendingPolicy(blendingPolicy)
 
     # register our custom handler for adjust Terrain settings
-    viewer.addEventHandler(new TerrainHandler(terrain.get()))
+    viewer.addEventHandler(TerrainHandler(terrain.get()))
 
     # add a viewport to the viewer and attach the scene graph.
     viewer.setSceneData( rootnode.get() )

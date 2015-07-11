@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgmovie.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgmovie.cpp'
+
+# OpenSceneGraph example, osgmovie.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
@@ -52,32 +55,33 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-class MovieEventHandler : public osgGA.GUIEventHandler
-public:
+class MovieEventHandler (osgGA.GUIEventHandler) :
 
-    MovieEventHandler():_trackMouse(false) 
+    MovieEventHandler():_trackMouse(False) 
 
-    void setMouseTracking(bool track)  _trackMouse = track 
-    bool getMouseTracking()   return _trackMouse 
+    def setMouseTracking(track):
+
+         _trackMouse = track 
+    def getMouseTracking():
+         return _trackMouse 
 
     set = void(osg.Node* node)
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa, osg.Object*, osg.NodeVisitor* nv)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa, osg.Object*, osg.NodeVisitor* nv)
 
     virtual void getUsage(osg.ApplicationUsage usage) 
 
     typedef std.vector< osg.observer_ptr<osg.ImageStream> > ImageStreamList
 
-protected:
-
     virtual ~MovieEventHandler() 
 
-    class FindImageStreamsVisitor : public osg.NodeVisitor
-    public:
+    class FindImageStreamsVisitor (osg.NodeVisitor) :
         FindImageStreamsVisitor(ImageStreamList imageStreamList):
             _imageStreamList(imageStreamList) 
 
-        virtual void apply(osg.Geode geode)
+        def apply(geode):
+
+            
             apply(geode.getStateSet())
 
             for(unsigned int i=0i<geode.getNumDrawables()++i)
@@ -85,19 +89,21 @@ protected:
 
             traverse(geode)
 
-        virtual void apply(osg.Node node)
+        def apply(node):
+
+            
             apply(node.getStateSet())
             traverse(node)
 
         inline void apply(osg.StateSet* stateset)
             if !stateset : return
 
-            attr =  stateset.getTextureAttribute(0,osg.StateAttribute.TEXTURE)
+            attr = stateset.getTextureAttribute(0,osg.StateAttribute.TEXTURE)
             if attr :
-                texture2D =  dynamic_cast<osg.Texture2D*>(attr)
+                texture2D = dynamic_cast<osg.Texture2D*>(attr)
                 if texture2D : apply(dynamic_cast<osg.ImageStream*>(texture2D.getImage()))
 
-                textureRec =  dynamic_cast<osg.TextureRectangle*>(attr)
+                textureRec = dynamic_cast<osg.TextureRectangle*>(attr)
                 if textureRec : apply(dynamic_cast<osg.ImageStream*>(textureRec.getImage()))
 
         inline void apply(osg.ImageStream* imagestream)
@@ -106,16 +112,14 @@ protected:
 
         _imageStreamList = ImageStreamList()
 
-    protected:
-
-        operator =  ( FindImageStreamsVisitor)  return *this 
+        operator = ( FindImageStreamsVisitor)  return *this 
 
     
 
 
     _trackMouse = bool()
     _imageStreamList = ImageStreamList()
-    unsigned int    _seekIncr
+    _seekIncr = unsigned int()
 
 
 
@@ -134,48 +138,48 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
         case(osgGA.GUIEventAdapter.PUSH):
         case(osgGA.GUIEventAdapter.RELEASE):
             if _trackMouse :
-                view =  dynamic_cast<osgViewer.View*>(aa)
+                view = dynamic_cast<osgViewer.View*>(aa)
                 intersections = osgUtil.LineSegmentIntersector.Intersections()
-                foundIntersection =  view==0 ? false :
+                foundIntersection = view==0 ? False :
                     (nv==0 ? view.computeIntersections(ea, intersections) :
                              view.computeIntersections(ea, nv.getNodePath(), intersections))
 
                 if foundIntersection :
 
                     # use the nearest intersection
-                    intersection =  *(intersections.begin())
-                    drawable =  intersection.drawable.get()
-                    geometry =  drawable ? drawable.asGeometry() : 0
-                    vertices =  geometry ? dynamic_cast<osg.Vec3Array*>(geometry.getVertexArray()) : 0
+                    intersection = *(intersections.begin())
+                    drawable = intersection.drawable.get()
+                    geometry = drawable ? drawable.asGeometry() : 0
+                    vertices = geometry ? dynamic_cast<osg.Vec3Array*>(geometry.getVertexArray()) : 0
                     if vertices :
                         # get the vertex indices.
-                        indices =  intersection.indexList
-                        ratios =  intersection.ratioList
+                        indices = intersection.indexList
+                        ratios = intersection.ratioList
 
                         if indices.size()==3  ratios.size()==3 :
-                            unsigned int i1 = indices[0]
-                            unsigned int i2 = indices[1]
-                            unsigned int i3 = indices[2]
+                            i1 = indices[0]
+                            i2 = indices[1]
+                            i3 = indices[2]
 
-                            r1 =  ratios[0]
-                            r2 =  ratios[1]
-                            r3 =  ratios[2]
+                            r1 = ratios[0]
+                            r2 = ratios[1]
+                            r3 = ratios[2]
 
-                            texcoords =  (geometry.getNumTexCoordArrays()>0) ? geometry.getTexCoordArray(0) : 0
-                            texcoords_Vec2Array =  dynamic_cast<osg.Vec2Array*>(texcoords)
+                            texcoords = (geometry.getNumTexCoordArrays()>0) ? geometry.getTexCoordArray(0) : 0
+                            texcoords_Vec2Array = dynamic_cast<osg.Vec2Array*>(texcoords)
                             if texcoords_Vec2Array :
                                 # we have tex coord array so now we can compute the final tex coord at the point of intersection.
-                                tc1 =  (*texcoords_Vec2Array)[i1]
-                                tc2 =  (*texcoords_Vec2Array)[i2]
-                                tc3 =  (*texcoords_Vec2Array)[i3]
-                                tc =  tc1*r1 + tc2*r2 + tc3*r3
+                                tc1 = (*texcoords_Vec2Array)[i1]
+                                tc2 = (*texcoords_Vec2Array)[i2]
+                                tc3 = (*texcoords_Vec2Array)[i3]
+                                tc = tc1*r1 + tc2*r2 + tc3*r3
 
                                 osg.notify(osg.NOTICE), "We hit tex coords ", tc
 
-                        else:
+                        else :
                             osg.notify(osg.NOTICE), "Intersection has insufficient indices to work with"
 
-                else:
+                else :
                     osg.notify(osg.NOTICE), "No intersection"
             break
         case(osgGA.GUIEventAdapter.KEYDOWN):
@@ -183,76 +187,76 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
-                    playToggle =  (*itr).getStatus()
+                    playToggle = (*itr).getStatus()
                     if playToggle != osg.ImageStream.PLAYING :
                         print (*itr).get(), " Play"
                         (*itr).play()
-                    else:
+                    else :
                         # playing, so pause
                         print (*itr).get(), " Pause"
                         (*itr).pause()
-                true = return()
-            else: if ea.getKey()=='r' :
+                return True
+            elif ea.getKey()=='r' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
                     print (*itr).get(), " Restart"
                     (*itr).rewind()
                     (*itr).play()
-                true = return()
-            else: if ea.getKey()=='>' :
+                return True
+            elif ea.getKey()=='>' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
                     print "Seeking"
                     if _seekIncr > 3 : _seekIncr = 0
-                    length =  (*itr).getLength()
-                    t_pos =  (length/4.0f)*_seekIncr
+                    length = (*itr).getLength()
+                    t_pos = (length/4.0)*_seekIncr
                     #(*itr).rewind()
                     (*itr).seek(t_pos)
                     (*itr).play()
                     _seekIncr++
-                true = return()
-            else: if ea.getKey()=='L' :
+                return True
+            elif ea.getKey()=='L' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
                     if *itr :.getLoopingMode() == osg.ImageStream.LOOPING :
                         print (*itr).get(), " Toggle Looping Off"
                         (*itr).setLoopingMode( osg.ImageStream.NO_LOOPING )
-                    else:
+                    else :
                         print (*itr).get(), " Toggle Looping On"
                         (*itr).setLoopingMode( osg.ImageStream.LOOPING )
-                true = return()
-            else: if ea.getKey()=='+' :
+                return True
+            elif ea.getKey()=='+' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
-                    tm =  (*itr).getTimeMultiplier()
+                    tm = (*itr).getTimeMultiplier()
                     tm += 0.1
                     (*itr).setTimeMultiplier(tm)
                     print (*itr).get(), " Increase speed rate ", (*itr).getTimeMultiplier()
-                true = return()
-            else: if ea.getKey()=='-' :
+                return True
+            elif ea.getKey()=='-' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
-                    tm =  (*itr).getTimeMultiplier()
+                    tm = (*itr).getTimeMultiplier()
                     tm -= 0.1
                     (*itr).setTimeMultiplier(tm)
                     print (*itr).get(), " Decrease speed rate ", (*itr).getTimeMultiplier()
-                true = return()
-            else: if ea.getKey()=='o' :
+                return True
+            elif ea.getKey()=='o' :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
                     itr!=_imageStreamList.end()
                     ++itr)
                     print (*itr).get(), " Frame rate  ", (*itr).getFrameRate()
-                true = return()
-            false = return()
+                return True
+            return False
 
         default:
-            false = return()
-    false = return()
+            return False
+    return False
 
 void MovieEventHandler.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("p","Play/Pause movie")
@@ -265,16 +269,19 @@ void MovieEventHandler.getUsage(osg.ApplicationUsage usage)
 
 
 def myCreateTexturedQuadGeometry(pos, width, height, image, useTextureRectangle, xyPlane, option_flip):
-    flip =  image.getOrigin()==osg.Image.TOP_LEFT
+
+
+    
+    flip = image.getOrigin()==osg.Image.TOP_LEFT
     if option_flip : flip = !flip
 
     if useTextureRectangle :
-        pictureQuad =  osg.createTexturedQuadGeometry(pos,
-                                           osg.Vec3(width,0.0f,0.0f),
-                                           xyPlane ? osg.Vec3(0.0f,height,0.0f) : osg.Vec3(0.0f,0.0f,height),
-                                           0.0f, flip ? image.t() : 0.0, image.s(), flip ? 0.0 : image.t())
+        pictureQuad = osg.createTexturedQuadGeometry(pos,
+                                           osg.Vec3(width,0.0,0.0),
+                                           xyPlane ? osg.Vec3(0.0,height,0.0) : osg.Vec3(0.0,0.0,height),
+                                           0.0, flip ? image.t() : 0.0, image.s(), flip ? 0.0 : image.t())
 
-        texture =  new osg.TextureRectangle(image)
+        texture = osg.TextureRectangle(image)
         texture.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
         texture.setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP_TO_EDGE)
 
@@ -283,15 +290,15 @@ def myCreateTexturedQuadGeometry(pos, width, height, image, useTextureRectangle,
                                                                         texture,
                                                                         osg.StateAttribute.ON)
 
-        pictureQuad = return()
-    else:
-        pictureQuad =  osg.createTexturedQuadGeometry(pos,
-                                           osg.Vec3(width,0.0f,0.0f),
-                                           xyPlane ? osg.Vec3(0.0f,height,0.0f) : osg.Vec3(0.0f,0.0f,height),
-                                           0.0f, flip ? 1.0f : 0.0f , 1.0f, flip ? 0.0f : 1.0f)
+        return pictureQuad
+    else :
+        pictureQuad = osg.createTexturedQuadGeometry(pos,
+                                           osg.Vec3(width,0.0,0.0),
+                                           xyPlane ? osg.Vec3(0.0,height,0.0) : osg.Vec3(0.0,0.0,height),
+                                           0.0, flip ? 1.0 : 0.0 , 1.0, flip ? 0.0 : 1.0)
 
-        texture =  new osg.Texture2D(image)
-        texture.setResizeNonPowerOfTwoHint(false)
+        texture = osg.Texture2D(image)
+        texture.setResizeNonPowerOfTwoHint(False)
         texture.setFilter(osg.Texture.MIN_FILTER,osg.Texture.LINEAR)
         texture.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
         texture.setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP_TO_EDGE)
@@ -301,35 +308,38 @@ def myCreateTexturedQuadGeometry(pos, width, height, image, useTextureRectangle,
                     texture,
                     osg.StateAttribute.ON)
 
-        pictureQuad = return()
+        return pictureQuad
 
 #if USE_SDL
 
-class SDLAudioSink : public osg.AudioSink
-    public:
+class SDLAudioSink (osg.AudioSink) :
 
         SDLAudioSink(osg.AudioStream* audioStream):
-            _started(false),
-            _paused(false),
+            _started(False),
+            _paused(False),
             _audioStream(audioStream) 
 
         ~SDLAudioSink()
 
-        virtual void play()
-        virtual void pause()
-        virtual void stop()
+        play = virtual void()
+        pause = virtual void()
+        stop = virtual void()
 
-        virtual bool playing()   return _started  !_paused 
+        def playing():
+
+             return _started  !_paused 
 
 
         _started = bool()
         _paused = bool()
-        osg.observer_ptr<osg.AudioStream> _audioStream
+        _audioStream = osg.observer_ptr<osg.AudioStream>()
 
 
 #endif
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -346,8 +356,8 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--devices","Print the Video input capability via QuickTime and exit.")
 #endif
 
-    useTextureRectangle =  true
-    useShader =  false
+    useTextureRectangle = True
+    useShader = False
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -364,11 +374,11 @@ def main(argc, argv):
         return 1
 #endif
 
-    while arguments.read("--texture2D") : useTextureRectangle=false
-    while arguments.read("--shader") : useShader=true
+    while arguments.read("--texture2D") : useTextureRectangle=False
+    while arguments.read("--shader") : useShader=True
 
-    mouseTracking =  false
-    while arguments.read("--mouse") : mouseTracking=true
+    mouseTracking = False
+    while arguments.read("--mouse") : mouseTracking=True
 
 
     # if user request help write it out to cout.
@@ -376,16 +386,16 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    fullscreen =  !arguments.read("--interactive")
-    flip =  arguments.read("--flip")
+    fullscreen = !arguments.read("--interactive")
+    flip = arguments.read("--flip")
 
-    osg.ref_ptr<osg.Geode> geode = new osg.Geode
+    geode = osg.Geode()
 
-    stateset =  geode.getOrCreateStateSet()
+    stateset = geode.getOrCreateStateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
     if useShader :
-        #useTextureRectangle = false
+        #useTextureRectangle = False
 
         static  char *shaderSourceTextureRec = 
             "uniform vec4 cutoff_color\n"
@@ -409,42 +419,42 @@ def main(argc, argv):
             "\n"
         
 
-        program =  new osg.Program
+        program = osg.Program()
 
-        program.addShader(new osg.Shader(osg.Shader.FRAGMENT,
+        program.addShader(osg.Shader(osg.Shader.FRAGMENT,
                                            useTextureRectangle ? shaderSourceTextureRec : shaderSourceTexture2D))
 
-        stateset.addUniform(new osg.Uniform("cutoff_color",osg.Vec4(0.1f,0.1f,0.1f,1.0f)))
-        stateset.addUniform(new osg.Uniform("movie_texture",0))
+        stateset.addUniform(osg.Uniform("cutoff_color",osg.Vec4(0.1,0.1,0.1,1.0)))
+        stateset.addUniform(osg.Uniform("movie_texture",0))
 
         stateset.setAttribute(program)
 
 
-    pos = osg.Vec3(0.0f,0.0f,0.0f)
-    topleft =  pos
-    bottomright =  pos
+    pos = osg.Vec3(0.0,0.0,0.0)
+    topleft = pos
+    bottomright = pos
 
-    xyPlane =  fullscreen
+    xyPlane = fullscreen
     
-    useAudioSink =  false
-    while arguments.read("--audio") :  useAudioSink = true 
+    useAudioSink = False
+    while arguments.read("--audio") :  useAudioSink = True 
     
 #if USE_SDL
-    unsigned int numAudioStreamsEnabled = 0
+    numAudioStreamsEnabled = 0
 #endif
 
     for(int i=1i<arguments.argc()++i)
         if arguments.isString(i) :
-            image =  osgDB.readImageFile(arguments[i])
-            imagestream =  dynamic_cast<osg.ImageStream*>(image)
+            image = osgDB.readImageFile(arguments[i])
+            imagestream = dynamic_cast<osg.ImageStream*>(image)
             if imagestream : 
-                audioStreams =  imagestream.getAudioStreams()
+                audioStreams = imagestream.getAudioStreams()
                 if useAudioSink  !audioStreams.empty() :
-                    audioStream =  audioStreams[0].get()
+                    audioStream = audioStreams[0].get()
                     osg.notify(osg.NOTICE), "AudioStream read [", audioStream.getName(), "]"
 #if USE_SDL
                     if numAudioStreamsEnabled==0 :
-                        audioStream.setAudioSink(new SDLAudioSink(audioStream))
+                        audioStream.setAudioSink(SDLAudioSink(audioStream))
                         
                         ++numAudioStreamsEnabled
 #endif
@@ -455,10 +465,10 @@ def main(argc, argv):
             if image :
                 osg.notify(osg.NOTICE), "image.s()", image.s(), " image-t()=", image.t(), " aspectRatio=", image.getPixelAspectRatio()
 
-                width =  image.s() * image.getPixelAspectRatio()
-                height =  image.t()
+                width = image.s() * image.getPixelAspectRatio()
+                height = image.t()
 
-                osg.ref_ptr<osg.Drawable> drawable = myCreateTexturedQuadGeometry(pos, width, height,image, useTextureRectangle, xyPlane, flip)
+                drawable = myCreateTexturedQuadGeometry(pos, width, height,image, useTextureRectangle, xyPlane, flip)
                 
                 if image.isImageTranslucent() :
                     osg.notify(osg.NOTICE), "Transparent movie, enabling blending."
@@ -468,11 +478,11 @@ def main(argc, argv):
 
                 geode.addDrawable(drawable.get())
 
-                bottomright = pos + osg.Vec3(width,height,0.0f)
+                bottomright = pos + osg.Vec3(width,height,0.0)
 
-                if xyPlane : pos.y() += height*1.05f
-                else: pos.z() += height*1.05f
-            else:
+                if xyPlane : pos.y() += height*1.05
+                else : pos.z() += height*1.05
+            else :
                 print "Unable to read file ", arguments[i]
 
     # set the scene to render
@@ -483,17 +493,17 @@ def main(argc, argv):
         return 1
 
     # pass the model to the MovieEventHandler so it can pick out ImageStream's to manipulate.
-    meh =  new MovieEventHandler()
+    meh = MovieEventHandler()
     meh.setMouseTracking( mouseTracking )
     meh.set( viewer.getSceneData() )
     viewer.addEventHandler( meh )
 
-    viewer.addEventHandler( new osgViewer.StatsHandler )
-    viewer.addEventHandler( new osgGA.StateSetManipulator( viewer.getCamera().getOrCreateStateSet() ) )
-    viewer.addEventHandler( new osgViewer.WindowSizeHandler )
+    viewer.addEventHandler( osgViewer.StatsHandler )()
+    viewer.addEventHandler( osgGA.StateSetManipulator( viewer.getCamera().getOrCreateStateSet() ) )
+    viewer.addEventHandler( osgViewer.WindowSizeHandler )()
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # report any errors if they have occurred when parsing the program arguments.
     if arguments.errors() :
@@ -503,33 +513,33 @@ def main(argc, argv):
     if fullscreen :
         viewer.realize()
         
-        viewer.getCamera().setClearColor(osg.Vec4(0.0f,0.0f,0.0f,1.0f))
+        viewer.getCamera().setClearColor(osg.Vec4(0.0,0.0,0.0,1.0))
 
-        screenAspectRatio =  1280.0f/1024.0f
+        screenAspectRatio = 1280.0/1024.0
 
-        wsi =  osg.GraphicsContext.getWindowingSystemInterface()
+        wsi = osg.GraphicsContext.getWindowingSystemInterface()
         if wsi : 
             unsigned int width, height
             wsi.getScreenResolution(osg.GraphicsContext.ScreenIdentifier(0), width, height)
             
             screenAspectRatio = float(width) / float(height)
         
-        modelAspectRatio =  (bottomright.x()-topleft.x())/(bottomright.y()-topleft.y())
+        modelAspectRatio = (bottomright.x()-topleft.x())/(bottomright.y()-topleft.y())
         
         viewer.getCamera().setViewMatrix(osg.Matrix.identity())
 
 
-        center =  (bottomright + topleft)*0.5f
-        dx = osg.Vec3(bottomright.x()-center.x(), 0.0f, 0.0f)
-        dy = osg.Vec3(0.0f, topleft.y()-center.y(), 0.0f)
+        center = (bottomright + topleft)*0.5
+        dx = osg.Vec3(bottomright.x()-center.x(), 0.0, 0.0)
+        dy = osg.Vec3(0.0, topleft.y()-center.y(), 0.0)
 
-        ratio =  modelAspectRatio/screenAspectRatio
+        ratio = modelAspectRatio/screenAspectRatio
 
-        if ratio>1.0f :
+        if ratio>1.0 :
             # use model width as the control on model size.
             bottomright = center + dx - dy * ratio
             topleft = center - dx + dy * ratio
-        else:
+        else :
             # use model height as the control on model size.
             bottomright = center + dx / ratio - dy
             topleft = center - dx / ratio + dy
@@ -539,7 +549,7 @@ def main(argc, argv):
         while !viewer.done() :
             viewer.frame()
         return 0
-    else:
+    else :
         # create the windows and run the threads.
         return viewer.run()
 
@@ -548,8 +558,8 @@ def main(argc, argv):
 #include "SDL.h"
 
 static void soundReadCallback(void * user_data, uint8_t * data, int datalen)
-    sink =  reinterpret_cast<SDLAudioSink*>(user_data)
-    osg.ref_ptr<osg.AudioStream> as = sink._audioStream.get()
+    sink = reinterpret_cast<SDLAudioSink*>(user_data)
+    as = sink._audioStream.get()
     if as.valid() :
         as.consumeAudioBuffer(data, datalen)
 
@@ -560,11 +570,11 @@ void SDLAudioSink.play()
     if _started :
         if _paused :
             SDL_PauseAudio(0)
-            _paused = false
+            _paused = False
         return
 
-    _started = true
-    _paused = false
+    _started = True
+    _paused = False
 
     osg.notify(osg.NOTICE), "SDLAudioSink().startPlaying()"
 
@@ -572,8 +582,8 @@ void SDLAudioSink.play()
     osg.notify(osg.NOTICE), "  audioNbChannels()=", _audioStream.audioNbChannels()
     osg.notify(osg.NOTICE), "  audioSampleFormat()=", _audioStream.audioSampleFormat()
 
-    specs =   0 
-    wanted_specs =   0 
+    specs =  0 
+    wanted_specs =  0 
 
     wanted_specs.freq = _audioStream.audioFrequency()
     wanted_specs.format = AUDIO_S16SYS
@@ -592,7 +602,7 @@ void SDLAudioSink.play()
 void SDLAudioSink.pause()
     if _started :
         SDL_PauseAudio(1)
-        _paused = true
+        _paused = True
 
 void SDLAudioSink.stop()
     if _started :

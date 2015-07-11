@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgshape.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgshape.cpp'
+
+# OpenSceneGraph example, osgshape.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Geode>
 #include <osg/ShapeDrawable>
@@ -46,17 +49,19 @@ from osgpypp import osgViewer
 #include "../osghangglide/terrain_coords.h"
 
 def createShapes():
-    geode =  new osg.Geode()
+
+    
+    geode = osg.Geode()
 
     
     # ---------------------------------------
     # Set up a StateSet to texture the objects
     # ---------------------------------------
-    stateset =  new osg.StateSet()
+    stateset = osg.StateSet()
 
-    image =  osgDB.readImageFile( "Images/lz.rgb" )
+    image = osgDB.readImageFile( "Images/lz.rgb" )
     if image :
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
         texture.setImage(image)
         texture.setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
         stateset.setTextureAttributeAndModes(0,texture, osg.StateAttribute.ON)
@@ -66,35 +71,35 @@ def createShapes():
     geode.setStateSet( stateset )
 
     
-    radius =  0.8f
-    height =  1.0f
+    radius = 0.8
+    height = 1.0
     
-    hints =  new osg.TessellationHints
-    hints.setDetailRatio(0.5f)
+    hints = osg.TessellationHints()
+    hints.setDetailRatio(0.5)
     
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f,0.0f,0.0f),radius),hints))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Box(osg.Vec3(2.0f,0.0f,0.0f),2*radius),hints))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Cone(osg.Vec3(4.0f,0.0f,0.0f),radius,height),hints))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(6.0f,0.0f,0.0f),radius,height),hints))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Capsule(osg.Vec3(8.0f,0.0f,0.0f),radius,height),hints))
+    geode.addDrawable(osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0),radius),hints))
+    geode.addDrawable(osg.ShapeDrawable(osg.Box(osg.Vec3(2.0,0.0,0.0),2*radius),hints))
+    geode.addDrawable(osg.ShapeDrawable(osg.Cone(osg.Vec3(4.0,0.0,0.0),radius,height),hints))
+    geode.addDrawable(osg.ShapeDrawable(osg.Cylinder(osg.Vec3(6.0,0.0,0.0),radius,height),hints))
+    geode.addDrawable(osg.ShapeDrawable(osg.Capsule(osg.Vec3(8.0,0.0,0.0),radius,height),hints))
 
-    grid =  new osg.HeightField
+    grid = osg.HeightField()
     grid.allocate(38,39)
-    grid.setXInterval(0.28f)
-    grid.setYInterval(0.28f)
+    grid.setXInterval(0.28)
+    grid.setYInterval(0.28)
     
     for(unsigned int r=0r<39++r)
         for(unsigned int c=0c<38++c)
             grid.setHeight(c,r,vertex[r+c*39][2])
-    geode.addDrawable(new osg.ShapeDrawable(grid))
+    geode.addDrawable(osg.ShapeDrawable(grid))
     
-    mesh =  new osg.ConvexHull
-    vertices =  new osg.Vec3Array(4)
-    (*vertices)[0].set(9.0+0.0f,-1.0f+2.0f,-1.0f+0.0f)
-    (*vertices)[1].set(9.0+1.0f,-1.0f+0.0f,-1.0f+0.0f)
-    (*vertices)[2].set(9.0+2.0f,-1.0f+2.0f,-1.0f+0.0f)
-    (*vertices)[3].set(9.0+1.0f,-1.0f+1.0f,-1.0f+2.0f)
-    indices =  new osg.UByteArray(12)
+    mesh = osg.ConvexHull()
+    vertices = osg.Vec3Array(4)
+    (*vertices)[0].set(9.0+0.0,-1.0+2.0,-1.0+0.0)
+    (*vertices)[1].set(9.0+1.0,-1.0+0.0,-1.0+0.0)
+    (*vertices)[2].set(9.0+2.0,-1.0+2.0,-1.0+0.0)
+    (*vertices)[3].set(9.0+1.0,-1.0+1.0,-1.0+2.0)
+    indices = osg.UByteArray(12)
     (*indices)[0]=0
     (*indices)[1]=2
     (*indices)[2]=1
@@ -109,9 +114,9 @@ def createShapes():
     (*indices)[11]=3
     mesh.setVertices(vertices)
     mesh.setIndices(indices)
-    geode.addDrawable(new osg.ShapeDrawable(mesh))
+    geode.addDrawable(osg.ShapeDrawable(mesh))
 
-    geode = return()
+    return geode
 
 int main(int, char **)
     # construct the viewer.

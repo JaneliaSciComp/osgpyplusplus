@@ -12,6 +12,9 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
+
+# Translated from file 'osggtkdrawingarea.cpp'
+
 #include "osggtkdrawingarea.h"
 
 OSGGTKDrawingArea.OSGGTKDrawingArea():
@@ -21,7 +24,7 @@ _context  (0),
 _drawable (0),
 _state    (0),
 _queue    (*getEventQueue()) 
-    setCameraManipulator(new osgGA.TrackballManipulator())
+    setCameraManipulator(osgGA.TrackballManipulator())
 
 OSGGTKDrawingArea.~OSGGTKDrawingArea() 
 
@@ -35,7 +38,7 @@ bool OSGGTKDrawingArea.createWidget(int width, int height)
     if not _glconfig : 
         osg.notify(osg.FATAL), "Fail!"
 
-        false = return()
+        return False
 
     gtk_widget_set_size_request(_widget, width, height)
 
@@ -43,7 +46,7 @@ bool OSGGTKDrawingArea.createWidget(int width, int height)
         _widget,
         _glconfig,
         0,
-        true,
+        True,
         GDK_GL_RGBA_TYPE
     )
 
@@ -62,7 +65,7 @@ bool OSGGTKDrawingArea.createWidget(int width, int height)
 
     # We do this so that we don't have to suck up ALL the input to the
     # window, but instead just when the drawing area is focused.
-    g_object_set(_widget, "can-focus", true, NULL)
+    g_object_set(_widget, "can-focus", True, NULL)
 
     _connect("realize", G_CALLBACK(OSGGTKDrawingArea._srealize))
     _connect("unrealize", G_CALLBACK(OSGGTKDrawingArea._sunrealize))
@@ -75,7 +78,7 @@ bool OSGGTKDrawingArea.createWidget(int width, int height)
 
     _gw = setUpViewerAsEmbeddedInWindow(0, 0, width, height)
 
-    true = return()
+    return True
 
 void OSGGTKDrawingArea._realize(GtkWidget* widget) 
     _context  = gtk_widget_get_gl_context(widget)
@@ -87,7 +90,7 @@ void OSGGTKDrawingArea._unrealize(GtkWidget* widget)
     gtkUnrealize()
 
 bool OSGGTKDrawingArea._expose_event(GtkWidget* widget, GdkEventExpose* event) 
-    if not gtkGLBegin() : return false
+    if not gtkGLBegin() : return False
 
     frame()
 
@@ -124,12 +127,12 @@ bool OSGGTKDrawingArea._button_press_event(GtkWidget* widget, GdkEventButton* ev
 
         gtkButtonPress = return(event.x, event.y, event.button)
 
-    else: if event.type == GDK_BUTTON_RELEASE : 
+    elif event.type == GDK_BUTTON_RELEASE : 
         _queue.mouseButtonRelease(event.x, event.y, event.button)
 
         gtkButtonRelease = return(event.x, event.y, event.button)
 
-    else: return false
+    else : return False
 
 bool OSGGTKDrawingArea._key_press_event(GtkWidget* widget, GdkEventKey* event) 
     _state = event.state
@@ -139,12 +142,15 @@ bool OSGGTKDrawingArea._key_press_event(GtkWidget* widget, GdkEventKey* event)
 
         gtkKeyPress = return(event.keyval)
 
-    else: if event.type == GDK_KEY_RELEASE : 
+    elif event.type == GDK_KEY_RELEASE : 
         _queue.keyRelease(event.keyval)
 
         gtkKeyRelease = return(event.keyval)
 
-    else: return false
+    else : return False
+
+# Translated from file 'osggtkdrawingarea.h'
+
 #include <gtk/gtk.h>
 #include <gtk/gtkgl.h>
 #include <osgViewer/Viewer>
@@ -159,15 +165,15 @@ bool OSGGTKDrawingArea._key_press_event(GtkWidget* widget, GdkEventKey* event)
 # While it is possible to use this class directly, it won't end up doing anything
 # interesting without calls to queueDraw, which ideally are done in the user's
 # subclass implementation (see: osgviewerGTK).
-class OSGGTKDrawingArea : public osgViewer.Viewer 
-    _widget = GtkWidget*()
+class OSGGTKDrawingArea (osgViewer.Viewer) :
+_widget = GtkWidget*()
     _glconfig = GdkGLConfig*()
     _context = GdkGLContext*()
     _drawable = GdkGLDrawable*()
     
-    osg.ref_ptr<osgViewer.GraphicsWindowEmbedded> _gw
+    _gw = osgViewer.GraphicsWindowEmbedded()
 
-    unsigned int _state
+    _state = unsigned int()
 
     _queue = osgGA.EventQueue()
 
@@ -176,6 +182,7 @@ class OSGGTKDrawingArea : public osgViewer.Viewer
 
     # A simple helper function to connect us to the various GTK signals.
     def _connect(name, callback):
+        
         g_signal_connect(G_OBJECT(_widget), name, callback, this)
 
     _realize = void(GtkWidget*)
@@ -225,46 +232,50 @@ class OSGGTKDrawingArea : public osgViewer.Viewer
         gpointer     self
     ) 
         return _self(self)._key_press_event(widget, event)
-
-protected:
     # You can override these in your subclass if you'd like. :)
     # Right now they're fairly uninformative, but they could be easily extended.
     # Note that the "state" information isn't passed around to each function
     # but is instead stored and abstracted internally. See below.
 
-    virtual void gtkRealize   () 
-    virtual void gtkUnrealize () 
-    virtual bool gtkExpose    () 
-        true = return()
+    def gtkRealize():
+
+        
+    def gtkUnrealize():
+        
+    def gtkExpose():
+        
+        return True
     
 
-    # The new width and height.
+    # The width and height.
     virtual bool gtkConfigure(int, int) 
-        true = return()
+        return True
     
 
     # The "normalized" coordinates of the mouse.
     virtual bool gtkMotionNotify(double, double) 
-        true = return()
+        return True
     
 
     # The "normalized" coordinates of the mouse and the mouse button code on down.
     virtual bool gtkButtonPress(double, double, unsigned int) 
-        true = return()
+        return True
     
 
     # The "normalized" coordinates of the mouse and mouse button code on release.
     virtual bool gtkButtonRelease(double, double, unsigned int) 
-        true = return()
+        return True
 
     # The X key value on down.
-    virtual bool gtkKeyPress(unsigned int) 
-        true = return()
+    def gtkKeyPress(int):
+        
+        return True
     
 
     # The X key value on release.
-    virtual bool gtkKeyRelease(unsigned int) 
-        true = return()
+    def gtkKeyRelease(int):
+        
+        return True
     
 
     # These functions wrap state tests of the most recent state in the
@@ -296,39 +307,49 @@ protected:
             GDK_BUTTON4_MASK |
             GDK_BUTTON5_MASK
         )
-
-public:
     OSGGTKDrawingArea  ()
     ~OSGGTKDrawingArea ()
 
     createWidget = bool(int, int)
 
     def getWidget():
-        _widget = return()
+
+        
+        return _widget
 
     def gtkGLBegin():
+
+        
         if _drawable and _context : return gdk_gl_drawable_gl_begin(_drawable, _context)
 
-        else: return false
+        else : return False
 
     def gtkGLEnd():
+
+        
         if _drawable : gdk_gl_drawable_gl_end(_drawable)
 
     # Because of GTK's internal double buffering, I'm not sure if we're really
     # taking advantage of OpenGL's internal swapping.
     def gtkGLSwap():
+        
         if _drawable and gdk_gl_drawable_is_double_buffered(_drawable) : 
             gdk_gl_drawable_swap_buffers(_drawable)
 
-            true = return()
+            return True
 
-        else: 
+        else : 
             glFlush()
 
-            false = return()
+            return False
 
     def queueDraw():
+
+        
         gtk_widget_queue_draw(_widget)
+
+
+# Translated from file 'osgviewerGTK.cpp'
 
 #include <string.h>
 
@@ -339,8 +360,7 @@ public:
 
 #include "osggtkdrawingarea.h"
 
-HELP_TEXT = 
-    "Use CTRL or SHIFT plus right-click to pull up a fake menu.\n"
+HELP_TEXT = "Use CTRL or SHIFT plus right-click to pull up a fake menu.\n"
     "Use the standard TrackballManipulator keys to rotate the loaded\n"
     "model (with caveats the model won't keep rotating).\n"
     "\n"
@@ -351,11 +371,11 @@ HELP_TEXT =
 # implementation of OSGGTKDrawingArea. It's dirty, but it's the only way I could
 # come up with.
 bool activate(GtkWidget* widget, gpointer) 
-    label =  gtk_bin_get_child(GTK_BIN(widget))
+    label = gtk_bin_get_child(GTK_BIN(widget))
 
     print "MENU: ", gtk_label_get_label(GTK_LABEL(label))
 
-    true = return()
+    return True
 
 # Our derived OSGGTKDrawingArea "widget." Redraws occur while the mouse buttons
 # are held down and mouse motion is detected.
@@ -364,28 +384,31 @@ bool activate(GtkWidget* widget, gpointer)
 # a few of the event methods to setup our menu and to issue redraws. Note that an
 # unmodified OSGGTKDrawingArea never calls queueDraw, so OSG is never asked to render
 # itself.
-class ExampleOSGGTKDrawingArea : public OSGGTKDrawingArea 
-    _menu = GtkWidget*()
+class ExampleOSGGTKDrawingArea (OSGGTKDrawingArea) :
+_menu = GtkWidget*()
     
-    unsigned int _tid
+    _tid = unsigned int()
 
     # A helper function to easily setup our menu entries.
     def _menuAdd(title):
-        item =  gtk_menu_item_new_with_label(title.c_str())
+        
+        item = gtk_menu_item_new_with_label(title.c_str())
         
         gtk_menu_shell_append(GTK_MENU_SHELL(_menu), item)
 
         g_signal_connect(G_OBJECT(item), "activate", G_CALLBACK(activate), 0)
 
     def _clicked(widget):
-        text =  gtk_label_get_label(
+
+        
+        text = gtk_label_get_label(
             GTK_LABEL(gtk_bin_get_child(GTK_BIN(widget)))
         )
 
         if not strncmp(text, "Close", 5) : gtk_main_quit()
     
-        else: if not strncmp(text, "Open File", 9) : 
-            of =  gtk_file_chooser_dialog_new(
+        elif not strncmp(text, "Open File", 9) : 
+            of = gtk_file_chooser_dialog_new(
                 "Please select an OSG file...",
                 GTK_WINDOW(gtk_widget_get_toplevel(getWidget())),
                 GTK_FILE_CHOOSER_ACTION_OPEN,
@@ -397,9 +420,9 @@ class ExampleOSGGTKDrawingArea : public OSGGTKDrawingArea
             )
 
             if gtk_dialog_run(GTK_DIALOG(of)) == GTK_RESPONSE_ACCEPT : 
-                file =  gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(of))
+                file = gtk_file_chooser_get_filename(GTK_FILE_CHOOSER(of))
 
-                osg.ref_ptr<osg.Node> model = osgDB.readNodeFile(file)
+                model = osgDB.readNodeFile(file)
 
                 if model.valid() : 
                     setSceneData(model.get())
@@ -411,7 +434,7 @@ class ExampleOSGGTKDrawingArea : public OSGGTKDrawingArea
             gtk_widget_destroy(of)
 
         # Assume we're wanting FPS toggling.
-        else: 
+        else : 
             if not _tid : 
                 _tid = g_timeout_add(
                     15,
@@ -421,15 +444,13 @@ class ExampleOSGGTKDrawingArea : public OSGGTKDrawingArea
 
                 gtk_button_set_label(GTK_BUTTON(widget), "Toggle 60 FPS (off)")
 
-            else: 
+            else : 
                 g_source_remove(_tid)
                 gtk_button_set_label(GTK_BUTTON(widget), "Toggle 60 FPS (on)")
 
                 _tid = 0
 
-        true = return()
-
-protected:
+        return True
     # Check right-click release to see if we need to popup our menu.
     bool gtkButtonRelease(double, double, unsigned int button) 
         if button == 3 and (stateControl() or stateShift()) : gtk_menu_popup(
@@ -442,16 +463,14 @@ protected:
             0
         )
 
-        true = return()
+        return True
 
     # Our "main" drawing pump. Since our app is just a model viewer, we use
     # click+motion as our criteria for issuing OpenGL refreshes.
     bool gtkMotionNotify(double, double) 
         if stateButton() : queueDraw()
 
-        true = return()
-
-public:
+        return True
     ExampleOSGGTKDrawingArea():
     OSGGTKDrawingArea (),
     _menu             (gtk_menu_new()),
@@ -462,7 +481,7 @@ public:
 
         gtk_widget_show_all(_menu)
 
-        getCamera().setStats(new osg.Stats("omg"))
+        getCamera().setStats(osg.Stats("omg"))
 
     ~ExampleOSGGTKDrawingArea() 
 
@@ -474,13 +493,14 @@ public:
     static bool timeout(void* self) 
         static_cast<ExampleOSGGTKDrawingArea*>(self).queueDraw()
 
-        true = return()
+        return True
 
 
 # Our main() function! FINALLY! Most of this code is GTK stuff, so it's mostly boilerplate.
 # If we wanted to get real jiggy with it we could use Glade and cut down about 20 lines of
 # code or so.
 def main(argc, argv):
+    
     gtk_init(argc, argv)
     gtk_gl_init(argc, argv)
 
@@ -488,30 +508,30 @@ def main(argc, argv):
 
     if da.createWidget(640, 480) : 
         if argc >= 2 : 
-            osg.ref_ptr<osg.Node> model = osgDB.readNodeFile(argv[1])
+            model = osgDB.readNodeFile(argv[1])
 
             if model.valid() : da.setSceneData(model.get())
 
-        window =  gtk_window_new(GTK_WINDOW_TOPLEVEL)
-        vbox1 =  gtk_vbox_new(false, 3)
-        vbox2 =  gtk_vbox_new(false, 3)
-        hbox =  gtk_hbox_new(false, 3)
-        label =  gtk_label_new("")
+        window = gtk_window_new(GTK_WINDOW_TOPLEVEL)
+        vbox1 = gtk_vbox_new(False, 3)
+        vbox2 = gtk_vbox_new(False, 3)
+        hbox = gtk_hbox_new(False, 3)
+        label = gtk_label_new("")
         GtkWidget* buttons[] = 
             gtk_button_new_with_label("Open File"),
             gtk_button_new_with_label("Toggle 60 FPS (on)"),
             gtk_button_new_with_label("Close")
         
 
-        gtk_label_set_use_markup(GTK_LABEL(label), true)
+        gtk_label_set_use_markup(GTK_LABEL(label), True)
         gtk_label_set_label(GTK_LABEL(label), HELP_TEXT)
 
         for(unsigned int i = 0 i < sizeof(buttons) / sizeof(GtkWidget*) i++) 
             gtk_box_pack_start(
                 GTK_BOX(vbox2),
                 buttons[i],
-                false,
-                false,
+                False,
+                False,
                 0
             )
 
@@ -524,13 +544,13 @@ def main(argc, argv):
 
         gtk_window_set_title(GTK_WINDOW(window), "osgviewerGTK")
 
-        gtk_box_pack_start(GTK_BOX(hbox), vbox2, true, true, 2)
-        gtk_box_pack_start(GTK_BOX(hbox), label, true, true, 2)
+        gtk_box_pack_start(GTK_BOX(hbox), vbox2, True, True, 2)
+        gtk_box_pack_start(GTK_BOX(hbox), label, True, True, 2)
 
-        gtk_box_pack_start(GTK_BOX(vbox1), da.getWidget(), true, true, 2)
-        gtk_box_pack_start(GTK_BOX(vbox1), hbox, false, false, 2)
+        gtk_box_pack_start(GTK_BOX(vbox1), da.getWidget(), True, True, 2)
+        gtk_box_pack_start(GTK_BOX(vbox1), hbox, False, False, 2)
 
-        gtk_container_set_reallocate_redraws(GTK_CONTAINER(window), true)
+        gtk_container_set_reallocate_redraws(GTK_CONTAINER(window), True)
         gtk_container_add(GTK_CONTAINER(window), vbox1)
 
         g_signal_connect(
@@ -543,7 +563,7 @@ def main(argc, argv):
         gtk_widget_show_all(window)
         gtk_main()
 
-    else: return 1
+    else : return 1
 
     return 0
 

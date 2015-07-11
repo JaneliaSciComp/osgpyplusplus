@@ -9,32 +9,35 @@ import sys
 from osgpypp import osg
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgshaders2
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osggeometryshaders.cpp'
+
+# OpenSceneGraph example, osgshaders2
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # file:        examples/osgshaders2/osgshaders2.cpp
- * author:      Mike Weiblen 2008-01-03
- * copyright:   (C) 2008 Zebra Imaging
- * license:     OpenSceneGraph Public License (OSGPL)
- *
- * A demo of GLSL geometry shaders using OSG
- * Tested on Dell Precision M4300 w/ NVIDIA Quadro FX 360M
-
+# * author:      Mike Weiblen 2008-01-03
+# * copyright:   (C) 2008 Zebra Imaging
+# * license:     OpenSceneGraph Public License (OSGPL)
+# *
+# * A demo of GLSL geometry shaders using OSG
+# * Tested on Dell Precision M4300 w/ NVIDIA Quadro FX 360M
+#
 
 
 #include <osg/Notify>
@@ -57,18 +60,15 @@ from osgpypp import osgViewer
 
 #ifdef ENABLE_GLSL
 
-class SineAnimation: public osg.Uniform.Callback
-public:
-    SineAnimation( float rate = 1.0f, float scale = 1.0f, float offset = 0.0f ) :
+class SineAnimation (osg.Uniform.Callback) :
+    SineAnimation( float rate = 1.0, float scale = 1.0, float offset = 0.0 ) :
             _rate(rate), _scale(scale), _offset(offset)
     
 
     void operator()( osg.Uniform* uniform, osg.NodeVisitor* nv )
-        angle =  _rate * nv.getFrameStamp().getSimulationTime()
-        value =  sinf( angle ) * _scale + _offset
+        angle = _rate * nv.getFrameStamp().getSimulationTime()
+        value = sinf( angle ) * _scale + _offset
         uniform.set( value )
-
-private:
     _rate =  float()
     _scale =  float()
     _offset =  float()
@@ -122,33 +122,34 @@ static  char* fragSource =
 
 
 def createShader():
-    pgm =  new osg.Program
+
+    
+    pgm = osg.Program()
     pgm.setName( "osgshader2 demo" )
 
-    pgm.addShader( new osg.Shader( osg.Shader.VERTEX,   vertSource ) )
-    pgm.addShader( new osg.Shader( osg.Shader.FRAGMENT, fragSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.VERTEX,   vertSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.FRAGMENT, fragSource ) )
 
 #ifdef ENABLE_GEOMETRY_SHADER
-    pgm.addShader( new osg.Shader( osg.Shader.GEOMETRY, geomSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.GEOMETRY, geomSource ) )
     pgm.setParameter( GL_GEOMETRY_VERTICES_OUT_EXT, 4 )
     pgm.setParameter( GL_GEOMETRY_INPUT_TYPE_EXT, GL_POINTS )
     pgm.setParameter( GL_GEOMETRY_OUTPUT_TYPE_EXT, GL_LINE_STRIP )
 #endif
 
-    pgm = return()
+    return pgm
 
 #endif
 
 #####################################/
 
-class SomePoints : public osg.Geometry
-public:
+class SomePoints (osg.Geometry) :
     SomePoints()
-        cAry =  new osg.Vec4Array
+        cAry = osg.Vec4Array()
         setColorArray( cAry, osg.Array.BIND_OVERALL )
         cAry.push_back( osg.Vec4(1,1,1,1) )
 
-        vAry =  new osg.Vec3Array
+        vAry = osg.Vec3Array()
         setVertexArray( vAry )
         vAry.push_back( osg.Vec3(0,0,0) )
         vAry.push_back( osg.Vec3(0,1,0) )
@@ -159,13 +160,13 @@ public:
         vAry.push_back( osg.Vec3(1,0,1) )
         vAry.push_back( osg.Vec3(1,1,1) )
 
-        addPrimitiveSet( new osg.DrawArrays( GL_POINTS, 0, vAry.size() ) )
+        addPrimitiveSet( osg.DrawArrays( GL_POINTS, 0, vAry.size() ) )
 
-        sset =  getOrCreateStateSet()
+        sset = getOrCreateStateSet()
         sset.setMode( GL_LIGHTING, osg.StateAttribute.OFF )
 
         # if things go wrong, fall back to big points
-        p =  new osg.Point
+        p = osg.Point()
         p.setSize(6)
         sset.setAttribute( p )
 
@@ -173,8 +174,8 @@ public:
         sset.setAttribute( createShader() )
 
         # a generic cyclic animation value
-        u_anim1 = osg.Uniform*( new osg.Uniform( "u_anim1", 0.0f ) )
-        u_anim1.setUpdateCallback( new SineAnimation( 4, 0.5, 0.5 ) )
+        u_anim1 = osg.Uniform*( osg.Uniform( "u_anim1", 0.0 ) )
+        u_anim1.setUpdateCallback( SineAnimation( 4, 0.5, 0.5 ) )
         sset.addUniform( u_anim1 )
 #endif
 
@@ -182,8 +183,8 @@ public:
 #####################################/
 
 int main( int , char** )
-    root = osg.Geode*( new osg.Geode )
-    root.addDrawable( new SomePoints )
+    root = osg.Geode*( osg.Geode )()
+    root.addDrawable( SomePoints )()
 
     viewer = osgViewer.Viewer()
     viewer.setSceneData( root )

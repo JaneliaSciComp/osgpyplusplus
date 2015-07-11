@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgreflect.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgreflect.cpp'
+
+# OpenSceneGraph example, osgreflect.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Node>
 #include <osg/Geometry>
@@ -71,85 +74,95 @@ from osgpypp import osgViewer
 
 
 def createMirrorTexturedState(filename):
-    dstate =  new osg.StateSet
+
+
+    
+    dstate = osg.StateSet()
     dstate.setMode(GL_CULL_FACE,osg.StateAttribute.OFF|osg.StateAttribute.PROTECTED)
 
     # set up the texture.
-    image =  osgDB.readImageFile(filename.c_str())
+    image = osgDB.readImageFile(filename.c_str())
     if image :
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
         texture.setImage(image)
         dstate.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON|osg.StateAttribute.PROTECTED)
 
-    dstate = return()
+    return dstate
 
 
 def createMirrorSurface(xMin, xMax, yMin, yMax, z):
+
+
+    
+
     # set up the drawstate.
 
     # set up the Geometry.
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
-    coords =  new osg.Vec3Array(4)
+    coords = osg.Vec3Array(4)
     (*coords)[0].set(xMin,yMax,z)
     (*coords)[1].set(xMin,yMin,z)
     (*coords)[2].set(xMax,yMin,z)
     (*coords)[3].set(xMax,yMax,z)
     geom.setVertexArray(coords)
 
-    norms =  new osg.Vec3Array(1)
-    (*norms)[0].set(0.0f,0.0f,1.0f)
+    norms = osg.Vec3Array(1)
+    (*norms)[0].set(0.0,0.0,1.0)
     geom.setNormalArray(norms, osg.Array.BIND_OVERALL)
 
-    tcoords =  new osg.Vec2Array(4)
-    (*tcoords)[0].set(0.0f,1.0f)
-    (*tcoords)[1].set(0.0f,0.0f)
-    (*tcoords)[2].set(1.0f,0.0f)
-    (*tcoords)[3].set(1.0f,1.0f)
+    tcoords = osg.Vec2Array(4)
+    (*tcoords)[0].set(0.0,1.0)
+    (*tcoords)[1].set(0.0,0.0)
+    (*tcoords)[2].set(1.0,0.0)
+    (*tcoords)[3].set(1.0,1.0)
     geom.setTexCoordArray(0,tcoords)
 
-    colours =  new osg.Vec4Array(1)
-    (*colours)[0].set(1.0f,1.0f,1.0,1.0f)
+    colours = osg.Vec4Array(1)
+    (*colours)[0].set(1.0,1.0,1.0,1.0)
     geom.setColorArray(colours, osg.Array.BIND_OVERALL)
 
-    geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+    geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
-    geom = return()
+    return geom
 
 def createMirroredScene(model):
+
+    
+
     # calculate where to place the mirror according to the
     # loaded models bounding sphere.
-    bs =  model.getBound()
+    bs = model.getBound()
 
-    width_factor =  1.5
-    height_factor =  0.3
+    width_factor = 1.5
+    height_factor = 0.3
 
-    xMin =  bs.center().x()-bs.radius()*width_factor
-    xMax =  bs.center().x()+bs.radius()*width_factor
-    yMin =  bs.center().y()-bs.radius()*width_factor
-    yMax =  bs.center().y()+bs.radius()*width_factor
+    xMin = bs.center().x()-bs.radius()*width_factor
+    xMax = bs.center().x()+bs.radius()*width_factor
+    yMin = bs.center().y()-bs.radius()*width_factor
+    yMax = bs.center().y()+bs.radius()*width_factor
 
-    z =  bs.center().z()-bs.radius()*height_factor
+    z = bs.center().z()-bs.radius()*height_factor
 
 
     # create a textured, transparent node at the appropriate place.
-    mirror =  createMirrorSurface(xMin,xMax,yMin,yMax,z)
+    mirror = createMirrorSurface(xMin,xMax,yMin,yMax,z)
 
 
-    rootNode =  new osg.MatrixTransform
-    rootNode.setMatrix(osg.Matrix.rotate(osg.inDegrees(45.0f),1.0f,0.0f,0.0f))
+    rootNode = osg.MatrixTransform()
+    rootNode.setMatrix(osg.Matrix.rotate(osg.inDegrees(45.0),1.0,0.0,0.0))
 
     # make sure that the global color mask exists.
-    rootColorMask =  new osg.ColorMask
-    rootColorMask.setMask(true,true,true,true)
+    rootColorMask = osg.ColorMask()
+    rootColorMask.setMask(True,True,True,True)
 
     # set up depth to be inherited by the rest of the scene unless
     # overrideen. this is overridden in bin 3.
-    rootDepth =  new osg.Depth
+    rootDepth = osg.Depth()
     rootDepth.setFunction(osg.Depth.LESS)
     rootDepth.setRange(0.0,1.0)
 
-    rootStateSet =  new osg.StateSet()
+    rootStateSet = osg.StateSet()
     rootStateSet.setAttribute(rootColorMask)
     rootStateSet.setAttribute(rootDepth)
 
@@ -160,22 +173,22 @@ def createMirroredScene(model):
 
         # set up the stencil ops so that the stencil buffer get set at
         # the mirror plane
-        stencil =  new osg.Stencil
+        stencil = osg.Stencil()
         stencil.setFunction(osg.Stencil.ALWAYS,1,~0u)
         stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.REPLACE)
 
         # switch off the writing to the color bit planes.
-        colorMask =  new osg.ColorMask
-        colorMask.setMask(false,false,false,false)
+        colorMask = osg.ColorMask()
+        colorMask.setMask(False,False,False,False)
 
-        statesetBin1 =  new osg.StateSet()
+        statesetBin1 = osg.StateSet()
         statesetBin1.setRenderBinDetails(1,"RenderBin")
         statesetBin1.setMode(GL_CULL_FACE,osg.StateAttribute.OFF)
         statesetBin1.setAttributeAndModes(stencil,osg.StateAttribute.ON)
         statesetBin1.setAttribute(colorMask)
 
         # set up the mirror geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(mirror)
         geode.setStateSet(statesetBin1)
 
@@ -185,16 +198,16 @@ def createMirroredScene(model):
     # bin one - draw scene without mirror or reflection, unset
     # stencil values where scene is infront of mirror and hence
     # occludes the mirror.
-        stencil =  new osg.Stencil
+        stencil = osg.Stencil()
         stencil.setFunction(osg.Stencil.ALWAYS,0,~0u)
         stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.REPLACE)
 
-        statesetBin2 =  new osg.StateSet()
+        statesetBin2 = osg.StateSet()
         statesetBin2.setRenderBinDetails(2,"RenderBin")
         statesetBin2.setAttributeAndModes(stencil,osg.StateAttribute.ON)
 
 
-        groupBin2 =  new osg.Group()
+        groupBin2 = osg.Group()
         groupBin2.setStateSet(statesetBin2)
         groupBin2.addChild(model)
 
@@ -203,20 +216,20 @@ def createMirroredScene(model):
     # bin3  - set up the depth to the furthest depth value
 
         # set up the stencil ops so that only operator on this mirrors stencil value.
-        stencil =  new osg.Stencil
+        stencil = osg.Stencil()
         stencil.setFunction(osg.Stencil.EQUAL,1,~0u)
         stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.KEEP)
 
         # switch off the writing to the color bit planes.
-        colorMask =  new osg.ColorMask
-        colorMask.setMask(false,false,false,false)
+        colorMask = osg.ColorMask()
+        colorMask.setMask(False,False,False,False)
 
         # set up depth so all writing to depth goes to maximum depth.
-        depth =  new osg.Depth
+        depth = osg.Depth()
         depth.setFunction(osg.Depth.ALWAYS)
         depth.setRange(1.0,1.0)
 
-        statesetBin3 =  new osg.StateSet()
+        statesetBin3 = osg.StateSet()
         statesetBin3.setRenderBinDetails(3,"RenderBin")
         statesetBin3.setMode(GL_CULL_FACE,osg.StateAttribute.OFF)
         statesetBin3.setAttributeAndModes(stencil,osg.StateAttribute.ON)
@@ -224,7 +237,7 @@ def createMirroredScene(model):
         statesetBin3.setAttribute(depth)
 
         # set up the mirror geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(mirror)
         geode.setStateSet(statesetBin3)
 
@@ -247,28 +260,28 @@ def createMirroredScene(model):
         # this clip plane removes any of the scene which when mirror would
         # poke through the mirror.  However, this clip plane should really
         # flip sides once the eye point goes to the back of the mirror...
-        clipplane =  new osg.ClipPlane
+        clipplane = osg.ClipPlane()
         clipplane.setClipPlane(0.0,0.0,-1.0,z)
         clipplane.setClipPlaneNum(0)
 
-        clipNode =  new osg.ClipNode
+        clipNode = osg.ClipNode()
         clipNode.addClipPlane(clipplane)
 
 
-        dstate =  clipNode.getOrCreateStateSet()
+        dstate = clipNode.getOrCreateStateSet()
         dstate.setRenderBinDetails(4,"RenderBin")
         dstate.setMode(GL_CULL_FACE,osg.StateAttribute.OVERRIDE|osg.StateAttribute.OFF)
 
-        stencil =  new osg.Stencil
+        stencil = osg.Stencil()
         stencil.setFunction(osg.Stencil.EQUAL,1,~0u)
         stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.KEEP)
         dstate.setAttributeAndModes(stencil,osg.StateAttribute.ON)
 
-        reverseMatrix =  new osg.MatrixTransform
+        reverseMatrix = osg.MatrixTransform()
         reverseMatrix.setStateSet(dstate)
-        reverseMatrix.preMult(osg.Matrix.translate(0.0f,0.0f,-z)*
-                     osg.Matrix.scale(1.0f,1.0f,-1.0f)*
-                     osg.Matrix.translate(0.0f,0.0f,z))
+        reverseMatrix.preMult(osg.Matrix.translate(0.0,0.0,-z)*
+                     osg.Matrix.scale(1.0,1.0,-1.0)*
+                     osg.Matrix.translate(0.0,0.0,z))
 
         reverseMatrix.addChild(model)
 
@@ -281,18 +294,18 @@ def createMirroredScene(model):
     # bin5  - draw the textured mirror and blend it with the reflection.
 
         # set up depth so all writing to depth goes to maximum depth.
-        depth =  new osg.Depth
+        depth = osg.Depth()
         depth.setFunction(osg.Depth.ALWAYS)
 
-        stencil =  new osg.Stencil
+        stencil = osg.Stencil()
         stencil.setFunction(osg.Stencil.EQUAL,1,~0u)
         stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.ZERO)
 
         # set up additive blending.
-        trans =  new osg.BlendFunc
+        trans = osg.BlendFunc()
         trans.setFunction(osg.BlendFunc.ONE,osg.BlendFunc.ONE)
 
-        statesetBin5 =  createMirrorTexturedState("Images/tank.rgb")
+        statesetBin5 = createMirrorTexturedState("Images/tank.rgb")
 
         statesetBin5.setRenderBinDetails(5,"RenderBin")
         statesetBin5.setMode(GL_CULL_FACE,osg.StateAttribute.OFF)
@@ -301,14 +314,14 @@ def createMirroredScene(model):
         statesetBin5.setAttribute(depth)
 
         # set up the mirror geode.
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(mirror)
         geode.setStateSet(statesetBin5)
 
         rootNode.addChild(geode)
 
 
-    rootNode = return()
+    return rootNode
 
 
 ####################################################/
@@ -320,6 +333,7 @@ def createMirroredScene(model):
 # run main loop.
 #
 def main(argc, argv):
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -327,7 +341,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
@@ -343,15 +357,15 @@ def main(argc, argv):
     optimizer.optimize(loadedModel.get())
 
     # add a transform with a callback to animate the loaded model.
-    osg.ref_ptr<osg.MatrixTransform> loadedModelTransform = new osg.MatrixTransform
+    loadedModelTransform = osg.MatrixTransform()
     loadedModelTransform.addChild(loadedModel.get())
 
-    osg.ref_ptr<osg.NodeCallback> nc = new osg.AnimationPathCallback(loadedModelTransform.getBound().center(),osg.Vec3(0.0f,0.0f,1.0f),osg.inDegrees(45.0f))
+    nc = osg.AnimationPathCallback(loadedModelTransform.getBound().center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(45.0))
     loadedModelTransform.setUpdateCallback(nc.get())
 
 
     # finally decorate the loaded model so that it has the required multipass/bin scene graph to do the reflection effect.
-    osg.ref_ptr<osg.Node> rootNode = createMirroredScene(loadedModelTransform.get())
+    rootNode = createMirroredScene(loadedModelTransform.get())
 
     # set the scene to render
     viewer.setSceneData(rootNode.get())

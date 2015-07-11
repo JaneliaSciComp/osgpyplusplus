@@ -13,23 +13,26 @@ from osgpypp import osgQt
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
-# OpenSceneGraph example, osgcompositeviewer.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgQtWidgets.cpp'
+
+# OpenSceneGraph example, osgcompositeviewer.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <iostream>
 
@@ -68,8 +71,7 @@ from osgpypp import osgWidget
 
 
 # Thread that runs the viewer's frame loop as we can't run Qt in the background...
-class ViewerFrameThread : public OpenThreads.Thread
-    public:
+class ViewerFrameThread (OpenThreads.Thread) :
 
         ViewerFrameThread(osgViewer.ViewerBase* viewerBase, bool doQApplicationExit):
             _viewerBase(viewerBase),
@@ -81,30 +83,32 @@ class ViewerFrameThread : public OpenThreads.Thread
                 OpenThreads.Thread.YieldCurrentThread()
 
         def cancel():
-            _viewerBase.setDone(true)
+
+            
+            _viewerBase.setDone(True)
             return 0
 
         def run():
-            result =  _viewerBase.run()
+
+            
+            result = _viewerBase.run()
 
             if _doQApplicationExit : QApplication.exit(result)
 
-        osg.ref_ptr<osgViewer.ViewerBase> _viewerBase
+        _viewerBase = osgViewer.ViewerBase()
         _doQApplicationExit = bool()
 
 
 
-class MyPushButton : public QPushButton
-public:
+class MyPushButton (QPushButton) :
     MyPushButton( QString text) : QPushButton(text) 
-
-protected:
-    virtual void mousePressEvent(QMouseEvent* e)
-        ok =  false
+    def mousePressEvent(e):
+        
+        ok = False
 #if QT_VERSION >= 0x040500
-        val =  QInputDialog.getInt(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
-#else:
-        val =  QInputDialog.getInteger(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
+        val = QInputDialog.getInt(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
+#else :
+        val = QInputDialog.getInteger(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
 #endif
         print "Ok was ", (ok ? "" : "not"), " pressed, val is ", val
 
@@ -134,51 +138,54 @@ protected:
 
 
 def main(argc, argv):
+
+
+    
     # Qt requires that we construct the global QApplication before creating any widgets.
     app = QApplication(argc, argv)
 
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
-    # true = run osgViewer in a separate thread than Qt
-    # false = interleave osgViewer and Qt in the main thread
-    useFrameLoopThread =  false
-    if arguments.read("--no-frame-thread") : useFrameLoopThread = false
-    if arguments.read("--frame-thread") : useFrameLoopThread = true
+    # True = run osgViewer in a separate thread than Qt
+    # False = interleave osgViewer and Qt in the main thread
+    useFrameLoopThread = False
+    if arguments.read("--no-frame-thread") : useFrameLoopThread = False
+    if arguments.read("--frame-thread") : useFrameLoopThread = True
 
-    # true = use QWidgetImage
-    # false = use QWebViewImage
-    useWidgetImage =  false
-    if arguments.read("--useWidgetImage") : useWidgetImage = true
+    # True = use QWidgetImage
+    # False = use QWebViewImage
+    useWidgetImage = False
+    if arguments.read("--useWidgetImage") : useWidgetImage = True
 
-    # true = use QWebView in a QWidgetImage to compare to QWebViewImage
-    # false = make an interesting widget
-    useBrowser =  false
-    if arguments.read("--useBrowser") : useBrowser = true
+    # True = use QWebView in a QWidgetImage to compare to QWebViewImage
+    # False = make an interesting widget
+    useBrowser = False
+    if arguments.read("--useBrowser") : useBrowser = True
 
-    # true = use a QLabel for text
-    # false = use a QTextEdit for text
-    # (only applies if useWidgetImage == true and useBrowser == false)
-    useLabel =  false
-    if arguments.read("--useLabel") : useLabel = true
+    # True = use a QLabel for text
+    # False = use a QTextEdit for text
+    # (only applies if useWidgetImage == True and useBrowser == False)
+    useLabel = False
+    if arguments.read("--useLabel") : useLabel = True
 
-    # true = make a Qt window with the same content to compare to 
+    # True = make a Qt window with the same content to compare to 
     # QWebViewImage/QWidgetImage
-    # false = use QWebViewImage/QWidgetImage (depending on useWidgetImage)
-    sanityCheck =  false
-    if arguments.read("--sanityCheck") : sanityCheck = true
+    # False = use QWebViewImage/QWidgetImage (depending on useWidgetImage)
+    sanityCheck = False
+    if arguments.read("--sanityCheck") : sanityCheck = True
 
     # Add n floating windows inside the QGraphicsScene.
-    numFloatingWindows =  0
+    numFloatingWindows = 0
     while arguments.read("--numFloatingWindows", numFloatingWindows) :
 
-    # true = Qt widgets will be displayed on a quad inside the 3D scene
-    # false = Qt widgets will be an overlay over the scene (like a HUD)
-    inScene =  true
-    if arguments.read("--fullscreen") :  inScene = false 
+    # True = Qt widgets will be displayed on a quad inside the 3D scene
+    # False = Qt widgets will be an overlay over the scene (like a HUD)
+    inScene = True
+    if arguments.read("--fullscreen") :  inScene = False 
 
 
-    osg.ref_ptr<osg.Group> root = new osg.Group
+    root = osg.Group()
 
     if !useWidgetImage :
         #-------------------------------------------------------------------
@@ -190,47 +197,47 @@ def main(argc, argv):
         # --useWidgetImage --useBrowser to see that in action.
 
         if !sanityCheck :
-            osg.ref_ptr<osgQt.QWebViewImage> image = new osgQt.QWebViewImage
+            image = osgQt.QWebViewImage()
 
             if arguments.argc()>1 : image.navigateTo((arguments[1]))
-            else: image.navigateTo("http:#www.youtube.com/")
+            else : image.navigateTo("http:#www.youtube.com/")
 
-            hints = osgWidget.GeometryHints(osg.Vec3(0.0f,0.0f,0.0f),
-                                           osg.Vec3(1.0f,0.0f,0.0f),
-                                           osg.Vec3(0.0f,0.0f,1.0f),
-                                           osg.Vec4(1.0f,1.0f,1.0f,1.0f),
+            hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
+                                           osg.Vec3(1.0,0.0,0.0),
+                                           osg.Vec3(0.0,0.0,1.0),
+                                           osg.Vec4(1.0,1.0,1.0,1.0),
                                            osgWidget.GeometryHints.RESIZE_HEIGHT_TO_MAINTAINCE_ASPECT_RATIO)
 
-            osg.ref_ptr<osgWidget.Browser> browser = new osgWidget.Browser
+            browser = osgWidget.Browser()
             browser.assign(image.get(), hints)
 
             root.addChild(browser.get())
-        else:
+        else :
             # Sanity check, do the same thing as QGraphicsViewAdapter but in 
             # a separate Qt window.
-            webPage =  new QWebPage
-            webPage.settings().setAttribute(QWebSettings.JavascriptEnabled, true)
-            webPage.settings().setAttribute(QWebSettings.PluginsEnabled, true)
+            webPage = QWebPage()
+            webPage.settings().setAttribute(QWebSettings.JavascriptEnabled, True)
+            webPage.settings().setAttribute(QWebSettings.PluginsEnabled, True)
 
-            webView =  new QWebView
+            webView = QWebView()
             webView.setPage(webPage)
 
             if arguments.argc()>1 : webView.load(QUrl(arguments[1]))
-            else: webView.load(QUrl("http:#www.youtube.com/"))
+            else : webView.load(QUrl("http:#www.youtube.com/"))
 
-            graphicsScene =  new QGraphicsScene
+            graphicsScene = QGraphicsScene()
             graphicsScene.addWidget(webView)
 
-            graphicsView =  new QGraphicsView
+            graphicsView = QGraphicsView()
             graphicsView.setScene(graphicsScene)
 
-            mainWindow =  new QMainWindow
-            #mainWindow.setLayout(new QVBoxLayout)
+            mainWindow = QMainWindow()
+            #mainWindow.setLayout(QVBoxLayout)()
             mainWindow.setCentralWidget(graphicsView)
             mainWindow.setGeometry(50, 50, 1024, 768)
             mainWindow.show()
             mainWindow.raise()
-    else:
+    else :
         #-------------------------------------------------------------------
         # QWidgetImage test
         #-------------------------------------------------------------------
@@ -245,7 +252,7 @@ def main(argc, argv):
         #
         #    a) osgQtBrowser --useWidgetImage [--fullscreen] (optional)
         #    b) Try to click in the QTextEdit and type, or to select text
-        #       and drag-and-drop it somewhere else: in the QTextEdit. These
+        #       and drag-and-drop it somewhere else : in the QTextEdit. These
         #       don't work.
         #    c) osgQtBrowser --useWidgetImage --sanityCheck
         #    d) Try the operations in b), they all work.
@@ -299,60 +306,60 @@ def main(argc, argv):
         #       QGraphicsView.
 
 
-        widget =  0
+        widget = 0
         if useBrowser :
-            webPage =  new QWebPage
-            webPage.settings().setAttribute(QWebSettings.JavascriptEnabled, true)
-            webPage.settings().setAttribute(QWebSettings.PluginsEnabled, true)
+            webPage = QWebPage()
+            webPage.settings().setAttribute(QWebSettings.JavascriptEnabled, True)
+            webPage.settings().setAttribute(QWebSettings.PluginsEnabled, True)
 
-            webView =  new QWebView
+            webView = QWebView()
             webView.setPage(webPage)
 
             if arguments.argc()>1 : webView.load(QUrl(arguments[1]))
-            else: webView.load(QUrl("http:#www.youtube.com/"))
+            else : webView.load(QUrl("http:#www.youtube.com/"))
 
             widget = webView
-        else:
-            widget = new QWidget
-            widget.setLayout(new QVBoxLayout)
+        else :
+            widget = QWidget()
+            widget.setLayout(QVBoxLayout)()
 
             text = QString("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque velit turpis, euismod ac ultrices et, molestie non nisi. Nullam egestas dignissim enim, quis placerat nulla suscipit sed. Donec molestie elementum risus sit amet sodales. Nunc consectetur congue neque, at viverra massa pharetra fringilla. Integer vitae mi sem. Donec dapibus semper elit nec sollicitudin. Vivamus egestas ultricies felis, in mollis mi facilisis quis. Nam suscipit bibendum eros sed cursus. Suspendisse mollis suscipit hendrerit. Etiam magna eros, convallis non congue vel, faucibus ac augue. Integer ante ante, porta in ornare ullamcorper, congue nec nibh. Etiam congue enim vitae enim sollicitudin fringilla. Mauris mattis, urna in fringilla dapibus, ipsum sem feugiat purus, ac hendrerit felis arcu sed sapien. Integer id velit quam, sit amet dignissim tortor. Sed mi tortor, placerat ac luctus id, tincidunt et urna. Nulla sed nunc ante.Sed ut sodales enim. Ut sollicitudin ultricies magna, vel ultricies ante venenatis id. Cras luctus mi in lectus rhoncus malesuada. Sed ac sollicitudin nisi. Nunc venenatis congue quam, et suscipit diam consectetur id. Donec vel enim ac enim elementum bibendum ut quis augue. Nulla posuere suscipit dolor, id convallis tortor congue eu. Vivamus sagittis consectetur dictum. Duis a ante quis dui varius fermentum. In hac habitasse platea dictumst. Nam dapibus dolor eu felis eleifend in scelerisque dolor ultrices. Donec arcu lectus, fringilla ut interdum non, tristique id dolor. Morbi sagittis sagittis volutpat. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Duis venenatis ultrices euismod.Nam sit amet convallis libero. Integer lectus urna, eleifend et sollicitudin non, porttitor vel erat. Vestibulum pulvinar egestas leo, a porttitor turpis ullamcorper et. Vestibulum in ornare turpis. Ut nec libero a sem mattis iaculis quis id purus. Praesent ante neque, dictum vitae pretium vel, iaculis luctus dui. Etiam luctus tellus vel nunc suscipit a ullamcorper nisl semper. Nunc dapibus, eros in sodales dignissim, orci lectus egestas felis, sit amet vehicula tortor dolor eu quam. Vivamus pellentesque convallis quam aliquet pellentesque. Phasellus facilisis arcu ac orci fringilla aliquet. Donec sed euismod augue. Duis eget orci sit amet neque tempor fringilla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae In hac habitasse platea dictumst. Duis sollicitudin, lacus ac pellentesque lacinia, lacus magna pulvinar purus, pulvinar porttitor est nibh quis augue.Duis eleifend, massa sit amet mattis fringilla, elit turpis venenatis libero, sed convallis turpis diam sit amet ligula. Morbi non dictum turpis. Integer porttitor condimentum elit, sit amet sagittis nibh ultrices sit amet. Mauris ac arcu augue, id aliquet mauris. Donec ultricies urna id enim accumsan at pharetra dui adipiscing. Nunc luctus rutrum molestie. Curabitur libero ipsum, viverra at pulvinar ut, porttitor et neque. Aliquam sit amet dolor et purus sagittis adipiscing. Nam sit amet hendrerit sem. Etiam varius, ligula non ultricies dignissim, sapien dui commodo urna, eu vehicula enim nunc molestie augue. Fusce euismod, erat vitae pharetra tempor, quam eros tincidunt lorem, ut iaculis ligula erat vitae nibh. Aenean eu ultricies dolor. Curabitur suscipit viverra bibendum.Sed egestas adipiscing mi in egestas. Proin in neque in nibh blandit consequat nec quis tortor. Vestibulum sed interdum justo. Sed volutpat velit vitae elit pulvinar aliquam egestas elit rutrum. Proin lorem nibh, bibendum vitae sollicitudin condimentum, pulvinar ut turpis. Maecenas iaculis, mauris in consequat ultrices, ante erat blandit mi, vel fermentum lorem turpis eget sem. Integer ultrices tristique erat sit amet volutpat. In sit amet diam et nunc congue pellentesque at in dolor. Mauris eget orci orci. Integer posuere augue ornare tortor tempus elementum. Quisque iaculis, nunc ac cursus fringilla, magna elit cursus eros, id feugiat diam eros et tellus. Etiam consectetur ultrices erat quis rhoncus. Mauris eu lacinia neque. Curabitur suscipit feugiat tellus in dictum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed aliquam tempus ante a tempor. Praesent viverra erat quis sapien pretium rutrum. Praesent dictum scelerisque venenatis.Proin bibendum lectus eget nisl lacinia porta. Morbi eu erat in sapien malesuada vulputate. Cras non elit quam. Ut dictum urna quis nisl feugiat ac sollicitudin libero luctus. Donec leo mauris, varius at luctus eget, placerat quis arcu. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae Etiam tristique, mauris ut lacinia elementum, mauris erat consequat massa, ac gravida nisi tellus vitae purus. Curabitur consectetur ultricies commodo. Cras pulvinar orci nec enim adipiscing tristique. Ut ornare orci id est fringilla sit amet blandit libero pellentesque. Vestibulum tincidunt sapien ut enim venenatis vestibulum ultricies ipsum tristique. Mauris tempus eleifend varius. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vitae dui ac quam gravida semper. In ac enim ac ligula rutrum porttitor.Integer dictum sagittis leo, at convallis sapien facilisis eget. Etiam cursus bibendum tortor, faucibus aliquam lectus ullamcorper sed. Nulla pulvinar posuere quam, ut sagittis ligula tincidunt ut. Nulla convallis velit ut enim condimentum pulvinar. Quisque gravida accumsan scelerisque. Proin pellentesque nisi cursus tortor aliquet dapibus. Duis vel eros orci. Sed eget purus ligula. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ullamcorper porta congue. Nunc id velit ut neque malesuada consequat in eu nisi. Nulla facilisi. Quisque pellentesque magna vitae nisl euismod ac accumsan tellus feugiat.Nulla facilisi. Integer quis orci lectus, non aliquam nisi. Vivamus varius porta est, ac porttitor orci blandit mattis. Sed dapibus facilisis dapibus. Duis tincidunt leo ac tortor faucibus hendrerit. Morbi sit amet sapien risus, vel luctus enim. Aliquam sagittis nunc id purus aliquam lobortis. Duis posuere viverra dui, sit amet convallis sem vulputate at. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque, lectus id imperdiet commodo, diam diam faucibus lectus, sit amet vestibulum tortor lacus viverra eros.Maecenas nec augue lectus. Duis nec arcu eget lorem tempus sollicitudin suscipit vitae arcu. Nullam vitae mauris lectus. Vivamus id risus neque, dignissim vehicula diam. Cras rhoncus velit sed velit iaculis ac dignissim turpis luctus. Suspendisse potenti. Sed vitae ligula a ligula ornare rutrum sit amet ut quam. Duis tincidunt, nibh vitae iaculis adipiscing, dolor orci cursus arcu, vel congue tortor quam eget arcu. Suspendisse tellus felis, blandit ac accumsan vitae, fringilla id lorem. Duis tempor lorem mollis est congue ut imperdiet velit laoreet. Nullam interdum cursus mollis. Pellentesque non mauris accumsan elit laoreet viverra ut at risus. Proin rutrum sollicitudin sem, vitae ultricies augue sagittis vel. Cras quis vehicula neque. Aliquam erat volutpat. Aliquam erat volutpat. Praesent non est erat, accumsan rutrum lacus. Pellentesque tristique molestie aliquet. Cras ullamcorper facilisis faucibus. In non lorem quis velit lobortis pulvinar.Phasellus non sem ipsum. Praesent ut libero quis turpis viverra semper. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. In hac habitasse platea dictumst. Donec at velit tellus. Fusce commodo pharetra tincidunt. Proin lacus enim, fringilla a fermentum ut, vestibulum ut nibh. Duis commodo dolor vel felis vehicula at egestas neque bibendum. Phasellus malesuada dictum ante in aliquam. Curabitur interdum semper urna, nec placerat justo gravida in. Praesent quis mauris massa. Pellentesque porttitor lacinia tincidunt. Phasellus egestas viverra elit vel blandit. Sed dapibus nisi et lectus pharetra dignissim. Mauris hendrerit lectus nec purus dapibus condimentum. Sed ac eros nulla. Aenean semper sapien a nibh aliquam lobortis. Aliquam elementum euismod sapien, in dapibus leo dictum et. Pellentesque augue neque, ultricies non viverra eu, tincidunt ac arcu. Morbi ut porttitor lectus.")
 
             if useLabel :
-                label =  new QLabel(text)
-                label.setWordWrap(true)
+                label = QLabel(text)
+                label.setWordWrap(True)
                 label.setTextInteractionFlags(Qt.TextEditorInteraction)
 
-                palette =  label.palette()
+                palette = label.palette()
                 palette.setColor(QPalette.Highlight, Qt.darkBlue)
                 palette.setColor(QPalette.HighlightedText, Qt.white)
                 label.setPalette(palette)
 
-                scrollArea =  new QScrollArea
+                scrollArea = QScrollArea()
                 scrollArea.setWidget(label)
 
                 widget.layout().addWidget(scrollArea)
-            else:
-                textEdit =  new QTextEdit(text)
-                textEdit.setReadOnly(false)
+            else :
+                textEdit = QTextEdit(text)
+                textEdit.setReadOnly(False)
                 textEdit.setTextInteractionFlags(Qt.TextEditable)
 
-                palette =  textEdit.palette()
+                palette = textEdit.palette()
                 palette.setColor(QPalette.Highlight, Qt.darkBlue)
                 palette.setColor(QPalette.HighlightedText, Qt.white)
                 textEdit.setPalette(palette)
 
                 widget.layout().addWidget(textEdit)
 
-            button =  new MyPushButton("Button")
+            button = MyPushButton("Button")
             widget.layout().addWidget(button)
 
             widget.setGeometry(0, 0, 800, 600)
 
-        graphicsScene =  0
+        graphicsScene = 0
 
         if !sanityCheck :
-            osg.ref_ptr<osgQt.QWidgetImage> widgetImage = new osgQt.QWidgetImage(widget)
+            widgetImage = osgQt.QWidgetImage(widget)
 #if QT_VERSION >= QT_VERSION_CHECK(4, 5, 0) :
             widgetImage.getQWidget().setAttribute(Qt.WA_TranslucentBackground)
 #endif
@@ -360,15 +367,15 @@ def main(argc, argv):
             #widgetImage.getQGraphicsViewAdapter().resize(800, 600)
             graphicsScene = widgetImage.getQGraphicsViewAdapter().getQGraphicsScene()
 
-            camera =  0        # Will stay NULL in the inScene case.
-            quad =  osg.createTexturedQuadGeometry(osg.Vec3(0,0,0), osg.Vec3(1,0,0), osg.Vec3(0,1,0), 1, 1)
-            geode =  new osg.Geode
+            camera = 0        # Will stay NULL in the inScene case.
+            quad = osg.createTexturedQuadGeometry(osg.Vec3(0,0,0), osg.Vec3(1,0,0), osg.Vec3(0,1,0), 1, 1)
+            geode = osg.Geode()
             geode.addDrawable(quad)
 
-            mt =  new osg.MatrixTransform
+            mt = osg.MatrixTransform()
 
-            texture =  new osg.Texture2D(widgetImage.get())
-            texture.setResizeNonPowerOfTwoHint(false)
+            texture = osg.Texture2D(widgetImage.get())
+            texture.setResizeNonPowerOfTwoHint(False)
             texture.setFilter(osg.Texture.MIN_FILTER,osg.Texture.LINEAR)
             texture.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
             texture.setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP_TO_EDGE)
@@ -379,8 +386,8 @@ def main(argc, argv):
                 mt.setMatrix(osg.Matrix.rotate(osg.Vec3(0,1,0), osg.Vec3(0,0,1)))
                 mt.addChild(geode)
 
-                handler = new osgViewer.InteractiveImageHandler(widgetImage.get())
-            else:    # fullscreen
+                handler = osgViewer.InteractiveImageHandler(widgetImage.get())
+            else :    # fullscreen
                 # The HUD camera's viewport needs to follow the size of the 
                 # window. MyInteractiveImageHandler will make sure of this.
                 # As for the quad and the camera's projection, setting the 
@@ -388,7 +395,7 @@ def main(argc, argv):
                 # they can stay the same: (0,1,0,1) with a quad that fits.
 
                 # Set the HUD camera's projection and viewport to match the screen.
-                camera = new osg.Camera
+                camera = osg.Camera()
                 camera.setProjectionResizePolicy(osg.Camera.FIXED)
                 camera.setProjectionMatrix(osg.Matrix.ortho2D(0,1,0,1))
                 camera.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
@@ -400,31 +407,31 @@ def main(argc, argv):
 
                 mt.addChild(camera)
 
-                handler = new osgViewer.InteractiveImageHandler(widgetImage.get(), texture, camera)
+                handler = osgViewer.InteractiveImageHandler(widgetImage.get(), texture, camera)
 
             mt.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
             mt.getOrCreateStateSet().setMode(GL_BLEND, osg.StateAttribute.ON)
             mt.getOrCreateStateSet().setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
-            mt.getOrCreateStateSet().setAttribute(new osg.Program)
+            mt.getOrCreateStateSet().setAttribute(osg.Program)()
 
-            overlay =  new osg.Group
+            overlay = osg.Group()
             overlay.addChild(mt)
 
             root.addChild(overlay)
             
             quad.setEventCallback(handler)
             quad.setCullCallback(handler)
-        else:
+        else :
             # Sanity check, do the same thing as QWidgetImage and 
             # QGraphicsViewAdapter but in a separate Qt window.
 
-            graphicsScene = new QGraphicsScene
+            graphicsScene = QGraphicsScene()
             graphicsScene.addWidget(widget)
 
-            graphicsView =  new QGraphicsView
+            graphicsView = QGraphicsView()
             graphicsView.setScene(graphicsScene)
 
-            mainWindow =  new QMainWindow
+            mainWindow = QMainWindow()
             mainWindow.setCentralWidget(graphicsView)
             mainWindow.setGeometry(50, 50, 1024, 768)
             mainWindow.show()
@@ -432,41 +439,41 @@ def main(argc, argv):
 
         # Add numFloatingWindows windows to the graphicsScene.
         for (unsigned int i = 0 i < (unsigned int)numFloatingWindows ++i)
-            window =  new QWidget(0, Qt.Window)
+            window = QWidget(0, Qt.Window)
             window.setWindowTitle(QString("Window %1").arg(i))
-            window.setLayout(new QVBoxLayout)
-            window.layout().addWidget(new QLabel(QString("This window %1").arg(i)))
-            window.layout().addWidget(new MyPushButton(QString("Button in window %1").arg(i)))
+            window.setLayout(QVBoxLayout)()
+            window.layout().addWidget(QLabel(QString("This window %1").arg(i)))
+            window.layout().addWidget(MyPushButton(QString("Button in window %1").arg(i)))
             window.setGeometry(100, 100, 300, 300)
 
-            proxy =  new QGraphicsProxyWidget(0, Qt.Window)
+            proxy = QGraphicsProxyWidget(0, Qt.Window)
             proxy.setWidget(window)
-            proxy.setFlag(QGraphicsItem.ItemIsMovable, true)
+            proxy.setFlag(QGraphicsItem.ItemIsMovable, True)
 
             graphicsScene.addItem(proxy)
 
 
     root.addChild(osgDB.readNodeFile("cow.osg.(15,0,5).trans.(0.1,0.1,0.1).scale"))
 
-    osg.ref_ptr<osgViewer.Viewer> viewer = new osgViewer.Viewer(arguments)
+    viewer = osgViewer.Viewer(arguments)
     viewer.setSceneData(root.get())
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator())
-    viewer.addEventHandler(new osgGA.StateSetManipulator(root.getOrCreateStateSet()))
-    viewer.addEventHandler(new osgViewer.StatsHandler)
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator())
+    viewer.addEventHandler(osgGA.StateSetManipulator(root.getOrCreateStateSet()))
+    viewer.addEventHandler(osgViewer.StatsHandler)()
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     viewer.setUpViewInWindow(50, 50, 1024, 768)
     viewer.getEventQueue().windowResize(0, 0, 1024, 768)
 
     if useFrameLoopThread :
         # create a thread to run the viewer's frame loop
-        viewerThread = ViewerFrameThread(viewer.get(), true)
+        viewerThread = ViewerFrameThread(viewer.get(), True)
         viewerThread.startThread()
 
         # now start the standard Qt event loop, then exists when the viewerThead sends the QApplication.exit() signal.
         return QApplication.exec()
 
-    else:
+    else :
         # run the frame loop, interleaving Qt and the main OSG frame loop
         while !viewer.done() :
             # process Qt events - this handles both events and paints the browser image

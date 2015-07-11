@@ -9,6 +9,9 @@ import sys
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetshader.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetshader.cpp 28 2008-03-26 15:26:48Z cubicool $
 
@@ -17,53 +20,57 @@ from osgpypp import osgWidget
 #include <osgWidget/WindowManager>
 #include <osgWidget/Canvas>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
 def createWidget(name, col, layer):
-    widget =  new osgWidget.Widget(name, 200.0f, 200.0f)
 
-    widget.setColor(col, col, col, 0.2f)
+    
+    widget = osgWidget.Widget(name, 200.0, 200.0)
+
+    widget.setColor(col, col, col, 0.2)
     widget.setLayer(layer)
 
-    widget = return()
+    return widget
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D
     )
     
-    canvas =  new osgWidget.Canvas("canvas")
+    canvas = osgWidget.Canvas("canvas")
 
     canvas.attachMoveCallback()
     canvas.attachScaleCallback()
 
     canvas.addWidget(
-        createWidget("w1", 0.2f, osgWidget.Widget.LAYER_LOW),
-        0.0f,
-        0.0f
+        createWidget("w1", 0.2, osgWidget.Widget.LAYER_LOW),
+        0.0,
+        0.0
     )
     
     canvas.addWidget(
-        createWidget("w2", 0.4f, osgWidget.Widget.LAYER_MIDDLE),
-        200.0f,
-        0.0f
+        createWidget("w2", 0.4, osgWidget.Widget.LAYER_MIDDLE),
+        200.0,
+        0.0
     )
 
     canvas.addWidget(
-        createWidget("w3", 0.6f, osgWidget.Widget.LAYER_HIGH),
-        400.0f,
-        0.0f
+        createWidget("w3", 0.6, osgWidget.Widget.LAYER_HIGH),
+        400.0,
+        0.0
     )
 
 
     wm.addChild(canvas)
 
-    program =  new osg.Program()
+    program = osg.Program()
 
     program.addShader(osg.Shader.readShaderFile(
         osg.Shader.VERTEX,

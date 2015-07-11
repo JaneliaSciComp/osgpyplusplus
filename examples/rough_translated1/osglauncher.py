@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osglauncher.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osglauncher.cpp'
+
+# OpenSceneGraph example, osglauncher.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 ##include <cstdio>
 ##include <cstdlib>
@@ -67,8 +70,7 @@ from osgpypp import osgViewer
 runApp = int(str xapp)
 
 # class to handle events with a pick
-class PickHandler : public osgGA.GUIEventHandler 
-public: 
+class PickHandler (osgGA.GUIEventHandler) : 
 
     PickHandler(osgViewer.Viewer* viewer,osgText.Text* updateText):
         _viewer(viewer),
@@ -81,12 +83,12 @@ public:
     pick = str( osgGA.GUIEventAdapter event)
     
     def highlight(name):
-        if _updateText.get() : _updateText.setText(name)
     
-protected:
+        
+        if _updateText.get() : _updateText.setText(name)
 
     _viewer = osgViewer.Viewer*()
-    osg.ref_ptr<osgText.Text>  _updateText
+    _updateText = osgText.Text()
 
 
 bool PickHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
@@ -94,19 +96,19 @@ bool PickHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     case(osgGA.GUIEventAdapter.FRAME):
     case(osgGA.GUIEventAdapter.MOVE):
         # osg.notify(osg.NOTICE), "MOVE ", ea.getX(), ", ", ea.getY()
-        picked_name =  pick(ea)
+        picked_name = pick(ea)
         highlight(picked_name)
-        false = return()
+        return False
     case(osgGA.GUIEventAdapter.PUSH):
         # osg.notify(osg.NOTICE), "PUSH ", ea.getX(), ", ", ea.getY()
-        picked_name =  pick(ea)
+        picked_name = pick(ea)
         if !picked_name.empty() :
             runApp(picked_name)
-            true = return()
-        else:
-            false = return()
+            return True
+        else :
+            return False
     default:
-        false = return()
+        return False
 
 
 str PickHandler.pick( osgGA.GUIEventAdapter event)
@@ -115,21 +117,22 @@ str PickHandler.pick( osgGA.GUIEventAdapter event)
         for(osgUtil.LineSegmentIntersector.Intersections.iterator hitr = intersections.begin()
             hitr != intersections.end()
             ++hitr)
-            node =  hitr.nodePath.empty() ? 0 : hitr.nodePath.back()
+            node = hitr.nodePath.empty() ? 0 : hitr.nodePath.back()
             if node  !node.getName().empty() : return node.getName()
 
     return ""
 
-osg.Node* createHUD(osgText.Text* updateText)
-    # create the hud. derived from osgHud.cpp
+def createHUD(updateText):
+
+        # create the hud. derived from osgHud.cpp
     # adds a set of quads, each in a separate Geode - which can be picked individually
     # eg to be used as a menuing/help system!
     # Can pick texts too!
-    modelview_abs =  new osg.MatrixTransform
+    modelview_abs = osg.MatrixTransform()
     modelview_abs.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     modelview_abs.setMatrix(osg.Matrix.identity())
     
-    projection =  new osg.Projection
+    projection = osg.Projection()
     projection.setMatrix(osg.Matrix.ortho2D(0,1280,0,1024))
     projection.addChild(modelview_abs)
     
@@ -137,40 +140,39 @@ osg.Node* createHUD(osgText.Text* updateText)
     timesFont = str("fonts/times.ttf")
     
     # turn lighting off for the text and disable depth test to ensure its always ontop.
-    position = osg.Vec3(50.0f,510.0f,0.0f)
-    delta = osg.Vec3(0.0f,-60.0f,0.0f)
+    position = osg.Vec3(50.0,510.0,0.0)
+    delta = osg.Vec3(0.0,-60.0,0.0)
 
      # this displays what has been selected
-        geode =  new osg.Geode()
-        stateset =  geode.getOrCreateStateSet()
+        geode = osg.Geode()
+        stateset = geode.getOrCreateStateSet()
         stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
         stateset.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
         geode.setName("The text label")
         geode.addDrawable( updateText )
         modelview_abs.addChild(geode)
         
-        updateText.setCharacterSize(20.0f)
+        updateText.setCharacterSize(20.0)
         updateText.setFont(timesFont)
-        updateText.setColor(osg.Vec4(1.0f,1.0f,0.0f,1.0f))
+        updateText.setColor(osg.Vec4(1.0,1.0,0.0,1.0))
         updateText.setText("")
         updateText.setPosition(position)
         
         position += delta
     
-    projection = return()
+    return projection
 
  # end create HUDf
 
 
 
 
-static osg.Vec3 defaultPos( 0.0f, 0.0f, 0.0f )
-static osg.Vec3 centerScope(0.0f, 0.0f, 0.0f)
+static osg.Vec3 defaultPos( 0.0, 0.0, 0.0 )
+static osg.Vec3 centerScope(0.0, 0.0, 0.0)
 
-class Xample
-    texture = str()
+class Xample :
+texture = str()
     app = str()
-  public:
       Xample(str image, str prog)
         texture    = image
         app     = prog
@@ -179,10 +181,12 @@ class Xample
     ~Xample()  
     
     def getTexture():
-        texture = return()
+    
+        
+        return texture
     def getApp():
-        app = return()
-  private:
+        
+        return app
       Xample() 
  # end class Xample
 
@@ -192,9 +196,12 @@ static std.list<Xample> Xamplelist
 
 
 def printList():
+
+
+    
     osg.notify(osg.INFO), "start printList()"
     for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i)
-        x =  *i
+        x = *i
         osg.notify(osg.INFO), "current x.texture = ", x.getTexture()
         osg.notify(osg.INFO), "current x.app = ", x.getApp()
     osg.notify(osg.INFO), "end printList()"
@@ -202,13 +209,16 @@ def printList():
 
 
 def runApp(xapp):
+
+
+    
     osg.notify(osg.INFO), "start runApp()"
     for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i)
-        x =  *i
+        x = *i
         if !xapp.compare(x.getApp()) :
             osg.notify(osg.INFO), "app found!"
             
-            cxapp =  xapp.c_str()
+            cxapp = xapp.c_str()
             
             osg.notify(osg.INFO), "char* = ", cxapp
             
@@ -221,7 +231,7 @@ def runApp(xapp):
 void readConfFile( char* confFile)                                                                # read confFile            1
     osg.notify(osg.INFO), "Start reading confFile"
     
-    fileName =  osgDB.findDataFile(confFile)
+    fileName = osgDB.findDataFile(confFile)
     if fileName.empty() :
         osg.notify(osg.INFO), "Config file not found", confFile
         return
@@ -238,7 +248,7 @@ void readConfFile( char* confFile)                                              
         std.getline(in, imageBuffer)
         std.getline(in, appBuffer)
         if imageBuffer == "" || appBuffer == "" :
-        else:
+        else :
             osg.notify(osg.INFO), "imageBuffer: ", imageBuffer
             osg.notify(osg.INFO), "appBuffer: ", appBuffer
 #            jeweils checken ob image vorhanden ist.
@@ -257,16 +267,19 @@ void readConfFile( char* confFile)                                              
 
 
 def SetObjectTextureState(geodeCurrent, texture):
+
+
+    
     # retrieve or create a StateSet
-    stateTexture =  geodeCurrent.getOrCreateStateSet()
+    stateTexture = geodeCurrent.getOrCreateStateSet()
 
     # load texture.jpg as an image
-    imgTexture =  osgDB.readImageFile( texture )
+    imgTexture = osgDB.readImageFile( texture )
     
     # if the image is successfully loaded
     if imgTexture :
-        # create a new two-dimensional texture object
-        texCube =  new osg.Texture2D
+        # create a two-dimensional texture object
+        texCube = osg.Texture2D()
 
         # set the texture to the loaded image
         texCube.setImage(imgTexture)
@@ -280,15 +293,18 @@ def SetObjectTextureState(geodeCurrent, texture):
 
 
 def createTexturedCube(fRadius, vPosition, texture, geodeName):
+
+
+    
     # create a cube shape
-    bCube =  new osg.Box(vPosition,fRadius)
-    # osg.Box *bCube = new osg.Box(vPosition,fRadius)
+    bCube = osg.Box(vPosition,fRadius)
+    # osg.Box *bCube = osg.Box(vPosition,fRadius)
 
     # create a container that makes the cube drawable
-    sdCube =  new osg.ShapeDrawable(bCube)
+    sdCube = osg.ShapeDrawable(bCube)
 
     # create a geode object to as a container for our drawable cube object
-    geodeCube =  new osg.Geode()
+    geodeCube = osg.Geode()
     geodeCube.setName( geodeName )
 
     # set the object texture state
@@ -302,17 +318,22 @@ def createTexturedCube(fRadius, vPosition, texture, geodeName):
 
 
 def getPATransformation(object, position, scale, pivot):
-    tmpTrans =  new osg.PositionAttitudeTransform()
+
+
+    
+    tmpTrans = osg.PositionAttitudeTransform()
     tmpTrans.addChild( object )
     
     tmpTrans.setPosition( position )
     tmpTrans.setScale( scale )
     tmpTrans.setPivotPoint( pivot )
     
-    tmpTrans = return()
+    return tmpTrans
 
 def printBoundings(current, name):
-    currentBound =  current.getBound()
+
+    
+    currentBound = current.getBound()
     osg.notify(osg.INFO), name
     osg.notify(osg.INFO), "center = ", currentBound.center()
     osg.notify(osg.INFO), "radius = ", currentBound.radius()
@@ -321,64 +342,67 @@ def printBoundings(current, name):
 
 
 osg.Group* setupGraph()                                                                        # create Geodes/Nodes from Xamplelist    3
-    xGroup =  new osg.Group()
+    xGroup = osg.Group()
 
     
 #    positioning and sizes
-    defaultRadius =  0.8f
+    defaultRadius = 0.8
 
-    itemsInLine =  4                                    # name says everything
-    offset =  0.05f
-    bs =  (defaultRadius / 4) + offset
-    xstart =  (3*bs) * (-1)
-    zstart =  xstart * (-1)
-    xnext =  xstart
-    znext =  zstart
-    xjump =  (2*bs)
-    zjump =  xjump
-    vScale = osg.Vec3( 0.5f, 0.5f, 0.5f )
-    vPivot = osg.Vec3( 0.0f, 0.0f, 0.0f )    
+    itemsInLine = 4                                    # name says everything
+    offset = 0.05
+    bs = (defaultRadius / 4) + offset
+    xstart = (3*bs) * (-1)
+    zstart = xstart * (-1)
+    xnext = xstart
+    znext = zstart
+    xjump = (2*bs)
+    zjump = xjump
+    vScale = osg.Vec3( 0.5, 0.5, 0.5 )
+    vPivot = osg.Vec3( 0.0, 0.0, 0.0 )    
 
 #  run through Xampleliste
-    z =  1
+    z = 1
     for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i, ++z)
-        x =  *i
+        x = *i
         
-        tmpCube =  createTexturedCube(defaultRadius, defaultPos, x.getTexture(), x.getApp())
+        tmpCube = createTexturedCube(defaultRadius, defaultPos, x.getTexture(), x.getApp())
         printBoundings(tmpCube, x.getApp())
-        vPosition = osg.Vec3( xnext, 0.0f, znext )
-        transX =  getPATransformation(tmpCube, vPosition, vScale, vPivot)
+        vPosition = osg.Vec3( xnext, 0.0, znext )
+        transX = getPATransformation(tmpCube, vPosition, vScale, vPivot)
         xGroup.addChild( transX )
         
         # line feed
         if z < itemsInLine :
             xnext += xjump
-        else:
+        else :
             xnext = xstart
             znext -= zjump
             z = 0
      # end run through list    
     
-    xGroup = return()
+    return xGroup
  # end setupGraph
 
 
 def main(argc, argv):
+
+
+    
     if argc<=1 :
         readConfFile("osg.conf")                                                                          # read ConfigFile        1
-    else:
+    else :
         readConfFile(argv[1])                                                                          # read ConfigFile        1
     
     # construct the viewer.
     viewer = osgViewer.Viewer()
 
-    osg.ref_ptr<osgText.Text> updateText = new osgText.Text
+    updateText = osgText.Text()
     updateText.setDataVariance(osg.Object.DYNAMIC)
 
     # add the handler for doing the picking
-    viewer.addEventHandler(new PickHandler(viewer,updateText.get()))
+    viewer.addEventHandler(PickHandler(viewer,updateText.get()))
 
-    root =  new osg.Group()
+    root = osg.Group()
 
     root.addChild( setupGraph() )
 
@@ -389,7 +413,7 @@ def main(argc, argv):
     viewer.setSceneData( root )
 
     lookAt = osg.Matrix()
-    lookAt.makeLookAt(osg.Vec3(0.0f, -4.0f, 0.0f), centerScope, osg.Vec3(0.0f, 0.0f, 1.0f))
+    lookAt.makeLookAt(osg.Vec3(0.0, -4.0, 0.0), centerScope, osg.Vec3(0.0, 0.0, 1.0))
 
     viewer.getCamera().setViewMatrix(lookAt)
         

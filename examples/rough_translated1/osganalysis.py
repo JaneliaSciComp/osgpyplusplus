@@ -11,23 +11,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osganalysis.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osganalysis.cpp'
+
+# OpenSceneGraph example, osganalysis.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 
 #include <osgViewer/Viewer>
@@ -50,8 +53,7 @@ from osgpypp import osgViewer
 #include <osgUtil/Simplifier>
 #include <osgUtil/MeshOptimizers>
 
-class StripStateVisitor : public osg.NodeVisitor
-public:
+class StripStateVisitor (osg.NodeVisitor) :
     StripStateVisitor(bool useStateSets, bool useDisplayLists, bool useVBO):
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _useStateSets(useStateSets),
@@ -63,10 +65,14 @@ public:
     _useVBO = bool()
 
     def apply(node):
+
+        
         if !_useStateSets  node.getStateSet() : node.setStateSet(0)
         traverse(node)
 
     def apply(node):
+
+        
         if !_useStateSets  node.getStateSet() : node.setStateSet(0)
         for(unsigned int i = 0 i<node.getNumDrawables() ++i)
             process(*node.getDrawable(i))
@@ -74,6 +80,8 @@ public:
         traverse(node)
 
     def process(drawable):
+
+        
         if !_useStateSets  drawable.getStateSet() :
             drawable.setStateSet(0)
 
@@ -81,23 +89,26 @@ public:
         drawable.setUseVertexBufferObjects(_useVBO)
 
 
-class OptimizeImageVisitor : public osg.NodeVisitor
-public:
+class OptimizeImageVisitor (osg.NodeVisitor) :
     OptimizeImageVisitor(osgDB.ImageProcessor* imageProcessor, bool compressImages, bool generateMipmaps):
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _imageProcessor(imageProcessor),
         _compressImages(compressImages),
         _generateMipmaps(generateMipmaps) 
 
-    osg.ref_ptr<osgDB.ImageProcessor> _imageProcessor
+    _imageProcessor = osgDB.ImageProcessor()
     _compressImages = bool()
     _generateMipmaps = bool()
 
     def apply(node):
+
+        
         processStateSet(node.getStateSet())
         traverse(node)
 
     def apply(node):
+
+        
         processStateSet(node.getStateSet())
         for(unsigned int i = 0 i<node.getNumDrawables() ++i)
             processStateSet(node.getDrawable(i).getStateSet())
@@ -105,11 +116,13 @@ public:
         traverse(node)
 
     def processStateSet(stateset):
+
+        
         if !stateset : return
 
         for(unsigned int i=0 i<stateset.getNumTextureAttributeLists() ++i)
-            sa =  stateset.getTextureAttribute(i, osg.StateAttribute.TEXTURE)
-            texture =  dynamic_cast<osg.Texture*>(sa)
+            sa = stateset.getTextureAttribute(i, osg.StateAttribute.TEXTURE)
+            texture = dynamic_cast<osg.Texture*>(sa)
             if texture :
                 for(unsigned int i=0 i<texture.getNumImages() ++i)
                     proccessImage(texture.getImage(i))
@@ -117,11 +130,14 @@ public:
 
 
     def proccessImage(image):
+
+
+        
         if !image : return
 
         if _imageProcessor.valid() :
             OSG_NOTICE, "Will be using ImageProcessor to process image ", image.getFileName()
-        else:
+        else :
             OSG_NOTICE, "No ImageProcessor to process image ", image.getFileName()
             OSG_NOTICE, "   compressImage ", _compressImages
             OSG_NOTICE, "   generateMipmaps ", _generateMipmaps
@@ -129,59 +145,79 @@ public:
 
 
 
-class SwapArrayVisitor : public osg.ArrayVisitor
-public:
+class SwapArrayVisitor (osg.ArrayVisitor) :
     SwapArrayVisitor(osg.Array* array):
         _array(array) 
 
     template <class ARRAY>
     def apply_imp(array):
+        
         if array.getType()!=_array.getType() :
             OSG_NOTICE, "Arrays incompatible"
             return
         OSG_NOTICE, "Swapping Array"
         array.swap(*static_cast<ARRAY*>(_array))
 
-    virtual void apply(osg.ByteArray ba)  apply_imp(ba) 
-    virtual void apply(osg.ShortArray ba)  apply_imp(ba) 
-    virtual void apply(osg.IntArray ba)  apply_imp(ba) 
-    virtual void apply(osg.UByteArray ba)  apply_imp(ba) 
-    virtual void apply(osg.UShortArray ba)  apply_imp(ba) 
-    virtual void apply(osg.UIntArray ba)  apply_imp(ba) 
-    virtual void apply(osg.Vec4ubArray ba)  apply_imp(ba) 
-    virtual void apply(osg.FloatArray ba)  apply_imp(ba) 
-    virtual void apply(osg.Vec2Array ba)  apply_imp(ba) 
-    virtual void apply(osg.Vec3Array ba)  apply_imp(ba) 
-    virtual void apply(osg.Vec4Array ba)  apply_imp(ba) 
+    def apply(ba):
+
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
+    def apply(ba):
+         apply_imp(ba) 
 
     _array = osg.Array*()
 
 
-class MemoryVisitor : public osg.NodeVisitor
-public:
+class MemoryVisitor (osg.NodeVisitor) :
      MemoryVisitor():
          osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN) 
 
 
     def reset():
+
+
+        
          _nodes.clear()
          _geometryMap.clear()
          _arrayMap.clear()
          _primitiveSetMap.clear()
 
     def apply(node):
+
+        
         _nodes.insert(node)
         traverse(node)
 
     def apply(geode):
+
+        
         _nodes.insert(geode)
         for(unsigned int i=0 i<geode.getNumDrawables() ++i)
             apply(geode, geode.getDrawable(i))
 
     def apply(geode, drawable):
+
+        
         if !drawable : return
 
-        geometry =  drawable.asGeometry()
+        geometry = drawable.asGeometry()
         if geometry :
             _geometryMap[geometry].insert(geode)
 
@@ -200,67 +236,81 @@ public:
                 apply(geometry, geometry.getPrimitiveSet(i))
 
     def apply(geometry, array):
+
+        
         if !array : return
         _arrayMap[array].insert(geometry)
 
     def apply(geometry, primitiveSet):
+
+        
         if !primitiveSet : return
         _primitiveSetMap[primitiveSet].insert(geometry)
 
     def report(out):
+
+        
         out, "Nodes ", _nodes.size()
         out, "Geometries ", _geometryMap.size()
         out, "Arrays ", _arrayMap.size()
         out, "PrimitiveSets ", _primitiveSetMap.size()
 
     def reallocate():
+
+        
         OSG_NOTICE, "Reallocating Arrays"
 
-        typedef std.vector< osg.ref_ptr<osg.Array> > ArrayVector
-        typedef std.vector< osg.ref_ptr<osg.Geometry> > GeometryVector
+        typedef std.vector< osg.Array > ArrayVector
+        typedef std.vector< osg.Geometry > GeometryVector
         newArrays = ArrayVector()
         newGeometries = GeometryVector()
         for(GeometryMap.iterator itr = _geometryMap.begin()
             itr != _geometryMap.end()
             ++itr)
-            geometry =  itr.first
-            useVBO =  geometry.getUseVertexBufferObjects()
-            newGeometry =  osg.clone(geometry, osg.CopyOp(osg.CopyOp.DEEP_COPY_ALL))
-            newGeometry.setUseVertexBufferObjects(false)
+            geometry = itr.first
+            useVBO = geometry.getUseVertexBufferObjects()
+            newGeometry = osg.clone(geometry, osg.CopyOp(osg.CopyOp.DEEP_COPY_ALL))
+            newGeometry.setUseVertexBufferObjects(False)
             newGeometry.setUseVertexBufferObjects(useVBO)
             newGeometries.push_back(newGeometry)
 
-        geom_itr =  newGeometries.begin()
+        geom_itr = newGeometries.begin()
         for(GeometryMap.iterator itr = _geometryMap.begin()
             itr != _geometryMap.end()
             ++itr, ++geom_itr)
-            geometry =  itr.first
-            geodes =  itr.second
+            geometry = itr.first
+            geodes = itr.second
             for(Geodes.iterator gitr = geodes.begin()
                 gitr != geodes.end()
                 ++gitr)
-                geode =  const_cast<osg.Geode*>(*gitr)
+                geode = const_cast<osg.Geode*>(*gitr)
                 geode.replaceDrawable(geometry, geom_itr.get())
 
-    typedef std.vector< osg.ref_ptr<osg.Geometry> > GeometryVector
+    typedef std.vector< osg.Geometry > GeometryVector
     typedef std.pair<osg.Array*, osg.Array*> ArrayPair
     typedef std.vector< ArrayPair > ArrayVector
     typedef std.pair<osg.PrimitiveSet*, osg.PrimitiveSet*> PrimitiveSetPair
     typedef std.vector< PrimitiveSetPair > PrimitiveSetVector
 
     def cloneArray(arrayVector, array):
+
+        
         if !array : return 0
-        newArray =  static_cast<osg.Array*>(array.cloneType())
+        newArray = static_cast<osg.Array*>(array.cloneType())
         arrayVector.push_back(ArrayPair(array,newArray))
-        newArray = return()
+        return newArray
 
     def clonePrimitiveSet(psVector, ps):
+
+        
         if !ps : return 0
-        newPS =  static_cast<osg.PrimitiveSet*>(ps.cloneType())
+        newPS = static_cast<osg.PrimitiveSet*>(ps.cloneType())
         psVector.push_back(PrimitiveSetPair(ps,newPS))
-        newPS = return()
+        return newPS
 
     def reallocate2():
+
+        
         OSG_NOTICE, "Reallocating Arrays"
 
         arrayVector = ArrayVector()
@@ -270,8 +320,8 @@ public:
         for(GeometryMap.iterator itr = _geometryMap.begin()
             itr != _geometryMap.end()
             ++itr)
-            geometry =  itr.first
-            osg.ref_ptr<osg.Geometry> newGeometry = osg.clone(geometry, osg.CopyOp.SHALLOW_COPY)
+            geometry = itr.first
+            newGeometry = osg.clone(geometry, osg.CopyOp.SHALLOW_COPY)
             newGeometries.push_back(newGeometry.get())
 
             newGeometry.setVertexArray(cloneArray(arrayVector, geometry.getVertexArray()))
@@ -287,19 +337,17 @@ public:
             for(unsigned int i=0 i<geometry.getNumPrimitiveSets() ++i)
                 newGeometry.setPrimitiveSet(i,clonePrimitiveSet(primitiveSetVector, geometry.getPrimitiveSet(i)))
 
-        geom_itr =  newGeometries.begin()
+        geom_itr = newGeometries.begin()
         for(GeometryMap.iterator itr = _geometryMap.begin()
             itr != _geometryMap.end()
             ++itr, ++geom_itr)
-            geometry =  itr.first
-            geodes =  itr.second
+            geometry = itr.first
+            geodes = itr.second
             for(Geodes.iterator gitr = geodes.begin()
                 gitr != geodes.end()
                 ++gitr)
-                geode =  const_cast<osg.Geode*>(*gitr)
+                geode = const_cast<osg.Geode*>(*gitr)
                 geode.replaceDrawable(geometry, geom_itr.get())
-
-protected:
 
      typedef std.set<osg.Node*>  Nodes
      typedef std.set<osg.Geode*>  Geodes
@@ -314,36 +362,37 @@ protected:
      _primitiveSetMap = PrimitiveSetMap()
 
 
-class SceneGraphProcessor : public osg.Referenced
-public:
+class SceneGraphProcessor (osg.Referenced) :
     SceneGraphProcessor()
         _init()
 
     SceneGraphProcessor(osg.ArgumentParser arguments)
         _init()
 
-        while arguments.read("--vbo") :  modifyDrawableSettings = true useVBO = true  
-        while arguments.read("--dl") :  modifyDrawableSettings = true useDisplayLists = true  
+        while arguments.read("--vbo") :  modifyDrawableSettings = True useVBO = True  
+        while arguments.read("--dl") :  modifyDrawableSettings = True useDisplayLists = True  
 
         while arguments.read("-s", simplificatioRatio) : 
-        while arguments.read("--tristripper") :  useTriStripVisitor=true 
-        while arguments.read("--no-tristripper") :  useTriStripVisitor=false 
-        while arguments.read("--smoother") :   useSmoothingVisitor=true 
-        while arguments.read("--no-smoother") :   useSmoothingVisitor=false 
+        while arguments.read("--tristripper") :  useTriStripVisitor=True 
+        while arguments.read("--no-tristripper") :  useTriStripVisitor=False 
+        while arguments.read("--smoother") :   useSmoothingVisitor=True 
+        while arguments.read("--no-smoother") :   useSmoothingVisitor=False 
 
-        while arguments.read("--remove-duplicate-vertices") || arguments.read("--rdv") : removeDuplicateVertices = true
-        while arguments.read("--optimize-vertex-cache") || arguments.read("--ovc") : optimizeVertexCache = true
-        while arguments.read("--optimize-vertex-order") || arguments.read("--ovo") : optimizeVertexOrder = true
+        while arguments.read("--remove-duplicate-vertices") || arguments.read("--rdv") : removeDuplicateVertices = True
+        while arguments.read("--optimize-vertex-cache") || arguments.read("--ovc") : optimizeVertexCache = True
+        while arguments.read("--optimize-vertex-order") || arguments.read("--ovo") : optimizeVertexOrder = True
 
-        while arguments.read("--build-mipmaps") :  modifyTextureSettings = true buildImageMipmaps = true 
-        while arguments.read("--compress") :  modifyTextureSettings = true compressImages = true 
-        while arguments.read("--disable-mipmaps") :  modifyTextureSettings = true disableMipmaps = true 
+        while arguments.read("--build-mipmaps") :  modifyTextureSettings = True buildImageMipmaps = True 
+        while arguments.read("--compress") :  modifyTextureSettings = True compressImages = True 
+        while arguments.read("--disable-mipmaps") :  modifyTextureSettings = True disableMipmaps = True 
 
-        while arguments.read("--reallocate") || arguments.read("--ra")  :  reallocateMemory = true 
+        while arguments.read("--reallocate") || arguments.read("--ra")  :  reallocateMemory = True 
 
         OSG_NOTICE, "simplificatioRatio=", simplificatioRatio
 
-    virtual osg.Node* process(osg.Node* node)
+    def process(node):
+
+        
         if !node :
             OSG_NOTICE, "SceneGraphProcessor.process(Node*) : error cannot process NULL Node."
             return 0
@@ -352,7 +401,7 @@ public:
 
         if simplificatioRatio < 1.0 :
             OSG_NOTICE, "Running simplifier with simplification ratio=", simplificatioRatio
-            maxError =  4.0f
+            maxError = 4.0
             simplifier = osgUtil.Simplifier(simplificatioRatio, maxError)
             simplifier.setDoTriStrip(useTriStripVisitor)
             simplifier.setSmoothing(useSmoothingVisitor)
@@ -384,7 +433,7 @@ public:
 
         if modifyDrawableSettings :
             OSG_NOTICE, "Running StripStateVisitor"
-            ssv = StripStateVisitor(true, useDisplayLists, useVBO)
+            ssv = StripStateVisitor(True, useDisplayLists, useVBO)
             node.accept(ssv)
 
         mv = MemoryVisitor()
@@ -399,29 +448,29 @@ public:
         node.accept(mv)
         mv.report(osg.notify(osg.NOTICE))
 
-        node = return()
-
-protected:
+        return node
 
     def _init():
-        modifyDrawableSettings = false
-        useVBO = false
-        useDisplayLists = false
+
+        
+        modifyDrawableSettings = False
+        useVBO = False
+        useDisplayLists = False
 
         simplificatioRatio = 1.0
-        useTriStripVisitor = false
-        useSmoothingVisitor = false
+        useTriStripVisitor = False
+        useSmoothingVisitor = False
 
-        removeDuplicateVertices = false
-        optimizeVertexCache = false
-        optimizeVertexOrder = false
+        removeDuplicateVertices = False
+        optimizeVertexCache = False
+        optimizeVertexOrder = False
 
-        reallocateMemory = false
+        reallocateMemory = False
         
-        modifyTextureSettings = false
-        buildImageMipmaps = false
-        compressImages = false
-        disableMipmaps = false
+        modifyTextureSettings = False
+        buildImageMipmaps = False
+        compressImages = False
+        disableMipmaps = False
 
     modifyDrawableSettings = bool()
     useVBO = bool()
@@ -445,23 +494,22 @@ protected:
 
 # 
 class DatabasePagingOperation : public osg.Operation, public osgUtil.IncrementalCompileOperation.CompileCompletedCallback
-public:
 
     DatabasePagingOperation( str filename,
                              str outputFilename,
                              SceneGraphProcessor* sceneGraphProcessor, 
                              osgUtil.IncrementalCompileOperation* ico):
-        Operation("DatabasePaging Operation", false),
+        Operation("DatabasePaging Operation", False),
         _filename(filename),
         _outputFilename(outputFilename),
-        _modelReadyToMerge(false),
+        _modelReadyToMerge(False),
         _sceneGraphProcessor(sceneGraphProcessor),
         _incrementalCompileOperation(ico)
 
     virtual void operator () (osg.Object* object)
         osg.notify(osg.NOTICE), "LoadAndCompileOperation ", _filename
 
-        _modelReadyToMerge = false
+        _modelReadyToMerge = False
         _loadedModel = osgDB.readNodeFile(_filename)
 
         if _loadedModel.valid() :
@@ -477,73 +525,76 @@ public:
             if _incrementalCompileOperation.valid() :
                 OSG_NOTICE, "Registering with ICO ", _outputFilename
 
-                osg.ref_ptr<osgUtil.IncrementalCompileOperation.CompileSet> compileSet =
-                    new osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
+                compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
 
                 compileSet._compileCompletedCallback = this
 
                 _incrementalCompileOperation.add(compileSet.get())
-            else:
-                _modelReadyToMerge = true
+            else :
+                _modelReadyToMerge = True
 
         osg.notify(osg.NOTICE), "done LoadAndCompileOperation ", _filename
 
-    virtual bool compileCompleted(osgUtil.IncrementalCompileOperation.CompileSet* compileSet)
+    def compileCompleted(compileSet):
+
+        
         OSG_NOTICE, "compileCompleted"
-        _modelReadyToMerge = true
-        true = return()
+        _modelReadyToMerge = True
+        return True
 
     _filename = str()
     _outputFilename = str()
-    osg.ref_ptr<osg.Node>                             _loadedModel
+    _loadedModel = osg.Node()
     _modelReadyToMerge = bool()
-    osg.ref_ptr<SceneGraphProcessor>                   _sceneGraphProcessor
-    osg.ref_ptr<osgUtil.IncrementalCompileOperation>  _incrementalCompileOperation
+    _sceneGraphProcessor = SceneGraphProcessor()
+    _incrementalCompileOperation = osgUtil.IncrementalCompileOperation()
 
 
-class TexturePoolHandler : public osgGA.GUIEventHandler
-public:
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa)
+class TexturePoolHandler (osgGA.GUIEventHandler) :
+    def handle(ea, aa):
+        
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
             if ea.getKey()=='r' :
                 osg.Texture.getTextureObjectManager(0).reportStats(osg.notify(osg.NOTICE))
                 osg.GLBufferObjectManager.getGLBufferObjectManager(0).reportStats(osg.notify(osg.NOTICE))
-        false = return()
+        return False
 
 
-struct ReportStatsAnimationCompletedCallback : public osgGA.AnimationPathManipulator.AnimationCompletedCallback
-    virtual void completed( osgGA.AnimationPathManipulator*)
+class ReportStatsAnimationCompletedCallback (osgGA.AnimationPathManipulator.AnimationCompletedCallback) :
+virtual void completed( osgGA.AnimationPathManipulator*)
         OSG_NOTICE, "Animation completed"
         osg.Texture.getTextureObjectManager(0).reportStats(osg.notify(osg.NOTICE))
         osg.GLBufferObjectManager.getGLBufferObjectManager(0).reportStats(osg.notify(osg.NOTICE))
 
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
 
     # set up camera manipulators
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
-        keyForAnimationPath =  '8'
-        animationSpeed =  1.0
+        keyForAnimationPath = '8'
+        animationSpeed = 1.0
         while arguments.read("--speed",animationSpeed)  : 
 
         pathfile = str()
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() :
                 apm.setTimeScale(animationSpeed)
-                apm.setAnimationCompletedCallback(new ReportStatsAnimationCompletedCallback())
+                apm.setAnimationCompletedCallback(ReportStatsAnimationCompletedCallback())
                 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -551,16 +602,16 @@ def main(argc, argv):
         viewer.setCameraManipulator( keyswitchManipulator.get() )
 
     # set up event handlers 
-        viewer.addEventHandler( new osgViewer.StatsHandler())
-        viewer.addEventHandler( new osgViewer.WindowSizeHandler() )
-        viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
-        viewer.addEventHandler( new TexturePoolHandler() )
+        viewer.addEventHandler( osgViewer.StatsHandler())
+        viewer.addEventHandler( osgViewer.WindowSizeHandler() )
+        viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+        viewer.addEventHandler( TexturePoolHandler() )
 
     ########################################/
     #
     # IncrementalCompileOperation settings
     #
-    osg.ref_ptr<osgUtil.IncrementalCompileOperation> incrementalCompile = new osgUtil.IncrementalCompileOperation
+    incrementalCompile = osgUtil.IncrementalCompileOperation()
     viewer.setIncrementalCompileOperation(incrementalCompile.get())
 
     if arguments.read("--force") || arguments.read("-f") :
@@ -570,7 +621,7 @@ def main(argc, argv):
         incrementalCompile.setMinimumTimeAvailableForGLCompileAndDeletePerFrame(1)
         incrementalCompile.setConservativeTimeRatio(1)
         incrementalCompile.setMaximumNumOfObjectsToCompilePerFrame(100)
-    else: if arguments.read("-c") :
+    elif arguments.read("-c") :
         incrementalCompile.setMinimumTimeAvailableForGLCompileAndDeletePerFrame(0.0001)
         incrementalCompile.setConservativeTimeRatio(0.01)
         incrementalCompile.setMaximumNumOfObjectsToCompilePerFrame(1)
@@ -579,13 +630,13 @@ def main(argc, argv):
     #
     # SceneGraph processing setup
     #
-    osg.ref_ptr<SceneGraphProcessor> sceneGraphProcessor = new SceneGraphProcessor(arguments)
+    sceneGraphProcessor = SceneGraphProcessor(arguments)
 
     ########################################/
     #
     # Database settings
     #
-    timeBetweenMerges =  2.0
+    timeBetweenMerges = 2.0
     while arguments.read("--interval",timeBetweenMerges) : 
 
     outputPostfix = str()
@@ -605,24 +656,24 @@ def main(argc, argv):
     # load the models using a paging thread and use the incremental compile operation to
     # manage the compilation of GL objects without breaking frame.
 
-    unsigned int modelIndex = 0
+    modelIndex = 0
 
-    osg.ref_ptr<osg.OperationThread> databasePagingThread
-    osg.ref_ptr<DatabasePagingOperation> databasePagingOperation
+    databasePagingThread = osg.OperationThread()
+    databasePagingOperation = DatabasePagingOperation()
 
-    databasePagingThread = new osg.OperationThread
+    databasePagingThread = osg.OperationThread()
     databasePagingThread.startThread()
 
 
-    osg.ref_ptr<osg.Group> group = new osg.Group
+    group = osg.Group()
     viewer.setSceneData(group.get())
 
     viewer.realize()
 
-    filename =  fileNames[modelIndex++]
-    outputFilename =  outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
+    filename = fileNames[modelIndex++]
+    outputFilename = outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
 
-    databasePagingOperation = new DatabasePagingOperation(
+    databasePagingOperation = DatabasePagingOperation(
         filename,
         outputFilename,
         sceneGraphProcessor.get(),
@@ -631,20 +682,20 @@ def main(argc, argv):
     databasePagingThread.add(databasePagingOperation.get())
 
 
-    timeOfLastMerge =  viewer.getFrameStamp().getReferenceTime()
+    timeOfLastMerge = viewer.getFrameStamp().getReferenceTime()
 
     while !viewer.done() :
         viewer.frame()
 
-        currentTime =  viewer.getFrameStamp().getReferenceTime()
+        currentTime = viewer.getFrameStamp().getReferenceTime()
 
         if !databasePagingOperation 
             modelIndex<fileNames.size() 
             (currentTime-timeOfLastMerge)>timeBetweenMerges :
-            filename =  fileNames[modelIndex++]
-            outputFilename =  outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
+            filename = fileNames[modelIndex++]
+            outputFilename = outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
 
-            databasePagingOperation = new DatabasePagingOperation(
+            databasePagingOperation = DatabasePagingOperation(
                 filename,
                 outputFilename,
                 sceneGraphProcessor.get(),

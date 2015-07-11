@@ -9,6 +9,9 @@ import sys
 from osgpypp import osg
 from osgpypp import osgDB
 
+
+# Translated from file 'osg2cpp.cpp'
+
 #include <osg/ArgumentParser>
 #include <osg/ApplicationUsage>
 
@@ -20,29 +23,32 @@ from osgpypp import osgDB
 
 # Search in str for all occurences of spat and replace them with rpat.
 def searchAndReplace(str, spat, rpat):
-    pos =  0
+    
+    pos = 0
     while pos = str.find(spat, pos) : != str.npos :
         str.replace(pos, spat.length(), rpat)
         pos += rpat.length()
 
 def writeShader(shader, cppFileName, variableName):
+
+    
     fout = osgDB.ofstream(cppFileName.c_str())
     if !fout :
         print "Error: could not open file `", cppFileName, "` for writing."
 
-    shaderSource =  shader.getShaderSource()
+    shaderSource = shader.getShaderSource()
     searchAndReplace(shaderSource, "\r\n", "\n")
     searchAndReplace(shaderSource, "\r", "\n")
     searchAndReplace(shaderSource, "\"", "\\\"")
  
-    variableString =  str("char ")+variableName+str("[] = ")
+    variableString = str("char ")+variableName+str("[] = ")
     
-    startOfLine =  0
-    endOfLine =  shaderSource.find_first_of('\n', startOfLine)
+    startOfLine = 0
+    endOfLine = shaderSource.find_first_of('\n', startOfLine)
     
     if endOfLine==str.npos : 
         fout, variableString, shaderSource, "\\n\""
-    else:
+    else :
         padding = str(variableString.size(),' ')
 
         fout, variableString, "\"", shaderSource.substr(startOfLine,endOfLine-startOfLine), "\\n\""
@@ -57,6 +63,8 @@ def writeShader(shader, cppFileName, variableName):
     print "Written shader to `", cppFileName, "`"
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -74,24 +82,24 @@ def main(argc, argv):
     
     filename = str()
     if arguments.read("--shader",filename) :
-        osg.ref_ptr<osg.Shader> shader = osgDB.readShaderFile(filename)
+        shader = osgDB.readShaderFile(filename)
         if shader.valid() :
-            name =  osgDB.getStrippedName(filename)
-            path =  osgDB.getFilePath(filename)
-            invalidCharacters =  "-+/\\*=()[]:<>,.?@'~#`!\""
-            numbericCharacters =  "0123456789"
-            pos =  name.find_first_of(invalidCharacters)
+            name = osgDB.getStrippedName(filename)
+            path = osgDB.getFilePath(filename)
+            invalidCharacters = "-+/\\*=()[]:<>,.?@'~#`!\""
+            numbericCharacters = "0123456789"
+            pos = name.find_first_of(invalidCharacters)
             while pos != str.npos :
                 name[pos] = '_'
                 pos = name.find_first_of(invalidCharacters)
             
-            ext =  osgDB.getFileExtension(filename)
-            cppFileName =  osgDB.concatPaths(path, name + "_" + ext + ".cpp")
-            variableName =  name + "_" + ext
+            ext = osgDB.getFileExtension(filename)
+            cppFileName = osgDB.concatPaths(path, name + "_" + ext + ".cpp")
+            variableName = name + "_" + ext
             writeShader(shader.get(), cppFileName, variableName)
 
             return 0
-        else:
+        else :
             print "Error: could not find file '", filename, "'"
             return 1
         

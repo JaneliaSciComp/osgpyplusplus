@@ -7,25 +7,28 @@
 import sys
 
 
-# -*-c++-*-
-* 
-*  OpenSceneGraph example, osgviewerCacoa.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'ViewerCocoa.h'
+
+# -*-c++-*-
+#* 
+#*  OpenSceneGraph example, osgviewerCacoa.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #
 #  ViewerCocoa.h
@@ -36,26 +39,26 @@ import sys
 #  Ported to osgViewer.Viewer by Martin Lavery 7/06/07
 #
 # This is the class interface for a custom NSView that interfaces with an osgViewer.
- * Because Cocoa is written in Objective-C, but OSG is written in C++, we rely on
- * Objective-C++ to make the integration easy.
- *
- * One thing to remember is that any Objective-C files that include this header
- * must also be compiled as Objective-C++ because there are C++ constructs in
- * this file (such as namespaces) which the normal Objective-C compiler 
- * won't understand. (The easy way to do this is rename the .m files to .mm.) 
- *
- * In the event that you have a large, pre-existing code base written in
- * pure Objective-C and you find that the header include propagates to a
- * large number of your files, forcing you to mark many files to be compiled as
- * Objective-C++, and you find that you don't want to change these files because
- * they are shared with other pure Obj-C projects, you might consider further 
- * wrapping the C++ code so there are only C or Obj-C constructs in 
- * this header. There are several different techniques ranging from, wrapping 
- * the C++ code in pure C interfaces, to simply using void pointers in this
-
-* file for any C++ pointers and casting appropriately in the implementation
- * file.
- 
+# * Because Cocoa is written in Objective-C, but OSG is written in C++, we rely on
+# * Objective-C++ to make the integration easy.
+# *
+# * One thing to remember is that any Objective-C files that include this header
+# * must also be compiled as Objective-C++ because there are C++ constructs in
+# * this file (such as namespaces) which the normal Objective-C compiler 
+# * won't understand. (The easy way to do this is rename the .m files to .mm.) 
+# *
+# * In the event that you have a large, pre-existing code base written in
+# * pure Objective-C and you find that the header include propagates to a
+# * large number of your files, forcing you to mark many files to be compiled as
+# * Objective-C++, and you find that you don't want to change these files because
+# * they are shared with other pure Obj-C projects, you might consider further 
+# * wrapping the C++ code so there are only C or Obj-C constructs in 
+# * this header. There are several different techniques ranging from, wrapping 
+# * the C++ code in pure C interfaces, to simply using void pointers in this
+#
+#* file for any C++ pointers and casting appropriately in the implementation
+# * file.
+# 
 
 
 #import <Cocoa/Cocoa.h>

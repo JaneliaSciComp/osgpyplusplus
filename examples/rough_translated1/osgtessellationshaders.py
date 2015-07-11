@@ -10,10 +10,13 @@ from osgpypp import osg
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
+
+# Translated from file 'osgtessellationshaders.cpp'
+
 # A demonstration of Tessellation Shaders in OpenScenegraph.
- * Original code by Philip Rideout
- * Adapted to OpenScenegraph by John Kaniarz
- 
+# * Original code by Philip Rideout
+# * Adapted to OpenScenegraph by John Kaniarz
+# 
 
 #include <osg/Program>
 #include <osg/PatchParameter>
@@ -125,9 +128,11 @@ static  char* fragSource =
 "\n"
 
 
-osg.ref_ptr<osg.Geode> CreateIcosahedron(osg.Program *program)
-    geode = new osg.Geode()
-    geometry =  new osg.Geometry()
+def CreateIcosahedron(program):
+
+    
+    geode = osg.Geode()
+    geometry = osg.Geometry()
      unsigned int Faces[] = 
         2, 1, 0,
         3, 2, 0,
@@ -152,87 +157,88 @@ osg.ref_ptr<osg.Geode> CreateIcosahedron(osg.Program *program)
         4,  9, 8,
         5, 10, 9,
         1, 6, 10 
-    IndexCount =  sizeof(Faces) / sizeof(Faces[0])
+    IndexCount = sizeof(Faces) / sizeof(Faces[0])
      float Verts[] = 
-         0.000f,  0.000f,  1.000f,
-         0.894f,  0.000f,  0.447f,
-         0.276f,  0.851f,  0.447f,
-        -0.724f,  0.526f,  0.447f,
-        -0.724f, -0.526f,  0.447f,
-         0.276f, -0.851f,  0.447f,
-         0.724f,  0.526f, -0.447f,
-        -0.276f,  0.851f, -0.447f,
-        -0.894f,  0.000f, -0.447f,
-        -0.276f, -0.851f, -0.447f,
-         0.724f, -0.526f, -0.447f,
-         0.000f,  0.000f, -1.000f 
+         0.000,  0.000,  1.000,
+         0.894,  0.000,  0.447,
+         0.276,  0.851,  0.447,
+        -0.724,  0.526,  0.447,
+        -0.724, -0.526,  0.447,
+         0.276, -0.851,  0.447,
+         0.724,  0.526, -0.447,
+        -0.276,  0.851, -0.447,
+        -0.894,  0.000, -0.447,
+        -0.276, -0.851, -0.447,
+         0.724, -0.526, -0.447,
+         0.000,  0.000, -1.000 
 
-    VertexCount =  sizeof(Verts)/sizeof(float)
-    vertices =  new osg.Vec3Array()
+    VertexCount = sizeof(Verts)/sizeof(float)
+    vertices = osg.Vec3Array()
     for(int i=0i<VertexCounti+=3)
         vertices.push_back(osg.Vec3(Verts[i],Verts[i+1],Verts[i+2]))
     geometry.setVertexArray(vertices)
-    geometry.addPrimitiveSet(new osg.DrawElementsUInt(osg.PrimitiveSet.PATCHES,IndexCount,Faces))
+    geometry.addPrimitiveSet(osg.DrawElementsUInt(osg.PrimitiveSet.PATCHES,IndexCount,Faces))
 
     geode.addDrawable(geometry)
-    geode = return()
-osg.ref_ptr<osg.Program> createProgram()
-    program =  new osg.Program()
-    program.addShader(new osg.Shader(osg.Shader.VERTEX,vertSource))
-    program.addShader(new osg.Shader(osg.Shader.TESSCONTROL,tessControlSource))
-    program.addShader(new osg.Shader(osg.Shader.TESSEVALUATION,tessEvalSource))
-    program.addShader(new osg.Shader(osg.Shader.GEOMETRY,geomSource))
-    program.addShader(new osg.Shader(osg.Shader.FRAGMENT,fragSource))
+    return geode
+def createProgram():
+    
+    program = osg.Program()
+    program.addShader(osg.Shader(osg.Shader.VERTEX,vertSource))
+    program.addShader(osg.Shader(osg.Shader.TESSCONTROL,tessControlSource))
+    program.addShader(osg.Shader(osg.Shader.TESSEVALUATION,tessEvalSource))
+    program.addShader(osg.Shader(osg.Shader.GEOMETRY,geomSource))
+    program.addShader(osg.Shader(osg.Shader.FRAGMENT,fragSource))
     program.setParameter(GL_GEOMETRY_VERTICES_OUT_EXT, 3)
     program.setParameter(GL_GEOMETRY_INPUT_TYPE_EXT, GL_TRIANGLES)
     program.setParameter(GL_GEOMETRY_OUTPUT_TYPE_EXT, GL_TRIANGLE_STRIP)
-    program = return()
+    return program
 
-tessInner = 1.0f
-tessOuter = 1.0f
-osg.ref_ptr<osg.Uniform> tessInnerU = new osg.Uniform("TessLevelInner",tessInner)
-osg.ref_ptr<osg.Uniform> tessOuterU = new osg.Uniform("TessLevelOuter",tessOuter)
+tessInner = 1.0
+tessOuter = 1.0
+tessInnerU = osg.Uniform("TessLevelInner",tessInner)
+tessOuterU = osg.Uniform("TessLevelOuter",tessOuter)
 
-class KeyboardEventHandler : public osgGA.GUIEventHandler 
-public:
+class KeyboardEventHandler (osgGA.GUIEventHandler) :
     KeyboardEventHandler():osgGA.GUIEventHandler()
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter gaa)
+    def handle(ea, gaa):
+        
         if ea.getEventType()==osgGA.GUIEventAdapter.KEYDOWN :
             switch (ea.getKey())
                 case osgGA.GUIEventAdapter.KEY_Up:
                     tessOuter++
                     tessOuterU.set(tessOuter)
-                    true = return()
+                    return True
                 case osgGA.GUIEventAdapter.KEY_Down:
                     tessOuter--
-                    tessOuter=std.max(1.0f,tessOuter)
+                    tessOuter=std.max(1.0,tessOuter)
                     tessOuterU.set(tessOuter)
-                    true = return()
+                    return True
                 case osgGA.GUIEventAdapter.KEY_Left:
                     tessInner--
-                    tessInner=std.max(1.0f,tessInner)
+                    tessInner=std.max(1.0,tessInner)
                     tessInnerU.set(tessInner)
-                    true = return()
+                    return True
                 case osgGA.GUIEventAdapter.KEY_Right:
                     tessInner++
                     tessInnerU.set(tessInner)
-                    true = return()
+                    return True
         return osgGA.GUIEventHandler.handle(ea,gaa)
 
 
 int main(int argc, char* argv[])
     viewer = osgViewer.Viewer()
     viewer.setUpViewInWindow(100,100,800,600)
-    osg.ref_ptr<osg.Program> program = createProgram()
-    osg.ref_ptr<osg.Geode> geode = CreateIcosahedron(program.get())
+    program = createProgram()
+    geode = CreateIcosahedron(program.get())
     *state = osg.StateSet()
     state = geode.getOrCreateStateSet()
-    state.addUniform(new osg.Uniform("AmbientMaterial",osg.Vec3(0.04f, 0.04f, 0.04f)))
-    state.addUniform(new osg.Uniform("DiffuseMaterial",osg.Vec3(0.0f, 0.75f, 0.75f)))
-    state.addUniform(new osg.Uniform("LightPosition",osg.Vec3(0.25f, 0.25f, 1.0f)))
+    state.addUniform(osg.Uniform("AmbientMaterial",osg.Vec3(0.04, 0.04, 0.04)))
+    state.addUniform(osg.Uniform("DiffuseMaterial",osg.Vec3(0.0, 0.75, 0.75)))
+    state.addUniform(osg.Uniform("LightPosition",osg.Vec3(0.25, 0.25, 1.0)))
     state.addUniform(tessInnerU.get())
     state.addUniform(tessOuterU.get())
-    state.setAttribute(new osg.PatchParameter(3))
+    state.setAttribute(osg.PatchParameter(3))
     state.setAttribute(program.get())
     
     # switch on the uniforms that track the modelview and projection matrices
@@ -242,10 +248,10 @@ int main(int argc, char* argv[])
         itr != windows.end()
         ++itr)
         s = (*itr).getState()
-        s.setUseModelViewAndProjectionUniforms(true)
-        s.setUseVertexAttributeAliasing(true)
+        s.setUseModelViewAndProjectionUniforms(True)
+        s.setUseVertexAttributeAliasing(True)
     
-    viewer.addEventHandler(new KeyboardEventHandler())
+    viewer.addEventHandler(KeyboardEventHandler())
     viewer.setSceneData(geode.get())
     return viewer.run()
 

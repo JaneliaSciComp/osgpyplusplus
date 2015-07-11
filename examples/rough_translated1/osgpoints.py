@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgpoints.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgpoints.cpp'
+
+# OpenSceneGraph example, osgpoints.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgUtil/Optimizer>
@@ -41,56 +44,67 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-class KeyboardEventHandler : public osgGA.GUIEventHandler
-public:
+class KeyboardEventHandler (osgGA.GUIEventHandler) :
     
         KeyboardEventHandler(osg.StateSet* stateset):
             _stateset(stateset)
-            _point = new osg.Point
-            _point.setDistanceAttenuation(osg.Vec3(0.0,0.0000,0.05f))
+            _point = osg.Point()
+            _point.setDistanceAttenuation(osg.Vec3(0.0,0.0000,0.05))
             _stateset.setAttribute(_point.get())
     
         virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYDOWN):
                     if ea.getKey()=='+' || ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Add :
-                       changePointSize(1.0f)
-                       true = return()
-                    else: if ea.getKey()=='-' || ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract :
-                       changePointSize(-1.0f)
-                       true = return()
-                    else: if ea.getKey()=='<' :
-                       changePointAttenuation(1.1f)
-                       true = return()
-                    else: if ea.getKey()=='>' :
-                       changePointAttenuation(1.0f/1.1f)
-                       true = return()
+                       changePointSize(1.0)
+                       return True
+                    elif ea.getKey()=='-' || ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract :
+                       changePointSize(-1.0)
+                       return True
+                    elif ea.getKey()=='<' :
+                       changePointAttenuation(1.1)
+                       return True
+                    elif ea.getKey()=='>' :
+                       changePointAttenuation(1.0/1.1)
+                       return True
                     break
                 default:
                     break
-            false = return()
+            return False
         
         
-        float getPointSize() 
+        def getPointSize():
+        
+        
+            
             return _point.getSize()
         
         def setPointSize(psize):
+        
+            
             if psize>0.0 :
                 _point.setSize(psize)
             print "Point size ", psize
 
         def changePointSize(delta):
+
+            
             setPointSize(getPointSize()+delta)
 
         def changePointAttenuation(scale):
+
+            
             _point.setDistanceAttenuation(_point.getDistanceAttenuation()*scale)
         
-        osg.ref_ptr<osg.StateSet> _stateset
-        osg.ref_ptr<osg.Point>    _point
+        _stateset = osg.StateSet()
+        _point = osg.Point()
         
 
 
 def main(argc, argv):
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -106,26 +120,26 @@ def main(argc, argv):
     # construct the viewer.
     viewer = osgViewer.Viewer()
 
-    shader =  false
-    while arguments.read("--shader") : shader = true
+    shader = False
+    while arguments.read("--shader") : shader = True
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
-    usePointSprites =  false
-    while arguments.read("--sprites") :  usePointSprites = true 
+    usePointSprites = False
+    while arguments.read("--sprites") :  usePointSprites = True 
 
-    forcePointMode =  false
-    while arguments.read("--points") :  forcePointMode = true 
+    forcePointMode = False
+    while arguments.read("--points") :  forcePointMode = True 
 
     if arguments.argc()<=1 :
         arguments.getApplicationUsage().write(std.cout,osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if no model has been successfully loaded report failure.
     if !loadedModel : 
@@ -141,34 +155,34 @@ def main(argc, argv):
     viewer.setSceneData(loadedModel.get())
     
 
-    stateset =  loadedModel.getOrCreateStateSet()
+    stateset = loadedModel.getOrCreateStateSet()
     if usePointSprites :    
         #/ Setup cool blending
-        fn =  new osg.BlendFunc()
+        fn = osg.BlendFunc()
         stateset.setAttributeAndModes(fn, osg.StateAttribute.ON)
 
         #/ Setup the point sprites
-        sprite =  new osg.PointSprite()
+        sprite = osg.PointSprite()
         stateset.setTextureAttributeAndModes(0, sprite, osg.StateAttribute.ON)
 
         #/ The texture for the sprites
-        tex =  new osg.Texture2D()
+        tex = osg.Texture2D()
         tex.setImage(osgDB.readImageFile("Images/particle.rgb"))
         stateset.setTextureAttributeAndModes(0, tex, osg.StateAttribute.ON)
 
     if  forcePointMode  :
         #/ Set polygon mode to GL_POINT
-        pm =  new osg.PolygonMode(
+        pm = osg.PolygonMode(
             osg.PolygonMode.FRONT_AND_BACK, osg.PolygonMode.POINT )
         stateset.setAttributeAndModes( pm, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
     
 
     # register the handler for modifying the point size
-    viewer.addEventHandler(new KeyboardEventHandler(viewer.getCamera().getOrCreateStateSet()))
+    viewer.addEventHandler(KeyboardEventHandler(viewer.getCamera().getOrCreateStateSet()))
 
 
     if shader :
-        stateset =  loadedModel.getOrCreateStateSet()
+        stateset = loadedModel.getOrCreateStateSet()
     
         #################################/
         # vertex shader using just Vec4 coefficients
@@ -181,10 +195,10 @@ def main(argc, argv):
 
 
 
-        program =  new osg.Program
+        program = osg.Program()
         stateset.setAttribute(program)
 
-        vertex_shader =  new osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
+        vertex_shader = osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
         program.addShader(vertex_shader)
 
 #if 0
@@ -197,7 +211,7 @@ def main(argc, argv):
             "    gl_FragColor = gl_Color \n"
             "\n"
 
-        fragment_shader =  new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
+        fragment_shader = osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
         program.addShader(fragment_shader)
 #endif
 

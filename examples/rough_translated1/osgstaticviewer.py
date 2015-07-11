@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgstaticviewer.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgstaticviewer.cpp'
+
+# OpenSceneGraph example, osgstaticviewer.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgUtil/Optimizer>
@@ -88,6 +91,8 @@ USE_SERIALIZER_WRAPPER_LIBRARY(osgVolume)
 USE_GRAPHICSWINDOW()
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -106,8 +111,8 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--CullThreadPerCameraDrawThreadPerContext","Select CullThreadPerCameraDrawThreadPerContext threading model for viewer.")
 
     # if user request help write it out to cout.
-    helpAll =  arguments.read("--help-all")
-    unsigned int helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
+    helpAll = arguments.read("--help-all")
+    helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
                             ((helpAll ||  arguments.read("--help-env"))? osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE : 0 ) |
                             ((helpAll ||  arguments.read("--help-keys"))? osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING : 0 )
     if helpType :
@@ -126,19 +131,19 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
     
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -146,31 +151,31 @@ def main(argc, argv):
         viewer.setCameraManipulator( keyswitchManipulator.get() )
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
     
     # add the thread model handler
-    viewer.addEventHandler(new osgViewer.ThreadingHandler)
+    viewer.addEventHandler(osgViewer.ThreadingHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
         
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the help handler
-    viewer.addEventHandler(new osgViewer.HelpHandler(arguments.getApplicationUsage()))
+    viewer.addEventHandler(osgViewer.HelpHandler(arguments.getApplicationUsage()))
 
     while arguments.read("--SingleThreaded") : viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
     while arguments.read("--CullDrawThreadPerContext") : viewer.setThreadingModel(osgViewer.Viewer.CullDrawThreadPerContext)
     while arguments.read("--DrawThreadPerContext") : viewer.setThreadingModel(osgViewer.Viewer.DrawThreadPerContext)
     while arguments.read("--CullThreadPerCameraDrawThreadPerContext") : viewer.setThreadingModel(osgViewer.Viewer.CullThreadPerCameraDrawThreadPerContext)
 
-    unsigned int screenNum
+    screenNum = unsigned int()
     while arguments.read("--screen",screenNum) :
         viewer.setUpViewOnSingleScreen(screenNum)
 
     # load the data
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     if !loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1

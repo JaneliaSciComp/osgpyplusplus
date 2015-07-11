@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgblendequation.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgblendequation.cpp'
+
+# OpenSceneGraph example, osgblendequation.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Geode>
 #include <osg/Group>
@@ -67,19 +70,16 @@ _eq_nb = 8
 
 
 
-class TechniqueEventHandler : public osgGA.GUIEventHandler
-public:
+class TechniqueEventHandler (osgGA.GUIEventHandler) :
 
     TechniqueEventHandler(osg.BlendEquation* blendEq)  _blendEq=blendEq _eq_index=0
     TechniqueEventHandler()  std.cerr, "Error, can't initialize it!"
 
     META_Object(osgBlendEquationApp,TechniqueEventHandler)
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
     virtual void getUsage(osg.ApplicationUsage usage) 
-
-protected:
 
     ~TechniqueEventHandler() 
 
@@ -102,18 +102,18 @@ bool TechniqueEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapt
                 if _eq_index>=_eq_nb : _eq_index=0
                 _blendEq.setEquation(_equations[_eq_index])
                 print "Equation name = ", _equations_name[_eq_index]
-                true = return()
-            else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
+                return True
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Left :
                 _eq_index--
                 if _eq_index<0 : _eq_index=_eq_nb-1
                 _blendEq.setEquation(_equations[_eq_index])
                 print "Operation name = ", _equations_name[_eq_index]
-                true = return()
-            false = return()
+                return True
+            return False
 
         default:
-            false = return()
+            return False
 
 void TechniqueEventHandler.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("Left Arrow","Advance to next equation")
@@ -123,6 +123,12 @@ void TechniqueEventHandler.getUsage(osg.ApplicationUsage usage)
 
 
 def main(argc, argv):
+
+
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -135,7 +141,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # load the nodes from the commandline arguments.
-    loadedModel =  osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("cessnafire.osgt")
@@ -144,14 +150,14 @@ def main(argc, argv):
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
-    root =  new osg.Group
+    root = osg.Group()
     root.addChild(loadedModel)
     
     
-    stateset =  new osg.StateSet
+    stateset = osg.StateSet()
     stateset.setDataVariance(osg.Object.DYNAMIC)
     
-    blendEquation =  new osg.BlendEquation(osg.BlendEquation.FUNC_ADD)
+    blendEquation = osg.BlendEquation(osg.BlendEquation.FUNC_ADD)
     blendEquation.setDataVariance(osg.Object.DYNAMIC)
     
     stateset.setAttributeAndModes(blendEquation,osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
@@ -161,7 +167,7 @@ def main(argc, argv):
 
     loadedModel.setStateSet(stateset)
 
-    viewer.addEventHandler(new TechniqueEventHandler(blendEquation))
+    viewer.addEventHandler(TechniqueEventHandler(blendEquation))
 
     # add a viewport to the viewer and attach the scene graph.
     viewer.setSceneData( root )

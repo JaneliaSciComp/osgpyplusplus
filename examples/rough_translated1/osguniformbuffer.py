@@ -11,6 +11,9 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
+
+# Translated from file 'osguniformbuffer.cpp'
+
 #include <iostream>
 
 #include <osg/Array>
@@ -111,15 +114,14 @@ char fragmentShaderSource[] =
 
 # Callback for animating the WarmColor
 
-class UniformCallback : public StateAttributeCallback
-public:
+class UniformCallback (StateAttributeCallback) :
     void operator() (StateAttribute* attr, NodeVisitor* nv)
-        ubb =  static_cast<UniformBufferBinding*>(attr)
-        ubo =  static_cast<UniformBufferObject*>(ubb.getBufferObject())
-        array =  static_cast<FloatArray*>(ubo.getBufferData(0))
-        time =  nv.getFrameStamp().getSimulationTime()
-        frac =  fmod(time, 1.0)
-        warmColor =  (Vec4f(0.0, 0.0, 1.0 ,1) * frac
+        ubb = static_cast<UniformBufferBinding*>(attr)
+        ubo = static_cast<UniformBufferObject*>(ubb.getBufferObject())
+        array = static_cast<FloatArray*>(ubo.getBufferData(0))
+        time = nv.getFrameStamp().getSimulationTime()
+        frac = fmod(time, 1.0)
+        warmColor = (Vec4f(0.0, 0.0, 1.0 ,1) * frac
                            +  Vec4f(1.0, 0.0, 0.0, 1) * (1 - frac))
         # Since we're using the std140 layout, we know where the
         # warmColor variable is located in the buffer.
@@ -129,6 +131,8 @@ public:
 
     
 def main(argc, argv):
+    
+    
     arguments = osg.ArgumentParser(argc,argv)
     viewer = osgViewer.Viewer(arguments)
     
@@ -136,22 +140,22 @@ def main(argc, argv):
         cerr, "Need a scene.\n"
         return 1
 
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     if !loadedModel : 
         cerr, "couldn't load ", argv[1], "\n"
         return 1
     optimizer = osgUtil.Optimizer()
     optimizer.optimize(loadedModel.get())
-    bound =  loadedModel.getBound()
-    displacement =  2.25 * bound.radius()
-    scene =  new Group
-    rootSS =  scene.getOrCreateStateSet()
+    bound = loadedModel.getBound()
+    displacement = 2.25 * bound.radius()
+    scene = Group()
+    rootSS = scene.getOrCreateStateSet()
 
-    vertexShader =  new Shader(Shader.VERTEX)
+    vertexShader = Shader(Shader.VERTEX)
     vertexShader.setShaderSource(vertexShaderSource)
-    fragmentShader =  new Shader(Shader.FRAGMENT)
+    fragmentShader = Shader(Shader.FRAGMENT)
     fragmentShader.setShaderSource(fragmentShaderSource)
-    prog =  new Program
+    prog = Program()
     prog.addShader(vertexShader)
     prog.addShader(fragmentShader)
     prog.addBindUniformBlock("colors0", 0)
@@ -160,49 +164,43 @@ def main(argc, argv):
     # blocks for each.
     #
     # The blocksize is known because of the std140 format.
-    blockSize =  20 * sizeof(GLfloat)
-    ref_ptr<FloatArray> colorArray
-        = new FloatArray(colors1[0],
+    blockSize = 20 * sizeof(GLfloat)
+    colorArray = FloatArray(colors1[0],
                          colors1[sizeof(colors1) / sizeof(GLfloat)])
-    ref_ptr<UniformBufferObject> ubo = new UniformBufferObject
+    ubo = UniformBufferObject()
     colorArray.setBufferObject(ubo.get())
-    group1 =  new Group
-    ss1 =  group1.getOrCreateStateSet()
+    group1 = Group()
+    ss1 = group1.getOrCreateStateSet()
     group1.addChild(loadedModel.get())
     scene.addChild(group1)
-    ref_ptr<UniformBufferBinding> ubb1
-        = new UniformBufferBinding(0, ubo.get(), 0, blockSize)
+    ubb1 = UniformBufferBinding(0, ubo.get(), 0, blockSize)
     ss1.setAttributeAndModes(ubb1.get(), StateAttribute.ON)
     
-    ref_ptr<FloatArray> colorArray2
-        = new FloatArray(colors2[0],
+    colorArray2 = FloatArray(colors2[0],
                          colors2[sizeof(colors2) / sizeof(GLfloat)])
-    ref_ptr<UniformBufferObject> ubo2 = new UniformBufferObject
+    ubo2 = UniformBufferObject()
     colorArray2.setBufferObject(ubo2.get())
-    group2 =  new MatrixTransform
-    mat2 =  Matrix.translate(-displacement, 0.0, 0.0)
+    group2 = MatrixTransform()
+    mat2 = Matrix.translate(-displacement, 0.0, 0.0)
     group2.setMatrix(mat2)
-    ss2 =  group2.getOrCreateStateSet()
+    ss2 = group2.getOrCreateStateSet()
     group2.addChild(loadedModel.get())
     scene.addChild(group2)
-    ref_ptr<UniformBufferBinding> ubb2
-        = new UniformBufferBinding(0, ubo2.get(), 0, blockSize)
+    ubb2 = UniformBufferBinding(0, ubo2.get(), 0, blockSize)
     ss2.setAttributeAndModes(ubb2.get(), StateAttribute.ON)
 
-    ref_ptr<FloatArray> colorArray3
-        = new FloatArray(colors2[0],
+    colorArray3 = FloatArray(colors2[0],
                          colors2[sizeof(colors2) / sizeof(GLfloat)])
-    ref_ptr<UniformBufferObject> ubo3 = new UniformBufferObject
+    ubo3 = UniformBufferObject()
     colorArray3.setBufferObject(ubo3.get())
-    group3 =  new MatrixTransform
-    mat3 =  Matrix.translate(displacement, 0.0, 0.0)
+    group3 = MatrixTransform()
+    mat3 = Matrix.translate(displacement, 0.0, 0.0)
     group3.setMatrix(mat3)
-    ss3 =  group3.getOrCreateStateSet()
+    ss3 = group3.getOrCreateStateSet()
     group3.addChild(loadedModel.get())
     scene.addChild(group3)    
-    ref_ptr<UniformBufferBinding> ubb3
-        = new UniformBufferBinding(0, ubo3.get(), 0, blockSize)
-    ubb3.setUpdateCallback(new UniformCallback)
+    ubb3 = UniformBufferBinding(0, ubo3.get(), 0, blockSize)
+    ubb3.setUpdateCallback(UniformCallback)()
     ubb3.setDataVariance(Object.DYNAMIC)
     ss3.setAttributeAndModes(ubb3.get(), StateAttribute.ON)
     

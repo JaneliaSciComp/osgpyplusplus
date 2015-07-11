@@ -14,23 +14,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgspheresegment.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgspheresegment.cpp'
+
+# OpenSceneGraph example, osgspheresegment.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 
@@ -64,32 +67,34 @@ from osgpypp import osgViewer
 #include "../osghangglide/terrain_coords.h"
 
 def createAnimationPath(center, radius, looptime):
+
+    
     # set up the animation path
-    animationPath =  new osg.AnimationPath
+    animationPath = osg.AnimationPath()
     animationPath.setLoopMode(osg.AnimationPath.LOOP)
 
-    numSamples =  40
-    yaw =  0.0f
-    yaw_delta =  2.0f*osg.PI/((float)numSamples-1.0f)
-    roll =  osg.inDegrees(30.0f)
+    numSamples = 40
+    yaw = 0.0
+    yaw_delta = 2.0*osg.PI/((float)numSamples-1.0)
+    roll = osg.inDegrees(30.0)
 
-    time = 0.0f
-    time_delta =  looptime/(double)numSamples
+    time = 0.0
+    time_delta = looptime/(double)numSamples
     for(int i=0i<numSamples++i)
-        position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0f))
-        rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0f)),osg.Vec3(0.0,0.0,1.0)))
+        position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0))
+        rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0)))
 
         animationPath.insert(time,osg.AnimationPath.ControlPoint(position,rotation))
 
         yaw += yaw_delta
         time += time_delta
 
-    animationPath = return()
+    return animationPath
 
 
 
-class IntersectionUpdateCallback : public osg.NodeCallback
-        virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
+class IntersectionUpdateCallback (osg.NodeCallback) :
+virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
             if !root_ || !terrain_ || !ss_ || !intersectionGroup_ :
                 osg.notify(osg.NOTICE), "IntersectionUpdateCallback not set up correctly."
                 return
@@ -100,31 +105,31 @@ class IntersectionUpdateCallback : public osg.NodeCallback
                 # first we need find the transformation matrix that takes
                 # the terrain into the coordinate frame of the sphere segment.
                 terrainLocalToWorld = osg.Matrixd()
-                terrain_worldMatrices =  terrain_.getWorldMatrices(root_.get())
+                terrain_worldMatrices = terrain_.getWorldMatrices(root_.get())
                 if terrain_worldMatrices.empty() : terrainLocalToWorld.makeIdentity()
-                else: if terrain_worldMatrices.size()==1 : terrainLocalToWorld = terrain_worldMatrices.front()
-                else:
+                elif terrain_worldMatrices.size()==1 : terrainLocalToWorld = terrain_worldMatrices.front()
+                else :
                     osg.notify(osg.NOTICE), "IntersectionUpdateCallback: warning cannot interestect with multiple terrain instances, just uses first one."
                     terrainLocalToWorld = terrain_worldMatrices.front()
 
                 # sphere segment is easier as this callback is attached to the node, so the node visitor has the unique path to it already.
-                ssWorldToLocal =  osg.computeWorldToLocal(nv.getNodePath())
+                ssWorldToLocal = osg.computeWorldToLocal(nv.getNodePath())
 
                 # now we can compute the terrain to ss transform
-                possie =  terrainLocalToWorld*ssWorldToLocal
+                possie = terrainLocalToWorld*ssWorldToLocal
 
-                lines =  ss_.computeIntersection(possie, terrain_.get())
+                lines = ss_.computeIntersection(possie, terrain_.get())
                 if !lines.empty() :
                     if intersectionGroup_.valid() :
                         # now we need to place the intersections which are in the SphereSegmenet's coordinate frame into
                         # to the final position.
-                        mt =  new osg.MatrixTransform
+                        mt = osg.MatrixTransform()
                         mt.setMatrix(osg.computeLocalToWorld(nv.getNodePath()))
                         intersectionGroup_.addChild(mt)
 
                         # print "matrix = ", mt.getMatrix()
 
-                        geode =  new osg.Geode
+                        geode = osg.Geode()
                         mt.addChild(geode)
 
                         geode.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.OFF)
@@ -132,62 +137,61 @@ class IntersectionUpdateCallback : public osg.NodeCallback
                         for(osgSim.SphereSegment.LineList.iterator itr=lines.begin()
                            itr!=lines.end()
                            ++itr)
-                            geom =  new osg.Geometry
+                            geom = osg.Geometry()
                             geode.addDrawable(geom)
 
-                            vertices =  itr.get()
+                            vertices = itr.get()
                             geom.setVertexArray(vertices)
-                            geom.addPrimitiveSet(new osg.DrawArrays(GL_LINE_STRIP, 0, vertices.getNumElements()))
-                else:
+                            geom.addPrimitiveSet(osg.DrawArrays(GL_LINE_STRIP, 0, vertices.getNumElements()))
+                else :
                        osg.notify(osg.NOTICE), "No intersections found"
 
 
                 frameCount_ = 0
-    public:
-    osg.observer_ptr<osg.Group> root_
-    osg.observer_ptr<osg.Geode> terrain_
-    osg.observer_ptr<osgSim.SphereSegment> ss_
-    osg.observer_ptr<osg.Group> intersectionGroup_
+    root_ = osg.observer_ptr<osg.Group>()
+    terrain_ = osg.observer_ptr<osg.Geode>()
+    ss_ = osg.observer_ptr<osgSim.SphereSegment>()
+    intersectionGroup_ = osg.observer_ptr<osg.Group>()
     frameCount_ = unsigned()
 
 
-class RotateUpdateCallback : public osg.NodeCallback
-public:
+class RotateUpdateCallback (osg.NodeCallback) :
     RotateUpdateCallback()  i=0
         virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-            ss =  dynamic_cast<osgSim.SphereSegment *>(node)
+            ss = dynamic_cast<osgSim.SphereSegment *>(node)
             if ss :
                 ss.setArea(osg.Vec3(cos(i/(2*osg.PI)),sin(i/(2*osg.PI)),0), osg.PI_2, osg.PI_2)
 
-                i += 0.1f
+                i += 0.1
 
-protected:
     i = float()
 
 
 def createMovingModel(center, radius, terrainGeode, root, createMovingRadar):
-    animationLength =  10.0f
 
-    animationPath =  createAnimationPath(center,radius,animationLength)
+    
+    animationLength = 10.0
 
-    model =  new osg.Group
+    animationPath = createAnimationPath(center,radius,animationLength)
 
-    glider =  osgDB.readNodeFile("glider.osgt")
+    model = osg.Group()
+
+    glider = osgDB.readNodeFile("glider.osgt")
     if glider :
-        bs =  glider.getBound()
+        bs = glider.getBound()
 
-        size =  radius/bs.radius()*0.3f
-        positioned =  new osg.MatrixTransform
+        size = radius/bs.radius()*0.3
+        positioned = osg.MatrixTransform()
         positioned.setDataVariance(osg.Object.STATIC)
         positioned.setMatrix(osg.Matrix.translate(-bs.center())*
                                      osg.Matrix.scale(size,size,size)*
-                                     osg.Matrix.rotate(osg.inDegrees(-90.0f),0.0f,0.0f,1.0f))
+                                     osg.Matrix.rotate(osg.inDegrees(-90.0),0.0,0.0,1.0))
 
         positioned.addChild(glider)
 
-        xform =  new osg.PositionAttitudeTransform
+        xform = osg.PositionAttitudeTransform()
         xform.getOrCreateStateSet().setMode(GL_NORMALIZE, osg.StateAttribute.ON)
-        xform.setUpdateCallback(new osg.AnimationPathCallback(animationPath,0.0,1.0))
+        xform.setUpdateCallback(osg.AnimationPathCallback(animationPath,0.0,1.0))
         xform.addChild(positioned)
         model.addChild(xform)
 
@@ -195,91 +199,93 @@ def createMovingModel(center, radius, terrainGeode, root, createMovingRadar):
         # The IntersectionUpdateCallback has to have a safe place to put all its generated geometry into,
         # and this group can't be in the parental chain of the callback otherwise we will end up invalidating
         # traversal iterators.
-        intersectionGroup =  new osg.Group
+        intersectionGroup = osg.Group()
         root.addChild(intersectionGroup)
 
-        xform =  new osg.PositionAttitudeTransform
-        xform.setUpdateCallback(new osg.AnimationPathCallback(animationPath,0.0,1.0))
+        xform = osg.PositionAttitudeTransform()
+        xform.setUpdateCallback(osg.AnimationPathCallback(animationPath,0.0,1.0))
 
-        ss =  new osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
-                                700.0f, # radius
-                                osg.DegreesToRadians(135.0f),
-                                osg.DegreesToRadians(240.0f),
-                                osg.DegreesToRadians(-60.0f),
-                                osg.DegreesToRadians(-40.0f),
+        ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
+                                700.0, # radius
+                                osg.DegreesToRadians(135.0),
+                                osg.DegreesToRadians(240.0),
+                                osg.DegreesToRadians(-60.0),
+                                osg.DegreesToRadians(-40.0),
                                 60)
 
-        iuc =  new IntersectionUpdateCallback
+        iuc = IntersectionUpdateCallback()
         iuc.frameCount_ = 0
         iuc.root_ = root
         iuc.terrain_ = terrainGeode
         iuc.ss_ = ss
         iuc.intersectionGroup_ = intersectionGroup
         ss.setUpdateCallback(iuc)
-        ss.setAllColors(osg.Vec4(1.0f,1.0f,1.0f,0.5f))
-        ss.setSideColor(osg.Vec4(0.5f,1.0f,1.0f,0.1f))
+        ss.setAllColors(osg.Vec4(1.0,1.0,1.0,0.5))
+        ss.setSideColor(osg.Vec4(0.5,1.0,1.0,0.1))
         xform.addChild(ss)
         model.addChild(xform)
 
-    cessna =  osgDB.readNodeFile("cessna.osgt")
+    cessna = osgDB.readNodeFile("cessna.osgt")
     if cessna :
-        bs =  cessna.getBound()
+        bs = cessna.getBound()
 
-        text =  new osgText.Text
-        size =  radius/bs.radius()*0.3f
+        text = osgText.Text()
+        size = radius/bs.radius()*0.3
 
         text.setPosition(bs.center())
         text.setText("Cessna")
         text.setAlignment(osgText.Text.CENTER_CENTER)
         text.setAxisAlignment(osgText.Text.SCREEN)
-        text.setCharacterSize(40.0f)
+        text.setCharacterSize(40.0)
         text.setCharacterSizeMode(osgText.Text.OBJECT_COORDS)
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(text)
 
-        lod =  new osg.LOD
+        lod = osg.LOD()
         lod.setRangeMode(osg.LOD.PIXEL_SIZE_ON_SCREEN)
         lod.setRadius(cessna.getBound().radius())
-        lod.addChild(geode,0.0f,100.0f)
-        lod.addChild(cessna,100.0f,10000.0f)
+        lod.addChild(geode,0.0,100.0)
+        lod.addChild(cessna,100.0,10000.0)
 
 
-        positioned =  new osg.MatrixTransform
+        positioned = osg.MatrixTransform()
         positioned.getOrCreateStateSet().setMode(GL_NORMALIZE, osg.StateAttribute.ON)
         positioned.setDataVariance(osg.Object.STATIC)
         positioned.setMatrix(osg.Matrix.translate(-bs.center())*
                                      osg.Matrix.scale(size,size,size)*
-                                     osg.Matrix.rotate(osg.inDegrees(180.0f),0.0f,0.0f,1.0f))
+                                     osg.Matrix.rotate(osg.inDegrees(180.0),0.0,0.0,1.0))
 
         #positioned.addChild(cessna)
         positioned.addChild(lod)
 
-        xform =  new osg.MatrixTransform
-        xform.setUpdateCallback(new osg.AnimationPathCallback(animationPath,0.0f,2.0))
+        xform = osg.MatrixTransform()
+        xform.setUpdateCallback(osg.AnimationPathCallback(animationPath,0.0,2.0))
         xform.addChild(positioned)
 
         model.addChild(xform)
 
-    model = return()
+    return model
 
 def createOverlay(center, radius):
-    group =  new osg.Group
+
+    
+    group = osg.Group()
 
     # create a grid of lines.
-        geom =  new osg.Geometry
+        geom = osg.Geometry()
 
-        unsigned int num_rows = 10
+        num_rows = 10
 
-        left =  center+osg.Vec3(-radius,-radius,0.0f)
-        right =  center+osg.Vec3(radius,-radius,0.0f)
-        delta_row =  osg.Vec3(0.0f,2.0f*radius/float(num_rows-1),0.0f)
+        left = center+osg.Vec3(-radius,-radius,0.0)
+        right = center+osg.Vec3(radius,-radius,0.0)
+        delta_row = osg.Vec3(0.0,2.0*radius/float(num_rows-1),0.0)
 
-        top =  center+osg.Vec3(-radius,radius,0.0f)
-        bottom =  center+osg.Vec3(-radius,-radius,0.0f)
-        delta_column =  osg.Vec3(2.0f*radius/float(num_rows-1),0.0f,0.0f)
+        top = center+osg.Vec3(-radius,radius,0.0)
+        bottom = center+osg.Vec3(-radius,-radius,0.0)
+        delta_column = osg.Vec3(2.0*radius/float(num_rows-1),0.0,0.0)
 
-        vertices =  new osg.Vec3Array
+        vertices = osg.Vec3Array()
         for(unsigned int i=0 i<num_rows ++i)
             vertices.push_back(left)
             vertices.push_back(right)
@@ -293,27 +299,28 @@ def createOverlay(center, radius):
 
         geom.setVertexArray(vertices)
 
-        color =  *(new osg.Vec4ubArray(1))
+        color = *(osg.Vec4ubArray(1))
         color[0].set(0,0,0,255)
         geom.setColorArray(color, osg.Array.BIND_OVERALL)
 
-        geom.addPrimitiveSet(new osg.DrawArrays(GL_LINES,0,vertices.getNumElements()))
+        geom.addPrimitiveSet(osg.DrawArrays(GL_LINES,0,vertices.getNumElements()))
 
         geom.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-        geode =  new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geom)
         group.addChild(geode)
 
-    group = return()
+    return group
 
 def computeTerrainIntersection(subgraph, x, y):
-    bs =  subgraph.getBound()
-    zMax =  bs.center().z()+bs.radius()
-    zMin =  bs.center().z()-bs.radius()
 
-    osg.ref_ptr<osgUtil.LineSegmentIntersector> intersector =
-        new osgUtil.LineSegmentIntersector(osg.Vec3(x,y,zMin),osg.Vec3(x,y,zMax))
+    
+    bs = subgraph.getBound()
+    zMax = bs.center().z()+bs.radius()
+    zMin = bs.center().z()-bs.radius()
+
+    intersector = osgUtil.LineSegmentIntersector(osg.Vec3(x,y,zMin),osg.Vec3(x,y,zMax))
 
     iv = osgUtil.IntersectionVisitor(intersector.get())
 
@@ -322,66 +329,68 @@ def computeTerrainIntersection(subgraph, x, y):
     if intersector.containsIntersections() :
         return intersector.getFirstIntersection().getWorldIntersectPoint()
 
-    return osg.Vec3(x,y,0.0f)
+    return osg.Vec3(x,y,0.0)
 
 
 #######################################
 # MAIN SCENE GRAPH BUILDING FUNCTION
 #######################################
 
-void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim.OverlayNode.OverlayTechnique technique)
+def build_world(root, testCase, useOverlay, technique):
+
+    
 
     # create terrain
-    osg.ref_ptr<osg.Geode> terrainGeode = 0
-        terrainGeode = new osg.Geode
+    terrainGeode = 0
+        terrainGeode = osg.Geode()
 
-        stateset =  new osg.StateSet()
-        image =  osgDB.readImageFile("Images/lz.rgb")
+        stateset = osg.StateSet()
+        image = osgDB.readImageFile("Images/lz.rgb")
         if image :
-            texture =  new osg.Texture2D
+            texture = osg.Texture2D()
             texture.setImage(image)
             stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
 
         terrainGeode.setStateSet( stateset )
 
 
-            unsigned int numColumns = 38
-            unsigned int numRows = 39
+            numColumns = 38
+            numRows = 39
             unsigned int r, c
 
-            origin = osg.Vec3(0.0f,0.0f,0.0f)
-            size = osg.Vec3(1000.0f,1000.0f,250.0f)
+            origin = osg.Vec3(0.0,0.0,0.0)
+            size = osg.Vec3(1000.0,1000.0,250.0)
 
-            geometry =  new osg.Geometry
+            geometry = osg.Geometry()
 
-            v =  *(new osg.Vec3Array(numColumns*numRows))
-            tc =  *(new osg.Vec2Array(numColumns*numRows))
-            color =  *(new osg.Vec4ubArray(1))
+            v = *(osg.Vec3Array(numColumns*numRows))
+            tc = *(osg.Vec2Array(numColumns*numRows))
+            color = *(osg.Vec4ubArray(1))
 
             color[0].set(255,255,255,255)
 
-            rowCoordDelta =  size.y()/(float)(numRows-1)
-            columnCoordDelta =  size.x()/(float)(numColumns-1)
+            rowCoordDelta = size.y()/(float)(numRows-1)
+            columnCoordDelta = size.x()/(float)(numColumns-1)
 
-            rowTexDelta =  1.0f/(float)(numRows-1)
-            columnTexDelta =  1.0f/(float)(numColumns-1)
+            rowTexDelta = 1.0/(float)(numRows-1)
+            columnTexDelta = 1.0/(float)(numColumns-1)
 
             # compute z range of z values of grid data so we can scale it.
-            min_z =  FLT_MAX
-            max_z =  -FLT_MAX
+            min_z = FLT_MAX
+            max_z = -FLT_MAX
             for(r=0r<numRows++r)
                 for(c=0c<numColumns++c)
                     min_z = osg.minimum(min_z,vertex[r+c*numRows][2])
                     max_z = osg.maximum(max_z,vertex[r+c*numRows][2])
 
-            scale_z =  size.z()/(max_z-min_z)
+            scale_z = size.z()/(max_z-min_z)
 
-            pos =  origin
-            tex = osg.Vec2(0.0f,0.0f)
+            pos = origin
+            tex = osg.Vec2(0.0,0.0)
             vi = 0
             for(r=0r<numRows++r)
                 pos.x() = origin.x()
-                tex.x() = 0.0f
+                tex.x() = 0.0
                 for(c=0c<numColumns++c)
                     v[vi].set(pos.x(),pos.y(),pos.z()+(vertex[r+c*numRows][2]-min_z)*scale_z)
                     tc[vi] = tex
@@ -396,7 +405,7 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
             geometry.setColorArray(color, osg.Array.BIND_OVERALL)
 
             for(r=0r<numRows-1++r)
-                drawElements =  *(new osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
+                drawElements = *(osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
                 geometry.addPrimitiveSet(drawElements)
                 ei = 0
                 for(c=0c<numColumns++c)
@@ -411,65 +420,65 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
 
 
     # create sphere segment
-    osg.ref_ptr<osgSim.SphereSegment> ss = 0
+    ss = 0
 
         terrainToSS = osg.Matrix()
 
         switch(testCase)
             case(0):
-                ss = new osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0f,780.0f), # center
-                                510.0f, # radius
-                                osg.DegreesToRadians(135.0f),
-                                osg.DegreesToRadians(240.0f),
-                                osg.DegreesToRadians(-10.0f),
-                                osg.DegreesToRadians(30.0f),
+                ss = osgSim.SphereSegment(
+                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                510.0, # radius
+                                osg.DegreesToRadians(135.0),
+                                osg.DegreesToRadians(240.0),
+                                osg.DegreesToRadians(-10.0),
+                                osg.DegreesToRadians(30.0),
                                 60)
                 root.addChild(ss.get())
                 break
             case(1):
-                ss = new osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0f,780.0f), # center
-                                510.0f, # radius
-                                osg.DegreesToRadians(45.0f),
-                                osg.DegreesToRadians(240.0f),
-                                osg.DegreesToRadians(-10.0f),
-                                osg.DegreesToRadians(30.0f),
+                ss = osgSim.SphereSegment(
+                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                510.0, # radius
+                                osg.DegreesToRadians(45.0),
+                                osg.DegreesToRadians(240.0),
+                                osg.DegreesToRadians(-10.0),
+                                osg.DegreesToRadians(30.0),
                                 60)
                 root.addChild(ss.get())
                 break
             case(2):
-                ss = new osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0f,780.0f), # center
-                                510.0f, # radius
-                                osg.DegreesToRadians(5.0f),
-                                osg.DegreesToRadians(355.0f),
-                                osg.DegreesToRadians(-10.0f),
-                                osg.DegreesToRadians(30.0f),
+                ss = osgSim.SphereSegment(
+                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                510.0, # radius
+                                osg.DegreesToRadians(5.0),
+                                osg.DegreesToRadians(355.0),
+                                osg.DegreesToRadians(-10.0),
+                                osg.DegreesToRadians(30.0),
                                 60)
                 root.addChild(ss.get())
                 break
             case(3):
-                ss = new osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0f,780.0f), # center
-                                510.0f, # radius
-                                osg.DegreesToRadians(0.0f),
-                                osg.DegreesToRadians(360.0f),
-                                osg.DegreesToRadians(-10.0f),
-                                osg.DegreesToRadians(30.0f),
+                ss = osgSim.SphereSegment(
+                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                510.0, # radius
+                                osg.DegreesToRadians(0.0),
+                                osg.DegreesToRadians(360.0),
+                                osg.DegreesToRadians(-10.0),
+                                osg.DegreesToRadians(30.0),
                                 60)
                 root.addChild(ss.get())
                 break
             case(4):
-                ss = new osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
-                                700.0f, # radius
-                                osg.DegreesToRadians(135.0f),
-                                osg.DegreesToRadians(240.0f),
-                                osg.DegreesToRadians(-60.0f),
-                                osg.DegreesToRadians(-40.0f),
+                ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
+                                700.0, # radius
+                                osg.DegreesToRadians(135.0),
+                                osg.DegreesToRadians(240.0),
+                                osg.DegreesToRadians(-60.0),
+                                osg.DegreesToRadians(-40.0),
                                 60)
 
-                osg.ref_ptr<osg.MatrixTransform> mt = new osg.MatrixTransform
+                mt = osg.MatrixTransform()
 
                 mt.setMatrix(osg.Matrix(-0.851781, 0.156428, -0.5, 0,
                                           -0.180627, -0.983552, -6.93889e-18, 0,
@@ -482,15 +491,15 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
                 root.addChild(mt.get())
                 break
             case(5):
-                ss = new osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
-                                700.0f, # radius
-                                osg.DegreesToRadians(35.0f),
-                                osg.DegreesToRadians(135.0f),
-                                osg.DegreesToRadians(-60.0f),
-                                osg.DegreesToRadians(-40.0f),
+                ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
+                                700.0, # radius
+                                osg.DegreesToRadians(35.0),
+                                osg.DegreesToRadians(135.0),
+                                osg.DegreesToRadians(-60.0),
+                                osg.DegreesToRadians(-40.0),
                                 60)
 
-                osg.ref_ptr<osg.MatrixTransform> mt = new osg.MatrixTransform
+                mt = osg.MatrixTransform()
 
                 mt.setMatrix(osg.Matrix(-0.851781, 0.156428, -0.5, 0,
                                           -0.180627, -0.983552, -6.93889e-18, 0,
@@ -503,15 +512,15 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
                 root.addChild(mt.get())
                 break
             case(6):
-                ss = new osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
-                                700.0f, # radius
-                                osg.DegreesToRadians(-45.0f),
-                                osg.DegreesToRadians(45.0f),
-                                osg.DegreesToRadians(-60.0f),
-                                osg.DegreesToRadians(-40.0f),
+                ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
+                                700.0, # radius
+                                osg.DegreesToRadians(-45.0),
+                                osg.DegreesToRadians(45.0),
+                                osg.DegreesToRadians(-60.0),
+                                osg.DegreesToRadians(-40.0),
                                 60)
 
-                osg.ref_ptr<osg.MatrixTransform> mt = new osg.MatrixTransform
+                mt = osg.MatrixTransform()
 
                 mt.setMatrix(osg.Matrix(-0.851781, 0.156428, -0.5, 0,
                                           -0.180627, -0.983552, -6.93889e-18, 0,
@@ -524,22 +533,22 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
                 root.addChild(mt.get())
                 break
             case(7):
-                ss = new osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0f,780.0f), # center
-                                510.0f, # radius
-                                osg.DegreesToRadians(-240.0f),
-                                osg.DegreesToRadians(-135.0f),
-                                osg.DegreesToRadians(-10.0f),
-                                osg.DegreesToRadians(30.0f),
+                ss = osgSim.SphereSegment(
+                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                510.0, # radius
+                                osg.DegreesToRadians(-240.0),
+                                osg.DegreesToRadians(-135.0),
+                                osg.DegreesToRadians(-10.0),
+                                osg.DegreesToRadians(30.0),
                                 60)
-                ss.setUpdateCallback(new RotateUpdateCallback())
+                ss.setUpdateCallback(RotateUpdateCallback())
                 root.addChild(ss.get())
                 break
         
 
         if ss.valid() :
-            ss.setAllColors(osg.Vec4(1.0f,1.0f,1.0f,0.5f))
-            ss.setSideColor(osg.Vec4(0.0f,1.0f,1.0f,0.1f))
+            ss.setAllColors(osg.Vec4(1.0,1.0,1.0,0.5))
+            ss.setSideColor(osg.Vec4(0.0,1.0,1.0,0.1))
 
             if !ss.getParents().empty() :
                 ss.getParent(0).addChild(ss.computeIntersectionSubgraph(terrainToSS, terrainGeode.get()))
@@ -547,11 +556,11 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
 
 
     if useOverlay :
-        overlayNode =  new osgSim.OverlayNode(technique)
-        overlayNode.getOrCreateStateSet().setTextureAttribute(1, new osg.TexEnv(osg.TexEnv.DECAL))
+        overlayNode = osgSim.OverlayNode(technique)
+        overlayNode.getOrCreateStateSet().setTextureAttribute(1, osg.TexEnv(osg.TexEnv.DECAL))
 
-        bs =  terrainGeode.getBound()
-        overlaySubgraph =  createOverlay(bs.center(), bs.radius()*0.5f)
+        bs = terrainGeode.getBound()
+        overlaySubgraph = createOverlay(bs.center(), bs.radius()*0.5)
         overlaySubgraph.addChild(ss.get())
         overlayNode.setOverlaySubgraph(overlaySubgraph)
         overlayNode.setOverlayTextureSizeHint(1024)
@@ -559,36 +568,36 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
         overlayNode.addChild(terrainGeode.get())
 
         root.addChild(overlayNode)
-    else:
+    else :
       root.addChild(terrainGeode.get())
 
     # create particle effects
-        position =  computeTerrainIntersection(terrainGeode.get(),100.0f,100.0f)
+        position = computeTerrainIntersection(terrainGeode.get(),100.0,100.0)
 
-        explosion =  new osgParticle.ExplosionEffect(position, 10.0f)
-        smoke =  new osgParticle.SmokeEffect(position, 10.0f)
-        fire =  new osgParticle.FireEffect(position, 10.0f)
+        explosion = osgParticle.ExplosionEffect(position, 10.0)
+        smoke = osgParticle.SmokeEffect(position, 10.0)
+        fire = osgParticle.FireEffect(position, 10.0)
 
         root.addChild(explosion)
         root.addChild(smoke)
         root.addChild(fire)
 
     # create particle effects
-        position =  computeTerrainIntersection(terrainGeode.get(),200.0f,100.0f)
+        position = computeTerrainIntersection(terrainGeode.get(),200.0,100.0)
 
-        explosion =  new osgParticle.ExplosionEffect(position, 1.0f)
-        smoke =  new osgParticle.SmokeEffect(position, 1.0f)
-        fire =  new osgParticle.FireEffect(position, 1.0f)
+        explosion = osgParticle.ExplosionEffect(position, 1.0)
+        smoke = osgParticle.SmokeEffect(position, 1.0)
+        fire = osgParticle.FireEffect(position, 1.0)
 
         root.addChild(explosion)
         root.addChild(smoke)
         root.addChild(fire)
 
 
-    createMovingRadar =  true
+    createMovingRadar = True
 
     # create the moving models.
-        root.addChild(createMovingModel(osg.Vec3(500.0f,500.0f,500.0f),100.0f, terrainGeode.get(), root, createMovingRadar))
+        root.addChild(createMovingModel(osg.Vec3(500.0,500.0,500.0),100.0, terrainGeode.get(), root, createMovingRadar))
 
 
 #######################################
@@ -597,6 +606,9 @@ void build_world(osg.Group *root, unsigned int testCase, bool useOverlay, osgSim
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -610,14 +622,14 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # if user request help write it out to cout.
-    unsigned int testCase = 0
+    testCase = 0
     while arguments.read("-t", testCase) : 
 
-    useOverlay =  false
-    technique =  osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
-    while arguments.read("--object") :  useOverlay = true technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
-    while arguments.read("--ortho") || arguments.read("--orthographic") :  useOverlay = true technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
-    while arguments.read("--persp") || arguments.read("--perspective") :  useOverlay = true technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY 
+    useOverlay = False
+    technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
+    while arguments.read("--object") :  useOverlay = True technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
+    while arguments.read("--ortho") || arguments.read("--orthographic") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
+    while arguments.read("--persp") || arguments.read("--perspective") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY 
 
 
     # if user request help write it out to cout.
@@ -633,7 +645,7 @@ def main(argc, argv):
         arguments.writeErrorMessages(std.cout)
         return 1
 
-    root =  new osg.Group
+    root = osg.Group()
     build_world(root, testCase, useOverlay, technique)
 
     # add a viewport to the viewer and attach the scene graph.

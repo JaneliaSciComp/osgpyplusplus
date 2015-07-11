@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgoccluder.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgoccluder.cpp'
+
+# OpenSceneGraph example, osgoccluder.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 
@@ -55,23 +58,24 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-class OccluderEventHandler : public osgGA.GUIEventHandler
-    public:
+class OccluderEventHandler (osgGA.GUIEventHandler) :
 
         OccluderEventHandler(osgViewer.Viewer* viewer):_viewer(viewer) 
 
-        virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
+        handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
         addPoint = void( osg.Vec3 pos)
 
         endOccluder = void()
 
-        osg.Group* rootNode()  return dynamic_cast<osg.Group*>(_viewer.getSceneData()) 
+        def rootNode():
+
+             return dynamic_cast<osg.Group*>(_viewer.getSceneData()) 
 
 
         _viewer = osgViewer.Viewer*()
-        osg.ref_ptr<osg.Group>                _occluders
-        osg.ref_ptr<osg.ConvexPlanarOccluder> _convexPlanarOccluder
+        _occluders = osg.Group()
+        _convexPlanarOccluder = osg.ConvexPlanarOccluder()
 
 
 bool OccluderEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa)
@@ -79,43 +83,43 @@ bool OccluderEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapte
         case(osgGA.GUIEventAdapter.KEYDOWN):
             if ea.getKey()=='a' :
 
-                view =  dynamic_cast<osgViewer.View*>(aa)
+                view = dynamic_cast<osgViewer.View*>(aa)
                 intersections = osgUtil.LineSegmentIntersector.Intersections()
                 if view  view.computeIntersections(ea, intersections) :
-                    hit =  *(intersections.begin())
+                    hit = *(intersections.begin())
                     if hit.matrix.valid() : addPoint(hit.localIntersectionPoint * (*hit.matrix))
-                    addPoint = else:(hit.localIntersectionPoint)
+                    addPoint = else :(hit.localIntersectionPoint)
 
-                true = return()
-            else: if ea.getKey()=='e' :
+                return True
+            elif ea.getKey()=='e' :
                 endOccluder()
-                true = return()
-            else: if ea.getKey()=='O' :
+                return True
+            elif ea.getKey()=='O' :
                 if _occluders.valid() :
 
                     if osgDB.writeNodeFile(*_occluders,"saved_occluders.osgt") :
                         print "saved occluders to 'saved_occluders.osgt'"
-                else:
+                else :
                     print "no occluders to save"
-                true = return()
-            false = return()
+                return True
+            return False
 
         default:
-            false = return()
+            return False
 
 void OccluderEventHandler.addPoint( osg.Vec3 pos)
     print "add point ", pos
 
-    if !_convexPlanarOccluder.valid() : _convexPlanarOccluder = new osg.ConvexPlanarOccluder
+    if !_convexPlanarOccluder.valid() : _convexPlanarOccluder = osg.ConvexPlanarOccluder()
 
-    occluder =  _convexPlanarOccluder.getOccluder()
+    occluder = _convexPlanarOccluder.getOccluder()
     occluder.add(pos)
 
 #
 #     osg.BoundingSphere bs = rootNode().getBound()
 #
-#     osg.ShapeDrawable* sd = new osg.ShapeDrawable(new osg.Sphere(pos,bs.radius()*0.001f))
-#     geode =  new osg.Geode
+#     osg.ShapeDrawable* sd = osg.ShapeDrawable(osg.Sphere(pos,bs.radius()*0.001))
+#     geode = osg.Geode()
 #     geode.addDrawable(sd)
 #
 #     rootNode().addChild(geode)
@@ -125,18 +129,18 @@ void OccluderEventHandler.addPoint( osg.Vec3 pos)
 void OccluderEventHandler.endOccluder()
     if _convexPlanarOccluder.valid() :
         if _convexPlanarOccluder.getOccluder().getVertexList().size()>=3 :
-            occluderNode =  new osg.OccluderNode
+            occluderNode = osg.OccluderNode()
             occluderNode.setOccluder(_convexPlanarOccluder.get())
 
             if !_occluders.valid() :
-                _occluders = new osg.Group
+                _occluders = osg.Group()
                 if rootNode() : rootNode().addChild(_occluders.get())
             _occluders.addChild(occluderNode)
 
             print "created occluder"
-        else:
+        else :
             print "Occluder requires at least 3 points to create occluder."
-    else:
+    else :
         print "No occluder points to create occluder with."
 
     # reset current occluder.
@@ -144,33 +148,36 @@ void OccluderEventHandler.endOccluder()
 
 
 def createOccluder(v1, v2, v3, v4, holeRatio):
+
+
+    
    # create an occluder which will sit alongside the loaded model.
-    occluderNode =  new osg.OccluderNode
+    occluderNode = osg.OccluderNode()
 
     # create the convex planar occluder
-    cpo =  new osg.ConvexPlanarOccluder
+    cpo = osg.ConvexPlanarOccluder()
 
     # attach it to the occluder node.
     occluderNode.setOccluder(cpo)
     occluderNode.setName("occluder")
 
     # set the occluder up for the front face of the bounding box.
-    occluder =  cpo.getOccluder()
+    occluder = cpo.getOccluder()
     occluder.add(v1)
     occluder.add(v2)
     occluder.add(v3)
     occluder.add(v4)
 
     # create a hole at the center of the occluder if needed.
-    if holeRatio>0.0f :
+    if holeRatio>0.0 :
         # create hole.
-        ratio =  holeRatio
-        one_minus_ratio =  1-ratio
-        center =  (v1+v2+v3+v4)*0.25f
-        v1dash =  v1*ratio + center*one_minus_ratio
-        v2dash =  v2*ratio + center*one_minus_ratio
-        v3dash =  v3*ratio + center*one_minus_ratio
-        v4dash =  v4*ratio + center*one_minus_ratio
+        ratio = holeRatio
+        one_minus_ratio = 1-ratio
+        center = (v1+v2+v3+v4)*0.25
+        v1dash = v1*ratio + center*one_minus_ratio
+        v2dash = v2*ratio + center*one_minus_ratio
+        v3dash = v3*ratio + center*one_minus_ratio
+        v4dash = v4*ratio + center*one_minus_ratio
 
         hole = osg.ConvexPlanarPolygon()
         hole.add(v1dash)
@@ -182,21 +189,21 @@ def createOccluder(v1, v2, v3, v4, holeRatio):
 
 
    # create a drawable for occluder.
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
-    coords =  new osg.Vec3Array(occluder.getVertexList().begin(),occluder.getVertexList().end())
+    coords = osg.Vec3Array(occluder.getVertexList().begin(),occluder.getVertexList().end())
     geom.setVertexArray(coords)
 
-    colors =  new osg.Vec4Array(1)
-    (*colors)[0].set(1.0f,1.0f,1.0f,0.5f)
+    colors = osg.Vec4Array(1)
+    (*colors)[0].set(1.0,1.0,1.0,0.5)
     geom.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-    geom.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
+    geom.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4))
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geom)
 
-    stateset =  new osg.StateSet
+    stateset = osg.StateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
     stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
@@ -208,11 +215,13 @@ def createOccluder(v1, v2, v3, v4, holeRatio):
     # geode will never be occluded by this occluder.
     occluderNode.addChild(geode)
 
-    occluderNode = return()
+    return occluderNode
 
 
 def createOccludersAroundModel(model):
-    scene =  new osg.Group
+
+    
+    scene = osg.Group()
     scene.setName("rootgroup")
 
 
@@ -221,7 +230,7 @@ def createOccludersAroundModel(model):
     model.setName("model")
 
     # get the bounding volume of the model.
-    bs =  model.getBound()
+    bs = model.getBound()
 
     # create a bounding box around the sphere.
     bb = osg.BoundingBox()
@@ -250,12 +259,16 @@ def createOccludersAroundModel(model):
                                   bb.corner(2),
                                   bb.corner(6),
                                   bb.corner(7),
-                                  0.5f)) # create a hole half the size of the occluder.
+                                  0.5)) # create a hole half the size of the occluder.
 
-    scene = return()
+    return scene
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -268,11 +281,11 @@ def main(argc, argv):
     # initialize the viewer.
     viewer = osgViewer.Viewer()
 
-    manuallyCreateOccluders =  false
-    while arguments.read("-m") :  manuallyCreateOccluders = true 
+    manuallyCreateOccluders = False
+    while arguments.read("-m") :  manuallyCreateOccluders = True 
 
     if manuallyCreateOccluders :
-        viewer.addEventHandler(new OccluderEventHandler(viewer))
+        viewer.addEventHandler(OccluderEventHandler(viewer))
 
     # if user requests help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
@@ -280,7 +293,7 @@ def main(argc, argv):
         return 1
 
     # load the nodes from the commandline arguments.
-    loadedmodel =  osgDB.readNodeFiles(arguments)
+    loadedmodel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try using default mode instead.
     if !loadedmodel : loadedmodel = osgDB.readNodeFile("glider.osgt")
@@ -294,12 +307,12 @@ def main(argc, argv):
     optimzer.optimize(loadedmodel)
 
     # add the occluders to the loaded model.
-    osg.ref_ptr<osg.Group> rootnode
+    rootnode = osg.Group()
 
     if manuallyCreateOccluders :
-        rootnode = new osg.Group
+        rootnode = osg.Group()
         rootnode.addChild(loadedmodel)
-    else:
+    else :
         rootnode = createOccludersAroundModel(loadedmodel)
 
 

@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgcallback.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgcallback.cpp'
+
+# OpenSceneGraph example, osgcallback.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 
@@ -49,52 +52,55 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-class UpdateCallback : public osg.NodeCallback
-        virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+class UpdateCallback (osg.NodeCallback) :
+virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
             print "update callback - pre traverse", node
             traverse(node,nv)
             print "update callback - post traverse", node
 
 
-class CullCallback : public osg.NodeCallback
-        virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+class CullCallback (osg.NodeCallback) :
+virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
             print "cull callback - pre traverse", node
             traverse(node,nv)
             print "cull callback - post traverse", node
 
 
-class DrawableDrawCallback : public osg.Drawable.DrawCallback
-        virtual void drawImplementation(osg.RenderInfo renderInfo, osg.Drawable* drawable) 
+class DrawableDrawCallback (osg.Drawable.DrawCallback) :
+def drawImplementation(renderInfo, drawable):
+    
             print "draw call back - pre drawImplementation", drawable
             drawable.drawImplementation(renderInfo)
             print "draw call back - post drawImplementation", drawable
 
 
-struct DrawableUpdateCallback : public osg.Drawable.UpdateCallback
-    virtual void update(osg.NodeVisitor*, osg.Drawable* drawable)
+class DrawableUpdateCallback (osg.Drawable.UpdateCallback) :
+virtual void update(osg.NodeVisitor*, osg.Drawable* drawable)
         print "Drawable update callback ", drawable
 
 
-struct DrawableCullCallback : public osg.Drawable.CullCallback
-    #* do customized cull code.
+class DrawableCullCallback (osg.Drawable.CullCallback) :
+#* do customized cull code.
     virtual bool cull(osg.NodeVisitor*, osg.Drawable* drawable, osg.State* #state) 
         print "Drawable cull callback ", drawable
-        false = return()
+        return False
 
 
-class InsertCallbacksVisitor : public osg.NodeVisitor
-
-   public:
+class InsertCallbacksVisitor (osg.NodeVisitor) :
    
         InsertCallbacksVisitor():osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
         
-        virtual void apply(osg.Node node)
-             node.setUpdateCallback(new UpdateCallback())
-             node.setCullCallback(new CullCallback())
+        def apply(node):
+        
+            
+             node.setUpdateCallback(UpdateCallback())
+             node.setCullCallback(CullCallback())
              traverse(node)
 
-        virtual void apply(osg.Geode geode)
-            geode.setUpdateCallback(new UpdateCallback())
+        def apply(geode):
+
+            
+            geode.setUpdateCallback(UpdateCallback())
             
             #note, it makes no sense to attach a cull callback to the node
             #at there are no nodes to traverse below the geode, only
@@ -103,51 +109,55 @@ class InsertCallbacksVisitor : public osg.NodeVisitor
             #then use a drawable cullback...
 
             for(unsigned int i=0i<geode.getNumDrawables()++i)
-                geode.getDrawable(i).setUpdateCallback(new DrawableUpdateCallback())
-                geode.getDrawable(i).setCullCallback(new DrawableCullCallback())
-                geode.getDrawable(i).setDrawCallback(new DrawableDrawCallback())
+                geode.getDrawable(i).setUpdateCallback(DrawableUpdateCallback())
+                geode.getDrawable(i).setCullCallback(DrawableCullCallback())
+                geode.getDrawable(i).setDrawCallback(DrawableDrawCallback())
         
-        virtual void apply(osg.Transform node)
+        def apply(node):
+        
+            
             apply((osg.Node)node)
 
 
-class MyReadFileCallback : public osgDB.Registry.ReadFileCallback
-public:
-    virtual osgDB.ReaderWriter.ReadResult readNode( str fileName,  osgDB.ReaderWriter.Options* options)
+class MyReadFileCallback (osgDB.Registry.ReadFileCallback) :
+    def readNode(fileName, options):
+        
         print "before readNode"
         # note when calling the Registry to do the read you have to call readNodeImplementation NOT readNode, as this will
         # cause on infinite recusive loop.
-        result =  osgDB.Registry.instance().readNodeImplementation(fileName,options)
+        result = osgDB.Registry.instance().readNodeImplementation(fileName,options)
         print "after readNode"
-        result = return()
+        return result
 
 
-class CameraUpdateCallback : public osg.NodeCallback
-    virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+class CameraUpdateCallback (osg.NodeCallback) :
+virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
         print "Camera update callback - pre traverse", node
         traverse(node,nv)
         print "Camera update callback - post traverse", node
 
 
-class CameraEventCallback : public osg.NodeCallback
-    virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+class CameraEventCallback (osg.NodeCallback) :
+virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
         print "Camera event callback - pre traverse", node
         traverse(node,nv)
         print "Camera event callback - post traverse", node
 
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
    
     # set the osgDB.Registy read file callback to catch all requests for reading files.
-    osgDB.Registry.instance().setReadFileCallback(new MyReadFileCallback())
+    osgDB.Registry.instance().setReadFileCallback(MyReadFileCallback())
    
     # initialize the viewer.
     viewer = osgViewer.Viewer()
 
     # load the nodes from the commandline arguments.
-    rootnode =  osgDB.readNodeFiles(arguments)
+    rootnode = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !rootnode : rootnode = osgDB.readNodeFile("cow.osgt")
@@ -165,8 +175,8 @@ def main(argc, argv):
     icv = InsertCallbacksVisitor()
     rootnode.accept(icv)
 
-    viewer.getCamera().setUpdateCallback(new CameraUpdateCallback())
-    viewer.getCamera().setEventCallback(new CameraEventCallback())
+    viewer.getCamera().setUpdateCallback(CameraUpdateCallback())
+    viewer.getCamera().setEventCallback(CameraEventCallback())
 
     # set the scene to render
     viewer.setSceneData(rootnode)

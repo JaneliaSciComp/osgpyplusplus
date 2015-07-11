@@ -11,23 +11,26 @@ from osgpypp import osgAnimation
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-#  -*-c++-*- 
- *  Copyright (C) 2008 Cedric Pinson <mornifle@plopbyte.net>
- *
- * This library is open source and may be redistributed and/or modified under  
- * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
- * (at your option) any later version.  The full license is in LICENSE file
- * included with this distribution, and on the openscenegraph.org website.
- * 
- * This library is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
- * OpenSceneGraph Public License for more details.
- *
- *  Authors:
- *   Jeremy Moles  <jeremy@emperorlinux.com>
- *   Cedric Pinson <mornifle@plopbyte.net>
 
+# Translated from file 'osganimationmakepath.cpp'
+
+#  -*-c++-*- 
+# *  Copyright (C) 2008 Cedric Pinson <mornifle@plopbyte.net>
+# *
+# * This library is open source and may be redistributed and/or modified under  
+# * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or 
+# * (at your option) any later version.  The full license is in LICENSE file
+# * included with this distribution, and on the openscenegraph.org website.
+# * 
+# * This library is distributed in the hope that it will be useful,
+# * but WITHOUT ANY WARRANTY without even the implied warranty of
+# * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+# * OpenSceneGraph Public License for more details.
+# *
+# *  Authors:
+# *   Jeremy Moles  <jeremy@emperorlinux.com>
+# *   Cedric Pinson <mornifle@plopbyte.net>
+#
 
 #include <iostream>
 #include <osg/io_utils>
@@ -41,13 +44,12 @@ from osgpypp import osgViewer
 #include <osgGA/TrackballManipulator>
 #include <osgAnimation/Sampler>
 
-  class AnimtkUpdateCallback : public osg.NodeCallback
-  public:
+  class AnimtkUpdateCallback (osg.NodeCallback) :
       META_Object(osgAnimation, AnimtkUpdateCallback)
 
       AnimtkUpdateCallback() 
-          _sampler = new osgAnimation.Vec3CubicBezierSampler
-          _playing = false
+          _sampler = osgAnimation.Vec3CubicBezierSampler()
+          _playing = False
           _lastUpdate = 0
       AnimtkUpdateCallback( AnimtkUpdateCallback val,  osg.CopyOp copyop = osg.CopyOp.SHALLOW_COPY):
           osg.Object(val, copyop),
@@ -68,11 +70,11 @@ from osgpypp import osgViewer
               _currentTime = osg.Timer.instance().tick()
 
               if _playing  _sampler.get()  _sampler.getKeyframeContainer() : 
-                  transform =  dynamic_cast<osg.MatrixTransform*>(node)
+                  transform = dynamic_cast<osg.MatrixTransform*>(node)
                   if transform : 
                       result = osg.Vec3()
-                      t =  osg.Timer.instance().delta_s(_startTime, _currentTime)
-                      duration =  _sampler.getEndTime() - _sampler.getStartTime()
+                      t = osg.Timer.instance().delta_s(_startTime, _currentTime)
+                      duration = _sampler.getEndTime() - _sampler.getStartTime()
                       t = fmod(t, duration)
                       t += _sampler.getStartTime()
                       _sampler.getValueAt(t, result)
@@ -82,24 +84,26 @@ from osgpypp import osgViewer
           # scene graph subtree (and associated callbacks) are traversed.
           traverse(node,nv)
 
-      void start()  _startTime = osg.Timer.instance().tick() _currentTime = _startTime _playing = true
-      void stop()  _currentTime = _startTime _playing = false
+      def start():
 
-      osg.ref_ptr<osgAnimation.Vec3CubicBezierSampler> _sampler
+           _startTime = osg.Timer.instance().tick() _currentTime = _startTime _playing = True
+      def stop():
+           _currentTime = _startTime _playing = False
+
+      _sampler = osgAnimation.Vec3CubicBezierSampler()
       _startTime = osg.Timer_t()
       _currentTime = osg.Timer_t()
       _playing = bool()
-      unsigned int _lastUpdate
+      _lastUpdate = unsigned int()
   
 
 
-class AnimtkStateSetUpdateCallback : public osg.StateSet.Callback
-public:
+class AnimtkStateSetUpdateCallback (osg.StateSet.Callback) :
     META_Object(osgAnimation, AnimtkStateSetUpdateCallback)
 
     AnimtkStateSetUpdateCallback() 
-        _sampler = new osgAnimation.Vec4LinearSampler
-        _playing = false
+        _sampler = osgAnimation.Vec4LinearSampler()
+        _playing = False
         _lastUpdate = 0
 
     AnimtkStateSetUpdateCallback( AnimtkStateSetUpdateCallback val,  osg.CopyOp copyop = osg.CopyOp.SHALLOW_COPY):
@@ -122,48 +126,49 @@ public:
             _currentTime = osg.Timer.instance().tick()
 
             if _playing  _sampler.get()  _sampler.getKeyframeContainer() : 
-                material =  dynamic_cast<osg.Material*>(state.getAttribute(osg.StateAttribute.MATERIAL))
+                material = dynamic_cast<osg.Material*>(state.getAttribute(osg.StateAttribute.MATERIAL))
                 if material : 
                     result = osg.Vec4()
-                    t =  osg.Timer.instance().delta_s(_startTime, _currentTime)
-                    duration =  _sampler.getEndTime() - _sampler.getStartTime()
+                    t = osg.Timer.instance().delta_s(_startTime, _currentTime)
+                    duration = _sampler.getEndTime() - _sampler.getStartTime()
                     t = fmod(t, duration)
                     t += _sampler.getStartTime()
                     _sampler.getValueAt(t, result)
                     material.setDiffuse(osg.Material.FRONT_AND_BACK, result)
 
-    void start()  _startTime = osg.Timer.instance().tick() _currentTime = _startTime _playing = true
-    void stop()  _currentTime = _startTime _playing = false
+    def start():
 
-    osg.ref_ptr<osgAnimation.Vec4LinearSampler> _sampler
+         _startTime = osg.Timer.instance().tick() _currentTime = _startTime _playing = True
+    def stop():
+         _currentTime = _startTime _playing = False
+
+    _sampler = osgAnimation.Vec4LinearSampler()
     _startTime = osg.Timer_t()
     _currentTime = osg.Timer_t()
     _playing = bool()
-    unsigned int _lastUpdate
+    _lastUpdate = unsigned int()
 
 
 # This won't really give good results in any situation, but it does demonstrate
 # on possible "fast" usage...
-class MakePathTimeCallback: public AnimtkUpdateCallback 
-    osg.ref_ptr<osg.Geode> _geode
+class MakePathTimeCallback (AnimtkUpdateCallback) :
+_geode = osg.Geode()
     _lastAdd = float()
     _addSeconds = float()
-
-public:
     MakePathTimeCallback(osg.Geode* geode):
         _geode(geode),
-        _lastAdd(0.0f),
-        _addSeconds(0.08f) 
+        _lastAdd(0.0),
+        _addSeconds(0.08) 
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv) 
-        t =  osg.Timer.instance().delta_s(_startTime, _currentTime)
+        t = osg.Timer.instance().delta_s(_startTime, _currentTime)
 
-        if _lastAdd + _addSeconds <= t  t <= 8.0f : 
+        if _lastAdd + _addSeconds <= t  t <= 8.0 : 
             pos = osg.Vec3()
 
             _sampler.getValueAt(t, pos)
 
-            _geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(pos, 0.5f)))
+            _geode.addDrawable(osg.ShapeDrawable(osg.Sphere(pos, 0.5)))
             _geode.dirtyBound()
 
             _lastAdd += _addSeconds
@@ -173,48 +178,48 @@ public:
 
 # This will give great results if you DO NOT have VSYNC enabled and can generate
 # decent FPS.
-class MakePathDistanceCallback: public AnimtkUpdateCallback 
-    osg.ref_ptr<osg.Geode> _geode
+class MakePathDistanceCallback (AnimtkUpdateCallback) :
+_geode = osg.Geode()
     _lastAdd = osg.Vec3()
     _threshold = float()
-    unsigned int _count
-
-public:
+    _count = unsigned int()
     MakePathDistanceCallback(osg.Geode* geode):
         _geode(geode),
-        _threshold(0.5f),
+        _threshold(0.5),
         _count(0) 
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv) 
-        static bool countReported = false
+        static bool countReported = False
 
-        t =  osg.Timer.instance().delta_s(_startTime, _currentTime)
+        t = osg.Timer.instance().delta_s(_startTime, _currentTime)
 
         pos = osg.Vec3()
 
         _sampler.getValueAt(t, pos)
 
-        distance =  _lastAdd - pos
+        distance = _lastAdd - pos
 
-        if t <= 8.0f  distance.length() >= _threshold : 
-            _geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(pos, 0.25f)))
+        if t <= 8.0  distance.length() >= _threshold : 
+            _geode.addDrawable(osg.ShapeDrawable(osg.Sphere(pos, 0.25)))
             _lastAdd = pos
             _count++
-        else: if t > 8.0f : 
+        elif t > 8.0 : 
             if !countReported : print "Created ", _count, " nodes."
-            countReported = true
+            countReported = True
 
         AnimtkUpdateCallback.operator()(node, nv)
 
 
 def setupStateSet():
-    st =  new osg.StateSet()
+
     
-    st.setAttributeAndModes(new osg.Material(), true)
-    st.setMode(GL_BLEND, true)
+    st = osg.StateSet()
     
-    callback =  new AnimtkStateSetUpdateCallback()
-    keys =  callback._sampler.getOrCreateKeyframeContainer()
+    st.setAttributeAndModes(osg.Material(), True)
+    st.setMode(GL_BLEND, True)
+    
+    callback = AnimtkStateSetUpdateCallback()
+    keys = callback._sampler.getOrCreateKeyframeContainer()
     keys.push_back(osgAnimation.Vec4Keyframe(0, osg.Vec4(1,0,0,1)))
     keys.push_back(osgAnimation.Vec4Keyframe(2, osg.Vec4(0.,1,0,1)))
     keys.push_back(osgAnimation.Vec4Keyframe(4, osg.Vec4(0,0,1,1)))
@@ -224,9 +229,11 @@ def setupStateSet():
     callback.start()
     st.setUpdateCallback(callback)
     
-    st = return()
+    return st
 
 def setupAnimtkNode(staticGeode):
+
+    
     osg.Vec3 v[5]
 
     v[0] = osg.Vec3(  0,   0,   0)
@@ -235,9 +242,9 @@ def setupAnimtkNode(staticGeode):
     v[3] = osg.Vec3(60, 20, 40)
     v[4] = osg.Vec3( 0,  0,  0)
 
-    node =  new osg.MatrixTransform()
-    callback =  new MakePathDistanceCallback(staticGeode)
-    keys =  callback._sampler.getOrCreateKeyframeContainer()
+    node = osg.MatrixTransform()
+    callback = MakePathDistanceCallback(staticGeode)
+    keys = callback._sampler.getOrCreateKeyframeContainer()
 
     keys.push_back(osgAnimation.Vec3CubicBezierKeyframe(0, osgAnimation.Vec3CubicBezier(
                                                         v[0],
@@ -272,28 +279,30 @@ def setupAnimtkNode(staticGeode):
     callback.start()
     node.setUpdateCallback(callback)
 
-    geode =  new osg.Geode()
+    geode = osg.Geode()
     
     geode.setStateSet(setupStateSet())
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f, 0.0f, 0.0f), 2)))
+    geode.addDrawable(osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), 2)))
     
     node.addChild(geode)
 
-    node = return()
+    return node
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
     viewer = osgViewer.Viewer(arguments)
     
-    tbm =  new osgGA.TrackballManipulator()
+    tbm = osgGA.TrackballManipulator()
 
     viewer.setCameraManipulator(tbm)
 
-    viewer.addEventHandler(new osgViewer.StatsHandler())
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler())
+    viewer.addEventHandler(osgViewer.StatsHandler())
+    viewer.addEventHandler(osgViewer.WindowSizeHandler())
 
-    root =  new osg.Group()
-    geode =  new osg.Geode()
+    root = osg.Group()
+    geode = osg.Geode()
 
     geode.setStateSet(setupStateSet())
 

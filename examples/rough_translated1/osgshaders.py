@@ -12,33 +12,36 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgshaders.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'GL2Scene.cpp'
+
+# OpenSceneGraph example, osgshaders.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # file:        examples/osgshaders/GL2Scene.cpp
- * author:        Mike Weiblen 2005-05-01
- *
- * Compose a scene of several instances of a model, with a different
- * OpenGL Shading Language shader applied to each.
- *
- * See http:#www.3dlabs.com/opengl2/ for more information regarding
- * the OpenGL Shading Language.
-
+# * author:        Mike Weiblen 2005-05-01
+# *
+# * Compose a scene of several instances of a model, with a different
+# * OpenGL Shading Language shader applied to each.
+# *
+# * See http:#www.3dlabs.com/opengl2/ for more information regarding
+# * the OpenGL Shading Language.
+#
 
 #include <osg/ShapeDrawable>
 #include <osg/PositionAttitudeTransform>
@@ -67,31 +70,31 @@ from osgpypp import osgViewer
 
 static osg.Image*
 make1DSineImage( int texSize )
-    PI =  3.1415927
+    PI = 3.1415927
 
-    image =  new osg.Image
+    image = osg.Image()
     image.setImage(texSize, 1, 1,
             4, GL_RGBA, GL_UNSIGNED_BYTE,
-            new unsigned char[4 * texSize],
-            osg.Image.USE_NEW_DELETE)
+            unsigned char[4 * texSize],
+            osg.Image.USE_NEW_DELETE)()
 
-    ptr =  image.data()
-    inc =  2. * PI / (float)texSize
+    ptr = image.data()
+    inc = 2. * PI / (float)texSize
     for(int i = 0 i < texSize i++)
         *ptr++ = (GLubyte)((sinf(i * inc) * 0.5 + 0.5) * 255.)
         *ptr++ = 0
         *ptr++ = 0
         *ptr++ = 1
-    image = return()        
+    return image        
 
 static osg.Texture1D*
 make1DSineTexture( int texSize )
-    sineTexture =  new osg.Texture1D
+    sineTexture = osg.Texture1D()
     sineTexture.setWrap(osg.Texture1D.WRAP_S, osg.Texture1D.REPEAT)
     sineTexture.setFilter(osg.Texture1D.MIN_FILTER, osg.Texture1D.LINEAR)
     sineTexture.setFilter(osg.Texture1D.MAG_FILTER, osg.Texture1D.LINEAR)
     sineTexture.setImage( make1DSineImage(texSize) )
-    sineTexture = return()
+    return sineTexture
 
 #####################################/
 # in-line GLSL source code for the "microshader" example
@@ -116,27 +119,27 @@ static  char *microshaderFragSource =
 
 #####################################/
 
-static osg.ref_ptr<osg.Group> rootNode
+static osg.Group rootNode
 
 # Create some geometry upon which to render GLSL shaders.
 static osg.Geode*
 CreateModel()
-    geode =  new osg.Geode()
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f,0.0f,0.0f),1.0f)))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Cone(osg.Vec3(2.2f,0.0f,-0.4f),0.9f,1.8f)))
-    geode.addDrawable(new osg.ShapeDrawable(new osg.Cylinder(osg.Vec3(4.4f,0.0f,0.0f),1.0f,1.4f)))
-    geode = return()
+    geode = osg.Geode()
+    geode.addDrawable(osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0),1.0)))
+    geode.addDrawable(osg.ShapeDrawable(osg.Cone(osg.Vec3(2.2,0.0,-0.4),0.9,1.8)))
+    geode.addDrawable(osg.ShapeDrawable(osg.Cylinder(osg.Vec3(4.4,0.0,0.0),1.0,1.4)))
+    return geode
 
 # Add a reference to the masterModel at the specified translation, and
 # return its StateSet so we can easily attach StateAttributes.
 static osg.StateSet*
 ModelInstance()
-    static float zvalue = 0.0f
+    static float zvalue = 0.0
     static osg.Node* masterModel = CreateModel()
 
-    xform =  new osg.PositionAttitudeTransform()
-    xform.setPosition(osg.Vec3( 0.0f, -1.0f, zvalue ))
-    zvalue = zvalue + 2.2f
+    xform = osg.PositionAttitudeTransform()
+    xform.setPosition(osg.Vec3( 0.0, -1.0, zvalue ))
+    zvalue = zvalue + 2.2
     xform.addChild(masterModel)
     rootNode.addChild(xform)
     return xform.getOrCreateStateSet()
@@ -144,10 +147,10 @@ ModelInstance()
 # load source from a file.
 static void
 LoadShaderSource( osg.Shader* shader,  str fileName )
-    fqFileName =  osgDB.findDataFile(fileName)
+    fqFileName = osgDB.findDataFile(fileName)
     if  fqFileName.length() != 0  :
         shader.loadShaderSourceFromFile( fqFileName.c_str() )
-    else:
+    else :
         osg.notify(osg.WARN), "File \"", fileName, "\" not found."
 
 
@@ -171,8 +174,7 @@ static osg.Shader*  MarbleFragObj
 # for demo simplicity, this one callback animates all the shaders, instancing
 # for each uniform but with a specific operation each time.
 
-class AnimateCallback: public osg.Uniform.Callback
-    public:
+class AnimateCallback (osg.Uniform.Callback) :
     
         enum Operation
             OFFSET,
@@ -181,21 +183,19 @@ class AnimateCallback: public osg.Uniform.Callback
             COLOR2            
         
     
-        AnimateCallback(Operation op) : _enabled(true),_operation(op) 
+        AnimateCallback(Operation op) : _enabled(True),_operation(op) 
 
         virtual void operator() ( osg.Uniform* uniform, osg.NodeVisitor* nv )
             if  _enabled  :
-                angle =  2.0 * nv.getFrameStamp().getSimulationTime()
-                sine =  sinf( angle )        # -1 . 1
-                v01 =  0.5f * sine + 0.5f        #  0 . 1
-                v10 =  1.0f - v01                #  1 . 0
+                angle = 2.0 * nv.getFrameStamp().getSimulationTime()
+                sine = sinf( angle )        # -1 . 1
+                v01 = 0.5 * sine + 0.5        #  0 . 1
+                v10 = 1.0 - v01                #  1 . 0
                 switch(_operation)
-                    case OFFSET : uniform.set( osg.Vec3(0.505f, 0.8f*v01, 0.0f) ) break
+                    case OFFSET : uniform.set( osg.Vec3(0.505, 0.8*v01, 0.0) ) break
                     case SIN : uniform.set( sine ) break
-                    case COLOR1 : uniform.set( osg.Vec3(v10, 0.0f, 0.0f) ) break
+                    case COLOR1 : uniform.set( osg.Vec3(v10, 0.0, 0.0) ) break
                     case COLOR2 : uniform.set( osg.Vec3(v01, v01, v10) ) break
-
-    private:
         _enabled = bool()
         _operation = Operation()
 
@@ -206,87 +206,87 @@ class AnimateCallback: public osg.Uniform.Callback
 #define TEXUNIT_SINE        1
 #define TEXUNIT_NOISE        2
 
-osg.ref_ptr<osg.Group>
+osg.Group
 GL2Scene.buildScene()
-    noiseTexture =  osgUtil.create3DNoiseTexture( 32 #128 )
-    sineTexture =  make1DSineTexture( 32 #1024 )
+    noiseTexture = osgUtil.create3DNoiseTexture( 32 #128 )
+    sineTexture = make1DSineTexture( 32 #1024 )
 
     # the root of our scenegraph.
-    rootNode = new osg.Group
+    rootNode = osg.Group()
 
     # attach some Uniforms to the root, to be inherited by Programs.
-        OffsetUniform =  new osg.Uniform( "Offset", osg.Vec3(0.0f, 0.0f, 0.0f) )
-        SineUniform =  new osg.Uniform( "Sine", 0.0f )
-        Color1Uniform =  new osg.Uniform( "Color1", osg.Vec3(0.0f, 0.0f, 0.0f) )
-        Color2Uniform =  new osg.Uniform( "Color2", osg.Vec3(0.0f, 0.0f, 0.0f) )
+        OffsetUniform = osg.Uniform( "Offset", osg.Vec3(0.0, 0.0, 0.0) )
+        SineUniform = osg.Uniform( "Sine", 0.0 )
+        Color1Uniform = osg.Uniform( "Color1", osg.Vec3(0.0, 0.0, 0.0) )
+        Color2Uniform = osg.Uniform( "Color2", osg.Vec3(0.0, 0.0, 0.0) )
 
-        OffsetUniform.setUpdateCallback(new AnimateCallback(AnimateCallback.OFFSET))
-        SineUniform.setUpdateCallback(new AnimateCallback(AnimateCallback.SIN))
-        Color1Uniform.setUpdateCallback(new AnimateCallback(AnimateCallback.COLOR1))
-        Color2Uniform.setUpdateCallback(new AnimateCallback(AnimateCallback.COLOR2))
+        OffsetUniform.setUpdateCallback(AnimateCallback(AnimateCallback.OFFSET))
+        SineUniform.setUpdateCallback(AnimateCallback(AnimateCallback.SIN))
+        Color1Uniform.setUpdateCallback(AnimateCallback(AnimateCallback.COLOR1))
+        Color2Uniform.setUpdateCallback(AnimateCallback(AnimateCallback.COLOR2))
 
-        ss =  rootNode.getOrCreateStateSet()
+        ss = rootNode.getOrCreateStateSet()
         ss.addUniform( OffsetUniform )
         ss.addUniform( SineUniform )
         ss.addUniform( Color1Uniform )
         ss.addUniform( Color2Uniform )
 
     # the simple Microshader (its source appears earlier in this file)
-        ss =  ModelInstance()
-        program =  new osg.Program
+        ss = ModelInstance()
+        program = osg.Program()
         program.setName( "microshader" )
         _programList.push_back( program )
-        program.addShader( new osg.Shader( osg.Shader.VERTEX, microshaderVertSource ) )
-        program.addShader( new osg.Shader( osg.Shader.FRAGMENT, microshaderFragSource ) )
+        program.addShader( osg.Shader( osg.Shader.VERTEX, microshaderVertSource ) )
+        program.addShader( osg.Shader( osg.Shader.FRAGMENT, microshaderFragSource ) )
         ss.setAttributeAndModes( program, osg.StateAttribute.ON )
 
     # the "blocky" shader, a simple animation test
-        ss =  ModelInstance()
-        BlockyProgram = new osg.Program
+        ss = ModelInstance()
+        BlockyProgram = osg.Program()
         BlockyProgram.setName( "blocky" )
         _programList.push_back( BlockyProgram )
-        BlockyVertObj = new osg.Shader( osg.Shader.VERTEX )
-        BlockyFragObj = new osg.Shader( osg.Shader.FRAGMENT )
+        BlockyVertObj = osg.Shader( osg.Shader.VERTEX )
+        BlockyFragObj = osg.Shader( osg.Shader.FRAGMENT )
         BlockyProgram.addShader( BlockyFragObj )
         BlockyProgram.addShader( BlockyVertObj )
         ss.setAttributeAndModes(BlockyProgram, osg.StateAttribute.ON)
 
     # the "eroded" shader, uses a noise texture to discard fragments
-        ss =  ModelInstance()
+        ss = ModelInstance()
         ss.setTextureAttribute(TEXUNIT_NOISE, noiseTexture)
-        ErodedProgram = new osg.Program
+        ErodedProgram = osg.Program()
         ErodedProgram.setName( "eroded" )
         _programList.push_back( ErodedProgram )
-        ErodedVertObj = new osg.Shader( osg.Shader.VERTEX )
-        ErodedFragObj = new osg.Shader( osg.Shader.FRAGMENT )
+        ErodedVertObj = osg.Shader( osg.Shader.VERTEX )
+        ErodedFragObj = osg.Shader( osg.Shader.FRAGMENT )
         ErodedProgram.addShader( ErodedFragObj )
         ErodedProgram.addShader( ErodedVertObj )
         ss.setAttributeAndModes(ErodedProgram, osg.StateAttribute.ON)
 
-        ss.addUniform( new osg.Uniform("LightPosition", osg.Vec3(0.0f, 0.0f, 4.0f)) )
-        ss.addUniform( new osg.Uniform("Scale", 1.0f) )
-        ss.addUniform( new osg.Uniform("sampler3d", TEXUNIT_NOISE) )
+        ss.addUniform( osg.Uniform("LightPosition", osg.Vec3(0.0, 0.0, 4.0)) )
+        ss.addUniform( osg.Uniform("Scale", 1.0) )
+        ss.addUniform( osg.Uniform("sampler3d", TEXUNIT_NOISE) )
 
     # the "marble" shader, uses two textures
-        ss =  ModelInstance()
+        ss = ModelInstance()
         ss.setTextureAttribute(TEXUNIT_NOISE, noiseTexture)
         ss.setTextureAttribute(TEXUNIT_SINE, sineTexture)
-        MarbleProgram = new osg.Program
+        MarbleProgram = osg.Program()
         MarbleProgram.setName( "marble" )
         _programList.push_back( MarbleProgram )
-        MarbleVertObj = new osg.Shader( osg.Shader.VERTEX )
-        MarbleFragObj = new osg.Shader( osg.Shader.FRAGMENT )
+        MarbleVertObj = osg.Shader( osg.Shader.VERTEX )
+        MarbleFragObj = osg.Shader( osg.Shader.FRAGMENT )
         MarbleProgram.addShader( MarbleFragObj )
         MarbleProgram.addShader( MarbleVertObj )
         ss.setAttributeAndModes(MarbleProgram, osg.StateAttribute.ON)
 
-        ss.addUniform( new osg.Uniform("NoiseTex", TEXUNIT_NOISE) )
-        ss.addUniform( new osg.Uniform("SineTex", TEXUNIT_SINE) )
+        ss.addUniform( osg.Uniform("NoiseTex", TEXUNIT_NOISE) )
+        ss.addUniform( osg.Uniform("SineTex", TEXUNIT_SINE) )
 
 #ifdef INTERNAL_3DLABS #[
     # regular GL 1.x texturing for comparison.
-    ss =  ModelInstance()
-    tex0 =  new osg.Texture2D
+    ss = ModelInstance()
+    tex0 = osg.Texture2D()
     tex0.setImage( osgDB.readImageFile( "images/3dl-ge100.png" ) )
     ss.setTextureAttributeAndModes(0, tex0, osg.StateAttribute.ON)
 #endif #]
@@ -298,14 +298,14 @@ GL2Scene.buildScene()
     rootNode.addChild( osgDB.readNodeFile( "3dl_ogl.logo" ) )
 #endif #]
 
-    rootNode = return()
+    return rootNode
 
 #####################################/
 #####################################/
 
 GL2Scene.GL2Scene()
     _rootNode = buildScene()
-    _shadersEnabled = true
+    _shadersEnabled = True
 
 GL2Scene.~GL2Scene()
 
@@ -335,32 +335,35 @@ GL2Scene.toggleShaderEnable()
         #_programList[i].enable( _shadersEnabled )
 
 #EOF
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgshaders.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'GL2Scene.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgshaders.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # file:	examples/osgglsl/GL2Scene.h
- * author:	Mike Weiblen 2005-03-30
- *
- * See http:#www.3dlabs.com/opengl2/ for more information regarding
- * the OpenGL Shading Language.
-
+# * author:	Mike Weiblen 2005-03-30
+# *
+# * See http:#www.3dlabs.com/opengl2/ for more information regarding
+# * the OpenGL Shading Language.
+#
 
 #include <osg/Node>
 #include <osg/Referenced>
@@ -368,56 +371,54 @@ GL2Scene.toggleShaderEnable()
 
 #include <osg/Program>
 
-class GL2Scene : public osg.Referenced
-    public:
+class GL2Scene (osg.Referenced) :
 	GL2Scene()
 
-	osg.ref_ptr<osg.Group> getRootNode()  return _rootNode 
+	def getRootNode():
+
+	     return _rootNode 
 	reloadShaderSource = void()
 	toggleShaderEnable = void()
-
-    protected:
-	~GL2Scene()
-
-    private:	#methods
-	osg.ref_ptr<osg.Group> buildScene()
-
-    private:	#data
-	osg.ref_ptr<osg.Group> _rootNode
-	std.vector< osg.ref_ptr<osg.Program> > _programList
+	~GL2Scene()	#methods
+	buildScene = osg.Group()	#data
+	_rootNode = osg.Group()
+	_programList = std.vector< osg.Program >()
 	_shadersEnabled = bool()
 
 
-typedef osg.ref_ptr<GL2Scene> GL2ScenePtr
+typedef GL2Scene GL2ScenePtr
 
 #EOF
 
-# OpenSceneGraph example, osgshaders.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgshaders.cpp'
+
+# OpenSceneGraph example, osgshaders.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # file:        examples/osgglsl/osgshaders.cpp
- * author:        Mike Weiblen 2005-04-05
- *
- * A demo of the OpenGL Shading Language shaders using core OSG.
- *
- * See http:#www.3dlabs.com/opengl2/ for more information regarding
- * the OpenGL Shading Language.
-
+# * author:        Mike Weiblen 2005-04-05
+# *
+# * A demo of the OpenGL Shading Language shaders using core OSG.
+# *
+# * See http:#www.3dlabs.com/opengl2/ for more information regarding
+# * the OpenGL Shading Language.
+#
 
 #include <osg/Notify>
 #include <osgGA/GUIEventAdapter>
@@ -432,26 +433,23 @@ using namespace osg
 
 #####################################/
 
-class KeyHandler: public osgGA.GUIEventHandler
-    public:
+class KeyHandler (osgGA.GUIEventHandler) :
         KeyHandler( GL2ScenePtr gl2Scene ) :
                 _gl2Scene(gl2Scene)
         
 
         bool handle(  osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter )
             if  ea.getEventType() != osgGA.GUIEventAdapter.KEYDOWN  :
-                false = return()
+                return False
 
             switch( ea.getKey() )
                 case 'x':
                     _gl2Scene.reloadShaderSource()
-                    true = return()
+                    return True
                 case 'y':
                     _gl2Scene.toggleShaderEnable()
-                    true = return()
-            false = return()
-
-    private:
+                    return True
+            return False
         _gl2Scene = GL2ScenePtr()
 
 
@@ -462,11 +460,11 @@ int main(int, char **)
     viewer = osgViewer.Viewer()
 
     # create the scene
-    gl2Scene =  new GL2Scene
+    gl2Scene = GL2Scene()
 
     viewer.setSceneData( gl2Scene.getRootNode().get() )
 
-    viewer.addEventHandler( new KeyHandler(gl2Scene) )
+    viewer.addEventHandler( KeyHandler(gl2Scene) )
 
     return viewer.run()
 

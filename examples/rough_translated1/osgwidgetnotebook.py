@@ -11,6 +11,9 @@ from osgpypp import osgGA
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetnotebook.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetnotebook.cpp 45 2008-04-23 16:46:11Z cubicool $
 
@@ -26,18 +29,17 @@ from osgpypp import osgWidget
 #include <osgWidget/Label>
 #include <osgWidget/ViewerEventHandlers>
 
- unsigned int MASK_2D = 0xF0000000
- unsigned int MASK_3D = 0x0F000000
+MASK_2D = 0xF0000000
+MASK_3D = 0x0F000000
 
-class Notebook: public osgWidget.Box 
-    osg.ref_ptr<osgWidget.Box>    _tabs
-    osg.ref_ptr<osgWidget.Canvas> _windows
-
-public:
+class Notebook (osgWidget.Box) :
+_tabs = osgWidget.Box()
+    _windows = osgWidget.Canvas()
     # NOTE: This whole thing is just a hack to demonstrate a concept. The real
     # implementation would need to be much cleaner.
     def callbackTabPressed(ev):
-        objs =  _windows.getObjects()
+        
+        objs = _windows.getObjects()
 
         for(unsigned int i = 0 i < objs.size() i++) objs[i].setLayer(
             osgWidget.Widget.LAYER_MIDDLE,
@@ -51,12 +53,12 @@ public:
 
         _windows.resize()
 
-        true = return()
+        return True
 
     Notebook( str name):
     osgWidget.Box(name, osgWidget.Box.VERTICAL) 
-        _tabs    = new osgWidget.Box("tabs", osgWidget.Box.HORIZONTAL)
-        _windows = new osgWidget.Canvas("canvas")
+        _tabs    = osgWidget.Box("tabs", osgWidget.Box.HORIZONTAL)
+        _windows = osgWidget.Canvas("canvas")
 
         for(unsigned int i = 0 i < 4 i++) 
             ss = strstream()
@@ -64,16 +66,16 @@ public:
             # Setup everything for our Tab...
             ss, "Tab_", i
 
-            label1 =  new osgWidget.Label(ss.str())
+            label1 = osgWidget.Label(ss.str())
 
             label1.setFont("fonts/VeraMono.ttf")
             label1.setFontSize(20)
-            label1.setFontColor(1.0f, 1.0f, 1.0f, 1.0f)
-            label1.setColor(0.0f, i / 4.0f, 0.3f, 1.0f)
+            label1.setFontColor(1.0, 1.0, 1.0, 1.0)
+            label1.setColor(0.0, i / 4.0, 0.3, 1.0)
             label1.setLabel(ss.str())
-            label1.addSize(20.0f, 20.0f)
-            label1.setShadow(0.1f)
-            label1.setCanFill(true)
+            label1.addSize(20.0, 20.0)
+            label1.setShadow(0.1)
+            label1.setCanFill(True)
 
             _tabs.addWidget(label1)
 
@@ -84,34 +86,34 @@ public:
             descr, "This is some text", "for the Tab_", i, " tab.", "Press the button up top", "And this should go to the next Window!"
             
 
-            label2 =  new osgWidget.Label(ss.str())
+            label2 = osgWidget.Label(ss.str())
 
             label2.setFont("fonts/Vera.ttf")
             label2.setFontSize(15)
-            label2.setFontColor(1.0f, 1.0f, 1.0f, 1.0f)
-            label2.setColor(0.0f, i / 4.0f, 0.3f, 1.0f)
+            label2.setFontColor(1.0, 1.0, 1.0, 1.0)
+            label2.setColor(0.0, i / 4.0, 0.3, 1.0)
             label2.setLabel(descr.str())
             label2.setLayer(osgWidget.Widget.LAYER_MIDDLE, i * 2)
-            label2.addSize(50.0f, 50.0f)
+            label2.addSize(50.0, 50.0)
 
-            _windows.addWidget(label2, 0.0f, 0.0f)
+            _windows.addWidget(label2, 0.0, 0.0)
 
             label1.setEventMask(osgWidget.EVENT_MOUSE_PUSH)
-            label1.addCallback(new osgWidget.Callback(
+            label1.addCallback(osgWidget.Callback(
                 Notebook.callbackTabPressed,
                 this,
                 osgWidget.EVENT_MOUSE_PUSH
             ))
 
-        label =  new osgWidget.Label("label")
+        label = osgWidget.Label("label")
 
         label.setFont("fonts/arial.ttf")
         label.setFontSize(15)
-        label.setFontColor(1.0f, 1.0f, 1.0f, 1.0f)
+        label.setFontColor(1.0, 1.0, 1.0, 1.0)
         label.setLabel("Drag the window here...")
-        label.addSize(20.0f, 20.0f)
-        label.setShadow(0.08f)
-        label.setCanFill(true)
+        label.addSize(20.0, 20.0)
+        label.setShadow(0.08)
+        label.setCanFill(True)
    
         addWidget(label)
         addWidget(_tabs.embed())
@@ -119,25 +121,29 @@ public:
 
 
 def bound(node):
-    bs =  node.getBound()
+
+    
+    bs = node.getBound()
 
     osgWidget.warn(), "center: ", bs.center(), " radius: ", bs.radius()
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        720.0f,
+        1280.0,
+        720.0,
         MASK_2D #,
         #osgWidget.WindowManager.WM_USE_RENDERBINS
     )
 
-    notebook1 =  new Notebook("notebook1")
-    notebook2 =  new Notebook("notebook2")
+    notebook1 = Notebook("notebook1")
+    notebook2 = Notebook("notebook2")
 
-    notebook2.setOrigin(100.0f, 100.0f)
+    notebook2.setOrigin(100.0, 100.0)
 
     notebook1.attachMoveCallback()
     notebook2.attachMoveCallback()

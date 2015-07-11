@@ -10,23 +10,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgmotionblur.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgmotionblur.cpp'
+
+# OpenSceneGraph example, osgmotionblur.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 
 #include <osgDB/ReadFile>
@@ -34,38 +37,35 @@ from osgpypp import osgViewer
 #include <osgViewer/Viewer>
 #include <iostream>
 
-class MotionBlurOperation: public osg.Operation
-public:
+class MotionBlurOperation (osg.Operation) :
     MotionBlurOperation(double persistence):
-        osg.Operation("MotionBlur",true),
-        cleared_(false),
+        osg.Operation("MotionBlur",True),
+        cleared_(False),
         persistence_(persistence)
 
     virtual void operator () (osg.Object* object)
-        gc =  dynamic_cast<osg.GraphicsContext*>(object)
+        gc = dynamic_cast<osg.GraphicsContext*>(object)
         if !gc : return
     
-        t =  gc.getState().getFrameStamp().getSimulationTime()
+        t = gc.getState().getFrameStamp().getSimulationTime()
 
         if !cleared_ :
             # clear the accumulation buffer
             glClearColor(0, 0, 0, 0)
             glClear(GL_ACCUM_BUFFER_BIT)
-            cleared_ = true
+            cleared_ = True
             t0_ = t
 
-        dt =  fabs(t - t0_)
+        dt = fabs(t - t0_)
         t0_ = t
 
         # compute the blur factor
-        s =  powf(0.2, dt / persistence_)
+        s = powf(0.2, dt / persistence_)
 
         # scale, accumulate and return
         glAccum(GL_MULT, s)
         glAccum(GL_ACCUM, 1 - s)
-        glAccum(GL_RETURN, 1.0f)
-
-private:
+        glAccum(GL_RETURN, 1.0)
     cleared_ = bool()
     t0_ = double()
     persistence_ = double()
@@ -73,6 +73,10 @@ private:
 
 
 def main(argc, argv):
+
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -92,11 +96,11 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    persistence =  0.25
+    persistence = 0.25
     arguments.read("-P", persistence) || arguments.read("--persistence", persistence)
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
@@ -121,7 +125,7 @@ def main(argc, argv):
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
         itr != windows.end()
         ++itr)
-        (*itr).add(new MotionBlurOperation(persistence))
+        (*itr).add(MotionBlurOperation(persistence))
 
     return viewer.run()
 

@@ -12,12 +12,15 @@ from osgpypp import osgGA
 from osgpypp import osgText
 from osgpypp import osgViewer
 
+
+# Translated from file 'DePee.cpp'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #export OSG_NOTIFY_LEVEL=DEBUG_INFO
 
@@ -39,18 +42,18 @@ from osgpypp import osgViewer
 #include <iostream>
 
 DePee.DePee(osg.Group* parent, osg.Group* subgraph, unsigned width, unsigned height)
-  _renderToFirst = false
+  _renderToFirst = False
 
-  _isSketchy =false
-  _isColored = false
-  _isEdgy = true
-  _isCrayon = false
+  _isSketchy =False
+  _isColored = False
+  _isEdgy = True
+  _isCrayon = False
 
   _normalDepthMapProgram = Utility.createProgram("shaders/depthpeel_normaldepthmap.vert","shaders/depthpeel_normaldepthmap.frag")
   _colorMapProgram = Utility.createProgram("shaders/depthpeel_colormap.vert","shaders/depthpeel_colormap.frag" )
   _edgeMapProgram = Utility.createProgram("shaders/depthpeel_edgemap.vert", "shaders/depthpeel_edgemap.frag")
 
-  _parent = new osg.Group
+  _parent = osg.Group()
   parent.addChild(_parent.get())
   _subgraph = subgraph
 
@@ -65,17 +68,17 @@ DePee.DePee(osg.Group* parent, osg.Group* subgraph, unsigned width, unsigned hei
   _fps = 0
   _colorCamera = 0
 
-  _sketchy = new osg.Uniform("sketchy", false)
-  _colored = new osg.Uniform("colored", false)
-  _edgy = new osg.Uniform("edgy", true)
-  _sketchiness = new osg.Uniform("sketchiness", (float) 1.0)
+  _sketchy = osg.Uniform("sketchy", False)
+  _colored = osg.Uniform("colored", False)
+  _edgy = osg.Uniform("edgy", True)
+  _sketchiness = osg.Uniform("sketchiness", (float) 1.0)
 
   _normalDepthMap0  = Utility.newColorTexture2D(_texWidth, _texHeight, 32)
   _normalDepthMap1  = Utility.newColorTexture2D(_texWidth, _texHeight, 32)
   _edgeMap = Utility.newColorTexture2D(_texWidth, _texHeight, 8)
   _colorMap = Utility.newColorTexture2D(_texWidth, _texHeight, 8)
 
-  #create a noise map...this doesn't end up in a new rendering pass
+  #create a noise map...this doesn't end up in a rendering pass
   (void) createMap(NOISE_MAP)
 
   #the viewport aligned quad
@@ -84,7 +87,7 @@ DePee.DePee(osg.Group* parent, osg.Group* subgraph, unsigned width, unsigned hei
 
   #!!!Getting problems if assigning unit to texture in depth peeling subgraph and removing depth peeling steps!!!
   #That's why it is done here
-  stateset =  _parent.getOrCreateStateSet()
+  stateset = _parent.getOrCreateStateSet()
   stateset.setTextureAttributeAndModes(1, _normalDepthMap0.get(), osg.StateAttribute.ON)
   stateset.setTextureAttributeAndModes(2, _normalDepthMap1.get(), osg.StateAttribute.ON)
   stateset.setTextureAttributeAndModes(3, _edgeMap.get(), osg.StateAttribute.ON)
@@ -117,8 +120,8 @@ void DePee.setSketchiness(double sketchiness)
 void DePee.setColored(bool colored)
   if colored == !_isColored :
       if colored :
-	  (void) createMap(COLOR_MAP, false)
-      else:
+	  (void) createMap(COLOR_MAP, False)
+      else :
 	  _dePeePasses.back().remRenderPass(COLOR_MAP)
       _colored.set(colored)
       _isColored = colored
@@ -128,13 +131,13 @@ void DePee.setEdgy(bool edgy)
   if edgy != _isEdgy :
 
       _isEdgy = edgy
-      unsigned int n = 0
+      n = 0
       while remDePeePass() :
 	  ++n
 
       if edgy :
 	  (void) createMap(EDGE_MAP,_dePeePasses.size() == 1)
-      else:
+      else :
 	  _dePeePasses.back().remRenderPass(EDGE_MAP)
 
       for(unsigned int i=0 i < n i++)
@@ -147,7 +150,7 @@ void DePee.setFPS(double* fps)
   _fps = fps
 
 unsigned int DePee.getNumberOfRenderPasses()
-  unsigned int n = 0
+  n = 0
   for(unsigned int i=0 i < _dePeePasses.size()i++)
     n += _dePeePasses.at(i).Cameras.size()
   # add one pass for final rendering pass and one for hud
@@ -159,7 +162,7 @@ bool DePee.addDePeePass()
       #remove previous color pass
       _dePeePasses.back().remRenderPass(COLOR_MAP)
 
-  _dePeePasses.push_back(new DePeePass())
+  _dePeePasses.push_back(DePeePass())
   _parent.addChild(_dePeePasses.back().root.get())
 
   #need to create a depth map in every case
@@ -169,13 +172,13 @@ bool DePee.addDePeePass()
       (void) createMap(EDGE_MAP,_dePeePasses.size() == 1)
 
   if _isColored :
-      (void) createMap(COLOR_MAP, false)
+      (void) createMap(COLOR_MAP, False)
 
-  true = return()
+  return True
 
 bool DePee.remDePeePass()
   if _dePeePasses.size() < 2 :
-    false = return()
+    return False
 
   _parent.removeChild(_dePeePasses.back().root.get())
   delete _dePeePasses.back()
@@ -184,23 +187,23 @@ bool DePee.remDePeePass()
   _renderToFirst = !_renderToFirst
 
   if _isColored :
-      (void) createMap(COLOR_MAP, false)
+      (void) createMap(COLOR_MAP, False)
 
-  true = return()
+  return True
 
 
 #create noise map with values ranging from 0 to 255
 bool DePee.createNoiseMap()
-    stateset =  _parent.getOrCreateStateSet()
-    _noiseMap = new osg.Texture2D
+    stateset = _parent.getOrCreateStateSet()
+    _noiseMap = osg.Texture2D()
     _noiseMap.setTextureSize(_width, _height)
     _noiseMap.setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
     _noiseMap.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
     stateset.setTextureAttributeAndModes(5, _noiseMap.get(), osg.StateAttribute.ON)
 
-  image =  new osg.Image
-  unsigned char* data = new unsigned char[_width*_height]
-  unsigned char* tmpData = new unsigned char[_width*_height]
+  image = osg.Image()
+  data = unsigned char[_width*_height]()
+  tmpData = unsigned char[_width*_height]()
 
   random = rand() % 5000
   for(unsigned y=0 y < _height y++)
@@ -223,15 +226,15 @@ bool DePee.createNoiseMap()
 		  data,
 		  osg.Image.USE_NEW_DELETE)
   _noiseMap.setImage(image)
-  true = return()
+  return True
 
 bool DePee.createHUD()
-    geode =  new osg.Geode()
+    geode = osg.Geode()
 
     timesFont = str("fonts/arial.ttf")
 
     # turn lighting off for the text and disable depth test to ensure its always ontop.
-    stateset =  geode.getOrCreateStateSet()
+    stateset = geode.getOrCreateStateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
     stateset.setTextureAttributeAndModes(1, _normalDepthMap0.get(), osg.StateAttribute.OFF)
@@ -240,10 +243,10 @@ bool DePee.createHUD()
     stateset.setTextureAttributeAndModes(4, _colorMap.get(), osg.StateAttribute.OFF)
     stateset.setTextureAttributeAndModes(5, _noiseMap.get(), osg.StateAttribute.OFF)
 
-    position = osg.Vec3(5.0f,7.0f,0.0f)
-    delta = osg.Vec3(0.0f,-120.0f,0.0f)
+    position = osg.Vec3(5.0,7.0,0.0)
+    delta = osg.Vec3(0.0,-120.0,0.0)
 
-    _hudText = new  osgText.Text
+    _hudText = osgText.Text()
 
       geode.addDrawable( _hudText )
       _hudText.setDataVariance(osg.Object.DYNAMIC)
@@ -258,34 +261,34 @@ bool DePee.createHUD()
       for(unsigned int i=0i<geode.getNumDrawables()++i)
 	  bb.expandBy(geode.getDrawable(i).getBound())
 
-      geom =  new osg.Geometry
+      geom = osg.Geometry()
 
-      vertices =  new osg.Vec3Array
-      depth =  bb.zMin()-0.1
+      vertices = osg.Vec3Array()
+      depth = bb.zMin()-0.1
       vertices.push_back(osg.Vec3(bb.xMin(),bb.yMax(),depth))
       vertices.push_back(osg.Vec3(bb.xMin(),bb.yMin(),depth))
       vertices.push_back(osg.Vec3(bb.xMax(),bb.yMin(),depth))
       vertices.push_back(osg.Vec3(bb.xMax(),bb.yMax(),depth))
       geom.setVertexArray(vertices)
 
-      normals =  new osg.Vec3Array
-      normals.push_back(osg.Vec3(0.0f,0.0f,1.0f))
+      normals = osg.Vec3Array()
+      normals.push_back(osg.Vec3(0.0,0.0,1.0))
       geom.setNormalArray(normals, osg.Array.BIND_OVERALL)
 
-      colors =  new osg.Vec4Array
-      colors.push_back(osg.Vec4(0.0f,0.0,0.0f,0.3f))
+      colors = osg.Vec4Array()
+      colors.push_back(osg.Vec4(0.0,0.0,0.0,0.3))
       geom.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-      geom.addPrimitiveSet(new osg.DrawArrays(GL_QUADS,0,4))
+      geom.addPrimitiveSet(osg.DrawArrays(GL_QUADS,0,4))
 
-      stateset =  geom.getOrCreateStateSet()
+      stateset = geom.getOrCreateStateSet()
       stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
 
       stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
 
       #geode.addDrawable(geom)
 
-    camera =  new osg.Camera
+    camera = osg.Camera()
 
     # set the projection matrix
     camera.setProjectionMatrix(osg.Matrix.ortho2D(0,1280,0,1024))
@@ -304,7 +307,7 @@ bool DePee.createHUD()
 
     _parent.addChild(camera)
 
-    true = return()
+    return True
 
 
 
@@ -322,15 +325,15 @@ bool DePee.createMap(MapMode mapMode, bool first)
 	createNormalDepthColorMap = return(mapMode, first)
       default:
 	std.cerr, "mapMode not recognized!!!\n"
-	false = return()
+	return False
 
 bool DePee.createFinal()
-  screenAlignedProjectionMatrix =  new osg.Projection
+  screenAlignedProjectionMatrix = osg.Projection()
 
   screenAlignedProjectionMatrix.setMatrix(osg.Matrix.ortho2D(0,_width,0,_height))
-  screenAlignedProjectionMatrix.setCullingActive(false)
+  screenAlignedProjectionMatrix.setCullingActive(False)
 
-  screenAlignedModelViewMatrix =  new osg.MatrixTransform
+  screenAlignedModelViewMatrix = osg.MatrixTransform()
   screenAlignedModelViewMatrix.setMatrix(osg.Matrix.identity())
 
   # Make sure the model view matrix is not affected by any transforms
@@ -338,9 +341,9 @@ bool DePee.createFinal()
   screenAlignedModelViewMatrix.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
 
 
-  # new we need to add the texture to the Drawable, we do so by creating a
+  # we need to add the texture to the Drawable, we do so by creating a
   # StateSet to contain the Texture StateAttribute.
-  stateset =  new osg.StateSet
+  stateset = osg.StateSet()
 
   stateset.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
 
@@ -354,23 +357,23 @@ bool DePee.createFinal()
   vertSource = str()
   if !Utility.readFile("shaders/depthpeel_final.vert", vertSource) :
       printf("shader source not found\n")
-      false = return()
+      return False
 
   fragSource = str()
   if !Utility.readFile("shaders/depthpeel_final.frag", fragSource) :
       printf("shader source not found\n")
-      false = return()
+      return False
 
-  osg.ref_ptr<osg.Program> program = new osg.Program
-  program.addShader( new osg.Shader( osg.Shader.VERTEX, vertSource.c_str() ) )
-  program.addShader( new osg.Shader( osg.Shader.FRAGMENT, fragSource.c_str() ) )
+  program = osg.Program()
+  program.addShader( osg.Shader( osg.Shader.VERTEX, vertSource.c_str() ) )
+  program.addShader( osg.Shader( osg.Shader.FRAGMENT, fragSource.c_str() ) )
 
   #choose map to display
-  stateset.addUniform( new osg.Uniform("normalDepthMap0", 1))
-  stateset.addUniform( new osg.Uniform("normalDepthMap1", 2))
-  stateset.addUniform(new osg.Uniform("edgeMap", 3))
-  stateset.addUniform( new osg.Uniform("colorMap", 4))
-  stateset.addUniform( new osg.Uniform("noiseMap", 5))
+  stateset.addUniform( osg.Uniform("normalDepthMap0", 1))
+  stateset.addUniform( osg.Uniform("normalDepthMap1", 2))
+  stateset.addUniform(osg.Uniform("edgeMap", 3))
+  stateset.addUniform( osg.Uniform("colorMap", 4))
+  stateset.addUniform( osg.Uniform("noiseMap", 5))
 
   stateset.addUniform(_sketchy)
   stateset.addUniform(_colored)
@@ -381,7 +384,7 @@ bool DePee.createFinal()
 
   #switch lighting off
   stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE | osg.StateAttribute.OFF)
-  true = return()
+  return True
 
 bool DePee.createEdgeMap(bool first)
 #create the edge map of the first normal and depth map
@@ -389,18 +392,18 @@ bool DePee.createEdgeMap(bool first)
 
 
   # set up the background color and clear mask.
-  _dePeePasses.back().Cameras[EDGE_MAP].setClearColor(osg.Vec4(0.3,0.3f,0.3f,1.0f))
+  _dePeePasses.back().Cameras[EDGE_MAP].setClearColor(osg.Vec4(0.3,0.3,0.3,1.0))
   _dePeePasses.back().Cameras[EDGE_MAP].setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-  bs =  _quadGeode.getBound()
+  bs = _quadGeode.getBound()
   if !bs.valid() :
-      false = return()
+      return False
 
-  znear =  1.0f*bs.radius()
-  zfar =  3.0f*bs.radius()
+  znear = 1.0*bs.radius()
+  zfar = 3.0*bs.radius()
 
-  znear *= 0.9f
-  zfar *= 1.1f
+  znear *= 0.9
+  zfar *= 1.1
 
 
   # set up projection.
@@ -410,7 +413,7 @@ bool DePee.createEdgeMap(bool first)
   #set view
   _dePeePasses.back().Cameras[EDGE_MAP].setReferenceFrame(osg.Transform.ABSOLUTE_RF)
 
-  _dePeePasses.back().Cameras[EDGE_MAP].setViewMatrixAsLookAt(osg.Vec3(0.0f,0.0f,2.0f)*bs.radius(), osg.Vec3(0.0,0.0,0.0),osg.Vec3(0.0f,1.0f,0.0f))
+  _dePeePasses.back().Cameras[EDGE_MAP].setViewMatrixAsLookAt(osg.Vec3(0.0,0.0,2.0)*bs.radius(), osg.Vec3(0.0,0.0,0.0),osg.Vec3(0.0,1.0,0.0))
 
   # set viewport
   _dePeePasses.back().Cameras[EDGE_MAP].setViewport(0,0,_texWidth,_texHeight)
@@ -422,28 +425,28 @@ bool DePee.createEdgeMap(bool first)
   _dePeePasses.back().Cameras[EDGE_MAP].setRenderTargetImplementation(osg.Camera.FRAME_BUFFER)
 
   #switch lighting off
-  osg.ref_ptr<osg.StateSet> stateset = new osg.StateSet
+  stateset = osg.StateSet()
 
 
   if _renderToFirst :
-      stateset.addUniform(new osg.Uniform("normalDepthMap", 1))
-  else:
-      stateset.addUniform(new osg.Uniform("normalDepthMap", 2))
+      stateset.addUniform(osg.Uniform("normalDepthMap", 1))
+  else :
+      stateset.addUniform(osg.Uniform("normalDepthMap", 2))
 
   _dePeePasses.back().Cameras[EDGE_MAP].attach(osg.Camera.COLOR_BUFFER, _edgeMap.get())
-  stateset.addUniform( new osg.Uniform("edgeMap", 3))
+  stateset.addUniform( osg.Uniform("edgeMap", 3))
 
   stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE |
               osg.StateAttribute.OFF)
   #setup shader
   stateset.setAttributeAndModes(_edgeMapProgram.get(), osg.StateAttribute.OVERRIDE | osg.StateAttribute.ON)
-  stateset.addUniform(new osg.Uniform("width", (float) _width))
-  stateset.addUniform(new osg.Uniform("height", (float) _height))
+  stateset.addUniform(osg.Uniform("width", (float) _width))
+  stateset.addUniform(osg.Uniform("height", (float) _height))
 
   if first :
-      stateset.addUniform(new osg.Uniform("first", (float)1.0))
-  else:
-      stateset.addUniform(new osg.Uniform("first", (float)0.0))
+      stateset.addUniform(osg.Uniform("first", (float)1.0))
+  else :
+      stateset.addUniform(osg.Uniform("first", (float)0.0))
   _dePeePasses.back().settingNodes[EDGE_MAP].setStateSet(stateset.get())
 
   # add subgraph to render
@@ -451,7 +454,7 @@ bool DePee.createEdgeMap(bool first)
 
   _dePeePasses.back().settingNodes[EDGE_MAP].addChild(_quadGeode.get())
 
-  true = return()
+  return True
 
 
 bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
@@ -466,22 +469,22 @@ bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
   #
 
   # set up the background color and clear mask
-  pass.Cameras[mapMode].setClearColor(osg.Vec4(0.f,0.f,1.f,1.f))
+  pass.Cameras[mapMode].setClearColor(osg.Vec4(0.,0.,1.,1.))
   pass.Cameras[mapMode].setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
-  bs =  _subgraph.getBound()
+  bs = _subgraph.getBound()
   if !bs.valid() :
-      false = return()
+      return False
 
-  znear =  1.0f*bs.radius()
-  zfar =  3.0f*bs.radius()
+  znear = 1.0*bs.radius()
+  zfar = 3.0*bs.radius()
 
   # 2:1 aspect ratio as per flag geometry below.
-  projTop =  0.25f*znear
-  projRight =  projTop * ((double)_width/(double)_height)
+  projTop = 0.25*znear
+  projRight = projTop * ((double)_width/(double)_height)
 
-  znear *= 0.9f
-  zfar *= 1.1f
+  znear *= 0.9
+  zfar *= 1.1
 
   # set up projection.
   pass.Cameras[mapMode].setProjectionMatrixAsFrustum(-projRight,projRight,-projTop,projTop, znear,zfar)
@@ -489,9 +492,9 @@ bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
   # setup view
   pass.Cameras[mapMode].setReferenceFrame(osg.Transform.ABSOLUTE_RF)
 
-  pass.Cameras[mapMode].setViewMatrixAsLookAt(bs.center()-osg.Vec3(0.0f,2.0f,0.0f)*bs.radius(),
+  pass.Cameras[mapMode].setViewMatrixAsLookAt(bs.center()-osg.Vec3(0.0,2.0,0.0)*bs.radius(),
 							       bs.center(),
-							       osg.Vec3(0.0f,0.0f,1.0f))
+							       osg.Vec3(0.0,0.0,1.0))
   # set viewport
   pass.Cameras[mapMode].setViewport(0,0,_texWidth,_texHeight)
 
@@ -504,7 +507,7 @@ bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
   # setup stateset
   #
   #switch lighting off
-  osg.ref_ptr<osg.StateSet> stateset = new osg.StateSet
+  stateset = osg.StateSet()
 
   stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE |
 		    osg.StateAttribute.OFF)
@@ -516,10 +519,10 @@ bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
 
 	if _renderToFirst :
 	    pass.Cameras[mapMode].attach(osg.Camera.COLOR_BUFFER, _normalDepthMap0.get())
-	    stateset.addUniform(new osg.Uniform("normalDepthMap", 2))
-	else:
+	    stateset.addUniform(osg.Uniform("normalDepthMap", 2))
+	else :
 	    pass.Cameras[mapMode].attach(osg.Camera.COLOR_BUFFER, _normalDepthMap1.get())
-	    stateset.addUniform(new osg.Uniform("normalDepthMap", 1))
+	    stateset.addUniform(osg.Uniform("normalDepthMap", 1))
 
 	stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE | osg.StateAttribute.OFF)
         stateset.setAttributeAndModes(_normalDepthMapProgram.get(), osg.StateAttribute.OVERRIDE | osg.StateAttribute.ON)
@@ -532,43 +535,43 @@ bool DePee.createNormalDepthColorMap(MapMode mapMode, bool first)
 
 
 	if _renderToFirst :
-	    stateset.addUniform(new osg.Uniform("normalDepthMap", 1))
-	else:
-	    stateset.addUniform(new osg.Uniform("normalDepthMap", 2))
-	pass.Cameras[mapMode].setClearColor(osg.Vec4(1.f,1.f,1.f,1.f))
+	    stateset.addUniform(osg.Uniform("normalDepthMap", 1))
+	else :
+	    stateset.addUniform(osg.Uniform("normalDepthMap", 2))
+	pass.Cameras[mapMode].setClearColor(osg.Vec4(1.,1.,1.,1.))
 	stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE | osg.StateAttribute.OFF)
 	stateset.setMode(GL_BLEND, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
 	stateset.setAttributeAndModes(_colorMapProgram.get(), osg.StateAttribute.OVERRIDE | osg.StateAttribute.ON)
-	stateset.addUniform(new osg.Uniform("tex", 0))
+	stateset.addUniform(osg.Uniform("tex", 0))
 
 	break
       default:
-	false = return()
+	return False
       
 
     # add subgraph to render
 
     pass.settingNodes[mapMode].addChild(_subgraph.get())
 
-    stateset.addUniform(new osg.Uniform("first", first))
+    stateset.addUniform(osg.Uniform("first", first))
 
-    stateset.addUniform(new osg.Uniform("width", (float) _width))
-    stateset.addUniform(new osg.Uniform("height", (float) _height))
-    stateset.addUniform(new osg.Uniform("znear", znear))
-    stateset.addUniform(new osg.Uniform("zfar", zfar))
+    stateset.addUniform(osg.Uniform("width", (float) _width))
+    stateset.addUniform(osg.Uniform("height", (float) _height))
+    stateset.addUniform(osg.Uniform("znear", znear))
+    stateset.addUniform(osg.Uniform("zfar", zfar))
 
 
     pass.settingNodes[mapMode].setStateSet(stateset.get())
 
-    true = return()
+    return True
 
 
 bool DePee.updateHUDText()
   if !_fps :
-    false = return()
+    return False
   str = str()
-  tmp =  Utility.toString(*_fps)
-  i =  tmp.find_first_of('.')
+  tmp = Utility.toString(*_fps)
+  i = tmp.find_first_of('.')
   tmp = tmp.substr(0, i + 3)
   _hudText.setText(Utility.toString(_dePeePasses.size())
 		    + " Depth Peeling Pass" + (_dePeePasses.size() == 1 ? " " : "es ")
@@ -579,13 +582,16 @@ bool DePee.updateHUDText()
 		    + ". "+Utility.toString(getNumberOfRenderPasses())+ " Rendering Passes "
 		    + "@ "
 		    + tmp + " fps")
-  true = return()
+  return True
+
+# Translated from file 'DePee.h'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #ifndef _DEPEE_H_
 #define _DEPEE_H_
@@ -601,109 +607,106 @@ bool DePee.updateHUDText()
 #include "DePeePass.h"
 
 #!
-  The DePee class is main class for setting up and managing depth peeling. 
-  A DePee object can be seen as a virtual node, that has one parent and one child. The rendering of every child and subchil of this child is managed by the the DePee node. Besides that, it handles a head up display.
- 
-class DePee : public osg.Referenced
-public:
+#  The DePee class is main class for setting up and managing depth peeling. 
+#  A DePee object can be seen as a virtual node, that has one parent and one child. The rendering of every child and subchil of this child is managed by the the DePee node. Besides that, it handles a head up display.
+# 
+class DePee (osg.Referenced) :
   #!
-    The constructor is initialized by giving it a parent and child node (subgraph), as well as the width and height in pixels of the output window. Additionally a subgraph can be added whose children aren't depth peeled but combined with de depth peeled scene
-   
+#    The constructor is initialized by giving it a parent and child node (subgraph), as well as the width and height in pixels of the output window. Additionally a subgraph can be added whose children aren't depth peeled but combined with de depth peeled scene
+#   
   DePee(osg.Group* parent, osg.Group* subgraph, unsigned width, unsigned height)
   #!
-    Takes care of clean removal of DePee
-   
+#    Takes care of clean removal of DePee
+#   
   ~DePee()
   
   #!
-    The head up display shows information like internal status and current frames per second. This function needs to be called in the rendering loop to keep the information updated.
-   
+#    The head up display shows information like internal status and current frames per second. This function needs to be called in the rendering loop to keep the information updated.
+#   
   updateHUDText = bool()
 
   #!
-    Sets whether sketchiness is activated or deactivated
-   
+#    Sets whether sketchiness is activated or deactivated
+#   
   setSketchy = void(bool sketchy)
   
   #!
-    If sketchiness is enabled, sets whether a crayon should be used
-   
+#    If sketchiness is enabled, sets whether a crayon should be used
+#   
   setCrayon = void(bool crayon)
   
   #!
-    Sets whether color display is activated or deactivated
-   
+#    Sets whether color display is activated or deactivated
+#   
   setColored = void(bool colored)
   
   #!
-    Sets whether edges are displayed or not
-   
+#    Sets whether edges are displayed or not
+#   
   setEdgy = void(bool edgy)
 
   #!
-    Sets how sketchy lines and colors should be displayed (standard is 1.0)
-   
+#    Sets how sketchy lines and colors should be displayed (standard is 1.0)
+#   
   setSketchiness = void(double sketchiness)
   
   #!
-    Set the pointer to the double variable containing the current fps for displaying it on the head up display
-   
+#    Set the pointer to the double variable containing the current fps for displaying it on the head up display
+#   
   setFPS = void(double* fps)
 
   #!
-    Add a depth peeling pass and adjust the render passes accordingly
-   
+#    Add a depth peeling pass and adjust the render passes accordingly
+#   
   addDePeePass = bool()
 
   #!
-    Remove a depth peeling pass and adjust the render passes accordingly
-   
+#    Remove a depth peeling pass and adjust the render passes accordingly
+#   
   remDePeePass = bool()
-  
-private:
   #!
-    Create a map. This is a function for convenience and calls either 
-    createNoiseMap(), createEdgeMap() or createNormalDepthColorMap().
-    Apart from NOISE_MAP, for every texture generation 
-    one rendering pass is needed.
-    The boolean first is used to indicate whether this rendering pass
-    belongs to the first depth peeling pass.
-   
-  createMap = bool(MapMode mapMode, bool first=false)
+#    Create a map. This is a function for convenience and calls either 
+#    createNoiseMap(), createEdgeMap() or createNormalDepthColorMap().
+#    Apart from NOISE_MAP, for every texture generation 
+#    one rendering pass is needed.
+#    The boolean first is used to indicate whether this rendering pass
+#    belongs to the first depth peeling pass.
+#   
+  createMap = bool(MapMode mapMode, bool first=False)
 
   #!
-    Creates a two dimensional noise map and initalizes _noiseMap with it
-   
+#    Creates a two dimensional noise map and initalizes _noiseMap with it
+#   
   createNoiseMap = bool()
 
   #!
-    Depending on the chosen MapMode, it either creates a new rendering
-    pass for creaeting a normal, depth or color map. The created rendering
-    pass is added to the current depth peeling pass.
-   
+#    Depending on the chosen MapMode, it either creates a rendering
+#    pass for creaeting a normal, depth or color map. The created rendering
+#    pass is added to the current depth peeling pass.
+#   
   createNormalDepthColorMap = bool(MapMode mapMode, bool first)
   
   #!
-    Create an edge map. A previous depth and normal rendering pass in this 
-    depth peeling pass is required for that.
-   
+#    Create an edge map. A previous depth and normal rendering pass in this 
+#    depth peeling pass is required for that.
+#   
   createEdgeMap = bool(bool first)
   
   #!
-    Creates the final rendering pass for depth peeling. Color and edge map are
-    added up here and sketchiness is applied.
-   
+#    Creates the final rendering pass for depth peeling. Color and edge map are
+#    added up here and sketchiness is applied.
+#   
   createFinal = bool()
   
   #!
-    Create the rendering pass for the head up display
-   
+#    Create the rendering pass for the head up display
+#   
   createHUD = bool()
 
   #
-    Returns the number of rendering passes of the depth peeling object
-   
-  unsigned int getNumberOfRenderPasses()
+#    Returns the number of rendering passes of the depth peeling object
+#   
+  getNumberOfRenderPasses = unsigned int()
   
   
   _texWidth = unsigned()
@@ -711,22 +714,22 @@ private:
   _width = unsigned()
   _height = unsigned()
   
-  osg.ref_ptr<osg.Group> _parent
-  osg.ref_ptr<osg.Group> _subgraph
-  osg.ref_ptr<osg.Texture2D> _noiseMap
-  osg.ref_ptr<osg.Texture2D> _normalDepthMap0
-  osg.ref_ptr<osg.Texture2D> _normalDepthMap1
+  _parent = osg.Group()
+  _subgraph = osg.Group()
+  _noiseMap = osg.Texture2D()
+  _normalDepthMap0 = osg.Texture2D()
+  _normalDepthMap1 = osg.Texture2D()
   
-  osg.ref_ptr<osg.Texture2D> _edgeMap
+  _edgeMap = osg.Texture2D()
   
-  osg.ref_ptr<osg.Texture2D> _colorMap
+  _colorMap = osg.Texture2D()
   
-  osg.ref_ptr<osg.Geode> _quadGeode
+  _quadGeode = osg.Geode()
 
   _hudText = osgText.Text*()
   _fps = double*()
   
-  std.vector<DePeePass*> _dePeePasses
+  _dePeePasses = std.vector<DePeePass*>()
   
   _sketchy = osg.Uniform*()
   _colored = osg.Uniform*()
@@ -741,20 +744,23 @@ private:
   _colorCamera = osg.Camera*()
 
   #shader programs
-  osg.ref_ptr<osg.Program> _normalDepthMapProgram
-  osg.ref_ptr<osg.Program> _colorMapProgram
-  osg.ref_ptr<osg.Program> _edgeMapProgram
+  _normalDepthMapProgram = osg.Program()
+  _colorMapProgram = osg.Program()
+  _edgeMapProgram = osg.Program()
 
   _renderToFirst = bool()
 
 
 #endif
+
+# Translated from file 'DePeePass.cpp'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #include "DePeePass.h"
 
@@ -762,7 +768,7 @@ private:
 #include <assert.h>
 
 DePeePass.DePeePass()
-  root = new osg.Group
+  root = osg.Group()
 
 DePeePass.~DePeePass()
   root.releaseGLObjects()
@@ -771,8 +777,8 @@ DePeePass.~DePeePass()
       remRenderPass((*Cameras.begin()).first)
   
 void DePeePass.newRenderPass(MapMode mapMode)
-  Cameras[mapMode] = new osg.Camera
-  settingNodes[mapMode] = new osg.Group
+  Cameras[mapMode] = osg.Camera()
+  settingNodes[mapMode] = osg.Group()
   root.addChild(Cameras[mapMode].get())
   Cameras[mapMode].addChild(settingNodes[mapMode].get())
   
@@ -788,12 +794,15 @@ void DePeePass.remRenderPass(MapMode mapMode)
   
   Cameras.erase(Cameras.find(mapMode))
   settingNodes.erase(settingNodes.find(mapMode))
+
+# Translated from file 'DePeePass.h'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #ifndef _DEPEEPASS_H_
 #define _DEPEEPASS_H_
@@ -804,51 +813,53 @@ void DePeePass.remRenderPass(MapMode mapMode)
 #include <osg/Group>
 
 #!
-  MapMode specifies the kind of texture maps that can be generated for later
-  usage
- 
+#  MapMode specifies the kind of texture maps that can be generated for later
+#  usage
+# 
 enum MapMode NORMAL_DEPTH_MAP, COLOR_MAP, EDGE_MAP, NOISE_MAP
 
 #!
-  DePeePass can be seen as a mera data structure and typically used by 
-  the class DePee. It represents one depth peeling pass and is initialized
-  by functions in the DePee class, but cleans itself up.
-  Please note, that no texture generation mode is allowed to appear twice
-
-class DePeePass
- public:
+#  DePeePass can be seen as a mera data structure and typically used by 
+#  the class DePee. It represents one depth peeling pass and is initialized
+#  by functions in the DePee class, but cleans itself up.
+#  Please note, that no texture generation mode is allowed to appear twice
+#
+class DePeePass :
   #!
-    Constructor
-   
+#    Constructor
+#   
   DePeePass()
   
   #!
-    Desctructor cleans the whole depth peeling pass
-   
+#    Desctructor cleans the whole depth peeling pass
+#   
   ~DePeePass()
   
   #!
-    Make data structure ready for incorporating a new rendering pass
-   
+#    Make data structure ready for incorporating a rendering pass
+#   
   newRenderPass = void(MapMode mapMode)
   
   #!
-    Clean up the specified rendering pass
-   
+#    Clean up the specified rendering pass
+#   
   remRenderPass = void(MapMode mapMode)
   
-  osg.ref_ptr<osg.Group> root
-  std.map<MapMode, osg.ref_ptr<osg.Camera> > Cameras
-  std.map<MapMode, osg.ref_ptr<osg.Group> > settingNodes
+  root = osg.Group()
+  Cameras = std.map<MapMode, osg.Camera >()
+  settingNodes = std.map<MapMode, osg.Group >()
 
 
 #endif
+
+# Translated from file 'osgdepthpeeling.cpp'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #include <osg/GLExtensions>
 #include <osg/Node>
@@ -866,21 +877,20 @@ class DePeePass
 #include "DePee.h"    
 
 #!
-  Handles keyboard events.
-  Maintains a copy of the DePee object and part of its internal state
-  Used for example to set sketchiness, color, add or remove a depth peeling pass
- 
-class KeyboardEventHandler : public osgGA.GUIEventHandler
-public:
+#  Handles keyboard events.
+#  Maintains a copy of the DePee object and part of its internal state
+#  Used for example to set sketchiness, color, add or remove a depth peeling pass
+# 
+class KeyboardEventHandler (osgGA.GUIEventHandler) :
   
   KeyboardEventHandler(DePee* dePee)
     _apc = 0
     _dePee = dePee
-    _sketchy = false
+    _sketchy = False
     _sketchiness = 1.0
-    _colored = false
-    _edgy = true
-    _crayon = false
+    _colored = False
+    _edgy = True
+    _crayon = False
     _dePee.setSketchy(_sketchy)
     _dePee.setColored(_colored)
   
@@ -891,38 +901,38 @@ public:
 	  if ea.getKey()==osgGA.GUIEventAdapter.KEY_Space :
 	      if _apc :
 		_apc.setPause(!_apc.getPause())
-	      true = return()
-	  else: if ea.getKey() == 'a' :
+	      return True
+	  elif ea.getKey() == 'a' :
 	      _dePee.addDePeePass()
-	      true = return()
-	  else: if ea.getKey() == 'r' :
+	      return True
+	  elif ea.getKey() == 'r' :
 	      _dePee.remDePeePass()
-	      true = return()
-	  else: if ea.getKey() == 'c' :
+	      return True
+	  elif ea.getKey() == 'c' :
 	      _colored = !_colored
 	      _dePee.setColored(_colored)
-	      true = return()
-	  else: if ea.getKey() == 's' :
+	      return True
+	  elif ea.getKey() == 's' :
 	      _sketchy = !_sketchy
 	      _dePee.setSketchy(_sketchy)
-	      true = return()
+	      return True
 	  
-	  else: if ea.getKey() == 'e' :
+	  elif ea.getKey() == 'e' :
 	      _edgy = !_edgy
 	      _dePee.setEdgy(_edgy)
-	      true = return()
-	  else: if ea.getKey() == 'f' :
-	      true = return()
-	  else: if ea.getKey() == '+' :
+	      return True
+	  elif ea.getKey() == 'f' :
+	      return True
+	  elif ea.getKey() == '+' :
 	      _sketchiness += 0.5
 	      _dePee.setSketchiness(_sketchiness)
-	  else: if ea.getKey() == '-' :
+	  elif ea.getKey() == '-' :
 	      _sketchiness -= 0.5
 	      if _sketchiness < 0.0 :
 		_sketchiness = 0.0
 	      _dePee.setSketchiness(_sketchiness)
 
-	  else: if ea.getKey() == 'y' :
+	  elif ea.getKey() == 'y' :
 	      _crayon = !_crayon
 	      _dePee.setCrayon(_crayon)
 	  
@@ -931,10 +941,10 @@ public:
       default:
 	break
 	
-    false = return()
+    return False
   def registerAnimationPathCallback(apc):
+      
     _apc = apc
-private:
   _dePee = DePee*()
   _sketchy = bool()
   _colored = bool()
@@ -946,12 +956,11 @@ private:
 
 
 #!
-  Handles mouse events.
-  Maintains a copy of the DePee object and part of its internal state
-  Used to rotate the object
- 
-class MouseEventHandler : public osgGA.GUIEventHandler
-public:
+#  Handles mouse events.
+#  Maintains a copy of the DePee object and part of its internal state
+#  Used to rotate the object
+# 
+class MouseEventHandler (osgGA.GUIEventHandler) :
   
   MouseEventHandler(DePee* dePee)
     _dePee = dePee
@@ -970,13 +979,14 @@ public:
       default:
 	break
 	
-    false = return()
+    return False
   def registerModelGroupTransform(modelGroupTransform):
+      
     _modelGroupTransform = modelGroupTransform
     _rotCenter = modelGroupTransform.getBound().center()
-private:
   def rotate(x, y):
-    baseMatrix =  _modelGroupTransform.getMatrix()
+      
+    baseMatrix = _modelGroupTransform.getMatrix()
     
     baseMatrix.preMultTranslate(_rotCenter)
     baseMatrix.preMultRotate(osg.Quat((x - _prevX) * 3, osg.Vec3d(0.0, 0.0, 1.0)))
@@ -1001,6 +1011,10 @@ private:
 
 
 def main(argc, argv):
+
+
+
+    
   # use an ArgumentParser object to manage the program arguments.
   arguments = osg.ArgumentParser(argc,argv)
   
@@ -1029,18 +1043,18 @@ def main(argc, argv):
   viewer.getCamera().setComputeNearFarMode(osg.CullSettings.DO_NOT_COMPUTE_NEAR_FAR)
 
   # read the model to do depth peeling with
-  loadedModel =  osgDB.readNodeFile(arguments.argv()[1])
+  loadedModel = osgDB.readNodeFile(arguments.argv()[1])
   
   if !loadedModel :
     return 1
     
   # create a transform to spin the model.
-  modelGroupTransform =  new osg.MatrixTransform
-  modelGroup =  new osg.Group
+  modelGroupTransform = osg.MatrixTransform()
+  modelGroup = osg.Group()
   modelGroupTransform.addChild(modelGroup)
   modelGroup.addChild(loadedModel)
   
-  rootNode =  new osg.Group()
+  rootNode = osg.Group()
   
   # add model to the viewer.
   viewer.setSceneData(rootNode)
@@ -1052,8 +1066,8 @@ def main(argc, argv):
   # create the windows and run the threads.
   viewer.realize()
   
-  unsigned int width = 1280
-  unsigned int height = 1280
+  width = 1280
+  height = 1280
   windows = osgViewer.Viewer.Windows()
   viewer.getWindows(windows)
   if !windows.empty() :
@@ -1061,26 +1075,26 @@ def main(argc, argv):
     height = windows.front().getTraits().height
 
 
-  osg.ref_ptr<DePee> dePee = new DePee(rootNode, 
+  dePee = DePee(rootNode, 
 			        modelGroupTransform, 
 			        width,
 			        height)
   
   #create event handlers
-  keyboardEventHandler =  new KeyboardEventHandler(dePee.get())
-  mouseEventHandler =  new MouseEventHandler(dePee.get())
+  keyboardEventHandler = KeyboardEventHandler(dePee.get())
+  mouseEventHandler = MouseEventHandler(dePee.get())
   viewer.addEventHandler(keyboardEventHandler)
   viewer.addEventHandler(mouseEventHandler)
 
-  #viewer.setCameraManipulator(new osgGA.TrackballManipulator)
+  #viewer.setCameraManipulator(osgGA.TrackballManipulator)()
     
-  stateset =  modelGroupTransform.getOrCreateStateSet()
+  stateset = modelGroupTransform.getOrCreateStateSet()
 
   stateset.setMode(GL_BLEND, osg.StateAttribute.OFF)
 
-  #create new animation callback for autmatic object rotation
-  apc =  new osg.AnimationPathCallback(modelGroupTransform.getBound().center(),osg.Vec3(0.0f,0.0f,1.0f),osg.inDegrees(45.0f))
-  apc.setPause(true)
+  #create animation callback for autmatic object rotation
+  apc = osg.AnimationPathCallback(modelGroupTransform.getBound().center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(45.0))
+  apc.setPause(True)
   modelGroupTransform.setUpdateCallback(apc)
   
   keyboardEventHandler.registerAnimationPathCallback(apc)
@@ -1088,7 +1102,7 @@ def main(argc, argv):
     
   #setup stuff that is necessary for measuring fps
   osg.Timer_t current_tick, previous_tick = 1
-  fps =  new double
+  fps = double()
   dePee.setFPS(fps)
   
   while !viewer.done() :
@@ -1103,12 +1117,15 @@ def main(argc, argv):
     viewer.frame()
 
   return 0
+
+# Translated from file 'Utility.cpp'
+
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 #include "Utility.h"
 
@@ -1121,20 +1138,20 @@ def main(argc, argv):
 #include <osgDB/fstream>
 
 bool Utility.readFile( char* fName, str s)
-  foundFile =  osgDB.findDataFile(fName)
-  if foundFile.empty() : return false
+  foundFile = osgDB.findDataFile(fName)
+  if foundFile.empty() : return False
 
   is = osgDB.ifstream()#(fName)
   is.open(foundFile.c_str())
   if is.fail() :
       std.cerr, "Could not open ", fName, " for reading.\n"
-      false = return()
-  ch =  is.get()
+      return False
+  ch = is.get()
   while !is.eof() :
       s += ch
       ch = is.get()
   is.close()
-  true = return()
+  return True
 
 str Utility.toString(double d)
   ostr = strstream()
@@ -1154,17 +1171,17 @@ osg.Program* Utility.createProgram(str vs, str fs)
       return 0
 
 
-  program =  new osg.Program
-  program.addShader( new osg.Shader( osg.Shader.VERTEX, vertSource.c_str() ) )
-  program.addShader( new osg.Shader( osg.Shader.FRAGMENT, fragSource.c_str() ) )
-  program = return()
+  program = osg.Program()
+  program.addShader( osg.Shader( osg.Shader.VERTEX, vertSource.c_str() ) )
+  program.addShader( osg.Shader( osg.Shader.FRAGMENT, fragSource.c_str() ) )
+  return program
 
 double Utility.getNoise(unsigned x, unsigned y, unsigned random)
-  n =  x + y * 57 + random * 131
+  n = x + y * 57 + random * 131
   n = (n, 13) ^ n
-  noise =  (1.0f - ( (n * (n * n * 15731 + 789221) +
-                1376312589)0x7fffffff)* 0.000000000931322574615478515625f)
-  noise = return()
+  noise = (1.0 - ( (n * (n * n * 15731 + 789221) +
+                1376312589)0x7fffffff)* 0.000000000931322574615478515625)
+  return noise
 
 double Utility.smoothNoise(unsigned width, unsigned height, unsigned x, unsigned y, unsigned char* noise)
   assert(noise)
@@ -1173,35 +1190,35 @@ double Utility.smoothNoise(unsigned width, unsigned height, unsigned x, unsigned
      || y==0 || y > height -2 :
     return noise[x + y*width]
 
-  corners =  (noise[x-1 + (y-1) *width]
+  corners = (noise[x-1 + (y-1) *width]
             +noise[x+1 + (y-1)*width]
             +noise[x-1 + (y+1) * width]
             +noise[x+1 + (y+1) * width]) / 16.0
-  sides =  (noise[x-1 + y*width]
+  sides = (noise[x-1 + y*width]
             +noise[x+1 + y*width]
             +noise[x + (y-1)*width]
             +noise[x + (y+1)*width]) / 8.0
-  center =   noise[x + y*width] / 4.0
+  center = noise[x + y*width] / 4.0
 
   return corners + sides + center
 
 osg.Texture2D* Utility.newColorTexture2D(unsigned width, unsigned height, unsigned accuracy)
-  texture2D =  new osg.Texture2D
+  texture2D = osg.Texture2D()
 
   texture2D.setTextureSize(width, height)
   if accuracy == 32 :
       texture2D.setInternalFormat(GL_RGBA32F_ARB)
       texture2D.setSourceFormat(GL_RGBA)
-  else: if accuracy == 8 :
+  elif accuracy == 8 :
       texture2D.setInternalFormat(GL_RGBA)
   texture2D.setSourceType(GL_FLOAT)
   texture2D.setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
   texture2D.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
-  texture2D = return()
+  return texture2D
 
 osg.Geode* Utility.getCanvasQuad(unsigned width, unsigned height, double depth)
-  vertices =  new osg.Vec3Array
-  texCoords =  new osg.Vec2Array
+  vertices = osg.Vec3Array()
+  texCoords = osg.Vec2Array()
   vertices.push_back(osg.Vec3(0,0,depth))
   texCoords.push_back(osg.Vec2(0,0))
 
@@ -1214,27 +1231,30 @@ osg.Geode* Utility.getCanvasQuad(unsigned width, unsigned height, double depth)
   vertices.push_back(osg.Vec3(width,height,depth))
   texCoords.push_back(osg.Vec2(1,1))
 
-  quad =  new osg.Geometry
+  quad = osg.Geometry()
   quad.setVertexArray(vertices)
   quad.setTexCoordArray(1,texCoords)
 
-  quad.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,vertices.size()))
+  quad.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,vertices.size()))
 
-  colors =  new osg.Vec4Array
-  colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+  colors = osg.Vec4Array()
+  colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
   quad.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-  geode =  new osg.Geode()
+  geode = osg.Geode()
   geode.addDrawable(quad)
 
-  geode = return()
+  return geode
+
+
+# Translated from file 'Utility.h'
 
 #
-  Steffen Frey
-  Fachpraktikum Graphik-Programmierung 2007
-  Institut fuer Visualisierung und Interaktive Systeme
-  Universitaet Stuttgart
- 
+#  Steffen Frey
+#  Fachpraktikum Graphik-Programmierung 2007
+#  Institut fuer Visualisierung und Interaktive Systeme
+#  Universitaet Stuttgart
+# 
 
 
 #ifndef _UTILITY_H_
@@ -1247,41 +1267,41 @@ osg.Geode* Utility.getCanvasQuad(unsigned width, unsigned height, double depth)
 
 namespace Utility
 #!
-  Reads a file and returns a string
- 
+#  Reads a file and returns a string
+# 
 readFile = bool( char* fName, str s)
 
 #!
-  Converts a number to a string
- 
+#  Converts a number to a string
+# 
 toString = str(double d)
 
 #!
-  Create a osg shader program consisting of a vertex shader and a 
-  fragment shader
- 
+#  Create a osg shader program consisting of a vertex shader and a 
+#  fragment shader
+# 
 createProgram = osg.Program*(str vs, str fs)
 
 #!
-This is a random generator to generate noise patterns.
-The returned values range from -1 to 1
-
+#This is a random generator to generate noise patterns.
+#The returned values range from -1 to 1
+#
 getNoise = double(unsigned x, unsigned y, unsigned random)
 
 #!
-  Returns a smoothed noise version of the value that is read from the noise
-  texture
- 
+#  Returns a smoothed noise version of the value that is read from the noise
+#  texture
+# 
 smoothNoise = double(unsigned width, unsigned height, unsigned x, unsigned y, unsigned char* noise)
 
 #!
-  Creates a two dimensional color texture and apply some standard settings
- 
+#  Creates a two dimensional color texture and apply some standard settings
+# 
  newColorTexture2D = osg.Texture2D*(unsigned width, unsigned height, unsigned accuracy)
 
 #!
-  Get a quad with screen size in order to show a texture full screen
- 
+#  Get a quad with screen size in order to show a texture full screen
+# 
 getCanvasQuad = osg.Geode*(unsigned width, unsigned height, double depth=-1)
 #endif
 

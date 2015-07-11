@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osghud.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osghud.cpp'
+
+# OpenSceneGraph example, osghud.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgUtil/Optimizer>
 #include <osgDB/ReadFile>
@@ -54,8 +57,11 @@ from osgpypp import osgViewer
 
 
 def createHUD():
+
+
+    
     # create a camera to set up the projection and model view matrices, and the subgraph to draw in the HUD
-    camera =  new osg.Camera
+    camera = osg.Camera()
 
     # set the projection matrix
     camera.setProjectionMatrix(osg.Matrix.ortho2D(0,1280,0,1024))
@@ -71,24 +77,24 @@ def createHUD():
     camera.setRenderOrder(osg.Camera.POST_RENDER)
 
     # we don't want the camera to grab event focus from the viewers main camera(s).
-    camera.setAllowEventFocus(false)
+    camera.setAllowEventFocus(False)
 
 
 
     # add to this camera a subgraph to render
 
-        geode =  new osg.Geode()
+        geode = osg.Geode()
 
         timesFont = str("fonts/arial.ttf")
 
         # turn lighting off for the text and disable depth test to ensure it's always ontop.
-        stateset =  geode.getOrCreateStateSet()
+        stateset = geode.getOrCreateStateSet()
         stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-        position = osg.Vec3(150.0f,800.0f,0.0f)
-        delta = osg.Vec3(0.0f,-120.0f,0.0f)
+        position = osg.Vec3(150.0,800.0,0.0)
+        delta = osg.Vec3(0.0,-120.0,0.0)
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -98,7 +104,7 @@ def createHUD():
             position += delta
 
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -108,7 +114,7 @@ def createHUD():
             position += delta
 
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -118,7 +124,7 @@ def createHUD():
 
             position += delta
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -128,7 +134,7 @@ def createHUD():
 
             position += delta
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -137,7 +143,7 @@ def createHUD():
 
             position += delta
 
-            text =  new  osgText.Text
+            text = osgText.Text()
             geode.addDrawable( text )
 
             text.setFont(timesFont)
@@ -152,42 +158,42 @@ def createHUD():
             for(unsigned int i=0i<geode.getNumDrawables()++i)
                 bb.expandBy(geode.getDrawable(i).getBound())
 
-            geom =  new osg.Geometry
+            geom = osg.Geometry()
 
-            vertices =  new osg.Vec3Array
-            depth =  bb.zMin()-0.1
+            vertices = osg.Vec3Array()
+            depth = bb.zMin()-0.1
             vertices.push_back(osg.Vec3(bb.xMin(),bb.yMax(),depth))
             vertices.push_back(osg.Vec3(bb.xMin(),bb.yMin(),depth))
             vertices.push_back(osg.Vec3(bb.xMax(),bb.yMin(),depth))
             vertices.push_back(osg.Vec3(bb.xMax(),bb.yMax(),depth))
             geom.setVertexArray(vertices)
 
-            normals =  new osg.Vec3Array
-            normals.push_back(osg.Vec3(0.0f,0.0f,1.0f))
+            normals = osg.Vec3Array()
+            normals.push_back(osg.Vec3(0.0,0.0,1.0))
             geom.setNormalArray(normals, osg.Array.BIND_OVERALL)
 
-            colors =  new osg.Vec4Array
-            colors.push_back(osg.Vec4(1.0f,1.0,0.8f,0.2f))
+            colors = osg.Vec4Array()
+            colors.push_back(osg.Vec4(1.0,1.0,0.8,0.2))
             geom.setColorArray(colors, osg.Array.BIND_OVERALL)
 
-            geom.addPrimitiveSet(new osg.DrawArrays(GL_QUADS,0,4))
+            geom.addPrimitiveSet(osg.DrawArrays(GL_QUADS,0,4))
 
-            stateset =  geom.getOrCreateStateSet()
+            stateset = geom.getOrCreateStateSet()
             stateset.setMode(GL_BLEND,osg.StateAttribute.ON)
-            #stateset.setAttribute(new osg.PolygonOffset(1.0f,1.0f),osg.StateAttribute.ON)
+            #stateset.setAttribute(osg.PolygonOffset(1.0,1.0),osg.StateAttribute.ON)
             stateset.setRenderingHint(osg.StateSet.TRANSPARENT_BIN)
 
             geode.addDrawable(geom)
 
         camera.addChild(geode)
 
-    camera = return()
+    return camera
 
-struct SnapImage : public osg.Camera.DrawCallback
-    SnapImage( str filename):
+class SnapImage (osg.Camera.DrawCallback) :
+SnapImage( str filename):
         _filename(filename),
-        _snapImage(false)
-        _image = new osg.Image
+        _snapImage(False)
+        _image = osg.Image()
 
     virtual void operator () (osg.RenderInfo renderInfo) 
 
@@ -195,8 +201,8 @@ struct SnapImage : public osg.Camera.DrawCallback
 
         osg.notify(osg.NOTICE), "Camera callback"
 
-        camera =  renderInfo.getCurrentCamera()
-        viewport =  camera ? camera.getViewport() : 0
+        camera = renderInfo.getCurrentCamera()
+        viewport = camera ? camera.getViewport() : 0
 
         osg.notify(osg.NOTICE), "Camera callback ", camera, " ", viewport
 
@@ -208,47 +214,49 @@ struct SnapImage : public osg.Camera.DrawCallback
 
             osg.notify(osg.NOTICE), "Taken screenshot, and written to '", _filename, "'"
 
-        _snapImage = false
+        _snapImage = False
 
     _filename = str()
     mutable bool                        _snapImage
-    mutable osg.ref_ptr<osg.Image>    _image
+    mutable osg.Image    _image
 
 
-struct SnapeImageHandler : public osgGA.GUIEventHandler
-
-    SnapeImageHandler(int key,SnapImage* si):
+class SnapeImageHandler (osgGA.GUIEventHandler) :
+SnapeImageHandler(int key,SnapImage* si):
         _key(key),
         _snapImage(si) 
 
     bool handle( osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter)
-        if ea.getHandled() : return false
+        if ea.getHandled() : return False
 
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYUP):
                 if ea.getKey() == _key :
                     osg.notify(osg.NOTICE), "event handler"
-                    _snapImage._snapImage = true
-                    true = return()
+                    _snapImage._snapImage = True
+                    return True
 
                 break
         default:
             break
 
-        false = return()
+        return False
 
     _key = int()
-    osg.ref_ptr<SnapImage> _snapImage
+    _snapImage = SnapImage()
 
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> scene = osgDB.readNodeFiles(arguments)
+    scene = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default model instead.
     if !scene : scene = osgDB.readNodeFile("dumptruck.osgt")
@@ -272,13 +280,13 @@ def main(argc, argv):
 
         if windows.empty() : return 1
 
-        hudCamera =  createHUD()
+        hudCamera = createHUD()
 
         # set up cameras to render on the first window available.
         hudCamera.setGraphicsContext(windows[0])
         hudCamera.setViewport(0,0,windows[0].getTraits().width, windows[0].getTraits().height)
 
-        viewer.addSlave(hudCamera, false)
+        viewer.addSlave(hudCamera, False)
 
         # set the scene to render
         viewer.setSceneData(scene.get())
@@ -290,12 +298,12 @@ def main(argc, argv):
         viewer = osgViewer.CompositeViewer()
 
         # create the main 3D view
-        view =  new osgViewer.View
+        view = osgViewer.View()
         viewer.addView(view)
 
         view.setSceneData(scene.get())
         view.setUpViewAcrossAllScreens()
-        view.setCameraManipulator(new osgGA.TrackballManipulator)
+        view.setCameraManipulator(osgGA.TrackballManipulator)()
 
         # now create the HUD camera's view
 
@@ -304,32 +312,32 @@ def main(argc, argv):
 
         if windows.empty() : return 1
 
-        hudCamera =  createHUD()
+        hudCamera = createHUD()
 
         # set up cameras to render on the first window available.
         hudCamera.setGraphicsContext(windows[0])
         hudCamera.setViewport(0,0,windows[0].getTraits().width, windows[0].getTraits().height)
 
-        hudView =  new osgViewer.View
+        hudView = osgViewer.View()
         hudView.setCamera(hudCamera)
 
         viewer.addView(hudView)
 
         return viewer.run()
 
-    else:
+    else :
         # construct the viewer.
         viewer = osgViewer.Viewer()
 
-        postDrawCallback =  new SnapImage("PostDrawCallback.png")
+        postDrawCallback = SnapImage("PostDrawCallback.png")
         viewer.getCamera().setPostDrawCallback(postDrawCallback)
-        viewer.addEventHandler(new SnapeImageHandler('p',postDrawCallback))
+        viewer.addEventHandler(SnapeImageHandler('p',postDrawCallback))
 
-        finalDrawCallback =  new SnapImage("FinalDrawCallback.png")
+        finalDrawCallback = SnapImage("FinalDrawCallback.png")
         viewer.getCamera().setFinalDrawCallback(finalDrawCallback)
-        viewer.addEventHandler(new SnapeImageHandler('f',finalDrawCallback))
+        viewer.addEventHandler(SnapeImageHandler('f',finalDrawCallback))
 
-        osg.ref_ptr<osg.Group> group  = new osg.Group
+        group = osg.Group()
 
         # add the HUD subgraph.
         if scene.valid() : group.addChild(scene.get())

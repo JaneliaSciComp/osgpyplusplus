@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgpointsprite.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgpointsprite.cpp'
+
+# OpenSceneGraph example, osgpointsprite.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/PointSprite>
 #include <osg/BlendFunc>
@@ -43,22 +46,22 @@ from osgpypp import osgViewer
 #include <osgViewer/Viewer>
 
 osg.Geode *makeGalaxy(unsigned nvertices)
-    geode =  new osg.Geode()
-    galaxy =  new osg.Geometry()
-    vertices =  new osg.Vec3Array()
-    colors =  new osg.Vec4Array()
+    geode = osg.Geode()
+    galaxy = osg.Geometry()
+    vertices = osg.Vec3Array()
+    colors = osg.Vec4Array()
     ini = osg.Vec4(1,1,0,1)
     fin = osg.Vec4(0,0,1,1)
 
     #* Formula for the two spirals 
     for (unsigned i=0i<nvertices/2i++) 
-        val =  (i*2/(float)nvertices * 2 * 3.14159265359)
-        modx1 =  rand() / (float)RAND_MAX*2
-        mody1 =  rand() / (float)RAND_MAX*2
-        modx2 =  rand() / (float)RAND_MAX*2
-        mody2 =  rand() / (float)RAND_MAX*2
-        modz1 =  ((rand()-RAND_MAX/2) / (float)(RAND_MAX))*3/(val+1)
-        modz2 =  ((rand()-RAND_MAX/2) / (float)(RAND_MAX))*3/(val+1)
+        val = (i*2/(float)nvertices * 2 * 3.14159265359)
+        modx1 = rand() / (float)RAND_MAX*2
+        mody1 = rand() / (float)RAND_MAX*2
+        modx2 = rand() / (float)RAND_MAX*2
+        mody2 = rand() / (float)RAND_MAX*2
+        modz1 = ((rand()-RAND_MAX/2) / (float)(RAND_MAX))*3/(val+1)
+        modz2 = ((rand()-RAND_MAX/2) / (float)(RAND_MAX))*3/(val+1)
         vertices.push_back(osg.Vec3(cos(val)*val+modx1, sin(val)*val+mody1, modz1))
         vertices.push_back(osg.Vec3(-cos(val)*val+modx2, -sin(val)*val+mody2, modz2))
 
@@ -66,25 +69,27 @@ osg.Geode *makeGalaxy(unsigned nvertices)
         colors.push_back(ini+(fin-ini)*(i*2/(float)nvertices))
     galaxy.setVertexArray(vertices)
     galaxy.setColorArray(colors, osg.Array.BIND_PER_VERTEX)
-    galaxy.addPrimitiveSet(new osg.DrawArrays(osg.PrimitiveSet.POINTS, 0, nvertices))
+    galaxy.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.POINTS, 0, nvertices))
     geode.addDrawable(galaxy)
-    geode = return()
+    return geode
 
 def makeStateSet(size):
-    set =  new osg.StateSet()
+
+    
+    set = osg.StateSet()
 
     #/ Setup cool blending
     set.setMode(GL_BLEND, osg.StateAttribute.ON)
-    fn =  new osg.BlendFunc()
+    fn = osg.BlendFunc()
     fn.setFunction(osg.BlendFunc.SRC_ALPHA, osg.BlendFunc.DST_ALPHA)
     set.setAttributeAndModes(fn, osg.StateAttribute.ON)
 
     #/ Setup the point sprites
-    sprite =  new osg.PointSprite()
+    sprite = osg.PointSprite()
     set.setTextureAttributeAndModes(0, sprite, osg.StateAttribute.ON)
 
     #/ Give some size to the points to be able to see the sprite
-    point =  new osg.Point()
+    point = osg.Point()
     point.setSize(size)
     set.setAttribute(point)
 
@@ -93,19 +98,19 @@ def makeStateSet(size):
     set.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
     #/ The texture for the sprites
-    tex =  new osg.Texture2D()
+    tex = osg.Texture2D()
     tex.setImage(osgDB.readImageFile("Images/particle.rgb"))
     set.setTextureAttributeAndModes(0, tex, osg.StateAttribute.ON)
 
-    set = return()
+    return set
 
 int main(int, char *[])
     viewer = osgViewer.Viewer()
 
     #/ Make the galaxy of points
-    node =  makeGalaxy(5000)
+    node = makeGalaxy(5000)
 
-    node.setStateSet(makeStateSet(10.0f))
+    node.setStateSet(makeStateSet(10.0))
 
     viewer.setSceneData(node)
 

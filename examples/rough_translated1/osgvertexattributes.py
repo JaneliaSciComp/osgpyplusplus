@@ -11,23 +11,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgvertexattributes.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgvertexattributes.cpp'
+
+# OpenSceneGraph example, osgvertexattributes.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgUtil/ShaderGen>
 #include <osgDB/ReadFile>
@@ -36,14 +39,13 @@ from osgpypp import osgViewer
 #include <osgViewer/ViewerEventHandlers>
 #include <osgGA/TrackballManipulator>
 
-class ConvertToVertexAttibArrays : public osg.NodeVisitor
-    public:
+class ConvertToVertexAttibArrays (osg.NodeVisitor) :
 
         typedef std.pair<unsigned int, str> AttributeAlias
 
         ConvertToVertexAttibArrays():
             osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
-            _manualVertexAliasing = false
+            _manualVertexAliasing = False
 
             # mappings taken from http:#www.opengl.org/registry/specs/NV/vertex_program.txt
             _vertexAlias = AttributeAlias(0, "osg_Vertex")
@@ -61,19 +63,27 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
             _texCoordAlias[7] = AttributeAlias(15, "osg_MultiTexCoord7")
 
         def bindAttribute(program, alias):
+
+            
                 program.addBindAttribLocation(alias.second, alias.first)
 
         def replaceAndBindAttrib(program, source, originalStr, alias, declarationPrefix):
+
+            
             if replace(source, originalStr, alias.second) :
                 source.insert(0, declarationPrefix + alias.second + str("\n"))
                 if _manualVertexAliasing : bindAttribute(program, alias)
 
         def replaceBuiltInUniform(source, originalStr, newStr, declarationPrefix):
+
+            
             if replace(source, originalStr, newStr) :
                 source.insert(0, declarationPrefix + newStr + str("\n"))
 
         def convertVertexShader(program, shader):
-            source =  shader.getShaderSource()
+
+            
+            source = shader.getShaderSource()
 
             # replace ftransform as it only works with built-ins
             replace(source, "ftransform()", "gl_ModelViewProjectionMatrix * gl_Vertex")
@@ -105,10 +115,16 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
 
         def convertFragmentShader(program, shader):
 
-        virtual void reset()
+            
+
+        def reset():
+
+            
             _visited.clear()
 
         def apply(node):
+
+            
             if _visited.count(node)!=0 : return
             _visited.insert(node)
 
@@ -116,6 +132,8 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
             traverse(node)
 
         def apply(geode):
+
+            
             if _visited.count(geode)!=0 : return
             _visited.insert(geode)
 
@@ -124,27 +142,31 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
             for(unsigned int i=0 i<geode.getNumDrawables() ++i)
                 if geode.getDrawable(i).getStateSet() : apply(*(geode.getDrawable(i).getStateSet()))
 
-                geom =  geode.getDrawable(i).asGeometry()
+                geom = geode.getDrawable(i).asGeometry()
                 if geom : apply(*geom)
 
         def replace(str, original_phrase, new_phrase):
-            replacedStr =  false
-            pos =  0
+
+            
+            replacedStr = False
+            pos = 0
             while pos=str.find(original_phrase, pos) :!=str.npos :
-                endOfPhrasePos =  pos+original_phrase.size()
+                endOfPhrasePos = pos+original_phrase.size()
                 if endOfPhrasePos<str.size() :
-                    c =  str[endOfPhrasePos]
+                    c = str[endOfPhrasePos]
                     if c>='0'  c<='9' : ||
                         (c>='a'  c<='z') ||
                         (c>='A'  c<='Z') :
                         pos = endOfPhrasePos
                         continue
 
-                replacedStr = true
+                replacedStr = True
                 str.replace(pos, original_phrase.size(), new_phrase)
-            replacedStr = return()
+            return replacedStr
 
         def apply(program, shader):
+
+            
              if _visited.count(shader)!=0 : return
             _visited.insert(shader)
 
@@ -152,20 +174,22 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
             osg.notify(osg.NOTICE), shader.getShaderSource()
 
             if shader.getType()==osg.Shader.VERTEX : convertVertexShader(program, shader)
-            else: if shader.getType()==osg.Shader.FRAGMENT : convertFragmentShader(program, shader)
+            elif shader.getType()==osg.Shader.FRAGMENT : convertFragmentShader(program, shader)
 
             osg.notify(osg.NOTICE), "--after-----------"
             osg.notify(osg.NOTICE), shader.getShaderSource()
             osg.notify(osg.NOTICE), "---------------------"
 
         def apply(stateset):
+
+            
              if _visited.count(stateset)!=0 : return
             _visited.insert(stateset)
 
             return
 
             osg.notify(osg.NOTICE), "Found stateset ", stateset
-            program =  dynamic_cast<osg.Program*>(stateset.getAttribute(osg.StateAttribute.PROGRAM))
+            program = dynamic_cast<osg.Program*>(stateset.getAttribute(osg.StateAttribute.PROGRAM))
             if program :
                 osg.notify(osg.NOTICE), "   Found Program ", program
                 for(unsigned int i=0 i<program.getNumShaders() ++i)
@@ -173,46 +197,50 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
 
 
         def apply(geom):
-            geom.setUseDisplayList(false)
+
+            
+            geom.setUseDisplayList(False)
 
             if !_manualVertexAliasing : return
 
             osg.notify(osg.NOTICE), "Found geometry ", geom
             if geom.getVertexArray() :
-                setVertexAttrib(geom, _vertexAlias, geom.getVertexArray(), false, osg.Array.BIND_PER_VERTEX)
+                setVertexAttrib(geom, _vertexAlias, geom.getVertexArray(), False, osg.Array.BIND_PER_VERTEX)
                 geom.setVertexArray(0)
 
             if geom.getNormalArray() :
-                setVertexAttrib(geom, _normalAlias, geom.getNormalArray(), true)
+                setVertexAttrib(geom, _normalAlias, geom.getNormalArray(), True)
                 geom.setNormalArray(0)
 
             if geom.getColorArray() :
-                setVertexAttrib(geom, _colorAlias, geom.getColorArray(), false)
+                setVertexAttrib(geom, _colorAlias, geom.getColorArray(), False)
                 geom.setColorArray(0)
 
             if geom.getSecondaryColorArray() :
-                setVertexAttrib(geom, _secondaryColorAlias, geom.getSecondaryColorArray(), false)
+                setVertexAttrib(geom, _secondaryColorAlias, geom.getSecondaryColorArray(), False)
                 geom.setSecondaryColorArray(0)
 
             if geom.getFogCoordArray() :
                 # should we normalize the FogCoord array? Don't think so...
-                setVertexAttrib(geom, _fogCoordAlias, geom.getFogCoordArray(), false)
+                setVertexAttrib(geom, _fogCoordAlias, geom.getFogCoordArray(), False)
                 geom.setFogCoordArray(0)
 
-            unsigned int maxNumTexCoords = geom.getNumTexCoordArrays()
+            maxNumTexCoords = geom.getNumTexCoordArrays()
             if maxNumTexCoords>8 :
                 osg.notify(osg.NOTICE), "Warning: Ignoring ", maxNumTexCoords-8, " texture coordinate arrays, only 8 are currently supported in vertex attribute conversion code."
                 maxNumTexCoords = 8
             for(unsigned int i=0 i<maxNumTexCoords ++i)
                 if geom.getTexCoordArray(i) :
-                    setVertexAttrib(geom, _texCoordAlias[i], geom.getTexCoordArray(i), false, osg.Array.BIND_PER_VERTEX)
+                    setVertexAttrib(geom, _texCoordAlias[i], geom.getTexCoordArray(i), False, osg.Array.BIND_PER_VERTEX)
                     geom.setTexCoordArray(i,0)
-                else:
+                else :
                     osg.notify(osg.NOTICE), "Found empty TexCoordArray(", i, ")"
 
         def setVertexAttrib(geom, alias, array, normalize, binding):
-            unsigned int index = alias.first
-            name =  alias.second
+
+            
+            index = alias.first
+            name = alias.second
             array.setName(name)
             if binding!=osg.Array.BIND_UNDEFINED : array.setBinding(binding)
             array.setNormalize(normalize)
@@ -234,22 +262,24 @@ class ConvertToVertexAttibArrays : public osg.NodeVisitor
 
 
 def createSimpleTestModel():
-    group =  new osg.Group
 
-    geode =  new osg.Geode
+    
+    group = osg.Group()
+
+    geode = osg.Geode()
     group.addChild(geode)
 
-    geometry =  new osg.Geometry
+    geometry = osg.Geometry()
     geode.addDrawable(geometry)
 
-    vertices =  new osg.Vec3Array
+    vertices = osg.Vec3Array()
     vertices.push_back(osg.Vec3(0.0,0.0,0.0))
     vertices.push_back(osg.Vec3(0.0,0.0,1.0))
     vertices.push_back(osg.Vec3(1.0,0.0,0.0))
     vertices.push_back(osg.Vec3(1.0,0.0,1.0))
     geometry.setVertexArray(vertices)
 
-    geometry.addPrimitiveSet(new osg.DrawArrays(GL_TRIANGLE_STRIP, 0, 4))
+    geometry.addPrimitiveSet(osg.DrawArrays(GL_TRIANGLE_STRIP, 0, 4))
 
     char vertexShaderSource[] =
        "void main(void)\n"
@@ -263,38 +293,40 @@ def createSimpleTestModel():
         "    gl_FragColor = vec4(1.0,1.0,0.0,1.0) \n"
         "\n"
 
-    program =  new osg.Program
-    program.addShader(new osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
-    program.addShader(new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
+    program = osg.Program()
+    program.addShader(osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
+    program.addShader(osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
 
     geometry.getOrCreateStateSet().setAttribute(program)
 
-    group = return()
+    return group
 
 def createSimpleTextureTestModel():
-    group =  new osg.Group
 
-    geode =  new osg.Geode
+    
+    group = osg.Group()
+
+    geode = osg.Geode()
     group.addChild(geode)
 
-    geometry =  new osg.Geometry
+    geometry = osg.Geometry()
     geode.addDrawable(geometry)
 
-    vertices =  new osg.Vec3Array
+    vertices = osg.Vec3Array()
     vertices.push_back(osg.Vec3(0.0,0.0,0.0))
     vertices.push_back(osg.Vec3(0.0,0.0,1.0))
     vertices.push_back(osg.Vec3(1.0,0.0,0.0))
     vertices.push_back(osg.Vec3(1.0,0.0,1.0))
     geometry.setVertexArray(vertices)
 
-    texcoords =  new osg.Vec2Array
+    texcoords = osg.Vec2Array()
     texcoords.push_back(osg.Vec2(0.0,0.0))
     texcoords.push_back(osg.Vec2(0.0,1.0))
     texcoords.push_back(osg.Vec2(1.0,0.0))
     texcoords.push_back(osg.Vec2(1.0,1.0))
     geometry.setTexCoordArray(0, texcoords)
 
-    geometry.addPrimitiveSet(new osg.DrawArrays(GL_TRIANGLE_STRIP, 0, 4))
+    geometry.addPrimitiveSet(osg.DrawArrays(GL_TRIANGLE_STRIP, 0, 4))
 
     char vertexShaderSource[] =
        "varying vec2 texCoord\n"
@@ -312,23 +344,23 @@ def createSimpleTextureTestModel():
         "    gl_FragColor = texture2D(baseTexture, texCoord) \n"
         "\n"
 
-    program =  new osg.Program
-    program.addShader(new osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
-    program.addShader(new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
+    program = osg.Program()
+    program.addShader(osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
+    program.addShader(osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
 
-    stateset =  geometry.getOrCreateStateSet()
+    stateset = geometry.getOrCreateStateSet()
     stateset.setAttribute(program)
 
-    image =  osgDB.readImageFile("Images/lz.rgb")
-    texture =  new osg.Texture2D(image)
+    image = osgDB.readImageFile("Images/lz.rgb")
+    texture = osg.Texture2D(image)
     texture.setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
     texture.setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
     stateset.setTextureAttribute(0, texture)
 
-    baseTextureSampler =  new osg.Uniform("baseTexture",0)
+    baseTextureSampler = osg.Uniform("baseTexture",0)
     stateset.addUniform(baseTextureSampler)
 
-    group = return()
+    return group
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
@@ -340,20 +372,20 @@ int main(int argc, char *argv[])
     outputFileName = str()
     while arguments.read("-o",outputFileName) : 
 
-    osg.ref_ptr<osg.Node> loadedModel
+    loadedModel = osg.Node()
 
-    runConvertToVertexAttributes =  false
+    runConvertToVertexAttributes = False
     if arguments.read("--simple") || arguments.read("--s") :
         loadedModel = createSimpleTestModel()
-    else: if arguments.read("--texture") || arguments.read("-t") :
+    elif arguments.read("--texture") || arguments.read("-t") :
         loadedModel = createSimpleTextureTestModel()
-    else:
-        runShaderGen =  true
-        while arguments.read("--shader-gen") :  runShaderGen = true 
-        while arguments.read("--no-shader-gen") :  runShaderGen = false 
+    else :
+        runShaderGen = True
+        while arguments.read("--shader-gen") :  runShaderGen = True 
+        while arguments.read("--no-shader-gen") :  runShaderGen = False 
 
-        while arguments.read("--vertex-attrib") :  runConvertToVertexAttributes = true 
-        while arguments.read("--no-vertex-attrib") :  runConvertToVertexAttributes = false 
+        while arguments.read("--vertex-attrib") :  runConvertToVertexAttributes = True 
+        while arguments.read("--no-vertex-attrib") :  runConvertToVertexAttributes = False 
 
         loadedModel = osgDB.readNodeFiles(arguments)
         if !loadedModel.get() :
@@ -379,10 +411,10 @@ int main(int argc, char *argv[])
     # add a viewport to the viewer and attach the scene graph.
     viewer.setSceneData(loadedModel.get())
 
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator())
+    viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     viewer.realize()
 
@@ -394,8 +426,8 @@ int main(int argc, char *argv[])
         for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
             itr != windows.end()
             ++itr)
-            (*itr).getState().setUseModelViewAndProjectionUniforms(true)
-            (*itr).getState().setUseVertexAttributeAliasing(true)
+            (*itr).getState().setUseModelViewAndProjectionUniforms(True)
+            (*itr).getState().setUseVertexAttributeAliasing(True)
 
     return viewer.run()
 

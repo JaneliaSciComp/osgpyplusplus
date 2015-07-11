@@ -10,6 +10,9 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgViewer
 
+
+# Translated from file 'osgsimplegl3.cpp'
+
 # This is public domain software and comes with
 # absolutely no warranty. Use of public domain software
 # may vary between counties, but in general you are free
@@ -31,8 +34,10 @@ from osgpypp import osgViewer
 
 
 def configureShaders(stateSet):
-    vertexSource =  
-        "#version 140 \n"
+
+
+    
+    vertexSource = "#version 140 \n"
         " \n"
         "uniform mat4 osg_ModelViewProjectionMatrix \n"
         "uniform mat3 osg_NormalMatrix \n"
@@ -50,10 +55,9 @@ def configureShaders(stateSet):
         " \n"
         "    gl_Position = osg_ModelViewProjectionMatrix * osg_Vertex \n"
         " \n"
-    vShader =  new osg.Shader( osg.Shader.VERTEX, vertexSource )
+    vShader = osg.Shader( osg.Shader.VERTEX, vertexSource )
 
-    fragmentSource =  
-        "#version 140 \n"
+    fragmentSource = "#version 140 \n"
         " \n"
         "in vec4 color \n"
         "out vec4 fragData \n"
@@ -62,21 +66,23 @@ def configureShaders(stateSet):
         " \n"
         "    fragData = color \n"
         " \n"
-    fShader =  new osg.Shader( osg.Shader.FRAGMENT, fragmentSource )
+    fShader = osg.Shader( osg.Shader.FRAGMENT, fragmentSource )
 
-    program =  new osg.Program
+    program = osg.Program()
     program.addShader( vShader )
     program.addShader( fShader )
     stateSet.setAttribute( program )
 
     lightDir = osg.Vec3f( 0., 0.5, 1. )
     lightDir.normalize()
-    stateSet.addUniform( new osg.Uniform( "ecLightDir", lightDir ) )
+    stateSet.addUniform( osg.Uniform( "ecLightDir", lightDir ) )
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser( argc, argv )
 
-    root =  osgDB.readNodeFiles( arguments )
+    root = osgDB.readNodeFiles( arguments )
     if  root == NULL  :
         osg.notify( osg.FATAL ), "Unable to load model from command line."
         return( 1 )
@@ -84,24 +90,24 @@ def main(argc, argv):
 
      int width( 800 ), height( 450 )
     version =  str( "3.1" )
-    osg.ref_ptr< osg.GraphicsContext.Traits > traits = new osg.GraphicsContext.Traits()
+     traits = osg.GraphicsContext.Traits()
     traits.x = 20 traits.y = 30
     traits.width = width traits.height = height
-    traits.windowDecoration = true
-    traits.doubleBuffer = true
+    traits.windowDecoration = True
+    traits.doubleBuffer = True
     traits.glContextVersion = version
-    osg.ref_ptr< osg.GraphicsContext > gc = osg.GraphicsContext.createGraphicsContext( traits.get() )
+     gc = osg.GraphicsContext.createGraphicsContext( traits.get() )
     if  !gc.valid()  :
         osg.notify( osg.FATAL ), "Unable to create OpenGL v", version, " context."
         return( 1 )
 
     # Create a Camera that uses the above OpenGL context.
-    cam =  new osg.Camera
+    cam = osg.Camera()
     cam.setGraphicsContext( gc.get() )
     # Must set perspective projection for fovy and aspect.
     cam.setProjectionMatrix( osg.Matrix.perspective( 30., (double)width/(double)height, 1., 100. ) )
     # Unlike OpenGL, OSG viewport does *not* default to window dimensions.
-    cam.setViewport( new osg.Viewport( 0, 0, width, height ) )
+    cam.setViewport( osg.Viewport( 0, 0, width, height ) )
 
     viewer = osgViewer.Viewer()
     viewer.setCamera( cam )
@@ -109,67 +115,67 @@ def main(argc, argv):
 
     # for non GL3/GL4 and non GLES2 platforms we need enable the osg_ uniforms that the shaders will use,
     # you don't need thse two lines on GL3/GL4 and GLES2 specific builds as these will be enable by default.
-    gc.getState().setUseModelViewAndProjectionUniforms(true)
-    gc.getState().setUseVertexAttributeAliasing(true)
+    gc.getState().setUseModelViewAndProjectionUniforms(True)
+    gc.getState().setUseVertexAttributeAliasing(True)
 
     return( viewer.run() )
 
 #
-
-Building OSG for OpenGL 3.x
-
-OSG currently support OpenGL 3.x on Windows. This comment block describes the
-necessary configuration steps.
-
-Get the draft gl3.h header file from OpenGL.org and put it in a folder called
-“GL3” somewhere on your hard drive. OSG includes this header as <GL3/gl3.h>. Get
-gl3.h from here:
-http:#www.opengl.org/registry/
-
-Open the cmake-gui and load OSG's top-level CmakeLists.txt. You'll need to make
-several changes.
-
- * Add the path to <GL3/gl3.h> to the CMake compiler flags, CMAKE_CXX_FLAGS and
-   CMAKE_CXX_FLAGS_DEBUG (for release and debug builds others if you use other
-   build configurations). The text to add should look something like this:
-     /I “C:\GLHeader”
-   The folder GLHeader should contain a subfolder GL3, which in turn contains
-   gl3.h.
-
- * Enable the following CMake variable:
-     OSG_GL3_AVAILABLE
-
- * Disable the following CMake variables:
-     OSG_GL1_AVAILABLE
-     OSG_GL2_AVAILABLE
-     OSG_GLES1_AVAILABLE
-     OSG_GLES2_AVAILABLE
-     OSG_GL_DISPLAYLISTS_AVAILABLE
-     OSG_GL_FIXED_FUNCTION_AVAILABLE
-     OSG_GL_MATRICES_AVAILABLE
-     OSG_GL_VERTEX_ARRAY_FUNCS_AVAILABLE
-     OSG_GL_VERTEX_FUNCS_AVAILABLE
-
-Create your project files in cmake-gui as usual, and build OSG as usual.
-
-If you have an external project that will depend on OSG built for OpenGL 3.x,
-you'll need to ensure your external project also uses the compiler include
-directives to find <GL3/gl3.h>.
-
-To berify your application is using a pure OpenGL 3.x context, set
-OSG_NOTIFY_LEVEL=INFO in the environment and check the console output. Context
-creation displays output such as the following:
-    GL3: Attempting to create OpenGL3 context.
-    GL3: version: 3.1
-    GL3: context flags: 0
-    GL3: profile: 0
-    GL3: context created successfully.
-
-When your app begins rendering, it displays information about the actual context
-it is using:
-    glVersion=3.1, isGlslSupported=YES, glslLanguageVersion=1.4
-
-
+#
+#Building OSG for OpenGL 3.x
+#
+#OSG currently support OpenGL 3.x on Windows. This comment block describes the
+#necessary configuration steps.
+#
+#Get the draft gl3.h header file from OpenGL.org and put it in a folder called
+#“GL3” somewhere on your hard drive. OSG includes this header as <GL3/gl3.h>. Get
+#gl3.h from here:
+#http:#www.opengl.org/registry/
+#
+#Open the cmake-gui and load OSG's top-level CmakeLists.txt. You'll need to make
+#several changes.
+#
+# * Add the path to <GL3/gl3.h> to the CMake compiler flags, CMAKE_CXX_FLAGS and
+#   CMAKE_CXX_FLAGS_DEBUG (for release and debug builds others if you use other
+#   build configurations). The text to add should look something like this:
+#     /I “C:\GLHeader”
+#   The folder GLHeader should contain a subfolder GL3, which in turn contains
+#   gl3.h.
+#
+# * Enable the following CMake variable:
+#     OSG_GL3_AVAILABLE
+#
+# * Disable the following CMake variables:
+#     OSG_GL1_AVAILABLE
+#     OSG_GL2_AVAILABLE
+#     OSG_GLES1_AVAILABLE
+#     OSG_GLES2_AVAILABLE
+#     OSG_GL_DISPLAYLISTS_AVAILABLE
+#     OSG_GL_FIXED_FUNCTION_AVAILABLE
+#     OSG_GL_MATRICES_AVAILABLE
+#     OSG_GL_VERTEX_ARRAY_FUNCS_AVAILABLE
+#     OSG_GL_VERTEX_FUNCS_AVAILABLE
+#
+#Create your project files in cmake-gui as usual, and build OSG as usual.
+#
+#If you have an external project that will depend on OSG built for OpenGL 3.x,
+#you'll need to ensure your external project also uses the compiler include
+#directives to find <GL3/gl3.h>.
+#
+#To berify your application is using a pure OpenGL 3.x context, set
+#OSG_NOTIFY_LEVEL=INFO in the environment and check the console output. Context
+#creation displays output such as the following:
+#    GL3: Attempting to create OpenGL3 context.
+#    GL3: version: 3.1
+#    GL3: context flags: 0
+#    GL3: profile: 0
+#    GL3: context created successfully.
+#
+#When your app begins rendering, it displays information about the actual context
+#it is using:
+#    glVersion=3.1, isGlslSupported=YES, glslLanguageVersion=1.4
+#
+#
 
 
 if __name__ == "__main__":

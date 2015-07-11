@@ -10,23 +10,26 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgUtil
 
-# OpenSceneGraph example, osgslice.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgslice.cpp'
+
+# OpenSceneGraph example, osgslice.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # Simple example of use of osg.GraphicContext to create an OpenGL
 # graphics window, and OSG for rendering.
@@ -43,8 +46,7 @@ from osgpypp import osgUtil
 
 #define MIN_NEARFAROFFSET 0.1
 
-class SliceProcessor
-    public:
+class SliceProcessor :
 
         SliceProcessor() : _sliceNumber(128), _sliceDelta(0.1), _nearPlane(0.0), _farPlane(MIN_NEARFAROFFSET)
             #
@@ -52,16 +54,16 @@ class SliceProcessor
             _sliceDelta = (objectRadius*2) / _sliceNumber
             _nearPlane = objectRadius                          # note: distance from viewpoint is going to be set 2x radius
             _farPlane = _nearPlane+MIN_NEARFAROFFSET
-            _image = new osg.Image
+            _image = osg.Image()
             if  _sliceDelta > MIN_NEARFAROFFSET  :
                 _nearFarOffset = MIN_NEARFAROFFSET
-            else:
+            else :
                 _nearFarOffset = _sliceDelta
             _image.allocateImage( _sliceNumber, _sliceNumber,_sliceNumber, GL_RGBA, GL_UNSIGNED_BYTE )
             
         # needs 3D-Texture object
         _image = osg.Image*()
-        unsigned int _sliceNumber
+        _sliceNumber = unsigned int()
         _sliceDelta = double()
         _nearPlane = double()
         _farPlane = double()
@@ -71,6 +73,8 @@ class SliceProcessor
 
 
 def main(argc, argv):
+
+    
         # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -93,23 +97,23 @@ def main(argc, argv):
     while  arguments.read( "-o", outputName )  :  
 
 
-    unsigned int numberSlices = 128
+    numberSlices = 128
     while  arguments.read( "--slices", numberSlices)  :  
 
-    nearClip = 0.0f
-    farClip = 0.0f
+    nearClip = 0.0
+    farClip = 0.0
     while  arguments.read( "--near",nearClip )  :  
     while  arguments.read( "--far", farClip)  :  
 
     
     # load the scene.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles( arguments )
+    loadedModel = osgDB.readNodeFiles( arguments )
     if !loadedModel : 
         print "No data loaded."
         return 1
 
-    bs =  loadedModel.getBound()
-    sp =  new SliceProcessor( (double)bs.radius(), numberSlices )
+    bs = loadedModel.getBound()
+    sp = SliceProcessor( (double)bs.radius(), numberSlices )
     if nearClip!=0.0 : sp._nearPlane = nearClip
     if farClip!=0.0 : sp._farPlane = farClip
 
@@ -123,18 +127,18 @@ def main(argc, argv):
     
 
 
-    osg.ref_ptr<osg.GraphicsContext.Traits> traits = new osg.GraphicsContext.Traits
+    traits = osg.GraphicsContext.Traits()
     traits.x = 100
     traits.y = 100
     traits.width = numberSlices
     traits.height = numberSlices
     traits.alpha = 8
-    traits.windowDecoration = true
-    traits.doubleBuffer = true
+    traits.windowDecoration = True
+    traits.doubleBuffer = True
     traits.sharedContext = 0
-    traits.pbuffer = false
+    traits.pbuffer = False
 
-    osg.ref_ptr<osg.GraphicsContext> gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
     if !gc || !gc.valid() :
         osg.notify(osg.NOTICE), "Error: unable to create graphics window"
         return 1
@@ -143,37 +147,37 @@ def main(argc, argv):
     gc.makeCurrent()
 
     # create the view of the scene.
-    osg.ref_ptr<osgUtil.SceneView> sceneView = new osgUtil.SceneView
+    sceneView = osgUtil.SceneView()
     sceneView.setDefaults()
     sceneView.setSceneData(loadedModel.get())
 
     # initialize the view to look at the center of the scene graph
     viewMatrix = osg.Matrix()
     # distance from viewport to object's center is set to be 2x bs.radius()
-    viewMatrix.makeLookAt(bs.center()-osg.Vec3(0.0,2.0f*bs.radius(),0.0),bs.center(),osg.Vec3(0.0f,0.0f,1.0f))
+    viewMatrix.makeLookAt(bs.center()-osg.Vec3(0.0,2.0*bs.radius(),0.0),bs.center(),osg.Vec3(0.0,0.0,1.0))
     
     # turn off autocompution of near and far clipping planes
     sceneView.setComputeNearFarMode(osgUtil.CullVisitor.DO_NOT_COMPUTE_NEAR_FAR)
 
     # set the clear color of the background to make sure that the alpha is 0.0.
-    sceneView.setClearColor(osg.Vec4(0.0f,0.0f,0.0f,0.0f))
+    sceneView.setClearColor(osg.Vec4(0.0,0.0,0.0,0.0))
 
     # record the timer tick at the start of rendering.     
-    start_tick =  osg.Timer.instance().tick()
+    start_tick = osg.Timer.instance().tick()
     
     print "radius: ", bs.radius()
     
-    unsigned int frameNum = 0
+    frameNum = 0
     double tmpNear, tmpFar
     baseImageName = str("shot_")
     tmpImageName = str()
     
-    tmpImage =  new osg.Image
+    tmpImage = osg.Image()
     
     # main loop (note, window toolkits which take control over the main loop will require a window redraw callback containing the code below.)
     for( unsigned int i = 0  i < sp._sliceNumber  gc.isRealized()  ++i )
         # set up the frame stamp for current frame to record the current time and frame number so that animtion code can advance correctly
-        osg.ref_ptr<osg.FrameStamp> frameStamp = new osg.FrameStamp
+        frameStamp = osg.FrameStamp()
         frameStamp.setReferenceTime(osg.Timer.instance().delta_s(start_tick,osg.Timer.instance().tick()))
         frameStamp.setFrameNumber(frameNum++)
         
@@ -216,12 +220,12 @@ def main(argc, argv):
         sp._image.copySubImage( 0, 0, i, tmpImage )
 
         #
-        o = std.ostringstream()
-        o, baseImageName, i, ".rgba"
-        tmpImageName = o.str()
-        osgDB.writeImageFile( *(sp._image), tmpImageName )
-        print "Wrote image to file: ", tmpImageName
-        
+#        o = std.ostringstream()
+#        o, baseImageName, i, ".rgba"
+#        tmpImageName = o.str()
+#        osgDB.writeImageFile( *(sp._image), tmpImageName )
+#        print "Wrote image to file: ", tmpImageName
+#        
     osgDB.writeImageFile( *(sp._image), outputName)
 
     return 0

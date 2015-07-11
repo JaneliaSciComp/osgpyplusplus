@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgText
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgsequence.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgsequence.cpp'
+
+# OpenSceneGraph example, osgsequence.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgText/Text>
 #include <osg/Geode>
@@ -44,86 +47,95 @@ from osgpypp import osgViewer
 
 # create text drawable at 'pos'
 def createText(str, pos):
+    
     # text drawable
-    text =  new osgText.Text
+    text = osgText.Text()
     text.setFont(str("fonts/arial.ttf"))
     text.setPosition(pos)
     text.setText(str)
 
     # geode
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(text)
 
-    geode = return()
+    return geode
 
 def createTextGroup(text):
-    group =  new osg.Group
 
-    pos = osg.Vec3(120.0f, 800.0f, 0.0f)
-    delta =  osg.Vec3(0.0f, -60.0f, 0.0f)
+    
+    group = osg.Group()
+
+    pos = osg.Vec3(120.0, 800.0, 0.0)
+    delta =  osg.Vec3(0.0, -60.0, 0.0)
 
     # header
-    t =  text
+    t = text
     group.addChild(createText(*t++, pos))
     pos += delta
 
     # remainder of text under sequence
-    seq =  new osg.Sequence
+    seq = osg.Sequence()
     group.addChild(seq)
     while *t : 
         seq.addChild(createText(*t++, pos))
-        seq.setTime(seq.getNumChildren()-1, 2.0f)
+        seq.setTime(seq.getNumChildren()-1, 2.0)
         pos += delta
 
     # loop through all children
     seq.setInterval(osg.Sequence.LOOP, 0,-1)
 
     # real-time playback, repeat indefinitively
-    seq.setDuration(1.0f, -1)
+    seq.setDuration(1.0, -1)
 
     # must be started explicitly
     seq.setMode(osg.Sequence.START)
 
-    group = return()
+    return group
 
 def createHUD(node):
+
+    
     # absolute transform
-    modelview_abs =  new osg.MatrixTransform
+    modelview_abs = osg.MatrixTransform()
     modelview_abs.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     modelview_abs.setMatrix(osg.Matrix.identity())
     modelview_abs.addChild(node)
 
     # 2D projection node
-    projection =  new osg.Projection
+    projection = osg.Projection()
     projection.setMatrix(osg.Matrix.ortho2D(0,1280,0,1024))
     projection.addChild(modelview_abs)
 
     # turn off lighting and depth test
-    state =  modelview_abs.getOrCreateStateSet()
+    state = modelview_abs.getOrCreateStateSet()
     state.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
     state.setMode(GL_DEPTH_TEST, osg.StateAttribute.OFF)
 
-    projection = return()
+    return projection
 
 def createScaledNode(node, targetScale):
-    # create scale matrix
-    transform =  new osg.MatrixTransform
 
-    bsphere =  node.getBound()
-    scale =  targetScale / bsphere._radius
+    
+    # create scale matrix
+    transform = osg.MatrixTransform()
+
+    bsphere = node.getBound()
+    scale = targetScale / bsphere._radius
     transform.setMatrix(osg.Matrix.scale(scale,scale,scale))
     transform.setDataVariance(osg.Object.STATIC)
     transform.addChild(node)
 
     # rescale normals
-    state =  transform.getOrCreateStateSet()
+    state = transform.getOrCreateStateSet()
     state.setMode(GL_NORMALIZE, osg.StateAttribute.ON)
 
-    transform = return()
+    return transform
 
 def createSequence(arguments):
+
+    
     # assumes any remaining parameters are models
-    seq =  new osg.Sequence
+    seq = osg.Sequence()
 
     typedef std.vector<str> Filenames
     filenames = Filenames()
@@ -131,7 +143,7 @@ def createSequence(arguments):
     if arguments.argc() > 1 :
         for (int i = 1 i < arguments.argc() ++i)
             filenames.push_back(arguments[i])
-    else:
+    else :
         filenames.push_back("cow.osgt")
         filenames.push_back("dumptruck.osgt")
         filenames.push_back("cessna.osgt")
@@ -141,25 +153,24 @@ def createSequence(arguments):
         itr != filenames.end()
         ++itr)        
         # load model
-        node =  osgDB.readNodeFile(*itr)
+        node = osgDB.readNodeFile(*itr)
 
         if node :
-            seq.addChild(createScaledNode(node, 100.0f))
-            seq.setTime(seq.getNumChildren()-1, 1.0f)
+            seq.addChild(createScaledNode(node, 100.0))
+            seq.setTime(seq.getNumChildren()-1, 1.0)
 
     # loop through all children
     seq.setInterval(osg.Sequence.LOOP, 0,-1)
 
     # real-time playback, repeat indefinitively
-    seq.setDuration(1.0f, -1)
+    seq.setDuration(1.0, -1)
 
     seq.setMode(osg.Sequence.START)
 
-    seq = return()
+    return seq
 
 # event handler to control sequence
-class SequenceEventHandler : public osgGA.GUIEventHandler
-public:
+class SequenceEventHandler (osgGA.GUIEventHandler) :
     SequenceEventHandler(osg.Sequence* seq)
         _seq = seq
 
@@ -169,14 +180,14 @@ public:
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYDOWN : 
             switch (ea.getKey()) 
             case 's':
-                    mode =  _seq.getMode()
+                    mode = _seq.getMode()
                     if mode == osg.Sequence.STOP : 
                         mode = osg.Sequence.START
                         std.cerr, "Start"
-                    else: if mode == osg.Sequence.PAUSE : 
+                    elif mode == osg.Sequence.PAUSE : 
                         mode = osg.Sequence.RESUME
                         std.cerr, "Resume"
-                    else: 
+                    else : 
                         mode = osg.Sequence.PAUSE
                         std.cerr, "Pause"
                     _seq.setMode(mode)
@@ -188,7 +199,7 @@ public:
                     if mode == osg.Sequence.LOOP : 
                         mode = osg.Sequence.SWING
                         std.cerr, "Swing"
-                    else: 
+                    else : 
                         mode = osg.Sequence.LOOP
                         std.cerr, "Loop"
                     _seq.setInterval(mode, begin, end)
@@ -196,21 +207,22 @@ public:
             default:
                 break
 
-        false = return()
-
-private:
-    osg.ref_ptr<osg.Sequence> _seq
+        return False
+    _seq = osg.Sequence()
 
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
    
     # construct the viewer.
     viewer = osgViewer.Viewer()
     # root
-    rootNode =  new osg.Group
+    rootNode = osg.Group()
 
     # create info display
      char* text[] = 
@@ -227,14 +239,14 @@ def main(argc, argv):
     rootNode.addChild(createHUD(createTextGroup(text)))
 
     # add sequence of models from command line
-    seq =  createSequence(arguments)
+    seq = createSequence(arguments)
     rootNode.addChild(seq)
 
     # add model to viewer.
     viewer.setSceneData(rootNode)
 
     # add event handler to control sequence
-    viewer.addEventHandler(new SequenceEventHandler(seq))
+    viewer.addEventHandler(SequenceEventHandler(seq))
 
     return viewer.run()
 

@@ -15,23 +15,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgterrain.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgthreadedterrain.cpp'
+
+# OpenSceneGraph example, osgterrain.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <OpenThreads/Block>
 
@@ -72,31 +75,31 @@ from osgpypp import osgViewer
 #include <iostream>
 
 
-typedef std.vector< osg.ref_ptr<osg.GraphicsThread> > GraphicsThreads
+typedef std.vector< osg.GraphicsThread > GraphicsThreads
 
-struct ReleaseBlockOnCompileCompleted : public osgUtil.IncrementalCompileOperation.CompileCompletedCallback
-
-    ReleaseBlockOnCompileCompleted(osg.RefBlockCount* block):
+class ReleaseBlockOnCompileCompleted (osgUtil.IncrementalCompileOperation.CompileCompletedCallback) :
+ReleaseBlockOnCompileCompleted(osg.RefBlockCount* block):
         _block(block) 
 
-    virtual bool compileCompleted(osgUtil.IncrementalCompileOperation.CompileSet* compileSet)
+    def compileCompleted(compileSet):
+
+        
         if _block.valid() : _block.completed()
         
         # tell IncrementalCompileOperation that it's now safe to remove the compileSet
         
         osg.notify(osg.NOTICE), "compileCompleted(", compileSet, ")"
         
-        true = return()
+        return True
 
-    osg.ref_ptr<osg.RefBlockCount> _block
+    _block = osg.RefBlockCount()
 
 
 
-class LoadAndCompileOperation : public osg.Operation
-public:
+class LoadAndCompileOperation (osg.Operation) :
 
     LoadAndCompileOperation( str filename, osgUtil.IncrementalCompileOperation* ico , osg.RefBlockCount* block):
-        Operation("Load and compile Operation", false),
+        Operation("Load and compile Operation", False),
         _filename(filename),
         _incrementalCompileOperation(ico),
         _block(block) 
@@ -107,87 +110,94 @@ public:
         _loadedModel = osgDB.readNodeFile(_filename)
 
         if _loadedModel.valid()  _incrementalCompileOperation.valid() :
-            osg.ref_ptr<osgUtil.IncrementalCompileOperation.CompileSet> compileSet = 
-                new osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
+            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
 
-            compileSet._compileCompletedCallback = new ReleaseBlockOnCompileCompleted(_block.get())
+            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_block.get())
 
             _incrementalCompileOperation.add(compileSet.get())
-        else: 
+        else : 
             if _block.valid() : _block.completed()
 
         # osg.notify(osg.NOTICE), "done LoadAndCompileOperation ", _filename
     
     _filename = str()
-    osg.ref_ptr<osg.Node>                             _loadedModel
-    osg.ref_ptr<osgUtil.IncrementalCompileOperation>  _incrementalCompileOperation
-    osg.ref_ptr<osg.RefBlockCount>                    _block
+    _loadedModel = osg.Node()
+    _incrementalCompileOperation = osgUtil.IncrementalCompileOperation()
+    _block = osg.RefBlockCount()
 
 
 
-class MasterOperation : public osg.Operation
-public:
+class MasterOperation (osg.Operation) :
 
     typedef std.set<str> Files
-    typedef std.map<str, osg.ref_ptr<osg.Node> >  FilenameNodeMap
-    typedef std.vector< osg.ref_ptr<osg.Node> >  Nodes
+    typedef std.map<str, osg.Node >  FilenameNodeMap
+    typedef std.vector< osg.Node >  Nodes
 
 
     MasterOperation( str filename, osgUtil.IncrementalCompileOperation* ico):
-        Operation("Master reading operation",true),
+        Operation("Master reading operation",True),
         _filename(filename),
         _incrementalCompileOperation(ico)
     
     #* Set the OperationQueue that the MasterOperation can use to place tasks like file loading on for other processes to handle. 
-    void setOperationQueue(osg.OperationQueue* oq)  _operationQueue = oq 
+    def setOperationQueue(oq):
+         _operationQueue = oq 
     
-    osg.OperationQueue* getOperationQueue()  return _operationQueue.get() 
+    def getOperationQueue():
     
-    bool readMasterFile(Files files) 
+         return _operationQueue.get() 
+    
+    def readMasterFile(files):
+    
+        
         fin = osgDB.ifstream(_filename.c_str())
         if fin :
             fr = osgDB.Input()
             fr.attach(fin)
 
-            readFilename =  false
+            readFilename = False
 
             while !fr.eof() :
-                itrAdvanced =  false
+                itrAdvanced = False
                 if fr.matchSequence("file %s") || fr.matchSequence("file %w")  :
                     files.insert(fr[1].getStr())
                     fr += 2
-                    itrAdvanced = true
-                    readFilename = true
+                    itrAdvanced = True
+                    readFilename = True
 
                 if !itrAdvanced :
                     ++fr
             
-            readFilename = return()
-        false = return()
+            return readFilename
+        return False
     
     def open(group):
+    
+        
         files = Files()
         readMasterFile(files)
         for(Files.iterator itr = files.begin()
             itr != files.end()
             ++itr)
-            model =  osgDB.readNodeFile(*itr)
+            model = osgDB.readNodeFile(*itr)
             if model :
                 osg.notify(osg.NOTICE), "open: Loaded file ", *itr
                 group.addChild(model)
                 _existingFilenameNodeMap[*itr] = model
         
-        true = return()
+        return True
     
 
     virtual void operator () (osg.Object* callingObject)
         # decided which method to call according to whole has called me.
-        viewer =  dynamic_cast<osgViewer.Viewer*>(callingObject)
+        viewer = dynamic_cast<osgViewer.Viewer*>(callingObject)
 
         if viewer : update(viewer.getSceneData())
-        load = else:()
+        load = else :()
 
     def load():
+
+        
         #osg.notify(osg.NOTICE), "void load(Object)"
         filesA = Files()
         filesB = Files()
@@ -216,8 +226,8 @@ public:
         newFiles = Files()
         removedFiles = Files()
 
-        # find out which files are new, and which ones have been removed.
-            OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+        # find out which files are , and which ones have been removed.
+            lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
 
             for(Files.iterator fitr = files.begin()
                 fitr != files.end()
@@ -235,26 +245,26 @@ public:
             osg.notify(osg.NOTICE), "void operator () files.size()=", files.size()
 #endif
 
-        # first load the new files.
+        # first load the files.
         nodesToAdd = FilenameNodeMap()
         if !newFiles.empty() :
 
-            typedef std.vector< osg.ref_ptr<osg.GraphicsThread> > GraphicsThreads
+            typedef std.vector< osg.GraphicsThread > GraphicsThreads
             threads = GraphicsThreads()
         
             for(unsigned int i=0 i<= osg.GraphicsContext.getMaxContextID() ++i)
-                gc =  osg.GraphicsContext.getCompileContext(i)
-                gt =  gc ? gc.getGraphicsThread() : 0
+                gc = osg.GraphicsContext.getCompileContext(i)
+                gt = gc ? gc.getGraphicsThread() : 0
                 if gt : threads.push_back(gt)
 
             if _operationQueue.valid() :
                 # osg.notify(osg.NOTICE), "Using OperationQueue"
 
-                _endOfLoadBlock = new osg.RefBlockCount(newFiles.size())
+                _endOfLoadBlock = osg.RefBlockCount(newFiles.size())
                 
                 _endOfLoadBlock.reset()
      
-                typedef std.list< osg.ref_ptr<LoadAndCompileOperation> > LoadAndCompileList
+                typedef std.list< LoadAndCompileOperation > LoadAndCompileList
                 loadAndCompileList = LoadAndCompileList()
      
                 for(Files.iterator nitr = newFiles.begin()
@@ -262,12 +272,12 @@ public:
                     ++nitr)
                     # osg.notify(osg.NOTICE), "Adding LoadAndCompileOperation ", *nitr
 
-                    osg.ref_ptr<LoadAndCompileOperation> loadAndCompile = new LoadAndCompileOperation( *nitr, _incrementalCompileOperation.get(), _endOfLoadBlock.get() )
+                    loadAndCompile = LoadAndCompileOperation( *nitr, _incrementalCompileOperation.get(), _endOfLoadBlock.get() )
                     loadAndCompileList.push_back(loadAndCompile)
                     _operationQueue.add( loadAndCompile.get() )
 
 #if 1
-                osg.ref_ptr<osg.Operation> operation
+                operation = osg.Operation()
                 while operation=_operationQueue.getNextOperation() :.valid() :
                     # osg.notify(osg.NOTICE), "Local running of operation"
                     (*operation)(0)
@@ -283,65 +293,65 @@ public:
                         nodesToAdd[(*litr)._filename] = (*litr)._loadedModel
 
             
-            else:
+            else :
 
-                _endOfLoadBlock = new osg.RefBlockCount(newFiles.size())
+                _endOfLoadBlock = osg.RefBlockCount(newFiles.size())
                 
                 _endOfLoadBlock.reset()
 
                 for(Files.iterator nitr = newFiles.begin()
                     nitr != newFiles.end()
                     ++nitr)
-                    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFile(*nitr)
+                    loadedModel = osgDB.readNodeFile(*nitr)
 
                     if loadedModel.get() :
                         nodesToAdd[*nitr] = loadedModel
 
                         if _incrementalCompileOperation.valid() :
-                            osg.ref_ptr<osgUtil.IncrementalCompileOperation.CompileSet> compileSet = 
-                                new osgUtil.IncrementalCompileOperation.CompileSet(loadedModel.get())
+                            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(loadedModel.get())
 
-                            compileSet._compileCompletedCallback = new ReleaseBlockOnCompileCompleted(_endOfLoadBlock.get())
+                            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_endOfLoadBlock.get())
 
                             _incrementalCompileOperation.add(compileSet.get())
-                        else:
+                        else :
                             _endOfLoadBlock.completed()
-                    else:
+                    else :
                         _endOfLoadBlock.completed()
 
                 _endOfLoadBlock.block()
 
                         
         
-        requiresBlock =  false
+        requiresBlock = False
         
         # pass the locally peppared data to MasterOperations shared data
         # so that updated thread can merge these changes with the main scene 
         # graph.  This merge is carried out via the update(..) method.
         if !removedFiles.empty() || !nodesToAdd.empty() :        
-            OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+            lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
             _nodesToRemove.swap(removedFiles)
             _nodesToAdd.swap(nodesToAdd)
-            requiresBlock = true
+            requiresBlock = True
 
-        # now block so we don't try to load anything till the new data has been merged
+        # now block so we don't try to load anything till the data has been merged
         # otherwise _existingFilenameNodeMap will get out of sync.
         if requiresBlock :
             _updatesMergedBlock.block()
-        else:
+        else :
             OpenThreads.Thread.YieldCurrentThread()
 
     
     # merge the changes with the main scene graph.
     def update(scene):
+        
         # osg.notify(osg.NOTICE), "void update(Node*)"
 
-        group =  dynamic_cast<osg.Group*>(scene)
+        group = dynamic_cast<osg.Group*>(scene)
         if !group :
             osg.notify(osg.NOTICE), "Error, MasterOperation.update(Node*) can only work with a Group as Viewer.getSceneData()."
             return
     
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         
         if !_nodesToRemove.empty() || !_nodesToAdd.empty() :
             osg.notify(osg.NOTICE), "update().................. "
@@ -350,7 +360,7 @@ public:
             for(Files.iterator itr = _nodesToRemove.begin()
                 itr != _nodesToRemove.end()
                 ++itr)
-                fnmItr =  _existingFilenameNodeMap.find(*itr)
+                fnmItr = _existingFilenameNodeMap.find(*itr)
                 if fnmItr != _existingFilenameNodeMap.end() :
                     osg.notify(osg.NOTICE), "  update():removing ", *itr
                 
@@ -374,7 +384,8 @@ public:
     
     # add release implementation so that any thread cancellation can
     # work even when blocks and barriers are used.
-    virtual void release()
+    def release():
+        
         if _operationQueue.valid() : _operationQueue.removeAllOperations()
 
         _updatesMergedBlock.release()
@@ -390,116 +401,116 @@ public:
     _nodesToAdd = FilenameNodeMap()
     _updatesMergedBlock = OpenThreads.Block()
 
-    osg.ref_ptr<osgUtil.IncrementalCompileOperation>  _incrementalCompileOperation
-    osg.ref_ptr<osg.BarrierOperation> _endOfCompilebarrier
-    osg.ref_ptr<osg.RefBlockCount>    _endOfLoadBlock
+    _incrementalCompileOperation = osgUtil.IncrementalCompileOperation()
+    _endOfCompilebarrier = osg.BarrierOperation()
+    _endOfLoadBlock = osg.RefBlockCount()
     
-    osg.ref_ptr<osg.OperationQueue>   _operationQueue
+    _operationQueue = osg.OperationQueue()
 
 
-class FilterHandler : public osgGA.GUIEventHandler 
-public: 
+class FilterHandler (osgGA.GUIEventHandler) : 
 
     FilterHandler(osgTerrain.GeometryTechnique* gt):
         _gt(gt) 
 
     def handle(ea, aa):
-        if !_gt : return false
+
+        
+        if !_gt : return False
 
         switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
                 if ea.getKey() == 'g' :
                     osg.notify(osg.NOTICE), "Gaussian"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.GAUSSIAN)
-                    true = return()
-                else: if ea.getKey() == 's' :
+                    return True
+                elif ea.getKey() == 's' :
                     osg.notify(osg.NOTICE), "Smooth"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.SMOOTH)
-                    true = return()
-                else: if ea.getKey() == 'S' :
+                    return True
+                elif ea.getKey() == 'S' :
                     osg.notify(osg.NOTICE), "Sharpen"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.SHARPEN)
-                    true = return()
-                else: if ea.getKey() == '+' :
+                    return True
+                elif ea.getKey() == '+' :
                     _gt.setFilterWidth(_gt.getFilterWidth()*1.1)
                     osg.notify(osg.NOTICE), "Filter width = ", _gt.getFilterWidth()
-                    true = return()
-                else: if ea.getKey() == '-' :
+                    return True
+                elif ea.getKey() == '-' :
                     _gt.setFilterWidth(_gt.getFilterWidth()/1.1)
                     osg.notify(osg.NOTICE), "Filter width = ", _gt.getFilterWidth()
-                    true = return()
-                else: if ea.getKey() == '>' :
+                    return True
+                elif ea.getKey() == '>' :
                     _gt.setFilterBias(_gt.getFilterBias()+0.1)
                     osg.notify(osg.NOTICE), "Filter bias = ", _gt.getFilterBias()
-                    true = return()
-                else: if ea.getKey() == '<' :
+                    return True
+                elif ea.getKey() == '<' :
                     _gt.setFilterBias(_gt.getFilterBias()-0.1)
                     osg.notify(osg.NOTICE), "Filter bias = ", _gt.getFilterBias()
-                    true = return()
+                    return True
                 break
         default:
             break
-        false = return()
+        return False
 
 
-protected:
-
-    osg.observer_ptr<osgTerrain.GeometryTechnique> _gt
+    _gt = osg.observer_ptr<osgTerrain.GeometryTechnique>()
 
 
 
 
 
-class LayerHandler : public osgGA.GUIEventHandler 
-public: 
+class LayerHandler (osgGA.GUIEventHandler) : 
 
     LayerHandler(osgTerrain.Layer* layer):
         _layer(layer) 
 
     def handle(ea, aa):
-        if !_layer : return false
 
-        scale =  1.2
+        
+        if !_layer : return False
+
+        scale = 1.2
 
         switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
                 if ea.getKey() == 'q' :
                     _layer.transform(0.0, scale)
-                    true = return()
-                else: if ea.getKey() == 'a' :
-                    _layer.transform(0.0, 1.0f/scale)
-                    true = return()
+                    return True
+                elif ea.getKey() == 'a' :
+                    _layer.transform(0.0, 1.0/scale)
+                    return True
                 break
         default:
             break
-        false = return()
+        return False
 
 
-protected:
-
-    osg.observer_ptr<osgTerrain.Layer> _layer
+    _layer = osg.observer_ptr<osgTerrain.Layer>()
 
 
 def main(argc, argv):
+
+    
     arguments = osg.ArgumentParser(argc, argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
 
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -508,86 +519,86 @@ def main(argc, argv):
 
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # attach an IncrementaCompileOperation to allow the master loading 
     # to be handled with an incremental compile to avoid frame drops when large objects are added.
-    viewer.setIncrementalCompileOperation(new osgUtil.IncrementalCompileOperation())
+    viewer.setIncrementalCompileOperation(osgUtil.IncrementalCompileOperation())
 
-    x =  0.0
-    y =  0.0
-    w =  1.0
-    h =  1.0
+    x = 0.0
+    y = 0.0
+    w = 1.0
+    h = 1.0
 
-    unsigned int numLoadThreads = 1
+    numLoadThreads = 1
     while arguments.read("--load-threads",numLoadThreads) :  
 
-    osg.ref_ptr<MasterOperation> masterOperation
+    masterOperation = MasterOperation()
     masterFilename = str()
     while arguments.read("-m",masterFilename) :
-        masterOperation = new MasterOperation(masterFilename, viewer.getIncrementalCompileOperation())
+        masterOperation = MasterOperation(masterFilename, viewer.getIncrementalCompileOperation())
     
 
-    osg.ref_ptr<osgTerrain.TerrainTile> terrainTile = new osgTerrain.TerrainTile
-    osg.ref_ptr<osgTerrain.Locator> locator = new osgTerrain.Locator
-    osg.ref_ptr<osgTerrain.ValidDataOperator> validDataOperator = new osgTerrain.NoDataValue(0.0)
-    osg.ref_ptr<osgTerrain.Layer> lastAppliedLayer
+    terrainTile = osgTerrain.TerrainTile()
+    locator = osgTerrain.Locator()
+    validDataOperator = osgTerrain.NoDataValue(0.0)
+    lastAppliedLayer = osgTerrain.Layer()
 
     locator.setCoordinateSystemType(osgTerrain.Locator.GEOCENTRIC)
     locator.setTransformAsExtents(-osg.PI, -osg.PI*0.5, osg.PI, osg.PI*0.5)
 
-    unsigned int layerNum = 0
+    layerNum = 0
 
     filterName = str()
 
-    filter =  osg.Texture.LINEAR
+    filter = osg.Texture.LINEAR
 
     float minValue, maxValue
-    scale =  1.0f
-    offset =  0.0f
+    scale = 1.0
+    offset = 0.0
 
-    pos =  1
+    pos = 1
     while pos<arguments.argc() :
         filename = str()
         
         if arguments.read(pos, "--layer",layerNum) : 
             osg.notify(osg.NOTICE), "Set layer number to ", layerNum
 
-        else: if arguments.read(pos, "-b") :
-            terrainTile.setTreatBoundariesToValidDataAsDefaultValue(true)
+        elif arguments.read(pos, "-b") :
+            terrainTile.setTreatBoundariesToValidDataAsDefaultValue(True)
         
-        else: if arguments.read(pos, "-e",x,y,w,h) :
+        elif arguments.read(pos, "-e",x,y,w,h) :
             # define the extents.
             locator.setCoordinateSystemType(osgTerrain.Locator.GEOCENTRIC)
             locator.setTransformAsExtents(x,y,x+w,y+h)
 
-        else: if arguments.read(pos, "--transform",offset, scale) || arguments.read(pos, "-t",offset, scale) :
+        elif arguments.read(pos, "--transform",offset, scale) || arguments.read(pos, "-t",offset, scale) :
             # define the extents.
 
-        else: if arguments.read(pos, "--cartesian",x,y,w,h) :
+        elif arguments.read(pos, "--cartesian",x,y,w,h) :
             # define the extents.
             locator.setCoordinateSystemType(osgTerrain.Locator.PROJECTED)
             locator.setTransformAsExtents(x,y,x+w,y+h)
 
-        else: if arguments.read(pos, "--hf",filename) :
+        elif arguments.read(pos, "--hf",filename) :
             osg.notify(osg.NOTICE), "--hf ", filename
 
-            osg.ref_ptr<osg.HeightField> hf = osgDB.readHeightFieldFile(filename)
+            hf = osgDB.readHeightFieldFile(filename)
             if hf.valid() :
-                osg.ref_ptr<osgTerrain.HeightFieldLayer> hfl = new osgTerrain.HeightFieldLayer
+                hfl = osgTerrain.HeightFieldLayer()
                 hfl.setHeightField(hf.get())
                 
                 hfl.setLocator(locator.get())
                 hfl.setValidDataOperator(validDataOperator.get())
                 hfl.setMagFilter(filter)
                 
-                if offset!=0.0f || scale!=1.0f :
+                if offset!=0.0 || scale!=1.0 :
                     hfl.transform(offset,scale)
                 
                 terrainTile.setElevationLayer(hfl.get())
@@ -595,25 +606,25 @@ def main(argc, argv):
                 lastAppliedLayer = hfl.get()
                 
                 osg.notify(osg.NOTICE), "created osgTerrain.HeightFieldLayer"
-            else:
+            else :
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.HeightFieldLayer"
             
-            scale = 1.0f
-            offset = 0.0f
+            scale = 1.0
+            offset = 0.0
             
 
-        else: if arguments.read(pos, "-d",filename) || arguments.read(pos, "--elevation-image",filename) :
+        elif arguments.read(pos, "-d",filename) || arguments.read(pos, "--elevation-image",filename) :
             osg.notify(osg.NOTICE), "--elevation-image ", filename
 
-            osg.ref_ptr<osg.Image> image = osgDB.readImageFile(filename)
+            image = osgDB.readImageFile(filename)
             if image.valid() :
-                osg.ref_ptr<osgTerrain.ImageLayer> imageLayer = new osgTerrain.ImageLayer
+                imageLayer = osgTerrain.ImageLayer()
                 imageLayer.setImage(image.get())
                 imageLayer.setLocator(locator.get())
                 imageLayer.setValidDataOperator(validDataOperator.get())
                 imageLayer.setMagFilter(filter)
                 
-                if offset!=0.0f || scale!=1.0f :
+                if offset!=0.0 || scale!=1.0 :
                     imageLayer.transform(offset,scale)
                 
                 terrainTile.setElevationLayer(imageLayer.get())
@@ -621,25 +632,25 @@ def main(argc, argv):
                 lastAppliedLayer = imageLayer.get()
 
                 osg.notify(osg.NOTICE), "created Elevation osgTerrain.ImageLayer"
-            else:
+            else :
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.ImageLayer"
 
-            scale = 1.0f
-            offset = 0.0f
+            scale = 1.0
+            offset = 0.0
             
         
-        else: if arguments.read(pos, "-c",filename) || arguments.read(pos, "--image",filename) :
+        elif arguments.read(pos, "-c",filename) || arguments.read(pos, "--image",filename) :
             osg.notify(osg.NOTICE), "--image ", filename, " x=", x, " y=", y, " w=", w, " h=", h
 
-            osg.ref_ptr<osg.Image> image = osgDB.readImageFile(filename)
+            image = osgDB.readImageFile(filename)
             if image.valid() :
-                osg.ref_ptr<osgTerrain.ImageLayer> imageLayer = new osgTerrain.ImageLayer
+                imageLayer = osgTerrain.ImageLayer()
                 imageLayer.setImage(image.get())
                 imageLayer.setLocator(locator.get())
                 imageLayer.setValidDataOperator(validDataOperator.get())
                 imageLayer.setMagFilter(filter)
                 
-                if offset!=0.0f || scale!=1.0f :
+                if offset!=0.0 || scale!=1.0 :
                     imageLayer.transform(offset,scale)
 
                 terrainTile.setColorLayer(layerNum, imageLayer.get())
@@ -647,33 +658,33 @@ def main(argc, argv):
                 lastAppliedLayer = imageLayer.get()
 
                 osg.notify(osg.NOTICE), "created Color osgTerrain.ImageLayer"
-            else:
+            else :
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.ImageLayer"
 
-            scale = 1.0f
-            offset = 0.0f
+            scale = 1.0
+            offset = 0.0
             
 
-        else: if arguments.read(pos, "--filter",filterName) :
+        elif arguments.read(pos, "--filter",filterName) :
             if filterName=="NEAREST" :
                 osg.notify(osg.NOTICE), "--filter ", filterName
                 filter = osg.Texture.NEAREST
-            else: if filterName=="LINEAR" : 
+            elif filterName=="LINEAR" : 
                 filter = osg.Texture.LINEAR
                 osg.notify(osg.NOTICE), "--filter ", filterName
-            else:
+            else :
                 osg.notify(osg.NOTICE), "--filter ", filterName, " unrecognized filter name, please use LINEAER or NEAREST."
 
             if terrainTile.getColorLayer(layerNum) :
                 terrainTile.getColorLayer(layerNum).setMagFilter(filter)
             
 
-        else: if arguments.read(pos, "--tf",minValue, maxValue) :
-            osg.ref_ptr<osg.TransferFunction1D> tf = new osg.TransferFunction1D
+        elif arguments.read(pos, "--tf",minValue, maxValue) :
+            tf = osg.TransferFunction1D()
             
-            unsigned int numCells = 6
-            delta =  (maxValue-minValue)/float(numCells-1)
-            v =  minValue
+            numCells = 6
+            delta = (maxValue-minValue)/float(numCells-1)
+            v = minValue
             
             tf.allocate(6)
             tf.setColor(v, osg.Vec4(1.0,1.0,1.0,1.0)) v += delta
@@ -685,23 +696,23 @@ def main(argc, argv):
             
             osg.notify(osg.NOTICE), "--tf ", minValue, " ", maxValue
 
-            terrainTile.setColorLayer(layerNum, new osgTerrain.ContourLayer(tf.get()))
-        else:
+            terrainTile.setColorLayer(layerNum, osgTerrain.ContourLayer(tf.get()))
+        else :
             ++pos
 
     
 
-    osg.ref_ptr<osg.Group> scene = new osg.Group
+    scene = osg.Group()
 
     if terrainTile.valid()  (terrainTile.getElevationLayer() || terrainTile.getColorLayer(0)) :
         osg.notify(osg.NOTICE), "Terrain created"
     
         scene.addChild(terrainTile.get())
 
-        osg.ref_ptr<osgTerrain.GeometryTechnique> geometryTechnique = new osgTerrain.GeometryTechnique
+        geometryTechnique = osgTerrain.GeometryTechnique()
         terrainTile.setTerrainTechnique(geometryTechnique.get())
-        viewer.addEventHandler(new FilterHandler(geometryTechnique.get()))
-        viewer.addEventHandler(new LayerHandler(lastAppliedLayer.get()))
+        viewer.addEventHandler(FilterHandler(geometryTechnique.get()))
+        viewer.addEventHandler(LayerHandler(lastAppliedLayer.get()))
 
     if masterOperation.valid() :
         osg.notify(osg.NOTICE), "Master operation created"
@@ -716,23 +727,23 @@ def main(argc, argv):
 
 
     # start operation thread if a master file has been used.
-    osg.ref_ptr<osg.OperationThread> masterOperationThread
+    masterOperationThread = osg.OperationThread()
     
-    typedef std.list< osg.ref_ptr<osg.OperationThread> > OperationThreadList
+    typedef std.list< osg.OperationThread > OperationThreadList
     generalThreadList = OperationThreadList()
     
     if masterOperation.valid() : 
-        masterOperationThread = new osg.OperationThread
+        masterOperationThread = osg.OperationThread()
         masterOperationThread.startThread()
         
         masterOperationThread.add(masterOperation.get())
 
 #        if numLoadThreads>0 :
-            osg.ref_ptr<osg.OperationQueue> operationQueue = new osg.OperationQueue
+            operationQueue = osg.OperationQueue()
             masterOperation.setOperationQueue(operationQueue.get())
 
             for(unsigned int i=0 i<numLoadThreads ++i)
-                osg.ref_ptr<osg.OperationThread> thread = new osg.OperationThread
+                thread = osg.OperationThread()
                 thread.setOperationQueue(operationQueue.get())
                 thread.startThread()
                 generalThreadList.push_back(thread)
@@ -742,7 +753,7 @@ def main(argc, argv):
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
     
     # enable the use of compile contexts and associated threads.
-    # osg.DisplaySettings.instance().setCompileContextsHint(true)
+    # osg.DisplaySettings.instance().setCompileContextsHint(True)
 
     # realize the graphics windows.
     viewer.realize()

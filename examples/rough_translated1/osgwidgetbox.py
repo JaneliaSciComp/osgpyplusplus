@@ -10,6 +10,9 @@ from osgpypp import osg
 from osgpypp import osgDB
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetbox.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetbox.cpp 59 2008-05-15 20:55:31Z cubicool $
 
@@ -24,90 +27,94 @@ from osgpypp import osgWidget
 #include <osgWidget/WindowManager>
 #include <osgWidget/Box>
 
- unsigned int MASK_2D = 0xF0000000
- unsigned int MASK_3D = 0x0F000000
+MASK_2D = 0xF0000000
+MASK_3D = 0x0F000000
 
-struct ColorWidget: public osgWidget.Widget 
-    ColorWidget():
-    osgWidget.Widget("", 256.0f, 256.0f) 
+class ColorWidget (osgWidget.Widget) :
+ColorWidget():
+    osgWidget.Widget("", 256.0, 256.0) 
         setEventMask(osgWidget.EVENT_ALL)
 
     bool mouseEnter(double, double,  osgWidget.WindowManager*) 
-        addColor(-osgWidget.Color(0.4f, 0.4f, 0.4f, 0.0f))
+        addColor(-osgWidget.Color(0.4, 0.4, 0.4, 0.0))
         
         # osgWidget.warn(), "enter: ", getColor()
 
-        true = return()
+        return True
 
     bool mouseLeave(double, double,  osgWidget.WindowManager*) 
-        addColor(osgWidget.Color(0.4f, 0.4f, 0.4f, 0.0f))
+        addColor(osgWidget.Color(0.4, 0.4, 0.4, 0.0))
         
         # osgWidget.warn(), "leave: ", getColor()
         
-        true = return()
+        return True
 
     bool mouseOver(double x, double y,  osgWidget.WindowManager*) 
         
-        c =  getImageColorAtPointerXY(x, y)
+        c = getImageColorAtPointerXY(x, y)
 
-        if c.a() < 0.001f : 
+        if c.a() < 0.001 : 
             # osgWidget.warn(), "Transparent Pixel: ", x, " ", y
 
-            false = return()
-        true = return()
+            return False
+        return True
 
     bool keyUp(int key, int keyMask, osgWidget.WindowManager*) 
         # osgWidget.warn(), "...", key, " - ", keyMask
 
-        true = return()
+        return True
 
 
 def createBox(name, bt):
-    box =  new osgWidget.Box(name, bt, true)
-    widget1 =  new osgWidget.Widget(name + "_widget1", 100.0f, 100.0f)
-    widget2 =  new osgWidget.Widget(name + "_widget2", 100.0f, 100.0f)
-    widget3 =  new ColorWidget()
 
-    widget1.setColor(0.3f, 0.3f, 0.3f, 1.0f)
-    widget2.setColor(0.6f, 0.6f, 0.6f, 1.0f)
+    
+    box = osgWidget.Box(name, bt, True)
+    widget1 = osgWidget.Widget(name + "_widget1", 100.0, 100.0)
+    widget2 = osgWidget.Widget(name + "_widget2", 100.0, 100.0)
+    widget3 = ColorWidget()
+
+    widget1.setColor(0.3, 0.3, 0.3, 1.0)
+    widget2.setColor(0.6, 0.6, 0.6, 1.0)
 
     widget3.setImage("osgWidget/natascha.png")
-    widget3.setTexCoord(0.0f, 0.0f, osgWidget.Widget.LOWER_LEFT)
-    widget3.setTexCoord(1.0f, 0.0f, osgWidget.Widget.LOWER_RIGHT)
-    widget3.setTexCoord(1.0f, 1.0f, osgWidget.Widget.UPPER_RIGHT)
-    widget3.setTexCoord(0.0f, 1.0f, osgWidget.Widget.UPPER_LEFT)
+    widget3.setTexCoord(0.0, 0.0, osgWidget.Widget.LOWER_LEFT)
+    widget3.setTexCoord(1.0, 0.0, osgWidget.Widget.LOWER_RIGHT)
+    widget3.setTexCoord(1.0, 1.0, osgWidget.Widget.UPPER_RIGHT)
+    widget3.setTexCoord(0.0, 1.0, osgWidget.Widget.UPPER_LEFT)
 
     box.addWidget(widget1)
     box.addWidget(widget2)
     box.addWidget(widget3)
 
-    box = return()
+    return box
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
     
     wm.setPointerFocusMode(osgWidget.WindowManager.PFM_SLOPPY)
 
-    box1 =  createBox("HBOX", osgWidget.Box.HORIZONTAL)
-    box2 =  createBox("VBOX", osgWidget.Box.VERTICAL)
-    box3 =  createBox("HBOX2", osgWidget.Box.HORIZONTAL)
-    box4 =  createBox("VBOX2", osgWidget.Box.VERTICAL)
+    box1 = createBox("HBOX", osgWidget.Box.HORIZONTAL)
+    box2 = createBox("VBOX", osgWidget.Box.VERTICAL)
+    box3 = createBox("HBOX2", osgWidget.Box.HORIZONTAL)
+    box4 = createBox("VBOX2", osgWidget.Box.VERTICAL)
 
-    box1.getBackground().setColor(1.0f, 0.0f, 0.0f, 0.8f)
+    box1.getBackground().setColor(1.0, 0.0, 0.0, 0.8)
     box1.attachMoveCallback()
 
-    box2.getBackground().setColor(0.0f, 1.0f, 0.0f, 0.8f)
+    box2.getBackground().setColor(0.0, 1.0, 0.0, 0.8)
     box2.attachMoveCallback()
 
-    box3.getBackground().setColor(0.0f, 0.0f, 1.0f, 0.8f)
+    box3.getBackground().setColor(0.0, 0.0, 1.0, 0.8)
     box3.attachMoveCallback()
 
     wm.addChild(box1)
@@ -117,7 +124,7 @@ def main(argc, argv):
 
     box4.hide()
 
-    model =  osgDB.readNodeFile("spaceship.osgt")
+    model = osgDB.readNodeFile("spaceship.osgt")
 
     model.setNodeMask(MASK_3D)
 

@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgthirdpersonview.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgthirdpersonview.cpp'
+
+# OpenSceneGraph example, osgthirdpersonview.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 # This code is originally Copyright (c) 2008 Skew Matrix  Software LLC,
 # but you may use the code under the terms of the OSGPL as described above.
 
@@ -60,36 +63,37 @@ from osgpypp import osgViewer
 # Given a Camera, create a wireframe representation of its
 # view frustum. Create a default representation if camera==NULL.
 def makeFrustumFromCamera(camera):
+    
     # Projection and ModelView matrices
     proj = osg.Matrixd()
     mv = osg.Matrixd()
     if camera :
         proj = camera.getProjectionMatrix()
         mv = camera.getViewMatrix()
-    else:
+    else :
         # Create some kind of reasonable default Projection matrix.
         proj.makePerspective( 30., 1., 1., 10. )
         # leave mv as identity
 
     # Get near and far from the Projection matrix.
-    near =  proj(3,2) / (proj(2,2)-1.0)
-    far =  proj(3,2) / (1.0+proj(2,2))
+    near = proj(3,2) / (proj(2,2)-1.0)
+    far = proj(3,2) / (1.0+proj(2,2))
 
     # Get the sides of the near plane.
-    nLeft =  near * (proj(2,0)-1.0) / proj(0,0)
-    nRight =  near * (1.0+proj(2,0)) / proj(0,0)
-    nTop =  near * (1.0+proj(2,1)) / proj(1,1)
-    nBottom =  near * (proj(2,1)-1.0) / proj(1,1)
+    nLeft = near * (proj(2,0)-1.0) / proj(0,0)
+    nRight = near * (1.0+proj(2,0)) / proj(0,0)
+    nTop = near * (1.0+proj(2,1)) / proj(1,1)
+    nBottom = near * (proj(2,1)-1.0) / proj(1,1)
 
     # Get the sides of the far plane.
-    fLeft =  far * (proj(2,0)-1.0) / proj(0,0)
-    fRight =  far * (1.0+proj(2,0)) / proj(0,0)
-    fTop =  far * (1.0+proj(2,1)) / proj(1,1)
-    fBottom =  far * (proj(2,1)-1.0) / proj(1,1)
+    fLeft = far * (proj(2,0)-1.0) / proj(0,0)
+    fRight = far * (1.0+proj(2,0)) / proj(0,0)
+    fTop = far * (1.0+proj(2,1)) / proj(1,1)
+    fBottom = far * (proj(2,1)-1.0) / proj(1,1)
 
     # Our vertex array needs only 9 vertices: The origin, and the
     # eight corners of the near and far planes.
-    v =  new osg.Vec3Array
+    v = osg.Vec3Array()
     v.resize( 9 )
     (*v)[0].set( 0., 0., 0. )
     (*v)[1].set( nLeft, nBottom, -near )
@@ -101,11 +105,11 @@ def makeFrustumFromCamera(camera):
     (*v)[7].set( fRight, fTop, -far )
     (*v)[8].set( fLeft, fTop, -far )
 
-    geom =  new osg.Geometry
-    geom.setUseDisplayList( false )
+    geom = osg.Geometry()
+    geom.setUseDisplayList( False )
     geom.setVertexArray( v )
 
-    c =  new osg.Vec4Array
+    c = osg.Vec4Array()
     c.push_back( osg.Vec4( 1., 1., 1., 1. ) )
     geom.setColorArray( c, osg.Array.BIND_OVERALL )
 
@@ -115,11 +119,11 @@ def makeFrustumFromCamera(camera):
         1, 2, 3, 4 
     GLushort idxLoops1[4] = 
         5, 6, 7, 8 
-    geom.addPrimitiveSet( new osg.DrawElementsUShort( osg.PrimitiveSet.LINES, 8, idxLines ) )
-    geom.addPrimitiveSet( new osg.DrawElementsUShort( osg.PrimitiveSet.LINE_LOOP, 4, idxLoops0 ) )
-    geom.addPrimitiveSet( new osg.DrawElementsUShort( osg.PrimitiveSet.LINE_LOOP, 4, idxLoops1 ) )
+    geom.addPrimitiveSet( osg.DrawElementsUShort( osg.PrimitiveSet.LINES, 8, idxLines ) )
+    geom.addPrimitiveSet( osg.DrawElementsUShort( osg.PrimitiveSet.LINE_LOOP, 4, idxLoops0 ) )
+    geom.addPrimitiveSet( osg.DrawElementsUShort( osg.PrimitiveSet.LINE_LOOP, 4, idxLoops1 ) )
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable( geom )
 
     geode.getOrCreateStateSet().setMode( GL_LIGHTING, osg.StateAttribute.OFF | osg.StateAttribute.PROTECTED )
@@ -127,23 +131,26 @@ def makeFrustumFromCamera(camera):
 
     # Create parent MatrixTransform to transform the view volume by
     # the inverse ModelView matrix.
-    mt =  new osg.MatrixTransform
+    mt = osg.MatrixTransform()
     mt.setMatrix( osg.Matrixd.inverse( mv ) )
     mt.addChild( geode )
 
-    mt = return()
+    return mt
 
 
 def main(argc, argv):
+
+
+    
     arguments = osg.ArgumentParser( argc, argv )
 
-    osg.ref_ptr< osg.Group > root = new osg.Group
+     root = osg.Group()
 
     # Child 0: We'll replace this every frame with an updated representation
     #   of the view frustum.
     root.addChild( makeFrustumFromCamera( NULL ) )
 
-    osg.ref_ptr< osg.Node > scene
+     scene = osg.Node()
     scene = osgDB.readNodeFiles( arguments )
     if !scene :
         # User didn't specify anything, or file(s) didn't exist.
@@ -160,20 +167,20 @@ def main(argc, argv):
     osg.DisplaySettings.instance().setNumMultiSamples( 4 )
 
     # Create View 0 -- Just the loaded model.
-        view =  new osgViewer.View
+        view = osgViewer.View()
         viewer.addView( view )
 
         view.setUpViewInWindow( 10, 10, 640, 480 )
         view.setSceneData( scene.get() )
-        view.setCameraManipulator( new osgGA.TrackballManipulator )
+        view.setCameraManipulator( osgGA.TrackballManipulator )()
 
     # Create view 1 -- Contains the loaded moel, as well as a wireframe frustum derived from View 0's Camera.
-        view =  new osgViewer.View
+        view = osgViewer.View()
         viewer.addView( view )
 
         view.setUpViewInWindow( 10, 510, 640, 480 )
         view.setSceneData( root.get() )
-        view.setCameraManipulator( new osgGA.TrackballManipulator )
+        view.setCameraManipulator( osgGA.TrackballManipulator )()
 
     while !viewer.done() :
         # Update the wireframe frustum

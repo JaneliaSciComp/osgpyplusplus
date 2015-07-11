@@ -10,6 +10,9 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
+
+# Translated from file 'FOX_OSG.cpp'
+
 #include <iostream>
 
 #include "FOX_OSG.h"
@@ -37,15 +40,15 @@ GraphicsWindowFOX.GraphicsWindowFOX(FXComposite *parent, FXGLVisual *vis,
 									 FXint w, FXint h)
 									 : FXGLCanvas(parent, vis, tgt, sel, opts, x, y, w, h)
 	# default cursor to standard
-	_oldCursor = new FXCursor(parent.getApp(),CURSOR_CROSS)
+	_oldCursor = FXCursor(parent.getApp(),CURSOR_CROSS)
 
-	_traits = new GraphicsContext.Traits
+	_traits = GraphicsContext.Traits()
 	_traits.x = x
 	_traits.y = y
 	_traits.width = w
 	_traits.height = h
-	_traits.windowDecoration = false
-	_traits.doubleBuffer = true
+	_traits.windowDecoration = False
+	_traits.doubleBuffer = True
 	_traits.sharedContext = 0
 
 	init()
@@ -53,13 +56,13 @@ GraphicsWindowFOX.GraphicsWindowFOX(FXComposite *parent, FXGLVisual *vis,
 
 void GraphicsWindowFOX.init()
 	if valid() :
-		setState( new osg.State )
+		setState( osg.State )()
 		getState().setGraphicsContext(this)
 
 		if _traits.valid()  _traits.sharedContext.valid() :
 			getState().setContextID( _traits.sharedContext.getState().getContextID() )
 			incrementContextIDUsageCount( getState().getContextID() )   
-		else:
+		else :
 			getState().setContextID( osg.GraphicsContext.createNewContextID() )
 
 GraphicsWindowFOX.~GraphicsWindowFOX()
@@ -75,16 +78,16 @@ void GraphicsWindowFOX.useCursor(bool cursorOn)
 	if cursorOn : 
 		# show the old cursor
 		setDefaultCursor(_oldCursor)
-	else: 
+	else : 
 		setDefaultCursor(NULL)
 
 bool GraphicsWindowFOX.makeCurrentImplementation()
 	FXGLCanvas.makeCurrent()
-	true = return()
+	return True
 
 bool GraphicsWindowFOX.releaseContext()
 	FXGLCanvas.makeNonCurrent()
-	true = return()
+	return True
 
 void GraphicsWindowFOX.swapBuffersImplementation()
 	FXGLCanvas.swapBuffers()
@@ -99,13 +102,13 @@ long GraphicsWindowFOX.onConfigure(FXObject *sender, FXSelector sel, void* ptr)
 	return FXGLCanvas.onConfigure(sender, sel, ptr)
 
 long GraphicsWindowFOX.onKeyPress(FXObject *sender, FXSelector sel, void* ptr)
-	key =  ((FXEvent*)ptr).code
+	key = ((FXEvent*)ptr).code
 	getEventQueue().keyPress(key)
 
 	return FXGLCanvas.onKeyPress(sender, sel, ptr)
 
 long GraphicsWindowFOX.onKeyRelease(FXObject *sender, FXSelector sel, void* ptr)
-	key =  ((FXEvent*)ptr).code
+	key = ((FXEvent*)ptr).code
 	getEventQueue().keyRelease(key)
 
 	return FXGLCanvas.onKeyRelease(sender, sel, ptr)
@@ -157,6 +160,9 @@ long GraphicsWindowFOX.onMotion(FXObject *sender, FXSelector sel, void* ptr)
 	getEventQueue().mouseMotion(event.win_x, event.win_y)
 
 	return FXGLCanvas.onMotion(sender, sel, ptr)
+
+# Translated from file 'FOX_OSG.h'
+
 #ifndef _FOXOSG_H_
 #define _FOXOSG_H_
 
@@ -171,8 +177,6 @@ using namespace FX
 class GraphicsWindowFOX: public FXGLCanvas, public osgViewer.GraphicsWindow
 
         FXDECLARE(GraphicsWindowFOX)
-
-public:
     GraphicsWindowFOX(FXComposite *parent, FXGLVisual *vis,
         tgt = NULL, FXSelector sel=0,
         opts = 0, FXint x=0, FXint y=0,
@@ -206,20 +210,23 @@ public:
     swapBuffersImplementation = void()
 
     # note implemented yet...just use dummy implementation to get working.    
-    virtual bool valid()   return true 
-    virtual bool realizeImplementation()  return true 
-    virtual bool isRealizedImplementation()    return true 
-    virtual void closeImplementation() 
-    virtual bool releaseContextImplementation()  return true 
-
-protected:
+    def valid():
+         return True 
+    def realizeImplementation():
+         return True 
+    def isRealizedImplementation():
+         return True 
+    def closeImplementation():
+    def releaseContextImplementation():
+         return True 
     GraphicsWindowFOX()
-
-private:
     _oldCursor = FXCursor*()
 
 
 #endif # _FOXOSG_H_
+
+# Translated from file 'FOX_OSG_MDIView.cpp'
+
 #include "FOX_OSG_MDIView.h"
 
 #include <osgViewer/ViewerEventHandlers>
@@ -246,11 +253,11 @@ FOX_OSG_MDIView.FOX_OSG_MDIView(FXMDIClient *p,  FXString name,
     # Thus, while the first visual may take some time to initialize, each subsequent
     # window can be created very quickly we need to determine grpaphics hardware
     # characteristics only once.
-    glVisual = new FXGLVisual(getApp(),VISUAL_DOUBLEBUFFER|VISUAL_STEREO)
+    glVisual = FXGLVisual(getApp(),VISUAL_DOUBLEBUFFER|VISUAL_STEREO)
 
-    m_gwFox = new GraphicsWindowFOX(this, glVisual, NULL, 0, LAYOUT_FILL_X|LAYOUT_FILL_Y, x, y, w, h )
+    m_gwFox = GraphicsWindowFOX(this, glVisual, NULL, 0, LAYOUT_FILL_X|LAYOUT_FILL_Y, x, y, w, h )
 
-    viewer =  new osgViewer.Viewer
+    viewer = osgViewer.Viewer()
     viewer.getCamera().setGraphicsContext(m_gwFox)
     viewer.getCamera().setViewport(0,0,w,h)
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
@@ -260,16 +267,16 @@ FOX_OSG_MDIView.FOX_OSG_MDIView(FXMDIClient *p,  FXString name,
     viewer.setKeyEventSetsDone(0)
 
     # load the scene.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFile("cow.osgt")
+    loadedModel = osgDB.readNodeFile("cow.osgt")
     if !loadedModel :
         return 
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     viewer.setSceneData(loadedModel.get())
 
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator)()
 
     SetViewer(viewer)
 
@@ -287,6 +294,9 @@ long FOX_OSG_MDIView.OnIdle(FXObject *sender, FXSelector sel, void* ptr)
 
 void FOX_OSG_MDIView.SetViewer(osgViewer.Viewer* viewer)
     m_osgViewer = viewer
+
+# Translated from file 'FOX_OSG_MDIView.h'
+
 #ifndef _FOXOSGMDIVIEW_H_
 #define _FOXOSGMDIVIEW_H_
 
@@ -298,11 +308,8 @@ void FOX_OSG_MDIView.SetViewer(osgViewer.Viewer* viewer)
 
 using namespace FX
 
-class FOX_OSG_MDIView : public FXMDIChild
-
-    FXDECLARE(FOX_OSG_MDIView)
-
-public:
+class FOX_OSG_MDIView (FXMDIChild) :
+FXDECLARE(FOX_OSG_MDIView)
     FOX_OSG_MDIView(FXMDIClient *p,  FXString name,
         ic = NULL, FXPopup *pup=NULL, FXuint opts=0,
         x = 0, FXint y=0, FXint w=0, FXint h=0)
@@ -318,16 +325,15 @@ public:
     OnIdle = long(FXObject* , FXSelector, void*)
 
     SetViewer = void(osgViewer.Viewer *viewer)
-
-protected:
     FOX_OSG_MDIView()
-
-private:
-    osg.ref_ptr<osgViewer.Viewer>        m_osgViewer
+    m_osgViewer = osgViewer.Viewer()
     m_gwFox = GraphicsWindowFOX*()
 
 
 #endif # _FOXOSGMDIVIEW_H_
+
+# Translated from file 'osgviewerFOX.cpp'
+
 #ifdef __BORLANDC__
 #pragma hdrstop
 #endif
@@ -341,36 +347,36 @@ MainFrame.MainFrame(FXApp *app,  FXString name, FXIcon *ic, FXIcon *mi, FXuint o
 
 
 	# Site where to dock
-	topdock = new FXDockSite(this,DOCKSITE_NO_WRAP|LAYOUT_SIDE_TOP|LAYOUT_FILL_X)
+	topdock = FXDockSite(this,DOCKSITE_NO_WRAP|LAYOUT_SIDE_TOP|LAYOUT_FILL_X)
 
 	# Menubar 1
-	m_fxToolbarShell1=new FXToolBarShell(this,FRAME_RAISED)
-	menubar = new FXMenuBar(topdock,m_fxToolbarShell1,LAYOUT_DOCK_SAME|LAYOUT_SIDE_TOP|LAYOUT_FILL_X|FRAME_RAISED)
-	FXToolBarGrip = new(menubar,menubar,FXMenuBar.ID_TOOLBARGRIP,TOOLBARGRIP_DOUBLE)
+	m_fxToolbarShell1=FXToolBarShell(this,FRAME_RAISED)
+	menubar = FXMenuBar(topdock,m_fxToolbarShell1,LAYOUT_DOCK_SAME|LAYOUT_SIDE_TOP|LAYOUT_FILL_X|FRAME_RAISED)
+	FXToolBarGrip = (menubar,menubar,FXMenuBar.ID_TOOLBARGRIP,TOOLBARGRIP_DOUBLE)
 
 	# Contents
-	frame = new FXHorizontalFrame(this,LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 0,0,0,0, 4,4)
+	frame = FXHorizontalFrame(this,LAYOUT_SIDE_TOP|LAYOUT_FILL_X|LAYOUT_FILL_Y, 0,0,0,0, 0,0,0,0, 4,4)
 
 	# Nice sunken box around GL viewer
-	box = new FXVerticalFrame(frame,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y,0,0,0,0, 0,0,0,0)
+	box = FXVerticalFrame(frame,FRAME_SUNKEN|FRAME_THICK|LAYOUT_FILL_X|LAYOUT_FILL_Y,0,0,0,0, 0,0,0,0)
 
 	# MDI Client
-	mdiclient = new FXMDIClient(box,LAYOUT_FILL_X|LAYOUT_FILL_Y)
+	mdiclient = FXMDIClient(box,LAYOUT_FILL_X|LAYOUT_FILL_Y)
 
 	# Make MDI Window Menu
-	mdimenu = new FXMDIMenu(this,mdiclient)
+	mdimenu = FXMDIMenu(this,mdiclient)
 
 	# MDI buttons in menu:- note the message ID's!!!!!
 	# Normally, MDI commands are simply sensitized or desensitized
 	# Under the menubar, however, they're hidden if the MDI Client is
 	# not maximized.  To do this, they must have different ID's.
-	FXMDIWindowButton = new(menubar,mdimenu,mdiclient,FXMDIClient.ID_MDI_MENUWINDOW,LAYOUT_LEFT|LAYOUT_CENTER_Y)
-	FXMDIDeleteButton = new(menubar,mdiclient,FXMDIClient.ID_MDI_MENUCLOSE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
-	FXMDIRestoreButton = new(menubar,mdiclient,FXMDIClient.ID_MDI_MENURESTORE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
-	FXMDIMinimizeButton = new(menubar,mdiclient,FXMDIClient.ID_MDI_MENUMINIMIZE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
+	FXMDIWindowButton = (menubar,mdimenu,mdiclient,FXMDIClient.ID_MDI_MENUWINDOW,LAYOUT_LEFT|LAYOUT_CENTER_Y)
+	FXMDIDeleteButton = (menubar,mdiclient,FXMDIClient.ID_MDI_MENUCLOSE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
+	FXMDIRestoreButton = (menubar,mdiclient,FXMDIClient.ID_MDI_MENURESTORE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
+	FXMDIMinimizeButton = (menubar,mdiclient,FXMDIClient.ID_MDI_MENUMINIMIZE,FRAME_RAISED|LAYOUT_RIGHT|LAYOUT_CENTER_Y)
 
 	# Make an MDI Child
-	mdichild = new FOX_OSG_MDIView(mdiclient,"FOX osgViewer", NULL, mdimenu,MDI_TRACKING|MDI_MAXIMIZED,30,30,300,200)
+	mdichild = FOX_OSG_MDIView(mdiclient,"FOX osgViewer", NULL, mdimenu,MDI_TRACKING|MDI_MAXIMIZED,30,30,300,200)
 	mdichild.setFocus()
 
 	# Make it active
@@ -384,6 +390,9 @@ void MainFrame.create()
   show(PLACEMENT_SCREEN)
 
 def main(argc, argv):
+
+    
+
 	# Make application
 	application = FXApp("OSGViewer","FoxTest")
 
@@ -391,13 +400,16 @@ def main(argc, argv):
 	application.init(argc,argv)
 
 	# Make window
-	MainFrame = new(application, "Fox Toolkit OSG Sample", NULL, NULL, DECOR_ALL, 100, 100, 800, 600)
+	MainFrame = (application, "Fox Toolkit OSG Sample", NULL, NULL, DECOR_ALL, 100, 100, 800, 600)
 
 	# Create the application's windows
 	application.create()
 
 	# Run the application
 	return application.run()
+
+# Translated from file 'osgviewerFOX.h'
+
 #ifndef _FOXSIMPLEVIEWERFOX_H_
 #define _FOXSIMPLEVIEWERFOX_H_
 
@@ -406,9 +418,7 @@ def main(argc, argv):
 
 using namespace FX
 
-class MainFrame : public FXMainWindow
-
-public:
+class MainFrame (FXMainWindow) :
 	MainFrame(FXApp *a,  FXString name,
 		ic = NULL, FXIcon *mi=NULL,
 		opts = DECOR_ALL,
@@ -419,12 +429,8 @@ public:
 
 
 	# Initialize
-	virtual void create()
-
-protected:
+	create = virtual void()
 	MainFrame()
-
-private:
 	# GUI elements
 	m_fxToolbarShell1 = FXToolBarShell*()
 

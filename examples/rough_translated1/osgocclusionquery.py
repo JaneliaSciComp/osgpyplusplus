@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osganimate.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgocclusionquery.cpp'
+
+# OpenSceneGraph example, osganimate.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # This exampl demonstrates use of OcclusionQueryNode.
 #
@@ -78,8 +81,7 @@ from osgpypp import osgViewer
 # Use this visitor to insert OcclusionQueryNodes (OQNs) in the
 #   visited subgraph. Only one OQN will test any particular node
 #   (no nesting). See also OcclusionQueryNonFlatVisitor.
-class OcclusionQueryVisitor : public osg.NodeVisitor
-public:
+class OcclusionQueryVisitor (osg.NodeVisitor) :
     OcclusionQueryVisitor()
     virtual ~OcclusionQueryVisitor()
 
@@ -91,115 +93,99 @@ public:
     setOccluderThreshold = void( int vertices )
     int getOccluderThreshold() 
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-    virtual void apply( osg.Group group )
-    virtual void apply( osg.Geode geode )
-
-protected:
+    apply = virtual void( osg.OcclusionQueryNode oqn )
+    apply = virtual void( osg.Group group )
+    apply = virtual void( osg.Geode geode )
     addOQN = void( osg.Node node )
 
     # When an OQR creates all OQNs and each OQN shares the same OQC,
     #   these methods are used to uniquely name all OQNs. Handy
     #   for debugging.
     getNextOQNName = str()
-    int getNameIdx()   return _nameIdx 
+    def getNameIdx():
+         return _nameIdx 
 
-    osg.ref_ptr<osg.StateSet> _state
-    osg.ref_ptr<osg.StateSet> _debugState
+    _state = osg.StateSet()
+    _debugState = osg.StateSet()
 
-    unsigned int _nameIdx
+    _nameIdx = unsigned int()
 
     _occluderThreshold = int()
 
 
 # Find all OQNs in the visited scene graph and set their visibility threshold.
-class VisibilityThresholdVisitor : public osg.NodeVisitor
-public:
+class VisibilityThresholdVisitor (osg.NodeVisitor) :
     VisibilityThresholdVisitor( unsigned int threshold=500 )
       : osg.NodeVisitor( osg.NodeVisitor.TRAVERSE_ALL_CHILDREN ),
         _visThreshold( threshold ) 
     virtual ~VisibilityThresholdVisitor() 
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-
-protected:
-    unsigned int _visThreshold
+    apply = virtual void( osg.OcclusionQueryNode oqn )
+    _visThreshold = unsigned int()
 
 
 # Find all OQNs in the visited scene graph and set the number of frames
 #   between queries.
-class QueryFrameCountVisitor : public osg.NodeVisitor
-public:
+class QueryFrameCountVisitor (osg.NodeVisitor) :
     QueryFrameCountVisitor( int count=5 )
       : osg.NodeVisitor( osg.NodeVisitor.TRAVERSE_ALL_CHILDREN ),
         _count( count ) 
     virtual ~QueryFrameCountVisitor() 
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-
-protected:
-    unsigned int _count
+    apply = virtual void( osg.OcclusionQueryNode oqn )
+    _count = unsigned int()
 
 
 # Find all OQNs in the visited scene graph and enable or disable queries..
-class EnableQueryVisitor : public osg.NodeVisitor
-public:
-    EnableQueryVisitor( bool enable=true )
+class EnableQueryVisitor (osg.NodeVisitor) :
+    EnableQueryVisitor( bool enable=True )
       : osg.NodeVisitor( osg.NodeVisitor.TRAVERSE_ALL_CHILDREN ),
         _enabled( enable ) 
     virtual ~EnableQueryVisitor() 
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-
-protected:
+    apply = virtual void( osg.OcclusionQueryNode oqn )
     _enabled = bool()
 
 
 # Find all OQNs in the visited scene graph and enable or disable the
 #   debug bounding volume display.
-class DebugDisplayVisitor : public osg.NodeVisitor
-public:
-    DebugDisplayVisitor( bool debug=true )
+class DebugDisplayVisitor (osg.NodeVisitor) :
+    DebugDisplayVisitor( bool debug=True )
       : osg.NodeVisitor( osg.NodeVisitor.TRAVERSE_ALL_CHILDREN ),
         _debug( debug ) 
     virtual ~DebugDisplayVisitor() 
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-
-protected:
+    apply = virtual void( osg.OcclusionQueryNode oqn )
     _debug = bool()
 
 
 # Remove all OQNs from the visited scene graph.
-class RemoveOcclusionQueryVisitor : public osg.NodeVisitor
-public:
+class RemoveOcclusionQueryVisitor (osg.NodeVisitor) :
     RemoveOcclusionQueryVisitor()
     virtual ~RemoveOcclusionQueryVisitor()
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
-
-protected:
+    apply = virtual void( osg.OcclusionQueryNode oqn )
 
 
 # Gather statistics about OQN performance in the visited scene graph.
-class StatisticsVisitor : public osg.NodeVisitor
-public:
+class StatisticsVisitor (osg.NodeVisitor) :
     StatisticsVisitor( osg.NodeVisitor.TraversalMode mode=osg.NodeVisitor.TRAVERSE_ACTIVE_CHILDREN )
     virtual ~StatisticsVisitor()
 
-    virtual void apply( osg.OcclusionQueryNode oqn )
+    apply = virtual void( osg.OcclusionQueryNode oqn )
 
     reset = void()
     unsigned int getNumOQNs() 
     unsigned int getNumPassed() 
-
-protected:
-    unsigned int _numOQNs
-    unsigned int _numPassed
+    _numOQNs = unsigned int()
+    _numPassed = unsigned int()
 
 
 
-unsigned int countGeometryVertices( osg.Geometry* geom )
+def countGeometryVertices(geom):
+
+
+    
     if !geom.getVertexArray() :
         return 0
 
@@ -209,33 +195,40 @@ unsigned int countGeometryVertices( osg.Geometry* geom )
 
     return geom.getVertexArray().getNumElements()
 
-class VertexCounter : public osg.NodeVisitor
-public:
+class VertexCounter (osg.NodeVisitor) :
     VertexCounter( int limit )
       : osg.NodeVisitor( osg.NodeVisitor.TRAVERSE_ALL_CHILDREN ),
         _limit( limit ),
         _total( 0 ) 
     ~VertexCounter() 
 
-    int getTotal()  return _total 
-    bool exceeded()   return _total > _limit 
-    void reset()  _total = 0 
+    def getTotal():
 
-    virtual void apply( osg.Node node )
+         return _total 
+    def exceeded():
+         return _total > _limit 
+    def reset():
+         _total = 0 
+
+    def apply(node):
+
+        
         # Check for early abort. If out total already exceeds the
         #   max number of vertices, no need to traverse further.
         if exceeded() :
             return
         traverse( node )
 
-    virtual void apply( osg.Geode geode )
+    def apply(geode):
+
+        
         # Possible early abort.
         if exceeded() :
             return
 
-        unsigned int i
+        i = unsigned int()
         for( i = 0 i < geode.getNumDrawables() i++ )
-            geom =  dynamic_cast<osg.Geometry *>(geode.getDrawable(i))
+            geom = dynamic_cast<osg.Geometry *>(geode.getDrawable(i))
             if  !geom  :
                 continue
 
@@ -243,8 +236,6 @@ public:
 
             if _total > _limit :
                 break
-
-protected:
     _limit = int()
     _total = int()
 
@@ -257,7 +248,7 @@ OcclusionQueryVisitor.OcclusionQueryVisitor()
     _occluderThreshold( 5000 )
     # Create a dummy OcclusionQueryNode just so we can get its state.
     # We'll then share that state between all OQNs we add to the visited scene graph.
-    osg.ref_ptr<osg.OcclusionQueryNode> oqn = new osg.OcclusionQueryNode
+    oqn = osg.OcclusionQueryNode()
 
     _state = oqn.getQueryStateSet()
     _debugState = oqn.getDebugStateSet()
@@ -270,7 +261,7 @@ OcclusionQueryVisitor.setOccluderThreshold( int vertices )
     _occluderThreshold = vertices
 int
 OcclusionQueryVisitor.getOccluderThreshold() 
-    _occluderThreshold = return()
+    return _occluderThreshold
 
 void
 OcclusionQueryVisitor.apply( osg.OcclusionQueryNode oqn )
@@ -285,7 +276,7 @@ OcclusionQueryVisitor.apply( osg.Group group )
         traverse( group )
         return
 
-    preTraverseOQNCount =  getNameIdx()
+    preTraverseOQNCount = getNameIdx()
     traverse( group )
 
     if getNameIdx() > preTraverseOQNCount :
@@ -312,11 +303,11 @@ OcclusionQueryVisitor.addOQN( osg.Node node )
     node.accept( vc )
     if vc.exceeded() :
         # Insert OQN(s) above this node.
-        unsigned int np = node.getNumParents()
+        np = node.getNumParents()
         while np-- :
-            parent =  dynamic_cast<osg.Group*>( node.getParent( np ) )
+            parent = dynamic_cast<osg.Group*>( node.getParent( np ) )
             if parent != NULL :
-                osg.ref_ptr<osg.OcclusionQueryNode> oqn = new osg.OcclusionQueryNode()
+                oqn = osg.OcclusionQueryNode()
                 oqn.addChild( node )
                 parent.replaceChild( node, oqn.get() )
 
@@ -374,17 +365,17 @@ RemoveOcclusionQueryVisitor.apply( osg.OcclusionQueryNode oqn )
         traverse( oqn )
         return
 
-    osg.ref_ptr<osg.OcclusionQueryNode> oqnPtr = oqn
+    oqnPtr = oqn
 
-    unsigned int np = oqn.getNumParents()
+    np = oqn.getNumParents()
     while np-- :
-        parent =  dynamic_cast<osg.Group*>( oqn.getParent( np ) )
+        parent = dynamic_cast<osg.Group*>( oqn.getParent( np ) )
         if parent != NULL :
             # Remove OQN from parent.
             parent.removeChild( oqnPtr.get() )
 
             # Add OQN's children to parent.
-            unsigned int nc = oqn.getNumChildren()
+            nc = oqn.getNumChildren()
             while nc-- :
                 parent.addChild( oqn.getChild( nc ) )
 
@@ -411,10 +402,10 @@ StatisticsVisitor.reset()
 
 unsigned int
 StatisticsVisitor.getNumOQNs() 
-    _numOQNs = return()
+    return _numOQNs
 unsigned int
 StatisticsVisitor.getNumPassed() 
-    _numPassed = return()
+    return _numPassed
 
 # End NodeVisitors
 
@@ -423,12 +414,11 @@ StatisticsVisitor.getNumPassed()
 # KetHandler --
 # Allow user to do interesting things with an
 # OcclusionQueryNode-enabled scene graph at run time.
-class KeyHandler : public osgGA.GUIEventHandler
-public:
+class KeyHandler (osgGA.GUIEventHandler) :
     KeyHandler( osg.Node node )
       : _node( node ),
-        _enable( true ),
-        _debug( false )
+        _enable( True ),
+        _debug( False )
     
 
     bool handle(  osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter )
@@ -439,34 +429,34 @@ public:
                     _enable = !_enable
                     eqv = EnableQueryVisitor( _enable )
                     _node.accept( eqv )
-                    true = return()
-                else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_F7 :
+                    return True
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_F7 :
                     # F7 -- Toggle display of OQ test bounding volumes
                     _debug = !_debug
                     ddv = DebugDisplayVisitor( _debug )
                     _node.accept( ddv )
-                    true = return()
-                else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_F8 :
+                    return True
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_F8 :
                     # F8 -- Gether stats and display
                     sv = StatisticsVisitor()
                     _node.accept( sv )
                     print "osgOQ: Stats: numOQNs ", sv.getNumOQNs(), ", numPased ", sv.getNumPassed()
-                    true = return()
-                else: if ea.getKey()==osgGA.GUIEventAdapter.KEY_F9 :
+                    return True
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_F9 :
                     # F9 -- Remove all OcclusionQueryNodes
                     roqv = RemoveOcclusionQueryVisitor()
                     _node.accept( roqv )
-                    true = return()
-                else: if ea.getKey()=='o' :
+                    return True
+                elif ea.getKey()=='o' :
                     if osgDB.writeNodeFile( _node, "saved_model.osgt" ) :
                         osg.notify( osg.ALWAYS ), "osgOQ: Wrote scene graph to \"saved_model.osgt\""
-                    else:
+                    else :
                         osg.notify( osg.ALWAYS ), "osgOQ: Wrote failed for \"saved_model.osgt\""
-                    true = return()
-                false = return()
+                    return True
+                return False
             default:
                 break
-        false = return()
+        return False
 
     _node = osg.Node()
 
@@ -474,24 +464,24 @@ public:
 
 
 # Create a cube with one side missing. This makes a great simple occluder.
-osg.ref_ptr<osg.Node>
-createBox()
-    osg.ref_ptr<osg.Geode> box = new osg.Geode
+def createBox():
+    
+    box = osg.Geode()
 
-    state =  box.getOrCreateStateSet()
-    pm =  new osg.PolygonMode(
+    state = box.getOrCreateStateSet()
+    pm = osg.PolygonMode(
         osg.PolygonMode.FRONT_AND_BACK, osg.PolygonMode.FILL )
     state.setAttributeAndModes( pm,
         osg.StateAttribute.ON | osg.StateAttribute.PROTECTED )
 
-    osg.ref_ptr<deprecated_osg.Geometry> geom = new deprecated_osg.Geometry
-    osg.ref_ptr<osg.Vec3Array> v = new osg.Vec3Array
+    geom = deprecated_osg.Geometry()
+    v = osg.Vec3Array()
     geom.setVertexArray( v.get() )
 
-        x =  float( 0.f )
-        y =  float( 0.f )
-        z =  float( 0.f )
-        r =  float( 1.1f )
+        x =  float( 0. )
+        y =  float( 0. )
+        z =  float( 0. )
+        r =  float( 1.1 )
 
         v.push_back( osg.Vec3( x-r, y-r, z-r ) ) #left -X
         v.push_back( osg.Vec3( x-r, y-r, z+r ) )
@@ -518,21 +508,21 @@ createBox()
         v.push_back( osg.Vec3( x+r, y+r, z+r ) )
         v.push_back( osg.Vec3( x+r, y+r, z-r ) )
 
-    osg.ref_ptr<osg.Vec4Array> c = new osg.Vec4Array
+    c = osg.Vec4Array()
     geom.setColorArray( c.get() )
     geom.setColorBinding( deprecated_osg.Geometry.BIND_OVERALL )
-    c.push_back( osg.Vec4( 0.f, 1.f, 1.f, 1.f ) )
+    c.push_back( osg.Vec4( 0., 1., 1., 1. ) )
 
-    osg.ref_ptr<osg.Vec3Array> n = new osg.Vec3Array
+    n = osg.Vec3Array()
     geom.setNormalArray( n.get() )
     geom.setNormalBinding( deprecated_osg.Geometry.BIND_PER_PRIMITIVE )
-    n.push_back( osg.Vec3( -1.f, 0.f, 0.f ) )
-    n.push_back( osg.Vec3( 1.f, 0.f, 0.f ) )
-    n.push_back( osg.Vec3( 0.f, 0.f, -1.f ) )
-    n.push_back( osg.Vec3( 0.f, 0.f, 1.f ) )
-    n.push_back( osg.Vec3( 0.f, 1.f, 0.f ) )
+    n.push_back( osg.Vec3( -1., 0., 0. ) )
+    n.push_back( osg.Vec3( 1., 0., 0. ) )
+    n.push_back( osg.Vec3( 0., 0., -1. ) )
+    n.push_back( osg.Vec3( 0., 0., 1. ) )
+    n.push_back( osg.Vec3( 0., 1., 0. ) )
 
-    geom.addPrimitiveSet( new osg.DrawArrays( GL_QUADS, 0, 20 ) )
+    geom.addPrimitiveSet( osg.DrawArrays( GL_QUADS, 0, 20 ) )
     box.addDrawable( geom.get() )
 
     return box.get()
@@ -544,40 +534,40 @@ createBox()
 #  * Lots of vertices and color data per vertex
 #  * No vertex sharing
 #  * Draw the triangles as wireframe
-osg.ref_ptr<osg.Node>
-createRandomTriangles( unsigned int num )
-    osg.ref_ptr<osg.Geode> tris = new osg.Geode
+def createRandomTriangles(num):
+    
+    tris = osg.Geode()
 
-    ss =  tris.getOrCreateStateSet()
+    ss = tris.getOrCreateStateSet()
 
     # Force wireframe. Many gfx cards handle this poorly.
-    pm =  new osg.PolygonMode(
+    pm = osg.PolygonMode(
         osg.PolygonMode.FRONT_AND_BACK, osg.PolygonMode.LINE )
     ss.setAttributeAndModes( pm, osg.StateAttribute.ON |
         osg.StateAttribute.PROTECTED)
     ss.setMode( GL_LIGHTING, osg.StateAttribute.OFF |
         osg.StateAttribute.PROTECTED)
 
-    osg.ref_ptr<deprecated_osg.Geometry> geom = new deprecated_osg.Geometry
+    geom = deprecated_osg.Geometry()
     # Disable display lists to decrease performance.
-    geom.setUseDisplayList( false )
+    geom.setUseDisplayList( False )
 
-    osg.ref_ptr<osg.Vec3Array> v = new osg.Vec3Array
+    v = osg.Vec3Array()
     geom.setVertexArray( v.get() )
     v.resize( num*3 )
 
-    unsigned int i
+    i = unsigned int()
     srand( 0 )
 #define RAND_NEG1_TO_1 ( ((rand()%20)-10)*.1 )
     for (i=0 i<num i++)
-        v0 =  (*v)[ i*3+0 ]
-        v1 =  (*v)[ i*3+1 ]
-        v2 =  (*v)[ i*3+2 ]
+        v0 = (*v)[ i*3+0 ]
+        v1 = (*v)[ i*3+1 ]
+        v2 = (*v)[ i*3+2 ]
         v0 = osg.Vec3( RAND_NEG1_TO_1, RAND_NEG1_TO_1, RAND_NEG1_TO_1 )
         v1 = osg.Vec3( RAND_NEG1_TO_1, RAND_NEG1_TO_1, RAND_NEG1_TO_1 )
         v2 = osg.Vec3( RAND_NEG1_TO_1, RAND_NEG1_TO_1, RAND_NEG1_TO_1 )
 
-    osg.ref_ptr<osg.Vec4Array> c = new osg.Vec4Array
+    c = osg.Vec4Array()
     geom.setColorArray( c.get() )
     # Bind per primitive to force slow glBegin/glEnd path.
     geom.setColorBinding( deprecated_osg.Geometry.BIND_PER_PRIMITIVE )
@@ -585,10 +575,10 @@ createRandomTriangles( unsigned int num )
 
 #define RAND_0_TO_1 ( (rand()%10)*.1 )
     for (i=0 i<num i++)
-        c0 =  (*c)[ i ]
+        c0 = (*c)[ i ]
         c0 = osg.Vec4( RAND_0_TO_1, RAND_0_TO_1, RAND_0_TO_1, 1. )
 
-    geom.addPrimitiveSet( new osg.DrawArrays( GL_TRIANGLES, 0, num*3 ) )
+    geom.addPrimitiveSet( osg.DrawArrays( GL_TRIANGLES, 0, num*3 ) )
     tris.addDrawable( geom.get() )
 
     return tris.get()
@@ -598,16 +588,16 @@ createRandomTriangles( unsigned int num )
 #   Geode (simple occluder
 #   OcclusionQueryNode
 #     Geode with complex, slow geometry.
-osg.ref_ptr<osg.Node>
-createStockScene()
+def createStockScene():
+    
     # Create a simple box occluder
-    osg.ref_ptr<osg.Group> root = new osg.Group()
+    root = osg.Group()
     root.addChild( createBox().get() )
 
     # Create a complex mess of triangles as a child below an
     #   OcclusionQueryNode. The OQN will ensure that the
     #   subgraph isn't rendered when it's not visible.
-    osg.ref_ptr<osg.OcclusionQueryNode> oqn = new osg.OcclusionQueryNode
+    oqn = osg.OcclusionQueryNode()
     oqn.addChild( createRandomTriangles( 20000 ).get() )
     root.addChild( oqn.get() )
 
@@ -615,6 +605,9 @@ createStockScene()
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -636,18 +629,18 @@ def main(argc, argv):
     viewer = osgViewer.Viewer( arguments )
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the help handler
-    viewer.addEventHandler(new osgViewer.HelpHandler(arguments.getApplicationUsage()))
+    viewer.addEventHandler(osgViewer.HelpHandler(arguments.getApplicationUsage()))
 
-    optimize =  arguments.read( "--opt" )
+    optimize = arguments.read( "--opt" )
 
     # load the specified model
-    osg.ref_ptr<osg.Node> root = 0
+    root = 0
 
     if arguments.argc()>1 :
         root = osgDB.readNodeFiles( arguments )
@@ -655,10 +648,10 @@ def main(argc, argv):
             # Run a NodeVisitor to insert OcclusionQueryNodes in the scene graph.
             oqv = OcclusionQueryVisitor()
             root.accept( oqv )
-        else:
+        else :
             print arguments.getApplicationName(), ": unable to load specified data."
             return 1
-    else:
+    else :
         root = createStockScene().get()
         if !root :
             print arguments.getApplicationName(), ": Failed to create stock scene."
@@ -680,7 +673,7 @@ def main(argc, argv):
 
     viewer.setSceneData( root.get() )
 
-    kh =  new KeyHandler( *root )
+    kh = KeyHandler( *root )
     viewer.addEventHandler( kh )
 
     return viewer.run()

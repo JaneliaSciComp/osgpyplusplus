@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'base.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <math.h>
 
@@ -46,27 +49,27 @@ using namespace osg
 Node *makeBase( void )
     int i, c
     theta = float()
-    ir =  20.0f
+    ir = 20.0
 
-    coords =  new Vec3Array(19)
-    tcoords =  new Vec2Array(19)
-    colors =  new Vec4Array(1)
+    coords = Vec3Array(19)
+    tcoords = Vec2Array(19)
+    colors = Vec4Array(1)
 
-    (*colors)[0].set(1.0f,1.0f,1.0f,1.0f)
+    (*colors)[0].set(1.0,1.0,1.0,1.0)
 
     c = 0
-    (*coords)[c].set(0.0f,0.0f,0.0f)
-    (*tcoords)[c].set(0.0f,0.0f)
+    (*coords)[c].set(0.0,0.0,0.0)
+    (*tcoords)[c].set(0.0,0.0)
 
     for( i = 0 i <= 18 i++ )
         theta = osg.DegreesToRadians((float)i * 20.0)
 
-        (*coords)[c].set(ir * cosf( theta ), ir * sinf( theta ), 0.0f)
-        (*tcoords)[c].set((*coords)[c][0]/36.0f,(*coords)[c][1]/36.0f)
+        (*coords)[c].set(ir * cosf( theta ), ir * sinf( theta ), 0.0)
+        (*tcoords)[c].set((*coords)[c][0]/36.0,(*coords)[c][1]/36.0)
 
         c++
 
-    geom =  new Geometry
+    geom = Geometry()
 
     geom.setVertexArray( coords )
 
@@ -74,22 +77,22 @@ Node *makeBase( void )
 
     geom.setColorArray( colors, Array.BIND_OVERALL )
 
-    geom.addPrimitiveSet( new DrawArrays(PrimitiveSet.TRIANGLE_FAN,0,19) )
+    geom.addPrimitiveSet( DrawArrays(PrimitiveSet.TRIANGLE_FAN,0,19) )
 
-    tex =  new Texture2D
+    tex = Texture2D()
 
     tex.setImage(osgDB.readImageFile("Images/water.rgb"))
     tex.setWrap( Texture2D.WRAP_S, Texture2D.REPEAT )
     tex.setWrap( Texture2D.WRAP_T, Texture2D.REPEAT )
 
-    dstate =  new StateSet
+    dstate = StateSet()
     dstate.setMode( GL_LIGHTING, StateAttribute.OFF )
     dstate.setTextureAttributeAndModes(0, tex, StateAttribute.ON )
 
-    dstate.setTextureAttribute(0, new TexEnv )
+    dstate.setTextureAttribute(0, TexEnv )()
 
     # clear the depth to the far plane.
-    depth =  new osg.Depth
+    depth = osg.Depth()
     depth.setFunction(osg.Depth.ALWAYS)
     depth.setRange(1.0,1.0)
     dstate.setAttributeAndModes(depth,StateAttribute.ON )
@@ -99,27 +102,30 @@ Node *makeBase( void )
 
     geom.setStateSet( dstate )
 
-    geode =  new Geode
+    geode = Geode()
     geode.addDrawable( geom )
 
-    geode = return()
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
+    return geode
 
+# Translated from file 'GliderManipulator.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <stdlib.h>
 
@@ -130,11 +136,11 @@ using namespace osg
 using namespace osgGA
 
 GliderManipulator.GliderManipulator()
-    _modelScale = 0.01f
-    _velocity = 0.2f
+    _modelScale = 0.01
+    _velocity = 0.2
     _yawMode = YAW_AUTOMATICALLY_WHEN_BANKED
 
-    _distance = 1.0f
+    _distance = 1.0
 
 
 GliderManipulator.~GliderManipulator()
@@ -160,17 +166,17 @@ void GliderManipulator.home( GUIEventAdapter ea,GUIActionAdapter us)
 
         boundingSphere = _node.getBound()
 
-        eye =  boundingSphere._center+osg.Vec3(-boundingSphere._radius*0.25f,-boundingSphere._radius*0.25f,-boundingSphere._radius*0.03f)
+        eye = boundingSphere._center+osg.Vec3(-boundingSphere._radius*0.25,-boundingSphere._radius*0.25,-boundingSphere._radius*0.03)
 
         computePosition(eye,
-            osg.Vec3(1.0f,1.0f,-0.1f),
-            osg.Vec3(0.0f,0.0f,1.0f))
+            osg.Vec3(1.0,1.0,-0.1),
+            osg.Vec3(0.0,0.0,1.0))
 
-        _velocity = boundingSphere._radius*0.01f
+        _velocity = boundingSphere._radius*0.01
 
         us.requestRedraw()
 
-        us.requestWarpPointer((ea.getXmin()+ea.getXmax())/2.0f,(ea.getYmin()+ea.getYmax())/2.0f)
+        us.requestWarpPointer((ea.getXmin()+ea.getXmax())/2.0,(ea.getYmin()+ea.getYmax())/2.0)
 
         flushMouseEventStack()
 
@@ -180,12 +186,12 @@ void GliderManipulator.home( GUIEventAdapter ea,GUIActionAdapter us)
 void GliderManipulator.init( GUIEventAdapter ea,GUIActionAdapter us)
     flushMouseEventStack()
 
-    us.requestContinuousUpdate(false)
+    us.requestContinuousUpdate(False)
 
-    _velocity = 0.2f
+    _velocity = 0.2
 
     if ea.getEventType()!=GUIEventAdapter.RESIZE :
-        us.requestWarpPointer((ea.getXmin()+ea.getXmax())/2.0f,(ea.getYmin()+ea.getYmax())/2.0f)
+        us.requestWarpPointer((ea.getXmin()+ea.getXmax())/2.0,(ea.getYmin()+ea.getYmax())/2.0)
 
 
 bool GliderManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
@@ -194,59 +200,59 @@ bool GliderManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
         case(GUIEventAdapter.PUSH):
 
             addMouseEvent(ea)
-            us.requestContinuousUpdate(true)
+            us.requestContinuousUpdate(True)
             if calcMovement() : us.requestRedraw()
-            true = return()
+            return True
 
         case(GUIEventAdapter.RELEASE):
 
             addMouseEvent(ea)
-            us.requestContinuousUpdate(true)
+            us.requestContinuousUpdate(True)
             # if calcMovement() : us.requestRedraw()
-            true = return()
+            return True
 
         case(GUIEventAdapter.DRAG):
 
             addMouseEvent(ea)
-            us.requestContinuousUpdate(true)
+            us.requestContinuousUpdate(True)
             # if calcMovement() : us.requestRedraw()
-            true = return()
+            return True
 
         case(GUIEventAdapter.MOVE):
 
             addMouseEvent(ea)
-            us.requestContinuousUpdate(true)
+            us.requestContinuousUpdate(True)
             # if calcMovement() : us.requestRedraw()
 
-            true = return()
+            return True
 #endif
         case(GUIEventAdapter.KEYDOWN):
             if ea.getKey()==' ' :
                 flushMouseEventStack()
                 home(ea,us)
                 us.requestRedraw()
-                us.requestContinuousUpdate(false)
-                true = return()
-            else: if ea.getKey()=='q' :
+                us.requestContinuousUpdate(False)
+                return True
+            elif ea.getKey()=='q' :
                 _yawMode = YAW_AUTOMATICALLY_WHEN_BANKED
-                true = return()
-            else: if ea.getKey()=='a' :
+                return True
+            elif ea.getKey()=='a' :
                 _yawMode = NO_AUTOMATIC_YAW
-                true = return()
-            false = return()
+                return True
+            return False
 
         case(GUIEventAdapter.FRAME):
             addMouseEvent(ea)
             if calcMovement() : us.requestRedraw()
-            true = return()
+            return True
 
         case(GUIEventAdapter.RESIZE):
             init(ea,us)
             us.requestRedraw()
-            true = return()
+            return True
 
         default:
-            false = return()
+            return False
 
 void GliderManipulator.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("Flight: Space","Reset the viewing position to home")
@@ -266,7 +272,7 @@ void GliderManipulator.addMouseEvent( GUIEventAdapter ea)
 void GliderManipulator.setByMatrix( osg.Matrixd matrix)
     _eye = matrix.getTrans()
     _rotation = matrix.getRotate()
-    _distance = 1.0f
+    _distance = 1.0
 
 osg.Matrixd GliderManipulator.getMatrix() 
     return osg.Matrixd.rotate(_rotation)*osg.Matrixd.translate(_eye)
@@ -282,10 +288,10 @@ void GliderManipulator.computePosition( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
     u = osg.Vec3(s^f)
     u.normalize()
     
-    rotation_matrix = osg.Matrixd(s[0],     u[0],     -f[0],     0.0f,
-                                s[1],     u[1],     -f[1],     0.0f,
-                                s[2],     u[2],     -f[2],     0.0f,
-                                0.0f,     0.0f,     0.0f,      1.0f)
+    rotation_matrix = osg.Matrixd(s[0],     u[0],     -f[0],     0.0,
+                                s[1],     u[1],     -f[1],     0.0,
+                                s[2],     u[2],     -f[2],     0.0,
+                                0.0,     0.0,     0.0,      1.0)
                    
     _eye = eye
     _distance = lv.length()
@@ -296,33 +302,33 @@ bool GliderManipulator.calcMovement()
     #_camera.setFusionDistanceMode(osg.Camera.PROPORTIONAL_TO_SCREEN_DISTANCE)
 
     # return if less then two events have been added.
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return false
+    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
 
 
-    dt =  _ga_t0.getTime()-_ga_t1.getTime()
+    dt = _ga_t0.getTime()-_ga_t1.getTime()
 
-    if dt<0.0f :
+    if dt<0.0 :
         notify(INFO), "warning dt = ", dt
-        dt = 0.0f
+        dt = 0.0
 
-    unsigned int buttonMask = _ga_t1.getButtonMask()
+    buttonMask = _ga_t1.getButtonMask()
     if buttonMask==GUIEventAdapter.LEFT_MOUSE_BUTTON :
         # pan model.
 
-        _velocity += dt*_modelScale*0.05f
+        _velocity += dt*_modelScale*0.05
 
-    else: if buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON ||
+    elif buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON ||
         buttonMask==(GUIEventAdapter.LEFT_MOUSE_BUTTON|GUIEventAdapter.RIGHT_MOUSE_BUTTON) :
 
-        _velocity = 0.0f
+        _velocity = 0.0
 
-    else: if buttonMask==GUIEventAdapter.RIGHT_MOUSE_BUTTON :
+    elif buttonMask==GUIEventAdapter.RIGHT_MOUSE_BUTTON :
 
-        _velocity -= dt*_modelScale*0.05f
+        _velocity -= dt*_modelScale*0.05
 
 
-    dx =  _ga_t0.getXnormalized()
-    dy =  _ga_t0.getYnormalized()
+    dx = _ga_t0.getXnormalized()
+    dy = _ga_t0.getYnormalized()
     
     # osg.notify(osg.NOTICE), "dx = ", dx, " dy = ", dy, "dt = ", dt
 
@@ -334,14 +340,14 @@ bool GliderManipulator.calcMovement()
     rotation_matrix = osg.Matrixd()
     rotation_matrix.makeRotate(_rotation)
     
-    up =  osg.Vec3(0.0f,1.0f,0.0) * rotation_matrix
-    lv =  osg.Vec3(0.0f,0.0f,-1.0f) * rotation_matrix
+    up = osg.Vec3(0.0,1.0,0.0) * rotation_matrix
+    lv = osg.Vec3(0.0,0.0,-1.0) * rotation_matrix
 
-    sv =  lv^up
+    sv = lv^up
     sv.normalize()
 
-    pitch =  -inDegrees(dy*75.0f*dt)
-    roll =  inDegrees(dx*50.0f*dt)
+    pitch = -inDegrees(dy*75.0*dt)
+    roll = inDegrees(dx*50.0*dt)
 
     delta_rotate = osg.Quat()
 
@@ -354,11 +360,11 @@ bool GliderManipulator.calcMovement()
     delta_rotate = pitch_rotate*roll_rotate
 
     if _yawMode==YAW_AUTOMATICALLY_WHEN_BANKED :
-        bank =  asinf(sv.z())
-        yaw =  inRadians(bank)*dt
+        bank = asinf(sv.z())
+        yaw = inRadians(bank)*dt
         
         yaw_rotate = osg.Quat()
-        yaw_rotate.makeRotate(yaw,0.0f,0.0f,1.0f)
+        yaw_rotate.makeRotate(yaw,0.0,0.0,1.0)
 
         delta_rotate = delta_rotate*yaw_rotate
 
@@ -367,26 +373,29 @@ bool GliderManipulator.calcMovement()
     _eye += lv
     _rotation = _rotation*delta_rotate
 
-    true = return()
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
+    return True
 
+# Translated from file 'GliderManipulator.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
  
 #ifndef OSGGA_GliderMANIPULATOR
 #define OSGGA_GliderMANIPULATOR 1
@@ -395,24 +404,26 @@ bool GliderManipulator.calcMovement()
 #include <osg/Quat>
 
 #*
-GliderManipulator is a CameraManipulator which provides Glider simulator-like
-updating of the camera position  orientation. By default, the left mouse
-button accelerates, the right mouse button decelerates, and the middle mouse
-button (or left and right simultaneously) stops dead.
+#GliderManipulator is a CameraManipulator which provides Glider simulator-like
+#updating of the camera position  orientation. By default, the left mouse
+#button accelerates, the right mouse button decelerates, and the middle mouse
+#button (or left and right simultaneously) stops dead.
+#
 
-
-class GliderManipulator : public osgGA.CameraManipulator
-    public:
+class GliderManipulator (osgGA.CameraManipulator) :
 
         GliderManipulator()
 
-        virtual  char* className()   return "Glider" 
+        def className():
+
+             return "Glider" 
 
         #* set the position of the matrix manipulator using a 4x4 Matrix.
-        virtual void setByMatrix( osg.Matrixd matrix)
+        setByMatrix = virtual void( osg.Matrixd matrix)
 
         #* set the position of the matrix manipulator using a 4x4 Matrix.
-        virtual void setByInverseMatrix( osg.Matrixd matrix)  setByMatrix(osg.Matrixd.inverse(matrix)) 
+        def setByInverseMatrix(matrix):
+             setByMatrix(osg.Matrixd.inverse(matrix)) 
 
         #* get the position of the manipulator as 4x4 Matrix.
         virtual osg.Matrixd getMatrix() 
@@ -421,17 +432,17 @@ class GliderManipulator : public osgGA.CameraManipulator
         virtual osg.Matrixd getInverseMatrix() 
 
 
-        virtual void setNode(osg.Node*)
+        setNode = virtual void(osg.Node*)
 
         virtual  osg.Node* getNode() 
 
-        virtual osg.Node* getNode()
+        getNode = virtual osg.Node*()
 
-        virtual void home( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
+        home = virtual void( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
 
-        virtual void init( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
+        init = virtual void( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
 
-        virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
+        handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter us)
 
         #* Get the keyboard and mouse usage of this manipulator.
         virtual void getUsage(osg.ApplicationUsage usage) 
@@ -442,9 +453,8 @@ class GliderManipulator : public osgGA.CameraManipulator
         
 
         #*        Configure the Yaw control for the Glider model.        
-        void setYawControlMode(YawControlMode ycm)  _yawMode = ycm 
-
-    protected:
+        def setYawControlMode(ycm):
+             _yawMode = ycm 
 
         virtual ~GliderManipulator()
 
@@ -456,15 +466,15 @@ class GliderManipulator : public osgGA.CameraManipulator
         computePosition = void( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
 
         #* For the give mouse movement calculate the movement of the camera.
-            Return true is camera has moved and a redraw is required.
+#            Return True is camera has moved and a redraw is required.
         calcMovement = bool()
 
 
         # Internal event stack comprising last three mouse events.
-        osg.ref_ptr< osgGA.GUIEventAdapter> _ga_t1
-        osg.ref_ptr< osgGA.GUIEventAdapter> _ga_t0
+        _ga_t1 =  osgGA.GUIEventAdapter()
+        _ga_t0 =  osgGA.GUIEventAdapter()
 
-        osg.ref_ptr<osg.Node>       _node
+        _node = osg.Node()
 
         _modelScale = float()
         _velocity = float()
@@ -479,23 +489,26 @@ class GliderManipulator : public osgGA.CameraManipulator
 
 #endif
 
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'hat.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifdef _MSC_VER
 #include <Windows.h>
@@ -517,7 +530,7 @@ static float dbradius
 static void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     i = int()
     n = 0.0
-    double center[3] =  0.0f, 0.0f, 0.0f 
+    double center[3] =  0.0, 0.0, 0.0 
     cnt = float()
 
     cnt = 39 * 38
@@ -532,11 +545,11 @@ static void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     center[1] /= n
     center[2] /= n
 
-    r =  0.0
+    r = 0.0
 
     #    for( i = 0 i < sizeof( vertex ) / (sizeof( float[3] )) i++ )
     for( i = 0 i < cnt i++ )
-        d =  sqrt(
+        d = sqrt(
             (((double)vertex[i][0] - center[0]) * ((double)vertex[i][0] - center[0])) +
             (((double)vertex[i][1] - center[1]) * ((double)vertex[i][1] - center[1])) +
             (((double)vertex[i][2] - center[2]) * ((double)vertex[i][2] - center[2]))  )
@@ -549,7 +562,7 @@ static void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     dbcenter[1] = (float)center[1]
     dbcenter[2] = (float)center[2]
 
-    index =  19 * 39 + 19
+    index = 19 * 39 + 19
     dbcenter[0] = vertex[index][0] - 0.15
     dbcenter[1] = vertex[index][1]
     dbcenter[2] = vertex[index][2] + 0.35
@@ -586,6 +599,9 @@ static void getNormal( float *v1, float *v2, float *v3, float *n )
 
 
 def Hat(x, y, z):
+
+
+    
     int m, n
     int i, j
     float tri[3][3]
@@ -633,47 +649,53 @@ def Hat(x, y, z):
     pz = (-(norm[0] * x) - (norm[1] * y) - d)/norm[2]
 
     return z - pz
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'hat.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef __HAT_H
 #define __HAT_H
 extern float Hat( float x, float y, float z )
 #endif
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osghangglide.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Group>
 #include <osg/Notify>
@@ -703,48 +725,51 @@ extern osg.Node *makeSky( void )
 extern osg.Node *makeBase( void )
 extern osg.Node *makeClouds( void )
 
-class MoveEarthySkyWithEyePointTransform : public osg.Transform
-public:
+class MoveEarthySkyWithEyePointTransform (osg.Transform) :
     #* Get the transformation matrix which moves from local coords to world coords.
-    virtual bool computeLocalToWorldMatrix(osg.Matrix matrix,osg.NodeVisitor* nv)  
-        cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+    def computeLocalToWorldMatrix(matrix, nv):
+        
+        cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
         if cv :
-            eyePointLocal =  cv.getEyeLocal()
-            matrix.preMultTranslate(osg.Vec3(eyePointLocal.x(),eyePointLocal.y(),0.0f))
-        true = return()
+            eyePointLocal = cv.getEyeLocal()
+            matrix.preMultTranslate(osg.Vec3(eyePointLocal.x(),eyePointLocal.y(),0.0))
+        return True
 
     #* Get the transformation matrix which moves from world coords to local coords.
-    virtual bool computeWorldToLocalMatrix(osg.Matrix matrix,osg.NodeVisitor* nv) 
+    def computeWorldToLocalMatrix(matrix, nv):
+        
         print "computing transform"
     
-        cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+        cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
         if cv :
-            eyePointLocal =  cv.getEyeLocal()
-            matrix.postMultTranslate(osg.Vec3(-eyePointLocal.x(),-eyePointLocal.y(),0.0f))
-        true = return()
+            eyePointLocal = cv.getEyeLocal()
+            matrix.postMultTranslate(osg.Vec3(-eyePointLocal.x(),-eyePointLocal.y(),0.0))
+        return True
 
 
 def createModel():
+
+    
     # no database loaded so automatically create Ed Levin Park
-    group =  new osg.Group
+    group = osg.Group()
 
     # the base and sky subgraphs go to set the earth sky of the
     # model and clear the color and depth buffer for us, by using
     # osg.Depth, and setting their bin numbers to less than 0,
     # to force them to draw before the rest of the scene.
 
-    clearNode =  new osg.ClearNode
-    clearNode.setRequiresClear(false) # we've got base and sky to do it.
+    clearNode = osg.ClearNode()
+    clearNode.setRequiresClear(False) # we've got base and sky to do it.
 
     # use a transform to make the sky and base move around with the eye point.
-    transform =  new MoveEarthySkyWithEyePointTransform
+    transform = MoveEarthySkyWithEyePointTransform()
 
     # transform's value isn't knowm until in the cull traversal so its bounding
     # volume is can't be determined, therefore culling will be invalid,
     # so switch it off, this causes all our paresnts to switch culling
     # off as well. But don't worry, culling will be back on once underneath
     # this node or any other branch above this transform.
-    transform.setCullingActive(false)
+    transform.setCullingActive(False)
 
     # add the sky and base layer.
     transform.addChild(makeSky())  # bin number -2 so drawn first.
@@ -764,9 +789,12 @@ def createModel():
     # makeGliders
     # makeClouds
 
-    group = return()
+    return group
 
 def main(argc, argv):
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -783,73 +811,76 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
-    customWindows =  false
-    while arguments.read("-2") : customWindows = true
+    customWindows = False
+    while arguments.read("-2") : customWindows = True
 
     if customWindows :
-        wsi =  osg.GraphicsContext.getWindowingSystemInterface()
+        wsi = osg.GraphicsContext.getWindowingSystemInterface()
         if !wsi : 
             osg.notify(osg.NOTICE), "View.setUpViewAcrossAllScreens() : Error, no WindowSystemInterface available, cannot create windows."
             return 0
 
-        osg.ref_ptr<osg.GraphicsContext.Traits> traits = new osg.GraphicsContext.Traits
+        traits = osg.GraphicsContext.Traits()
         traits.x = 250
         traits.y = 200
         traits.width = 800
         traits.height = 600
-        traits.windowDecoration = true
-        traits.doubleBuffer = true
+        traits.windowDecoration = True
+        traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        osg.ref_ptr<osg.GraphicsContext> gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
         if gc.valid() :
             # need to ensure that the window is cleared make sure that the complete window is set the correct colour
             # rather than just the parts of the window that are under the camera's viewports
-            gc.setClearColor(osg.Vec4f(0.2f,0.2f,0.6f,1.0f))
+            gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
             gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        else:
+        else :
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
-        unsigned int numCameras = 2
-        aspectRatioScale =  1.0
+        numCameras = 2
+        aspectRatioScale = 1.0
         for(unsigned int i=0 i<numCameras++i)
-            osg.ref_ptr<osg.Camera> camera = new osg.Camera
+            camera = osg.Camera()
             camera.setGraphicsContext(gc.get())
-            camera.setViewport(new osg.Viewport((i* traits.width)/numCameras,(i* traits.height)/numCameras,  traits.width/numCameras,  traits.height/numCameras))
-            buffer =  traits.doubleBuffer ? GL_BACK : GL_FRONT
+            camera.setViewport(osg.Viewport((i* traits.width)/numCameras,(i* traits.height)/numCameras,  traits.width/numCameras,  traits.height/numCameras))
+            buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
             camera.setDrawBuffer(buffer)
             camera.setReadBuffer(buffer)
 
             viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.scale(aspectRatioScale,1.0,1.0))
-    else:
+    else :
         viewer.setUpViewAcrossAllScreens()
     
 
     # set up the camera manipulation with our custom manipultor
-    viewer.setCameraManipulator(new GliderManipulator())
+    viewer.setCameraManipulator(GliderManipulator())
 
     # pass the scene graph to the viewer    
     viewer.setSceneData( createModel() )
 
     return viewer.run()
 
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'sky.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <math.h>
 
@@ -883,17 +914,17 @@ Node *makeSky( void )
     
     float x, y, z
     float alpha, theta
-    radius =  20.0f
-    nlev =  sizeof( lev )/sizeof(float)
+    radius = 20.0
+    nlev = sizeof( lev )/sizeof(float)
 
-    geom =  new Geometry
+    geom = Geometry()
 
-    coords =  *(new Vec3Array(19*nlev))
-    colors =  *(new Vec4Array(19*nlev))
-    tcoords =  *(new Vec2Array(19*nlev))
+    coords = *(Vec3Array(19*nlev))
+    colors = *(Vec4Array(19*nlev))
+    tcoords = *(Vec2Array(19*nlev))
 
 
-    ci =  0
+    ci = 0
 
     for( i = 0 i < nlev i++ )
         for( j = 0 j <= 18 j++ )
@@ -921,7 +952,7 @@ Node *makeSky( void )
 
 
     for( i = 0 i < nlev-1 i++ )
-        drawElements =  new DrawElementsUShort(PrimitiveSet.TRIANGLE_STRIP)
+        drawElements = DrawElementsUShort(PrimitiveSet.TRIANGLE_STRIP)
         drawElements.reserve(38)
 
         for( j = 0 j <= 18 j++ )
@@ -936,19 +967,19 @@ Node *makeSky( void )
     geom.setColorArray( colors, Array.BIND_PER_VERTEX )
 
 
-    tex =  new Texture2D
+    tex = Texture2D()
     tex.setImage(osgDB.readImageFile("Images/white.rgb"))
 
-    dstate =  new StateSet
+    dstate = StateSet()
 
     dstate.setTextureAttributeAndModes(0, tex, StateAttribute.OFF )
-    dstate.setTextureAttribute(0, new TexEnv )
+    dstate.setTextureAttribute(0, TexEnv )()
     dstate.setMode( GL_LIGHTING, StateAttribute.OFF )
     dstate.setMode( GL_CULL_FACE, StateAttribute.ON )
 
 
     # clear the depth to the far plane.
-    depth =  new osg.Depth
+    depth = osg.Depth()
     depth.setFunction(osg.Depth.ALWAYS)
     depth.setRange(1.0,1.0)
     dstate.setAttributeAndModes(depth,StateAttribute.ON )
@@ -957,29 +988,32 @@ Node *makeSky( void )
 
     geom.setStateSet( dstate )
 
-    geode =  new Geode
+    geode = Geode()
     geode.addDrawable( geom )
 
     geode.setName( "Sky" )
 
-    geode = return()
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
+    return geode
 
+# Translated from file 'tank.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <math.h>
 
@@ -1022,7 +1056,7 @@ static void conv(  Vec3 a,  Matrix mat, Vec3 b )
 
 Node *makeTank( void )
 
-    geode =  new Geode
+    geode = Geode()
 
     getDatabaseCenterRadius( dbcenter, dbradius )
 
@@ -1037,10 +1071,10 @@ Node *makeTank( void )
         )
 
     # 42 required for sides, 22 for the top.
-    vc =  *(new Vec3Array(42+22))
-    tc =  *(new Vec2Array(42+22))
+    vc = *(Vec3Array(42+22))
+    tc = *(Vec2Array(42+22))
 
-    gset =  new Geometry
+    gset = Geometry()
     gset.setVertexArray( vc )
     gset.setTexCoordArray( 0, tc )
 
@@ -1049,7 +1083,7 @@ Node *makeTank( void )
     for( i = 0 i <= 360 i += 18 )
         float x, y, z
         float s, t
-        theta =  osg.DegreesToRadians((float)i)
+        theta = osg.DegreesToRadians((float)i)
 
         s = (float)i/90.0
         t = 1.0
@@ -1078,24 +1112,24 @@ Node *makeTank( void )
         tc[c][1] = t
         c++
 
-    gset.addPrimitiveSet( new DrawArrays(PrimitiveSet.TRIANGLE_STRIP,0,c) )
+    gset.addPrimitiveSet( DrawArrays(PrimitiveSet.TRIANGLE_STRIP,0,c) )
 
     # create the top of the tank.
 
-    prev_c =  c
+    prev_c = c
 
-    vc[c][0] = 0.0f
-    vc[c][1] = 0.0f
-    vc[c][2] = 1.0f
+    vc[c][0] = 0.0
+    vc[c][1] = 0.0
+    vc[c][2] = 1.0
 
-    tc[c][0] = 0.0f
-    tc[c][1] = 0.0f
+    tc[c][0] = 0.0
+    tc[c][1] = 0.0
     c++
 
     for( i = 0 i <= 360 i += 18 )
         float x, y, z
         float s, t
-        theta =  osg.DegreesToRadians((float)i)
+        theta = osg.DegreesToRadians((float)i)
 
         #    s = (float)i/360.0
         #   t = 1.0
@@ -1118,42 +1152,45 @@ Node *makeTank( void )
     for( i = 0 i < c i++ )
         conv( vc[i], mat, vc[i] )
      
-     gset.addPrimitiveSet(new DrawArrays(PrimitiveSet.TRIANGLE_FAN,prev_c,c-prev_c))
+     gset.addPrimitiveSet(DrawArrays(PrimitiveSet.TRIANGLE_FAN,prev_c,c-prev_c))
 
 
 
 
-    tex =  new Texture2D
+    tex = Texture2D()
 
     tex.setWrap( Texture2D.WRAP_S, Texture2D.REPEAT )
     tex.setWrap( Texture2D.WRAP_T, Texture2D.REPEAT )
     tex.setImage(osgDB.readImageFile("Images/tank.rgb"))
 
-    dstate =  new StateSet
+    dstate = StateSet()
     dstate.setTextureAttributeAndModes(0, tex, StateAttribute.ON )
-    dstate.setTextureAttribute(0, new TexEnv )
+    dstate.setTextureAttribute(0, TexEnv )()
 
     gset.setStateSet( dstate )
     geode.addDrawable( gset )
 
-    geode = return()
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
+    return geode
 
+# Translated from file 'terrain.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # #include <math.h>
 
@@ -1173,7 +1210,7 @@ using namespace osg
 void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     i = int()
     n = 0.0
-    double center[3] =  0.0f, 0.0f, 0.0f 
+    double center[3] =  0.0, 0.0, 0.0 
     cnt = float()
 
     cnt = 39 * 38
@@ -1188,11 +1225,11 @@ void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     center[1] /= n
     center[2] /= n
 
-    r =  0.0
+    r = 0.0
 
     #    for( i = 0 i < sizeof( vertex ) / (sizeof( float[3] )) i++ )
     for( i = 0 i < cnt i++ )
-        d =  sqrt(
+        d = sqrt(
             (((double)vertex[i][0] - center[0]) * ((double)vertex[i][0] - center[0])) +
             (((double)vertex[i][1] - center[1]) * ((double)vertex[i][1] - center[1])) +
             (((double)vertex[i][2] - center[2]) * ((double)vertex[i][2] - center[2]))  )
@@ -1205,7 +1242,7 @@ void getDatabaseCenterRadius( float dbcenter[3], float *dbradius )
     dbcenter[1] = (float)center[1]
     dbcenter[2] = (float)center[2]
 
-    index =  19 * 39 + 19
+    index = 19 * 39 + 19
     dbcenter[0] = vertex[index][0] - 0.15
     dbcenter[1] = vertex[index][1]
     dbcenter[2] = vertex[index][2] + 0.35
@@ -1223,23 +1260,23 @@ Node *makeTerrain( void )
     m = (sizeof( vertex ) /(sizeof( float[3])))/39
     n = 39
 
-    v =  *(new Vec3Array(m*n))
-    t =  *(new Vec2Array(m*n))
-    col =  *(new Vec4Array(1))
+    v = *(Vec3Array(m*n))
+    t = *(Vec2Array(m*n))
+    col = *(Vec4Array(1))
 
-    col[0][0] = col[0][1] = col[0][2] = col[0][3] = 1.0f
+    col[0][0] = col[0][1] = col[0][2] = col[0][3] = 1.0
 
     for( i = 0 i < m * n i++ )
-        vc =  vertex[i]
+        vc = vertex[i]
         v[i][0] = vc[0] - dbcenter[0]
         v[i][1] = vc[1] - dbcenter[1]
         v[i][2] = vc[2]
 
-        tc =  texcoord[i]
+        tc = texcoord[i]
         t[i][0] = tc[0]
         t[i][1] = tc[1]
 
-    geom =  new Geometry
+    geom = Geometry()
 
     geom.setVertexArray( v )
     geom.setTexCoordArray( 0, t )
@@ -1247,7 +1284,7 @@ Node *makeTerrain( void )
     geom.setColorArray( col, Array.BIND_OVERALL )
 
     for( i = 0 i < m-2 i++ )
-        elements =  new DrawElementsUShort(PrimitiveSet.TRIANGLE_STRIP)
+        elements = DrawElementsUShort(PrimitiveSet.TRIANGLE_STRIP)
         elements.reserve(39*2)
         for( j = 0 j < n j++ )
             elements.push_back((i+0)*n+j)
@@ -1255,40 +1292,43 @@ Node *makeTerrain( void )
         geom.addPrimitiveSet(elements)
 
 
-    tex =  new Texture2D
+    tex = Texture2D()
 
     tex.setImage(osgDB.readImageFile("Images/lz.rgb"))
 
-    dstate =  new StateSet
+    dstate = StateSet()
     dstate.setMode( GL_LIGHTING, StateAttribute.OFF )
     dstate.setTextureAttributeAndModes(0, tex, StateAttribute.ON )
-    dstate.setTextureAttribute(0, new TexEnv )
+    dstate.setTextureAttribute(0, TexEnv )()
 
     geom.setStateSet( dstate )
 
-    geode =  new Geode
+    geode = Geode()
     geode.addDrawable( geom )
 
-    geode = return()
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
+    return geode
 
+# Translated from file 'terrain_coords.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
     # disable the double to float errors.
@@ -2818,25 +2858,28 @@ static float vertex[][3] =
      6009.8999, 41467.8008,   4.1600 ,
 
 
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'terrain_normals.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
     # disable the double to float errors.
@@ -7259,25 +7302,28 @@ static float texcoord[][2] =
 	   0.8522,   1.0639 ,
 
 
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'terrain_texcoords.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
     # disable the double to float errors.
@@ -10215,23 +10261,26 @@ static float texcoord[][2] =
 	   0.8522,   1.0639 ,
 
 
-# OpenSceneGraph example, osghangglide.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'trees.cpp'
+
+# OpenSceneGraph example, osghangglide.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <stdlib.h>
 
@@ -10378,15 +10427,15 @@ trees[] =
 
 static Geometry *makeTree( _tree *tree, StateSet *dstate )
     float vv[][3] =
-         -tree.w/2.0f, 0.0f, 0.0f ,
-          tree.w/2.0f, 0.0f, 0.0f ,
-          tree.w/2.0f, 0.0f, 2.0f * tree.h ,
-         -tree.w/2.0f, 0.0f, 2.0f * tree.h ,
+         -tree.w/2.0, 0.0, 0.0 ,
+          tree.w/2.0, 0.0, 0.0 ,
+          tree.w/2.0, 0.0, 2.0 * tree.h ,
+         -tree.w/2.0, 0.0, 2.0 * tree.h ,
     
 
-    v =  *(new Vec3Array(4))
-    t =  *(new Vec2Array(4))
-    l =  *(new Vec4Array(1))
+    v = *(Vec3Array(4))
+    t = *(Vec2Array(4))
+    l = *(Vec4Array(1))
 
     i = int()
 
@@ -10402,7 +10451,7 @@ static Geometry *makeTree( _tree *tree, StateSet *dstate )
     t[2][0] = 1.0 t[2][1] = 1.0
     t[3][0] = 0.0 t[3][1] = 1.0
 
-    geom =  new Geometry
+    geom = Geometry()
 
     geom.setVertexArray( v )
 
@@ -10410,47 +10459,47 @@ static Geometry *makeTree( _tree *tree, StateSet *dstate )
 
     geom.setColorArray( l, Array.BIND_OVERALL )
 
-    geom.addPrimitiveSet( new DrawArrays(PrimitiveSet.QUADS,0,4) )
+    geom.addPrimitiveSet( DrawArrays(PrimitiveSet.QUADS,0,4) )
 
     geom.setStateSet( dstate )
 
-    geom = return()
+    return geom
 
 
 static float ttx, tty
 
 static int ct(  void *a,  void *b )
-    ta =  (_tree *)a
-    tb =  (_tree *)b
+    ta = (_tree *)a
+    tb = (_tree *)b
 
-    da =  sqrtf( sqr(ta.x - ttx) + sqr(ta.y - tty) )
-    db =  sqrtf( sqr(tb.x - ttx) + sqr(tb.y - tty) )
+    da = sqrtf( sqr(ta.x - ttx) + sqr(ta.y - tty) )
+    db = sqrtf( sqr(tb.x - ttx) + sqr(tb.y - tty) )
 
     if  da < db  :
         return -1
-    else:
+    else :
         return 1
 
 
 Node *makeTrees( void )
-    group =  new Group
+    group = Group()
     i = int()
 
     getDatabaseCenterRadius( dbcenter, dbradius )
     struct _tree  *t
 
-    tex =  new Texture2D
+    tex = Texture2D()
     tex.setImage(osgDB.readImageFile("Images/tree0.rgba"))
 
-    dstate =  new StateSet
+    dstate = StateSet()
 
     dstate.setTextureAttributeAndModes(0, tex, StateAttribute.ON )
-    dstate.setTextureAttribute(0, new TexEnv )
+    dstate.setTextureAttribute(0, TexEnv )()
 
-    dstate.setAttributeAndModes( new BlendFunc, StateAttribute.ON )
+    dstate.setAttributeAndModes( BlendFunc, StateAttribute.ON )()
 
-    alphaFunc =  new AlphaFunc
-    alphaFunc.setFunction(AlphaFunc.GEQUAL,0.05f)
+    alphaFunc = AlphaFunc()
+    alphaFunc.setFunction(AlphaFunc.GEQUAL,0.05)
     dstate.setAttributeAndModes( alphaFunc, StateAttribute.ON )
 
     dstate.setMode( GL_LIGHTING, StateAttribute.OFF )
@@ -10458,7 +10507,7 @@ Node *makeTrees( void )
     dstate.setRenderingHint( StateSet.TRANSPARENT_BIN )
 
     int tt[] =  15, 30, 45, 58, 72, 75, 93, 96, 105, -1 
-    ttp =  tt
+    ttp = tt
 
     i = 0
     while  i < 105  :
@@ -10473,20 +10522,20 @@ Node *makeTrees( void )
     i = 0
     ttp = tt
     while  *ttp != -1  :
-        bb =  new Billboard
+        bb = Billboard()
         #int starti = i
 
         for(  i < (*ttp) i++ )
-            t.x -= 0.3f
-            h =  Hat(t.x, t.y, t.z )
+            t.x -= 0.3
+            h = Hat(t.x, t.y, t.z )
             pos = Vec3( t.x, t.y, t.z-h )
-            geom =  makeTree( t, dstate )
+            geom = makeTree( t, dstate )
             bb.addDrawable( geom, pos )
             t++
         group.addChild( bb )
         ttp++
 
-    group = return()
+    return group
 
 
 if __name__ == "__main__":

@@ -15,23 +15,26 @@ from osgpypp import osgGA
 from osgpypp import osgViewer
 from osgpypp import sys
 
-# OpenSceneGraph example, osgcluster.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'broadcaster.cpp'
+
+# OpenSceneGraph example, osgcluster.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <stdio.h>
 #include <fcntl.h>
@@ -73,7 +76,7 @@ from osgpypp import sys
     #include <stdio.h>
 #elif defined (__hpux)
     #include <unistd.h>
-#else:
+#else :
     #error Teach me how to build on this system
 #endif
 
@@ -83,20 +86,20 @@ from osgpypp import sys
 
 Broadcaster.Broadcaster( void )
     _port = 0
-    _initialized = false
+    _initialized = False
     _buffer = 0L
     _address = 0
 
 Broadcaster.~Broadcaster( void )
 #if defined (WIN32)  !defined(__CYGWIN__)
     closesocket( _so)
-#else:
+#else :
     close( _so )
 #endif
 
 bool Broadcaster.init( void )
 #if defined (WIN32)  !defined(__CYGWIN__)
-    version =  MAKEWORD(1,1)
+    version = MAKEWORD(1,1)
     wsaData = WSADATA()
     # First, we start up Winsock
     WSAStartup(version, wsaData)
@@ -104,20 +107,20 @@ bool Broadcaster.init( void )
 
     if  _port == 0  :
         fprintf( stderr, "Broadcaster.init() - port not defined\n" )
-        false = return()
+        return False
 
     if _so = socket( AF_INET, SOCK_DGRAM, 0 ) : < 0  :
         perror( "Socket" )
-        false = return()
+        return False
 #if defined (WIN32)  !defined(__CYGWIN__)
-    on =  TRUE
-#else:
-    on =  1
+    on = TRUE
+#else :
+    on = 1
 #endif
 
 #if defined (WIN32)  !defined(__CYGWIN__)
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, ( char *) on, sizeof(int))
-#else:
+#else :
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, on, sizeof(on))
 #endif
 
@@ -126,7 +129,7 @@ bool Broadcaster.init( void )
     if  _address == 0  :
 #if defined (WIN32)  !defined(__CYGWIN__)
         setsockopt( _so, SOL_SOCKET, SO_BROADCAST, ( char *) on, sizeof(int))
-#else:
+#else :
         setsockopt( _so, SOL_SOCKET, SO_BROADCAST, on, sizeof(on))
 #endif
 
@@ -142,29 +145,28 @@ bool Broadcaster.init( void )
 #endif
 #if defined (WIN32) # get the server address
         saddr.sin_addr.s_addr = htonl(INADDR_BROADCAST)
-#else:
-        if ioctl( _so, SIOCGIFBRDADDR, ifr) : < 0  :
+#elif ioctl( _so, SIOCGIFBRDADDR, ifr) : < 0  :
             perror( "Broadcaster.init() Cannot get Broadcast Address" )
-            false = return()
+            return False
             saddr.sin_addr.s_addr = (((sockaddr_in *)ifr.ifr_broadaddr).sin_addr.s_addr)
-        else:
+        else :
             saddr.sin_addr.s_addr = _address
 #endif
 #define _VERBOSE 1
 #ifdef _VERBOSE
-    unsigned char *ptr = (unsigned char *)saddr.sin_addr.s_addr
+    ptr = (unsigned char *)saddr.sin_addr.s_addr
     printf( "Broadcast address : %u.%u.%u.%u\n", ptr[0], ptr[1], ptr[2], ptr[3] )
 #endif
 
-    _initialized = true
-    _initialized = return()
+    _initialized = True
+    return _initialized
 
 void Broadcaster.setHost(  char *hostname )
     struct hostent *h
     if h = gethostbyname( hostname ) : == 0L  :
         fprintf( stderr, "Broadcaster.setHost() - Cannot resolve an address for \"%s\".\n", hostname )
         _address = 0
-    _address =  *(( unsigned long  *)h.h_addr)
+    _address = *(( unsigned long  *)h.h_addr)
 
 void Broadcaster.setPort(  short port )
     _port = port
@@ -181,35 +183,38 @@ void Broadcaster.sync( void )
         return
 
 #if defined (WIN32)  !defined(__CYGWIN__)
-    unsigned int size = sizeof( SOCKADDR_IN )
+    size = sizeof( SOCKADDR_IN )
     sendto( _so, ( char *)_buffer, _buffer_size, 0, (struct sockaddr *)saddr, size )
-    err =  WSAGetLastError ()
+    err = WSAGetLastError ()
     if err!=0 : fprintf( stderr, "Broadcaster.sync() - error %d\n",err )
-#else:
-    unsigned int size = sizeof( struct sockaddr_in )
+#else :
+    size = sizeof( struct sockaddr_in )
     sendto( _so, ( void *)_buffer, _buffer_size, 0, (struct sockaddr *)saddr, size )
 #endif
 
 
-# -*-c++-*- 
-*  
-*  OpenSceneGraph example, osgcluster.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'broadcaster.h'
+
+# -*-c++-*- 
+#*  
+#*  OpenSceneGraph example, osgcluster.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef __BROADCASTER_H
 #define __BROADCASTER_H
@@ -224,8 +229,8 @@ void Broadcaster.sync( void )
     #include <netinet/in.h>
 #endif
 
-class Broadcaster  
-    public :
+class Broadcaster :
+public :
 
 	Broadcaster( void )
 	~Broadcaster( void )
@@ -250,38 +255,41 @@ class Broadcaster
     private :
 #if defined(WIN32)  !defined(__CYGWIN__)
         _so = SOCKET()
-#else:
+#else :
         _so = int()
 #endif
         _initialized = bool()
         _port = short()
         *_buffer = void()
-        unsigned int _buffer_size
+        _buffer_size = unsigned int()
 #if defined(WIN32)  !defined(__CYGWIN__)
         saddr = SOCKADDR_IN()
-#else:
+#else :
         struct sockaddr_in saddr
 #endif
-        unsigned long _address
+        _address = unsigned long()
 
 #endif
-# OpenSceneGraph example, osgcluster.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgcluster.cpp'
+
+# OpenSceneGraph example, osgcluster.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifdef USE_MEM_CHECK
 #include <mcheck.h>
@@ -311,31 +319,38 @@ class Broadcaster
 #include "broadcaster.h"
 
 
- unsigned int MAX_NUM_EVENTS = 10
- unsigned int SWAP_BYTES_COMPARE = 0x12345678
-class CameraPacket 
-    public:
+MAX_NUM_EVENTS = 10
+SWAP_BYTES_COMPARE = 0x12345678
+class CameraPacket :
     
     
-        CameraPacket():_masterKilled(false) 
+        CameraPacket():_masterKilled(False) 
             _byte_order = SWAP_BYTES_COMPARE
         
         def setPacket(matrix, frameStamp):
+        
+            
             _matrix = matrix
             if frameStamp :
                 _frameStamp    = *frameStamp
         
         def getModelView(matrix, angle_offset):
-            matrix = _matrix * osg.Matrix.rotate(osg.DegreesToRadians(angle_offset),0.0f,1.0f,0.0f)
+        
+            
+        
+            matrix = _matrix * osg.Matrix.rotate(osg.DegreesToRadians(angle_offset),0.0,1.0,0.0)
         
         readEventQueue = void(osgViewer.Viewer viewer)
         
         writeEventQueue = void(osgViewer.Viewer viewer)
 
-        void setMasterKilled( bool flag)  _masterKilled = flag 
-         bool getMasterKilled()   return _masterKilled 
+        def setMasterKilled(flag):
+
+             _masterKilled = flag 
+        def getMasterKilled():
+             return _masterKilled 
         
-        unsigned int    _byte_order
+        _byte_order = unsigned int()
         _masterKilled = bool()
         _matrix = osg.Matrix()
 
@@ -349,26 +364,27 @@ class CameraPacket
         
 
 
-class DataConverter
-    public:
+class DataConverter :
 
         DataConverter(unsigned int numBytes):
             _startPtr(0),
             _endPtr(0),
-            _swapBytes(false),
+            _swapBytes(False),
             _currentPtr(0)
-            _currentPtr = _startPtr = new char[numBytes]
+            _currentPtr = _startPtr = char[numBytes]()
             _endPtr = _startPtr+numBytes
             _numBytes = numBytes
 
         _startPtr = char*()
         _endPtr = char*()
-        unsigned int _numBytes
+        _numBytes = unsigned int()
         _swapBytes = bool()
 
         _currentPtr = char*()
         
         def reset():
+        
+            
             _currentPtr = _startPtr
 
         inline void write1(char* ptr)
@@ -393,7 +409,7 @@ class DataConverter
             if _swapBytes :
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else:
+            else :
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
 
@@ -413,7 +429,7 @@ class DataConverter
                 *(ptr+2) = *(_currentPtr++) 
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else:
+            else :
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
@@ -433,7 +449,7 @@ class DataConverter
             *(_currentPtr++) = *(ptr) 
 
         inline void read8(char* ptr)
-            endPtr =  _currentPtr+8
+            endPtr = _currentPtr+8
             if endPtr>=_endPtr : return
 
             if _swapBytes :
@@ -446,7 +462,7 @@ class DataConverter
                 *(ptr+2) = *(_currentPtr++) 
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else:
+            else :
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
@@ -476,6 +492,8 @@ class DataConverter
         inline double readDouble()  double c read8((char*)c) return c 
 
         def write(fs):
+
+            
             osg.notify(osg.NOTICE), "writeFramestamp = ", fs.getFrameNumber(), " ", fs.getReferenceTime()
 
             writeUInt(fs.getFrameNumber())
@@ -483,6 +501,8 @@ class DataConverter
             writeDouble(fs.getSimulationTime())
 
         def read(fs):
+
+            
             fs.setFrameNumber(readUInt())
             fs.setReferenceTime(readDouble())
             fs.setSimulationTime(readDouble())
@@ -490,6 +510,8 @@ class DataConverter
             osg.notify(osg.NOTICE), "readFramestamp = ", fs.getFrameNumber(), " ", fs.getReferenceTime()
 
         def write(matrix):
+
+            
             writeDouble(matrix(0,0))
             writeDouble(matrix(0,1))
             writeDouble(matrix(0,2))
@@ -514,6 +536,8 @@ class DataConverter
 
 
         def read(matrix):
+
+            
             matrix(0,0) = readDouble()
             matrix(0,1) = readDouble()
             matrix(0,2) = readDouble()
@@ -538,6 +562,8 @@ class DataConverter
 
 
         def write(event):
+
+            
             writeUInt(event.getEventType())
             writeUInt(event.getKey())
             writeUInt(event.getButton())
@@ -556,18 +582,20 @@ class DataConverter
             writeDouble(event.getTime())
 
         def read(event):
+
+            
             event.setEventType((osgGA.GUIEventAdapter.EventType)readUInt())
             event.setKey(readUInt())
             event.setButton(readUInt())
-            x =  readInt()
-            y =  readInt()
-            width =  readUInt()
-            height =  readUInt()
+            x = readInt()
+            y = readInt()
+            width = readUInt()
+            height = readUInt()
             event.setWindowRectangle(x,y,width,height)
-            xmin =  readFloat()
-            ymin =  readFloat()
-            xmax =  readFloat()
-            ymax =  readFloat()
+            xmin = readFloat()
+            ymin = readFloat()
+            xmax = readFloat()
+            ymax = readFloat()
             event.setInputRange(xmin,ymin,xmax,ymax)
             event.setX(readFloat())
             event.setY(readFloat())
@@ -576,6 +604,8 @@ class DataConverter
             event.setTime(readDouble())
         
         def write(cameraPacket):
+        
+            
             writeUInt(cameraPacket._byte_order)
             
             writeUInt(cameraPacket._masterKilled)
@@ -590,6 +620,8 @@ class DataConverter
                 write(*(*itr))
 
         def read(cameraPacket):
+
+            
             cameraPacket._byte_order = readUInt()
             if cameraPacket._byte_order != SWAP_BYTES_COMPARE :
                 _swapBytes = !_swapBytes
@@ -600,9 +632,9 @@ class DataConverter
             read(cameraPacket._frameStamp)
         
             cameraPacket._events.clear()
-            unsigned int numEvents = readUInt()
+            numEvents = readUInt()
             for(unsigned int i=0i<numEvents++i)
-                event =  new osgGA.GUIEventAdapter
+                event = osgGA.GUIEventAdapter()
                 read(*(event))
                 cameraPacket._events.push_back(event)
 
@@ -616,7 +648,7 @@ void CameraPacket.readEventQueue(osgViewer.Viewer viewer)
     for(osgViewer.ViewerBase.Contexts.iterator citr =contexts.begin()  citr != contexts.end() ++citr)
         gw_events = osgGA.EventQueue.Events()
 
-        gw =  dynamic_cast<osgViewer.GraphicsWindow*>(*citr)
+        gw = dynamic_cast<osgViewer.GraphicsWindow*>(*citr)
         if gw :
             gw.checkEvents()
             gw.getEventQueue().copyEvents(gw_events)
@@ -640,6 +672,8 @@ enum ViewerMode
 
 
 def main(argc, argv):
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -658,17 +692,17 @@ def main(argc, argv):
 
 
     # read up the osgcluster specific arguments.
-    viewerMode =  STAND_ALONE
+    viewerMode = STAND_ALONE
     while arguments.read("-m") : viewerMode = MASTER
     while arguments.read("-s") : viewerMode = SLAVE
     
     socketNumber = 8100
     while arguments.read("-n",socketNumber) : 
 
-    camera_fov = -1.0f
+    camera_fov = -1.0
     while arguments.read("-f",camera_fov) : 
 
-    camera_offset = 45.0f
+    camera_offset = 45.0
     while arguments.read("-o",camera_offset) : 
 
 
@@ -690,16 +724,16 @@ def main(argc, argv):
         return 1
 
     # load model.
-    osg.ref_ptr<osg.Node> rootnode = osgDB.readNodeFiles(arguments)
+    rootnode = osgDB.readNodeFiles(arguments)
 
     # set the scene to render
     viewer.setSceneData(rootnode.get())
 
-    if camera_fov>0.0f :
+    if camera_fov>0.0 :
         double fovy, aspectRatio, zNear, zFar
         viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio,zNear, zFar)
         
-        original_fov =  atan(tan(osg.DegreesToRadians(fovy)*0.5)*aspectRatio)*2.0
+        original_fov = atan(tan(osg.DegreesToRadians(fovy)*0.5)*aspectRatio)*2.0
         print "setting lens perspective : original ", original_fov, "  ", fovy
         
         fovy = atan(tan(osg.DegreesToRadians(camera_fov)*0.5)/aspectRatio)*2.0
@@ -707,22 +741,22 @@ def main(argc, argv):
     
         viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio,zNear, zFar)
         original_fov = atan(tan(osg.DegreesToRadians(fovy)*0.5)*aspectRatio)*2.0
-        print "setting lens perspective : new ", original_fov, "  ", fovy
+        print "setting lens perspective : ", original_fov, "  ", fovy()
 
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator())
+    viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
 
 
     # create the windows and run the threads.
     viewer.realize()
 
 
-    cp =  new CameraPacket
+    cp = CameraPacket()
 
     # objects for managing the broadcasting and recieving of camera packets.
     bc = Broadcaster()
@@ -731,12 +765,12 @@ def main(argc, argv):
     bc.setPort(static_cast<short int>(socketNumber))
     rc.setPort(static_cast<short int>(socketNumber))
 
-    masterKilled =  false
+    masterKilled = False
     
     scratchPad = DataConverter(1024)
 
     while  !viewer.done()  !masterKilled  :
-        startTick =  osg.Timer.instance().tick()
+        startTick = osg.Timer.instance().tick()
                  
         viewer.advance()
 
@@ -778,13 +812,13 @@ def main(argc, argv):
                 if cp.getMasterKilled() : 
                     print "Received master killed."
                     # break out of while !done : loop since we've now want to shut down.
-                    masterKilled = true
+                    masterKilled = True
             break
         default:
             # no need to anything here, just a normal interactive viewer.
             break
          
-        endTick =  osg.Timer.instance().tick()
+        endTick = osg.Timer.instance().tick()
         
         osg.notify(osg.INFO), "Time to do cluster sync ", osg.Timer.instance().delta_m(startTick,endTick)
 
@@ -808,7 +842,7 @@ def main(argc, argv):
     if viewerMode==MASTER :
         # need to broadcast my death.
         cp.setPacket(osg.Matrix.identity(),viewer.getFrameStamp())
-        cp.setMasterKilled(true) 
+        cp.setMasterKilled(True) 
 
         scratchPad.reset()
         scratchPad.write(*cp)
@@ -820,30 +854,33 @@ def main(argc, argv):
 
 
     return 0
-# OpenSceneGraph example, osgcluster.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'receiver.cpp'
+
+# OpenSceneGraph example, osgcluster.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/types.h>
 #if defined (WIN32)  !defined(__CYGWIN__)
 #include <winsock.h>
-#else:
+#else :
 #include <unistd.h>
 #include <sys/uio.h>
 #include <sys/socket.h>
@@ -861,19 +898,19 @@ def main(argc, argv):
 
 Receiver.Receiver( void )
     _port = 0
-    _initialized = false
+    _initialized = False
     _buffer = 0L
 
 Receiver.~Receiver( void )
 #if defined (WIN32)  !defined(__CYGWIN__)
     closesocket( _so)
-#else:
+#else :
     close( _so )
 #endif
 
 bool Receiver.init( void )
 #if defined(WIN32)  !defined(__CYGWIN__)
-    version =  MAKEWORD(1,1)
+    version = MAKEWORD(1,1)
     wsaData = WSADATA()
     # First, we start up Winsock
     WSAStartup(version, wsaData)
@@ -881,16 +918,16 @@ bool Receiver.init( void )
 
     if  _port == 0  :
     fprintf( stderr, "Receiver.init() - port not defined\n" )
-    false = return()
+    return False
 
     if _so = socket( AF_INET, SOCK_DGRAM, 0 ) : < 0  :
         perror( "Socket" )
-    false = return()
+    return False
 #if defined (WIN32)  !defined(__CYGWIN__)
 #     BOOL on = TRUE
 #    setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, ( char*) on, sizeof(int))
-#else:
-    on =  1
+#else :
+    on = 1
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, on, sizeof(on))
 #endif
 
@@ -899,16 +936,16 @@ bool Receiver.init( void )
     saddr.sin_port   = htons( _port )
 #if defined (WIN32)  !defined(__CYGWIN__)
     saddr.sin_addr.s_addr =  htonl(INADDR_ANY)
-#else:
+#else :
     saddr.sin_addr.s_addr =  0
 #endif
 
     if  bind( _so, (struct sockaddr *)saddr, sizeof( saddr )) < 0  :
         perror( "bind" )
-        false = return()
+        return False
 
-    _initialized = true
-    _initialized = return()
+    _initialized = True
+    return _initialized
 
 
 void Receiver.setPort(  short port )
@@ -927,7 +964,7 @@ void Receiver.sync( void )
 
 #if defined(__linux) || defined(__FreeBSD__) || defined( __APPLE__ )
     size = socklen_t() 
-#else:
+#else :
     size = int()
 #endif
     size = sizeof( struct sockaddr_in )
@@ -944,38 +981,41 @@ void Receiver.sync( void )
 #    saddr.sin_port   = htons( _port )
     recvfrom( _so, (char *)_buffer, _buffer_size, 0, (sockaddr*)saddr, size )
 #    recvfrom(sock_Receive, szMessage, 256, 0, (sockaddr*)addr_Cli, clilen)
-    err =  WSAGetLastError ()
+    err = WSAGetLastError ()
     if err!=0 : fprintf( stderr, "Receiver.sync() - error %d\n",err )
 
     while  select( static_cast<int>(_so)+1, fdset, 0L, 0L, tv )  :
         if  FD_ISSET( _so, fdset )  :
             recvfrom( _so, (char *)_buffer, _buffer_size, 0, (sockaddr*)saddr, size )
-#else:
+#else :
     recvfrom( _so, (caddr_t)_buffer, _buffer_size, 0, 0, size )
     while  select( _so+1, fdset, 0L, 0L, tv )  :
         if  FD_ISSET( _so, fdset )  :
             recvfrom( _so, (caddr_t)_buffer, _buffer_size, 0, 0, size )
 #endif
 
-# -*-c++-*-
-*
-*  OpenSceneGraph example, osgcluster.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'receiver.h'
+
+# -*-c++-*-
+#*
+#*  OpenSceneGraph example, osgcluster.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef __RECEIVER_H
 #define __RECEIVER_H
@@ -991,8 +1031,8 @@ void Receiver.sync( void )
     #include <netinet/in.h>
 #endif
 
-class Receiver 
-    public :
+class Receiver :
+public :
 
 	Receiver()
 	~Receiver()
@@ -1014,14 +1054,14 @@ class Receiver
 #if defined (WIN32)  !defined(__CYGWIN__)
         _so = SOCKET()
         saddr = SOCKADDR_IN()
-#else:
+#else :
         _so = int()
         struct sockaddr_in saddr
 #endif
     _initialized = bool()
     _port = short()
     *_buffer = void()
-    unsigned int _buffer_size
+    _buffer_size = unsigned int()
 
 #endif 
 

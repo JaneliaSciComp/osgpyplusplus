@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgGA
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgviewerGlut.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgviewerGLUT.cpp'
+
+# OpenSceneGraph example, osgviewerGlut.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 # (C) 2005 Mike Weiblen http:#mew.cx/ released under the OSGPL.
 # Simple example using GLUT to create an OpenGL window and OSG for rendering.
@@ -47,7 +50,7 @@ from osgpypp import osgViewer
 
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
-#else:
+#else :
 #  include <GL/glut.h>
 #endif
 
@@ -56,8 +59,8 @@ from osgpypp import osgViewer
 #include <osgGA/TrackballManipulator>
 #include <osgDB/ReadFile>
 
-osg.ref_ptr<osgViewer.Viewer> viewer
-osg.observer_ptr<osgViewer.GraphicsWindow> window
+viewer = osgViewer.Viewer()
+window = osg.observer_ptr<osgViewer.GraphicsWindow>()
 
 void display(void)
     # update and render the scene graph
@@ -68,17 +71,23 @@ void display(void)
     glutPostRedisplay()
 
 def reshape(w, h):
+
+    
     # update the window dimensions, in case the window has been resized.
     if window.valid() : 
         window.resized(window.getTraits().x, window.getTraits().y, w, h)
         window.getEventQueue().windowResize(window.getTraits().x, window.getTraits().y, w, h )
 
 def mousebutton(button, state, x, y):
+
+    
     if window.valid() :
         if state==0 : window.getEventQueue().mouseButtonPress( x, y, button+1 )
-        else: window.getEventQueue().mouseButtonRelease( x, y, button+1 )
+        else : window.getEventQueue().mouseButtonRelease( x, y, button+1 )
 
 def mousemove(x, y):
+
+    
     if window.valid() :
         window.getEventQueue().mouseMotion( x, y )
 
@@ -96,6 +105,8 @@ void keyboard( unsigned char key, int #x, int #y )
             break
 
 def main(argc, argv):
+
+    
     glutInit(argc, argv)
 
     if argc<2 :
@@ -103,7 +114,7 @@ def main(argc, argv):
         return 1
 
     # load the scene.
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFile(argv[1])
+    loadedModel = osgDB.readNodeFile(argv[1])
     if !loadedModel :
         print argv[0], ": No data loaded."
         return 1
@@ -119,11 +130,11 @@ def main(argc, argv):
     glutKeyboardFunc( keyboard )
 
     # create the view of the scene.
-    viewer = new osgViewer.Viewer
+    viewer = osgViewer.Viewer()
     window = viewer.setUpViewerAsEmbeddedInWindow(100,100,800,600)
     viewer.setSceneData(loadedModel.get())
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator)
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator)()
+    viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.realize()
 
     glutMainLoop()

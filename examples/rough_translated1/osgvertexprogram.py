@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgvertexprogram.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgvertexprogram.cpp'
+
+# OpenSceneGraph example, osgvertexprogram.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Vec3>
 #include <osg/Vec4>
@@ -59,8 +62,8 @@ from osgpypp import osgViewer
 #include <iostream>
 
 
-refract =  1.02          # ratio of indicies of refraction
-fresnel =  0.2           # Fresnel multiplier
+refract = 1.02          # ratio of indicies of refraction
+fresnel = 0.2           # Fresnel multiplier
 
 
  char vpstr[] =
@@ -163,17 +166,20 @@ fresnel =  0.2           # Fresnel multiplier
 
 
 def readCubeMap():
-    cubemap =  new osg.TextureCubeMap
+
+
+    
+    cubemap = osg.TextureCubeMap()
     ##define CUBEMAP_FILENAME(face) "nvlobby_" #face ".png"
     ##define CUBEMAP_FILENAME(face) "Cubemap_axis/" #face ".png"
     #define CUBEMAP_FILENAME(face) "Cubemap_snow/" #face ".jpg"
 
-    imagePosX =  osgDB.readImageFile(CUBEMAP_FILENAME(posx))
-    imageNegX =  osgDB.readImageFile(CUBEMAP_FILENAME(negx))
-    imagePosY =  osgDB.readImageFile(CUBEMAP_FILENAME(posy))
-    imageNegY =  osgDB.readImageFile(CUBEMAP_FILENAME(negy))
-    imagePosZ =  osgDB.readImageFile(CUBEMAP_FILENAME(posz))
-    imageNegZ =  osgDB.readImageFile(CUBEMAP_FILENAME(negz))
+    imagePosX = osgDB.readImageFile(CUBEMAP_FILENAME(posx))
+    imageNegX = osgDB.readImageFile(CUBEMAP_FILENAME(negx))
+    imagePosY = osgDB.readImageFile(CUBEMAP_FILENAME(posy))
+    imageNegY = osgDB.readImageFile(CUBEMAP_FILENAME(negy))
+    imagePosZ = osgDB.readImageFile(CUBEMAP_FILENAME(posz))
+    imageNegZ = osgDB.readImageFile(CUBEMAP_FILENAME(negz))
 
     if imagePosX  imageNegX  imagePosY  imageNegY  imagePosZ  imageNegZ :
         cubemap.setImage(osg.TextureCubeMap.POSITIVE_X, imagePosX)
@@ -190,25 +196,24 @@ def readCubeMap():
         cubemap.setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR_MIPMAP_LINEAR)
         cubemap.setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
 
-    cubemap = return()
+    return cubemap
 
 
 # Update texture matrix for cubemaps
-struct TexMatCallback : public osg.NodeCallback
-public:
+class TexMatCallback (osg.NodeCallback) :
 
     TexMatCallback(osg.TexMat tm) :
         _texMat(tm)
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-        cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+        cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
         if cv :
-            MV =  *(cv.getModelViewMatrix())
-            R =  osg.Matrix.rotate( osg.DegreesToRadians(112.0f), 0.0f,0.0f,1.0f)*
-                                  osg.Matrix.rotate( osg.DegreesToRadians(90.0f), 1.0f,0.0f,0.0f)
+            MV = *(cv.getModelViewMatrix())
+            R = osg.Matrix.rotate( osg.DegreesToRadians(112.0), 0.0,0.0,1.0)*
+                                  osg.Matrix.rotate( osg.DegreesToRadians(90.0), 1.0,0.0,0.0)
 
-            q =  MV.getRotate()
-            C =  osg.Matrix.rotate( q.inverse() )
+            q = MV.getRotate()
+            C = osg.Matrix.rotate( q.inverse() )
 
             _texMat.setMatrix( C*R )
 
@@ -218,93 +223,103 @@ public:
 
 
 
-class MoveEarthySkyWithEyePointTransform : public osg.Transform
-public:
+class MoveEarthySkyWithEyePointTransform (osg.Transform) :
     #* Get the transformation matrix which moves from local coords to world coords.
-    virtual bool computeLocalToWorldMatrix(osg.Matrix matrix,osg.NodeVisitor* nv)  
-        cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+    def computeLocalToWorldMatrix(matrix, nv):
+        
+        cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
         if cv :
-            eyePointLocal =  cv.getEyeLocal()
+            eyePointLocal = cv.getEyeLocal()
             matrix.preMultTranslate(eyePointLocal)
-        true = return()
+        return True
 
     #* Get the transformation matrix which moves from world coords to local coords.
-    virtual bool computeWorldToLocalMatrix(osg.Matrix matrix,osg.NodeVisitor* nv) 
-        cv =  dynamic_cast<osgUtil.CullVisitor*>(nv)
+    def computeWorldToLocalMatrix(matrix, nv):
+        
+        cv = dynamic_cast<osgUtil.CullVisitor*>(nv)
         if cv :
-            eyePointLocal =  cv.getEyeLocal()
+            eyePointLocal = cv.getEyeLocal()
             matrix.postMultTranslate(-eyePointLocal)
-        true = return()
+        return True
 
 
 
 def createSkyBox():
-    stateset =  new osg.StateSet()
 
-    te =  new osg.TexEnv
+
+    
+
+    stateset = osg.StateSet()
+
+    te = osg.TexEnv()
     te.setMode(osg.TexEnv.REPLACE)
     stateset.setTextureAttributeAndModes(0, te, osg.StateAttribute.ON)
 
-    tg =  new osg.TexGen
+    tg = osg.TexGen()
     tg.setMode(osg.TexGen.NORMAL_MAP)
     stateset.setTextureAttributeAndModes(0, tg, osg.StateAttribute.ON)
 
-    tm =  new osg.TexMat
+    tm = osg.TexMat()
     stateset.setTextureAttribute(0, tm)
 
-    skymap =  readCubeMap()
+    skymap = readCubeMap()
     stateset.setTextureAttributeAndModes(0, skymap, osg.StateAttribute.ON)
 
     stateset.setMode( GL_LIGHTING, osg.StateAttribute.OFF )
     stateset.setMode( GL_CULL_FACE, osg.StateAttribute.OFF )
 
     # clear the depth to the far plane.
-    depth =  new osg.Depth
+    depth = osg.Depth()
     depth.setFunction(osg.Depth.ALWAYS)
     depth.setRange(1.0,1.0)   
     stateset.setAttributeAndModes(depth, osg.StateAttribute.ON )
 
     stateset.setRenderBinDetails(-1,"RenderBin")
 
-    drawable =  new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f,0.0f,0.0f),1))
+    drawable = osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0),1))
 
-    geode =  new osg.Geode
-    geode.setCullingActive(false)
+    geode = osg.Geode()
+    geode.setCullingActive(False)
     geode.setStateSet( stateset )
     geode.addDrawable(drawable)
 
 
-    transform =  new MoveEarthySkyWithEyePointTransform
-    transform.setCullingActive(false)
+    transform = MoveEarthySkyWithEyePointTransform()
+    transform.setCullingActive(False)
     transform.addChild(geode)
 
-    clearNode =  new osg.ClearNode
-#  clearNode.setRequiresClear(false)
-    clearNode.setCullCallback(new TexMatCallback(*tm))
+    clearNode = osg.ClearNode()
+#  clearNode.setRequiresClear(False)
+    clearNode.setCullCallback(TexMatCallback(*tm))
     clearNode.addChild(transform)
 
-    clearNode = return()
+    return clearNode
 
 
 
 
 def addRefractStateSet(node):
-    stateset =  new osg.StateSet()
 
-    reflectmap =  readCubeMap()
+
+
+
+    
+    stateset = osg.StateSet()
+
+    reflectmap = readCubeMap()
     stateset.setTextureAttributeAndModes( 0, reflectmap, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
     stateset.setTextureAttributeAndModes( 1, reflectmap, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
     
-    texMat =  new osg.TexMat
+    texMat = osg.TexMat()
     stateset.setTextureAttribute(0, texMat)
 
     # ---------------------------------------------------
     # Vertex Program
     # ---------------------------------------------------
-    vp =  new osg.VertexProgram()
+    vp = osg.VertexProgram()
     vp.setVertexProgram( vpstr )
-    vp.setProgramLocalParameter( 0, osg.Vec4( fresnel, fresnel, fresnel, 1.0f ) )
-    vp.setProgramLocalParameter( 1, osg.Vec4( refract, refract*refract, 0.0f, 0.0f ) )
+    vp.setProgramLocalParameter( 0, osg.Vec4( fresnel, fresnel, fresnel, 1.0 ) )
+    vp.setProgramLocalParameter( 1, osg.Vec4( refract, refract*refract, 0.0, 0.0 ) )
     stateset.setAttributeAndModes( vp, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
     # ---------------------------------------------------
@@ -318,14 +333,14 @@ def addRefractStateSet(node):
 
     # REPLACE function: Arg0
     # = T0
-    te0 =  new osg.TexEnvCombine    
+    te0 = osg.TexEnvCombine()    
     te0.setCombine_RGB(osg.TexEnvCombine.REPLACE)
     te0.setSource0_RGB(osg.TexEnvCombine.TEXTURE0)
     te0.setOperand0_RGB(osg.TexEnvCombine.SRC_COLOR)
     
     # INTERPOLATE function: Arg0 * (Arg2) + Arg1 * (1-Arg2)
     # = T1 * C0.a + Cp * (1-C0.a)
-    te1 =  new osg.TexEnvCombine    
+    te1 = osg.TexEnvCombine()    
 
     # rgb = Cp + Ct
     te1.setCombine_RGB(osg.TexEnvCombine.INTERPOLATE)
@@ -339,12 +354,12 @@ def addRefractStateSet(node):
     stateset.setTextureAttributeAndModes(0, te0, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
     stateset.setTextureAttributeAndModes(1, te1, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
 
-    group =  new osg.Group
+    group = osg.Group()
     group.addChild(node)
-    group.setCullCallback(new TexMatCallback(*texMat))
+    group.setCullCallback(TexMatCallback(*texMat))
     group.setStateSet( stateset )
     
-    group = return()
+    return group
 
 
 int main(int argc, char *argv[])
@@ -354,16 +369,16 @@ int main(int argc, char *argv[])
     # construct the viewer.
     viewer = osgViewer.Viewer()
 
-    rootnode =  new osg.Group
+    rootnode = osg.Group()
 
     rootnode.addChild(createSkyBox())
 
     # load the nodes from the commandline arguments.
-    model =  osgDB.readNodeFiles(arguments)
+    model = osgDB.readNodeFiles(arguments)
     if !model :
-        radius =  1.0f
-        geode =  new osg.Geode
-        geode.addDrawable(new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0f,0.0f,0.0f),radius)))
+        radius = 1.0
+        geode = osg.Geode()
+        geode.addDrawable(osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0),radius)))
         model = geode
 
     # run optimization over the scene graph
@@ -388,8 +403,8 @@ int main(int argc, char *argv[])
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
         itr != windows.end()
         ++itr)
-        unsigned int contextID = (*itr).getState().getContextID()
-        vpExt =  osg.VertexProgram.getExtensions(contextID,false)
+        contextID = (*itr).getState().getContextID()
+        vpExt = osg.VertexProgram.getExtensions(contextID,False)
         if vpExt :
             if !vpExt.isVertexProgramSupported() :
                 print "Warning: ARB_vertex_program not supported by OpenGL drivers, unable to run application."

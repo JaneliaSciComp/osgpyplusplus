@@ -11,6 +11,9 @@ from osgpypp import osgGA
 from osgpypp import osgViewer
 from osgpypp import wx
 
+
+# Translated from file 'osgviewerWX.cpp'
+
 # For compilers that support precompilation, includes "wx.h".
 #include "wx/wxprec.h"
 
@@ -42,14 +45,14 @@ from osgpypp import wx
 bool wxOsgApp.OnInit()
     if argc<2 :
         print wxString(argv[0]).mb_str(), ": requires filename argument."
-        false = return()
+        return False
 
-    width =  800
-    height =  600
+    width = 800
+    height = 600
 
     # Create the main frame window
 
-    frame =  new MainFrame(NULL, wxT("wxWidgets OSG Sample"),
+    frame = MainFrame(NULL, wxT("wxWidgets OSG Sample"),
         wxDefaultPosition, wxSize(width, height))
 
     # create osg canvas
@@ -64,34 +67,34 @@ bool wxOsgApp.OnInit()
     attributes[5] = 8
     attributes[6] = 0
 
-    canvas =  new OSGCanvas(frame, wxID_ANY, wxDefaultPosition,
+    canvas = OSGCanvas(frame, wxID_ANY, wxDefaultPosition,
         wxSize(width, height), wxSUNKEN_BORDER, wxT("osgviewerWX"), attributes)
 
-    gw =  new GraphicsWindowWX(canvas)
+    gw = GraphicsWindowWX(canvas)
 
     canvas.SetGraphicsWindow(gw)
 
-    viewer =  new osgViewer.Viewer
+    viewer = osgViewer.Viewer()
     viewer.getCamera().setGraphicsContext(gw)
     viewer.getCamera().setViewport(0,0,width,height)
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # load the scene.
     fname = wxString(argv[1])
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFile(str(fname.mb_str()))
+    loadedModel = osgDB.readNodeFile(str(fname.mb_str()))
     if !loadedModel :
         print argv[0], ": No data loaded."
-        false = return()
+        return False
 
     viewer.setSceneData(loadedModel.get())
-    viewer.setCameraManipulator(new osgGA.TrackballManipulator)
+    viewer.setCameraManipulator(osgGA.TrackballManipulator)()
     frame.SetViewer(viewer)
 
     # Show the frame 
-    frame.Show(true)
+    frame.Show(True)
 
-    true = return()
+    return True
 
 IMPLEMENT_APP(wxOsgApp)
 
@@ -164,9 +167,9 @@ void OSGCanvas.OnEraseBackground(wxEraseEvent WXUNUSED(event))
 
 void OSGCanvas.OnChar(wxKeyEvent event)
 #if wxUSE_UNICODE
-    key =  event.GetUnicodeKey()
-#else:
-    key =  event.GetKeyCode()
+    key = event.GetUnicodeKey()
+#else :
+    key = event.GetKeyCode()
 #endif
 
     if _graphics_window.valid() :
@@ -177,9 +180,9 @@ void OSGCanvas.OnChar(wxKeyEvent event)
 
 void OSGCanvas.OnKeyUp(wxKeyEvent event)
 #if wxUSE_UNICODE
-    key =  event.GetUnicodeKey()
-#else:
-    key =  event.GetKeyCode()
+    key = event.GetUnicodeKey()
+#else :
+    key = event.GetKeyCode()
 #endif
 
     if _graphics_window.valid() :
@@ -207,7 +210,7 @@ void OSGCanvas.OnMouseMotion(wxMouseEvent event)
         _graphics_window.getEventQueue().mouseMotion(event.GetX(), event.GetY())
 
 void OSGCanvas.OnMouseWheel(wxMouseEvent event)
-    delta =  event.GetWheelRotation() / event.GetWheelDelta() * event.GetLinesPerAction()
+    delta = event.GetWheelRotation() / event.GetWheelDelta() * event.GetLinesPerAction()
 
     if _graphics_window.valid() : 
         _graphics_window.getEventQueue().mouseScroll(
@@ -219,14 +222,14 @@ void OSGCanvas.UseCursor(bool value)
     if value :
         # show the old cursor
         SetCursor(_oldCursor)
-    else:
+    else :
         # remember the old cursor
         _oldCursor = GetCursor()
 
         # hide the cursor
         #    - can't find a way to do this neatly, so create a 1x1, transparent image
         image = wxImage(1,1)
-        image.SetMask(true)
+        image.SetMask(True)
         image.SetMaskColour(0, 0, 0)
         cursor = wxCursor(image)
         SetCursor(cursor)
@@ -238,10 +241,10 @@ void OSGCanvas.UseCursor(bool value)
 GraphicsWindowWX.GraphicsWindowWX(OSGCanvas *canvas)
     _canvas = canvas
 
-    _traits = new GraphicsContext.Traits
+    _traits = GraphicsContext.Traits()
 
-    pos =  _canvas.GetPosition()
-    size =  _canvas.GetSize()
+    pos = _canvas.GetPosition()
+    size = _canvas.GetSize()
 
     _traits.x = pos.x
     _traits.y = pos.y
@@ -254,13 +257,13 @@ GraphicsWindowWX.~GraphicsWindowWX()
 
 void GraphicsWindowWX.init()
     if valid() :
-        setState( new osg.State )
+        setState( osg.State )()
         getState().setGraphicsContext(this)
 
         if _traits.valid()  _traits.sharedContext.valid() :
             getState().setContextID( _traits.sharedContext.getState().getContextID() )
             incrementContextIDUsageCount( getState().getContextID() )
-        else:
+        else :
             getState().setContextID( osg.GraphicsContext.createNewContextID() )
 
 void GraphicsWindowWX.grabFocus()
@@ -269,7 +272,7 @@ void GraphicsWindowWX.grabFocus()
 
 void GraphicsWindowWX.grabFocusIfPointerInWindow()
     # focus this window, if the pointer is in the window
-    pos =  wxGetMousePosition()
+    pos = wxGetMousePosition()
     if wxFindWindowAtPoint(pos) == _canvas :
         _canvas.SetFocus()
 
@@ -278,10 +281,13 @@ void GraphicsWindowWX.useCursor(bool cursorOn)
 
 bool GraphicsWindowWX.makeCurrentImplementation()
     _canvas.SetCurrent()
-    true = return()
+    return True
 
 void GraphicsWindowWX.swapBuffersImplementation()
     _canvas.SwapBuffers()
+
+# Translated from file 'osgviewerWX.h'
+
 #ifndef _WXSIMPLEVIEWERWX_H_
 #define _WXSIMPLEVIEWERWX_H_
 
@@ -294,17 +300,18 @@ void GraphicsWindowWX.swapBuffersImplementation()
 
 GraphicsWindowWX = class()
 
-class OSGCanvas : public wxGLCanvas
-public:
+class OSGCanvas (wxGLCanvas) :
     OSGCanvas(wxWindow *parent, wxWindowID id = wxID_ANY,
-        pos =  wxDefaultPosition,
-        size =  wxDefaultSize, long style = 0,
-        name =  wxT("TestGLCanvas"),
-        attributes =  0)
+        pos = wxDefaultPosition,
+        size = wxDefaultSize, long style = 0,
+        name = wxT("TestGLCanvas"),
+        attributes = 0)
 
     virtual ~OSGCanvas()
 
-    void SetGraphicsWindow(osgViewer.GraphicsWindow *gw)    _graphics_window = gw 
+    def SetGraphicsWindow(gw):
+
+         _graphics_window = gw 
 
     OnPaint = void(wxPaintEvent event)
     OnSize = void(wxSizeEvent event)
@@ -320,17 +327,14 @@ public:
     OnMouseWheel = void(wxMouseEvent event)
 
     UseCursor = void(bool value)
-
-private:
     DECLARE_EVENT_TABLE()
 
-    osg.ref_ptr<osgViewer.GraphicsWindow> _graphics_window
+    _graphics_window = osgViewer.GraphicsWindow()
 
     _oldCursor = wxCursor()
 
 
-class GraphicsWindowWX : public osgViewer.GraphicsWindow
-public:
+class GraphicsWindowWX (osgViewer.GraphicsWindow) :
     GraphicsWindowWX(OSGCanvas *canvas)
     ~GraphicsWindowWX()
 
@@ -347,35 +351,33 @@ public:
     swapBuffersImplementation = void()
 
     # not implemented yet...just use dummy implementation to get working.
-    virtual bool valid()   return true 
-    virtual bool realizeImplementation()  return true 
-    virtual bool isRealizedImplementation()    return _canvas.IsShownOnScreen() 
-    virtual void closeImplementation() 
-    virtual bool releaseContextImplementation()  return true 
-
-private:
+    def valid():
+         return True 
+    def realizeImplementation():
+         return True 
+    def isRealizedImplementation():
+         return _canvas.IsShownOnScreen() 
+    def closeImplementation():
+    def releaseContextImplementation():
+         return True 
     # XXX need to set _canvas to NULL when the canvas is deleted by
     # its parent. for this, need to add event handler in OSGCanvas
     _canvas = OSGCanvas*()
 
 
-class MainFrame : public wxFrame
-public:
+class MainFrame (wxFrame) :
     MainFrame(wxFrame *frame,  wxString title,  wxPoint pos,
          wxSize size, long style = wxDEFAULT_FRAME_STYLE)
 
     SetViewer = void(osgViewer.Viewer *viewer)
     OnIdle = void(wxIdleEvent event)
-
-private:
-    osg.ref_ptr<osgViewer.Viewer> _viewer
+    _viewer = osgViewer.Viewer()
 
     DECLARE_EVENT_TABLE()
 
 
-# Define a new application type 
-class wxOsgApp : public wxApp
-public:
+# Define a application type 
+class wxOsgApp (wxApp) :
     OnInit = bool()
 
 

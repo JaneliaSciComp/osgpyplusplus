@@ -11,23 +11,26 @@ from osgpypp import osgDB
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgstereoimage.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgstereoimage.cpp'
+
+# OpenSceneGraph example, osgstereoimage.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osgViewer/Viewer>
 #include <osgDB/fstream>
@@ -51,9 +54,11 @@ typedef std.vector<str> FileList
 #include <osg/Shader>
 
 def createColorToGreyscaleStateSet():
-    stateset =  new osg.StateSet
 
-    program =  new osg.Program
+    
+    stateset = osg.StateSet()
+
+    program = osg.Program()
     stateset.setAttribute(program)
 
     fragSource = 
@@ -65,70 +70,73 @@ def createColorToGreyscaleStateSet():
         "    gl_FragColor = colorMatrix * color\n"
         "\n"
     
-    program.addShader(new osg.Shader(osg.Shader.FRAGMENT, fragSource))
+    program.addShader(osg.Shader(osg.Shader.FRAGMENT, fragSource))
 
-    stateset.addUniform(new osg.Uniform("baseTexture",0))
+    stateset.addUniform(osg.Uniform("baseTexture",0))
 
     colorMatrix = osg.Matrixf(
-        0.3f, 0.3f, 0.3f, 0.0f,
-        0.59f, 0.59f, 0.59f, 0.0f,
-        0.11f, 0.11f, 0.11f, 0.0f,
-        0.0f, 0.0f, 0.0f, 1.0f
+        0.3, 0.3, 0.3, 0.0,
+        0.59, 0.59, 0.59, 0.0,
+        0.11, 0.11, 0.11, 0.0,
+        0.0, 0.0, 0.0, 1.0
     )
 
-    stateset.addUniform(new osg.Uniform("colorMatrix",colorMatrix))
+    stateset.addUniform(osg.Uniform("colorMatrix",colorMatrix))
 
-    stateset = return()
+    return stateset
 
 
 def createSectorForImage(image, texmat, s, t, radius, height, length):
-    flip =  image.getOrigin()==osg.Image.TOP_LEFT
 
-    numSegments =  20
-    Theta =  length/radius
-    dTheta =  Theta/(float)(numSegments-1)
 
-    ThetaZero =  height*s/(t*radius)
+    
+    flip = image.getOrigin()==osg.Image.TOP_LEFT
+
+    numSegments = 20
+    Theta = length/radius
+    dTheta = Theta/(float)(numSegments-1)
+
+    ThetaZero = height*s/(t*radius)
 
     # set up the texture.
-    texture =  new osg.Texture2D
+    texture = osg.Texture2D()
     texture.setFilter(osg.Texture2D.MIN_FILTER,osg.Texture2D.LINEAR)
     texture.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
     texture.setWrap(osg.Texture2D.WRAP_S,osg.Texture2D.CLAMP_TO_BORDER)
     texture.setWrap(osg.Texture2D.WRAP_T,osg.Texture2D.CLAMP_TO_BORDER)
-    texture.setResizeNonPowerOfTwoHint(false)
+    texture.setResizeNonPowerOfTwoHint(False)
     texture.setImage(image)
 
     # set up the drawstate.
-    dstate =  new osg.StateSet
+    dstate = osg.StateSet()
     dstate.setMode(GL_CULL_FACE,osg.StateAttribute.OFF)
     dstate.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     dstate.setTextureAttributeAndModes(0, texture,osg.StateAttribute.ON)
     dstate.setTextureAttribute(0, texmat)
 
     # set up the geoset.
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
     geom.setStateSet(dstate)
 
-    coords =  new osg.Vec3Array()
-    tcoords =  new osg.Vec2Array()
+    coords = osg.Vec3Array()
+    tcoords = osg.Vec2Array()
 
     i = int()
-    angle =  -Theta/2.0f
+    angle = -Theta/2.0
     for(i=0
         i<numSegments
         ++i, angle+=dTheta)
-        coords.push_back(osg.Vec3(sinf(angle)*radius,cosf(angle)*radius,height*0.5f)) # top
-        coords.push_back(osg.Vec3(sinf(angle)*radius,cosf(angle)*radius,-height*0.5f)) # bottom.
+        coords.push_back(osg.Vec3(sinf(angle)*radius,cosf(angle)*radius,height*0.5)) # top
+        coords.push_back(osg.Vec3(sinf(angle)*radius,cosf(angle)*radius,-height*0.5)) # bottom.
 
-        tcoords.push_back(osg.Vec2(angle/ThetaZero+0.5f, flip ? 0.0f : 1.0f)) # top
-        tcoords.push_back(osg.Vec2(angle/ThetaZero+0.5f, flip ? 1.0f : 0.0f)) # bottom.
+        tcoords.push_back(osg.Vec2(angle/ThetaZero+0.5, flip ? 0.0 : 1.0)) # top
+        tcoords.push_back(osg.Vec2(angle/ThetaZero+0.5, flip ? 1.0 : 0.0)) # bottom.
 
 
-    colors =  new osg.Vec4Array()
-    colors.push_back(osg.Vec4(1.0f,1.0f,1.0f,1.0f))
+    colors = osg.Vec4Array()
+    colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    elements =  new osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,coords.size())
+    elements = osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,0,coords.size())
 
 
 
@@ -139,48 +147,51 @@ def createSectorForImage(image, texmat, s, t, radius, height, length):
     geom.addPrimitiveSet(elements)
 
     # set up the geode.
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geom)
 
-    geode = return()
+    return geode
 
 
 def loadImages(image1, image2, texmatLeft, texmatRight, radius, height, length):
-    osg.ref_ptr<osg.Image> imageLeft = osgDB.readImageFile(image1)
-    osg.ref_ptr<osg.Image> imageRight = osgDB.readImageFile(image2)
+
+    
+    imageLeft = osgDB.readImageFile(image1)
+    imageRight = osgDB.readImageFile(image2)
     if imageLeft.valid()  imageRight.valid() :
-	streamLeft =  dynamic_cast<osg.ImageStream*>(imageLeft.get())
+	streamLeft = dynamic_cast<osg.ImageStream*>(imageLeft.get())
 	if streamLeft : streamLeft.play()
 
-	streamRight =  dynamic_cast<osg.ImageStream*>(imageRight.get())
+	streamRight = dynamic_cast<osg.ImageStream*>(imageRight.get())
 	if streamRight : streamRight.play()
 
 
-	average_s =  (imageLeft.s()+imageRight.s())*0.5f
-	average_t =  (imageLeft.t()+imageRight.t())*0.5f
-	geodeLeft =  createSectorForImage(imageLeft.get(),texmatLeft,average_s,average_t, radius, height, length)
+	average_s = (imageLeft.s()+imageRight.s())*0.5
+	average_t = (imageLeft.t()+imageRight.t())*0.5
+	geodeLeft = createSectorForImage(imageLeft.get(),texmatLeft,average_s,average_t, radius, height, length)
 	geodeLeft.setNodeMask(0x01)
 
-	geodeRight =  createSectorForImage(imageRight.get(),texmatRight,average_s,average_t, radius, height, length)
+	geodeRight = createSectorForImage(imageRight.get(),texmatRight,average_s,average_t, radius, height, length)
 	geodeRight.setNodeMask(0x02)
 
-	imageGroup =  new osg.Group
+	imageGroup = osg.Group()
 
 	imageGroup.addChild(geodeLeft)
 	imageGroup.addChild(geodeRight)
-	imageGroup = return()
-    else:
+	return imageGroup
+    else :
 	print "Warning: Unable to load both image files, '", image1, "'  '", image2, "', required for stereo imaging."
 	return 0
 
 # create a switch containing a set of child each containing a
 # stereo image pair.
 def createScene(fileList, texmatLeft, texmatRight, radius, height, length):
-    sw =  new osg.Switch
+    
+    sw = osg.Switch()
 
     # load the images.
     for(unsigned int i=0i+1<fileList.size()i+=2)
-        imageGroup =  loadImages(fileList[i],fileList[i+1],texmatLeft,texmatRight, radius,  height, length)
+        imageGroup = loadImages(fileList[i],fileList[i+1],texmatLeft,texmatRight, radius,  height, length)
         if imageGroup : sw.addChild(imageGroup)
 
 
@@ -188,10 +199,9 @@ def createScene(fileList, texmatLeft, texmatRight, radius, height, length):
         # select first child.
         sw.setSingleChildOn(0)
 
-    sw = return()
+    return sw
 
-class SlideEventHandler : public osgGA.GUIEventHandler
-public:
+class SlideEventHandler (osgGA.GUIEventHandler) :
 
     SlideEventHandler()
 
@@ -203,7 +213,7 @@ public:
     set = void(FileList fileList, osg.Switch* sw, float offsetX, float offsetY, osg.TexMat* texmatLeft, osg.TexMat* texmatRight, float radius, float height, float length, float timePerSlide, bool autoSteppingActive)
 
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
     virtual void getUsage(osg.ApplicationUsage usage) 
 
@@ -221,19 +231,17 @@ public:
 
     initTexMatrices = void()
 
-protected:
-
     ~SlideEventHandler() 
     SlideEventHandler( SlideEventHandler, osg.CopyOp) 
 
-    osg.ref_ptr<osg.Switch>   _switch
-    osg.ref_ptr<osg.TexMat>   _texmatLeft
-    osg.ref_ptr<osg.TexMat>   _texmatRight
+    _switch = osg.Switch()
+    _texmatLeft = osg.TexMat()
+    _texmatRight = osg.TexMat()
     _radius = float()
     _height = float()
     _length = float()
     _firstTraversal = bool()
-    unsigned int                _activeSlide
+    _activeSlide = unsigned int()
     _previousTime = double()
     _timePerSlide = double()
     _autoSteppingActive = bool()
@@ -249,11 +257,11 @@ SlideEventHandler.SlideEventHandler():
     _switch(0),
     _texmatLeft(0),
     _texmatRight(0),
-    _firstTraversal(true),
+    _firstTraversal(True),
     _activeSlide(0),
-    _previousTime(-1.0f),
+    _previousTime(-1.0),
     _timePerSlide(5.0),
-    _autoSteppingActive(false)
+    _autoSteppingActive(False)
 
 void SlideEventHandler.set(osg.Switch* sw, float offsetX, float offsetY, osg.TexMat* texmatLeft, osg.TexMat* texmatRight, float timePerSlide, bool autoSteppingActive)
     _switch = sw
@@ -279,7 +287,7 @@ void SlideEventHandler.set(FileList fileList, osg.Switch* sw, float offsetX, flo
     _switch.setUpdateCallback(this)
     _fileList=FileList(fileList)
 
-    osg.ref_ptr<osg.Group> imageGroup = loadImages(fileList[0],fileList[1],texmatLeft,texmatRight, radius,  height, length)
+    imageGroup = loadImages(fileList[0],fileList[1],texmatLeft,texmatRight, radius,  height, length)
     if imageGroup.get() :_switch.addChild(imageGroup.get())
 
     _texmatLeft = texmatLeft
@@ -307,52 +315,52 @@ bool SlideEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
             if ea.getKey()=='a' :
                 _autoSteppingActive = !_autoSteppingActive
                 _previousTime = ea.getTime()
-                true = return()
-            else: if ea.getKey()=='n' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_Right) :
+                return True
+            elif ea.getKey()=='n' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_Right) :
                 nextSlide()
-                true = return()
-            else: if ea.getKey()=='p' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_Left) :
+                return True
+            elif ea.getKey()=='p' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_Left) :
                 previousSlide()
-                true = return()
-            else: if ea.getKey()=='w' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Add) :
-                scaleImage(0.99f)
-                true = return()
-            else: if ea.getKey()=='s' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract) :
-                scaleImage(1.01f)
-                true = return()
-            else: if ea.getKey()=='j' :
-                offsetImage(-0.001f,0.0f)
-                true = return()
-            else: if ea.getKey()=='k' :
-                offsetImage(0.001f,0.0f)
-                true = return()
-            else: if ea.getKey()=='i' :
-                offsetImage(0.0f,-0.001f)
-                true = return()
-            else: if ea.getKey()=='m' :
-                offsetImage(0.0f,0.001f)
-                true = return()
-            else: if ea.getKey()==' ' :
+                return True
+            elif ea.getKey()=='w' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Add) :
+                scaleImage(0.99)
+                return True
+            elif ea.getKey()=='s' : || (ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract) :
+                scaleImage(1.01)
+                return True
+            elif ea.getKey()=='j' :
+                offsetImage(-0.001,0.0)
+                return True
+            elif ea.getKey()=='k' :
+                offsetImage(0.001,0.0)
+                return True
+            elif ea.getKey()=='i' :
+                offsetImage(0.0,-0.001)
+                return True
+            elif ea.getKey()=='m' :
+                offsetImage(0.0,0.001)
+                return True
+            elif ea.getKey()==' ' :
                 initTexMatrices()
-                true = return()
-            false = return()
+                return True
+            return False
         case(osgGA.GUIEventAdapter.DRAG):
         case(osgGA.GUIEventAdapter.MOVE):
             static float px = ea.getXnormalized()
             static float py = ea.getYnormalized()
 
-            dx =  ea.getXnormalized()-px
-            dy =  ea.getYnormalized()-py
+            dx = ea.getXnormalized()-px
+            dy = ea.getYnormalized()-py
 
             px = ea.getXnormalized()
             py = ea.getYnormalized()
 
             rotateImage(dx,dy)
 
-            true = return()
+            return True
 
         default:
-            false = return()
+            return False
 
 void SlideEventHandler.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("Space","Reset the image position to center")
@@ -368,12 +376,12 @@ void SlideEventHandler.getUsage(osg.ApplicationUsage usage)
 
 void SlideEventHandler.operator()(osg.Node* node, osg.NodeVisitor* nv)
     if _autoSteppingActive  nv.getFrameStamp() :
-        time =  nv.getFrameStamp().getSimulationTime()
+        time = nv.getFrameStamp().getSimulationTime()
 
         if _firstTraversal :
-            _firstTraversal = false
+            _firstTraversal = False
             _previousTime = time
-        else: if time-_previousTime>_timePerSlide :
+        elif time-_previousTime>_timePerSlide :
             _previousTime = time
 
             nextSlide()
@@ -389,10 +397,10 @@ void SlideEventHandler.nextSlide()
 
     if _fileList.size()>0 : 
         if _activeSlide>= _fileList.size()/2  : _activeSlide = 0
-        osg.ref_ptr<osg.Group> images = loadImages(_fileList[2*_activeSlide],_fileList[2*_activeSlide+1],_texmatLeft.get(),_texmatRight.get(),_radius,_height,_length)
+        images = loadImages(_fileList[2*_activeSlide],_fileList[2*_activeSlide+1],_texmatLeft.get(),_texmatRight.get(),_radius,_height,_length)
         if images.valid() : _switch.replaceChild(_switch.getChild(0),images.get())
 
-     else: 
+     else : 
         if _activeSlide>=_switch.getNumChildren() : _activeSlide = 0
 
         _switch.setSingleChildOn(_activeSlide)
@@ -402,38 +410,42 @@ void SlideEventHandler.previousSlide()
 
     if _fileList.size()>0 : 
         if _activeSlide==0 : _activeSlide = _fileList.size()/2-1
-        else: --_activeSlide
-        osg.ref_ptr<osg.Group> images = loadImages(_fileList[2*_activeSlide],_fileList[2*_activeSlide+1],_texmatLeft.get(),_texmatRight.get(),_radius,_height,_length)
+        else : --_activeSlide
+        images = loadImages(_fileList[2*_activeSlide],_fileList[2*_activeSlide+1],_texmatLeft.get(),_texmatRight.get(),_radius,_height,_length)
         if images.valid() : _switch.replaceChild(_switch.getChild(0),images.get())
-     else: 
+     else : 
         if _activeSlide==0 : _activeSlide = _switch.getNumChildren()-1
-        else: --_activeSlide
+        else : --_activeSlide
 
         _switch.setSingleChildOn(_activeSlide)
 
 void SlideEventHandler.scaleImage(float s)
-    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(-0.5f,-0.5f,0.0f)*osg.Matrix.scale(s,s,1.0f)*osg.Matrix.translate(0.5f,0.5f,0.0f))
-    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-0.5f,-0.5f,0.0f)*osg.Matrix.scale(s,s,1.0f)*osg.Matrix.translate(0.5f,0.5f,0.0f))
+    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(-0.5,-0.5,0.0)*osg.Matrix.scale(s,s,1.0)*osg.Matrix.translate(0.5,0.5,0.0))
+    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-0.5,-0.5,0.0)*osg.Matrix.scale(s,s,1.0)*osg.Matrix.translate(0.5,0.5,0.0))
 
 void SlideEventHandler.offsetImage(float ds,float dt)
     _currentSeperationX+=ds
     _currentSeperationY+=dt
     osg.notify(osg.NOTICE), "image offset x = ", _currentSeperationX, "  y =", _currentSeperationY
-    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(ds,dt,0.0f))
-    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-ds,-dt,0.0f))
+    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(ds,dt,0.0))
+    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-ds,-dt,0.0))
 
 void SlideEventHandler.rotateImage(float rx,float ry)
-    scale =  0.5f
-    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(-rx*scale,-ry*scale,0.0f))
-    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-rx*scale,-ry*scale,0.0f))
+    scale = 0.5
+    _texmatLeft.setMatrix(_texmatLeft.getMatrix()*osg.Matrix.translate(-rx*scale,-ry*scale,0.0))
+    _texmatRight.setMatrix(_texmatRight.getMatrix()*osg.Matrix.translate(-rx*scale,-ry*scale,0.0))
 
 void SlideEventHandler.initTexMatrices()
-    _texmatLeft.setMatrix(osg.Matrix.translate(_initSeperationX,_initSeperationY,0.0f))
-    _texmatRight.setMatrix(osg.Matrix.translate(-_initSeperationX,-_initSeperationY,0.0f))
+    _texmatLeft.setMatrix(osg.Matrix.translate(_initSeperationX,_initSeperationY,0.0))
+    _texmatRight.setMatrix(osg.Matrix.translate(-_initSeperationX,-_initSeperationY,0.0))
 
 
 
 def main(argc, argv):
+
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -457,24 +469,24 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # register the handler to add keyboard and mouse handling.
-    seh =  new SlideEventHandler()
+    seh = SlideEventHandler()
     viewer.addEventHandler(seh)
 
     # read any time delay argument.
-    timeDelayBetweenSlides =  5.0f
+    timeDelayBetweenSlides = 5.0
     while arguments.read("-d",timeDelayBetweenSlides) : 
 
-    autoSteppingActive =  false
-    while arguments.read("-a") : autoSteppingActive = true
+    autoSteppingActive = False
+    while arguments.read("-a") : autoSteppingActive = True
 
-    offsetX = 0.0f
+    offsetX = 0.0
     while arguments.read("-x",offsetX) : 
 
-    offsetY = 0.0f
+    offsetY = 0.0
     while arguments.read("-y",offsetY) : 
 
-    onDisk = false
-    while arguments.read("--disk") :  onDisk=true
+    onDisk = False
+    while arguments.read("--disk") :  onDisk=True
 
     filename = ""
     fileList = FileList()
@@ -492,7 +504,7 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    threading =  osgViewer.Viewer.SingleThreaded
+    threading = osgViewer.Viewer.SingleThreaded
     while arguments.read("--SingleThreaded") : threading = osgViewer.Viewer.SingleThreaded
     while arguments.read("--CullDrawThreadPerContext") : threading = osgViewer.Viewer.CullDrawThreadPerContext
     while arguments.read("--DrawThreadPerContext") : threading = osgViewer.Viewer.DrawThreadPerContext
@@ -515,7 +527,7 @@ def main(argc, argv):
     if fileList.empty() :
         fileList.push_back("Images/dog_left_eye.jpg")
          fileList.push_back("Images/dog_right_eye.jpg")
-    else: if fileList.size()<2 :
+    elif fileList.size()<2 :
         arguments.getApplicationUsage().write(std.cout,osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
 
@@ -524,18 +536,18 @@ def main(argc, argv):
     double fovy, aspectRatio, zNear, zFar
     viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio, zNear, zFar)
 
-    radius =  1.0f
-    height =  2*radius*tan(osg.DegreesToRadians(fovy)*0.5f)
-    length =  osg.PI*radius  # half a cylinder.
+    radius = 1.0
+    height = 2*radius*tan(osg.DegreesToRadians(fovy)*0.5)
+    length = osg.PI*radius  # half a cylinder.
 
     # use a texture matrix to control the placement of the image.
-    texmatLeft =  new osg.TexMat
-    texmatRight =  new osg.TexMat
+    texmatLeft = osg.TexMat()
+    texmatRight = osg.TexMat()
 
     # creat the scene from the file list.
-    osg.ref_ptr<osg.Switch> rootNode
+    rootNode = osg.Switch()
     if !onDisk :  rootNode = createScene(fileList,texmatLeft,texmatRight,radius,height,length)
-    rootNode = new osg.Switch()
+    rootNode = osg.Switch()
 
     #osgDB.writeNodeFile(*rootNode,"test.osgt")
 
@@ -546,7 +558,7 @@ def main(argc, argv):
     viewer.getCamera().setCullMaskRight(0x00000002)
 
     # set up the use of stereo by default.
-    osg.DisplaySettings.instance().setStereo(true)
+    osg.DisplaySettings.instance().setStereo(True)
 
     if osg.DisplaySettings.instance().getStereoMode()==osg.DisplaySettings.ANAGLYPHIC :
         rootNode.setStateSet(createColorToGreyscaleStateSet())
@@ -566,16 +578,16 @@ def main(argc, argv):
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
         itr != windows.end()
         ++itr)
-        (*itr).useCursor(false)
+        (*itr).useCursor(False)
 
     viewer.setFusionDistance(osgUtil.SceneView.USE_FUSION_DISTANCE_VALUE,radius)
 
     # set up the SlideEventHandler.
     if onDisk : seh.set(fileList,rootNode.get(),offsetX,offsetY,texmatLeft,texmatRight,radius,height,length,timeDelayBetweenSlides,autoSteppingActive)
-    else: seh.set(rootNode.get(),offsetX,offsetY,texmatLeft,texmatRight,timeDelayBetweenSlides,autoSteppingActive)
+    else : seh.set(rootNode.get(),offsetX,offsetY,texmatLeft,texmatRight,timeDelayBetweenSlides,autoSteppingActive)
 
     homePosition = osg.Matrix()
-    homePosition.makeLookAt(osg.Vec3(0.0f,0.0f,0.0f),osg.Vec3(0.0f,1.0f,0.0f),osg.Vec3(0.0f,0.0f,1.0f))
+    homePosition.makeLookAt(osg.Vec3(0.0,0.0,0.0),osg.Vec3(0.0,1.0,0.0),osg.Vec3(0.0,0.0,1.0))
 
     while  !viewer.done()  :
         viewer.getCamera().setViewMatrix(homePosition)

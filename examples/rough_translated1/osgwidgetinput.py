@@ -10,6 +10,9 @@ from osgpypp import osgDB
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
+
+# Translated from file 'osgwidgetinput.cpp'
+
 # -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 # $Id: osgwidgetinput.cpp 50 2008-05-06 05:06:36Z cubicool $
 
@@ -21,30 +24,32 @@ from osgpypp import osgWidget
 #include <osgWidget/Input>
 #include <osgWidget/ViewerEventHandlers>
 
- unsigned int MASK_2D = 0xF0000000
+MASK_2D = 0xF0000000
 
 def main(argc, argv):
+
+    
     viewer = osgViewer.Viewer()
 
-    wm =  new osgWidget.WindowManager(
+    wm = osgWidget.WindowManager(
         viewer,
-        1280.0f,
-        1024.0f,
+        1280.0,
+        1024.0,
         MASK_2D,
         osgWidget.WindowManager.WM_PICK_DEBUG
     )
     
-    box =  new osgWidget.Box("vbox", osgWidget.Box.VERTICAL)
-    input =  new osgWidget.Input("input", "", 50)
+    box = osgWidget.Box("vbox", osgWidget.Box.VERTICAL)
+    input = osgWidget.Input("input", "", 50)
 
     input.setFont("fonts/VeraMono.ttf")
-    input.setFontColor(0.0f, 0.0f, 0.0f, 1.0f)
+    input.setFontColor(0.0, 0.0, 0.0, 1.0)
     input.setFontSize(15)
     input.setYOffset(input.calculateBestYOffset("y"))
-    input.setSize(400.0f, input.getText().getCharacterHeight())
+    input.setSize(400.0, input.getText().getCharacterHeight())
 
     box.addWidget(input)
-    box.setOrigin(200.0f, 200.0f)
+    box.setOrigin(200.0, 200.0)
 
     wm.addChild(box)
 
@@ -55,13 +60,13 @@ def main(argc, argv):
         static_cast<int>(wm.getHeight())
     )
 
-    camera =  wm.createParentOrthoCamera()
+    camera = wm.createParentOrthoCamera()
 
-    viewer.addEventHandler(new osgWidget.MouseHandler(wm))
-    viewer.addEventHandler(new osgWidget.KeyboardHandler(wm))
-    viewer.addEventHandler(new osgWidget.ResizeHandler(wm, camera))
-    viewer.addEventHandler(new osgWidget.CameraSwitchHandler(wm, camera))
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler())
+    viewer.addEventHandler(osgWidget.MouseHandler(wm))
+    viewer.addEventHandler(osgWidget.KeyboardHandler(wm))
+    viewer.addEventHandler(osgWidget.ResizeHandler(wm, camera))
+    viewer.addEventHandler(osgWidget.CameraSwitchHandler(wm, camera))
+    viewer.addEventHandler(osgViewer.WindowSizeHandler())
 
     wm.resizeAllWindows()
 

@@ -10,25 +10,28 @@ from osgpypp import OpenThreads
 from osgpypp import osg
 from osgpypp import osgDB
 
-# -*-c++-*-
-*
-*  OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'FileNameUtils.cpp'
+
+# -*-c++-*-
+#*
+#*  OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Notify>
 #include <osg/ArgumentParser>
@@ -62,7 +65,7 @@ typedef std.list<str> Strings
     for(Strings.iterator itr = strings.begin()
         itr != strings.end()
         ++itr)
-        str =  *itr
+        str = *itr
         OSG_NOTICE, "string=", str
         OSG_NOTICE, "\n\tosgDB.getFilePath(str)=", osgDB.getFilePath(str)
         OSG_NOTICE, "\n\tosgDB.getSimpleFileName(str)=", osgDB.getSimpleFileName(str)
@@ -72,23 +75,26 @@ typedef std.list<str> Strings
         OSG_NOTICE, "\n\tosgDB.getNameLessExtension(str)=", osgDB.getNameLessExtension(str)
         OSG_NOTICE, "\n\tosgDB.getNameLessAllExtensions(str)=", osgDB.getNameLessAllExtensions(str)
         OSG_NOTICE
-# OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'MultiThreadRead.cpp'
+
+# OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Referenced>
 #include <osgDB/ReadFile>
@@ -103,23 +109,29 @@ struct RefBarrier : public osg.Referenced, public OpenThreads.Barrier
 
 
 class ReadThread : public osg.Referenced, public OpenThreads.Thread
-public:
 
     ReadThread():
-        _done(false)
+        _done(False)
     
     virtual ~ReadThread()
-        _done = true
+        _done = True
         
         while isRunning() : OpenThreads.Thread.YieldCurrentThread()
     
     def addFileName(filename):
+    
+        
         _fileNames.push_back(filename)
     
-    void setStartBarrier(RefBarrier* barrier)  _startBarrier = barrier 
-    void setEndBarrier(RefBarrier* barrier)  _endBarrier = barrier 
+    def setStartBarrier(barrier):
+    
+         _startBarrier = barrier 
+    def setEndBarrier(barrier):
+         _endBarrier = barrier 
 
-    virtual void run()
+    def run():
+
+        
         if _startBarrier.valid() : 
 #if VERBOSE                
             print "Waiting on start block ", this
@@ -133,16 +145,16 @@ public:
         do
             if !_fileNames.empty() :
                 # take front filename
-                filename =  _fileNames.front()
+                filename = _fileNames.front()
                 _fileNames.erase(_fileNames.begin())
 
 #if VERBOSE                
                 print "Reading ", filename
 #endif
-                osg.ref_ptr<osg.Node> node = osgDB.readNodeFile(filename)
+                node = osgDB.readNodeFile(filename)
 #if VERBOSE                
                 if node.valid() : print "..  OK"
-                else: print "..  FAILED"
+                else : print "..  FAILED"
 #endif
             
          while !testCancel()  !_fileNames.empty()  !_done :
@@ -160,40 +172,49 @@ public:
     typedef std.list<str> FileNames
     _fileNames = FileNames()
     _done = bool()
-    osg.ref_ptr<RefBarrier>    _startBarrier
-    osg.ref_ptr<RefBarrier>    _endBarrier
+    _startBarrier = RefBarrier()
+    _endBarrier = RefBarrier()
 
 
 
 
-class SerializerReadFileCallback : public osgDB.Registry.ReadFileCallback
-public:
+class SerializerReadFileCallback (osgDB.Registry.ReadFileCallback) :
 
-    virtual osgDB.ReaderWriter.ReadResult openArchive( str filename,osgDB.ReaderWriter.ArchiveStatus status, unsigned int indexBlockSizeHint,  osgDB.ReaderWriter.Options* useObjectCache)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+    def openArchive(filename, status, indexBlockSizeHint, useObjectCache):
+
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         return osgDB.Registry.instance().openArchiveImplementation(filename, status, indexBlockSizeHint, useObjectCache)
 
-    virtual osgDB.ReaderWriter.ReadResult readObject( str filename,  osgDB.ReaderWriter.Options* options)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+    def readObject(filename, options):
+
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         return osgDB.Registry.instance().readObjectImplementation(filename,options)
 
-    virtual osgDB.ReaderWriter.ReadResult readImage( str filename,  osgDB.ReaderWriter.Options* options)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+    def readImage(filename, options):
+
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         return osgDB.Registry.instance().readImageImplementation(filename,options)
 
-    virtual osgDB.ReaderWriter.ReadResult readHeightField( str filename,  osgDB.ReaderWriter.Options* options)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+    def readHeightField(filename, options):
+
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         return osgDB.Registry.instance().readHeightFieldImplementation(filename,options)
 
-    virtual osgDB.ReaderWriter.ReadResult readNode( str filename,  osgDB.ReaderWriter.Options* options)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
+    def readNode(filename, options):
+
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         return osgDB.Registry.instance().readNodeImplementation(filename,options)
 
-    virtual osgDB.ReaderWriter.ReadResult readShader( str filename,  osgDB.ReaderWriter.Options* options)
-        OpenThreads.ScopedLock<OpenThreads.Mutex> lock(_mutex)
-        return osgDB.Registry.instance().readShaderImplementation(filename,options)
+    def readShader(filename, options):
 
-protected:
+        
+        lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
+        return osgDB.Registry.instance().readShaderImplementation(filename,options)
        virtual ~SerializerReadFileCallback() 
        
        _mutex = OpenThreads.Mutex()
@@ -202,6 +223,10 @@ protected:
 
 
 def runMultiThreadReadTests(numThreads, arguments):
+
+
+
+    
 #if VERBOSE                
     osg.notify(osg.NOTICE), "runMultiThreadReadTests() -- running"
 #endif
@@ -214,16 +239,16 @@ def runMultiThreadReadTests(numThreads, arguments):
         osgDB.Registry.instance().loadLibrary(osgDB.Registry.instance().createLibraryNameForExtension("ive"))
 
     if arguments.read("serialize") :
-        osgDB.Registry.instance().setReadFileCallback(new SerializerReadFileCallback())
+        osgDB.Registry.instance().setReadFileCallback(SerializerReadFileCallback())
 
-    osg.ref_ptr<RefBarrier> startBarrier = new RefBarrier(numThreads+1)
-    osg.ref_ptr<RefBarrier> endBarrier = new RefBarrier(numThreads+1)
+    startBarrier = RefBarrier(numThreads+1)
+    endBarrier = RefBarrier(numThreads+1)
 
-    typedef std.list< osg.ref_ptr<ReadThread> > ReadThreads
+    typedef std.list< ReadThread > ReadThreads
     readThreads = ReadThreads()
 
     for(int i=0 i<numThreads ++i)
-        osg.ref_ptr<ReadThread> readThread = new ReadThread
+        readThread = ReadThread()
 
         readThread.setProcessorAffinity(numThreads % 4)
 
@@ -245,25 +270,28 @@ def runMultiThreadReadTests(numThreads, arguments):
 #if VERBOSE                
     osg.notify(osg.NOTICE), "runMultiThreadReadTests() -- completed."
 #endif
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'MultiThreadRead.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef MULTITHREADEDREAD_H
 #define MULTITHREADEDREAD_H 1
@@ -273,23 +301,26 @@ def runMultiThreadReadTests(numThreads, arguments):
 extern void runMultiThreadReadTests(int numThreads, osg.ArgumentParser arguments)
 
 #endif
-# OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgunittests.cpp'
+
+# OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/ArgumentParser>
 #include <osg/ApplicationUsage>
@@ -311,6 +342,8 @@ extern void runMultiThreadReadTests(int numThreads, osg.ArgumentParser arguments
 extern void runFileNameUtilsTest(osg.ArgumentParser arguments)
 
 def testFrustum(left, right, bottom, top, zNear, zFar):
+
+    
     f = osg.Matrix()
     f.makeFrustum(left,right,bottom,top,zNear,zFar)
 
@@ -335,6 +368,8 @@ def testFrustum(left, right, bottom, top, zNear, zFar):
     print std.endl
 
 def testOrtho(left, right, bottom, top, zNear, zFar):
+
+    
     f = osg.Matrix()
     f.makeOrtho(left,right,bottom,top,zNear,zFar)
 
@@ -358,6 +393,8 @@ def testOrtho(left, right, bottom, top, zNear, zFar):
     print std.endl
 
 def testPerspective(fovy, aspect, zNear, zFar):
+
+    
     f = osg.Matrix()
     f.makePerspective(fovy,aspect,zNear,zFar)
 
@@ -376,6 +413,8 @@ def testPerspective(fovy, aspect, zNear, zFar):
     print std.endl
 
 def testLookAt(eye, center, up):
+
+    
     mv = osg.Matrix()
     mv.makeLookAt(eye,center,up)
     
@@ -392,6 +431,9 @@ def testLookAt(eye, center, up):
 
 
 def testMatrixInvert(matrix):
+
+
+    
     #Invert it twice using the two inversion functions and view the results
     osg.notify(osg.NOTICE), "testMatrixInvert("
     osg.notify(osg.NOTICE), matrix
@@ -401,12 +443,14 @@ def testMatrixInvert(matrix):
     invM1_0.invert(matrix)
     osg.notify(osg.NOTICE), "Matrix.invert"
     osg.notify(osg.NOTICE), invM1_0
-    default_result =  matrix*invM1_0
+    default_result = matrix*invM1_0
     osg.notify(osg.NOTICE), "matrix * invert="
     osg.notify(osg.NOTICE), default_result
 
 
 def sizeOfTest():
+
+    
   print "sizeof(bool)==", sizeof(bool)
   print "sizeof(char)==", sizeof(char)
   print "sizeof(short)==", sizeof(short)
@@ -418,7 +462,7 @@ def sizeOfTest():
 #if defined(_MSC_VER)
   # long long isn't supported on VS6.0...
   print "sizeof(__int64)==", sizeof(__int64)
-#else:
+#else :
   print "sizeof(long long)==", sizeof(long long)
 #endif
   print "sizeof(float)==", sizeof(float)
@@ -438,6 +482,8 @@ def sizeOfTest():
 #/  (mat(q1)*mat(q2)*scale).getRotate()
 #/ for a range of rotations
 def testGetQuatFromMatrix(scale):
+    
+    
     # Options
     
     # acceptable error range
@@ -452,54 +498,54 @@ def testGetQuatFromMatrix(scale):
     # range of rotations
 #if 1
     # wide range
-    rol1start =  0.0
-    rol1stop =  360.0
-    rol1step =  20.0
+    rol1start = 0.0
+    rol1stop = 360.0
+    rol1step = 20.0
 
-    pit1start =  0.0
-    pit1stop =  90.0
-    pit1step =  20.0
+    pit1start = 0.0
+    pit1stop = 90.0
+    pit1step = 20.0
 
-    yaw1start =  0.0
-    yaw1stop =  360.0
-    yaw1step =  20.0
+    yaw1start = 0.0
+    yaw1stop = 360.0
+    yaw1step = 20.0
 
-    rol2start =  0.0
-    rol2stop =  360.0
-    rol2step =  20.0
+    rol2start = 0.0
+    rol2stop = 360.0
+    rol2step = 20.0
 
-    pit2start =  0.0
-    pit2stop =  90.0
-    pit2step =  20.0
+    pit2start = 0.0
+    pit2stop = 90.0
+    pit2step = 20.0
 
-    yaw2start =  0.0
-    yaw2stop =  360.0
-    yaw2step =  20.0
-#else:
+    yaw2start = 0.0
+    yaw2stop = 360.0
+    yaw2step = 20.0
+#else :
     # focussed range
-    rol1start =  0.0
-    rol1stop =  0.0
-    rol1step =  0.1
+    rol1start = 0.0
+    rol1stop = 0.0
+    rol1step = 0.1
 
-    pit1start =  0.0
-    pit1stop =  5.0
-    pit1step =  5.0
+    pit1start = 0.0
+    pit1stop = 5.0
+    pit1step = 5.0
 
-    yaw1start =  89.0
-    yaw1stop =  91.0
-    yaw1step =  0.1
+    yaw1start = 89.0
+    yaw1stop = 91.0
+    yaw1step = 0.1
 
-    rol2start =  0.0
-    rol2stop =  0.0
-    rol2step =  0.1
+    rol2start = 0.0
+    rol2stop = 0.0
+    rol2step = 0.1
 
-    pit2start =  0.0
-    pit2stop =  0.0
-    pit2step =  0.1
+    pit2start = 0.0
+    pit2stop = 0.0
+    pit2step = 0.1
 
-    yaw2start =  89.0
-    yaw2stop =  91.0
-    yaw2step =  0.1
+    yaw2start = 89.0
+    yaw2stop = 91.0
+    yaw2step = 0.1
 #endif
 
     print std.endl, "Starting testGetQuatFromMatrix, it can take a while ..."
@@ -515,13 +561,11 @@ def testGetQuatFromMatrix(scale):
                         for (double yaw2 = yaw2start yaw2 <= yaw2stop yaw2 += yaw2step)
                             count++
                             # create two quats based on the roll, pitch and yaw values
-                            rot_quat1 = 
-                            osg.Quat(osg.DegreesToRadians(rol1),osg.Vec3d(1,0,0),
+                            rot_quat1 = osg.Quat(osg.DegreesToRadians(rol1),osg.Vec3d(1,0,0),
                                   osg.DegreesToRadians(pit1),osg.Vec3d(0,1,0),
                                   osg.DegreesToRadians(yaw1),osg.Vec3d(0,0,1))
 
-                            rot_quat2 = 
-                            osg.Quat(osg.DegreesToRadians(rol2),osg.Vec3d(1,0,0),
+                            rot_quat2 = osg.Quat(osg.DegreesToRadians(rol2),osg.Vec3d(1,0,0),
                                   osg.DegreesToRadians(pit2),osg.Vec3d(0,1,0),
                                   osg.DegreesToRadians(yaw2),osg.Vec3d(0,0,1))
 
@@ -554,12 +598,12 @@ def testGetQuatFromMatrix(scale):
                             # or if the components do not match,
                             # something is amiss
 
-                            componentsOK =  false
+                            componentsOK = False
                             if ( ((fabs(out_quat1.x()-out_quat2.x())) < eps) 
                                  ((fabs(out_quat1.y()-out_quat2.y())) < eps) 
                                  ((fabs(out_quat1.z()-out_quat2.z())) < eps) 
                                  ((fabs(out_quat1.w()-out_quat2.w())) < eps) )
-                                componentsOK = true
+                                componentsOK = True
                             # We should also test for q = -q which is valid, so reflect
                             # one quat.
                             out_quat2 = out_quat2 * -1.0
@@ -567,21 +611,23 @@ def testGetQuatFromMatrix(scale):
                                  ((fabs(out_quat1.y()-out_quat2.y())) < eps) 
                                  ((fabs(out_quat1.z()-out_quat2.z())) < eps) 
                                  ((fabs(out_quat1.w()-out_quat2.w())) < eps) )
-                                componentsOK = true
+                                componentsOK = True
 
-                            lengthOK =  false
+                            lengthOK = False
                             if fabs(1.0-out_quat2.length()) < eps :
-                                lengthOK = true
+                                lengthOK = True
 
                             if !lengthOK || !componentsOK :
                                 print "testGetQuatFromMatrix problem at: \n", " r1=", rol1, " p1=", pit1, " y1=", yaw1, " r2=", rol2, " p2=", pit2, " y2=", yaw2, "\n"
                                 print "quats:        ", out_quat1, " length: ", out_quat1.length(), "\n"
                                 print "mats and get: ", out_quat2, " length: ", out_quat2.length(), "\n\n"
     tstop = osg.Timer.instance().tick()
-    duration =  osg.Timer.instance().delta_s(tstart,tstop)
+    duration = osg.Timer.instance().delta_s(tstart,tstop)
     print "Time for testGetQuatFromMatrix with ", count, " iterations: ", duration
 
 def testQuatRotate(from, to):
+
+    
     q_nicolas = osg.Quat()
     q_nicolas.makeRotate(from,to)
     
@@ -595,20 +641,22 @@ def testQuatRotate(from, to):
     print "  from * M4x4(q_original) = ", from * osg.Matrixd.rotate(q_original)
 
 def testQuat(quat_scale):
+
+    
     q1 = osg.Quat()
-    q1.makeRotate(osg.DegreesToRadians(30.0),0.0f,0.0f,1.0f)
+    q1.makeRotate(osg.DegreesToRadians(30.0),0.0,0.0,1.0)
 
     q2 = osg.Quat()
-    q2.makeRotate(osg.DegreesToRadians(133.0),0.0f,1.0f,1.0f)
+    q2.makeRotate(osg.DegreesToRadians(133.0),0.0,1.0,1.0)
 
-    q1_2 =  q1*q2
-    q2_1 =  q2*q1
+    q1_2 = q1*q2
+    q2_1 = q2*q1
 
-    m1 =  osg.Matrix.rotate(q1)
-    m2 =  osg.Matrix.rotate(q2)
+    m1 = osg.Matrix.rotate(q1)
+    m2 = osg.Matrix.rotate(q2)
     
-    m1_2 =  m1*m2
-    m2_1 =  m2*m1
+    m1_2 = m1*m2
+    m2_1 = m2*m1
     
     qm1_2 = osg.Quat()
     qm1_2.set(m1_2)
@@ -649,16 +697,18 @@ def testQuat(quat_scale):
     osg.notify(osg.NOTICE), "Matrix = ", matrix, "rotation = ", quat, ", expected quat = (0,0,0,1)"
 
 def testDecompose():
-    angx =  osg.DegreesToRadians(30.0)
-    angy =  osg.DegreesToRadians(30.0)
-    angz =  osg.DegreesToRadians(30.0)
+
+    
+    angx = osg.DegreesToRadians(30.0)
+    angy = osg.DegreesToRadians(30.0)
+    angz = osg.DegreesToRadians(30.0)
 
     osg.Quat qx, qy, qz
-    qx.makeRotate(angx, osg.Vec3f (1.0f, 0.0f, 0.0f))
-    qy.makeRotate(angy, osg.Vec3f (0.0f, 1.0f, 0.0f))
-    qz.makeRotate(angz, osg.Vec3f (0.0f, 0.0f, 1.0f))
+    qx.makeRotate(angx, osg.Vec3f (1.0, 0.0, 0.0))
+    qy.makeRotate(angy, osg.Vec3f (0.0, 1.0, 0.0))
+    qz.makeRotate(angz, osg.Vec3f (0.0, 0.0, 1.0))
 
-    rotation =  qx * qy * qz
+    rotation = qx * qy * qz
 
     matf = osg.Matrixf()
     matf.makeRotate(rotation)
@@ -692,34 +742,32 @@ def testDecompose():
 
     osg.notify(osg.NOTICE)
 
-class MyThread : public OpenThreads.Thread 
-public:
+class MyThread (OpenThreads.Thread) :
     void run(void)  
 
 
-class NotifyThread : public OpenThreads.Thread 
-public:
+class NotifyThread (OpenThreads.Thread) :
 
     NotifyThread(osg.NotifySeverity level,  str message):
-    _done(false),
+    _done(False),
     _level(level),
     _message(message) 
 
     ~NotifyThread()
-        _done = true
+        _done = True
         while isRunning() :
             OpenThreads.Thread.YieldCurrentThread()
 
     void run(void)
         print "Entering thread ...", _message
 
-        unsigned int count=0
+        count = 0
 
         while !_done : 
             ++count
 #if 1
             osg.notify(_level), _message, this, "\n"
-#else:
+#else :
             osg.notify(_level), _message, this
 #endif
 
@@ -732,6 +780,8 @@ public:
 
 
 def testThreadInitAndExit():
+
+    
     print "******   Running thread start and delete test   ****** "
 
         thread = MyThread()
@@ -760,17 +810,22 @@ def testThreadInitAndExit():
     print "pass    noitfy thread test."
 
 def testPolytope():
+
+    
     pt = osg.Polytope()
     pt.setToBoundingBox(osg.BoundingBox(-1000, -1000, -1000, 1000, 1000, 1000))
-    bContains =  pt.contains(osg.Vec3(0, 0, 0))
+    bContains = pt.contains(osg.Vec3(0, 0, 0))
     if bContains :
         print "Polytope pt.contains(osg.Vec3(0, 0, 0)) has succeeded."
-    else:
+    else :
         print "Polytope pt.contains(osg.Vec3(0, 0, 0)) has failed."
 
 
 
 def main(argc, argv):
+
+
+    
     arguments = osg.ArgumentParser(argc,argv)
 
     # set up the usage document, in case we need to print out how to use this program.
@@ -790,35 +845,35 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout,osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
 
-    printQualifiedTest =  false 
-    while arguments.read("qt") : printQualifiedTest = true 
+    printQualifiedTest = False 
+    while arguments.read("qt") : printQualifiedTest = True 
 
-    printMatrixTest =  false 
-    while arguments.read("matrix") : printMatrixTest = true 
+    printMatrixTest = False 
+    while arguments.read("matrix") : printMatrixTest = True 
 
-    printSizeOfTest =  false 
-    while arguments.read("sizeof") : printSizeOfTest = true
+    printSizeOfTest = False 
+    while arguments.read("sizeof") : printSizeOfTest = True
 
-    printFileNameUtilsTests =  false
-    while arguments.read("filenames") : printFileNameUtilsTests = true
+    printFileNameUtilsTests = False
+    while arguments.read("filenames") : printFileNameUtilsTests = True
 
-    printQuatTest =  false 
-    while arguments.read("quat") : printQuatTest = true
+    printQuatTest = False 
+    while arguments.read("quat") : printQuatTest = True
 
-    numReadThreads =  0 
+    numReadThreads = 0 
     while arguments.read("read-threads", numReadThreads) : 
 
-    printPolytopeTest =  false 
-    while arguments.read("polytope") : printPolytopeTest = true
+    printPolytopeTest = False 
+    while arguments.read("polytope") : printPolytopeTest = True
     
-    doTestThreadInitAndExit =  false
-    while arguments.read("thread") : doTestThreadInitAndExit = true
+    doTestThreadInitAndExit = False
+    while arguments.read("thread") : doTestThreadInitAndExit = True
 
     quat_scale = osg.Vec3d(1.0,1.0,1.0) 
-    while arguments.read("quat_scaled", quat_scale.x(), quat_scale.y(), quat_scale.z() ) : printQuatTest = true 
+    while arguments.read("quat_scaled", quat_scale.x(), quat_scale.y(), quat_scale.z() ) : printQuatTest = True 
 
-    performanceTest =  false 
-    while arguments.read("p") || arguments.read("performance") : performanceTest = true 
+    performanceTest = False 
+    while arguments.read("p") || arguments.read("performance") : performanceTest = True 
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
@@ -911,23 +966,26 @@ def main(argc, argv):
     osgUtx.TestGraph.instance().root().accept( runner )
 
     return 0
-# OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'performance.cpp'
+
+# OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "performance.h"
 
@@ -939,20 +997,21 @@ def main(argc, argv):
 #include <osg/MatrixTransform>
 #include <osg/Group>
 
-struct Benchmark
-
-    Benchmark()
+class Benchmark :
+Benchmark()
         calibrate()
     
         _beginTick = _timer.tick()
         _endTick = _timer.tick()
     
-    void calibrate(unsigned int numLoops = 100000)
-        beginTick =  _timer.tick()
+    def calibrate(numLoops):
+    
+        
+        beginTick = _timer.tick()
         for(unsigned int i=0i<numLoops++i)
             begin()
             end()
-        endTick =  _timer.tick()
+        endTick = _timer.tick()
         _averageDelay = _timer.delta_s(beginTick,endTick)/(double)numLoops
     
     inline void begin()
@@ -962,16 +1021,16 @@ struct Benchmark
         _endTick = _timer.tick()
 
     inline double time()
-        t =  _timer.delta_s(_beginTick,_endTick) - _averageDelay
+        t = _timer.delta_s(_beginTick,_endTick) - _averageDelay
         return t<0.0 ? 0.0 : t
 
     inline void output( char* str, double numIterations=1.0)
         print str, "\t"
-        s =  time()/numIterations
+        s = time()/numIterations
         if s>=1.0 : print s, " s"
-        else: if s>=0.001 : print s*1000.0, " ms (10 ^ -3)"
-        else: if s>=0.000001 : print s*1000000.0, " ns (10 ^ -6)"
-        else: print s*1000000000.0, " ps (10 ^ -9)"
+        elif s>=0.001 : print s*1000.0, " ms (10 ^ -3)"
+        elif s>=0.000001 : print s*1000000.0, " ns (10 ^ -6)"
+        else : print s*1000000000.0, " ps (10 ^ -9)"
 
     _timer = osg.Timer()
     _beginTick = osg.Timer_t()
@@ -986,10 +1045,11 @@ static int v = 0
 #define OPERATION  v=v+1 
 
 inline void inline_increment()  OPERATION 
-void function_increment()  OPERATION 
+def function_increment():
+     OPERATION 
 
 typedef void ( * IncrementProc) ()
-s_functionIncrement =  function_increment
+s_functionIncrement = function_increment
 inline void functionPointer_increment()  s_functionIncrement() 
 
 
@@ -998,42 +1058,48 @@ Method = struct()
 VirtualMethod = struct()
 VirtualMethod2 = struct()
 
-struct Visitor
-    virtual void apply(InlineMethod m)
-    virtual void apply(Method m)
-    virtual void apply(VirtualMethod m)
-    virtual void apply(VirtualMethod2 m)
+class Visitor :
+apply = virtual void(InlineMethod m)
+    apply = virtual void(Method m)
+    apply = virtual void(VirtualMethod m)
+    apply = virtual void(VirtualMethod2 m)
     virtual ~Visitor() 
 
 
 
-struct InlineMethod
-    void method()  OPERATION 
-    virtual void accept(Visitor visitor)  visitor.apply(*this) 
+class InlineMethod :
+def method():
+     OPERATION 
+    def accept(visitor):
+         visitor.apply(*this) 
     virtual ~InlineMethod() 
 
 
-struct Method
-    virtual void accept(Visitor visitor)  visitor.apply(*this) 
+class Method :
+def accept(visitor):
+     visitor.apply(*this) 
     method = void()
     virtual ~Method() 
 
 
 void Method.method()  OPERATION 
  
-struct VirtualMethod
-    virtual void accept(Visitor visitor)  visitor.apply(*this) 
-    virtual void method()
+class VirtualMethod :
+def accept(visitor):
+     visitor.apply(*this) 
+    method = virtual void()
     virtual ~VirtualMethod() 
 
 
 void VirtualMethod.method()  OPERATION 
 
-struct VirtualMethod2 : public VirtualMethod
-    VirtualMethod2()  
+class VirtualMethod2 (VirtualMethod) :
+VirtualMethod2()  
 
-    virtual void accept(Visitor visitor)  visitor.apply(*this) 
-    virtual void method()
+    def accept(visitor):
+
+         visitor.apply(*this) 
+    method = virtual void()
     virtual ~VirtualMethod2()  
     
     char a[100]
@@ -1046,16 +1112,19 @@ void Visitor.apply(VirtualMethod m)  m.method()
 void Visitor.apply(InlineMethod m)  m.method() 
 void Visitor.apply(VirtualMethod2 m)  m.method() 
 
-struct CustomVisitor
-    virtual void apply(InlineMethod m)  m.method() 
-    virtual void apply(Method m)  m.method() 
-    virtual void apply(VirtualMethod m)  m.method() 
-    virtual void apply(VirtualMethod2 m)  m.method() 
+class CustomVisitor :
+def apply(m):
+     m.method() 
+    def apply(m):
+         m.method() 
+    def apply(m):
+         m.method() 
+    def apply(m):
+         m.method() 
     virtual ~CustomVisitor() 
 
 
-class CustomNodeVisitor : public osg.NodeVisitor
-public:
+class CustomNodeVisitor (osg.NodeVisitor) :
     void apply(osg.Node)  
     void apply(osg.Group)  
     void apply(osg.Transform)  
@@ -1063,9 +1132,12 @@ public:
 
 
 def runPerformanceTests():
+
+
+    
     benchmark = Benchmark()
     
-    unsigned int iterations = 10000000
+    iterations = 10000000
 
     RUN(benchmark,  , iterations)
 
@@ -1095,7 +1167,7 @@ def runPerformanceTests():
     RUN(benchmark, m3.accept(visitor), iterations)
     RUN(benchmark, m4.accept(visitor), iterations)
 
-    vm4 =  m4
+    vm4 = m4
 
     RUN(benchmark, (dynamic_cast<VirtualMethod2*>(vm4)).method(), iterations)
     RUN(benchmark, (static_cast<VirtualMethod2*>(vm4)).method(), iterations)
@@ -1103,32 +1175,35 @@ def runPerformanceTests():
     RUN(benchmark,  VirtualMethod2 mm mm.method() , iterations)
 
 
-    osg.ref_ptr<osg.Group> group = new osg.Group
-    osg.ref_ptr<osg.MatrixTransform> mt = new osg.MatrixTransform
-    m =  mt.get()
+    group = osg.Group()
+    mt = osg.MatrixTransform()
+    m = mt.get()
     cnv = CustomNodeVisitor()
     RUN(benchmark,  osg.MatrixTransform* mtl = dynamic_cast<osg.MatrixTransform*>(m) if mtl : cnv.apply(*mtl) , 1000)
     RUN(benchmark,  m.accept(cnv) , 10000)
     
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'performance.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef PERFORMANCE_H
 #define PERFORMANCE_H 1
@@ -1136,23 +1211,26 @@ def runPerformanceTests():
 extern void runPerformanceTests()
 
 #endif
-# OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'UnitTestFramework.cpp'
+
+# OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "UnitTestFramework.h"
 
@@ -1181,7 +1259,7 @@ TestContext.TraceStream.TraceStream(std.ostream o, TraceLevel tl):
     _outputStreamPtr(o),
 #if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
     _nullStream("nul")
-#else:
+#else :
     _nullStream("/dev/null")
 #endif
 
@@ -1192,18 +1270,18 @@ void TestContext.TraceStream.setTraceLevel(TraceLevel tl)
     _traceLevel = tl
 
 TestContext.TraceLevel TestContext.TraceStream.getTraceLevel() 
-    _traceLevel = return()
+    return _traceLevel
 
 std.ostream TestContext.TraceStream.stream(TestContext.TraceLevel tl)
     if _traceLevel >= tl :
-        *_outputStreamPtr = return()
-    _nullStream = return()
+        return *_outputStreamPtr
+    return _nullStream
 
 #######################################
 
 TestGraph TestGraph.instance()
     static TestGraph instance_
-    instance_ = return()
+    return instance_
 
 TestSuite* TestGraph.root()
     return root_.get()
@@ -1211,10 +1289,10 @@ TestSuite* TestGraph.root()
 TestSuite* TestGraph.suite( str path, TestSuite* tsuite, bool createIfNecessary)
     using namespace std
 
-    list<string> pathComponents
+    pathComponents = list<string>()
 
-    it1 =  path.begin()
-    it2 =  it1
+    it1 = path.begin()
+    it2 = it1
 
     # Dissect the path into it's constituent components
     do
@@ -1248,7 +1326,7 @@ TestSuite* TestGraph.suite(
     ++it
     if it == end : return tsuite
 
-    child =  tsuite.findChild(*it)
+    child = tsuite.findChild(*it)
 
     if child :
 
@@ -1263,18 +1341,18 @@ TestSuite* TestGraph.suite(
         # Test already named 'xxx'. But we don't enforce uniqueness
         # the other way round, so we don't do it this way round
         # either. Carry on as normal, and create a TestSuite of
-        # the same name if createIfNecessary is true.
+        # the same name if createIfNecessary is True.
 
 
     if createIfNecessary :
 
-        childSuite =  new TestSuite(*it)
+        childSuite = TestSuite(*it)
         tsuite.add(childSuite)
         suite = return(it, end, childSuite, createIfNecessary)
 
     return 0
 
-TestGraph.TestGraph(): root_(new TestSuite("root"))
+TestGraph.TestGraph(): root_(TestSuite("root"))
 
 
 #######################################
@@ -1282,7 +1360,7 @@ TestGraph.TestGraph(): root_(new TestSuite("root"))
 bool TestQualifier.visitEnter( TestSuite* pSuite )
     _path.append( pSuite.name() )
     _path += SEPCHAR 
-    true = return()
+    return True
 
 # Leaving a composite: Pop its name from the Path
 bool TestQualifier.visitLeave( TestSuite* pSuite )
@@ -1290,11 +1368,11 @@ bool TestQualifier.visitLeave( TestSuite* pSuite )
 #                == _path.size() - pSuite.name().size()  - 1)
 
     _path.erase( _path.size() - pSuite.name().size() -1 )
-    true = return()
+    return True
 
 # Provide read-only access to the current qualifier
  str TestQualifier.currentPath() 
-    _path = return()
+    return _path
 
 #######################################
 
@@ -1335,8 +1413,8 @@ TestRecord.TestRecord( str name):
 
 std.ostream operator, (std.ostream o, TestRecord tr)
     if tr.result_ == TestRecord.Success :         o, "pass"
-    else: if tr.result_ == TestRecord.Failure :    o, "fail"
-    else:                                          o, "error"
+    elif tr.result_ == TestRecord.Failure :    o, "fail"
+    else :                                          o, "error"
 
     o, "\t", tr.name_
 
@@ -1349,7 +1427,7 @@ std.ostream operator, (std.ostream o, TestRecord tr)
     if tr.result_ != TestRecord.Success :
         o, '\t', tr.problem_
 
-    o = return()
+    return o
 
 #######################################
 
@@ -1366,18 +1444,15 @@ bool TestRunner.visitEnter( TestSuite* pSuite )
 
 namespace osgUtx
 
-struct isSpecified
-
-    pTestName_ =  str()
+class isSpecified :
+pTestName_ =  str()
 
     isSpecified( str s): pTestName_(s) 
 
     bool operator()( str specifiedTest)
         return pTestName_.find(specifiedTest) == 0
 
-protected:
-
-    operator =  ( isSpecified)  return *this 
+    operator = ( isSpecified)  return *this 
 
 
 
@@ -1394,7 +1469,7 @@ bool TestRunner.visitLeave( TestSuite* pSuite )
     return !_ctx.shouldStop()
 
 void TestRunner.perform( TestCase* pTest )
-    record =  _db.createRecord( currentPath() + pTest.name() )
+    record = _db.createRecord( currentPath() + pTest.name() )
 
     try
         record.start()
@@ -1431,7 +1506,7 @@ Test* TestSuite.findChild( str name)
 
 bool TestSuite.accept( Test.Visitor v )
     if  v.visitEnter( this )  :
-        end =  _tests.end()
+        end = _tests.end()
         for ( Tests.iterator at = _tests.begin() at != end ++at )
             if  !(*at).accept( v )  :
                 break
@@ -1442,30 +1517,33 @@ bool TestSuite.accept( Test.Visitor v )
 
 bool QualifiedTestPrinter.visit( TestCase* pTest )
     osg.notify(osg.NOTICE), currentPath() + pTest.name()
-    true = return()
+    return True
 
 #######################################
 
 
-# -*-c++-*- 
-*
-*  OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'UnitTestFramework.h'
+
+# -*-c++-*- 
+#*
+#*  OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifndef OSG_UNITTESTFRAMEWORK
 #define OSG_UNITTESTFRAMEWORK 1
@@ -1483,11 +1561,11 @@ bool QualifiedTestPrinter.visit( TestCase* pTest )
 #include <list>
 
 #*
-
-\namespace osgUtx
-
-The osgUtx is a unit test framework.
-
+#
+#\namespace osgUtx
+#
+#The osgUtx is a unit test framework.
+#
 
 namespace osgUtx
 
@@ -1495,23 +1573,22 @@ TestVisitor = class()
 
 
 #*
-Test, an abstract base class, is the Composite pattern's \em component
-class for our graph of test cases, and defines the basic interface
-for all Test components. It is a referent, and may be pointed
-to by an osg.ref_ptr.
-
-class Test: public osg.Referenced
-    public:
+#Test, an abstract base class, is the Composite pattern's \em component
+#class for our graph of test cases, and defines the basic interface
+#for all Test components. It is a referent, and may be pointed
+#to by an osg.ref_ptr.
+#
+class Test (osg.Referenced) :
 
     typedef TestVisitor Visitor    # Test is redundant
 
     Test(  str sName ) : _name( sName ) 
 
-     str name()   return _name 
+    def name():
+
+         return _name 
 
     virtual bool accept( Visitor ) = 0
-
-    protected:
 
         virtual ~Test() 
 
@@ -1520,19 +1597,21 @@ class Test: public osg.Referenced
 
 
 #*
-TestContext wraps up information which is passed to tests as they are run,
-and may contain test-specific information or 'global' test objects, such
-as an output stream for verbose output during the running of tests.
-
-\todo Improve the output stream code by providing a filtering stream.
-
-class TestContext
-public:
+#TestContext wraps up information which is passed to tests as they are run,
+#and may contain test-specific information or 'global' test objects, such
+#as an output stream for verbose output during the running of tests.
+#
+#\todo Improve the output stream code by providing a filtering stream.
+#
+class TestContext :
 
     TestContext()
 
-    bool shouldStop()     return false 
-    bool isVerbose()     return true 
+    def shouldStop():
+
+         return False 
+    def isVerbose():
+         return True 
 
     enum TraceLevel
         Off,        #/< All tracing turned off
@@ -1545,16 +1624,12 @@ public:
 
     std.ostream tout(TraceLevel tl=Full) 
 
-private:
-
     TestContext( TestContext)
     operator = ( TestContext)
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
-    class TraceStream
-
-    public:
+    class TraceStream :
         TraceStream(std.ostream o=osg.notify(osg.NOTICE), TraceLevel tl=Results)
         ~TraceStream()
 
@@ -1562,8 +1637,6 @@ private:
         TraceLevel getTraceLevel() 
 
         stream = std.ostream(TraceLevel tl)
-
-    private:
 
         _traceLevel = TraceLevel()
         _outputStreamPtr = std.ostream*()
@@ -1581,22 +1654,19 @@ TestSuite = class()
 TestCase = class()
 
 #*
-Visits while maintaining the current hierarchical context. Also allows
-the traversal to be short-circuited at any point during the visitation.
-
-class TestVisitor
-    public:
+#Visits while maintaining the current hierarchical context. Also allows
+#the traversal to be short-circuited at any point during the visitation.
+#
+class TestVisitor :
 
     #..Should we enter this node and its children?
-    virtual bool visitEnter( TestSuite* )  return true 
+    virtual bool visitEnter( TestSuite* )  return True 
 
-    #..Returns true to continue to next Leaf
+    #..Returns True to continue to next Leaf
     virtual bool visit( TestCase* ) = 0
 
-    #..Returns true to continue to next Composite
-    virtual bool visitLeave( TestSuite* )  return true 
-        
-    protected:
+    #..Returns True to continue to next Composite
+    virtual bool visitLeave( TestSuite* )  return True 
 
     TestVisitor() 
     TestVisitor(  TestVisitor ) 
@@ -1604,73 +1674,67 @@ class TestVisitor
 
 
 #*
-TestCase, supplies the interface for a Composite pattern's
-\em leaf class, though it is not a leaf in itself.
-
-class TestCase : public Test
-    public:
+#TestCase, supplies the interface for a Composite pattern's
+#\em leaf class, though it is not a leaf in itself.
+#
+class TestCase (Test) :
 
     typedef TestContext Context # Test in TestContext? is redundant
 
     TestCase(  str sName ) : Test( sName ) 
 
-    virtual bool accept( Visitor v )  return v.visit( this ) 
+    def accept(v):
+
+         return v.visit( this ) 
 
     virtual void run(  Context ) = 0  # Subclass OSGUTX_EXPORT Responsibility
-
-    protected:
 
         virtual ~TestCase() 
 
 
 #*
-Base class catchable for the exceptions which may be thrown to
-indicate problems during the run of a TestCase.
-
-class TestX
-    public:
+#Base class catchable for the exceptions which may be thrown to
+#indicate problems during the run of a TestCase.
+#
+class TestX :
 
     TestX( str s):_what(s)    
     virtual ~TestX() 
 
-     str what()   return _what 
+    def what():
 
-    private:
+         return _what 
     _what = str()
 
 
 #*
-A TestFailureX indicates a failure in the tested component.
-
-class TestFailureX: public TestX
-    public:
+#A TestFailureX indicates a failure in the tested component.
+#
+class TestFailureX (TestX) :
     TestFailureX( str s):TestX(s)    
 
 
 #*
-A TestErrorX indicates an error while testing a component,
-which prevents the test from being run. It does not indicate
-a problem with the component, but rather a problem during the
-run which prevents the component from being tested.
-
-class TestErrorX: public TestX
-    public:
+#A TestErrorX indicates an error while testing a component,
+#which prevents the test from being run. It does not indicate
+#a problem with the component, but rather a problem during the
+#run which prevents the component from being tested.
+#
+class TestErrorX (TestX) :
     TestErrorX( str s):TestX(s)    
 
 
 #*
-TestCase_ is a class template for a leaf TestCase, which allows TestFixture
-classes to be easily collected into the tree of tests, and have their public
-test methods called. It is worth noting that, for a given TestCase_, an
-instance of the test fixture class will be constructed prior to the
-test method being called, and destructed afterwards. This prevents 'leakage'
-of information from one test case to the next.
-
+#TestCase_ is a class template for a leaf TestCase, which allows TestFixture
+#classes to be easily collected into the tree of tests, and have their public
+#test methods called. It is worth noting that, for a given TestCase_, an
+#instance of the test fixture class will be constructed prior to the
+#test method being called, and destructed afterwards. This prevents 'leakage'
+#of information from one test case to the next.
+#
 template< typename FixtureT >
-class TestCase_ : public TestCase
-    typedef void (FixtureT.*TestMethodPtr)(  Context )
-
-    public:
+class TestCase_ (TestCase) :
+typedef void (FixtureT.*TestMethodPtr)(  Context )
 
     # Constructor adds the TestMethod pointer
     TestCase_(  str sName, TestMethodPtr pTestMethod ) :
@@ -1678,10 +1742,9 @@ class TestCase_ : public TestCase
             _pTestMethod( pTestMethod )
 
     # Create a TestFixture instance and invoke TestMethod?
-    virtual void run(  Context ctx )
+    def run(ctx):
+        
         ( FixtureT().*_pTestMethod )( ctx )
-
-    protected:
 
         virtual ~TestCase_() 
 
@@ -1689,11 +1752,10 @@ class TestCase_ : public TestCase
 
 
 #*
-A TestSuite is the \em composite component of the Composite pattern,
-and allows aggregation of Tests into hierarchies.
-
-class TestSuite : public Test
-    public:
+#A TestSuite is the \em composite component of the Composite pattern,
+#and allows aggregation of Tests into hierarchies.
+#
+class TestSuite (Test) :
 
     TestSuite(  str name )
 
@@ -1701,65 +1763,59 @@ class TestSuite : public Test
     add = void( Test* pTest )
 
     #*
-    @returns    The immediate child denoted by name, or 0 if not found.
-    
+#    @returns    The immediate child denoted by name, or 0 if not found.
+#    
     findChild = Test*( str name)
 
-    virtual bool accept( Test.Visitor v )
-
-    protected:
+    accept = virtual bool( Test.Visitor v )
 
         virtual ~TestSuite() 
 
-    typedef std.vector< osg.ref_ptr<Test> > Tests
+    typedef std.vector< Test > Tests
     _tests = Tests()  # Collection of Suites and/or Cases
 
 
 #*
-TestGraph is a singleton providing central access to the tree of tests
-primarily, it provides access to the root suite.
-
-class TestGraph
-
-    public:
+#TestGraph is a singleton providing central access to the tree of tests
+#primarily, it provides access to the root suite.
+#
+class TestGraph :
 
     static TestGraph instance()
 
     #*
-        @return a pointer to the root TestSuite.
-    
+#        @return a pointer to the root TestSuite.
+#    
     root = TestSuite*()
 
     #*
-        A utility function for accessing an arbitrary suite by pathname, relative to
-        the suite 'tsuite' (defaults to root if null), and with the option of creating
-        the \em TestSuite designated by \em path, if it does not already exist.
-
-        This method may return 0 if the suite either cannot be found (and createIfNecssary
-        is 0), or the first component of \em path is not the same as the name of the
-        TestSuite \em tsuite.
-
-        This was written to aid the auto-registration of tests at specific points in
-        the test tree, where the tests' AutoRegistrationAgents may be distributed across
-        several files, and cannot be guaranteed to run in a given order. E.g. You cannot
-        register a test "root.osg.MyTest" unless you know that the the suite "root.osg"
-        already exists.
-        
-
-        @param path                    The name of the TestSuite to return.
-        @param tsuite                The suite to 'start from'. Path is relative to this
-                                    suite (defaults to root suite).
-        @param createIfNecessary    Optionally create the TestSuite(s) denoted by path if
-                                    they do not exist.
-    
-    suite = TestSuite*( str path, TestSuite* tsuite = 0,bool createIfNecessary = false)
-
-    private:
+#        A utility function for accessing an arbitrary suite by pathname, relative to
+#        the suite 'tsuite' (defaults to root if null), and with the option of creating
+#        the \em TestSuite designated by \em path, if it does not already exist.
+#
+#        This method may return 0 if the suite either cannot be found (and createIfNecssary
+#        is 0), or the first component of \em path is not the same as the name of the
+#        TestSuite \em tsuite.
+#
+#        This was written to aid the auto-registration of tests at specific points in
+#        the test tree, where the tests' AutoRegistrationAgents may be distributed across
+#        several files, and cannot be guaranteed to run in a given order. E.g. You cannot
+#        register a test "root.osg.MyTest" unless you know that the the suite "root.osg"
+#        already exists.
+#        
+#
+#        @param path                    The name of the TestSuite to return.
+#        @param tsuite                The suite to 'start from'. Path is relative to this
+#                                    suite (defaults to root suite).
+#        @param createIfNecessary    Optionally create the TestSuite(s) denoted by path if
+#                                    they do not exist.
+#    
+    suite = TestSuite*( str path, TestSuite* tsuite = 0,bool createIfNecessary = False)
 
     #*
-        Does the same job as the version of suite listed above, but the path
-        is passed in as components in a list, represented by the iterator parameters.
-    
+#        Does the same job as the version of suite listed above, but the path
+#        is passed in as components in a list, represented by the iterator parameters.
+#    
     suite = TestSuite*(
         std.list<str>.iterator it,
         std.list<str>.iterator end,
@@ -1770,54 +1826,48 @@ class TestGraph
     TestGraph( TestGraph)
     operator = ( TestGraph)
 
-    osg.ref_ptr<TestSuite>    root_
+    root_ = TestSuite()
 
 
 
 
 #*
-Maintains a string that when accessed in the "visit" member, returns the
-current qualified TestSuite path.
-
-class TestQualifier : public TestVisitor
-    enum  SEPCHAR = '.' 
-
-    public:
+#Maintains a string that when accessed in the "visit" member, returns the
+#current qualified TestSuite path.
+#
+class TestQualifier (TestVisitor) :
+enum  SEPCHAR = '.' 
 
     # Entering a composite: Push its name on the Path
-    virtual bool visitEnter( TestSuite* pSuite )
+    visitEnter = virtual bool( TestSuite* pSuite )
 
     # Leaving a composite: Pop its name from the Path
-    virtual bool visitLeave( TestSuite* pSuite )
+    visitLeave = virtual bool( TestSuite* pSuite )
 
     # Provide read-only access to the current qualifier
      str currentPath() 
-
-    private:
 
     _path = str()    # Current qualifier
 
 
 #*
-QualifiedTestPrinter prints to standard output a list of fully
-qualified tests.
+#QualifiedTestPrinter prints to standard output a list of fully
+#qualified tests.
+#
+class QualifiedTestPrinter (TestQualifier) :
 
-class QualifiedTestPrinter : public TestQualifier
-public:
 
-
-    virtual bool visit( TestCase* pTest )
+    visit = virtual bool( TestCase* pTest )
 
 
 #*
-A TestRecord records the output of a given test case, i.e. its start/stop time,
-its result, and a textual description of any problems.
-
-\todo    Consider adding accessor methods if necessary, to get the details
-        stored in the TestRecord.
-
-class TestRecord
-    public:
+#A TestRecord records the output of a given test case, i.e. its start/stop time,
+#its result, and a textual description of any problems.
+#
+#\todo    Consider adding accessor methods if necessary, to get the details
+#        stored in the TestRecord.
+#
+class TestRecord :
     
         TestRecord() 
         
@@ -1829,7 +1879,7 @@ class TestRecord
             problem_(rhs.problem_)
         
         
-        operator =  ( TestRecord rhs)
+        operator = ( TestRecord rhs)
             if rhs==this : return *this
 
             name_ = rhs.name_
@@ -1838,7 +1888,7 @@ class TestRecord
             result_ = rhs.result_
             problem_ = rhs.problem_
 
-            *this = return()
+            return *this
 
         start = void()
         stop = void()
@@ -1848,8 +1898,6 @@ class TestRecord
         log = void( str s)
 
         # FIXME: Add accessors?
-
-    private:
 
         # Onlye a TestReport can create a TestRecord
         friend class TestReport
@@ -1872,21 +1920,20 @@ class TestRecord
 
 
 #*
-A TestReport represents the complete set of results (TestRecords) for a
-given test run.
-
-\todo    Add support for printing the test report in various formats:
-        e.g. text, XML, CSV
-
-class TestReport
-public:
+#A TestReport represents the complete set of results (TestRecords) for a
+#given test run.
+#
+#\todo    Add support for printing the test report in various formats:
+#        e.g. text, XML, CSV
+#
+class TestReport :
 
     def createRecord(s):
+
+        
         _records.push_back(TestRecord(s))
         return _records.back()
-
-private:
-    std.list<TestRecord>    _records
+    _records = std.list<TestRecord>()
 
 
 
@@ -1897,69 +1944,63 @@ private:
 
 
 #*
-A TestRunner is a visitor which will run specified tests as it traverses the
-test graph.
-
-\todo    Consider an accessor method to get at the TestReport if necessary.
-
-class TestRunner : public TestQualifier
-public:
+#A TestRunner is a visitor which will run specified tests as it traverses the
+#test graph.
+#
+#\todo    Consider an accessor method to get at the TestReport if necessary.
+#
+class TestRunner (TestQualifier) :
 
     TestRunner( TestContext ctx )
 
     #*
-        Tests may be specified by partial names. E.g. specifiying "root"
-        will run all tests below root, i.e. all tests.
-        Specifiying    "root.osg" will run all tests below \em root.osg.
-        Specifying "root.osg.de" will run all tests (and suites) below
-        \em root.osg with names beginning with the \em de.
-    
+#        Tests may be specified by partial names. E.g. specifiying "root"
+#        will run all tests below root, i.e. all tests.
+#        Specifiying    "root.osg" will run all tests below \em root.osg.
+#        Specifying "root.osg.de" will run all tests (and suites) below
+#        \em root.osg with names beginning with the \em de.
+#    
     specify = void(  str sQualifiedName )
 
     visitEnter = bool( TestSuite* pSuite )
     visit = bool( TestCase* pTest )
     visitLeave = bool( TestSuite* pSuite )
 
-
-protected:
-
     perform = void( TestCase* pTest )
 
-private:
-
-    operator =  ( TestRunner)  return *this 
+    operator = ( TestRunner)  return *this 
 
     _db = TestReport()            # Results
     _ctx = TestContext()            # The Global Testing Context
-    std.vector<str>    _tests          # Specified Tests
+    _tests = std.vector<str>()          # Specified Tests
 
 
 
 #*
-Starts a TestSuite singleton function
-@see OSGUTX_ADD_TESTCASE, OSGUTX_END_TESTSUITE
-
+#Starts a TestSuite singleton function
+#@see OSGUTX_ADD_TESTCASE, OSGUTX_END_TESTSUITE
+#
 #define OSGUTX_BEGIN_TESTSUITE( tsuite ) \
     osgUtx.TestSuite* tsuite##_TestSuite() \
      \
-        static osg.ref_ptr<osgUtx.TestSuite> s_suite = 0 \
+        static osgUtx.TestSuite s_suite = 0 \
         if  s_suite == 0  :  \
-            s_suite = new osgUtx.TestSuite( #tsuite )
+            s_suite = osgUtx.TestSuite( #tsuite )
 
 
 
 #*
-Adds a test case to a suite object being created in a TestSuite singleton function.
-@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_END_TESTSUITE
-
+#Adds a test case to a suite object being created in a TestSuite singleton function.
+#@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_END_TESTSUITE
+#
 #define OSGUTX_ADD_TESTCASE( tfixture, tmethod ) \
-            s_suite.add( new osgUtx.TestCase_<tfixture>(  \
+            s_suite.add( osgUtx.TestCase_<tfixture>(  \
                                 #tmethod, tfixture.tmethod ) )
 
 #*
-Ends a TestSuite singleton function
-@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_ADD_TESTCASE
-
+#Ends a TestSuite singleton function
+#@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_ADD_TESTCASE
+#
 #define OSGUTX_END_TESTSUITE \
          \
         return s_suite.get() \
@@ -1970,9 +2011,9 @@ Ends a TestSuite singleton function
 
 
 #*
-Adds a suite to a suite - allows composition of test suites.
-@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_END_TESTSUITE
-
+#Adds a suite to a suite - allows composition of test suites.
+#@see OSGUTX_BEGIN_TESTSUITE, OSGUTX_END_TESTSUITE
+#
 #define OSGUTX_ADD_TESTSUITE( childSuite ) \
     s_suite.add( childSuite##_TestSuite() )
 
@@ -1988,17 +2029,17 @@ Adds a suite to a suite - allows composition of test suites.
 namespace osgUtx
 
 #*
-A helper struct to perform automatic registration at program startup not for
-direct use, it should be used via the following macros. (It's a secret agent :-)
-
-@see OSGUTX_AUTOREGISTER_TESTSUITE, OSGUTX_AUTOREGISTER_TESTSUITE_AT
-
-struct TestSuiteAutoRegistrationAgent
-    TestSuiteAutoRegistrationAgent(TestSuite* tsuite,  char* path = 0)
+#A helper struct to perform automatic registration at program startup not for
+#direct use, it should be used via the following macros. (It's a secret agent :-)
+#
+#@see OSGUTX_AUTOREGISTER_TESTSUITE, OSGUTX_AUTOREGISTER_TESTSUITE_AT
+#
+class TestSuiteAutoRegistrationAgent :
+TestSuiteAutoRegistrationAgent(TestSuite* tsuite,  char* path = 0)
         if  ! path  : path = "root"
 
         # Find the suite named in 'path', create it if necessary
-        regSuite =  osgUtx.TestGraph.instance().suite( path, 0, true )
+        regSuite = osgUtx.TestGraph.instance().suite( path, 0, True )
 
         if !regSuite :
             osg.notify(osg.WARN), "Warning, unable to register test suite named \"", tsuite.name(), "\" at ", path, ", falling back to root suite."
@@ -2009,14 +2050,14 @@ struct TestSuiteAutoRegistrationAgent
 
 
 #*
-OSGUTX_TEST_F is a convenience macro, analogous to assert(), which will
-throw an osgUtx.TestFailureX if \em expr evaluates to false this should be
-used to test for failure in a given test, as opposed to an actual error
-in the test owing to some other reason than the tested code being faulty.
-
-The exception will indicate the file and line number of the failed expression,
-along with expression itself.
-
+#OSGUTX_TEST_F is a convenience macro, analogous to assert(), which will
+#throw an osgUtx.TestFailureX if \em expr evaluates to False this should be
+#used to test for failure in a given test, as opposed to an actual error
+#in the test owing to some other reason than the tested code being faulty.
+#
+#The exception will indicate the file and line number of the failed expression,
+#along with expression itself.
+#
 #define OSGUTX_TEST_F( expr ) \
     if  !(expr)  : \
         ss = strstream() \
@@ -2024,14 +2065,14 @@ along with expression itself.
         throw osgUtx.TestFailureX(ss.str()) \
 
 #*
-OSGUTX_TEST_E is a convenience macro, analogous to assert(), which will
-throw an osgUtx.TestErrorX if \em expr evaluates to false this should be
-used to test for an error in a given test, as opposed to a failure
-in the tested code.
-
-The exception will indicate the file and line number of the failed expression,
-along with expression itself.
-
+#OSGUTX_TEST_E is a convenience macro, analogous to assert(), which will
+#throw an osgUtx.TestErrorX if \em expr evaluates to False this should be
+#used to test for an error in a given test, as opposed to a failure
+#in the tested code.
+#
+#The exception will indicate the file and line number of the failed expression,
+#along with expression itself.
+#
 #define OSGUTX_TEST_E( expr ) \
     if  !(expr)  : \
         ss = strstream() \
@@ -2040,23 +2081,26 @@ along with expression itself.
 
 
 #endif # OSG_UNITTESTFRAMEWORK
-# OpenSceneGraph example, osgunittests.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'UnitTests_osg.cpp'
+
+# OpenSceneGraph example, osgunittests.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include "UnitTestFramework.h"
 
@@ -2073,8 +2117,7 @@ namespace osg
 # 
 #  Vec3 Tests
 #
-class Vec3TestFixture
-public:
+class Vec3TestFixture :
 
     Vec3TestFixture()
 
@@ -2083,17 +2126,15 @@ public:
     testScalarMultiplication = void( osgUtx.TestContext ctx)
     testDotProduct = void( osgUtx.TestContext ctx)
 
-private:
-
     # Some convenience variables for use in the tests
     Vec3 v1_, v2_, v3_
 
 
 
 Vec3TestFixture.Vec3TestFixture():
-    v1_(1.0f, 1.0f, 1.0f),
-    v2_(2.0f, 2.0f, 2.0f),
-    v3_(3.0f, 3.0f, 3.0f)
+    v1_(1.0, 1.0, 1.0),
+    v2_(2.0, 2.0, 2.0),
+    v3_(3.0, 3.0, 3.0)
 
 void Vec3TestFixture.testAddition( osgUtx.TestContext)
     OSGUTX_TEST_F( v1_ + v2_ == v3_ )
@@ -2120,8 +2161,7 @@ OSGUTX_AUTOREGISTER_TESTSUITE_AT(Vec3, root.osg)
 # 
 #  Matrix Tests
 #
-class MatrixTestFixture
-public:
+class MatrixTestFixture :
 
     MatrixTestFixture()
 
@@ -2131,8 +2171,6 @@ public:
     testPostMultScale = void( osgUtx.TestContext ctx)
     testPreMultRotate = void( osgUtx.TestContext ctx)
     testPostMultRotate = void( osgUtx.TestContext ctx)
-
-private:
 
     # Some convenience variables for use in the tests
     _md = Matrixd()

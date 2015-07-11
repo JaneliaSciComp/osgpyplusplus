@@ -11,11 +11,14 @@ from osgpypp import osgDB
 from osgpypp import osgFX
 from osgpypp import osgViewer
 
+
+# Translated from file 'osgoutline.cpp'
+
 # -*-c++-*-
 
 #
- * Draw an outline around a model.
- 
+# * Draw an outline around a model.
+# 
 
 #include <osg/Group>
 #include <osg/PositionAttitudeTransform>
@@ -27,26 +30,29 @@ from osgpypp import osgViewer
 
 
 def main(argc, argv):
+
+
+    
     arguments = osg.ArgumentParser(argc,argv)
     arguments.getApplicationUsage().setCommandLineUsage(arguments.getApplicationName()+" [options] <file>")
     arguments.getApplicationUsage().addCommandLineOption("--testOcclusion","Test occlusion by other objects")
     arguments.getApplicationUsage().addCommandLineOption("-h or --help","Display this information")
 
-    testOcclusion =  false
-    while arguments.read("--testOcclusion") :  testOcclusion = true 
+    testOcclusion = False
+    while arguments.read("--testOcclusion") :  testOcclusion = True 
 
     # load outlined object
-    modelFilename =  arguments.argc() > 1 ? arguments[1] : "dumptruck.osgt"
-    osg.ref_ptr<osg.Node> outlineModel = osgDB.readNodeFile(modelFilename)
+    modelFilename = arguments.argc() > 1 ? arguments[1] : "dumptruck.osgt"
+    outlineModel = osgDB.readNodeFile(modelFilename)
     if !outlineModel :
         osg.notify(osg.FATAL), "Unable to load model '", modelFilename, "'\n"
         return -1
 
     # create scene
-    osg.ref_ptr<osg.Group> root = new osg.Group
+    root = osg.Group()
 
         # create outline effect
-        osg.ref_ptr<osgFX.Outline> outline = new osgFX.Outline
+        outline = osgFX.Outline()
         root.addChild(outline.get())
 
         outline.setWidth(8)
@@ -55,24 +61,24 @@ def main(argc, argv):
 
     if testOcclusion :
         # load occluder
-        occludedModelFilename =  "cow.osgt"
-        osg.ref_ptr<osg.Node> occludedModel = osgDB.readNodeFile(occludedModelFilename)
+        occludedModelFilename = "cow.osgt"
+        occludedModel = osgDB.readNodeFile(occludedModelFilename)
         if !occludedModel :
             osg.notify(osg.FATAL), "Unable to load model '", occludedModelFilename, "'\n"
             return -1
 
         # occluder offset
-        bsphere =  outlineModel.getBound()
-        occluderOffset =  osg.Vec3(0,1,0) * bsphere.radius() * 1.2f
+        bsphere = outlineModel.getBound()
+        occluderOffset = osg.Vec3(0,1,0) * bsphere.radius() * 1.2
 
         # occluder behind outlined model
-        osg.ref_ptr<osg.PositionAttitudeTransform> modelTransform0 = new osg.PositionAttitudeTransform
+        modelTransform0 = osg.PositionAttitudeTransform()
         modelTransform0.setPosition(bsphere.center() + occluderOffset)
         modelTransform0.addChild(occludedModel.get())
         root.addChild(modelTransform0.get())
 
         # occluder in front of outlined model
-        osg.ref_ptr<osg.PositionAttitudeTransform> modelTransform1 = new osg.PositionAttitudeTransform
+        modelTransform1 = osg.PositionAttitudeTransform()
         modelTransform1.setPosition(bsphere.center() - occluderOffset)
         modelTransform1.addChild(occludedModel.get())
         root.addChild(modelTransform1.get())
@@ -85,7 +91,7 @@ def main(argc, argv):
     viewer.setSceneData(root.get())
 
     # must clear stencil buffer...
-    unsigned int clearMask = viewer.getCamera().getClearMask()
+    clearMask = viewer.getCamera().getClearMask()
     viewer.getCamera().setClearMask(clearMask | GL_STENCIL_BUFFER_BIT)
     viewer.getCamera().setClearStencil(0)
 

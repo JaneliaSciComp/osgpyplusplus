@@ -12,23 +12,26 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgcubemap.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgcubemap.cpp'
+
+# OpenSceneGraph example, osgcubemap.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/Group>
 #include <osg/StateSet>
@@ -55,10 +58,12 @@ from osgpypp import osgViewer
 #include <vector>
 
 def create_specular_highlights(node):
-    ss =  node.getOrCreateStateSet()
+
+    
+    ss = node.getOrCreateStateSet()
     
     # create and setup the texture object
-    tcm =  new osg.TextureCubeMap
+    tcm = osg.TextureCubeMap()
     tcm.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP)
     tcm.setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP)
     tcm.setWrap(osg.Texture.WRAP_R, osg.Texture.CLAMP)
@@ -66,9 +71,9 @@ def create_specular_highlights(node):
     tcm.setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)    
 
     # generate the six highlight map images (light direction = [1, 1, -1])
-    mapgen =  new osgUtil.HighlightMapGenerator(
+    mapgen = osgUtil.HighlightMapGenerator(
         osg.Vec3(1, 1, -1),            # light direction
-        osg.Vec4(1, 0.9f, 0.8f, 1),    # light color
+        osg.Vec4(1, 0.9, 0.8, 1),    # light color
         8)                             # specular exponent
     
     mapgen.generateMap()
@@ -85,12 +90,12 @@ def create_specular_highlights(node):
     ss.setTextureAttributeAndModes(0, tcm, osg.StateAttribute.OVERRIDE | osg.StateAttribute.ON)
 
     # texture coordinate generation
-    tg =  new osg.TexGen
+    tg = osg.TexGen()
     tg.setMode(osg.TexGen.REFLECTION_MAP)
     ss.setTextureAttributeAndModes(0, tg, osg.StateAttribute.OVERRIDE | osg.StateAttribute.ON)
 
     # use TexEnvCombine to add the highlights to the original lighting
-    te =  new osg.TexEnvCombine    
+    te = osg.TexEnvCombine()    
     te.setCombine_RGB(osg.TexEnvCombine.ADD)
     te.setSource0_RGB(osg.TexEnvCombine.TEXTURE)
     te.setOperand0_RGB(osg.TexEnvCombine.SRC_COLOR)
@@ -106,7 +111,7 @@ int main(int argc, char *argv[])
     viewer = osgViewer.Viewer()
     
     # load the nodes from the commandline arguments.
-    rootnode =  osgDB.readNodeFiles(arguments)
+    rootnode = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
     if !rootnode : rootnode = osgDB.readNodeFile("cessna.osgt")
@@ -132,7 +137,7 @@ int main(int argc, char *argv[])
     for(unsigned int contextID = 0 
         contextID<osg.DisplaySettings.instance().getMaxNumberOfGraphicsContexts()
         ++contextID)
-        tcmExt =  osg.TextureCubeMap.getExtensions(contextID,false)
+        tcmExt = osg.TextureCubeMap.getExtensions(contextID,False)
         if tcmExt :
             if !tcmExt.isCubeMapSupported() :
                 print "Warning: texture_cube_map not supported by OpenGL drivers, unable to run application."

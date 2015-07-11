@@ -13,23 +13,26 @@ from osgpypp import osgText
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgforest.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgforest.cpp'
+
+# OpenSceneGraph example, osgforest.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/AlphaFunc>
 #include <osg/Billboard>
@@ -73,18 +76,16 @@ from osgpypp import osgViewer
 #include "../osghangglide/terrain_coords.h"
 
 # class to create the forest and manage the movement between various techniques.
-class ForestTechniqueManager : public osg.Referenced
-public:
+class ForestTechniqueManager (osg.Referenced) :
 
     ForestTechniqueManager() 
 
-    class Tree : public osg.Referenced
-    public:
+    class Tree (osg.Referenced) :
 
         Tree():
             _color(255,255,255,255),
-            _width(1.0f),
-            _height(1.0f),
+            _width(1.0),
+            _height(1.0),
             _type(0) 
 
         Tree( osg.Vec3 position,  osg.Vec4ub color, float width, float height, unsigned int type):
@@ -98,27 +99,34 @@ public:
         _color = osg.Vec4ub()
         _width = float()
         _height = float()
-        unsigned int    _type
+        _type = unsigned int()
     
 
-    typedef std.vector< osg.ref_ptr<Tree> > TreeList
+    typedef std.vector< Tree > TreeList
 
-    class Cell : public osg.Referenced
-    public:
-        typedef std.vector< osg.ref_ptr<Cell> > CellList
+    class Cell (osg.Referenced) :
+        typedef std.vector< Cell > CellList
 
         Cell():_parent(0) 
         Cell(osg.BoundingBox bb):_parent(0), _bb(bb) 
 
-        void addCell(Cell* cell)  cell._parent=this _cells.push_back(cell) 
+        def addCell(cell):
 
-        void addTree(Tree* tree)  _trees.push_back(tree) 
+             cell._parent=this _cells.push_back(cell) 
 
-        void addTrees( TreeList trees)  _trees.insert(_trees.end(),trees.begin(),trees.end()) 
+        def addTree(tree):
+
+             _trees.push_back(tree) 
+
+        def addTrees(trees):
+
+             _trees.insert(_trees.end(),trees.begin(),trees.end()) 
 
         computeBound = void()
 
-        bool contains( osg.Vec3 position)   return _bb.contains(position) 
+        def contains(position):
+
+             return _bb.contains(position) 
 
         divide = bool(unsigned int maxNumTreesPerCell=10)
 
@@ -134,8 +142,11 @@ public:
 
     
 
-    float random(float min,float max)  return min + (max-min)*(float)rand()/(float)RAND_MAX 
-    int random(int min,int max)  return min + (int)((float)(max-min)*(float)rand()/(float)RAND_MAX) 
+    def random(min, max):
+
+         return min + (max-min)*(float)rand()/(float)RAND_MAX 
+    def random(min, max):
+         return min + (int)((float)(max-min)*(float)rand()/(float)RAND_MAX) 
 
     createTerrain = osg.Geode*( osg.Vec3 origin,  osg.Vec3 size)
 
@@ -165,6 +176,8 @@ public:
     createScene = osg.Node*(unsigned int numTreesToCreates, unsigned int maxNumTreesPerCell)
 
     def advanceToNextTechnique(delta):
+
+        
         if _techniqueSwitch.valid() :
             _currentTechnique += delta
             if _currentTechnique<0 :
@@ -173,31 +186,28 @@ public:
                 _currentTechnique = 0
             _techniqueSwitch.setSingleChildOn(_currentTechnique)
 
-    osg.ref_ptr<osg.Switch>   _techniqueSwitch
+    _techniqueSwitch = osg.Switch()
     _currentTechnique = int()
 
 
 
 
 # event handler to capture keyboard events and use them to advance the technique used for rendering
-class TechniqueEventHandler : public osgGA.GUIEventHandler
-public:
+class TechniqueEventHandler (osgGA.GUIEventHandler) :
 
     TechniqueEventHandler(ForestTechniqueManager* ttm=0)  _ForestTechniqueManager = ttm 
 
     META_Object(osgforestApp,TechniqueEventHandler)
 
-    virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter, osg.Object*, osg.NodeVisitor*)
+    handle = virtual bool( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter, osg.Object*, osg.NodeVisitor*)
 
     virtual void getUsage(osg.ApplicationUsage usage) 
-
-protected:
 
     ~TechniqueEventHandler() 
 
     TechniqueEventHandler( TechniqueEventHandler, osg.CopyOp) 
 
-    osg.ref_ptr<ForestTechniqueManager> _ForestTechniqueManager
+    _ForestTechniqueManager = ForestTechniqueManager()
 
 
 
@@ -209,16 +219,16 @@ bool TechniqueEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapt
                 ea.getKey()==osgGA.GUIEventAdapter.KEY_Right ||
                 ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Right :
                 _ForestTechniqueManager.advanceToNextTechnique(1)
-                true = return()
-            else: if ea.getKey()=='p' ||
+                return True
+            elif ea.getKey()=='p' ||
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Left :
                 _ForestTechniqueManager.advanceToNextTechnique(-1)
-                true = return()
-            false = return()
+                return True
+            return False
 
         default:
-            false = return()
+            return False
 
 void TechniqueEventHandler.getUsage(osg.ApplicationUsage usage) 
     usage.addKeyboardMouseBinding("n or Left Arrow","Advance to next technique")
@@ -240,59 +250,59 @@ void ForestTechniqueManager.Cell.computeBound()
 
 bool ForestTechniqueManager.Cell.divide(unsigned int maxNumTreesPerCell)
 
-    if _trees.size()<=maxNumTreesPerCell : return false
+    if _trees.size()<=maxNumTreesPerCell : return False
 
     computeBound()
 
-    radius =  _bb.radius()
-    divide_distance =  radius*0.7f
+    radius = _bb.radius()
+    divide_distance = radius*0.7
     if divide((_bb.xMax()-_bb.xMin())>divide_distance,(_bb.yMax()-_bb.yMin())>divide_distance,(_bb.zMax()-_bb.zMin())>divide_distance) :
-        # recusively divide the new cells till maxNumTreesPerCell is met.
+        # recusively divide the cells till maxNumTreesPerCell is met.
         for(CellList.iterator citr=_cells.begin()
             citr!=_cells.end()
             ++citr)
             (*citr).divide(maxNumTreesPerCell)
-        true = return()
-   else:
-        false = return()
+        return True
+   else :
+        return False
 
 bool ForestTechniqueManager.Cell.divide(bool xAxis, bool yAxis, bool zAxis)
-    if !(xAxis || yAxis || zAxis) : return false
+    if !(xAxis || yAxis || zAxis) : return False
 
     if _cells.empty() :
-        _cells.push_back(new Cell(_bb))
+        _cells.push_back(Cell(_bb))
 
     if xAxis :
-        unsigned int numCellsToDivide=_cells.size()
+        numCellsToDivide = _cells.size()
         for(unsigned int i=0i<numCellsToDivide++i)
-            orig_cell =  _cells[i].get()
-            new_cell =  new Cell(orig_cell._bb)
+            orig_cell = _cells[i].get()
+            new_cell = Cell(orig_cell._bb)
 
-            xCenter =  (orig_cell._bb.xMin()+orig_cell._bb.xMax())*0.5f
+            xCenter = (orig_cell._bb.xMin()+orig_cell._bb.xMax())*0.5
             orig_cell._bb.xMax() = xCenter
             new_cell._bb.xMin() = xCenter
 
             _cells.push_back(new_cell)
 
     if yAxis :
-        unsigned int numCellsToDivide=_cells.size()
+        numCellsToDivide = _cells.size()
         for(unsigned int i=0i<numCellsToDivide++i)
-            orig_cell =  _cells[i].get()
-            new_cell =  new Cell(orig_cell._bb)
+            orig_cell = _cells[i].get()
+            new_cell = Cell(orig_cell._bb)
 
-            yCenter =  (orig_cell._bb.yMin()+orig_cell._bb.yMax())*0.5f
+            yCenter = (orig_cell._bb.yMin()+orig_cell._bb.yMax())*0.5
             orig_cell._bb.yMax() = yCenter
             new_cell._bb.yMin() = yCenter
 
             _cells.push_back(new_cell)
 
     if zAxis :
-        unsigned int numCellsToDivide=_cells.size()
+        numCellsToDivide = _cells.size()
         for(unsigned int i=0i<numCellsToDivide++i)
-            orig_cell =  _cells[i].get()
-            new_cell =  new Cell(orig_cell._bb)
+            orig_cell = _cells[i].get()
+            new_cell = Cell(orig_cell._bb)
 
-            zCenter =  (orig_cell._bb.zMin()+orig_cell._bb.zMax())*0.5f
+            zCenter = (orig_cell._bb.zMin()+orig_cell._bb.zMax())*0.5
             orig_cell._bb.zMax() = zCenter
             new_cell._bb.zMin() = zCenter
 
@@ -300,7 +310,7 @@ bool ForestTechniqueManager.Cell.divide(bool xAxis, bool yAxis, bool zAxis)
 
     bin()
 
-    true = return()
+    return True
 
 
 void ForestTechniqueManager.Cell.bin()
@@ -309,14 +319,14 @@ void ForestTechniqueManager.Cell.bin()
     for(TreeList.iterator titr=_trees.begin()
         titr!=_trees.end()
         ++titr)
-        tree =  titr.get()
-        assigned =  false
+        tree = titr.get()
+        assigned = False
         for(CellList.iterator citr=_cells.begin()
             citr!=_cells.end()  !assigned
             ++citr)
             if *citr :.contains(tree._position) :
                 (*citr).addTree(tree)
-                assigned = true
+                assigned = True
         if !assigned : treesNotAssigned.push_back(tree)
 
     # put the unassigned trees back into the original local tree list.
@@ -335,41 +345,41 @@ void ForestTechniqueManager.Cell.bin()
 
 
 osg.Geode* ForestTechniqueManager.createTerrain( osg.Vec3 origin,  osg.Vec3 size)
-    geode =  new osg.Geode()
+    geode = osg.Geode()
 
     # ---------------------------------------
     # Set up a StateSet to texture the objects
     # ---------------------------------------
-    stateset =  new osg.StateSet()
+    stateset = osg.StateSet()
 
-    image =  osgDB.readImageFile("Images/lz.rgb")
+    image = osgDB.readImageFile("Images/lz.rgb")
     if image :
-        texture =  new osg.Texture2D
+        texture = osg.Texture2D()
         texture.setImage(image)
         stateset.setTextureAttributeAndModes(0,texture,osg.StateAttribute.ON)
 
     geode.setStateSet( stateset )
 
-    unsigned int numColumns = 38
-    unsigned int numRows = 39
-    unsigned int r
-    unsigned int c
+    numColumns = 38
+    numRows = 39
+    r = unsigned int()
+    c = unsigned int()
 
     # compute z range of z values of grid data so we can scale it.
-    min_z =  FLT_MAX
-    max_z =  -FLT_MAX
+    min_z = FLT_MAX
+    max_z = -FLT_MAX
     for(r=0r<numRows++r)
         for(c=0c<numColumns++c)
             min_z = osg.minimum(min_z,vertex[r+c*numRows][2])
             max_z = osg.maximum(max_z,vertex[r+c*numRows][2])
 
-    scale_z =  size.z()/(max_z-min_z)
+    scale_z = size.z()/(max_z-min_z)
 
 
-    createGrid =  false
+    createGrid = False
     if createGrid :
 
-        grid =  new osg.HeightField
+        grid = osg.HeightField()
         grid.allocate(numColumns,numRows)
         grid.setOrigin(origin)
         grid.setXInterval(size.x()/(float)(numColumns-1))
@@ -379,28 +389,28 @@ osg.Geode* ForestTechniqueManager.createTerrain( osg.Vec3 origin,  osg.Vec3 size
             for(c=0c<numColumns++c)
                 grid.setHeight(c,r,(vertex[r+c*numRows][2]-min_z)*scale_z)
 
-        geode.addDrawable(new osg.ShapeDrawable(grid))
-    else:
-        geometry =  new osg.Geometry
+        geode.addDrawable(osg.ShapeDrawable(grid))
+    else :
+        geometry = osg.Geometry()
 
-        v =  *(new osg.Vec3Array(numColumns*numRows))
-        t =  *(new osg.Vec2Array(numColumns*numRows))
-        color =  *(new osg.Vec4ubArray(1))
+        v = *(osg.Vec3Array(numColumns*numRows))
+        t = *(osg.Vec2Array(numColumns*numRows))
+        color = *(osg.Vec4ubArray(1))
 
         color[0].set(255,255,255,255)
 
-        rowCoordDelta =  size.y()/(float)(numRows-1)
-        columnCoordDelta =  size.x()/(float)(numColumns-1)
+        rowCoordDelta = size.y()/(float)(numRows-1)
+        columnCoordDelta = size.x()/(float)(numColumns-1)
 
-        rowTexDelta =  1.0f/(float)(numRows-1)
-        columnTexDelta =  1.0f/(float)(numColumns-1)
+        rowTexDelta = 1.0/(float)(numRows-1)
+        columnTexDelta = 1.0/(float)(numColumns-1)
 
-        pos =  origin
-        tex = osg.Vec2(0.0f,0.0f)
+        pos = origin
+        tex = osg.Vec2(0.0,0.0)
         vi = 0
         for(r=0r<numRows++r)
             pos.x() = origin.x()
-            tex.x() = 0.0f
+            tex.x() = 0.0
             for(c=0c<numColumns++c)
                 v[vi].set(pos.x(),pos.y(),pos.z()+(vertex[r+c*numRows][2]-min_z)*scale_z)
                 t[vi].set(tex.x(),tex.y())
@@ -415,7 +425,7 @@ osg.Geode* ForestTechniqueManager.createTerrain( osg.Vec3 origin,  osg.Vec3 size
         geometry.setTexCoordArray(0,t)
 
         for(r=0r<numRows-1++r)
-            drawElements =  *(new osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
+            drawElements = *(osg.DrawElementsUShort(GL_QUAD_STRIP,2*numColumns))
             geometry.addPrimitiveSet(drawElements)
             ei = 0
             for(c=0c<numColumns++c)
@@ -427,21 +437,21 @@ osg.Geode* ForestTechniqueManager.createTerrain( osg.Vec3 origin,  osg.Vec3 size
         sv = osgUtil.SmoothingVisitor()
         sv.smooth(*geometry)
 
-    geode = return()
+    return geode
 
 void ForestTechniqueManager.createTreeList(osg.Node* terrain, osg.Vec3 origin,  osg.Vec3 size,unsigned int numTreesToCreate,TreeList trees)
 
-    max_TreeHeight =  sqrtf(size.length2()/(float)numTreesToCreate)
-    max_TreeWidth =  max_TreeHeight*0.5f
+    max_TreeHeight = sqrtf(size.length2()/(float)numTreesToCreate)
+    max_TreeWidth = max_TreeHeight*0.5
 
-    min_TreeHeight =  max_TreeHeight*0.3f
-    min_TreeWidth =  min_TreeHeight*0.5f
+    min_TreeHeight = max_TreeHeight*0.3
+    min_TreeWidth = min_TreeHeight*0.5
 
     trees.reserve(trees.size()+numTreesToCreate)
 
 
     for(unsigned int i=0i<numTreesToCreate++i)
-        tree =  new Tree
+        tree = Tree()
         tree._position.set(random(origin.x(),origin.x()+size.x()),random(origin.y(),origin.y()+size.y()),origin.z())
         tree._color.set(random(128,255),random(128,255),random(128,255),255)
         tree._width = random(min_TreeWidth,max_TreeWidth)
@@ -449,42 +459,41 @@ void ForestTechniqueManager.createTreeList(osg.Node* terrain, osg.Vec3 origin,  
         tree._type = 0
 
         if terrain :
-            osg.ref_ptr<osgUtil.LineSegmentIntersector> intersector =
-                new osgUtil.LineSegmentIntersector(tree._position,tree._position+osg.Vec3(0.0f,0.0f,size.z()))
+            intersector = osgUtil.LineSegmentIntersector(tree._position,tree._position+osg.Vec3(0.0,0.0,size.z()))
 
             iv = osgUtil.IntersectionVisitor(intersector.get())
 
             terrain.accept(iv)
 
             if intersector.containsIntersections() :
-                intersections =  intersector.getIntersections()
+                intersections = intersector.getIntersections()
                 for(osgUtil.LineSegmentIntersector.Intersections.iterator itr = intersections.begin()
                     itr != intersections.end()
                     ++itr)
-                    intersection =  *itr
+                    intersection = *itr
                     tree._position = intersection.getWorldIntersectPoint()
 
         trees.push_back(tree)
 
 osg.Geometry* ForestTechniqueManager.createSprite( float w, float h, osg.Vec4ub color )
     # set up the coords
-    v =  *(new osg.Vec3Array(4))
-    t =  *(new osg.Vec2Array(4))
-    c =  *(new osg.Vec4ubArray(1))
+    v = *(osg.Vec3Array(4))
+    t = *(osg.Vec2Array(4))
+    c = *(osg.Vec4ubArray(1))
 
-    v[0].set(-w*0.5f,0.0f,0.0f)
-    v[1].set( w*0.5f,0.0f,0.0f)
-    v[2].set( w*0.5f,0.0f,h)
-    v[3].set(-w*0.5f,0.0f,h)
+    v[0].set(-w*0.5,0.0,0.0)
+    v[1].set( w*0.5,0.0,0.0)
+    v[2].set( w*0.5,0.0,h)
+    v[3].set(-w*0.5,0.0,h)
 
     c[0] = color
 
-    t[0].set(0.0f,0.0f)
-    t[1].set(1.0f,0.0f)
-    t[2].set(1.0f,1.0f)
-    t[3].set(0.0f,1.0f)
+    t[0].set(0.0,0.0)
+    t[1].set(1.0,0.0)
+    t[2].set(1.0,1.0)
+    t[3].set(0.0,1.0)
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
     geom.setVertexArray( v )
 
@@ -492,43 +501,43 @@ osg.Geometry* ForestTechniqueManager.createSprite( float w, float h, osg.Vec4ub 
 
     geom.setColorArray( c, osg.Array.BIND_OVERALL )
 
-    geom.addPrimitiveSet( new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4) )
+    geom.addPrimitiveSet( osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4) )
 
-    geom = return()
+    return geom
 
 osg.Geometry* ForestTechniqueManager.createOrthogonalQuads(  osg.Vec3 pos, float w, float h, osg.Vec4ub color )
     # set up the coords
-    v =  *(new osg.Vec3Array(8))
-    t =  *(new osg.Vec2Array(8))
-    c =  *(new osg.Vec4ubArray(1))
+    v = *(osg.Vec3Array(8))
+    t = *(osg.Vec2Array(8))
+    c = *(osg.Vec4ubArray(1))
 
-    rotation =  random(0.0f,osg.PI/2.0f)
-    sw =  sinf(rotation)*w*0.5f
-    cw =  cosf(rotation)*w*0.5f
+    rotation = random(0.0,osg.PI/2.0)
+    sw = sinf(rotation)*w*0.5
+    cw = cosf(rotation)*w*0.5
 
-    v[0].set(pos.x()-sw,pos.y()-cw,pos.z()+0.0f)
-    v[1].set(pos.x()+sw,pos.y()+cw,pos.z()+0.0f)
+    v[0].set(pos.x()-sw,pos.y()-cw,pos.z()+0.0)
+    v[1].set(pos.x()+sw,pos.y()+cw,pos.z()+0.0)
     v[2].set(pos.x()+sw,pos.y()+cw,pos.z()+h)
     v[3].set(pos.x()-sw,pos.y()-cw,pos.z()+h)
 
-    v[4].set(pos.x()-cw,pos.y()+sw,pos.z()+0.0f)
-    v[5].set(pos.x()+cw,pos.y()-sw,pos.z()+0.0f)
+    v[4].set(pos.x()-cw,pos.y()+sw,pos.z()+0.0)
+    v[5].set(pos.x()+cw,pos.y()-sw,pos.z()+0.0)
     v[6].set(pos.x()+cw,pos.y()-sw,pos.z()+h)
     v[7].set(pos.x()-cw,pos.y()+sw,pos.z()+h)
 
     c[0] = color
 
-    t[0].set(0.0f,0.0f)
-    t[1].set(1.0f,0.0f)
-    t[2].set(1.0f,1.0f)
-    t[3].set(0.0f,1.0f)
+    t[0].set(0.0,0.0)
+    t[1].set(1.0,0.0)
+    t[2].set(1.0,1.0)
+    t[3].set(0.0,1.0)
 
-    t[4].set(0.0f,0.0f)
-    t[5].set(1.0f,0.0f)
-    t[6].set(1.0f,1.0f)
-    t[7].set(0.0f,1.0f)
+    t[4].set(0.0,0.0)
+    t[5].set(1.0,0.0)
+    t[6].set(1.0,1.0)
+    t[7].set(0.0,1.0)
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
     geom.setVertexArray( v )
 
@@ -536,28 +545,28 @@ osg.Geometry* ForestTechniqueManager.createOrthogonalQuads(  osg.Vec3 pos, float
 
     geom.setColorArray( c, osg.Array.BIND_OVERALL )
 
-    geom.addPrimitiveSet( new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,8) )
+    geom.addPrimitiveSet( osg.DrawArrays(osg.PrimitiveSet.QUADS,0,8) )
 
-    geom = return()
+    return geom
 
 osg.Node* ForestTechniqueManager.createBillboardGraph(Cell* cell,osg.StateSet* stateset)
-    needGroup =  !(cell._cells.empty())
-    needBillboard =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needBillboard = !(cell._trees.empty())
 
-    billboard =  0
-    group =  0
+    billboard = 0
+    group = 0
 
     if needBillboard :
-        billboard = new osg.Billboard
+        billboard = osg.Billboard()
         billboard.setStateSet(stateset)
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
+            tree = **itr
             billboard.addDrawable(createSprite(tree._width,tree._height,tree._color),tree._position)
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -566,27 +575,27 @@ osg.Node* ForestTechniqueManager.createBillboardGraph(Cell* cell,osg.StateSet* s
         if billboard : group.addChild(billboard)
 
     if group : return group
-    else: return billboard
+    else : return billboard
 
 osg.Node* ForestTechniqueManager.createXGraph(Cell* cell,osg.StateSet* stateset)
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
-    geode =  0
-    group =  0
+    geode = 0
+    group = 0
 
     if needTrees :
-        geode = new osg.Geode
+        geode = osg.Geode()
         geode.setStateSet(stateset)
 
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
+            tree = **itr
             geode.addDrawable(createOrthogonalQuads(tree._position,tree._width,tree._height,tree._color))
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -595,35 +604,35 @@ osg.Node* ForestTechniqueManager.createXGraph(Cell* cell,osg.StateSet* stateset)
         if geode : group.addChild(geode)
 
     if group : return group
-    else: return geode
+    else : return geode
 
 osg.Node* ForestTechniqueManager.createTransformGraph(Cell* cell,osg.StateSet* stateset)
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
-    transform_group =  0
-    group =  0
+    transform_group = 0
+    group = 0
 
     if needTrees :
-        transform_group = new osg.Group
+        transform_group = osg.Group()
 
-        geometry =  createOrthogonalQuads(osg.Vec3(0.0f,0.0f,0.0f),1.0f,1.0f,osg.Vec4ub(255,255,255,255))
+        geometry = createOrthogonalQuads(osg.Vec3(0.0,0.0,0.0),1.0,1.0,osg.Vec4ub(255,255,255,255))
 
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
-            transform =  new osg.MatrixTransform
+            tree = **itr
+            transform = osg.MatrixTransform()
             transform.setMatrix(osg.Matrix.scale(tree._width,tree._width,tree._height)*osg.Matrix.translate(tree._position))
 
-            geode =  new osg.Geode
+            geode = osg.Geode()
             geode.setStateSet(stateset)
             geode.addDrawable(geometry)
             transform.addChild(geode)
             transform_group.addChild(transform)
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -632,50 +641,49 @@ osg.Node* ForestTechniqueManager.createTransformGraph(Cell* cell,osg.StateSet* s
         if transform_group : group.addChild(transform_group)
 
     if group : return group
-    else: return transform_group
+    else : return transform_group
 
 osg.Geometry* ForestTechniqueManager.createOrthogonalQuadsNoColor(  osg.Vec3 pos, float w, float h)
     # set up the coords
-    v =  *(new osg.Vec3Array(8))
-    t =  *(new osg.Vec2Array(8))
+    v = *(osg.Vec3Array(8))
+    t = *(osg.Vec2Array(8))
 
-    rotation =  random(0.0f,osg.PI/2.0f)
-    sw =  sinf(rotation)*w*0.5f
-    cw =  cosf(rotation)*w*0.5f
+    rotation = random(0.0,osg.PI/2.0)
+    sw = sinf(rotation)*w*0.5
+    cw = cosf(rotation)*w*0.5
 
-    v[0].set(pos.x()-sw,pos.y()-cw,pos.z()+0.0f)
-    v[1].set(pos.x()+sw,pos.y()+cw,pos.z()+0.0f)
+    v[0].set(pos.x()-sw,pos.y()-cw,pos.z()+0.0)
+    v[1].set(pos.x()+sw,pos.y()+cw,pos.z()+0.0)
     v[2].set(pos.x()+sw,pos.y()+cw,pos.z()+h)
     v[3].set(pos.x()-sw,pos.y()-cw,pos.z()+h)
 
-    v[4].set(pos.x()-cw,pos.y()+sw,pos.z()+0.0f)
-    v[5].set(pos.x()+cw,pos.y()-sw,pos.z()+0.0f)
+    v[4].set(pos.x()-cw,pos.y()+sw,pos.z()+0.0)
+    v[5].set(pos.x()+cw,pos.y()-sw,pos.z()+0.0)
     v[6].set(pos.x()+cw,pos.y()-sw,pos.z()+h)
     v[7].set(pos.x()-cw,pos.y()+sw,pos.z()+h)
 
-    t[0].set(0.0f,0.0f)
-    t[1].set(1.0f,0.0f)
-    t[2].set(1.0f,1.0f)
-    t[3].set(0.0f,1.0f)
+    t[0].set(0.0,0.0)
+    t[1].set(1.0,0.0)
+    t[2].set(1.0,1.0)
+    t[3].set(0.0,1.0)
 
-    t[4].set(0.0f,0.0f)
-    t[5].set(1.0f,0.0f)
-    t[6].set(1.0f,1.0f)
-    t[7].set(0.0f,1.0f)
+    t[4].set(0.0,0.0)
+    t[5].set(1.0,0.0)
+    t[6].set(1.0,1.0)
+    t[7].set(0.0,1.0)
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
 
     geom.setVertexArray( v )
 
     geom.setTexCoordArray( 0, t )
 
-    geom.addPrimitiveSet( new osg.DrawArrays(osg.PrimitiveSet.QUADS,0,8) )
+    geom.addPrimitiveSet( osg.DrawArrays(osg.PrimitiveSet.QUADS,0,8) )
 
-    geom = return()
+    return geom
 
-class ShaderGeometry : public osg.Drawable
-    public:
-        ShaderGeometry()  setUseDisplayList(false) 
+class ShaderGeometry (osg.Drawable) :
+        ShaderGeometry()  setUseDisplayList(False) 
 
         #* Copy constructor using CopyOp to manage deep vs shallow copy.
         ShaderGeometry( ShaderGeometry ShaderGeometry, osg.CopyOp copyop=osg.CopyOp.SHALLOW_COPY):
@@ -685,15 +693,19 @@ class ShaderGeometry : public osg.Drawable
 
         typedef std.vector<osg.Vec4> PositionSizeList
 
-        virtual void drawImplementation(osg.RenderInfo renderInfo) 
+        def drawImplementation(renderInfo):
+
+            
             for(PositionSizeList.const_iterator itr = _trees.begin()
                 itr != _trees.end()
                 ++itr)
                 renderInfo.getState().Color((*itr)[0],(*itr)[1],(*itr)[2],(*itr)[3])
                 _geometry.draw(renderInfo)
 
-        virtual osg.BoundingBox computeBound() 
-            geom_box =  _geometry.getBound()
+        def computeBound():
+
+            
+            geom_box = _geometry.getBound()
             bb = osg.BoundingBox()
             for(PositionSizeList.const_iterator itr = _trees.begin()
                 itr != _trees.end()
@@ -702,27 +714,31 @@ class ShaderGeometry : public osg.Drawable
                             osg.Vec3( (*itr)[0], (*itr)[1], (*itr)[2] ))
                 bb.expandBy(geom_box.corner(7)*(*itr)[3] +
                             osg.Vec3( (*itr)[0], (*itr)[1], (*itr)[2] ))
-            bb = return()
+            return bb
 
         def setGeometry(geometry):
+
+            
             _geometry = geometry
 
         def addTree(tree):
+
+            
             _trees.push_back(osg.Vec4(tree._position.x(), tree._position.y(), tree._position.z(), tree._height))
 
-        osg.ref_ptr<osg.Geometry> _geometry
+        _geometry = osg.Geometry()
 
         _trees = PositionSizeList()
-
-    protected:
 
         virtual ~ShaderGeometry() 
 
 
 
-shared_geometry =  0
+shared_geometry = 0
 
 def createGeometryShader():
+
+    
     static  char* vertSource = 
     "#version 120\n"
     "#extension GL_EXT_geometry_shader4 : enable\n"
@@ -781,28 +797,28 @@ def createGeometryShader():
     
 
 
-    pgm =  new osg.Program
+    pgm = osg.Program()
     pgm.setName( "osgshader2 demo" )
 
-    pgm.addShader( new osg.Shader( osg.Shader.VERTEX,   vertSource ) )
-    pgm.addShader( new osg.Shader( osg.Shader.FRAGMENT, fragSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.VERTEX,   vertSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.FRAGMENT, fragSource ) )
 
-    pgm.addShader( new osg.Shader( osg.Shader.GEOMETRY, geomSource ) )
+    pgm.addShader( osg.Shader( osg.Shader.GEOMETRY, geomSource ) )
     pgm.setParameter( GL_GEOMETRY_VERTICES_OUT_EXT, 8 )
     pgm.setParameter( GL_GEOMETRY_INPUT_TYPE_EXT, GL_LINES )
     pgm.setParameter( GL_GEOMETRY_OUTPUT_TYPE_EXT, GL_TRIANGLE_STRIP)
 
-    pgm = return()
+    return pgm
 
 void ForestTechniqueManager.CollectTreePositions(Cell* cell, std.vector< osg.Vec3 > positions)
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
     if needTrees :
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
+            tree = **itr
             positions.push_back(tree._position)
 
     if needGroup :
@@ -813,40 +829,40 @@ void ForestTechniqueManager.CollectTreePositions(Cell* cell, std.vector< osg.Vec
 
 
 osg.Node* ForestTechniqueManager.createGeometryShaderGraph(Cell* cell, osg.StateSet* dstate)
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
-    geode =  0
-    group =  0
+    geode = 0
+    group = 0
 
     if needTrees :
-        geode = new osg.Geode
+        geode = osg.Geode()
         geode.setStateSet(dstate)
 
-        geometry =  new osg.Geometry
+        geometry = osg.Geometry()
         geode.addDrawable(geometry)
 
-        v =  new osg.Vec3Array
+        v = osg.Vec3Array()
 
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
+            tree = **itr
             v.push_back(tree._position)
-            v.push_back(osg.Vec3(#tree._height30.0,(double)random(0.75f,1.15f),(double)random(1.0f,1.250f)))
+            v.push_back(osg.Vec3(#tree._height30.0,(double)random(0.75,1.15),(double)random(1.0,1.250)))
         geometry.setVertexArray( v )
-        geometry.addPrimitiveSet( new osg.DrawArrays( GL_LINES, 0, v.size() ) )
+        geometry.addPrimitiveSet( osg.DrawArrays( GL_LINES, 0, v.size() ) )
 
-        sset =  geode.getOrCreateStateSet()
+        sset = geode.getOrCreateStateSet()
         sset.setMode( GL_LIGHTING, osg.StateAttribute.OFF )
         sset.setAttribute( createGeometryShader() )
 
-        baseTextureSampler =  new osg.Uniform("baseTexture",0)
+        baseTextureSampler = osg.Uniform("baseTexture",0)
         sset.addUniform(baseTextureSampler)
 
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -855,42 +871,42 @@ osg.Node* ForestTechniqueManager.createGeometryShaderGraph(Cell* cell, osg.State
         if geode : group.addChild(geode)
 
     if group : return group
-    else: return geode
+    else : return geode
 
 osg.Node* ForestTechniqueManager.createTextureBufferGraph(Cell* cell, osg.Geometry* templateGeometry)
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
-    geode =  0
-    group =  0
+    geode = 0
+    group = 0
 
     if needTrees :
-        geometry =  (osg.Geometry*)templateGeometry.clone( osg.CopyOp.DEEP_COPY_PRIMITIVES )
-        primSet =  dynamic_cast<osg.DrawArrays*>( geometry.getPrimitiveSet(0) )
+        geometry = (osg.Geometry*)templateGeometry.clone( osg.CopyOp.DEEP_COPY_PRIMITIVES )
+        primSet = dynamic_cast<osg.DrawArrays*>( geometry.getPrimitiveSet(0) )
         primSet.setNumInstances( cell._trees.size() )
-        geode = new osg.Geode
+        geode = osg.Geode()
         geode.addDrawable(geometry)
 
-        osg.ref_ptr<osg.Image> treeParamsImage = new osg.Image
+        treeParamsImage = osg.Image()
         treeParamsImage.allocateImage( 3*cell._trees.size(), 1, 1, GL_RGBA, GL_FLOAT )
 
-        unsigned int i=0
+        i = 0
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr,++i)
-            ptr =  (osg.Vec4f*)treeParamsImage.data(3*i)
-            tree =  **itr
+            ptr = (osg.Vec4f*)treeParamsImage.data(3*i)
+            tree = **itr
             ptr[0] = osg.Vec4f(tree._position.x(),tree._position.y(),tree._position.z(),1.0)
-            ptr[1] = osg.Vec4f((float)tree._color.r()/255.0f,(float)tree._color.g()/255.0f, (float)tree._color.b()/255.0f, 1.0)
+            ptr[1] = osg.Vec4f((float)tree._color.r()/255.0,(float)tree._color.g()/255.0, (float)tree._color.b()/255.0, 1.0)
             ptr[2] = osg.Vec4f(tree._width, tree._height, 1.0, 1.0)
-        osg.ref_ptr<osg.TextureBuffer> tbo = new osg.TextureBuffer
+        tbo = osg.TextureBuffer()
         tbo.setImage( treeParamsImage.get() )
         tbo.setInternalFormat(GL_RGBA32F_ARB)
         geometry.getOrCreateStateSet().setTextureAttribute(1, tbo.get())
         geometry.setInitialBound( cell._bb )
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -899,32 +915,32 @@ osg.Node* ForestTechniqueManager.createTextureBufferGraph(Cell* cell, osg.Geomet
         if geode : group.addChild(geode)
 
     if group : return group
-    else: return geode
+    else : return geode
 
 
 osg.Node* ForestTechniqueManager.createShaderGraph(Cell* cell,osg.StateSet* stateset)
     if shared_geometry==0 :
-        shared_geometry = createOrthogonalQuadsNoColor(osg.Vec3(0.0f,0.0f,0.0f),1.0f,1.0f)
-        #shared_geometry.setUseDisplayList(false)
+        shared_geometry = createOrthogonalQuadsNoColor(osg.Vec3(0.0,0.0,0.0),1.0,1.0)
+        #shared_geometry.setUseDisplayList(False)
 
 
-    needGroup =  !(cell._cells.empty())
-    needTrees =  !(cell._trees.empty())
+    needGroup = !(cell._cells.empty())
+    needTrees = !(cell._trees.empty())
 
-    geode =  0
-    group =  0
+    geode = 0
+    group = 0
 
     if needTrees :
-        geode = new osg.Geode
+        geode = osg.Geode()
 
-        shader_geometry =  new ShaderGeometry
+        shader_geometry = ShaderGeometry()
         shader_geometry.setGeometry(shared_geometry)
 
 
         for(TreeList.iterator itr=cell._trees.begin()
             itr!=cell._trees.end()
             ++itr)
-            tree =  **itr
+            tree = **itr
             shader_geometry.addTree(tree)
 
 
@@ -932,7 +948,7 @@ osg.Node* ForestTechniqueManager.createShaderGraph(Cell* cell,osg.StateSet* stat
         geode.addDrawable(shader_geometry)
 
     if needGroup :
-        group = new osg.Group
+        group = osg.Group()
         for(Cell.CellList.iterator itr=cell._cells.begin()
             itr!=cell._cells.end()
             ++itr)
@@ -941,26 +957,26 @@ osg.Node* ForestTechniqueManager.createShaderGraph(Cell* cell,osg.StateSet* stat
         if geode : group.addChild(geode)
 
     if group : return group
-    else: return geode
+    else : return geode
 
 osg.Node* ForestTechniqueManager.createHUDWithText( str str)
-    geode =  new osg.Geode()
+    geode = osg.Geode()
 
     timesFont = str("fonts/arial.ttf")
 
     # turn lighting off for the text and disable depth test to ensure its always ontop.
-    stateset =  geode.getOrCreateStateSet()
+    stateset = geode.getOrCreateStateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
     # or disable depth test, and make sure that the hud is drawn after everything
-    # else: so that it always appears ontop.
+    # else : so that it always appears ontop.
     stateset.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
     stateset.setRenderBinDetails(11,"RenderBin")
 
-    position = osg.Vec3(150.0f,800.0f,0.0f)
-    delta = osg.Vec3(0.0f,-120.0f,0.0f)
+    position = osg.Vec3(150.0,800.0,0.0)
+    delta = osg.Vec3(0.0,-120.0,0.0)
 
-        text =  new  osgText.Text
+        text = osgText.Text()
         geode.addDrawable( text )
 
         text.setFont(timesFont)
@@ -971,23 +987,23 @@ osg.Node* ForestTechniqueManager.createHUDWithText( str str)
 
 
     # create the hud.
-    modelview_abs =  new osg.MatrixTransform
+    modelview_abs = osg.MatrixTransform()
     modelview_abs.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     modelview_abs.setMatrix(osg.Matrix.identity())
     modelview_abs.addChild(geode)
 
-    projection =  new osg.Projection
+    projection = osg.Projection()
     projection.setMatrix(osg.Matrix.ortho2D(0,1280,0,1024))
     projection.addChild(modelview_abs)
 
-    projection = return()
+    return projection
 
 osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, unsigned int maxNumTreesPerCell)
-    origin = osg.Vec3(0.0f,0.0f,0.0f)
-    size = osg.Vec3(1000.0f,1000.0f,200.0f)
+    origin = osg.Vec3(0.0,0.0,0.0)
+    size = osg.Vec3(1000.0,1000.0,200.0)
 
     print "Creating terrain..."
-    osg.ref_ptr<osg.Node> terrain = createTerrain(origin,size)
+    terrain = createTerrain(origin,size)
     print "done."
 
     print "Creating tree locations..."std.cout.flush()
@@ -996,26 +1012,26 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
     print "done."
 
     print "Creating cell subdivision..."
-    osg.ref_ptr<Cell> cell = new Cell
+    cell = Cell()
     cell.addTrees(trees)
     cell.divide(maxNumTreesPerCell)
     print "done."
 
 
-    tex =  new osg.Texture2D
+    tex = osg.Texture2D()
     tex.setWrap( osg.Texture2D.WRAP_S, osg.Texture2D.CLAMP )
     tex.setWrap( osg.Texture2D.WRAP_T, osg.Texture2D.CLAMP )
     tex.setImage(osgDB.readImageFile("Images/tree0.rgba"))
 
-    dstate =  new osg.StateSet
+    dstate = osg.StateSet()
         dstate.setTextureAttributeAndModes(0, tex, osg.StateAttribute.ON )
 
-        dstate.setTextureAttribute(0, new osg.TexEnv )
+        dstate.setTextureAttribute(0, osg.TexEnv )()
 
-        dstate.setAttributeAndModes( new osg.BlendFunc, osg.StateAttribute.ON )
+        dstate.setAttributeAndModes( osg.BlendFunc, osg.StateAttribute.ON )()
 
-        alphaFunc =  new osg.AlphaFunc
-        alphaFunc.setFunction(osg.AlphaFunc.GEQUAL,0.05f)
+        alphaFunc = osg.AlphaFunc()
+        alphaFunc.setFunction(osg.AlphaFunc.GEQUAL,0.05)
         dstate.setAttributeAndModes( alphaFunc, osg.StateAttribute.ON )
 
         dstate.setMode( GL_LIGHTING, osg.StateAttribute.OFF )
@@ -1023,33 +1039,33 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
         dstate.setRenderingHint( osg.StateSet.TRANSPARENT_BIN )
 
 
-    _techniqueSwitch = new osg.Switch
+    _techniqueSwitch = osg.Switch()
 
         print "Creating osg.Billboard based forest..."
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(createBillboardGraph(cell.get(),dstate))
         group.addChild(createHUDWithText("Using osg.Billboard's to create a forest\n\nPress left cursor key to select geometry instancing with Texture Buffer Object\nPress right cursor key to select double quad based forest"))
         _techniqueSwitch.addChild(group)
         print "done."
 
         print "Creating double quad based forest..."
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(createXGraph(cell.get(),dstate))
         group.addChild(createHUDWithText("Using double quads to create a forest\n\nPress left cursor key to select osg.Billboard based forest\nPress right cursor key to select osg.MatrixTransform based forest\n"))
         _techniqueSwitch.addChild(group)
         print "done."
 
         print "Creating osg.MatrixTransform based forest..."
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(createTransformGraph(cell.get(),dstate))
         group.addChild(createHUDWithText("Using osg.MatrixTransform's to create a forest\n\nPress left cursor key to select double quad based forest\nPress right cursor key to select osg.Vertex/FragmentProgram based forest"))
         _techniqueSwitch.addChild(group)
         print "done."
 
         print "Creating osg.Vertex/FragmentProgram based forest..."
-        group =  new osg.Group
+        group = osg.Group()
 
-        stateset =  new osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
+        stateset = osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
 
             # vertex program
             vp_oss = std.ostringstream()
@@ -1088,11 +1104,11 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
                 "TEX result.color, fragment.texcoord[", 0, "], texture[", 0, "], 2D"
                 "END\n"
 
-            osg.ref_ptr<osg.VertexProgram> vp = new osg.VertexProgram
+            vp = osg.VertexProgram()
             vp.setVertexProgram(vp_oss.str())
             stateset.setAttributeAndModes(vp.get(), osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
 
-            osg.ref_ptr<osg.FragmentProgram> fp = new osg.FragmentProgram
+            fp = osg.FragmentProgram()
             fp.setFragmentProgram(fp_oss.str())
             stateset.setAttributeAndModes(fp.get(), osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
 
@@ -1102,11 +1118,11 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
         print "done."
 
         print "Creating OpenGL shader based forest..."
-        group =  new osg.Group
+        group = osg.Group()
 
-        stateset =  new osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
+        stateset = osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
 
-            program =  new osg.Program
+            program = osg.Program()
             stateset.setAttribute(program)
 
 #if 1
@@ -1137,13 +1153,13 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
                 "    gl_FragColor = texture2D( baseTexture, texcoord) \n"
                 "\n"
 
-            vertex_shader =  new osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
+            vertex_shader = osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
             program.addShader(vertex_shader)
 
-            fragment_shader =  new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
+            fragment_shader = osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
             program.addShader(fragment_shader)
 
-#else:
+#else :
 
             # get shaders from source
             program.addShader(osg.Shader.readShaderFile(osg.Shader.VERTEX, osgDB.findDataFile("shaders/forest.vert")))
@@ -1151,7 +1167,7 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
 
 #endif
 
-            baseTextureSampler =  new osg.Uniform("baseTexture",0)
+            baseTextureSampler = osg.Uniform("baseTexture",0)
             stateset.addUniform(baseTextureSampler)
 
         group.addChild(createShaderGraph(cell.get(),stateset))
@@ -1161,9 +1177,9 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
 
         print "Creating Geometry Shader based forest..."
 
-        stateset =  new osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
+        stateset = osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
 
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(createGeometryShaderGraph(cell.get(), stateset))
         group.addChild(createHUDWithText("Using osg.Vertex/Geometry/FragmentProgram to create a forest\n\nPress left cursor key to select OpenGL Shader based forest\nPress right cursor key to select geometry instancing with Texture Buffer Object"))
 
@@ -1172,8 +1188,8 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
 
         print "Creating forest using geometry instancing and texture buffer objects ..."
 
-        stateset =  new osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
-            program =  new osg.Program
+        stateset = osg.StateSet(*dstate, osg.CopyOp.DEEP_COPY_ALL)
+            program = osg.Program()
             stateset.setAttribute(program)
 
             char vertexShaderSource[] =
@@ -1209,24 +1225,24 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
                 "    FragData0 = Color*texture(baseTexture, TexCoord)\n"
                 "\n"
 
-            vertex_shader =  new osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
+            vertex_shader = osg.Shader(osg.Shader.VERTEX, vertexShaderSource)
             program.addShader(vertex_shader)
 
-            fragment_shader =  new osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
+            fragment_shader = osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource)
             program.addShader(fragment_shader)
 
-            baseTextureSampler =  new osg.Uniform("baseTexture",0)
+            baseTextureSampler = osg.Uniform("baseTexture",0)
             stateset.addUniform(baseTextureSampler)
 
-            dataBufferSampler =  new osg.Uniform("dataBuffer",1)
+            dataBufferSampler = osg.Uniform("dataBuffer",1)
             stateset.addUniform(dataBufferSampler)
 
-        osg.ref_ptr<osg.Geometry> templateGeometry = createOrthogonalQuadsNoColor(osg.Vec3(0.0f,0.0f,0.0f),1.0f,1.0f)
-        templateGeometry.setUseVertexBufferObjects(true)
-        templateGeometry.setUseDisplayList(false)
-        textureBufferGraph =  createTextureBufferGraph(cell.get(), templateGeometry.get())
+        templateGeometry = createOrthogonalQuadsNoColor(osg.Vec3(0.0,0.0,0.0),1.0,1.0)
+        templateGeometry.setUseVertexBufferObjects(True)
+        templateGeometry.setUseDisplayList(False)
+        textureBufferGraph = createTextureBufferGraph(cell.get(), templateGeometry.get())
         textureBufferGraph.setStateSet( stateset )
-        group =  new osg.Group
+        group = osg.Group()
         group.addChild(textureBufferGraph)
         group.addChild(createHUDWithText("Using geometry instancing to create a forest\n\nPress left cursor key to select osg.Vertex/Geometry/FragmentProgram based forest\nPress right cursor key to select osg.Billboard based forest"))
 
@@ -1239,34 +1255,37 @@ osg.Node* ForestTechniqueManager.createScene(unsigned int numTreesToCreates, uns
     _techniqueSwitch.setSingleChildOn(_currentTechnique)
 
 
-    scene =  new osg.Group
+    scene = osg.Group()
 
     scene.addChild(terrain.get())
     scene.addChild(_techniqueSwitch.get())
 
-    scene = return()
+    return scene
 
 def main(argc, argv):
+
+    
+
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
 
-    unsigned int numTreesToCreate = 10000
+    numTreesToCreate = 10000
     arguments.read("--trees",numTreesToCreate)
 
-    unsigned int maxNumTreesPerCell = sqrtf(static_cast<float>(numTreesToCreate))
+    maxNumTreesPerCell = sqrtf(static_cast<float>(numTreesToCreate))
 
     arguments.read("--trees-per-cell",maxNumTreesPerCell)
 
-    osg.ref_ptr<ForestTechniqueManager> ttm = new ForestTechniqueManager
+    ttm = ForestTechniqueManager()
 
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
-    viewer.addEventHandler(new TechniqueEventHandler(ttm.get()))
-    viewer.addEventHandler(new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()))
+    viewer.addEventHandler(TechniqueEventHandler(ttm.get()))
+    viewer.addEventHandler(osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()))
 
     # add model to viewer.
     viewer.setSceneData( ttm.createScene(numTreesToCreate, maxNumTreesPerCell) )

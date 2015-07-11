@@ -9,23 +9,26 @@ import sys
 from osgpypp import osg
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgpackeddepthstencil.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgpackeddepthstencil.cpp'
+
+# OpenSceneGraph example, osgpackeddepthstencil.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #include <osg/GLExtensions>
 #include <osg/Node>
@@ -43,81 +46,90 @@ from osgpypp import osgViewer
 #include <iostream>
 
 def createMask():
-    vertices =  new osg.Vec3Array
+
+    
+    vertices = osg.Vec3Array()
     vertices.push_back(osg.Vec3(-0.5, -0.5, 0.0))
     vertices.push_back(osg.Vec3(0.5, -0.5, 0.0))
     vertices.push_back(osg.Vec3(0.5, 0.5, 0.0))
     vertices.push_back(osg.Vec3(-0.5, 0.5, 0.0))
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
     geom.setVertexArray(vertices)
-    geom.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, 4))
+    geom.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, 4))
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geom)
 
-    stencil =  new osg.Stencil
+    stencil = osg.Stencil()
     stencil.setFunction(osg.Stencil.ALWAYS, 1, ~0u)
     stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.REPLACE)
 
-    ss =  geode.getOrCreateStateSet()
+    ss = geode.getOrCreateStateSet()
     ss.setAttributeAndModes(stencil, 
         osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
-    ss.setAttribute(new osg.ColorMask(false, false, false, false), 
+    ss.setAttribute(osg.ColorMask(False, False, False, False), 
         osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
 
-    geode = return()
+    return geode
 
 def createGeometry():
-    vertices =  new osg.Vec3Array
+
+    
+    vertices = osg.Vec3Array()
     vertices.push_back(osg.Vec3(-1.0, -1.0, 0.0))
     vertices.push_back(osg.Vec3(1.0, -1.0, 0.0))
     vertices.push_back(osg.Vec3(1.0, 1.0, 0.0))
     vertices.push_back(osg.Vec3(-1.0, 1.0, 0.0))
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
     geom.setVertexArray(vertices)
-    geom.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, 4))
+    geom.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, 4))
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geom)
 
-    stencil =  new osg.Stencil
+    stencil = osg.Stencil()
     stencil.setFunction(osg.Stencil.NOTEQUAL, 1, ~0u)
     stencil.setOperation(osg.Stencil.KEEP, osg.Stencil.KEEP, osg.Stencil.KEEP)
 
-    ss =  geode.getOrCreateStateSet()
+    ss = geode.getOrCreateStateSet()
     ss.setAttributeAndModes(stencil,
         osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
 
-    geode = return()
+    return geode
 
 def createTextureQuad(texture):
-    vertices =  new osg.Vec3Array
+
+    
+    vertices = osg.Vec3Array()
     vertices.push_back(osg.Vec3(-0.8, 0.0, -0.8))
     vertices.push_back(osg.Vec3(0.8, 0.0, -0.8))
     vertices.push_back(osg.Vec3(0.8, 0.0, 0.8))
     vertices.push_back(osg.Vec3(-0.8, 0.0, 0.8))
 
-    texcoord =  new osg.Vec2Array
+    texcoord = osg.Vec2Array()
     texcoord.push_back(osg.Vec2(0.0, 0.0))
     texcoord.push_back(osg.Vec2(1.0, 0.0))
     texcoord.push_back(osg.Vec2(1.0, 1.0))
     texcoord.push_back(osg.Vec2(0.0, 1.0))
 
-    geom =  new osg.Geometry
+    geom = osg.Geometry()
     geom.setVertexArray(vertices)
     geom.setTexCoordArray(0, texcoord)
-    geom.addPrimitiveSet(new osg.DrawArrays(GL_QUADS, 0, 4))
+    geom.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, 4))
 
-    geode =  new osg.Geode
+    geode = osg.Geode()
     geode.addDrawable(geom)
     geode.getOrCreateStateSet().setTextureAttributeAndModes(0, texture, osg.StateAttribute.ON)
 
-    geode = return()
+    return geode
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -131,29 +143,29 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # add stats
-    viewer.addEventHandler( new osgViewer.StatsHandler() )
+    viewer.addEventHandler( osgViewer.StatsHandler() )
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
-    renderImplementation =  osg.Camera.FRAME_BUFFER_OBJECT
-    colorSamples =  0, samples = 0
-    usePDS =  true
+    renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT
+    colorSamples = 0, samples = 0
+    usePDS = True
 
     while arguments.read("--fbo") :  renderImplementation = osg.Camera.FRAME_BUFFER_OBJECT 
     while arguments.read("--pbuffer-rtt") :  renderImplementation = osg.Camera.PIXEL_BUFFER_RTT 
-    while arguments.read("--nopds") :  usePDS = false  
+    while arguments.read("--nopds") :  usePDS = False  
     while arguments.read("--fbo-samples", samples) : 
     while arguments.read("--color-samples", colorSamples) : 
     
 
-    rootNode =  new osg.Group
+    rootNode = osg.Group()
     rootNode.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
     # creates texture to be rendered
-    texture =  new osg.Texture2D
+    texture = osg.Texture2D()
     texture.setTextureSize(1024, 1024)
     texture.setInternalFormat(GL_RGBA)
     texture.setFilter(osg.Texture2D.MIN_FILTER, osg.Texture2D.LINEAR)
@@ -163,7 +175,7 @@ def main(argc, argv):
     texture.setBorderColor(osg.Vec4(0, 0, 0, 0))
 
     # creates rtt camera
-    osg.ref_ptr<osg.Camera> rttCamera = new osg.Camera
+    rttCamera = osg.Camera()
     rttCamera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT)
     rttCamera.setClearColor(osg.Vec4(0.0, 0.4, 0.5, 0.0))
     rttCamera.setClearStencil(0)
@@ -175,17 +187,17 @@ def main(argc, argv):
 
     if usePDS :
         rttCamera.attach(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, GL_DEPTH_STENCIL_EXT)
-    else:
+    else :
         # this doesn't work on NVIDIA/Vista 64bit
         # FBO status = 0x8cd6 (FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT)
         rttCamera.attach(osg.Camera.DEPTH_BUFFER, GL_DEPTH_COMPONENT)
         rttCamera.attach(osg.Camera.STENCIL_BUFFER, GL_STENCIL_INDEX8_EXT)
 
-    rttCamera.attach(osg.Camera.COLOR_BUFFER, texture, 0, 0, false, samples, colorSamples)
+    rttCamera.attach(osg.Camera.COLOR_BUFFER, texture, 0, 0, False, samples, colorSamples)
     rttCamera.setCullingMode(osg.Camera.VIEW_FRUSTUM_SIDES_CULLING)
 
     # creates rtt subtree
-    g0 =  new osg.Group
+    g0 = osg.Group()
     g0.addChild(createMask())
     g0.addChild(createGeometry())
     rttCamera.addChild(g0)

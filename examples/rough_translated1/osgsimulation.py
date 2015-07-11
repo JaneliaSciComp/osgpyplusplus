@@ -14,23 +14,26 @@ from osgpypp import osgSim
 from osgpypp import osgText
 from osgpypp import osgViewer
 
-# OpenSceneGraph example, osgsimulation.
-*
-*  Permission is hereby granted, free of charge, to any person obtaining a copy
-*  of this software and associated documentation files (the "Software"), to deal
-*  in the Software without restriction, including without limitation the rights
-*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-*  copies of the Software, and to permit persons to whom the Software is
-*  furnished to do so, subject to the following conditions:
-*
-*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-*  THE SOFTWARE.
 
+# Translated from file 'osgsimulation.cpp'
+
+# OpenSceneGraph example, osgsimulation.
+#*
+#*  Permission is hereby granted, free of charge, to any person obtaining a copy
+#*  of this software and associated documentation files (the "Software"), to deal
+#*  in the Software without restriction, including without limitation the rights
+#*  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+#*  copies of the Software, and to permit persons to whom the Software is
+#*  furnished to do so, subject to the following conditions:
+#*
+#*  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+#*  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+#*  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+#*  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+#*  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+#*  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+#*  THE SOFTWARE.
+#
 
 #ifdef WIN32
 ######################################/
@@ -86,28 +89,29 @@ from osgpypp import osgViewer
 #include <iostream>
 
 def createEarth():
-    hints =  new osg.TessellationHints
-    hints.setDetailRatio(5.0f)
 
     
-    sd =  new osg.ShapeDrawable(new osg.Sphere(osg.Vec3(0.0,0.0,0.0), osg.WGS_84_RADIUS_POLAR), hints)
+    hints = osg.TessellationHints()
+    hints.setDetailRatio(5.0)
+
     
-    geode =  new osg.Geode
+    sd = osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0), osg.WGS_84_RADIUS_POLAR), hints)
+    
+    geode = osg.Geode()
     geode.addDrawable(sd)
     
-    filename =  osgDB.findDataFile("Images/land_shallow_topo_2048.jpg")
-    geode.getOrCreateStateSet().setTextureAttributeAndModes(0, new osg.Texture2D(osgDB.readImageFile(filename)))
+    filename = osgDB.findDataFile("Images/land_shallow_topo_2048.jpg")
+    geode.getOrCreateStateSet().setTextureAttributeAndModes(0, osg.Texture2D(osgDB.readImageFile(filename)))
     
-    csn =  new osg.CoordinateSystemNode
-    csn.setEllipsoidModel(new osg.EllipsoidModel())
+    csn = osg.CoordinateSystemNode()
+    csn.setEllipsoidModel(osg.EllipsoidModel())
     csn.addChild(geode)
     
-    csn = return()
+    return csn
     
 
 
-class ModelPositionCallback : public osg.NodeCallback
-public:
+class ModelPositionCallback (osg.NodeCallback) :
 
     ModelPositionCallback(double speed):
         _latitude(0.0),
@@ -117,31 +121,33 @@ public:
         _rotation.makeRotate(osg.DegreesToRadians(90.0),0.0,0.0,1.0)
     
     def updateParameters():
+    
+        
         _longitude += _speed * ((2.0*osg.PI)/360.0)/20.0
 
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
         updateParameters()
         
-        nodePath =  nv.getNodePath()
+        nodePath = nv.getNodePath()
 
-        mt =  nodePath.empty() ? 0 : dynamic_cast<osg.MatrixTransform*>(nodePath.back())
+        mt = nodePath.empty() ? 0 : dynamic_cast<osg.MatrixTransform*>(nodePath.back())
         if mt :
-            csn =  0
+            csn = 0
 
             # find coordinate system node from our parental chain
-            unsigned int i
+            i = unsigned int()
             for(i=0 i<nodePath.size()  csn==0 ++i)
                 csn = dynamic_cast<osg.CoordinateSystemNode*>(nodePath[i])
             
             if csn :
 
 
-                ellipsoid =  csn.getEllipsoidModel()
+                ellipsoid = csn.getEllipsoidModel()
                 if ellipsoid :
                     inheritedMatrix = osg.Matrix()
                     for(i+=1 i<nodePath.size()-1 ++i)
-                        transform =  nodePath[i].asTransform()
+                        transform = nodePath[i].asTransform()
                         if transform : transform.computeLocalToWorldMatrix(inheritedMatrix, nv)
                     
                     matrix = osg.Matrixd(inheritedMatrix)
@@ -163,18 +169,19 @@ public:
 
 
 
-class FindNamedNodeVisitor : public osg.NodeVisitor
-public:
+class FindNamedNodeVisitor (osg.NodeVisitor) :
     FindNamedNodeVisitor( str name):
         osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN),
         _name(name) 
     
-    virtual void apply(osg.Node node)
+    def apply(node):
+    
+        
         if node.getName()==_name :
             _foundNodes.push_back(node)
         traverse(node)
     
-    typedef std.vector< osg.ref_ptr<osg.Node> > NodeList
+    typedef std.vector< osg.Node > NodeList
 
     _name = str()
     _foundNodes = NodeList()
@@ -182,6 +189,9 @@ public:
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
     
@@ -195,29 +205,29 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
     
     # add the thread model handler
-    viewer.addEventHandler(new osgViewer.ThreadingHandler)
+    viewer.addEventHandler(osgViewer.ThreadingHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
         
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
         
     # add the record camera path  handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # add the help handler
-    viewer.addEventHandler(new osgViewer.HelpHandler(arguments.getApplicationUsage()))
+    viewer.addEventHandler(osgViewer.HelpHandler(arguments.getApplicationUsage()))
 
     # set the near far ration computation up.
     viewer.getCamera().setComputeNearFarMode(osg.CullSettings.COMPUTE_NEAR_FAR_USING_PRIMITIVES)
-    viewer.getCamera().setNearFarRatio(0.000003f)
+    viewer.getCamera().setNearFarRatio(0.000003)
 
 
-    speed =  1.0
+    speed = 1.0
     while arguments.read("-f") || arguments.read("--fixed") : speed = 0.0
 
 
@@ -229,22 +239,22 @@ def main(argc, argv):
         
         rotation = rotation * local_rotate
 
-    nc =  0
+    nc = 0
     flightpath_filename = str()
     while arguments.read("--flight-path",flightpath_filename) :
         fin = osgDB.ifstream(flightpath_filename.c_str())
         if fin :
-            path =  new osg.AnimationPath
+            path = osg.AnimationPath()
             path.read(fin)
-            nc = new osg.AnimationPathCallback(path)
+            nc = osg.AnimationPathCallback(path)
     
-    trackerMode =  osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
+    trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
     mode = str()
     while arguments.read("--tracker-mode",mode) :
         if mode=="NODE_CENTER_AND_ROTATION" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
-        else: if mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
-        else: if mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
-        else:
+        elif mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
+        elif mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
+        else :
             print "Unrecognized --tracker-mode option ", mode, ", valid options are:"
             print "    NODE_CENTER_AND_ROTATION"
             print "    NODE_CENTER_AND_AZIM"
@@ -252,31 +262,31 @@ def main(argc, argv):
             return 1
     
     
-    rotationMode =  osgGA.NodeTrackerManipulator.TRACKBALL
+    rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
     while arguments.read("--rotation-mode",mode) :
         if mode=="TRACKBALL" : rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
-        else: if mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
-        else:
+        elif mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
+        else :
             print "Unrecognized --rotation-mode option ", mode, ", valid options are:"
             print "    TRACKBALL"
             print "    ELEVATION_AZIM"
             return 1
 
-    useOverlay =  true
-    while arguments.read("--no-overlay") || arguments.read("-n") : useOverlay = false
+    useOverlay = True
+    while arguments.read("--no-overlay") || arguments.read("-n") : useOverlay = False
     
-    technique =  osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
+    technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--object") : technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--ortho") || arguments.read("--orthographic") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--persp") || arguments.read("--perspective") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY
 
-    unsigned int overlayTextureUnit = 1
+    overlayTextureUnit = 1
     while arguments.read("--unit", overlayTextureUnit) : 
     
     pathfile = str()
     while arguments.read("-p",pathfile) : 
 
-    addFireEffect =  arguments.read("--fire")
+    addFireEffect = arguments.read("--fire")
 
     # if user request help write it out to cout.
     if arguments.read("-h") || arguments.read("--help") :
@@ -284,13 +294,13 @@ def main(argc, argv):
         return 1
     
     
-    osg.ref_ptr<osgGA.NodeTrackerManipulator> tm
+    tm = osgGA.NodeTrackerManipulator()
     
     overlayFilename = str()
     while arguments.read("--overlay", overlayFilename) : 
 
     # read the scene from the list of file specified commandline args.
-    osg.ref_ptr<osg.Node> root = osgDB.readNodeFiles(arguments)
+    root = osgDB.readNodeFiles(arguments)
 
     if !root : root = createEarth()
 
@@ -299,22 +309,22 @@ def main(argc, argv):
 
     if !overlayFilename.empty() :
         #osg.Object *pObj = osgDB.readObjectFile("alaska_clean.shp")
-        #osg.ref_ptr<osg.Geode> shapefile = dynamic_cast<osg.Geode*> (pObj)
+        #osg.Geode shapefile = dynamic_cast<osg.Geode*> (pObj)
         #
         #ConvertLatLon2EllipsoidCoordinates latlon2em
         #shapefile.accept(latlon2em)
 
-        osg.ref_ptr<osg.Node> shapefile = osgDB.readNodeFile(overlayFilename)
+        shapefile = osgDB.readNodeFile(overlayFilename)
         
         if !shapefile :
             osg.notify(osg.NOTICE), "File `", overlayFilename, "` not found"
             return 1
 
-        csn =  dynamic_cast<osg.CoordinateSystemNode*>(root.get())
+        csn = dynamic_cast<osg.CoordinateSystemNode*>(root.get())
         if csn :
 
-            overlayNode =  new osgSim.OverlayNode(technique)
-            overlayNode.getOrCreateStateSet().setTextureAttribute(1, new osg.TexEnv(osg.TexEnv.DECAL))
+            overlayNode = osgSim.OverlayNode(technique)
+            overlayNode.getOrCreateStateSet().setTextureAttribute(1, osg.TexEnv(osg.TexEnv.DECAL))
             overlayNode.setOverlaySubgraph(shapefile.get())
             overlayNode.setOverlayTextureSizeHint(1024)
             overlayNode.setOverlayTextureUnit(overlayTextureUnit)
@@ -327,26 +337,26 @@ def main(argc, argv):
             csn.addChild(overlayNode)
 
             viewer.setSceneData(csn)
-        else:
-            overlayNode =  new osgSim.OverlayNode(technique)
-            overlayNode.getOrCreateStateSet().setTextureAttribute(1, new osg.TexEnv(osg.TexEnv.DECAL))
+        else :
+            overlayNode = osgSim.OverlayNode(technique)
+            overlayNode.getOrCreateStateSet().setTextureAttribute(1, osg.TexEnv(osg.TexEnv.DECAL))
             overlayNode.setOverlaySubgraph(shapefile.get())
             overlayNode.setOverlayTextureSizeHint(1024)
             overlayNode.addChild(root.get())
 
             viewer.setSceneData(overlayNode)
-    else:
+    else :
     
 
         # add a viewport to the viewer and attach the scene graph.
         viewer.setSceneData(root.get())
 
-        csn =  dynamic_cast<osg.CoordinateSystemNode*>(root.get())
+        csn = dynamic_cast<osg.CoordinateSystemNode*>(root.get())
         if csn :
 
-            osg.ref_ptr<osgSim.OverlayNode> overlayNode
+            overlayNode = osgSim.OverlayNode()
             if useOverlay :
-                overlayNode = new osgSim.OverlayNode(technique)
+                overlayNode = osgSim.OverlayNode(technique)
 
                 # insert the OverlayNode between the coordinate system node and its children.
                 for(unsigned int i=0 i<csn.getNumChildren() ++i)
@@ -357,42 +367,42 @@ def main(argc, argv):
 
                 # tell the overlay node to continously update its overlay texture
                 # as we know we'll be tracking a moving target.
-                overlayNode.setContinuousUpdate(true)
+                overlayNode.setContinuousUpdate(True)
 
 
-            cessna =  osgDB.readNodeFile("cessna.osgt")
+            cessna = osgDB.readNodeFile("cessna.osgt")
             if cessna :
-                s =  200000.0 / cessna.getBound().radius()
+                s = 200000.0 / cessna.getBound().radius()
 
-                scaler =  new osg.MatrixTransform
+                scaler = osg.MatrixTransform()
                 scaler.addChild(cessna)
                 scaler.setMatrix(osg.Matrixd.scale(s,s,s)*osg.Matrixd.rotate(rotation))
                 scaler.getOrCreateStateSet().setMode(GL_RESCALE_NORMAL,osg.StateAttribute.ON)
                 
                 if addFireEffect :
-                    center =  cessna.getBound().center()
+                    center = cessna.getBound().center()
                     
-                    fire =  new osgParticle.FireEffect(center, 10.0f)
+                    fire = osgParticle.FireEffect(center, 10.0)
                     scaler.addChild(fire)
                 
 
-                if false :
-                    ss =  new osgSim.SphereSegment(
-                                        osg.Vec3(0.0f,0.0f,0.0f), # center
-                                        19.9f, # radius
-                                        osg.DegreesToRadians(135.0f),
-                                        osg.DegreesToRadians(240.0f),
-                                        osg.DegreesToRadians(-10.0f),
-                                        osg.DegreesToRadians(30.0f),
+                if False :
+                    ss = osgSim.SphereSegment(
+                                        osg.Vec3(0.0,0.0,0.0), # center
+                                        19.9, # radius
+                                        osg.DegreesToRadians(135.0),
+                                        osg.DegreesToRadians(240.0),
+                                        osg.DegreesToRadians(-10.0),
+                                        osg.DegreesToRadians(30.0),
                                         60)
 
                     scaler.addChild(ss)
 
-                mt =  new osg.MatrixTransform
+                mt = osg.MatrixTransform()
                 mt.addChild(scaler)
 
 
-                if !nc : nc = new ModelPositionCallback(speed)
+                if !nc : nc = ModelPositionCallback(speed)
 
                 mt.setUpdateCallback(nc)
 
@@ -402,28 +412,28 @@ def main(argc, argv):
                 if overlayNode.valid() :
                     overlayNode.setOverlaySubgraph(mt)
 
-                tm = new osgGA.NodeTrackerManipulator
+                tm = osgGA.NodeTrackerManipulator()
                 tm.setTrackerMode(trackerMode)
                 tm.setRotationMode(rotationMode)
                 tm.setTrackNode(scaler)
-            else:
+            else :
                  print "Failed to read cessna.osgt"
 
 
     # set up camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
         if tm.valid() : keyswitchManipulator.addMatrixManipulator( '0', "NodeTracker", tm.get() )
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         if !pathfile.empty() :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( '5', "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
 

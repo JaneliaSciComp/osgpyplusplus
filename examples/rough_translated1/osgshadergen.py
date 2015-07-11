@@ -11,16 +11,19 @@ from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 
-# -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield 
- *
- * This application is open source and may be redistributed and/or modified   
- * freely and without restriction, both in commercial and non commercial applications,
- * as long as this copyright notice is maintained.
- * 
- * This application is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
+# Translated from file 'osgshadergen.cpp'
+
+# -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield 
+# *
+# * This application is open source and may be redistributed and/or modified   
+# * freely and without restriction, both in commercial and non commercial applications,
+# * as long as this copyright notice is maintained.
+# * 
+# * This application is distributed in the hope that it will be useful,
+# * but WITHOUT ANY WARRANTY without even the implied warranty of
+# * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+#
 
 #include <osgDB/ReadFile>
 #include <osgUtil/ShaderGen>
@@ -39,26 +42,30 @@ from osgpypp import osgViewer
 #include <iostream>
 
 
-class ShaderGenReadFileCallback : public osgDB.Registry.ReadFileCallback
-public:
+class ShaderGenReadFileCallback (osgDB.Registry.ReadFileCallback) :
     ShaderGenReadFileCallback()
 
-    virtual osgDB.ReaderWriter.ReadResult readNode( str filename,  osgDB.ReaderWriter.Options* options)
-        result =  osgDB.Registry.ReadFileCallback.readNode(filename, options)
+    def readNode(filename, options):
+
+        
+        result = osgDB.Registry.ReadFileCallback.readNode(filename, options)
         if osg.Node *node = result.getNode() :
             _visitor.reset()
             node.accept(_visitor)
-        result = return()
+        return result
 
-    void setRootStateSet(osg.StateSet *stateSet)  _visitor.setRootStateSet(stateSet) 
+    def setRootStateSet(stateSet):
+
+         _visitor.setRootStateSet(stateSet) 
     osg.StateSet *getRootStateSet()   return _visitor.getRootStateSet() 
-
-protected:
     _visitor = osgUtil.ShaderGenVisitor()
 
 
 
 def main(argc, argv):
+
+
+    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argc,argv)
 
@@ -69,7 +76,7 @@ def main(argc, argv):
 
     viewer = osgViewer.Viewer(arguments)
 
-    unsigned int helpType = 0
+    helpType = 0
     if helpType = arguments.readHelpType() : :
         arguments.getApplicationUsage().write(std.cout, helpType)
         return 1
@@ -84,19 +91,19 @@ def main(argc, argv):
         return 1
 
     # set up the camera manipulators.
-        osg.ref_ptr<osgGA.KeySwitchMatrixManipulator> keyswitchManipulator = new osgGA.KeySwitchMatrixManipulator
+        keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", new osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", new osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", new osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", new osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath =  '5'
+        keyForAnimationPath = '5'
         while arguments.read("-p",pathfile) :
-            apm =  new osgGA.AnimationPathManipulator(pathfile)
+            apm = osgGA.AnimationPathManipulator(pathfile)
             if apm || !apm.valid() : 
-                unsigned int num = keyswitchManipulator.getNumMatrixManipulators()
+                num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
@@ -104,37 +111,37 @@ def main(argc, argv):
         viewer.setCameraManipulator( keyswitchManipulator.get() )
 
     # add the state manipulator
-    viewer.addEventHandler( new osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
+    viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
     
     # add the thread model handler
-    viewer.addEventHandler(new osgViewer.ThreadingHandler)
+    viewer.addEventHandler(osgViewer.ThreadingHandler)()
 
     # add the window size toggle handler
-    viewer.addEventHandler(new osgViewer.WindowSizeHandler)
+    viewer.addEventHandler(osgViewer.WindowSizeHandler)()
         
     # add the stats handler
-    viewer.addEventHandler(new osgViewer.StatsHandler)
+    viewer.addEventHandler(osgViewer.StatsHandler)()
 
     # add the help handler
-    viewer.addEventHandler(new osgViewer.HelpHandler(arguments.getApplicationUsage()))
+    viewer.addEventHandler(osgViewer.HelpHandler(arguments.getApplicationUsage()))
 
     # add the record camera path handler
-    viewer.addEventHandler(new osgViewer.RecordCameraPathHandler)
+    viewer.addEventHandler(osgViewer.RecordCameraPathHandler)()
 
     # add the LOD Scale handler
-    viewer.addEventHandler(new osgViewer.LODScaleHandler)
+    viewer.addEventHandler(osgViewer.LODScaleHandler)()
 
     # add the screen capture handler
-    viewer.addEventHandler(new osgViewer.ScreenCaptureHandler)
+    viewer.addEventHandler(osgViewer.ScreenCaptureHandler)()
     
     # Register shader generator callback
-    readFileCallback =  new ShaderGenReadFileCallback
+    readFileCallback = ShaderGenReadFileCallback()
     # All read nodes will inherit root state set.
     readFileCallback.setRootStateSet(viewer.getCamera().getStateSet())
     osgDB.Registry.instance().setReadFileCallback(readFileCallback)
 
     # load the data
-    osg.ref_ptr<osg.Node> loadedModel = osgDB.readNodeFiles(arguments)
+    loadedModel = osgDB.readNodeFiles(arguments)
     if !loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
