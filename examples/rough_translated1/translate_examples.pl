@@ -26,14 +26,21 @@ sub translate_source_file {
         print $mod, ": ", $count, "\n";
     }
 
+    # Regexes can only do finite nesting of parentheses
+    my $paren_rx = "\\([^()]*\\)";
+    my $paren2_rx = "\\((?:[^()]*${paren_rx})*[^()]*\\)";
+    my $paren3_rx = "\\((?:[^()]*${paren2_rx})*[^()]*\\)";
+    my $paren4_rx = "\\(((?:[^()]*${paren3_rx})*[^()]*)\\)"; # capture insides
+
     # Regular expressions to help (mostly) identify function declarations
     my $ident_rx = "[a-zA-Z_][a-zA-Z0-9_]*"; # identifiers
-    my $type_rx = "(?:const\\s+)?(?:$ident_rx\\:\\:)?$ident_rx(?:\\s*\\*+|&)?"; # type names
+    my $type_rx = "(?:const\\s+)?(?:$ident_rx\\:\\:)*$ident_rx(?:\\s*\\*+|&)?"; # type names
     my $arg_ident_rx = "(?:\\*+|&)?($ident_rx)"; # e.g. "**argv"
     my $funcarg_rx = "$type_rx\\s+$arg_ident_rx(\\s*=\\s*\\S+)?"; # one argument to a function
     my $funcargs_rx = "\\(\\s*($funcarg_rx(?:\\s*,\\s*$funcarg_rx)*)?\\s*\\)"; # parentheses and arguments to a function
     my $func_rx = "^(\\s*)$type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*{\\s*\$\\n";
 
+    # Translate function declarations
     while ( $file_block =~ m/($func_rx)/mg ) {
         my $cpp_func = $1;
         my $indent = $2;
@@ -52,10 +59,69 @@ sub translate_source_file {
         $py_func .= join ", ", @arg_names;
         $py_func .= "):\n";
 
-        print $cpp_func, "\n";
-        print $py_func;
-        $file_block =~ s/\Q${cpp_func}/{$py_func}/;
+        # print $cpp_func, "\n";
+        # print $py_func;
+        $file_block =~ s/\Q${cpp_func}/${py_func}/;
     }
+
+    my $dec_ass_rx = "(^([\\t\ ]*)$type_rx\\s+$arg_ident_rx\\s*=([^;]*);)";
+
+    # Translate declare-and-assign; "int foo = 3;"
+    while ( $file_block =~ m/$dec_ass_rx/mg) {
+        my $cpp_ass = $1;
+        my $indent = $2;
+        my $ident = $3;
+        my $rhs = $4;
+        # We will remove the semicolon later
+        my $py_ass = "$indent$ident = $rhs;";
+        # print $cpp_ass, "\n";
+        # print $py_ass, "\n";
+        $file_block =~ s/\Q${cpp_ass}/${py_ass}/;
+    }
+
+    # Declare and initialize implicitly "Bar foo;"
+    my $dec_init_rx0 = "^([\\t\ ]*)($type_rx)\\s+($arg_ident_rx)\\s*\\s*;";
+    while ( $file_block =~ m/($dec_init_rx0)/mg) {
+        my $cpp_dec = $1;
+        my $indent = $2;
+        my $type = $3;
+        my $ident = $4;
+        # We will remove the semicolon later
+        my $py_dec = "$indent$ident = $type();";
+        # print $cpp_dec, "\n";
+        # print $py_dec, "\n";
+        $file_block =~ s/\Q${cpp_dec}/${py_dec}/;
+    }
+
+    # Declare and initialize "Bar foo(3);"
+    my $dec_init_rx = "^([\\t\ ]*)($type_rx)\\s+($arg_ident_rx)\\s*($paren4_rx)\\s*;";
+    while ( $file_block =~ m/($dec_init_rx)/mg) {
+        my $cpp_dec = $1;
+        my $indent = $2;
+        my $type = $3;
+        my $ident = $4;
+        my $init = $6;
+        # We will remove the semicolon later
+        my $py_dec = "$indent$ident = $type$init;";
+        # print $cpp_dec, "\n";
+        # print $py_dec, "\n";
+        $file_block =~ s/\Q${cpp_dec}/${py_dec}/;
+    }
+
+    my $ifwhile_rx = "(if|while)\\s*$paren4_rx";
+    while ( $file_block =~ m/($ifwhile_rx)/mg) {
+        my $cpp_while = $1;
+        # strip one set of parentheses
+        my $kw = $2;
+        my $contents = $3;
+        my $py_while = "$2 $3 :";
+        # print $cpp_while, "\n";
+        # print $py_while, "\n";
+        $file_block =~ s/\Q${cpp_while}/${py_while}/;
+    }
+
+    $file_block =~ s/\belse\b/else:/g;
+
 
     # Translate console output statements
     $file_block =~ s/(?:std::)?cout\s*<<\s*/print /g;
@@ -75,7 +141,9 @@ sub translate_source_file {
     $file_block =~ s/::/./g;
 
     # Remove semicolons, braces
-    $file_block =~ s/[{};]//g;
+    $file_block =~ s/(?<=\n)[\ \t]*{[\ \t]*\n//g; # brace on its own line
+    $file_block =~ s/(?<=\n)[\ \t]*}[\ \t]*\n//g; # brace on its own line
+    $file_block =~ s/[{};]//g; # other braces and semicolons
 
     # Remove const, references
     $file_block =~ s/\bconst\b//g;
