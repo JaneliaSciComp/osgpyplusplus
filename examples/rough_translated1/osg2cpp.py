@@ -1,3 +1,14 @@
+#!/bin/env python
+
+# Automatically translated python version of 
+# OpenSceneGraph example program "osg2cpp"
+# !!! This program will need manual tuning before it will work. !!!
+
+import sys
+
+from osgpypp import osg
+from osgpypp import osgDB
+
 #include <osg/ArgumentParser>
 #include <osg/ApplicationUsage>
 
@@ -89,3 +100,7 @@ def main(argc, argv):
 
     arguments.getApplicationUsage().write(std.cout)
     return 1
+
+
+if __name__ == "__main__":
+    main(sys.argv)

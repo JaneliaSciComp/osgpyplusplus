@@ -23,7 +23,7 @@ sub translate_source_file {
         $modules{$1} += 1;
     }
     while (my ($mod, $count) = each %modules ) {
-        print $mod, ": ", $count, "\n";
+        # print $mod, ": ", $count, "\n";
     }
 
     # Regexes can only do finite nesting of parentheses
@@ -45,15 +45,17 @@ sub translate_source_file {
         my $cpp_func = $1;
         my $indent = $2;
         my $fn_name = $3;
-        my $all_args = $4;
-        my @args = split ",", $all_args;
         my @arg_names = ();
-        foreach my $arg (split ",", $all_args) {
-            $arg =~ m/^\s*$funcarg_rx\s*$/;
-            my $arg_name = $1;
-            # my $equals = $2;
-            # print $1, "\n"
-            push @arg_names, $1;
+        my $all_args = $4;
+        if (defined $all_args) {
+            my @args = split ",", $all_args;
+            foreach my $arg (split ",", $all_args) {
+                $arg =~ m/^\s*$funcarg_rx\s*$/;
+                my $arg_name = $1;
+                # my $equals = $2;
+                # print $1, "\n"
+                push @arg_names, $1;
+            }
         }
         my $py_func = "${indent}def $fn_name(";
         $py_func .= join ", ", @arg_names;
@@ -157,16 +159,50 @@ sub translate_example {
     my $example = shift;
     my $folder = shift;
     die unless opendir( my $dh, $folder);
+    my %osg_modules = ();
+    my @file_blocks = ();
     while (readdir $dh) {
         my $file = "$folder/$_";
         next unless -f $file; # Files only, please
         next unless $_ =~ m/\.[ch]/; # C++ source files only, please
         print "  Translating source file: ", $_, "\n";
         my ($source_block, $modules) = translate_source_file($file);
-        die unless open( my $pyfh, ">$example.py" );
-        print $pyfh $source_block;
-        close($pyfh);
+        while (my ($mod, $count) = each %{$modules}) {
+            # print "$mod: $count\n";
+            $osg_modules{$mod} += $count;
+        }
+        push @file_blocks, $source_block;
     }
+    die unless open( my $pyfh, ">$example.py" );
+
+    my $header = << "EOM";
+#!/bin/env python
+
+# Automatically translated python version of 
+# OpenSceneGraph example program "$example"
+# !!! This program will need manual tuning before it will work. !!!
+
+import sys
+
+EOM
+    print $pyfh $header;
+
+    foreach my $osgmodule (sort keys %osg_modules) {
+        print $pyfh "from osgpypp import $osgmodule\n"
+    }
+    print $pyfh "\n";
+
+    foreach my $block (@file_blocks) {
+        print $pyfh $block;
+    }
+    my $footer = << 'EOM';
+
+
+if __name__ == "__main__":
+    main(sys.argv)
+EOM
+    print $pyfh $footer;
+    close($pyfh);
     closedir $dh;
 }
 
@@ -174,6 +210,7 @@ sub translate_example {
 sub translate_all_examples {
     my $top_folder = shift;
     die unless opendir( my $dh, $top_folder);
+    my $count = 0;
     while (readdir $dh) {
         my $example = $_;
         my $folder = "$examples_source_folder/$example";
@@ -181,7 +218,8 @@ sub translate_all_examples {
         next if $_ =~ m/^\./; # no hidden/special folders, please
         print "Translating OSG example: ", $_, "\n";
         translate_example($example, $folder);
-        last; # Just one for now while testing...
+        $count += 1;
+        # last if $count > 100; # Just one for now while testing...
     }
     closedir $dh;
 }
