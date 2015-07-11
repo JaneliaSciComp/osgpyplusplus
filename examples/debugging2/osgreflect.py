@@ -325,8 +325,8 @@ def main(argv):
     print "set scene data"
 
     #hint to tell viewer to request stencil buffer when setting up windows
-    osg.DisplaySettings().setMinimumNumStencilBits(8)
-#    osg.DisplaySettings.instance().setMinimumNumStencilBits(8);
+    # osg.DisplaySettings().setMinimumNumStencilBits(8)
+    osg.DisplaySettings.instance().setMinimumNumStencilBits(8);
 
     osgDB.writeNodeFile(rootNode, "test_reflect.osg");
 

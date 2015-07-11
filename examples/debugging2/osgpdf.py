@@ -5,6 +5,7 @@
 
 import sys
 
+from osgpypp import osg
 from osgpypp import osgViewer
 from osgpypp import osgWidget
 
