@@ -15,7 +15,7 @@ void register_Hit_class(){
         Hit_exposer.def( bp::init< osgUtil::Hit const & >(( bp::arg("hit") )) );
         { //::osgUtil::Hit::getDrawable
         
-            typedef ::osg::Drawable * ( ::osgUtil::Hit::*getDrawable_function_type)(  ) ;
+            typedef ::osg::Drawable * ( ::osgUtil::Hit::*getDrawable_function_type )(  ) ;
             
             Hit_exposer.def( 
                 "getDrawable"
@@ -25,7 +25,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getDrawable
         
-            typedef ::osg::Drawable const * ( ::osgUtil::Hit::*getDrawable_function_type)(  ) const;
+            typedef ::osg::Drawable const * ( ::osgUtil::Hit::*getDrawable_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getDrawable"
@@ -35,7 +35,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getGeode
         
-            typedef ::osg::Geode * ( ::osgUtil::Hit::*getGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( ::osgUtil::Hit::*getGeode_function_type )(  ) ;
             
             Hit_exposer.def( 
                 "getGeode"
@@ -45,7 +45,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getGeode
         
-            typedef ::osg::Geode const * ( ::osgUtil::Hit::*getGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( ::osgUtil::Hit::*getGeode_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getGeode"
@@ -55,7 +55,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getInverseMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::Hit::*getInverseMatrix_function_type)(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::Hit::*getInverseMatrix_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getInverseMatrix"
@@ -65,7 +65,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getLocalIntersectNormal
         
-            typedef ::osg::Vec3 const & ( ::osgUtil::Hit::*getLocalIntersectNormal_function_type)(  ) const;
+            typedef ::osg::Vec3 const & ( ::osgUtil::Hit::*getLocalIntersectNormal_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getLocalIntersectNormal"
@@ -75,7 +75,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getLocalIntersectPoint
         
-            typedef ::osg::Vec3 const & ( ::osgUtil::Hit::*getLocalIntersectPoint_function_type)(  ) const;
+            typedef ::osg::Vec3 const & ( ::osgUtil::Hit::*getLocalIntersectPoint_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getLocalIntersectPoint"
@@ -85,7 +85,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getLocalLineSegment
         
-            typedef ::osg::LineSegment const * ( ::osgUtil::Hit::*getLocalLineSegment_function_type)(  ) const;
+            typedef ::osg::LineSegment const * ( ::osgUtil::Hit::*getLocalLineSegment_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getLocalLineSegment"
@@ -95,7 +95,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getMatrix
         
-            typedef ::osg::RefMatrix const * ( ::osgUtil::Hit::*getMatrix_function_type)(  ) const;
+            typedef ::osg::RefMatrix const * ( ::osgUtil::Hit::*getMatrix_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getMatrix"
@@ -105,7 +105,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getNodePath
         
-            typedef ::osg::NodePath & ( ::osgUtil::Hit::*getNodePath_function_type)(  ) ;
+            typedef ::osg::NodePath & ( ::osgUtil::Hit::*getNodePath_function_type )(  ) ;
             
             Hit_exposer.def( 
                 "getNodePath"
@@ -115,7 +115,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getNodePath
         
-            typedef ::osg::NodePath const & ( ::osgUtil::Hit::*getNodePath_function_type)(  ) const;
+            typedef ::osg::NodePath const & ( ::osgUtil::Hit::*getNodePath_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getNodePath"
@@ -125,7 +125,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getOriginalLineSegment
         
-            typedef ::osg::LineSegment const * ( ::osgUtil::Hit::*getOriginalLineSegment_function_type)(  ) const;
+            typedef ::osg::LineSegment const * ( ::osgUtil::Hit::*getOriginalLineSegment_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getOriginalLineSegment"
@@ -135,7 +135,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getPrimitiveIndex
         
-            typedef int ( ::osgUtil::Hit::*getPrimitiveIndex_function_type)(  ) const;
+            typedef int ( ::osgUtil::Hit::*getPrimitiveIndex_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getPrimitiveIndex"
@@ -144,7 +144,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getRatio
         
-            typedef float ( ::osgUtil::Hit::*getRatio_function_type)(  ) const;
+            typedef float ( ::osgUtil::Hit::*getRatio_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getRatio"
@@ -153,7 +153,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getVecIndexList
         
-            typedef ::std::vector< int > const & ( ::osgUtil::Hit::*getVecIndexList_function_type)(  ) const;
+            typedef ::std::vector< int > const & ( ::osgUtil::Hit::*getVecIndexList_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getVecIndexList"
@@ -163,7 +163,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getWorldIntersectNormal
         
-            typedef ::osg::Vec3 const ( ::osgUtil::Hit::*getWorldIntersectNormal_function_type)(  ) const;
+            typedef ::osg::Vec3 const ( ::osgUtil::Hit::*getWorldIntersectNormal_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getWorldIntersectNormal"
@@ -172,7 +172,7 @@ void register_Hit_class(){
         }
         { //::osgUtil::Hit::getWorldIntersectPoint
         
-            typedef ::osg::Vec3 const ( ::osgUtil::Hit::*getWorldIntersectPoint_function_type)(  ) const;
+            typedef ::osg::Vec3 const ( ::osgUtil::Hit::*getWorldIntersectPoint_function_type )(  ) const;
             
             Hit_exposer.def( 
                 "getWorldIntersectPoint"
@@ -182,7 +182,7 @@ void register_Hit_class(){
         Hit_exposer.def( bp::self < bp::self );
         { //::osgUtil::Hit::operator=
         
-            typedef ::osgUtil::Hit & ( ::osgUtil::Hit::*assign_function_type)( ::osgUtil::Hit const & ) ;
+            typedef ::osgUtil::Hit & ( ::osgUtil::Hit::*assign_function_type )( ::osgUtil::Hit const & ) ;
             
             Hit_exposer.def( 
                 "assign"

@@ -52,8 +52,8 @@ void register_EndOfDynamicDrawBlock_class(){
         bp::implicitly_convertible< unsigned int, osg::EndOfDynamicDrawBlock >();
         { //::osg::EndOfDynamicDrawBlock::completed
         
-            typedef void ( ::osg::EndOfDynamicDrawBlock::*completed_function_type)( ::osg::State * ) ;
-            typedef void ( EndOfDynamicDrawBlock_wrapper::*default_completed_function_type)( ::osg::State * ) ;
+            typedef void ( ::osg::EndOfDynamicDrawBlock::*completed_function_type )( ::osg::State * ) ;
+            typedef void ( EndOfDynamicDrawBlock_wrapper::*default_completed_function_type )( ::osg::State * ) ;
             
             EndOfDynamicDrawBlock_exposer.def( 
                 "completed"
@@ -64,8 +64,8 @@ void register_EndOfDynamicDrawBlock_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( EndOfDynamicDrawBlock_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( EndOfDynamicDrawBlock_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             EndOfDynamicDrawBlock_exposer.def( 
                 "setThreadSafeRefUnref"

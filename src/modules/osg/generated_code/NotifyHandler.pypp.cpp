@@ -40,13 +40,13 @@ void register_NotifyHandler_class(){
     bp::class_< NotifyHandler_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::NotifyHandler >, boost::noncopyable >( "NotifyHandler", "\n Handler processing output of notification stream. It acts as a sink to\n notification messages. It is called when notification stream needs to be\n synchronized (i.e. after osg::notify() << std::endl).\n StandardNotifyHandler is used by default, it writes notifications to stderr\n (severity <= WARN) or stdout (severity > WARN).\n Notifications can be redirected to other sinks such as GUI widgets or\n windows debugger (WinDebugNotifyHandler) with custom handlers.\n Use setNotifyHandler to set custom handler.\n Note that osg notification API is not thread safe although notification\n handler is called from many threads. When incorporating handlers into GUI\n widgets you must take care of thread safety on your own.\n aee setNotifyHandler\n", bp::no_init )    
         .def( 
             "notify"
-            , bp::pure_virtual( (void ( ::osg::NotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::NotifyHandler::notify) )
+            , bp::pure_virtual( (void ( ::osg::NotifyHandler::* )( ::osg::NotifySeverity,char const * ) )(&::osg::NotifyHandler::notify) )
             , ( bp::arg("severity"), bp::arg("message") )
             , "\n Handler processing output of notification stream. It acts as a sink to\n notification messages. It is called when notification stream needs to be\n synchronized (i.e. after osg::notify() << std::endl).\n StandardNotifyHandler is used by default, it writes notifications to stderr\n (severity <= WARN) or stdout (severity > WARN).\n Notifications can be redirected to other sinks such as GUI widgets or\n windows debugger (WinDebugNotifyHandler) with custom handlers.\n Use setNotifyHandler to set custom handler.\n Note that osg notification API is not thread safe although notification\n handler is called from many threads. When incorporating handlers into GUI\n widgets you must take care of thread safety on your own.\n aee setNotifyHandler\n" )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( NotifyHandler_wrapper::* )( bool ))(&NotifyHandler_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( NotifyHandler_wrapper::* )( bool ) )(&NotifyHandler_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

@@ -191,15 +191,15 @@ void register_ToggleSyncToVBlankHandler_class(){
     bp::class_< ToggleSyncToVBlankHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::ToggleSyncToVBlankHandler >, boost::noncopyable >( "ToggleSyncToVBlankHandler", bp::init< >() )    
         .def( 
             "getKeyEventToggleSyncToVBlankHandler"
-            , (int ( ::osgViewer::ToggleSyncToVBlankHandler::* )(  )const)( &::osgViewer::ToggleSyncToVBlankHandler::getKeyEventToggleSyncToVBlankHandler ) )    
+            , (int ( ::osgViewer::ToggleSyncToVBlankHandler::* )(  ) const)( &::osgViewer::ToggleSyncToVBlankHandler::getKeyEventToggleSyncToVBlankHandler ) )    
         .def( 
             "getUsage"
-            , (void ( ::osgViewer::ToggleSyncToVBlankHandler::* )( ::osg::ApplicationUsage & )const)(&::osgViewer::ToggleSyncToVBlankHandler::getUsage)
-            , (void ( ToggleSyncToVBlankHandler_wrapper::* )( ::osg::ApplicationUsage & )const)(&ToggleSyncToVBlankHandler_wrapper::default_getUsage)
+            , (void ( ::osgViewer::ToggleSyncToVBlankHandler::* )( ::osg::ApplicationUsage & ) const)(&::osgViewer::ToggleSyncToVBlankHandler::getUsage)
+            , (void ( ToggleSyncToVBlankHandler_wrapper::* )( ::osg::ApplicationUsage & ) const)(&ToggleSyncToVBlankHandler_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "setKeyEventToggleSyncToVBlankHandler"
-            , (void ( ::osgViewer::ToggleSyncToVBlankHandler::* )( int ))( &::osgViewer::ToggleSyncToVBlankHandler::setKeyEventToggleSyncToVBlankHandler )
+            , (void ( ::osgViewer::ToggleSyncToVBlankHandler::* )( int ) )( &::osgViewer::ToggleSyncToVBlankHandler::setKeyEventToggleSyncToVBlankHandler )
             , ( bp::arg("key") ) );
 
 }

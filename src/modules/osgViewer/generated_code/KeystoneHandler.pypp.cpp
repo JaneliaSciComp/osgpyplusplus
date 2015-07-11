@@ -208,7 +208,7 @@ void register_KeystoneHandler_class(){
         bp::implicitly_convertible< osgViewer::Keystone *, osgViewer::KeystoneHandler >();
         { //::osgViewer::KeystoneHandler::getKeystoneEditingEnabled
         
-            typedef bool ( ::osgViewer::KeystoneHandler::*getKeystoneEditingEnabled_function_type)(  ) const;
+            typedef bool ( ::osgViewer::KeystoneHandler::*getKeystoneEditingEnabled_function_type )(  ) const;
             
             KeystoneHandler_exposer.def( 
                 "getKeystoneEditingEnabled"
@@ -217,7 +217,7 @@ void register_KeystoneHandler_class(){
         }
         { //::osgViewer::KeystoneHandler::move
         
-            typedef void ( ::osgViewer::KeystoneHandler::*move_function_type)( ::osgViewer::KeystoneHandler::Region,::osg::Vec2d const & ) ;
+            typedef void ( ::osgViewer::KeystoneHandler::*move_function_type )( ::osgViewer::KeystoneHandler::Region,::osg::Vec2d const & ) ;
             
             KeystoneHandler_exposer.def( 
                 "move"
@@ -227,7 +227,7 @@ void register_KeystoneHandler_class(){
         }
         { //::osgViewer::KeystoneHandler::setKeystoneEditingEnabled
         
-            typedef void ( ::osgViewer::KeystoneHandler::*setKeystoneEditingEnabled_function_type)( bool ) ;
+            typedef void ( ::osgViewer::KeystoneHandler::*setKeystoneEditingEnabled_function_type )( bool ) ;
             
             KeystoneHandler_exposer.def( 
                 "setKeystoneEditingEnabled"

@@ -72,77 +72,77 @@ void register_OperationThread_class(){
         .def( bp::init< >("\n OperationThread is a helper class for running Operation within a single thread.\n") )    
         .def( 
             "add"
-            , (void ( ::osg::OperationThread::* )( ::osg::Operation * ))( &::osg::OperationThread::add )
+            , (void ( ::osg::OperationThread::* )( ::osg::Operation * ) )( &::osg::OperationThread::add )
             , ( bp::arg("operation") )
             , " Add operation to end of OperationQueue, this will be\n executed by the graphics thread once this operation gets to the head of the queue." )    
         .def( 
             "cancel"
-            , (int ( ::osg::OperationThread::* )(  ))(&::osg::OperationThread::cancel)
-            , (int ( OperationThread_wrapper::* )(  ))(&OperationThread_wrapper::default_cancel) )    
+            , (int ( ::osg::OperationThread::* )(  ) )(&::osg::OperationThread::cancel)
+            , (int ( OperationThread_wrapper::* )(  ) )(&OperationThread_wrapper::default_cancel) )    
         .def( 
             "getCurrentOperation"
-            , (::osg::ref_ptr< osg::Operation > ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getCurrentOperation )
+            , (::osg::ref_ptr< osg::Operation > ( ::osg::OperationThread::* )(  ) )( &::osg::OperationThread::getCurrentOperation )
             , " Get the operation currently being run." )    
         .def( 
             "getDone"
-            , (bool ( ::osg::OperationThread::* )(  )const)( &::osg::OperationThread::getDone ) )    
+            , (bool ( ::osg::OperationThread::* )(  ) const)( &::osg::OperationThread::getDone ) )    
         .def( 
             "getOperationQueue"
-            , (::osg::OperationQueue * ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getOperationQueue )
+            , (::osg::OperationQueue * ( ::osg::OperationThread::* )(  ) )( &::osg::OperationThread::getOperationQueue )
             , bp::return_internal_reference< >()
             , " Get the OperationQueue." )    
         .def( 
             "getOperationQueue"
-            , (::osg::OperationQueue const * ( ::osg::OperationThread::* )(  )const)( &::osg::OperationThread::getOperationQueue )
+            , (::osg::OperationQueue const * ( ::osg::OperationThread::* )(  ) const)( &::osg::OperationThread::getOperationQueue )
             , bp::return_internal_reference< >()
             , " Get the const OperationQueue." )    
         .def( 
             "getParent"
-            , (::osg::Object * ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::getParent )
+            , (::osg::Object * ( ::osg::OperationThread::* )(  ) )( &::osg::OperationThread::getParent )
             , bp::return_internal_reference< >() )    
         .def( 
             "getParent"
-            , (::osg::Object const * ( ::osg::OperationThread::* )(  )const)( &::osg::OperationThread::getParent )
+            , (::osg::Object const * ( ::osg::OperationThread::* )(  ) const)( &::osg::OperationThread::getParent )
             , bp::return_internal_reference< >() )    
         .def( 
             "remove"
-            , (void ( ::osg::OperationThread::* )( ::osg::Operation * ))( &::osg::OperationThread::remove )
+            , (void ( ::osg::OperationThread::* )( ::osg::Operation * ) )( &::osg::OperationThread::remove )
             , ( bp::arg("operation") )
             , " Remove operation from OperationQueue." )    
         .def( 
             "remove"
-            , (void ( ::osg::OperationThread::* )( ::std::string const & ))( &::osg::OperationThread::remove )
+            , (void ( ::osg::OperationThread::* )( ::std::string const & ) )( &::osg::OperationThread::remove )
             , ( bp::arg("name") )
             , " Remove named operation from OperationQueue." )    
         .def( 
             "removeAllOperations"
-            , (void ( ::osg::OperationThread::* )(  ))( &::osg::OperationThread::removeAllOperations )
+            , (void ( ::osg::OperationThread::* )(  ) )( &::osg::OperationThread::removeAllOperations )
             , " Remove all operations from OperationQueue." )    
         .def( 
             "run"
-            , (void ( ::osg::OperationThread::* )(  ))(&::osg::OperationThread::run)
-            , (void ( OperationThread_wrapper::* )(  ))(&OperationThread_wrapper::default_run) )    
+            , (void ( ::osg::OperationThread::* )(  ) )(&::osg::OperationThread::run)
+            , (void ( OperationThread_wrapper::* )(  ) )(&OperationThread_wrapper::default_run) )    
         .def( 
             "setDone"
-            , (void ( ::osg::OperationThread::* )( bool ))( &::osg::OperationThread::setDone )
+            , (void ( ::osg::OperationThread::* )( bool ) )( &::osg::OperationThread::setDone )
             , ( bp::arg("done") ) )    
         .def( 
             "setOperationQueue"
-            , (void ( ::osg::OperationThread::* )( ::osg::OperationQueue * ))( &::osg::OperationThread::setOperationQueue )
+            , (void ( ::osg::OperationThread::* )( ::osg::OperationQueue * ) )( &::osg::OperationThread::setOperationQueue )
             , ( bp::arg("opq") )
             , " Set the OperationQueue." )    
         .def( 
             "setParent"
-            , (void ( ::osg::OperationThread::* )( ::osg::Object * ))( &::osg::OperationThread::setParent )
+            , (void ( ::osg::OperationThread::* )( ::osg::Object * ) )( &::osg::OperationThread::setParent )
             , ( bp::arg("parent") ) )    
         .def( 
             "cancelCleanup"
-            , (void ( ::OpenThreads::Thread::* )(  ))(&::OpenThreads::Thread::cancelCleanup)
-            , (void ( OperationThread_wrapper::* )(  ))(&OperationThread_wrapper::default_cancelCleanup) )    
+            , (void ( ::OpenThreads::Thread::* )(  ) )(&::OpenThreads::Thread::cancelCleanup)
+            , (void ( OperationThread_wrapper::* )(  ) )(&OperationThread_wrapper::default_cancelCleanup) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( OperationThread_wrapper::* )( bool ))(&OperationThread_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( OperationThread_wrapper::* )( bool ) )(&OperationThread_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

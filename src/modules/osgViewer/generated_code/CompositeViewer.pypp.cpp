@@ -539,7 +539,7 @@ void register_CompositeViewer_class(){
         bp::implicitly_convertible< osg::ArgumentParser &, osgViewer::CompositeViewer >();
         { //::osgViewer::CompositeViewer::addView
         
-            typedef void ( ::osgViewer::CompositeViewer::*addView_function_type)( ::osgViewer::View * ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*addView_function_type )( ::osgViewer::View * ) ;
             
             CompositeViewer_exposer.def( 
                 "addView"
@@ -549,8 +549,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::advance
         
-            typedef void ( ::osgViewer::CompositeViewer::*advance_function_type)( double ) ;
-            typedef void ( CompositeViewer_wrapper::*default_advance_function_type)( double ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*advance_function_type )( double ) ;
+            typedef void ( CompositeViewer_wrapper::*default_advance_function_type )( double ) ;
             
             CompositeViewer_exposer.def( 
                 "advance"
@@ -561,8 +561,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::checkEvents
         
-            typedef bool ( ::osgViewer::CompositeViewer::*checkEvents_function_type)(  ) ;
-            typedef bool ( CompositeViewer_wrapper::*default_checkEvents_function_type)(  ) ;
+            typedef bool ( ::osgViewer::CompositeViewer::*checkEvents_function_type )(  ) ;
+            typedef bool ( CompositeViewer_wrapper::*default_checkEvents_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "checkEvents"
@@ -572,8 +572,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::checkNeedToDoFrame
         
-            typedef bool ( ::osgViewer::CompositeViewer::*checkNeedToDoFrame_function_type)(  ) ;
-            typedef bool ( CompositeViewer_wrapper::*default_checkNeedToDoFrame_function_type)(  ) ;
+            typedef bool ( ::osgViewer::CompositeViewer::*checkNeedToDoFrame_function_type )(  ) ;
+            typedef bool ( CompositeViewer_wrapper::*default_checkNeedToDoFrame_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "checkNeedToDoFrame"
@@ -583,8 +583,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::className
         
-            typedef char const * ( ::osgViewer::CompositeViewer::*className_function_type)(  ) const;
-            typedef char const * ( CompositeViewer_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::CompositeViewer::*className_function_type )(  ) const;
+            typedef char const * ( CompositeViewer_wrapper::*default_className_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "className"
@@ -594,8 +594,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::clone
         
-            typedef ::osg::Object * ( ::osgViewer::CompositeViewer::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( CompositeViewer_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgViewer::CompositeViewer::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( CompositeViewer_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             CompositeViewer_exposer.def( 
                 "clone"
@@ -607,8 +607,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::cloneType
         
-            typedef ::osg::Object * ( ::osgViewer::CompositeViewer::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( CompositeViewer_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgViewer::CompositeViewer::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( CompositeViewer_wrapper::*default_cloneType_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "cloneType"
@@ -619,8 +619,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::elapsedTime
         
-            typedef double ( ::osgViewer::CompositeViewer::*elapsedTime_function_type)(  ) ;
-            typedef double ( CompositeViewer_wrapper::*default_elapsedTime_function_type)(  ) ;
+            typedef double ( ::osgViewer::CompositeViewer::*elapsedTime_function_type )(  ) ;
+            typedef double ( CompositeViewer_wrapper::*default_elapsedTime_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "elapsedTime"
@@ -630,8 +630,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::eventTraversal
         
-            typedef void ( ::osgViewer::CompositeViewer::*eventTraversal_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_eventTraversal_function_type)(  ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*eventTraversal_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_eventTraversal_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "eventTraversal"
@@ -641,8 +641,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getAllThreads
         
-            typedef void ( ::osgViewer::CompositeViewer::*getAllThreads_function_type)( ::std::vector< OpenThreads::Thread* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getAllThreads_function_type)( ::std::vector< OpenThreads::Thread* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getAllThreads_function_type )( ::std::vector< OpenThreads::Thread* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getAllThreads_function_type )( ::std::vector< OpenThreads::Thread* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getAllThreads"
@@ -653,7 +653,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getCameraWithFocus
         
-            typedef ::osg::Camera * ( ::osgViewer::CompositeViewer::*getCameraWithFocus_function_type)(  ) ;
+            typedef ::osg::Camera * ( ::osgViewer::CompositeViewer::*getCameraWithFocus_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "getCameraWithFocus"
@@ -663,7 +663,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getCameraWithFocus
         
-            typedef ::osg::Camera const * ( ::osgViewer::CompositeViewer::*getCameraWithFocus_function_type)(  ) const;
+            typedef ::osg::Camera const * ( ::osgViewer::CompositeViewer::*getCameraWithFocus_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "getCameraWithFocus"
@@ -673,8 +673,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getCameras
         
-            typedef void ( ::osgViewer::CompositeViewer::*getCameras_function_type)( ::std::vector< osg::Camera* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getCameras_function_type)( ::std::vector< osg::Camera* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getCameras_function_type )( ::std::vector< osg::Camera* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getCameras_function_type )( ::std::vector< osg::Camera* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getCameras"
@@ -685,8 +685,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getContexts
         
-            typedef void ( ::osgViewer::CompositeViewer::*getContexts_function_type)( ::std::vector< osg::GraphicsContext* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getContexts_function_type)( ::std::vector< osg::GraphicsContext* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getContexts_function_type )( ::std::vector< osg::GraphicsContext* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getContexts_function_type )( ::std::vector< osg::GraphicsContext* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getContexts"
@@ -697,7 +697,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getFrameStamp
         
-            typedef ::osg::FrameStamp * ( ::osgViewer::CompositeViewer::*getFrameStamp_function_type)(  ) ;
+            typedef ::osg::FrameStamp * ( ::osgViewer::CompositeViewer::*getFrameStamp_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "getFrameStamp"
@@ -707,7 +707,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getFrameStamp
         
-            typedef ::osg::FrameStamp const * ( ::osgViewer::CompositeViewer::*getFrameStamp_function_type)(  ) const;
+            typedef ::osg::FrameStamp const * ( ::osgViewer::CompositeViewer::*getFrameStamp_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "getFrameStamp"
@@ -717,7 +717,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getNumViews
         
-            typedef unsigned int ( ::osgViewer::CompositeViewer::*getNumViews_function_type)(  ) const;
+            typedef unsigned int ( ::osgViewer::CompositeViewer::*getNumViews_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "getNumViews"
@@ -726,8 +726,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getOperationThreads
         
-            typedef void ( ::osgViewer::CompositeViewer::*getOperationThreads_function_type)( ::std::vector< osg::OperationThread* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getOperationThreads_function_type)( ::std::vector< osg::OperationThread* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getOperationThreads_function_type )( ::std::vector< osg::OperationThread* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getOperationThreads_function_type )( ::std::vector< osg::OperationThread* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getOperationThreads"
@@ -738,8 +738,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getScenes
         
-            typedef void ( ::osgViewer::CompositeViewer::*getScenes_function_type)( ::std::vector< osgViewer::Scene* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getScenes_function_type)( ::std::vector< osgViewer::Scene* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getScenes_function_type )( ::std::vector< osgViewer::Scene* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getScenes_function_type )( ::std::vector< osgViewer::Scene* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getScenes"
@@ -750,8 +750,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getUsage
         
-            typedef void ( ::osgViewer::CompositeViewer::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( CompositeViewer_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::CompositeViewer::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( CompositeViewer_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
             
             CompositeViewer_exposer.def( 
                 "getUsage"
@@ -762,7 +762,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getView
         
-            typedef ::osgViewer::View * ( ::osgViewer::CompositeViewer::*getView_function_type)( unsigned int ) ;
+            typedef ::osgViewer::View * ( ::osgViewer::CompositeViewer::*getView_function_type )( unsigned int ) ;
             
             CompositeViewer_exposer.def( 
                 "getView"
@@ -773,7 +773,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getView
         
-            typedef ::osgViewer::View const * ( ::osgViewer::CompositeViewer::*getView_function_type)( unsigned int ) const;
+            typedef ::osgViewer::View const * ( ::osgViewer::CompositeViewer::*getView_function_type )( unsigned int ) const;
             
             CompositeViewer_exposer.def( 
                 "getView"
@@ -784,7 +784,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViewWithFocus
         
-            typedef ::osgViewer::View * ( ::osgViewer::CompositeViewer::*getViewWithFocus_function_type)(  ) ;
+            typedef ::osgViewer::View * ( ::osgViewer::CompositeViewer::*getViewWithFocus_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "getViewWithFocus"
@@ -794,7 +794,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViewWithFocus
         
-            typedef ::osgViewer::View const * ( ::osgViewer::CompositeViewer::*getViewWithFocus_function_type)(  ) const;
+            typedef ::osgViewer::View const * ( ::osgViewer::CompositeViewer::*getViewWithFocus_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "getViewWithFocus"
@@ -804,8 +804,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViewerFrameStamp
         
-            typedef ::osg::FrameStamp * ( ::osgViewer::CompositeViewer::*getViewerFrameStamp_function_type)(  ) ;
-            typedef ::osg::FrameStamp * ( CompositeViewer_wrapper::*default_getViewerFrameStamp_function_type)(  ) ;
+            typedef ::osg::FrameStamp * ( ::osgViewer::CompositeViewer::*getViewerFrameStamp_function_type )(  ) ;
+            typedef ::osg::FrameStamp * ( CompositeViewer_wrapper::*default_getViewerFrameStamp_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "getViewerFrameStamp"
@@ -816,8 +816,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViewerStats
         
-            typedef ::osg::Stats * ( ::osgViewer::CompositeViewer::*getViewerStats_function_type)(  ) ;
-            typedef ::osg::Stats * ( CompositeViewer_wrapper::*default_getViewerStats_function_type)(  ) ;
+            typedef ::osg::Stats * ( ::osgViewer::CompositeViewer::*getViewerStats_function_type )(  ) ;
+            typedef ::osg::Stats * ( CompositeViewer_wrapper::*default_getViewerStats_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "getViewerStats"
@@ -828,8 +828,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViewerStats
         
-            typedef ::osg::Stats const * ( ::osgViewer::CompositeViewer::*getViewerStats_function_type)(  ) const;
-            typedef ::osg::Stats const * ( CompositeViewer_wrapper::*default_getViewerStats_function_type)(  ) const;
+            typedef ::osg::Stats const * ( ::osgViewer::CompositeViewer::*getViewerStats_function_type )(  ) const;
+            typedef ::osg::Stats const * ( CompositeViewer_wrapper::*default_getViewerStats_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "getViewerStats"
@@ -840,8 +840,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::getViews
         
-            typedef void ( ::osgViewer::CompositeViewer::*getViews_function_type)( ::std::vector< osgViewer::View* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getViews_function_type)( ::std::vector< osgViewer::View* > &,bool ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*getViews_function_type )( ::std::vector< osgViewer::View* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getViews_function_type )( ::std::vector< osgViewer::View* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getViews"
@@ -852,8 +852,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::isRealized
         
-            typedef bool ( ::osgViewer::CompositeViewer::*isRealized_function_type)(  ) const;
-            typedef bool ( CompositeViewer_wrapper::*default_isRealized_function_type)(  ) const;
+            typedef bool ( ::osgViewer::CompositeViewer::*isRealized_function_type )(  ) const;
+            typedef bool ( CompositeViewer_wrapper::*default_isRealized_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "isRealized"
@@ -863,8 +863,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::isSameKindAs
         
-            typedef bool ( ::osgViewer::CompositeViewer::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( CompositeViewer_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgViewer::CompositeViewer::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( CompositeViewer_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             CompositeViewer_exposer.def( 
                 "isSameKindAs"
@@ -875,8 +875,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::libraryName
         
-            typedef char const * ( ::osgViewer::CompositeViewer::*libraryName_function_type)(  ) const;
-            typedef char const * ( CompositeViewer_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::CompositeViewer::*libraryName_function_type )(  ) const;
+            typedef char const * ( CompositeViewer_wrapper::*default_libraryName_function_type )(  ) const;
             
             CompositeViewer_exposer.def( 
                 "libraryName"
@@ -886,8 +886,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::readConfiguration
         
-            typedef bool ( ::osgViewer::CompositeViewer::*readConfiguration_function_type)( ::std::string const & ) ;
-            typedef bool ( CompositeViewer_wrapper::*default_readConfiguration_function_type)( ::std::string const & ) ;
+            typedef bool ( ::osgViewer::CompositeViewer::*readConfiguration_function_type )( ::std::string const & ) ;
+            typedef bool ( CompositeViewer_wrapper::*default_readConfiguration_function_type )( ::std::string const & ) ;
             
             CompositeViewer_exposer.def( 
                 "readConfiguration"
@@ -898,8 +898,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::realize
         
-            typedef void ( ::osgViewer::CompositeViewer::*realize_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_realize_function_type)(  ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*realize_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_realize_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "realize"
@@ -909,7 +909,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::removeView
         
-            typedef void ( ::osgViewer::CompositeViewer::*removeView_function_type)( ::osgViewer::View * ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*removeView_function_type )( ::osgViewer::View * ) ;
             
             CompositeViewer_exposer.def( 
                 "removeView"
@@ -919,8 +919,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::run
         
-            typedef int ( ::osgViewer::CompositeViewer::*run_function_type)(  ) ;
-            typedef int ( CompositeViewer_wrapper::*default_run_function_type)(  ) ;
+            typedef int ( ::osgViewer::CompositeViewer::*run_function_type )(  ) ;
+            typedef int ( CompositeViewer_wrapper::*default_run_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "run"
@@ -930,7 +930,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::setCameraWithFocus
         
-            typedef void ( ::osgViewer::CompositeViewer::*setCameraWithFocus_function_type)( ::osg::Camera * ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*setCameraWithFocus_function_type )( ::osg::Camera * ) ;
             
             CompositeViewer_exposer.def( 
                 "setCameraWithFocus"
@@ -940,7 +940,7 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::setReferenceTime
         
-            typedef void ( ::osgViewer::CompositeViewer::*setReferenceTime_function_type)( double ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*setReferenceTime_function_type )( double ) ;
             
             CompositeViewer_exposer.def( 
                 "setReferenceTime"
@@ -950,8 +950,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::setStartTick
         
-            typedef void ( ::osgViewer::CompositeViewer::*setStartTick_function_type)( ::osg::Timer_t ) ;
-            typedef void ( CompositeViewer_wrapper::*default_setStartTick_function_type)( ::osg::Timer_t ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*setStartTick_function_type )( ::osg::Timer_t ) ;
+            typedef void ( CompositeViewer_wrapper::*default_setStartTick_function_type )( ::osg::Timer_t ) ;
             
             CompositeViewer_exposer.def( 
                 "setStartTick"
@@ -962,8 +962,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::setViewerStats
         
-            typedef void ( ::osgViewer::CompositeViewer::*setViewerStats_function_type)( ::osg::Stats * ) ;
-            typedef void ( CompositeViewer_wrapper::*default_setViewerStats_function_type)( ::osg::Stats * ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*setViewerStats_function_type )( ::osg::Stats * ) ;
+            typedef void ( CompositeViewer_wrapper::*default_setViewerStats_function_type )( ::osg::Stats * ) ;
             
             CompositeViewer_exposer.def( 
                 "setViewerStats"
@@ -974,8 +974,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::CompositeViewer::updateTraversal
         
-            typedef void ( ::osgViewer::CompositeViewer::*updateTraversal_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_updateTraversal_function_type)(  ) ;
+            typedef void ( ::osgViewer::CompositeViewer::*updateTraversal_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_updateTraversal_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "updateTraversal"
@@ -985,8 +985,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::frame
         
-            typedef void ( ::osgViewer::ViewerBase::*frame_function_type)( double ) ;
-            typedef void ( CompositeViewer_wrapper::*default_frame_function_type)( double ) ;
+            typedef void ( ::osgViewer::ViewerBase::*frame_function_type )( double ) ;
+            typedef void ( CompositeViewer_wrapper::*default_frame_function_type )( double ) ;
             
             CompositeViewer_exposer.def( 
                 "frame"
@@ -997,8 +997,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::getWindows
         
-            typedef void ( ::osgViewer::ViewerBase::*getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
-            typedef void ( CompositeViewer_wrapper::*default_getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getWindows_function_type )( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            typedef void ( CompositeViewer_wrapper::*default_getWindows_function_type )( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
             
             CompositeViewer_exposer.def( 
                 "getWindows"
@@ -1009,8 +1009,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::renderingTraversals
         
-            typedef void ( ::osgViewer::ViewerBase::*renderingTraversals_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_renderingTraversals_function_type)(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*renderingTraversals_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_renderingTraversals_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "renderingTraversals"
@@ -1020,8 +1020,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::setThreadingModel
         
-            typedef void ( ::osgViewer::ViewerBase::*setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
-            typedef void ( CompositeViewer_wrapper::*default_setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setThreadingModel_function_type )( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            typedef void ( CompositeViewer_wrapper::*default_setThreadingModel_function_type )( ::osgViewer::ViewerBase::ThreadingModel ) ;
             
             CompositeViewer_exposer.def( 
                 "setThreadingModel"
@@ -1032,8 +1032,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::setUpThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*setUpThreading_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_setUpThreading_function_type)(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setUpThreading_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_setUpThreading_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "setUpThreading"
@@ -1043,8 +1043,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::startThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*startThreading_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_startThreading_function_type)(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*startThreading_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_startThreading_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "startThreading"
@@ -1054,8 +1054,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::stopThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*stopThreading_function_type)(  ) ;
-            typedef void ( CompositeViewer_wrapper::*default_stopThreading_function_type)(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*stopThreading_function_type )(  ) ;
+            typedef void ( CompositeViewer_wrapper::*default_stopThreading_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "stopThreading"
@@ -1065,8 +1065,8 @@ void register_CompositeViewer_class(){
         }
         { //::osgViewer::ViewerBase::suggestBestThreadingModel
         
-            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*suggestBestThreadingModel_function_type)(  ) ;
-            typedef ::osgViewer::ViewerBase::ThreadingModel ( CompositeViewer_wrapper::*default_suggestBestThreadingModel_function_type)(  ) ;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*suggestBestThreadingModel_function_type )(  ) ;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( CompositeViewer_wrapper::*default_suggestBestThreadingModel_function_type )(  ) ;
             
             CompositeViewer_exposer.def( 
                 "suggestBestThreadingModel"

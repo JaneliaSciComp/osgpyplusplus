@@ -1,7 +1,6 @@
 #include "../default.h"
 
 // Full set of OSG 3.2.1 osg headers below
-/* */
 #include <osg/AlphaFunc>
 #include <osg/AnimationPath>
 #include <osg/ApplicationUsage>
@@ -193,8 +192,10 @@
 #include <osg/VertexProgram>
 #include <osg/View>
 #include <osg/Viewport>
-/* */
 
+
+// Non-osg classes needed
+template struct std::pair<double,double>; // needed by osg::GraphicsCostEstimator
 
 // Disambiguate aliases for file names
 template class std::vector<osg::Group*>;
@@ -212,6 +213,8 @@ template class osg::BoundingSphereImpl< osg::Vec3f >;
 
 // template class std::map<std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int>, std::less<std::pair<osg::StateAttribute::Type, unsigned int> >, std::allocator<std::pair<std::pair<osg::StateAttribute::Type, unsigned int> const, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > >;
 namespace pyplusplus { namespace aliases {
+	typedef std::pair<double,double> pair_double; // needed by osg::GraphicsCostEstimator
+
     typedef std::vector<osg::Group*> std_vector_osgGroupPtr;
     typedef std::vector<osg::Node*> std_vector_osgNodePtr;
     typedef std::vector<osg::Object*> std_vector_osgObjectPtr;

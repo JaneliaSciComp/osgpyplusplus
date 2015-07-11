@@ -167,122 +167,122 @@ void register_TransferFunction1D_class(){
     bp::class_< TransferFunction1D_wrapper, bp::bases< osg::TransferFunction >, osg::ref_ptr< ::osg::TransferFunction1D >, boost::noncopyable >( "TransferFunction1D", "\n 1D variant of TransferFunction.\n", bp::init< >("\n 1D variant of TransferFunction.\n") )    
         .def( 
             "allocate"
-            , (void ( ::osg::TransferFunction1D::* )( unsigned int ))( &::osg::TransferFunction1D::allocate )
+            , (void ( ::osg::TransferFunction1D::* )( unsigned int ) )( &::osg::TransferFunction1D::allocate )
             , ( bp::arg("numImageCells") )
             , " allocate the osg::Image with specified dimension.  The Image tracks the color map, and is used to represent the\n transfer function when download to GPU." )    
         .def( 
             "assign"
-            , (void ( ::osg::TransferFunction1D::* )( ::std::map< float, osg::Vec4f > const & ))( &::osg::TransferFunction1D::assign )
+            , (void ( ::osg::TransferFunction1D::* )( ::std::map< float, osg::Vec4f > const & ) )( &::osg::TransferFunction1D::assign )
             , ( bp::arg("vcm") )
             , " Assign a color map and automatically update the image to make sure they are in sync." )    
         .def( 
             "className"
-            , (char const * ( ::osg::TransferFunction1D::* )(  )const)(&::osg::TransferFunction1D::className)
-            , (char const * ( TransferFunction1D_wrapper::* )(  )const)(&TransferFunction1D_wrapper::default_className) )    
+            , (char const * ( ::osg::TransferFunction1D::* )(  ) const)(&::osg::TransferFunction1D::className)
+            , (char const * ( TransferFunction1D_wrapper::* )(  ) const)(&TransferFunction1D_wrapper::default_className) )    
         .def( 
             "clear"
-            , (void ( ::osg::TransferFunction1D::* )( ::osg::Vec4 const & ))( &::osg::TransferFunction1D::clear )
+            , (void ( ::osg::TransferFunction1D::* )( ::osg::Vec4 const & ) )( &::osg::TransferFunction1D::clear )
             , ( bp::arg("color")=osg::Vec4f(1.0e+0f, 1.0e+0f, 1.0e+0f, 1.0e+0f) )
             , " Clear the whole range to just represent a single color." )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::TransferFunction1D::* )( ::osg::CopyOp const & )const)(&::osg::TransferFunction1D::clone)
-            , (::osg::Object * ( TransferFunction1D_wrapper::* )( ::osg::CopyOp const & )const)(&TransferFunction1D_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::TransferFunction1D::* )( ::osg::CopyOp const & ) const)(&::osg::TransferFunction1D::clone)
+            , (::osg::Object * ( TransferFunction1D_wrapper::* )( ::osg::CopyOp const & ) const)(&TransferFunction1D_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::TransferFunction1D::* )(  )const)(&::osg::TransferFunction1D::cloneType)
-            , (::osg::Object * ( TransferFunction1D_wrapper::* )(  )const)(&TransferFunction1D_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::TransferFunction1D::* )(  ) const)(&::osg::TransferFunction1D::cloneType)
+            , (::osg::Object * ( TransferFunction1D_wrapper::* )(  ) const)(&TransferFunction1D_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getColor"
-            , (::osg::Vec4 ( ::osg::TransferFunction1D::* )( float )const)( &::osg::TransferFunction1D::getColor )
+            , (::osg::Vec4 ( ::osg::TransferFunction1D::* )( float ) const)( &::osg::TransferFunction1D::getColor )
             , ( bp::arg("v") )
             , " Get the color for a specified transfer function value, interpolating the value if no exact match is found." )    
         .def( 
             "getColorMap"
-            , (::std::map< float, osg::Vec4f > & ( ::osg::TransferFunction1D::* )(  ))( &::osg::TransferFunction1D::getColorMap )
+            , (::std::map< float, osg::Vec4f > & ( ::osg::TransferFunction1D::* )(  ) )( &::osg::TransferFunction1D::getColorMap )
             , bp::return_internal_reference< >()
             , " Get the color map that stores the mapping between the the transfer function value and the colour it maps to." )    
         .def( 
             "getColorMap"
-            , (::std::map< float, osg::Vec4f > const & ( ::osg::TransferFunction1D::* )(  )const)( &::osg::TransferFunction1D::getColorMap )
+            , (::std::map< float, osg::Vec4f > const & ( ::osg::TransferFunction1D::* )(  ) const)( &::osg::TransferFunction1D::getColorMap )
             , bp::return_internal_reference< >()
             , " Get the const color map that stores the mapping between the the transfer function value and the colour it maps to." )    
         .def( 
             "getMaximum"
-            , (float ( ::osg::TransferFunction1D::* )(  )const)( &::osg::TransferFunction1D::getMaximum )
+            , (float ( ::osg::TransferFunction1D::* )(  ) const)( &::osg::TransferFunction1D::getMaximum )
             , " Get the maximum transfer function value." )    
         .def( 
             "getMinimum"
-            , (float ( ::osg::TransferFunction1D::* )(  )const)( &::osg::TransferFunction1D::getMinimum )
+            , (float ( ::osg::TransferFunction1D::* )(  ) const)( &::osg::TransferFunction1D::getMinimum )
             , " Get the minimum transfer function value." )    
         .def( 
             "getNumberImageCells"
-            , (unsigned int ( ::osg::TransferFunction1D::* )(  )const)( &::osg::TransferFunction1D::getNumberImageCells )
+            , (unsigned int ( ::osg::TransferFunction1D::* )(  ) const)( &::osg::TransferFunction1D::getNumberImageCells )
             , " Get the number of image cells that are assigned to the represent the transfer function when download to the GPU." )    
         .def( 
             "getPixelValue"
-            , (::osg::Vec4 ( ::osg::TransferFunction1D::* )( unsigned int )const)( &::osg::TransferFunction1D::getPixelValue )
+            , (::osg::Vec4 ( ::osg::TransferFunction1D::* )( unsigned int ) const)( &::osg::TransferFunction1D::getPixelValue )
             , ( bp::arg("i") )
             , " Get pixel value from the image." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::TransferFunction1D::* )( ::osg::Object const * )const)(&::osg::TransferFunction1D::isSameKindAs)
-            , (bool ( TransferFunction1D_wrapper::* )( ::osg::Object const * )const)(&TransferFunction1D_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::TransferFunction1D::* )( ::osg::Object const * ) const)(&::osg::TransferFunction1D::isSameKindAs)
+            , (bool ( TransferFunction1D_wrapper::* )( ::osg::Object const * ) const)(&TransferFunction1D_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::TransferFunction1D::* )(  )const)(&::osg::TransferFunction1D::libraryName)
-            , (char const * ( TransferFunction1D_wrapper::* )(  )const)(&TransferFunction1D_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::TransferFunction1D::* )(  ) const)(&::osg::TransferFunction1D::libraryName)
+            , (char const * ( TransferFunction1D_wrapper::* )(  ) const)(&TransferFunction1D_wrapper::default_libraryName) )    
         .def( 
             "setColor"
-            , (void ( ::osg::TransferFunction1D::* )( float,::osg::Vec4 const &,bool ))( &::osg::TransferFunction1D::setColor )
+            , (void ( ::osg::TransferFunction1D::* )( float,::osg::Vec4 const &,bool ) )( &::osg::TransferFunction1D::setColor )
             , ( bp::arg("v"), bp::arg("color"), bp::arg("updateImage")=(bool)(true) )
             , " Set the color for a specified transfer function value.\n updateImage defaults to true, and tells the setColor function to update the associate osg::Image that\n tracks the color map.  Pass in false as the updateImage parameter if you are setting up many values\n at once to avoid recomputation of the image data, then once all setColor calls are made explictly call\n updateImage() to bring the osg::Image back into sync with the color map." )    
         .def( 
             "updateImage"
-            , (void ( ::osg::TransferFunction1D::* )(  ))( &::osg::TransferFunction1D::updateImage )
+            , (void ( ::osg::TransferFunction1D::* )(  ) )( &::osg::TransferFunction1D::updateImage )
             , " Manually update the associate osg::Image to represent the colors assigned in the color map." )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( TransferFunction1D_wrapper::* )(  ))(&TransferFunction1D_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( TransferFunction1D_wrapper::* )(  ) )(&TransferFunction1D_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( TransferFunction1D_wrapper::* )(  ))(&TransferFunction1D_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( TransferFunction1D_wrapper::* )(  ) )(&TransferFunction1D_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( TransferFunction1D_wrapper::* )(  )const)(&TransferFunction1D_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( TransferFunction1D_wrapper::* )(  ) const)(&TransferFunction1D_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( TransferFunction1D_wrapper::* )( unsigned int ))(&TransferFunction1D_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( TransferFunction1D_wrapper::* )( unsigned int ) )(&TransferFunction1D_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( TransferFunction1D_wrapper::* )( ::std::string const & ))(&TransferFunction1D_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( TransferFunction1D_wrapper::* )( ::std::string const & ) )(&TransferFunction1D_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( TransferFunction1D_wrapper::* )( bool ))(&TransferFunction1D_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( TransferFunction1D_wrapper::* )( bool ) )(&TransferFunction1D_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( TransferFunction1D_wrapper::* )( ::osg::Referenced * ))(&TransferFunction1D_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( TransferFunction1D_wrapper::* )( ::osg::Referenced * ) )(&TransferFunction1D_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

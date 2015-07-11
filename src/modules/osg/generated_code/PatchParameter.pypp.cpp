@@ -280,8 +280,8 @@ void register_PatchParameter_class(){
         bp::implicitly_convertible< GLint, osg::PatchParameter >();
         { //::osg::PatchParameter::apply
         
-            typedef void ( ::osg::PatchParameter::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( PatchParameter_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::PatchParameter::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( PatchParameter_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             PatchParameter_exposer.def( 
                 "apply"
@@ -292,8 +292,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::className
         
-            typedef char const * ( ::osg::PatchParameter::*className_function_type)(  ) const;
-            typedef char const * ( PatchParameter_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::PatchParameter::*className_function_type )(  ) const;
+            typedef char const * ( PatchParameter_wrapper::*default_className_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "className"
@@ -303,8 +303,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::clone
         
-            typedef ::osg::Object * ( ::osg::PatchParameter::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( PatchParameter_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::PatchParameter::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( PatchParameter_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             PatchParameter_exposer.def( 
                 "clone"
@@ -316,8 +316,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::cloneType
         
-            typedef ::osg::Object * ( ::osg::PatchParameter::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( PatchParameter_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::PatchParameter::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( PatchParameter_wrapper::*default_cloneType_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "cloneType"
@@ -328,7 +328,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::getPatchDefaultInnerLevel
         
-            typedef ::osg::Vec2 const & ( ::osg::PatchParameter::*getPatchDefaultInnerLevel_function_type)(  ) const;
+            typedef ::osg::Vec2 const & ( ::osg::PatchParameter::*getPatchDefaultInnerLevel_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getPatchDefaultInnerLevel"
@@ -339,7 +339,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::getPatchDefaultOuterLevel
         
-            typedef ::osg::Vec4 const & ( ::osg::PatchParameter::*getPatchDefaultOuterLevel_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::PatchParameter::*getPatchDefaultOuterLevel_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getPatchDefaultOuterLevel"
@@ -350,8 +350,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::PatchParameter::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( PatchParameter_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::PatchParameter::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( PatchParameter_wrapper::*default_getType_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getType"
@@ -361,7 +361,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::getVertices
         
-            typedef ::GLint ( ::osg::PatchParameter::*getVertices_function_type)(  ) const;
+            typedef ::GLint ( ::osg::PatchParameter::*getVertices_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getVertices"
@@ -371,8 +371,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::isSameKindAs
         
-            typedef bool ( ::osg::PatchParameter::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( PatchParameter_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::PatchParameter::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( PatchParameter_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             PatchParameter_exposer.def( 
                 "isSameKindAs"
@@ -383,8 +383,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::libraryName
         
-            typedef char const * ( ::osg::PatchParameter::*libraryName_function_type)(  ) const;
-            typedef char const * ( PatchParameter_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::PatchParameter::*libraryName_function_type )(  ) const;
+            typedef char const * ( PatchParameter_wrapper::*default_libraryName_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "libraryName"
@@ -394,7 +394,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::setPatchDefaultInnerLevel
         
-            typedef void ( ::osg::PatchParameter::*setPatchDefaultInnerLevel_function_type)( ::osg::Vec2 const & ) ;
+            typedef void ( ::osg::PatchParameter::*setPatchDefaultInnerLevel_function_type )( ::osg::Vec2 const & ) ;
             
             PatchParameter_exposer.def( 
                 "setPatchDefaultInnerLevel"
@@ -405,7 +405,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::setPatchDefaultOuterLevel
         
-            typedef void ( ::osg::PatchParameter::*setPatchDefaultOuterLevel_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::PatchParameter::*setPatchDefaultOuterLevel_function_type )( ::osg::Vec4 const & ) ;
             
             PatchParameter_exposer.def( 
                 "setPatchDefaultOuterLevel"
@@ -416,7 +416,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::PatchParameter::setVertices
         
-            typedef void ( ::osg::PatchParameter::*setVertices_function_type)( ::GLint ) ;
+            typedef void ( ::osg::PatchParameter::*setVertices_function_type )( ::GLint ) ;
             
             PatchParameter_exposer.def( 
                 "setVertices"
@@ -427,8 +427,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( PatchParameter_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( PatchParameter_wrapper::*default_asTexture_function_type )(  ) ;
             
             PatchParameter_exposer.def( 
                 "asTexture"
@@ -439,8 +439,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( PatchParameter_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( PatchParameter_wrapper::*default_asTexture_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "asTexture"
@@ -451,8 +451,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( PatchParameter_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( PatchParameter_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             PatchParameter_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -463,8 +463,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( PatchParameter_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( PatchParameter_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             PatchParameter_exposer.def( 
                 "compileGLObjects"
@@ -475,8 +475,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( PatchParameter_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( PatchParameter_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             PatchParameter_exposer.def( 
                 "computeDataVariance"
@@ -486,8 +486,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( PatchParameter_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( PatchParameter_wrapper::*default_getMember_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getMember"
@@ -497,8 +497,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( PatchParameter_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( PatchParameter_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             PatchParameter_exposer.def( 
                 "getModeUsage"
@@ -509,8 +509,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( PatchParameter_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( PatchParameter_wrapper::*default_getUserData_function_type )(  ) ;
             
             PatchParameter_exposer.def( 
                 "getUserData"
@@ -521,8 +521,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( PatchParameter_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( PatchParameter_wrapper::*default_getUserData_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "getUserData"
@@ -533,8 +533,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( PatchParameter_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( PatchParameter_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             PatchParameter_exposer.def( 
                 "isTextureAttribute"
@@ -544,8 +544,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( PatchParameter_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( PatchParameter_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             PatchParameter_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -556,8 +556,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( PatchParameter_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( PatchParameter_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             PatchParameter_exposer.def( 
                 "setName"
@@ -568,7 +568,7 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             PatchParameter_exposer.def( 
                 "setName"
@@ -579,8 +579,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( PatchParameter_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( PatchParameter_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             PatchParameter_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -591,8 +591,8 @@ void register_PatchParameter_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( PatchParameter_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( PatchParameter_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             PatchParameter_exposer.def( 
                 "setUserData"

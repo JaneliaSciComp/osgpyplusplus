@@ -28,7 +28,7 @@ void register_Vec2ub_class(){
         Vec2ub_exposer.def( bp::self == bp::self );
         { //::osg::Vec2ub::operator[]
         
-            typedef unsigned char & ( ::osg::Vec2ub::*__getitem___function_type)( int ) ;
+            typedef unsigned char & ( ::osg::Vec2ub::*__getitem___function_type )( int ) ;
             
             Vec2ub_exposer.def( 
                 "__getitem__"
@@ -39,7 +39,7 @@ void register_Vec2ub_class(){
         }
         { //::osg::Vec2ub::operator[]
         
-            typedef unsigned char ( ::osg::Vec2ub::*__getitem___function_type)( int ) const;
+            typedef unsigned char ( ::osg::Vec2ub::*__getitem___function_type )( int ) const;
             
             Vec2ub_exposer.def( 
                 "__getitem__"
@@ -49,7 +49,7 @@ void register_Vec2ub_class(){
         }
         { //::osg::Vec2ub::set
         
-            typedef void ( ::osg::Vec2ub::*set_function_type)( unsigned char,unsigned char ) ;
+            typedef void ( ::osg::Vec2ub::*set_function_type )( unsigned char,unsigned char ) ;
             
             Vec2ub_exposer.def( 
                 "set"
@@ -59,7 +59,7 @@ void register_Vec2ub_class(){
         }
         { //::osg::Vec2ub::set
         
-            typedef void ( ::osg::Vec2ub::*set_function_type)( ::osg::Vec2ub const & ) ;
+            typedef void ( ::osg::Vec2ub::*set_function_type )( ::osg::Vec2ub const & ) ;
             
             Vec2ub_exposer.def( 
                 "set"
@@ -69,7 +69,7 @@ void register_Vec2ub_class(){
         }
         { //property "x"[fget=::osg::Vec2ub::x]
         
-            typedef unsigned char & ( ::osg::Vec2ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec2ub::*fget )(  ) ;
             
             Vec2ub_exposer.add_property( 
                 "x"
@@ -80,7 +80,7 @@ void register_Vec2ub_class(){
         }
         { //property "x"[fget=::osg::Vec2ub::x]
         
-            typedef unsigned char ( ::osg::Vec2ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec2ub::*fget )(  ) const;
             
             Vec2ub_exposer.add_property( 
                 "x"
@@ -89,7 +89,7 @@ void register_Vec2ub_class(){
         }
         { //property "y"[fget=::osg::Vec2ub::y]
         
-            typedef unsigned char & ( ::osg::Vec2ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec2ub::*fget )(  ) ;
             
             Vec2ub_exposer.add_property( 
                 "y"
@@ -100,7 +100,7 @@ void register_Vec2ub_class(){
         }
         { //property "y"[fget=::osg::Vec2ub::y]
         
-            typedef unsigned char ( ::osg::Vec2ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec2ub::*fget )(  ) const;
             
             Vec2ub_exposer.add_property( 
                 "y"
@@ -109,7 +109,7 @@ void register_Vec2ub_class(){
         }
         { //property "r"[fget=::osg::Vec2ub::r]
         
-            typedef unsigned char & ( ::osg::Vec2ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec2ub::*fget )(  ) ;
             
             Vec2ub_exposer.add_property( 
                 "r"
@@ -120,7 +120,7 @@ void register_Vec2ub_class(){
         }
         { //property "r"[fget=::osg::Vec2ub::r]
         
-            typedef unsigned char ( ::osg::Vec2ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec2ub::*fget )(  ) const;
             
             Vec2ub_exposer.add_property( 
                 "r"
@@ -129,7 +129,7 @@ void register_Vec2ub_class(){
         }
         { //property "g"[fget=::osg::Vec2ub::g]
         
-            typedef unsigned char & ( ::osg::Vec2ub::*fget)(  ) ;
+            typedef unsigned char & ( ::osg::Vec2ub::*fget )(  ) ;
             
             Vec2ub_exposer.add_property( 
                 "g"
@@ -140,7 +140,7 @@ void register_Vec2ub_class(){
         }
         { //property "g"[fget=::osg::Vec2ub::g]
         
-            typedef unsigned char ( ::osg::Vec2ub::*fget)(  ) const;
+            typedef unsigned char ( ::osg::Vec2ub::*fget )(  ) const;
             
             Vec2ub_exposer.add_property( 
                 "g"

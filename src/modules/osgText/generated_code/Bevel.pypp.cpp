@@ -167,63 +167,63 @@ void register_Bevel_class(){
     bp::class_< Bevel_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgText::Bevel >, boost::noncopyable >( "Bevel", bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osgText::Bevel::* )(  )const)(&::osgText::Bevel::className)
-            , (char const * ( Bevel_wrapper::* )(  )const)(&Bevel_wrapper::default_className) )    
+            , (char const * ( ::osgText::Bevel::* )(  ) const)(&::osgText::Bevel::className)
+            , (char const * ( Bevel_wrapper::* )(  ) const)(&Bevel_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgText::Bevel::* )( ::osg::CopyOp const & )const)(&::osgText::Bevel::clone)
-            , (::osg::Object * ( Bevel_wrapper::* )( ::osg::CopyOp const & )const)(&Bevel_wrapper::default_clone)
+            , (::osg::Object * ( ::osgText::Bevel::* )( ::osg::CopyOp const & ) const)(&::osgText::Bevel::clone)
+            , (::osg::Object * ( Bevel_wrapper::* )( ::osg::CopyOp const & ) const)(&Bevel_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgText::Bevel::* )(  )const)(&::osgText::Bevel::cloneType)
-            , (::osg::Object * ( Bevel_wrapper::* )(  )const)(&Bevel_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgText::Bevel::* )(  ) const)(&::osgText::Bevel::cloneType)
+            , (::osg::Object * ( Bevel_wrapper::* )(  ) const)(&Bevel_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "flatBevel"
-            , (void ( ::osgText::Bevel::* )( float ))( &::osgText::Bevel::flatBevel )
+            , (void ( ::osgText::Bevel::* )( float ) )( &::osgText::Bevel::flatBevel )
             , ( bp::arg("width")=2.5e-1f ) )    
         .def( 
             "getBevelThickness"
-            , (float ( ::osgText::Bevel::* )(  )const)( &::osgText::Bevel::getBevelThickness ) )    
+            , (float ( ::osgText::Bevel::* )(  ) const)( &::osgText::Bevel::getBevelThickness ) )    
         .def( 
             "getVertices"
-            , (::std::vector< osg::Vec2f > & ( ::osgText::Bevel::* )(  ))( &::osgText::Bevel::getVertices )
+            , (::std::vector< osg::Vec2f > & ( ::osgText::Bevel::* )(  ) )( &::osgText::Bevel::getVertices )
             , bp::return_internal_reference< >() )    
         .def( 
             "getVertices"
-            , (::std::vector< osg::Vec2f > const & ( ::osgText::Bevel::* )(  )const)( &::osgText::Bevel::getVertices )
+            , (::std::vector< osg::Vec2f > const & ( ::osgText::Bevel::* )(  ) const)( &::osgText::Bevel::getVertices )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgText::Bevel::* )( ::osg::Object const * )const)(&::osgText::Bevel::isSameKindAs)
-            , (bool ( Bevel_wrapper::* )( ::osg::Object const * )const)(&Bevel_wrapper::default_isSameKindAs)
+            , (bool ( ::osgText::Bevel::* )( ::osg::Object const * ) const)(&::osgText::Bevel::isSameKindAs)
+            , (bool ( Bevel_wrapper::* )( ::osg::Object const * ) const)(&Bevel_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgText::Bevel::* )(  )const)(&::osgText::Bevel::libraryName)
-            , (char const * ( Bevel_wrapper::* )(  )const)(&Bevel_wrapper::default_libraryName) )    
+            , (char const * ( ::osgText::Bevel::* )(  ) const)(&::osgText::Bevel::libraryName)
+            , (char const * ( Bevel_wrapper::* )(  ) const)(&Bevel_wrapper::default_libraryName) )    
         .def( bp::self == bp::self )    
         .def( 
             "print"
-            , (void ( ::osgText::Bevel::* )( ::std::ostream & ))( &::osgText::Bevel::print )
+            , (void ( ::osgText::Bevel::* )( ::std::ostream & ) )( &::osgText::Bevel::print )
             , ( bp::arg("fout") ) )    
         .def( 
             "roundedBevel"
-            , (void ( ::osgText::Bevel::* )( float,unsigned int ))( &::osgText::Bevel::roundedBevel )
+            , (void ( ::osgText::Bevel::* )( float,unsigned int ) )( &::osgText::Bevel::roundedBevel )
             , ( bp::arg("width")=5.0e-1f, bp::arg("numSteps")=(unsigned int)(10) ) )    
         .def( 
             "roundedBevel2"
-            , (void ( ::osgText::Bevel::* )( float,unsigned int ))( &::osgText::Bevel::roundedBevel2 )
+            , (void ( ::osgText::Bevel::* )( float,unsigned int ) )( &::osgText::Bevel::roundedBevel2 )
             , ( bp::arg("width")=5.0e-1f, bp::arg("numSteps")=(unsigned int)(10) ) )    
         .def( 
             "setBevelThickness"
-            , (void ( ::osgText::Bevel::* )( float ))( &::osgText::Bevel::setBevelThickness )
+            , (void ( ::osgText::Bevel::* )( float ) )( &::osgText::Bevel::setBevelThickness )
             , ( bp::arg("thickness") ) )    
         .def( 
             "setVertices"
-            , (void ( ::osgText::Bevel::* )( ::std::vector< osg::Vec2f > const & ))( &::osgText::Bevel::setVertices )
+            , (void ( ::osgText::Bevel::* )( ::std::vector< osg::Vec2f > const & ) )( &::osgText::Bevel::setVertices )
             , ( bp::arg("vertices") ) );
 
 }

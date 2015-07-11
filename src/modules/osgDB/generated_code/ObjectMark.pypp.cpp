@@ -12,7 +12,7 @@ void register_ObjectMark_class(){
         .def( bp::init< osgDB::ObjectMark const & >(( bp::arg("copy") )) )    
         .def( 
             "set"
-            , (void ( ::osgDB::ObjectMark::* )( char const *,int ))( &::osgDB::ObjectMark::set )
+            , (void ( ::osgDB::ObjectMark::* )( char const *,int ) )( &::osgDB::ObjectMark::set )
             , ( bp::arg("name"), bp::arg("delta")=(int)(0) ) )    
         .def_readwrite( "_indentDelta", &osgDB::ObjectMark::_indentDelta )    
         .def_readwrite( "_name", &osgDB::ObjectMark::_name );

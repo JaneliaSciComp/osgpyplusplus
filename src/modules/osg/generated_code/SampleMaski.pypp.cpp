@@ -312,7 +312,7 @@ void register_SampleMaski_class(){
             bp::implicitly_convertible< unsigned int, osg::SampleMaski::Extensions >();
             { //::osg::SampleMaski::Extensions::glSampleMaski
             
-                typedef void ( ::osg::SampleMaski::Extensions::*glSampleMaski_function_type)( ::GLuint,::GLbitfield ) const;
+                typedef void ( ::osg::SampleMaski::Extensions::*glSampleMaski_function_type )( ::GLuint,::GLbitfield ) const;
                 
                 Extensions_exposer.def( 
                     "glSampleMaski"
@@ -322,7 +322,7 @@ void register_SampleMaski_class(){
             }
             { //::osg::SampleMaski::Extensions::isOpenGL32upported
             
-                typedef bool ( ::osg::SampleMaski::Extensions::*isOpenGL32upported_function_type)(  ) const;
+                typedef bool ( ::osg::SampleMaski::Extensions::*isOpenGL32upported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isOpenGL32upported"
@@ -331,7 +331,7 @@ void register_SampleMaski_class(){
             }
             { //::osg::SampleMaski::Extensions::isSampleMaskiSupported
             
-                typedef bool ( ::osg::SampleMaski::Extensions::*isSampleMaskiSupported_function_type)(  ) const;
+                typedef bool ( ::osg::SampleMaski::Extensions::*isSampleMaskiSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isSampleMaskiSupported"
@@ -340,7 +340,7 @@ void register_SampleMaski_class(){
             }
             { //::osg::SampleMaski::Extensions::isTextureMultisampleSupported
             
-                typedef bool ( ::osg::SampleMaski::Extensions::*isTextureMultisampleSupported_function_type)(  ) const;
+                typedef bool ( ::osg::SampleMaski::Extensions::*isTextureMultisampleSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isTextureMultisampleSupported"
@@ -359,7 +359,7 @@ void register_SampleMaski_class(){
             }
             { //::osg::SampleMaski::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::SampleMaski::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::SampleMaski::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -369,8 +369,8 @@ void register_SampleMaski_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( SampleMaski_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( SampleMaski_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -383,8 +383,8 @@ void register_SampleMaski_class(){
         SampleMaski_exposer.def( bp::init< >("\n  osg::SampleMaski does nothing if OpenGL 3.2 or ARB_texture_multisample are not available.\n") );
         { //::osg::SampleMaski::apply
         
-            typedef void ( ::osg::SampleMaski::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( SampleMaski_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::SampleMaski::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( SampleMaski_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             SampleMaski_exposer.def( 
                 "apply"
@@ -395,8 +395,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::className
         
-            typedef char const * ( ::osg::SampleMaski::*className_function_type)(  ) const;
-            typedef char const * ( SampleMaski_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::SampleMaski::*className_function_type )(  ) const;
+            typedef char const * ( SampleMaski_wrapper::*default_className_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "className"
@@ -406,8 +406,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::clone
         
-            typedef ::osg::Object * ( ::osg::SampleMaski::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( SampleMaski_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::SampleMaski::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( SampleMaski_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             SampleMaski_exposer.def( 
                 "clone"
@@ -419,8 +419,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::cloneType
         
-            typedef ::osg::Object * ( ::osg::SampleMaski::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( SampleMaski_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::SampleMaski::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( SampleMaski_wrapper::*default_cloneType_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "cloneType"
@@ -442,7 +442,7 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::getMask
         
-            typedef unsigned int ( ::osg::SampleMaski::*getMask_function_type)( unsigned int ) const;
+            typedef unsigned int ( ::osg::SampleMaski::*getMask_function_type )( unsigned int ) const;
             
             SampleMaski_exposer.def( 
                 "getMask"
@@ -452,8 +452,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::SampleMaski::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( SampleMaski_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::SampleMaski::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( SampleMaski_wrapper::*default_getType_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "getType"
@@ -463,8 +463,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::isSameKindAs
         
-            typedef bool ( ::osg::SampleMaski::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( SampleMaski_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::SampleMaski::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( SampleMaski_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             SampleMaski_exposer.def( 
                 "isSameKindAs"
@@ -475,8 +475,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::libraryName
         
-            typedef char const * ( ::osg::SampleMaski::*libraryName_function_type)(  ) const;
-            typedef char const * ( SampleMaski_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::SampleMaski::*libraryName_function_type )(  ) const;
+            typedef char const * ( SampleMaski_wrapper::*default_libraryName_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "libraryName"
@@ -496,7 +496,7 @@ void register_SampleMaski_class(){
         }
         { //::osg::SampleMaski::setMask
         
-            typedef void ( ::osg::SampleMaski::*setMask_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osg::SampleMaski::*setMask_function_type )( unsigned int,unsigned int ) ;
             
             SampleMaski_exposer.def( 
                 "setMask"
@@ -506,8 +506,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( SampleMaski_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( SampleMaski_wrapper::*default_asTexture_function_type )(  ) ;
             
             SampleMaski_exposer.def( 
                 "asTexture"
@@ -518,8 +518,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( SampleMaski_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( SampleMaski_wrapper::*default_asTexture_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "asTexture"
@@ -530,8 +530,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( SampleMaski_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( SampleMaski_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             SampleMaski_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -542,8 +542,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( SampleMaski_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( SampleMaski_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             SampleMaski_exposer.def( 
                 "compileGLObjects"
@@ -554,8 +554,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( SampleMaski_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( SampleMaski_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             SampleMaski_exposer.def( 
                 "computeDataVariance"
@@ -565,8 +565,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( SampleMaski_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( SampleMaski_wrapper::*default_getMember_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "getMember"
@@ -576,8 +576,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( SampleMaski_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( SampleMaski_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             SampleMaski_exposer.def( 
                 "getModeUsage"
@@ -588,8 +588,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( SampleMaski_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( SampleMaski_wrapper::*default_getUserData_function_type )(  ) ;
             
             SampleMaski_exposer.def( 
                 "getUserData"
@@ -600,8 +600,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( SampleMaski_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( SampleMaski_wrapper::*default_getUserData_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "getUserData"
@@ -612,8 +612,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( SampleMaski_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( SampleMaski_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             SampleMaski_exposer.def( 
                 "isTextureAttribute"
@@ -623,8 +623,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( SampleMaski_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( SampleMaski_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             SampleMaski_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -635,8 +635,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( SampleMaski_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( SampleMaski_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             SampleMaski_exposer.def( 
                 "setName"
@@ -647,7 +647,7 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             SampleMaski_exposer.def( 
                 "setName"
@@ -658,8 +658,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( SampleMaski_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( SampleMaski_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             SampleMaski_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -670,8 +670,8 @@ void register_SampleMaski_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( SampleMaski_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( SampleMaski_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             SampleMaski_exposer.def( 
                 "setUserData"

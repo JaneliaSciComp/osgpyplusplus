@@ -399,7 +399,7 @@ void register_VertexAccessOrderVisitor_class(){
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::VertexAccessOrderVisitor >();
         { //::osgUtil::VertexAccessOrderVisitor::optimizeOrder
         
-            typedef void ( ::osgUtil::VertexAccessOrderVisitor::*optimizeOrder_function_type)(  ) ;
+            typedef void ( ::osgUtil::VertexAccessOrderVisitor::*optimizeOrder_function_type )(  ) ;
             
             VertexAccessOrderVisitor_exposer.def( 
                 "optimizeOrder"
@@ -408,7 +408,7 @@ void register_VertexAccessOrderVisitor_class(){
         }
         { //::osgUtil::VertexAccessOrderVisitor::optimizeOrder
         
-            typedef void ( ::osgUtil::VertexAccessOrderVisitor::*optimizeOrder_function_type)( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::VertexAccessOrderVisitor::*optimizeOrder_function_type )( ::osg::Geometry & ) ;
             
             VertexAccessOrderVisitor_exposer.def( 
                 "optimizeOrder"
@@ -418,8 +418,8 @@ void register_VertexAccessOrderVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::apply
         
-            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type)( ::osg::Geode & ) ;
-            typedef void ( VertexAccessOrderVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( VertexAccessOrderVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
             
             VertexAccessOrderVisitor_exposer.def( 
                 "apply"
@@ -430,8 +430,8 @@ void register_VertexAccessOrderVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::reset
         
-            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type)(  ) ;
-            typedef void ( VertexAccessOrderVisitor_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type )(  ) ;
+            typedef void ( VertexAccessOrderVisitor_wrapper::*default_reset_function_type )(  ) ;
             
             VertexAccessOrderVisitor_exposer.def( 
                 "reset"

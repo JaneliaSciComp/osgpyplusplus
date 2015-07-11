@@ -284,140 +284,140 @@ void register_ColorMask_class(){
         .def( bp::init< bool, bool, bool, bool >(( bp::arg("red"), bp::arg("green"), bp::arg("blue"), bp::arg("alpha") )) )    
         .def( 
             "apply"
-            , (void ( ::osg::ColorMask::* )( ::osg::State & )const)(&::osg::ColorMask::apply)
-            , (void ( ColorMask_wrapper::* )( ::osg::State & )const)(&ColorMask_wrapper::default_apply)
+            , (void ( ::osg::ColorMask::* )( ::osg::State & ) const)(&::osg::ColorMask::apply)
+            , (void ( ColorMask_wrapper::* )( ::osg::State & ) const)(&ColorMask_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::ColorMask::* )(  )const)(&::osg::ColorMask::className)
-            , (char const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_className) )    
+            , (char const * ( ::osg::ColorMask::* )(  ) const)(&::osg::ColorMask::className)
+            , (char const * ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::ColorMask::* )( ::osg::CopyOp const & )const)(&::osg::ColorMask::clone)
-            , (::osg::Object * ( ColorMask_wrapper::* )( ::osg::CopyOp const & )const)(&ColorMask_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::ColorMask::* )( ::osg::CopyOp const & ) const)(&::osg::ColorMask::clone)
+            , (::osg::Object * ( ColorMask_wrapper::* )( ::osg::CopyOp const & ) const)(&ColorMask_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::ColorMask::* )(  )const)(&::osg::ColorMask::cloneType)
-            , (::osg::Object * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::ColorMask::* )(  ) const)(&::osg::ColorMask::cloneType)
+            , (::osg::Object * ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getAlphaMask"
-            , (bool ( ::osg::ColorMask::* )(  )const)( &::osg::ColorMask::getAlphaMask ) )    
+            , (bool ( ::osg::ColorMask::* )(  ) const)( &::osg::ColorMask::getAlphaMask ) )    
         .def( 
             "getBlueMask"
-            , (bool ( ::osg::ColorMask::* )(  )const)( &::osg::ColorMask::getBlueMask ) )    
+            , (bool ( ::osg::ColorMask::* )(  ) const)( &::osg::ColorMask::getBlueMask ) )    
         .def( 
             "getGreenMask"
-            , (bool ( ::osg::ColorMask::* )(  )const)( &::osg::ColorMask::getGreenMask ) )    
+            , (bool ( ::osg::ColorMask::* )(  ) const)( &::osg::ColorMask::getGreenMask ) )    
         .def( 
             "getRedMask"
-            , (bool ( ::osg::ColorMask::* )(  )const)( &::osg::ColorMask::getRedMask ) )    
+            , (bool ( ::osg::ColorMask::* )(  ) const)( &::osg::ColorMask::getRedMask ) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::ColorMask::* )(  )const)(&::osg::ColorMask::getType)
-            , (::osg::StateAttribute::Type ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::ColorMask::* )(  ) const)(&::osg::ColorMask::getType)
+            , (::osg::StateAttribute::Type ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_getType) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::ColorMask::* )( ::osg::Object const * )const)(&::osg::ColorMask::isSameKindAs)
-            , (bool ( ColorMask_wrapper::* )( ::osg::Object const * )const)(&ColorMask_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::ColorMask::* )( ::osg::Object const * ) const)(&::osg::ColorMask::isSameKindAs)
+            , (bool ( ColorMask_wrapper::* )( ::osg::Object const * ) const)(&ColorMask_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::ColorMask::* )(  )const)(&::osg::ColorMask::libraryName)
-            , (char const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::ColorMask::* )(  ) const)(&::osg::ColorMask::libraryName)
+            , (char const * ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_libraryName) )    
         .def( 
             "setAlphaMask"
-            , (void ( ::osg::ColorMask::* )( bool ))( &::osg::ColorMask::setAlphaMask )
+            , (void ( ::osg::ColorMask::* )( bool ) )( &::osg::ColorMask::setAlphaMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setBlueMask"
-            , (void ( ::osg::ColorMask::* )( bool ))( &::osg::ColorMask::setBlueMask )
+            , (void ( ::osg::ColorMask::* )( bool ) )( &::osg::ColorMask::setBlueMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setGreenMask"
-            , (void ( ::osg::ColorMask::* )( bool ))( &::osg::ColorMask::setGreenMask )
+            , (void ( ::osg::ColorMask::* )( bool ) )( &::osg::ColorMask::setGreenMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setMask"
-            , (void ( ::osg::ColorMask::* )( bool,bool,bool,bool ))( &::osg::ColorMask::setMask )
+            , (void ( ::osg::ColorMask::* )( bool,bool,bool,bool ) )( &::osg::ColorMask::setMask )
             , ( bp::arg("red"), bp::arg("green"), bp::arg("blue"), bp::arg("alpha") ) )    
         .def( 
             "setRedMask"
-            , (void ( ::osg::ColorMask::* )( bool ))( &::osg::ColorMask::setRedMask )
+            , (void ( ::osg::ColorMask::* )( bool ) )( &::osg::ColorMask::setRedMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( ColorMask_wrapper::* )(  ))(&ColorMask_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( ColorMask_wrapper::* )(  ) )(&ColorMask_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( ColorMask_wrapper::* )( ::osg::State & )const)(&ColorMask_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( ColorMask_wrapper::* )( ::osg::State & ) const)(&ColorMask_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
-            , (void ( ColorMask_wrapper::* )( ::osg::State & )const)(&ColorMask_wrapper::default_compileGLObjects)
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( ColorMask_wrapper::* )( ::osg::State & ) const)(&ColorMask_wrapper::default_compileGLObjects)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( ColorMask_wrapper::* )(  ))(&ColorMask_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( ColorMask_wrapper::* )(  ) )(&ColorMask_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_getMember) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::StateAttribute::getModeUsage)
-            , (bool ( ColorMask_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&ColorMask_wrapper::default_getModeUsage)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::StateAttribute::getModeUsage)
+            , (bool ( ColorMask_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&ColorMask_wrapper::default_getModeUsage)
             , ( bp::arg("arg0") ) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( ColorMask_wrapper::* )(  ))(&ColorMask_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( ColorMask_wrapper::* )(  ) )(&ColorMask_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( ColorMask_wrapper::* )(  )const)(&ColorMask_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( ColorMask_wrapper::* )(  ) const)(&ColorMask_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
-            , (void ( ColorMask_wrapper::* )( unsigned int ))(&ColorMask_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::StateAttribute::* )( unsigned int ) )(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( ColorMask_wrapper::* )( unsigned int ) )(&ColorMask_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( ColorMask_wrapper::* )( ::std::string const & ))(&ColorMask_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( ColorMask_wrapper::* )( ::std::string const & ) )(&ColorMask_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( ColorMask_wrapper::* )( bool ))(&ColorMask_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( ColorMask_wrapper::* )( bool ) )(&ColorMask_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( ColorMask_wrapper::* )( ::osg::Referenced * ))(&ColorMask_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( ColorMask_wrapper::* )( ::osg::Referenced * ) )(&ColorMask_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

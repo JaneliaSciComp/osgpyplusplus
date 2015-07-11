@@ -219,8 +219,8 @@ void register_Device_class(){
         Device_exposer.def( bp::init< >() );
         { //::osgGA::Device::checkEvents
         
-            typedef bool ( ::osgGA::Device::*checkEvents_function_type)(  ) ;
-            typedef bool ( Device_wrapper::*default_checkEvents_function_type)(  ) ;
+            typedef bool ( ::osgGA::Device::*checkEvents_function_type )(  ) ;
+            typedef bool ( Device_wrapper::*default_checkEvents_function_type )(  ) ;
             
             Device_exposer.def( 
                 "checkEvents"
@@ -230,8 +230,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::className
         
-            typedef char const * ( ::osgGA::Device::*className_function_type)(  ) const;
-            typedef char const * ( Device_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgGA::Device::*className_function_type )(  ) const;
+            typedef char const * ( Device_wrapper::*default_className_function_type )(  ) const;
             
             Device_exposer.def( 
                 "className"
@@ -241,8 +241,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::clone
         
-            typedef ::osg::Object * ( ::osgGA::Device::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Device_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::Device::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Device_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Device_exposer.def( 
                 "clone"
@@ -254,8 +254,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::Device::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Device_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgGA::Device::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Device_wrapper::*default_cloneType_function_type )(  ) const;
             
             Device_exposer.def( 
                 "cloneType"
@@ -266,7 +266,7 @@ void register_Device_class(){
         }
         { //::osgGA::Device::getCapabilities
         
-            typedef int ( ::osgGA::Device::*getCapabilities_function_type)(  ) const;
+            typedef int ( ::osgGA::Device::*getCapabilities_function_type )(  ) const;
             
             Device_exposer.def( 
                 "getCapabilities"
@@ -275,7 +275,7 @@ void register_Device_class(){
         }
         { //::osgGA::Device::getEventQueue
         
-            typedef ::osgGA::EventQueue * ( ::osgGA::Device::*getEventQueue_function_type)(  ) ;
+            typedef ::osgGA::EventQueue * ( ::osgGA::Device::*getEventQueue_function_type )(  ) ;
             
             Device_exposer.def( 
                 "getEventQueue"
@@ -285,7 +285,7 @@ void register_Device_class(){
         }
         { //::osgGA::Device::getEventQueue
         
-            typedef ::osgGA::EventQueue const * ( ::osgGA::Device::*getEventQueue_function_type)(  ) const;
+            typedef ::osgGA::EventQueue const * ( ::osgGA::Device::*getEventQueue_function_type )(  ) const;
             
             Device_exposer.def( 
                 "getEventQueue"
@@ -295,8 +295,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::isSameKindAs
         
-            typedef bool ( ::osgGA::Device::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Device_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::Device::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Device_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Device_exposer.def( 
                 "isSameKindAs"
@@ -307,8 +307,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::libraryName
         
-            typedef char const * ( ::osgGA::Device::*libraryName_function_type)(  ) const;
-            typedef char const * ( Device_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgGA::Device::*libraryName_function_type )(  ) const;
+            typedef char const * ( Device_wrapper::*default_libraryName_function_type )(  ) const;
             
             Device_exposer.def( 
                 "libraryName"
@@ -328,8 +328,8 @@ void register_Device_class(){
         }
         { //::osgGA::Device::sendEvents
         
-            typedef void ( ::osgGA::Device::*sendEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ) ;
-            typedef void ( Device_wrapper::*default_sendEvents_function_type)( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ) ;
+            typedef void ( ::osgGA::Device::*sendEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ) ;
+            typedef void ( Device_wrapper::*default_sendEvents_function_type )( ::std::list< osg::ref_ptr<osgGA::GUIEventAdapter> > const & ) ;
             
             Device_exposer.def( 
                 "sendEvents"
@@ -340,7 +340,7 @@ void register_Device_class(){
         }
         { //::osgGA::Device::setEventQueue
         
-            typedef void ( ::osgGA::Device::*setEventQueue_function_type)( ::osgGA::EventQueue * ) ;
+            typedef void ( ::osgGA::Device::*setEventQueue_function_type )( ::osgGA::EventQueue * ) ;
             
             Device_exposer.def( 
                 "setEventQueue"

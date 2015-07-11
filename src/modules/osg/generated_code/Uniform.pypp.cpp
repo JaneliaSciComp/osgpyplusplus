@@ -523,71 +523,71 @@ void register_Uniform_class(){
         bp::class_< Uniform_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
-                , (char const * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::className)
-                , (char const * ( Uniform_wrapper::Callback_wrapper::* )(  )const)(&Uniform_wrapper::Callback_wrapper::default_className) )    
+                , (char const * ( ::osg::Uniform::Callback::* )(  ) const)(&::osg::Uniform::Callback::className)
+                , (char const * ( Uniform_wrapper::Callback_wrapper::* )(  ) const)(&Uniform_wrapper::Callback_wrapper::default_className) )    
             .def( 
                 "clone"
-                , (::osg::Object * ( ::osg::Uniform::Callback::* )( ::osg::CopyOp const & )const)(&::osg::Uniform::Callback::clone)
-                , (::osg::Object * ( Uniform_wrapper::Callback_wrapper::* )( ::osg::CopyOp const & )const)(&Uniform_wrapper::Callback_wrapper::default_clone)
+                , (::osg::Object * ( ::osg::Uniform::Callback::* )( ::osg::CopyOp const & ) const)(&::osg::Uniform::Callback::clone)
+                , (::osg::Object * ( Uniform_wrapper::Callback_wrapper::* )( ::osg::CopyOp const & ) const)(&Uniform_wrapper::Callback_wrapper::default_clone)
                 , ( bp::arg("copyop") )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "cloneType"
-                , (::osg::Object * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::cloneType)
-                , (::osg::Object * ( Uniform_wrapper::Callback_wrapper::* )(  )const)(&Uniform_wrapper::Callback_wrapper::default_cloneType)
+                , (::osg::Object * ( ::osg::Uniform::Callback::* )(  ) const)(&::osg::Uniform::Callback::cloneType)
+                , (::osg::Object * ( Uniform_wrapper::Callback_wrapper::* )(  ) const)(&Uniform_wrapper::Callback_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "isSameKindAs"
-                , (bool ( ::osg::Uniform::Callback::* )( ::osg::Object const * )const)(&::osg::Uniform::Callback::isSameKindAs)
-                , (bool ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Object const * )const)(&Uniform_wrapper::Callback_wrapper::default_isSameKindAs)
+                , (bool ( ::osg::Uniform::Callback::* )( ::osg::Object const * ) const)(&::osg::Uniform::Callback::isSameKindAs)
+                , (bool ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Object const * ) const)(&Uniform_wrapper::Callback_wrapper::default_isSameKindAs)
                 , ( bp::arg("obj") ) )    
             .def( 
                 "libraryName"
-                , (char const * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::libraryName)
-                , (char const * ( Uniform_wrapper::Callback_wrapper::* )(  )const)(&Uniform_wrapper::Callback_wrapper::default_libraryName) )    
+                , (char const * ( ::osg::Uniform::Callback::* )(  ) const)(&::osg::Uniform::Callback::libraryName)
+                , (char const * ( Uniform_wrapper::Callback_wrapper::* )(  ) const)(&Uniform_wrapper::Callback_wrapper::default_libraryName) )    
             .def( 
                 "__call__"
-                , (void ( ::osg::Uniform::Callback::* )( ::osg::Uniform *,::osg::NodeVisitor * ))(&::osg::Uniform::Callback::operator())
-                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Uniform *,::osg::NodeVisitor * ))(&Uniform_wrapper::Callback_wrapper::default___call__)
+                , (void ( ::osg::Uniform::Callback::* )( ::osg::Uniform *,::osg::NodeVisitor * ) )(&::osg::Uniform::Callback::operator())
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Uniform *,::osg::NodeVisitor * ) )(&Uniform_wrapper::Callback_wrapper::default___call__)
                 , ( bp::arg("arg0"), bp::arg("arg1") ) )    
             .def( 
                 "computeDataVariance"
-                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-                , (void ( Uniform_wrapper::Callback_wrapper::* )(  ))(&Uniform_wrapper::Callback_wrapper::default_computeDataVariance) )    
+                , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+                , (void ( Uniform_wrapper::Callback_wrapper::* )(  ) )(&Uniform_wrapper::Callback_wrapper::default_computeDataVariance) )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-                , (::osg::Referenced * ( Uniform_wrapper::Callback_wrapper::* )(  ))(&Uniform_wrapper::Callback_wrapper::default_getUserData)
+                , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( Uniform_wrapper::Callback_wrapper::* )(  ) )(&Uniform_wrapper::Callback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-                , (::osg::Referenced const * ( Uniform_wrapper::Callback_wrapper::* )(  )const)(&Uniform_wrapper::Callback_wrapper::default_getUserData)
+                , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( Uniform_wrapper::Callback_wrapper::* )(  ) const)(&Uniform_wrapper::Callback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "resizeGLObjectBuffers"
-                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
-                , (void ( Uniform_wrapper::Callback_wrapper::* )( unsigned int ))(&Uniform_wrapper::Callback_wrapper::default_resizeGLObjectBuffers)
+                , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( unsigned int ) )(&Uniform_wrapper::Callback_wrapper::default_resizeGLObjectBuffers)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::std::string const & ))(&Uniform_wrapper::Callback_wrapper::default_setName)
+                , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::std::string const & ) )(&Uniform_wrapper::Callback_wrapper::default_setName)
                 , ( bp::arg("name") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+                , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
                 , ( bp::arg("name") )
                 , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-                , (void ( Uniform_wrapper::Callback_wrapper::* )( bool ))(&Uniform_wrapper::Callback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( bool ) )(&Uniform_wrapper::Callback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) )    
             .def( 
                 "setUserData"
-                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Referenced * ))(&Uniform_wrapper::Callback_wrapper::default_setUserData)
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+                , (void ( Uniform_wrapper::Callback_wrapper::* )( ::osg::Referenced * ) )(&Uniform_wrapper::Callback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         Uniform_exposer.def( bp::init< >() );
         Uniform_exposer.def( bp::init< osg::Uniform::Type, std::string const &, bp::optional< int > >(( bp::arg("type"), bp::arg("name"), bp::arg("numElements")=(int)(1) )) );
@@ -602,7 +602,7 @@ void register_Uniform_class(){
         Uniform_exposer.def( bp::init< char const *, bool, bool, bool, bool >(( bp::arg("name"), bp::arg("b0"), bp::arg("b1"), bp::arg("b2"), bp::arg("b3") )) );
         { //::osg::Uniform::apply
         
-            typedef void ( ::osg::Uniform::*apply_function_type)( ::osg::GL2Extensions const *,::GLint ) const;
+            typedef void ( ::osg::Uniform::*apply_function_type )( ::osg::GL2Extensions const *,::GLint ) const;
             
             Uniform_exposer.def( 
                 "apply"
@@ -612,8 +612,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::className
         
-            typedef char const * ( ::osg::Uniform::*className_function_type)(  ) const;
-            typedef char const * ( Uniform_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Uniform::*className_function_type )(  ) const;
+            typedef char const * ( Uniform_wrapper::*default_className_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "className"
@@ -623,8 +623,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::clone
         
-            typedef ::osg::Object * ( ::osg::Uniform::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Uniform_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Uniform::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Uniform_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Uniform_exposer.def( 
                 "clone"
@@ -636,8 +636,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::cloneType
         
-            typedef ::osg::Object * ( ::osg::Uniform::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Uniform_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Uniform::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Uniform_wrapper::*default_cloneType_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "cloneType"
@@ -648,7 +648,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::dirty
         
-            typedef void ( ::osg::Uniform::*dirty_function_type)(  ) ;
+            typedef void ( ::osg::Uniform::*dirty_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "dirty"
@@ -658,7 +658,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( float & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( float & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -669,7 +669,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( double & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( double & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -679,7 +679,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -689,7 +689,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -699,7 +699,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( bool & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( bool & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -709,7 +709,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec2 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec2 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -719,7 +719,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec3 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec3 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -729,7 +729,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec4 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec4 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -739,7 +739,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec2d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec2d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -749,7 +749,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec3d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec3d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -759,7 +759,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Vec4d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Vec4d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -769,7 +769,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -779,7 +779,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -789,7 +789,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrixf & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrixf & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -799,7 +799,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2x3 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2x3 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -809,7 +809,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2x4 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2x4 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -819,7 +819,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3x2 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3x2 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -829,7 +829,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3x4 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3x4 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -839,7 +839,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix4x2 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix4x2 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -849,7 +849,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix4x3 & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix4x3 & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -859,7 +859,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -869,7 +869,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -879,7 +879,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrixd & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrixd & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -889,7 +889,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2x3d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2x3d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -899,7 +899,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix2x4d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix2x4d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -909,7 +909,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3x2d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3x2d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -919,7 +919,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix3x4d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix3x4d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -929,7 +929,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix4x2d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix4x2d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -939,7 +939,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( ::osg::Matrix4x3d & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( ::osg::Matrix4x3d & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -949,7 +949,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( int &,int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -959,7 +959,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( int &,int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( int &,int &,int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -969,7 +969,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( int &,int &,int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( int &,int &,int &,int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -979,7 +979,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -989,7 +989,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( unsigned int &,unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( unsigned int &,unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -999,7 +999,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( unsigned int &,unsigned int &,unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( unsigned int &,unsigned int &,unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -1009,7 +1009,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -1019,7 +1019,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( bool &,bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( bool &,bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -1029,7 +1029,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::get
         
-            typedef bool ( ::osg::Uniform::*get_function_type)( bool &,bool &,bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*get_function_type )( bool &,bool &,bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "get"
@@ -1039,7 +1039,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getDoubleArray
         
-            typedef ::osg::DoubleArray * ( ::osg::Uniform::*getDoubleArray_function_type)(  ) ;
+            typedef ::osg::DoubleArray * ( ::osg::Uniform::*getDoubleArray_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getDoubleArray"
@@ -1050,7 +1050,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getDoubleArray
         
-            typedef ::osg::DoubleArray const * ( ::osg::Uniform::*getDoubleArray_function_type)(  ) const;
+            typedef ::osg::DoubleArray const * ( ::osg::Uniform::*getDoubleArray_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getDoubleArray"
@@ -1060,7 +1060,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,float & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,float & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1071,7 +1071,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,double & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,double & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1081,7 +1081,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1091,7 +1091,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1101,7 +1101,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,bool & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,bool & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1111,7 +1111,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec2 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec2 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1121,7 +1121,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec3 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec3 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1131,7 +1131,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec4 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec4 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1141,7 +1141,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec2d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec2d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1151,7 +1151,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec3d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec3d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1161,7 +1161,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Vec4d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Vec4d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1171,7 +1171,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1181,7 +1181,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1191,7 +1191,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrixf & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrixf & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1201,7 +1201,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2x3 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2x3 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1211,7 +1211,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2x4 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2x4 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1221,7 +1221,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3x2 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3x2 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1231,7 +1231,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3x4 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3x4 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1241,7 +1241,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix4x2 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix4x2 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1251,7 +1251,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix4x3 & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix4x3 & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1261,7 +1261,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1271,7 +1271,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1281,7 +1281,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrixd & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrixd & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1291,7 +1291,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2x3d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2x3d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1301,7 +1301,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix2x4d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix2x4d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1311,7 +1311,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3x2d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3x2d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1321,7 +1321,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix3x4d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix3x4d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1331,7 +1331,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix4x2d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix4x2d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1341,7 +1341,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,::osg::Matrix4x3d & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,::osg::Matrix4x3d & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1351,7 +1351,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,int &,int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1361,7 +1361,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,int &,int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,int &,int &,int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1371,7 +1371,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,int &,int &,int &,int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,int &,int &,int &,int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1381,7 +1381,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1391,7 +1391,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,unsigned int &,unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,unsigned int &,unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1401,7 +1401,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,unsigned int &,unsigned int &,unsigned int &,unsigned int & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,unsigned int &,unsigned int &,unsigned int &,unsigned int & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1411,7 +1411,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1421,7 +1421,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,bool &,bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,bool &,bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1431,7 +1431,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getElement
         
-            typedef bool ( ::osg::Uniform::*getElement_function_type)( unsigned int,bool &,bool &,bool &,bool & ) const;
+            typedef bool ( ::osg::Uniform::*getElement_function_type )( unsigned int,bool &,bool &,bool &,bool & ) const;
             
             Uniform_exposer.def( 
                 "getElement"
@@ -1441,7 +1441,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getEventCallback
         
-            typedef ::osg::Uniform::Callback * ( ::osg::Uniform::*getEventCallback_function_type)(  ) ;
+            typedef ::osg::Uniform::Callback * ( ::osg::Uniform::*getEventCallback_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getEventCallback"
@@ -1452,7 +1452,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getEventCallback
         
-            typedef ::osg::Uniform::Callback const * ( ::osg::Uniform::*getEventCallback_function_type)(  ) const;
+            typedef ::osg::Uniform::Callback const * ( ::osg::Uniform::*getEventCallback_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getEventCallback"
@@ -1463,7 +1463,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getFloatArray
         
-            typedef ::osg::FloatArray * ( ::osg::Uniform::*getFloatArray_function_type)(  ) ;
+            typedef ::osg::FloatArray * ( ::osg::Uniform::*getFloatArray_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getFloatArray"
@@ -1474,7 +1474,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getFloatArray
         
-            typedef ::osg::FloatArray const * ( ::osg::Uniform::*getFloatArray_function_type)(  ) const;
+            typedef ::osg::FloatArray const * ( ::osg::Uniform::*getFloatArray_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getFloatArray"
@@ -1495,7 +1495,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getIntArray
         
-            typedef ::osg::IntArray * ( ::osg::Uniform::*getIntArray_function_type)(  ) ;
+            typedef ::osg::IntArray * ( ::osg::Uniform::*getIntArray_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getIntArray"
@@ -1506,7 +1506,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getIntArray
         
-            typedef ::osg::IntArray const * ( ::osg::Uniform::*getIntArray_function_type)(  ) const;
+            typedef ::osg::IntArray const * ( ::osg::Uniform::*getIntArray_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getIntArray"
@@ -1516,7 +1516,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getInternalArrayNumElements
         
-            typedef unsigned int ( ::osg::Uniform::*getInternalArrayNumElements_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Uniform::*getInternalArrayNumElements_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getInternalArrayNumElements"
@@ -1537,7 +1537,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getModifiedCount
         
-            typedef unsigned int ( ::osg::Uniform::*getModifiedCount_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Uniform::*getModifiedCount_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getModifiedCount"
@@ -1557,7 +1557,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getNameID
         
-            typedef unsigned int ( ::osg::Uniform::*getNameID_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Uniform::*getNameID_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getNameID"
@@ -1567,7 +1567,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getNumElements
         
-            typedef unsigned int ( ::osg::Uniform::*getNumElements_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Uniform::*getNumElements_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getNumElements"
@@ -1577,7 +1577,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getNumParents
         
-            typedef unsigned int ( ::osg::Uniform::*getNumParents_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Uniform::*getNumParents_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getNumParents"
@@ -1587,7 +1587,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getParent
         
-            typedef ::osg::StateSet * ( ::osg::Uniform::*getParent_function_type)( unsigned int ) ;
+            typedef ::osg::StateSet * ( ::osg::Uniform::*getParent_function_type )( unsigned int ) ;
             
             Uniform_exposer.def( 
                 "getParent"
@@ -1598,7 +1598,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getParent
         
-            typedef ::osg::StateSet const * ( ::osg::Uniform::*getParent_function_type)( unsigned int ) const;
+            typedef ::osg::StateSet const * ( ::osg::Uniform::*getParent_function_type )( unsigned int ) const;
             
             Uniform_exposer.def( 
                 "getParent"
@@ -1610,7 +1610,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getParents
         
-            typedef ::std::vector< osg::StateSet* > const & ( ::osg::Uniform::*getParents_function_type)(  ) const;
+            typedef ::std::vector< osg::StateSet* > const & ( ::osg::Uniform::*getParents_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getParents"
@@ -1621,7 +1621,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getParents
         
-            typedef ::std::vector< osg::StateSet* > ( ::osg::Uniform::*getParents_function_type)(  ) ;
+            typedef ::std::vector< osg::StateSet* > ( ::osg::Uniform::*getParents_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getParents"
@@ -1631,7 +1631,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getType
         
-            typedef ::osg::Uniform::Type ( ::osg::Uniform::*getType_function_type)(  ) const;
+            typedef ::osg::Uniform::Type ( ::osg::Uniform::*getType_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getType"
@@ -1674,7 +1674,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getUIntArray
         
-            typedef ::osg::UIntArray * ( ::osg::Uniform::*getUIntArray_function_type)(  ) ;
+            typedef ::osg::UIntArray * ( ::osg::Uniform::*getUIntArray_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getUIntArray"
@@ -1685,7 +1685,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getUIntArray
         
-            typedef ::osg::UIntArray const * ( ::osg::Uniform::*getUIntArray_function_type)(  ) const;
+            typedef ::osg::UIntArray const * ( ::osg::Uniform::*getUIntArray_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getUIntArray"
@@ -1695,7 +1695,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getUpdateCallback
         
-            typedef ::osg::Uniform::Callback * ( ::osg::Uniform::*getUpdateCallback_function_type)(  ) ;
+            typedef ::osg::Uniform::Callback * ( ::osg::Uniform::*getUpdateCallback_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getUpdateCallback"
@@ -1706,7 +1706,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::getUpdateCallback
         
-            typedef ::osg::Uniform::Callback const * ( ::osg::Uniform::*getUpdateCallback_function_type)(  ) const;
+            typedef ::osg::Uniform::Callback const * ( ::osg::Uniform::*getUpdateCallback_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getUpdateCallback"
@@ -1717,8 +1717,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::isSameKindAs
         
-            typedef bool ( ::osg::Uniform::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Uniform_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Uniform::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Uniform_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Uniform_exposer.def( 
                 "isSameKindAs"
@@ -1729,8 +1729,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::libraryName
         
-            typedef char const * ( ::osg::Uniform::*libraryName_function_type)(  ) const;
-            typedef char const * ( Uniform_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Uniform::*libraryName_function_type )(  ) const;
+            typedef char const * ( Uniform_wrapper::*default_libraryName_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "libraryName"
@@ -1740,7 +1740,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( float ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( float ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1751,7 +1751,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( double ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( double ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1761,7 +1761,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1771,7 +1771,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( unsigned int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1781,7 +1781,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( bool ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( bool ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1791,7 +1791,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec2 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec2 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1801,7 +1801,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec3 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec3 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1811,7 +1811,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec4 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec4 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1821,7 +1821,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec2d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec2d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1831,7 +1831,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec3d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec3d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1841,7 +1841,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Vec4d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Vec4d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1851,7 +1851,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1861,7 +1861,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1871,7 +1871,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrixf const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrixf const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1881,7 +1881,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2x3 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2x3 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1891,7 +1891,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2x4 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2x4 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1901,7 +1901,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3x2 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3x2 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1911,7 +1911,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3x4 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3x4 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1921,7 +1921,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix4x2 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix4x2 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1931,7 +1931,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix4x3 const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix4x3 const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1941,7 +1941,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1951,7 +1951,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1961,7 +1961,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrixd const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrixd const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1971,7 +1971,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2x3d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2x3d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1981,7 +1981,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix2x4d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix2x4d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -1991,7 +1991,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3x2d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3x2d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2001,7 +2001,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix3x4d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix3x4d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2011,7 +2011,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix4x2d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix4x2d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2021,7 +2021,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( ::osg::Matrix4x3d const & ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( ::osg::Matrix4x3d const & ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2031,7 +2031,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( int,int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( int,int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2041,7 +2041,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( int,int,int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( int,int,int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2051,7 +2051,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( int,int,int,int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( int,int,int,int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2061,7 +2061,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2071,7 +2071,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( unsigned int,unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( unsigned int,unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2081,7 +2081,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( unsigned int,unsigned int,unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( unsigned int,unsigned int,unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2091,7 +2091,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( bool,bool ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2101,7 +2101,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( bool,bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( bool,bool,bool ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2111,7 +2111,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::set
         
-            typedef bool ( ::osg::Uniform::*set_function_type)( bool,bool,bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*set_function_type )( bool,bool,bool,bool ) ;
             
             Uniform_exposer.def( 
                 "set"
@@ -2121,7 +2121,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setArray
         
-            typedef bool ( ::osg::Uniform::*setArray_function_type)( ::osg::FloatArray * ) ;
+            typedef bool ( ::osg::Uniform::*setArray_function_type )( ::osg::FloatArray * ) ;
             
             Uniform_exposer.def( 
                 "setArray"
@@ -2132,7 +2132,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setArray
         
-            typedef bool ( ::osg::Uniform::*setArray_function_type)( ::osg::DoubleArray * ) ;
+            typedef bool ( ::osg::Uniform::*setArray_function_type )( ::osg::DoubleArray * ) ;
             
             Uniform_exposer.def( 
                 "setArray"
@@ -2142,7 +2142,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setArray
         
-            typedef bool ( ::osg::Uniform::*setArray_function_type)( ::osg::IntArray * ) ;
+            typedef bool ( ::osg::Uniform::*setArray_function_type )( ::osg::IntArray * ) ;
             
             Uniform_exposer.def( 
                 "setArray"
@@ -2152,7 +2152,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setArray
         
-            typedef bool ( ::osg::Uniform::*setArray_function_type)( ::osg::UIntArray * ) ;
+            typedef bool ( ::osg::Uniform::*setArray_function_type )( ::osg::UIntArray * ) ;
             
             Uniform_exposer.def( 
                 "setArray"
@@ -2162,7 +2162,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,float ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,float ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2173,7 +2173,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,double ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,double ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2183,7 +2183,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2193,7 +2193,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2203,7 +2203,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,bool ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,bool ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2213,7 +2213,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec2 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec2 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2223,7 +2223,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec3 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec3 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2233,7 +2233,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec4 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec4 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2243,7 +2243,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec2d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec2d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2253,7 +2253,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec3d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec3d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2263,7 +2263,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Vec4d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Vec4d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2273,7 +2273,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2283,7 +2283,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2293,7 +2293,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrixf const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrixf const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2303,7 +2303,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2x3 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2x3 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2313,7 +2313,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2x4 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2x4 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2323,7 +2323,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3x2 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3x2 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2333,7 +2333,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3x4 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3x4 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2343,7 +2343,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix4x2 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix4x2 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2353,7 +2353,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix4x3 const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix4x3 const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2363,7 +2363,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2373,7 +2373,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2383,7 +2383,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrixd const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrixd const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2393,7 +2393,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2x3d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2x3d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2403,7 +2403,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix2x4d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix2x4d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2413,7 +2413,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3x2d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3x2d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2423,7 +2423,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix3x4d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix3x4d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2433,7 +2433,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix4x2d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix4x2d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2443,7 +2443,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,::osg::Matrix4x3d const & ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,::osg::Matrix4x3d const & ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2453,7 +2453,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,int,int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,int,int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2463,7 +2463,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,int,int,int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,int,int,int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2473,7 +2473,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,int,int,int,int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,int,int,int,int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2483,7 +2483,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2493,7 +2493,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,unsigned int,unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,unsigned int,unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2503,7 +2503,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,unsigned int,unsigned int,unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,unsigned int,unsigned int,unsigned int,unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2513,7 +2513,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,bool,bool ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2523,7 +2523,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,bool,bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,bool,bool,bool ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2533,7 +2533,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setElement
         
-            typedef bool ( ::osg::Uniform::*setElement_function_type)( unsigned int,bool,bool,bool,bool ) ;
+            typedef bool ( ::osg::Uniform::*setElement_function_type )( unsigned int,bool,bool,bool,bool ) ;
             
             Uniform_exposer.def( 
                 "setElement"
@@ -2543,7 +2543,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setEventCallback
         
-            typedef void ( ::osg::Uniform::*setEventCallback_function_type)( ::osg::Uniform::Callback * ) ;
+            typedef void ( ::osg::Uniform::*setEventCallback_function_type )( ::osg::Uniform::Callback * ) ;
             
             Uniform_exposer.def( 
                 "setEventCallback"
@@ -2554,7 +2554,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setModifiedCount
         
-            typedef void ( ::osg::Uniform::*setModifiedCount_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Uniform::*setModifiedCount_function_type )( unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setModifiedCount"
@@ -2564,8 +2564,8 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setName
         
-            typedef void ( ::osg::Uniform::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Uniform_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Uniform::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Uniform_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Uniform_exposer.def( 
                 "setName"
@@ -2576,7 +2576,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setNumElements
         
-            typedef void ( ::osg::Uniform::*setNumElements_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Uniform::*setNumElements_function_type )( unsigned int ) ;
             
             Uniform_exposer.def( 
                 "setNumElements"
@@ -2587,7 +2587,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setType
         
-            typedef bool ( ::osg::Uniform::*setType_function_type)( ::osg::Uniform::Type ) ;
+            typedef bool ( ::osg::Uniform::*setType_function_type )( ::osg::Uniform::Type ) ;
             
             Uniform_exposer.def( 
                 "setType"
@@ -2598,7 +2598,7 @@ void register_Uniform_class(){
         }
         { //::osg::Uniform::setUpdateCallback
         
-            typedef void ( ::osg::Uniform::*setUpdateCallback_function_type)( ::osg::Uniform::Callback * ) ;
+            typedef void ( ::osg::Uniform::*setUpdateCallback_function_type )( ::osg::Uniform::Callback * ) ;
             
             Uniform_exposer.def( 
                 "setUpdateCallback"
@@ -2609,8 +2609,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Uniform_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Uniform_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "computeDataVariance"
@@ -2620,8 +2620,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Uniform_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Uniform_wrapper::*default_getUserData_function_type )(  ) ;
             
             Uniform_exposer.def( 
                 "getUserData"
@@ -2632,8 +2632,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Uniform_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Uniform_wrapper::*default_getUserData_function_type )(  ) const;
             
             Uniform_exposer.def( 
                 "getUserData"
@@ -2644,8 +2644,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Uniform_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Uniform_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Uniform_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -2656,8 +2656,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Uniform_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Uniform_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Uniform_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -2668,8 +2668,8 @@ void register_Uniform_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Uniform_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Uniform_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Uniform_exposer.def( 
                 "setUserData"

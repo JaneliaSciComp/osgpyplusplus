@@ -423,8 +423,8 @@ void register_ProxyNode_class(){
         ProxyNode_exposer.def( bp::init< >("\n ProxyNode.\n") );
         { //::osg::ProxyNode::accept
         
-            typedef void ( ::osg::ProxyNode::*accept_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( ProxyNode_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::ProxyNode::*accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ProxyNode_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
             
             ProxyNode_exposer.def( 
                 "accept"
@@ -435,8 +435,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::addChild
         
-            typedef bool ( ::osg::ProxyNode::*addChild_function_type)( ::osg::Node * ) ;
-            typedef bool ( ProxyNode_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( ::osg::ProxyNode::*addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ProxyNode_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
             
             ProxyNode_exposer.def( 
                 "addChild"
@@ -447,8 +447,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::addChild
         
-            typedef bool ( ::osg::ProxyNode::*addChild_function_type)( ::osg::Node *,::std::string const & ) ;
-            typedef bool ( ProxyNode_wrapper::*default_addChild_function_type)( ::osg::Node *,::std::string const & ) ;
+            typedef bool ( ::osg::ProxyNode::*addChild_function_type )( ::osg::Node *,::std::string const & ) ;
+            typedef bool ( ProxyNode_wrapper::*default_addChild_function_type )( ::osg::Node *,::std::string const & ) ;
             
             ProxyNode_exposer.def( 
                 "addChild"
@@ -459,8 +459,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::className
         
-            typedef char const * ( ::osg::ProxyNode::*className_function_type)(  ) const;
-            typedef char const * ( ProxyNode_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::ProxyNode::*className_function_type )(  ) const;
+            typedef char const * ( ProxyNode_wrapper::*default_className_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "className"
@@ -470,8 +470,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::clone
         
-            typedef ::osg::Object * ( ::osg::ProxyNode::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ProxyNode_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::ProxyNode::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ProxyNode_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             ProxyNode_exposer.def( 
                 "clone"
@@ -483,8 +483,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::cloneType
         
-            typedef ::osg::Object * ( ::osg::ProxyNode::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( ProxyNode_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::ProxyNode::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ProxyNode_wrapper::*default_cloneType_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "cloneType"
@@ -495,8 +495,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::ProxyNode::*computeBound_function_type)(  ) const;
-            typedef ::osg::BoundingSphere ( ProxyNode_wrapper::*default_computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::ProxyNode::*computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ProxyNode_wrapper::*default_computeBound_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "computeBound"
@@ -506,7 +506,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getCenter
         
-            typedef ::osg::Vec3f const & ( ::osg::ProxyNode::*getCenter_function_type)(  ) const;
+            typedef ::osg::Vec3f const & ( ::osg::ProxyNode::*getCenter_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getCenter"
@@ -517,7 +517,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getCenterMode
         
-            typedef ::osg::ProxyNode::CenterMode ( ::osg::ProxyNode::*getCenterMode_function_type)(  ) const;
+            typedef ::osg::ProxyNode::CenterMode ( ::osg::ProxyNode::*getCenterMode_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getCenterMode"
@@ -527,7 +527,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getDatabaseOptions
         
-            typedef ::osg::Referenced * ( ::osg::ProxyNode::*getDatabaseOptions_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::ProxyNode::*getDatabaseOptions_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "getDatabaseOptions"
@@ -538,7 +538,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getDatabaseOptions
         
-            typedef ::osg::Referenced const * ( ::osg::ProxyNode::*getDatabaseOptions_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::ProxyNode::*getDatabaseOptions_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getDatabaseOptions"
@@ -549,7 +549,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getDatabasePath
         
-            typedef ::std::string const & ( ::osg::ProxyNode::*getDatabasePath_function_type)(  ) const;
+            typedef ::std::string const & ( ::osg::ProxyNode::*getDatabasePath_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getDatabasePath"
@@ -560,7 +560,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getDatabaseRequest
         
-            typedef ::osg::ref_ptr< osg::Referenced > & ( ::osg::ProxyNode::*getDatabaseRequest_function_type)( unsigned int ) ;
+            typedef ::osg::ref_ptr< osg::Referenced > & ( ::osg::ProxyNode::*getDatabaseRequest_function_type )( unsigned int ) ;
             
             ProxyNode_exposer.def( 
                 "getDatabaseRequest"
@@ -572,7 +572,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getDatabaseRequest
         
-            typedef ::osg::ref_ptr< osg::Referenced > const & ( ::osg::ProxyNode::*getDatabaseRequest_function_type)( unsigned int ) const;
+            typedef ::osg::ref_ptr< osg::Referenced > const & ( ::osg::ProxyNode::*getDatabaseRequest_function_type )( unsigned int ) const;
             
             ProxyNode_exposer.def( 
                 "getDatabaseRequest"
@@ -584,7 +584,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getFileName
         
-            typedef ::std::string const & ( ::osg::ProxyNode::*getFileName_function_type)( unsigned int ) const;
+            typedef ::std::string const & ( ::osg::ProxyNode::*getFileName_function_type )( unsigned int ) const;
             
             ProxyNode_exposer.def( 
                 "getFileName"
@@ -595,7 +595,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getLoadingExternalReferenceMode
         
-            typedef ::osg::ProxyNode::LoadingExternalReferenceMode ( ::osg::ProxyNode::*getLoadingExternalReferenceMode_function_type)(  ) const;
+            typedef ::osg::ProxyNode::LoadingExternalReferenceMode ( ::osg::ProxyNode::*getLoadingExternalReferenceMode_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getLoadingExternalReferenceMode"
@@ -605,7 +605,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getNumFileNames
         
-            typedef unsigned int ( ::osg::ProxyNode::*getNumFileNames_function_type)(  ) const;
+            typedef unsigned int ( ::osg::ProxyNode::*getNumFileNames_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getNumFileNames"
@@ -614,7 +614,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::getRadius
         
-            typedef float ( ::osg::ProxyNode::*getRadius_function_type)(  ) const;
+            typedef float ( ::osg::ProxyNode::*getRadius_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getRadius"
@@ -624,8 +624,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::isSameKindAs
         
-            typedef bool ( ::osg::ProxyNode::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( ProxyNode_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::ProxyNode::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ProxyNode_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             ProxyNode_exposer.def( 
                 "isSameKindAs"
@@ -636,8 +636,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::libraryName
         
-            typedef char const * ( ::osg::ProxyNode::*libraryName_function_type)(  ) const;
-            typedef char const * ( ProxyNode_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::ProxyNode::*libraryName_function_type )(  ) const;
+            typedef char const * ( ProxyNode_wrapper::*default_libraryName_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "libraryName"
@@ -647,8 +647,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::removeChildren
         
-            typedef bool ( ::osg::ProxyNode::*removeChildren_function_type)( unsigned int,unsigned int ) ;
-            typedef bool ( ProxyNode_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::ProxyNode::*removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ProxyNode_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
             
             ProxyNode_exposer.def( 
                 "removeChildren"
@@ -659,7 +659,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setCenter
         
-            typedef void ( ::osg::ProxyNode::*setCenter_function_type)( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::ProxyNode::*setCenter_function_type )( ::osg::Vec3f const & ) ;
             
             ProxyNode_exposer.def( 
                 "setCenter"
@@ -670,7 +670,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setCenterMode
         
-            typedef void ( ::osg::ProxyNode::*setCenterMode_function_type)( ::osg::ProxyNode::CenterMode ) ;
+            typedef void ( ::osg::ProxyNode::*setCenterMode_function_type )( ::osg::ProxyNode::CenterMode ) ;
             
             ProxyNode_exposer.def( 
                 "setCenterMode"
@@ -681,7 +681,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setDatabaseOptions
         
-            typedef void ( ::osg::ProxyNode::*setDatabaseOptions_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::ProxyNode::*setDatabaseOptions_function_type )( ::osg::Referenced * ) ;
             
             ProxyNode_exposer.def( 
                 "setDatabaseOptions"
@@ -692,7 +692,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setDatabasePath
         
-            typedef void ( ::osg::ProxyNode::*setDatabasePath_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::ProxyNode::*setDatabasePath_function_type )( ::std::string const & ) ;
             
             ProxyNode_exposer.def( 
                 "setDatabasePath"
@@ -703,7 +703,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setFileName
         
-            typedef void ( ::osg::ProxyNode::*setFileName_function_type)( unsigned int,::std::string const & ) ;
+            typedef void ( ::osg::ProxyNode::*setFileName_function_type )( unsigned int,::std::string const & ) ;
             
             ProxyNode_exposer.def( 
                 "setFileName"
@@ -713,7 +713,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setLoadingExternalReferenceMode
         
-            typedef void ( ::osg::ProxyNode::*setLoadingExternalReferenceMode_function_type)( ::osg::ProxyNode::LoadingExternalReferenceMode ) ;
+            typedef void ( ::osg::ProxyNode::*setLoadingExternalReferenceMode_function_type )( ::osg::ProxyNode::LoadingExternalReferenceMode ) ;
             
             ProxyNode_exposer.def( 
                 "setLoadingExternalReferenceMode"
@@ -724,7 +724,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::setRadius
         
-            typedef void ( ::osg::ProxyNode::*setRadius_function_type)( float ) ;
+            typedef void ( ::osg::ProxyNode::*setRadius_function_type )( float ) ;
             
             ProxyNode_exposer.def( 
                 "setRadius"
@@ -735,8 +735,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::ProxyNode::traverse
         
-            typedef void ( ::osg::ProxyNode::*traverse_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( ProxyNode_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::ProxyNode::*traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ProxyNode_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
             
             ProxyNode_exposer.def( 
                 "traverse"
@@ -747,8 +747,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
-            typedef ::osg::Camera * ( ProxyNode_wrapper::*default_asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ProxyNode_wrapper::*default_asCamera_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "asCamera"
@@ -759,8 +759,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
-            typedef ::osg::Camera const * ( ProxyNode_wrapper::*default_asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ProxyNode_wrapper::*default_asCamera_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "asCamera"
@@ -771,8 +771,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
-            typedef ::osg::Geode * ( ProxyNode_wrapper::*default_asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ProxyNode_wrapper::*default_asGeode_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "asGeode"
@@ -783,8 +783,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
-            typedef ::osg::Geode const * ( ProxyNode_wrapper::*default_asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ProxyNode_wrapper::*default_asGeode_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "asGeode"
@@ -795,8 +795,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
-            typedef ::osg::Group * ( ProxyNode_wrapper::*default_asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ProxyNode_wrapper::*default_asGroup_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "asGroup"
@@ -807,8 +807,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
-            typedef ::osg::Group const * ( ProxyNode_wrapper::*default_asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ProxyNode_wrapper::*default_asGroup_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "asGroup"
@@ -819,8 +819,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
-            typedef ::osg::Switch * ( ProxyNode_wrapper::*default_asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ProxyNode_wrapper::*default_asSwitch_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "asSwitch"
@@ -831,8 +831,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
-            typedef ::osg::Switch const * ( ProxyNode_wrapper::*default_asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ProxyNode_wrapper::*default_asSwitch_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "asSwitch"
@@ -843,8 +843,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
-            typedef ::osg::Transform * ( ProxyNode_wrapper::*default_asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ProxyNode_wrapper::*default_asTransform_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "asTransform"
@@ -855,8 +855,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
-            typedef ::osg::Transform const * ( ProxyNode_wrapper::*default_asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ProxyNode_wrapper::*default_asTransform_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "asTransform"
@@ -867,8 +867,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( ProxyNode_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ProxyNode_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
             
             ProxyNode_exposer.def( 
                 "ascend"
@@ -879,8 +879,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( ProxyNode_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( ProxyNode_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "computeDataVariance"
@@ -890,8 +890,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( ProxyNode_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ProxyNode_wrapper::*default_getUserData_function_type )(  ) ;
             
             ProxyNode_exposer.def( 
                 "getUserData"
@@ -902,8 +902,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( ProxyNode_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ProxyNode_wrapper::*default_getUserData_function_type )(  ) const;
             
             ProxyNode_exposer.def( 
                 "getUserData"
@@ -914,8 +914,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
-            typedef bool ( ProxyNode_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ProxyNode_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
             
             ProxyNode_exposer.def( 
                 "insertChild"
@@ -926,8 +926,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( ProxyNode_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ProxyNode_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
             
             ProxyNode_exposer.def( 
                 "replaceChild"
@@ -938,8 +938,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( ProxyNode_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ProxyNode_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             ProxyNode_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -950,8 +950,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
-            typedef bool ( ProxyNode_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ProxyNode_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
             
             ProxyNode_exposer.def( 
                 "setChild"
@@ -962,8 +962,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( ProxyNode_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( ProxyNode_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             ProxyNode_exposer.def( 
                 "setName"
@@ -974,7 +974,7 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             ProxyNode_exposer.def( 
                 "setName"
@@ -985,8 +985,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( ProxyNode_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ProxyNode_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             ProxyNode_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -997,8 +997,8 @@ void register_ProxyNode_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( ProxyNode_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ProxyNode_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             ProxyNode_exposer.def( 
                 "setUserData"

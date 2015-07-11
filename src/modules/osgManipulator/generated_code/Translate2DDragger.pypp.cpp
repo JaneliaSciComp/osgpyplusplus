@@ -627,8 +627,8 @@ void register_Translate2DDragger_class(){
         bp::implicitly_convertible< osg::Plane const &, osgManipulator::Translate2DDragger >();
         { //::osgManipulator::Translate2DDragger::className
         
-            typedef char const * ( ::osgManipulator::Translate2DDragger::*className_function_type)(  ) const;
-            typedef char const * ( Translate2DDragger_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgManipulator::Translate2DDragger::*className_function_type )(  ) const;
+            typedef char const * ( Translate2DDragger_wrapper::*default_className_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "className"
@@ -638,8 +638,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::cloneType
         
-            typedef ::osg::Object * ( ::osgManipulator::Translate2DDragger::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Translate2DDragger_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgManipulator::Translate2DDragger::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Translate2DDragger_wrapper::*default_cloneType_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "cloneType"
@@ -650,7 +650,7 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::getColor
         
-            typedef ::osg::Vec4 const & ( ::osgManipulator::Translate2DDragger::*getColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgManipulator::Translate2DDragger::*getColor_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "getColor"
@@ -660,7 +660,7 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::getPickColor
         
-            typedef ::osg::Vec4 const & ( ::osgManipulator::Translate2DDragger::*getPickColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgManipulator::Translate2DDragger::*getPickColor_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "getPickColor"
@@ -681,8 +681,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::isSameKindAs
         
-            typedef bool ( ::osgManipulator::Translate2DDragger::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Translate2DDragger_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgManipulator::Translate2DDragger::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Translate2DDragger_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Translate2DDragger_exposer.def( 
                 "isSameKindAs"
@@ -693,8 +693,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::libraryName
         
-            typedef char const * ( ::osgManipulator::Translate2DDragger::*libraryName_function_type)(  ) const;
-            typedef char const * ( Translate2DDragger_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgManipulator::Translate2DDragger::*libraryName_function_type )(  ) const;
+            typedef char const * ( Translate2DDragger_wrapper::*default_libraryName_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "libraryName"
@@ -704,7 +704,7 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::setColor
         
-            typedef void ( ::osgManipulator::Translate2DDragger::*setColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgManipulator::Translate2DDragger::*setColor_function_type )( ::osg::Vec4 const & ) ;
             
             Translate2DDragger_exposer.def( 
                 "setColor"
@@ -715,7 +715,7 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::setPickColor
         
-            typedef void ( ::osgManipulator::Translate2DDragger::*setPickColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgManipulator::Translate2DDragger::*setPickColor_function_type )( ::osg::Vec4 const & ) ;
             
             Translate2DDragger_exposer.def( 
                 "setPickColor"
@@ -726,8 +726,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Translate2DDragger::setupDefaultGeometry
         
-            typedef void ( ::osgManipulator::Translate2DDragger::*setupDefaultGeometry_function_type)(  ) ;
-            typedef void ( Translate2DDragger_wrapper::*default_setupDefaultGeometry_function_type)(  ) ;
+            typedef void ( ::osgManipulator::Translate2DDragger::*setupDefaultGeometry_function_type )(  ) ;
+            typedef void ( Translate2DDragger_wrapper::*default_setupDefaultGeometry_function_type )(  ) ;
             
             Translate2DDragger_exposer.def( 
                 "setupDefaultGeometry"
@@ -737,8 +737,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::accept
         
-            typedef void ( ::osgManipulator::Dragger::*accept_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( Translate2DDragger_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( Translate2DDragger_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
             
             Translate2DDragger_exposer.def( 
                 "accept"
@@ -749,8 +749,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::clone
         
-            typedef ::osg::Object * ( ::osgManipulator::Dragger::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Translate2DDragger_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgManipulator::Dragger::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Translate2DDragger_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Translate2DDragger_exposer.def( 
                 "clone"
@@ -772,8 +772,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::*getComposite_function_type)(  ) const;
-            typedef ::osgManipulator::CompositeDragger const * ( Translate2DDragger_wrapper::*default_getComposite_function_type)(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::*getComposite_function_type )(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( Translate2DDragger_wrapper::*default_getComposite_function_type )(  ) const;
             
             Translate2DDragger_exposer.def( 
                 "getComposite"
@@ -784,8 +784,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::*getComposite_function_type)(  ) ;
-            typedef ::osgManipulator::CompositeDragger * ( Translate2DDragger_wrapper::*default_getComposite_function_type)(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::*getComposite_function_type )(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( Translate2DDragger_wrapper::*default_getComposite_function_type )(  ) ;
             
             Translate2DDragger_exposer.def( 
                 "getComposite"
@@ -817,8 +817,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::setIntersectionMask
         
-            typedef void ( ::osgManipulator::Dragger::*setIntersectionMask_function_type)( unsigned int ) ;
-            typedef void ( Translate2DDragger_wrapper::*default_setIntersectionMask_function_type)( unsigned int ) ;
+            typedef void ( ::osgManipulator::Dragger::*setIntersectionMask_function_type )( unsigned int ) ;
+            typedef void ( Translate2DDragger_wrapper::*default_setIntersectionMask_function_type )( unsigned int ) ;
             
             Translate2DDragger_exposer.def( 
                 "setIntersectionMask"
@@ -829,8 +829,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::setParentDragger
         
-            typedef void ( ::osgManipulator::Dragger::*setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
-            typedef void ( Translate2DDragger_wrapper::*default_setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef void ( ::osgManipulator::Dragger::*setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef void ( Translate2DDragger_wrapper::*default_setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
             
             Translate2DDragger_exposer.def( 
                 "setParentDragger"
@@ -841,8 +841,8 @@ void register_Translate2DDragger_class(){
         }
         { //::osgManipulator::Dragger::traverse
         
-            typedef void ( ::osgManipulator::Dragger::*traverse_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( Translate2DDragger_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( Translate2DDragger_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
             
             Translate2DDragger_exposer.def( 
                 "traverse"

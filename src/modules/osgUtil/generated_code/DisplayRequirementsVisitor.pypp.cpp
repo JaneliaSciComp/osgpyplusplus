@@ -407,34 +407,34 @@ void register_DisplayRequirementsVisitor_class(){
     bp::class_< DisplayRequirementsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::DisplayRequirementsVisitor >, boost::noncopyable >( "DisplayRequirementsVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::Node & ))(&::osgUtil::DisplayRequirementsVisitor::apply)
-            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::Node & ))(&DisplayRequirementsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::Node & ) )(&::osgUtil::DisplayRequirementsVisitor::apply)
+            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::Node & ) )(&DisplayRequirementsVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::Geode & ))(&::osgUtil::DisplayRequirementsVisitor::apply)
-            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::Geode & ))(&DisplayRequirementsVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::Geode & ) )(&::osgUtil::DisplayRequirementsVisitor::apply)
+            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::Geode & ) )(&DisplayRequirementsVisitor_wrapper::default_apply)
             , ( bp::arg("geode") ) )    
         .def( 
             "applyStateSet"
-            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::StateSet & ))(&::osgUtil::DisplayRequirementsVisitor::applyStateSet)
-            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::StateSet & ))(&DisplayRequirementsVisitor_wrapper::default_applyStateSet)
+            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::StateSet & ) )(&::osgUtil::DisplayRequirementsVisitor::applyStateSet)
+            , (void ( DisplayRequirementsVisitor_wrapper::* )( ::osg::StateSet & ) )(&DisplayRequirementsVisitor_wrapper::default_applyStateSet)
             , ( bp::arg("stateset") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  )const)(&::osgUtil::DisplayRequirementsVisitor::className)
-            , (char const * ( DisplayRequirementsVisitor_wrapper::* )(  )const)(&DisplayRequirementsVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  ) const)(&::osgUtil::DisplayRequirementsVisitor::className)
+            , (char const * ( DisplayRequirementsVisitor_wrapper::* )(  ) const)(&DisplayRequirementsVisitor_wrapper::default_className) )    
         .def( 
             "getDisplaySettings"
-            , (::osg::DisplaySettings const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  )const)( &::osgUtil::DisplayRequirementsVisitor::getDisplaySettings )
+            , (::osg::DisplaySettings const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  ) const)( &::osgUtil::DisplayRequirementsVisitor::getDisplaySettings )
             , bp::return_internal_reference< >() )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  )const)(&::osgUtil::DisplayRequirementsVisitor::libraryName)
-            , (char const * ( DisplayRequirementsVisitor_wrapper::* )(  )const)(&DisplayRequirementsVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osgUtil::DisplayRequirementsVisitor::* )(  ) const)(&::osgUtil::DisplayRequirementsVisitor::libraryName)
+            , (char const * ( DisplayRequirementsVisitor_wrapper::* )(  ) const)(&DisplayRequirementsVisitor_wrapper::default_libraryName) )    
         .def( 
             "setDisplaySettings"
-            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::DisplaySettings * ))( &::osgUtil::DisplayRequirementsVisitor::setDisplaySettings )
+            , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::DisplaySettings * ) )( &::osgUtil::DisplayRequirementsVisitor::setDisplaySettings )
             , ( bp::arg("ds") ) );
 
 }

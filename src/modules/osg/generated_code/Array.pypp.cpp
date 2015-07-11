@@ -286,7 +286,7 @@ void register_Array_class(){
             ;
         { //::osg::Array::accept
         
-            typedef void ( ::osg::Array::*accept_function_type)( ::osg::ArrayVisitor & ) ;
+            typedef void ( ::osg::Array::*accept_function_type )( ::osg::ArrayVisitor & ) ;
             
             Array_exposer.def( 
                 "accept"
@@ -296,7 +296,7 @@ void register_Array_class(){
         }
         { //::osg::Array::accept
         
-            typedef void ( ::osg::Array::*accept_function_type)( ::osg::ConstArrayVisitor & ) const;
+            typedef void ( ::osg::Array::*accept_function_type )( ::osg::ConstArrayVisitor & ) const;
             
             Array_exposer.def( 
                 "accept"
@@ -306,7 +306,7 @@ void register_Array_class(){
         }
         { //::osg::Array::accept
         
-            typedef void ( ::osg::Array::*accept_function_type)( unsigned int,::osg::ValueVisitor & ) ;
+            typedef void ( ::osg::Array::*accept_function_type )( unsigned int,::osg::ValueVisitor & ) ;
             
             Array_exposer.def( 
                 "accept"
@@ -316,7 +316,7 @@ void register_Array_class(){
         }
         { //::osg::Array::accept
         
-            typedef void ( ::osg::Array::*accept_function_type)( unsigned int,::osg::ConstValueVisitor & ) const;
+            typedef void ( ::osg::Array::*accept_function_type )( unsigned int,::osg::ConstValueVisitor & ) const;
             
             Array_exposer.def( 
                 "accept"
@@ -326,8 +326,8 @@ void register_Array_class(){
         }
         { //::osg::Array::asArray
         
-            typedef ::osg::Array * ( ::osg::Array::*asArray_function_type)(  ) ;
-            typedef ::osg::Array * ( Array_wrapper::*default_asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osg::Array::*asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( Array_wrapper::*default_asArray_function_type )(  ) ;
             
             Array_exposer.def( 
                 "asArray"
@@ -338,8 +338,8 @@ void register_Array_class(){
         }
         { //::osg::Array::asArray
         
-            typedef ::osg::Array const * ( ::osg::Array::*asArray_function_type)(  ) const;
-            typedef ::osg::Array const * ( Array_wrapper::*default_asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ::osg::Array::*asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( Array_wrapper::*default_asArray_function_type )(  ) const;
             
             Array_exposer.def( 
                 "asArray"
@@ -350,8 +350,8 @@ void register_Array_class(){
         }
         { //::osg::Array::className
         
-            typedef char const * ( ::osg::Array::*className_function_type)(  ) const;
-            typedef char const * ( Array_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Array::*className_function_type )(  ) const;
+            typedef char const * ( Array_wrapper::*default_className_function_type )(  ) const;
             
             Array_exposer.def( 
                 "className"
@@ -361,7 +361,7 @@ void register_Array_class(){
         }
         { //::osg::Array::compare
         
-            typedef int ( ::osg::Array::*compare_function_type)( unsigned int,unsigned int ) const;
+            typedef int ( ::osg::Array::*compare_function_type )( unsigned int,unsigned int ) const;
             
             Array_exposer.def( 
                 "compare"
@@ -372,7 +372,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getBinding
         
-            typedef ::osg::Array::Binding ( ::osg::Array::*getBinding_function_type)(  ) const;
+            typedef ::osg::Array::Binding ( ::osg::Array::*getBinding_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getBinding"
@@ -382,7 +382,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::Array::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( ::osg::Array::*getDataPointer_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getDataPointer"
@@ -392,7 +392,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getDataSize
         
-            typedef ::GLint ( ::osg::Array::*getDataSize_function_type)(  ) const;
+            typedef ::GLint ( ::osg::Array::*getDataSize_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getDataSize"
@@ -401,7 +401,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getDataType
         
-            typedef ::GLenum ( ::osg::Array::*getDataType_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Array::*getDataType_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getDataType"
@@ -410,7 +410,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getElementSize
         
-            typedef unsigned int ( ::osg::Array::*getElementSize_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Array::*getElementSize_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getElementSize"
@@ -419,7 +419,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getNormalize
         
-            typedef bool ( ::osg::Array::*getNormalize_function_type)(  ) const;
+            typedef bool ( ::osg::Array::*getNormalize_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getNormalize"
@@ -429,7 +429,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getNumElements
         
-            typedef unsigned int ( ::osg::Array::*getNumElements_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Array::*getNumElements_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getNumElements"
@@ -438,7 +438,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getPreserveDataType
         
-            typedef bool ( ::osg::Array::*getPreserveDataType_function_type)(  ) const;
+            typedef bool ( ::osg::Array::*getPreserveDataType_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getPreserveDataType"
@@ -448,7 +448,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getTotalDataSize
         
-            typedef unsigned int ( ::osg::Array::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Array::*getTotalDataSize_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getTotalDataSize"
@@ -457,7 +457,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getType
         
-            typedef ::osg::Array::Type ( ::osg::Array::*getType_function_type)(  ) const;
+            typedef ::osg::Array::Type ( ::osg::Array::*getType_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getType"
@@ -466,7 +466,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getVertexBufferObject
         
-            typedef ::osg::VertexBufferObject * ( ::osg::Array::*getVertexBufferObject_function_type)(  ) ;
+            typedef ::osg::VertexBufferObject * ( ::osg::Array::*getVertexBufferObject_function_type )(  ) ;
             
             Array_exposer.def( 
                 "getVertexBufferObject"
@@ -477,7 +477,7 @@ void register_Array_class(){
         }
         { //::osg::Array::getVertexBufferObject
         
-            typedef ::osg::VertexBufferObject const * ( ::osg::Array::*getVertexBufferObject_function_type)(  ) const;
+            typedef ::osg::VertexBufferObject const * ( ::osg::Array::*getVertexBufferObject_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getVertexBufferObject"
@@ -488,8 +488,8 @@ void register_Array_class(){
         }
         { //::osg::Array::isSameKindAs
         
-            typedef bool ( ::osg::Array::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Array_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Array::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Array_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Array_exposer.def( 
                 "isSameKindAs"
@@ -500,8 +500,8 @@ void register_Array_class(){
         }
         { //::osg::Array::libraryName
         
-            typedef char const * ( ::osg::Array::*libraryName_function_type)(  ) const;
-            typedef char const * ( Array_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Array::*libraryName_function_type )(  ) const;
+            typedef char const * ( Array_wrapper::*default_libraryName_function_type )(  ) const;
             
             Array_exposer.def( 
                 "libraryName"
@@ -511,7 +511,7 @@ void register_Array_class(){
         }
         { //::osg::Array::reserveArray
         
-            typedef void ( ::osg::Array::*reserveArray_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Array::*reserveArray_function_type )( unsigned int ) ;
             
             Array_exposer.def( 
                 "reserveArray"
@@ -521,7 +521,7 @@ void register_Array_class(){
         }
         { //::osg::Array::resizeArray
         
-            typedef void ( ::osg::Array::*resizeArray_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Array::*resizeArray_function_type )( unsigned int ) ;
             
             Array_exposer.def( 
                 "resizeArray"
@@ -531,7 +531,7 @@ void register_Array_class(){
         }
         { //::osg::Array::setBinding
         
-            typedef void ( ::osg::Array::*setBinding_function_type)( ::osg::Array::Binding ) ;
+            typedef void ( ::osg::Array::*setBinding_function_type )( ::osg::Array::Binding ) ;
             
             Array_exposer.def( 
                 "setBinding"
@@ -542,7 +542,7 @@ void register_Array_class(){
         }
         { //::osg::Array::setNormalize
         
-            typedef void ( ::osg::Array::*setNormalize_function_type)( bool ) ;
+            typedef void ( ::osg::Array::*setNormalize_function_type )( bool ) ;
             
             Array_exposer.def( 
                 "setNormalize"
@@ -553,7 +553,7 @@ void register_Array_class(){
         }
         { //::osg::Array::setPreserveDataType
         
-            typedef void ( ::osg::Array::*setPreserveDataType_function_type)( bool ) ;
+            typedef void ( ::osg::Array::*setPreserveDataType_function_type )( bool ) ;
             
             Array_exposer.def( 
                 "setPreserveDataType"
@@ -564,7 +564,7 @@ void register_Array_class(){
         }
         { //::osg::Array::setVertexBufferObject
         
-            typedef void ( ::osg::Array::*setVertexBufferObject_function_type)( ::osg::VertexBufferObject * ) ;
+            typedef void ( ::osg::Array::*setVertexBufferObject_function_type )( ::osg::VertexBufferObject * ) ;
             
             Array_exposer.def( 
                 "setVertexBufferObject"
@@ -575,8 +575,8 @@ void register_Array_class(){
         }
         { //::osg::Array::trim
         
-            typedef void ( ::osg::Array::*trim_function_type)(  ) ;
-            typedef void ( Array_wrapper::*default_trim_function_type)(  ) ;
+            typedef void ( ::osg::Array::*trim_function_type )(  ) ;
+            typedef void ( Array_wrapper::*default_trim_function_type )(  ) ;
             
             Array_exposer.def( 
                 "trim"
@@ -586,7 +586,7 @@ void register_Array_class(){
         }
         { //::osg::Object::clone
         
-            typedef ::osg::Object * ( ::osg::Object::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Object::*clone_function_type )( ::osg::CopyOp const & ) const;
             
             Array_exposer.def( 
                 "clone"
@@ -598,7 +598,7 @@ void register_Array_class(){
         }
         { //::osg::Object::cloneType
         
-            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type )(  ) const;
             
             Array_exposer.def( 
                 "cloneType"
@@ -609,8 +609,8 @@ void register_Array_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Array_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Array_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Array_exposer.def( 
                 "computeDataVariance"
@@ -620,8 +620,8 @@ void register_Array_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Array_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Array_wrapper::*default_getUserData_function_type )(  ) ;
             
             Array_exposer.def( 
                 "getUserData"
@@ -632,8 +632,8 @@ void register_Array_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Array_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Array_wrapper::*default_getUserData_function_type )(  ) const;
             
             Array_exposer.def( 
                 "getUserData"
@@ -644,8 +644,8 @@ void register_Array_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Array_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Array_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Array_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -656,8 +656,8 @@ void register_Array_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Array_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Array_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Array_exposer.def( 
                 "setName"
@@ -668,7 +668,7 @@ void register_Array_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Array_exposer.def( 
                 "setName"
@@ -679,8 +679,8 @@ void register_Array_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Array_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Array_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Array_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -691,8 +691,8 @@ void register_Array_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Array_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Array_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Array_exposer.def( 
                 "setUserData"

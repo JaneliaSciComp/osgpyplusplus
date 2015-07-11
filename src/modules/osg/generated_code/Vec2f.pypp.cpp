@@ -17,7 +17,7 @@ void register_Vec2f_class(){
         Vec2f_exposer.def( bp::init< float, float >(( bp::arg("x"), bp::arg("y") )) );
         { //::osg::Vec2f::isNaN
         
-            typedef bool ( ::osg::Vec2f::*isNaN_function_type)(  ) const;
+            typedef bool ( ::osg::Vec2f::*isNaN_function_type )(  ) const;
             
             Vec2f_exposer.def( 
                 "isNaN"
@@ -27,7 +27,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::length
         
-            typedef float ( ::osg::Vec2f::*length_function_type)(  ) const;
+            typedef float ( ::osg::Vec2f::*length_function_type )(  ) const;
             
             Vec2f_exposer.def( 
                 "length"
@@ -37,7 +37,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::length2
         
-            typedef float ( ::osg::Vec2f::*length2_function_type)(  ) const;
+            typedef float ( ::osg::Vec2f::*length2_function_type )(  ) const;
             
             Vec2f_exposer.def( 
                 "length2"
@@ -47,7 +47,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::normalize
         
-            typedef float ( ::osg::Vec2f::*normalize_function_type)(  ) ;
+            typedef float ( ::osg::Vec2f::*normalize_function_type )(  ) ;
             
             Vec2f_exposer.def( 
                 "normalize"
@@ -70,7 +70,7 @@ void register_Vec2f_class(){
         Vec2f_exposer.def( bp::self == bp::self );
         { //::osg::Vec2f::operator[]
         
-            typedef float & ( ::osg::Vec2f::*__getitem___function_type)( int ) ;
+            typedef float & ( ::osg::Vec2f::*__getitem___function_type )( int ) ;
             
             Vec2f_exposer.def( 
                 "__getitem__"
@@ -81,7 +81,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::operator[]
         
-            typedef float ( ::osg::Vec2f::*__getitem___function_type)( int ) const;
+            typedef float ( ::osg::Vec2f::*__getitem___function_type )( int ) const;
             
             Vec2f_exposer.def( 
                 "__getitem__"
@@ -91,7 +91,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::set
         
-            typedef void ( ::osg::Vec2f::*set_function_type)( float,float ) ;
+            typedef void ( ::osg::Vec2f::*set_function_type )( float,float ) ;
             
             Vec2f_exposer.def( 
                 "set"
@@ -101,7 +101,7 @@ void register_Vec2f_class(){
         }
         { //::osg::Vec2f::valid
         
-            typedef bool ( ::osg::Vec2f::*valid_function_type)(  ) const;
+            typedef bool ( ::osg::Vec2f::*valid_function_type )(  ) const;
             
             Vec2f_exposer.def( 
                 "valid"
@@ -111,7 +111,7 @@ void register_Vec2f_class(){
         }
         { //property "x"[fget=::osg::Vec2f::x]
         
-            typedef float & ( ::osg::Vec2f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec2f::*fget )(  ) ;
             
             Vec2f_exposer.add_property( 
                 "x"
@@ -122,7 +122,7 @@ void register_Vec2f_class(){
         }
         { //property "x"[fget=::osg::Vec2f::x]
         
-            typedef float ( ::osg::Vec2f::*fget)(  ) const;
+            typedef float ( ::osg::Vec2f::*fget )(  ) const;
             
             Vec2f_exposer.add_property( 
                 "x"
@@ -131,7 +131,7 @@ void register_Vec2f_class(){
         }
         { //property "y"[fget=::osg::Vec2f::y]
         
-            typedef float & ( ::osg::Vec2f::*fget)(  ) ;
+            typedef float & ( ::osg::Vec2f::*fget )(  ) ;
             
             Vec2f_exposer.add_property( 
                 "y"
@@ -142,7 +142,7 @@ void register_Vec2f_class(){
         }
         { //property "y"[fget=::osg::Vec2f::y]
         
-            typedef float ( ::osg::Vec2f::*fget)(  ) const;
+            typedef float ( ::osg::Vec2f::*fget )(  ) const;
             
             Vec2f_exposer.add_property( 
                 "y"

@@ -20,7 +20,7 @@ void register_Vec4d_class(){
         bp::implicitly_convertible< osg::Vec4f const &, osg::Vec4d >();
         { //::osg::Vec4d::asABGR
         
-            typedef unsigned int ( ::osg::Vec4d::*asABGR_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4d::*asABGR_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "asABGR"
@@ -29,7 +29,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::asRGBA
         
-            typedef unsigned int ( ::osg::Vec4d::*asRGBA_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Vec4d::*asRGBA_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "asRGBA"
@@ -38,7 +38,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::isNaN
         
-            typedef bool ( ::osg::Vec4d::*isNaN_function_type)(  ) const;
+            typedef bool ( ::osg::Vec4d::*isNaN_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "isNaN"
@@ -48,7 +48,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::length
         
-            typedef double ( ::osg::Vec4d::*length_function_type)(  ) const;
+            typedef double ( ::osg::Vec4d::*length_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "length"
@@ -58,7 +58,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::length2
         
-            typedef double ( ::osg::Vec4d::*length2_function_type)(  ) const;
+            typedef double ( ::osg::Vec4d::*length2_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "length2"
@@ -68,7 +68,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::normalize
         
-            typedef double ( ::osg::Vec4d::*normalize_function_type)(  ) ;
+            typedef double ( ::osg::Vec4d::*normalize_function_type )(  ) ;
             
             Vec4d_exposer.def( 
                 "normalize"
@@ -92,7 +92,7 @@ void register_Vec4d_class(){
         Vec4d_exposer.def( bp::self == bp::self );
         { //::osg::Vec4d::operator[]
         
-            typedef double & ( ::osg::Vec4d::*__getitem___function_type)( unsigned int ) ;
+            typedef double & ( ::osg::Vec4d::*__getitem___function_type )( unsigned int ) ;
             
             Vec4d_exposer.def( 
                 "__getitem__"
@@ -103,7 +103,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::operator[]
         
-            typedef double ( ::osg::Vec4d::*__getitem___function_type)( unsigned int ) const;
+            typedef double ( ::osg::Vec4d::*__getitem___function_type )( unsigned int ) const;
             
             Vec4d_exposer.def( 
                 "__getitem__"
@@ -113,7 +113,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::set
         
-            typedef void ( ::osg::Vec4d::*set_function_type)( double,double,double,double ) ;
+            typedef void ( ::osg::Vec4d::*set_function_type )( double,double,double,double ) ;
             
             Vec4d_exposer.def( 
                 "set"
@@ -123,7 +123,7 @@ void register_Vec4d_class(){
         }
         { //::osg::Vec4d::valid
         
-            typedef bool ( ::osg::Vec4d::*valid_function_type)(  ) const;
+            typedef bool ( ::osg::Vec4d::*valid_function_type )(  ) const;
             
             Vec4d_exposer.def( 
                 "valid"
@@ -133,7 +133,7 @@ void register_Vec4d_class(){
         }
         { //property "x"[fget=::osg::Vec4d::x]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "x"
@@ -144,7 +144,7 @@ void register_Vec4d_class(){
         }
         { //property "x"[fget=::osg::Vec4d::x]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "x"
@@ -153,7 +153,7 @@ void register_Vec4d_class(){
         }
         { //property "y"[fget=::osg::Vec4d::y]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "y"
@@ -164,7 +164,7 @@ void register_Vec4d_class(){
         }
         { //property "y"[fget=::osg::Vec4d::y]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "y"
@@ -173,7 +173,7 @@ void register_Vec4d_class(){
         }
         { //property "z"[fget=::osg::Vec4d::z]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "z"
@@ -184,7 +184,7 @@ void register_Vec4d_class(){
         }
         { //property "z"[fget=::osg::Vec4d::z]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "z"
@@ -193,7 +193,7 @@ void register_Vec4d_class(){
         }
         { //property "w"[fget=::osg::Vec4d::w]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "w"
@@ -204,7 +204,7 @@ void register_Vec4d_class(){
         }
         { //property "w"[fget=::osg::Vec4d::w]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "w"
@@ -213,7 +213,7 @@ void register_Vec4d_class(){
         }
         { //property "r"[fget=::osg::Vec4d::r]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "r"
@@ -224,7 +224,7 @@ void register_Vec4d_class(){
         }
         { //property "r"[fget=::osg::Vec4d::r]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "r"
@@ -233,7 +233,7 @@ void register_Vec4d_class(){
         }
         { //property "g"[fget=::osg::Vec4d::g]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "g"
@@ -244,7 +244,7 @@ void register_Vec4d_class(){
         }
         { //property "g"[fget=::osg::Vec4d::g]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "g"
@@ -253,7 +253,7 @@ void register_Vec4d_class(){
         }
         { //property "b"[fget=::osg::Vec4d::b]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "b"
@@ -264,7 +264,7 @@ void register_Vec4d_class(){
         }
         { //property "b"[fget=::osg::Vec4d::b]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "b"
@@ -273,7 +273,7 @@ void register_Vec4d_class(){
         }
         { //property "a"[fget=::osg::Vec4d::a]
         
-            typedef double & ( ::osg::Vec4d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec4d::*fget )(  ) ;
             
             Vec4d_exposer.add_property( 
                 "a"
@@ -284,7 +284,7 @@ void register_Vec4d_class(){
         }
         { //property "a"[fget=::osg::Vec4d::a]
         
-            typedef double ( ::osg::Vec4d::*fget)(  ) const;
+            typedef double ( ::osg::Vec4d::*fget )(  ) const;
             
             Vec4d_exposer.add_property( 
                 "a"

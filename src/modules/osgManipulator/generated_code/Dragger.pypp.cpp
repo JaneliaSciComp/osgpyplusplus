@@ -607,35 +607,35 @@ void register_Dragger_class(){
     bp::class_< Dragger_wrapper, bp::bases< ::osg::MatrixTransform >, osg::ref_ptr< ::osgManipulator::Dragger >, boost::noncopyable >( "Dragger", "\n Base class for draggers. Concrete draggers implement the pick event handler\n and generate motion commands (translate, rotate, ...) and sends these\n command to all the DraggerCallbacks & Transforms that are connected to the Dragger that generates the\n commands.\n", bp::no_init )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::accept)
-            , (void ( Dragger_wrapper::* )( ::osg::NodeVisitor & ))(&Dragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::accept)
+            , (void ( Dragger_wrapper::* )( ::osg::NodeVisitor & ) )(&Dragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addConstraint"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Constraint * ))( &::osgManipulator::Dragger::addConstraint )
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Constraint * ) )( &::osgManipulator::Dragger::addConstraint )
             , ( bp::arg("constraint") ) )    
         .def( 
             "addDraggerCallback"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::DraggerCallback * ))( &::osgManipulator::Dragger::addDraggerCallback )
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::DraggerCallback * ) )( &::osgManipulator::Dragger::addDraggerCallback )
             , ( bp::arg("dc") ) )    
         .def( 
             "addTransformUpdating"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::MatrixTransform *,int ))( &::osgManipulator::Dragger::addTransformUpdating )
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::MatrixTransform *,int ) )( &::osgManipulator::Dragger::addTransformUpdating )
             , ( bp::arg("transform"), bp::arg("handleCommandMask")=(int)(HANDLE_ALL) ) )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::className)
-            , (char const * ( Dragger_wrapper::* )(  )const)(&Dragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::className)
+            , (char const * ( Dragger_wrapper::* )(  ) const)(&Dragger_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::Dragger::clone)
-            , (::osg::Object * ( Dragger_wrapper::* )( ::osg::CopyOp const & )const)(&Dragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::Dragger::clone)
+            , (::osg::Object * ( Dragger_wrapper::* )( ::osg::CopyOp const & ) const)(&Dragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::cloneType)
-            , (::osg::Object * ( Dragger_wrapper::* )(  )const)(&Dragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::cloneType)
+            , (::osg::Object * ( Dragger_wrapper::* )(  ) const)(&Dragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "dispatch"
@@ -643,55 +643,55 @@ void register_Dragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getActivationKeyEvent"
-            , (int ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getActivationKeyEvent ) )    
+            , (int ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getActivationKeyEvent ) )    
         .def( 
             "getActivationModKeyMask"
-            , (unsigned int ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getActivationModKeyMask ) )    
+            , (unsigned int ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getActivationModKeyMask ) )    
         .def( 
             "getActivationMouseButtonMask"
-            , (unsigned int ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getActivationMouseButtonMask ) )    
+            , (unsigned int ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getActivationMouseButtonMask ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( Dragger_wrapper::* )(  )const)(&Dragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( Dragger_wrapper::* )(  ) const)(&Dragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( Dragger_wrapper::* )(  ))(&Dragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( Dragger_wrapper::* )(  ) )(&Dragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getConstraints"
-            , (::std::vector< osg::ref_ptr<osgManipulator::Constraint> > & ( ::osgManipulator::Dragger::* )(  ))( &::osgManipulator::Dragger::getConstraints )
+            , (::std::vector< osg::ref_ptr<osgManipulator::Constraint> > & ( ::osgManipulator::Dragger::* )(  ) )( &::osgManipulator::Dragger::getConstraints )
             , bp::return_internal_reference< >() )    
         .def( 
             "getConstraints"
-            , (::std::vector< osg::ref_ptr<osgManipulator::Constraint> > const & ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getConstraints )
+            , (::std::vector< osg::ref_ptr<osgManipulator::Constraint> > const & ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getConstraints )
             , bp::return_internal_reference< >() )    
         .def( 
             "getDraggerActive"
-            , (bool ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getDraggerActive ) )    
+            , (bool ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getDraggerActive ) )    
         .def( 
             "getDraggerCallbacks"
-            , (::std::vector< osg::ref_ptr<osgManipulator::DraggerCallback> > & ( ::osgManipulator::Dragger::* )(  ))( &::osgManipulator::Dragger::getDraggerCallbacks )
+            , (::std::vector< osg::ref_ptr<osgManipulator::DraggerCallback> > & ( ::osgManipulator::Dragger::* )(  ) )( &::osgManipulator::Dragger::getDraggerCallbacks )
             , bp::return_internal_reference< >() )    
         .def( 
             "getDraggerCallbacks"
-            , (::std::vector< osg::ref_ptr<osgManipulator::DraggerCallback> > const & ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getDraggerCallbacks )
+            , (::std::vector< osg::ref_ptr<osgManipulator::DraggerCallback> > const & ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getDraggerCallbacks )
             , bp::return_internal_reference< >() )    
         .def( 
             "getHandleEvents"
-            , (bool ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getHandleEvents ) )    
+            , (bool ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getHandleEvents ) )    
         .def( 
             "getIntersectionMask"
-            , (unsigned int ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getIntersectionMask ) )    
+            , (unsigned int ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getIntersectionMask ) )    
         .def( 
             "getParentDragger"
-            , (::osgManipulator::Dragger * ( ::osgManipulator::Dragger::* )(  ))( &::osgManipulator::Dragger::getParentDragger )
+            , (::osgManipulator::Dragger * ( ::osgManipulator::Dragger::* )(  ) )( &::osgManipulator::Dragger::getParentDragger )
             , bp::return_internal_reference< >() )    
         .def( 
             "getParentDragger"
-            , (::osgManipulator::Dragger const * ( ::osgManipulator::Dragger::* )(  )const)( &::osgManipulator::Dragger::getParentDragger )
+            , (::osgManipulator::Dragger const * ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getParentDragger )
             , bp::return_internal_reference< >() )    
         .def( 
             "handle_bfc7c2b1255fcef353f72f723625fd47"
@@ -703,13 +703,13 @@ void register_Dragger_class(){
             , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::Dragger::* )( ::osg::Object const * )const)(&::osgManipulator::Dragger::isSameKindAs)
-            , (bool ( Dragger_wrapper::* )( ::osg::Object const * )const)(&Dragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::Dragger::* )( ::osg::Object const * ) const)(&::osgManipulator::Dragger::isSameKindAs)
+            , (bool ( Dragger_wrapper::* )( ::osg::Object const * ) const)(&Dragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::libraryName)
-            , (char const * ( Dragger_wrapper::* )(  )const)(&Dragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::libraryName)
+            , (char const * ( Dragger_wrapper::* )(  ) const)(&Dragger_wrapper::default_libraryName) )    
         .def( 
             "receive"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgManipulator::MotionCommand & ))( &Dragger_wrapper::default_receive )
@@ -717,54 +717,54 @@ void register_Dragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "removeConstraint"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Constraint * ))( &::osgManipulator::Dragger::removeConstraint )
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Constraint * ) )( &::osgManipulator::Dragger::removeConstraint )
             , ( bp::arg("constraint") ) )    
         .def( 
             "removeDraggerCallback"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::DraggerCallback * ))( &::osgManipulator::Dragger::removeDraggerCallback )
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::DraggerCallback * ) )( &::osgManipulator::Dragger::removeDraggerCallback )
             , ( bp::arg("dc") ) )    
         .def( 
             "removeTransformUpdating"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::MatrixTransform * ))( &::osgManipulator::Dragger::removeTransformUpdating )
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::MatrixTransform * ) )( &::osgManipulator::Dragger::removeTransformUpdating )
             , ( bp::arg("transform") ) )    
         .def( 
             "setActivationKeyEvent"
-            , (void ( ::osgManipulator::Dragger::* )( int ))( &::osgManipulator::Dragger::setActivationKeyEvent )
+            , (void ( ::osgManipulator::Dragger::* )( int ) )( &::osgManipulator::Dragger::setActivationKeyEvent )
             , ( bp::arg("key") ) )    
         .def( 
             "setActivationModKeyMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))( &::osgManipulator::Dragger::setActivationModKeyMask )
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )( &::osgManipulator::Dragger::setActivationModKeyMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setActivationMouseButtonMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))( &::osgManipulator::Dragger::setActivationMouseButtonMask )
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )( &::osgManipulator::Dragger::setActivationMouseButtonMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setDraggerActive"
-            , (void ( ::osgManipulator::Dragger::* )( bool ))( &::osgManipulator::Dragger::setDraggerActive )
+            , (void ( ::osgManipulator::Dragger::* )( bool ) )( &::osgManipulator::Dragger::setDraggerActive )
             , ( bp::arg("active") ) )    
         .def( 
             "setHandleEvents"
-            , (void ( ::osgManipulator::Dragger::* )( bool ))( &::osgManipulator::Dragger::setHandleEvents )
+            , (void ( ::osgManipulator::Dragger::* )( bool ) )( &::osgManipulator::Dragger::setHandleEvents )
             , ( bp::arg("flag") ) )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))(&::osgManipulator::Dragger::setIntersectionMask)
-            , (void ( Dragger_wrapper::* )( unsigned int ))(&Dragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )(&::osgManipulator::Dragger::setIntersectionMask)
+            , (void ( Dragger_wrapper::* )( unsigned int ) )(&Dragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::Dragger::setParentDragger)
-            , (void ( Dragger_wrapper::* )( ::osgManipulator::Dragger * ))(&Dragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::Dragger::setParentDragger)
+            , (void ( Dragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&Dragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::setupDefaultGeometry)
-            , (void ( Dragger_wrapper::* )(  ))(&Dragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::setupDefaultGeometry)
+            , (void ( Dragger_wrapper::* )(  ) )(&Dragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
-            , (void ( Dragger_wrapper::* )( ::osg::NodeVisitor & ))(&Dragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
+            , (void ( Dragger_wrapper::* )( ::osg::NodeVisitor & ) )(&Dragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

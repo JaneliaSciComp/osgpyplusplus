@@ -195,7 +195,7 @@ void register_RecordCameraPathHandler_class(){
         bp::implicitly_convertible< std::string const &, osgViewer::RecordCameraPathHandler >();
         { //::osgViewer::RecordCameraPathHandler::getKeyEventTogglePlayback
         
-            typedef int ( ::osgViewer::RecordCameraPathHandler::*getKeyEventTogglePlayback_function_type)(  ) const;
+            typedef int ( ::osgViewer::RecordCameraPathHandler::*getKeyEventTogglePlayback_function_type )(  ) const;
             
             RecordCameraPathHandler_exposer.def( 
                 "getKeyEventTogglePlayback"
@@ -204,7 +204,7 @@ void register_RecordCameraPathHandler_class(){
         }
         { //::osgViewer::RecordCameraPathHandler::getKeyEventToggleRecord
         
-            typedef int ( ::osgViewer::RecordCameraPathHandler::*getKeyEventToggleRecord_function_type)(  ) const;
+            typedef int ( ::osgViewer::RecordCameraPathHandler::*getKeyEventToggleRecord_function_type )(  ) const;
             
             RecordCameraPathHandler_exposer.def( 
                 "getKeyEventToggleRecord"
@@ -213,8 +213,8 @@ void register_RecordCameraPathHandler_class(){
         }
         { //::osgViewer::RecordCameraPathHandler::getUsage
         
-            typedef void ( ::osgViewer::RecordCameraPathHandler::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( RecordCameraPathHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::RecordCameraPathHandler::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( RecordCameraPathHandler_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
             
             RecordCameraPathHandler_exposer.def( 
                 "getUsage"
@@ -225,7 +225,7 @@ void register_RecordCameraPathHandler_class(){
         }
         { //::osgViewer::RecordCameraPathHandler::setAutoIncrementFilename
         
-            typedef void ( ::osgViewer::RecordCameraPathHandler::*setAutoIncrementFilename_function_type)( bool ) ;
+            typedef void ( ::osgViewer::RecordCameraPathHandler::*setAutoIncrementFilename_function_type )( bool ) ;
             
             RecordCameraPathHandler_exposer.def( 
                 "setAutoIncrementFilename"
@@ -235,7 +235,7 @@ void register_RecordCameraPathHandler_class(){
         }
         { //::osgViewer::RecordCameraPathHandler::setKeyEventTogglePlayback
         
-            typedef void ( ::osgViewer::RecordCameraPathHandler::*setKeyEventTogglePlayback_function_type)( int ) ;
+            typedef void ( ::osgViewer::RecordCameraPathHandler::*setKeyEventTogglePlayback_function_type )( int ) ;
             
             RecordCameraPathHandler_exposer.def( 
                 "setKeyEventTogglePlayback"
@@ -245,7 +245,7 @@ void register_RecordCameraPathHandler_class(){
         }
         { //::osgViewer::RecordCameraPathHandler::setKeyEventToggleRecord
         
-            typedef void ( ::osgViewer::RecordCameraPathHandler::*setKeyEventToggleRecord_function_type)( int ) ;
+            typedef void ( ::osgViewer::RecordCameraPathHandler::*setKeyEventToggleRecord_function_type )( int ) ;
             
             RecordCameraPathHandler_exposer.def( 
                 "setKeyEventToggleRecord"

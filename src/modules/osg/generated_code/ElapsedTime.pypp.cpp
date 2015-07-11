@@ -17,7 +17,7 @@ void register_ElapsedTime_class(){
         bp::implicitly_convertible< osg::Timer *, osg::ElapsedTime >();
         { //::osg::ElapsedTime::elapsedTime
         
-            typedef double ( ::osg::ElapsedTime::*elapsedTime_function_type)(  ) const;
+            typedef double ( ::osg::ElapsedTime::*elapsedTime_function_type )(  ) const;
             
             ElapsedTime_exposer.def( 
                 "elapsedTime"
@@ -27,7 +27,7 @@ void register_ElapsedTime_class(){
         }
         { //::osg::ElapsedTime::elapsedTime_m
         
-            typedef double ( ::osg::ElapsedTime::*elapsedTime_m_function_type)(  ) const;
+            typedef double ( ::osg::ElapsedTime::*elapsedTime_m_function_type )(  ) const;
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_m"
@@ -37,7 +37,7 @@ void register_ElapsedTime_class(){
         }
         { //::osg::ElapsedTime::elapsedTime_n
         
-            typedef double ( ::osg::ElapsedTime::*elapsedTime_n_function_type)(  ) const;
+            typedef double ( ::osg::ElapsedTime::*elapsedTime_n_function_type )(  ) const;
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_n"
@@ -47,7 +47,7 @@ void register_ElapsedTime_class(){
         }
         { //::osg::ElapsedTime::elapsedTime_u
         
-            typedef double ( ::osg::ElapsedTime::*elapsedTime_u_function_type)(  ) const;
+            typedef double ( ::osg::ElapsedTime::*elapsedTime_u_function_type )(  ) const;
             
             ElapsedTime_exposer.def( 
                 "elapsedTime_u"
@@ -57,7 +57,7 @@ void register_ElapsedTime_class(){
         }
         { //::osg::ElapsedTime::finish
         
-            typedef void ( ::osg::ElapsedTime::*finish_function_type)(  ) ;
+            typedef void ( ::osg::ElapsedTime::*finish_function_type )(  ) ;
             
             ElapsedTime_exposer.def( 
                 "finish"
@@ -66,7 +66,7 @@ void register_ElapsedTime_class(){
         }
         { //::osg::ElapsedTime::reset
         
-            typedef void ( ::osg::ElapsedTime::*reset_function_type)(  ) ;
+            typedef void ( ::osg::ElapsedTime::*reset_function_type )(  ) ;
             
             ElapsedTime_exposer.def( 
                 "reset"

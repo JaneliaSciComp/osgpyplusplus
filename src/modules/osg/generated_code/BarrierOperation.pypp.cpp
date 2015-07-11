@@ -105,8 +105,8 @@ void register_BarrierOperation_class(){
         bp::implicitly_convertible< int, osg::BarrierOperation >();
         { //::osg::BarrierOperation::operator()
         
-            typedef void ( ::osg::BarrierOperation::*__call___function_type)( ::osg::Object * ) ;
-            typedef void ( BarrierOperation_wrapper::*default___call___function_type)( ::osg::Object * ) ;
+            typedef void ( ::osg::BarrierOperation::*__call___function_type )( ::osg::Object * ) ;
+            typedef void ( BarrierOperation_wrapper::*default___call___function_type )( ::osg::Object * ) ;
             
             BarrierOperation_exposer.def( 
                 "__call__"
@@ -117,8 +117,8 @@ void register_BarrierOperation_class(){
         }
         { //::osg::BarrierOperation::release
         
-            typedef void ( ::osg::BarrierOperation::*release_function_type)(  ) ;
-            typedef void ( BarrierOperation_wrapper::*default_release_function_type)(  ) ;
+            typedef void ( ::osg::BarrierOperation::*release_function_type )(  ) ;
+            typedef void ( BarrierOperation_wrapper::*default_release_function_type )(  ) ;
             
             BarrierOperation_exposer.def( 
                 "release"
@@ -129,8 +129,8 @@ void register_BarrierOperation_class(){
         BarrierOperation_exposer.def_readwrite( "_preBlockOp", &osg::BarrierOperation::_preBlockOp );
         { //::OpenThreads::Barrier::block
         
-            typedef void ( ::OpenThreads::Barrier::*block_function_type)( unsigned int ) ;
-            typedef void ( BarrierOperation_wrapper::*default_block_function_type)( unsigned int ) ;
+            typedef void ( ::OpenThreads::Barrier::*block_function_type )( unsigned int ) ;
+            typedef void ( BarrierOperation_wrapper::*default_block_function_type )( unsigned int ) ;
             
             BarrierOperation_exposer.def( 
                 "block"
@@ -141,8 +141,8 @@ void register_BarrierOperation_class(){
         }
         { //::OpenThreads::Barrier::numThreadsCurrentlyBlocked
         
-            typedef int ( ::OpenThreads::Barrier::*numThreadsCurrentlyBlocked_function_type)(  ) ;
-            typedef int ( BarrierOperation_wrapper::*default_numThreadsCurrentlyBlocked_function_type)(  ) ;
+            typedef int ( ::OpenThreads::Barrier::*numThreadsCurrentlyBlocked_function_type )(  ) ;
+            typedef int ( BarrierOperation_wrapper::*default_numThreadsCurrentlyBlocked_function_type )(  ) ;
             
             BarrierOperation_exposer.def( 
                 "numThreadsCurrentlyBlocked"
@@ -152,8 +152,8 @@ void register_BarrierOperation_class(){
         }
         { //::OpenThreads::Barrier::reset
         
-            typedef void ( ::OpenThreads::Barrier::*reset_function_type)(  ) ;
-            typedef void ( BarrierOperation_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::OpenThreads::Barrier::*reset_function_type )(  ) ;
+            typedef void ( BarrierOperation_wrapper::*default_reset_function_type )(  ) ;
             
             BarrierOperation_exposer.def( 
                 "reset"
@@ -163,8 +163,8 @@ void register_BarrierOperation_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( BarrierOperation_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( BarrierOperation_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             BarrierOperation_exposer.def( 
                 "setThreadSafeRefUnref"

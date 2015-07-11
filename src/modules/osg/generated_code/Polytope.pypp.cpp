@@ -17,7 +17,7 @@ void register_Polytope_class(){
         bp::implicitly_convertible< std::vector< osg::Plane > const &, osg::Polytope >();
         { //::osg::Polytope::add
         
-            typedef void ( ::osg::Polytope::*add_function_type)( ::osg::Plane const & ) ;
+            typedef void ( ::osg::Polytope::*add_function_type )( ::osg::Plane const & ) ;
             
             Polytope_exposer.def( 
                 "add"
@@ -27,7 +27,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::clear
         
-            typedef void ( ::osg::Polytope::*clear_function_type)(  ) ;
+            typedef void ( ::osg::Polytope::*clear_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "clear"
@@ -36,7 +36,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::contains
         
-            typedef bool ( ::osg::Polytope::*contains_function_type)( ::osg::Vec3 const & ) const;
+            typedef bool ( ::osg::Polytope::*contains_function_type )( ::osg::Vec3 const & ) const;
             
             Polytope_exposer.def( 
                 "contains"
@@ -47,7 +47,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::contains
         
-            typedef bool ( ::osg::Polytope::*contains_function_type)( ::std::vector< osg::Vec3f > const & ) ;
+            typedef bool ( ::osg::Polytope::*contains_function_type )( ::std::vector< osg::Vec3f > const & ) ;
             
             Polytope_exposer.def( 
                 "contains"
@@ -58,7 +58,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::contains
         
-            typedef bool ( ::osg::Polytope::*contains_function_type)( ::osg::BoundingSphere const & ) ;
+            typedef bool ( ::osg::Polytope::*contains_function_type )( ::osg::BoundingSphere const & ) ;
             
             Polytope_exposer.def( 
                 "contains"
@@ -69,7 +69,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::contains
         
-            typedef bool ( ::osg::Polytope::*contains_function_type)( ::osg::BoundingBox const & ) ;
+            typedef bool ( ::osg::Polytope::*contains_function_type )( ::osg::BoundingBox const & ) ;
             
             Polytope_exposer.def( 
                 "contains"
@@ -80,7 +80,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::containsAllOf
         
-            typedef bool ( ::osg::Polytope::*containsAllOf_function_type)( ::std::vector< osg::Vec3f > const & ) ;
+            typedef bool ( ::osg::Polytope::*containsAllOf_function_type )( ::std::vector< osg::Vec3f > const & ) ;
             
             Polytope_exposer.def( 
                 "containsAllOf"
@@ -91,7 +91,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::containsAllOf
         
-            typedef bool ( ::osg::Polytope::*containsAllOf_function_type)( ::osg::BoundingSphere const & ) ;
+            typedef bool ( ::osg::Polytope::*containsAllOf_function_type )( ::osg::BoundingSphere const & ) ;
             
             Polytope_exposer.def( 
                 "containsAllOf"
@@ -102,7 +102,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::containsAllOf
         
-            typedef bool ( ::osg::Polytope::*containsAllOf_function_type)( ::osg::BoundingBox const & ) ;
+            typedef bool ( ::osg::Polytope::*containsAllOf_function_type )( ::osg::BoundingBox const & ) ;
             
             Polytope_exposer.def( 
                 "containsAllOf"
@@ -113,7 +113,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::empty
         
-            typedef bool ( ::osg::Polytope::*empty_function_type)(  ) const;
+            typedef bool ( ::osg::Polytope::*empty_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "empty"
@@ -122,7 +122,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::flip
         
-            typedef void ( ::osg::Polytope::*flip_function_type)(  ) ;
+            typedef void ( ::osg::Polytope::*flip_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "flip"
@@ -132,7 +132,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getCurrentMask
         
-            typedef unsigned int & ( ::osg::Polytope::*getCurrentMask_function_type)(  ) ;
+            typedef unsigned int & ( ::osg::Polytope::*getCurrentMask_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "getCurrentMask"
@@ -142,7 +142,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getCurrentMask
         
-            typedef unsigned int ( ::osg::Polytope::*getCurrentMask_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Polytope::*getCurrentMask_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "getCurrentMask"
@@ -151,7 +151,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getMaskStack
         
-            typedef ::osg::fast_back_stack< unsigned int > & ( ::osg::Polytope::*getMaskStack_function_type)(  ) ;
+            typedef ::osg::fast_back_stack< unsigned int > & ( ::osg::Polytope::*getMaskStack_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "getMaskStack"
@@ -161,7 +161,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getMaskStack
         
-            typedef ::osg::fast_back_stack< unsigned int > const & ( ::osg::Polytope::*getMaskStack_function_type)(  ) const;
+            typedef ::osg::fast_back_stack< unsigned int > const & ( ::osg::Polytope::*getMaskStack_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "getMaskStack"
@@ -171,7 +171,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getPlaneList
         
-            typedef ::std::vector< osg::Plane > & ( ::osg::Polytope::*getPlaneList_function_type)(  ) ;
+            typedef ::std::vector< osg::Plane > & ( ::osg::Polytope::*getPlaneList_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "getPlaneList"
@@ -181,7 +181,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getPlaneList
         
-            typedef ::std::vector< osg::Plane > const & ( ::osg::Polytope::*getPlaneList_function_type)(  ) const;
+            typedef ::std::vector< osg::Plane > const & ( ::osg::Polytope::*getPlaneList_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "getPlaneList"
@@ -191,7 +191,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getReferenceVertexList
         
-            typedef ::std::vector< osg::Vec3f > & ( ::osg::Polytope::*getReferenceVertexList_function_type)(  ) ;
+            typedef ::std::vector< osg::Vec3f > & ( ::osg::Polytope::*getReferenceVertexList_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "getReferenceVertexList"
@@ -201,7 +201,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getReferenceVertexList
         
-            typedef ::std::vector< osg::Vec3f > const & ( ::osg::Polytope::*getReferenceVertexList_function_type)(  ) const;
+            typedef ::std::vector< osg::Vec3f > const & ( ::osg::Polytope::*getReferenceVertexList_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "getReferenceVertexList"
@@ -211,7 +211,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::getResultMask
         
-            typedef unsigned int ( ::osg::Polytope::*getResultMask_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Polytope::*getResultMask_function_type )(  ) const;
             
             Polytope_exposer.def( 
                 "getResultMask"
@@ -220,7 +220,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::operator=
         
-            typedef ::osg::Polytope & ( ::osg::Polytope::*assign_function_type)( ::osg::Polytope const & ) ;
+            typedef ::osg::Polytope & ( ::osg::Polytope::*assign_function_type )( ::osg::Polytope const & ) ;
             
             Polytope_exposer.def( 
                 "assign"
@@ -231,7 +231,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::popCurrentMask
         
-            typedef void ( ::osg::Polytope::*popCurrentMask_function_type)(  ) ;
+            typedef void ( ::osg::Polytope::*popCurrentMask_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "popCurrentMask"
@@ -240,7 +240,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::pushCurrentMask
         
-            typedef void ( ::osg::Polytope::*pushCurrentMask_function_type)(  ) ;
+            typedef void ( ::osg::Polytope::*pushCurrentMask_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "pushCurrentMask"
@@ -249,7 +249,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::set
         
-            typedef void ( ::osg::Polytope::*set_function_type)( ::std::vector< osg::Plane > const & ) ;
+            typedef void ( ::osg::Polytope::*set_function_type )( ::std::vector< osg::Plane > const & ) ;
             
             Polytope_exposer.def( 
                 "set"
@@ -259,7 +259,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setAndTransformProvidingInverse
         
-            typedef void ( ::osg::Polytope::*setAndTransformProvidingInverse_function_type)( ::osg::Polytope const &,::osg::Matrix const & ) ;
+            typedef void ( ::osg::Polytope::*setAndTransformProvidingInverse_function_type )( ::osg::Polytope const &,::osg::Matrix const & ) ;
             
             Polytope_exposer.def( 
                 "setAndTransformProvidingInverse"
@@ -269,7 +269,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setReferenceVertexList
         
-            typedef void ( ::osg::Polytope::*setReferenceVertexList_function_type)( ::std::vector< osg::Vec3f > & ) ;
+            typedef void ( ::osg::Polytope::*setReferenceVertexList_function_type )( ::std::vector< osg::Vec3f > & ) ;
             
             Polytope_exposer.def( 
                 "setReferenceVertexList"
@@ -279,7 +279,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setResultMask
         
-            typedef void ( ::osg::Polytope::*setResultMask_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Polytope::*setResultMask_function_type )( unsigned int ) ;
             
             Polytope_exposer.def( 
                 "setResultMask"
@@ -289,7 +289,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setToBoundingBox
         
-            typedef void ( ::osg::Polytope::*setToBoundingBox_function_type)( ::osg::BoundingBox const & ) ;
+            typedef void ( ::osg::Polytope::*setToBoundingBox_function_type )( ::osg::BoundingBox const & ) ;
             
             Polytope_exposer.def( 
                 "setToBoundingBox"
@@ -300,7 +300,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setToUnitFrustum
         
-            typedef void ( ::osg::Polytope::*setToUnitFrustum_function_type)( bool,bool ) ;
+            typedef void ( ::osg::Polytope::*setToUnitFrustum_function_type )( bool,bool ) ;
             
             Polytope_exposer.def( 
                 "setToUnitFrustum"
@@ -311,7 +311,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::setupMask
         
-            typedef void ( ::osg::Polytope::*setupMask_function_type)(  ) ;
+            typedef void ( ::osg::Polytope::*setupMask_function_type )(  ) ;
             
             Polytope_exposer.def( 
                 "setupMask"
@@ -320,7 +320,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::transform
         
-            typedef void ( ::osg::Polytope::*transform_function_type)( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Polytope::*transform_function_type )( ::osg::Matrix const & ) ;
             
             Polytope_exposer.def( 
                 "transform"
@@ -331,7 +331,7 @@ void register_Polytope_class(){
         }
         { //::osg::Polytope::transformProvidingInverse
         
-            typedef void ( ::osg::Polytope::*transformProvidingInverse_function_type)( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Polytope::*transformProvidingInverse_function_type )( ::osg::Matrix const & ) ;
             
             Polytope_exposer.def( 
                 "transformProvidingInverse"

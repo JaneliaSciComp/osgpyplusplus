@@ -286,8 +286,8 @@ void register_CullFace_class(){
         bp::implicitly_convertible< osg::CullFace::Mode, osg::CullFace >();
         { //::osg::CullFace::apply
         
-            typedef void ( ::osg::CullFace::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( CullFace_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::CullFace::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( CullFace_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             CullFace_exposer.def( 
                 "apply"
@@ -298,8 +298,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::className
         
-            typedef char const * ( ::osg::CullFace::*className_function_type)(  ) const;
-            typedef char const * ( CullFace_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::CullFace::*className_function_type )(  ) const;
+            typedef char const * ( CullFace_wrapper::*default_className_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "className"
@@ -309,8 +309,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::clone
         
-            typedef ::osg::Object * ( ::osg::CullFace::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( CullFace_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::CullFace::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( CullFace_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             CullFace_exposer.def( 
                 "clone"
@@ -322,8 +322,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::cloneType
         
-            typedef ::osg::Object * ( ::osg::CullFace::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( CullFace_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::CullFace::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( CullFace_wrapper::*default_cloneType_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "cloneType"
@@ -334,7 +334,7 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::getMode
         
-            typedef ::osg::CullFace::Mode ( ::osg::CullFace::*getMode_function_type)(  ) const;
+            typedef ::osg::CullFace::Mode ( ::osg::CullFace::*getMode_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "getMode"
@@ -343,8 +343,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::getModeUsage
         
-            typedef bool ( ::osg::CullFace::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( CullFace_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::CullFace::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( CullFace_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             CullFace_exposer.def( 
                 "getModeUsage"
@@ -355,8 +355,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::CullFace::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( CullFace_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::CullFace::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( CullFace_wrapper::*default_getType_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "getType"
@@ -366,8 +366,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::isSameKindAs
         
-            typedef bool ( ::osg::CullFace::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( CullFace_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::CullFace::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( CullFace_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             CullFace_exposer.def( 
                 "isSameKindAs"
@@ -378,8 +378,8 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::libraryName
         
-            typedef char const * ( ::osg::CullFace::*libraryName_function_type)(  ) const;
-            typedef char const * ( CullFace_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::CullFace::*libraryName_function_type )(  ) const;
+            typedef char const * ( CullFace_wrapper::*default_libraryName_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "libraryName"
@@ -389,7 +389,7 @@ void register_CullFace_class(){
         }
         { //::osg::CullFace::setMode
         
-            typedef void ( ::osg::CullFace::*setMode_function_type)( ::osg::CullFace::Mode ) ;
+            typedef void ( ::osg::CullFace::*setMode_function_type )( ::osg::CullFace::Mode ) ;
             
             CullFace_exposer.def( 
                 "setMode"
@@ -399,8 +399,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( CullFace_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( CullFace_wrapper::*default_asTexture_function_type )(  ) ;
             
             CullFace_exposer.def( 
                 "asTexture"
@@ -411,8 +411,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( CullFace_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( CullFace_wrapper::*default_asTexture_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "asTexture"
@@ -423,8 +423,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( CullFace_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( CullFace_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             CullFace_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -435,8 +435,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( CullFace_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( CullFace_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             CullFace_exposer.def( 
                 "compileGLObjects"
@@ -447,8 +447,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( CullFace_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( CullFace_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             CullFace_exposer.def( 
                 "computeDataVariance"
@@ -458,8 +458,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( CullFace_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( CullFace_wrapper::*default_getMember_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "getMember"
@@ -469,8 +469,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( CullFace_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( CullFace_wrapper::*default_getUserData_function_type )(  ) ;
             
             CullFace_exposer.def( 
                 "getUserData"
@@ -481,8 +481,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( CullFace_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( CullFace_wrapper::*default_getUserData_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "getUserData"
@@ -493,8 +493,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( CullFace_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( CullFace_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             CullFace_exposer.def( 
                 "isTextureAttribute"
@@ -504,8 +504,8 @@ void register_CullFace_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( CullFace_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( CullFace_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             CullFace_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -516,8 +516,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( CullFace_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( CullFace_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             CullFace_exposer.def( 
                 "setName"
@@ -528,7 +528,7 @@ void register_CullFace_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             CullFace_exposer.def( 
                 "setName"
@@ -539,8 +539,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( CullFace_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( CullFace_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             CullFace_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -551,8 +551,8 @@ void register_CullFace_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( CullFace_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( CullFace_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             CullFace_exposer.def( 
                 "setUserData"

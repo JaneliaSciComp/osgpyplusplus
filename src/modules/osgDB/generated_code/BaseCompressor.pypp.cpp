@@ -38,19 +38,19 @@ void register_BaseCompressor_class(){
     bp::class_< BaseCompressor_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::BaseCompressor >, boost::noncopyable >( "BaseCompressor", bp::no_init )    
         .def( 
             "compress"
-            , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::ostream &,::std::string const & ))(&::osgDB::BaseCompressor::compress) )
+            , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::ostream &,::std::string const & ) )(&::osgDB::BaseCompressor::compress) )
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "decompress"
-            , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::istream &,::std::string & ))(&::osgDB::BaseCompressor::decompress) )
+            , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::istream &,::std::string & ) )(&::osgDB::BaseCompressor::decompress) )
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "getName"
-            , (::std::string const & ( ::osgDB::BaseCompressor::* )(  )const)( &::osgDB::BaseCompressor::getName )
+            , (::std::string const & ( ::osgDB::BaseCompressor::* )(  ) const)( &::osgDB::BaseCompressor::getName )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "setName"
-            , (void ( ::osgDB::BaseCompressor::* )( ::std::string const & ))( &::osgDB::BaseCompressor::setName )
+            , (void ( ::osgDB::BaseCompressor::* )( ::std::string const & ) )( &::osgDB::BaseCompressor::setName )
             , ( bp::arg("name") ) );
 
 }

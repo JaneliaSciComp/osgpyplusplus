@@ -632,7 +632,7 @@ void register_ImageSequence_class(){
         ImageSequence_exposer.def( bp::init< >("\n Image Buffer class.\n") );
         { //::osg::ImageSequence::addImage
         
-            typedef void ( ::osg::ImageSequence::*addImage_function_type)( ::osg::Image * ) ;
+            typedef void ( ::osg::ImageSequence::*addImage_function_type )( ::osg::Image * ) ;
             
             ImageSequence_exposer.def( 
                 "addImage"
@@ -642,7 +642,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::addImageFile
         
-            typedef void ( ::osg::ImageSequence::*addImageFile_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::ImageSequence::*addImageFile_function_type )( ::std::string const & ) ;
             
             ImageSequence_exposer.def( 
                 "addImageFile"
@@ -652,8 +652,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::className
         
-            typedef char const * ( ::osg::ImageSequence::*className_function_type)(  ) const;
-            typedef char const * ( ImageSequence_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::ImageSequence::*className_function_type )(  ) const;
+            typedef char const * ( ImageSequence_wrapper::*default_className_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "className"
@@ -663,8 +663,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::clone
         
-            typedef ::osg::Object * ( ::osg::ImageSequence::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ImageSequence_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::ImageSequence::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ImageSequence_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             ImageSequence_exposer.def( 
                 "clone"
@@ -676,8 +676,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::cloneType
         
-            typedef ::osg::Object * ( ::osg::ImageSequence::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( ImageSequence_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::ImageSequence::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ImageSequence_wrapper::*default_cloneType_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "cloneType"
@@ -688,7 +688,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getImage
         
-            typedef ::osg::Image * ( ::osg::ImageSequence::*getImage_function_type)( unsigned int ) ;
+            typedef ::osg::Image * ( ::osg::ImageSequence::*getImage_function_type )( unsigned int ) ;
             
             ImageSequence_exposer.def( 
                 "getImage"
@@ -699,7 +699,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getImage
         
-            typedef ::osg::Image const * ( ::osg::ImageSequence::*getImage_function_type)( unsigned int ) const;
+            typedef ::osg::Image const * ( ::osg::ImageSequence::*getImage_function_type )( unsigned int ) const;
             
             ImageSequence_exposer.def( 
                 "getImage"
@@ -710,7 +710,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getImageDataList
         
-            typedef ::std::vector< osg::ImageSequence::ImageData > & ( ::osg::ImageSequence::*getImageDataList_function_type)(  ) ;
+            typedef ::std::vector< osg::ImageSequence::ImageData > & ( ::osg::ImageSequence::*getImageDataList_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "getImageDataList"
@@ -720,7 +720,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getImageDataList
         
-            typedef ::std::vector< osg::ImageSequence::ImageData > const & ( ::osg::ImageSequence::*getImageDataList_function_type)(  ) const;
+            typedef ::std::vector< osg::ImageSequence::ImageData > const & ( ::osg::ImageSequence::*getImageDataList_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getImageDataList"
@@ -730,7 +730,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getImageFile
         
-            typedef ::std::string ( ::osg::ImageSequence::*getImageFile_function_type)( unsigned int ) const;
+            typedef ::std::string ( ::osg::ImageSequence::*getImageFile_function_type )( unsigned int ) const;
             
             ImageSequence_exposer.def( 
                 "getImageFile"
@@ -740,8 +740,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getLength
         
-            typedef double ( ::osg::ImageSequence::*getLength_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getLength_function_type)(  ) const;
+            typedef double ( ::osg::ImageSequence::*getLength_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getLength_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getLength"
@@ -751,7 +751,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getMode
         
-            typedef ::osg::ImageSequence::Mode ( ::osg::ImageSequence::*getMode_function_type)(  ) const;
+            typedef ::osg::ImageSequence::Mode ( ::osg::ImageSequence::*getMode_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getMode"
@@ -760,7 +760,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getNumImageData
         
-            typedef unsigned int ( ::osg::ImageSequence::*getNumImageData_function_type)(  ) const;
+            typedef unsigned int ( ::osg::ImageSequence::*getNumImageData_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getNumImageData"
@@ -769,7 +769,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getReadOptions
         
-            typedef ::osg::Referenced * ( ::osg::ImageSequence::*getReadOptions_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::ImageSequence::*getReadOptions_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "getReadOptions"
@@ -780,7 +780,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getReadOptions
         
-            typedef ::osg::Referenced const * ( ::osg::ImageSequence::*getReadOptions_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::ImageSequence::*getReadOptions_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getReadOptions"
@@ -791,8 +791,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getReferenceTime
         
-            typedef double ( ::osg::ImageSequence::*getReferenceTime_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getReferenceTime_function_type)(  ) const;
+            typedef double ( ::osg::ImageSequence::*getReferenceTime_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getReferenceTime_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getReferenceTime"
@@ -802,8 +802,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::getTimeMultiplier
         
-            typedef double ( ::osg::ImageSequence::*getTimeMultiplier_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getTimeMultiplier_function_type)(  ) const;
+            typedef double ( ::osg::ImageSequence::*getTimeMultiplier_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getTimeMultiplier_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getTimeMultiplier"
@@ -813,8 +813,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::isSameKindAs
         
-            typedef bool ( ::osg::ImageSequence::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( ImageSequence_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::ImageSequence::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ImageSequence_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             ImageSequence_exposer.def( 
                 "isSameKindAs"
@@ -825,8 +825,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::libraryName
         
-            typedef char const * ( ::osg::ImageSequence::*libraryName_function_type)(  ) const;
-            typedef char const * ( ImageSequence_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::ImageSequence::*libraryName_function_type )(  ) const;
+            typedef char const * ( ImageSequence_wrapper::*default_libraryName_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "libraryName"
@@ -836,8 +836,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::pause
         
-            typedef void ( ::osg::ImageSequence::*pause_function_type)(  ) ;
-            typedef void ( ImageSequence_wrapper::*default_pause_function_type)(  ) ;
+            typedef void ( ::osg::ImageSequence::*pause_function_type )(  ) ;
+            typedef void ( ImageSequence_wrapper::*default_pause_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "pause"
@@ -847,8 +847,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::play
         
-            typedef void ( ::osg::ImageSequence::*play_function_type)(  ) ;
-            typedef void ( ImageSequence_wrapper::*default_play_function_type)(  ) ;
+            typedef void ( ::osg::ImageSequence::*play_function_type )(  ) ;
+            typedef void ( ImageSequence_wrapper::*default_play_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "play"
@@ -858,8 +858,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::requiresUpdateCall
         
-            typedef bool ( ::osg::ImageSequence::*requiresUpdateCall_function_type)(  ) const;
-            typedef bool ( ImageSequence_wrapper::*default_requiresUpdateCall_function_type)(  ) const;
+            typedef bool ( ::osg::ImageSequence::*requiresUpdateCall_function_type )(  ) const;
+            typedef bool ( ImageSequence_wrapper::*default_requiresUpdateCall_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "requiresUpdateCall"
@@ -869,8 +869,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::rewind
         
-            typedef void ( ::osg::ImageSequence::*rewind_function_type)(  ) ;
-            typedef void ( ImageSequence_wrapper::*default_rewind_function_type)(  ) ;
+            typedef void ( ::osg::ImageSequence::*rewind_function_type )(  ) ;
+            typedef void ( ImageSequence_wrapper::*default_rewind_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "rewind"
@@ -880,8 +880,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::seek
         
-            typedef void ( ::osg::ImageSequence::*seek_function_type)( double ) ;
-            typedef void ( ImageSequence_wrapper::*default_seek_function_type)( double ) ;
+            typedef void ( ::osg::ImageSequence::*seek_function_type )( double ) ;
+            typedef void ( ImageSequence_wrapper::*default_seek_function_type )( double ) ;
             
             ImageSequence_exposer.def( 
                 "seek"
@@ -892,7 +892,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setImage
         
-            typedef void ( ::osg::ImageSequence::*setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int ) ;
+            typedef void ( ::osg::ImageSequence::*setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int ) ;
             
             ImageSequence_exposer.def( 
                 "setImage"
@@ -902,7 +902,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setImage
         
-            typedef void ( ::osg::ImageSequence::*setImage_function_type)( unsigned int,::osg::Image * ) ;
+            typedef void ( ::osg::ImageSequence::*setImage_function_type )( unsigned int,::osg::Image * ) ;
             
             ImageSequence_exposer.def( 
                 "setImage"
@@ -912,7 +912,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setImageFile
         
-            typedef void ( ::osg::ImageSequence::*setImageFile_function_type)( unsigned int,::std::string const & ) ;
+            typedef void ( ::osg::ImageSequence::*setImageFile_function_type )( unsigned int,::std::string const & ) ;
             
             ImageSequence_exposer.def( 
                 "setImageFile"
@@ -922,7 +922,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setLength
         
-            typedef void ( ::osg::ImageSequence::*setLength_function_type)( double ) ;
+            typedef void ( ::osg::ImageSequence::*setLength_function_type )( double ) ;
             
             ImageSequence_exposer.def( 
                 "setLength"
@@ -932,7 +932,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setMode
         
-            typedef void ( ::osg::ImageSequence::*setMode_function_type)( ::osg::ImageSequence::Mode ) ;
+            typedef void ( ::osg::ImageSequence::*setMode_function_type )( ::osg::ImageSequence::Mode ) ;
             
             ImageSequence_exposer.def( 
                 "setMode"
@@ -942,7 +942,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setReadOptions
         
-            typedef void ( ::osg::ImageSequence::*setReadOptions_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::ImageSequence::*setReadOptions_function_type )( ::osg::Referenced * ) ;
             
             ImageSequence_exposer.def( 
                 "setReadOptions"
@@ -953,8 +953,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setReferenceTime
         
-            typedef void ( ::osg::ImageSequence::*setReferenceTime_function_type)( double ) ;
-            typedef void ( ImageSequence_wrapper::*default_setReferenceTime_function_type)( double ) ;
+            typedef void ( ::osg::ImageSequence::*setReferenceTime_function_type )( double ) ;
+            typedef void ( ImageSequence_wrapper::*default_setReferenceTime_function_type )( double ) ;
             
             ImageSequence_exposer.def( 
                 "setReferenceTime"
@@ -965,8 +965,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::setTimeMultiplier
         
-            typedef void ( ::osg::ImageSequence::*setTimeMultiplier_function_type)( double ) ;
-            typedef void ( ImageSequence_wrapper::*default_setTimeMultiplier_function_type)( double ) ;
+            typedef void ( ::osg::ImageSequence::*setTimeMultiplier_function_type )( double ) ;
+            typedef void ( ImageSequence_wrapper::*default_setTimeMultiplier_function_type )( double ) ;
             
             ImageSequence_exposer.def( 
                 "setTimeMultiplier"
@@ -977,8 +977,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageSequence::update
         
-            typedef void ( ::osg::ImageSequence::*update_function_type)( ::osg::NodeVisitor * ) ;
-            typedef void ( ImageSequence_wrapper::*default_update_function_type)( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::ImageSequence::*update_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ImageSequence_wrapper::*default_update_function_type )( ::osg::NodeVisitor * ) ;
             
             ImageSequence_exposer.def( 
                 "update"
@@ -989,8 +989,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::allocateImage
         
-            typedef void ( ::osg::Image::*allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( ImageSequence_wrapper::*default_allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ImageSequence_wrapper::*default_allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
             
             ImageSequence_exposer.def( 
                 "allocateImage"
@@ -1001,8 +1001,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
-            typedef ::osg::Array * ( ImageSequence_wrapper::*default_asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( ImageSequence_wrapper::*default_asArray_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "asArray"
@@ -1013,8 +1013,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
-            typedef ::osg::Array const * ( ImageSequence_wrapper::*default_asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( ImageSequence_wrapper::*default_asArray_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "asArray"
@@ -1025,8 +1025,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type)(  ) ;
-            typedef ::osg::Image * ( ImageSequence_wrapper::*default_asImage_function_type)(  ) ;
+            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type )(  ) ;
+            typedef ::osg::Image * ( ImageSequence_wrapper::*default_asImage_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "asImage"
@@ -1037,8 +1037,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type)(  ) const;
-            typedef ::osg::Image const * ( ImageSequence_wrapper::*default_asImage_function_type)(  ) const;
+            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type )(  ) const;
+            typedef ::osg::Image const * ( ImageSequence_wrapper::*default_asImage_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "asImage"
@@ -1049,8 +1049,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( ImageSequence_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( ImageSequence_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "computeDataVariance"
@@ -1060,8 +1060,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::copySubImage
         
-            typedef void ( ::osg::Image::*copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
-            typedef void ( ImageSequence_wrapper::*default_copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
+            typedef void ( ::osg::Image::*copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
+            typedef void ( ImageSequence_wrapper::*default_copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
             
             ImageSequence_exposer.def( 
                 "copySubImage"
@@ -1072,8 +1072,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::createSuitableTexture
         
-            typedef ::osg::Texture * ( ::osg::ImageStream::*createSuitableTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( ImageSequence_wrapper::*default_createSuitableTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::ImageStream::*createSuitableTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ImageSequence_wrapper::*default_createSuitableTexture_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "createSuitableTexture"
@@ -1084,8 +1084,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::getAudioBalance
         
-            typedef float ( ::osg::ImageStream::*getAudioBalance_function_type)(  ) ;
-            typedef float ( ImageSequence_wrapper::*default_getAudioBalance_function_type)(  ) ;
+            typedef float ( ::osg::ImageStream::*getAudioBalance_function_type )(  ) ;
+            typedef float ( ImageSequence_wrapper::*default_getAudioBalance_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "getAudioBalance"
@@ -1095,8 +1095,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::getCreationTime
         
-            typedef double ( ::osg::ImageStream::*getCreationTime_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getCreationTime_function_type)(  ) const;
+            typedef double ( ::osg::ImageStream::*getCreationTime_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getCreationTime_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getCreationTime"
@@ -1106,8 +1106,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::getCurrentTime
         
-            typedef double ( ::osg::ImageStream::*getCurrentTime_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getCurrentTime_function_type)(  ) const;
+            typedef double ( ::osg::ImageStream::*getCurrentTime_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getCurrentTime_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getCurrentTime"
@@ -1117,8 +1117,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type)(  ) const;
-            typedef ::GLvoid const * ( ImageSequence_wrapper::*default_getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( ImageSequence_wrapper::*default_getDataPointer_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getDataPointer"
@@ -1129,8 +1129,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::getFrameRate
         
-            typedef double ( ::osg::ImageStream::*getFrameRate_function_type)(  ) const;
-            typedef double ( ImageSequence_wrapper::*default_getFrameRate_function_type)(  ) const;
+            typedef double ( ::osg::ImageStream::*getFrameRate_function_type )(  ) const;
+            typedef double ( ImageSequence_wrapper::*default_getFrameRate_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getFrameRate"
@@ -1140,8 +1140,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::getTotalDataSize
         
-            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type)(  ) const;
-            typedef unsigned int ( ImageSequence_wrapper::*default_getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( ImageSequence_wrapper::*default_getTotalDataSize_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getTotalDataSize"
@@ -1151,8 +1151,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( ImageSequence_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ImageSequence_wrapper::*default_getUserData_function_type )(  ) ;
             
             ImageSequence_exposer.def( 
                 "getUserData"
@@ -1163,8 +1163,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( ImageSequence_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ImageSequence_wrapper::*default_getUserData_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getUserData"
@@ -1175,8 +1175,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::getVolume
         
-            typedef float ( ::osg::ImageStream::*getVolume_function_type)(  ) const;
-            typedef float ( ImageSequence_wrapper::*default_getVolume_function_type)(  ) const;
+            typedef float ( ::osg::ImageStream::*getVolume_function_type )(  ) const;
+            typedef float ( ImageSequence_wrapper::*default_getVolume_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "getVolume"
@@ -1186,8 +1186,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::isImageTranslucent
         
-            typedef bool ( ::osg::Image::*isImageTranslucent_function_type)(  ) const;
-            typedef bool ( ImageSequence_wrapper::*default_isImageTranslucent_function_type)(  ) const;
+            typedef bool ( ::osg::Image::*isImageTranslucent_function_type )(  ) const;
+            typedef bool ( ImageSequence_wrapper::*default_isImageTranslucent_function_type )(  ) const;
             
             ImageSequence_exposer.def( 
                 "isImageTranslucent"
@@ -1197,8 +1197,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::quit
         
-            typedef void ( ::osg::ImageStream::*quit_function_type)( bool ) ;
-            typedef void ( ImageSequence_wrapper::*default_quit_function_type)( bool ) ;
+            typedef void ( ::osg::ImageStream::*quit_function_type )( bool ) ;
+            typedef void ( ImageSequence_wrapper::*default_quit_function_type )( bool ) ;
             
             ImageSequence_exposer.def( 
                 "quit"
@@ -1209,8 +1209,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::readImageFromCurrentTexture
         
-            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
-            typedef void ( ImageSequence_wrapper::*default_readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( ImageSequence_wrapper::*default_readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
             
             ImageSequence_exposer.def( 
                 "readImageFromCurrentTexture"
@@ -1221,8 +1221,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::readPixels
         
-            typedef void ( ::osg::Image::*readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( ImageSequence_wrapper::*default_readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ImageSequence_wrapper::*default_readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
             
             ImageSequence_exposer.def( 
                 "readPixels"
@@ -1233,8 +1233,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( ImageSequence_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ImageSequence_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             ImageSequence_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1245,7 +1245,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int ) ;
             
             ImageSequence_exposer.def( 
                 "scaleImage"
@@ -1256,8 +1256,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int,::GLenum ) ;
-            typedef void ( ImageSequence_wrapper::*default_scaleImage_function_type)( int,int,int,::GLenum ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int,::GLenum ) ;
+            typedef void ( ImageSequence_wrapper::*default_scaleImage_function_type )( int,int,int,::GLenum ) ;
             
             ImageSequence_exposer.def( 
                 "scaleImage"
@@ -1268,8 +1268,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::sendFocusHint
         
-            typedef bool ( ::osg::Image::*sendFocusHint_function_type)( bool ) ;
-            typedef bool ( ImageSequence_wrapper::*default_sendFocusHint_function_type)( bool ) ;
+            typedef bool ( ::osg::Image::*sendFocusHint_function_type )( bool ) ;
+            typedef bool ( ImageSequence_wrapper::*default_sendFocusHint_function_type )( bool ) ;
             
             ImageSequence_exposer.def( 
                 "sendFocusHint"
@@ -1280,8 +1280,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::sendKeyEvent
         
-            typedef bool ( ::osg::Image::*sendKeyEvent_function_type)( int,bool ) ;
-            typedef bool ( ImageSequence_wrapper::*default_sendKeyEvent_function_type)( int,bool ) ;
+            typedef bool ( ::osg::Image::*sendKeyEvent_function_type )( int,bool ) ;
+            typedef bool ( ImageSequence_wrapper::*default_sendKeyEvent_function_type )( int,bool ) ;
             
             ImageSequence_exposer.def( 
                 "sendKeyEvent"
@@ -1292,8 +1292,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::sendPointerEvent
         
-            typedef bool ( ::osg::Image::*sendPointerEvent_function_type)( int,int,int ) ;
-            typedef bool ( ImageSequence_wrapper::*default_sendPointerEvent_function_type)( int,int,int ) ;
+            typedef bool ( ::osg::Image::*sendPointerEvent_function_type )( int,int,int ) ;
+            typedef bool ( ImageSequence_wrapper::*default_sendPointerEvent_function_type )( int,int,int ) ;
             
             ImageSequence_exposer.def( 
                 "sendPointerEvent"
@@ -1304,8 +1304,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::setAudioBalance
         
-            typedef void ( ::osg::ImageStream::*setAudioBalance_function_type)( float ) ;
-            typedef void ( ImageSequence_wrapper::*default_setAudioBalance_function_type)( float ) ;
+            typedef void ( ::osg::ImageStream::*setAudioBalance_function_type )( float ) ;
+            typedef void ( ImageSequence_wrapper::*default_setAudioBalance_function_type )( float ) ;
             
             ImageSequence_exposer.def( 
                 "setAudioBalance"
@@ -1316,8 +1316,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::setFrameLastRendered
         
-            typedef void ( ::osg::Image::*setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
-            typedef void ( ImageSequence_wrapper::*default_setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osg::Image::*setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
+            typedef void ( ImageSequence_wrapper::*default_setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
             
             ImageSequence_exposer.def( 
                 "setFrameLastRendered"
@@ -1328,8 +1328,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Image::setImage
         
-            typedef void ( ::osg::Image::*setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
-            typedef void ( ImageSequence_wrapper::*default_setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( ::osg::Image::*setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( ImageSequence_wrapper::*default_setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
             
             ImageSequence_exposer.def( 
                 "setImage"
@@ -1340,8 +1340,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( ImageSequence_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( ImageSequence_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             ImageSequence_exposer.def( 
                 "setName"
@@ -1352,7 +1352,7 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             ImageSequence_exposer.def( 
                 "setName"
@@ -1363,8 +1363,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( ImageSequence_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ImageSequence_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             ImageSequence_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1375,8 +1375,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( ImageSequence_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ImageSequence_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             ImageSequence_exposer.def( 
                 "setUserData"
@@ -1387,8 +1387,8 @@ void register_ImageSequence_class(){
         }
         { //::osg::ImageStream::setVolume
         
-            typedef void ( ::osg::ImageStream::*setVolume_function_type)( float ) ;
-            typedef void ( ImageSequence_wrapper::*default_setVolume_function_type)( float ) ;
+            typedef void ( ::osg::ImageStream::*setVolume_function_type )( float ) ;
+            typedef void ( ImageSequence_wrapper::*default_setVolume_function_type )( float ) ;
             
             ImageSequence_exposer.def( 
                 "setVolume"

@@ -435,6 +435,8 @@ class OsgWrapper(BaseWrapper):
             boost::python::scope().attr("Vec2") = boost::python::scope().attr("Vec2f");
             """))
 
+        mb.class_(lambda c: c.alias == "pair_double").include()
+
         # Write results
         self.generate_module_code("_osg")
 

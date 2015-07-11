@@ -192,8 +192,8 @@ void register_ImagePager_class(){
             ImageThread_exposer.def( bp::init< osgDB::ImagePager *, osgDB::ImagePager::ImageThread::Mode, std::string const & >(( bp::arg("pager"), bp::arg("mode"), bp::arg("name") )) );
             { //::osgDB::ImagePager::ImageThread::cancel
             
-                typedef int ( ::osgDB::ImagePager::ImageThread::*cancel_function_type)(  ) ;
-                typedef int ( ImagePager_wrapper::ImageThread_wrapper::*default_cancel_function_type)(  ) ;
+                typedef int ( ::osgDB::ImagePager::ImageThread::*cancel_function_type )(  ) ;
+                typedef int ( ImagePager_wrapper::ImageThread_wrapper::*default_cancel_function_type )(  ) ;
                 
                 ImageThread_exposer.def( 
                     "cancel"
@@ -203,7 +203,7 @@ void register_ImagePager_class(){
             }
             { //::osgDB::ImagePager::ImageThread::getDone
             
-                typedef bool ( ::osgDB::ImagePager::ImageThread::*getDone_function_type)(  ) const;
+                typedef bool ( ::osgDB::ImagePager::ImageThread::*getDone_function_type )(  ) const;
                 
                 ImageThread_exposer.def( 
                     "getDone"
@@ -212,8 +212,8 @@ void register_ImagePager_class(){
             }
             { //::osgDB::ImagePager::ImageThread::run
             
-                typedef void ( ::osgDB::ImagePager::ImageThread::*run_function_type)(  ) ;
-                typedef void ( ImagePager_wrapper::ImageThread_wrapper::*default_run_function_type)(  ) ;
+                typedef void ( ::osgDB::ImagePager::ImageThread::*run_function_type )(  ) ;
+                typedef void ( ImagePager_wrapper::ImageThread_wrapper::*default_run_function_type )(  ) ;
                 
                 ImageThread_exposer.def( 
                     "run"
@@ -223,7 +223,7 @@ void register_ImagePager_class(){
             }
             { //::osgDB::ImagePager::ImageThread::setDone
             
-                typedef void ( ::osgDB::ImagePager::ImageThread::*setDone_function_type)( bool ) ;
+                typedef void ( ::osgDB::ImagePager::ImageThread::*setDone_function_type )( bool ) ;
                 
                 ImageThread_exposer.def( 
                     "setDone"
@@ -235,7 +235,7 @@ void register_ImagePager_class(){
         ImagePager_exposer.def( bp::init< >() );
         { //::osgDB::ImagePager::cancel
         
-            typedef int ( ::osgDB::ImagePager::*cancel_function_type)(  ) ;
+            typedef int ( ::osgDB::ImagePager::*cancel_function_type )(  ) ;
             
             ImagePager_exposer.def( 
                 "cancel"
@@ -244,7 +244,7 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::getImageThread
         
-            typedef ::osgDB::ImagePager::ImageThread * ( ::osgDB::ImagePager::*getImageThread_function_type)( unsigned int ) ;
+            typedef ::osgDB::ImagePager::ImageThread * ( ::osgDB::ImagePager::*getImageThread_function_type )( unsigned int ) ;
             
             ImagePager_exposer.def( 
                 "getImageThread"
@@ -255,7 +255,7 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::getImageThread
         
-            typedef ::osgDB::ImagePager::ImageThread const * ( ::osgDB::ImagePager::*getImageThread_function_type)( unsigned int ) const;
+            typedef ::osgDB::ImagePager::ImageThread const * ( ::osgDB::ImagePager::*getImageThread_function_type )( unsigned int ) const;
             
             ImagePager_exposer.def( 
                 "getImageThread"
@@ -266,7 +266,7 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::getNumImageThreads
         
-            typedef unsigned int ( ::osgDB::ImagePager::*getNumImageThreads_function_type)(  ) const;
+            typedef unsigned int ( ::osgDB::ImagePager::*getNumImageThreads_function_type )(  ) const;
             
             ImagePager_exposer.def( 
                 "getNumImageThreads"
@@ -275,8 +275,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::getPreLoadTime
         
-            typedef double ( ::osgDB::ImagePager::*getPreLoadTime_function_type)(  ) const;
-            typedef double ( ImagePager_wrapper::*default_getPreLoadTime_function_type)(  ) const;
+            typedef double ( ::osgDB::ImagePager::*getPreLoadTime_function_type )(  ) const;
+            typedef double ( ImagePager_wrapper::*default_getPreLoadTime_function_type )(  ) const;
             
             ImagePager_exposer.def( 
                 "getPreLoadTime"
@@ -286,8 +286,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::readImageFile
         
-            typedef ::osg::Image * ( ::osgDB::ImagePager::*readImageFile_function_type)( ::std::string const &,::osg::Referenced const * ) ;
-            typedef ::osg::Image * ( ImagePager_wrapper::*default_readImageFile_function_type)( ::std::string const &,::osg::Referenced const * ) ;
+            typedef ::osg::Image * ( ::osgDB::ImagePager::*readImageFile_function_type )( ::std::string const &,::osg::Referenced const * ) ;
+            typedef ::osg::Image * ( ImagePager_wrapper::*default_readImageFile_function_type )( ::std::string const &,::osg::Referenced const * ) ;
             
             ImagePager_exposer.def( 
                 "readImageFile"
@@ -299,8 +299,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::requestImageFile
         
-            typedef void ( ::osgDB::ImagePager::*requestImageFile_function_type)( ::std::string const &,::osg::Object *,int,double,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
-            typedef void ( ImagePager_wrapper::*default_requestImageFile_function_type)( ::std::string const &,::osg::Object *,int,double,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
+            typedef void ( ::osgDB::ImagePager::*requestImageFile_function_type )( ::std::string const &,::osg::Object *,int,double,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
+            typedef void ( ImagePager_wrapper::*default_requestImageFile_function_type )( ::std::string const &,::osg::Object *,int,double,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
             
             ImagePager_exposer.def( 
                 "requestImageFile"
@@ -311,8 +311,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::requiresUpdateSceneGraph
         
-            typedef bool ( ::osgDB::ImagePager::*requiresUpdateSceneGraph_function_type)(  ) const;
-            typedef bool ( ImagePager_wrapper::*default_requiresUpdateSceneGraph_function_type)(  ) const;
+            typedef bool ( ::osgDB::ImagePager::*requiresUpdateSceneGraph_function_type )(  ) const;
+            typedef bool ( ImagePager_wrapper::*default_requiresUpdateSceneGraph_function_type )(  ) const;
             
             ImagePager_exposer.def( 
                 "requiresUpdateSceneGraph"
@@ -322,7 +322,7 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::setPreLoadTime
         
-            typedef void ( ::osgDB::ImagePager::*setPreLoadTime_function_type)( double ) ;
+            typedef void ( ::osgDB::ImagePager::*setPreLoadTime_function_type )( double ) ;
             
             ImagePager_exposer.def( 
                 "setPreLoadTime"
@@ -332,8 +332,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::signalBeginFrame
         
-            typedef void ( ::osgDB::ImagePager::*signalBeginFrame_function_type)( ::osg::FrameStamp const * ) ;
-            typedef void ( ImagePager_wrapper::*default_signalBeginFrame_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osgDB::ImagePager::*signalBeginFrame_function_type )( ::osg::FrameStamp const * ) ;
+            typedef void ( ImagePager_wrapper::*default_signalBeginFrame_function_type )( ::osg::FrameStamp const * ) ;
             
             ImagePager_exposer.def( 
                 "signalBeginFrame"
@@ -344,8 +344,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::signalEndFrame
         
-            typedef void ( ::osgDB::ImagePager::*signalEndFrame_function_type)(  ) ;
-            typedef void ( ImagePager_wrapper::*default_signalEndFrame_function_type)(  ) ;
+            typedef void ( ::osgDB::ImagePager::*signalEndFrame_function_type )(  ) ;
+            typedef void ( ImagePager_wrapper::*default_signalEndFrame_function_type )(  ) ;
             
             ImagePager_exposer.def( 
                 "signalEndFrame"
@@ -355,8 +355,8 @@ void register_ImagePager_class(){
         }
         { //::osgDB::ImagePager::updateSceneGraph
         
-            typedef void ( ::osgDB::ImagePager::*updateSceneGraph_function_type)( ::osg::FrameStamp const & ) ;
-            typedef void ( ImagePager_wrapper::*default_updateSceneGraph_function_type)( ::osg::FrameStamp const & ) ;
+            typedef void ( ::osgDB::ImagePager::*updateSceneGraph_function_type )( ::osg::FrameStamp const & ) ;
+            typedef void ( ImagePager_wrapper::*default_updateSceneGraph_function_type )( ::osg::FrameStamp const & ) ;
             
             ImagePager_exposer.def( 
                 "updateSceneGraph"

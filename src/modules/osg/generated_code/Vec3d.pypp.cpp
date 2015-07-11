@@ -20,7 +20,7 @@ void register_Vec3d_class(){
         Vec3d_exposer.def( bp::init< osg::Vec2d const &, double >(( bp::arg("v2"), bp::arg("zz") )) );
         { //::osg::Vec3d::isNaN
         
-            typedef bool ( ::osg::Vec3d::*isNaN_function_type)(  ) const;
+            typedef bool ( ::osg::Vec3d::*isNaN_function_type )(  ) const;
             
             Vec3d_exposer.def( 
                 "isNaN"
@@ -30,7 +30,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::length
         
-            typedef double ( ::osg::Vec3d::*length_function_type)(  ) const;
+            typedef double ( ::osg::Vec3d::*length_function_type )(  ) const;
             
             Vec3d_exposer.def( 
                 "length"
@@ -40,7 +40,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::length2
         
-            typedef double ( ::osg::Vec3d::*length2_function_type)(  ) const;
+            typedef double ( ::osg::Vec3d::*length2_function_type )(  ) const;
             
             Vec3d_exposer.def( 
                 "length2"
@@ -50,7 +50,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::normalize
         
-            typedef double ( ::osg::Vec3d::*normalize_function_type)(  ) ;
+            typedef double ( ::osg::Vec3d::*normalize_function_type )(  ) ;
             
             Vec3d_exposer.def( 
                 "normalize"
@@ -74,7 +74,7 @@ void register_Vec3d_class(){
         Vec3d_exposer.def( bp::self == bp::self );
         { //::osg::Vec3d::operator[]
         
-            typedef double & ( ::osg::Vec3d::*__getitem___function_type)( int ) ;
+            typedef double & ( ::osg::Vec3d::*__getitem___function_type )( int ) ;
             
             Vec3d_exposer.def( 
                 "__getitem__"
@@ -85,7 +85,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::operator[]
         
-            typedef double ( ::osg::Vec3d::*__getitem___function_type)( int ) const;
+            typedef double ( ::osg::Vec3d::*__getitem___function_type )( int ) const;
             
             Vec3d_exposer.def( 
                 "__getitem__"
@@ -96,7 +96,7 @@ void register_Vec3d_class(){
         Vec3d_exposer.def( bp::self ^ bp::self );
         { //::osg::Vec3d::set
         
-            typedef void ( ::osg::Vec3d::*set_function_type)( double,double,double ) ;
+            typedef void ( ::osg::Vec3d::*set_function_type )( double,double,double ) ;
             
             Vec3d_exposer.def( 
                 "set"
@@ -106,7 +106,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::set
         
-            typedef void ( ::osg::Vec3d::*set_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Vec3d::*set_function_type )( ::osg::Vec3d const & ) ;
             
             Vec3d_exposer.def( 
                 "set"
@@ -116,7 +116,7 @@ void register_Vec3d_class(){
         }
         { //::osg::Vec3d::valid
         
-            typedef bool ( ::osg::Vec3d::*valid_function_type)(  ) const;
+            typedef bool ( ::osg::Vec3d::*valid_function_type )(  ) const;
             
             Vec3d_exposer.def( 
                 "valid"
@@ -126,7 +126,7 @@ void register_Vec3d_class(){
         }
         { //property "x"[fget=::osg::Vec3d::x]
         
-            typedef double & ( ::osg::Vec3d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec3d::*fget )(  ) ;
             
             Vec3d_exposer.add_property( 
                 "x"
@@ -137,7 +137,7 @@ void register_Vec3d_class(){
         }
         { //property "x"[fget=::osg::Vec3d::x]
         
-            typedef double ( ::osg::Vec3d::*fget)(  ) const;
+            typedef double ( ::osg::Vec3d::*fget )(  ) const;
             
             Vec3d_exposer.add_property( 
                 "x"
@@ -146,7 +146,7 @@ void register_Vec3d_class(){
         }
         { //property "y"[fget=::osg::Vec3d::y]
         
-            typedef double & ( ::osg::Vec3d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec3d::*fget )(  ) ;
             
             Vec3d_exposer.add_property( 
                 "y"
@@ -157,7 +157,7 @@ void register_Vec3d_class(){
         }
         { //property "y"[fget=::osg::Vec3d::y]
         
-            typedef double ( ::osg::Vec3d::*fget)(  ) const;
+            typedef double ( ::osg::Vec3d::*fget )(  ) const;
             
             Vec3d_exposer.add_property( 
                 "y"
@@ -166,7 +166,7 @@ void register_Vec3d_class(){
         }
         { //property "z"[fget=::osg::Vec3d::z]
         
-            typedef double & ( ::osg::Vec3d::*fget)(  ) ;
+            typedef double & ( ::osg::Vec3d::*fget )(  ) ;
             
             Vec3d_exposer.add_property( 
                 "z"
@@ -177,7 +177,7 @@ void register_Vec3d_class(){
         }
         { //property "z"[fget=::osg::Vec3d::z]
         
-            typedef double ( ::osg::Vec3d::*fget)(  ) const;
+            typedef double ( ::osg::Vec3d::*fget )(  ) const;
             
             Vec3d_exposer.add_property( 
                 "z"

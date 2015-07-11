@@ -18,7 +18,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::back
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef ::osg::Vec3f & ( exported_class_t::*back_function_type)(  ) ;
+            typedef ::osg::Vec3f & ( exported_class_t::*back_function_type )(  ) ;
             
             EyePointStack_exposer.def( 
                 "back"
@@ -29,7 +29,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::back
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef ::osg::Vec3f const & ( exported_class_t::*back_function_type)(  ) const;
+            typedef ::osg::Vec3f const & ( exported_class_t::*back_function_type )(  ) const;
             
             EyePointStack_exposer.def( 
                 "back"
@@ -40,7 +40,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::clear
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type)(  ) ;
+            typedef void ( exported_class_t::*clear_function_type )(  ) ;
             
             EyePointStack_exposer.def( 
                 "clear"
@@ -50,7 +50,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::empty
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
             
             EyePointStack_exposer.def( 
                 "empty"
@@ -60,7 +60,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::operator=
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef ::osg::fast_back_stack< osg::Vec3f > & ( exported_class_t::*assign_function_type)( ::osg::fast_back_stack< osg::Vec3f > const & ) ;
+            typedef ::osg::fast_back_stack< osg::Vec3f > & ( exported_class_t::*assign_function_type )( ::osg::fast_back_stack< osg::Vec3f > const & ) ;
             
             EyePointStack_exposer.def( 
                 "assign"
@@ -73,7 +73,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::pop_back
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*pop_back_function_type)(  ) ;
+            typedef void ( exported_class_t::*pop_back_function_type )(  ) ;
             
             EyePointStack_exposer.def( 
                 "pop_back"
@@ -83,7 +83,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::push_back
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type)(  ) ;
+            typedef void ( exported_class_t::*push_back_function_type )(  ) ;
             
             EyePointStack_exposer.def( 
                 "push_back"
@@ -93,7 +93,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::push_back
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type)( ::osg::Vec3f const & ) ;
+            typedef void ( exported_class_t::*push_back_function_type )( ::osg::Vec3f const & ) ;
             
             EyePointStack_exposer.def( 
                 "push_back"
@@ -104,7 +104,7 @@ void register_EyePointStack_class(){
         { //::osg::fast_back_stack< osg::Vec3f >::size
         
             typedef osg::fast_back_stack< osg::Vec3f > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
             
             EyePointStack_exposer.def( 
                 "size"

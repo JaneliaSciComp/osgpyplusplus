@@ -431,7 +431,7 @@ void register_Texture2DArray_class(){
             bp::implicitly_convertible< unsigned int, osg::Texture2DArray::Extensions >();
             { //::osg::Texture2DArray::Extensions::glCompressedTexImage3D
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*glCompressedTexImage3D_function_type)( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint,::GLsizei,::GLvoid const * ) const;
+                typedef void ( ::osg::Texture2DArray::Extensions::*glCompressedTexImage3D_function_type )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint,::GLsizei,::GLvoid const * ) const;
                 
                 Extensions_exposer.def( 
                     "glCompressedTexImage3D"
@@ -441,7 +441,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::glCompressedTexSubImage3D
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*glCompressedTexSubImage3D_function_type)( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLsizei,::GLenum,::GLsizei,::GLvoid const * ) const;
+                typedef void ( ::osg::Texture2DArray::Extensions::*glCompressedTexSubImage3D_function_type )( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLsizei,::GLenum,::GLsizei,::GLvoid const * ) const;
                 
                 Extensions_exposer.def( 
                     "glCompressedTexSubImage3D"
@@ -451,7 +451,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::glCopyTexSubImage3D
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*glCopyTexSubImage3D_function_type)( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei ) const;
+                typedef void ( ::osg::Texture2DArray::Extensions::*glCopyTexSubImage3D_function_type )( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei ) const;
                 
                 Extensions_exposer.def( 
                     "glCopyTexSubImage3D"
@@ -461,7 +461,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::glTexImage3D
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*glTexImage3D_function_type)( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint,::GLenum,::GLenum,::GLvoid const * ) const;
+                typedef void ( ::osg::Texture2DArray::Extensions::*glTexImage3D_function_type )( ::GLenum,::GLint,::GLenum,::GLsizei,::GLsizei,::GLsizei,::GLint,::GLenum,::GLenum,::GLvoid const * ) const;
                 
                 Extensions_exposer.def( 
                     "glTexImage3D"
@@ -471,7 +471,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::glTexSubImage3D
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*glTexSubImage3D_function_type)( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLsizei,::GLenum,::GLenum,::GLvoid const * ) const;
+                typedef void ( ::osg::Texture2DArray::Extensions::*glTexSubImage3D_function_type )( ::GLenum,::GLint,::GLint,::GLint,::GLint,::GLsizei,::GLsizei,::GLsizei,::GLenum,::GLenum,::GLvoid const * ) const;
                 
                 Extensions_exposer.def( 
                     "glTexSubImage3D"
@@ -481,7 +481,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::isCompressedTexImage3DSupported
             
-                typedef bool ( ::osg::Texture2DArray::Extensions::*isCompressedTexImage3DSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Texture2DArray::Extensions::*isCompressedTexImage3DSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isCompressedTexImage3DSupported"
@@ -490,7 +490,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::isCompressedTexSubImage3DSupported
             
-                typedef bool ( ::osg::Texture2DArray::Extensions::*isCompressedTexSubImage3DSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Texture2DArray::Extensions::*isCompressedTexSubImage3DSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isCompressedTexSubImage3DSupported"
@@ -499,7 +499,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::isTexture2DArraySupported
             
-                typedef bool ( ::osg::Texture2DArray::Extensions::*isTexture2DArraySupported_function_type)(  ) const;
+                typedef bool ( ::osg::Texture2DArray::Extensions::*isTexture2DArraySupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isTexture2DArraySupported"
@@ -508,7 +508,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::isTexture3DSupported
             
-                typedef bool ( ::osg::Texture2DArray::Extensions::*isTexture3DSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Texture2DArray::Extensions::*isTexture3DSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isTexture3DSupported"
@@ -527,7 +527,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::max2DSize
             
-                typedef ::GLint ( ::osg::Texture2DArray::Extensions::*max2DSize_function_type)(  ) const;
+                typedef ::GLint ( ::osg::Texture2DArray::Extensions::*max2DSize_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "max2DSize"
@@ -536,7 +536,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::maxLayerCount
             
-                typedef ::GLint ( ::osg::Texture2DArray::Extensions::*maxLayerCount_function_type)(  ) const;
+                typedef ::GLint ( ::osg::Texture2DArray::Extensions::*maxLayerCount_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "maxLayerCount"
@@ -545,7 +545,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::setMax2DSize
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*setMax2DSize_function_type)( ::GLint ) ;
+                typedef void ( ::osg::Texture2DArray::Extensions::*setMax2DSize_function_type )( ::GLint ) ;
                 
                 Extensions_exposer.def( 
                     "setMax2DSize"
@@ -555,7 +555,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::setMaxLayerCount
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*setMaxLayerCount_function_type)( ::GLint ) ;
+                typedef void ( ::osg::Texture2DArray::Extensions::*setMaxLayerCount_function_type )( ::GLint ) ;
                 
                 Extensions_exposer.def( 
                     "setMaxLayerCount"
@@ -565,7 +565,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::setTexture2DArraySupported
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*setTexture2DArraySupported_function_type)( bool ) ;
+                typedef void ( ::osg::Texture2DArray::Extensions::*setTexture2DArraySupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setTexture2DArraySupported"
@@ -575,7 +575,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::setTexture3DSupported
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*setTexture3DSupported_function_type)( bool ) ;
+                typedef void ( ::osg::Texture2DArray::Extensions::*setTexture3DSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setTexture3DSupported"
@@ -585,7 +585,7 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Texture2DArray::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::Texture2DArray::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::Texture2DArray::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -595,8 +595,8 @@ void register_Texture2DArray_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( Texture2DArray_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( Texture2DArray_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -609,14 +609,14 @@ void register_Texture2DArray_class(){
         bp::class_< Texture2DArray_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture2DArray::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Texture2DArray_wrapper::SubloadCallback_wrapper::* )( bool ))(&Texture2DArray_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Texture2DArray_wrapper::SubloadCallback_wrapper::* )( bool ) )(&Texture2DArray_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         Texture2DArray_exposer.def( bp::init< >("\n Texture2DArray state class which encapsulates OpenGL 2D array texture functionality.\n Texture arrays were introduced with Shader Model 4.0 hardware.\n\n A 2D texture array does contain textures sharing the same properties (e.g. size, bitdepth,...)\n in a layered structure. See http://www.opengl.org/registry/specs/EXT/texture_array.txt for more info.\n") );
         { //::osg::Texture2DArray::apply
         
-            typedef void ( ::osg::Texture2DArray::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Texture2DArray_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture2DArray::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Texture2DArray_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Texture2DArray_exposer.def( 
                 "apply"
@@ -627,8 +627,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::className
         
-            typedef char const * ( ::osg::Texture2DArray::*className_function_type)(  ) const;
-            typedef char const * ( Texture2DArray_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture2DArray::*className_function_type )(  ) const;
+            typedef char const * ( Texture2DArray_wrapper::*default_className_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "className"
@@ -638,8 +638,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::clone
         
-            typedef ::osg::Object * ( ::osg::Texture2DArray::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Texture2DArray_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Texture2DArray::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Texture2DArray_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Texture2DArray_exposer.def( 
                 "clone"
@@ -651,8 +651,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::cloneType
         
-            typedef ::osg::Object * ( ::osg::Texture2DArray::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Texture2DArray_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Texture2DArray::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Texture2DArray_wrapper::*default_cloneType_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "cloneType"
@@ -663,7 +663,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::copyTexSubImage2DArray
         
-            typedef void ( ::osg::Texture2DArray::*copyTexSubImage2DArray_function_type)( ::osg::State &,int,int,int,int,int,int,int ) ;
+            typedef void ( ::osg::Texture2DArray::*copyTexSubImage2DArray_function_type )( ::osg::State &,int,int,int,int,int,int,int ) ;
             
             Texture2DArray_exposer.def( 
                 "copyTexSubImage2DArray"
@@ -686,8 +686,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getImage
         
-            typedef ::osg::Image * ( ::osg::Texture2DArray::*getImage_function_type)( unsigned int ) ;
-            typedef ::osg::Image * ( Texture2DArray_wrapper::*default_getImage_function_type)( unsigned int ) ;
+            typedef ::osg::Image * ( ::osg::Texture2DArray::*getImage_function_type )( unsigned int ) ;
+            typedef ::osg::Image * ( Texture2DArray_wrapper::*default_getImage_function_type )( unsigned int ) ;
             
             Texture2DArray_exposer.def( 
                 "getImage"
@@ -699,8 +699,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getImage
         
-            typedef ::osg::Image const * ( ::osg::Texture2DArray::*getImage_function_type)( unsigned int ) const;
-            typedef ::osg::Image const * ( Texture2DArray_wrapper::*default_getImage_function_type)( unsigned int ) const;
+            typedef ::osg::Image const * ( ::osg::Texture2DArray::*getImage_function_type )( unsigned int ) const;
+            typedef ::osg::Image const * ( Texture2DArray_wrapper::*default_getImage_function_type )( unsigned int ) const;
             
             Texture2DArray_exposer.def( 
                 "getImage"
@@ -712,7 +712,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getModifiedCount
         
-            typedef unsigned int & ( ::osg::Texture2DArray::*getModifiedCount_function_type)( unsigned int,unsigned int ) const;
+            typedef unsigned int & ( ::osg::Texture2DArray::*getModifiedCount_function_type )( unsigned int,unsigned int ) const;
             
             Texture2DArray_exposer.def( 
                 "getModifiedCount"
@@ -724,8 +724,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getNumImages
         
-            typedef unsigned int ( ::osg::Texture2DArray::*getNumImages_function_type)(  ) const;
-            typedef unsigned int ( Texture2DArray_wrapper::*default_getNumImages_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Texture2DArray::*getNumImages_function_type )(  ) const;
+            typedef unsigned int ( Texture2DArray_wrapper::*default_getNumImages_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getNumImages"
@@ -735,7 +735,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getNumMipmapLevels
         
-            typedef unsigned int ( ::osg::Texture2DArray::*getNumMipmapLevels_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Texture2DArray::*getNumMipmapLevels_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getNumMipmapLevels"
@@ -745,7 +745,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getSubloadCallback
         
-            typedef ::osg::Texture2DArray::SubloadCallback * ( ::osg::Texture2DArray::*getSubloadCallback_function_type)(  ) ;
+            typedef ::osg::Texture2DArray::SubloadCallback * ( ::osg::Texture2DArray::*getSubloadCallback_function_type )(  ) ;
             
             Texture2DArray_exposer.def( 
                 "getSubloadCallback"
@@ -755,7 +755,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getSubloadCallback
         
-            typedef ::osg::Texture2DArray::SubloadCallback const * ( ::osg::Texture2DArray::*getSubloadCallback_function_type)(  ) const;
+            typedef ::osg::Texture2DArray::SubloadCallback const * ( ::osg::Texture2DArray::*getSubloadCallback_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getSubloadCallback"
@@ -765,8 +765,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getTextureDepth
         
-            typedef int ( ::osg::Texture2DArray::*getTextureDepth_function_type)(  ) const;
-            typedef int ( Texture2DArray_wrapper::*default_getTextureDepth_function_type)(  ) const;
+            typedef int ( ::osg::Texture2DArray::*getTextureDepth_function_type )(  ) const;
+            typedef int ( Texture2DArray_wrapper::*default_getTextureDepth_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getTextureDepth"
@@ -776,8 +776,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getTextureHeight
         
-            typedef int ( ::osg::Texture2DArray::*getTextureHeight_function_type)(  ) const;
-            typedef int ( Texture2DArray_wrapper::*default_getTextureHeight_function_type)(  ) const;
+            typedef int ( ::osg::Texture2DArray::*getTextureHeight_function_type )(  ) const;
+            typedef int ( Texture2DArray_wrapper::*default_getTextureHeight_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getTextureHeight"
@@ -787,8 +787,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getTextureTarget
         
-            typedef ::GLenum ( ::osg::Texture2DArray::*getTextureTarget_function_type)(  ) const;
-            typedef ::GLenum ( Texture2DArray_wrapper::*default_getTextureTarget_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Texture2DArray::*getTextureTarget_function_type )(  ) const;
+            typedef ::GLenum ( Texture2DArray_wrapper::*default_getTextureTarget_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getTextureTarget"
@@ -798,8 +798,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getTextureWidth
         
-            typedef int ( ::osg::Texture2DArray::*getTextureWidth_function_type)(  ) const;
-            typedef int ( Texture2DArray_wrapper::*default_getTextureWidth_function_type)(  ) const;
+            typedef int ( ::osg::Texture2DArray::*getTextureWidth_function_type )(  ) const;
+            typedef int ( Texture2DArray_wrapper::*default_getTextureWidth_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getTextureWidth"
@@ -809,8 +809,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Texture2DArray::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Texture2DArray_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Texture2DArray::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Texture2DArray_wrapper::*default_getType_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getType"
@@ -820,8 +820,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::isSameKindAs
         
-            typedef bool ( ::osg::Texture2DArray::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Texture2DArray_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Texture2DArray::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Texture2DArray_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Texture2DArray_exposer.def( 
                 "isSameKindAs"
@@ -832,8 +832,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::libraryName
         
-            typedef char const * ( ::osg::Texture2DArray::*libraryName_function_type)(  ) const;
-            typedef char const * ( Texture2DArray_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture2DArray::*libraryName_function_type )(  ) const;
+            typedef char const * ( Texture2DArray_wrapper::*default_libraryName_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "libraryName"
@@ -854,8 +854,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setImage
         
-            typedef void ( ::osg::Texture2DArray::*setImage_function_type)( unsigned int,::osg::Image * ) ;
-            typedef void ( Texture2DArray_wrapper::*default_setImage_function_type)( unsigned int,::osg::Image * ) ;
+            typedef void ( ::osg::Texture2DArray::*setImage_function_type )( unsigned int,::osg::Image * ) ;
+            typedef void ( Texture2DArray_wrapper::*default_setImage_function_type )( unsigned int,::osg::Image * ) ;
             
             Texture2DArray_exposer.def( 
                 "setImage"
@@ -866,7 +866,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setNumMipmapLevels
         
-            typedef void ( ::osg::Texture2DArray::*setNumMipmapLevels_function_type)( unsigned int ) const;
+            typedef void ( ::osg::Texture2DArray::*setNumMipmapLevels_function_type )( unsigned int ) const;
             
             Texture2DArray_exposer.def( 
                 "setNumMipmapLevels"
@@ -877,7 +877,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setSubloadCallback
         
-            typedef void ( ::osg::Texture2DArray::*setSubloadCallback_function_type)( ::osg::Texture2DArray::SubloadCallback * ) ;
+            typedef void ( ::osg::Texture2DArray::*setSubloadCallback_function_type )( ::osg::Texture2DArray::SubloadCallback * ) ;
             
             Texture2DArray_exposer.def( 
                 "setSubloadCallback"
@@ -887,7 +887,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setTextureDepth
         
-            typedef void ( ::osg::Texture2DArray::*setTextureDepth_function_type)( int ) ;
+            typedef void ( ::osg::Texture2DArray::*setTextureDepth_function_type )( int ) ;
             
             Texture2DArray_exposer.def( 
                 "setTextureDepth"
@@ -897,7 +897,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setTextureHeight
         
-            typedef void ( ::osg::Texture2DArray::*setTextureHeight_function_type)( int ) ;
+            typedef void ( ::osg::Texture2DArray::*setTextureHeight_function_type )( int ) ;
             
             Texture2DArray_exposer.def( 
                 "setTextureHeight"
@@ -907,7 +907,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setTextureSize
         
-            typedef void ( ::osg::Texture2DArray::*setTextureSize_function_type)( int,int,int ) ;
+            typedef void ( ::osg::Texture2DArray::*setTextureSize_function_type )( int,int,int ) ;
             
             Texture2DArray_exposer.def( 
                 "setTextureSize"
@@ -918,7 +918,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture2DArray::setTextureWidth
         
-            typedef void ( ::osg::Texture2DArray::*setTextureWidth_function_type)( int ) ;
+            typedef void ( ::osg::Texture2DArray::*setTextureWidth_function_type )( int ) ;
             
             Texture2DArray_exposer.def( 
                 "setTextureWidth"
@@ -928,8 +928,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Texture2DArray_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Texture2DArray_wrapper::*default_asTexture_function_type )(  ) ;
             
             Texture2DArray_exposer.def( 
                 "asTexture"
@@ -940,8 +940,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Texture2DArray_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Texture2DArray_wrapper::*default_asTexture_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "asTexture"
@@ -952,8 +952,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Texture2DArray_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Texture2DArray_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Texture2DArray_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -964,8 +964,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::compileGLObjects
         
-            typedef void ( ::osg::Texture::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Texture2DArray_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Texture2DArray_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Texture2DArray_exposer.def( 
                 "compileGLObjects"
@@ -976,8 +976,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Texture2DArray_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Texture2DArray_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Texture2DArray_exposer.def( 
                 "computeDataVariance"
@@ -987,8 +987,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Texture2DArray_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Texture2DArray_wrapper::*default_getMember_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getMember"
@@ -998,8 +998,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::getModeUsage
         
-            typedef bool ( ::osg::Texture::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Texture2DArray_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Texture::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Texture2DArray_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Texture2DArray_exposer.def( 
                 "getModeUsage"
@@ -1010,8 +1010,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Texture2DArray_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Texture2DArray_wrapper::*default_getUserData_function_type )(  ) ;
             
             Texture2DArray_exposer.def( 
                 "getUserData"
@@ -1022,8 +1022,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Texture2DArray_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Texture2DArray_wrapper::*default_getUserData_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "getUserData"
@@ -1034,8 +1034,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::isTextureAttribute
         
-            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Texture2DArray_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Texture2DArray_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Texture2DArray_exposer.def( 
                 "isTextureAttribute"
@@ -1045,8 +1045,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Texture::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Texture2DArray_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Texture2DArray_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Texture2DArray_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1057,8 +1057,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Texture2DArray_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Texture2DArray_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Texture2DArray_exposer.def( 
                 "setName"
@@ -1069,7 +1069,7 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Texture2DArray_exposer.def( 
                 "setName"
@@ -1080,8 +1080,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Texture2DArray_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Texture2DArray_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Texture2DArray_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1092,8 +1092,8 @@ void register_Texture2DArray_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Texture2DArray_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Texture2DArray_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Texture2DArray_exposer.def( 
                 "setUserData"

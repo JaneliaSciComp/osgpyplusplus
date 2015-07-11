@@ -284,144 +284,144 @@ void register_Scissor_class(){
         .def( bp::init< int, int, int, int >(( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )) )    
         .def( 
             "apply"
-            , (void ( ::osg::Scissor::* )( ::osg::State & )const)(&::osg::Scissor::apply)
-            , (void ( Scissor_wrapper::* )( ::osg::State & )const)(&Scissor_wrapper::default_apply)
+            , (void ( ::osg::Scissor::* )( ::osg::State & ) const)(&::osg::Scissor::apply)
+            , (void ( Scissor_wrapper::* )( ::osg::State & ) const)(&Scissor_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Scissor::* )(  )const)(&::osg::Scissor::className)
-            , (char const * ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_className) )    
+            , (char const * ( ::osg::Scissor::* )(  ) const)(&::osg::Scissor::className)
+            , (char const * ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Scissor::* )( ::osg::CopyOp const & )const)(&::osg::Scissor::clone)
-            , (::osg::Object * ( Scissor_wrapper::* )( ::osg::CopyOp const & )const)(&Scissor_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Scissor::* )( ::osg::CopyOp const & ) const)(&::osg::Scissor::clone)
+            , (::osg::Object * ( Scissor_wrapper::* )( ::osg::CopyOp const & ) const)(&Scissor_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Scissor::* )(  )const)(&::osg::Scissor::cloneType)
-            , (::osg::Object * ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Scissor::* )(  ) const)(&::osg::Scissor::cloneType)
+            , (::osg::Object * ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::Scissor::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::Scissor::getModeUsage)
-            , (bool ( Scissor_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&Scissor_wrapper::default_getModeUsage)
+            , (bool ( ::osg::Scissor::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::Scissor::getModeUsage)
+            , (bool ( Scissor_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&Scissor_wrapper::default_getModeUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getScissor"
-            , (void ( ::osg::Scissor::* )( int &,int &,int &,int & )const)( &::osg::Scissor::getScissor )
+            , (void ( ::osg::Scissor::* )( int &,int &,int &,int & ) const)( &::osg::Scissor::getScissor )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") ) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::Scissor::* )(  )const)(&::osg::Scissor::getType)
-            , (::osg::StateAttribute::Type ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::Scissor::* )(  ) const)(&::osg::Scissor::getType)
+            , (::osg::StateAttribute::Type ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_getType) )    
         .def( 
             "height"
-            , (int & ( ::osg::Scissor::* )(  ))( &::osg::Scissor::height )
+            , (int & ( ::osg::Scissor::* )(  ) )( &::osg::Scissor::height )
             , bp::return_value_policy< bp::copy_non_const_reference >() )    
         .def( 
             "height"
-            , (int ( ::osg::Scissor::* )(  )const)( &::osg::Scissor::height ) )    
+            , (int ( ::osg::Scissor::* )(  ) const)( &::osg::Scissor::height ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Scissor::* )( ::osg::Object const * )const)(&::osg::Scissor::isSameKindAs)
-            , (bool ( Scissor_wrapper::* )( ::osg::Object const * )const)(&Scissor_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Scissor::* )( ::osg::Object const * ) const)(&::osg::Scissor::isSameKindAs)
+            , (bool ( Scissor_wrapper::* )( ::osg::Object const * ) const)(&Scissor_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Scissor::* )(  )const)(&::osg::Scissor::libraryName)
-            , (char const * ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Scissor::* )(  ) const)(&::osg::Scissor::libraryName)
+            , (char const * ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_libraryName) )    
         .def( 
             "setScissor"
-            , (void ( ::osg::Scissor::* )( int,int,int,int ))( &::osg::Scissor::setScissor )
+            , (void ( ::osg::Scissor::* )( int,int,int,int ) )( &::osg::Scissor::setScissor )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") ) )    
         .def( 
             "width"
-            , (int & ( ::osg::Scissor::* )(  ))( &::osg::Scissor::width )
+            , (int & ( ::osg::Scissor::* )(  ) )( &::osg::Scissor::width )
             , bp::return_value_policy< bp::copy_non_const_reference >() )    
         .def( 
             "width"
-            , (int ( ::osg::Scissor::* )(  )const)( &::osg::Scissor::width ) )    
+            , (int ( ::osg::Scissor::* )(  ) const)( &::osg::Scissor::width ) )    
         .def( 
             "x"
-            , (int & ( ::osg::Scissor::* )(  ))( &::osg::Scissor::x )
+            , (int & ( ::osg::Scissor::* )(  ) )( &::osg::Scissor::x )
             , bp::return_value_policy< bp::copy_non_const_reference >() )    
         .def( 
             "x"
-            , (int ( ::osg::Scissor::* )(  )const)( &::osg::Scissor::x ) )    
+            , (int ( ::osg::Scissor::* )(  ) const)( &::osg::Scissor::x ) )    
         .def( 
             "y"
-            , (int & ( ::osg::Scissor::* )(  ))( &::osg::Scissor::y )
+            , (int & ( ::osg::Scissor::* )(  ) )( &::osg::Scissor::y )
             , bp::return_value_policy< bp::copy_non_const_reference >() )    
         .def( 
             "y"
-            , (int ( ::osg::Scissor::* )(  )const)( &::osg::Scissor::y ) )    
+            , (int ( ::osg::Scissor::* )(  ) const)( &::osg::Scissor::y ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ))(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture * ( Scissor_wrapper::* )(  ))(&Scissor_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::StateAttribute::* )(  ) )(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture * ( Scissor_wrapper::* )(  ) )(&Scissor_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::asTexture)
-            , (::osg::Texture const * ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::asTexture)
+            , (::osg::Texture const * ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( Scissor_wrapper::* )( ::osg::State & )const)(&Scissor_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( Scissor_wrapper::* )( ::osg::State & ) const)(&Scissor_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::compileGLObjects)
-            , (void ( Scissor_wrapper::* )( ::osg::State & )const)(&Scissor_wrapper::default_compileGLObjects)
+            , (void ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::compileGLObjects)
+            , (void ( Scissor_wrapper::* )( ::osg::State & ) const)(&Scissor_wrapper::default_compileGLObjects)
             , ( bp::arg("arg0") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Scissor_wrapper::* )(  ))(&Scissor_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Scissor_wrapper::* )(  ) )(&Scissor_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_getMember) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Scissor_wrapper::* )(  ))(&Scissor_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Scissor_wrapper::* )(  ) )(&Scissor_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::isTextureAttribute)
-            , (bool ( Scissor_wrapper::* )(  )const)(&Scissor_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::isTextureAttribute)
+            , (bool ( Scissor_wrapper::* )(  ) const)(&Scissor_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::StateAttribute::* )( unsigned int ))(&::osg::StateAttribute::resizeGLObjectBuffers)
-            , (void ( Scissor_wrapper::* )( unsigned int ))(&Scissor_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::StateAttribute::* )( unsigned int ) )(&::osg::StateAttribute::resizeGLObjectBuffers)
+            , (void ( Scissor_wrapper::* )( unsigned int ) )(&Scissor_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Scissor_wrapper::* )( ::std::string const & ))(&Scissor_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Scissor_wrapper::* )( ::std::string const & ) )(&Scissor_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Scissor_wrapper::* )( bool ))(&Scissor_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Scissor_wrapper::* )( bool ) )(&Scissor_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Scissor_wrapper::* )( ::osg::Referenced * ))(&Scissor_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Scissor_wrapper::* )( ::osg::Referenced * ) )(&Scissor_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

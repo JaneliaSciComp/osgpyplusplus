@@ -18,7 +18,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::Viewport > & ( exported_class_t::*back_function_type)(  ) ;
+            typedef ::osg::ref_ptr< osg::Viewport > & ( exported_class_t::*back_function_type )(  ) ;
             
             ViewportStack_exposer.def( 
                 "back"
@@ -29,7 +29,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::Viewport > const & ( exported_class_t::*back_function_type)(  ) const;
+            typedef ::osg::ref_ptr< osg::Viewport > const & ( exported_class_t::*back_function_type )(  ) const;
             
             ViewportStack_exposer.def( 
                 "back"
@@ -40,7 +40,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::clear
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type)(  ) ;
+            typedef void ( exported_class_t::*clear_function_type )(  ) ;
             
             ViewportStack_exposer.def( 
                 "clear"
@@ -50,7 +50,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::empty
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
             
             ViewportStack_exposer.def( 
                 "empty"
@@ -60,7 +60,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::operator=
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef ::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > & ( exported_class_t::*assign_function_type)( ::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > const & ) ;
+            typedef ::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > & ( exported_class_t::*assign_function_type )( ::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > const & ) ;
             
             ViewportStack_exposer.def( 
                 "assign"
@@ -73,7 +73,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::pop_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef void ( exported_class_t::*pop_back_function_type)(  ) ;
+            typedef void ( exported_class_t::*pop_back_function_type )(  ) ;
             
             ViewportStack_exposer.def( 
                 "pop_back"
@@ -83,7 +83,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::push_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type)(  ) ;
+            typedef void ( exported_class_t::*push_back_function_type )(  ) ;
             
             ViewportStack_exposer.def( 
                 "push_back"
@@ -93,7 +93,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::push_back
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef void ( exported_class_t::*push_back_function_type)( ::osg::ref_ptr< osg::Viewport > const & ) ;
+            typedef void ( exported_class_t::*push_back_function_type )( ::osg::ref_ptr< osg::Viewport > const & ) ;
             
             ViewportStack_exposer.def( 
                 "push_back"
@@ -104,7 +104,7 @@ void register_ViewportStack_class(){
         { //::osg::fast_back_stack< osg::ref_ptr< osg::Viewport > >::size
         
             typedef osg::fast_back_stack< osg::ref_ptr< osg::Viewport > > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
             
             ViewportStack_exposer.def( 
                 "size"

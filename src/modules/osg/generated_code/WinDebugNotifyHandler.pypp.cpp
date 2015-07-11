@@ -47,13 +47,13 @@ void register_WinDebugNotifyHandler_class(){
     bp::class_< WinDebugNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::WinDebugNotifyHandler >, boost::noncopyable >( "WinDebugNotifyHandler", "\n Redirects notification stream to windows debugger with use of\n OuputDebugString functions.\n aee setNotifyHandler\n" )    
         .def( 
             "notify"
-            , (void ( ::osg::WinDebugNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::WinDebugNotifyHandler::notify)
-            , (void ( WinDebugNotifyHandler_wrapper::* )( ::osg::NotifySeverity,char const * ))(&WinDebugNotifyHandler_wrapper::default_notify)
+            , (void ( ::osg::WinDebugNotifyHandler::* )( ::osg::NotifySeverity,char const * ) )(&::osg::WinDebugNotifyHandler::notify)
+            , (void ( WinDebugNotifyHandler_wrapper::* )( ::osg::NotifySeverity,char const * ) )(&WinDebugNotifyHandler_wrapper::default_notify)
             , ( bp::arg("severity"), bp::arg("message") ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( WinDebugNotifyHandler_wrapper::* )( bool ))(&WinDebugNotifyHandler_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( WinDebugNotifyHandler_wrapper::* )( bool ) )(&WinDebugNotifyHandler_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

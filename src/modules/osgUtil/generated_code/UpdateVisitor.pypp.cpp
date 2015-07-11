@@ -395,65 +395,65 @@ void register_UpdateVisitor_class(){
     bp::class_< UpdateVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::UpdateVisitor >, boost::noncopyable >( "UpdateVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Node & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Node & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Node & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Node & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Geode & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Geode & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Geode & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Geode & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Billboard & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Billboard & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Billboard & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Billboard & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::LightSource & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::LightSource & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::LightSource & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::LightSource & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Group & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Group & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Group & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Group & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Transform & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Transform & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Transform & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Transform & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Projection & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Projection & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Projection & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Projection & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Switch & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::Switch & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Switch & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::Switch & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::LOD & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::LOD & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::LOD & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::LOD & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::OccluderNode & ))(&::osgUtil::UpdateVisitor::apply)
-            , (void ( UpdateVisitor_wrapper::* )( ::osg::OccluderNode & ))(&UpdateVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::OccluderNode & ) )(&::osgUtil::UpdateVisitor::apply)
+            , (void ( UpdateVisitor_wrapper::* )( ::osg::OccluderNode & ) )(&UpdateVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::UpdateVisitor::* )(  )const)(&::osgUtil::UpdateVisitor::className)
-            , (char const * ( UpdateVisitor_wrapper::* )(  )const)(&UpdateVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::UpdateVisitor::* )(  ) const)(&::osgUtil::UpdateVisitor::className)
+            , (char const * ( UpdateVisitor_wrapper::* )(  ) const)(&UpdateVisitor_wrapper::default_className) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::UpdateVisitor::* )(  )const)(&::osgUtil::UpdateVisitor::libraryName)
-            , (char const * ( UpdateVisitor_wrapper::* )(  )const)(&UpdateVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osgUtil::UpdateVisitor::* )(  ) const)(&::osgUtil::UpdateVisitor::libraryName)
+            , (char const * ( UpdateVisitor_wrapper::* )(  ) const)(&UpdateVisitor_wrapper::default_libraryName) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::UpdateVisitor::* )(  ))(&::osgUtil::UpdateVisitor::reset)
-            , (void ( UpdateVisitor_wrapper::* )(  ))(&UpdateVisitor_wrapper::default_reset) );
+            , (void ( ::osgUtil::UpdateVisitor::* )(  ) )(&::osgUtil::UpdateVisitor::reset)
+            , (void ( UpdateVisitor_wrapper::* )(  ) )(&UpdateVisitor_wrapper::default_reset) );
 
 }

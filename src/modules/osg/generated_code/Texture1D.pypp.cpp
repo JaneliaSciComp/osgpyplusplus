@@ -405,16 +405,16 @@ void register_Texture1D_class(){
         bp::class_< Texture1D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture1D::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( Texture1D_wrapper::SubloadCallback_wrapper::* )( bool ))(&Texture1D_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( Texture1D_wrapper::SubloadCallback_wrapper::* )( bool ) )(&Texture1D_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         Texture1D_exposer.def( bp::init< >("\n Encapsulates OpenGL 1D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n") );
         Texture1D_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );
         bp::implicitly_convertible< osg::Image *, osg::Texture1D >();
         { //::osg::Texture1D::apply
         
-            typedef void ( ::osg::Texture1D::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Texture1D_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture1D::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Texture1D_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Texture1D_exposer.def( 
                 "apply"
@@ -425,8 +425,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::className
         
-            typedef char const * ( ::osg::Texture1D::*className_function_type)(  ) const;
-            typedef char const * ( Texture1D_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture1D::*className_function_type )(  ) const;
+            typedef char const * ( Texture1D_wrapper::*default_className_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "className"
@@ -436,8 +436,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::clone
         
-            typedef ::osg::Object * ( ::osg::Texture1D::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Texture1D_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Texture1D::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Texture1D_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Texture1D_exposer.def( 
                 "clone"
@@ -449,8 +449,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::cloneType
         
-            typedef ::osg::Object * ( ::osg::Texture1D::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Texture1D_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Texture1D::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Texture1D_wrapper::*default_cloneType_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "cloneType"
@@ -461,7 +461,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::copyTexImage1D
         
-            typedef void ( ::osg::Texture1D::*copyTexImage1D_function_type)( ::osg::State &,int,int,int ) ;
+            typedef void ( ::osg::Texture1D::*copyTexImage1D_function_type )( ::osg::State &,int,int,int ) ;
             
             Texture1D_exposer.def( 
                 "copyTexImage1D"
@@ -472,7 +472,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::copyTexSubImage1D
         
-            typedef void ( ::osg::Texture1D::*copyTexSubImage1D_function_type)( ::osg::State &,int,int,int,int ) ;
+            typedef void ( ::osg::Texture1D::*copyTexSubImage1D_function_type )( ::osg::State &,int,int,int,int ) ;
             
             Texture1D_exposer.def( 
                 "copyTexSubImage1D"
@@ -483,7 +483,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getImage
         
-            typedef ::osg::Image * ( ::osg::Texture1D::*getImage_function_type)(  ) ;
+            typedef ::osg::Image * ( ::osg::Texture1D::*getImage_function_type )(  ) ;
             
             Texture1D_exposer.def( 
                 "getImage"
@@ -494,7 +494,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getImage
         
-            typedef ::osg::Image const * ( ::osg::Texture1D::*getImage_function_type)(  ) const;
+            typedef ::osg::Image const * ( ::osg::Texture1D::*getImage_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getImage"
@@ -505,8 +505,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getImage
         
-            typedef ::osg::Image * ( ::osg::Texture1D::*getImage_function_type)( unsigned int ) ;
-            typedef ::osg::Image * ( Texture1D_wrapper::*default_getImage_function_type)( unsigned int ) ;
+            typedef ::osg::Image * ( ::osg::Texture1D::*getImage_function_type )( unsigned int ) ;
+            typedef ::osg::Image * ( Texture1D_wrapper::*default_getImage_function_type )( unsigned int ) ;
             
             Texture1D_exposer.def( 
                 "getImage"
@@ -518,8 +518,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getImage
         
-            typedef ::osg::Image const * ( ::osg::Texture1D::*getImage_function_type)( unsigned int ) const;
-            typedef ::osg::Image const * ( Texture1D_wrapper::*default_getImage_function_type)( unsigned int ) const;
+            typedef ::osg::Image const * ( ::osg::Texture1D::*getImage_function_type )( unsigned int ) const;
+            typedef ::osg::Image const * ( Texture1D_wrapper::*default_getImage_function_type )( unsigned int ) const;
             
             Texture1D_exposer.def( 
                 "getImage"
@@ -531,7 +531,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getModifiedCount
         
-            typedef unsigned int & ( ::osg::Texture1D::*getModifiedCount_function_type)( unsigned int ) const;
+            typedef unsigned int & ( ::osg::Texture1D::*getModifiedCount_function_type )( unsigned int ) const;
             
             Texture1D_exposer.def( 
                 "getModifiedCount"
@@ -542,8 +542,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getNumImages
         
-            typedef unsigned int ( ::osg::Texture1D::*getNumImages_function_type)(  ) const;
-            typedef unsigned int ( Texture1D_wrapper::*default_getNumImages_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Texture1D::*getNumImages_function_type )(  ) const;
+            typedef unsigned int ( Texture1D_wrapper::*default_getNumImages_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getNumImages"
@@ -553,7 +553,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getNumMipmapLevels
         
-            typedef unsigned int ( ::osg::Texture1D::*getNumMipmapLevels_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Texture1D::*getNumMipmapLevels_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getNumMipmapLevels"
@@ -563,7 +563,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getSubloadCallback
         
-            typedef ::osg::Texture1D::SubloadCallback * ( ::osg::Texture1D::*getSubloadCallback_function_type)(  ) ;
+            typedef ::osg::Texture1D::SubloadCallback * ( ::osg::Texture1D::*getSubloadCallback_function_type )(  ) ;
             
             Texture1D_exposer.def( 
                 "getSubloadCallback"
@@ -573,7 +573,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getSubloadCallback
         
-            typedef ::osg::Texture1D::SubloadCallback const * ( ::osg::Texture1D::*getSubloadCallback_function_type)(  ) const;
+            typedef ::osg::Texture1D::SubloadCallback const * ( ::osg::Texture1D::*getSubloadCallback_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getSubloadCallback"
@@ -583,8 +583,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getTextureDepth
         
-            typedef int ( ::osg::Texture1D::*getTextureDepth_function_type)(  ) const;
-            typedef int ( Texture1D_wrapper::*default_getTextureDepth_function_type)(  ) const;
+            typedef int ( ::osg::Texture1D::*getTextureDepth_function_type )(  ) const;
+            typedef int ( Texture1D_wrapper::*default_getTextureDepth_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getTextureDepth"
@@ -594,8 +594,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getTextureHeight
         
-            typedef int ( ::osg::Texture1D::*getTextureHeight_function_type)(  ) const;
-            typedef int ( Texture1D_wrapper::*default_getTextureHeight_function_type)(  ) const;
+            typedef int ( ::osg::Texture1D::*getTextureHeight_function_type )(  ) const;
+            typedef int ( Texture1D_wrapper::*default_getTextureHeight_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getTextureHeight"
@@ -605,8 +605,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getTextureTarget
         
-            typedef ::GLenum ( ::osg::Texture1D::*getTextureTarget_function_type)(  ) const;
-            typedef ::GLenum ( Texture1D_wrapper::*default_getTextureTarget_function_type)(  ) const;
+            typedef ::GLenum ( ::osg::Texture1D::*getTextureTarget_function_type )(  ) const;
+            typedef ::GLenum ( Texture1D_wrapper::*default_getTextureTarget_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getTextureTarget"
@@ -616,8 +616,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getTextureWidth
         
-            typedef int ( ::osg::Texture1D::*getTextureWidth_function_type)(  ) const;
-            typedef int ( Texture1D_wrapper::*default_getTextureWidth_function_type)(  ) const;
+            typedef int ( ::osg::Texture1D::*getTextureWidth_function_type )(  ) const;
+            typedef int ( Texture1D_wrapper::*default_getTextureWidth_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getTextureWidth"
@@ -627,8 +627,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Texture1D::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Texture1D_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Texture1D::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Texture1D_wrapper::*default_getType_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getType"
@@ -638,8 +638,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::isSameKindAs
         
-            typedef bool ( ::osg::Texture1D::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Texture1D_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Texture1D::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Texture1D_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Texture1D_exposer.def( 
                 "isSameKindAs"
@@ -650,8 +650,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::libraryName
         
-            typedef char const * ( ::osg::Texture1D::*libraryName_function_type)(  ) const;
-            typedef char const * ( Texture1D_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Texture1D::*libraryName_function_type )(  ) const;
+            typedef char const * ( Texture1D_wrapper::*default_libraryName_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "libraryName"
@@ -661,7 +661,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::setImage
         
-            typedef void ( ::osg::Texture1D::*setImage_function_type)( ::osg::Image * ) ;
+            typedef void ( ::osg::Texture1D::*setImage_function_type )( ::osg::Image * ) ;
             
             Texture1D_exposer.def( 
                 "setImage"
@@ -672,8 +672,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::setImage
         
-            typedef void ( ::osg::Texture1D::*setImage_function_type)( unsigned int,::osg::Image * ) ;
-            typedef void ( Texture1D_wrapper::*default_setImage_function_type)( unsigned int,::osg::Image * ) ;
+            typedef void ( ::osg::Texture1D::*setImage_function_type )( unsigned int,::osg::Image * ) ;
+            typedef void ( Texture1D_wrapper::*default_setImage_function_type )( unsigned int,::osg::Image * ) ;
             
             Texture1D_exposer.def( 
                 "setImage"
@@ -684,7 +684,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::setNumMipmapLevels
         
-            typedef void ( ::osg::Texture1D::*setNumMipmapLevels_function_type)( unsigned int ) const;
+            typedef void ( ::osg::Texture1D::*setNumMipmapLevels_function_type )( unsigned int ) const;
             
             Texture1D_exposer.def( 
                 "setNumMipmapLevels"
@@ -695,7 +695,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::setSubloadCallback
         
-            typedef void ( ::osg::Texture1D::*setSubloadCallback_function_type)( ::osg::Texture1D::SubloadCallback * ) ;
+            typedef void ( ::osg::Texture1D::*setSubloadCallback_function_type )( ::osg::Texture1D::SubloadCallback * ) ;
             
             Texture1D_exposer.def( 
                 "setSubloadCallback"
@@ -705,7 +705,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture1D::setTextureWidth
         
-            typedef void ( ::osg::Texture1D::*setTextureWidth_function_type)( int ) ;
+            typedef void ( ::osg::Texture1D::*setTextureWidth_function_type )( int ) ;
             
             Texture1D_exposer.def( 
                 "setTextureWidth"
@@ -716,8 +716,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Texture1D_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Texture1D_wrapper::*default_asTexture_function_type )(  ) ;
             
             Texture1D_exposer.def( 
                 "asTexture"
@@ -728,8 +728,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Texture1D_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Texture1D_wrapper::*default_asTexture_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "asTexture"
@@ -740,8 +740,8 @@ void register_Texture1D_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Texture1D_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Texture1D_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Texture1D_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -752,8 +752,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::compileGLObjects
         
-            typedef void ( ::osg::Texture::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Texture1D_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Texture::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Texture1D_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Texture1D_exposer.def( 
                 "compileGLObjects"
@@ -764,8 +764,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Texture1D_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Texture1D_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Texture1D_exposer.def( 
                 "computeDataVariance"
@@ -775,8 +775,8 @@ void register_Texture1D_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Texture1D_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Texture1D_wrapper::*default_getMember_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getMember"
@@ -786,8 +786,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::getModeUsage
         
-            typedef bool ( ::osg::Texture::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Texture1D_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Texture::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Texture1D_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Texture1D_exposer.def( 
                 "getModeUsage"
@@ -798,8 +798,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Texture1D_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Texture1D_wrapper::*default_getUserData_function_type )(  ) ;
             
             Texture1D_exposer.def( 
                 "getUserData"
@@ -810,8 +810,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Texture1D_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Texture1D_wrapper::*default_getUserData_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "getUserData"
@@ -822,8 +822,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::isTextureAttribute
         
-            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Texture1D_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Texture1D_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Texture1D_exposer.def( 
                 "isTextureAttribute"
@@ -833,8 +833,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Texture::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Texture1D_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Texture1D_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Texture1D_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -845,8 +845,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Texture1D_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Texture1D_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Texture1D_exposer.def( 
                 "setName"
@@ -857,7 +857,7 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Texture1D_exposer.def( 
                 "setName"
@@ -868,8 +868,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Texture1D_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Texture1D_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Texture1D_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -880,8 +880,8 @@ void register_Texture1D_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Texture1D_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Texture1D_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Texture1D_exposer.def( 
                 "setUserData"

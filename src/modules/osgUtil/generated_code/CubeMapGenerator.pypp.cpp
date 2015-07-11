@@ -28,16 +28,16 @@ void register_CubeMapGenerator_class(){
     bp::class_< CubeMapGenerator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::CubeMapGenerator >, boost::noncopyable >( "CubeMapGenerator", bp::no_init )    
         .def( 
             "generateMap"
-            , (void ( ::osgUtil::CubeMapGenerator::* )( bool ))( &::osgUtil::CubeMapGenerator::generateMap )
+            , (void ( ::osgUtil::CubeMapGenerator::* )( bool ) )( &::osgUtil::CubeMapGenerator::generateMap )
             , ( bp::arg("use_osg_system")=(bool)(true) ) )    
         .def( 
             "getImage"
-            , (::osg::Image * ( ::osgUtil::CubeMapGenerator::* )( ::osg::TextureCubeMap::Face ))( &::osgUtil::CubeMapGenerator::getImage )
+            , (::osg::Image * ( ::osgUtil::CubeMapGenerator::* )( ::osg::TextureCubeMap::Face ) )( &::osgUtil::CubeMapGenerator::getImage )
             , ( bp::arg("face") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getImage"
-            , (::osg::Image const * ( ::osgUtil::CubeMapGenerator::* )( ::osg::TextureCubeMap::Face )const)( &::osgUtil::CubeMapGenerator::getImage )
+            , (::osg::Image const * ( ::osgUtil::CubeMapGenerator::* )( ::osg::TextureCubeMap::Face ) const)( &::osgUtil::CubeMapGenerator::getImage )
             , ( bp::arg("face") )
             , bp::return_internal_reference< >() );
 

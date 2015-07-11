@@ -513,7 +513,7 @@ void register_Text_class(){
             bp::scope GlyphQuads_scope( GlyphQuads_exposer );
             { //::osgText::Text::GlyphQuads::getCoords
             
-                typedef ::std::vector< osg::Vec2f > & ( ::osgText::Text::GlyphQuads::*getCoords_function_type)(  ) ;
+                typedef ::std::vector< osg::Vec2f > & ( ::osgText::Text::GlyphQuads::*getCoords_function_type )(  ) ;
                 
                 GlyphQuads_exposer.def( 
                     "getCoords"
@@ -523,7 +523,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getCoords
             
-                typedef ::std::vector< osg::Vec2f > const & ( ::osgText::Text::GlyphQuads::*getCoords_function_type)(  ) const;
+                typedef ::std::vector< osg::Vec2f > const & ( ::osgText::Text::GlyphQuads::*getCoords_function_type )(  ) const;
                 
                 GlyphQuads_exposer.def( 
                     "getCoords"
@@ -533,7 +533,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getGlyphs
             
-                typedef ::std::vector< osgText::Glyph* > ( ::osgText::Text::GlyphQuads::*getGlyphs_function_type)(  ) ;
+                typedef ::std::vector< osgText::Glyph* > ( ::osgText::Text::GlyphQuads::*getGlyphs_function_type )(  ) ;
                 
                 GlyphQuads_exposer.def( 
                     "getGlyphs"
@@ -542,7 +542,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getGlyphs
             
-                typedef ::std::vector< osgText::Glyph* > const ( ::osgText::Text::GlyphQuads::*getGlyphs_function_type)(  ) const;
+                typedef ::std::vector< osgText::Glyph* > const ( ::osgText::Text::GlyphQuads::*getGlyphs_function_type )(  ) const;
                 
                 GlyphQuads_exposer.def( 
                     "getGlyphs"
@@ -551,7 +551,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getLineNumbers
             
-                typedef ::std::vector< unsigned int > & ( ::osgText::Text::GlyphQuads::*getLineNumbers_function_type)(  ) ;
+                typedef ::std::vector< unsigned int > & ( ::osgText::Text::GlyphQuads::*getLineNumbers_function_type )(  ) ;
                 
                 GlyphQuads_exposer.def( 
                     "getLineNumbers"
@@ -561,7 +561,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getLineNumbers
             
-                typedef ::std::vector< unsigned int > const & ( ::osgText::Text::GlyphQuads::*getLineNumbers_function_type)(  ) const;
+                typedef ::std::vector< unsigned int > const & ( ::osgText::Text::GlyphQuads::*getLineNumbers_function_type )(  ) const;
                 
                 GlyphQuads_exposer.def( 
                     "getLineNumbers"
@@ -571,7 +571,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getTexCoords
             
-                typedef ::std::vector< osg::Vec2f > & ( ::osgText::Text::GlyphQuads::*getTexCoords_function_type)(  ) ;
+                typedef ::std::vector< osg::Vec2f > & ( ::osgText::Text::GlyphQuads::*getTexCoords_function_type )(  ) ;
                 
                 GlyphQuads_exposer.def( 
                     "getTexCoords"
@@ -581,7 +581,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getTexCoords
             
-                typedef ::std::vector< osg::Vec2f > const & ( ::osgText::Text::GlyphQuads::*getTexCoords_function_type)(  ) const;
+                typedef ::std::vector< osg::Vec2f > const & ( ::osgText::Text::GlyphQuads::*getTexCoords_function_type )(  ) const;
                 
                 GlyphQuads_exposer.def( 
                     "getTexCoords"
@@ -591,7 +591,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getTransformedCoords
             
-                typedef ::std::vector< osg::Vec3f > & ( ::osgText::Text::GlyphQuads::*getTransformedCoords_function_type)( unsigned int ) ;
+                typedef ::std::vector< osg::Vec3f > & ( ::osgText::Text::GlyphQuads::*getTransformedCoords_function_type )( unsigned int ) ;
                 
                 GlyphQuads_exposer.def( 
                     "getTransformedCoords"
@@ -602,7 +602,7 @@ void register_Text_class(){
             }
             { //::osgText::Text::GlyphQuads::getTransformedCoords
             
-                typedef ::std::vector< osg::Vec3f > const & ( ::osgText::Text::GlyphQuads::*getTransformedCoords_function_type)( unsigned int ) const;
+                typedef ::std::vector< osg::Vec3f > const & ( ::osgText::Text::GlyphQuads::*getTransformedCoords_function_type )( unsigned int ) const;
                 
                 GlyphQuads_exposer.def( 
                     "getTransformedCoords"
@@ -630,8 +630,8 @@ void register_Text_class(){
         Text_exposer.def( bp::init< >() );
         { //::osgText::Text::accept
         
-            typedef void ( ::osgText::Text::*accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
-            typedef void ( Text_wrapper::*default_accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( ::osgText::Text::*accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( Text_wrapper::*default_accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
             
             Text_exposer.def( 
                 "accept"
@@ -642,8 +642,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::accept
         
-            typedef void ( ::osgText::Text::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( Text_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osgText::Text::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( Text_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
             
             Text_exposer.def( 
                 "accept"
@@ -654,8 +654,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::className
         
-            typedef char const * ( ::osgText::Text::*className_function_type)(  ) const;
-            typedef char const * ( Text_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgText::Text::*className_function_type )(  ) const;
+            typedef char const * ( Text_wrapper::*default_className_function_type )(  ) const;
             
             Text_exposer.def( 
                 "className"
@@ -665,8 +665,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::clone
         
-            typedef ::osg::Object * ( ::osgText::Text::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Text_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgText::Text::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Text_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Text_exposer.def( 
                 "clone"
@@ -678,8 +678,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::cloneType
         
-            typedef ::osg::Object * ( ::osgText::Text::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Text_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgText::Text::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Text_wrapper::*default_cloneType_function_type )(  ) const;
             
             Text_exposer.def( 
                 "cloneType"
@@ -690,8 +690,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::drawImplementation
         
-            typedef void ( ::osgText::Text::*drawImplementation_function_type)( ::osg::RenderInfo & ) const;
-            typedef void ( Text_wrapper::*default_drawImplementation_function_type)( ::osg::RenderInfo & ) const;
+            typedef void ( ::osgText::Text::*drawImplementation_function_type )( ::osg::RenderInfo & ) const;
+            typedef void ( Text_wrapper::*default_drawImplementation_function_type )( ::osg::RenderInfo & ) const;
             
             Text_exposer.def( 
                 "drawImplementation"
@@ -702,7 +702,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getBackdropColor
         
-            typedef ::osg::Vec4 const & ( ::osgText::Text::*getBackdropColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::Text::*getBackdropColor_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getBackdropColor"
@@ -712,7 +712,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getBackdropHorizontalOffset
         
-            typedef float ( ::osgText::Text::*getBackdropHorizontalOffset_function_type)(  ) const;
+            typedef float ( ::osgText::Text::*getBackdropHorizontalOffset_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getBackdropHorizontalOffset"
@@ -721,7 +721,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getBackdropImplementation
         
-            typedef ::osgText::Text::BackdropImplementation ( ::osgText::Text::*getBackdropImplementation_function_type)(  ) const;
+            typedef ::osgText::Text::BackdropImplementation ( ::osgText::Text::*getBackdropImplementation_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getBackdropImplementation"
@@ -730,7 +730,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getBackdropType
         
-            typedef ::osgText::Text::BackdropType ( ::osgText::Text::*getBackdropType_function_type)(  ) const;
+            typedef ::osgText::Text::BackdropType ( ::osgText::Text::*getBackdropType_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getBackdropType"
@@ -739,7 +739,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getBackdropVerticalOffset
         
-            typedef float ( ::osgText::Text::*getBackdropVerticalOffset_function_type)(  ) const;
+            typedef float ( ::osgText::Text::*getBackdropVerticalOffset_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getBackdropVerticalOffset"
@@ -748,7 +748,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getColorGradientBottomLeft
         
-            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientBottomLeft_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientBottomLeft_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getColorGradientBottomLeft"
@@ -758,7 +758,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getColorGradientBottomRight
         
-            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientBottomRight_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientBottomRight_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getColorGradientBottomRight"
@@ -768,7 +768,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getColorGradientMode
         
-            typedef ::osgText::Text::ColorGradientMode ( ::osgText::Text::*getColorGradientMode_function_type)(  ) const;
+            typedef ::osgText::Text::ColorGradientMode ( ::osgText::Text::*getColorGradientMode_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getColorGradientMode"
@@ -777,7 +777,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getColorGradientTopLeft
         
-            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientTopLeft_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientTopLeft_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getColorGradientTopLeft"
@@ -787,7 +787,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getColorGradientTopRight
         
-            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientTopRight_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::Text::*getColorGradientTopRight_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getColorGradientTopRight"
@@ -797,7 +797,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getEnableDepthWrites
         
-            typedef bool ( ::osgText::Text::*getEnableDepthWrites_function_type)(  ) const;
+            typedef bool ( ::osgText::Text::*getEnableDepthWrites_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getEnableDepthWrites"
@@ -806,7 +806,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getGlyphQuads
         
-            typedef ::osgText::Text::GlyphQuads const * ( ::osgText::Text::*getGlyphQuads_function_type)( ::osgText::GlyphTexture * ) const;
+            typedef ::osgText::Text::GlyphQuads const * ( ::osgText::Text::*getGlyphQuads_function_type )( ::osgText::GlyphTexture * ) const;
             
             Text_exposer.def( 
                 "getGlyphQuads"
@@ -818,7 +818,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::getTextureGlyphQuadMap
         
-            typedef ::std::map< osg::ref_ptr<osgText::GlyphTexture>, osgText::Text::GlyphQuads > const & ( ::osgText::Text::*getTextureGlyphQuadMap_function_type)(  ) const;
+            typedef ::std::map< osg::ref_ptr<osgText::GlyphTexture>, osgText::Text::GlyphQuads > const & ( ::osgText::Text::*getTextureGlyphQuadMap_function_type )(  ) const;
             
             Text_exposer.def( 
                 "getTextureGlyphQuadMap"
@@ -828,8 +828,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::isSameKindAs
         
-            typedef bool ( ::osgText::Text::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Text_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgText::Text::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Text_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Text_exposer.def( 
                 "isSameKindAs"
@@ -840,8 +840,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::libraryName
         
-            typedef char const * ( ::osgText::Text::*libraryName_function_type)(  ) const;
-            typedef char const * ( Text_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgText::Text::*libraryName_function_type )(  ) const;
+            typedef char const * ( Text_wrapper::*default_libraryName_function_type )(  ) const;
             
             Text_exposer.def( 
                 "libraryName"
@@ -851,8 +851,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::releaseGLObjects
         
-            typedef void ( ::osgText::Text::*releaseGLObjects_function_type)( ::osg::State * ) const;
-            typedef void ( Text_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( ::osgText::Text::*releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( Text_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
             
             Text_exposer.def( 
                 "releaseGLObjects"
@@ -863,8 +863,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::resizeGLObjectBuffers
         
-            typedef void ( ::osgText::Text::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Text_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::Text::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Text_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Text_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -875,7 +875,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setBackdropColor
         
-            typedef void ( ::osgText::Text::*setBackdropColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgText::Text::*setBackdropColor_function_type )( ::osg::Vec4 const & ) ;
             
             Text_exposer.def( 
                 "setBackdropColor"
@@ -886,7 +886,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setBackdropImplementation
         
-            typedef void ( ::osgText::Text::*setBackdropImplementation_function_type)( ::osgText::Text::BackdropImplementation ) ;
+            typedef void ( ::osgText::Text::*setBackdropImplementation_function_type )( ::osgText::Text::BackdropImplementation ) ;
             
             Text_exposer.def( 
                 "setBackdropImplementation"
@@ -897,7 +897,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setBackdropOffset
         
-            typedef void ( ::osgText::Text::*setBackdropOffset_function_type)( float ) ;
+            typedef void ( ::osgText::Text::*setBackdropOffset_function_type )( float ) ;
             
             Text_exposer.def( 
                 "setBackdropOffset"
@@ -908,7 +908,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setBackdropOffset
         
-            typedef void ( ::osgText::Text::*setBackdropOffset_function_type)( float,float ) ;
+            typedef void ( ::osgText::Text::*setBackdropOffset_function_type )( float,float ) ;
             
             Text_exposer.def( 
                 "setBackdropOffset"
@@ -919,7 +919,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setBackdropType
         
-            typedef void ( ::osgText::Text::*setBackdropType_function_type)( ::osgText::Text::BackdropType ) ;
+            typedef void ( ::osgText::Text::*setBackdropType_function_type )( ::osgText::Text::BackdropType ) ;
             
             Text_exposer.def( 
                 "setBackdropType"
@@ -930,7 +930,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setColorGradientCorners
         
-            typedef void ( ::osgText::Text::*setColorGradientCorners_function_type)( ::osg::Vec4 const &,::osg::Vec4 const &,::osg::Vec4 const &,::osg::Vec4 const & ) ;
+            typedef void ( ::osgText::Text::*setColorGradientCorners_function_type )( ::osg::Vec4 const &,::osg::Vec4 const &,::osg::Vec4 const &,::osg::Vec4 const & ) ;
             
             Text_exposer.def( 
                 "setColorGradientCorners"
@@ -941,7 +941,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setColorGradientMode
         
-            typedef void ( ::osgText::Text::*setColorGradientMode_function_type)( ::osgText::Text::ColorGradientMode ) ;
+            typedef void ( ::osgText::Text::*setColorGradientMode_function_type )( ::osgText::Text::ColorGradientMode ) ;
             
             Text_exposer.def( 
                 "setColorGradientMode"
@@ -952,7 +952,7 @@ void register_Text_class(){
         }
         { //::osgText::Text::setEnableDepthWrites
         
-            typedef void ( ::osgText::Text::*setEnableDepthWrites_function_type)( bool ) ;
+            typedef void ( ::osgText::Text::*setEnableDepthWrites_function_type )( bool ) ;
             
             Text_exposer.def( 
                 "setEnableDepthWrites"
@@ -963,8 +963,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::setFont
         
-            typedef void ( ::osgText::Text::*setFont_function_type)( ::osgText::Font * ) ;
-            typedef void ( Text_wrapper::*default_setFont_function_type)( ::osgText::Font * ) ;
+            typedef void ( ::osgText::Text::*setFont_function_type )( ::osgText::Font * ) ;
+            typedef void ( Text_wrapper::*default_setFont_function_type )( ::osgText::Font * ) ;
             
             Text_exposer.def( 
                 "setFont"
@@ -975,8 +975,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::setFont
         
-            typedef void ( ::osgText::Text::*setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
-            typedef void ( Text_wrapper::*default_setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( ::osgText::Text::*setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( Text_wrapper::*default_setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
             
             Text_exposer.def( 
                 "setFont"
@@ -987,8 +987,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::setFont
         
-            typedef void ( ::osgText::Text::*setFont_function_type)( ::std::string const & ) ;
-            typedef void ( Text_wrapper::*default_setFont_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgText::Text::*setFont_function_type )( ::std::string const & ) ;
+            typedef void ( Text_wrapper::*default_setFont_function_type )( ::std::string const & ) ;
             
             Text_exposer.def( 
                 "setFont"
@@ -999,8 +999,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::setThreadSafeRefUnref
         
-            typedef void ( ::osgText::Text::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Text_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osgText::Text::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Text_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Text_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1011,8 +1011,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::supports
         
-            typedef bool ( ::osgText::Text::*supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
-            typedef bool ( Text_wrapper::*default_supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( ::osgText::Text::*supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( Text_wrapper::*default_supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
             
             Text_exposer.def( 
                 "supports"
@@ -1023,8 +1023,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::supports
         
-            typedef bool ( ::osgText::Text::*supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
-            typedef bool ( Text_wrapper::*default_supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( ::osgText::Text::*supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( Text_wrapper::*default_supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
             
             Text_exposer.def( 
                 "supports"
@@ -1035,8 +1035,8 @@ void register_Text_class(){
         }
         { //::osgText::Text::supports
         
-            typedef bool ( ::osgText::Text::*supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
-            typedef bool ( Text_wrapper::*default_supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( ::osgText::Text::*supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( Text_wrapper::*default_supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
             
             Text_exposer.def( 
                 "supports"
@@ -1047,8 +1047,8 @@ void register_Text_class(){
         }
         { //::osgText::TextBase::computeBound
         
-            typedef ::osg::BoundingBox ( ::osgText::TextBase::*computeBound_function_type)(  ) const;
-            typedef ::osg::BoundingBox ( Text_wrapper::*default_computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingBox ( ::osgText::TextBase::*computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingBox ( Text_wrapper::*default_computeBound_function_type )(  ) const;
             
             Text_exposer.def( 
                 "computeBound"

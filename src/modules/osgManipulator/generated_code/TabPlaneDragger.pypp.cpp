@@ -643,8 +643,8 @@ void register_TabPlaneDragger_class(){
         bp::implicitly_convertible< float, osgManipulator::TabPlaneDragger >();
         { //::osgManipulator::TabPlaneDragger::className
         
-            typedef char const * ( ::osgManipulator::TabPlaneDragger::*className_function_type)(  ) const;
-            typedef char const * ( TabPlaneDragger_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgManipulator::TabPlaneDragger::*className_function_type )(  ) const;
+            typedef char const * ( TabPlaneDragger_wrapper::*default_className_function_type )(  ) const;
             
             TabPlaneDragger_exposer.def( 
                 "className"
@@ -654,8 +654,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::TabPlaneDragger::cloneType
         
-            typedef ::osg::Object * ( ::osgManipulator::TabPlaneDragger::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( TabPlaneDragger_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgManipulator::TabPlaneDragger::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( TabPlaneDragger_wrapper::*default_cloneType_function_type )(  ) const;
             
             TabPlaneDragger_exposer.def( 
                 "cloneType"
@@ -676,8 +676,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::TabPlaneDragger::isSameKindAs
         
-            typedef bool ( ::osgManipulator::TabPlaneDragger::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TabPlaneDragger_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgManipulator::TabPlaneDragger::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TabPlaneDragger_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TabPlaneDragger_exposer.def( 
                 "isSameKindAs"
@@ -688,8 +688,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::TabPlaneDragger::libraryName
         
-            typedef char const * ( ::osgManipulator::TabPlaneDragger::*libraryName_function_type)(  ) const;
-            typedef char const * ( TabPlaneDragger_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgManipulator::TabPlaneDragger::*libraryName_function_type )(  ) const;
+            typedef char const * ( TabPlaneDragger_wrapper::*default_libraryName_function_type )(  ) const;
             
             TabPlaneDragger_exposer.def( 
                 "libraryName"
@@ -699,7 +699,7 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::TabPlaneDragger::setPlaneColor
         
-            typedef void ( ::osgManipulator::TabPlaneDragger::*setPlaneColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgManipulator::TabPlaneDragger::*setPlaneColor_function_type )( ::osg::Vec4 const & ) ;
             
             TabPlaneDragger_exposer.def( 
                 "setPlaneColor"
@@ -709,7 +709,7 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::TabPlaneDragger::setupDefaultGeometry
         
-            typedef void ( ::osgManipulator::TabPlaneDragger::*setupDefaultGeometry_function_type)( bool ) ;
+            typedef void ( ::osgManipulator::TabPlaneDragger::*setupDefaultGeometry_function_type )( bool ) ;
             
             TabPlaneDragger_exposer.def( 
                 "setupDefaultGeometry"
@@ -720,8 +720,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::accept
         
-            typedef void ( ::osgManipulator::CompositeDragger::*accept_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( TabPlaneDragger_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( TabPlaneDragger_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
             
             TabPlaneDragger_exposer.def( 
                 "accept"
@@ -732,8 +732,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::addDragger
         
-            typedef bool ( ::osgManipulator::CompositeDragger::*addDragger_function_type)( ::osgManipulator::Dragger * ) ;
-            typedef bool ( TabPlaneDragger_wrapper::*default_addDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef bool ( ::osgManipulator::CompositeDragger::*addDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef bool ( TabPlaneDragger_wrapper::*default_addDragger_function_type )( ::osgManipulator::Dragger * ) ;
             
             TabPlaneDragger_exposer.def( 
                 "addDragger"
@@ -744,8 +744,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::clone
         
-            typedef ::osg::Object * ( ::osgManipulator::CompositeDragger::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TabPlaneDragger_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgManipulator::CompositeDragger::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TabPlaneDragger_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             TabPlaneDragger_exposer.def( 
                 "clone"
@@ -767,8 +767,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::*getComposite_function_type)(  ) const;
-            typedef ::osgManipulator::CompositeDragger const * ( TabPlaneDragger_wrapper::*default_getComposite_function_type)(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::*getComposite_function_type )(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( TabPlaneDragger_wrapper::*default_getComposite_function_type )(  ) const;
             
             TabPlaneDragger_exposer.def( 
                 "getComposite"
@@ -779,8 +779,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::*getComposite_function_type)(  ) ;
-            typedef ::osgManipulator::CompositeDragger * ( TabPlaneDragger_wrapper::*default_getComposite_function_type)(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::*getComposite_function_type )(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( TabPlaneDragger_wrapper::*default_getComposite_function_type )(  ) ;
             
             TabPlaneDragger_exposer.def( 
                 "getComposite"
@@ -812,8 +812,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::removeDragger
         
-            typedef bool ( ::osgManipulator::CompositeDragger::*removeDragger_function_type)( ::osgManipulator::Dragger * ) ;
-            typedef bool ( TabPlaneDragger_wrapper::*default_removeDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef bool ( ::osgManipulator::CompositeDragger::*removeDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef bool ( TabPlaneDragger_wrapper::*default_removeDragger_function_type )( ::osgManipulator::Dragger * ) ;
             
             TabPlaneDragger_exposer.def( 
                 "removeDragger"
@@ -824,8 +824,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::setIntersectionMask
         
-            typedef void ( ::osgManipulator::CompositeDragger::*setIntersectionMask_function_type)( unsigned int ) ;
-            typedef void ( TabPlaneDragger_wrapper::*default_setIntersectionMask_function_type)( unsigned int ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*setIntersectionMask_function_type )( unsigned int ) ;
+            typedef void ( TabPlaneDragger_wrapper::*default_setIntersectionMask_function_type )( unsigned int ) ;
             
             TabPlaneDragger_exposer.def( 
                 "setIntersectionMask"
@@ -836,8 +836,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::setParentDragger
         
-            typedef void ( ::osgManipulator::CompositeDragger::*setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
-            typedef void ( TabPlaneDragger_wrapper::*default_setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef void ( TabPlaneDragger_wrapper::*default_setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
             
             TabPlaneDragger_exposer.def( 
                 "setParentDragger"
@@ -848,8 +848,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::Dragger::setupDefaultGeometry
         
-            typedef void ( ::osgManipulator::Dragger::*setupDefaultGeometry_function_type)(  ) ;
-            typedef void ( TabPlaneDragger_wrapper::*default_setupDefaultGeometry_function_type)(  ) ;
+            typedef void ( ::osgManipulator::Dragger::*setupDefaultGeometry_function_type )(  ) ;
+            typedef void ( TabPlaneDragger_wrapper::*default_setupDefaultGeometry_function_type )(  ) ;
             
             TabPlaneDragger_exposer.def( 
                 "setupDefaultGeometry"
@@ -859,8 +859,8 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::Dragger::traverse
         
-            typedef void ( ::osgManipulator::Dragger::*traverse_function_type)( ::osg::NodeVisitor & ) ;
-            typedef void ( TabPlaneDragger_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( TabPlaneDragger_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
             
             TabPlaneDragger_exposer.def( 
                 "traverse"

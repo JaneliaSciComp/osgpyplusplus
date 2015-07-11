@@ -119,41 +119,41 @@ void register_IntersectorGroup_class(){
     bp::class_< IntersectorGroup_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< ::osgUtil::IntersectorGroup >, boost::noncopyable >( "IntersectorGroup", bp::init< >() )    
         .def( 
             "addIntersector"
-            , (void ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::Intersector * ))( &::osgUtil::IntersectorGroup::addIntersector )
+            , (void ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::Intersector * ) )( &::osgUtil::IntersectorGroup::addIntersector )
             , ( bp::arg("intersector") ) )    
         .def( 
             "clear"
-            , (void ( ::osgUtil::IntersectorGroup::* )(  ))( &::osgUtil::IntersectorGroup::clear ) )    
+            , (void ( ::osgUtil::IntersectorGroup::* )(  ) )( &::osgUtil::IntersectorGroup::clear ) )    
         .def( 
             "clone"
-            , (::osgUtil::Intersector * ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::IntersectionVisitor & ))(&::osgUtil::IntersectorGroup::clone)
-            , (::osgUtil::Intersector * ( IntersectorGroup_wrapper::* )( ::osgUtil::IntersectionVisitor & ))(&IntersectorGroup_wrapper::default_clone)
+            , (::osgUtil::Intersector * ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::IntersectionVisitor & ) )(&::osgUtil::IntersectorGroup::clone)
+            , (::osgUtil::Intersector * ( IntersectorGroup_wrapper::* )( ::osgUtil::IntersectionVisitor & ) )(&IntersectorGroup_wrapper::default_clone)
             , ( bp::arg("iv") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "containsIntersections"
-            , (bool ( ::osgUtil::IntersectorGroup::* )(  ))(&::osgUtil::IntersectorGroup::containsIntersections)
-            , (bool ( IntersectorGroup_wrapper::* )(  ))(&IntersectorGroup_wrapper::default_containsIntersections) )    
+            , (bool ( ::osgUtil::IntersectorGroup::* )(  ) )(&::osgUtil::IntersectorGroup::containsIntersections)
+            , (bool ( IntersectorGroup_wrapper::* )(  ) )(&IntersectorGroup_wrapper::default_containsIntersections) )    
         .def( 
             "enter"
             , (boost::python::object (*)( ::osgUtil::IntersectorGroup &,::osg::Node & ))( &IntersectorGroup_wrapper::default_enter )
             , ( bp::arg("inst"), bp::arg("node") ) )    
         .def( 
             "getIntersectors"
-            , (::std::vector< osg::ref_ptr<osgUtil::Intersector> > & ( ::osgUtil::IntersectorGroup::* )(  ))( &::osgUtil::IntersectorGroup::getIntersectors )
+            , (::std::vector< osg::ref_ptr<osgUtil::Intersector> > & ( ::osgUtil::IntersectorGroup::* )(  ) )( &::osgUtil::IntersectorGroup::getIntersectors )
             , bp::return_internal_reference< >() )    
         .def( 
             "intersect"
-            , (void ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ))(&::osgUtil::IntersectorGroup::intersect)
-            , (void ( IntersectorGroup_wrapper::* )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ))(&IntersectorGroup_wrapper::default_intersect)
+            , (void ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) )(&::osgUtil::IntersectorGroup::intersect)
+            , (void ( IntersectorGroup_wrapper::* )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) )(&IntersectorGroup_wrapper::default_intersect)
             , ( bp::arg("iv"), bp::arg("drawable") ) )    
         .def( 
             "leave"
-            , (void ( ::osgUtil::IntersectorGroup::* )(  ))(&::osgUtil::IntersectorGroup::leave)
-            , (void ( IntersectorGroup_wrapper::* )(  ))(&IntersectorGroup_wrapper::default_leave) )    
+            , (void ( ::osgUtil::IntersectorGroup::* )(  ) )(&::osgUtil::IntersectorGroup::leave)
+            , (void ( IntersectorGroup_wrapper::* )(  ) )(&IntersectorGroup_wrapper::default_leave) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::IntersectorGroup::* )(  ))(&::osgUtil::IntersectorGroup::reset)
-            , (void ( IntersectorGroup_wrapper::* )(  ))(&IntersectorGroup_wrapper::default_reset) );
+            , (void ( ::osgUtil::IntersectorGroup::* )(  ) )(&::osgUtil::IntersectorGroup::reset)
+            , (void ( IntersectorGroup_wrapper::* )(  ) )(&IntersectorGroup_wrapper::default_reset) );
 
 }

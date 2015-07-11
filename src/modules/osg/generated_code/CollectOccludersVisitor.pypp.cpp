@@ -443,211 +443,211 @@ void register_CollectOccludersVisitor_class(){
     bp::class_< CollectOccludersVisitor_wrapper, bp::bases< osg::NodeVisitor >, osg::ref_ptr< ::osg::CollectOccludersVisitor >, boost::noncopyable >( "CollectOccludersVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Node & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Node & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Node & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Node & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Transform & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Transform & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Transform & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Transform & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Projection & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Projection & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Projection & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Projection & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Switch & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Switch & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Switch & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Switch & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::LOD & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::LOD & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::LOD & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::LOD & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::OccluderNode & ))(&::osg::CollectOccludersVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::OccluderNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::OccluderNode & ) )(&::osg::CollectOccludersVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::OccluderNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::CollectOccludersVisitor::* )(  )const)(&::osg::CollectOccludersVisitor::className)
-            , (char const * ( CollectOccludersVisitor_wrapper::* )(  )const)(&CollectOccludersVisitor_wrapper::default_className) )    
+            , (char const * ( ::osg::CollectOccludersVisitor::* )(  ) const)(&::osg::CollectOccludersVisitor::className)
+            , (char const * ( CollectOccludersVisitor_wrapper::* )(  ) const)(&CollectOccludersVisitor_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::CollectOccludersVisitor * ( ::osg::CollectOccludersVisitor::* )(  )const)(&::osg::CollectOccludersVisitor::cloneType)
-            , (::osg::CollectOccludersVisitor * ( CollectOccludersVisitor_wrapper::* )(  )const)(&CollectOccludersVisitor_wrapper::default_cloneType)
+            , (::osg::CollectOccludersVisitor * ( ::osg::CollectOccludersVisitor::* )(  ) const)(&::osg::CollectOccludersVisitor::cloneType)
+            , (::osg::CollectOccludersVisitor * ( CollectOccludersVisitor_wrapper::* )(  ) const)(&CollectOccludersVisitor_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getCollectedOccluderSet"
-            , (::std::set< osg::ShadowVolumeOccluder > & ( ::osg::CollectOccludersVisitor::* )(  ))( &::osg::CollectOccludersVisitor::getCollectedOccluderSet )
+            , (::std::set< osg::ShadowVolumeOccluder > & ( ::osg::CollectOccludersVisitor::* )(  ) )( &::osg::CollectOccludersVisitor::getCollectedOccluderSet )
             , bp::return_internal_reference< >() )    
         .def( 
             "getCollectedOccluderSet"
-            , (::std::set< osg::ShadowVolumeOccluder > const & ( ::osg::CollectOccludersVisitor::* )(  )const)( &::osg::CollectOccludersVisitor::getCollectedOccluderSet )
+            , (::std::set< osg::ShadowVolumeOccluder > const & ( ::osg::CollectOccludersVisitor::* )(  ) const)( &::osg::CollectOccludersVisitor::getCollectedOccluderSet )
             , bp::return_internal_reference< >() )    
         .def( 
             "getCreateDrawablesOnOccludeNodes"
-            , (bool ( ::osg::CollectOccludersVisitor::* )(  )const)( &::osg::CollectOccludersVisitor::getCreateDrawablesOnOccludeNodes ) )    
+            , (bool ( ::osg::CollectOccludersVisitor::* )(  ) const)( &::osg::CollectOccludersVisitor::getCreateDrawablesOnOccludeNodes ) )    
         .def( 
             "getDistanceFromEyePoint"
-            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool )const)(&::osg::CollectOccludersVisitor::getDistanceFromEyePoint)
-            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool )const)(&CollectOccludersVisitor_wrapper::default_getDistanceFromEyePoint)
+            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool ) const)(&::osg::CollectOccludersVisitor::getDistanceFromEyePoint)
+            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool ) const)(&CollectOccludersVisitor_wrapper::default_getDistanceFromEyePoint)
             , ( bp::arg("pos"), bp::arg("withLODScale") ) )    
         .def( 
             "getDistanceToEyePoint"
-            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool )const)(&::osg::CollectOccludersVisitor::getDistanceToEyePoint)
-            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool )const)(&CollectOccludersVisitor_wrapper::default_getDistanceToEyePoint)
+            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool ) const)(&::osg::CollectOccludersVisitor::getDistanceToEyePoint)
+            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool ) const)(&CollectOccludersVisitor_wrapper::default_getDistanceToEyePoint)
             , ( bp::arg("pos"), bp::arg("withLODScale") ) )    
         .def( 
             "getDistanceToViewPoint"
-            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool )const)(&::osg::CollectOccludersVisitor::getDistanceToViewPoint)
-            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool )const)(&CollectOccludersVisitor_wrapper::default_getDistanceToViewPoint)
+            , (float ( ::osg::CollectOccludersVisitor::* )( ::osg::Vec3 const &,bool ) const)(&::osg::CollectOccludersVisitor::getDistanceToViewPoint)
+            , (float ( CollectOccludersVisitor_wrapper::* )( ::osg::Vec3 const &,bool ) const)(&CollectOccludersVisitor_wrapper::default_getDistanceToViewPoint)
             , ( bp::arg("pos"), bp::arg("withLODScale") ) )    
         .def( 
             "getMaximumNumberOfActiveOccluders"
-            , (unsigned int ( ::osg::CollectOccludersVisitor::* )(  )const)( &::osg::CollectOccludersVisitor::getMaximumNumberOfActiveOccluders ) )    
+            , (unsigned int ( ::osg::CollectOccludersVisitor::* )(  ) const)( &::osg::CollectOccludersVisitor::getMaximumNumberOfActiveOccluders ) )    
         .def( 
             "getMinimumShadowOccluderVolume"
-            , (float ( ::osg::CollectOccludersVisitor::* )(  )const)( &::osg::CollectOccludersVisitor::getMinimumShadowOccluderVolume ) )    
+            , (float ( ::osg::CollectOccludersVisitor::* )(  ) const)( &::osg::CollectOccludersVisitor::getMinimumShadowOccluderVolume ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::CollectOccludersVisitor::* )(  )const)(&::osg::CollectOccludersVisitor::libraryName)
-            , (char const * ( CollectOccludersVisitor_wrapper::* )(  )const)(&CollectOccludersVisitor_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::CollectOccludersVisitor::* )(  ) const)(&::osg::CollectOccludersVisitor::libraryName)
+            , (char const * ( CollectOccludersVisitor_wrapper::* )(  ) const)(&CollectOccludersVisitor_wrapper::default_libraryName) )    
         .def( 
             "removeOccludedOccluders"
-            , (void ( ::osg::CollectOccludersVisitor::* )(  ))( &::osg::CollectOccludersVisitor::removeOccludedOccluders )
+            , (void ( ::osg::CollectOccludersVisitor::* )(  ) )( &::osg::CollectOccludersVisitor::removeOccludedOccluders )
             , " Removes occluded occluders for the collected occluders list, then\n discards all but MaximumNumberOfActiveOccluders of occluders,\n discarding the occluders with the lowest shadow occluder volume." )    
         .def( 
             "reset"
-            , (void ( ::osg::CollectOccludersVisitor::* )(  ))(&::osg::CollectOccludersVisitor::reset)
-            , (void ( CollectOccludersVisitor_wrapper::* )(  ))(&CollectOccludersVisitor_wrapper::default_reset) )    
+            , (void ( ::osg::CollectOccludersVisitor::* )(  ) )(&::osg::CollectOccludersVisitor::reset)
+            , (void ( CollectOccludersVisitor_wrapper::* )(  ) )(&CollectOccludersVisitor_wrapper::default_reset) )    
         .def( 
             "setCollectedOccluderSet"
-            , (void ( ::osg::CollectOccludersVisitor::* )( ::std::set< osg::ShadowVolumeOccluder > const & ))( &::osg::CollectOccludersVisitor::setCollectedOccluderSet )
+            , (void ( ::osg::CollectOccludersVisitor::* )( ::std::set< osg::ShadowVolumeOccluder > const & ) )( &::osg::CollectOccludersVisitor::setCollectedOccluderSet )
             , ( bp::arg("svol") ) )    
         .def( 
             "setCreateDrawablesOnOccludeNodes"
-            , (void ( ::osg::CollectOccludersVisitor::* )( bool ))( &::osg::CollectOccludersVisitor::setCreateDrawablesOnOccludeNodes )
+            , (void ( ::osg::CollectOccludersVisitor::* )( bool ) )( &::osg::CollectOccludersVisitor::setCreateDrawablesOnOccludeNodes )
             , ( bp::arg("flag") ) )    
         .def( 
             "setMaximumNumberOfActiveOccluders"
-            , (void ( ::osg::CollectOccludersVisitor::* )( unsigned int ))( &::osg::CollectOccludersVisitor::setMaximumNumberOfActiveOccluders )
+            , (void ( ::osg::CollectOccludersVisitor::* )( unsigned int ) )( &::osg::CollectOccludersVisitor::setMaximumNumberOfActiveOccluders )
             , ( bp::arg("num") )
             , " Sets the maximum number of occluders to have active for culling\n purposes." )    
         .def( 
             "setMinimumShadowOccluderVolume"
-            , (void ( ::osg::CollectOccludersVisitor::* )( float ))( &::osg::CollectOccludersVisitor::setMinimumShadowOccluderVolume )
+            , (void ( ::osg::CollectOccludersVisitor::* )( float ) )( &::osg::CollectOccludersVisitor::setMinimumShadowOccluderVolume )
             , ( bp::arg("vol") )
             , " Sets the minimum shadow occluder volume that an active occluder\n must have. vol is units relative the clip space volume where 1.0\n is the whole clip space." )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::Geode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Geode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::Geode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Geode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::Billboard & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Billboard & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::Billboard & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Billboard & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::Group & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Group & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::Group & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Group & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::ProxyNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ProxyNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::ProxyNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ProxyNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::CoordinateSystemNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CoordinateSystemNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::CoordinateSystemNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CoordinateSystemNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::ClipNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ClipNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::ClipNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ClipNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::TexGenNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::TexGenNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::TexGenNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::TexGenNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::LightSource & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::LightSource & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::LightSource & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::LightSource & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::Camera & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Camera & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::Camera & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Camera & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::CameraView & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CameraView & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::CameraView & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CameraView & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::MatrixTransform & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::MatrixTransform & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::MatrixTransform & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::MatrixTransform & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::PositionAttitudeTransform & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::PositionAttitudeTransform & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::PositionAttitudeTransform & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::PositionAttitudeTransform & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::Sequence & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Sequence & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::Sequence & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::Sequence & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::PagedLOD & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::PagedLOD & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::PagedLOD & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::PagedLOD & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::ClearNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ClearNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::ClearNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::ClearNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::NodeVisitor::* )( ::osg::OcclusionQueryNode & ))(&::osg::NodeVisitor::apply)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::OcclusionQueryNode & ))(&CollectOccludersVisitor_wrapper::default_apply)
+            , (void ( ::osg::NodeVisitor::* )( ::osg::OcclusionQueryNode & ) )(&::osg::NodeVisitor::apply)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::OcclusionQueryNode & ) )(&CollectOccludersVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "getEyePoint"
-            , (::osg::Vec3 ( ::osg::NodeVisitor::* )(  )const)(&::osg::NodeVisitor::getEyePoint)
-            , (::osg::Vec3 ( CollectOccludersVisitor_wrapper::* )(  )const)(&CollectOccludersVisitor_wrapper::default_getEyePoint) )    
+            , (::osg::Vec3 ( ::osg::NodeVisitor::* )(  ) const)(&::osg::NodeVisitor::getEyePoint)
+            , (::osg::Vec3 ( CollectOccludersVisitor_wrapper::* )(  ) const)(&CollectOccludersVisitor_wrapper::default_getEyePoint) )    
         .def( 
             "getViewPoint"
-            , (::osg::Vec3 ( ::osg::NodeVisitor::* )(  )const)(&::osg::NodeVisitor::getViewPoint)
-            , (::osg::Vec3 ( CollectOccludersVisitor_wrapper::* )(  )const)(&CollectOccludersVisitor_wrapper::default_getViewPoint) )    
+            , (::osg::Vec3 ( ::osg::NodeVisitor::* )(  ) const)(&::osg::NodeVisitor::getViewPoint)
+            , (::osg::Vec3 ( CollectOccludersVisitor_wrapper::* )(  ) const)(&CollectOccludersVisitor_wrapper::default_getViewPoint) )    
         .def( 
             "inheritCullSettings"
-            , (void ( ::osg::CullSettings::* )( ::osg::CullSettings const & ))(&::osg::CullSettings::inheritCullSettings)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CullSettings const & ))(&CollectOccludersVisitor_wrapper::default_inheritCullSettings)
+            , (void ( ::osg::CullSettings::* )( ::osg::CullSettings const & ) )(&::osg::CullSettings::inheritCullSettings)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CullSettings const & ) )(&CollectOccludersVisitor_wrapper::default_inheritCullSettings)
             , ( bp::arg("settings") ) )    
         .def( 
             "inheritCullSettings"
-            , (void ( ::osg::CullSettings::* )( ::osg::CullSettings const &,unsigned int ))(&::osg::CullSettings::inheritCullSettings)
-            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CullSettings const &,unsigned int ))(&CollectOccludersVisitor_wrapper::default_inheritCullSettings)
+            , (void ( ::osg::CullSettings::* )( ::osg::CullSettings const &,unsigned int ) )(&::osg::CullSettings::inheritCullSettings)
+            , (void ( CollectOccludersVisitor_wrapper::* )( ::osg::CullSettings const &,unsigned int ) )(&CollectOccludersVisitor_wrapper::default_inheritCullSettings)
             , ( bp::arg("settings"), bp::arg("inheritanceMask") ) )    
         .def( 
             "setDefaults"
-            , (void ( ::osg::CullSettings::* )(  ))(&::osg::CullSettings::setDefaults)
-            , (void ( CollectOccludersVisitor_wrapper::* )(  ))(&CollectOccludersVisitor_wrapper::default_setDefaults) )    
+            , (void ( ::osg::CullSettings::* )(  ) )(&::osg::CullSettings::setDefaults)
+            , (void ( CollectOccludersVisitor_wrapper::* )(  ) )(&CollectOccludersVisitor_wrapper::default_setDefaults) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( CollectOccludersVisitor_wrapper::* )( bool ))(&CollectOccludersVisitor_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( CollectOccludersVisitor_wrapper::* )( bool ) )(&CollectOccludersVisitor_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

@@ -115,8 +115,8 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::accept
         
-            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*accept_function_type)( ::osgManipulator::DraggerCallback & ) ;
-            typedef void ( TranslateInPlaneCommand_wrapper::*default_accept_function_type)( ::osgManipulator::DraggerCallback & ) ;
+            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*accept_function_type )( ::osgManipulator::DraggerCallback & ) ;
+            typedef void ( TranslateInPlaneCommand_wrapper::*default_accept_function_type )( ::osgManipulator::DraggerCallback & ) ;
             
             TranslateInPlaneCommand_exposer.def( 
                 "accept"
@@ -127,8 +127,8 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::createCommandInverse
         
-            typedef ::osgManipulator::MotionCommand * ( ::osgManipulator::TranslateInPlaneCommand::*createCommandInverse_function_type)(  ) ;
-            typedef ::osgManipulator::MotionCommand * ( TranslateInPlaneCommand_wrapper::*default_createCommandInverse_function_type)(  ) ;
+            typedef ::osgManipulator::MotionCommand * ( ::osgManipulator::TranslateInPlaneCommand::*createCommandInverse_function_type )(  ) ;
+            typedef ::osgManipulator::MotionCommand * ( TranslateInPlaneCommand_wrapper::*default_createCommandInverse_function_type )(  ) ;
             
             TranslateInPlaneCommand_exposer.def( 
                 "createCommandInverse"
@@ -139,8 +139,8 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::getMotionMatrix
         
-            typedef ::osg::Matrix ( ::osgManipulator::TranslateInPlaneCommand::*getMotionMatrix_function_type)(  ) const;
-            typedef ::osg::Matrix ( TranslateInPlaneCommand_wrapper::*default_getMotionMatrix_function_type)(  ) const;
+            typedef ::osg::Matrix ( ::osgManipulator::TranslateInPlaneCommand::*getMotionMatrix_function_type )(  ) const;
+            typedef ::osg::Matrix ( TranslateInPlaneCommand_wrapper::*default_getMotionMatrix_function_type )(  ) const;
             
             TranslateInPlaneCommand_exposer.def( 
                 "getMotionMatrix"
@@ -150,7 +150,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::getPlane
         
-            typedef ::osg::Plane const & ( ::osgManipulator::TranslateInPlaneCommand::*getPlane_function_type)(  ) const;
+            typedef ::osg::Plane const & ( ::osgManipulator::TranslateInPlaneCommand::*getPlane_function_type )(  ) const;
             
             TranslateInPlaneCommand_exposer.def( 
                 "getPlane"
@@ -160,7 +160,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::getReferencePoint
         
-            typedef ::osg::Vec3d const & ( ::osgManipulator::TranslateInPlaneCommand::*getReferencePoint_function_type)(  ) const;
+            typedef ::osg::Vec3d const & ( ::osgManipulator::TranslateInPlaneCommand::*getReferencePoint_function_type )(  ) const;
             
             TranslateInPlaneCommand_exposer.def( 
                 "getReferencePoint"
@@ -170,7 +170,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::getTranslation
         
-            typedef ::osg::Vec3d const & ( ::osgManipulator::TranslateInPlaneCommand::*getTranslation_function_type)(  ) const;
+            typedef ::osg::Vec3d const & ( ::osgManipulator::TranslateInPlaneCommand::*getTranslation_function_type )(  ) const;
             
             TranslateInPlaneCommand_exposer.def( 
                 "getTranslation"
@@ -180,7 +180,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::setPlane
         
-            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setPlane_function_type)( ::osg::Plane const & ) ;
+            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setPlane_function_type )( ::osg::Plane const & ) ;
             
             TranslateInPlaneCommand_exposer.def( 
                 "setPlane"
@@ -190,7 +190,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::setReferencePoint
         
-            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setReferencePoint_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setReferencePoint_function_type )( ::osg::Vec3d const & ) ;
             
             TranslateInPlaneCommand_exposer.def( 
                 "setReferencePoint"
@@ -201,7 +201,7 @@ void register_TranslateInPlaneCommand_class(){
         }
         { //::osgManipulator::TranslateInPlaneCommand::setTranslation
         
-            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setTranslation_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgManipulator::TranslateInPlaneCommand::*setTranslation_function_type )( ::osg::Vec3d const & ) ;
             
             TranslateInPlaneCommand_exposer.def( 
                 "setTranslation"

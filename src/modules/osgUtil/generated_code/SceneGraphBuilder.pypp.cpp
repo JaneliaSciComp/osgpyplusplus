@@ -11,187 +11,187 @@ void register_SceneGraphBuilder_class(){
     bp::class_< osgUtil::SceneGraphBuilder >( "SceneGraphBuilder", bp::init< >() )    
         .def( 
             "Begin"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::Begin )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::Begin )
             , ( bp::arg("mode") ) )    
         .def( 
             "BlendFunc"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum,::GLenum ))( &::osgUtil::SceneGraphBuilder::BlendFunc )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum,::GLenum ) )( &::osgUtil::SceneGraphBuilder::BlendFunc )
             , ( bp::arg("srcFactor"), bp::arg("dstFactor") ) )    
         .def( 
             "Color4f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::Color4f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::Color4f )
             , ( bp::arg("red"), bp::arg("green"), bp::arg("blue"), bp::arg("alpha") ) )    
         .def( 
             "Color4fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::Color4fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::Color4fv )
             , ( bp::arg("c") ) )    
         .def( 
             "CullFace"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::CullFace )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::CullFace )
             , ( bp::arg("mode") ) )    
         .def( 
             "Cylinder"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLint,::GLint ))( &::osgUtil::SceneGraphBuilder::Cylinder )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLint,::GLint ) )( &::osgUtil::SceneGraphBuilder::Cylinder )
             , ( bp::arg("base"), bp::arg("top"), bp::arg("height"), bp::arg("slices"), bp::arg("stacks") ) )    
         .def( 
             "DepthFunc"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::DepthFunc )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::DepthFunc )
             , ( bp::arg("mode") ) )    
         .def( 
             "Disable"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::Disable )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::Disable )
             , ( bp::arg("mode") ) )    
         .def( 
             "Disk"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLint,::GLint ))( &::osgUtil::SceneGraphBuilder::Disk )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLint,::GLint ) )( &::osgUtil::SceneGraphBuilder::Disk )
             , ( bp::arg("inner"), bp::arg("outer"), bp::arg("slices"), bp::arg("loops") ) )    
         .def( 
             "Enable"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::Enable )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::Enable )
             , ( bp::arg("mode") ) )    
         .def( 
             "End"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::End ) )    
+            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::End ) )    
         .def( 
             "FrontFace"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::FrontFace )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::FrontFace )
             , ( bp::arg("mode") ) )    
         .def( 
             "LineStipple"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLint,::GLushort ))( &::osgUtil::SceneGraphBuilder::LineStipple )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLint,::GLushort ) )( &::osgUtil::SceneGraphBuilder::LineStipple )
             , ( bp::arg("factor"), bp::arg("pattern") ) )    
         .def( 
             "LineWidth"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ))( &::osgUtil::SceneGraphBuilder::LineWidth )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ) )( &::osgUtil::SceneGraphBuilder::LineWidth )
             , ( bp::arg("lineWidth") ) )    
         .def( 
             "LoadIdentity"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::LoadIdentity ) )    
+            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::LoadIdentity ) )    
         .def( 
             "LoadMatrixd"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( double const * ))( &::osgUtil::SceneGraphBuilder::LoadMatrixd )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( double const * ) )( &::osgUtil::SceneGraphBuilder::LoadMatrixd )
             , ( bp::arg("m") ) )    
         .def( 
             "MultMatrixd"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( double const * ))( &::osgUtil::SceneGraphBuilder::MultMatrixd )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( double const * ) )( &::osgUtil::SceneGraphBuilder::MultMatrixd )
             , ( bp::arg("m") ) )    
         .def( 
             "Normal3f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::Normal3f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::Normal3f )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "Normal3fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::Normal3fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::Normal3fv )
             , ( bp::arg("n") ) )    
         .def( 
             "PartialDisk"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLint,::GLint,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::PartialDisk )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLint,::GLint,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::PartialDisk )
             , ( bp::arg("inner"), bp::arg("outer"), bp::arg("slices"), bp::arg("loops"), bp::arg("start"), bp::arg("sweep") ) )    
         .def( 
             "PointSize"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ))( &::osgUtil::SceneGraphBuilder::PointSize )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ) )( &::osgUtil::SceneGraphBuilder::PointSize )
             , ( bp::arg("pointSize") ) )    
         .def( 
             "PolygonMode"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum,::GLenum ))( &::osgUtil::SceneGraphBuilder::PolygonMode )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum,::GLenum ) )( &::osgUtil::SceneGraphBuilder::PolygonMode )
             , ( bp::arg("face"), bp::arg("mode") ) )    
         .def( 
             "PolygonOffset"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::PolygonOffset )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::PolygonOffset )
             , ( bp::arg("factor"), bp::arg("units") ) )    
         .def( 
             "PolygonStipple"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLubyte const * ))( &::osgUtil::SceneGraphBuilder::PolygonStipple )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLubyte const * ) )( &::osgUtil::SceneGraphBuilder::PolygonStipple )
             , ( bp::arg("mask") ) )    
         .def( 
             "PopMatrix"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::PopMatrix ) )    
+            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::PopMatrix ) )    
         .def( 
             "PushMatrix"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::PushMatrix ) )    
+            , (void ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::PushMatrix ) )    
         .def( 
             "QuadricDrawStyle"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::QuadricDrawStyle )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::QuadricDrawStyle )
             , ( bp::arg("aDrawStyle") ) )    
         .def( 
             "QuadricNormals"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::QuadricNormals )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::QuadricNormals )
             , ( bp::arg("aNormals") ) )    
         .def( 
             "QuadricOrientation"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::QuadricOrientation )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::QuadricOrientation )
             , ( bp::arg("aOrientation") ) )    
         .def( 
             "QuadricTexture"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLboolean ))( &::osgUtil::SceneGraphBuilder::QuadricTexture )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLboolean ) )( &::osgUtil::SceneGraphBuilder::QuadricTexture )
             , ( bp::arg("aTexture") ) )    
         .def( 
             "Rotated"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double,double ))( &::osgUtil::SceneGraphBuilder::Rotated )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double,double ) )( &::osgUtil::SceneGraphBuilder::Rotated )
             , ( bp::arg("angle"), bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "Scaled"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double ))( &::osgUtil::SceneGraphBuilder::Scaled )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double ) )( &::osgUtil::SceneGraphBuilder::Scaled )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "ShadeModel"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ))( &::osgUtil::SceneGraphBuilder::ShadeModel )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLenum ) )( &::osgUtil::SceneGraphBuilder::ShadeModel )
             , ( bp::arg("mode") ) )    
         .def( 
             "Sphere"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLint,::GLint ))( &::osgUtil::SceneGraphBuilder::Sphere )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLint,::GLint ) )( &::osgUtil::SceneGraphBuilder::Sphere )
             , ( bp::arg("radius"), bp::arg("slices"), bp::arg("stacks") ) )    
         .def( 
             "TexCoord1f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ))( &::osgUtil::SceneGraphBuilder::TexCoord1f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat ) )( &::osgUtil::SceneGraphBuilder::TexCoord1f )
             , ( bp::arg("x") ) )    
         .def( 
             "TexCoord1fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::TexCoord1fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::TexCoord1fv )
             , ( bp::arg("tc") ) )    
         .def( 
             "TexCoord2f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::TexCoord2f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::TexCoord2f )
             , ( bp::arg("x"), bp::arg("y") ) )    
         .def( 
             "TexCoord2fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::TexCoord2fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::TexCoord2fv )
             , ( bp::arg("tc") ) )    
         .def( 
             "TexCoord3f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::TexCoord3f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::TexCoord3f )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "TexCoord3fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::TexCoord3fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::TexCoord3fv )
             , ( bp::arg("tc") ) )    
         .def( 
             "TexCoord4f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::TexCoord4f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::TexCoord4f )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z"), bp::arg("w") ) )    
         .def( 
             "TexCoord4fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::TexCoord4fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::TexCoord4fv )
             , ( bp::arg("tc") ) )    
         .def( 
             "Translated"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double ))( &::osgUtil::SceneGraphBuilder::Translated )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( double,double,double ) )( &::osgUtil::SceneGraphBuilder::Translated )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "Vertex3f"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ))( &::osgUtil::SceneGraphBuilder::Vertex3f )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat,::GLfloat,::GLfloat ) )( &::osgUtil::SceneGraphBuilder::Vertex3f )
             , ( bp::arg("x"), bp::arg("y"), bp::arg("z") ) )    
         .def( 
             "Vertex3fv"
-            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ))( &::osgUtil::SceneGraphBuilder::Vertex3fv )
+            , (void ( ::osgUtil::SceneGraphBuilder::* )( ::GLfloat * ) )( &::osgUtil::SceneGraphBuilder::Vertex3fv )
             , ( bp::arg("v") ) )    
         .def( 
             "getScene"
-            , (::osg::Node * ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::getScene )
+            , (::osg::Node * ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::getScene )
             , bp::return_internal_reference< >() )    
         .def( 
             "takeScene"
-            , (::osg::Node * ( ::osgUtil::SceneGraphBuilder::* )(  ))( &::osgUtil::SceneGraphBuilder::takeScene )
+            , (::osg::Node * ( ::osgUtil::SceneGraphBuilder::* )(  ) )( &::osgUtil::SceneGraphBuilder::takeScene )
             , bp::return_internal_reference< >() );
 
 }

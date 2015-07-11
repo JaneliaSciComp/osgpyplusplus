@@ -431,8 +431,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::QueryGeometry::drawImplementation
         
-            typedef void ( ::osg::QueryGeometry::*drawImplementation_function_type)( ::osg::RenderInfo & ) const;
-            typedef void ( QueryGeometry_wrapper::*default_drawImplementation_function_type)( ::osg::RenderInfo & ) const;
+            typedef void ( ::osg::QueryGeometry::*drawImplementation_function_type )( ::osg::RenderInfo & ) const;
+            typedef void ( QueryGeometry_wrapper::*default_drawImplementation_function_type )( ::osg::RenderInfo & ) const;
             
             QueryGeometry_exposer.def( 
                 "drawImplementation"
@@ -453,7 +453,7 @@ void register_QueryGeometry_class(){
         }
         { //::osg::QueryGeometry::getNumPixels
         
-            typedef unsigned int ( ::osg::QueryGeometry::*getNumPixels_function_type)( ::osg::Camera const * ) ;
+            typedef unsigned int ( ::osg::QueryGeometry::*getNumPixels_function_type )( ::osg::Camera const * ) ;
             
             QueryGeometry_exposer.def( 
                 "getNumPixels"
@@ -463,7 +463,7 @@ void register_QueryGeometry_class(){
         }
         { //::osg::QueryGeometry::reset
         
-            typedef void ( ::osg::QueryGeometry::*reset_function_type)(  ) ;
+            typedef void ( ::osg::QueryGeometry::*reset_function_type )(  ) ;
             
             QueryGeometry_exposer.def( 
                 "reset"
@@ -472,8 +472,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::accept
         
-            typedef void ( ::osg::Geometry::*accept_function_type)( ::osg::Drawable::AttributeFunctor & ) ;
-            typedef void ( QueryGeometry_wrapper::*default_accept_function_type)( ::osg::Drawable::AttributeFunctor & ) ;
+            typedef void ( ::osg::Geometry::*accept_function_type )( ::osg::Drawable::AttributeFunctor & ) ;
+            typedef void ( QueryGeometry_wrapper::*default_accept_function_type )( ::osg::Drawable::AttributeFunctor & ) ;
             
             QueryGeometry_exposer.def( 
                 "accept"
@@ -484,8 +484,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::accept
         
-            typedef void ( ::osg::Geometry::*accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
-            typedef void ( QueryGeometry_wrapper::*default_accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( ::osg::Geometry::*accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( QueryGeometry_wrapper::*default_accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
             
             QueryGeometry_exposer.def( 
                 "accept"
@@ -496,8 +496,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::accept
         
-            typedef void ( ::osg::Geometry::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( QueryGeometry_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osg::Geometry::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( QueryGeometry_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
             
             QueryGeometry_exposer.def( 
                 "accept"
@@ -508,8 +508,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::accept
         
-            typedef void ( ::osg::Geometry::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
-            typedef void ( QueryGeometry_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( ::osg::Geometry::*accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( QueryGeometry_wrapper::*default_accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
             
             QueryGeometry_exposer.def( 
                 "accept"
@@ -520,8 +520,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::asGeometry
         
-            typedef ::osg::Geometry * ( ::osg::Geometry::*asGeometry_function_type)(  ) ;
-            typedef ::osg::Geometry * ( QueryGeometry_wrapper::*default_asGeometry_function_type)(  ) ;
+            typedef ::osg::Geometry * ( ::osg::Geometry::*asGeometry_function_type )(  ) ;
+            typedef ::osg::Geometry * ( QueryGeometry_wrapper::*default_asGeometry_function_type )(  ) ;
             
             QueryGeometry_exposer.def( 
                 "asGeometry"
@@ -532,8 +532,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::asGeometry
         
-            typedef ::osg::Geometry const * ( ::osg::Geometry::*asGeometry_function_type)(  ) const;
-            typedef ::osg::Geometry const * ( QueryGeometry_wrapper::*default_asGeometry_function_type)(  ) const;
+            typedef ::osg::Geometry const * ( ::osg::Geometry::*asGeometry_function_type )(  ) const;
+            typedef ::osg::Geometry const * ( QueryGeometry_wrapper::*default_asGeometry_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "asGeometry"
@@ -544,8 +544,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::className
         
-            typedef char const * ( ::osg::Geometry::*className_function_type)(  ) const;
-            typedef char const * ( QueryGeometry_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Geometry::*className_function_type )(  ) const;
+            typedef char const * ( QueryGeometry_wrapper::*default_className_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "className"
@@ -555,8 +555,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::clone
         
-            typedef ::osg::Object * ( ::osg::Geometry::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( QueryGeometry_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Geometry::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( QueryGeometry_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             QueryGeometry_exposer.def( 
                 "clone"
@@ -568,8 +568,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::cloneType
         
-            typedef ::osg::Object * ( ::osg::Geometry::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( QueryGeometry_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Geometry::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( QueryGeometry_wrapper::*default_cloneType_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "cloneType"
@@ -580,8 +580,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::compileGLObjects
         
-            typedef void ( ::osg::Geometry::*compileGLObjects_function_type)( ::osg::RenderInfo & ) const;
-            typedef void ( QueryGeometry_wrapper::*default_compileGLObjects_function_type)( ::osg::RenderInfo & ) const;
+            typedef void ( ::osg::Geometry::*compileGLObjects_function_type )( ::osg::RenderInfo & ) const;
+            typedef void ( QueryGeometry_wrapper::*default_compileGLObjects_function_type )( ::osg::RenderInfo & ) const;
             
             QueryGeometry_exposer.def( 
                 "compileGLObjects"
@@ -592,8 +592,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::computeBound
         
-            typedef ::osg::BoundingBox ( ::osg::Drawable::*computeBound_function_type)(  ) const;
-            typedef ::osg::BoundingBox ( QueryGeometry_wrapper::*default_computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingBox ( ::osg::Drawable::*computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingBox ( QueryGeometry_wrapper::*default_computeBound_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "computeBound"
@@ -603,8 +603,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::computeDataVariance
         
-            typedef void ( ::osg::Drawable::*computeDataVariance_function_type)(  ) ;
-            typedef void ( QueryGeometry_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Drawable::*computeDataVariance_function_type )(  ) ;
+            typedef void ( QueryGeometry_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             QueryGeometry_exposer.def( 
                 "computeDataVariance"
@@ -614,8 +614,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::dirtyDisplayList
         
-            typedef void ( ::osg::Geometry::*dirtyDisplayList_function_type)(  ) ;
-            typedef void ( QueryGeometry_wrapper::*default_dirtyDisplayList_function_type)(  ) ;
+            typedef void ( ::osg::Geometry::*dirtyDisplayList_function_type )(  ) ;
+            typedef void ( QueryGeometry_wrapper::*default_dirtyDisplayList_function_type )(  ) ;
             
             QueryGeometry_exposer.def( 
                 "dirtyDisplayList"
@@ -625,8 +625,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::getGLObjectSizeHint
         
-            typedef unsigned int ( ::osg::Geometry::*getGLObjectSizeHint_function_type)(  ) const;
-            typedef unsigned int ( QueryGeometry_wrapper::*default_getGLObjectSizeHint_function_type)(  ) const;
+            typedef unsigned int ( ::osg::Geometry::*getGLObjectSizeHint_function_type )(  ) const;
+            typedef unsigned int ( QueryGeometry_wrapper::*default_getGLObjectSizeHint_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "getGLObjectSizeHint"
@@ -636,8 +636,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( QueryGeometry_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( QueryGeometry_wrapper::*default_getUserData_function_type )(  ) ;
             
             QueryGeometry_exposer.def( 
                 "getUserData"
@@ -648,8 +648,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( QueryGeometry_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( QueryGeometry_wrapper::*default_getUserData_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "getUserData"
@@ -660,8 +660,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::isSameKindAs
         
-            typedef bool ( ::osg::Geometry::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( QueryGeometry_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Geometry::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( QueryGeometry_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             QueryGeometry_exposer.def( 
                 "isSameKindAs"
@@ -672,8 +672,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::libraryName
         
-            typedef char const * ( ::osg::Geometry::*libraryName_function_type)(  ) const;
-            typedef char const * ( QueryGeometry_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Geometry::*libraryName_function_type )(  ) const;
+            typedef char const * ( QueryGeometry_wrapper::*default_libraryName_function_type )(  ) const;
             
             QueryGeometry_exposer.def( 
                 "libraryName"
@@ -683,8 +683,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Geometry::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( QueryGeometry_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::Geometry::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( QueryGeometry_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             QueryGeometry_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -695,8 +695,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::setCullCallback
         
-            typedef void ( ::osg::Drawable::*setCullCallback_function_type)( ::osg::Drawable::CullCallback * ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setCullCallback_function_type)( ::osg::Drawable::CullCallback * ) ;
+            typedef void ( ::osg::Drawable::*setCullCallback_function_type )( ::osg::Drawable::CullCallback * ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setCullCallback_function_type )( ::osg::Drawable::CullCallback * ) ;
             
             QueryGeometry_exposer.def( 
                 "setCullCallback"
@@ -707,8 +707,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::setDrawCallback
         
-            typedef void ( ::osg::Drawable::*setDrawCallback_function_type)( ::osg::Drawable::DrawCallback * ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setDrawCallback_function_type)( ::osg::Drawable::DrawCallback * ) ;
+            typedef void ( ::osg::Drawable::*setDrawCallback_function_type )( ::osg::Drawable::DrawCallback * ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setDrawCallback_function_type )( ::osg::Drawable::DrawCallback * ) ;
             
             QueryGeometry_exposer.def( 
                 "setDrawCallback"
@@ -719,8 +719,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::setEventCallback
         
-            typedef void ( ::osg::Drawable::*setEventCallback_function_type)( ::osg::Drawable::EventCallback * ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setEventCallback_function_type)( ::osg::Drawable::EventCallback * ) ;
+            typedef void ( ::osg::Drawable::*setEventCallback_function_type )( ::osg::Drawable::EventCallback * ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setEventCallback_function_type )( ::osg::Drawable::EventCallback * ) ;
             
             QueryGeometry_exposer.def( 
                 "setEventCallback"
@@ -731,8 +731,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             QueryGeometry_exposer.def( 
                 "setName"
@@ -743,7 +743,7 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             QueryGeometry_exposer.def( 
                 "setName"
@@ -754,8 +754,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Drawable::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Drawable::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             QueryGeometry_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -766,8 +766,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Drawable::setUpdateCallback
         
-            typedef void ( ::osg::Drawable::*setUpdateCallback_function_type)( ::osg::Drawable::UpdateCallback * ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setUpdateCallback_function_type)( ::osg::Drawable::UpdateCallback * ) ;
+            typedef void ( ::osg::Drawable::*setUpdateCallback_function_type )( ::osg::Drawable::UpdateCallback * ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setUpdateCallback_function_type )( ::osg::Drawable::UpdateCallback * ) ;
             
             QueryGeometry_exposer.def( 
                 "setUpdateCallback"
@@ -778,8 +778,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::setUseVertexBufferObjects
         
-            typedef void ( ::osg::Geometry::*setUseVertexBufferObjects_function_type)( bool ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setUseVertexBufferObjects_function_type)( bool ) ;
+            typedef void ( ::osg::Geometry::*setUseVertexBufferObjects_function_type )( bool ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setUseVertexBufferObjects_function_type )( bool ) ;
             
             QueryGeometry_exposer.def( 
                 "setUseVertexBufferObjects"
@@ -790,8 +790,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( QueryGeometry_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( QueryGeometry_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             QueryGeometry_exposer.def( 
                 "setUserData"
@@ -802,8 +802,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::supports
         
-            typedef bool ( ::osg::Geometry::*supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
-            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( ::osg::Geometry::*supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
             
             QueryGeometry_exposer.def( 
                 "supports"
@@ -814,8 +814,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::supports
         
-            typedef bool ( ::osg::Geometry::*supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
-            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( ::osg::Geometry::*supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
             
             QueryGeometry_exposer.def( 
                 "supports"
@@ -826,8 +826,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::supports
         
-            typedef bool ( ::osg::Geometry::*supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
-            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( ::osg::Geometry::*supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
             
             QueryGeometry_exposer.def( 
                 "supports"
@@ -838,8 +838,8 @@ void register_QueryGeometry_class(){
         }
         { //::osg::Geometry::supports
         
-            typedef bool ( ::osg::Geometry::*supports_function_type)( ::osg::PrimitiveIndexFunctor const & ) const;
-            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type)( ::osg::PrimitiveIndexFunctor const & ) const;
+            typedef bool ( ::osg::Geometry::*supports_function_type )( ::osg::PrimitiveIndexFunctor const & ) const;
+            typedef bool ( QueryGeometry_wrapper::*default_supports_function_type )( ::osg::PrimitiveIndexFunctor const & ) const;
             
             QueryGeometry_exposer.def( 
                 "supports"

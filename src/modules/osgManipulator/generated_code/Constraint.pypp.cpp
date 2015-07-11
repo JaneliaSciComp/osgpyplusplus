@@ -112,38 +112,38 @@ void register_Constraint_class(){
     bp::class_< Constraint_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgManipulator::Constraint >, boost::noncopyable >( "Constraint", bp::no_init )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::MotionCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::MotionCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::MotionCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::MotionCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("arg0") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::TranslateInLineCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::TranslateInLineCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::TranslateInLineCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::TranslateInLineCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::TranslateInPlaneCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::TranslateInPlaneCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::TranslateInPlaneCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::TranslateInPlaneCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Scale1DCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Scale1DCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Scale1DCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Scale1DCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Scale2DCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Scale2DCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Scale2DCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Scale2DCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::ScaleUniformCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::ScaleUniformCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::ScaleUniformCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::ScaleUniformCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Rotate3DCommand & )const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Rotate3DCommand & )const)(&Constraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Rotate3DCommand & ) const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( Constraint_wrapper::* )( ::osgManipulator::Rotate3DCommand & ) const)(&Constraint_wrapper::default_constrain)
             , ( bp::arg("command") ) );
 
 }

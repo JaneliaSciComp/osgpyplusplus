@@ -407,8 +407,8 @@ void register_ShaderGenVisitor_class(){
         bp::implicitly_convertible< osgUtil::ShaderGenCache *, osgUtil::ShaderGenVisitor >();
         { //::osgUtil::ShaderGenVisitor::apply
         
-            typedef void ( ::osgUtil::ShaderGenVisitor::*apply_function_type)( ::osg::Node & ) ;
-            typedef void ( ShaderGenVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::ShaderGenVisitor::*apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ShaderGenVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
             
             ShaderGenVisitor_exposer.def( 
                 "apply"
@@ -419,8 +419,8 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::apply
         
-            typedef void ( ::osgUtil::ShaderGenVisitor::*apply_function_type)( ::osg::Geode & ) ;
-            typedef void ( ShaderGenVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::ShaderGenVisitor::*apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ShaderGenVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
             
             ShaderGenVisitor_exposer.def( 
                 "apply"
@@ -431,7 +431,7 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::getRootStateSet
         
-            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenVisitor::*getRootStateSet_function_type)(  ) const;
+            typedef ::osg::StateSet * ( ::osgUtil::ShaderGenVisitor::*getRootStateSet_function_type )(  ) const;
             
             ShaderGenVisitor_exposer.def( 
                 "getRootStateSet"
@@ -441,7 +441,7 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::getStateCache
         
-            typedef ::osgUtil::ShaderGenCache * ( ::osgUtil::ShaderGenVisitor::*getStateCache_function_type)(  ) const;
+            typedef ::osgUtil::ShaderGenCache * ( ::osgUtil::ShaderGenVisitor::*getStateCache_function_type )(  ) const;
             
             ShaderGenVisitor_exposer.def( 
                 "getStateCache"
@@ -451,8 +451,8 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::reset
         
-            typedef void ( ::osgUtil::ShaderGenVisitor::*reset_function_type)(  ) ;
-            typedef void ( ShaderGenVisitor_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::ShaderGenVisitor::*reset_function_type )(  ) ;
+            typedef void ( ShaderGenVisitor_wrapper::*default_reset_function_type )(  ) ;
             
             ShaderGenVisitor_exposer.def( 
                 "reset"
@@ -462,7 +462,7 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::setRootStateSet
         
-            typedef void ( ::osgUtil::ShaderGenVisitor::*setRootStateSet_function_type)( ::osg::StateSet * ) ;
+            typedef void ( ::osgUtil::ShaderGenVisitor::*setRootStateSet_function_type )( ::osg::StateSet * ) ;
             
             ShaderGenVisitor_exposer.def( 
                 "setRootStateSet"
@@ -472,7 +472,7 @@ void register_ShaderGenVisitor_class(){
         }
         { //::osgUtil::ShaderGenVisitor::setStateCache
         
-            typedef void ( ::osgUtil::ShaderGenVisitor::*setStateCache_function_type)( ::osgUtil::ShaderGenCache * ) ;
+            typedef void ( ::osgUtil::ShaderGenVisitor::*setStateCache_function_type )( ::osgUtil::ShaderGenCache * ) ;
             
             ShaderGenVisitor_exposer.def( 
                 "setStateCache"

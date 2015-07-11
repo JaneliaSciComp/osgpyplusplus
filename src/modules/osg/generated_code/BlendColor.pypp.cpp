@@ -319,7 +319,7 @@ void register_BlendColor_class(){
             bp::implicitly_convertible< unsigned int, osg::BlendColor::Extensions >();
             { //::osg::BlendColor::Extensions::glBlendColor
             
-                typedef void ( ::osg::BlendColor::Extensions::*glBlendColor_function_type)( ::GLclampf,::GLclampf,::GLclampf,::GLclampf ) const;
+                typedef void ( ::osg::BlendColor::Extensions::*glBlendColor_function_type )( ::GLclampf,::GLclampf,::GLclampf,::GLclampf ) const;
                 
                 Extensions_exposer.def( 
                     "glBlendColor"
@@ -329,7 +329,7 @@ void register_BlendColor_class(){
             }
             { //::osg::BlendColor::Extensions::isBlendColorSupported
             
-                typedef bool ( ::osg::BlendColor::Extensions::*isBlendColorSupported_function_type)(  ) const;
+                typedef bool ( ::osg::BlendColor::Extensions::*isBlendColorSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isBlendColorSupported"
@@ -348,7 +348,7 @@ void register_BlendColor_class(){
             }
             { //::osg::BlendColor::Extensions::setBlendColorSupported
             
-                typedef void ( ::osg::BlendColor::Extensions::*setBlendColorSupported_function_type)( bool ) ;
+                typedef void ( ::osg::BlendColor::Extensions::*setBlendColorSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setBlendColorSupported"
@@ -358,7 +358,7 @@ void register_BlendColor_class(){
             }
             { //::osg::BlendColor::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::BlendColor::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::BlendColor::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -368,8 +368,8 @@ void register_BlendColor_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( BlendColor_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( BlendColor_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -384,8 +384,8 @@ void register_BlendColor_class(){
         bp::implicitly_convertible< osg::Vec4 const &, osg::BlendColor >();
         { //::osg::BlendColor::apply
         
-            typedef void ( ::osg::BlendColor::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( BlendColor_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::BlendColor::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( BlendColor_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             BlendColor_exposer.def( 
                 "apply"
@@ -396,8 +396,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::className
         
-            typedef char const * ( ::osg::BlendColor::*className_function_type)(  ) const;
-            typedef char const * ( BlendColor_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::BlendColor::*className_function_type )(  ) const;
+            typedef char const * ( BlendColor_wrapper::*default_className_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "className"
@@ -407,8 +407,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::clone
         
-            typedef ::osg::Object * ( ::osg::BlendColor::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( BlendColor_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::BlendColor::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( BlendColor_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             BlendColor_exposer.def( 
                 "clone"
@@ -420,8 +420,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::cloneType
         
-            typedef ::osg::Object * ( ::osg::BlendColor::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( BlendColor_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::BlendColor::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( BlendColor_wrapper::*default_cloneType_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "cloneType"
@@ -432,7 +432,7 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::getConstantColor
         
-            typedef ::osg::Vec4 & ( ::osg::BlendColor::*getConstantColor_function_type)(  ) ;
+            typedef ::osg::Vec4 & ( ::osg::BlendColor::*getConstantColor_function_type )(  ) ;
             
             BlendColor_exposer.def( 
                 "getConstantColor"
@@ -442,7 +442,7 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::getConstantColor
         
-            typedef ::osg::Vec4 const & ( ::osg::BlendColor::*getConstantColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::BlendColor::*getConstantColor_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "getConstantColor"
@@ -464,8 +464,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::getModeUsage
         
-            typedef bool ( ::osg::BlendColor::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( BlendColor_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::BlendColor::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( BlendColor_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             BlendColor_exposer.def( 
                 "getModeUsage"
@@ -476,8 +476,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::BlendColor::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( BlendColor_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::BlendColor::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( BlendColor_wrapper::*default_getType_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "getType"
@@ -487,8 +487,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::isSameKindAs
         
-            typedef bool ( ::osg::BlendColor::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( BlendColor_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::BlendColor::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( BlendColor_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             BlendColor_exposer.def( 
                 "isSameKindAs"
@@ -499,8 +499,8 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::libraryName
         
-            typedef char const * ( ::osg::BlendColor::*libraryName_function_type)(  ) const;
-            typedef char const * ( BlendColor_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::BlendColor::*libraryName_function_type )(  ) const;
+            typedef char const * ( BlendColor_wrapper::*default_libraryName_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "libraryName"
@@ -510,7 +510,7 @@ void register_BlendColor_class(){
         }
         { //::osg::BlendColor::setConstantColor
         
-            typedef void ( ::osg::BlendColor::*setConstantColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::BlendColor::*setConstantColor_function_type )( ::osg::Vec4 const & ) ;
             
             BlendColor_exposer.def( 
                 "setConstantColor"
@@ -531,8 +531,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( BlendColor_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( BlendColor_wrapper::*default_asTexture_function_type )(  ) ;
             
             BlendColor_exposer.def( 
                 "asTexture"
@@ -543,8 +543,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( BlendColor_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( BlendColor_wrapper::*default_asTexture_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "asTexture"
@@ -555,8 +555,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( BlendColor_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( BlendColor_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             BlendColor_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -567,8 +567,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( BlendColor_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( BlendColor_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             BlendColor_exposer.def( 
                 "compileGLObjects"
@@ -579,8 +579,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( BlendColor_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( BlendColor_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             BlendColor_exposer.def( 
                 "computeDataVariance"
@@ -590,8 +590,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( BlendColor_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( BlendColor_wrapper::*default_getMember_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "getMember"
@@ -601,8 +601,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( BlendColor_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( BlendColor_wrapper::*default_getUserData_function_type )(  ) ;
             
             BlendColor_exposer.def( 
                 "getUserData"
@@ -613,8 +613,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( BlendColor_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( BlendColor_wrapper::*default_getUserData_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "getUserData"
@@ -625,8 +625,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( BlendColor_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( BlendColor_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             BlendColor_exposer.def( 
                 "isTextureAttribute"
@@ -636,8 +636,8 @@ void register_BlendColor_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( BlendColor_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( BlendColor_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             BlendColor_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -648,8 +648,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( BlendColor_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( BlendColor_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             BlendColor_exposer.def( 
                 "setName"
@@ -660,7 +660,7 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             BlendColor_exposer.def( 
                 "setName"
@@ -671,8 +671,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( BlendColor_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( BlendColor_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             BlendColor_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -683,8 +683,8 @@ void register_BlendColor_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( BlendColor_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( BlendColor_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             BlendColor_exposer.def( 
                 "setUserData"

@@ -36,20 +36,20 @@ void register_CommandManager_class(){
         .def( bp::init< >("\n Deprecated.\n CommandManager class is now no longer required as Dragger now matains all references to Constraints and Selections (now just generic MatrixTransforms).\n To replace CommandManager usage simple replace cmdMgr->connect(*dragger, *selection) with dragger->addTransformUpdating(selection) and\n cmdMgr->connect(*dragger, *selection) with dragger->addConstaint(constraint).\n") )    
         .def( 
             "connect"
-            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger &,::osgManipulator::Selection & ))( &::osgManipulator::CommandManager::connect )
+            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger &,::osgManipulator::Selection & ) )( &::osgManipulator::CommandManager::connect )
             , ( bp::arg("dragger"), bp::arg("selection") )
             , " Deprecated.\n CommandManager class is now no longer required as Dragger now matains all references to Constraints and Selections (now just generic MatrixTransforms).\n To replace CommandManager usage simple replace cmdMgr->connect(*dragger, *selection) with dragger->addTransformUpdating(selection) and\n cmdMgr->connect(*dragger, *selection) with dragger->addConstaint(constraint)." )    
         .def( 
             "connect"
-            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger &,::osgManipulator::Constraint & ))( &::osgManipulator::CommandManager::connect )
+            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger &,::osgManipulator::Constraint & ) )( &::osgManipulator::CommandManager::connect )
             , ( bp::arg("dragger"), bp::arg("constraint") ) )    
         .def( 
             "disconnect"
-            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger & ))( &::osgManipulator::CommandManager::disconnect )
+            , (bool ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger & ) )( &::osgManipulator::CommandManager::disconnect )
             , ( bp::arg("dragger") ) )    
         .def( 
             "getConnectedSelections"
-            , (::std::list< osg::ref_ptr<osg::MatrixTransform> > ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger & ))( &::osgManipulator::CommandManager::getConnectedSelections )
+            , (::std::list< osg::ref_ptr<osg::MatrixTransform> > ( ::osgManipulator::CommandManager::* )( ::osgManipulator::Dragger & ) )( &::osgManipulator::CommandManager::getConnectedSelections )
             , ( bp::arg("dragger") ) );
 
 }

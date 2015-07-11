@@ -312,7 +312,7 @@ void register_FragmentProgram_class(){
             bp::implicitly_convertible< unsigned int, osg::FragmentProgram::Extensions >();
             { //::osg::FragmentProgram::Extensions::glBindProgram
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*glBindProgram_function_type)( ::GLenum,::GLuint ) const;
+                typedef void ( ::osg::FragmentProgram::Extensions::*glBindProgram_function_type )( ::GLenum,::GLuint ) const;
                 
                 Extensions_exposer.def( 
                     "glBindProgram"
@@ -322,7 +322,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::glDeletePrograms
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*glDeletePrograms_function_type)( ::GLsizei,::GLuint * ) const;
+                typedef void ( ::osg::FragmentProgram::Extensions::*glDeletePrograms_function_type )( ::GLsizei,::GLuint * ) const;
                 
                 Extensions_exposer.def( 
                     "glDeletePrograms"
@@ -332,7 +332,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::glGenPrograms
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*glGenPrograms_function_type)( ::GLsizei,::GLuint * ) const;
+                typedef void ( ::osg::FragmentProgram::Extensions::*glGenPrograms_function_type )( ::GLsizei,::GLuint * ) const;
                 
                 Extensions_exposer.def( 
                     "glGenPrograms"
@@ -342,7 +342,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::glProgramLocalParameter4fv
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*glProgramLocalParameter4fv_function_type)( ::GLenum,::GLuint,::GLfloat const * ) const;
+                typedef void ( ::osg::FragmentProgram::Extensions::*glProgramLocalParameter4fv_function_type )( ::GLenum,::GLuint,::GLfloat const * ) const;
                 
                 Extensions_exposer.def( 
                     "glProgramLocalParameter4fv"
@@ -352,7 +352,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::glProgramString
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*glProgramString_function_type)( ::GLenum,::GLenum,::GLsizei,void const * ) const;
+                typedef void ( ::osg::FragmentProgram::Extensions::*glProgramString_function_type )( ::GLenum,::GLenum,::GLsizei,void const * ) const;
                 
                 Extensions_exposer.def( 
                     "glProgramString"
@@ -362,7 +362,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::isFragmentProgramSupported
             
-                typedef bool ( ::osg::FragmentProgram::Extensions::*isFragmentProgramSupported_function_type)(  ) const;
+                typedef bool ( ::osg::FragmentProgram::Extensions::*isFragmentProgramSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isFragmentProgramSupported"
@@ -381,7 +381,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::setFragmentProgramSupported
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*setFragmentProgramSupported_function_type)( bool ) ;
+                typedef void ( ::osg::FragmentProgram::Extensions::*setFragmentProgramSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setFragmentProgramSupported"
@@ -391,7 +391,7 @@ void register_FragmentProgram_class(){
             }
             { //::osg::FragmentProgram::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::FragmentProgram::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::FragmentProgram::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -401,8 +401,8 @@ void register_FragmentProgram_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( FragmentProgram_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( FragmentProgram_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -415,8 +415,8 @@ void register_FragmentProgram_class(){
         FragmentProgram_exposer.def( bp::init< >("\n FragmentProgram - encapsulates the OpenGL ARB fragment program state.\n") );
         { //::osg::FragmentProgram::apply
         
-            typedef void ( ::osg::FragmentProgram::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( FragmentProgram_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::FragmentProgram::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( FragmentProgram_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             FragmentProgram_exposer.def( 
                 "apply"
@@ -427,8 +427,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::className
         
-            typedef char const * ( ::osg::FragmentProgram::*className_function_type)(  ) const;
-            typedef char const * ( FragmentProgram_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::FragmentProgram::*className_function_type )(  ) const;
+            typedef char const * ( FragmentProgram_wrapper::*default_className_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "className"
@@ -438,8 +438,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::clone
         
-            typedef ::osg::Object * ( ::osg::FragmentProgram::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( FragmentProgram_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::FragmentProgram::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( FragmentProgram_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             FragmentProgram_exposer.def( 
                 "clone"
@@ -451,8 +451,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::cloneType
         
-            typedef ::osg::Object * ( ::osg::FragmentProgram::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( FragmentProgram_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::FragmentProgram::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( FragmentProgram_wrapper::*default_cloneType_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "cloneType"
@@ -463,8 +463,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::compileGLObjects
         
-            typedef void ( ::osg::FragmentProgram::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( FragmentProgram_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::FragmentProgram::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( FragmentProgram_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             FragmentProgram_exposer.def( 
                 "compileGLObjects"
@@ -486,7 +486,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::dirtyFragmentProgramObject
         
-            typedef void ( ::osg::FragmentProgram::*dirtyFragmentProgramObject_function_type)(  ) ;
+            typedef void ( ::osg::FragmentProgram::*dirtyFragmentProgramObject_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "dirtyFragmentProgramObject"
@@ -530,7 +530,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getFragmentProgram
         
-            typedef ::std::string const & ( ::osg::FragmentProgram::*getFragmentProgram_function_type)(  ) const;
+            typedef ::std::string const & ( ::osg::FragmentProgram::*getFragmentProgram_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getFragmentProgram"
@@ -541,7 +541,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getFragmentProgramID
         
-            typedef ::GLuint & ( ::osg::FragmentProgram::*getFragmentProgramID_function_type)( unsigned int ) const;
+            typedef ::GLuint & ( ::osg::FragmentProgram::*getFragmentProgramID_function_type )( unsigned int ) const;
             
             FragmentProgram_exposer.def( 
                 "getFragmentProgramID"
@@ -553,7 +553,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getLocalParameters
         
-            typedef ::std::map< unsigned int, osg::Vec4f > & ( ::osg::FragmentProgram::*getLocalParameters_function_type)(  ) ;
+            typedef ::std::map< unsigned int, osg::Vec4f > & ( ::osg::FragmentProgram::*getLocalParameters_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "getLocalParameters"
@@ -564,7 +564,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getLocalParameters
         
-            typedef ::std::map< unsigned int, osg::Vec4f > const & ( ::osg::FragmentProgram::*getLocalParameters_function_type)(  ) const;
+            typedef ::std::map< unsigned int, osg::Vec4f > const & ( ::osg::FragmentProgram::*getLocalParameters_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getLocalParameters"
@@ -575,7 +575,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getMatrices
         
-            typedef ::std::map< unsigned int, osg::Matrixd > & ( ::osg::FragmentProgram::*getMatrices_function_type)(  ) ;
+            typedef ::std::map< unsigned int, osg::Matrixd > & ( ::osg::FragmentProgram::*getMatrices_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "getMatrices"
@@ -586,7 +586,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getMatrices
         
-            typedef ::std::map< unsigned int, osg::Matrixd > const & ( ::osg::FragmentProgram::*getMatrices_function_type)(  ) const;
+            typedef ::std::map< unsigned int, osg::Matrixd > const & ( ::osg::FragmentProgram::*getMatrices_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getMatrices"
@@ -597,8 +597,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getModeUsage
         
-            typedef bool ( ::osg::FragmentProgram::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( FragmentProgram_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::FragmentProgram::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( FragmentProgram_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             FragmentProgram_exposer.def( 
                 "getModeUsage"
@@ -609,8 +609,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::FragmentProgram::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( FragmentProgram_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::FragmentProgram::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( FragmentProgram_wrapper::*default_getType_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getType"
@@ -620,8 +620,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::isSameKindAs
         
-            typedef bool ( ::osg::FragmentProgram::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( FragmentProgram_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::FragmentProgram::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( FragmentProgram_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             FragmentProgram_exposer.def( 
                 "isSameKindAs"
@@ -632,8 +632,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::libraryName
         
-            typedef char const * ( ::osg::FragmentProgram::*libraryName_function_type)(  ) const;
-            typedef char const * ( FragmentProgram_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::FragmentProgram::*libraryName_function_type )(  ) const;
+            typedef char const * ( FragmentProgram_wrapper::*default_libraryName_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "libraryName"
@@ -643,8 +643,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::resizeGLObjectBuffers
         
-            typedef void ( ::osg::FragmentProgram::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( FragmentProgram_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::FragmentProgram::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( FragmentProgram_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             FragmentProgram_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -666,7 +666,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setFragmentProgram
         
-            typedef void ( ::osg::FragmentProgram::*setFragmentProgram_function_type)( char const * ) ;
+            typedef void ( ::osg::FragmentProgram::*setFragmentProgram_function_type )( char const * ) ;
             
             FragmentProgram_exposer.def( 
                 "setFragmentProgram"
@@ -677,7 +677,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setFragmentProgram
         
-            typedef void ( ::osg::FragmentProgram::*setFragmentProgram_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::FragmentProgram::*setFragmentProgram_function_type )( ::std::string const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setFragmentProgram"
@@ -688,7 +688,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setLocalParameters
         
-            typedef void ( ::osg::FragmentProgram::*setLocalParameters_function_type)( ::std::map< unsigned int, osg::Vec4f > const & ) ;
+            typedef void ( ::osg::FragmentProgram::*setLocalParameters_function_type )( ::std::map< unsigned int, osg::Vec4f > const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setLocalParameters"
@@ -699,7 +699,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setMatrices
         
-            typedef void ( ::osg::FragmentProgram::*setMatrices_function_type)( ::std::map< unsigned int, osg::Matrixd > const & ) ;
+            typedef void ( ::osg::FragmentProgram::*setMatrices_function_type )( ::std::map< unsigned int, osg::Matrixd > const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setMatrices"
@@ -710,7 +710,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setMatrix
         
-            typedef void ( ::osg::FragmentProgram::*setMatrix_function_type)( ::GLenum const,::osg::Matrix const & ) ;
+            typedef void ( ::osg::FragmentProgram::*setMatrix_function_type )( ::GLenum const,::osg::Matrix const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setMatrix"
@@ -721,7 +721,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::FragmentProgram::setProgramLocalParameter
         
-            typedef void ( ::osg::FragmentProgram::*setProgramLocalParameter_function_type)( ::GLuint const,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::FragmentProgram::*setProgramLocalParameter_function_type )( ::GLuint const,::osg::Vec4 const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setProgramLocalParameter"
@@ -732,8 +732,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( FragmentProgram_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( FragmentProgram_wrapper::*default_asTexture_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "asTexture"
@@ -744,8 +744,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( FragmentProgram_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( FragmentProgram_wrapper::*default_asTexture_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "asTexture"
@@ -756,8 +756,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( FragmentProgram_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( FragmentProgram_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             FragmentProgram_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -768,8 +768,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( FragmentProgram_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( FragmentProgram_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "computeDataVariance"
@@ -779,8 +779,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( FragmentProgram_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( FragmentProgram_wrapper::*default_getMember_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getMember"
@@ -790,8 +790,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( FragmentProgram_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( FragmentProgram_wrapper::*default_getUserData_function_type )(  ) ;
             
             FragmentProgram_exposer.def( 
                 "getUserData"
@@ -802,8 +802,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( FragmentProgram_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( FragmentProgram_wrapper::*default_getUserData_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "getUserData"
@@ -814,8 +814,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( FragmentProgram_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( FragmentProgram_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             FragmentProgram_exposer.def( 
                 "isTextureAttribute"
@@ -825,8 +825,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( FragmentProgram_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( FragmentProgram_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             FragmentProgram_exposer.def( 
                 "setName"
@@ -837,7 +837,7 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             FragmentProgram_exposer.def( 
                 "setName"
@@ -848,8 +848,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( FragmentProgram_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( FragmentProgram_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             FragmentProgram_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -860,8 +860,8 @@ void register_FragmentProgram_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( FragmentProgram_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( FragmentProgram_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             FragmentProgram_exposer.def( 
                 "setUserData"

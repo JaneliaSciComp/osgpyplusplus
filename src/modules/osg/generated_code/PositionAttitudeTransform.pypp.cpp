@@ -468,222 +468,222 @@ void register_PositionAttitudeTransform_class(){
         .def( bp::init< >("\n PositionAttitudeTransform - is a Transform. Sets the coordinate transform\n    via a Vec3 position and Quat attitude.\n") )    
         .def( 
             "accept"
-            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::NodeVisitor & ))(&::osg::PositionAttitudeTransform::accept)
-            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ))(&PositionAttitudeTransform_wrapper::default_accept)
+            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::NodeVisitor & ) )(&::osg::PositionAttitudeTransform::accept)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ) )(&PositionAttitudeTransform_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "asPositionAttitudeTransform"
-            , (::osg::PositionAttitudeTransform * ( ::osg::PositionAttitudeTransform::* )(  ))(&::osg::PositionAttitudeTransform::asPositionAttitudeTransform)
-            , (::osg::PositionAttitudeTransform * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asPositionAttitudeTransform)
+            , (::osg::PositionAttitudeTransform * ( ::osg::PositionAttitudeTransform::* )(  ) )(&::osg::PositionAttitudeTransform::asPositionAttitudeTransform)
+            , (::osg::PositionAttitudeTransform * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asPositionAttitudeTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asPositionAttitudeTransform"
-            , (::osg::PositionAttitudeTransform const * ( ::osg::PositionAttitudeTransform::* )(  )const)(&::osg::PositionAttitudeTransform::asPositionAttitudeTransform)
-            , (::osg::PositionAttitudeTransform const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asPositionAttitudeTransform)
+            , (::osg::PositionAttitudeTransform const * ( ::osg::PositionAttitudeTransform::* )(  ) const)(&::osg::PositionAttitudeTransform::asPositionAttitudeTransform)
+            , (::osg::PositionAttitudeTransform const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asPositionAttitudeTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "className"
-            , (char const * ( ::osg::PositionAttitudeTransform::* )(  )const)(&::osg::PositionAttitudeTransform::className)
-            , (char const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_className) )    
+            , (char const * ( ::osg::PositionAttitudeTransform::* )(  ) const)(&::osg::PositionAttitudeTransform::className)
+            , (char const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::PositionAttitudeTransform::* )( ::osg::CopyOp const & )const)(&::osg::PositionAttitudeTransform::clone)
-            , (::osg::Object * ( PositionAttitudeTransform_wrapper::* )( ::osg::CopyOp const & )const)(&PositionAttitudeTransform_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::PositionAttitudeTransform::* )( ::osg::CopyOp const & ) const)(&::osg::PositionAttitudeTransform::clone)
+            , (::osg::Object * ( PositionAttitudeTransform_wrapper::* )( ::osg::CopyOp const & ) const)(&PositionAttitudeTransform_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::PositionAttitudeTransform::* )(  )const)(&::osg::PositionAttitudeTransform::cloneType)
-            , (::osg::Object * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::PositionAttitudeTransform::* )(  ) const)(&::osg::PositionAttitudeTransform::cloneType)
+            , (::osg::Object * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeLocalToWorldMatrix"
-            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&::osg::PositionAttitudeTransform::computeLocalToWorldMatrix)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&PositionAttitudeTransform_wrapper::default_computeLocalToWorldMatrix)
+            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * ) const)(&::osg::PositionAttitudeTransform::computeLocalToWorldMatrix)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * ) const)(&PositionAttitudeTransform_wrapper::default_computeLocalToWorldMatrix)
             , ( bp::arg("matrix"), bp::arg("nv") ) )    
         .def( 
             "computeWorldToLocalMatrix"
-            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&::osg::PositionAttitudeTransform::computeWorldToLocalMatrix)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * )const)(&PositionAttitudeTransform_wrapper::default_computeWorldToLocalMatrix)
+            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Matrix &,::osg::NodeVisitor * ) const)(&::osg::PositionAttitudeTransform::computeWorldToLocalMatrix)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Matrix &,::osg::NodeVisitor * ) const)(&PositionAttitudeTransform_wrapper::default_computeWorldToLocalMatrix)
             , ( bp::arg("matrix"), bp::arg("nv") ) )    
         .def( 
             "getAttitude"
-            , (::osg::Quat const & ( ::osg::PositionAttitudeTransform::* )(  )const)( &::osg::PositionAttitudeTransform::getAttitude )
+            , (::osg::Quat const & ( ::osg::PositionAttitudeTransform::* )(  ) const)( &::osg::PositionAttitudeTransform::getAttitude )
             , bp::return_internal_reference< >() )    
         .def( 
             "getPivotPoint"
-            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  )const)( &::osg::PositionAttitudeTransform::getPivotPoint )
+            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  ) const)( &::osg::PositionAttitudeTransform::getPivotPoint )
             , bp::return_internal_reference< >() )    
         .def( 
             "getPosition"
-            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  )const)( &::osg::PositionAttitudeTransform::getPosition )
+            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  ) const)( &::osg::PositionAttitudeTransform::getPosition )
             , bp::return_internal_reference< >() )    
         .def( 
             "getScale"
-            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  )const)( &::osg::PositionAttitudeTransform::getScale )
+            , (::osg::Vec3d const & ( ::osg::PositionAttitudeTransform::* )(  ) const)( &::osg::PositionAttitudeTransform::getScale )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Object const * )const)(&::osg::PositionAttitudeTransform::isSameKindAs)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Object const * )const)(&PositionAttitudeTransform_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::PositionAttitudeTransform::* )( ::osg::Object const * ) const)(&::osg::PositionAttitudeTransform::isSameKindAs)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Object const * ) const)(&PositionAttitudeTransform_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::PositionAttitudeTransform::* )(  )const)(&::osg::PositionAttitudeTransform::libraryName)
-            , (char const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::PositionAttitudeTransform::* )(  ) const)(&::osg::PositionAttitudeTransform::libraryName)
+            , (char const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_libraryName) )    
         .def( 
             "setAttitude"
-            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Quat const & ))( &::osg::PositionAttitudeTransform::setAttitude )
+            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Quat const & ) )( &::osg::PositionAttitudeTransform::setAttitude )
             , ( bp::arg("quat") ) )    
         .def( 
             "setPivotPoint"
-            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ))( &::osg::PositionAttitudeTransform::setPivotPoint )
+            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ) )( &::osg::PositionAttitudeTransform::setPivotPoint )
             , ( bp::arg("pivot") ) )    
         .def( 
             "setPosition"
-            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ))( &::osg::PositionAttitudeTransform::setPosition )
+            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ) )( &::osg::PositionAttitudeTransform::setPosition )
             , ( bp::arg("pos") ) )    
         .def( 
             "setScale"
-            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ))( &::osg::PositionAttitudeTransform::setScale )
+            , (void ( ::osg::PositionAttitudeTransform::* )( ::osg::Vec3d const & ) )( &::osg::PositionAttitudeTransform::setScale )
             , ( bp::arg("scale") ) )    
         .def( 
             "addChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node * ))(&::osg::Group::addChild)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Node * ))(&PositionAttitudeTransform_wrapper::default_addChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node * ) )(&::osg::Group::addChild)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Node * ) )(&PositionAttitudeTransform_wrapper::default_addChild)
             , ( bp::arg("child") ) )    
         .def( 
             "asCamera"
-            , (::osg::Camera * ( ::osg::Node::* )(  ))(&::osg::Node::asCamera)
-            , (::osg::Camera * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asCamera)
+            , (::osg::Camera * ( ::osg::Node::* )(  ) )(&::osg::Node::asCamera)
+            , (::osg::Camera * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asCamera"
-            , (::osg::Camera const * ( ::osg::Node::* )(  )const)(&::osg::Node::asCamera)
-            , (::osg::Camera const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asCamera)
+            , (::osg::Camera const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asCamera)
+            , (::osg::Camera const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asCamera)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode * ( ::osg::Node::* )(  ))(&::osg::Node::asGeode)
-            , (::osg::Geode * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asGeode)
+            , (::osg::Geode * ( ::osg::Node::* )(  ) )(&::osg::Node::asGeode)
+            , (::osg::Geode * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGeode"
-            , (::osg::Geode const * ( ::osg::Node::* )(  )const)(&::osg::Node::asGeode)
-            , (::osg::Geode const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asGeode)
+            , (::osg::Geode const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asGeode)
+            , (::osg::Geode const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asGeode)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group * ( ::osg::Group::* )(  ))(&::osg::Group::asGroup)
-            , (::osg::Group * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asGroup)
+            , (::osg::Group * ( ::osg::Group::* )(  ) )(&::osg::Group::asGroup)
+            , (::osg::Group * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asGroup"
-            , (::osg::Group const * ( ::osg::Group::* )(  )const)(&::osg::Group::asGroup)
-            , (::osg::Group const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asGroup)
+            , (::osg::Group const * ( ::osg::Group::* )(  ) const)(&::osg::Group::asGroup)
+            , (::osg::Group const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asGroup)
             , bp::return_internal_reference< >() )    
         .def( 
             "asMatrixTransform"
-            , (::osg::MatrixTransform * ( ::osg::Transform::* )(  ))(&::osg::Transform::asMatrixTransform)
-            , (::osg::MatrixTransform * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asMatrixTransform)
+            , (::osg::MatrixTransform * ( ::osg::Transform::* )(  ) )(&::osg::Transform::asMatrixTransform)
+            , (::osg::MatrixTransform * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asMatrixTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asMatrixTransform"
-            , (::osg::MatrixTransform const * ( ::osg::Transform::* )(  )const)(&::osg::Transform::asMatrixTransform)
-            , (::osg::MatrixTransform const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asMatrixTransform)
+            , (::osg::MatrixTransform const * ( ::osg::Transform::* )(  ) const)(&::osg::Transform::asMatrixTransform)
+            , (::osg::MatrixTransform const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asMatrixTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch * ( ::osg::Node::* )(  ))(&::osg::Node::asSwitch)
-            , (::osg::Switch * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asSwitch)
+            , (::osg::Switch * ( ::osg::Node::* )(  ) )(&::osg::Node::asSwitch)
+            , (::osg::Switch * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asSwitch"
-            , (::osg::Switch const * ( ::osg::Node::* )(  )const)(&::osg::Node::asSwitch)
-            , (::osg::Switch const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asSwitch)
+            , (::osg::Switch const * ( ::osg::Node::* )(  ) const)(&::osg::Node::asSwitch)
+            , (::osg::Switch const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asSwitch)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform * ( ::osg::Transform::* )(  ))(&::osg::Transform::asTransform)
-            , (::osg::Transform * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_asTransform)
+            , (::osg::Transform * ( ::osg::Transform::* )(  ) )(&::osg::Transform::asTransform)
+            , (::osg::Transform * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTransform"
-            , (::osg::Transform const * ( ::osg::Transform::* )(  )const)(&::osg::Transform::asTransform)
-            , (::osg::Transform const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_asTransform)
+            , (::osg::Transform const * ( ::osg::Transform::* )(  ) const)(&::osg::Transform::asTransform)
+            , (::osg::Transform const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_asTransform)
             , bp::return_internal_reference< >() )    
         .def( 
             "ascend"
-            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ))(&::osg::Node::ascend)
-            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ))(&PositionAttitudeTransform_wrapper::default_ascend)
+            , (void ( ::osg::Node::* )( ::osg::NodeVisitor & ) )(&::osg::Node::ascend)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ) )(&PositionAttitudeTransform_wrapper::default_ascend)
             , ( bp::arg("nv") ) )    
         .def( 
             "computeBound"
-            , (::osg::BoundingSphere ( ::osg::Transform::* )(  )const)(&::osg::Transform::computeBound)
-            , (::osg::BoundingSphere ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_computeBound) )    
+            , (::osg::BoundingSphere ( ::osg::Transform::* )(  ) const)(&::osg::Transform::computeBound)
+            , (::osg::BoundingSphere ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_computeBound) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( PositionAttitudeTransform_wrapper::* )(  ))(&PositionAttitudeTransform_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( PositionAttitudeTransform_wrapper::* )(  ) )(&PositionAttitudeTransform_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( PositionAttitudeTransform_wrapper::* )(  )const)(&PositionAttitudeTransform_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( PositionAttitudeTransform_wrapper::* )(  ) const)(&PositionAttitudeTransform_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "insertChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::insertChild)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,::osg::Node * ))(&PositionAttitudeTransform_wrapper::default_insertChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::insertChild)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,::osg::Node * ) )(&PositionAttitudeTransform_wrapper::default_insertChild)
             , ( bp::arg("index"), bp::arg("child") ) )    
         .def( 
             "removeChildren"
-            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ))(&::osg::Group::removeChildren)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,unsigned int ))(&PositionAttitudeTransform_wrapper::default_removeChildren)
+            , (bool ( ::osg::Group::* )( unsigned int,unsigned int ) )(&::osg::Group::removeChildren)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,unsigned int ) )(&PositionAttitudeTransform_wrapper::default_removeChildren)
             , ( bp::arg("pos"), bp::arg("numChildrenToRemove") ) )    
         .def( 
             "replaceChild"
-            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ))(&::osg::Group::replaceChild)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Node *,::osg::Node * ))(&PositionAttitudeTransform_wrapper::default_replaceChild)
+            , (bool ( ::osg::Group::* )( ::osg::Node *,::osg::Node * ) )(&::osg::Group::replaceChild)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( ::osg::Node *,::osg::Node * ) )(&PositionAttitudeTransform_wrapper::default_replaceChild)
             , ( bp::arg("origChild"), bp::arg("newChild") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Group::* )( unsigned int ))(&::osg::Group::resizeGLObjectBuffers)
-            , (void ( PositionAttitudeTransform_wrapper::* )( unsigned int ))(&PositionAttitudeTransform_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Group::* )( unsigned int ) )(&::osg::Group::resizeGLObjectBuffers)
+            , (void ( PositionAttitudeTransform_wrapper::* )( unsigned int ) )(&PositionAttitudeTransform_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setChild"
-            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ))(&::osg::Group::setChild)
-            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,::osg::Node * ))(&PositionAttitudeTransform_wrapper::default_setChild)
+            , (bool ( ::osg::Group::* )( unsigned int,::osg::Node * ) )(&::osg::Group::setChild)
+            , (bool ( PositionAttitudeTransform_wrapper::* )( unsigned int,::osg::Node * ) )(&PositionAttitudeTransform_wrapper::default_setChild)
             , ( bp::arg("i"), bp::arg("node") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( PositionAttitudeTransform_wrapper::* )( ::std::string const & ))(&PositionAttitudeTransform_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::std::string const & ) )(&PositionAttitudeTransform_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Group::* )( bool ))(&::osg::Group::setThreadSafeRefUnref)
-            , (void ( PositionAttitudeTransform_wrapper::* )( bool ))(&PositionAttitudeTransform_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Group::* )( bool ) )(&::osg::Group::setThreadSafeRefUnref)
+            , (void ( PositionAttitudeTransform_wrapper::* )( bool ) )(&PositionAttitudeTransform_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::Referenced * ))(&PositionAttitudeTransform_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::Referenced * ) )(&PositionAttitudeTransform_wrapper::default_setUserData)
             , ( bp::arg("obj") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ))(&::osg::Group::traverse)
-            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ))(&PositionAttitudeTransform_wrapper::default_traverse)
+            , (void ( ::osg::Group::* )( ::osg::NodeVisitor & ) )(&::osg::Group::traverse)
+            , (void ( PositionAttitudeTransform_wrapper::* )( ::osg::NodeVisitor & ) )(&PositionAttitudeTransform_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

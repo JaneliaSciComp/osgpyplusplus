@@ -105,37 +105,37 @@ void register_TranslateInLineCommand_class(){
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osgManipulator::DraggerCallback & ))(&::osgManipulator::TranslateInLineCommand::accept)
-            , (void ( TranslateInLineCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ))(&TranslateInLineCommand_wrapper::default_accept)
+            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osgManipulator::DraggerCallback & ) )(&::osgManipulator::TranslateInLineCommand::accept)
+            , (void ( TranslateInLineCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ) )(&TranslateInLineCommand_wrapper::default_accept)
             , ( bp::arg("callback") ) )    
         .def( 
             "createCommandInverse"
-            , (::osgManipulator::MotionCommand * ( ::osgManipulator::TranslateInLineCommand::* )(  ))(&::osgManipulator::TranslateInLineCommand::createCommandInverse)
-            , (::osgManipulator::MotionCommand * ( TranslateInLineCommand_wrapper::* )(  ))(&TranslateInLineCommand_wrapper::default_createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( ::osgManipulator::TranslateInLineCommand::* )(  ) )(&::osgManipulator::TranslateInLineCommand::createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( TranslateInLineCommand_wrapper::* )(  ) )(&TranslateInLineCommand_wrapper::default_createCommandInverse)
             , bp::return_internal_reference< >() )    
         .def( 
             "getLineEnd"
-            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  )const)( &::osgManipulator::TranslateInLineCommand::getLineEnd )
+            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  ) const)( &::osgManipulator::TranslateInLineCommand::getLineEnd )
             , bp::return_internal_reference< >() )    
         .def( 
             "getLineStart"
-            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  )const)( &::osgManipulator::TranslateInLineCommand::getLineStart )
+            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  ) const)( &::osgManipulator::TranslateInLineCommand::getLineStart )
             , bp::return_internal_reference< >() )    
         .def( 
             "getMotionMatrix"
-            , (::osg::Matrix ( ::osgManipulator::TranslateInLineCommand::* )(  )const)(&::osgManipulator::TranslateInLineCommand::getMotionMatrix)
-            , (::osg::Matrix ( TranslateInLineCommand_wrapper::* )(  )const)(&TranslateInLineCommand_wrapper::default_getMotionMatrix) )    
+            , (::osg::Matrix ( ::osgManipulator::TranslateInLineCommand::* )(  ) const)(&::osgManipulator::TranslateInLineCommand::getMotionMatrix)
+            , (::osg::Matrix ( TranslateInLineCommand_wrapper::* )(  ) const)(&TranslateInLineCommand_wrapper::default_getMotionMatrix) )    
         .def( 
             "getTranslation"
-            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  )const)( &::osgManipulator::TranslateInLineCommand::getTranslation )
+            , (::osg::Vec3d const & ( ::osgManipulator::TranslateInLineCommand::* )(  ) const)( &::osgManipulator::TranslateInLineCommand::getTranslation )
             , bp::return_internal_reference< >() )    
         .def( 
             "setLine"
-            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osg::Vec3d const &,::osg::Vec3d const & ))( &::osgManipulator::TranslateInLineCommand::setLine )
+            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osg::Vec3d const &,::osg::Vec3d const & ) )( &::osgManipulator::TranslateInLineCommand::setLine )
             , ( bp::arg("s"), bp::arg("e") ) )    
         .def( 
             "setTranslation"
-            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osg::Vec3 const & ))( &::osgManipulator::TranslateInLineCommand::setTranslation )
+            , (void ( ::osgManipulator::TranslateInLineCommand::* )( ::osg::Vec3 const & ) )( &::osgManipulator::TranslateInLineCommand::setTranslation )
             , ( bp::arg("t") ) );
 
 }

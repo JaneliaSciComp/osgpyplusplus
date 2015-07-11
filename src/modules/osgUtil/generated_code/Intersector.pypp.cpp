@@ -103,7 +103,7 @@ void register_Intersector_class(){
             ;
         { //::osgUtil::Intersector::clone
         
-            typedef ::osgUtil::Intersector * ( ::osgUtil::Intersector::*clone_function_type)( ::osgUtil::IntersectionVisitor & ) ;
+            typedef ::osgUtil::Intersector * ( ::osgUtil::Intersector::*clone_function_type )( ::osgUtil::IntersectionVisitor & ) ;
             
             Intersector_exposer.def( 
                 "clone"
@@ -114,7 +114,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::containsIntersections
         
-            typedef bool ( ::osgUtil::Intersector::*containsIntersections_function_type)(  ) ;
+            typedef bool ( ::osgUtil::Intersector::*containsIntersections_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "containsIntersections"
@@ -123,7 +123,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::decrementDisabledCount
         
-            typedef void ( ::osgUtil::Intersector::*decrementDisabledCount_function_type)(  ) ;
+            typedef void ( ::osgUtil::Intersector::*decrementDisabledCount_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "decrementDisabledCount"
@@ -132,7 +132,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::disabled
         
-            typedef bool ( ::osgUtil::Intersector::*disabled_function_type)(  ) const;
+            typedef bool ( ::osgUtil::Intersector::*disabled_function_type )(  ) const;
             
             Intersector_exposer.def( 
                 "disabled"
@@ -151,7 +151,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::getCoordinateFrame
         
-            typedef ::osgUtil::Intersector::CoordinateFrame ( ::osgUtil::Intersector::*getCoordinateFrame_function_type)(  ) const;
+            typedef ::osgUtil::Intersector::CoordinateFrame ( ::osgUtil::Intersector::*getCoordinateFrame_function_type )(  ) const;
             
             Intersector_exposer.def( 
                 "getCoordinateFrame"
@@ -160,7 +160,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::getIntersectionLimit
         
-            typedef ::osgUtil::Intersector::IntersectionLimit ( ::osgUtil::Intersector::*getIntersectionLimit_function_type)(  ) const;
+            typedef ::osgUtil::Intersector::IntersectionLimit ( ::osgUtil::Intersector::*getIntersectionLimit_function_type )(  ) const;
             
             Intersector_exposer.def( 
                 "getIntersectionLimit"
@@ -169,7 +169,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::incrementDisabledCount
         
-            typedef void ( ::osgUtil::Intersector::*incrementDisabledCount_function_type)(  ) ;
+            typedef void ( ::osgUtil::Intersector::*incrementDisabledCount_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "incrementDisabledCount"
@@ -178,7 +178,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::intersect
         
-            typedef void ( ::osgUtil::Intersector::*intersect_function_type)( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
+            typedef void ( ::osgUtil::Intersector::*intersect_function_type )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
             
             Intersector_exposer.def( 
                 "intersect"
@@ -188,7 +188,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::leave
         
-            typedef void ( ::osgUtil::Intersector::*leave_function_type)(  ) ;
+            typedef void ( ::osgUtil::Intersector::*leave_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "leave"
@@ -197,7 +197,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::reachedLimit
         
-            typedef bool ( ::osgUtil::Intersector::*reachedLimit_function_type)(  ) ;
+            typedef bool ( ::osgUtil::Intersector::*reachedLimit_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "reachedLimit"
@@ -206,8 +206,8 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::reset
         
-            typedef void ( ::osgUtil::Intersector::*reset_function_type)(  ) ;
-            typedef void ( Intersector_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::Intersector::*reset_function_type )(  ) ;
+            typedef void ( Intersector_wrapper::*default_reset_function_type )(  ) ;
             
             Intersector_exposer.def( 
                 "reset"
@@ -217,7 +217,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::setCoordinateFrame
         
-            typedef void ( ::osgUtil::Intersector::*setCoordinateFrame_function_type)( ::osgUtil::Intersector::CoordinateFrame ) ;
+            typedef void ( ::osgUtil::Intersector::*setCoordinateFrame_function_type )( ::osgUtil::Intersector::CoordinateFrame ) ;
             
             Intersector_exposer.def( 
                 "setCoordinateFrame"
@@ -227,7 +227,7 @@ void register_Intersector_class(){
         }
         { //::osgUtil::Intersector::setIntersectionLimit
         
-            typedef void ( ::osgUtil::Intersector::*setIntersectionLimit_function_type)( ::osgUtil::Intersector::IntersectionLimit ) ;
+            typedef void ( ::osgUtil::Intersector::*setIntersectionLimit_function_type )( ::osgUtil::Intersector::IntersectionLimit ) ;
             
             Intersector_exposer.def( 
                 "setIntersectionLimit"

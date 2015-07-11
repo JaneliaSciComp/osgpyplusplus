@@ -639,44 +639,44 @@ void register_TabPlaneTrackballDragger_class(){
         .def( bp::init< >("\n Dragger for performing rotation in all axes.\n") )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  )const)(&::osgManipulator::TabPlaneTrackballDragger::className)
-            , (char const * ( TabPlaneTrackballDragger_wrapper::* )(  )const)(&TabPlaneTrackballDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  ) const)(&::osgManipulator::TabPlaneTrackballDragger::className)
+            , (char const * ( TabPlaneTrackballDragger_wrapper::* )(  ) const)(&TabPlaneTrackballDragger_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  )const)(&::osgManipulator::TabPlaneTrackballDragger::cloneType)
-            , (::osg::Object * ( TabPlaneTrackballDragger_wrapper::* )(  )const)(&TabPlaneTrackballDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  ) const)(&::osgManipulator::TabPlaneTrackballDragger::cloneType)
+            , (::osg::Object * ( TabPlaneTrackballDragger_wrapper::* )(  ) const)(&TabPlaneTrackballDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::TabPlaneTrackballDragger::* )( ::osg::Object const * )const)(&::osgManipulator::TabPlaneTrackballDragger::isSameKindAs)
-            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osg::Object const * )const)(&TabPlaneTrackballDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::TabPlaneTrackballDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::TabPlaneTrackballDragger::isSameKindAs)
+            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osg::Object const * ) const)(&TabPlaneTrackballDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  )const)(&::osgManipulator::TabPlaneTrackballDragger::libraryName)
-            , (char const * ( TabPlaneTrackballDragger_wrapper::* )(  )const)(&TabPlaneTrackballDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::TabPlaneTrackballDragger::* )(  ) const)(&::osgManipulator::TabPlaneTrackballDragger::libraryName)
+            , (char const * ( TabPlaneTrackballDragger_wrapper::* )(  ) const)(&TabPlaneTrackballDragger_wrapper::default_libraryName) )    
         .def( 
             "setPlaneColor"
-            , (void ( ::osgManipulator::TabPlaneTrackballDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::TabPlaneTrackballDragger::setPlaneColor )
+            , (void ( ::osgManipulator::TabPlaneTrackballDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::TabPlaneTrackballDragger::setPlaneColor )
             , ( bp::arg("color") ) )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::TabPlaneTrackballDragger::* )(  ))(&::osgManipulator::TabPlaneTrackballDragger::setupDefaultGeometry)
-            , (void ( TabPlaneTrackballDragger_wrapper::* )(  ))(&TabPlaneTrackballDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::TabPlaneTrackballDragger::* )(  ) )(&::osgManipulator::TabPlaneTrackballDragger::setupDefaultGeometry)
+            , (void ( TabPlaneTrackballDragger_wrapper::* )(  ) )(&TabPlaneTrackballDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::CompositeDragger::accept)
-            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osg::NodeVisitor & ))(&TabPlaneTrackballDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::CompositeDragger::accept)
+            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&TabPlaneTrackballDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::addDragger)
-            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TabPlaneTrackballDragger_wrapper::default_addDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::addDragger)
+            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TabPlaneTrackballDragger_wrapper::default_addDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::CompositeDragger::clone)
-            , (::osg::Object * ( TabPlaneTrackballDragger_wrapper::* )( ::osg::CopyOp const & )const)(&TabPlaneTrackballDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::CompositeDragger::clone)
+            , (::osg::Object * ( TabPlaneTrackballDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&TabPlaneTrackballDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
@@ -685,13 +685,13 @@ void register_TabPlaneTrackballDragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( TabPlaneTrackballDragger_wrapper::* )(  )const)(&TabPlaneTrackballDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( TabPlaneTrackballDragger_wrapper::* )(  ) const)(&TabPlaneTrackballDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ))(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( TabPlaneTrackballDragger_wrapper::* )(  ))(&TabPlaneTrackballDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ) )(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( TabPlaneTrackballDragger_wrapper::* )(  ) )(&TabPlaneTrackballDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "handle_bfc7c2b1255fcef353f72f723625fd47"
@@ -708,23 +708,23 @@ void register_TabPlaneTrackballDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "removeDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::removeDragger)
-            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TabPlaneTrackballDragger_wrapper::default_removeDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::removeDragger)
+            , (bool ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TabPlaneTrackballDragger_wrapper::default_removeDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ))(&::osgManipulator::CompositeDragger::setIntersectionMask)
-            , (void ( TabPlaneTrackballDragger_wrapper::* )( unsigned int ))(&TabPlaneTrackballDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ) )(&::osgManipulator::CompositeDragger::setIntersectionMask)
+            , (void ( TabPlaneTrackballDragger_wrapper::* )( unsigned int ) )(&TabPlaneTrackballDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::setParentDragger)
-            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TabPlaneTrackballDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::setParentDragger)
+            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TabPlaneTrackballDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
-            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osg::NodeVisitor & ))(&TabPlaneTrackballDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
+            , (void ( TabPlaneTrackballDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&TabPlaneTrackballDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

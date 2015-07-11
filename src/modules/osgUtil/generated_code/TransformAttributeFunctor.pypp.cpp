@@ -213,8 +213,8 @@ void register_TransformAttributeFunctor_class(){
         bp::implicitly_convertible< osg::Matrix const &, osgUtil::TransformAttributeFunctor >();
         { //::osgUtil::TransformAttributeFunctor::apply
         
-            typedef void ( ::osgUtil::TransformAttributeFunctor::*apply_function_type)( unsigned int,unsigned int,::osg::Vec3 * ) ;
-            typedef void ( TransformAttributeFunctor_wrapper::*default_apply_function_type)( unsigned int,unsigned int,::osg::Vec3 * ) ;
+            typedef void ( ::osgUtil::TransformAttributeFunctor::*apply_function_type )( unsigned int,unsigned int,::osg::Vec3 * ) ;
+            typedef void ( TransformAttributeFunctor_wrapper::*default_apply_function_type )( unsigned int,unsigned int,::osg::Vec3 * ) ;
             
             TransformAttributeFunctor_exposer.def( 
                 "apply"
@@ -225,8 +225,8 @@ void register_TransformAttributeFunctor_class(){
         }
         { //::osgUtil::TransformAttributeFunctor::apply
         
-            typedef void ( ::osgUtil::TransformAttributeFunctor::*apply_function_type)( unsigned int,unsigned int,::osg::Vec3d * ) ;
-            typedef void ( TransformAttributeFunctor_wrapper::*default_apply_function_type)( unsigned int,unsigned int,::osg::Vec3d * ) ;
+            typedef void ( ::osgUtil::TransformAttributeFunctor::*apply_function_type )( unsigned int,unsigned int,::osg::Vec3d * ) ;
+            typedef void ( TransformAttributeFunctor_wrapper::*default_apply_function_type )( unsigned int,unsigned int,::osg::Vec3d * ) ;
             
             TransformAttributeFunctor_exposer.def( 
                 "apply"

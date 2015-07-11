@@ -318,7 +318,7 @@ void register_Multisample_class(){
             bp::implicitly_convertible< unsigned int, osg::Multisample::Extensions >();
             { //::osg::Multisample::Extensions::glSampleCoverage
             
-                typedef void ( ::osg::Multisample::Extensions::*glSampleCoverage_function_type)( ::GLclampf,::GLboolean ) const;
+                typedef void ( ::osg::Multisample::Extensions::*glSampleCoverage_function_type )( ::GLclampf,::GLboolean ) const;
                 
                 Extensions_exposer.def( 
                     "glSampleCoverage"
@@ -328,7 +328,7 @@ void register_Multisample_class(){
             }
             { //::osg::Multisample::Extensions::isMultisampleFilterHintSupported
             
-                typedef bool ( ::osg::Multisample::Extensions::*isMultisampleFilterHintSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Multisample::Extensions::*isMultisampleFilterHintSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isMultisampleFilterHintSupported"
@@ -337,7 +337,7 @@ void register_Multisample_class(){
             }
             { //::osg::Multisample::Extensions::isMultisampleSupported
             
-                typedef bool ( ::osg::Multisample::Extensions::*isMultisampleSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Multisample::Extensions::*isMultisampleSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isMultisampleSupported"
@@ -356,7 +356,7 @@ void register_Multisample_class(){
             }
             { //::osg::Multisample::Extensions::setMultisampleFilterHintSupported
             
-                typedef void ( ::osg::Multisample::Extensions::*setMultisampleFilterHintSupported_function_type)( bool ) ;
+                typedef void ( ::osg::Multisample::Extensions::*setMultisampleFilterHintSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setMultisampleFilterHintSupported"
@@ -366,7 +366,7 @@ void register_Multisample_class(){
             }
             { //::osg::Multisample::Extensions::setMultisampleSupported
             
-                typedef void ( ::osg::Multisample::Extensions::*setMultisampleSupported_function_type)( bool ) ;
+                typedef void ( ::osg::Multisample::Extensions::*setMultisampleSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setMultisampleSupported"
@@ -376,7 +376,7 @@ void register_Multisample_class(){
             }
             { //::osg::Multisample::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::Multisample::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::Multisample::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -386,8 +386,8 @@ void register_Multisample_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( Multisample_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( Multisample_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -400,8 +400,8 @@ void register_Multisample_class(){
         Multisample_exposer.def( bp::init< >() );
         { //::osg::Multisample::apply
         
-            typedef void ( ::osg::Multisample::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Multisample_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Multisample::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Multisample_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Multisample_exposer.def( 
                 "apply"
@@ -412,8 +412,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::className
         
-            typedef char const * ( ::osg::Multisample::*className_function_type)(  ) const;
-            typedef char const * ( Multisample_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Multisample::*className_function_type )(  ) const;
+            typedef char const * ( Multisample_wrapper::*default_className_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "className"
@@ -423,8 +423,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::clone
         
-            typedef ::osg::Object * ( ::osg::Multisample::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Multisample_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Multisample::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Multisample_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Multisample_exposer.def( 
                 "clone"
@@ -436,8 +436,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::cloneType
         
-            typedef ::osg::Object * ( ::osg::Multisample::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Multisample_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Multisample::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Multisample_wrapper::*default_cloneType_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "cloneType"
@@ -448,7 +448,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::getCoverage
         
-            typedef float ( ::osg::Multisample::*getCoverage_function_type)(  ) const;
+            typedef float ( ::osg::Multisample::*getCoverage_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getCoverage"
@@ -469,7 +469,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::getHint
         
-            typedef ::osg::Multisample::Mode ( ::osg::Multisample::*getHint_function_type)(  ) const;
+            typedef ::osg::Multisample::Mode ( ::osg::Multisample::*getHint_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getHint"
@@ -478,7 +478,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::getInvert
         
-            typedef bool ( ::osg::Multisample::*getInvert_function_type)(  ) const;
+            typedef bool ( ::osg::Multisample::*getInvert_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getInvert"
@@ -487,8 +487,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Multisample::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Multisample_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Multisample::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Multisample_wrapper::*default_getType_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getType"
@@ -498,8 +498,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::isSameKindAs
         
-            typedef bool ( ::osg::Multisample::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Multisample_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Multisample::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Multisample_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Multisample_exposer.def( 
                 "isSameKindAs"
@@ -510,8 +510,8 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::libraryName
         
-            typedef char const * ( ::osg::Multisample::*libraryName_function_type)(  ) const;
-            typedef char const * ( Multisample_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Multisample::*libraryName_function_type )(  ) const;
+            typedef char const * ( Multisample_wrapper::*default_libraryName_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "libraryName"
@@ -521,7 +521,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::setCoverage
         
-            typedef void ( ::osg::Multisample::*setCoverage_function_type)( float ) ;
+            typedef void ( ::osg::Multisample::*setCoverage_function_type )( float ) ;
             
             Multisample_exposer.def( 
                 "setCoverage"
@@ -542,7 +542,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::setHint
         
-            typedef void ( ::osg::Multisample::*setHint_function_type)( ::osg::Multisample::Mode ) ;
+            typedef void ( ::osg::Multisample::*setHint_function_type )( ::osg::Multisample::Mode ) ;
             
             Multisample_exposer.def( 
                 "setHint"
@@ -552,7 +552,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::setInvert
         
-            typedef void ( ::osg::Multisample::*setInvert_function_type)( bool ) ;
+            typedef void ( ::osg::Multisample::*setInvert_function_type )( bool ) ;
             
             Multisample_exposer.def( 
                 "setInvert"
@@ -562,7 +562,7 @@ void register_Multisample_class(){
         }
         { //::osg::Multisample::setSampleCoverage
         
-            typedef void ( ::osg::Multisample::*setSampleCoverage_function_type)( float,bool ) ;
+            typedef void ( ::osg::Multisample::*setSampleCoverage_function_type )( float,bool ) ;
             
             Multisample_exposer.def( 
                 "setSampleCoverage"
@@ -572,8 +572,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Multisample_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Multisample_wrapper::*default_asTexture_function_type )(  ) ;
             
             Multisample_exposer.def( 
                 "asTexture"
@@ -584,8 +584,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Multisample_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Multisample_wrapper::*default_asTexture_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "asTexture"
@@ -596,8 +596,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Multisample_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Multisample_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Multisample_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -608,8 +608,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Multisample_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Multisample_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Multisample_exposer.def( 
                 "compileGLObjects"
@@ -620,8 +620,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Multisample_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Multisample_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Multisample_exposer.def( 
                 "computeDataVariance"
@@ -631,8 +631,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Multisample_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Multisample_wrapper::*default_getMember_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getMember"
@@ -642,8 +642,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Multisample_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Multisample_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Multisample_exposer.def( 
                 "getModeUsage"
@@ -654,8 +654,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Multisample_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Multisample_wrapper::*default_getUserData_function_type )(  ) ;
             
             Multisample_exposer.def( 
                 "getUserData"
@@ -666,8 +666,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Multisample_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Multisample_wrapper::*default_getUserData_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "getUserData"
@@ -678,8 +678,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Multisample_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Multisample_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Multisample_exposer.def( 
                 "isTextureAttribute"
@@ -689,8 +689,8 @@ void register_Multisample_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Multisample_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Multisample_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Multisample_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -701,8 +701,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Multisample_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Multisample_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Multisample_exposer.def( 
                 "setName"
@@ -713,7 +713,7 @@ void register_Multisample_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Multisample_exposer.def( 
                 "setName"
@@ -724,8 +724,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Multisample_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Multisample_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Multisample_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -736,8 +736,8 @@ void register_Multisample_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Multisample_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Multisample_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Multisample_exposer.def( 
                 "setUserData"

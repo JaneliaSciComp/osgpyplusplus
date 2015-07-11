@@ -18,61 +18,61 @@
 
 #include "wrap_osgga.h"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/_osgga_free_functions.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/_osgga_free_functions.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/animationpathmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/animationpathmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameramanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameramanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameraviewswitchmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/cameraviewswitchmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/device.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/device.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/drivemanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/drivemanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventqueue.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventqueue.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventvisitor.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/eventvisitor.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/firstpersonmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/firstpersonmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/flightmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/flightmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guiactionadapter.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guiactionadapter.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventadapter.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventadapter.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventhandler.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventhandler.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventhandlervisitor.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/guieventhandlervisitor.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keymanipmap.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keymanipmap.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keyswitchmatrixmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/keyswitchmatrixmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/list_less__osg_scope_ref_ptr_less_osgga_scope_guieventadapter_greater___greater_.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/list_less__osg_scope_ref_ptr_less_osgga_scope_guieventadapter_greater___greater_.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/multitouchtrackballmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/multitouchtrackballmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/nodetrackermanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/nodetrackermanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/orbitmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/orbitmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdata.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdata.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdatalist.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/pointerdatalist.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/sphericalmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/sphericalmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/standardmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/standardmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/statesetmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/statesetmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/terrainmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/terrainmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/trackballmanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/trackballmanipulator.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/ufomanipulator.pypp.hpp"
+#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgga/generated_code/ufomanipulator.pypp.hpp"
 
 namespace bp = boost::python;
 

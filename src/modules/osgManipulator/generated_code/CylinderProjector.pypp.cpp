@@ -60,7 +60,7 @@ void register_CylinderProjector_class(){
         bp::implicitly_convertible< osg::Cylinder *, osgManipulator::CylinderProjector >();
         { //::osgManipulator::CylinderProjector::getCylinder
         
-            typedef ::osg::Cylinder const * ( ::osgManipulator::CylinderProjector::*getCylinder_function_type)(  ) const;
+            typedef ::osg::Cylinder const * ( ::osgManipulator::CylinderProjector::*getCylinder_function_type )(  ) const;
             
             CylinderProjector_exposer.def( 
                 "getCylinder"
@@ -70,7 +70,7 @@ void register_CylinderProjector_class(){
         }
         { //::osgManipulator::CylinderProjector::isPointInFront
         
-            typedef bool ( ::osgManipulator::CylinderProjector::*isPointInFront_function_type)( ::osgManipulator::PointerInfo const &,::osg::Matrix const & ) const;
+            typedef bool ( ::osgManipulator::CylinderProjector::*isPointInFront_function_type )( ::osgManipulator::PointerInfo const &,::osg::Matrix const & ) const;
             
             CylinderProjector_exposer.def( 
                 "isPointInFront"
@@ -81,8 +81,8 @@ void register_CylinderProjector_class(){
         }
         { //::osgManipulator::CylinderProjector::project
         
-            typedef bool ( ::osgManipulator::CylinderProjector::*project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
-            typedef bool ( CylinderProjector_wrapper::*default_project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( ::osgManipulator::CylinderProjector::*project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( CylinderProjector_wrapper::*default_project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
             
             CylinderProjector_exposer.def( 
                 "project"
@@ -93,7 +93,7 @@ void register_CylinderProjector_class(){
         }
         { //::osgManipulator::CylinderProjector::setCylinder
         
-            typedef void ( ::osgManipulator::CylinderProjector::*setCylinder_function_type)( ::osg::Cylinder * ) ;
+            typedef void ( ::osgManipulator::CylinderProjector::*setCylinder_function_type )( ::osg::Cylinder * ) ;
             
             CylinderProjector_exposer.def( 
                 "setCylinder"
@@ -103,7 +103,7 @@ void register_CylinderProjector_class(){
         }
         { //::osgManipulator::CylinderProjector::setFront
         
-            typedef void ( ::osgManipulator::CylinderProjector::*setFront_function_type)( bool ) ;
+            typedef void ( ::osgManipulator::CylinderProjector::*setFront_function_type )( bool ) ;
             
             CylinderProjector_exposer.def( 
                 "setFront"

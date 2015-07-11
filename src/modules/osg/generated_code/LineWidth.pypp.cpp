@@ -280,8 +280,8 @@ void register_LineWidth_class(){
         bp::implicitly_convertible< float, osg::LineWidth >();
         { //::osg::LineWidth::apply
         
-            typedef void ( ::osg::LineWidth::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( LineWidth_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::LineWidth::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( LineWidth_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             LineWidth_exposer.def( 
                 "apply"
@@ -292,8 +292,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::className
         
-            typedef char const * ( ::osg::LineWidth::*className_function_type)(  ) const;
-            typedef char const * ( LineWidth_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::LineWidth::*className_function_type )(  ) const;
+            typedef char const * ( LineWidth_wrapper::*default_className_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "className"
@@ -303,8 +303,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::clone
         
-            typedef ::osg::Object * ( ::osg::LineWidth::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( LineWidth_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::LineWidth::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( LineWidth_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             LineWidth_exposer.def( 
                 "clone"
@@ -316,8 +316,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::cloneType
         
-            typedef ::osg::Object * ( ::osg::LineWidth::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( LineWidth_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::LineWidth::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( LineWidth_wrapper::*default_cloneType_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "cloneType"
@@ -328,8 +328,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::LineWidth::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( LineWidth_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::LineWidth::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( LineWidth_wrapper::*default_getType_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "getType"
@@ -339,7 +339,7 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::getWidth
         
-            typedef float ( ::osg::LineWidth::*getWidth_function_type)(  ) const;
+            typedef float ( ::osg::LineWidth::*getWidth_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "getWidth"
@@ -348,8 +348,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::isSameKindAs
         
-            typedef bool ( ::osg::LineWidth::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( LineWidth_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::LineWidth::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( LineWidth_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             LineWidth_exposer.def( 
                 "isSameKindAs"
@@ -360,8 +360,8 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::libraryName
         
-            typedef char const * ( ::osg::LineWidth::*libraryName_function_type)(  ) const;
-            typedef char const * ( LineWidth_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::LineWidth::*libraryName_function_type )(  ) const;
+            typedef char const * ( LineWidth_wrapper::*default_libraryName_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "libraryName"
@@ -371,7 +371,7 @@ void register_LineWidth_class(){
         }
         { //::osg::LineWidth::setWidth
         
-            typedef void ( ::osg::LineWidth::*setWidth_function_type)( float ) ;
+            typedef void ( ::osg::LineWidth::*setWidth_function_type )( float ) ;
             
             LineWidth_exposer.def( 
                 "setWidth"
@@ -381,8 +381,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( LineWidth_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( LineWidth_wrapper::*default_asTexture_function_type )(  ) ;
             
             LineWidth_exposer.def( 
                 "asTexture"
@@ -393,8 +393,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( LineWidth_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( LineWidth_wrapper::*default_asTexture_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "asTexture"
@@ -405,8 +405,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( LineWidth_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( LineWidth_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             LineWidth_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -417,8 +417,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( LineWidth_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( LineWidth_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             LineWidth_exposer.def( 
                 "compileGLObjects"
@@ -429,8 +429,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( LineWidth_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( LineWidth_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             LineWidth_exposer.def( 
                 "computeDataVariance"
@@ -440,8 +440,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( LineWidth_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( LineWidth_wrapper::*default_getMember_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "getMember"
@@ -451,8 +451,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( LineWidth_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( LineWidth_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             LineWidth_exposer.def( 
                 "getModeUsage"
@@ -463,8 +463,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( LineWidth_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( LineWidth_wrapper::*default_getUserData_function_type )(  ) ;
             
             LineWidth_exposer.def( 
                 "getUserData"
@@ -475,8 +475,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( LineWidth_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( LineWidth_wrapper::*default_getUserData_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "getUserData"
@@ -487,8 +487,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( LineWidth_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( LineWidth_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             LineWidth_exposer.def( 
                 "isTextureAttribute"
@@ -498,8 +498,8 @@ void register_LineWidth_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( LineWidth_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( LineWidth_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             LineWidth_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -510,8 +510,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( LineWidth_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( LineWidth_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             LineWidth_exposer.def( 
                 "setName"
@@ -522,7 +522,7 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             LineWidth_exposer.def( 
                 "setName"
@@ -533,8 +533,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( LineWidth_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( LineWidth_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             LineWidth_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -545,8 +545,8 @@ void register_LineWidth_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( LineWidth_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( LineWidth_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             LineWidth_exposer.def( 
                 "setUserData"

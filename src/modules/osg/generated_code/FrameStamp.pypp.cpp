@@ -46,7 +46,7 @@ void register_FrameStamp_class(){
         FrameStamp_exposer.def( bp::init< osg::FrameStamp const & >(( bp::arg("fs") )) );
         { //::osg::FrameStamp::getCalendarTime
         
-            typedef void ( ::osg::FrameStamp::*getCalendarTime_function_type)( ::tm & ) const;
+            typedef void ( ::osg::FrameStamp::*getCalendarTime_function_type )( ::tm & ) const;
             
             FrameStamp_exposer.def( 
                 "getCalendarTime"
@@ -56,7 +56,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::getFrameNumber
         
-            typedef unsigned int ( ::osg::FrameStamp::*getFrameNumber_function_type)(  ) const;
+            typedef unsigned int ( ::osg::FrameStamp::*getFrameNumber_function_type )(  ) const;
             
             FrameStamp_exposer.def( 
                 "getFrameNumber"
@@ -65,7 +65,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::getReferenceTime
         
-            typedef double ( ::osg::FrameStamp::*getReferenceTime_function_type)(  ) const;
+            typedef double ( ::osg::FrameStamp::*getReferenceTime_function_type )(  ) const;
             
             FrameStamp_exposer.def( 
                 "getReferenceTime"
@@ -74,7 +74,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::getSimulationTime
         
-            typedef double ( ::osg::FrameStamp::*getSimulationTime_function_type)(  ) const;
+            typedef double ( ::osg::FrameStamp::*getSimulationTime_function_type )(  ) const;
             
             FrameStamp_exposer.def( 
                 "getSimulationTime"
@@ -83,7 +83,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::setCalendarTime
         
-            typedef void ( ::osg::FrameStamp::*setCalendarTime_function_type)( ::tm const & ) ;
+            typedef void ( ::osg::FrameStamp::*setCalendarTime_function_type )( ::tm const & ) ;
             
             FrameStamp_exposer.def( 
                 "setCalendarTime"
@@ -93,7 +93,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::setFrameNumber
         
-            typedef void ( ::osg::FrameStamp::*setFrameNumber_function_type)( unsigned int ) ;
+            typedef void ( ::osg::FrameStamp::*setFrameNumber_function_type )( unsigned int ) ;
             
             FrameStamp_exposer.def( 
                 "setFrameNumber"
@@ -103,7 +103,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::setReferenceTime
         
-            typedef void ( ::osg::FrameStamp::*setReferenceTime_function_type)( double ) ;
+            typedef void ( ::osg::FrameStamp::*setReferenceTime_function_type )( double ) ;
             
             FrameStamp_exposer.def( 
                 "setReferenceTime"
@@ -113,7 +113,7 @@ void register_FrameStamp_class(){
         }
         { //::osg::FrameStamp::setSimulationTime
         
-            typedef void ( ::osg::FrameStamp::*setSimulationTime_function_type)( double ) ;
+            typedef void ( ::osg::FrameStamp::*setSimulationTime_function_type )( double ) ;
             
             FrameStamp_exposer.def( 
                 "setSimulationTime"
@@ -123,8 +123,8 @@ void register_FrameStamp_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( FrameStamp_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( FrameStamp_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             FrameStamp_exposer.def( 
                 "setThreadSafeRefUnref"

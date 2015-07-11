@@ -45,7 +45,7 @@ void register_Field_class(){
         Field_exposer.def( bp::init< osgDB::Field const & >(( bp::arg("field") )) );
         { //::osgDB::Field::addChar
         
-            typedef void ( ::osgDB::Field::*addChar_function_type)( char ) ;
+            typedef void ( ::osgDB::Field::*addChar_function_type )( char ) ;
             
             Field_exposer.def( 
                 "addChar"
@@ -65,7 +65,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getFieldType
         
-            typedef ::osgDB::Field::FieldType ( ::osgDB::Field::*getFieldType_function_type)(  ) const;
+            typedef ::osgDB::Field::FieldType ( ::osgDB::Field::*getFieldType_function_type )(  ) const;
             
             Field_exposer.def( 
                 "getFieldType"
@@ -74,7 +74,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getFloat
         
-            typedef bool ( ::osgDB::Field::*getFloat_function_type)( float & ) const;
+            typedef bool ( ::osgDB::Field::*getFloat_function_type )( float & ) const;
             
             Field_exposer.def( 
                 "getFloat"
@@ -84,7 +84,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getFloat
         
-            typedef bool ( ::osgDB::Field::*getFloat_function_type)( double & ) const;
+            typedef bool ( ::osgDB::Field::*getFloat_function_type )( double & ) const;
             
             Field_exposer.def( 
                 "getFloat"
@@ -94,7 +94,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getInt
         
-            typedef bool ( ::osgDB::Field::*getInt_function_type)( int & ) const;
+            typedef bool ( ::osgDB::Field::*getInt_function_type )( int & ) const;
             
             Field_exposer.def( 
                 "getInt"
@@ -104,7 +104,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getNoCharacters
         
-            typedef int ( ::osgDB::Field::*getNoCharacters_function_type)(  ) const;
+            typedef int ( ::osgDB::Field::*getNoCharacters_function_type )(  ) const;
             
             Field_exposer.def( 
                 "getNoCharacters"
@@ -113,7 +113,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getNoNestedBrackets
         
-            typedef int ( ::osgDB::Field::*getNoNestedBrackets_function_type)(  ) ;
+            typedef int ( ::osgDB::Field::*getNoNestedBrackets_function_type )(  ) ;
             
             Field_exposer.def( 
                 "getNoNestedBrackets"
@@ -122,7 +122,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getStr
         
-            typedef char const * ( ::osgDB::Field::*getStr_function_type)(  ) const;
+            typedef char const * ( ::osgDB::Field::*getStr_function_type )(  ) const;
             
             Field_exposer.def( 
                 "getStr"
@@ -131,7 +131,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getUInt
         
-            typedef bool ( ::osgDB::Field::*getUInt_function_type)( unsigned int & ) const;
+            typedef bool ( ::osgDB::Field::*getUInt_function_type )( unsigned int & ) const;
             
             Field_exposer.def( 
                 "getUInt"
@@ -141,7 +141,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::getWithinQuotes
         
-            typedef bool ( ::osgDB::Field::*getWithinQuotes_function_type)(  ) ;
+            typedef bool ( ::osgDB::Field::*getWithinQuotes_function_type )(  ) ;
             
             Field_exposer.def( 
                 "getWithinQuotes"
@@ -150,7 +150,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isCloseBracket
         
-            typedef bool ( ::osgDB::Field::*isCloseBracket_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isCloseBracket_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isCloseBracket"
@@ -159,7 +159,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isFloat
         
-            typedef bool ( ::osgDB::Field::*isFloat_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isFloat_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isFloat"
@@ -168,7 +168,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isInt
         
-            typedef bool ( ::osgDB::Field::*isInt_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isInt_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isInt"
@@ -177,7 +177,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isOpenBracket
         
-            typedef bool ( ::osgDB::Field::*isOpenBracket_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isOpenBracket_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isOpenBracket"
@@ -186,7 +186,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isQuotedString
         
-            typedef bool ( ::osgDB::Field::*isQuotedString_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isQuotedString_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isQuotedString"
@@ -195,7 +195,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isString
         
-            typedef bool ( ::osgDB::Field::*isString_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isString_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isString"
@@ -204,7 +204,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isUInt
         
-            typedef bool ( ::osgDB::Field::*isUInt_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isUInt_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isUInt"
@@ -213,7 +213,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isValid
         
-            typedef bool ( ::osgDB::Field::*isValid_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isValid_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isValid"
@@ -222,7 +222,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::isWord
         
-            typedef bool ( ::osgDB::Field::*isWord_function_type)(  ) const;
+            typedef bool ( ::osgDB::Field::*isWord_function_type )(  ) const;
             
             Field_exposer.def( 
                 "isWord"
@@ -231,7 +231,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchFloat
         
-            typedef bool ( ::osgDB::Field::*matchFloat_function_type)( float ) const;
+            typedef bool ( ::osgDB::Field::*matchFloat_function_type )( float ) const;
             
             Field_exposer.def( 
                 "matchFloat"
@@ -241,7 +241,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchInt
         
-            typedef bool ( ::osgDB::Field::*matchInt_function_type)( int ) const;
+            typedef bool ( ::osgDB::Field::*matchInt_function_type )( int ) const;
             
             Field_exposer.def( 
                 "matchInt"
@@ -251,7 +251,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchString
         
-            typedef bool ( ::osgDB::Field::*matchString_function_type)( char const * ) const;
+            typedef bool ( ::osgDB::Field::*matchString_function_type )( char const * ) const;
             
             Field_exposer.def( 
                 "matchString"
@@ -261,7 +261,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchString
         
-            typedef bool ( ::osgDB::Field::*matchString_function_type)( char const *,int ) const;
+            typedef bool ( ::osgDB::Field::*matchString_function_type )( char const *,int ) const;
             
             Field_exposer.def( 
                 "matchString"
@@ -271,7 +271,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchUInt
         
-            typedef bool ( ::osgDB::Field::*matchUInt_function_type)( unsigned int ) const;
+            typedef bool ( ::osgDB::Field::*matchUInt_function_type )( unsigned int ) const;
             
             Field_exposer.def( 
                 "matchUInt"
@@ -281,7 +281,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchWord
         
-            typedef bool ( ::osgDB::Field::*matchWord_function_type)( char const * ) const;
+            typedef bool ( ::osgDB::Field::*matchWord_function_type )( char const * ) const;
             
             Field_exposer.def( 
                 "matchWord"
@@ -291,7 +291,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::matchWord
         
-            typedef bool ( ::osgDB::Field::*matchWord_function_type)( char const *,int ) const;
+            typedef bool ( ::osgDB::Field::*matchWord_function_type )( char const *,int ) const;
             
             Field_exposer.def( 
                 "matchWord"
@@ -301,7 +301,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::operator=
         
-            typedef ::osgDB::Field & ( ::osgDB::Field::*assign_function_type)( ::osgDB::Field const & ) ;
+            typedef ::osgDB::Field & ( ::osgDB::Field::*assign_function_type )( ::osgDB::Field const & ) ;
             
             Field_exposer.def( 
                 "assign"
@@ -312,7 +312,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::reset
         
-            typedef void ( ::osgDB::Field::*reset_function_type)(  ) ;
+            typedef void ( ::osgDB::Field::*reset_function_type )(  ) ;
             
             Field_exposer.def( 
                 "reset"
@@ -321,7 +321,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::setNoNestedBrackets
         
-            typedef void ( ::osgDB::Field::*setNoNestedBrackets_function_type)( int ) ;
+            typedef void ( ::osgDB::Field::*setNoNestedBrackets_function_type )( int ) ;
             
             Field_exposer.def( 
                 "setNoNestedBrackets"
@@ -331,7 +331,7 @@ void register_Field_class(){
         }
         { //::osgDB::Field::setWithinQuotes
         
-            typedef void ( ::osgDB::Field::*setWithinQuotes_function_type)( bool ) ;
+            typedef void ( ::osgDB::Field::*setWithinQuotes_function_type )( bool ) ;
             
             Field_exposer.def( 
                 "setWithinQuotes"

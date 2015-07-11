@@ -228,8 +228,8 @@ void register_InteractiveImageHandler_class(){
         InteractiveImageHandler_exposer.def( bp::init< osg::Image *, osg::Texture2D *, osg::Camera * >(( bp::arg("image"), bp::arg("texture"), bp::arg("camera") )) );
         { //::osgViewer::InteractiveImageHandler::className
         
-            typedef char const * ( ::osgViewer::InteractiveImageHandler::*className_function_type)(  ) const;
-            typedef char const * ( InteractiveImageHandler_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::InteractiveImageHandler::*className_function_type )(  ) const;
+            typedef char const * ( InteractiveImageHandler_wrapper::*default_className_function_type )(  ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "className"
@@ -239,8 +239,8 @@ void register_InteractiveImageHandler_class(){
         }
         { //::osgViewer::InteractiveImageHandler::clone
         
-            typedef ::osg::Object * ( ::osgViewer::InteractiveImageHandler::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( InteractiveImageHandler_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgViewer::InteractiveImageHandler::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( InteractiveImageHandler_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "clone"
@@ -252,8 +252,8 @@ void register_InteractiveImageHandler_class(){
         }
         { //::osgViewer::InteractiveImageHandler::cloneType
         
-            typedef ::osg::Object * ( ::osgViewer::InteractiveImageHandler::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( InteractiveImageHandler_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgViewer::InteractiveImageHandler::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( InteractiveImageHandler_wrapper::*default_cloneType_function_type )(  ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "cloneType"
@@ -264,8 +264,8 @@ void register_InteractiveImageHandler_class(){
         }
         { //::osgViewer::InteractiveImageHandler::cull
         
-            typedef bool ( ::osgViewer::InteractiveImageHandler::*cull_function_type)( ::osg::NodeVisitor *,::osg::Drawable *,::osg::RenderInfo * ) const;
-            typedef bool ( InteractiveImageHandler_wrapper::*default_cull_function_type)( ::osg::NodeVisitor *,::osg::Drawable *,::osg::RenderInfo * ) const;
+            typedef bool ( ::osgViewer::InteractiveImageHandler::*cull_function_type )( ::osg::NodeVisitor *,::osg::Drawable *,::osg::RenderInfo * ) const;
+            typedef bool ( InteractiveImageHandler_wrapper::*default_cull_function_type )( ::osg::NodeVisitor *,::osg::Drawable *,::osg::RenderInfo * ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "cull"
@@ -276,8 +276,8 @@ void register_InteractiveImageHandler_class(){
         }
         { //::osgViewer::InteractiveImageHandler::isSameKindAs
         
-            typedef bool ( ::osgViewer::InteractiveImageHandler::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( InteractiveImageHandler_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgViewer::InteractiveImageHandler::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( InteractiveImageHandler_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "isSameKindAs"
@@ -288,8 +288,8 @@ void register_InteractiveImageHandler_class(){
         }
         { //::osgViewer::InteractiveImageHandler::libraryName
         
-            typedef char const * ( ::osgViewer::InteractiveImageHandler::*libraryName_function_type)(  ) const;
-            typedef char const * ( InteractiveImageHandler_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgViewer::InteractiveImageHandler::*libraryName_function_type )(  ) const;
+            typedef char const * ( InteractiveImageHandler_wrapper::*default_libraryName_function_type )(  ) const;
             
             InteractiveImageHandler_exposer.def( 
                 "libraryName"

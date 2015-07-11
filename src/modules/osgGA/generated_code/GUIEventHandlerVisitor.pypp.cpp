@@ -11,7 +11,7 @@ void register_GUIEventHandlerVisitor_class(){
     bp::class_< osgGA::GUIEventHandlerVisitor >( "GUIEventHandlerVisitor" )    
         .def( 
             "visit"
-            , (void ( ::osgGA::GUIEventHandlerVisitor::* )( ::osgGA::GUIEventHandler & ))( &::osgGA::GUIEventHandlerVisitor::visit )
+            , (void ( ::osgGA::GUIEventHandlerVisitor::* )( ::osgGA::GUIEventHandler & ) )( &::osgGA::GUIEventHandlerVisitor::visit )
             , ( bp::arg("arg0") ) );
 
 }

@@ -27,7 +27,7 @@ void register_Vec4ui_class(){
         Vec4ui_exposer.def( bp::self == bp::self );
         { //::osg::Vec4ui::operator[]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*__getitem___function_type)( unsigned int ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*__getitem___function_type )( unsigned int ) ;
             
             Vec4ui_exposer.def( 
                 "__getitem__"
@@ -38,7 +38,7 @@ void register_Vec4ui_class(){
         }
         { //::osg::Vec4ui::operator[]
         
-            typedef unsigned int ( ::osg::Vec4ui::*__getitem___function_type)( unsigned int ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*__getitem___function_type )( unsigned int ) const;
             
             Vec4ui_exposer.def( 
                 "__getitem__"
@@ -48,7 +48,7 @@ void register_Vec4ui_class(){
         }
         { //::osg::Vec4ui::set
         
-            typedef void ( ::osg::Vec4ui::*set_function_type)( unsigned int,unsigned int,unsigned int,unsigned int ) ;
+            typedef void ( ::osg::Vec4ui::*set_function_type )( unsigned int,unsigned int,unsigned int,unsigned int ) ;
             
             Vec4ui_exposer.def( 
                 "set"
@@ -58,7 +58,7 @@ void register_Vec4ui_class(){
         }
         { //property "x"[fget=::osg::Vec4ui::x]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "x"
@@ -69,7 +69,7 @@ void register_Vec4ui_class(){
         }
         { //property "x"[fget=::osg::Vec4ui::x]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "x"
@@ -78,7 +78,7 @@ void register_Vec4ui_class(){
         }
         { //property "y"[fget=::osg::Vec4ui::y]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "y"
@@ -89,7 +89,7 @@ void register_Vec4ui_class(){
         }
         { //property "y"[fget=::osg::Vec4ui::y]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "y"
@@ -98,7 +98,7 @@ void register_Vec4ui_class(){
         }
         { //property "z"[fget=::osg::Vec4ui::z]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "z"
@@ -109,7 +109,7 @@ void register_Vec4ui_class(){
         }
         { //property "z"[fget=::osg::Vec4ui::z]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "z"
@@ -118,7 +118,7 @@ void register_Vec4ui_class(){
         }
         { //property "w"[fget=::osg::Vec4ui::w]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "w"
@@ -129,7 +129,7 @@ void register_Vec4ui_class(){
         }
         { //property "w"[fget=::osg::Vec4ui::w]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "w"
@@ -138,7 +138,7 @@ void register_Vec4ui_class(){
         }
         { //property "r"[fget=::osg::Vec4ui::r]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "r"
@@ -149,7 +149,7 @@ void register_Vec4ui_class(){
         }
         { //property "r"[fget=::osg::Vec4ui::r]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "r"
@@ -158,7 +158,7 @@ void register_Vec4ui_class(){
         }
         { //property "g"[fget=::osg::Vec4ui::g]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "g"
@@ -169,7 +169,7 @@ void register_Vec4ui_class(){
         }
         { //property "g"[fget=::osg::Vec4ui::g]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "g"
@@ -178,7 +178,7 @@ void register_Vec4ui_class(){
         }
         { //property "b"[fget=::osg::Vec4ui::b]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "b"
@@ -189,7 +189,7 @@ void register_Vec4ui_class(){
         }
         { //property "b"[fget=::osg::Vec4ui::b]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "b"
@@ -198,7 +198,7 @@ void register_Vec4ui_class(){
         }
         { //property "a"[fget=::osg::Vec4ui::a]
         
-            typedef unsigned int & ( ::osg::Vec4ui::*fget)(  ) ;
+            typedef unsigned int & ( ::osg::Vec4ui::*fget )(  ) ;
             
             Vec4ui_exposer.add_property( 
                 "a"
@@ -209,7 +209,7 @@ void register_Vec4ui_class(){
         }
         { //property "a"[fget=::osg::Vec4ui::a]
         
-            typedef unsigned int ( ::osg::Vec4ui::*fget)(  ) const;
+            typedef unsigned int ( ::osg::Vec4ui::*fget )(  ) const;
             
             Vec4ui_exposer.add_property( 
                 "a"

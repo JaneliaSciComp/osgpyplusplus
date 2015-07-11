@@ -30,7 +30,7 @@ void register_Vec3s_class(){
         Vec3s_exposer.def( bp::self == bp::self );
         { //::osg::Vec3s::operator[]
         
-            typedef short int & ( ::osg::Vec3s::*__getitem___function_type)( unsigned int ) ;
+            typedef short int & ( ::osg::Vec3s::*__getitem___function_type )( unsigned int ) ;
             
             Vec3s_exposer.def( 
                 "__getitem__"
@@ -41,7 +41,7 @@ void register_Vec3s_class(){
         }
         { //::osg::Vec3s::operator[]
         
-            typedef short int ( ::osg::Vec3s::*__getitem___function_type)( unsigned int ) const;
+            typedef short int ( ::osg::Vec3s::*__getitem___function_type )( unsigned int ) const;
             
             Vec3s_exposer.def( 
                 "__getitem__"
@@ -51,7 +51,7 @@ void register_Vec3s_class(){
         }
         { //::osg::Vec3s::set
         
-            typedef void ( ::osg::Vec3s::*set_function_type)( short int,short int,short int ) ;
+            typedef void ( ::osg::Vec3s::*set_function_type )( short int,short int,short int ) ;
             
             Vec3s_exposer.def( 
                 "set"
@@ -61,7 +61,7 @@ void register_Vec3s_class(){
         }
         { //::osg::Vec3s::set
         
-            typedef void ( ::osg::Vec3s::*set_function_type)( ::osg::Vec3s const & ) ;
+            typedef void ( ::osg::Vec3s::*set_function_type )( ::osg::Vec3s const & ) ;
             
             Vec3s_exposer.def( 
                 "set"
@@ -71,7 +71,7 @@ void register_Vec3s_class(){
         }
         { //property "x"[fget=::osg::Vec3s::x]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "x"
@@ -82,7 +82,7 @@ void register_Vec3s_class(){
         }
         { //property "x"[fget=::osg::Vec3s::x]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "x"
@@ -91,7 +91,7 @@ void register_Vec3s_class(){
         }
         { //property "y"[fget=::osg::Vec3s::y]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "y"
@@ -102,7 +102,7 @@ void register_Vec3s_class(){
         }
         { //property "y"[fget=::osg::Vec3s::y]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "y"
@@ -111,7 +111,7 @@ void register_Vec3s_class(){
         }
         { //property "z"[fget=::osg::Vec3s::z]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "z"
@@ -122,7 +122,7 @@ void register_Vec3s_class(){
         }
         { //property "z"[fget=::osg::Vec3s::z]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "z"
@@ -131,7 +131,7 @@ void register_Vec3s_class(){
         }
         { //property "r"[fget=::osg::Vec3s::r]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "r"
@@ -142,7 +142,7 @@ void register_Vec3s_class(){
         }
         { //property "r"[fget=::osg::Vec3s::r]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "r"
@@ -151,7 +151,7 @@ void register_Vec3s_class(){
         }
         { //property "g"[fget=::osg::Vec3s::g]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "g"
@@ -162,7 +162,7 @@ void register_Vec3s_class(){
         }
         { //property "g"[fget=::osg::Vec3s::g]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "g"
@@ -171,7 +171,7 @@ void register_Vec3s_class(){
         }
         { //property "b"[fget=::osg::Vec3s::b]
         
-            typedef short int & ( ::osg::Vec3s::*fget)(  ) ;
+            typedef short int & ( ::osg::Vec3s::*fget )(  ) ;
             
             Vec3s_exposer.add_property( 
                 "b"
@@ -182,7 +182,7 @@ void register_Vec3s_class(){
         }
         { //property "b"[fget=::osg::Vec3s::b]
         
-            typedef short int ( ::osg::Vec3s::*fget)(  ) const;
+            typedef short int ( ::osg::Vec3s::*fget )(  ) const;
             
             Vec3s_exposer.add_property( 
                 "b"

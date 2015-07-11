@@ -15,7 +15,7 @@ void register_ClampedLinearCostFunction1D_class(){
         bp::implicitly_convertible< double, osg::ClampedLinearCostFunction1D >();
         { //::osg::ClampedLinearCostFunction1D::operator()
         
-            typedef double ( ::osg::ClampedLinearCostFunction1D::*__call___function_type)( unsigned int ) const;
+            typedef double ( ::osg::ClampedLinearCostFunction1D::*__call___function_type )( unsigned int ) const;
             
             ClampedLinearCostFunction1D_exposer.def( 
                 "__call__"
@@ -25,7 +25,7 @@ void register_ClampedLinearCostFunction1D_class(){
         }
         { //::osg::ClampedLinearCostFunction1D::set
         
-            typedef void ( ::osg::ClampedLinearCostFunction1D::*set_function_type)( double,double,unsigned int ) ;
+            typedef void ( ::osg::ClampedLinearCostFunction1D::*set_function_type )( double,double,unsigned int ) ;
             
             ClampedLinearCostFunction1D_exposer.def( 
                 "set"

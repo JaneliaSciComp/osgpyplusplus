@@ -392,167 +392,167 @@ void register_Texture2DMultisample_class(){
         .def( bp::init< GLsizei, GLboolean >(( bp::arg("numSamples"), bp::arg("fixedsamplelocations") )) )    
         .def( 
             "allocateMipmap"
-            , (void ( ::osg::Texture2DMultisample::* )( ::osg::State & )const)(&::osg::Texture2DMultisample::allocateMipmap)
-            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & )const)(&Texture2DMultisample_wrapper::default_allocateMipmap)
+            , (void ( ::osg::Texture2DMultisample::* )( ::osg::State & ) const)(&::osg::Texture2DMultisample::allocateMipmap)
+            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & ) const)(&Texture2DMultisample_wrapper::default_allocateMipmap)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::Texture2DMultisample::* )( ::osg::State & )const)(&::osg::Texture2DMultisample::apply)
-            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & )const)(&Texture2DMultisample_wrapper::default_apply)
+            , (void ( ::osg::Texture2DMultisample::* )( ::osg::State & ) const)(&::osg::Texture2DMultisample::apply)
+            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & ) const)(&Texture2DMultisample_wrapper::default_apply)
             , ( bp::arg("state") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::className)
-            , (char const * ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_className) )    
+            , (char const * ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::className)
+            , (char const * ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Texture2DMultisample::* )( ::osg::CopyOp const & )const)(&::osg::Texture2DMultisample::clone)
-            , (::osg::Object * ( Texture2DMultisample_wrapper::* )( ::osg::CopyOp const & )const)(&Texture2DMultisample_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Texture2DMultisample::* )( ::osg::CopyOp const & ) const)(&::osg::Texture2DMultisample::clone)
+            , (::osg::Object * ( Texture2DMultisample_wrapper::* )( ::osg::CopyOp const & ) const)(&Texture2DMultisample_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::cloneType)
-            , (::osg::Object * ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::cloneType)
+            , (::osg::Object * ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getImage"
-            , (::osg::Image * ( ::osg::Texture2DMultisample::* )( unsigned int ))(&::osg::Texture2DMultisample::getImage)
-            , (::osg::Image * ( Texture2DMultisample_wrapper::* )( unsigned int ))(&Texture2DMultisample_wrapper::default_getImage)
+            , (::osg::Image * ( ::osg::Texture2DMultisample::* )( unsigned int ) )(&::osg::Texture2DMultisample::getImage)
+            , (::osg::Image * ( Texture2DMultisample_wrapper::* )( unsigned int ) )(&Texture2DMultisample_wrapper::default_getImage)
             , ( bp::arg("arg0") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getImage"
-            , (::osg::Image const * ( ::osg::Texture2DMultisample::* )( unsigned int )const)(&::osg::Texture2DMultisample::getImage)
-            , (::osg::Image const * ( Texture2DMultisample_wrapper::* )( unsigned int )const)(&Texture2DMultisample_wrapper::default_getImage)
+            , (::osg::Image const * ( ::osg::Texture2DMultisample::* )( unsigned int ) const)(&::osg::Texture2DMultisample::getImage)
+            , (::osg::Image const * ( Texture2DMultisample_wrapper::* )( unsigned int ) const)(&Texture2DMultisample_wrapper::default_getImage)
             , ( bp::arg("arg0") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNumImages"
-            , (unsigned int ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getNumImages)
-            , (unsigned int ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getNumImages) )    
+            , (unsigned int ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getNumImages)
+            , (unsigned int ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getNumImages) )    
         .def( 
             "getTextureDepth"
-            , (int ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getTextureDepth)
-            , (int ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getTextureDepth) )    
+            , (int ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getTextureDepth)
+            , (int ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getTextureDepth) )    
         .def( 
             "getTextureHeight"
-            , (int ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getTextureHeight)
-            , (int ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getTextureHeight) )    
+            , (int ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getTextureHeight)
+            , (int ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getTextureHeight) )    
         .def( 
             "getTextureTarget"
-            , (::GLenum ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getTextureTarget)
-            , (::GLenum ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getTextureTarget) )    
+            , (::GLenum ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getTextureTarget)
+            , (::GLenum ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getTextureTarget) )    
         .def( 
             "getTextureWidth"
-            , (int ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getTextureWidth)
-            , (int ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getTextureWidth) )    
+            , (int ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getTextureWidth)
+            , (int ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getTextureWidth) )    
         .def( 
             "getType"
-            , (::osg::StateAttribute::Type ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::getType)
-            , (::osg::StateAttribute::Type ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getType) )    
+            , (::osg::StateAttribute::Type ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::getType)
+            , (::osg::StateAttribute::Type ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getType) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Texture2DMultisample::* )( ::osg::Object const * )const)(&::osg::Texture2DMultisample::isSameKindAs)
-            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::Object const * )const)(&Texture2DMultisample_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Texture2DMultisample::* )( ::osg::Object const * ) const)(&::osg::Texture2DMultisample::isSameKindAs)
+            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::Object const * ) const)(&Texture2DMultisample_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Texture2DMultisample::* )(  )const)(&::osg::Texture2DMultisample::libraryName)
-            , (char const * ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Texture2DMultisample::* )(  ) const)(&::osg::Texture2DMultisample::libraryName)
+            , (char const * ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_libraryName) )    
         .def( 
             "setImage"
-            , (void ( ::osg::Texture2DMultisample::* )( unsigned int,::osg::Image * ))(&::osg::Texture2DMultisample::setImage)
-            , (void ( Texture2DMultisample_wrapper::* )( unsigned int,::osg::Image * ))(&Texture2DMultisample_wrapper::default_setImage)
+            , (void ( ::osg::Texture2DMultisample::* )( unsigned int,::osg::Image * ) )(&::osg::Texture2DMultisample::setImage)
+            , (void ( Texture2DMultisample_wrapper::* )( unsigned int,::osg::Image * ) )(&Texture2DMultisample_wrapper::default_setImage)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setNumSamples"
-            , (void ( ::osg::Texture2DMultisample::* )( int ))( &::osg::Texture2DMultisample::setNumSamples )
+            , (void ( ::osg::Texture2DMultisample::* )( int ) )( &::osg::Texture2DMultisample::setNumSamples )
             , ( bp::arg("samples") ) )    
         .def( 
             "setTextureHeight"
-            , (void ( ::osg::Texture2DMultisample::* )( int ))( &::osg::Texture2DMultisample::setTextureHeight )
+            , (void ( ::osg::Texture2DMultisample::* )( int ) )( &::osg::Texture2DMultisample::setTextureHeight )
             , ( bp::arg("height") ) )    
         .def( 
             "setTextureSize"
-            , (void ( ::osg::Texture2DMultisample::* )( int,int )const)( &::osg::Texture2DMultisample::setTextureSize )
+            , (void ( ::osg::Texture2DMultisample::* )( int,int ) const)( &::osg::Texture2DMultisample::setTextureSize )
             , ( bp::arg("width"), bp::arg("height") )
             , " Sets the texture width and height. If width or height are zero,\n calculate the respective value from the source image size." )    
         .def( 
             "setTextureWidth"
-            , (void ( ::osg::Texture2DMultisample::* )( int ))( &::osg::Texture2DMultisample::setTextureWidth )
+            , (void ( ::osg::Texture2DMultisample::* )( int ) )( &::osg::Texture2DMultisample::setTextureWidth )
             , ( bp::arg("width") ) )    
         .def( 
             "asTexture"
-            , (::osg::Texture * ( ::osg::Texture::* )(  ))(&::osg::Texture::asTexture)
-            , (::osg::Texture * ( Texture2DMultisample_wrapper::* )(  ))(&Texture2DMultisample_wrapper::default_asTexture)
+            , (::osg::Texture * ( ::osg::Texture::* )(  ) )(&::osg::Texture::asTexture)
+            , (::osg::Texture * ( Texture2DMultisample_wrapper::* )(  ) )(&Texture2DMultisample_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "asTexture"
-            , (::osg::Texture const * ( ::osg::Texture::* )(  )const)(&::osg::Texture::asTexture)
-            , (::osg::Texture const * ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_asTexture)
+            , (::osg::Texture const * ( ::osg::Texture::* )(  ) const)(&::osg::Texture::asTexture)
+            , (::osg::Texture const * ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_asTexture)
             , bp::return_internal_reference< >() )    
         .def( 
             "checkValidityOfAssociatedModes"
-            , (bool ( ::osg::StateAttribute::* )( ::osg::State & )const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
-            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::State & )const)(&Texture2DMultisample_wrapper::default_checkValidityOfAssociatedModes)
+            , (bool ( ::osg::StateAttribute::* )( ::osg::State & ) const)(&::osg::StateAttribute::checkValidityOfAssociatedModes)
+            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::State & ) const)(&Texture2DMultisample_wrapper::default_checkValidityOfAssociatedModes)
             , ( bp::arg("arg0") ) )    
         .def( 
             "compileGLObjects"
-            , (void ( ::osg::Texture::* )( ::osg::State & )const)(&::osg::Texture::compileGLObjects)
-            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & )const)(&Texture2DMultisample_wrapper::default_compileGLObjects)
+            , (void ( ::osg::Texture::* )( ::osg::State & ) const)(&::osg::Texture::compileGLObjects)
+            , (void ( Texture2DMultisample_wrapper::* )( ::osg::State & ) const)(&Texture2DMultisample_wrapper::default_compileGLObjects)
             , ( bp::arg("state") ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Texture2DMultisample_wrapper::* )(  ))(&Texture2DMultisample_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Texture2DMultisample_wrapper::* )(  ) )(&Texture2DMultisample_wrapper::default_computeDataVariance) )    
         .def( 
             "getMember"
-            , (unsigned int ( ::osg::StateAttribute::* )(  )const)(&::osg::StateAttribute::getMember)
-            , (unsigned int ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getMember) )    
+            , (unsigned int ( ::osg::StateAttribute::* )(  ) const)(&::osg::StateAttribute::getMember)
+            , (unsigned int ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getMember) )    
         .def( 
             "getModeUsage"
-            , (bool ( ::osg::Texture::* )( ::osg::StateAttribute::ModeUsage & )const)(&::osg::Texture::getModeUsage)
-            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::StateAttribute::ModeUsage & )const)(&Texture2DMultisample_wrapper::default_getModeUsage)
+            , (bool ( ::osg::Texture::* )( ::osg::StateAttribute::ModeUsage & ) const)(&::osg::Texture::getModeUsage)
+            , (bool ( Texture2DMultisample_wrapper::* )( ::osg::StateAttribute::ModeUsage & ) const)(&Texture2DMultisample_wrapper::default_getModeUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Texture2DMultisample_wrapper::* )(  ))(&Texture2DMultisample_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Texture2DMultisample_wrapper::* )(  ) )(&Texture2DMultisample_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isTextureAttribute"
-            , (bool ( ::osg::Texture::* )(  )const)(&::osg::Texture::isTextureAttribute)
-            , (bool ( Texture2DMultisample_wrapper::* )(  )const)(&Texture2DMultisample_wrapper::default_isTextureAttribute) )    
+            , (bool ( ::osg::Texture::* )(  ) const)(&::osg::Texture::isTextureAttribute)
+            , (bool ( Texture2DMultisample_wrapper::* )(  ) const)(&Texture2DMultisample_wrapper::default_isTextureAttribute) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Texture::* )( unsigned int ))(&::osg::Texture::resizeGLObjectBuffers)
-            , (void ( Texture2DMultisample_wrapper::* )( unsigned int ))(&Texture2DMultisample_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Texture::* )( unsigned int ) )(&::osg::Texture::resizeGLObjectBuffers)
+            , (void ( Texture2DMultisample_wrapper::* )( unsigned int ) )(&Texture2DMultisample_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("maxSize") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Texture2DMultisample_wrapper::* )( ::std::string const & ))(&Texture2DMultisample_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Texture2DMultisample_wrapper::* )( ::std::string const & ) )(&Texture2DMultisample_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Texture2DMultisample_wrapper::* )( bool ))(&Texture2DMultisample_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Texture2DMultisample_wrapper::* )( bool ) )(&Texture2DMultisample_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Texture2DMultisample_wrapper::* )( ::osg::Referenced * ))(&Texture2DMultisample_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Texture2DMultisample_wrapper::* )( ::osg::Referenced * ) )(&Texture2DMultisample_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

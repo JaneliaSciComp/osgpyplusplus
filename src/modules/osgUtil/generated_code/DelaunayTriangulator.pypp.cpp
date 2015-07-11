@@ -48,7 +48,7 @@ void register_DelaunayTriangulator_class(){
         bp::implicitly_convertible< osg::Vec3Array *, osgUtil::DelaunayTriangulator >();
         { //::osgUtil::DelaunayTriangulator::addInputConstraint
         
-            typedef void ( ::osgUtil::DelaunayTriangulator::*addInputConstraint_function_type)( ::osgUtil::DelaunayConstraint * ) ;
+            typedef void ( ::osgUtil::DelaunayTriangulator::*addInputConstraint_function_type )( ::osgUtil::DelaunayConstraint * ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "addInputConstraint"
@@ -58,7 +58,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getInputPointArray
         
-            typedef ::osg::Vec3Array const * ( ::osgUtil::DelaunayTriangulator::*getInputPointArray_function_type)(  ) const;
+            typedef ::osg::Vec3Array const * ( ::osgUtil::DelaunayTriangulator::*getInputPointArray_function_type )(  ) const;
             
             DelaunayTriangulator_exposer.def( 
                 "getInputPointArray"
@@ -68,7 +68,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getInputPointArray
         
-            typedef ::osg::Vec3Array * ( ::osgUtil::DelaunayTriangulator::*getInputPointArray_function_type)(  ) ;
+            typedef ::osg::Vec3Array * ( ::osgUtil::DelaunayTriangulator::*getInputPointArray_function_type )(  ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "getInputPointArray"
@@ -78,7 +78,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getOutputNormalArray
         
-            typedef ::osg::Vec3Array const * ( ::osgUtil::DelaunayTriangulator::*getOutputNormalArray_function_type)(  ) const;
+            typedef ::osg::Vec3Array const * ( ::osgUtil::DelaunayTriangulator::*getOutputNormalArray_function_type )(  ) const;
             
             DelaunayTriangulator_exposer.def( 
                 "getOutputNormalArray"
@@ -88,7 +88,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getOutputNormalArray
         
-            typedef ::osg::Vec3Array * ( ::osgUtil::DelaunayTriangulator::*getOutputNormalArray_function_type)(  ) ;
+            typedef ::osg::Vec3Array * ( ::osgUtil::DelaunayTriangulator::*getOutputNormalArray_function_type )(  ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "getOutputNormalArray"
@@ -98,7 +98,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getTriangles
         
-            typedef ::osg::DrawElementsUInt const * ( ::osgUtil::DelaunayTriangulator::*getTriangles_function_type)(  ) const;
+            typedef ::osg::DrawElementsUInt const * ( ::osgUtil::DelaunayTriangulator::*getTriangles_function_type )(  ) const;
             
             DelaunayTriangulator_exposer.def( 
                 "getTriangles"
@@ -108,7 +108,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::getTriangles
         
-            typedef ::osg::DrawElementsUInt * ( ::osgUtil::DelaunayTriangulator::*getTriangles_function_type)(  ) ;
+            typedef ::osg::DrawElementsUInt * ( ::osgUtil::DelaunayTriangulator::*getTriangles_function_type )(  ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "getTriangles"
@@ -118,7 +118,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::removeInternalTriangles
         
-            typedef void ( ::osgUtil::DelaunayTriangulator::*removeInternalTriangles_function_type)( ::osgUtil::DelaunayConstraint * ) ;
+            typedef void ( ::osgUtil::DelaunayTriangulator::*removeInternalTriangles_function_type )( ::osgUtil::DelaunayConstraint * ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "removeInternalTriangles"
@@ -128,7 +128,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::setInputPointArray
         
-            typedef void ( ::osgUtil::DelaunayTriangulator::*setInputPointArray_function_type)( ::osg::Vec3Array * ) ;
+            typedef void ( ::osgUtil::DelaunayTriangulator::*setInputPointArray_function_type )( ::osg::Vec3Array * ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "setInputPointArray"
@@ -138,7 +138,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::setOutputNormalArray
         
-            typedef void ( ::osgUtil::DelaunayTriangulator::*setOutputNormalArray_function_type)( ::osg::Vec3Array * ) ;
+            typedef void ( ::osgUtil::DelaunayTriangulator::*setOutputNormalArray_function_type )( ::osg::Vec3Array * ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "setOutputNormalArray"
@@ -148,7 +148,7 @@ void register_DelaunayTriangulator_class(){
         }
         { //::osgUtil::DelaunayTriangulator::triangulate
         
-            typedef bool ( ::osgUtil::DelaunayTriangulator::*triangulate_function_type)(  ) ;
+            typedef bool ( ::osgUtil::DelaunayTriangulator::*triangulate_function_type )(  ) ;
             
             DelaunayTriangulator_exposer.def( 
                 "triangulate"

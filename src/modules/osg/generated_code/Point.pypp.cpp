@@ -319,7 +319,7 @@ void register_Point_class(){
             bp::implicitly_convertible< unsigned int, osg::Point::Extensions >();
             { //::osg::Point::Extensions::glPointParameterf
             
-                typedef void ( ::osg::Point::Extensions::*glPointParameterf_function_type)( ::GLenum,::GLfloat ) const;
+                typedef void ( ::osg::Point::Extensions::*glPointParameterf_function_type )( ::GLenum,::GLfloat ) const;
                 
                 Extensions_exposer.def( 
                     "glPointParameterf"
@@ -329,7 +329,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::glPointParameterfv
             
-                typedef void ( ::osg::Point::Extensions::*glPointParameterfv_function_type)( ::GLenum,::GLfloat const * ) const;
+                typedef void ( ::osg::Point::Extensions::*glPointParameterfv_function_type )( ::GLenum,::GLfloat const * ) const;
                 
                 Extensions_exposer.def( 
                     "glPointParameterfv"
@@ -339,7 +339,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::glPointParameteri
             
-                typedef void ( ::osg::Point::Extensions::*glPointParameteri_function_type)( ::GLenum,::GLint ) const;
+                typedef void ( ::osg::Point::Extensions::*glPointParameteri_function_type )( ::GLenum,::GLint ) const;
                 
                 Extensions_exposer.def( 
                     "glPointParameteri"
@@ -349,7 +349,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::isPointParametersSupported
             
-                typedef bool ( ::osg::Point::Extensions::*isPointParametersSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Point::Extensions::*isPointParametersSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isPointParametersSupported"
@@ -358,7 +358,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::isPointSpriteCoordOriginSupported
             
-                typedef bool ( ::osg::Point::Extensions::*isPointSpriteCoordOriginSupported_function_type)(  ) const;
+                typedef bool ( ::osg::Point::Extensions::*isPointSpriteCoordOriginSupported_function_type )(  ) const;
                 
                 Extensions_exposer.def( 
                     "isPointSpriteCoordOriginSupported"
@@ -377,7 +377,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::setPointParametersSupported
             
-                typedef void ( ::osg::Point::Extensions::*setPointParametersSupported_function_type)( bool ) ;
+                typedef void ( ::osg::Point::Extensions::*setPointParametersSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setPointParametersSupported"
@@ -387,7 +387,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::setPointSpriteCoordOriginSupported
             
-                typedef void ( ::osg::Point::Extensions::*setPointSpriteCoordOriginSupported_function_type)( bool ) ;
+                typedef void ( ::osg::Point::Extensions::*setPointSpriteCoordOriginSupported_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setPointSpriteCoordOriginSupported"
@@ -397,7 +397,7 @@ void register_Point_class(){
             }
             { //::osg::Point::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::Point::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
+                typedef void ( ::osg::Point::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -407,8 +407,8 @@ void register_Point_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-                typedef void ( Point_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( Point_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -423,8 +423,8 @@ void register_Point_class(){
         bp::implicitly_convertible< float, osg::Point >();
         { //::osg::Point::apply
         
-            typedef void ( ::osg::Point::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Point_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Point::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Point_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Point_exposer.def( 
                 "apply"
@@ -435,8 +435,8 @@ void register_Point_class(){
         }
         { //::osg::Point::className
         
-            typedef char const * ( ::osg::Point::*className_function_type)(  ) const;
-            typedef char const * ( Point_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Point::*className_function_type )(  ) const;
+            typedef char const * ( Point_wrapper::*default_className_function_type )(  ) const;
             
             Point_exposer.def( 
                 "className"
@@ -446,8 +446,8 @@ void register_Point_class(){
         }
         { //::osg::Point::clone
         
-            typedef ::osg::Object * ( ::osg::Point::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Point_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Point::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Point_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Point_exposer.def( 
                 "clone"
@@ -459,8 +459,8 @@ void register_Point_class(){
         }
         { //::osg::Point::cloneType
         
-            typedef ::osg::Object * ( ::osg::Point::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Point_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Point::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Point_wrapper::*default_cloneType_function_type )(  ) const;
             
             Point_exposer.def( 
                 "cloneType"
@@ -471,7 +471,7 @@ void register_Point_class(){
         }
         { //::osg::Point::getDistanceAttenuation
         
-            typedef ::osg::Vec3 const & ( ::osg::Point::*getDistanceAttenuation_function_type)(  ) const;
+            typedef ::osg::Vec3 const & ( ::osg::Point::*getDistanceAttenuation_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getDistanceAttenuation"
@@ -493,7 +493,7 @@ void register_Point_class(){
         }
         { //::osg::Point::getFadeThresholdSize
         
-            typedef float ( ::osg::Point::*getFadeThresholdSize_function_type)(  ) const;
+            typedef float ( ::osg::Point::*getFadeThresholdSize_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getFadeThresholdSize"
@@ -502,7 +502,7 @@ void register_Point_class(){
         }
         { //::osg::Point::getMaxSize
         
-            typedef float ( ::osg::Point::*getMaxSize_function_type)(  ) const;
+            typedef float ( ::osg::Point::*getMaxSize_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getMaxSize"
@@ -511,7 +511,7 @@ void register_Point_class(){
         }
         { //::osg::Point::getMinSize
         
-            typedef float ( ::osg::Point::*getMinSize_function_type)(  ) const;
+            typedef float ( ::osg::Point::*getMinSize_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getMinSize"
@@ -520,8 +520,8 @@ void register_Point_class(){
         }
         { //::osg::Point::getModeUsage
         
-            typedef bool ( ::osg::Point::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Point_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Point::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Point_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Point_exposer.def( 
                 "getModeUsage"
@@ -532,7 +532,7 @@ void register_Point_class(){
         }
         { //::osg::Point::getSize
         
-            typedef float ( ::osg::Point::*getSize_function_type)(  ) const;
+            typedef float ( ::osg::Point::*getSize_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getSize"
@@ -541,8 +541,8 @@ void register_Point_class(){
         }
         { //::osg::Point::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Point::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Point_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Point::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Point_wrapper::*default_getType_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getType"
@@ -552,8 +552,8 @@ void register_Point_class(){
         }
         { //::osg::Point::isSameKindAs
         
-            typedef bool ( ::osg::Point::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Point_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Point::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Point_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Point_exposer.def( 
                 "isSameKindAs"
@@ -564,8 +564,8 @@ void register_Point_class(){
         }
         { //::osg::Point::libraryName
         
-            typedef char const * ( ::osg::Point::*libraryName_function_type)(  ) const;
-            typedef char const * ( Point_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Point::*libraryName_function_type )(  ) const;
+            typedef char const * ( Point_wrapper::*default_libraryName_function_type )(  ) const;
             
             Point_exposer.def( 
                 "libraryName"
@@ -575,7 +575,7 @@ void register_Point_class(){
         }
         { //::osg::Point::setDistanceAttenuation
         
-            typedef void ( ::osg::Point::*setDistanceAttenuation_function_type)( ::osg::Vec3 const & ) ;
+            typedef void ( ::osg::Point::*setDistanceAttenuation_function_type )( ::osg::Vec3 const & ) ;
             
             Point_exposer.def( 
                 "setDistanceAttenuation"
@@ -596,7 +596,7 @@ void register_Point_class(){
         }
         { //::osg::Point::setFadeThresholdSize
         
-            typedef void ( ::osg::Point::*setFadeThresholdSize_function_type)( float ) ;
+            typedef void ( ::osg::Point::*setFadeThresholdSize_function_type )( float ) ;
             
             Point_exposer.def( 
                 "setFadeThresholdSize"
@@ -606,7 +606,7 @@ void register_Point_class(){
         }
         { //::osg::Point::setMaxSize
         
-            typedef void ( ::osg::Point::*setMaxSize_function_type)( float ) ;
+            typedef void ( ::osg::Point::*setMaxSize_function_type )( float ) ;
             
             Point_exposer.def( 
                 "setMaxSize"
@@ -616,7 +616,7 @@ void register_Point_class(){
         }
         { //::osg::Point::setMinSize
         
-            typedef void ( ::osg::Point::*setMinSize_function_type)( float ) ;
+            typedef void ( ::osg::Point::*setMinSize_function_type )( float ) ;
             
             Point_exposer.def( 
                 "setMinSize"
@@ -626,7 +626,7 @@ void register_Point_class(){
         }
         { //::osg::Point::setSize
         
-            typedef void ( ::osg::Point::*setSize_function_type)( float ) ;
+            typedef void ( ::osg::Point::*setSize_function_type )( float ) ;
             
             Point_exposer.def( 
                 "setSize"
@@ -636,8 +636,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Point_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Point_wrapper::*default_asTexture_function_type )(  ) ;
             
             Point_exposer.def( 
                 "asTexture"
@@ -648,8 +648,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Point_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Point_wrapper::*default_asTexture_function_type )(  ) const;
             
             Point_exposer.def( 
                 "asTexture"
@@ -660,8 +660,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Point_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Point_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Point_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -672,8 +672,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Point_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Point_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Point_exposer.def( 
                 "compileGLObjects"
@@ -684,8 +684,8 @@ void register_Point_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Point_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Point_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Point_exposer.def( 
                 "computeDataVariance"
@@ -695,8 +695,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Point_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Point_wrapper::*default_getMember_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getMember"
@@ -706,8 +706,8 @@ void register_Point_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Point_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Point_wrapper::*default_getUserData_function_type )(  ) ;
             
             Point_exposer.def( 
                 "getUserData"
@@ -718,8 +718,8 @@ void register_Point_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Point_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Point_wrapper::*default_getUserData_function_type )(  ) const;
             
             Point_exposer.def( 
                 "getUserData"
@@ -730,8 +730,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Point_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Point_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Point_exposer.def( 
                 "isTextureAttribute"
@@ -741,8 +741,8 @@ void register_Point_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Point_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Point_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Point_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -753,8 +753,8 @@ void register_Point_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Point_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Point_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Point_exposer.def( 
                 "setName"
@@ -765,7 +765,7 @@ void register_Point_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Point_exposer.def( 
                 "setName"
@@ -776,8 +776,8 @@ void register_Point_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Point_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Point_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Point_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -788,8 +788,8 @@ void register_Point_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Point_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Point_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Point_exposer.def( 
                 "setUserData"

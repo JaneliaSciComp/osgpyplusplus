@@ -130,97 +130,97 @@ void register_OutputIterator_class(){
     bp::class_< OutputIterator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::OutputIterator >, boost::noncopyable >( "OutputIterator", bp::no_init )    
         .def( 
             "flush"
-            , (void ( ::osgDB::OutputIterator::* )(  ))(&::osgDB::OutputIterator::flush)
-            , (void ( OutputIterator_wrapper::* )(  ))(&OutputIterator_wrapper::default_flush) )    
+            , (void ( ::osgDB::OutputIterator::* )(  ) )(&::osgDB::OutputIterator::flush)
+            , (void ( OutputIterator_wrapper::* )(  ) )(&OutputIterator_wrapper::default_flush) )    
         .def( 
             "getStream"
-            , (::std::ostream * ( ::osgDB::OutputIterator::* )(  ))( &::osgDB::OutputIterator::getStream )
+            , (::std::ostream * ( ::osgDB::OutputIterator::* )(  ) )( &::osgDB::OutputIterator::getStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getStream"
-            , (::std::ostream const * ( ::osgDB::OutputIterator::* )(  )const)( &::osgDB::OutputIterator::getStream )
+            , (::std::ostream const * ( ::osgDB::OutputIterator::* )(  ) const)( &::osgDB::OutputIterator::getStream )
             , bp::return_internal_reference< >() )    
         .def( 
             "getSupportBinaryBrackets"
-            , (bool ( ::osgDB::OutputIterator::* )(  )const)( &::osgDB::OutputIterator::getSupportBinaryBrackets ) )    
+            , (bool ( ::osgDB::OutputIterator::* )(  ) const)( &::osgDB::OutputIterator::getSupportBinaryBrackets ) )    
         .def( 
             "isBinary"
-            , bp::pure_virtual( (bool ( ::osgDB::OutputIterator::* )(  )const)(&::osgDB::OutputIterator::isBinary) ) )    
+            , bp::pure_virtual( (bool ( ::osgDB::OutputIterator::* )(  ) const)(&::osgDB::OutputIterator::isBinary) ) )    
         .def( 
             "setStream"
-            , (void ( ::osgDB::OutputIterator::* )( ::std::ostream * ))( &::osgDB::OutputIterator::setStream )
+            , (void ( ::osgDB::OutputIterator::* )( ::std::ostream * ) )( &::osgDB::OutputIterator::setStream )
             , ( bp::arg("ostream") ) )    
         .def( 
             "setSupportBinaryBrackets"
-            , (void ( ::osgDB::OutputIterator::* )( bool ))( &::osgDB::OutputIterator::setSupportBinaryBrackets )
+            , (void ( ::osgDB::OutputIterator::* )( bool ) )( &::osgDB::OutputIterator::setSupportBinaryBrackets )
             , ( bp::arg("b") ) )    
         .def( 
             "writeBool"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( bool ))(&::osgDB::OutputIterator::writeBool) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( bool ) )(&::osgDB::OutputIterator::writeBool) )
             , ( bp::arg("b") ) )    
         .def( 
             "writeChar"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( char ))(&::osgDB::OutputIterator::writeChar) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( char ) )(&::osgDB::OutputIterator::writeChar) )
             , ( bp::arg("c") ) )    
         .def( 
             "writeCharArray"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( char const *,unsigned int ))(&::osgDB::OutputIterator::writeCharArray) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( char const *,unsigned int ) )(&::osgDB::OutputIterator::writeCharArray) )
             , ( bp::arg("s"), bp::arg("size") ) )    
         .def( 
             "writeDouble"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( double ))(&::osgDB::OutputIterator::writeDouble) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( double ) )(&::osgDB::OutputIterator::writeDouble) )
             , ( bp::arg("d") ) )    
         .def( 
             "writeFloat"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( float ))(&::osgDB::OutputIterator::writeFloat) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( float ) )(&::osgDB::OutputIterator::writeFloat) )
             , ( bp::arg("f") ) )    
         .def( 
             "writeGLenum"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectGLenum const & ))(&::osgDB::OutputIterator::writeGLenum) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectGLenum const & ) )(&::osgDB::OutputIterator::writeGLenum) )
             , ( bp::arg("value") ) )    
         .def( 
             "writeInt"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( int ))(&::osgDB::OutputIterator::writeInt) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( int ) )(&::osgDB::OutputIterator::writeInt) )
             , ( bp::arg("i") ) )    
         .def( 
             "writeLong"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( long int ))(&::osgDB::OutputIterator::writeLong) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( long int ) )(&::osgDB::OutputIterator::writeLong) )
             , ( bp::arg("l") ) )    
         .def( 
             "writeMark"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectMark const & ))(&::osgDB::OutputIterator::writeMark) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectMark const & ) )(&::osgDB::OutputIterator::writeMark) )
             , ( bp::arg("mark") ) )    
         .def( 
             "writeProperty"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectProperty const & ))(&::osgDB::OutputIterator::writeProperty) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::osgDB::ObjectProperty const & ) )(&::osgDB::OutputIterator::writeProperty) )
             , ( bp::arg("prop") ) )    
         .def( 
             "writeShort"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( short int ))(&::osgDB::OutputIterator::writeShort) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( short int ) )(&::osgDB::OutputIterator::writeShort) )
             , ( bp::arg("s") ) )    
         .def( 
             "writeString"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::std::string const & ))(&::osgDB::OutputIterator::writeString) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::std::string const & ) )(&::osgDB::OutputIterator::writeString) )
             , ( bp::arg("s") ) )    
         .def( 
             "writeUChar"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( unsigned char ))(&::osgDB::OutputIterator::writeUChar) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( unsigned char ) )(&::osgDB::OutputIterator::writeUChar) )
             , ( bp::arg("c") ) )    
         .def( 
             "writeUInt"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( unsigned int ))(&::osgDB::OutputIterator::writeUInt) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( unsigned int ) )(&::osgDB::OutputIterator::writeUInt) )
             , ( bp::arg("i") ) )    
         .def( 
             "writeULong"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( long unsigned int ))(&::osgDB::OutputIterator::writeULong) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( long unsigned int ) )(&::osgDB::OutputIterator::writeULong) )
             , ( bp::arg("l") ) )    
         .def( 
             "writeUShort"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( short unsigned int ))(&::osgDB::OutputIterator::writeUShort) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( short unsigned int ) )(&::osgDB::OutputIterator::writeUShort) )
             , ( bp::arg("s") ) )    
         .def( 
             "writeWrappedString"
-            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::std::string const & ))(&::osgDB::OutputIterator::writeWrappedString) )
+            , bp::pure_virtual( (void ( ::osgDB::OutputIterator::* )( ::std::string const & ) )(&::osgDB::OutputIterator::writeWrappedString) )
             , ( bp::arg("str") ) );
 
 }

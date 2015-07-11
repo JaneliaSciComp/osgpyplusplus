@@ -287,8 +287,8 @@ void register_Viewport_class(){
         Viewport_exposer.def( bp::init< double, double, double, double >(( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )) );
         { //::osg::Viewport::apply
         
-            typedef void ( ::osg::Viewport::*apply_function_type)( ::osg::State & ) const;
-            typedef void ( Viewport_wrapper::*default_apply_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::Viewport::*apply_function_type )( ::osg::State & ) const;
+            typedef void ( Viewport_wrapper::*default_apply_function_type )( ::osg::State & ) const;
             
             Viewport_exposer.def( 
                 "apply"
@@ -299,7 +299,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::aspectRatio
         
-            typedef double ( ::osg::Viewport::*aspectRatio_function_type)(  ) const;
+            typedef double ( ::osg::Viewport::*aspectRatio_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "aspectRatio"
@@ -309,8 +309,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::className
         
-            typedef char const * ( ::osg::Viewport::*className_function_type)(  ) const;
-            typedef char const * ( Viewport_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::Viewport::*className_function_type )(  ) const;
+            typedef char const * ( Viewport_wrapper::*default_className_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "className"
@@ -320,8 +320,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::clone
         
-            typedef ::osg::Object * ( ::osg::Viewport::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Viewport_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Viewport::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Viewport_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Viewport_exposer.def( 
                 "clone"
@@ -333,8 +333,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::cloneType
         
-            typedef ::osg::Object * ( ::osg::Viewport::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Viewport_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osg::Viewport::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Viewport_wrapper::*default_cloneType_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "cloneType"
@@ -345,7 +345,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::computeWindowMatrix
         
-            typedef ::osg::Matrix const ( ::osg::Viewport::*computeWindowMatrix_function_type)(  ) const;
+            typedef ::osg::Matrix const ( ::osg::Viewport::*computeWindowMatrix_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "computeWindowMatrix"
@@ -355,8 +355,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Viewport::*getType_function_type)(  ) const;
-            typedef ::osg::StateAttribute::Type ( Viewport_wrapper::*default_getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Viewport::*getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( Viewport_wrapper::*default_getType_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "getType"
@@ -366,7 +366,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::height
         
-            typedef double & ( ::osg::Viewport::*height_function_type)(  ) ;
+            typedef double & ( ::osg::Viewport::*height_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "height"
@@ -376,7 +376,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::height
         
-            typedef double ( ::osg::Viewport::*height_function_type)(  ) const;
+            typedef double ( ::osg::Viewport::*height_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "height"
@@ -385,8 +385,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::isSameKindAs
         
-            typedef bool ( ::osg::Viewport::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Viewport_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Viewport::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Viewport_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Viewport_exposer.def( 
                 "isSameKindAs"
@@ -397,8 +397,8 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::libraryName
         
-            typedef char const * ( ::osg::Viewport::*libraryName_function_type)(  ) const;
-            typedef char const * ( Viewport_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::Viewport::*libraryName_function_type )(  ) const;
+            typedef char const * ( Viewport_wrapper::*default_libraryName_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "libraryName"
@@ -408,7 +408,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::setViewport
         
-            typedef void ( ::osg::Viewport::*setViewport_function_type)( double,double,double,double ) ;
+            typedef void ( ::osg::Viewport::*setViewport_function_type )( double,double,double,double ) ;
             
             Viewport_exposer.def( 
                 "setViewport"
@@ -418,7 +418,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::valid
         
-            typedef bool ( ::osg::Viewport::*valid_function_type)(  ) const;
+            typedef bool ( ::osg::Viewport::*valid_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "valid"
@@ -427,7 +427,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::width
         
-            typedef double & ( ::osg::Viewport::*width_function_type)(  ) ;
+            typedef double & ( ::osg::Viewport::*width_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "width"
@@ -437,7 +437,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::width
         
-            typedef double ( ::osg::Viewport::*width_function_type)(  ) const;
+            typedef double ( ::osg::Viewport::*width_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "width"
@@ -446,7 +446,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::x
         
-            typedef double & ( ::osg::Viewport::*x_function_type)(  ) ;
+            typedef double & ( ::osg::Viewport::*x_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "x"
@@ -456,7 +456,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::x
         
-            typedef double ( ::osg::Viewport::*x_function_type)(  ) const;
+            typedef double ( ::osg::Viewport::*x_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "x"
@@ -465,7 +465,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::y
         
-            typedef double & ( ::osg::Viewport::*y_function_type)(  ) ;
+            typedef double & ( ::osg::Viewport::*y_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "y"
@@ -475,7 +475,7 @@ void register_Viewport_class(){
         }
         { //::osg::Viewport::y
         
-            typedef double ( ::osg::Viewport::*y_function_type)(  ) const;
+            typedef double ( ::osg::Viewport::*y_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "y"
@@ -484,8 +484,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
-            typedef ::osg::Texture * ( Viewport_wrapper::*default_asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( Viewport_wrapper::*default_asTexture_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "asTexture"
@@ -496,8 +496,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
-            typedef ::osg::Texture const * ( Viewport_wrapper::*default_asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( Viewport_wrapper::*default_asTexture_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "asTexture"
@@ -508,8 +508,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
-            typedef bool ( Viewport_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( Viewport_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
             
             Viewport_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -520,8 +520,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
-            typedef void ( Viewport_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( Viewport_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
             
             Viewport_exposer.def( 
                 "compileGLObjects"
@@ -532,8 +532,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
-            typedef void ( Viewport_wrapper::*default_computeDataVariance_function_type)(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
+            typedef void ( Viewport_wrapper::*default_computeDataVariance_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "computeDataVariance"
@@ -543,8 +543,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
-            typedef unsigned int ( Viewport_wrapper::*default_getMember_function_type)(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
+            typedef unsigned int ( Viewport_wrapper::*default_getMember_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "getMember"
@@ -554,8 +554,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::getModeUsage
         
-            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Viewport_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StateAttribute::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Viewport_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
             
             Viewport_exposer.def( 
                 "getModeUsage"
@@ -566,8 +566,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
-            typedef ::osg::Referenced * ( Viewport_wrapper::*default_getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( Viewport_wrapper::*default_getUserData_function_type )(  ) ;
             
             Viewport_exposer.def( 
                 "getUserData"
@@ -578,8 +578,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
-            typedef ::osg::Referenced const * ( Viewport_wrapper::*default_getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( Viewport_wrapper::*default_getUserData_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "getUserData"
@@ -590,8 +590,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
-            typedef bool ( Viewport_wrapper::*default_isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
+            typedef bool ( Viewport_wrapper::*default_isTextureAttribute_function_type )(  ) const;
             
             Viewport_exposer.def( 
                 "isTextureAttribute"
@@ -601,8 +601,8 @@ void register_Viewport_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Viewport_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Viewport_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Viewport_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -613,8 +613,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
-            typedef void ( Viewport_wrapper::*default_setName_function_type)( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( Viewport_wrapper::*default_setName_function_type )( ::std::string const & ) ;
             
             Viewport_exposer.def( 
                 "setName"
@@ -625,7 +625,7 @@ void register_Viewport_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
             
             Viewport_exposer.def( 
                 "setName"
@@ -636,8 +636,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Viewport_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Viewport_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Viewport_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -648,8 +648,8 @@ void register_Viewport_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
-            typedef void ( Viewport_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( Viewport_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
             
             Viewport_exposer.def( 
                 "setUserData"

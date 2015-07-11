@@ -97,50 +97,50 @@ void register_Scale2DCommand_class(){
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osgManipulator::DraggerCallback & ))(&::osgManipulator::Scale2DCommand::accept)
-            , (void ( Scale2DCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ))(&Scale2DCommand_wrapper::default_accept)
+            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osgManipulator::DraggerCallback & ) )(&::osgManipulator::Scale2DCommand::accept)
+            , (void ( Scale2DCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ) )(&Scale2DCommand_wrapper::default_accept)
             , ( bp::arg("callback") ) )    
         .def( 
             "createCommandInverse"
-            , (::osgManipulator::MotionCommand * ( ::osgManipulator::Scale2DCommand::* )(  ))(&::osgManipulator::Scale2DCommand::createCommandInverse)
-            , (::osgManipulator::MotionCommand * ( Scale2DCommand_wrapper::* )(  ))(&Scale2DCommand_wrapper::default_createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( ::osgManipulator::Scale2DCommand::* )(  ) )(&::osgManipulator::Scale2DCommand::createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( Scale2DCommand_wrapper::* )(  ) )(&Scale2DCommand_wrapper::default_createCommandInverse)
             , bp::return_internal_reference< >() )    
         .def( 
             "getMinScale"
-            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  )const)( &::osgManipulator::Scale2DCommand::getMinScale )
+            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  ) const)( &::osgManipulator::Scale2DCommand::getMinScale )
             , bp::return_internal_reference< >() )    
         .def( 
             "getMotionMatrix"
-            , (::osg::Matrix ( ::osgManipulator::Scale2DCommand::* )(  )const)(&::osgManipulator::Scale2DCommand::getMotionMatrix)
-            , (::osg::Matrix ( Scale2DCommand_wrapper::* )(  )const)(&Scale2DCommand_wrapper::default_getMotionMatrix) )    
+            , (::osg::Matrix ( ::osgManipulator::Scale2DCommand::* )(  ) const)(&::osgManipulator::Scale2DCommand::getMotionMatrix)
+            , (::osg::Matrix ( Scale2DCommand_wrapper::* )(  ) const)(&Scale2DCommand_wrapper::default_getMotionMatrix) )    
         .def( 
             "getReferencePoint"
-            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  )const)( &::osgManipulator::Scale2DCommand::getReferencePoint )
+            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  ) const)( &::osgManipulator::Scale2DCommand::getReferencePoint )
             , bp::return_internal_reference< >() )    
         .def( 
             "getScale"
-            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  )const)( &::osgManipulator::Scale2DCommand::getScale )
+            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  ) const)( &::osgManipulator::Scale2DCommand::getScale )
             , bp::return_internal_reference< >() )    
         .def( 
             "getScaleCenter"
-            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  )const)( &::osgManipulator::Scale2DCommand::getScaleCenter )
+            , (::osg::Vec2d const & ( ::osgManipulator::Scale2DCommand::* )(  ) const)( &::osgManipulator::Scale2DCommand::getScaleCenter )
             , bp::return_internal_reference< >() )    
         .def( 
             "setMinScale"
-            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ))( &::osgManipulator::Scale2DCommand::setMinScale )
+            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ) )( &::osgManipulator::Scale2DCommand::setMinScale )
             , ( bp::arg("min") ) )    
         .def( 
             "setReferencePoint"
-            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ))( &::osgManipulator::Scale2DCommand::setReferencePoint )
+            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ) )( &::osgManipulator::Scale2DCommand::setReferencePoint )
             , ( bp::arg("rp") )
             , " ReferencePoint is used only for snapping." )    
         .def( 
             "setScale"
-            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ))( &::osgManipulator::Scale2DCommand::setScale )
+            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ) )( &::osgManipulator::Scale2DCommand::setScale )
             , ( bp::arg("s") ) )    
         .def( 
             "setScaleCenter"
-            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ))( &::osgManipulator::Scale2DCommand::setScaleCenter )
+            , (void ( ::osgManipulator::Scale2DCommand::* )( ::osg::Vec2d const & ) )( &::osgManipulator::Scale2DCommand::setScaleCenter )
             , ( bp::arg("center") ) );
 
 }

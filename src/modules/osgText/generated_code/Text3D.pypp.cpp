@@ -464,8 +464,8 @@ void register_Text3D_class(){
         Text3D_exposer.def( bp::init< >() );
         { //::osgText::Text3D::accept
         
-            typedef void ( ::osgText::Text3D::*accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
-            typedef void ( Text3D_wrapper::*default_accept_function_type)( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( ::osgText::Text3D::*accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
+            typedef void ( Text3D_wrapper::*default_accept_function_type )( ::osg::Drawable::ConstAttributeFunctor & ) const;
             
             Text3D_exposer.def( 
                 "accept"
@@ -476,8 +476,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::accept
         
-            typedef void ( ::osgText::Text3D::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( Text3D_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osgText::Text3D::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( Text3D_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
             
             Text3D_exposer.def( 
                 "accept"
@@ -488,8 +488,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::className
         
-            typedef char const * ( ::osgText::Text3D::*className_function_type)(  ) const;
-            typedef char const * ( Text3D_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgText::Text3D::*className_function_type )(  ) const;
+            typedef char const * ( Text3D_wrapper::*default_className_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "className"
@@ -499,8 +499,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::clone
         
-            typedef ::osg::Object * ( ::osgText::Text3D::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Text3D_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgText::Text3D::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Text3D_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             Text3D_exposer.def( 
                 "clone"
@@ -512,8 +512,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::cloneType
         
-            typedef ::osg::Object * ( ::osgText::Text3D::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( Text3D_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgText::Text3D::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( Text3D_wrapper::*default_cloneType_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "cloneType"
@@ -524,8 +524,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::computeBound
         
-            typedef ::osg::BoundingBox ( ::osgText::Text3D::*computeBound_function_type)(  ) const;
-            typedef ::osg::BoundingBox ( Text3D_wrapper::*default_computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingBox ( ::osgText::Text3D::*computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingBox ( Text3D_wrapper::*default_computeBound_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "computeBound"
@@ -535,8 +535,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::drawImplementation
         
-            typedef void ( ::osgText::Text3D::*drawImplementation_function_type)( ::osg::RenderInfo & ) const;
-            typedef void ( Text3D_wrapper::*default_drawImplementation_function_type)( ::osg::RenderInfo & ) const;
+            typedef void ( ::osgText::Text3D::*drawImplementation_function_type )( ::osg::RenderInfo & ) const;
+            typedef void ( Text3D_wrapper::*default_drawImplementation_function_type )( ::osg::RenderInfo & ) const;
             
             Text3D_exposer.def( 
                 "drawImplementation"
@@ -547,7 +547,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getBackStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Text3D::*getBackStateSet_function_type)(  ) ;
+            typedef ::osg::StateSet * ( ::osgText::Text3D::*getBackStateSet_function_type )(  ) ;
             
             Text3D_exposer.def( 
                 "getBackStateSet"
@@ -558,7 +558,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getBackStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Text3D::*getBackStateSet_function_type)(  ) const;
+            typedef ::osg::StateSet * ( ::osgText::Text3D::*getBackStateSet_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "getBackStateSet"
@@ -569,7 +569,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getCharacterDepth
         
-            typedef float ( ::osgText::Text3D::*getCharacterDepth_function_type)(  ) const;
+            typedef float ( ::osgText::Text3D::*getCharacterDepth_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "getCharacterDepth"
@@ -579,7 +579,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getOrCreateBackStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Text3D::*getOrCreateBackStateSet_function_type)(  ) ;
+            typedef ::osg::StateSet * ( ::osgText::Text3D::*getOrCreateBackStateSet_function_type )(  ) ;
             
             Text3D_exposer.def( 
                 "getOrCreateBackStateSet"
@@ -590,7 +590,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getOrCreateWallStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Text3D::*getOrCreateWallStateSet_function_type)(  ) ;
+            typedef ::osg::StateSet * ( ::osgText::Text3D::*getOrCreateWallStateSet_function_type )(  ) ;
             
             Text3D_exposer.def( 
                 "getOrCreateWallStateSet"
@@ -601,7 +601,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getRenderMode
         
-            typedef ::osgText::Text3D::RenderMode ( ::osgText::Text3D::*getRenderMode_function_type)(  ) const;
+            typedef ::osgText::Text3D::RenderMode ( ::osgText::Text3D::*getRenderMode_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "getRenderMode"
@@ -611,7 +611,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getWallStateSet
         
-            typedef ::osg::StateSet * ( ::osgText::Text3D::*getWallStateSet_function_type)(  ) ;
+            typedef ::osg::StateSet * ( ::osgText::Text3D::*getWallStateSet_function_type )(  ) ;
             
             Text3D_exposer.def( 
                 "getWallStateSet"
@@ -622,7 +622,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::getWallStateSet
         
-            typedef ::osg::StateSet const * ( ::osgText::Text3D::*getWallStateSet_function_type)(  ) const;
+            typedef ::osg::StateSet const * ( ::osgText::Text3D::*getWallStateSet_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "getWallStateSet"
@@ -633,8 +633,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::isSameKindAs
         
-            typedef bool ( ::osgText::Text3D::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( Text3D_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgText::Text3D::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( Text3D_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             Text3D_exposer.def( 
                 "isSameKindAs"
@@ -645,8 +645,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::libraryName
         
-            typedef char const * ( ::osgText::Text3D::*libraryName_function_type)(  ) const;
-            typedef char const * ( Text3D_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgText::Text3D::*libraryName_function_type )(  ) const;
+            typedef char const * ( Text3D_wrapper::*default_libraryName_function_type )(  ) const;
             
             Text3D_exposer.def( 
                 "libraryName"
@@ -656,8 +656,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::releaseGLObjects
         
-            typedef void ( ::osgText::Text3D::*releaseGLObjects_function_type)( ::osg::State * ) const;
-            typedef void ( Text3D_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( ::osgText::Text3D::*releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( Text3D_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
             
             Text3D_exposer.def( 
                 "releaseGLObjects"
@@ -668,8 +668,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::resizeGLObjectBuffers
         
-            typedef void ( ::osgText::Text3D::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( Text3D_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::Text3D::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( Text3D_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             Text3D_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -680,7 +680,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::setBackStateSet
         
-            typedef void ( ::osgText::Text3D::*setBackStateSet_function_type)( ::osg::StateSet * ) ;
+            typedef void ( ::osgText::Text3D::*setBackStateSet_function_type )( ::osg::StateSet * ) ;
             
             Text3D_exposer.def( 
                 "setBackStateSet"
@@ -691,7 +691,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::setCharacterDepth
         
-            typedef void ( ::osgText::Text3D::*setCharacterDepth_function_type)( float ) ;
+            typedef void ( ::osgText::Text3D::*setCharacterDepth_function_type )( float ) ;
             
             Text3D_exposer.def( 
                 "setCharacterDepth"
@@ -702,7 +702,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::setRenderMode
         
-            typedef void ( ::osgText::Text3D::*setRenderMode_function_type)( ::osgText::Text3D::RenderMode ) ;
+            typedef void ( ::osgText::Text3D::*setRenderMode_function_type )( ::osgText::Text3D::RenderMode ) ;
             
             Text3D_exposer.def( 
                 "setRenderMode"
@@ -713,8 +713,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::setThreadSafeRefUnref
         
-            typedef void ( ::osgText::Text3D::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( Text3D_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osgText::Text3D::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( Text3D_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             Text3D_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -725,7 +725,7 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::setWallStateSet
         
-            typedef void ( ::osgText::Text3D::*setWallStateSet_function_type)( ::osg::StateSet * ) ;
+            typedef void ( ::osgText::Text3D::*setWallStateSet_function_type )( ::osg::StateSet * ) ;
             
             Text3D_exposer.def( 
                 "setWallStateSet"
@@ -736,8 +736,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::supports
         
-            typedef bool ( ::osgText::Text3D::*supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
-            typedef bool ( Text3D_wrapper::*default_supports_function_type)( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( ::osgText::Text3D::*supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
+            typedef bool ( Text3D_wrapper::*default_supports_function_type )( ::osg::Drawable::AttributeFunctor const & ) const;
             
             Text3D_exposer.def( 
                 "supports"
@@ -748,8 +748,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::supports
         
-            typedef bool ( ::osgText::Text3D::*supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
-            typedef bool ( Text3D_wrapper::*default_supports_function_type)( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( ::osgText::Text3D::*supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
+            typedef bool ( Text3D_wrapper::*default_supports_function_type )( ::osg::Drawable::ConstAttributeFunctor const & ) const;
             
             Text3D_exposer.def( 
                 "supports"
@@ -760,8 +760,8 @@ void register_Text3D_class(){
         }
         { //::osgText::Text3D::supports
         
-            typedef bool ( ::osgText::Text3D::*supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
-            typedef bool ( Text3D_wrapper::*default_supports_function_type)( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( ::osgText::Text3D::*supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
+            typedef bool ( Text3D_wrapper::*default_supports_function_type )( ::osg::PrimitiveFunctor const & ) const;
             
             Text3D_exposer.def( 
                 "supports"
@@ -772,8 +772,8 @@ void register_Text3D_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::osgText::Font * ) ;
-            typedef void ( Text3D_wrapper::*default_setFont_function_type)( ::osgText::Font * ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::osgText::Font * ) ;
+            typedef void ( Text3D_wrapper::*default_setFont_function_type )( ::osgText::Font * ) ;
             
             Text3D_exposer.def( 
                 "setFont"
@@ -784,8 +784,8 @@ void register_Text3D_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
-            typedef void ( Text3D_wrapper::*default_setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( Text3D_wrapper::*default_setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
             
             Text3D_exposer.def( 
                 "setFont"
@@ -796,8 +796,8 @@ void register_Text3D_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::std::string const & ) ;
-            typedef void ( Text3D_wrapper::*default_setFont_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::std::string const & ) ;
+            typedef void ( Text3D_wrapper::*default_setFont_function_type )( ::std::string const & ) ;
             
             Text3D_exposer.def( 
                 "setFont"

@@ -22,7 +22,7 @@ void register_InputStream_class(){
         bp::implicitly_convertible< osgDB::Options const *, osgDB::InputStream >();
         { //::osgDB::InputStream::advanceToCurrentEndBracket
         
-            typedef void ( ::osgDB::InputStream::*advanceToCurrentEndBracket_function_type)(  ) ;
+            typedef void ( ::osgDB::InputStream::*advanceToCurrentEndBracket_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "advanceToCurrentEndBracket"
@@ -31,7 +31,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::decompress
         
-            typedef void ( ::osgDB::InputStream::*decompress_function_type)(  ) ;
+            typedef void ( ::osgDB::InputStream::*decompress_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "decompress"
@@ -40,7 +40,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::getException
         
-            typedef ::osgDB::InputException const * ( ::osgDB::InputStream::*getException_function_type)(  ) const;
+            typedef ::osgDB::InputException const * ( ::osgDB::InputStream::*getException_function_type )(  ) const;
             
             InputStream_exposer.def( 
                 "getException"
@@ -50,7 +50,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::getFileVersion
         
-            typedef int ( ::osgDB::InputStream::*getFileVersion_function_type)( ::std::string const & ) const;
+            typedef int ( ::osgDB::InputStream::*getFileVersion_function_type )( ::std::string const & ) const;
             
             InputStream_exposer.def( 
                 "getFileVersion"
@@ -60,7 +60,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::getOptions
         
-            typedef ::osgDB::Options const * ( ::osgDB::InputStream::*getOptions_function_type)(  ) const;
+            typedef ::osgDB::Options const * ( ::osgDB::InputStream::*getOptions_function_type )(  ) const;
             
             InputStream_exposer.def( 
                 "getOptions"
@@ -70,7 +70,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::isBinary
         
-            typedef bool ( ::osgDB::InputStream::*isBinary_function_type)(  ) const;
+            typedef bool ( ::osgDB::InputStream::*isBinary_function_type )(  ) const;
             
             InputStream_exposer.def( 
                 "isBinary"
@@ -79,7 +79,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::matchString
         
-            typedef bool ( ::osgDB::InputStream::*matchString_function_type)( ::std::string const & ) ;
+            typedef bool ( ::osgDB::InputStream::*matchString_function_type )( ::std::string const & ) ;
             
             InputStream_exposer.def( 
                 "matchString"
@@ -89,7 +89,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readArray
         
-            typedef ::osg::Array * ( ::osgDB::InputStream::*readArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ::osgDB::InputStream::*readArray_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "readArray"
@@ -99,7 +99,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readCharArray
         
-            typedef void ( ::osgDB::InputStream::*readCharArray_function_type)( char *,unsigned int ) ;
+            typedef void ( ::osgDB::InputStream::*readCharArray_function_type )( char *,unsigned int ) ;
             
             InputStream_exposer.def( 
                 "readCharArray"
@@ -109,7 +109,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readComponentArray
         
-            typedef void ( ::osgDB::InputStream::*readComponentArray_function_type)( char *,unsigned int,unsigned int,unsigned int ) ;
+            typedef void ( ::osgDB::InputStream::*readComponentArray_function_type )( char *,unsigned int,unsigned int,unsigned int ) ;
             
             InputStream_exposer.def( 
                 "readComponentArray"
@@ -119,7 +119,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readImage
         
-            typedef ::osg::Image * ( ::osgDB::InputStream::*readImage_function_type)( bool ) ;
+            typedef ::osg::Image * ( ::osgDB::InputStream::*readImage_function_type )( bool ) ;
             
             InputStream_exposer.def( 
                 "readImage"
@@ -130,7 +130,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readObject
         
-            typedef ::osg::Object * ( ::osgDB::InputStream::*readObject_function_type)( ::osg::Object * ) ;
+            typedef ::osg::Object * ( ::osgDB::InputStream::*readObject_function_type )( ::osg::Object * ) ;
             
             InputStream_exposer.def( 
                 "readObject"
@@ -141,7 +141,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readObjectFields
         
-            typedef ::osg::Object * ( ::osgDB::InputStream::*readObjectFields_function_type)( ::std::string const &,unsigned int,::osg::Object * ) ;
+            typedef ::osg::Object * ( ::osgDB::InputStream::*readObjectFields_function_type )( ::std::string const &,unsigned int,::osg::Object * ) ;
             
             InputStream_exposer.def( 
                 "readObjectFields"
@@ -152,7 +152,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readPrimitiveSet
         
-            typedef ::osg::PrimitiveSet * ( ::osgDB::InputStream::*readPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( ::osgDB::InputStream::*readPrimitiveSet_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "readPrimitiveSet"
@@ -162,7 +162,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readSchema
         
-            typedef void ( ::osgDB::InputStream::*readSchema_function_type)( ::std::istream & ) ;
+            typedef void ( ::osgDB::InputStream::*readSchema_function_type )( ::std::istream & ) ;
             
             InputStream_exposer.def( 
                 "readSchema"
@@ -172,7 +172,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readSize
         
-            typedef unsigned int ( ::osgDB::InputStream::*readSize_function_type)(  ) ;
+            typedef unsigned int ( ::osgDB::InputStream::*readSize_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "readSize"
@@ -181,7 +181,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::readWrappedString
         
-            typedef void ( ::osgDB::InputStream::*readWrappedString_function_type)( ::std::string & ) ;
+            typedef void ( ::osgDB::InputStream::*readWrappedString_function_type )( ::std::string & ) ;
             
             InputStream_exposer.def( 
                 "readWrappedString"
@@ -191,7 +191,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::resetSchema
         
-            typedef void ( ::osgDB::InputStream::*resetSchema_function_type)(  ) ;
+            typedef void ( ::osgDB::InputStream::*resetSchema_function_type )(  ) ;
             
             InputStream_exposer.def( 
                 "resetSchema"
@@ -200,7 +200,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::setFileVersion
         
-            typedef void ( ::osgDB::InputStream::*setFileVersion_function_type)( ::std::string const &,int ) ;
+            typedef void ( ::osgDB::InputStream::*setFileVersion_function_type )( ::std::string const &,int ) ;
             
             InputStream_exposer.def( 
                 "setFileVersion"
@@ -210,7 +210,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::setInputIterator
         
-            typedef void ( ::osgDB::InputStream::*setInputIterator_function_type)( ::osgDB::InputIterator * ) ;
+            typedef void ( ::osgDB::InputStream::*setInputIterator_function_type )( ::osgDB::InputIterator * ) ;
             
             InputStream_exposer.def( 
                 "setInputIterator"
@@ -220,7 +220,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::start
         
-            typedef ::osgDB::InputStream::ReadType ( ::osgDB::InputStream::*start_function_type)( ::osgDB::InputIterator * ) ;
+            typedef ::osgDB::InputStream::ReadType ( ::osgDB::InputStream::*start_function_type )( ::osgDB::InputIterator * ) ;
             
             InputStream_exposer.def( 
                 "start"
@@ -230,7 +230,7 @@ void register_InputStream_class(){
         }
         { //::osgDB::InputStream::throwException
         
-            typedef void ( ::osgDB::InputStream::*throwException_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgDB::InputStream::*throwException_function_type )( ::std::string const & ) ;
             
             InputStream_exposer.def( 
                 "throwException"

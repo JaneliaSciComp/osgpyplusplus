@@ -40,23 +40,23 @@ void register_Scene_class(){
     bp::class_< Scene_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::Scene >, boost::noncopyable >( "Scene", bp::no_init )    
         .def( 
             "className"
-            , (char const * ( ::osgViewer::Scene::* )(  )const)(&::osgViewer::Scene::className)
-            , (char const * ( Scene_wrapper::* )(  )const)(&Scene_wrapper::default_className) )    
+            , (char const * ( ::osgViewer::Scene::* )(  ) const)(&::osgViewer::Scene::className)
+            , (char const * ( Scene_wrapper::* )(  ) const)(&Scene_wrapper::default_className) )    
         .def( 
             "getDatabasePager"
-            , (::osgDB::DatabasePager * ( ::osgViewer::Scene::* )(  ))( &::osgViewer::Scene::getDatabasePager )
+            , (::osgDB::DatabasePager * ( ::osgViewer::Scene::* )(  ) )( &::osgViewer::Scene::getDatabasePager )
             , bp::return_internal_reference< >() )    
         .def( 
             "getDatabasePager"
-            , (::osgDB::DatabasePager const * ( ::osgViewer::Scene::* )(  )const)( &::osgViewer::Scene::getDatabasePager )
+            , (::osgDB::DatabasePager const * ( ::osgViewer::Scene::* )(  ) const)( &::osgViewer::Scene::getDatabasePager )
             , bp::return_internal_reference< >() )    
         .def( 
             "getImagePager"
-            , (::osgDB::ImagePager * ( ::osgViewer::Scene::* )(  ))( &::osgViewer::Scene::getImagePager )
+            , (::osgDB::ImagePager * ( ::osgViewer::Scene::* )(  ) )( &::osgViewer::Scene::getImagePager )
             , bp::return_internal_reference< >() )    
         .def( 
             "getImagePager"
-            , (::osgDB::ImagePager const * ( ::osgViewer::Scene::* )(  )const)( &::osgViewer::Scene::getImagePager )
+            , (::osgDB::ImagePager const * ( ::osgViewer::Scene::* )(  ) const)( &::osgViewer::Scene::getImagePager )
             , bp::return_internal_reference< >() )    
         .def( 
             "getScene"
@@ -65,27 +65,27 @@ void register_Scene_class(){
             , bp::return_internal_reference< >() )    
         .def( 
             "getSceneData"
-            , (::osg::Node * ( ::osgViewer::Scene::* )(  ))( &::osgViewer::Scene::getSceneData )
+            , (::osg::Node * ( ::osgViewer::Scene::* )(  ) )( &::osgViewer::Scene::getSceneData )
             , bp::return_internal_reference< >() )    
         .def( 
             "getSceneData"
-            , (::osg::Node const * ( ::osgViewer::Scene::* )(  )const)( &::osgViewer::Scene::getSceneData )
+            , (::osg::Node const * ( ::osgViewer::Scene::* )(  ) const)( &::osgViewer::Scene::getSceneData )
             , bp::return_internal_reference< >() )    
         .def( 
             "setDatabasePager"
-            , (void ( ::osgViewer::Scene::* )( ::osgDB::DatabasePager * ))( &::osgViewer::Scene::setDatabasePager )
+            , (void ( ::osgViewer::Scene::* )( ::osgDB::DatabasePager * ) )( &::osgViewer::Scene::setDatabasePager )
             , ( bp::arg("dp") ) )    
         .def( 
             "setImagePager"
-            , (void ( ::osgViewer::Scene::* )( ::osgDB::ImagePager * ))( &::osgViewer::Scene::setImagePager )
+            , (void ( ::osgViewer::Scene::* )( ::osgDB::ImagePager * ) )( &::osgViewer::Scene::setImagePager )
             , ( bp::arg("ip") ) )    
         .def( 
             "setSceneData"
-            , (void ( ::osgViewer::Scene::* )( ::osg::Node * ))( &::osgViewer::Scene::setSceneData )
+            , (void ( ::osgViewer::Scene::* )( ::osg::Node * ) )( &::osgViewer::Scene::setSceneData )
             , ( bp::arg("node") ) )    
         .def( 
             "updateSceneGraph"
-            , (void ( ::osgViewer::Scene::* )( ::osg::NodeVisitor & ))( &::osgViewer::Scene::updateSceneGraph )
+            , (void ( ::osgViewer::Scene::* )( ::osg::NodeVisitor & ) )( &::osgViewer::Scene::updateSceneGraph )
             , ( bp::arg("updateVisitor") ) )    
         .staticmethod( "getScene" );
 

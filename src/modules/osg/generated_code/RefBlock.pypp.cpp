@@ -35,8 +35,8 @@ void register_RefBlock_class(){
     bp::class_< RefBlock_wrapper, bp::bases< osg::Referenced, OpenThreads::Block >, osg::ref_ptr< ::osg::RefBlock >, boost::noncopyable >( "RefBlock", bp::init< >() )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( RefBlock_wrapper::* )( bool ))(&RefBlock_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( RefBlock_wrapper::* )( bool ) )(&RefBlock_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) );
 
 }

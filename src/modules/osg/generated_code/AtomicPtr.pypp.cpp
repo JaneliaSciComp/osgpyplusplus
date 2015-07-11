@@ -15,7 +15,7 @@ void register_AtomicPtr_class(){
         bp::implicitly_convertible< void *, OpenThreads::AtomicPtr >();
         { //::OpenThreads::AtomicPtr::assign
         
-            typedef bool ( ::OpenThreads::AtomicPtr::*assign_function_type)( void *,void const * const ) ;
+            typedef bool ( ::OpenThreads::AtomicPtr::*assign_function_type )( void *,void const * const ) ;
             
             AtomicPtr_exposer.def( 
                 "assign"
@@ -25,7 +25,7 @@ void register_AtomicPtr_class(){
         }
         { //::OpenThreads::AtomicPtr::get
         
-            typedef void * ( ::OpenThreads::AtomicPtr::*get_function_type)(  ) const;
+            typedef void * ( ::OpenThreads::AtomicPtr::*get_function_type )(  ) const;
             
             AtomicPtr_exposer.def( 
                 "get"

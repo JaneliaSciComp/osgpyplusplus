@@ -399,8 +399,8 @@ void register_ComputeBoundsVisitor_class(){
         bp::implicitly_convertible< osg::NodeVisitor::TraversalMode, osg::ComputeBoundsVisitor >();
         { //::osg::ComputeBoundsVisitor::apply
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type)( ::osg::Node & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -411,8 +411,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::apply
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type)( ::osg::Transform & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type )( ::osg::Transform & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -423,8 +423,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::apply
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type)( ::osg::Geode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -435,7 +435,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::applyDrawable
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*applyDrawable_function_type)( ::osg::Drawable * ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*applyDrawable_function_type )( ::osg::Drawable * ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "applyDrawable"
@@ -445,8 +445,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::className
         
-            typedef char const * ( ::osg::ComputeBoundsVisitor::*className_function_type)(  ) const;
-            typedef char const * ( ComputeBoundsVisitor_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osg::ComputeBoundsVisitor::*className_function_type )(  ) const;
+            typedef char const * ( ComputeBoundsVisitor_wrapper::*default_className_function_type )(  ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "className"
@@ -456,7 +456,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::getBase
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*getBase_function_type)( ::osg::Polytope &,float ) const;
+            typedef void ( ::osg::ComputeBoundsVisitor::*getBase_function_type )( ::osg::Polytope &,float ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getBase"
@@ -466,7 +466,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::getBoundingBox
         
-            typedef ::osg::BoundingBox & ( ::osg::ComputeBoundsVisitor::*getBoundingBox_function_type)(  ) ;
+            typedef ::osg::BoundingBox & ( ::osg::ComputeBoundsVisitor::*getBoundingBox_function_type )(  ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getBoundingBox"
@@ -476,7 +476,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::getPolytope
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*getPolytope_function_type)( ::osg::Polytope &,float ) const;
+            typedef void ( ::osg::ComputeBoundsVisitor::*getPolytope_function_type )( ::osg::Polytope &,float ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getPolytope"
@@ -486,8 +486,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::libraryName
         
-            typedef char const * ( ::osg::ComputeBoundsVisitor::*libraryName_function_type)(  ) const;
-            typedef char const * ( ComputeBoundsVisitor_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osg::ComputeBoundsVisitor::*libraryName_function_type )(  ) const;
+            typedef char const * ( ComputeBoundsVisitor_wrapper::*default_libraryName_function_type )(  ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "libraryName"
@@ -497,7 +497,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::popMatrix
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*popMatrix_function_type)(  ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*popMatrix_function_type )(  ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "popMatrix"
@@ -506,7 +506,7 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::pushMatrix
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*pushMatrix_function_type)( ::osg::Matrix & ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*pushMatrix_function_type )( ::osg::Matrix & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "pushMatrix"
@@ -516,8 +516,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::ComputeBoundsVisitor::reset
         
-            typedef void ( ::osg::ComputeBoundsVisitor::*reset_function_type)(  ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osg::ComputeBoundsVisitor::*reset_function_type )(  ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_reset_function_type )(  ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "reset"
@@ -527,8 +527,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Billboard & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Billboard & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -539,8 +539,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Group & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Group & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -551,8 +551,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::ProxyNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::ProxyNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::ProxyNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::ProxyNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -563,8 +563,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Projection & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Projection & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Projection & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Projection & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -575,8 +575,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::CoordinateSystemNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::CoordinateSystemNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::CoordinateSystemNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::CoordinateSystemNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -587,8 +587,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::ClipNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::ClipNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::ClipNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::ClipNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -599,8 +599,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::TexGenNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::TexGenNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::TexGenNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::TexGenNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -611,8 +611,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::LightSource & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::LightSource & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::LightSource & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::LightSource & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -623,8 +623,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Camera & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Camera & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Camera & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Camera & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -635,8 +635,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::CameraView & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::CameraView & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::CameraView & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::CameraView & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -647,8 +647,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::MatrixTransform & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::MatrixTransform & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::MatrixTransform & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::MatrixTransform & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -659,8 +659,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::PositionAttitudeTransform & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::PositionAttitudeTransform & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::PositionAttitudeTransform & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::PositionAttitudeTransform & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -671,8 +671,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Switch & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Switch & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Switch & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Switch & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -683,8 +683,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::Sequence & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::Sequence & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::Sequence & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::Sequence & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -695,8 +695,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::LOD & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::LOD & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -707,8 +707,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::PagedLOD & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::PagedLOD & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::PagedLOD & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::PagedLOD & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -719,8 +719,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::ClearNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::ClearNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::ClearNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::ClearNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -731,8 +731,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::OccluderNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::OccluderNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::OccluderNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::OccluderNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -743,8 +743,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::apply
         
-            typedef void ( ::osg::NodeVisitor::*apply_function_type)( ::osg::OcclusionQueryNode & ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type)( ::osg::OcclusionQueryNode & ) ;
+            typedef void ( ::osg::NodeVisitor::*apply_function_type )( ::osg::OcclusionQueryNode & ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_apply_function_type )( ::osg::OcclusionQueryNode & ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "apply"
@@ -755,8 +755,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::getDistanceFromEyePoint
         
-            typedef float ( ::osg::NodeVisitor::*getDistanceFromEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
-            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceFromEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osg::NodeVisitor::*getDistanceFromEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceFromEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getDistanceFromEyePoint"
@@ -767,8 +767,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::getDistanceToEyePoint
         
-            typedef float ( ::osg::NodeVisitor::*getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
-            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osg::NodeVisitor::*getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getDistanceToEyePoint"
@@ -779,8 +779,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::getDistanceToViewPoint
         
-            typedef float ( ::osg::NodeVisitor::*getDistanceToViewPoint_function_type)( ::osg::Vec3 const &,bool ) const;
-            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceToViewPoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osg::NodeVisitor::*getDistanceToViewPoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ComputeBoundsVisitor_wrapper::*default_getDistanceToViewPoint_function_type )( ::osg::Vec3 const &,bool ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getDistanceToViewPoint"
@@ -791,8 +791,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::getEyePoint
         
-            typedef ::osg::Vec3 ( ::osg::NodeVisitor::*getEyePoint_function_type)(  ) const;
-            typedef ::osg::Vec3 ( ComputeBoundsVisitor_wrapper::*default_getEyePoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( ::osg::NodeVisitor::*getEyePoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ComputeBoundsVisitor_wrapper::*default_getEyePoint_function_type )(  ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getEyePoint"
@@ -802,8 +802,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::NodeVisitor::getViewPoint
         
-            typedef ::osg::Vec3 ( ::osg::NodeVisitor::*getViewPoint_function_type)(  ) const;
-            typedef ::osg::Vec3 ( ComputeBoundsVisitor_wrapper::*default_getViewPoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( ::osg::NodeVisitor::*getViewPoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ComputeBoundsVisitor_wrapper::*default_getViewPoint_function_type )(  ) const;
             
             ComputeBoundsVisitor_exposer.def( 
                 "getViewPoint"
@@ -813,8 +813,8 @@ void register_ComputeBoundsVisitor_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( ComputeBoundsVisitor_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ComputeBoundsVisitor_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             ComputeBoundsVisitor_exposer.def( 
                 "setThreadSafeRefUnref"

@@ -479,8 +479,8 @@ void register_TextBase_class(){
             ;
         { //::osgText::TextBase::className
         
-            typedef char const * ( ::osgText::TextBase::*className_function_type)(  ) const;
-            typedef char const * ( TextBase_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgText::TextBase::*className_function_type )(  ) const;
+            typedef char const * ( TextBase_wrapper::*default_className_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "className"
@@ -490,8 +490,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::computeBound
         
-            typedef ::osg::BoundingBox ( ::osgText::TextBase::*computeBound_function_type)(  ) const;
-            typedef ::osg::BoundingBox ( TextBase_wrapper::*default_computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingBox ( ::osgText::TextBase::*computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingBox ( TextBase_wrapper::*default_computeBound_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "computeBound"
@@ -501,7 +501,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getAlignment
         
-            typedef ::osgText::TextBase::AlignmentType ( ::osgText::TextBase::*getAlignment_function_type)(  ) const;
+            typedef ::osgText::TextBase::AlignmentType ( ::osgText::TextBase::*getAlignment_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getAlignment"
@@ -510,7 +510,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getAutoRotateToScreen
         
-            typedef bool ( ::osgText::TextBase::*getAutoRotateToScreen_function_type)(  ) const;
+            typedef bool ( ::osgText::TextBase::*getAutoRotateToScreen_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getAutoRotateToScreen"
@@ -519,7 +519,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getAxisAlignment
         
-            typedef ::osgText::TextBase::AxisAlignment ( ::osgText::TextBase::*getAxisAlignment_function_type)(  ) const;
+            typedef ::osgText::TextBase::AxisAlignment ( ::osgText::TextBase::*getAxisAlignment_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getAxisAlignment"
@@ -528,7 +528,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getBoundingBoxColor
         
-            typedef ::osg::Vec4 const & ( ::osgText::TextBase::*getBoundingBoxColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::TextBase::*getBoundingBoxColor_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getBoundingBoxColor"
@@ -538,7 +538,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getBoundingBoxMargin
         
-            typedef float ( ::osgText::TextBase::*getBoundingBoxMargin_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getBoundingBoxMargin_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getBoundingBoxMargin"
@@ -547,7 +547,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getCharacterAspectRatio
         
-            typedef float ( ::osgText::TextBase::*getCharacterAspectRatio_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getCharacterAspectRatio_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getCharacterAspectRatio"
@@ -556,7 +556,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getCharacterHeight
         
-            typedef float ( ::osgText::TextBase::*getCharacterHeight_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getCharacterHeight_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getCharacterHeight"
@@ -565,7 +565,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getCharacterSizeMode
         
-            typedef ::osgText::TextBase::CharacterSizeMode ( ::osgText::TextBase::*getCharacterSizeMode_function_type)(  ) const;
+            typedef ::osgText::TextBase::CharacterSizeMode ( ::osgText::TextBase::*getCharacterSizeMode_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getCharacterSizeMode"
@@ -575,7 +575,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getColor
         
-            typedef ::osg::Vec4 const & ( ::osgText::TextBase::*getColor_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgText::TextBase::*getColor_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getColor"
@@ -585,7 +585,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getDrawMode
         
-            typedef unsigned int ( ::osgText::TextBase::*getDrawMode_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::TextBase::*getDrawMode_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getDrawMode"
@@ -594,7 +594,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getFont
         
-            typedef ::osgText::Font const * ( ::osgText::TextBase::*getFont_function_type)(  ) const;
+            typedef ::osgText::Font const * ( ::osgText::TextBase::*getFont_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getFont"
@@ -605,7 +605,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getFontHeight
         
-            typedef unsigned int ( ::osgText::TextBase::*getFontHeight_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::TextBase::*getFontHeight_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getFontHeight"
@@ -614,7 +614,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getFontWidth
         
-            typedef unsigned int ( ::osgText::TextBase::*getFontWidth_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::TextBase::*getFontWidth_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getFontWidth"
@@ -623,7 +623,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getKerningType
         
-            typedef ::osgText::KerningType ( ::osgText::TextBase::*getKerningType_function_type)(  ) const;
+            typedef ::osgText::KerningType ( ::osgText::TextBase::*getKerningType_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getKerningType"
@@ -632,7 +632,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getLayout
         
-            typedef ::osgText::TextBase::Layout ( ::osgText::TextBase::*getLayout_function_type)(  ) const;
+            typedef ::osgText::TextBase::Layout ( ::osgText::TextBase::*getLayout_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getLayout"
@@ -641,7 +641,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getLineCount
         
-            typedef unsigned int ( ::osgText::TextBase::*getLineCount_function_type)(  ) const;
+            typedef unsigned int ( ::osgText::TextBase::*getLineCount_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getLineCount"
@@ -651,7 +651,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getLineSpacing
         
-            typedef float ( ::osgText::TextBase::*getLineSpacing_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getLineSpacing_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getLineSpacing"
@@ -661,7 +661,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getMaximumHeight
         
-            typedef float ( ::osgText::TextBase::*getMaximumHeight_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getMaximumHeight_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getMaximumHeight"
@@ -671,7 +671,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getMaximumWidth
         
-            typedef float ( ::osgText::TextBase::*getMaximumWidth_function_type)(  ) const;
+            typedef float ( ::osgText::TextBase::*getMaximumWidth_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getMaximumWidth"
@@ -681,7 +681,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getOrCreateStyle
         
-            typedef ::osgText::Style * ( ::osgText::TextBase::*getOrCreateStyle_function_type)(  ) ;
+            typedef ::osgText::Style * ( ::osgText::TextBase::*getOrCreateStyle_function_type )(  ) ;
             
             TextBase_exposer.def( 
                 "getOrCreateStyle"
@@ -692,7 +692,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getPosition
         
-            typedef ::osg::Vec3 const & ( ::osgText::TextBase::*getPosition_function_type)(  ) const;
+            typedef ::osg::Vec3 const & ( ::osgText::TextBase::*getPosition_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getPosition"
@@ -703,7 +703,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getRotation
         
-            typedef ::osg::Quat const & ( ::osgText::TextBase::*getRotation_function_type)(  ) const;
+            typedef ::osg::Quat const & ( ::osgText::TextBase::*getRotation_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getRotation"
@@ -713,7 +713,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getStyle
         
-            typedef ::osgText::Style * ( ::osgText::TextBase::*getStyle_function_type)(  ) ;
+            typedef ::osgText::Style * ( ::osgText::TextBase::*getStyle_function_type )(  ) ;
             
             TextBase_exposer.def( 
                 "getStyle"
@@ -724,7 +724,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getStyle
         
-            typedef ::osgText::Style const * ( ::osgText::TextBase::*getStyle_function_type)(  ) const;
+            typedef ::osgText::Style const * ( ::osgText::TextBase::*getStyle_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getStyle"
@@ -735,7 +735,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getText
         
-            typedef ::osgText::String & ( ::osgText::TextBase::*getText_function_type)(  ) ;
+            typedef ::osgText::String & ( ::osgText::TextBase::*getText_function_type )(  ) ;
             
             TextBase_exposer.def( 
                 "getText"
@@ -746,7 +746,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::getText
         
-            typedef ::osgText::String const & ( ::osgText::TextBase::*getText_function_type)(  ) const;
+            typedef ::osgText::String const & ( ::osgText::TextBase::*getText_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "getText"
@@ -757,8 +757,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::isSameKindAs
         
-            typedef bool ( ::osgText::TextBase::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( TextBase_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgText::TextBase::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( TextBase_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             TextBase_exposer.def( 
                 "isSameKindAs"
@@ -769,8 +769,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::libraryName
         
-            typedef char const * ( ::osgText::TextBase::*libraryName_function_type)(  ) const;
-            typedef char const * ( TextBase_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgText::TextBase::*libraryName_function_type )(  ) const;
+            typedef char const * ( TextBase_wrapper::*default_libraryName_function_type )(  ) const;
             
             TextBase_exposer.def( 
                 "libraryName"
@@ -780,8 +780,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::releaseGLObjects
         
-            typedef void ( ::osgText::TextBase::*releaseGLObjects_function_type)( ::osg::State * ) const;
-            typedef void ( TextBase_wrapper::*default_releaseGLObjects_function_type)( ::osg::State * ) const;
+            typedef void ( ::osgText::TextBase::*releaseGLObjects_function_type )( ::osg::State * ) const;
+            typedef void ( TextBase_wrapper::*default_releaseGLObjects_function_type )( ::osg::State * ) const;
             
             TextBase_exposer.def( 
                 "releaseGLObjects"
@@ -792,8 +792,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::resizeGLObjectBuffers
         
-            typedef void ( ::osgText::TextBase::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
-            typedef void ( TextBase_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::TextBase::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( TextBase_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
             
             TextBase_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -804,7 +804,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setAlignment
         
-            typedef void ( ::osgText::TextBase::*setAlignment_function_type)( ::osgText::TextBase::AlignmentType ) ;
+            typedef void ( ::osgText::TextBase::*setAlignment_function_type )( ::osgText::TextBase::AlignmentType ) ;
             
             TextBase_exposer.def( 
                 "setAlignment"
@@ -814,7 +814,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setAutoRotateToScreen
         
-            typedef void ( ::osgText::TextBase::*setAutoRotateToScreen_function_type)( bool ) ;
+            typedef void ( ::osgText::TextBase::*setAutoRotateToScreen_function_type )( bool ) ;
             
             TextBase_exposer.def( 
                 "setAutoRotateToScreen"
@@ -824,7 +824,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setAxisAlignment
         
-            typedef void ( ::osgText::TextBase::*setAxisAlignment_function_type)( ::osgText::TextBase::AxisAlignment ) ;
+            typedef void ( ::osgText::TextBase::*setAxisAlignment_function_type )( ::osgText::TextBase::AxisAlignment ) ;
             
             TextBase_exposer.def( 
                 "setAxisAlignment"
@@ -834,7 +834,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setBoundingBoxColor
         
-            typedef void ( ::osgText::TextBase::*setBoundingBoxColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgText::TextBase::*setBoundingBoxColor_function_type )( ::osg::Vec4 const & ) ;
             
             TextBase_exposer.def( 
                 "setBoundingBoxColor"
@@ -844,7 +844,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setBoundingBoxMargin
         
-            typedef void ( ::osgText::TextBase::*setBoundingBoxMargin_function_type)( float ) ;
+            typedef void ( ::osgText::TextBase::*setBoundingBoxMargin_function_type )( float ) ;
             
             TextBase_exposer.def( 
                 "setBoundingBoxMargin"
@@ -854,7 +854,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setCharacterSize
         
-            typedef void ( ::osgText::TextBase::*setCharacterSize_function_type)( float ) ;
+            typedef void ( ::osgText::TextBase::*setCharacterSize_function_type )( float ) ;
             
             TextBase_exposer.def( 
                 "setCharacterSize"
@@ -865,7 +865,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setCharacterSize
         
-            typedef void ( ::osgText::TextBase::*setCharacterSize_function_type)( float,float ) ;
+            typedef void ( ::osgText::TextBase::*setCharacterSize_function_type )( float,float ) ;
             
             TextBase_exposer.def( 
                 "setCharacterSize"
@@ -876,7 +876,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setCharacterSizeMode
         
-            typedef void ( ::osgText::TextBase::*setCharacterSizeMode_function_type)( ::osgText::TextBase::CharacterSizeMode ) ;
+            typedef void ( ::osgText::TextBase::*setCharacterSizeMode_function_type )( ::osgText::TextBase::CharacterSizeMode ) ;
             
             TextBase_exposer.def( 
                 "setCharacterSizeMode"
@@ -887,7 +887,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setColor
         
-            typedef void ( ::osgText::TextBase::*setColor_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgText::TextBase::*setColor_function_type )( ::osg::Vec4 const & ) ;
             
             TextBase_exposer.def( 
                 "setColor"
@@ -897,7 +897,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setDrawMode
         
-            typedef void ( ::osgText::TextBase::*setDrawMode_function_type)( unsigned int ) ;
+            typedef void ( ::osgText::TextBase::*setDrawMode_function_type )( unsigned int ) ;
             
             TextBase_exposer.def( 
                 "setDrawMode"
@@ -907,8 +907,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::osgText::Font * ) ;
-            typedef void ( TextBase_wrapper::*default_setFont_function_type)( ::osgText::Font * ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::osgText::Font * ) ;
+            typedef void ( TextBase_wrapper::*default_setFont_function_type )( ::osgText::Font * ) ;
             
             TextBase_exposer.def( 
                 "setFont"
@@ -919,8 +919,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
-            typedef void ( TextBase_wrapper::*default_setFont_function_type)( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
+            typedef void ( TextBase_wrapper::*default_setFont_function_type )( ::osg::ref_ptr< osgText::Font > ) ;
             
             TextBase_exposer.def( 
                 "setFont"
@@ -931,8 +931,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setFont
         
-            typedef void ( ::osgText::TextBase::*setFont_function_type)( ::std::string const & ) ;
-            typedef void ( TextBase_wrapper::*default_setFont_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgText::TextBase::*setFont_function_type )( ::std::string const & ) ;
+            typedef void ( TextBase_wrapper::*default_setFont_function_type )( ::std::string const & ) ;
             
             TextBase_exposer.def( 
                 "setFont"
@@ -943,7 +943,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setFontResolution
         
-            typedef void ( ::osgText::TextBase::*setFontResolution_function_type)( unsigned int,unsigned int ) ;
+            typedef void ( ::osgText::TextBase::*setFontResolution_function_type )( unsigned int,unsigned int ) ;
             
             TextBase_exposer.def( 
                 "setFontResolution"
@@ -954,7 +954,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setKerningType
         
-            typedef void ( ::osgText::TextBase::*setKerningType_function_type)( ::osgText::KerningType ) ;
+            typedef void ( ::osgText::TextBase::*setKerningType_function_type )( ::osgText::KerningType ) ;
             
             TextBase_exposer.def( 
                 "setKerningType"
@@ -964,7 +964,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setLayout
         
-            typedef void ( ::osgText::TextBase::*setLayout_function_type)( ::osgText::TextBase::Layout ) ;
+            typedef void ( ::osgText::TextBase::*setLayout_function_type )( ::osgText::TextBase::Layout ) ;
             
             TextBase_exposer.def( 
                 "setLayout"
@@ -974,7 +974,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setLineSpacing
         
-            typedef void ( ::osgText::TextBase::*setLineSpacing_function_type)( float ) ;
+            typedef void ( ::osgText::TextBase::*setLineSpacing_function_type )( float ) ;
             
             TextBase_exposer.def( 
                 "setLineSpacing"
@@ -985,7 +985,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setMaximumHeight
         
-            typedef void ( ::osgText::TextBase::*setMaximumHeight_function_type)( float ) ;
+            typedef void ( ::osgText::TextBase::*setMaximumHeight_function_type )( float ) ;
             
             TextBase_exposer.def( 
                 "setMaximumHeight"
@@ -996,7 +996,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setMaximumWidth
         
-            typedef void ( ::osgText::TextBase::*setMaximumWidth_function_type)( float ) ;
+            typedef void ( ::osgText::TextBase::*setMaximumWidth_function_type )( float ) ;
             
             TextBase_exposer.def( 
                 "setMaximumWidth"
@@ -1007,7 +1007,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setPosition
         
-            typedef void ( ::osgText::TextBase::*setPosition_function_type)( ::osg::Vec3 const & ) ;
+            typedef void ( ::osgText::TextBase::*setPosition_function_type )( ::osg::Vec3 const & ) ;
             
             TextBase_exposer.def( 
                 "setPosition"
@@ -1018,7 +1018,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setRotation
         
-            typedef void ( ::osgText::TextBase::*setRotation_function_type)( ::osg::Quat const & ) ;
+            typedef void ( ::osgText::TextBase::*setRotation_function_type )( ::osg::Quat const & ) ;
             
             TextBase_exposer.def( 
                 "setRotation"
@@ -1028,7 +1028,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setStyle
         
-            typedef void ( ::osgText::TextBase::*setStyle_function_type)( ::osgText::Style * ) ;
+            typedef void ( ::osgText::TextBase::*setStyle_function_type )( ::osgText::Style * ) ;
             
             TextBase_exposer.def( 
                 "setStyle"
@@ -1039,7 +1039,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setText
         
-            typedef void ( ::osgText::TextBase::*setText_function_type)( ::osgText::String const & ) ;
+            typedef void ( ::osgText::TextBase::*setText_function_type )( ::osgText::String const & ) ;
             
             TextBase_exposer.def( 
                 "setText"
@@ -1050,7 +1050,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setText
         
-            typedef void ( ::osgText::TextBase::*setText_function_type)( ::std::string const & ) ;
+            typedef void ( ::osgText::TextBase::*setText_function_type )( ::std::string const & ) ;
             
             TextBase_exposer.def( 
                 "setText"
@@ -1061,7 +1061,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setText
         
-            typedef void ( ::osgText::TextBase::*setText_function_type)( ::std::string const &,::osgText::String::Encoding ) ;
+            typedef void ( ::osgText::TextBase::*setText_function_type )( ::std::string const &,::osgText::String::Encoding ) ;
             
             TextBase_exposer.def( 
                 "setText"
@@ -1072,7 +1072,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setText
         
-            typedef void ( ::osgText::TextBase::*setText_function_type)( wchar_t const * ) ;
+            typedef void ( ::osgText::TextBase::*setText_function_type )( wchar_t const * ) ;
             
             TextBase_exposer.def( 
                 "setText"
@@ -1083,8 +1083,8 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::setThreadSafeRefUnref
         
-            typedef void ( ::osgText::TextBase::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( TextBase_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osgText::TextBase::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( TextBase_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             TextBase_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1095,7 +1095,7 @@ void register_TextBase_class(){
         }
         { //::osgText::TextBase::update
         
-            typedef void ( ::osgText::TextBase::*update_function_type)(  ) ;
+            typedef void ( ::osgText::TextBase::*update_function_type )(  ) ;
             
             TextBase_exposer.def( 
                 "update"

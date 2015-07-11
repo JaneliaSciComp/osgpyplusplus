@@ -20,7 +20,7 @@ void register_GLBeginEndAdapter_class(){
         bp::implicitly_convertible< osg::State *, osg::GLBeginEndAdapter >();
         { //::osg::GLBeginEndAdapter::Begin
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Begin_function_type)( ::GLenum ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Begin_function_type )( ::GLenum ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Begin"
@@ -30,7 +30,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Color3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Color3fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Color3fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Color3fv"
@@ -40,7 +40,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Color4f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Color4f_function_type)( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Color4f_function_type )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Color4f"
@@ -50,7 +50,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Color4fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Color4fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Color4fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Color4fv"
@@ -60,7 +60,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Color4ubv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Color4ubv_function_type)( ::GLubyte const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Color4ubv_function_type )( ::GLubyte const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Color4ubv"
@@ -70,7 +70,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::End
         
-            typedef void ( ::osg::GLBeginEndAdapter::*End_function_type)(  ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*End_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "End"
@@ -79,7 +79,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::LoadIdentity
         
-            typedef void ( ::osg::GLBeginEndAdapter::*LoadIdentity_function_type)(  ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*LoadIdentity_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "LoadIdentity"
@@ -88,7 +88,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::LoadMatrixd
         
-            typedef void ( ::osg::GLBeginEndAdapter::*LoadMatrixd_function_type)( double const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*LoadMatrixd_function_type )( double const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "LoadMatrixd"
@@ -98,7 +98,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultMatrixd
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultMatrixd_function_type)( double const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultMatrixd_function_type )( double const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultMatrixd"
@@ -108,7 +108,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord1f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord1f_function_type)( ::GLenum,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord1f_function_type )( ::GLenum,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord1f"
@@ -118,7 +118,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord1fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord1fv_function_type)( ::GLenum,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord1fv_function_type )( ::GLenum,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord1fv"
@@ -128,7 +128,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord2f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord2f_function_type)( ::GLenum,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord2f_function_type )( ::GLenum,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord2f"
@@ -138,7 +138,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord2fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord2fv_function_type)( ::GLenum,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord2fv_function_type )( ::GLenum,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord2fv"
@@ -148,7 +148,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord3f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord3f_function_type)( ::GLenum,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord3f_function_type )( ::GLenum,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord3f"
@@ -158,7 +158,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord3fv_function_type)( ::GLenum,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord3fv_function_type )( ::GLenum,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord3fv"
@@ -168,7 +168,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord4f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord4f_function_type)( ::GLenum,::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord4f_function_type )( ::GLenum,::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord4f"
@@ -178,7 +178,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::MultiTexCoord4fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord4fv_function_type)( ::GLenum,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*MultiTexCoord4fv_function_type )( ::GLenum,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "MultiTexCoord4fv"
@@ -188,7 +188,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Normal3f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Normal3f_function_type)( ::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Normal3f_function_type )( ::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Normal3f"
@@ -198,7 +198,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Normal3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Normal3fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Normal3fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Normal3fv"
@@ -208,7 +208,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::PopMatrix
         
-            typedef void ( ::osg::GLBeginEndAdapter::*PopMatrix_function_type)(  ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*PopMatrix_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "PopMatrix"
@@ -217,7 +217,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::PushMatrix
         
-            typedef void ( ::osg::GLBeginEndAdapter::*PushMatrix_function_type)(  ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*PushMatrix_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "PushMatrix"
@@ -226,7 +226,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Rotated
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Rotated_function_type)( double,double,double,double ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Rotated_function_type )( double,double,double,double ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Rotated"
@@ -236,7 +236,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Rotatef
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Rotatef_function_type)( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Rotatef_function_type )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Rotatef"
@@ -246,7 +246,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Scaled
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Scaled_function_type)( double,double,double ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Scaled_function_type )( double,double,double ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Scaled"
@@ -256,7 +256,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Scalef
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Scalef_function_type)( ::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Scalef_function_type )( ::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Scalef"
@@ -266,7 +266,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord1f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord1f_function_type)( ::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord1f_function_type )( ::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord1f"
@@ -276,7 +276,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord1fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord1fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord1fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord1fv"
@@ -286,7 +286,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord2f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord2f_function_type)( ::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord2f_function_type )( ::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord2f"
@@ -296,7 +296,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord2fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord2fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord2fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord2fv"
@@ -306,7 +306,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord3f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord3f_function_type)( ::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord3f_function_type )( ::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord3f"
@@ -316,7 +316,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord3fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord3fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord3fv"
@@ -326,7 +326,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord4f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord4f_function_type)( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord4f_function_type )( ::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord4f"
@@ -336,7 +336,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::TexCoord4fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord4fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*TexCoord4fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "TexCoord4fv"
@@ -346,7 +346,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Translated
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Translated_function_type)( double,double,double ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Translated_function_type )( double,double,double ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Translated"
@@ -356,7 +356,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Translatef
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Translatef_function_type)( ::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Translatef_function_type )( ::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Translatef"
@@ -366,7 +366,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Vertex3dv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3dv_function_type)( double,double,double ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3dv_function_type )( double,double,double ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Vertex3dv"
@@ -376,7 +376,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Vertex3dv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3dv_function_type)( double const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3dv_function_type )( double const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Vertex3dv"
@@ -386,7 +386,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Vertex3f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3f_function_type)( ::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3f_function_type )( ::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Vertex3f"
@@ -396,7 +396,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::Vertex3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3fv_function_type)( ::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*Vertex3fv_function_type )( ::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "Vertex3fv"
@@ -406,7 +406,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib1f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib1f_function_type)( ::GLuint,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib1f_function_type )( ::GLuint,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib1f"
@@ -416,7 +416,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib1fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib1fv_function_type)( ::GLuint,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib1fv_function_type )( ::GLuint,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib1fv"
@@ -426,7 +426,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib2f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib2f_function_type)( ::GLuint,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib2f_function_type )( ::GLuint,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib2f"
@@ -436,7 +436,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib2fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib2fv_function_type)( ::GLuint,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib2fv_function_type )( ::GLuint,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib2fv"
@@ -446,7 +446,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib3f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib3f_function_type)( ::GLuint,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib3f_function_type )( ::GLuint,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib3f"
@@ -456,7 +456,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib3fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib3fv_function_type)( ::GLuint,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib3fv_function_type )( ::GLuint,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib3fv"
@@ -466,7 +466,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib4f
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib4f_function_type)( ::GLuint,::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib4f_function_type )( ::GLuint,::GLfloat,::GLfloat,::GLfloat,::GLfloat ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib4f"
@@ -476,7 +476,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::VertexAttrib4fv
         
-            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib4fv_function_type)( ::GLuint,::GLfloat const * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*VertexAttrib4fv_function_type )( ::GLuint,::GLfloat const * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "VertexAttrib4fv"
@@ -486,7 +486,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::getState
         
-            typedef ::osg::State * ( ::osg::GLBeginEndAdapter::*getState_function_type)(  ) ;
+            typedef ::osg::State * ( ::osg::GLBeginEndAdapter::*getState_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "getState"
@@ -496,7 +496,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::getState
         
-            typedef ::osg::State const * ( ::osg::GLBeginEndAdapter::*getState_function_type)(  ) const;
+            typedef ::osg::State const * ( ::osg::GLBeginEndAdapter::*getState_function_type )(  ) const;
             
             GLBeginEndAdapter_exposer.def( 
                 "getState"
@@ -506,7 +506,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::reset
         
-            typedef void ( ::osg::GLBeginEndAdapter::*reset_function_type)(  ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*reset_function_type )(  ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "reset"
@@ -515,7 +515,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::setMatrixMode
         
-            typedef void ( ::osg::GLBeginEndAdapter::*setMatrixMode_function_type)( ::osg::GLBeginEndAdapter::MatrixMode ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*setMatrixMode_function_type )( ::osg::GLBeginEndAdapter::MatrixMode ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "setMatrixMode"
@@ -525,7 +525,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::setMatrixMode
         
-            typedef ::osg::GLBeginEndAdapter::MatrixMode ( ::osg::GLBeginEndAdapter::*setMatrixMode_function_type)(  ) const;
+            typedef ::osg::GLBeginEndAdapter::MatrixMode ( ::osg::GLBeginEndAdapter::*setMatrixMode_function_type )(  ) const;
             
             GLBeginEndAdapter_exposer.def( 
                 "setMatrixMode"
@@ -534,7 +534,7 @@ void register_GLBeginEndAdapter_class(){
         }
         { //::osg::GLBeginEndAdapter::setState
         
-            typedef void ( ::osg::GLBeginEndAdapter::*setState_function_type)( ::osg::State * ) ;
+            typedef void ( ::osg::GLBeginEndAdapter::*setState_function_type )( ::osg::State * ) ;
             
             GLBeginEndAdapter_exposer.def( 
                 "setState"

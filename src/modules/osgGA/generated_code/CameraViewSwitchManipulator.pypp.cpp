@@ -475,30 +475,30 @@ void register_CameraViewSwitchManipulator_class(){
         .def( bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osgGA::CameraViewSwitchManipulator::* )(  )const)(&::osgGA::CameraViewSwitchManipulator::className)
-            , (char const * ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_className) )    
+            , (char const * ( ::osgGA::CameraViewSwitchManipulator::* )(  ) const)(&::osgGA::CameraViewSwitchManipulator::className)
+            , (char const * ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_className) )    
         .def( 
             "getInverseMatrix"
-            , (::osg::Matrixd ( ::osgGA::CameraViewSwitchManipulator::* )(  )const)(&::osgGA::CameraViewSwitchManipulator::getInverseMatrix)
-            , (::osg::Matrixd ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_getInverseMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::CameraViewSwitchManipulator::* )(  ) const)(&::osgGA::CameraViewSwitchManipulator::getInverseMatrix)
+            , (::osg::Matrixd ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_getInverseMatrix) )    
         .def( 
             "getMatrix"
-            , (::osg::Matrixd ( ::osgGA::CameraViewSwitchManipulator::* )(  )const)(&::osgGA::CameraViewSwitchManipulator::getMatrix)
-            , (::osg::Matrixd ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_getMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::CameraViewSwitchManipulator::* )(  ) const)(&::osgGA::CameraViewSwitchManipulator::getMatrix)
+            , (::osg::Matrixd ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_getMatrix) )    
         .def( 
             "getNode"
-            , (::osg::Node const * ( ::osgGA::CameraViewSwitchManipulator::* )(  )const)(&::osgGA::CameraViewSwitchManipulator::getNode)
-            , (::osg::Node const * ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_getNode)
+            , (::osg::Node const * ( ::osgGA::CameraViewSwitchManipulator::* )(  ) const)(&::osgGA::CameraViewSwitchManipulator::getNode)
+            , (::osg::Node const * ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getNode"
-            , (::osg::Node * ( ::osgGA::CameraViewSwitchManipulator::* )(  ))(&::osgGA::CameraViewSwitchManipulator::getNode)
-            , (::osg::Node * ( CameraViewSwitchManipulator_wrapper::* )(  ))(&CameraViewSwitchManipulator_wrapper::default_getNode)
+            , (::osg::Node * ( ::osgGA::CameraViewSwitchManipulator::* )(  ) )(&::osgGA::CameraViewSwitchManipulator::getNode)
+            , (::osg::Node * ( CameraViewSwitchManipulator_wrapper::* )(  ) )(&CameraViewSwitchManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUsage"
-            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::ApplicationUsage & )const)(&::osgGA::CameraViewSwitchManipulator::getUsage)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::ApplicationUsage & )const)(&CameraViewSwitchManipulator_wrapper::default_getUsage)
+            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::ApplicationUsage & ) const)(&::osgGA::CameraViewSwitchManipulator::getUsage)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::ApplicationUsage & ) const)(&CameraViewSwitchManipulator_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "handle"
@@ -512,52 +512,52 @@ void register_CameraViewSwitchManipulator_class(){
             , "\n Start/restart the manipulator.\n" )    
         .def( 
             "setByInverseMatrix"
-            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::CameraViewSwitchManipulator::setByInverseMatrix)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Matrixd const & ))(&CameraViewSwitchManipulator_wrapper::default_setByInverseMatrix)
+            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::CameraViewSwitchManipulator::setByInverseMatrix)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&CameraViewSwitchManipulator_wrapper::default_setByInverseMatrix)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setByMatrix"
-            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::CameraViewSwitchManipulator::setByMatrix)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Matrixd const & ))(&CameraViewSwitchManipulator_wrapper::default_setByMatrix)
+            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::CameraViewSwitchManipulator::setByMatrix)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&CameraViewSwitchManipulator_wrapper::default_setByMatrix)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setNode"
-            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Node * ))(&::osgGA::CameraViewSwitchManipulator::setNode)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Node * ))(&CameraViewSwitchManipulator_wrapper::default_setNode)
+            , (void ( ::osgGA::CameraViewSwitchManipulator::* )( ::osg::Node * ) )(&::osgGA::CameraViewSwitchManipulator::setNode)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Node * ) )(&CameraViewSwitchManipulator_wrapper::default_setNode)
             , ( bp::arg("arg0") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & )const)(&::osgGA::GUIEventHandler::clone)
-            , (::osg::Object * ( CameraViewSwitchManipulator_wrapper::* )( ::osg::CopyOp const & )const)(&CameraViewSwitchManipulator_wrapper::default_clone)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & ) const)(&::osgGA::GUIEventHandler::clone)
+            , (::osg::Object * ( CameraViewSwitchManipulator_wrapper::* )( ::osg::CopyOp const & ) const)(&CameraViewSwitchManipulator_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::cloneType)
-            , (::osg::Object * ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::cloneType)
+            , (::osg::Object * ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ))(&::osgGA::CameraManipulator::computeHomePosition)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Camera const *,bool ))(&CameraViewSwitchManipulator_wrapper::default_computeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ) )(&::osgGA::CameraManipulator::computeHomePosition)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Camera const *,bool ) )(&CameraViewSwitchManipulator_wrapper::default_computeHomePosition)
             , ( bp::arg("camera")=bp::object(), bp::arg("useBoundingBox")=(bool)(false) ) )    
         .def( 
             "event"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&::osgGA::GUIEventHandler::event)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&CameraViewSwitchManipulator_wrapper::default_event)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&::osgGA::GUIEventHandler::event)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&CameraViewSwitchManipulator_wrapper::default_event)
             , ( bp::arg("nv"), bp::arg("drawable") ) )    
         .def( 
             "getFusionDistanceMode"
-            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
-            , (::osgUtil::SceneView::FusionDistanceMode ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_getFusionDistanceMode) )    
+            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
+            , (::osgUtil::SceneView::FusionDistanceMode ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_getFusionDistanceMode) )    
         .def( 
             "getFusionDistanceValue"
-            , (float ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
-            , (float ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_getFusionDistanceValue) )    
+            , (float ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
+            , (float ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_getFusionDistanceValue) )    
         .def( 
             "getHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&::osgGA::CameraManipulator::getHomePosition)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&CameraViewSwitchManipulator_wrapper::default_getHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&::osgGA::CameraManipulator::getHomePosition)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&CameraViewSwitchManipulator_wrapper::default_getHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") ) )    
         .def( 
             "handle"
@@ -576,32 +576,32 @@ void register_CameraViewSwitchManipulator_class(){
             , "        Move the camera to the default position.\n        This version does not require GUIEventAdapter and GUIActionAdapter so may be\n        called from somewhere other than a handle() method in GUIEventHandler.  Application\n        must be aware of implications." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * )const)(&::osgGA::GUIEventHandler::isSameKindAs)
-            , (bool ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Object const * )const)(&CameraViewSwitchManipulator_wrapper::default_isSameKindAs)
+            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * ) const)(&::osgGA::GUIEventHandler::isSameKindAs)
+            , (bool ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Object const * ) const)(&CameraViewSwitchManipulator_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::libraryName)
-            , (char const * ( CameraViewSwitchManipulator_wrapper::* )(  )const)(&CameraViewSwitchManipulator_wrapper::default_libraryName) )    
+            , (char const * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::libraryName)
+            , (char const * ( CameraViewSwitchManipulator_wrapper::* )(  ) const)(&CameraViewSwitchManipulator_wrapper::default_libraryName) )    
         .def( 
             "setAutoComputeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( bool ))(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( bool ))(&CameraViewSwitchManipulator_wrapper::default_setAutoComputeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( bool ) )(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( bool ) )(&CameraViewSwitchManipulator_wrapper::default_setAutoComputeHomePosition)
             , ( bp::arg("flag") ) )    
         .def( 
             "setCoordinateFrameCallback"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&CameraViewSwitchManipulator_wrapper::default_setCoordinateFrameCallback)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&CameraViewSwitchManipulator_wrapper::default_setCoordinateFrameCallback)
             , ( bp::arg("cb") ) )    
         .def( 
             "setHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&::osgGA::CameraManipulator::setHomePosition)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&CameraViewSwitchManipulator_wrapper::default_setHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&::osgGA::CameraManipulator::setHomePosition)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&CameraViewSwitchManipulator_wrapper::default_setHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("autoComputeHomePosition")=(bool)(false) ) )    
         .def( 
             "updateCamera"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ))(&::osgGA::CameraManipulator::updateCamera)
-            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Camera & ))(&CameraViewSwitchManipulator_wrapper::default_updateCamera)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ) )(&::osgGA::CameraManipulator::updateCamera)
+            , (void ( CameraViewSwitchManipulator_wrapper::* )( ::osg::Camera & ) )(&CameraViewSwitchManipulator_wrapper::default_updateCamera)
             , ( bp::arg("camera") ) );
 
 }

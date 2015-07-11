@@ -97,25 +97,25 @@ void register_Rotate3DCommand_class(){
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Rotate3DCommand::* )( ::osgManipulator::DraggerCallback & ))(&::osgManipulator::Rotate3DCommand::accept)
-            , (void ( Rotate3DCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ))(&Rotate3DCommand_wrapper::default_accept)
+            , (void ( ::osgManipulator::Rotate3DCommand::* )( ::osgManipulator::DraggerCallback & ) )(&::osgManipulator::Rotate3DCommand::accept)
+            , (void ( Rotate3DCommand_wrapper::* )( ::osgManipulator::DraggerCallback & ) )(&Rotate3DCommand_wrapper::default_accept)
             , ( bp::arg("callback") ) )    
         .def( 
             "createCommandInverse"
-            , (::osgManipulator::MotionCommand * ( ::osgManipulator::Rotate3DCommand::* )(  ))(&::osgManipulator::Rotate3DCommand::createCommandInverse)
-            , (::osgManipulator::MotionCommand * ( Rotate3DCommand_wrapper::* )(  ))(&Rotate3DCommand_wrapper::default_createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( ::osgManipulator::Rotate3DCommand::* )(  ) )(&::osgManipulator::Rotate3DCommand::createCommandInverse)
+            , (::osgManipulator::MotionCommand * ( Rotate3DCommand_wrapper::* )(  ) )(&Rotate3DCommand_wrapper::default_createCommandInverse)
             , bp::return_internal_reference< >() )    
         .def( 
             "getMotionMatrix"
-            , (::osg::Matrix ( ::osgManipulator::Rotate3DCommand::* )(  )const)(&::osgManipulator::Rotate3DCommand::getMotionMatrix)
-            , (::osg::Matrix ( Rotate3DCommand_wrapper::* )(  )const)(&Rotate3DCommand_wrapper::default_getMotionMatrix) )    
+            , (::osg::Matrix ( ::osgManipulator::Rotate3DCommand::* )(  ) const)(&::osgManipulator::Rotate3DCommand::getMotionMatrix)
+            , (::osg::Matrix ( Rotate3DCommand_wrapper::* )(  ) const)(&Rotate3DCommand_wrapper::default_getMotionMatrix) )    
         .def( 
             "getRotation"
-            , (::osg::Quat const & ( ::osgManipulator::Rotate3DCommand::* )(  )const)( &::osgManipulator::Rotate3DCommand::getRotation )
+            , (::osg::Quat const & ( ::osgManipulator::Rotate3DCommand::* )(  ) const)( &::osgManipulator::Rotate3DCommand::getRotation )
             , bp::return_internal_reference< >() )    
         .def( 
             "setRotation"
-            , (void ( ::osgManipulator::Rotate3DCommand::* )( ::osg::Quat const & ))( &::osgManipulator::Rotate3DCommand::setRotation )
+            , (void ( ::osgManipulator::Rotate3DCommand::* )( ::osg::Quat const & ) )( &::osgManipulator::Rotate3DCommand::setRotation )
             , ( bp::arg("rotation") ) );
 
 }

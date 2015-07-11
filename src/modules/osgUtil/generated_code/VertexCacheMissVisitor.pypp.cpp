@@ -399,8 +399,8 @@ void register_VertexCacheMissVisitor_class(){
         bp::implicitly_convertible< unsigned int, osgUtil::VertexCacheMissVisitor >();
         { //::osgUtil::VertexCacheMissVisitor::apply
         
-            typedef void ( ::osgUtil::VertexCacheMissVisitor::*apply_function_type)( ::osg::Geode & ) ;
-            typedef void ( VertexCacheMissVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::VertexCacheMissVisitor::*apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( VertexCacheMissVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
             
             VertexCacheMissVisitor_exposer.def( 
                 "apply"
@@ -411,7 +411,7 @@ void register_VertexCacheMissVisitor_class(){
         }
         { //::osgUtil::VertexCacheMissVisitor::doGeometry
         
-            typedef void ( ::osgUtil::VertexCacheMissVisitor::*doGeometry_function_type)( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::VertexCacheMissVisitor::*doGeometry_function_type )( ::osg::Geometry & ) ;
             
             VertexCacheMissVisitor_exposer.def( 
                 "doGeometry"
@@ -421,8 +421,8 @@ void register_VertexCacheMissVisitor_class(){
         }
         { //::osgUtil::VertexCacheMissVisitor::reset
         
-            typedef void ( ::osgUtil::VertexCacheMissVisitor::*reset_function_type)(  ) ;
-            typedef void ( VertexCacheMissVisitor_wrapper::*default_reset_function_type)(  ) ;
+            typedef void ( ::osgUtil::VertexCacheMissVisitor::*reset_function_type )(  ) ;
+            typedef void ( VertexCacheMissVisitor_wrapper::*default_reset_function_type )(  ) ;
             
             VertexCacheMissVisitor_exposer.def( 
                 "reset"

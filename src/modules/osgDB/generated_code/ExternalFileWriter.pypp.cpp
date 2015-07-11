@@ -27,7 +27,7 @@ void register_ExternalFileWriter_class(){
         bp::implicitly_convertible< std::string const &, osgDB::ExternalFileWriter >();
         { //::osgDB::ExternalFileWriter::getObjects
         
-            typedef ::std::map< osg::Object const*, osgDB::ExternalFileWriter::ObjectData > const & ( ::osgDB::ExternalFileWriter::*getObjects_function_type)(  ) const;
+            typedef ::std::map< osg::Object const*, osgDB::ExternalFileWriter::ObjectData > const & ( ::osgDB::ExternalFileWriter::*getObjects_function_type )(  ) const;
             
             ExternalFileWriter_exposer.def( 
                 "getObjects"

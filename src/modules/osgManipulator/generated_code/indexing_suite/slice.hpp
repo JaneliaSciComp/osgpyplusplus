@@ -78,11 +78,7 @@ namespace boost { namespace python { namespace indexing {
       : m_slice (sl) // Leave index members uninitialized
     {
         PySlice_GetIndices(
-    #if PY_VERSION_HEX > 0x03020000
-            reinterpret_cast<PyObject *> (m_slice.ptr()),
-    #else
             reinterpret_cast<PySliceObject *> (m_slice.ptr()),
-    #endif
             length,
             &m_start,
             &m_stop,

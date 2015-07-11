@@ -60,7 +60,7 @@ void register_SphereProjector_class(){
         bp::implicitly_convertible< osg::Sphere *, osgManipulator::SphereProjector >();
         { //::osgManipulator::SphereProjector::getSphere
         
-            typedef ::osg::Sphere const * ( ::osgManipulator::SphereProjector::*getSphere_function_type)(  ) const;
+            typedef ::osg::Sphere const * ( ::osgManipulator::SphereProjector::*getSphere_function_type )(  ) const;
             
             SphereProjector_exposer.def( 
                 "getSphere"
@@ -70,7 +70,7 @@ void register_SphereProjector_class(){
         }
         { //::osgManipulator::SphereProjector::isPointInFront
         
-            typedef bool ( ::osgManipulator::SphereProjector::*isPointInFront_function_type)( ::osgManipulator::PointerInfo const &,::osg::Matrix const & ) const;
+            typedef bool ( ::osgManipulator::SphereProjector::*isPointInFront_function_type )( ::osgManipulator::PointerInfo const &,::osg::Matrix const & ) const;
             
             SphereProjector_exposer.def( 
                 "isPointInFront"
@@ -81,8 +81,8 @@ void register_SphereProjector_class(){
         }
         { //::osgManipulator::SphereProjector::project
         
-            typedef bool ( ::osgManipulator::SphereProjector::*project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
-            typedef bool ( SphereProjector_wrapper::*default_project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( ::osgManipulator::SphereProjector::*project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( SphereProjector_wrapper::*default_project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
             
             SphereProjector_exposer.def( 
                 "project"
@@ -93,7 +93,7 @@ void register_SphereProjector_class(){
         }
         { //::osgManipulator::SphereProjector::setFront
         
-            typedef void ( ::osgManipulator::SphereProjector::*setFront_function_type)( bool ) ;
+            typedef void ( ::osgManipulator::SphereProjector::*setFront_function_type )( bool ) ;
             
             SphereProjector_exposer.def( 
                 "setFront"
@@ -103,7 +103,7 @@ void register_SphereProjector_class(){
         }
         { //::osgManipulator::SphereProjector::setSphere
         
-            typedef void ( ::osgManipulator::SphereProjector::*setSphere_function_type)( ::osg::Sphere * ) ;
+            typedef void ( ::osgManipulator::SphereProjector::*setSphere_function_type )( ::osg::Sphere * ) ;
             
             SphereProjector_exposer.def( 
                 "setSphere"

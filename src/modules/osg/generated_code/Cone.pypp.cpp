@@ -200,125 +200,125 @@ void register_Cone_class(){
         .def( bp::init< osg::Vec3 const &, float, float >(( bp::arg("center"), bp::arg("radius"), bp::arg("height") )) )    
         .def( 
             "accept"
-            , (void ( ::osg::Cone::* )( ::osg::ShapeVisitor & ))(&::osg::Cone::accept)
-            , (void ( Cone_wrapper::* )( ::osg::ShapeVisitor & ))(&Cone_wrapper::default_accept)
+            , (void ( ::osg::Cone::* )( ::osg::ShapeVisitor & ) )(&::osg::Cone::accept)
+            , (void ( Cone_wrapper::* )( ::osg::ShapeVisitor & ) )(&Cone_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::Cone::* )( ::osg::ConstShapeVisitor & )const)(&::osg::Cone::accept)
-            , (void ( Cone_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&Cone_wrapper::default_accept)
+            , (void ( ::osg::Cone::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::Cone::accept)
+            , (void ( Cone_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&Cone_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::Cone::* )(  )const)(&::osg::Cone::className)
-            , (char const * ( Cone_wrapper::* )(  )const)(&Cone_wrapper::default_className) )    
+            , (char const * ( ::osg::Cone::* )(  ) const)(&::osg::Cone::className)
+            , (char const * ( Cone_wrapper::* )(  ) const)(&Cone_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::Cone::* )( ::osg::CopyOp const & )const)(&::osg::Cone::clone)
-            , (::osg::Object * ( Cone_wrapper::* )( ::osg::CopyOp const & )const)(&Cone_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::Cone::* )( ::osg::CopyOp const & ) const)(&::osg::Cone::clone)
+            , (::osg::Object * ( Cone_wrapper::* )( ::osg::CopyOp const & ) const)(&Cone_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::Cone::* )(  )const)(&::osg::Cone::cloneType)
-            , (::osg::Object * ( Cone_wrapper::* )(  )const)(&Cone_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::Cone::* )(  ) const)(&::osg::Cone::cloneType)
+            , (::osg::Object * ( Cone_wrapper::* )(  ) const)(&Cone_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeRotationMatrix"
-            , (::osg::Matrix ( ::osg::Cone::* )(  )const)( &::osg::Cone::computeRotationMatrix ) )    
+            , (::osg::Matrix ( ::osg::Cone::* )(  ) const)( &::osg::Cone::computeRotationMatrix ) )    
         .def( 
             "getBaseOffset"
-            , (float ( ::osg::Cone::* )(  )const)( &::osg::Cone::getBaseOffset ) )    
+            , (float ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getBaseOffset ) )    
         .def( 
             "getBaseOffsetFactor"
-            , (float ( ::osg::Cone::* )(  )const)( &::osg::Cone::getBaseOffsetFactor ) )    
+            , (float ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getBaseOffsetFactor ) )    
         .def( 
             "getCenter"
-            , (::osg::Vec3 const & ( ::osg::Cone::* )(  )const)( &::osg::Cone::getCenter )
+            , (::osg::Vec3 const & ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getCenter )
             , bp::return_internal_reference< >() )    
         .def( 
             "getHeight"
-            , (float ( ::osg::Cone::* )(  )const)( &::osg::Cone::getHeight ) )    
+            , (float ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getHeight ) )    
         .def( 
             "getRadius"
-            , (float ( ::osg::Cone::* )(  )const)( &::osg::Cone::getRadius ) )    
+            , (float ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getRadius ) )    
         .def( 
             "getRotation"
-            , (::osg::Quat const & ( ::osg::Cone::* )(  )const)( &::osg::Cone::getRotation )
+            , (::osg::Quat const & ( ::osg::Cone::* )(  ) const)( &::osg::Cone::getRotation )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Cone::* )( ::osg::Object const * )const)(&::osg::Cone::isSameKindAs)
-            , (bool ( Cone_wrapper::* )( ::osg::Object const * )const)(&Cone_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Cone::* )( ::osg::Object const * ) const)(&::osg::Cone::isSameKindAs)
+            , (bool ( Cone_wrapper::* )( ::osg::Object const * ) const)(&Cone_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::Cone::* )(  )const)(&::osg::Cone::libraryName)
-            , (char const * ( Cone_wrapper::* )(  )const)(&Cone_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::Cone::* )(  ) const)(&::osg::Cone::libraryName)
+            , (char const * ( Cone_wrapper::* )(  ) const)(&Cone_wrapper::default_libraryName) )    
         .def( 
             "set"
-            , (void ( ::osg::Cone::* )( ::osg::Vec3 const &,float,float ))( &::osg::Cone::set )
+            , (void ( ::osg::Cone::* )( ::osg::Vec3 const &,float,float ) )( &::osg::Cone::set )
             , ( bp::arg("center"), bp::arg("radius"), bp::arg("height") ) )    
         .def( 
             "setCenter"
-            , (void ( ::osg::Cone::* )( ::osg::Vec3 const & ))( &::osg::Cone::setCenter )
+            , (void ( ::osg::Cone::* )( ::osg::Vec3 const & ) )( &::osg::Cone::setCenter )
             , ( bp::arg("center") ) )    
         .def( 
             "setHeight"
-            , (void ( ::osg::Cone::* )( float ))( &::osg::Cone::setHeight )
+            , (void ( ::osg::Cone::* )( float ) )( &::osg::Cone::setHeight )
             , ( bp::arg("height") ) )    
         .def( 
             "setRadius"
-            , (void ( ::osg::Cone::* )( float ))( &::osg::Cone::setRadius )
+            , (void ( ::osg::Cone::* )( float ) )( &::osg::Cone::setRadius )
             , ( bp::arg("radius") ) )    
         .def( 
             "setRotation"
-            , (void ( ::osg::Cone::* )( ::osg::Quat const & ))( &::osg::Cone::setRotation )
+            , (void ( ::osg::Cone::* )( ::osg::Quat const & ) )( &::osg::Cone::setRotation )
             , ( bp::arg("quat") ) )    
         .def( 
             "valid"
-            , (bool ( ::osg::Cone::* )(  )const)( &::osg::Cone::valid ) )    
+            , (bool ( ::osg::Cone::* )(  ) const)( &::osg::Cone::valid ) )    
         .def( 
             "zeroRotation"
-            , (bool ( ::osg::Cone::* )(  )const)( &::osg::Cone::zeroRotation ) )    
+            , (bool ( ::osg::Cone::* )(  ) const)( &::osg::Cone::zeroRotation ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
-            , (void ( Cone_wrapper::* )(  ))(&Cone_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
+            , (void ( Cone_wrapper::* )(  ) )(&Cone_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( Cone_wrapper::* )(  ))(&Cone_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( Cone_wrapper::* )(  ) )(&Cone_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( Cone_wrapper::* )(  )const)(&Cone_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( Cone_wrapper::* )(  ) const)(&Cone_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( Cone_wrapper::* )( unsigned int ))(&Cone_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( Cone_wrapper::* )( unsigned int ) )(&Cone_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
-            , (void ( Cone_wrapper::* )( ::std::string const & ))(&Cone_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
+            , (void ( Cone_wrapper::* )( ::std::string const & ) )(&Cone_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( Cone_wrapper::* )( bool ))(&Cone_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( Cone_wrapper::* )( bool ) )(&Cone_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
-            , (void ( Cone_wrapper::* )( ::osg::Referenced * ))(&Cone_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
+            , (void ( Cone_wrapper::* )( ::osg::Referenced * ) )(&Cone_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

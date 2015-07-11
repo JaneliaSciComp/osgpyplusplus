@@ -66,7 +66,7 @@ void register_CullingSet_class(){
         CullingSet_exposer.def( bp::init< osg::CullingSet const &, osg::Matrix const &, osg::Vec4 const & >(( bp::arg("cs"), bp::arg("matrix"), bp::arg("pixelSizeVector") )) );
         { //::osg::CullingSet::addOccluder
         
-            typedef void ( ::osg::CullingSet::*addOccluder_function_type)( ::osg::ShadowVolumeOccluder & ) ;
+            typedef void ( ::osg::CullingSet::*addOccluder_function_type )( ::osg::ShadowVolumeOccluder & ) ;
             
             CullingSet_exposer.def( 
                 "addOccluder"
@@ -76,7 +76,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::addStateFrustum
         
-            typedef void ( ::osg::CullingSet::*addStateFrustum_function_type)( ::osg::StateSet *,::osg::Polytope & ) ;
+            typedef void ( ::osg::CullingSet::*addStateFrustum_function_type )( ::osg::StateSet *,::osg::Polytope & ) ;
             
             CullingSet_exposer.def( 
                 "addStateFrustum"
@@ -86,7 +86,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::clampedPixelSize
         
-            typedef float ( ::osg::CullingSet::*clampedPixelSize_function_type)( ::osg::Vec3 const &,float ) const;
+            typedef float ( ::osg::CullingSet::*clampedPixelSize_function_type )( ::osg::Vec3 const &,float ) const;
             
             CullingSet_exposer.def( 
                 "clampedPixelSize"
@@ -97,7 +97,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::clampedPixelSize
         
-            typedef float ( ::osg::CullingSet::*clampedPixelSize_function_type)( ::osg::BoundingSphere const & ) const;
+            typedef float ( ::osg::CullingSet::*clampedPixelSize_function_type )( ::osg::BoundingSphere const & ) const;
             
             CullingSet_exposer.def( 
                 "clampedPixelSize"
@@ -108,7 +108,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::disableAndPushOccludersCurrentMask
         
-            typedef void ( ::osg::CullingSet::*disableAndPushOccludersCurrentMask_function_type)( ::osg::NodePath & ) ;
+            typedef void ( ::osg::CullingSet::*disableAndPushOccludersCurrentMask_function_type )( ::osg::NodePath & ) ;
             
             CullingSet_exposer.def( 
                 "disableAndPushOccludersCurrentMask"
@@ -118,7 +118,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getCullingMask
         
-            typedef int ( ::osg::CullingSet::*getCullingMask_function_type)(  ) const;
+            typedef int ( ::osg::CullingSet::*getCullingMask_function_type )(  ) const;
             
             CullingSet_exposer.def( 
                 "getCullingMask"
@@ -127,7 +127,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getFrustum
         
-            typedef ::osg::Polytope & ( ::osg::CullingSet::*getFrustum_function_type)(  ) ;
+            typedef ::osg::Polytope & ( ::osg::CullingSet::*getFrustum_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "getFrustum"
@@ -137,7 +137,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getFrustum
         
-            typedef ::osg::Polytope const & ( ::osg::CullingSet::*getFrustum_function_type)(  ) const;
+            typedef ::osg::Polytope const & ( ::osg::CullingSet::*getFrustum_function_type )(  ) const;
             
             CullingSet_exposer.def( 
                 "getFrustum"
@@ -147,7 +147,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getPixelSizeVector
         
-            typedef ::osg::Vec4 & ( ::osg::CullingSet::*getPixelSizeVector_function_type)(  ) ;
+            typedef ::osg::Vec4 & ( ::osg::CullingSet::*getPixelSizeVector_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "getPixelSizeVector"
@@ -157,7 +157,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getPixelSizeVector
         
-            typedef ::osg::Vec4 const & ( ::osg::CullingSet::*getPixelSizeVector_function_type)(  ) const;
+            typedef ::osg::Vec4 const & ( ::osg::CullingSet::*getPixelSizeVector_function_type )(  ) const;
             
             CullingSet_exposer.def( 
                 "getPixelSizeVector"
@@ -167,7 +167,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getSmallFeatureCullingPixelSize
         
-            typedef float & ( ::osg::CullingSet::*getSmallFeatureCullingPixelSize_function_type)(  ) ;
+            typedef float & ( ::osg::CullingSet::*getSmallFeatureCullingPixelSize_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "getSmallFeatureCullingPixelSize"
@@ -177,7 +177,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getSmallFeatureCullingPixelSize
         
-            typedef float ( ::osg::CullingSet::*getSmallFeatureCullingPixelSize_function_type)(  ) const;
+            typedef float ( ::osg::CullingSet::*getSmallFeatureCullingPixelSize_function_type )(  ) const;
             
             CullingSet_exposer.def( 
                 "getSmallFeatureCullingPixelSize"
@@ -186,7 +186,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getStateFrustumList
         
-            typedef void ( ::osg::CullingSet::*getStateFrustumList_function_type)( ::std::vector< std::pair<osg::ref_ptr<osg::StateSet>, osg::Polytope> > & ) ;
+            typedef void ( ::osg::CullingSet::*getStateFrustumList_function_type )( ::std::vector< std::pair<osg::ref_ptr<osg::StateSet>, osg::Polytope> > & ) ;
             
             CullingSet_exposer.def( 
                 "getStateFrustumList"
@@ -196,7 +196,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::getStateFrustumList
         
-            typedef ::std::vector< std::pair<osg::ref_ptr<osg::StateSet>, osg::Polytope> > & ( ::osg::CullingSet::*getStateFrustumList_function_type)(  ) ;
+            typedef ::std::vector< std::pair<osg::ref_ptr<osg::StateSet>, osg::Polytope> > & ( ::osg::CullingSet::*getStateFrustumList_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "getStateFrustumList"
@@ -206,7 +206,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::isCulled
         
-            typedef bool ( ::osg::CullingSet::*isCulled_function_type)( ::std::vector< osg::Vec3f > const & ) ;
+            typedef bool ( ::osg::CullingSet::*isCulled_function_type )( ::std::vector< osg::Vec3f > const & ) ;
             
             CullingSet_exposer.def( 
                 "isCulled"
@@ -216,7 +216,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::isCulled
         
-            typedef bool ( ::osg::CullingSet::*isCulled_function_type)( ::osg::BoundingBox const & ) ;
+            typedef bool ( ::osg::CullingSet::*isCulled_function_type )( ::osg::BoundingBox const & ) ;
             
             CullingSet_exposer.def( 
                 "isCulled"
@@ -226,7 +226,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::isCulled
         
-            typedef bool ( ::osg::CullingSet::*isCulled_function_type)( ::osg::BoundingSphere const & ) ;
+            typedef bool ( ::osg::CullingSet::*isCulled_function_type )( ::osg::BoundingSphere const & ) ;
             
             CullingSet_exposer.def( 
                 "isCulled"
@@ -236,7 +236,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::pixelSize
         
-            typedef float ( ::osg::CullingSet::*pixelSize_function_type)( ::osg::Vec3 const &,float ) const;
+            typedef float ( ::osg::CullingSet::*pixelSize_function_type )( ::osg::Vec3 const &,float ) const;
             
             CullingSet_exposer.def( 
                 "pixelSize"
@@ -247,7 +247,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::pixelSize
         
-            typedef float ( ::osg::CullingSet::*pixelSize_function_type)( ::osg::BoundingSphere const & ) const;
+            typedef float ( ::osg::CullingSet::*pixelSize_function_type )( ::osg::BoundingSphere const & ) const;
             
             CullingSet_exposer.def( 
                 "pixelSize"
@@ -258,7 +258,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::popCurrentMask
         
-            typedef void ( ::osg::CullingSet::*popCurrentMask_function_type)(  ) ;
+            typedef void ( ::osg::CullingSet::*popCurrentMask_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "popCurrentMask"
@@ -267,7 +267,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::popOccludersCurrentMask
         
-            typedef void ( ::osg::CullingSet::*popOccludersCurrentMask_function_type)( ::osg::NodePath & ) ;
+            typedef void ( ::osg::CullingSet::*popOccludersCurrentMask_function_type )( ::osg::NodePath & ) ;
             
             CullingSet_exposer.def( 
                 "popOccludersCurrentMask"
@@ -277,7 +277,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::pushCurrentMask
         
-            typedef void ( ::osg::CullingSet::*pushCurrentMask_function_type)(  ) ;
+            typedef void ( ::osg::CullingSet::*pushCurrentMask_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "pushCurrentMask"
@@ -286,7 +286,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::resetCullingMask
         
-            typedef void ( ::osg::CullingSet::*resetCullingMask_function_type)(  ) ;
+            typedef void ( ::osg::CullingSet::*resetCullingMask_function_type )(  ) ;
             
             CullingSet_exposer.def( 
                 "resetCullingMask"
@@ -295,7 +295,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::set
         
-            typedef void ( ::osg::CullingSet::*set_function_type)( ::osg::CullingSet const & ) ;
+            typedef void ( ::osg::CullingSet::*set_function_type )( ::osg::CullingSet const & ) ;
             
             CullingSet_exposer.def( 
                 "set"
@@ -305,7 +305,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::set
         
-            typedef void ( ::osg::CullingSet::*set_function_type)( ::osg::CullingSet const &,::osg::Matrix const &,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::CullingSet::*set_function_type )( ::osg::CullingSet const &,::osg::Matrix const &,::osg::Vec4 const & ) ;
             
             CullingSet_exposer.def( 
                 "set"
@@ -315,7 +315,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::setCullingMask
         
-            typedef void ( ::osg::CullingSet::*setCullingMask_function_type)( int ) ;
+            typedef void ( ::osg::CullingSet::*setCullingMask_function_type )( int ) ;
             
             CullingSet_exposer.def( 
                 "setCullingMask"
@@ -325,7 +325,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::setFrustum
         
-            typedef void ( ::osg::CullingSet::*setFrustum_function_type)( ::osg::Polytope & ) ;
+            typedef void ( ::osg::CullingSet::*setFrustum_function_type )( ::osg::Polytope & ) ;
             
             CullingSet_exposer.def( 
                 "setFrustum"
@@ -335,7 +335,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::setPixelSizeVector
         
-            typedef void ( ::osg::CullingSet::*setPixelSizeVector_function_type)( ::osg::Vec4 const & ) ;
+            typedef void ( ::osg::CullingSet::*setPixelSizeVector_function_type )( ::osg::Vec4 const & ) ;
             
             CullingSet_exposer.def( 
                 "setPixelSizeVector"
@@ -345,7 +345,7 @@ void register_CullingSet_class(){
         }
         { //::osg::CullingSet::setSmallFeatureCullingPixelSize
         
-            typedef void ( ::osg::CullingSet::*setSmallFeatureCullingPixelSize_function_type)( float ) ;
+            typedef void ( ::osg::CullingSet::*setSmallFeatureCullingPixelSize_function_type )( float ) ;
             
             CullingSet_exposer.def( 
                 "setSmallFeatureCullingPixelSize"
@@ -356,8 +356,8 @@ void register_CullingSet_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
-            typedef void ( CullingSet_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( CullingSet_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
             
             CullingSet_exposer.def( 
                 "setThreadSafeRefUnref"

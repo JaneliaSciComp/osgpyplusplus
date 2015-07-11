@@ -503,56 +503,56 @@ void register_DriveManipulator_class(){
         .def( bp::init< >("\nDriveManipulator is a camera manipulator which provides drive-like\nfunctionality. By default, the left mouse button accelerates, the right\nmouse button decelerates, and the middle mouse button (or left and\nright simultaneously) stops dead.\n") )    
         .def( 
             "calcMovement"
-            , (bool ( DriveManipulator_wrapper::* )(  ))(&DriveManipulator_wrapper::calcMovement)
+            , (bool ( DriveManipulator_wrapper::* )(  ) )(&DriveManipulator_wrapper::calcMovement)
             , "\n For the given mouse movement calculate the movement of the camera.\n Return true if camera has moved and a redraw is required.\n" )    
         .def( 
             "className"
-            , (char const * ( ::osgGA::DriveManipulator::* )(  )const)(&::osgGA::DriveManipulator::className)
-            , (char const * ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_className) )    
+            , (char const * ( ::osgGA::DriveManipulator::* )(  ) const)(&::osgGA::DriveManipulator::className)
+            , (char const * ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_className) )    
         .def( 
             "computeHomePosition"
-            , (void ( ::osgGA::DriveManipulator::* )(  ))(&::osgGA::DriveManipulator::computeHomePosition)
-            , (void ( DriveManipulator_wrapper::* )(  ))(&DriveManipulator_wrapper::default_computeHomePosition) )    
+            , (void ( ::osgGA::DriveManipulator::* )(  ) )(&::osgGA::DriveManipulator::computeHomePosition)
+            , (void ( DriveManipulator_wrapper::* )(  ) )(&DriveManipulator_wrapper::default_computeHomePosition) )    
         .def( 
             "computePosition"
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ))(&DriveManipulator_wrapper::computePosition)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) )(&DriveManipulator_wrapper::computePosition)
             , ( bp::arg("eye"), bp::arg("lv"), bp::arg("up") ) )    
         .def( 
             "flushMouseEventStack"
-            , (void ( DriveManipulator_wrapper::* )(  ))(&DriveManipulator_wrapper::flushMouseEventStack)
+            , (void ( DriveManipulator_wrapper::* )(  ) )(&DriveManipulator_wrapper::flushMouseEventStack)
             , "\n Reset the internal GUIEvent stack.\n" )    
         .def( 
             "getHeight"
-            , (double ( ::osgGA::DriveManipulator::* )(  )const)( &::osgGA::DriveManipulator::getHeight ) )    
+            , (double ( ::osgGA::DriveManipulator::* )(  ) const)( &::osgGA::DriveManipulator::getHeight ) )    
         .def( 
             "getInverseMatrix"
-            , (::osg::Matrixd ( ::osgGA::DriveManipulator::* )(  )const)(&::osgGA::DriveManipulator::getInverseMatrix)
-            , (::osg::Matrixd ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_getInverseMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::DriveManipulator::* )(  ) const)(&::osgGA::DriveManipulator::getInverseMatrix)
+            , (::osg::Matrixd ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_getInverseMatrix) )    
         .def( 
             "getMatrix"
-            , (::osg::Matrixd ( ::osgGA::DriveManipulator::* )(  )const)(&::osgGA::DriveManipulator::getMatrix)
-            , (::osg::Matrixd ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_getMatrix) )    
+            , (::osg::Matrixd ( ::osgGA::DriveManipulator::* )(  ) const)(&::osgGA::DriveManipulator::getMatrix)
+            , (::osg::Matrixd ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_getMatrix) )    
         .def( 
             "getModelScale"
-            , (double ( ::osgGA::DriveManipulator::* )(  )const)( &::osgGA::DriveManipulator::getModelScale ) )    
+            , (double ( ::osgGA::DriveManipulator::* )(  ) const)( &::osgGA::DriveManipulator::getModelScale ) )    
         .def( 
             "getNode"
-            , (::osg::Node const * ( ::osgGA::DriveManipulator::* )(  )const)(&::osgGA::DriveManipulator::getNode)
-            , (::osg::Node const * ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_getNode)
+            , (::osg::Node const * ( ::osgGA::DriveManipulator::* )(  ) const)(&::osgGA::DriveManipulator::getNode)
+            , (::osg::Node const * ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getNode"
-            , (::osg::Node * ( ::osgGA::DriveManipulator::* )(  ))(&::osgGA::DriveManipulator::getNode)
-            , (::osg::Node * ( DriveManipulator_wrapper::* )(  ))(&DriveManipulator_wrapper::default_getNode)
+            , (::osg::Node * ( ::osgGA::DriveManipulator::* )(  ) )(&::osgGA::DriveManipulator::getNode)
+            , (::osg::Node * ( DriveManipulator_wrapper::* )(  ) )(&DriveManipulator_wrapper::default_getNode)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUsage"
-            , (void ( ::osgGA::DriveManipulator::* )( ::osg::ApplicationUsage & )const)(&::osgGA::DriveManipulator::getUsage)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::ApplicationUsage & )const)(&DriveManipulator_wrapper::default_getUsage)
+            , (void ( ::osgGA::DriveManipulator::* )( ::osg::ApplicationUsage & ) const)(&::osgGA::DriveManipulator::getUsage)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::ApplicationUsage & ) const)(&DriveManipulator_wrapper::default_getUsage)
             , ( bp::arg("usage") ) )    
         .def( 
             "getVelocity"
-            , (double ( ::osgGA::DriveManipulator::* )(  )const)( &::osgGA::DriveManipulator::getVelocity ) )    
+            , (double ( ::osgGA::DriveManipulator::* )(  ) const)( &::osgGA::DriveManipulator::getVelocity ) )    
         .def( 
             "handle"
             , (boost::python::object (*)( ::osgGA::DriveManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &DriveManipulator_wrapper::default_handle )
@@ -567,68 +567,68 @@ void register_DriveManipulator_class(){
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) )    
         .def( 
             "intersect"
-            , (bool ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d &,::osg::Vec3d & )const)(&DriveManipulator_wrapper::intersect)
+            , (bool ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d &,::osg::Vec3d & ) const)(&DriveManipulator_wrapper::intersect)
             , ( bp::arg("start"), bp::arg("end"), bp::arg("intersection"), bp::arg("normal") ) )    
         .def( 
             "setByInverseMatrix"
-            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::DriveManipulator::setByInverseMatrix)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Matrixd const & ))(&DriveManipulator_wrapper::default_setByInverseMatrix)
+            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::DriveManipulator::setByInverseMatrix)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&DriveManipulator_wrapper::default_setByInverseMatrix)
             , ( bp::arg("matrix") ) )    
         .def( 
             "setByMatrix"
-            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Matrixd const & ))(&::osgGA::DriveManipulator::setByMatrix)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Matrixd const & ))(&DriveManipulator_wrapper::default_setByMatrix)
+            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Matrixd const & ) )(&::osgGA::DriveManipulator::setByMatrix)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Matrixd const & ) )(&DriveManipulator_wrapper::default_setByMatrix)
             , ( bp::arg("matrix") ) )    
         .def( 
             "setHeight"
-            , (void ( ::osgGA::DriveManipulator::* )( double ))( &::osgGA::DriveManipulator::setHeight )
+            , (void ( ::osgGA::DriveManipulator::* )( double ) )( &::osgGA::DriveManipulator::setHeight )
             , ( bp::arg("in_h") ) )    
         .def( 
             "setModelScale"
-            , (void ( ::osgGA::DriveManipulator::* )( double ))( &::osgGA::DriveManipulator::setModelScale )
+            , (void ( ::osgGA::DriveManipulator::* )( double ) )( &::osgGA::DriveManipulator::setModelScale )
             , ( bp::arg("in_ms") ) )    
         .def( 
             "setNode"
-            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Node * ))(&::osgGA::DriveManipulator::setNode)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Node * ))(&DriveManipulator_wrapper::default_setNode)
+            , (void ( ::osgGA::DriveManipulator::* )( ::osg::Node * ) )(&::osgGA::DriveManipulator::setNode)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Node * ) )(&DriveManipulator_wrapper::default_setNode)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setVelocity"
-            , (void ( ::osgGA::DriveManipulator::* )( double ))( &::osgGA::DriveManipulator::setVelocity )
+            , (void ( ::osgGA::DriveManipulator::* )( double ) )( &::osgGA::DriveManipulator::setVelocity )
             , ( bp::arg("in_vel") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & )const)(&::osgGA::GUIEventHandler::clone)
-            , (::osg::Object * ( DriveManipulator_wrapper::* )( ::osg::CopyOp const & )const)(&DriveManipulator_wrapper::default_clone)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )( ::osg::CopyOp const & ) const)(&::osgGA::GUIEventHandler::clone)
+            , (::osg::Object * ( DriveManipulator_wrapper::* )( ::osg::CopyOp const & ) const)(&DriveManipulator_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::cloneType)
-            , (::osg::Object * ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::cloneType)
+            , (::osg::Object * ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ))(&::osgGA::CameraManipulator::computeHomePosition)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Camera const *,bool ))(&DriveManipulator_wrapper::default_computeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera const *,bool ) )(&::osgGA::CameraManipulator::computeHomePosition)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Camera const *,bool ) )(&DriveManipulator_wrapper::default_computeHomePosition)
             , ( bp::arg("camera")=bp::object(), bp::arg("useBoundingBox")=(bool)(false) ) )    
         .def( 
             "event"
-            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&::osgGA::GUIEventHandler::event)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ))(&DriveManipulator_wrapper::default_event)
+            , (void ( ::osgGA::GUIEventHandler::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&::osgGA::GUIEventHandler::event)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::NodeVisitor *,::osg::Drawable * ) )(&DriveManipulator_wrapper::default_event)
             , ( bp::arg("nv"), bp::arg("drawable") ) )    
         .def( 
             "getFusionDistanceMode"
-            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
-            , (::osgUtil::SceneView::FusionDistanceMode ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_getFusionDistanceMode) )    
+            , (::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceMode)
+            , (::osgUtil::SceneView::FusionDistanceMode ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_getFusionDistanceMode) )    
         .def( 
             "getFusionDistanceValue"
-            , (float ( ::osgGA::CameraManipulator::* )(  )const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
-            , (float ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_getFusionDistanceValue) )    
+            , (float ( ::osgGA::CameraManipulator::* )(  ) const)(&::osgGA::CameraManipulator::getFusionDistanceValue)
+            , (float ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_getFusionDistanceValue) )    
         .def( 
             "getHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&::osgGA::CameraManipulator::getHomePosition)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & )const)(&DriveManipulator_wrapper::default_getHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&::osgGA::CameraManipulator::getHomePosition)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const)(&DriveManipulator_wrapper::default_getHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up") ) )    
         .def( 
             "handle"
@@ -642,32 +642,32 @@ void register_DriveManipulator_class(){
             , "        Move the camera to the default position.\n        This version does not require GUIEventAdapter and GUIActionAdapter so may be\n        called from somewhere other than a handle() method in GUIEventHandler.  Application\n        must be aware of implications." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * )const)(&::osgGA::GUIEventHandler::isSameKindAs)
-            , (bool ( DriveManipulator_wrapper::* )( ::osg::Object const * )const)(&DriveManipulator_wrapper::default_isSameKindAs)
+            , (bool ( ::osgGA::GUIEventHandler::* )( ::osg::Object const * ) const)(&::osgGA::GUIEventHandler::isSameKindAs)
+            , (bool ( DriveManipulator_wrapper::* )( ::osg::Object const * ) const)(&DriveManipulator_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgGA::GUIEventHandler::* )(  )const)(&::osgGA::GUIEventHandler::libraryName)
-            , (char const * ( DriveManipulator_wrapper::* )(  )const)(&DriveManipulator_wrapper::default_libraryName) )    
+            , (char const * ( ::osgGA::GUIEventHandler::* )(  ) const)(&::osgGA::GUIEventHandler::libraryName)
+            , (char const * ( DriveManipulator_wrapper::* )(  ) const)(&DriveManipulator_wrapper::default_libraryName) )    
         .def( 
             "setAutoComputeHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( bool ))(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
-            , (void ( DriveManipulator_wrapper::* )( bool ))(&DriveManipulator_wrapper::default_setAutoComputeHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( bool ) )(&::osgGA::CameraManipulator::setAutoComputeHomePosition)
+            , (void ( DriveManipulator_wrapper::* )( bool ) )(&DriveManipulator_wrapper::default_setAutoComputeHomePosition)
             , ( bp::arg("flag") ) )    
         .def( 
             "setCoordinateFrameCallback"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
-            , (void ( DriveManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ))(&DriveManipulator_wrapper::default_setCoordinateFrameCallback)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&::osgGA::CameraManipulator::setCoordinateFrameCallback)
+            , (void ( DriveManipulator_wrapper::* )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) )(&DriveManipulator_wrapper::default_setCoordinateFrameCallback)
             , ( bp::arg("cb") ) )    
         .def( 
             "setHomePosition"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&::osgGA::CameraManipulator::setHomePosition)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ))(&DriveManipulator_wrapper::default_setHomePosition)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&::osgGA::CameraManipulator::setHomePosition)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) )(&DriveManipulator_wrapper::default_setHomePosition)
             , ( bp::arg("eye"), bp::arg("center"), bp::arg("up"), bp::arg("autoComputeHomePosition")=(bool)(false) ) )    
         .def( 
             "updateCamera"
-            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ))(&::osgGA::CameraManipulator::updateCamera)
-            , (void ( DriveManipulator_wrapper::* )( ::osg::Camera & ))(&DriveManipulator_wrapper::default_updateCamera)
+            , (void ( ::osgGA::CameraManipulator::* )( ::osg::Camera & ) )(&::osgGA::CameraManipulator::updateCamera)
+            , (void ( DriveManipulator_wrapper::* )( ::osg::Camera & ) )(&DriveManipulator_wrapper::default_updateCamera)
             , ( bp::arg("camera") ) );
 
 }

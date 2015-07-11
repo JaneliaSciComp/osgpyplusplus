@@ -868,8 +868,8 @@ void register_NodeTrackerManipulator_class(){
         bp::implicitly_convertible< int, osgGA::NodeTrackerManipulator >();
         { //::osgGA::NodeTrackerManipulator::className
         
-            typedef char const * ( ::osgGA::NodeTrackerManipulator::*className_function_type)(  ) const;
-            typedef char const * ( NodeTrackerManipulator_wrapper::*default_className_function_type)(  ) const;
+            typedef char const * ( ::osgGA::NodeTrackerManipulator::*className_function_type )(  ) const;
+            typedef char const * ( NodeTrackerManipulator_wrapper::*default_className_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "className"
@@ -879,8 +879,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::clone
         
-            typedef ::osg::Object * ( ::osgGA::NodeTrackerManipulator::*clone_function_type)( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( NodeTrackerManipulator_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::NodeTrackerManipulator::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( NodeTrackerManipulator_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "clone"
@@ -892,8 +892,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::NodeTrackerManipulator::*cloneType_function_type)(  ) const;
-            typedef ::osg::Object * ( NodeTrackerManipulator_wrapper::*default_cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ::osgGA::NodeTrackerManipulator::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( NodeTrackerManipulator_wrapper::*default_cloneType_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "cloneType"
@@ -904,8 +904,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*computeHomePosition_function_type)(  ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_computeHomePosition_function_type)(  ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*computeHomePosition_function_type )(  ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_computeHomePosition_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "computeHomePosition"
@@ -915,7 +915,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::computeNodeCenterAndRotation
         
-            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeCenterAndRotation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeCenterAndRotation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "computeNodeCenterAndRotation"
@@ -925,7 +925,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::computeNodeLocalToWorld
         
-            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeLocalToWorld_function_type)( ::osg::Matrixd & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeLocalToWorld_function_type )( ::osg::Matrixd & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "computeNodeLocalToWorld"
@@ -935,7 +935,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::computeNodeWorldToLocal
         
-            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeWorldToLocal_function_type)( ::osg::Matrixd & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*computeNodeWorldToLocal_function_type )( ::osg::Matrixd & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "computeNodeWorldToLocal"
@@ -945,7 +945,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::computePosition
         
-            typedef void ( NodeTrackerManipulator_wrapper::*computePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*computePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "computePosition"
@@ -955,8 +955,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getInverseMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::NodeTrackerManipulator::*getInverseMatrix_function_type)(  ) const;
-            typedef ::osg::Matrixd ( NodeTrackerManipulator_wrapper::*default_getInverseMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::NodeTrackerManipulator::*getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( NodeTrackerManipulator_wrapper::*default_getInverseMatrix_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getInverseMatrix"
@@ -966,8 +966,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::NodeTrackerManipulator::*getMatrix_function_type)(  ) const;
-            typedef ::osg::Matrixd ( NodeTrackerManipulator_wrapper::*default_getMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::NodeTrackerManipulator::*getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( NodeTrackerManipulator_wrapper::*default_getMatrix_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getMatrix"
@@ -977,7 +977,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getRotationMode
         
-            typedef ::osgGA::NodeTrackerManipulator::RotationMode ( ::osgGA::NodeTrackerManipulator::*getRotationMode_function_type)(  ) const;
+            typedef ::osgGA::NodeTrackerManipulator::RotationMode ( ::osgGA::NodeTrackerManipulator::*getRotationMode_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getRotationMode"
@@ -986,7 +986,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getTrackNode
         
-            typedef ::osg::Node * ( ::osgGA::NodeTrackerManipulator::*getTrackNode_function_type)(  ) ;
+            typedef ::osg::Node * ( ::osgGA::NodeTrackerManipulator::*getTrackNode_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTrackNode"
@@ -996,7 +996,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getTrackNode
         
-            typedef ::osg::Node const * ( ::osgGA::NodeTrackerManipulator::*getTrackNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::NodeTrackerManipulator::*getTrackNode_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTrackNode"
@@ -1006,7 +1006,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getTrackNodePath
         
-            typedef ::osg::ObserverNodePath & ( ::osgGA::NodeTrackerManipulator::*getTrackNodePath_function_type)(  ) ;
+            typedef ::osg::ObserverNodePath & ( ::osgGA::NodeTrackerManipulator::*getTrackNodePath_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTrackNodePath"
@@ -1016,7 +1016,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::getTrackerMode
         
-            typedef ::osgGA::NodeTrackerManipulator::TrackerMode ( ::osgGA::NodeTrackerManipulator::*getTrackerMode_function_type)(  ) const;
+            typedef ::osgGA::NodeTrackerManipulator::TrackerMode ( ::osgGA::NodeTrackerManipulator::*getTrackerMode_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTrackerMode"
@@ -1025,8 +1025,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::isSameKindAs
         
-            typedef bool ( ::osgGA::NodeTrackerManipulator::*isSameKindAs_function_type)( ::osg::Object const * ) const;
-            typedef bool ( NodeTrackerManipulator_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::NodeTrackerManipulator::*isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( NodeTrackerManipulator_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "isSameKindAs"
@@ -1037,8 +1037,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::libraryName
         
-            typedef char const * ( ::osgGA::NodeTrackerManipulator::*libraryName_function_type)(  ) const;
-            typedef char const * ( NodeTrackerManipulator_wrapper::*default_libraryName_function_type)(  ) const;
+            typedef char const * ( ::osgGA::NodeTrackerManipulator::*libraryName_function_type )(  ) const;
+            typedef char const * ( NodeTrackerManipulator_wrapper::*default_libraryName_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "libraryName"
@@ -1048,7 +1048,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::performMovementLeftMouseButton
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementLeftMouseButton_function_type )( double const,double const,double const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "performMovementLeftMouseButton"
@@ -1058,7 +1058,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::performMovementMiddleMouseButton
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementMiddleMouseButton_function_type )( double const,double const,double const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "performMovementMiddleMouseButton"
@@ -1068,7 +1068,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::performMovementRightMouseButton
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
+            typedef bool ( NodeTrackerManipulator_wrapper::*performMovementRightMouseButton_function_type )( double const,double const,double const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "performMovementRightMouseButton"
@@ -1078,8 +1078,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setByMatrix
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setByMatrix_function_type)( ::osg::Matrixd const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setByMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setByMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setByMatrix_function_type )( ::osg::Matrixd const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setByMatrix"
@@ -1090,8 +1090,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setNode
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setNode_function_type)( ::osg::Node * ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setNode_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setNode_function_type )( ::osg::Node * ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setNode_function_type )( ::osg::Node * ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setNode"
@@ -1102,7 +1102,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setRotationMode
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setRotationMode_function_type)( ::osgGA::NodeTrackerManipulator::RotationMode ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setRotationMode_function_type )( ::osgGA::NodeTrackerManipulator::RotationMode ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setRotationMode"
@@ -1112,7 +1112,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setTrackNode
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNode_function_type)( ::osg::Node * ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNode_function_type )( ::osg::Node * ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTrackNode"
@@ -1122,7 +1122,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setTrackNodePath
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNodePath_function_type)( ::osg::NodePath const & ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNodePath_function_type )( ::osg::NodePath const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTrackNodePath"
@@ -1132,7 +1132,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setTrackNodePath
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNodePath_function_type)( ::osg::ObserverNodePath const & ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackNodePath_function_type )( ::osg::ObserverNodePath const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTrackNodePath"
@@ -1142,7 +1142,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::NodeTrackerManipulator::setTrackerMode
         
-            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackerMode_function_type)( ::osgGA::NodeTrackerManipulator::TrackerMode ) ;
+            typedef void ( ::osgGA::NodeTrackerManipulator::*setTrackerMode_function_type )( ::osgGA::NodeTrackerManipulator::TrackerMode ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTrackerMode"
@@ -1152,7 +1152,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::allocAnimationData
         
-            typedef void ( NodeTrackerManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*allocAnimationData_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "allocAnimationData"
@@ -1170,7 +1170,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::applyAnimationStep
         
-            typedef void ( NodeTrackerManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*applyAnimationStep_function_type )( double const,double const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "applyAnimationStep"
@@ -1180,8 +1180,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "computeHomePosition"
@@ -1192,8 +1192,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::event
         
-            typedef void ( ::osgGA::GUIEventHandler::*event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( ::osgGA::GUIEventHandler::*event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "event"
@@ -1204,8 +1204,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::finishAnimation
         
-            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type)(  ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_finishAnimation_function_type)(  ) ;
+            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type )(  ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_finishAnimation_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "finishAnimation"
@@ -1225,7 +1225,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::fixVerticalAxis
         
-            typedef void ( NodeTrackerManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*fixVerticalAxis_function_type )( ::osg::Vec3d &,::osg::Quat &,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "fixVerticalAxis"
@@ -1245,7 +1245,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::flushMouseEventStack
         
-            typedef void ( NodeTrackerManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*flushMouseEventStack_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "flushMouseEventStack"
@@ -1254,8 +1254,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type)(  ) const;
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( NodeTrackerManipulator_wrapper::*default_getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( NodeTrackerManipulator_wrapper::*default_getFusionDistanceMode_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getFusionDistanceMode"
@@ -1265,8 +1265,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceValue
         
-            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type)(  ) const;
-            typedef float ( NodeTrackerManipulator_wrapper::*default_getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( NodeTrackerManipulator_wrapper::*default_getFusionDistanceValue_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getFusionDistanceValue"
@@ -1276,8 +1276,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getHomePosition"
@@ -1288,8 +1288,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) const;
-            typedef ::osg::Node const * ( NodeTrackerManipulator_wrapper::*default_getNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( NodeTrackerManipulator_wrapper::*default_getNode_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getNode"
@@ -1300,8 +1300,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) ;
-            typedef ::osg::Node * ( NodeTrackerManipulator_wrapper::*default_getNode_function_type)(  ) ;
+            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) ;
+            typedef ::osg::Node * ( NodeTrackerManipulator_wrapper::*default_getNode_function_type )(  ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "getNode"
@@ -1312,7 +1312,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getRelativeFlag
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
+            typedef bool ( NodeTrackerManipulator_wrapper::*getRelativeFlag_function_type )( int ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getRelativeFlag"
@@ -1322,7 +1322,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getThrowScale
         
-            typedef float ( NodeTrackerManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
+            typedef float ( NodeTrackerManipulator_wrapper::*getThrowScale_function_type )( double const ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getThrowScale"
@@ -1332,8 +1332,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTransformation"
@@ -1344,8 +1344,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getTransformation"
@@ -1356,8 +1356,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getUsage
         
-            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "getUsage"
@@ -1399,8 +1399,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::home
         
-            typedef void ( ::osgGA::StandardManipulator::*home_function_type)( double ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_home_function_type)( double ) ;
+            typedef void ( ::osgGA::StandardManipulator::*home_function_type )( double ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_home_function_type )( double ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "home"
@@ -1421,7 +1421,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isMouseMoving
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
+            typedef bool ( NodeTrackerManipulator_wrapper::*isMouseMoving_function_type )(  ) const;
             
             NodeTrackerManipulator_exposer.def( 
                 "isMouseMoving"
@@ -1430,7 +1430,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::panModel
         
-            typedef void ( NodeTrackerManipulator_wrapper::*panModel_function_type)( float const,float const,float const ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*panModel_function_type )( float const,float const,float const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "panModel"
@@ -1440,7 +1440,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMouseDeltaMovement
         
-            typedef bool ( NodeTrackerManipulator_wrapper::*performMouseDeltaMovement_function_type)( float const,float const ) ;
+            typedef bool ( NodeTrackerManipulator_wrapper::*performMouseDeltaMovement_function_type )( float const,float const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "performMouseDeltaMovement"
@@ -1450,7 +1450,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateTrackball
         
-            typedef void ( NodeTrackerManipulator_wrapper::*rotateTrackball_function_type)( float const,float const,float const,float const,float const ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*rotateTrackball_function_type )( float const,float const,float const,float const,float const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "rotateTrackball"
@@ -1460,7 +1460,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( NodeTrackerManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1470,7 +1470,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( NodeTrackerManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const,::osg::Vec3f const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const,::osg::Vec3f const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1490,8 +1490,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAllowThrow
         
-            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setAllowThrow_function_type)( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type )( bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setAllowThrow_function_type )( bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setAllowThrow"
@@ -1502,8 +1502,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAnimationTime
         
-            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type)( double const ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setAnimationTime_function_type)( double const ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type )( double const ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setAnimationTime_function_type )( double const ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setAnimationTime"
@@ -1514,8 +1514,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type)( bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setAutoComputeHomePosition_function_type)( bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type )( bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setAutoComputeHomePosition_function_type )( bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setAutoComputeHomePosition"
@@ -1526,8 +1526,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setByInverseMatrix
         
-            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setByInverseMatrix"
@@ -1538,8 +1538,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setCenter
         
-            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type)( ::osg::Vec3d const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setCenter_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setCenter_function_type )( ::osg::Vec3d const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setCenter"
@@ -1550,8 +1550,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
         
-            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setCoordinateFrameCallback"
@@ -1562,8 +1562,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type)( double ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setDistance_function_type)( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type )( double ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setDistance_function_type )( double ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setDistance"
@@ -1574,8 +1574,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setHomePosition"
@@ -1586,8 +1586,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setMinimumDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type)( double const &,bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setMinimumDistance_function_type)( double const &,bool ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type )( double const &,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setMinimumDistance_function_type )( double const &,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setMinimumDistance"
@@ -1598,7 +1598,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setRelativeFlag
         
-            typedef void ( NodeTrackerManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*setRelativeFlag_function_type )( int,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setRelativeFlag"
@@ -1608,8 +1608,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setRotation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type)( ::osg::Quat const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setRotation_function_type)( ::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type )( ::osg::Quat const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setRotation_function_type )( ::osg::Quat const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setRotation"
@@ -1620,8 +1620,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTrackballSize
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type)( double const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setTrackballSize_function_type)( double const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type )( double const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setTrackballSize_function_type )( double const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTrackballSize"
@@ -1632,8 +1632,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTransformation"
@@ -1644,8 +1644,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setTransformation"
@@ -1656,8 +1656,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
-            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setVerticalAxisFixed_function_type)( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type )( bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setVerticalAxisFixed_function_type )( bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setVerticalAxisFixed"
@@ -1668,8 +1668,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setWheelZoomFactor
         
-            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type)( double ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_setWheelZoomFactor_function_type)( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type )( double ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_setWheelZoomFactor_function_type )( double ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "setWheelZoomFactor"
@@ -1680,7 +1680,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::tb_project_to_sphere
         
-            typedef float ( NodeTrackerManipulator_wrapper::*tb_project_to_sphere_function_type)( float,float,float ) ;
+            typedef float ( NodeTrackerManipulator_wrapper::*tb_project_to_sphere_function_type )( float,float,float ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "tb_project_to_sphere"
@@ -1690,7 +1690,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::trackball
         
-            typedef void ( NodeTrackerManipulator_wrapper::*trackball_function_type)( ::osg::Vec3d &,float &,float,float,float,float ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*trackball_function_type )( ::osg::Vec3d &,float &,float,float,float,float ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "trackball"
@@ -1700,8 +1700,8 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::CameraManipulator::updateCamera
         
-            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type)( ::osg::Camera & ) ;
-            typedef void ( NodeTrackerManipulator_wrapper::*default_updateCamera_function_type)( ::osg::Camera & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type )( ::osg::Camera & ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*default_updateCamera_function_type )( ::osg::Camera & ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "updateCamera"
@@ -1712,7 +1712,7 @@ void register_NodeTrackerManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::zoomModel
         
-            typedef void ( NodeTrackerManipulator_wrapper::*zoomModel_function_type)( float const,bool ) ;
+            typedef void ( NodeTrackerManipulator_wrapper::*zoomModel_function_type )( float const,bool ) ;
             
             NodeTrackerManipulator_exposer.def( 
                 "zoomModel"
