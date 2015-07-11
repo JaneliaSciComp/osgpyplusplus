@@ -8,8 +8,7 @@
 #include <iostream>
 
 # Search in str for all occurences of spat and replace them with rpat.
-void searchAndReplace(str str,  str spat,  str rpat)
-
+def searchAndReplace(str, spat, rpat):
     str.size_type pos = 0
     while ((pos = str.find(spat, pos)) != str.npos)
     
@@ -18,8 +17,7 @@ void searchAndReplace(str str,  str spat,  str rpat)
     
 
 
-void writeShader(osg.Shader* shader,  str cppFileName,  str variableName)
-
+def writeShader(shader, cppFileName, variableName):
     osgDB.ofstream fout(cppFileName.c_str())
     if (!fout)
     
@@ -59,8 +57,7 @@ void writeShader(osg.Shader* shader,  str cppFileName,  str variableName)
     print "Written shader to `", cppFileName, "`"
 
 
-int main( int argc, char **argv )
-
+def main(argc, argv):
     # use an ArgumentParser object to manage the program arguments.
     osg.ArgumentParser arguments(argc,argv)
     

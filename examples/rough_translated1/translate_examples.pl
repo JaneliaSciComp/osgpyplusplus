@@ -3,7 +3,9 @@
 use strict;
 use warnings;
 
-my $examples_source_folder = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/examples";
+my $examples_source_folder = 
+    # "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/examples";
+    "C:/Users/cmbruns/git/osg/examples";
 translate_all_examples($examples_source_folder);
 
 # Translates one C++ source file into python
@@ -24,13 +26,35 @@ sub translate_source_file {
         print $mod, ": ", $count, "\n";
     }
 
-    my $ident_rx = '\b[a-zA-Z_][a-zA-Z0-9_]*\b'; # identifiers
-    my $type_rx = '\b[a-zA-Z_][a-zA-Z0-9_]*\b'; # type names
-    my $funcarg_rx = '$type_rx\s+$ident_rx(?:\s*=\s*\S+)'; # one argument to a function
-    my $funcargs_rx = '\(\s*(?:$funcarg_rx(?:\s*,\s*$funcarg_rx)*)?\s*\)'; # parentheses and arguments to a function
+    # Regular expressions to help (mostly) identify function declarations
+    my $ident_rx = "[a-zA-Z_][a-zA-Z0-9_]*"; # identifiers
+    my $type_rx = "(?:const\\s+)?(?:$ident_rx\\:\\:)?$ident_rx(?:\\s*\\*+|&)?"; # type names
+    my $arg_ident_rx = "(?:\\*+|&)?($ident_rx)"; # e.g. "**argv"
+    my $funcarg_rx = "$type_rx\\s+$arg_ident_rx(\\s*=\\s*\\S+)?"; # one argument to a function
+    my $funcargs_rx = "\\(\\s*($funcarg_rx(?:\\s*,\\s*$funcarg_rx)*)?\\s*\\)"; # parentheses and arguments to a function
+    my $func_rx = "^(\\s*)$type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*{\\s*\$\\n";
 
-    while ( $file_block =~ m/($ident_rx)/mg ) {
-        print $1, "\n";
+    while ( $file_block =~ m/($func_rx)/mg ) {
+        my $cpp_func = $1;
+        my $indent = $2;
+        my $fn_name = $3;
+        my $all_args = $4;
+        my @args = split ",", $all_args;
+        my @arg_names = ();
+        foreach my $arg (split ",", $all_args) {
+            $arg =~ m/^\s*$funcarg_rx\s*$/;
+            my $arg_name = $1;
+            # my $equals = $2;
+            # print $1, "\n"
+            push @arg_names, $1;
+        }
+        my $py_func = "${indent}def $fn_name(";
+        $py_func .= join ", ", @arg_names;
+        $py_func .= "):\n";
+
+        print $cpp_func, "\n";
+        print $py_func;
+        $file_block =~ s/\Q${cpp_func}/{$py_func}/;
     }
 
     # Translate console output statements
