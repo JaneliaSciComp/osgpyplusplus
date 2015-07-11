@@ -34,13 +34,34 @@ sub translate_source_file {
 
     # Regular expressions to help (mostly) identify function declarations
     my $ident_rx = "[a-zA-Z_][a-zA-Z0-9_]*"; # identifiers
-    my $type_rx = "(?:const\\s+)?(?:$ident_rx\\:\\:)*$ident_rx(?:\\s*\\*+|&)?"; # type names
+    my $type_rx = "(?:$ident_rx\\:\\:)*$ident_rx"; # type names
+    my $dec_type_rx = "(?:(?:virtual|const)\\s+)*$type_rx(?:\\s*\\*+|&)?"; # type names
     my $arg_ident_rx = "(?:\\*+|&)?($ident_rx)"; # e.g. "**argv"
-    my $funcarg_rx = "$type_rx\\s+$arg_ident_rx(\\s*=\\s*\\S+)?"; # one argument to a function
+    my $funcarg_rx = "$dec_type_rx\\s+$arg_ident_rx(\\s*=\\s*\\S+)?"; # one argument to a function
     my $funcargs_rx = "\\(\\s*($funcarg_rx(?:\\s*,\\s*$funcarg_rx)*)?\\s*\\)"; # parentheses and arguments to a function
-    my $func_rx = "^(\\s*)$type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*{\\s*\$\\n";
+    my $func_rx = "^(\\s*)$dec_type_rx\\s+($ident_rx)\\s*$funcargs_rx\\s*(?:const\\s*)?{\\s*\$\\n";
+
+    # Translate class declarations, like
+    # "class PlaneConstraint : public osgManipulator::Constraint {"
+    my $class_rx = "^(\\s*)(?:class|struct)\\s+($ident_rx)\\s*(?:\:\\s*(?:public\\s*)?($type_rx)\\s*)?{\\s*";
+    while ( $file_block =~ m/($class_rx)/mg ) {
+        my $cpp_class = $1;
+        my $indent = $2;
+        my $cls_name = $3;
+        my $py_class = "${indent}class $cls_name";
+        if (defined $4) {
+            $py_class .= " ($4)";
+        }
+        $py_class .= " :\n";
+        # print "$cpp_class\n";
+        # print "$py_class\n";
+        $file_block =~ s/\Q${cpp_class}/${py_class}/;
+    }
+    $file_block =~ s/\n\s*(public|protected|private)://g;
+    $file_block =~ s/(public|protected|private)://g;
 
     # Translate function declarations
+    # Like "int main(int foo) {"
     while ( $file_block =~ m/($func_rx)/mg ) {
         my $cpp_func = $1;
         my $indent = $2;
@@ -66,7 +87,7 @@ sub translate_source_file {
         $file_block =~ s/\Q${cpp_func}/${py_func}/;
     }
 
-    my $dec_ass_rx = "(^([\\t\ ]*)$type_rx\\s+$arg_ident_rx\\s*=([^;]*);)";
+    my $dec_ass_rx = "(^([\\t\ ]*)$dec_type_rx\\s+$arg_ident_rx\\s*=([^;]*);)";
 
     # Translate declare-and-assign; "int foo = 3;"
     while ( $file_block =~ m/$dec_ass_rx/mg) {
@@ -82,12 +103,14 @@ sub translate_source_file {
     }
 
     # Declare and initialize implicitly "Bar foo;"
-    my $dec_init_rx0 = "^([\\t\ ]*)($type_rx)\\s+($arg_ident_rx)\\s*\\s*;";
+    my $dec_init_rx0 = "^([\\t\ ]*)($dec_type_rx)\\s+($arg_ident_rx)\\s*\\s*;";
     while ( $file_block =~ m/($dec_init_rx0)/mg) {
         my $cpp_dec = $1;
         my $indent = $2;
         my $type = $3;
         my $ident = $4;
+        # No keywords
+        next if $type =~ m/^return$/;
         # We will remove the semicolon later
         my $py_dec = "$indent$ident = $type();";
         # print $cpp_dec, "\n";
@@ -96,7 +119,7 @@ sub translate_source_file {
     }
 
     # Declare and initialize "Bar foo(3);"
-    my $dec_init_rx = "^([\\t\ ]*)($type_rx)\\s+($arg_ident_rx)\\s*($paren4_rx)\\s*;";
+    my $dec_init_rx = "^([\\t\ ]*)($dec_type_rx)\\s+($arg_ident_rx)\\s*($paren4_rx)\\s*;";
     while ( $file_block =~ m/($dec_init_rx)/mg) {
         my $cpp_dec = $1;
         my $indent = $2;
@@ -110,20 +133,27 @@ sub translate_source_file {
         $file_block =~ s/\Q${cpp_dec}/${py_dec}/;
     }
 
-    my $ifwhile_rx = "(if|while)\\s*$paren4_rx";
+    # "new" constructor
+    $file_block =~ s/=\s*new\b([^;()]*\S)\s*;/=\1();/g; # "new" no parentheses
+    $file_block =~ s/=\s*new\b/=/g; # "new" with parentheses
+
+    # If/While statements
+    my $ifwhile_rx = "(else\\s+if|if|while)\\s*$paren4_rx";
     while ( $file_block =~ m/($ifwhile_rx)/mg) {
         my $cpp_while = $1;
+        print "$1\n";
         # strip one set of parentheses
         my $kw = $2;
         my $contents = $3;
-        my $py_while = "$2 $3 :";
+        if ($kw =~ /^else/) {$kw = "elif";}
+        #
+        my $py_while = "$kw $contents :";
         # print $cpp_while, "\n";
         # print $py_while, "\n";
         $file_block =~ s/\Q${cpp_while}/${py_while}/;
     }
 
     $file_block =~ s/\belse\b/else:/g;
-
 
     # Translate console output statements
     $file_block =~ s/(?:std::)?cout\s*<<\s*/print /g;
@@ -134,9 +164,18 @@ sub translate_source_file {
     $file_block =~ s/std::string/str/g;
 
     # Convert comments from "//" and "/* */" to "#"
+    # http://blog.ostermiller.org/find-comment
+    while ( $file_block =~ m!(/\*((?:.|[\r\n])*?)\*/)!mg ) {
+        my $cpp_comment = $1;
+        my $py_comment = "#$2";
+        $py_comment =~ s/\n/\n#/g;
+        # print $cpp_comment, "\n";
+        # print $py_comment, "\n";
+        $file_block =~ s/\Q${cpp_comment}/${py_comment}/;
+    }
     $file_block =~ s!//!#!g;
-    $file_block =~ s!/\*!#!g;
-    $file_block =~ s!\*/!!g;
+    # $file_block =~ s!/\*!#!g;
+    # $file_block =~ s!\*/!!g;
 
     # Convert membership operators
     $file_block =~ s/->/./g;
@@ -150,6 +189,13 @@ sub translate_source_file {
     # Remove const, references
     $file_block =~ s/\bconst\b//g;
     $file_block =~ s/&//g;
+
+    # true/false
+    $file_block =~ s/\btrue\b/True/g;
+    $file_block =~ s/\bfalse\b/False/g;   
+
+    # floating point numbers, like "1.0f"
+    $file_block =~ s/\b([-+0-9\.]+)[f]\b/\1/g;   
 
     return $file_block, \%modules;
 }
@@ -216,10 +262,14 @@ sub translate_all_examples {
         my $folder = "$examples_source_folder/$example";
         next unless -d $folder; # directories only, please
         next if $_ =~ m/^\./; # no hidden/special folders, please
-        print "Translating OSG example: ", $_, "\n";
-        translate_example($example, $folder);
+
+        # Subset for testing
         $count += 1;
         # last if $count > 100; # Just one for now while testing...
+        next unless $example =~ /manip/;
+
+        print "Translating OSG example: ", $_, "\n";
+        translate_example($example, $folder);
     }
     closedir $dh;
 }
