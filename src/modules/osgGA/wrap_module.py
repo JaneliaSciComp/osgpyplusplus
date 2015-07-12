@@ -130,6 +130,7 @@ class OsgGAWrapper(BaseWrapper):
             expose_overridable_ref_ptr_class(cls)
 
     def wrap_manipulators(self):
+        # Ugly alias
         # Avoid DEFAULT_SETTINGS compile error
         for cls_name in [
                 "FirstPersonManipulator", 

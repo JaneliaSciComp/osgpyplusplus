@@ -28,6 +28,17 @@ class TestArgumentParser(unittest.TestCase):
     def test_construct(self):
         argv = ["foo", "bar", "baz"]
         ap = osg.ArgumentParser(argv)
+        
+    def test_is_option(self):
+        argv = ["foo", "bar", "baz", "--chang", "boom"]
+        ap = osg.ArgumentParser(argv)
+        ap.isOptionStr("bar")
+        # Boost.Python.ArgumentError: Python argument types in
+        # ArgumentParser.isOption(int)
+        # did not match C++ signature:
+        # isOption(class osg::ArgumentParser {lvalue}, int pos)
+        # isOption(char const * str)
+        ap.isOption(4) # Causes error
 
 if __name__ == '__main__':
     unittest.main()

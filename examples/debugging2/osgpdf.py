@@ -25,7 +25,7 @@ def main(argv):
                 group.addChild(pdfReader.get())
                 hints.position.x += 1.1
     viewer.setSceneData(group)
-    viewer.addEventHandler(osgViewer.StatsHandler)()
+    viewer.addEventHandler(osgViewer.StatsHandler())
     return viewer.run()
 
 if __name__ == "__main__":

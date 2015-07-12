@@ -212,10 +212,6 @@ class OsgWrapper(BaseWrapper):
 
         osg.class_("PolygonStipple").member_functions("getMask").exclude()
 
-        cls = osg.class_("ArgumentParser")
-        cls.member_operators("operator[]").exclude()
-        cls.member_functions("argv").exclude()
-
         # Exclude troublesome copy constructors
         for cls_name in ["KdTreeBuilder", ]:
             for ctor in osg.class_(cls_name).constructors():
@@ -452,6 +448,11 @@ class OsgWrapper(BaseWrapper):
     
     def wrap_argument_parser(self):
         cls = self.mb.class_("ArgumentParser")
+        # I cannot figure how to expose both static and non-static versions "ArgumentParser::isOption()" method.
+        # So give them different names
+        cls.member_functions("isOption", lambda c: c.has_static).alias = "isOptionStr"
+        cls.member_operators("operator[]").exclude()
+        cls.member_functions("argv").exclude()
         # Convert from python sys.argv, to C/C++ argc/argv
         # http://stackoverflow.com/questions/18793952/boost-python-how-do-i-provide-a-custom-constructor-wrapper-function
         cls.no_init = True
@@ -470,10 +471,13 @@ class OsgWrapper(BaseWrapper):
                 }
                 return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
             }
+
+            std::string getArgumentParserItem(const osg::ArgumentParser& ap, int index) {
+                return std::string(ap[index]);
+            }
             """)
-        cls.add_registration_code("""
-            def( "__init__", bp::make_constructor( &initArgumentParser ) )
-            """)
+        cls.add_registration_code("""def( "__init__", bp::make_constructor( &initArgumentParser ) )""")
+        cls.add_registration_code("""def( "__getitem__", &getArgumentParserItem )""")
 
     def wrap_nodevisitor(self):
         cls = self.mb.class_("NodeVisitor")

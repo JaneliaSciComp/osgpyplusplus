@@ -21,6 +21,10 @@ boost::shared_ptr<osg::ArgumentParser> initArgumentParser( bp::object const & sy
                 return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
             }
 
+            std::string getArgumentParserItem(const osg::ArgumentParser& ap, int index) {
+                return std::string(ap[index]);
+            }
+
 void register_ArgumentParser_class(){
 
     { //::osg::ArgumentParser
@@ -219,11 +223,11 @@ void register_ArgumentParser_class(){
         }
         { //::osg::ArgumentParser::isOption
         
-            typedef bool ( *isOption_function_type )( char const * );
+            typedef bool ( *isOptionStr_function_type )( char const * );
             
             ArgumentParser_exposer.def( 
-                "isOption"
-                , isOption_function_type( &::osg::ArgumentParser::isOption )
+                "isOptionStr"
+                , isOptionStr_function_type( &::osg::ArgumentParser::isOption )
                 , ( bp::arg("str") )
                 , "\n Return true if the specified string is an option in the form\n -option or --option.\n" );
         
@@ -520,9 +524,10 @@ void register_ArgumentParser_class(){
         }
         ArgumentParser_exposer.staticmethod( "isBool" );
         ArgumentParser_exposer.staticmethod( "isNumber" );
-        ArgumentParser_exposer.staticmethod( "isOption" );
+        ArgumentParser_exposer.staticmethod( "isOptionStr" );
         ArgumentParser_exposer.staticmethod( "isString" );
         ArgumentParser_exposer.def( "__init__", bp::make_constructor( &initArgumentParser ) );
+        ArgumentParser_exposer.def( "__getitem__", &getArgumentParserItem );
     }
 
 }
