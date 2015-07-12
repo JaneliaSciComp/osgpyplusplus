@@ -357,71 +357,71 @@ void register_DraggerTransformCallback_class(){
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_178ffe8a2d148c2b28f6ab6191a997cd_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::MotionCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::MotionCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_178ffe8a2d148c2b28f6ab6191a997cd"
-                , default_receive_178ffe8a2d148c2b28f6ab6191a997cd_function_type( &DraggerTransformCallback_wrapper::default_receive_178ffe8a2d148c2b28f6ab6191a997cd )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_178ffe8a2d148c2b28f6ab6191a997cd )
                 , ( bp::arg("inst"), bp::arg("arg0") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_6b66af821f8cfe734aa2f85c237ec6a4_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::TranslateInLineCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::TranslateInLineCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_6b66af821f8cfe734aa2f85c237ec6a4"
-                , default_receive_6b66af821f8cfe734aa2f85c237ec6a4_function_type( &DraggerTransformCallback_wrapper::default_receive_6b66af821f8cfe734aa2f85c237ec6a4 )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_6b66af821f8cfe734aa2f85c237ec6a4 )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_df11c23a37afb7970b0a06fcb58d5ac2_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::TranslateInPlaneCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::TranslateInPlaneCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_df11c23a37afb7970b0a06fcb58d5ac2"
-                , default_receive_df11c23a37afb7970b0a06fcb58d5ac2_function_type( &DraggerTransformCallback_wrapper::default_receive_df11c23a37afb7970b0a06fcb58d5ac2 )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_df11c23a37afb7970b0a06fcb58d5ac2 )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_d2c13d425eec3d71ad256c3c5ca9b899_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Scale1DCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Scale1DCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_d2c13d425eec3d71ad256c3c5ca9b899"
-                , default_receive_d2c13d425eec3d71ad256c3c5ca9b899_function_type( &DraggerTransformCallback_wrapper::default_receive_d2c13d425eec3d71ad256c3c5ca9b899 )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_d2c13d425eec3d71ad256c3c5ca9b899 )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_444bf1c311cac98c8b783d112688bcdd_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Scale2DCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Scale2DCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_444bf1c311cac98c8b783d112688bcdd"
-                , default_receive_444bf1c311cac98c8b783d112688bcdd_function_type( &DraggerTransformCallback_wrapper::default_receive_444bf1c311cac98c8b783d112688bcdd )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_444bf1c311cac98c8b783d112688bcdd )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_a0251fe8dfdc649b31e6e0e92295ad30_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::ScaleUniformCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::ScaleUniformCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_a0251fe8dfdc649b31e6e0e92295ad30"
-                , default_receive_a0251fe8dfdc649b31e6e0e92295ad30_function_type( &DraggerTransformCallback_wrapper::default_receive_a0251fe8dfdc649b31e6e0e92295ad30 )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_a0251fe8dfdc649b31e6e0e92295ad30 )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }
         { //::osgManipulator::DraggerTransformCallback::receive
         
-            typedef boost::python::object ( *default_receive_4ffd06b2c9e883e445e7bd36bbbf0a22_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Rotate3DCommand & );
+            typedef boost::python::object ( *default_receive_function_type )( ::osgManipulator::DraggerTransformCallback &,::osgManipulator::Rotate3DCommand & );
             
             DraggerTransformCallback_exposer.def( 
-                "receive_4ffd06b2c9e883e445e7bd36bbbf0a22"
-                , default_receive_4ffd06b2c9e883e445e7bd36bbbf0a22_function_type( &DraggerTransformCallback_wrapper::default_receive_4ffd06b2c9e883e445e7bd36bbbf0a22 )
+                "receive"
+                , default_receive_function_type( &DraggerTransformCallback_wrapper::default_receive_4ffd06b2c9e883e445e7bd36bbbf0a22 )
                 , ( bp::arg("inst"), bp::arg("command") ) );
         
         }

@@ -901,21 +901,21 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::home
         
-            typedef void ( *default_home_31ed92b223410645ad297f842a6c5fe6_function_type )( ::osgGA::FirstPersonManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef void ( *default_home_function_type )( ::osgGA::FirstPersonManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             FirstPersonManipulator_exposer.def( 
-                "home_31ed92b223410645ad297f842a6c5fe6"
-                , default_home_31ed92b223410645ad297f842a6c5fe6_function_type( &FirstPersonManipulator_wrapper::default_home_31ed92b223410645ad297f842a6c5fe6 )
+                "home"
+                , default_home_function_type( &FirstPersonManipulator_wrapper::default_home_31ed92b223410645ad297f842a6c5fe6 )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
         
         }
         { //::osgGA::FirstPersonManipulator::home
         
-            typedef void ( *default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type )( ::osgGA::FirstPersonManipulator &,double );
+            typedef void ( *default_home_function_type )( ::osgGA::FirstPersonManipulator &,double );
             
             FirstPersonManipulator_exposer.def( 
-                "home_cfeb5c5ad1b7f5b9f7fe9966abc644dc"
-                , default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type( &FirstPersonManipulator_wrapper::default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc )
+                "home"
+                , default_home_function_type( &FirstPersonManipulator_wrapper::default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc )
                 , ( bp::arg("inst"), bp::arg("arg0") ) );
         
         }

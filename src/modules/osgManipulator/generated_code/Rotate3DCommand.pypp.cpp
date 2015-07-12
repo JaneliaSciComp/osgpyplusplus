@@ -92,7 +92,7 @@ void register_Rotate3DCommand_class(){
     bp::class_< Rotate3DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::Rotate3DCommand >, boost::noncopyable >( "Rotate3DCommand", "\n Command for rotation in 3D.\n", bp::no_init )    
         .def( bp::init< >("\n Command for rotation in 3D.\n") )    
         .def( 
-            "accept_6a6602db2f1c1e83e351aee180184e35"
+            "accept"
             , (void (*)( ::osgManipulator::Rotate3DCommand &,::osgManipulator::Constraint & ))( &Rotate3DCommand_wrapper::default_accept_6a6602db2f1c1e83e351aee180184e35 )
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 

@@ -635,11 +635,11 @@ void register_AnimationPathManipulator_class(){
         }
         { //::osgGA::AnimationPathManipulator::home
         
-            typedef void ( *default_home_8b90fe71e169056844e8445ccc06de9c_function_type )( ::osgGA::AnimationPathManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef void ( *default_home_function_type )( ::osgGA::AnimationPathManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             AnimationPathManipulator_exposer.def( 
-                "home_8b90fe71e169056844e8445ccc06de9c"
-                , default_home_8b90fe71e169056844e8445ccc06de9c_function_type( &AnimationPathManipulator_wrapper::default_home_8b90fe71e169056844e8445ccc06de9c )
+                "home"
+                , default_home_function_type( &AnimationPathManipulator_wrapper::default_home_8b90fe71e169056844e8445ccc06de9c )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
         
         }

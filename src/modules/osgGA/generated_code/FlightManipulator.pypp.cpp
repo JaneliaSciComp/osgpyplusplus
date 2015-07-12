@@ -1188,11 +1188,11 @@ void register_FlightManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::home
         
-            typedef void ( *default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type )( ::osgGA::FirstPersonManipulator &,double );
+            typedef void ( *default_home_function_type )( ::osgGA::FirstPersonManipulator &,double );
             
             FlightManipulator_exposer.def( 
-                "home_cfeb5c5ad1b7f5b9f7fe9966abc644dc"
-                , default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc_function_type( &FlightManipulator_wrapper::default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc )
+                "home"
+                , default_home_function_type( &FlightManipulator_wrapper::default_home_cfeb5c5ad1b7f5b9f7fe9966abc644dc )
                 , ( bp::arg("inst"), bp::arg("arg0") ) );
         
         }

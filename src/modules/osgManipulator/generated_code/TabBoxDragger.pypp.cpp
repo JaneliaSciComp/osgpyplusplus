@@ -694,7 +694,7 @@ void register_TabBoxDragger_class(){
             , (::osgManipulator::CompositeDragger * ( TabBoxDragger_wrapper::* )(  ) )(&TabBoxDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &TabBoxDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 

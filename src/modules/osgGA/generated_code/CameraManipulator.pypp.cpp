@@ -671,22 +671,22 @@ void register_CameraManipulator_class(){
         }
         { //::osgGA::CameraManipulator::home
         
-            typedef void ( *default_home_9715462911072744dcf4ae663764b018_function_type )( ::osgGA::CameraManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef void ( *default_home_function_type )( ::osgGA::CameraManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             CameraManipulator_exposer.def( 
-                "home_9715462911072744dcf4ae663764b018"
-                , default_home_9715462911072744dcf4ae663764b018_function_type( &CameraManipulator_wrapper::default_home_9715462911072744dcf4ae663764b018 )
+                "home"
+                , default_home_function_type( &CameraManipulator_wrapper::default_home_9715462911072744dcf4ae663764b018 )
                 , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") )
                 , "        Move the camera to the default position.\n        May be ignored by manipulators if home functionality is not appropriate." );
         
         }
         { //::osgGA::CameraManipulator::home
         
-            typedef void ( *default_home_60d9f789ca14c44af8e13acc6b7f8b5f_function_type )( ::osgGA::CameraManipulator &,double );
+            typedef void ( *default_home_function_type )( ::osgGA::CameraManipulator &,double );
             
             CameraManipulator_exposer.def( 
-                "home_60d9f789ca14c44af8e13acc6b7f8b5f"
-                , default_home_60d9f789ca14c44af8e13acc6b7f8b5f_function_type( &CameraManipulator_wrapper::default_home_60d9f789ca14c44af8e13acc6b7f8b5f )
+                "home"
+                , default_home_function_type( &CameraManipulator_wrapper::default_home_60d9f789ca14c44af8e13acc6b7f8b5f )
                 , ( bp::arg("inst"), bp::arg("arg0") )
                 , "        Move the camera to the default position.\n        This version does not require GUIEventAdapter and GUIActionAdapter so may be\n        called from somewhere other than a handle() method in GUIEventHandler.  Application\n        must be aware of implications." );
         

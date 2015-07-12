@@ -92,7 +92,7 @@ void register_ScaleUniformCommand_class(){
     bp::class_< ScaleUniformCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::ScaleUniformCommand >, boost::noncopyable >( "ScaleUniformCommand", "\n Command for uniform 3D scaling.\n", bp::no_init )    
         .def( bp::init< >("\n Command for uniform 3D scaling.\n") )    
         .def( 
-            "accept_5a143196aa4f2b321f6a33234d396979"
+            "accept"
             , (void (*)( ::osgManipulator::ScaleUniformCommand &,::osgManipulator::Constraint & ))( &ScaleUniformCommand_wrapper::default_accept_5a143196aa4f2b321f6a33234d396979 )
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 

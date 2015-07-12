@@ -696,7 +696,7 @@ void register_Translate1DDragger_class(){
             , (::osgManipulator::CompositeDragger * ( Translate1DDragger_wrapper::* )(  ) )(&Translate1DDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &Translate1DDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 

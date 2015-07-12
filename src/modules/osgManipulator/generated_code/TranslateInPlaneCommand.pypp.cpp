@@ -105,11 +105,11 @@ void register_TranslateInPlaneCommand_class(){
         bp::implicitly_convertible< osg::Plane const &, osgManipulator::TranslateInPlaneCommand >();
         { //::osgManipulator::TranslateInPlaneCommand::accept
         
-            typedef void ( *default_accept_11e21d72b817f8e19dbdc9e6c9a693ae_function_type )( ::osgManipulator::TranslateInPlaneCommand &,::osgManipulator::Constraint & );
+            typedef void ( *default_accept_function_type )( ::osgManipulator::TranslateInPlaneCommand &,::osgManipulator::Constraint & );
             
             TranslateInPlaneCommand_exposer.def( 
-                "accept_11e21d72b817f8e19dbdc9e6c9a693ae"
-                , default_accept_11e21d72b817f8e19dbdc9e6c9a693ae_function_type( &TranslateInPlaneCommand_wrapper::default_accept_11e21d72b817f8e19dbdc9e6c9a693ae )
+                "accept"
+                , default_accept_function_type( &TranslateInPlaneCommand_wrapper::default_accept_11e21d72b817f8e19dbdc9e6c9a693ae )
                 , ( bp::arg("inst"), bp::arg("constraint") ) );
         
         }

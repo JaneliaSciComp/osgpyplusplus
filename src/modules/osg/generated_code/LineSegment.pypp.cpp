@@ -164,22 +164,22 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::mult
         
-            typedef void ( *mult_fd02a9af0cd9edfbc1014d4fec2323b7_function_type )( ::osg::LineSegment &,::osg::LineSegment &,::osg::Matrix const & );
+            typedef void ( *mult_function_type )( ::osg::LineSegment &,::osg::LineSegment &,::osg::Matrix const & );
             
             LineSegment_exposer.def( 
-                "mult_fd02a9af0cd9edfbc1014d4fec2323b7"
-                , mult_fd02a9af0cd9edfbc1014d4fec2323b7_function_type( &LineSegment_wrapper::mult_fd02a9af0cd9edfbc1014d4fec2323b7 )
+                "mult"
+                , mult_function_type( &LineSegment_wrapper::mult_fd02a9af0cd9edfbc1014d4fec2323b7 )
                 , ( bp::arg("inst"), bp::arg("seg"), bp::arg("m") )
                 , "\n post multiply a segment by matrix.\n" );
         
         }
         { //::osg::LineSegment::mult
         
-            typedef void ( *mult_7acf0751e61ed99fb72d625ef7f7e859_function_type )( ::osg::LineSegment &,::osg::Matrix const &,::osg::LineSegment & );
+            typedef void ( *mult_function_type )( ::osg::LineSegment &,::osg::Matrix const &,::osg::LineSegment & );
             
             LineSegment_exposer.def( 
-                "mult_7acf0751e61ed99fb72d625ef7f7e859"
-                , mult_7acf0751e61ed99fb72d625ef7f7e859_function_type( &LineSegment_wrapper::mult_7acf0751e61ed99fb72d625ef7f7e859 )
+                "mult"
+                , mult_function_type( &LineSegment_wrapper::mult_7acf0751e61ed99fb72d625ef7f7e859 )
                 , ( bp::arg("inst"), bp::arg("m"), bp::arg("seg") )
                 , "\n pre multiply a segment by matrix.\n" );
         

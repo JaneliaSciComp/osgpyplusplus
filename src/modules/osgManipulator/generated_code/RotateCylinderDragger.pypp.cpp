@@ -684,7 +684,7 @@ void register_RotateCylinderDragger_class(){
             , (::osgManipulator::CompositeDragger * ( RotateCylinderDragger_wrapper::* )(  ) )(&RotateCylinderDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &RotateCylinderDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 

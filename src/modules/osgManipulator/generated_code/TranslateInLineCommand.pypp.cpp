@@ -100,7 +100,7 @@ void register_TranslateInLineCommand_class(){
         .def( bp::init< >("\n Command for translating in a line.\n") )    
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 
-            "accept_cea64bb686fec00cab445e47b283dbff"
+            "accept"
             , (void (*)( ::osgManipulator::TranslateInLineCommand &,::osgManipulator::Constraint & ))( &TranslateInLineCommand_wrapper::default_accept_cea64bb686fec00cab445e47b283dbff )
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 

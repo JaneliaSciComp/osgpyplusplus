@@ -179,6 +179,8 @@ def hack_osg_arg(cls, fn_name, arg_name):
         if not found_arg:
             continue
         fn.add_transformation(FT.modify_type(arg_name, remove_const_from_reference))
+        # avoid ugly alias
+        fn.transformations[-1].alias = fn.alias
 
 def wrap_call_policies(mb):
     "Set function and operator call policies to sensible defaults"

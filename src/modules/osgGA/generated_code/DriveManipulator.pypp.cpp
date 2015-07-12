@@ -636,7 +636,7 @@ void register_DriveManipulator_class(){
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa"), bp::arg("arg2"), bp::arg("arg3") )
             , "\n Handle events, return true if handled, false otherwise.\n" )    
         .def( 
-            "home_60d9f789ca14c44af8e13acc6b7f8b5f"
+            "home"
             , (void (*)( ::osgGA::CameraManipulator &,double ))( &DriveManipulator_wrapper::default_home_60d9f789ca14c44af8e13acc6b7f8b5f )
             , ( bp::arg("inst"), bp::arg("arg0") )
             , "        Move the camera to the default position.\n        This version does not require GUIEventAdapter and GUIActionAdapter so may be\n        called from somewhere other than a handle() method in GUIEventHandler.  Application\n        must be aware of implications." )    

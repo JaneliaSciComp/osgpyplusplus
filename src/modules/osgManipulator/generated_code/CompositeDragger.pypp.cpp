@@ -718,7 +718,7 @@ void register_CompositeDragger_class(){
             , (void (*)( ::osgManipulator::Dragger &,::osgManipulator::MotionCommand & ))( &CompositeDragger_wrapper::default_dispatch )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &CompositeDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 

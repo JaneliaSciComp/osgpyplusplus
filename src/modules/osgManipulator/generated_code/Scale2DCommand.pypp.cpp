@@ -92,7 +92,7 @@ void register_Scale2DCommand_class(){
     bp::class_< Scale2DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::Scale2DCommand >, boost::noncopyable >( "Scale2DCommand", "\n Command for 2D scaling.\n", bp::no_init )    
         .def( bp::init< >("\n Command for 2D scaling.\n") )    
         .def( 
-            "accept_289ad61f697b095e2efb0253d5ca6ee7"
+            "accept"
             , (void (*)( ::osgManipulator::Scale2DCommand &,::osgManipulator::Constraint & ))( &Scale2DCommand_wrapper::default_accept_289ad61f697b095e2efb0253d5ca6ee7 )
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 

@@ -706,7 +706,7 @@ void register_TranslatePlaneDragger_class(){
             , (::osgManipulator::CompositeDragger * ( TranslatePlaneDragger_wrapper::* )(  ) )(&TranslatePlaneDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &TranslatePlaneDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 

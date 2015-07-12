@@ -791,11 +791,11 @@ void register_TabPlaneDragger_class(){
         }
         { //::osgManipulator::Dragger::handle
         
-            typedef boost::python::object ( *default_handle_bfc7c2b1255fcef353f72f723625fd47_function_type )( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef boost::python::object ( *default_handle_function_type )( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             TabPlaneDragger_exposer.def( 
-                "handle_bfc7c2b1255fcef353f72f723625fd47"
-                , default_handle_bfc7c2b1255fcef353f72f723625fd47_function_type( &TabPlaneDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
+                "handle"
+                , default_handle_function_type( &TabPlaneDragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) );
         
         }

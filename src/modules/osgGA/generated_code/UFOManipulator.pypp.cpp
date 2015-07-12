@@ -560,12 +560,12 @@ void register_UFOManipulator_class(){
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") )
             , "\n Handles incoming osgGA events\n" )    
         .def( 
-            "home_440c715662b66cd56a56411d179f268f"
+            "home"
             , (void (*)( ::osgGA::UFOManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &UFOManipulator_wrapper::default_home_440c715662b66cd56a56411d179f268f )
             , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") )
             , "\n Sets the viewpoint matrix to the home position\n" )    
         .def( 
-            "home_e69e131c57a99d02980a9f092fbfb8bd"
+            "home"
             , (void (*)( ::osgGA::UFOManipulator &,double ))( &UFOManipulator_wrapper::default_home_e69e131c57a99d02980a9f092fbfb8bd )
             , ( bp::arg("inst"), bp::arg("arg0") ) )    
         .def( 

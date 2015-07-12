@@ -694,11 +694,11 @@ void register_Dragger_class(){
             , (::osgManipulator::Dragger const * ( ::osgManipulator::Dragger::* )(  ) const)( &::osgManipulator::Dragger::getParentDragger )
             , bp::return_internal_reference< >() )    
         .def( 
-            "handle_bfc7c2b1255fcef353f72f723625fd47"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &Dragger_wrapper::default_handle_bfc7c2b1255fcef353f72f723625fd47 )
             , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 
-            "handle_8751fe537151d61d52174316c2ef1a6a"
+            "handle"
             , (boost::python::object (*)( ::osgManipulator::Dragger &,::osgManipulator::PointerInfo const &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &Dragger_wrapper::default_handle_8751fe537151d61d52174316c2ef1a6a )
             , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 

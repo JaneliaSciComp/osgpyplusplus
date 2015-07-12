@@ -92,7 +92,7 @@ void register_Scale1DCommand_class(){
     bp::class_< Scale1DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::Scale1DCommand >, boost::noncopyable >( "Scale1DCommand", "\n Command for 1D scaling.\n", bp::no_init )    
         .def( bp::init< >("\n Command for 1D scaling.\n") )    
         .def( 
-            "accept_529f61c43342656c969dfd85d3a77c27"
+            "accept"
             , (void (*)( ::osgManipulator::Scale1DCommand &,::osgManipulator::Constraint & ))( &Scale1DCommand_wrapper::default_accept_529f61c43342656c969dfd85d3a77c27 )
             , ( bp::arg("inst"), bp::arg("constraint") ) )    
         .def( 

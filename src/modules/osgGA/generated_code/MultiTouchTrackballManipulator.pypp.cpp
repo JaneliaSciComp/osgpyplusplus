@@ -1161,11 +1161,11 @@ void register_MultiTouchTrackballManipulator_class(){
         }
         { //::osgGA::StandardManipulator::home
         
-            typedef void ( *default_home_194db6d6ec8fbf447721ccd081e44fc3_function_type )( ::osgGA::StandardManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef void ( *default_home_function_type )( ::osgGA::StandardManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             MultiTouchTrackballManipulator_exposer.def( 
-                "home_194db6d6ec8fbf447721ccd081e44fc3"
-                , default_home_194db6d6ec8fbf447721ccd081e44fc3_function_type( &MultiTouchTrackballManipulator_wrapper::default_home_194db6d6ec8fbf447721ccd081e44fc3 )
+                "home"
+                , default_home_function_type( &MultiTouchTrackballManipulator_wrapper::default_home_194db6d6ec8fbf447721ccd081e44fc3 )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") ) );
         
         }

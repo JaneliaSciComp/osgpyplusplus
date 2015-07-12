@@ -346,32 +346,32 @@ void register_DraggerCallback_class(){
             , (char const * ( ::osgManipulator::DraggerCallback::* )(  ) const)(&::osgManipulator::DraggerCallback::libraryName)
             , (char const * ( DraggerCallback_wrapper::* )(  ) const)(&DraggerCallback_wrapper::default_libraryName) )    
         .def( 
-            "receive_a81453cad0b55e6a30e46933e3b5b17c"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::MotionCommand & ))( &DraggerCallback_wrapper::default_receive_a81453cad0b55e6a30e46933e3b5b17c )
             , ( bp::arg("inst"), bp::arg("arg0") )
             , "\n Receive motion commands. Returns true on success.\n" )    
         .def( 
-            "receive_e7cc153a637f6f3432496652cc9d1858"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::TranslateInLineCommand & ))( &DraggerCallback_wrapper::default_receive_e7cc153a637f6f3432496652cc9d1858 )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "receive_5488ed9d7f0cca5b12d7517033a20f51"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::TranslateInPlaneCommand & ))( &DraggerCallback_wrapper::default_receive_5488ed9d7f0cca5b12d7517033a20f51 )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "receive_11781cc69a44ac6348a6c71d668d3b81"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::Scale1DCommand & ))( &DraggerCallback_wrapper::default_receive_11781cc69a44ac6348a6c71d668d3b81 )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "receive_8b77b025db4546a6ef47457de56e9579"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::Scale2DCommand & ))( &DraggerCallback_wrapper::default_receive_8b77b025db4546a6ef47457de56e9579 )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "receive_2bb013936d212b1ee8ce88da814e247f"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::ScaleUniformCommand & ))( &DraggerCallback_wrapper::default_receive_2bb013936d212b1ee8ce88da814e247f )
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
-            "receive_236194aaae50ce6fada1a0f669208c0a"
+            "receive"
             , (boost::python::object (*)( ::osgManipulator::DraggerCallback &,::osgManipulator::Rotate3DCommand & ))( &DraggerCallback_wrapper::default_receive_236194aaae50ce6fada1a0f669208c0a )
             , ( bp::arg("inst"), bp::arg("command") ) );
 

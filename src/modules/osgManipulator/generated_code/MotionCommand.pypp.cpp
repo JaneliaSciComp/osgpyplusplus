@@ -81,11 +81,11 @@ void register_MotionCommand_class(){
             ;
         { //::osgManipulator::MotionCommand::accept
         
-            typedef void ( *default_accept_cca4ad22050aa9c07ecd4911ed1fd170_function_type )( ::osgManipulator::MotionCommand &,::osgManipulator::Constraint & );
+            typedef void ( *default_accept_function_type )( ::osgManipulator::MotionCommand &,::osgManipulator::Constraint & );
             
             MotionCommand_exposer.def( 
-                "accept_cca4ad22050aa9c07ecd4911ed1fd170"
-                , default_accept_cca4ad22050aa9c07ecd4911ed1fd170_function_type( &MotionCommand_wrapper::default_accept_cca4ad22050aa9c07ecd4911ed1fd170 )
+                "accept"
+                , default_accept_function_type( &MotionCommand_wrapper::default_accept_cca4ad22050aa9c07ecd4911ed1fd170 )
                 , ( bp::arg("inst"), bp::arg("constraint") ) );
         
         }

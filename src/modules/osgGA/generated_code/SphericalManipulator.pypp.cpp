@@ -737,22 +737,22 @@ void register_SphericalManipulator_class(){
         }
         { //::osgGA::SphericalManipulator::home
         
-            typedef void ( *default_home_040ebe5305b9665422dea1086ba05032_function_type )( ::osgGA::SphericalManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
+            typedef void ( *default_home_function_type )( ::osgGA::SphericalManipulator &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & );
             
             SphericalManipulator_exposer.def( 
-                "home_040ebe5305b9665422dea1086ba05032"
-                , default_home_040ebe5305b9665422dea1086ba05032_function_type( &SphericalManipulator_wrapper::default_home_040ebe5305b9665422dea1086ba05032 )
+                "home"
+                , default_home_function_type( &SphericalManipulator_wrapper::default_home_040ebe5305b9665422dea1086ba05032 )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("us") )
                 , "\n Move the camera to the default position.\n        May be ignored by manipulators if home functionality is not appropriate.\n" );
         
         }
         { //::osgGA::SphericalManipulator::home
         
-            typedef void ( *default_home_e1da0b97c883577e9d4821248487614c_function_type )( ::osgGA::SphericalManipulator &,double );
+            typedef void ( *default_home_function_type )( ::osgGA::SphericalManipulator &,double );
             
             SphericalManipulator_exposer.def( 
-                "home_e1da0b97c883577e9d4821248487614c"
-                , default_home_e1da0b97c883577e9d4821248487614c_function_type( &SphericalManipulator_wrapper::default_home_e1da0b97c883577e9d4821248487614c )
+                "home"
+                , default_home_function_type( &SphericalManipulator_wrapper::default_home_e1da0b97c883577e9d4821248487614c )
                 , ( bp::arg("inst"), bp::arg("arg0") ) );
         
         }
