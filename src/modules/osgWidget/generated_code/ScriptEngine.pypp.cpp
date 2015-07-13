@@ -83,25 +83,25 @@ void register_ScriptEngine_class(){
     bp::class_< ScriptEngine_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::ScriptEngine >, boost::noncopyable >( "ScriptEngine" )    
         .def( 
             "close"
-            , (bool ( ::osgWidget::ScriptEngine::* )(  ) )(&::osgWidget::ScriptEngine::close)
-            , (bool ( ScriptEngine_wrapper::* )(  ) )(&ScriptEngine_wrapper::default_close) )    
+            , (bool ( ::osgWidget::ScriptEngine::* )(  ))(&::osgWidget::ScriptEngine::close)
+            , (bool ( ScriptEngine_wrapper::* )(  ))(&ScriptEngine_wrapper::default_close) )    
         .def( 
             "eval"
-            , (bool ( ::osgWidget::ScriptEngine::* )( ::std::string const & ) )(&::osgWidget::ScriptEngine::eval)
-            , (bool ( ScriptEngine_wrapper::* )( ::std::string const & ) )(&ScriptEngine_wrapper::default_eval)
+            , (bool ( ::osgWidget::ScriptEngine::* )( ::std::string const & ))(&::osgWidget::ScriptEngine::eval)
+            , (bool ( ScriptEngine_wrapper::* )( ::std::string const & ))(&ScriptEngine_wrapper::default_eval)
             , ( bp::arg("arg0") ) )    
         .def( 
             "getLastErrorText"
-            , (::std::string const & ( ::osgWidget::ScriptEngine::* )(  ) const)(&::osgWidget::ScriptEngine::getLastErrorText)
+            , (::std::string const & ( ::osgWidget::ScriptEngine::* )(  )const)(&::osgWidget::ScriptEngine::getLastErrorText)
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "initialize"
-            , (bool ( ::osgWidget::ScriptEngine::* )(  ) )(&::osgWidget::ScriptEngine::initialize)
-            , (bool ( ScriptEngine_wrapper::* )(  ) )(&ScriptEngine_wrapper::default_initialize) )    
+            , (bool ( ::osgWidget::ScriptEngine::* )(  ))(&::osgWidget::ScriptEngine::initialize)
+            , (bool ( ScriptEngine_wrapper::* )(  ))(&ScriptEngine_wrapper::default_initialize) )    
         .def( 
             "runFile"
-            , (bool ( ::osgWidget::ScriptEngine::* )( ::std::string const & ) )(&::osgWidget::ScriptEngine::runFile)
-            , (bool ( ScriptEngine_wrapper::* )( ::std::string const & ) )(&ScriptEngine_wrapper::default_runFile)
+            , (bool ( ::osgWidget::ScriptEngine::* )( ::std::string const & ))(&::osgWidget::ScriptEngine::runFile)
+            , (bool ( ScriptEngine_wrapper::* )( ::std::string const & ))(&ScriptEngine_wrapper::default_runFile)
             , ( bp::arg("arg0") ) );
 
 }

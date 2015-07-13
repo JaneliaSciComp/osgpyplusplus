@@ -339,8 +339,8 @@ void register_Node_class(){
         Node_exposer.def( bp::init< >("\n Construct a node.\n            Initialize the parent list to empty, node name to  and\n            bounding sphere dirty flag to true.\n") );
         { //::osg::Node::accept
         
-            typedef void ( ::osg::Node::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Node_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             Node_exposer.def( 
                 "accept"
@@ -351,7 +351,7 @@ void register_Node_class(){
         }
         { //::osg::Node::addCullCallback
         
-            typedef void ( ::osg::Node::*addCullCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*addCullCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "addCullCallback"
@@ -362,7 +362,7 @@ void register_Node_class(){
         }
         { //::osg::Node::addDescription
         
-            typedef void ( ::osg::Node::*addDescription_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Node::*addDescription_function_type)( ::std::string const & ) ;
             
             Node_exposer.def( 
                 "addDescription"
@@ -373,7 +373,7 @@ void register_Node_class(){
         }
         { //::osg::Node::addEventCallback
         
-            typedef void ( ::osg::Node::*addEventCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*addEventCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "addEventCallback"
@@ -384,7 +384,7 @@ void register_Node_class(){
         }
         { //::osg::Node::addUpdateCallback
         
-            typedef void ( ::osg::Node::*addUpdateCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*addUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "addUpdateCallback"
@@ -395,8 +395,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( Node_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Node_wrapper::*default_asCamera_function_type)(  ) ;
             
             Node_exposer.def( 
                 "asCamera"
@@ -407,8 +407,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( Node_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Node_wrapper::*default_asCamera_function_type)(  ) const;
             
             Node_exposer.def( 
                 "asCamera"
@@ -419,8 +419,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( Node_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Node_wrapper::*default_asGeode_function_type)(  ) ;
             
             Node_exposer.def( 
                 "asGeode"
@@ -431,8 +431,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( Node_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Node_wrapper::*default_asGeode_function_type)(  ) const;
             
             Node_exposer.def( 
                 "asGeode"
@@ -443,8 +443,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asGroup
         
-            typedef ::osg::Group * ( ::osg::Node::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( Node_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Node::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Node_wrapper::*default_asGroup_function_type)(  ) ;
             
             Node_exposer.def( 
                 "asGroup"
@@ -455,8 +455,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Node::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( Node_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Node::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Node_wrapper::*default_asGroup_function_type)(  ) const;
             
             Node_exposer.def( 
                 "asGroup"
@@ -467,8 +467,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( Node_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Node_wrapper::*default_asSwitch_function_type)(  ) ;
             
             Node_exposer.def( 
                 "asSwitch"
@@ -479,8 +479,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( Node_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Node_wrapper::*default_asSwitch_function_type)(  ) const;
             
             Node_exposer.def( 
                 "asSwitch"
@@ -491,8 +491,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( Node_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Node_wrapper::*default_asTransform_function_type)(  ) ;
             
             Node_exposer.def( 
                 "asTransform"
@@ -503,8 +503,8 @@ void register_Node_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( Node_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Node_wrapper::*default_asTransform_function_type)(  ) const;
             
             Node_exposer.def( 
                 "asTransform"
@@ -515,8 +515,8 @@ void register_Node_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Node_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             Node_exposer.def( 
                 "ascend"
@@ -527,8 +527,8 @@ void register_Node_class(){
         }
         { //::osg::Node::className
         
-            typedef char const * ( ::osg::Node::*className_function_type )(  ) const;
-            typedef char const * ( Node_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Node::*className_function_type)(  ) const;
+            typedef char const * ( Node_wrapper::*default_className_function_type)(  ) const;
             
             Node_exposer.def( 
                 "className"
@@ -538,8 +538,8 @@ void register_Node_class(){
         }
         { //::osg::Node::clone
         
-            typedef ::osg::Object * ( ::osg::Node::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Node_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Node::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Node_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Node_exposer.def( 
                 "clone"
@@ -551,8 +551,8 @@ void register_Node_class(){
         }
         { //::osg::Node::cloneType
         
-            typedef ::osg::Object * ( ::osg::Node::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Node_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Node::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Node_wrapper::*default_cloneType_function_type)(  ) const;
             
             Node_exposer.def( 
                 "cloneType"
@@ -563,8 +563,8 @@ void register_Node_class(){
         }
         { //::osg::Node::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::Node::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( Node_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::Node::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Node_wrapper::*default_computeBound_function_type)(  ) const;
             
             Node_exposer.def( 
                 "computeBound"
@@ -574,7 +574,7 @@ void register_Node_class(){
         }
         { //::osg::Node::containsOccluderNodes
         
-            typedef bool ( ::osg::Node::*containsOccluderNodes_function_type )(  ) const;
+            typedef bool ( ::osg::Node::*containsOccluderNodes_function_type)(  ) const;
             
             Node_exposer.def( 
                 "containsOccluderNodes"
@@ -584,7 +584,7 @@ void register_Node_class(){
         }
         { //::osg::Node::dirtyBound
         
-            typedef void ( ::osg::Node::*dirtyBound_function_type )(  ) ;
+            typedef void ( ::osg::Node::*dirtyBound_function_type)(  ) ;
             
             Node_exposer.def( 
                 "dirtyBound"
@@ -594,7 +594,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getBound
         
-            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getBound_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getBound"
@@ -605,7 +605,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getComputeBoundingSphereCallback
         
-            typedef ::osg::Node::ComputeBoundingSphereCallback * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type )(  ) ;
+            typedef ::osg::Node::ComputeBoundingSphereCallback * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getComputeBoundingSphereCallback"
@@ -616,7 +616,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getComputeBoundingSphereCallback
         
-            typedef ::osg::Node::ComputeBoundingSphereCallback const * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type )(  ) const;
+            typedef ::osg::Node::ComputeBoundingSphereCallback const * ( ::osg::Node::*getComputeBoundingSphereCallback_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getComputeBoundingSphereCallback"
@@ -627,7 +627,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getCullCallback
         
-            typedef ::osg::NodeCallback * ( ::osg::Node::*getCullCallback_function_type )(  ) ;
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getCullCallback_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getCullCallback"
@@ -638,7 +638,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getCullCallback
         
-            typedef ::osg::NodeCallback const * ( ::osg::Node::*getCullCallback_function_type )(  ) const;
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getCullCallback_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getCullCallback"
@@ -649,7 +649,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getCullingActive
         
-            typedef bool ( ::osg::Node::*getCullingActive_function_type )(  ) const;
+            typedef bool ( ::osg::Node::*getCullingActive_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getCullingActive"
@@ -659,7 +659,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getDescription
         
-            typedef ::std::string const & ( ::osg::Node::*getDescription_function_type )( unsigned int ) const;
+            typedef ::std::string const & ( ::osg::Node::*getDescription_function_type)( unsigned int ) const;
             
             Node_exposer.def( 
                 "getDescription"
@@ -671,7 +671,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getDescription
         
-            typedef ::std::string & ( ::osg::Node::*getDescription_function_type )( unsigned int ) ;
+            typedef ::std::string & ( ::osg::Node::*getDescription_function_type)( unsigned int ) ;
             
             Node_exposer.def( 
                 "getDescription"
@@ -683,7 +683,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getDescriptions
         
-            typedef ::std::vector< std::string > & ( ::osg::Node::*getDescriptions_function_type )(  ) ;
+            typedef ::std::vector< std::string > & ( ::osg::Node::*getDescriptions_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getDescriptions"
@@ -694,7 +694,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getDescriptions
         
-            typedef ::std::vector< std::string > const & ( ::osg::Node::*getDescriptions_function_type )(  ) const;
+            typedef ::std::vector< std::string > const & ( ::osg::Node::*getDescriptions_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getDescriptions"
@@ -705,7 +705,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getEventCallback
         
-            typedef ::osg::NodeCallback * ( ::osg::Node::*getEventCallback_function_type )(  ) ;
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getEventCallback_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getEventCallback"
@@ -716,7 +716,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getEventCallback
         
-            typedef ::osg::NodeCallback const * ( ::osg::Node::*getEventCallback_function_type )(  ) const;
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getEventCallback_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getEventCallback"
@@ -727,7 +727,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getInitialBound
         
-            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getInitialBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere const & ( ::osg::Node::*getInitialBound_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getInitialBound"
@@ -738,7 +738,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNodeMask
         
-            typedef unsigned int ( ::osg::Node::*getNodeMask_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNodeMask_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNodeMask"
@@ -748,7 +748,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumChildrenRequiringEventTraversal
         
-            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringEventTraversal_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringEventTraversal_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumChildrenRequiringEventTraversal"
@@ -758,7 +758,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumChildrenRequiringUpdateTraversal
         
-            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringUpdateTraversal_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumChildrenRequiringUpdateTraversal_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumChildrenRequiringUpdateTraversal"
@@ -768,7 +768,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumChildrenWithCullingDisabled
         
-            typedef unsigned int ( ::osg::Node::*getNumChildrenWithCullingDisabled_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumChildrenWithCullingDisabled_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumChildrenWithCullingDisabled"
@@ -778,7 +778,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumChildrenWithOccluderNodes
         
-            typedef unsigned int ( ::osg::Node::*getNumChildrenWithOccluderNodes_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumChildrenWithOccluderNodes_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumChildrenWithOccluderNodes"
@@ -788,7 +788,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumDescriptions
         
-            typedef unsigned int ( ::osg::Node::*getNumDescriptions_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumDescriptions_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumDescriptions"
@@ -798,7 +798,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getNumParents
         
-            typedef unsigned int ( ::osg::Node::*getNumParents_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Node::*getNumParents_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getNumParents"
@@ -808,7 +808,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getOrCreateStateSet
         
-            typedef ::osg::StateSet * ( ::osg::Node::*getOrCreateStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osg::Node::*getOrCreateStateSet_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getOrCreateStateSet"
@@ -819,7 +819,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getParent
         
-            typedef ::osg::Group * ( ::osg::Node::*getParent_function_type )( unsigned int ) ;
+            typedef ::osg::Group * ( ::osg::Node::*getParent_function_type)( unsigned int ) ;
             
             Node_exposer.def( 
                 "getParent"
@@ -830,7 +830,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getParent
         
-            typedef ::osg::Group const * ( ::osg::Node::*getParent_function_type )( unsigned int ) const;
+            typedef ::osg::Group const * ( ::osg::Node::*getParent_function_type)( unsigned int ) const;
             
             Node_exposer.def( 
                 "getParent"
@@ -842,7 +842,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getParentalNodePaths
         
-            typedef ::osg::NodePathList ( ::osg::Node::*getParentalNodePaths_function_type )( ::osg::Node * ) const;
+            typedef ::osg::NodePathList ( ::osg::Node::*getParentalNodePaths_function_type)( ::osg::Node * ) const;
             
             Node_exposer.def( 
                 "getParentalNodePaths"
@@ -853,7 +853,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getParents
         
-            typedef ::std::vector< osg::Group* > const & ( ::osg::Node::*getParents_function_type )(  ) const;
+            typedef ::std::vector< osg::Group* > const & ( ::osg::Node::*getParents_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getParents"
@@ -864,7 +864,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getParents
         
-            typedef ::std::vector< osg::Group* > ( ::osg::Node::*getParents_function_type )(  ) ;
+            typedef ::std::vector< osg::Group* > ( ::osg::Node::*getParents_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getParents"
@@ -874,7 +874,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getStateSet
         
-            typedef ::osg::StateSet * ( ::osg::Node::*getStateSet_function_type )(  ) ;
+            typedef ::osg::StateSet * ( ::osg::Node::*getStateSet_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getStateSet"
@@ -885,7 +885,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getStateSet
         
-            typedef ::osg::StateSet const * ( ::osg::Node::*getStateSet_function_type )(  ) const;
+            typedef ::osg::StateSet const * ( ::osg::Node::*getStateSet_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getStateSet"
@@ -896,7 +896,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getUpdateCallback
         
-            typedef ::osg::NodeCallback * ( ::osg::Node::*getUpdateCallback_function_type )(  ) ;
+            typedef ::osg::NodeCallback * ( ::osg::Node::*getUpdateCallback_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getUpdateCallback"
@@ -907,7 +907,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getUpdateCallback
         
-            typedef ::osg::NodeCallback const * ( ::osg::Node::*getUpdateCallback_function_type )(  ) const;
+            typedef ::osg::NodeCallback const * ( ::osg::Node::*getUpdateCallback_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getUpdateCallback"
@@ -918,7 +918,7 @@ void register_Node_class(){
         }
         { //::osg::Node::getWorldMatrices
         
-            typedef ::osg::MatrixList ( ::osg::Node::*getWorldMatrices_function_type )( ::osg::Node const * ) const;
+            typedef ::osg::MatrixList ( ::osg::Node::*getWorldMatrices_function_type)( ::osg::Node const * ) const;
             
             Node_exposer.def( 
                 "getWorldMatrices"
@@ -929,7 +929,7 @@ void register_Node_class(){
         }
         { //::osg::Node::isCullingActive
         
-            typedef bool ( ::osg::Node::*isCullingActive_function_type )(  ) const;
+            typedef bool ( ::osg::Node::*isCullingActive_function_type)(  ) const;
             
             Node_exposer.def( 
                 "isCullingActive"
@@ -939,8 +939,8 @@ void register_Node_class(){
         }
         { //::osg::Node::isSameKindAs
         
-            typedef bool ( ::osg::Node::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Node_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Node::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Node_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Node_exposer.def( 
                 "isSameKindAs"
@@ -951,8 +951,8 @@ void register_Node_class(){
         }
         { //::osg::Node::libraryName
         
-            typedef char const * ( ::osg::Node::*libraryName_function_type )(  ) const;
-            typedef char const * ( Node_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Node::*libraryName_function_type)(  ) const;
+            typedef char const * ( Node_wrapper::*default_libraryName_function_type)(  ) const;
             
             Node_exposer.def( 
                 "libraryName"
@@ -962,7 +962,7 @@ void register_Node_class(){
         }
         { //::osg::Node::removeCullCallback
         
-            typedef void ( ::osg::Node::*removeCullCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*removeCullCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "removeCullCallback"
@@ -973,7 +973,7 @@ void register_Node_class(){
         }
         { //::osg::Node::removeEventCallback
         
-            typedef void ( ::osg::Node::*removeEventCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*removeEventCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "removeEventCallback"
@@ -984,7 +984,7 @@ void register_Node_class(){
         }
         { //::osg::Node::removeUpdateCallback
         
-            typedef void ( ::osg::Node::*removeUpdateCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*removeUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "removeUpdateCallback"
@@ -995,8 +995,8 @@ void register_Node_class(){
         }
         { //::osg::Node::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Node::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Node_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Node::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Node_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Node_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1007,7 +1007,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setComputeBoundingSphereCallback
         
-            typedef void ( ::osg::Node::*setComputeBoundingSphereCallback_function_type )( ::osg::Node::ComputeBoundingSphereCallback * ) ;
+            typedef void ( ::osg::Node::*setComputeBoundingSphereCallback_function_type)( ::osg::Node::ComputeBoundingSphereCallback * ) ;
             
             Node_exposer.def( 
                 "setComputeBoundingSphereCallback"
@@ -1018,7 +1018,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setCullCallback
         
-            typedef void ( ::osg::Node::*setCullCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*setCullCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "setCullCallback"
@@ -1029,7 +1029,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setCullingActive
         
-            typedef void ( ::osg::Node::*setCullingActive_function_type )( bool ) ;
+            typedef void ( ::osg::Node::*setCullingActive_function_type)( bool ) ;
             
             Node_exposer.def( 
                 "setCullingActive"
@@ -1040,7 +1040,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setDescriptions
         
-            typedef void ( ::osg::Node::*setDescriptions_function_type )( ::std::vector< std::string > const & ) ;
+            typedef void ( ::osg::Node::*setDescriptions_function_type)( ::std::vector< std::string > const & ) ;
             
             Node_exposer.def( 
                 "setDescriptions"
@@ -1051,7 +1051,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setEventCallback
         
-            typedef void ( ::osg::Node::*setEventCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*setEventCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "setEventCallback"
@@ -1062,7 +1062,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setInitialBound
         
-            typedef void ( ::osg::Node::*setInitialBound_function_type )( ::osg::BoundingSphere const & ) ;
+            typedef void ( ::osg::Node::*setInitialBound_function_type)( ::osg::BoundingSphere const & ) ;
             
             Node_exposer.def( 
                 "setInitialBound"
@@ -1073,7 +1073,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setNodeMask
         
-            typedef void ( ::osg::Node::*setNodeMask_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Node::*setNodeMask_function_type)( unsigned int ) ;
             
             Node_exposer.def( 
                 "setNodeMask"
@@ -1084,7 +1084,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setStateSet
         
-            typedef void ( ::osg::Node::*setStateSet_function_type )( ::osg::StateSet * ) ;
+            typedef void ( ::osg::Node::*setStateSet_function_type)( ::osg::StateSet * ) ;
             
             Node_exposer.def( 
                 "setStateSet"
@@ -1095,8 +1095,8 @@ void register_Node_class(){
         }
         { //::osg::Node::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Node::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Node_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Node::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Node_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Node_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1107,7 +1107,7 @@ void register_Node_class(){
         }
         { //::osg::Node::setUpdateCallback
         
-            typedef void ( ::osg::Node::*setUpdateCallback_function_type )( ::osg::NodeCallback * ) ;
+            typedef void ( ::osg::Node::*setUpdateCallback_function_type)( ::osg::NodeCallback * ) ;
             
             Node_exposer.def( 
                 "setUpdateCallback"
@@ -1118,8 +1118,8 @@ void register_Node_class(){
         }
         { //::osg::Node::traverse
         
-            typedef void ( ::osg::Node::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Node_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Node_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             Node_exposer.def( 
                 "traverse"
@@ -1130,8 +1130,8 @@ void register_Node_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Node_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Node_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Node_exposer.def( 
                 "computeDataVariance"
@@ -1141,8 +1141,8 @@ void register_Node_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Node_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Node_wrapper::*default_getUserData_function_type)(  ) ;
             
             Node_exposer.def( 
                 "getUserData"
@@ -1153,8 +1153,8 @@ void register_Node_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Node_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Node_wrapper::*default_getUserData_function_type)(  ) const;
             
             Node_exposer.def( 
                 "getUserData"
@@ -1165,8 +1165,8 @@ void register_Node_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Node_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Node_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Node_exposer.def( 
                 "setName"
@@ -1177,7 +1177,7 @@ void register_Node_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Node_exposer.def( 
                 "setName"
@@ -1188,8 +1188,8 @@ void register_Node_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Node_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Node_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Node_exposer.def( 
                 "setUserData"
@@ -1200,8 +1200,8 @@ void register_Node_class(){
         }
         { //property "stateSet"[fget=::osg::Node::getOrCreateStateSet, fset=::osg::Node::setStateSet]
         
-            typedef ::osg::StateSet * ( ::osg::Node::*fget )(  ) ;
-            typedef void ( ::osg::Node::*fset )( ::osg::StateSet * ) ;
+            typedef ::osg::StateSet * ( ::osg::Node::*fget)(  ) ;
+            typedef void ( ::osg::Node::*fset)( ::osg::StateSet * ) ;
             
             Node_exposer.add_property( 
                 "stateSet"

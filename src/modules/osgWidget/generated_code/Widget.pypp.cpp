@@ -640,7 +640,7 @@ void register_Widget_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Widget >();
         { //::osgWidget::Widget::addColor
         
-            typedef void ( ::osgWidget::Widget::*addColor_function_type )( ::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*addColor_function_type)( ::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "addColor"
@@ -650,7 +650,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addColor
         
-            typedef void ( ::osgWidget::Widget::*addColor_function_type )( ::osgWidget::Color const &,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*addColor_function_type)( ::osgWidget::Color const &,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "addColor"
@@ -660,7 +660,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addHeight
         
-            typedef void ( ::osgWidget::Widget::*addHeight_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addHeight_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addHeight"
@@ -670,7 +670,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addOrigin
         
-            typedef void ( ::osgWidget::Widget::*addOrigin_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addOrigin_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addOrigin"
@@ -680,7 +680,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addOrigin
         
-            typedef void ( ::osgWidget::Widget::*addOrigin_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*addOrigin_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "addOrigin"
@@ -690,7 +690,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addSize
         
-            typedef void ( ::osgWidget::Widget::*addSize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addSize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addSize"
@@ -700,7 +700,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addSize
         
-            typedef void ( ::osgWidget::Widget::*addSize_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*addSize_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "addSize"
@@ -710,7 +710,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addWidth
         
-            typedef void ( ::osgWidget::Widget::*addWidth_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addWidth_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addWidth"
@@ -720,7 +720,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addX
         
-            typedef void ( ::osgWidget::Widget::*addX_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addX_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addX"
@@ -730,7 +730,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::addY
         
-            typedef void ( ::osgWidget::Widget::*addY_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*addY_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "addY"
@@ -740,7 +740,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::canClone
         
-            typedef bool ( ::osgWidget::Widget::*canClone_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Widget::*canClone_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "canClone"
@@ -749,7 +749,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::canFill
         
-            typedef bool ( ::osgWidget::Widget::*canFill_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Widget::*canFill_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "canFill"
@@ -758,8 +758,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::className
         
-            typedef char const * ( ::osgWidget::Widget::*className_function_type )(  ) const;
-            typedef char const * ( Widget_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Widget::*className_function_type)(  ) const;
+            typedef char const * ( Widget_wrapper::*default_className_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "className"
@@ -769,8 +769,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Widget::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Widget_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Widget::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Widget_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Widget_exposer.def( 
                 "clone"
@@ -782,8 +782,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Widget::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Widget_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Widget::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Widget_wrapper::*default_cloneType_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "cloneType"
@@ -794,7 +794,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getAlignHorizontal
         
-            typedef ::osgWidget::Widget::HorizontalAlignment ( ::osgWidget::Widget::*getAlignHorizontal_function_type )(  ) const;
+            typedef ::osgWidget::Widget::HorizontalAlignment ( ::osgWidget::Widget::*getAlignHorizontal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getAlignHorizontal"
@@ -803,7 +803,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getAlignVertical
         
-            typedef ::osgWidget::Widget::VerticalAlignment ( ::osgWidget::Widget::*getAlignVertical_function_type )(  ) const;
+            typedef ::osgWidget::Widget::VerticalAlignment ( ::osgWidget::Widget::*getAlignVertical_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getAlignVertical"
@@ -812,7 +812,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getColor
         
-            typedef ::osgWidget::Color const & ( ::osgWidget::Widget::*getColor_function_type )( ::osgWidget::Widget::Corner ) const;
+            typedef ::osgWidget::Color const & ( ::osgWidget::Widget::*getColor_function_type)( ::osgWidget::Widget::Corner ) const;
             
             Widget_exposer.def( 
                 "getColor"
@@ -823,7 +823,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getCoordinateMode
         
-            typedef ::osgWidget::Widget::CoordinateMode ( ::osgWidget::Widget::*getCoordinateMode_function_type )(  ) const;
+            typedef ::osgWidget::Widget::CoordinateMode ( ::osgWidget::Widget::*getCoordinateMode_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getCoordinateMode"
@@ -832,7 +832,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getDimensions
         
-            typedef ::osgWidget::Quad ( ::osgWidget::Widget::*getDimensions_function_type )(  ) const;
+            typedef ::osgWidget::Quad ( ::osgWidget::Widget::*getDimensions_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getDimensions"
@@ -841,7 +841,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getFillAsNumeric
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getFillAsNumeric_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getFillAsNumeric_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getFillAsNumeric"
@@ -850,7 +850,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getHeight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getHeight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getHeight_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getHeight"
@@ -859,7 +859,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getHeightTotal
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getHeightTotal_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getHeightTotal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getHeightTotal"
@@ -868,7 +868,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getImageColorAtPointerXY
         
-            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtPointerXY_function_type )( double,double ) const;
+            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtPointerXY_function_type)( double,double ) const;
             
             Widget_exposer.def( 
                 "getImageColorAtPointerXY"
@@ -878,7 +878,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getImageColorAtXY
         
-            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtXY_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) const;
+            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtXY_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) const;
             
             Widget_exposer.def( 
                 "getImageColorAtXY"
@@ -888,7 +888,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getImageColorAtXY
         
-            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtXY_function_type )( ::osgWidget::XYCoord const & ) const;
+            typedef ::osgWidget::Color ( ::osgWidget::Widget::*getImageColorAtXY_function_type)( ::osgWidget::XYCoord const & ) const;
             
             Widget_exposer.def( 
                 "getImageColorAtXY"
@@ -898,7 +898,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getIndex
         
-            typedef unsigned int ( ::osgWidget::Widget::*getIndex_function_type )(  ) const;
+            typedef unsigned int ( ::osgWidget::Widget::*getIndex_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getIndex"
@@ -907,7 +907,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getLayer
         
-            typedef unsigned int ( ::osgWidget::Widget::*getLayer_function_type )(  ) const;
+            typedef unsigned int ( ::osgWidget::Widget::*getLayer_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getLayer"
@@ -916,7 +916,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getMinHeight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinHeight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinHeight_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getMinHeight"
@@ -925,7 +925,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getMinHeightTotal
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinHeightTotal_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinHeightTotal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getMinHeightTotal"
@@ -934,7 +934,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getMinWidth
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinWidth_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinWidth_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getMinWidth"
@@ -943,7 +943,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getMinWidthTotal
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinWidthTotal_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getMinWidthTotal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getMinWidthTotal"
@@ -952,7 +952,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getOrigin
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*getOrigin_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*getOrigin_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getOrigin"
@@ -961,7 +961,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadBottom
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadBottom_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadBottom_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadBottom"
@@ -970,7 +970,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadHorizontal
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadHorizontal_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadHorizontal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadHorizontal"
@@ -979,7 +979,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadLeft
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadLeft_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadLeft_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadLeft"
@@ -988,7 +988,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadRight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadRight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadRight_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadRight"
@@ -997,7 +997,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadTop
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadTop_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadTop_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadTop"
@@ -1006,7 +1006,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPadVertical
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadVertical_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getPadVertical_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPadVertical"
@@ -1015,7 +1015,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getParent
         
-            typedef ::osgWidget::Window * ( ::osgWidget::Widget::*getParent_function_type )(  ) ;
+            typedef ::osgWidget::Window * ( ::osgWidget::Widget::*getParent_function_type)(  ) ;
             
             Widget_exposer.def( 
                 "getParent"
@@ -1025,7 +1025,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getParent
         
-            typedef ::osgWidget::Window const * ( ::osgWidget::Widget::*getParent_function_type )(  ) const;
+            typedef ::osgWidget::Window const * ( ::osgWidget::Widget::*getParent_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getParent"
@@ -1035,7 +1035,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPoint
         
-            typedef ::osgWidget::Point const & ( ::osgWidget::Widget::*getPoint_function_type )( ::osgWidget::Widget::Corner ) const;
+            typedef ::osgWidget::Point const & ( ::osgWidget::Widget::*getPoint_function_type)( ::osgWidget::Widget::Corner ) const;
             
             Widget_exposer.def( 
                 "getPoint"
@@ -1046,7 +1046,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getPosition
         
-            typedef ::osgWidget::Point ( ::osgWidget::Widget::*getPosition_function_type )(  ) const;
+            typedef ::osgWidget::Point ( ::osgWidget::Widget::*getPosition_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getPosition"
@@ -1055,7 +1055,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getSize
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*getSize_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*getSize_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getSize"
@@ -1064,7 +1064,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getTexCoord
         
-            typedef ::osgWidget::TexCoord const & ( ::osgWidget::Widget::*getTexCoord_function_type )( ::osgWidget::Widget::Corner ) const;
+            typedef ::osgWidget::TexCoord const & ( ::osgWidget::Widget::*getTexCoord_function_type)( ::osgWidget::Widget::Corner ) const;
             
             Widget_exposer.def( 
                 "getTexCoord"
@@ -1075,7 +1075,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getWidth
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getWidth_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getWidth_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getWidth"
@@ -1084,7 +1084,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getWidthTotal
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getWidthTotal_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getWidthTotal_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getWidthTotal"
@@ -1093,7 +1093,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getWindowManager
         
-            typedef ::osgWidget::WindowManager * ( ::osgWidget::Widget::*getWindowManager_function_type )(  ) ;
+            typedef ::osgWidget::WindowManager * ( ::osgWidget::Widget::*getWindowManager_function_type)(  ) ;
             
             Widget_exposer.def( 
                 "getWindowManager"
@@ -1103,7 +1103,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getWindowManager
         
-            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Widget::*getWindowManager_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Widget::*getWindowManager_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getWindowManager"
@@ -1113,7 +1113,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getX
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getX_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getX_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getX"
@@ -1122,7 +1122,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getY
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getY_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getY_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getY"
@@ -1131,7 +1131,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::getZ
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getZ_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Widget::*getZ_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "getZ"
@@ -1140,7 +1140,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::isManaged
         
-            typedef bool ( ::osgWidget::Widget::*isManaged_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Widget::*isManaged_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "isManaged"
@@ -1149,7 +1149,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::isPaddingUniform
         
-            typedef bool ( ::osgWidget::Widget::*isPaddingUniform_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Widget::*isPaddingUniform_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "isPaddingUniform"
@@ -1158,8 +1158,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::isSameKindAs
         
-            typedef bool ( ::osgWidget::Widget::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Widget_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Widget::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Widget_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Widget_exposer.def( 
                 "isSameKindAs"
@@ -1170,7 +1170,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::isStyled
         
-            typedef bool ( ::osgWidget::Widget::*isStyled_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Widget::*isStyled_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "isStyled"
@@ -1179,8 +1179,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::libraryName
         
-            typedef char const * ( ::osgWidget::Widget::*libraryName_function_type )(  ) const;
-            typedef char const * ( Widget_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Widget::*libraryName_function_type)(  ) const;
+            typedef char const * ( Widget_wrapper::*default_libraryName_function_type)(  ) const;
             
             Widget_exposer.def( 
                 "libraryName"
@@ -1190,7 +1190,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::localXY
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*localXY_function_type )( double,double ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Widget::*localXY_function_type)( double,double ) const;
             
             Widget_exposer.def( 
                 "localXY"
@@ -1200,8 +1200,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::managed
         
-            typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Widget_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Widget_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Widget_exposer.def( 
                 "managed"
@@ -1212,8 +1212,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::parented
         
-            typedef void ( ::osgWidget::Widget::*parented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Widget_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*parented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Widget_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
             
             Widget_exposer.def( 
                 "parented"
@@ -1224,8 +1224,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::positioned
         
-            typedef void ( ::osgWidget::Widget::*positioned_function_type )(  ) ;
-            typedef void ( Widget_wrapper::*default_positioned_function_type )(  ) ;
+            typedef void ( ::osgWidget::Widget::*positioned_function_type)(  ) ;
+            typedef void ( Widget_wrapper::*default_positioned_function_type)(  ) ;
             
             Widget_exposer.def( 
                 "positioned"
@@ -1235,7 +1235,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setAlignHorizontal
         
-            typedef void ( ::osgWidget::Widget::*setAlignHorizontal_function_type )( ::osgWidget::Widget::HorizontalAlignment ) ;
+            typedef void ( ::osgWidget::Widget::*setAlignHorizontal_function_type)( ::osgWidget::Widget::HorizontalAlignment ) ;
             
             Widget_exposer.def( 
                 "setAlignHorizontal"
@@ -1245,7 +1245,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setAlignVertical
         
-            typedef void ( ::osgWidget::Widget::*setAlignVertical_function_type )( ::osgWidget::Widget::VerticalAlignment ) ;
+            typedef void ( ::osgWidget::Widget::*setAlignVertical_function_type)( ::osgWidget::Widget::VerticalAlignment ) ;
             
             Widget_exposer.def( 
                 "setAlignVertical"
@@ -1255,7 +1255,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setCanClone
         
-            typedef void ( ::osgWidget::Widget::*setCanClone_function_type )( bool ) ;
+            typedef void ( ::osgWidget::Widget::*setCanClone_function_type)( bool ) ;
             
             Widget_exposer.def( 
                 "setCanClone"
@@ -1265,7 +1265,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setCanFill
         
-            typedef void ( ::osgWidget::Widget::*setCanFill_function_type )( bool ) ;
+            typedef void ( ::osgWidget::Widget::*setCanFill_function_type)( bool ) ;
             
             Widget_exposer.def( 
                 "setCanFill"
@@ -1275,7 +1275,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setColor
         
-            typedef void ( ::osgWidget::Widget::*setColor_function_type )( ::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*setColor_function_type)( ::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::color_type,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "setColor"
@@ -1285,7 +1285,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setColor
         
-            typedef void ( ::osgWidget::Widget::*setColor_function_type )( ::osgWidget::Color const &,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*setColor_function_type)( ::osgWidget::Color const &,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "setColor"
@@ -1295,7 +1295,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setCoordinateMode
         
-            typedef void ( ::osgWidget::Widget::*setCoordinateMode_function_type )( ::osgWidget::Widget::CoordinateMode ) ;
+            typedef void ( ::osgWidget::Widget::*setCoordinateMode_function_type)( ::osgWidget::Widget::CoordinateMode ) ;
             
             Widget_exposer.def( 
                 "setCoordinateMode"
@@ -1305,7 +1305,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setDimensions
         
-            typedef void ( ::osgWidget::Widget::*setDimensions_function_type )( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setDimensions_function_type)( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setDimensions"
@@ -1315,7 +1315,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setDimensions
         
-            typedef void ( ::osgWidget::Widget::*setDimensions_function_type )( ::osgWidget::Quad const &,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setDimensions_function_type)( ::osgWidget::Quad const &,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setDimensions"
@@ -1325,7 +1325,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setHeight
         
-            typedef void ( ::osgWidget::Widget::*setHeight_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setHeight_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setHeight"
@@ -1335,7 +1335,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setImage
         
-            typedef bool ( ::osgWidget::Widget::*setImage_function_type )( ::osg::Image *,bool,bool ) ;
+            typedef bool ( ::osgWidget::Widget::*setImage_function_type)( ::osg::Image *,bool,bool ) ;
             
             Widget_exposer.def( 
                 "setImage"
@@ -1345,7 +1345,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setImage
         
-            typedef bool ( ::osgWidget::Widget::*setImage_function_type )( ::std::string const &,bool,bool ) ;
+            typedef bool ( ::osgWidget::Widget::*setImage_function_type)( ::std::string const &,bool,bool ) ;
             
             Widget_exposer.def( 
                 "setImage"
@@ -1355,7 +1355,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setLayer
         
-            typedef void ( ::osgWidget::Widget::*setLayer_function_type )( ::osgWidget::Widget::Layer,unsigned int ) ;
+            typedef void ( ::osgWidget::Widget::*setLayer_function_type)( ::osgWidget::Widget::Layer,unsigned int ) ;
             
             Widget_exposer.def( 
                 "setLayer"
@@ -1365,7 +1365,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setMinimumSize
         
-            typedef void ( ::osgWidget::Widget::*setMinimumSize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setMinimumSize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setMinimumSize"
@@ -1375,7 +1375,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setMinimumSize
         
-            typedef void ( ::osgWidget::Widget::*setMinimumSize_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*setMinimumSize_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "setMinimumSize"
@@ -1385,7 +1385,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setOrigin
         
-            typedef void ( ::osgWidget::Widget::*setOrigin_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setOrigin_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setOrigin"
@@ -1395,7 +1395,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setOrigin
         
-            typedef void ( ::osgWidget::Widget::*setOrigin_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*setOrigin_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "setOrigin"
@@ -1405,7 +1405,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setPadBottom
         
-            typedef void ( ::osgWidget::Widget::*setPadBottom_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setPadBottom_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setPadBottom"
@@ -1415,7 +1415,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setPadLeft
         
-            typedef void ( ::osgWidget::Widget::*setPadLeft_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setPadLeft_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setPadLeft"
@@ -1425,7 +1425,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setPadRight
         
-            typedef void ( ::osgWidget::Widget::*setPadRight_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setPadRight_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setPadRight"
@@ -1435,7 +1435,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setPadTop
         
-            typedef void ( ::osgWidget::Widget::*setPadTop_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setPadTop_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setPadTop"
@@ -1445,7 +1445,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setPadding
         
-            typedef void ( ::osgWidget::Widget::*setPadding_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setPadding_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setPadding"
@@ -1455,7 +1455,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setSize
         
-            typedef void ( ::osgWidget::Widget::*setSize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setSize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setSize"
@@ -1465,7 +1465,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setSize
         
-            typedef void ( ::osgWidget::Widget::*setSize_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*setSize_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "setSize"
@@ -1475,7 +1475,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoord
         
-            typedef void ( ::osgWidget::Widget::*setTexCoord_function_type )( ::osgWidget::texcoord_type,::osgWidget::texcoord_type,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoord_function_type)( ::osgWidget::texcoord_type,::osgWidget::texcoord_type,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "setTexCoord"
@@ -1485,7 +1485,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoord
         
-            typedef void ( ::osgWidget::Widget::*setTexCoord_function_type )( ::osgWidget::XYCoord const &,::osgWidget::Widget::Corner ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoord_function_type)( ::osgWidget::XYCoord const &,::osgWidget::Widget::Corner ) ;
             
             Widget_exposer.def( 
                 "setTexCoord"
@@ -1495,7 +1495,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordRegion
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type )( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type)( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setTexCoordRegion"
@@ -1505,7 +1505,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordRegion
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type )( ::osgWidget::XYCoord const &,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type)( ::osgWidget::XYCoord const &,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setTexCoordRegion"
@@ -1515,7 +1515,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordRegion
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type )( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type)( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "setTexCoordRegion"
@@ -1525,7 +1525,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordRegion
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type )( ::osgWidget::XYCoord const &,::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordRegion_function_type)( ::osgWidget::XYCoord const &,::osgWidget::XYCoord const & ) ;
             
             Widget_exposer.def( 
                 "setTexCoordRegion"
@@ -1535,7 +1535,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordWrapHorizontal
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordWrapHorizontal_function_type )(  ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordWrapHorizontal_function_type)(  ) ;
             
             Widget_exposer.def( 
                 "setTexCoordWrapHorizontal"
@@ -1544,7 +1544,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexCoordWrapVertical
         
-            typedef void ( ::osgWidget::Widget::*setTexCoordWrapVertical_function_type )(  ) ;
+            typedef void ( ::osgWidget::Widget::*setTexCoordWrapVertical_function_type)(  ) ;
             
             Widget_exposer.def( 
                 "setTexCoordWrapVertical"
@@ -1553,7 +1553,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setTexture
         
-            typedef bool ( ::osgWidget::Widget::*setTexture_function_type )( ::osg::Texture *,bool,bool ) ;
+            typedef bool ( ::osgWidget::Widget::*setTexture_function_type)( ::osg::Texture *,bool,bool ) ;
             
             Widget_exposer.def( 
                 "setTexture"
@@ -1563,7 +1563,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setWidth
         
-            typedef void ( ::osgWidget::Widget::*setWidth_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setWidth_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setWidth"
@@ -1573,7 +1573,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setX
         
-            typedef void ( ::osgWidget::Widget::*setX_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setX_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setX"
@@ -1583,7 +1583,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setY
         
-            typedef void ( ::osgWidget::Widget::*setY_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setY_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setY"
@@ -1593,7 +1593,7 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::setZ
         
-            typedef void ( ::osgWidget::Widget::*setZ_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Widget::*setZ_function_type)( ::osgWidget::point_type ) ;
             
             Widget_exposer.def( 
                 "setZ"
@@ -1603,8 +1603,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::unmanaged
         
-            typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Widget_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Widget_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Widget_exposer.def( 
                 "unmanaged"
@@ -1615,8 +1615,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::Widget::unparented
         
-            typedef void ( ::osgWidget::Widget::*unparented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Widget_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*unparented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Widget_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
             
             Widget_exposer.def( 
                 "unparented"
@@ -1627,8 +1627,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "focus"
@@ -1639,8 +1639,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "keyDown"
@@ -1651,8 +1651,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "keyUp"
@@ -1663,8 +1663,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseDrag"
@@ -1675,8 +1675,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseEnter"
@@ -1687,8 +1687,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseLeave"
@@ -1699,8 +1699,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseOver"
@@ -1711,8 +1711,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mousePush"
@@ -1723,8 +1723,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseRelease"
@@ -1735,8 +1735,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "mouseScroll"
@@ -1747,8 +1747,8 @@ void register_Widget_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Widget_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Widget_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Widget_exposer.def( 
                 "unfocus"

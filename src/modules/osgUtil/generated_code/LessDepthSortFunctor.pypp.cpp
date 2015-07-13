@@ -11,7 +11,7 @@ void register_LessDepthSortFunctor_class(){
     bp::class_< osgUtil::LessDepthSortFunctor >( "LessDepthSortFunctor" )    
         .def( 
             "__call__"
-            , (bool ( ::osgUtil::LessDepthSortFunctor::* )( ::osg::ref_ptr< osgUtil::RenderLeaf > const &,::osg::ref_ptr< osgUtil::RenderLeaf > const & ) )( &::osgUtil::LessDepthSortFunctor::operator() )
+            , (bool ( ::osgUtil::LessDepthSortFunctor::* )( ::osg::ref_ptr< osgUtil::RenderLeaf > const &,::osg::ref_ptr< osgUtil::RenderLeaf > const & ))( &::osgUtil::LessDepthSortFunctor::operator() )
             , ( bp::arg("lhs"), bp::arg("rhs") ) );
 
 }

@@ -179,12 +179,12 @@ void register_TransformCallback_class(){
     bp::class_< TransformCallback_wrapper, bp::bases< ::osg::NodeCallback >, osg::ref_ptr< ::osgUtil::TransformCallback >, boost::noncopyable >( "TransformCallback", bp::init< osg::Vec3 const &, osg::Vec3 const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") )) )    
         .def( 
             "__call__"
-            , (void ( ::osgUtil::TransformCallback::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&::osgUtil::TransformCallback::operator())
-            , (void ( TransformCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&TransformCallback_wrapper::default___call__)
+            , (void ( ::osgUtil::TransformCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))(&::osgUtil::TransformCallback::operator())
+            , (void ( TransformCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ))(&TransformCallback_wrapper::default___call__)
             , ( bp::arg("node"), bp::arg("nv") ) )    
         .def( 
             "setPause"
-            , (void ( ::osgUtil::TransformCallback::* )( bool ) )( &::osgUtil::TransformCallback::setPause )
+            , (void ( ::osgUtil::TransformCallback::* )( bool ))( &::osgUtil::TransformCallback::setPause )
             , ( bp::arg("pause") ) );
 
 }

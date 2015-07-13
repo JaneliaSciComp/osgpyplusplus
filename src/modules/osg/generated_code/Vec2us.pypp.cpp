@@ -28,7 +28,7 @@ void register_Vec2us_class(){
         Vec2us_exposer.def( bp::self == bp::self );
         { //::osg::Vec2us::operator[]
         
-            typedef short unsigned int & ( ::osg::Vec2us::*__getitem___function_type )( int ) ;
+            typedef short unsigned int & ( ::osg::Vec2us::*__getitem___function_type)( int ) ;
             
             Vec2us_exposer.def( 
                 "__getitem__"
@@ -39,7 +39,7 @@ void register_Vec2us_class(){
         }
         { //::osg::Vec2us::operator[]
         
-            typedef short unsigned int ( ::osg::Vec2us::*__getitem___function_type )( int ) const;
+            typedef short unsigned int ( ::osg::Vec2us::*__getitem___function_type)( int ) const;
             
             Vec2us_exposer.def( 
                 "__getitem__"
@@ -49,7 +49,7 @@ void register_Vec2us_class(){
         }
         { //::osg::Vec2us::set
         
-            typedef void ( ::osg::Vec2us::*set_function_type )( short unsigned int,short unsigned int ) ;
+            typedef void ( ::osg::Vec2us::*set_function_type)( short unsigned int,short unsigned int ) ;
             
             Vec2us_exposer.def( 
                 "set"
@@ -59,7 +59,7 @@ void register_Vec2us_class(){
         }
         { //::osg::Vec2us::set
         
-            typedef void ( ::osg::Vec2us::*set_function_type )( ::osg::Vec2us const & ) ;
+            typedef void ( ::osg::Vec2us::*set_function_type)( ::osg::Vec2us const & ) ;
             
             Vec2us_exposer.def( 
                 "set"
@@ -69,7 +69,7 @@ void register_Vec2us_class(){
         }
         { //property "x"[fget=::osg::Vec2us::x]
         
-            typedef short unsigned int & ( ::osg::Vec2us::*fget )(  ) ;
+            typedef short unsigned int & ( ::osg::Vec2us::*fget)(  ) ;
             
             Vec2us_exposer.add_property( 
                 "x"
@@ -80,7 +80,7 @@ void register_Vec2us_class(){
         }
         { //property "x"[fget=::osg::Vec2us::x]
         
-            typedef short unsigned int ( ::osg::Vec2us::*fget )(  ) const;
+            typedef short unsigned int ( ::osg::Vec2us::*fget)(  ) const;
             
             Vec2us_exposer.add_property( 
                 "x"
@@ -89,7 +89,7 @@ void register_Vec2us_class(){
         }
         { //property "y"[fget=::osg::Vec2us::y]
         
-            typedef short unsigned int & ( ::osg::Vec2us::*fget )(  ) ;
+            typedef short unsigned int & ( ::osg::Vec2us::*fget)(  ) ;
             
             Vec2us_exposer.add_property( 
                 "y"
@@ -100,7 +100,7 @@ void register_Vec2us_class(){
         }
         { //property "y"[fget=::osg::Vec2us::y]
         
-            typedef short unsigned int ( ::osg::Vec2us::*fget )(  ) const;
+            typedef short unsigned int ( ::osg::Vec2us::*fget)(  ) const;
             
             Vec2us_exposer.add_property( 
                 "y"
@@ -109,7 +109,7 @@ void register_Vec2us_class(){
         }
         { //property "r"[fget=::osg::Vec2us::r]
         
-            typedef short unsigned int & ( ::osg::Vec2us::*fget )(  ) ;
+            typedef short unsigned int & ( ::osg::Vec2us::*fget)(  ) ;
             
             Vec2us_exposer.add_property( 
                 "r"
@@ -120,7 +120,7 @@ void register_Vec2us_class(){
         }
         { //property "r"[fget=::osg::Vec2us::r]
         
-            typedef short unsigned int ( ::osg::Vec2us::*fget )(  ) const;
+            typedef short unsigned int ( ::osg::Vec2us::*fget)(  ) const;
             
             Vec2us_exposer.add_property( 
                 "r"
@@ -129,7 +129,7 @@ void register_Vec2us_class(){
         }
         { //property "g"[fget=::osg::Vec2us::g]
         
-            typedef short unsigned int & ( ::osg::Vec2us::*fget )(  ) ;
+            typedef short unsigned int & ( ::osg::Vec2us::*fget)(  ) ;
             
             Vec2us_exposer.add_property( 
                 "g"
@@ -140,7 +140,7 @@ void register_Vec2us_class(){
         }
         { //property "g"[fget=::osg::Vec2us::g]
         
-            typedef short unsigned int ( ::osg::Vec2us::*fget )(  ) const;
+            typedef short unsigned int ( ::osg::Vec2us::*fget)(  ) const;
             
             Vec2us_exposer.add_property( 
                 "g"

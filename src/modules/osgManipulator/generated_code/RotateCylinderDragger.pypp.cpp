@@ -615,20 +615,20 @@ void register_RotateCylinderDragger_class(){
         .def( bp::init< >("\n Dragger for performing 3D rotation on a cylinder.\n") )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::RotateCylinderDragger::* )(  ) const)(&::osgManipulator::RotateCylinderDragger::className)
-            , (char const * ( RotateCylinderDragger_wrapper::* )(  ) const)(&RotateCylinderDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::RotateCylinderDragger::* )(  )const)(&::osgManipulator::RotateCylinderDragger::className)
+            , (char const * ( RotateCylinderDragger_wrapper::* )(  )const)(&RotateCylinderDragger_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::RotateCylinderDragger::* )(  ) const)(&::osgManipulator::RotateCylinderDragger::cloneType)
-            , (::osg::Object * ( RotateCylinderDragger_wrapper::* )(  ) const)(&RotateCylinderDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::RotateCylinderDragger::* )(  )const)(&::osgManipulator::RotateCylinderDragger::cloneType)
+            , (::osg::Object * ( RotateCylinderDragger_wrapper::* )(  )const)(&RotateCylinderDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::RotateCylinderDragger::* )(  ) const)( &::osgManipulator::RotateCylinderDragger::getColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::RotateCylinderDragger::* )(  )const)( &::osgManipulator::RotateCylinderDragger::getColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "getPickColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::RotateCylinderDragger::* )(  ) const)( &::osgManipulator::RotateCylinderDragger::getPickColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::RotateCylinderDragger::* )(  )const)( &::osgManipulator::RotateCylinderDragger::getPickColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -637,36 +637,36 @@ void register_RotateCylinderDragger_class(){
             , "\n Handle pick events on dragger and generate TranslateInLine commands.\n" )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::RotateCylinderDragger::isSameKindAs)
-            , (bool ( RotateCylinderDragger_wrapper::* )( ::osg::Object const * ) const)(&RotateCylinderDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Object const * )const)(&::osgManipulator::RotateCylinderDragger::isSameKindAs)
+            , (bool ( RotateCylinderDragger_wrapper::* )( ::osg::Object const * )const)(&RotateCylinderDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::RotateCylinderDragger::* )(  ) const)(&::osgManipulator::RotateCylinderDragger::libraryName)
-            , (char const * ( RotateCylinderDragger_wrapper::* )(  ) const)(&RotateCylinderDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::RotateCylinderDragger::* )(  )const)(&::osgManipulator::RotateCylinderDragger::libraryName)
+            , (char const * ( RotateCylinderDragger_wrapper::* )(  )const)(&RotateCylinderDragger_wrapper::default_libraryName) )    
         .def( 
             "setColor"
-            , (void ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::RotateCylinderDragger::setColor )
+            , (void ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::RotateCylinderDragger::setColor )
             , ( bp::arg("color") )
             , " Set/Get color for dragger." )    
         .def( 
             "setPickColor"
-            , (void ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::RotateCylinderDragger::setPickColor )
+            , (void ( ::osgManipulator::RotateCylinderDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::RotateCylinderDragger::setPickColor )
             , ( bp::arg("color") )
             , " Set/Get pick color for dragger. Pick color is color of the dragger\n when picked. It gives a visual feedback to show that the dragger has\n been picked." )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::RotateCylinderDragger::* )(  ) )(&::osgManipulator::RotateCylinderDragger::setupDefaultGeometry)
-            , (void ( RotateCylinderDragger_wrapper::* )(  ) )(&RotateCylinderDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::RotateCylinderDragger::* )(  ))(&::osgManipulator::RotateCylinderDragger::setupDefaultGeometry)
+            , (void ( RotateCylinderDragger_wrapper::* )(  ))(&RotateCylinderDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::accept)
-            , (void ( RotateCylinderDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&RotateCylinderDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::accept)
+            , (void ( RotateCylinderDragger_wrapper::* )( ::osg::NodeVisitor & ))(&RotateCylinderDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::Dragger::clone)
-            , (::osg::Object * ( RotateCylinderDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&RotateCylinderDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::Dragger::clone)
+            , (::osg::Object * ( RotateCylinderDragger_wrapper::* )( ::osg::CopyOp const & )const)(&RotateCylinderDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
@@ -675,13 +675,13 @@ void register_RotateCylinderDragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( RotateCylinderDragger_wrapper::* )(  ) const)(&RotateCylinderDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( RotateCylinderDragger_wrapper::* )(  )const)(&RotateCylinderDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( RotateCylinderDragger_wrapper::* )(  ) )(&RotateCylinderDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( RotateCylinderDragger_wrapper::* )(  ))(&RotateCylinderDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -694,18 +694,18 @@ void register_RotateCylinderDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )(&::osgManipulator::Dragger::setIntersectionMask)
-            , (void ( RotateCylinderDragger_wrapper::* )( unsigned int ) )(&RotateCylinderDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))(&::osgManipulator::Dragger::setIntersectionMask)
+            , (void ( RotateCylinderDragger_wrapper::* )( unsigned int ))(&RotateCylinderDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::Dragger::setParentDragger)
-            , (void ( RotateCylinderDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&RotateCylinderDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::Dragger::setParentDragger)
+            , (void ( RotateCylinderDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&RotateCylinderDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
-            , (void ( RotateCylinderDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&RotateCylinderDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
+            , (void ( RotateCylinderDragger_wrapper::* )( ::osg::NodeVisitor & ))(&RotateCylinderDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

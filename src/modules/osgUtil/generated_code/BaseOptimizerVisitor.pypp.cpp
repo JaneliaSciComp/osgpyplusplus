@@ -395,19 +395,19 @@ void register_BaseOptimizerVisitor_class(){
     bp::class_< BaseOptimizerVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::BaseOptimizerVisitor >, boost::noncopyable >( "BaseOptimizerVisitor", bp::init< osgUtil::Optimizer *, unsigned int >(( bp::arg("optimizer"), bp::arg("operation") )) )    
         .def( 
             "isOperationPermissibleForObject"
-            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::StateSet const * ) const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
+            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::StateSet const * )const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
             , ( bp::arg("object") ) )    
         .def( 
             "isOperationPermissibleForObject"
-            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::StateAttribute const * ) const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
+            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::StateAttribute const * )const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
             , ( bp::arg("object") ) )    
         .def( 
             "isOperationPermissibleForObject"
-            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::Drawable const * ) const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
+            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::Drawable const * )const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
             , ( bp::arg("object") ) )    
         .def( 
             "isOperationPermissibleForObject"
-            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::Node const * ) const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
+            , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::Node const * )const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )
             , ( bp::arg("object") ) );
 
 }

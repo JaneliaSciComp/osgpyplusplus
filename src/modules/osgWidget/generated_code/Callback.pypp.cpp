@@ -79,8 +79,8 @@ void register_Callback_class(){
         bp::implicitly_convertible< osgWidget::EventType, osgWidget::Callback >();
         { //::osgWidget::Callback::className
         
-            typedef char const * ( ::osgWidget::Callback::*className_function_type )(  ) const;
-            typedef char const * ( Callback_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Callback::*className_function_type)(  ) const;
+            typedef char const * ( Callback_wrapper::*default_className_function_type)(  ) const;
             
             Callback_exposer.def( 
                 "className"
@@ -90,7 +90,7 @@ void register_Callback_class(){
         }
         { //::osgWidget::Callback::getType
         
-            typedef ::osgWidget::EventType ( ::osgWidget::Callback::*getType_function_type )(  ) const;
+            typedef ::osgWidget::EventType ( ::osgWidget::Callback::*getType_function_type)(  ) const;
             
             Callback_exposer.def( 
                 "getType"
@@ -99,8 +99,8 @@ void register_Callback_class(){
         }
         { //::osgWidget::Callback::operator()
         
-            typedef bool ( ::osgWidget::Callback::*__call___function_type )( ::osgWidget::Event & ) ;
-            typedef bool ( Callback_wrapper::*default___call___function_type )( ::osgWidget::Event & ) ;
+            typedef bool ( ::osgWidget::Callback::*__call___function_type)( ::osgWidget::Event & ) ;
+            typedef bool ( Callback_wrapper::*default___call___function_type)( ::osgWidget::Event & ) ;
             
             Callback_exposer.def( 
                 "__call__"

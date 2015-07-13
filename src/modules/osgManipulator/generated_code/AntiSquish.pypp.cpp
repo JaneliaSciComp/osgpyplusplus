@@ -487,8 +487,8 @@ void register_AntiSquish_class(){
         AntiSquish_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("pivot"), bp::arg("position") )) );
         { //::osgManipulator::AntiSquish::clone
         
-            typedef ::osg::Object * ( ::osgManipulator::AntiSquish::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( AntiSquish_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgManipulator::AntiSquish::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( AntiSquish_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             AntiSquish_exposer.def( 
                 "clone"
@@ -500,8 +500,8 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::cloneType
         
-            typedef ::osg::Object * ( ::osgManipulator::AntiSquish::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( AntiSquish_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgManipulator::AntiSquish::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( AntiSquish_wrapper::*default_cloneType_function_type)(  ) const;
             
             AntiSquish_exposer.def( 
                 "cloneType"
@@ -512,7 +512,7 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::computeUnSquishedMatrix
         
-            typedef ::osg::Matrix ( ::osgManipulator::AntiSquish::*computeUnSquishedMatrix_function_type )( ::osg::Matrix const &,bool & ) ;
+            typedef ::osg::Matrix ( ::osgManipulator::AntiSquish::*computeUnSquishedMatrix_function_type)( ::osg::Matrix const &,bool & ) ;
             
             AntiSquish_exposer.def( 
                 "computeUnSquishedMatrix"
@@ -522,7 +522,7 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::getPivot
         
-            typedef ::osg::Vec3d const & ( ::osgManipulator::AntiSquish::*getPivot_function_type )(  ) const;
+            typedef ::osg::Vec3d const & ( ::osgManipulator::AntiSquish::*getPivot_function_type)(  ) const;
             
             AntiSquish_exposer.def( 
                 "getPivot"
@@ -532,7 +532,7 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::getPosition
         
-            typedef ::osg::Vec3d const & ( ::osgManipulator::AntiSquish::*getPosition_function_type )(  ) const;
+            typedef ::osg::Vec3d const & ( ::osgManipulator::AntiSquish::*getPosition_function_type)(  ) const;
             
             AntiSquish_exposer.def( 
                 "getPosition"
@@ -542,8 +542,8 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::isSameKindAs
         
-            typedef bool ( ::osgManipulator::AntiSquish::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( AntiSquish_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgManipulator::AntiSquish::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( AntiSquish_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             AntiSquish_exposer.def( 
                 "isSameKindAs"
@@ -554,7 +554,7 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::setPivot
         
-            typedef void ( ::osgManipulator::AntiSquish::*setPivot_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgManipulator::AntiSquish::*setPivot_function_type)( ::osg::Vec3d const & ) ;
             
             AntiSquish_exposer.def( 
                 "setPivot"
@@ -564,7 +564,7 @@ void register_AntiSquish_class(){
         }
         { //::osgManipulator::AntiSquish::setPosition
         
-            typedef void ( ::osgManipulator::AntiSquish::*setPosition_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgManipulator::AntiSquish::*setPosition_function_type)( ::osg::Vec3d const & ) ;
             
             AntiSquish_exposer.def( 
                 "setPosition"

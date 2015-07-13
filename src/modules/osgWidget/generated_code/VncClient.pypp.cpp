@@ -407,7 +407,7 @@ void register_VncClient_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::VncClient >();
         { //::osgWidget::VncClient::assign
         
-            typedef bool ( ::osgWidget::VncClient::*assign_function_type )( ::osgWidget::VncImage *,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::VncClient::*assign_function_type)( ::osgWidget::VncImage *,::osgWidget::GeometryHints const & ) ;
             
             VncClient_exposer.def( 
                 "assign"
@@ -417,7 +417,7 @@ void register_VncClient_class(){
         }
         { //::osgWidget::VncClient::close
         
-            typedef void ( ::osgWidget::VncClient::*close_function_type )(  ) ;
+            typedef void ( ::osgWidget::VncClient::*close_function_type)(  ) ;
             
             VncClient_exposer.def( 
                 "close"
@@ -426,7 +426,7 @@ void register_VncClient_class(){
         }
         { //::osgWidget::VncClient::connect
         
-            typedef bool ( ::osgWidget::VncClient::*connect_function_type )( ::std::string const &,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::VncClient::*connect_function_type)( ::std::string const &,::osgWidget::GeometryHints const & ) ;
             
             VncClient_exposer.def( 
                 "connect"

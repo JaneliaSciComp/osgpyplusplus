@@ -15,7 +15,7 @@ void register_Event_class(){
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::Event >();
         { //::osgWidget::Event::getWidget
         
-            typedef ::osgWidget::Widget * ( ::osgWidget::Event::*getWidget_function_type )(  ) ;
+            typedef ::osgWidget::Widget * ( ::osgWidget::Event::*getWidget_function_type)(  ) ;
             
             Event_exposer.def( 
                 "getWidget"
@@ -25,7 +25,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::getWidget
         
-            typedef ::osgWidget::Widget const * ( ::osgWidget::Event::*getWidget_function_type )(  ) const;
+            typedef ::osgWidget::Widget const * ( ::osgWidget::Event::*getWidget_function_type)(  ) const;
             
             Event_exposer.def( 
                 "getWidget"
@@ -35,7 +35,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::getWindow
         
-            typedef ::osgWidget::Window * ( ::osgWidget::Event::*getWindow_function_type )(  ) ;
+            typedef ::osgWidget::Window * ( ::osgWidget::Event::*getWindow_function_type)(  ) ;
             
             Event_exposer.def( 
                 "getWindow"
@@ -45,7 +45,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::getWindow
         
-            typedef ::osgWidget::Window const * ( ::osgWidget::Event::*getWindow_function_type )(  ) const;
+            typedef ::osgWidget::Window const * ( ::osgWidget::Event::*getWindow_function_type)(  ) const;
             
             Event_exposer.def( 
                 "getWindow"
@@ -55,7 +55,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::getWindowManager
         
-            typedef ::osgWidget::WindowManager * ( ::osgWidget::Event::*getWindowManager_function_type )(  ) ;
+            typedef ::osgWidget::WindowManager * ( ::osgWidget::Event::*getWindowManager_function_type)(  ) ;
             
             Event_exposer.def( 
                 "getWindowManager"
@@ -65,7 +65,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::getWindowManager
         
-            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Event::*getWindowManager_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Event::*getWindowManager_function_type)(  ) const;
             
             Event_exposer.def( 
                 "getWindowManager"
@@ -75,7 +75,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::makeKey
         
-            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeKey_function_type )( int,int,::osgWidget::EventType ) ;
+            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeKey_function_type)( int,int,::osgWidget::EventType ) ;
             
             Event_exposer.def( 
                 "makeKey"
@@ -86,7 +86,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::makeMouse
         
-            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeMouse_function_type )( double,double,::osgWidget::EventType ) ;
+            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeMouse_function_type)( double,double,::osgWidget::EventType ) ;
             
             Event_exposer.def( 
                 "makeMouse"
@@ -97,7 +97,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::makeType
         
-            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeType_function_type )( ::osgWidget::EventType ) ;
+            typedef ::osgWidget::Event & ( ::osgWidget::Event::*makeType_function_type)( ::osgWidget::EventType ) ;
             
             Event_exposer.def( 
                 "makeType"
@@ -108,7 +108,7 @@ void register_Event_class(){
         }
         { //::osgWidget::Event::setData
         
-            typedef void ( ::osgWidget::Event::*setData_function_type )( void * ) ;
+            typedef void ( ::osgWidget::Event::*setData_function_type)( void * ) ;
             
             Event_exposer.def( 
                 "setData"

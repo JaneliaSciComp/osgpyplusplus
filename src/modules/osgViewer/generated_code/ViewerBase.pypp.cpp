@@ -363,7 +363,7 @@ void register_ViewerBase_class(){
             ;
         { //::osgViewer::ViewerBase::addUpdateOperation
         
-            typedef void ( ::osgViewer::ViewerBase::*addUpdateOperation_function_type )( ::osg::Operation * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*addUpdateOperation_function_type)( ::osg::Operation * ) ;
             
             ViewerBase_exposer.def( 
                 "addUpdateOperation"
@@ -373,7 +373,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::advance
         
-            typedef void ( ::osgViewer::ViewerBase::*advance_function_type )( double ) ;
+            typedef void ( ::osgViewer::ViewerBase::*advance_function_type)( double ) ;
             
             ViewerBase_exposer.def( 
                 "advance"
@@ -383,7 +383,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::areThreadsRunning
         
-            typedef bool ( ::osgViewer::ViewerBase::*areThreadsRunning_function_type )(  ) const;
+            typedef bool ( ::osgViewer::ViewerBase::*areThreadsRunning_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "areThreadsRunning"
@@ -392,7 +392,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::checkEvents
         
-            typedef bool ( ::osgViewer::ViewerBase::*checkEvents_function_type )(  ) ;
+            typedef bool ( ::osgViewer::ViewerBase::*checkEvents_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "checkEvents"
@@ -401,7 +401,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::checkNeedToDoFrame
         
-            typedef bool ( ::osgViewer::ViewerBase::*checkNeedToDoFrame_function_type )(  ) ;
+            typedef bool ( ::osgViewer::ViewerBase::*checkNeedToDoFrame_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "checkNeedToDoFrame"
@@ -410,7 +410,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::checkWindowStatus
         
-            typedef void ( ::osgViewer::ViewerBase::*checkWindowStatus_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*checkWindowStatus_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "checkWindowStatus"
@@ -419,7 +419,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::checkWindowStatus
         
-            typedef void ( ::osgViewer::ViewerBase::*checkWindowStatus_function_type )( ::std::vector< osg::GraphicsContext* > const & ) ;
+            typedef void ( ::osgViewer::ViewerBase::*checkWindowStatus_function_type)( ::std::vector< osg::GraphicsContext* > const & ) ;
             
             ViewerBase_exposer.def( 
                 "checkWindowStatus"
@@ -429,7 +429,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::done
         
-            typedef bool ( ::osgViewer::ViewerBase::*done_function_type )(  ) const;
+            typedef bool ( ::osgViewer::ViewerBase::*done_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "done"
@@ -438,7 +438,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::elapsedTime
         
-            typedef double ( ::osgViewer::ViewerBase::*elapsedTime_function_type )(  ) ;
+            typedef double ( ::osgViewer::ViewerBase::*elapsedTime_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "elapsedTime"
@@ -447,7 +447,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::eventTraversal
         
-            typedef void ( ::osgViewer::ViewerBase::*eventTraversal_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*eventTraversal_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "eventTraversal"
@@ -456,8 +456,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::frame
         
-            typedef void ( ::osgViewer::ViewerBase::*frame_function_type )( double ) ;
-            typedef void ( ViewerBase_wrapper::*default_frame_function_type )( double ) ;
+            typedef void ( ::osgViewer::ViewerBase::*frame_function_type)( double ) ;
+            typedef void ( ViewerBase_wrapper::*default_frame_function_type)( double ) ;
             
             ViewerBase_exposer.def( 
                 "frame"
@@ -468,7 +468,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getAllThreads
         
-            typedef void ( ::osgViewer::ViewerBase::*getAllThreads_function_type )( ::std::vector<OpenThreads::Thread*,std::allocator<OpenThreads::Thread*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getAllThreads_function_type)( ::std::vector<OpenThreads::Thread*,std::allocator<OpenThreads::Thread*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getAllThreads"
@@ -478,7 +478,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getCameras
         
-            typedef void ( ::osgViewer::ViewerBase::*getCameras_function_type )( ::std::vector<osg::Camera*, std::allocator<osg::Camera*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getCameras_function_type)( ::std::vector<osg::Camera*, std::allocator<osg::Camera*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getCameras"
@@ -488,7 +488,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getContexts
         
-            typedef void ( ::osgViewer::ViewerBase::*getContexts_function_type )( ::std::vector<osg::GraphicsContext*,std::allocator<osg::GraphicsContext*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getContexts_function_type)( ::std::vector<osg::GraphicsContext*,std::allocator<osg::GraphicsContext*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getContexts"
@@ -498,7 +498,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getEndBarrierOperation
         
-            typedef ::osg::BarrierOperation::PreBlockOp ( ::osgViewer::ViewerBase::*getEndBarrierOperation_function_type )(  ) const;
+            typedef ::osg::BarrierOperation::PreBlockOp ( ::osgViewer::ViewerBase::*getEndBarrierOperation_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getEndBarrierOperation"
@@ -507,7 +507,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getEndBarrierPosition
         
-            typedef ::osgViewer::ViewerBase::BarrierPosition ( ::osgViewer::ViewerBase::*getEndBarrierPosition_function_type )(  ) const;
+            typedef ::osgViewer::ViewerBase::BarrierPosition ( ::osgViewer::ViewerBase::*getEndBarrierPosition_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getEndBarrierPosition"
@@ -516,7 +516,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getEventVisitor
         
-            typedef ::osgGA::EventVisitor * ( ::osgViewer::ViewerBase::*getEventVisitor_function_type )(  ) ;
+            typedef ::osgGA::EventVisitor * ( ::osgViewer::ViewerBase::*getEventVisitor_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getEventVisitor"
@@ -526,7 +526,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getEventVisitor
         
-            typedef ::osgGA::EventVisitor const * ( ::osgViewer::ViewerBase::*getEventVisitor_function_type )(  ) const;
+            typedef ::osgGA::EventVisitor const * ( ::osgViewer::ViewerBase::*getEventVisitor_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getEventVisitor"
@@ -536,7 +536,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getIncrementalCompileOperation
         
-            typedef ::osgUtil::IncrementalCompileOperation * ( ::osgViewer::ViewerBase::*getIncrementalCompileOperation_function_type )(  ) ;
+            typedef ::osgUtil::IncrementalCompileOperation * ( ::osgViewer::ViewerBase::*getIncrementalCompileOperation_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getIncrementalCompileOperation"
@@ -546,7 +546,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getKeyEventSetsDone
         
-            typedef int ( ::osgViewer::ViewerBase::*getKeyEventSetsDone_function_type )(  ) const;
+            typedef int ( ::osgViewer::ViewerBase::*getKeyEventSetsDone_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getKeyEventSetsDone"
@@ -555,7 +555,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getOperationThreads
         
-            typedef void ( ::osgViewer::ViewerBase::*getOperationThreads_function_type )( ::std::vector<osg::OperationThread*,std::allocator<osg::OperationThread*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getOperationThreads_function_type)( ::std::vector<osg::OperationThread*,std::allocator<osg::OperationThread*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getOperationThreads"
@@ -565,7 +565,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getQuitEventSetsDone
         
-            typedef bool ( ::osgViewer::ViewerBase::*getQuitEventSetsDone_function_type )(  ) const;
+            typedef bool ( ::osgViewer::ViewerBase::*getQuitEventSetsDone_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getQuitEventSetsDone"
@@ -574,7 +574,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getRealizeOperation
         
-            typedef ::osg::Operation * ( ::osgViewer::ViewerBase::*getRealizeOperation_function_type )(  ) ;
+            typedef ::osg::Operation * ( ::osgViewer::ViewerBase::*getRealizeOperation_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getRealizeOperation"
@@ -584,7 +584,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getReleaseContextAtEndOfFrameHint
         
-            typedef bool ( ::osgViewer::ViewerBase::*getReleaseContextAtEndOfFrameHint_function_type )(  ) const;
+            typedef bool ( ::osgViewer::ViewerBase::*getReleaseContextAtEndOfFrameHint_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getReleaseContextAtEndOfFrameHint"
@@ -593,7 +593,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getRunFrameScheme
         
-            typedef ::osgViewer::ViewerBase::FrameScheme ( ::osgViewer::ViewerBase::*getRunFrameScheme_function_type )(  ) const;
+            typedef ::osgViewer::ViewerBase::FrameScheme ( ::osgViewer::ViewerBase::*getRunFrameScheme_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getRunFrameScheme"
@@ -602,7 +602,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getRunMaxFrameRate
         
-            typedef double ( ::osgViewer::ViewerBase::*getRunMaxFrameRate_function_type )(  ) const;
+            typedef double ( ::osgViewer::ViewerBase::*getRunMaxFrameRate_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getRunMaxFrameRate"
@@ -611,7 +611,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getScenes
         
-            typedef void ( ::osgViewer::ViewerBase::*getScenes_function_type )( ::std::vector<osgViewer::Scene*,std::allocator<osgViewer::Scene*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getScenes_function_type)( ::std::vector<osgViewer::Scene*,std::allocator<osgViewer::Scene*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getScenes"
@@ -621,7 +621,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getThreadingModel
         
-            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*getThreadingModel_function_type )(  ) const;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*getThreadingModel_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getThreadingModel"
@@ -630,7 +630,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getUpdateOperations
         
-            typedef ::osg::OperationQueue * ( ::osgViewer::ViewerBase::*getUpdateOperations_function_type )(  ) ;
+            typedef ::osg::OperationQueue * ( ::osgViewer::ViewerBase::*getUpdateOperations_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getUpdateOperations"
@@ -640,7 +640,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getUpdateOperations
         
-            typedef ::osg::OperationQueue const * ( ::osgViewer::ViewerBase::*getUpdateOperations_function_type )(  ) const;
+            typedef ::osg::OperationQueue const * ( ::osgViewer::ViewerBase::*getUpdateOperations_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getUpdateOperations"
@@ -650,7 +650,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getUpdateVisitor
         
-            typedef ::osgUtil::UpdateVisitor * ( ::osgViewer::ViewerBase::*getUpdateVisitor_function_type )(  ) ;
+            typedef ::osgUtil::UpdateVisitor * ( ::osgViewer::ViewerBase::*getUpdateVisitor_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getUpdateVisitor"
@@ -660,7 +660,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getUpdateVisitor
         
-            typedef ::osgUtil::UpdateVisitor const * ( ::osgViewer::ViewerBase::*getUpdateVisitor_function_type )(  ) const;
+            typedef ::osgUtil::UpdateVisitor const * ( ::osgViewer::ViewerBase::*getUpdateVisitor_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getUpdateVisitor"
@@ -670,7 +670,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getUsage
         
-            typedef void ( ::osgViewer::ViewerBase::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::ViewerBase::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             ViewerBase_exposer.def( 
                 "getUsage"
@@ -680,7 +680,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getViewerFrameStamp
         
-            typedef ::osg::FrameStamp * ( ::osgViewer::ViewerBase::*getViewerFrameStamp_function_type )(  ) ;
+            typedef ::osg::FrameStamp * ( ::osgViewer::ViewerBase::*getViewerFrameStamp_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getViewerFrameStamp"
@@ -690,7 +690,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getViewerStats
         
-            typedef ::osg::Stats * ( ::osgViewer::ViewerBase::*getViewerStats_function_type )(  ) ;
+            typedef ::osg::Stats * ( ::osgViewer::ViewerBase::*getViewerStats_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "getViewerStats"
@@ -700,7 +700,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getViewerStats
         
-            typedef ::osg::Stats const * ( ::osgViewer::ViewerBase::*getViewerStats_function_type )(  ) const;
+            typedef ::osg::Stats const * ( ::osgViewer::ViewerBase::*getViewerStats_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "getViewerStats"
@@ -710,7 +710,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getViews
         
-            typedef void ( ::osgViewer::ViewerBase::*getViews_function_type )( ::std::vector<osgViewer::View*,std::allocator<osgViewer::View*> > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getViews_function_type)( ::std::vector<osgViewer::View*,std::allocator<osgViewer::View*> > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getViews"
@@ -720,8 +720,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::getWindows
         
-            typedef void ( ::osgViewer::ViewerBase::*getWindows_function_type )( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
-            typedef void ( ViewerBase_wrapper::*default_getWindows_function_type )( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
+            typedef void ( ViewerBase_wrapper::*default_getWindows_function_type)( ::std::vector< osgViewer::GraphicsWindow* > &,bool ) ;
             
             ViewerBase_exposer.def( 
                 "getWindows"
@@ -732,7 +732,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::isRealized
         
-            typedef bool ( ::osgViewer::ViewerBase::*isRealized_function_type )(  ) const;
+            typedef bool ( ::osgViewer::ViewerBase::*isRealized_function_type)(  ) const;
             
             ViewerBase_exposer.def( 
                 "isRealized"
@@ -741,7 +741,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::readConfiguration
         
-            typedef bool ( ::osgViewer::ViewerBase::*readConfiguration_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgViewer::ViewerBase::*readConfiguration_function_type)( ::std::string const & ) ;
             
             ViewerBase_exposer.def( 
                 "readConfiguration"
@@ -751,7 +751,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::realize
         
-            typedef void ( ::osgViewer::ViewerBase::*realize_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*realize_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "realize"
@@ -760,7 +760,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::removeUpdateOperation
         
-            typedef void ( ::osgViewer::ViewerBase::*removeUpdateOperation_function_type )( ::osg::Operation * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*removeUpdateOperation_function_type)( ::osg::Operation * ) ;
             
             ViewerBase_exposer.def( 
                 "removeUpdateOperation"
@@ -770,8 +770,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::renderingTraversals
         
-            typedef void ( ::osgViewer::ViewerBase::*renderingTraversals_function_type )(  ) ;
-            typedef void ( ViewerBase_wrapper::*default_renderingTraversals_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*renderingTraversals_function_type)(  ) ;
+            typedef void ( ViewerBase_wrapper::*default_renderingTraversals_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "renderingTraversals"
@@ -781,8 +781,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::run
         
-            typedef int ( ::osgViewer::ViewerBase::*run_function_type )(  ) ;
-            typedef int ( ViewerBase_wrapper::*default_run_function_type )(  ) ;
+            typedef int ( ::osgViewer::ViewerBase::*run_function_type)(  ) ;
+            typedef int ( ViewerBase_wrapper::*default_run_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "run"
@@ -792,7 +792,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setDone
         
-            typedef void ( ::osgViewer::ViewerBase::*setDone_function_type )( bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setDone_function_type)( bool ) ;
             
             ViewerBase_exposer.def( 
                 "setDone"
@@ -802,7 +802,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setEndBarrierOperation
         
-            typedef void ( ::osgViewer::ViewerBase::*setEndBarrierOperation_function_type )( ::osg::BarrierOperation::PreBlockOp ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setEndBarrierOperation_function_type)( ::osg::BarrierOperation::PreBlockOp ) ;
             
             ViewerBase_exposer.def( 
                 "setEndBarrierOperation"
@@ -812,7 +812,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setEndBarrierPosition
         
-            typedef void ( ::osgViewer::ViewerBase::*setEndBarrierPosition_function_type )( ::osgViewer::ViewerBase::BarrierPosition ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setEndBarrierPosition_function_type)( ::osgViewer::ViewerBase::BarrierPosition ) ;
             
             ViewerBase_exposer.def( 
                 "setEndBarrierPosition"
@@ -822,7 +822,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setEventVisitor
         
-            typedef void ( ::osgViewer::ViewerBase::*setEventVisitor_function_type )( ::osgGA::EventVisitor * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setEventVisitor_function_type)( ::osgGA::EventVisitor * ) ;
             
             ViewerBase_exposer.def( 
                 "setEventVisitor"
@@ -832,7 +832,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setIncrementalCompileOperation
         
-            typedef void ( ::osgViewer::ViewerBase::*setIncrementalCompileOperation_function_type )( ::osgUtil::IncrementalCompileOperation * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setIncrementalCompileOperation_function_type)( ::osgUtil::IncrementalCompileOperation * ) ;
             
             ViewerBase_exposer.def( 
                 "setIncrementalCompileOperation"
@@ -842,7 +842,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setKeyEventSetsDone
         
-            typedef void ( ::osgViewer::ViewerBase::*setKeyEventSetsDone_function_type )( int ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setKeyEventSetsDone_function_type)( int ) ;
             
             ViewerBase_exposer.def( 
                 "setKeyEventSetsDone"
@@ -852,7 +852,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setQuitEventSetsDone
         
-            typedef void ( ::osgViewer::ViewerBase::*setQuitEventSetsDone_function_type )( bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setQuitEventSetsDone_function_type)( bool ) ;
             
             ViewerBase_exposer.def( 
                 "setQuitEventSetsDone"
@@ -862,7 +862,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setRealizeOperation
         
-            typedef void ( ::osgViewer::ViewerBase::*setRealizeOperation_function_type )( ::osg::Operation * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setRealizeOperation_function_type)( ::osg::Operation * ) ;
             
             ViewerBase_exposer.def( 
                 "setRealizeOperation"
@@ -872,7 +872,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setReleaseContextAtEndOfFrameHint
         
-            typedef void ( ::osgViewer::ViewerBase::*setReleaseContextAtEndOfFrameHint_function_type )( bool ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setReleaseContextAtEndOfFrameHint_function_type)( bool ) ;
             
             ViewerBase_exposer.def( 
                 "setReleaseContextAtEndOfFrameHint"
@@ -882,7 +882,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setRunFrameScheme
         
-            typedef void ( ::osgViewer::ViewerBase::*setRunFrameScheme_function_type )( ::osgViewer::ViewerBase::FrameScheme ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setRunFrameScheme_function_type)( ::osgViewer::ViewerBase::FrameScheme ) ;
             
             ViewerBase_exposer.def( 
                 "setRunFrameScheme"
@@ -892,7 +892,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setRunMaxFrameRate
         
-            typedef void ( ::osgViewer::ViewerBase::*setRunMaxFrameRate_function_type )( double ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setRunMaxFrameRate_function_type)( double ) ;
             
             ViewerBase_exposer.def( 
                 "setRunMaxFrameRate"
@@ -902,8 +902,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setThreadingModel
         
-            typedef void ( ::osgViewer::ViewerBase::*setThreadingModel_function_type )( ::osgViewer::ViewerBase::ThreadingModel ) ;
-            typedef void ( ViewerBase_wrapper::*default_setThreadingModel_function_type )( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
+            typedef void ( ViewerBase_wrapper::*default_setThreadingModel_function_type)( ::osgViewer::ViewerBase::ThreadingModel ) ;
             
             ViewerBase_exposer.def( 
                 "setThreadingModel"
@@ -914,8 +914,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setUpThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*setUpThreading_function_type )(  ) ;
-            typedef void ( ViewerBase_wrapper::*default_setUpThreading_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setUpThreading_function_type)(  ) ;
+            typedef void ( ViewerBase_wrapper::*default_setUpThreading_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "setUpThreading"
@@ -925,7 +925,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setUpdateOperations
         
-            typedef void ( ::osgViewer::ViewerBase::*setUpdateOperations_function_type )( ::osg::OperationQueue * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setUpdateOperations_function_type)( ::osg::OperationQueue * ) ;
             
             ViewerBase_exposer.def( 
                 "setUpdateOperations"
@@ -935,7 +935,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setUpdateVisitor
         
-            typedef void ( ::osgViewer::ViewerBase::*setUpdateVisitor_function_type )( ::osgUtil::UpdateVisitor * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setUpdateVisitor_function_type)( ::osgUtil::UpdateVisitor * ) ;
             
             ViewerBase_exposer.def( 
                 "setUpdateVisitor"
@@ -945,7 +945,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::setViewerStats
         
-            typedef void ( ::osgViewer::ViewerBase::*setViewerStats_function_type )( ::osg::Stats * ) ;
+            typedef void ( ::osgViewer::ViewerBase::*setViewerStats_function_type)( ::osg::Stats * ) ;
             
             ViewerBase_exposer.def( 
                 "setViewerStats"
@@ -955,8 +955,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::startThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*startThreading_function_type )(  ) ;
-            typedef void ( ViewerBase_wrapper::*default_startThreading_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*startThreading_function_type)(  ) ;
+            typedef void ( ViewerBase_wrapper::*default_startThreading_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "startThreading"
@@ -966,8 +966,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::stopThreading
         
-            typedef void ( ::osgViewer::ViewerBase::*stopThreading_function_type )(  ) ;
-            typedef void ( ViewerBase_wrapper::*default_stopThreading_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*stopThreading_function_type)(  ) ;
+            typedef void ( ViewerBase_wrapper::*default_stopThreading_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "stopThreading"
@@ -977,8 +977,8 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::suggestBestThreadingModel
         
-            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*suggestBestThreadingModel_function_type )(  ) ;
-            typedef ::osgViewer::ViewerBase::ThreadingModel ( ViewerBase_wrapper::*default_suggestBestThreadingModel_function_type )(  ) ;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( ::osgViewer::ViewerBase::*suggestBestThreadingModel_function_type)(  ) ;
+            typedef ::osgViewer::ViewerBase::ThreadingModel ( ViewerBase_wrapper::*default_suggestBestThreadingModel_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "suggestBestThreadingModel"
@@ -988,7 +988,7 @@ void register_ViewerBase_class(){
         }
         { //::osgViewer::ViewerBase::updateTraversal
         
-            typedef void ( ::osgViewer::ViewerBase::*updateTraversal_function_type )(  ) ;
+            typedef void ( ::osgViewer::ViewerBase::*updateTraversal_function_type)(  ) ;
             
             ViewerBase_exposer.def( 
                 "updateTraversal"

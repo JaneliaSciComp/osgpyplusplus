@@ -384,8 +384,8 @@ void register_DrawArrays_class(){
         DrawArrays_exposer.def( bp::init< GLenum, GLint, GLsizei, bp::optional< int > >(( bp::arg("mode"), bp::arg("first"), bp::arg("count"), bp::arg("numInstances")=(int)(0) )) );
         { //::osg::DrawArrays::accept
         
-            typedef void ( ::osg::DrawArrays::*accept_function_type )( ::osg::PrimitiveFunctor & ) const;
-            typedef void ( DrawArrays_wrapper::*default_accept_function_type )( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( ::osg::DrawArrays::*accept_function_type)( ::osg::PrimitiveFunctor & ) const;
+            typedef void ( DrawArrays_wrapper::*default_accept_function_type)( ::osg::PrimitiveFunctor & ) const;
             
             DrawArrays_exposer.def( 
                 "accept"
@@ -396,8 +396,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::accept
         
-            typedef void ( ::osg::DrawArrays::*accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
-            typedef void ( DrawArrays_wrapper::*default_accept_function_type )( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( ::osg::DrawArrays::*accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
+            typedef void ( DrawArrays_wrapper::*default_accept_function_type)( ::osg::PrimitiveIndexFunctor & ) const;
             
             DrawArrays_exposer.def( 
                 "accept"
@@ -408,8 +408,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::className
         
-            typedef char const * ( ::osg::DrawArrays::*className_function_type )(  ) const;
-            typedef char const * ( DrawArrays_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::DrawArrays::*className_function_type)(  ) const;
+            typedef char const * ( DrawArrays_wrapper::*default_className_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "className"
@@ -419,8 +419,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::clone
         
-            typedef ::osg::Object * ( ::osg::DrawArrays::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( DrawArrays_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::DrawArrays::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( DrawArrays_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             DrawArrays_exposer.def( 
                 "clone"
@@ -432,8 +432,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::cloneType
         
-            typedef ::osg::Object * ( ::osg::DrawArrays::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( DrawArrays_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::DrawArrays::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( DrawArrays_wrapper::*default_cloneType_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "cloneType"
@@ -444,8 +444,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::draw
         
-            typedef void ( ::osg::DrawArrays::*draw_function_type )( ::osg::State &,bool ) const;
-            typedef void ( DrawArrays_wrapper::*default_draw_function_type )( ::osg::State &,bool ) const;
+            typedef void ( ::osg::DrawArrays::*draw_function_type)( ::osg::State &,bool ) const;
+            typedef void ( DrawArrays_wrapper::*default_draw_function_type)( ::osg::State &,bool ) const;
             
             DrawArrays_exposer.def( 
                 "draw"
@@ -456,7 +456,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::getCount
         
-            typedef ::GLsizei ( ::osg::DrawArrays::*getCount_function_type )(  ) const;
+            typedef ::GLsizei ( ::osg::DrawArrays::*getCount_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getCount"
@@ -465,7 +465,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::getFirst
         
-            typedef ::GLint ( ::osg::DrawArrays::*getFirst_function_type )(  ) const;
+            typedef ::GLint ( ::osg::DrawArrays::*getFirst_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getFirst"
@@ -474,8 +474,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::getNumIndices
         
-            typedef unsigned int ( ::osg::DrawArrays::*getNumIndices_function_type )(  ) const;
-            typedef unsigned int ( DrawArrays_wrapper::*default_getNumIndices_function_type )(  ) const;
+            typedef unsigned int ( ::osg::DrawArrays::*getNumIndices_function_type)(  ) const;
+            typedef unsigned int ( DrawArrays_wrapper::*default_getNumIndices_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getNumIndices"
@@ -485,8 +485,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::index
         
-            typedef unsigned int ( ::osg::DrawArrays::*index_function_type )( unsigned int ) const;
-            typedef unsigned int ( DrawArrays_wrapper::*default_index_function_type )( unsigned int ) const;
+            typedef unsigned int ( ::osg::DrawArrays::*index_function_type)( unsigned int ) const;
+            typedef unsigned int ( DrawArrays_wrapper::*default_index_function_type)( unsigned int ) const;
             
             DrawArrays_exposer.def( 
                 "index"
@@ -497,8 +497,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::isSameKindAs
         
-            typedef bool ( ::osg::DrawArrays::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( DrawArrays_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::DrawArrays::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( DrawArrays_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             DrawArrays_exposer.def( 
                 "isSameKindAs"
@@ -509,8 +509,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::libraryName
         
-            typedef char const * ( ::osg::DrawArrays::*libraryName_function_type )(  ) const;
-            typedef char const * ( DrawArrays_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::DrawArrays::*libraryName_function_type)(  ) const;
+            typedef char const * ( DrawArrays_wrapper::*default_libraryName_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "libraryName"
@@ -520,8 +520,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::offsetIndices
         
-            typedef void ( ::osg::DrawArrays::*offsetIndices_function_type )( int ) ;
-            typedef void ( DrawArrays_wrapper::*default_offsetIndices_function_type )( int ) ;
+            typedef void ( ::osg::DrawArrays::*offsetIndices_function_type)( int ) ;
+            typedef void ( DrawArrays_wrapper::*default_offsetIndices_function_type)( int ) ;
             
             DrawArrays_exposer.def( 
                 "offsetIndices"
@@ -532,7 +532,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::set
         
-            typedef void ( ::osg::DrawArrays::*set_function_type )( ::GLenum,::GLint,::GLsizei ) ;
+            typedef void ( ::osg::DrawArrays::*set_function_type)( ::GLenum,::GLint,::GLsizei ) ;
             
             DrawArrays_exposer.def( 
                 "set"
@@ -542,7 +542,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::setCount
         
-            typedef void ( ::osg::DrawArrays::*setCount_function_type )( ::GLsizei ) ;
+            typedef void ( ::osg::DrawArrays::*setCount_function_type)( ::GLsizei ) ;
             
             DrawArrays_exposer.def( 
                 "setCount"
@@ -552,7 +552,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::DrawArrays::setFirst
         
-            typedef void ( ::osg::DrawArrays::*setFirst_function_type )( ::GLint ) ;
+            typedef void ( ::osg::DrawArrays::*setFirst_function_type)( ::GLint ) ;
             
             DrawArrays_exposer.def( 
                 "setFirst"
@@ -562,8 +562,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
-            typedef ::osg::Array * ( DrawArrays_wrapper::*default_asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( DrawArrays_wrapper::*default_asArray_function_type)(  ) ;
             
             DrawArrays_exposer.def( 
                 "asArray"
@@ -574,8 +574,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
-            typedef ::osg::Array const * ( DrawArrays_wrapper::*default_asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( DrawArrays_wrapper::*default_asArray_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "asArray"
@@ -586,8 +586,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) ;
-            typedef ::osg::PrimitiveSet * ( DrawArrays_wrapper::*default_asPrimitiveSet_function_type )(  ) ;
+            typedef ::osg::PrimitiveSet * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) ;
+            typedef ::osg::PrimitiveSet * ( DrawArrays_wrapper::*default_asPrimitiveSet_function_type)(  ) ;
             
             DrawArrays_exposer.def( 
                 "asPrimitiveSet"
@@ -598,8 +598,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::asPrimitiveSet
         
-            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type )(  ) const;
-            typedef ::osg::PrimitiveSet const * ( DrawArrays_wrapper::*default_asPrimitiveSet_function_type )(  ) const;
+            typedef ::osg::PrimitiveSet const * ( ::osg::PrimitiveSet::*asPrimitiveSet_function_type)(  ) const;
+            typedef ::osg::PrimitiveSet const * ( DrawArrays_wrapper::*default_asPrimitiveSet_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "asPrimitiveSet"
@@ -610,8 +610,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( DrawArrays_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( DrawArrays_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             DrawArrays_exposer.def( 
                 "computeDataVariance"
@@ -621,8 +621,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::computeRange
         
-            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type )(  ) const;
-            typedef void ( DrawArrays_wrapper::*default_computeRange_function_type )(  ) const;
+            typedef void ( ::osg::PrimitiveSet::*computeRange_function_type)(  ) const;
+            typedef void ( DrawArrays_wrapper::*default_computeRange_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "computeRange"
@@ -632,8 +632,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::PrimitiveSet::*getDataPointer_function_type )(  ) const;
-            typedef ::GLvoid const * ( DrawArrays_wrapper::*default_getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( ::osg::PrimitiveSet::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( DrawArrays_wrapper::*default_getDataPointer_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getDataPointer"
@@ -644,8 +644,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::getDrawElements
         
-            typedef ::osg::DrawElements * ( ::osg::PrimitiveSet::*getDrawElements_function_type )(  ) ;
-            typedef ::osg::DrawElements * ( DrawArrays_wrapper::*default_getDrawElements_function_type )(  ) ;
+            typedef ::osg::DrawElements * ( ::osg::PrimitiveSet::*getDrawElements_function_type)(  ) ;
+            typedef ::osg::DrawElements * ( DrawArrays_wrapper::*default_getDrawElements_function_type)(  ) ;
             
             DrawArrays_exposer.def( 
                 "getDrawElements"
@@ -656,8 +656,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::getDrawElements
         
-            typedef ::osg::DrawElements const * ( ::osg::PrimitiveSet::*getDrawElements_function_type )(  ) const;
-            typedef ::osg::DrawElements const * ( DrawArrays_wrapper::*default_getDrawElements_function_type )(  ) const;
+            typedef ::osg::DrawElements const * ( ::osg::PrimitiveSet::*getDrawElements_function_type)(  ) const;
+            typedef ::osg::DrawElements const * ( DrawArrays_wrapper::*default_getDrawElements_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getDrawElements"
@@ -668,8 +668,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::getNumPrimitives
         
-            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type )(  ) const;
-            typedef unsigned int ( DrawArrays_wrapper::*default_getNumPrimitives_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PrimitiveSet::*getNumPrimitives_function_type)(  ) const;
+            typedef unsigned int ( DrawArrays_wrapper::*default_getNumPrimitives_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getNumPrimitives"
@@ -679,8 +679,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::getTotalDataSize
         
-            typedef unsigned int ( ::osg::PrimitiveSet::*getTotalDataSize_function_type )(  ) const;
-            typedef unsigned int ( DrawArrays_wrapper::*default_getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::PrimitiveSet::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( DrawArrays_wrapper::*default_getTotalDataSize_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getTotalDataSize"
@@ -690,8 +690,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( DrawArrays_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( DrawArrays_wrapper::*default_getUserData_function_type)(  ) ;
             
             DrawArrays_exposer.def( 
                 "getUserData"
@@ -702,8 +702,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( DrawArrays_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( DrawArrays_wrapper::*default_getUserData_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "getUserData"
@@ -714,8 +714,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( DrawArrays_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( DrawArrays_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             DrawArrays_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -726,8 +726,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( DrawArrays_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( DrawArrays_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             DrawArrays_exposer.def( 
                 "setName"
@@ -738,7 +738,7 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             DrawArrays_exposer.def( 
                 "setName"
@@ -749,8 +749,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( DrawArrays_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( DrawArrays_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             DrawArrays_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -761,8 +761,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( DrawArrays_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( DrawArrays_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             DrawArrays_exposer.def( 
                 "setUserData"
@@ -773,8 +773,8 @@ void register_DrawArrays_class(){
         }
         { //::osg::PrimitiveSet::supportsBufferObject
         
-            typedef bool ( ::osg::PrimitiveSet::*supportsBufferObject_function_type )(  ) const;
-            typedef bool ( DrawArrays_wrapper::*default_supportsBufferObject_function_type )(  ) const;
+            typedef bool ( ::osg::PrimitiveSet::*supportsBufferObject_function_type)(  ) const;
+            typedef bool ( DrawArrays_wrapper::*default_supportsBufferObject_function_type)(  ) const;
             
             DrawArrays_exposer.def( 
                 "supportsBufferObject"

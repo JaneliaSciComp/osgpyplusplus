@@ -399,7 +399,7 @@ void register_VertexCacheVisitor_class(){
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::VertexCacheVisitor >();
         { //::osgUtil::VertexCacheVisitor::optimizeVertices
         
-            typedef void ( ::osgUtil::VertexCacheVisitor::*optimizeVertices_function_type )( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::VertexCacheVisitor::*optimizeVertices_function_type)( ::osg::Geometry & ) ;
             
             VertexCacheVisitor_exposer.def( 
                 "optimizeVertices"
@@ -409,7 +409,7 @@ void register_VertexCacheVisitor_class(){
         }
         { //::osgUtil::VertexCacheVisitor::optimizeVertices
         
-            typedef void ( ::osgUtil::VertexCacheVisitor::*optimizeVertices_function_type )(  ) ;
+            typedef void ( ::osgUtil::VertexCacheVisitor::*optimizeVertices_function_type)(  ) ;
             
             VertexCacheVisitor_exposer.def( 
                 "optimizeVertices"
@@ -418,8 +418,8 @@ void register_VertexCacheVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::apply
         
-            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( VertexCacheVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( VertexCacheVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             VertexCacheVisitor_exposer.def( 
                 "apply"
@@ -430,8 +430,8 @@ void register_VertexCacheVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::reset
         
-            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type )(  ) ;
-            typedef void ( VertexCacheVisitor_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type)(  ) ;
+            typedef void ( VertexCacheVisitor_wrapper::*default_reset_function_type)(  ) ;
             
             VertexCacheVisitor_exposer.def( 
                 "reset"

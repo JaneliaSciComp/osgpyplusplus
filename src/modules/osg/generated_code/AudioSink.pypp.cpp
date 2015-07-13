@@ -204,85 +204,85 @@ void register_AudioSink_class(){
     bp::class_< AudioSink_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::AudioSink >, boost::noncopyable >( "AudioSink", "\n Pure virtual AudioSink bass class that is used to connect the audio system with AudioStreams.\n", bp::no_init )    
         .def( 
             "className"
-            , (char const * ( ::osg::AudioSink::* )(  ) const)(&::osg::AudioSink::className)
-            , (char const * ( AudioSink_wrapper::* )(  ) const)(&AudioSink_wrapper::default_className) )    
+            , (char const * ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::className)
+            , (char const * ( AudioSink_wrapper::* )(  )const)(&AudioSink_wrapper::default_className) )    
         .def( 
             "getDelay"
-            , (double ( ::osg::AudioSink::* )(  ) const)(&::osg::AudioSink::getDelay)
-            , (double ( AudioSink_wrapper::* )(  ) const)(&AudioSink_wrapper::default_getDelay) )    
+            , (double ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::getDelay)
+            , (double ( AudioSink_wrapper::* )(  )const)(&AudioSink_wrapper::default_getDelay) )    
         .def( 
             "getVolume"
-            , (float ( ::osg::AudioSink::* )(  ) const)(&::osg::AudioSink::getVolume)
-            , (float ( AudioSink_wrapper::* )(  ) const)(&AudioSink_wrapper::default_getVolume) )    
+            , (float ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::getVolume)
+            , (float ( AudioSink_wrapper::* )(  )const)(&AudioSink_wrapper::default_getVolume) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::AudioSink::* )(  ) const)(&::osg::AudioSink::libraryName)
-            , (char const * ( AudioSink_wrapper::* )(  ) const)(&AudioSink_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::libraryName)
+            , (char const * ( AudioSink_wrapper::* )(  )const)(&AudioSink_wrapper::default_libraryName) )    
         .def( 
             "pause"
-            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ) )(&::osg::AudioSink::pause) ) )    
+            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ))(&::osg::AudioSink::pause) ) )    
         .def( 
             "play"
-            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ) )(&::osg::AudioSink::play) ) )    
+            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ))(&::osg::AudioSink::play) ) )    
         .def( 
             "playing"
-            , bp::pure_virtual( (bool ( ::osg::AudioSink::* )(  ) const)(&::osg::AudioSink::playing) ) )    
+            , bp::pure_virtual( (bool ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::playing) ) )    
         .def( 
             "setDelay"
-            , (void ( ::osg::AudioSink::* )( double const ) )(&::osg::AudioSink::setDelay)
-            , (void ( AudioSink_wrapper::* )( double const ) )(&AudioSink_wrapper::default_setDelay)
+            , (void ( ::osg::AudioSink::* )( double const ))(&::osg::AudioSink::setDelay)
+            , (void ( AudioSink_wrapper::* )( double const ))(&AudioSink_wrapper::default_setDelay)
             , ( bp::arg("delay") ) )    
         .def( 
             "setVolume"
-            , (void ( ::osg::AudioSink::* )( float ) )(&::osg::AudioSink::setVolume)
-            , (void ( AudioSink_wrapper::* )( float ) )(&AudioSink_wrapper::default_setVolume)
+            , (void ( ::osg::AudioSink::* )( float ))(&::osg::AudioSink::setVolume)
+            , (void ( AudioSink_wrapper::* )( float ))(&AudioSink_wrapper::default_setVolume)
             , ( bp::arg("arg0") ) )    
         .def( 
             "stop"
-            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ) )(&::osg::AudioSink::stop) ) )    
+            , bp::pure_virtual( (void ( ::osg::AudioSink::* )(  ))(&::osg::AudioSink::stop) ) )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( AudioSink_wrapper::* )(  ) )(&AudioSink_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( AudioSink_wrapper::* )(  ))(&AudioSink_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( AudioSink_wrapper::* )(  ) )(&AudioSink_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( AudioSink_wrapper::* )(  ))(&AudioSink_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( AudioSink_wrapper::* )(  ) const)(&AudioSink_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( AudioSink_wrapper::* )(  )const)(&AudioSink_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::Object::* )( ::osg::Object const * ) const)(&::osg::Object::isSameKindAs)
-            , (bool ( AudioSink_wrapper::* )( ::osg::Object const * ) const)(&AudioSink_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::Object::* )( ::osg::Object const * )const)(&::osg::Object::isSameKindAs)
+            , (bool ( AudioSink_wrapper::* )( ::osg::Object const * )const)(&AudioSink_wrapper::default_isSameKindAs)
             , ( bp::arg("arg0") ) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( AudioSink_wrapper::* )( unsigned int ) )(&AudioSink_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( AudioSink_wrapper::* )( unsigned int ))(&AudioSink_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( AudioSink_wrapper::* )( ::std::string const & ) )(&AudioSink_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( AudioSink_wrapper::* )( ::std::string const & ))(&AudioSink_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( AudioSink_wrapper::* )( bool ) )(&AudioSink_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( AudioSink_wrapper::* )( bool ))(&AudioSink_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( AudioSink_wrapper::* )( ::osg::Referenced * ) )(&AudioSink_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( AudioSink_wrapper::* )( ::osg::Referenced * ))(&AudioSink_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

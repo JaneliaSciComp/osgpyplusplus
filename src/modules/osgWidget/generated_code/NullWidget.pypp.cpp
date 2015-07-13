@@ -603,8 +603,8 @@ void register_NullWidget_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::NullWidget >();
         { //::osgWidget::NullWidget::className
         
-            typedef char const * ( ::osgWidget::NullWidget::*className_function_type )(  ) const;
-            typedef char const * ( NullWidget_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::NullWidget::*className_function_type)(  ) const;
+            typedef char const * ( NullWidget_wrapper::*default_className_function_type)(  ) const;
             
             NullWidget_exposer.def( 
                 "className"
@@ -614,8 +614,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::clone
         
-            typedef ::osg::Object * ( ::osgWidget::NullWidget::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( NullWidget_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::NullWidget::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( NullWidget_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             NullWidget_exposer.def( 
                 "clone"
@@ -627,8 +627,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::NullWidget::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( NullWidget_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::NullWidget::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( NullWidget_wrapper::*default_cloneType_function_type)(  ) const;
             
             NullWidget_exposer.def( 
                 "cloneType"
@@ -639,8 +639,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::focus
         
-            typedef bool ( ::osgWidget::NullWidget::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "focus"
@@ -651,8 +651,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::isSameKindAs
         
-            typedef bool ( ::osgWidget::NullWidget::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( NullWidget_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::NullWidget::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( NullWidget_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             NullWidget_exposer.def( 
                 "isSameKindAs"
@@ -663,7 +663,7 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::keyPress
         
-            typedef bool ( ::osgWidget::NullWidget::*keyPress_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*keyPress_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "keyPress"
@@ -673,7 +673,7 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::keyRelease
         
-            typedef bool ( ::osgWidget::NullWidget::*keyRelease_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*keyRelease_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "keyRelease"
@@ -683,8 +683,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::libraryName
         
-            typedef char const * ( ::osgWidget::NullWidget::*libraryName_function_type )(  ) const;
-            typedef char const * ( NullWidget_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::NullWidget::*libraryName_function_type)(  ) const;
+            typedef char const * ( NullWidget_wrapper::*default_libraryName_function_type)(  ) const;
             
             NullWidget_exposer.def( 
                 "libraryName"
@@ -694,8 +694,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseDrag
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseDrag"
@@ -706,8 +706,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseEnter
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseEnter"
@@ -718,8 +718,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseLeave
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseLeave"
@@ -730,8 +730,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseOver
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseOver"
@@ -742,8 +742,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mousePush
         
-            typedef bool ( ::osgWidget::NullWidget::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mousePush"
@@ -754,8 +754,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseRelease
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseRelease"
@@ -766,8 +766,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::mouseScroll
         
-            typedef bool ( ::osgWidget::NullWidget::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "mouseScroll"
@@ -778,8 +778,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::NullWidget::unfocus
         
-            typedef bool ( ::osgWidget::NullWidget::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NullWidget::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "unfocus"
@@ -790,8 +790,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "keyDown"
@@ -802,8 +802,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NullWidget_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NullWidget_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NullWidget_exposer.def( 
                 "keyUp"
@@ -814,8 +814,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::Widget::managed
         
-            typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( NullWidget_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( NullWidget_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             NullWidget_exposer.def( 
                 "managed"
@@ -826,8 +826,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::Widget::parented
         
-            typedef void ( ::osgWidget::Widget::*parented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( NullWidget_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*parented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( NullWidget_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
             
             NullWidget_exposer.def( 
                 "parented"
@@ -838,8 +838,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::Widget::positioned
         
-            typedef void ( ::osgWidget::Widget::*positioned_function_type )(  ) ;
-            typedef void ( NullWidget_wrapper::*default_positioned_function_type )(  ) ;
+            typedef void ( ::osgWidget::Widget::*positioned_function_type)(  ) ;
+            typedef void ( NullWidget_wrapper::*default_positioned_function_type)(  ) ;
             
             NullWidget_exposer.def( 
                 "positioned"
@@ -849,8 +849,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::Widget::unmanaged
         
-            typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( NullWidget_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( NullWidget_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             NullWidget_exposer.def( 
                 "unmanaged"
@@ -861,8 +861,8 @@ void register_NullWidget_class(){
         }
         { //::osgWidget::Widget::unparented
         
-            typedef void ( ::osgWidget::Widget::*unparented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( NullWidget_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*unparented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( NullWidget_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
             
             NullWidget_exposer.def( 
                 "unparented"

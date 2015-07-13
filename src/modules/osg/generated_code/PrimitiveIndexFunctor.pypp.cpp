@@ -87,54 +87,54 @@ void register_PrimitiveIndexFunctor_class(){
     bp::class_< PrimitiveIndexFunctor_wrapper, boost::noncopyable >( "PrimitiveIndexFunctor" )    
         .def( 
             "begin"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum ) )(&::osg::PrimitiveIndexFunctor::begin) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum ))(&::osg::PrimitiveIndexFunctor::begin) )
             , ( bp::arg("mode") ) )    
         .def( 
             "drawArrays"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLint,::GLsizei ) )(&::osg::PrimitiveIndexFunctor::drawArrays) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLint,::GLsizei ))(&::osg::PrimitiveIndexFunctor::drawArrays) )
             , ( bp::arg("mode"), bp::arg("first"), bp::arg("count") ) )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ) )(&::osg::PrimitiveIndexFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ))(&::osg::PrimitiveIndexFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ) )(&::osg::PrimitiveIndexFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ))(&::osg::PrimitiveIndexFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "drawElements"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ) )(&::osg::PrimitiveIndexFunctor::drawElements) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ))(&::osg::PrimitiveIndexFunctor::drawElements) )
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "end"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )(  ) )(&::osg::PrimitiveIndexFunctor::end) ) )    
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )(  ))(&::osg::PrimitiveIndexFunctor::end) ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec2 const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec2 const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec3 const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec3 const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec4 const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec4 const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec2d const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec2d const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec3d const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec3d const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "setVertexArray"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec4d const * ) )(&::osg::PrimitiveIndexFunctor::setVertexArray) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int,::osg::Vec4d const * ))(&::osg::PrimitiveIndexFunctor::setVertexArray) )
             , ( bp::arg("count"), bp::arg("vertices") ) )    
         .def( 
             "vertex"
-            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int ) )(&::osg::PrimitiveIndexFunctor::vertex) )
+            , bp::pure_virtual( (void ( ::osg::PrimitiveIndexFunctor::* )( unsigned int ))(&::osg::PrimitiveIndexFunctor::vertex) )
             , ( bp::arg("pos") ) );
 
 }

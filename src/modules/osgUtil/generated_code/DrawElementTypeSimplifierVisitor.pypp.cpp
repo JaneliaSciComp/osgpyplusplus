@@ -395,16 +395,16 @@ void register_DrawElementTypeSimplifierVisitor_class(){
     bp::class_< DrawElementTypeSimplifierVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::DrawElementTypeSimplifierVisitor >, boost::noncopyable >( "DrawElementTypeSimplifierVisitor" )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )( ::osg::Geode & ) )(&::osgUtil::DrawElementTypeSimplifierVisitor::apply)
-            , (void ( DrawElementTypeSimplifierVisitor_wrapper::* )( ::osg::Geode & ) )(&DrawElementTypeSimplifierVisitor_wrapper::default_apply)
+            , (void ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )( ::osg::Geode & ))(&::osgUtil::DrawElementTypeSimplifierVisitor::apply)
+            , (void ( DrawElementTypeSimplifierVisitor_wrapper::* )( ::osg::Geode & ))(&DrawElementTypeSimplifierVisitor_wrapper::default_apply)
             , ( bp::arg("node") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )(  ) const)(&::osgUtil::DrawElementTypeSimplifierVisitor::className)
-            , (char const * ( DrawElementTypeSimplifierVisitor_wrapper::* )(  ) const)(&DrawElementTypeSimplifierVisitor_wrapper::default_className) )    
+            , (char const * ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )(  )const)(&::osgUtil::DrawElementTypeSimplifierVisitor::className)
+            , (char const * ( DrawElementTypeSimplifierVisitor_wrapper::* )(  )const)(&DrawElementTypeSimplifierVisitor_wrapper::default_className) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )(  ) const)(&::osgUtil::DrawElementTypeSimplifierVisitor::libraryName)
-            , (char const * ( DrawElementTypeSimplifierVisitor_wrapper::* )(  ) const)(&DrawElementTypeSimplifierVisitor_wrapper::default_libraryName) );
+            , (char const * ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )(  )const)(&::osgUtil::DrawElementTypeSimplifierVisitor::libraryName)
+            , (char const * ( DrawElementTypeSimplifierVisitor_wrapper::* )(  )const)(&DrawElementTypeSimplifierVisitor_wrapper::default_libraryName) );
 
 }

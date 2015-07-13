@@ -35,11 +35,11 @@ void register_OutputException_class(){
     bp::class_< OutputException_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::OutputException >, boost::noncopyable >( "OutputException", bp::init< std::vector< std::string > const &, std::string const & >(( bp::arg("fields"), bp::arg("err") )) )    
         .def( 
             "getError"
-            , (::std::string const & ( ::osgDB::OutputException::* )(  ) const)( &::osgDB::OutputException::getError )
+            , (::std::string const & ( ::osgDB::OutputException::* )(  )const)( &::osgDB::OutputException::getError )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "getField"
-            , (::std::string const & ( ::osgDB::OutputException::* )(  ) const)( &::osgDB::OutputException::getField )
+            , (::std::string const & ( ::osgDB::OutputException::* )(  )const)( &::osgDB::OutputException::getField )
             , bp::return_value_policy< bp::copy_const_reference >() );
 
 }

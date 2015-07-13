@@ -16,7 +16,7 @@ void register_ifstream_class(){
         bp::implicitly_convertible< char const *, osgDB::ifstream >();
         { //::osgDB::ifstream::open
         
-            typedef void ( ::osgDB::ifstream::*open_function_type )( char const *,int ) ;
+            typedef void ( ::osgDB::ifstream::*open_function_type)( char const *,int ) ;
             
             ifstream_exposer.def( 
                 "open"

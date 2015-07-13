@@ -46,7 +46,7 @@ void register_FieldReaderIterator_class(){
         FieldReaderIterator_exposer.def( bp::init< osgDB::FieldReaderIterator const & >(( bp::arg("ic") )) );
         { //::osgDB::FieldReaderIterator::advanceOverCurrentFieldOrBlock
         
-            typedef void ( ::osgDB::FieldReaderIterator::*advanceOverCurrentFieldOrBlock_function_type )(  ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*advanceOverCurrentFieldOrBlock_function_type)(  ) ;
             
             FieldReaderIterator_exposer.def( 
                 "advanceOverCurrentFieldOrBlock"
@@ -55,7 +55,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::advanceToEndOfBlock
         
-            typedef void ( ::osgDB::FieldReaderIterator::*advanceToEndOfBlock_function_type )( int ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*advanceToEndOfBlock_function_type)( int ) ;
             
             FieldReaderIterator_exposer.def( 
                 "advanceToEndOfBlock"
@@ -65,7 +65,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::advanceToEndOfCurrentBlock
         
-            typedef void ( ::osgDB::FieldReaderIterator::*advanceToEndOfCurrentBlock_function_type )(  ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*advanceToEndOfCurrentBlock_function_type)(  ) ;
             
             FieldReaderIterator_exposer.def( 
                 "advanceToEndOfCurrentBlock"
@@ -74,7 +74,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::attach
         
-            typedef void ( ::osgDB::FieldReaderIterator::*attach_function_type )( ::std::istream * ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*attach_function_type)( ::std::istream * ) ;
             
             FieldReaderIterator_exposer.def( 
                 "attach"
@@ -84,7 +84,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::detach
         
-            typedef void ( ::osgDB::FieldReaderIterator::*detach_function_type )(  ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*detach_function_type)(  ) ;
             
             FieldReaderIterator_exposer.def( 
                 "detach"
@@ -93,8 +93,8 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::eof
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*eof_function_type )(  ) const;
-            typedef bool ( FieldReaderIterator_wrapper::*default_eof_function_type )(  ) const;
+            typedef bool ( ::osgDB::FieldReaderIterator::*eof_function_type)(  ) const;
+            typedef bool ( FieldReaderIterator_wrapper::*default_eof_function_type)(  ) const;
             
             FieldReaderIterator_exposer.def( 
                 "eof"
@@ -104,7 +104,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::field
         
-            typedef ::osgDB::Field & ( ::osgDB::FieldReaderIterator::*field_function_type )( int ) ;
+            typedef ::osgDB::Field & ( ::osgDB::FieldReaderIterator::*field_function_type)( int ) ;
             
             FieldReaderIterator_exposer.def( 
                 "field"
@@ -115,7 +115,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::getFieldReader
         
-            typedef ::osgDB::FieldReader & ( ::osgDB::FieldReaderIterator::*getFieldReader_function_type )(  ) ;
+            typedef ::osgDB::FieldReader & ( ::osgDB::FieldReaderIterator::*getFieldReader_function_type)(  ) ;
             
             FieldReaderIterator_exposer.def( 
                 "getFieldReader"
@@ -125,7 +125,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::insert
         
-            typedef void ( ::osgDB::FieldReaderIterator::*insert_function_type )( int,::osgDB::Field * ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*insert_function_type)( int,::osgDB::Field * ) ;
             
             FieldReaderIterator_exposer.def( 
                 "insert"
@@ -135,7 +135,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::insert
         
-            typedef void ( ::osgDB::FieldReaderIterator::*insert_function_type )( int,char const * ) ;
+            typedef void ( ::osgDB::FieldReaderIterator::*insert_function_type)( int,char const * ) ;
             
             FieldReaderIterator_exposer.def( 
                 "insert"
@@ -145,7 +145,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::matchSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*matchSequence_function_type )( char const * ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*matchSequence_function_type)( char const * ) ;
             
             FieldReaderIterator_exposer.def( 
                 "matchSequence"
@@ -156,7 +156,7 @@ void register_FieldReaderIterator_class(){
         FieldReaderIterator_exposer.def( bp::self += bp::other< int >() );
         { //::osgDB::FieldReaderIterator::operator=
         
-            typedef ::osgDB::FieldReaderIterator & ( ::osgDB::FieldReaderIterator::*assign_function_type )( ::osgDB::FieldReaderIterator const & ) ;
+            typedef ::osgDB::FieldReaderIterator & ( ::osgDB::FieldReaderIterator::*assign_function_type)( ::osgDB::FieldReaderIterator const & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "assign"
@@ -167,7 +167,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::operator[]
         
-            typedef ::osgDB::Field & ( ::osgDB::FieldReaderIterator::*__getitem___function_type )( int ) ;
+            typedef ::osgDB::Field & ( ::osgDB::FieldReaderIterator::*__getitem___function_type)( int ) ;
             
             FieldReaderIterator_exposer.def( 
                 "__getitem__"
@@ -178,7 +178,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::std::string & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::std::string & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -188,7 +188,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,unsigned int & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,unsigned int & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -198,7 +198,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,int & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,int & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -208,7 +208,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,float & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,float & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -218,7 +218,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec2f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec2f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -228,7 +228,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec3f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec3f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -238,7 +238,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec4f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec4f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -248,7 +248,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec2d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec2d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -258,7 +258,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec3d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec3d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -268,7 +268,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( char const *,::osg::Vec4d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( char const *,::osg::Vec4d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -278,7 +278,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::std::string & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::std::string & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -288,7 +288,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( unsigned int & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( unsigned int & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -298,7 +298,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( int & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( int & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -308,7 +308,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( float & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( float & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -318,7 +318,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec2f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec2f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -328,7 +328,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec3f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec3f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -338,7 +338,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec4f & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec4f & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -348,7 +348,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec2d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec2d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -358,7 +358,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec3d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec3d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"
@@ -368,7 +368,7 @@ void register_FieldReaderIterator_class(){
         }
         { //::osgDB::FieldReaderIterator::readSequence
         
-            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type )( ::osg::Vec4d & ) ;
+            typedef bool ( ::osgDB::FieldReaderIterator::*readSequence_function_type)( ::osg::Vec4d & ) ;
             
             FieldReaderIterator_exposer.def( 
                 "readSequence"

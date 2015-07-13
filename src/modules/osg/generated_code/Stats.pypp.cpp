@@ -48,7 +48,7 @@ void register_Stats_class(){
         Stats_exposer.def( bp::init< std::string const &, unsigned int >(( bp::arg("name"), bp::arg("numberOfFrames") )) );
         { //::osg::Stats::allocate
         
-            typedef void ( ::osg::Stats::*allocate_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Stats::*allocate_function_type)( unsigned int ) ;
             
             Stats_exposer.def( 
                 "allocate"
@@ -58,7 +58,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::collectStats
         
-            typedef void ( ::osg::Stats::*collectStats_function_type )( ::std::string const &,bool ) ;
+            typedef void ( ::osg::Stats::*collectStats_function_type)( ::std::string const &,bool ) ;
             
             Stats_exposer.def( 
                 "collectStats"
@@ -68,7 +68,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::collectStats
         
-            typedef bool ( ::osg::Stats::*collectStats_function_type )( ::std::string const & ) const;
+            typedef bool ( ::osg::Stats::*collectStats_function_type)( ::std::string const & ) const;
             
             Stats_exposer.def( 
                 "collectStats"
@@ -78,7 +78,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::getAttributeMap
         
-            typedef ::std::map< std::string, double > & ( ::osg::Stats::*getAttributeMap_function_type )( unsigned int ) ;
+            typedef ::std::map< std::string, double > & ( ::osg::Stats::*getAttributeMap_function_type)( unsigned int ) ;
             
             Stats_exposer.def( 
                 "getAttributeMap"
@@ -89,7 +89,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::getAttributeMap
         
-            typedef ::std::map< std::string, double > const & ( ::osg::Stats::*getAttributeMap_function_type )( unsigned int ) const;
+            typedef ::std::map< std::string, double > const & ( ::osg::Stats::*getAttributeMap_function_type)( unsigned int ) const;
             
             Stats_exposer.def( 
                 "getAttributeMap"
@@ -100,7 +100,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::getEarliestFrameNumber
         
-            typedef unsigned int ( ::osg::Stats::*getEarliestFrameNumber_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Stats::*getEarliestFrameNumber_function_type)(  ) const;
             
             Stats_exposer.def( 
                 "getEarliestFrameNumber"
@@ -109,7 +109,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::getLatestFrameNumber
         
-            typedef unsigned int ( ::osg::Stats::*getLatestFrameNumber_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Stats::*getLatestFrameNumber_function_type)(  ) const;
             
             Stats_exposer.def( 
                 "getLatestFrameNumber"
@@ -118,7 +118,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::getName
         
-            typedef ::std::string const & ( ::osg::Stats::*getName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::Stats::*getName_function_type)(  ) const;
             
             Stats_exposer.def( 
                 "getName"
@@ -128,7 +128,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::report
         
-            typedef void ( ::osg::Stats::*report_function_type )( ::std::ostream &,char const * ) const;
+            typedef void ( ::osg::Stats::*report_function_type)( ::std::ostream &,char const * ) const;
             
             Stats_exposer.def( 
                 "report"
@@ -138,7 +138,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::report
         
-            typedef void ( ::osg::Stats::*report_function_type )( ::std::ostream &,unsigned int,char const * ) const;
+            typedef void ( ::osg::Stats::*report_function_type)( ::std::ostream &,unsigned int,char const * ) const;
             
             Stats_exposer.def( 
                 "report"
@@ -148,7 +148,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::setAttribute
         
-            typedef bool ( ::osg::Stats::*setAttribute_function_type )( unsigned int,::std::string const &,double ) ;
+            typedef bool ( ::osg::Stats::*setAttribute_function_type)( unsigned int,::std::string const &,double ) ;
             
             Stats_exposer.def( 
                 "setAttribute"
@@ -158,7 +158,7 @@ void register_Stats_class(){
         }
         { //::osg::Stats::setName
         
-            typedef void ( ::osg::Stats::*setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Stats::*setName_function_type)( ::std::string const & ) ;
             
             Stats_exposer.def( 
                 "setName"
@@ -168,8 +168,8 @@ void register_Stats_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Stats_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Stats_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Stats_exposer.def( 
                 "setThreadSafeRefUnref"

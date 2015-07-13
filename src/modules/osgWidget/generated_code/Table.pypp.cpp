@@ -699,7 +699,7 @@ void register_Table_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Table >();
         { //::osgWidget::Table::addHeightToRow
         
-            typedef void ( ::osgWidget::Table::*addHeightToRow_function_type )( unsigned int,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Table::*addHeightToRow_function_type)( unsigned int,::osgWidget::point_type ) ;
             
             Table_exposer.def( 
                 "addHeightToRow"
@@ -709,8 +709,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::addWidget
         
-            typedef bool ( ::osgWidget::Table::*addWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Table_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Table::*addWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Table_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Table_exposer.def( 
                 "addWidget"
@@ -721,8 +721,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::addWidget
         
-            typedef bool ( ::osgWidget::Table::*addWidget_function_type )( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
-            typedef bool ( Table_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
+            typedef bool ( ::osgWidget::Table::*addWidget_function_type)( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
+            typedef bool ( Table_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
             
             Table_exposer.def( 
                 "addWidget"
@@ -733,7 +733,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::addWidthToColumn
         
-            typedef void ( ::osgWidget::Table::*addWidthToColumn_function_type )( unsigned int,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Table::*addWidthToColumn_function_type)( unsigned int,::osgWidget::point_type ) ;
             
             Table_exposer.def( 
                 "addWidthToColumn"
@@ -743,8 +743,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::className
         
-            typedef char const * ( ::osgWidget::Table::*className_function_type )(  ) const;
-            typedef char const * ( Table_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Table::*className_function_type)(  ) const;
+            typedef char const * ( Table_wrapper::*default_className_function_type)(  ) const;
             
             Table_exposer.def( 
                 "className"
@@ -754,8 +754,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Table::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Table_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Table::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Table_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Table_exposer.def( 
                 "clone"
@@ -767,8 +767,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Table::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Table_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Table::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Table_wrapper::*default_cloneType_function_type)(  ) const;
             
             Table_exposer.def( 
                 "cloneType"
@@ -779,7 +779,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getByRowCol
         
-            typedef ::osgWidget::Widget * ( ::osgWidget::Table::*getByRowCol_function_type )( unsigned int,unsigned int ) ;
+            typedef ::osgWidget::Widget * ( ::osgWidget::Table::*getByRowCol_function_type)( unsigned int,unsigned int ) ;
             
             Table_exposer.def( 
                 "getByRowCol"
@@ -790,7 +790,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getByRowCol
         
-            typedef ::osgWidget::Widget const * ( ::osgWidget::Table::*getByRowCol_function_type )( unsigned int,unsigned int ) const;
+            typedef ::osgWidget::Widget const * ( ::osgWidget::Table::*getByRowCol_function_type)( unsigned int,unsigned int ) const;
             
             Table_exposer.def( 
                 "getByRowCol"
@@ -801,7 +801,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getColumnMinWidths
         
-            typedef void ( ::osgWidget::Table::*getColumnMinWidths_function_type )( ::std::vector< float > & ) const;
+            typedef void ( ::osgWidget::Table::*getColumnMinWidths_function_type)( ::std::vector< float > & ) const;
             
             Table_exposer.def( 
                 "getColumnMinWidths"
@@ -811,7 +811,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getColumnWidths
         
-            typedef void ( ::osgWidget::Table::*getColumnWidths_function_type )( ::std::vector< float > & ) const;
+            typedef void ( ::osgWidget::Table::*getColumnWidths_function_type)( ::std::vector< float > & ) const;
             
             Table_exposer.def( 
                 "getColumnWidths"
@@ -821,7 +821,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getRowHeights
         
-            typedef void ( ::osgWidget::Table::*getRowHeights_function_type )( ::std::vector< float > & ) const;
+            typedef void ( ::osgWidget::Table::*getRowHeights_function_type)( ::std::vector< float > & ) const;
             
             Table_exposer.def( 
                 "getRowHeights"
@@ -831,7 +831,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::getRowMinHeights
         
-            typedef void ( ::osgWidget::Table::*getRowMinHeights_function_type )( ::std::vector< float > & ) const;
+            typedef void ( ::osgWidget::Table::*getRowMinHeights_function_type)( ::std::vector< float > & ) const;
             
             Table_exposer.def( 
                 "getRowMinHeights"
@@ -841,7 +841,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::isColumnHorizontallyFillable
         
-            typedef bool ( ::osgWidget::Table::*isColumnHorizontallyFillable_function_type )( unsigned int ) const;
+            typedef bool ( ::osgWidget::Table::*isColumnHorizontallyFillable_function_type)( unsigned int ) const;
             
             Table_exposer.def( 
                 "isColumnHorizontallyFillable"
@@ -851,7 +851,7 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::isRowVerticallyFillable
         
-            typedef bool ( ::osgWidget::Table::*isRowVerticallyFillable_function_type )( unsigned int ) const;
+            typedef bool ( ::osgWidget::Table::*isRowVerticallyFillable_function_type)( unsigned int ) const;
             
             Table_exposer.def( 
                 "isRowVerticallyFillable"
@@ -861,8 +861,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::isSameKindAs
         
-            typedef bool ( ::osgWidget::Table::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Table_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Table::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Table_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Table_exposer.def( 
                 "isSameKindAs"
@@ -873,8 +873,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Table::libraryName
         
-            typedef char const * ( ::osgWidget::Table::*libraryName_function_type )(  ) const;
-            typedef char const * ( Table_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Table::*libraryName_function_type)(  ) const;
+            typedef char const * ( Table_wrapper::*default_libraryName_function_type)(  ) const;
             
             Table_exposer.def( 
                 "libraryName"
@@ -884,8 +884,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "focus"
@@ -896,8 +896,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::insertWidget
         
-            typedef bool ( ::osgWidget::Window::*insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
-            typedef bool ( Table_wrapper::*default_insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( ::osgWidget::Window::*insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( Table_wrapper::*default_insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
             
             Table_exposer.def( 
                 "insertWidget"
@@ -908,8 +908,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "keyDown"
@@ -920,8 +920,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "keyUp"
@@ -932,8 +932,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::managed
         
-            typedef void ( ::osgWidget::Window::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Table_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Table_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Table_exposer.def( 
                 "managed"
@@ -944,8 +944,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseDrag"
@@ -956,8 +956,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseEnter"
@@ -968,8 +968,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseLeave"
@@ -980,8 +980,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseOver"
@@ -992,8 +992,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mousePush"
@@ -1004,8 +1004,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseRelease"
@@ -1016,8 +1016,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "mouseScroll"
@@ -1028,8 +1028,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::removeWidget
         
-            typedef bool ( ::osgWidget::Window::*removeWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Table_wrapper::*default_removeWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*removeWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Table_wrapper::*default_removeWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Table_exposer.def( 
                 "removeWidget"
@@ -1040,8 +1040,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::replaceWidget
         
-            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
-            typedef bool ( Table_wrapper::*default_replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( Table_wrapper::*default_replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
             
             Table_exposer.def( 
                 "replaceWidget"
@@ -1052,8 +1052,8 @@ void register_Table_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Table_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Table_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Table_exposer.def( 
                 "unfocus"
@@ -1064,8 +1064,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::unmanaged
         
-            typedef void ( ::osgWidget::Window::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Table_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Table_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Table_exposer.def( 
                 "unmanaged"
@@ -1076,8 +1076,8 @@ void register_Table_class(){
         }
         { //::osgWidget::Window::update
         
-            typedef void ( ::osgWidget::Window::*update_function_type )(  ) ;
-            typedef void ( Table_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*update_function_type)(  ) ;
+            typedef void ( Table_wrapper::*default_update_function_type)(  ) ;
             
             Table_exposer.def( 
                 "update"

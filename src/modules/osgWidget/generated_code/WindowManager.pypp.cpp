@@ -444,8 +444,8 @@ void register_WindowManager_class(){
         bp::implicitly_convertible< osgViewer::View *, osgWidget::WindowManager >();
         { //::osgWidget::WindowManager::className
         
-            typedef char const * ( ::osgWidget::WindowManager::*className_function_type )(  ) const;
-            typedef char const * ( WindowManager_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::WindowManager::*className_function_type)(  ) const;
+            typedef char const * ( WindowManager_wrapper::*default_className_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "className"
@@ -455,8 +455,8 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::clone
         
-            typedef ::osg::Object * ( ::osgWidget::WindowManager::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( WindowManager_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::WindowManager::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( WindowManager_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             WindowManager_exposer.def( 
                 "clone"
@@ -468,8 +468,8 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::WindowManager::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( WindowManager_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::WindowManager::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( WindowManager_wrapper::*default_cloneType_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "cloneType"
@@ -480,7 +480,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::createParentOrthoCamera
         
-            typedef ::osg::Camera * ( ::osgWidget::WindowManager::*createParentOrthoCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osgWidget::WindowManager::*createParentOrthoCamera_function_type)(  ) ;
             
             WindowManager_exposer.def( 
                 "createParentOrthoCamera"
@@ -490,7 +490,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getHeight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::WindowManager::*getHeight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::WindowManager::*getHeight_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getHeight"
@@ -499,7 +499,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getLuaEngine
         
-            typedef ::osgWidget::ScriptEngine * ( ::osgWidget::WindowManager::*getLuaEngine_function_type )(  ) ;
+            typedef ::osgWidget::ScriptEngine * ( ::osgWidget::WindowManager::*getLuaEngine_function_type)(  ) ;
             
             WindowManager_exposer.def( 
                 "getLuaEngine"
@@ -509,7 +509,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getLuaEngine
         
-            typedef ::osgWidget::ScriptEngine const * ( ::osgWidget::WindowManager::*getLuaEngine_function_type )(  ) const;
+            typedef ::osgWidget::ScriptEngine const * ( ::osgWidget::WindowManager::*getLuaEngine_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getLuaEngine"
@@ -519,7 +519,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getMouseKeysDown
         
-            typedef int ( ::osgWidget::WindowManager::*getMouseKeysDown_function_type )(  ) const;
+            typedef int ( ::osgWidget::WindowManager::*getMouseKeysDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getMouseKeysDown"
@@ -528,7 +528,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getNodeMask
         
-            typedef unsigned int ( ::osgWidget::WindowManager::*getNodeMask_function_type )(  ) const;
+            typedef unsigned int ( ::osgWidget::WindowManager::*getNodeMask_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getNodeMask"
@@ -537,7 +537,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPointerDirectionVector
         
-            typedef int ( ::osgWidget::WindowManager::*getPointerDirectionVector_function_type )(  ) const;
+            typedef int ( ::osgWidget::WindowManager::*getPointerDirectionVector_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getPointerDirectionVector"
@@ -546,7 +546,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPointerFocusMode
         
-            typedef ::osgWidget::WindowManager::PointerFocusMode ( ::osgWidget::WindowManager::*getPointerFocusMode_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager::PointerFocusMode ( ::osgWidget::WindowManager::*getPointerFocusMode_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getPointerFocusMode"
@@ -555,7 +555,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPointerHorizontalDirection
         
-            typedef ::osgWidget::WindowManager::PointerDirection ( ::osgWidget::WindowManager::*getPointerHorizontalDirection_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager::PointerDirection ( ::osgWidget::WindowManager::*getPointerHorizontalDirection_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getPointerHorizontalDirection"
@@ -564,7 +564,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPointerVerticalDirection
         
-            typedef ::osgWidget::WindowManager::PointerDirection ( ::osgWidget::WindowManager::*getPointerVerticalDirection_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager::PointerDirection ( ::osgWidget::WindowManager::*getPointerVerticalDirection_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getPointerVerticalDirection"
@@ -573,7 +573,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPythonEngine
         
-            typedef ::osgWidget::ScriptEngine * ( ::osgWidget::WindowManager::*getPythonEngine_function_type )(  ) ;
+            typedef ::osgWidget::ScriptEngine * ( ::osgWidget::WindowManager::*getPythonEngine_function_type)(  ) ;
             
             WindowManager_exposer.def( 
                 "getPythonEngine"
@@ -583,7 +583,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getPythonEngine
         
-            typedef ::osgWidget::ScriptEngine const * ( ::osgWidget::WindowManager::*getPythonEngine_function_type )(  ) const;
+            typedef ::osgWidget::ScriptEngine const * ( ::osgWidget::WindowManager::*getPythonEngine_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getPythonEngine"
@@ -593,7 +593,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getStyleManager
         
-            typedef ::osgWidget::StyleManager * ( ::osgWidget::WindowManager::*getStyleManager_function_type )(  ) ;
+            typedef ::osgWidget::StyleManager * ( ::osgWidget::WindowManager::*getStyleManager_function_type)(  ) ;
             
             WindowManager_exposer.def( 
                 "getStyleManager"
@@ -603,7 +603,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getStyleManager
         
-            typedef ::osgWidget::StyleManager const * ( ::osgWidget::WindowManager::*getStyleManager_function_type )(  ) const;
+            typedef ::osgWidget::StyleManager const * ( ::osgWidget::WindowManager::*getStyleManager_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getStyleManager"
@@ -613,7 +613,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getView
         
-            typedef ::osgViewer::View * ( ::osgWidget::WindowManager::*getView_function_type )(  ) ;
+            typedef ::osgViewer::View * ( ::osgWidget::WindowManager::*getView_function_type)(  ) ;
             
             WindowManager_exposer.def( 
                 "getView"
@@ -623,7 +623,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getView
         
-            typedef ::osgViewer::View const * ( ::osgWidget::WindowManager::*getView_function_type )(  ) const;
+            typedef ::osgViewer::View const * ( ::osgWidget::WindowManager::*getView_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getView"
@@ -633,7 +633,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::getWidth
         
-            typedef ::osgWidget::point_type ( ::osgWidget::WindowManager::*getWidth_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::WindowManager::*getWidth_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "getWidth"
@@ -642,7 +642,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isLeftMouseButtonDown
         
-            typedef bool ( ::osgWidget::WindowManager::*isLeftMouseButtonDown_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isLeftMouseButtonDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isLeftMouseButtonDown"
@@ -651,7 +651,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isMiddleMouseButtonDown
         
-            typedef bool ( ::osgWidget::WindowManager::*isMiddleMouseButtonDown_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isMiddleMouseButtonDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isMiddleMouseButtonDown"
@@ -660,7 +660,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isMouseScrollingDown
         
-            typedef bool ( ::osgWidget::WindowManager::*isMouseScrollingDown_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isMouseScrollingDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isMouseScrollingDown"
@@ -669,7 +669,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isMouseScrollingUp
         
-            typedef bool ( ::osgWidget::WindowManager::*isMouseScrollingUp_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isMouseScrollingUp_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isMouseScrollingUp"
@@ -678,7 +678,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingDown
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingDown_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingDown"
@@ -687,7 +687,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingHorizontally
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingHorizontally_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingHorizontally_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingHorizontally"
@@ -696,7 +696,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingLeft
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingLeft_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingLeft_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingLeft"
@@ -705,7 +705,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingRight
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingRight_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingRight_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingRight"
@@ -714,7 +714,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingUp
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingUp_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingUp_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingUp"
@@ -723,7 +723,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isPointerMovingVertically
         
-            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingVertically_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isPointerMovingVertically_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isPointerMovingVertically"
@@ -732,7 +732,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isRightMouseButtonDown
         
-            typedef bool ( ::osgWidget::WindowManager::*isRightMouseButtonDown_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isRightMouseButtonDown_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isRightMouseButtonDown"
@@ -741,8 +741,8 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isSameKindAs
         
-            typedef bool ( ::osgWidget::WindowManager::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( WindowManager_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( WindowManager_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             WindowManager_exposer.def( 
                 "isSameKindAs"
@@ -753,7 +753,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isUsingLua
         
-            typedef bool ( ::osgWidget::WindowManager::*isUsingLua_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isUsingLua_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isUsingLua"
@@ -762,7 +762,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isUsingPython
         
-            typedef bool ( ::osgWidget::WindowManager::*isUsingPython_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isUsingPython_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isUsingPython"
@@ -771,7 +771,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::isUsingRenderBins
         
-            typedef bool ( ::osgWidget::WindowManager::*isUsingRenderBins_function_type )(  ) const;
+            typedef bool ( ::osgWidget::WindowManager::*isUsingRenderBins_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "isUsingRenderBins"
@@ -780,7 +780,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::keyDown
         
-            typedef bool ( ::osgWidget::WindowManager::*keyDown_function_type )( int,int ) ;
+            typedef bool ( ::osgWidget::WindowManager::*keyDown_function_type)( int,int ) ;
             
             WindowManager_exposer.def( 
                 "keyDown"
@@ -790,7 +790,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::keyUp
         
-            typedef bool ( ::osgWidget::WindowManager::*keyUp_function_type )( int,int ) ;
+            typedef bool ( ::osgWidget::WindowManager::*keyUp_function_type)( int,int ) ;
             
             WindowManager_exposer.def( 
                 "keyUp"
@@ -800,8 +800,8 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::libraryName
         
-            typedef char const * ( ::osgWidget::WindowManager::*libraryName_function_type )(  ) const;
-            typedef char const * ( WindowManager_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::WindowManager::*libraryName_function_type)(  ) const;
+            typedef char const * ( WindowManager_wrapper::*default_libraryName_function_type)(  ) const;
             
             WindowManager_exposer.def( 
                 "libraryName"
@@ -811,7 +811,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::localXY
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::WindowManager::*localXY_function_type )( double,double ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::WindowManager::*localXY_function_type)( double,double ) const;
             
             WindowManager_exposer.def( 
                 "localXY"
@@ -821,7 +821,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mousePushedLeft
         
-            typedef bool ( ::osgWidget::WindowManager::*mousePushedLeft_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mousePushedLeft_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mousePushedLeft"
@@ -831,7 +831,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mousePushedMiddle
         
-            typedef bool ( ::osgWidget::WindowManager::*mousePushedMiddle_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mousePushedMiddle_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mousePushedMiddle"
@@ -841,7 +841,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mousePushedRight
         
-            typedef bool ( ::osgWidget::WindowManager::*mousePushedRight_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mousePushedRight_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mousePushedRight"
@@ -851,7 +851,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mouseReleasedLeft
         
-            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedLeft_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedLeft_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mouseReleasedLeft"
@@ -861,7 +861,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mouseReleasedMiddle
         
-            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedMiddle_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedMiddle_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mouseReleasedMiddle"
@@ -871,7 +871,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mouseReleasedRight
         
-            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedRight_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mouseReleasedRight_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mouseReleasedRight"
@@ -881,7 +881,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::mouseScroll
         
-            typedef bool ( ::osgWidget::WindowManager::*mouseScroll_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*mouseScroll_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "mouseScroll"
@@ -891,7 +891,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::pickAtXY
         
-            typedef bool ( ::osgWidget::WindowManager::*pickAtXY_function_type )( float,float,::osgWidget::WidgetList & ) ;
+            typedef bool ( ::osgWidget::WindowManager::*pickAtXY_function_type)( float,float,::osgWidget::WidgetList & ) ;
             
             WindowManager_exposer.def( 
                 "pickAtXY"
@@ -901,7 +901,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::pointerDrag
         
-            typedef bool ( ::osgWidget::WindowManager::*pointerDrag_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*pointerDrag_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "pointerDrag"
@@ -911,7 +911,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::pointerMove
         
-            typedef bool ( ::osgWidget::WindowManager::*pointerMove_function_type )( float,float ) ;
+            typedef bool ( ::osgWidget::WindowManager::*pointerMove_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "pointerMove"
@@ -921,7 +921,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::resizeAllWindows
         
-            typedef void ( ::osgWidget::WindowManager::*resizeAllWindows_function_type )( bool ) ;
+            typedef void ( ::osgWidget::WindowManager::*resizeAllWindows_function_type)( bool ) ;
             
             WindowManager_exposer.def( 
                 "resizeAllWindows"
@@ -941,7 +941,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setFocused
         
-            typedef bool ( ::osgWidget::WindowManager::*setFocused_function_type )( ::osgWidget::Window * ) ;
+            typedef bool ( ::osgWidget::WindowManager::*setFocused_function_type)( ::osgWidget::Window * ) ;
             
             WindowManager_exposer.def( 
                 "setFocused"
@@ -951,7 +951,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setFocusedByName
         
-            typedef bool ( ::osgWidget::WindowManager::*setFocusedByName_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::WindowManager::*setFocusedByName_function_type)( ::std::string const & ) ;
             
             WindowManager_exposer.def( 
                 "setFocusedByName"
@@ -961,7 +961,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setHeight
         
-            typedef void ( ::osgWidget::WindowManager::*setHeight_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::WindowManager::*setHeight_function_type)( ::osgWidget::point_type ) ;
             
             WindowManager_exposer.def( 
                 "setHeight"
@@ -971,7 +971,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setPointerFocusMode
         
-            typedef void ( ::osgWidget::WindowManager::*setPointerFocusMode_function_type )( ::osgWidget::WindowManager::PointerFocusMode ) ;
+            typedef void ( ::osgWidget::WindowManager::*setPointerFocusMode_function_type)( ::osgWidget::WindowManager::PointerFocusMode ) ;
             
             WindowManager_exposer.def( 
                 "setPointerFocusMode"
@@ -981,7 +981,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setPointerXY
         
-            typedef void ( ::osgWidget::WindowManager::*setPointerXY_function_type )( float,float ) ;
+            typedef void ( ::osgWidget::WindowManager::*setPointerXY_function_type)( float,float ) ;
             
             WindowManager_exposer.def( 
                 "setPointerXY"
@@ -991,7 +991,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setScrollingMotion
         
-            typedef void ( ::osgWidget::WindowManager::*setScrollingMotion_function_type )( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
+            typedef void ( ::osgWidget::WindowManager::*setScrollingMotion_function_type)( ::osgGA::GUIEventAdapter::ScrollingMotion ) ;
             
             WindowManager_exposer.def( 
                 "setScrollingMotion"
@@ -1001,7 +1001,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setSize
         
-            typedef void ( ::osgWidget::WindowManager::*setSize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::WindowManager::*setSize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             WindowManager_exposer.def( 
                 "setSize"
@@ -1011,7 +1011,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setStyleManager
         
-            typedef void ( ::osgWidget::WindowManager::*setStyleManager_function_type )( ::osgWidget::StyleManager * ) ;
+            typedef void ( ::osgWidget::WindowManager::*setStyleManager_function_type)( ::osgWidget::StyleManager * ) ;
             
             WindowManager_exposer.def( 
                 "setStyleManager"
@@ -1021,7 +1021,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setWidth
         
-            typedef void ( ::osgWidget::WindowManager::*setWidth_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::WindowManager::*setWidth_function_type)( ::osgWidget::point_type ) ;
             
             WindowManager_exposer.def( 
                 "setWidth"
@@ -1031,7 +1031,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::setWindowSize
         
-            typedef void ( ::osgWidget::WindowManager::*setWindowSize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::WindowManager::*setWindowSize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             WindowManager_exposer.def( 
                 "setWindowSize"
@@ -1041,7 +1041,7 @@ void register_WindowManager_class(){
         }
         { //::osgWidget::WindowManager::windowXY
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::WindowManager::*windowXY_function_type )( double,double ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::WindowManager::*windowXY_function_type)( double,double ) const;
             
             WindowManager_exposer.def( 
                 "windowXY"

@@ -213,7 +213,7 @@ void register_ImageOptions_class(){
         bp::class_< osgDB::ImageOptions::PixelWindow >( "PixelWindow", bp::init< >() )    
             .def( 
                 "set"
-                , (void ( ::osgDB::ImageOptions::PixelWindow::* )( unsigned int,unsigned int,unsigned int,unsigned int ) )( &::osgDB::ImageOptions::PixelWindow::set )
+                , (void ( ::osgDB::ImageOptions::PixelWindow::* )( unsigned int,unsigned int,unsigned int,unsigned int ))( &::osgDB::ImageOptions::PixelWindow::set )
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("w"), bp::arg("h") ) )    
             .def_readwrite( "windowHeight", &osgDB::ImageOptions::PixelWindow::windowHeight )    
             .def_readwrite( "windowWidth", &osgDB::ImageOptions::PixelWindow::windowWidth )    
@@ -222,7 +222,7 @@ void register_ImageOptions_class(){
         bp::class_< osgDB::ImageOptions::RatioWindow >( "RatioWindow", bp::init< >() )    
             .def( 
                 "set"
-                , (void ( ::osgDB::ImageOptions::RatioWindow::* )( double,double,double,double ) )( &::osgDB::ImageOptions::RatioWindow::set )
+                , (void ( ::osgDB::ImageOptions::RatioWindow::* )( double,double,double,double ))( &::osgDB::ImageOptions::RatioWindow::set )
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("w"), bp::arg("h") ) )    
             .def_readwrite( "windowHeight", &osgDB::ImageOptions::RatioWindow::windowHeight )    
             .def_readwrite( "windowWidth", &osgDB::ImageOptions::RatioWindow::windowWidth )    
@@ -231,7 +231,7 @@ void register_ImageOptions_class(){
         bp::class_< ImageOptions_wrapper::TexCoordRange_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ImageOptions::TexCoordRange >, boost::noncopyable >( "TexCoordRange", bp::init< >() )    
             .def( 
                 "set"
-                , (void ( ::osgDB::ImageOptions::TexCoordRange::* )( double,double,double,double ) )( &::osgDB::ImageOptions::TexCoordRange::set )
+                , (void ( ::osgDB::ImageOptions::TexCoordRange::* )( double,double,double,double ))( &::osgDB::ImageOptions::TexCoordRange::set )
                 , ( bp::arg("x"), bp::arg("y"), bp::arg("w"), bp::arg("h") ) )    
             .def_readwrite( "_h", &osgDB::ImageOptions::TexCoordRange::_h )    
             .def_readwrite( "_w", &osgDB::ImageOptions::TexCoordRange::_w )    
@@ -241,8 +241,8 @@ void register_ImageOptions_class(){
         bp::implicitly_convertible< std::string const &, osgDB::ImageOptions >();
         { //::osgDB::ImageOptions::className
         
-            typedef char const * ( ::osgDB::ImageOptions::*className_function_type )(  ) const;
-            typedef char const * ( ImageOptions_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgDB::ImageOptions::*className_function_type)(  ) const;
+            typedef char const * ( ImageOptions_wrapper::*default_className_function_type)(  ) const;
             
             ImageOptions_exposer.def( 
                 "className"
@@ -252,8 +252,8 @@ void register_ImageOptions_class(){
         }
         { //::osgDB::ImageOptions::clone
         
-            typedef ::osg::Object * ( ::osgDB::ImageOptions::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ImageOptions_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgDB::ImageOptions::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ImageOptions_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             ImageOptions_exposer.def( 
                 "clone"
@@ -265,8 +265,8 @@ void register_ImageOptions_class(){
         }
         { //::osgDB::ImageOptions::cloneType
         
-            typedef ::osg::Object * ( ::osgDB::ImageOptions::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( ImageOptions_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgDB::ImageOptions::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ImageOptions_wrapper::*default_cloneType_function_type)(  ) const;
             
             ImageOptions_exposer.def( 
                 "cloneType"
@@ -277,7 +277,7 @@ void register_ImageOptions_class(){
         }
         { //::osgDB::ImageOptions::init
         
-            typedef void ( ::osgDB::ImageOptions::*init_function_type )(  ) ;
+            typedef void ( ::osgDB::ImageOptions::*init_function_type)(  ) ;
             
             ImageOptions_exposer.def( 
                 "init"
@@ -286,8 +286,8 @@ void register_ImageOptions_class(){
         }
         { //::osgDB::ImageOptions::isSameKindAs
         
-            typedef bool ( ::osgDB::ImageOptions::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( ImageOptions_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgDB::ImageOptions::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ImageOptions_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             ImageOptions_exposer.def( 
                 "isSameKindAs"
@@ -298,8 +298,8 @@ void register_ImageOptions_class(){
         }
         { //::osgDB::ImageOptions::libraryName
         
-            typedef char const * ( ::osgDB::ImageOptions::*libraryName_function_type )(  ) const;
-            typedef char const * ( ImageOptions_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgDB::ImageOptions::*libraryName_function_type)(  ) const;
+            typedef char const * ( ImageOptions_wrapper::*default_libraryName_function_type)(  ) const;
             
             ImageOptions_exposer.def( 
                 "libraryName"

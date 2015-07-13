@@ -176,8 +176,8 @@ void register_TessellationHints_class(){
         TessellationHints_exposer.def( bp::init< >("\n Describe several hints that can be passed to a Tessellator (like the one used\n  by  ShapeDrawable) as a mean to try to influence the way it works.\n") );
         { //::osg::TessellationHints::className
         
-            typedef char const * ( ::osg::TessellationHints::*className_function_type )(  ) const;
-            typedef char const * ( TessellationHints_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::TessellationHints::*className_function_type)(  ) const;
+            typedef char const * ( TessellationHints_wrapper::*default_className_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "className"
@@ -187,8 +187,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::clone
         
-            typedef ::osg::Object * ( ::osg::TessellationHints::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TessellationHints_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TessellationHints::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TessellationHints_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             TessellationHints_exposer.def( 
                 "clone"
@@ -200,8 +200,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::cloneType
         
-            typedef ::osg::Object * ( ::osg::TessellationHints::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( TessellationHints_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::TessellationHints::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( TessellationHints_wrapper::*default_cloneType_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "cloneType"
@@ -212,7 +212,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateBackFace
         
-            typedef bool ( ::osg::TessellationHints::*getCreateBackFace_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateBackFace_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateBackFace"
@@ -221,7 +221,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateBody
         
-            typedef bool ( ::osg::TessellationHints::*getCreateBody_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateBody_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateBody"
@@ -230,7 +230,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateBottom
         
-            typedef bool ( ::osg::TessellationHints::*getCreateBottom_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateBottom_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateBottom"
@@ -239,7 +239,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateFrontFace
         
-            typedef bool ( ::osg::TessellationHints::*getCreateFrontFace_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateFrontFace_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateFrontFace"
@@ -248,7 +248,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateNormals
         
-            typedef bool ( ::osg::TessellationHints::*getCreateNormals_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateNormals_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateNormals"
@@ -257,7 +257,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateTextureCoords
         
-            typedef bool ( ::osg::TessellationHints::*getCreateTextureCoords_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateTextureCoords_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateTextureCoords"
@@ -266,7 +266,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getCreateTop
         
-            typedef bool ( ::osg::TessellationHints::*getCreateTop_function_type )(  ) const;
+            typedef bool ( ::osg::TessellationHints::*getCreateTop_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getCreateTop"
@@ -275,7 +275,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getDetailRatio
         
-            typedef float ( ::osg::TessellationHints::*getDetailRatio_function_type )(  ) const;
+            typedef float ( ::osg::TessellationHints::*getDetailRatio_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getDetailRatio"
@@ -284,7 +284,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getTargetNumFaces
         
-            typedef unsigned int ( ::osg::TessellationHints::*getTargetNumFaces_function_type )(  ) const;
+            typedef unsigned int ( ::osg::TessellationHints::*getTargetNumFaces_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getTargetNumFaces"
@@ -293,7 +293,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::getTessellationMode
         
-            typedef ::osg::TessellationHints::TessellationMode ( ::osg::TessellationHints::*getTessellationMode_function_type )(  ) const;
+            typedef ::osg::TessellationHints::TessellationMode ( ::osg::TessellationHints::*getTessellationMode_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getTessellationMode"
@@ -302,8 +302,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::isSameKindAs
         
-            typedef bool ( ::osg::TessellationHints::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( TessellationHints_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TessellationHints::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( TessellationHints_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             TessellationHints_exposer.def( 
                 "isSameKindAs"
@@ -314,8 +314,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::libraryName
         
-            typedef char const * ( ::osg::TessellationHints::*libraryName_function_type )(  ) const;
-            typedef char const * ( TessellationHints_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::TessellationHints::*libraryName_function_type)(  ) const;
+            typedef char const * ( TessellationHints_wrapper::*default_libraryName_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "libraryName"
@@ -325,7 +325,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateBackFace
         
-            typedef void ( ::osg::TessellationHints::*setCreateBackFace_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateBackFace_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateBackFace"
@@ -335,7 +335,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateBody
         
-            typedef void ( ::osg::TessellationHints::*setCreateBody_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateBody_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateBody"
@@ -345,7 +345,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateBottom
         
-            typedef void ( ::osg::TessellationHints::*setCreateBottom_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateBottom_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateBottom"
@@ -355,7 +355,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateFrontFace
         
-            typedef void ( ::osg::TessellationHints::*setCreateFrontFace_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateFrontFace_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateFrontFace"
@@ -365,7 +365,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateNormals
         
-            typedef void ( ::osg::TessellationHints::*setCreateNormals_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateNormals_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateNormals"
@@ -375,7 +375,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateTextureCoords
         
-            typedef void ( ::osg::TessellationHints::*setCreateTextureCoords_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateTextureCoords_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateTextureCoords"
@@ -385,7 +385,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setCreateTop
         
-            typedef void ( ::osg::TessellationHints::*setCreateTop_function_type )( bool ) ;
+            typedef void ( ::osg::TessellationHints::*setCreateTop_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setCreateTop"
@@ -395,7 +395,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setDetailRatio
         
-            typedef void ( ::osg::TessellationHints::*setDetailRatio_function_type )( float ) ;
+            typedef void ( ::osg::TessellationHints::*setDetailRatio_function_type)( float ) ;
             
             TessellationHints_exposer.def( 
                 "setDetailRatio"
@@ -405,7 +405,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setTargetNumFaces
         
-            typedef void ( ::osg::TessellationHints::*setTargetNumFaces_function_type )( unsigned int ) ;
+            typedef void ( ::osg::TessellationHints::*setTargetNumFaces_function_type)( unsigned int ) ;
             
             TessellationHints_exposer.def( 
                 "setTargetNumFaces"
@@ -415,7 +415,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::TessellationHints::setTessellationMode
         
-            typedef void ( ::osg::TessellationHints::*setTessellationMode_function_type )( ::osg::TessellationHints::TessellationMode ) ;
+            typedef void ( ::osg::TessellationHints::*setTessellationMode_function_type)( ::osg::TessellationHints::TessellationMode ) ;
             
             TessellationHints_exposer.def( 
                 "setTessellationMode"
@@ -425,8 +425,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( TessellationHints_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( TessellationHints_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             TessellationHints_exposer.def( 
                 "computeDataVariance"
@@ -436,8 +436,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( TessellationHints_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( TessellationHints_wrapper::*default_getUserData_function_type)(  ) ;
             
             TessellationHints_exposer.def( 
                 "getUserData"
@@ -448,8 +448,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( TessellationHints_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( TessellationHints_wrapper::*default_getUserData_function_type)(  ) const;
             
             TessellationHints_exposer.def( 
                 "getUserData"
@@ -460,8 +460,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( TessellationHints_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( TessellationHints_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             TessellationHints_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -472,8 +472,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( TessellationHints_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( TessellationHints_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             TessellationHints_exposer.def( 
                 "setName"
@@ -484,7 +484,7 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             TessellationHints_exposer.def( 
                 "setName"
@@ -495,8 +495,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( TessellationHints_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( TessellationHints_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             TessellationHints_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -507,8 +507,8 @@ void register_TessellationHints_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( TessellationHints_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( TessellationHints_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             TessellationHints_exposer.def( 
                 "setUserData"

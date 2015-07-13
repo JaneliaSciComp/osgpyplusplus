@@ -24,7 +24,7 @@ void register_Matrixf_class(){
         Matrixf_exposer.def( bp::init< float, float, float, float, float, float, float, float, float, float, float, float, float, float, float, float >(( bp::arg("a00"), bp::arg("a01"), bp::arg("a02"), bp::arg("a03"), bp::arg("a10"), bp::arg("a11"), bp::arg("a12"), bp::arg("a13"), bp::arg("a20"), bp::arg("a21"), bp::arg("a22"), bp::arg("a23"), bp::arg("a30"), bp::arg("a31"), bp::arg("a32"), bp::arg("a33") )) );
         { //::osg::Matrixf::compare
         
-            typedef int ( ::osg::Matrixf::*compare_function_type )( ::osg::Matrixf const & ) const;
+            typedef int ( ::osg::Matrixf::*compare_function_type)( ::osg::Matrixf const & ) const;
             
             Matrixf_exposer.def( 
                 "compare"
@@ -34,7 +34,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::decompose
         
-            typedef void ( ::osg::Matrixf::*decompose_function_type )( ::osg::Vec3f &,::osg::Quat &,::osg::Vec3f &,::osg::Quat & ) const;
+            typedef void ( ::osg::Matrixf::*decompose_function_type)( ::osg::Vec3f &,::osg::Quat &,::osg::Vec3f &,::osg::Quat & ) const;
             
             Matrixf_exposer.def( 
                 "decompose"
@@ -45,7 +45,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::decompose
         
-            typedef void ( ::osg::Matrixf::*decompose_function_type )( ::osg::Vec3d &,::osg::Quat &,::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osg::Matrixf::*decompose_function_type)( ::osg::Vec3d &,::osg::Quat &,::osg::Vec3d &,::osg::Quat & ) const;
             
             Matrixf_exposer.def( 
                 "decompose"
@@ -66,7 +66,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::get
         
-            typedef void ( ::osg::Matrixf::*get_function_type )( ::osg::Quat & ) const;
+            typedef void ( ::osg::Matrixf::*get_function_type)( ::osg::Quat & ) const;
             
             Matrixf_exposer.def( 
                 "get"
@@ -76,7 +76,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getFrustum
         
-            typedef bool ( ::osg::Matrixf::*getFrustum_function_type )( double &,double &,double &,double &,double &,double & ) const;
+            typedef bool ( ::osg::Matrixf::*getFrustum_function_type)( double &,double &,double &,double &,double &,double & ) const;
             
             Matrixf_exposer.def( 
                 "getFrustum"
@@ -87,7 +87,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getFrustum
         
-            typedef bool ( ::osg::Matrixf::*getFrustum_function_type )( float &,float &,float &,float &,float &,float & ) const;
+            typedef bool ( ::osg::Matrixf::*getFrustum_function_type)( float &,float &,float &,float &,float &,float & ) const;
             
             Matrixf_exposer.def( 
                 "getFrustum"
@@ -98,7 +98,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getLookAt
         
-            typedef void ( ::osg::Matrixf::*getLookAt_function_type )( ::osg::Vec3f &,::osg::Vec3f &,::osg::Vec3f &,float ) const;
+            typedef void ( ::osg::Matrixf::*getLookAt_function_type)( ::osg::Vec3f &,::osg::Vec3f &,::osg::Vec3f &,float ) const;
             
             Matrixf_exposer.def( 
                 "getLookAt"
@@ -109,7 +109,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getLookAt
         
-            typedef void ( ::osg::Matrixf::*getLookAt_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d &,float ) const;
+            typedef void ( ::osg::Matrixf::*getLookAt_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d &,float ) const;
             
             Matrixf_exposer.def( 
                 "getLookAt"
@@ -120,7 +120,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getOrtho
         
-            typedef bool ( ::osg::Matrixf::*getOrtho_function_type )( double &,double &,double &,double &,double &,double & ) const;
+            typedef bool ( ::osg::Matrixf::*getOrtho_function_type)( double &,double &,double &,double &,double &,double & ) const;
             
             Matrixf_exposer.def( 
                 "getOrtho"
@@ -131,7 +131,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getOrtho
         
-            typedef bool ( ::osg::Matrixf::*getOrtho_function_type )( float &,float &,float &,float &,float &,float & ) const;
+            typedef bool ( ::osg::Matrixf::*getOrtho_function_type)( float &,float &,float &,float &,float &,float & ) const;
             
             Matrixf_exposer.def( 
                 "getOrtho"
@@ -142,7 +142,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getPerspective
         
-            typedef bool ( ::osg::Matrixf::*getPerspective_function_type )( double &,double &,double &,double & ) const;
+            typedef bool ( ::osg::Matrixf::*getPerspective_function_type)( double &,double &,double &,double & ) const;
             
             Matrixf_exposer.def( 
                 "getPerspective"
@@ -153,7 +153,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getPerspective
         
-            typedef bool ( ::osg::Matrixf::*getPerspective_function_type )( float &,float &,float &,float & ) const;
+            typedef bool ( ::osg::Matrixf::*getPerspective_function_type)( float &,float &,float &,float & ) const;
             
             Matrixf_exposer.def( 
                 "getPerspective"
@@ -164,7 +164,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getRotate
         
-            typedef ::osg::Quat ( ::osg::Matrixf::*getRotate_function_type )(  ) const;
+            typedef ::osg::Quat ( ::osg::Matrixf::*getRotate_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "getRotate"
@@ -174,7 +174,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getScale
         
-            typedef ::osg::Vec3d ( ::osg::Matrixf::*getScale_function_type )(  ) const;
+            typedef ::osg::Vec3d ( ::osg::Matrixf::*getScale_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "getScale"
@@ -183,7 +183,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::getTrans
         
-            typedef ::osg::Vec3d ( ::osg::Matrixf::*getTrans_function_type )(  ) const;
+            typedef ::osg::Vec3d ( ::osg::Matrixf::*getTrans_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "getTrans"
@@ -211,7 +211,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::invert
         
-            typedef bool ( ::osg::Matrixf::*invert_function_type )( ::osg::Matrixf const & ) ;
+            typedef bool ( ::osg::Matrixf::*invert_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "invert"
@@ -222,7 +222,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::invert_4x3
         
-            typedef bool ( ::osg::Matrixf::*invert_4x3_function_type )( ::osg::Matrixf const & ) ;
+            typedef bool ( ::osg::Matrixf::*invert_4x3_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "invert_4x3"
@@ -233,7 +233,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::invert_4x4
         
-            typedef bool ( ::osg::Matrixf::*invert_4x4_function_type )( ::osg::Matrixf const & ) ;
+            typedef bool ( ::osg::Matrixf::*invert_4x4_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "invert_4x4"
@@ -244,7 +244,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::isIdentity
         
-            typedef bool ( ::osg::Matrixf::*isIdentity_function_type )(  ) const;
+            typedef bool ( ::osg::Matrixf::*isIdentity_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "isIdentity"
@@ -253,7 +253,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::isNaN
         
-            typedef bool ( ::osg::Matrixf::*isNaN_function_type )(  ) const;
+            typedef bool ( ::osg::Matrixf::*isNaN_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "isNaN"
@@ -282,7 +282,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeFrustum
         
-            typedef void ( ::osg::Matrixf::*makeFrustum_function_type )( double,double,double,double,double,double ) ;
+            typedef void ( ::osg::Matrixf::*makeFrustum_function_type)( double,double,double,double,double,double ) ;
             
             Matrixf_exposer.def( 
                 "makeFrustum"
@@ -293,7 +293,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeIdentity
         
-            typedef void ( ::osg::Matrixf::*makeIdentity_function_type )(  ) ;
+            typedef void ( ::osg::Matrixf::*makeIdentity_function_type)(  ) ;
             
             Matrixf_exposer.def( 
                 "makeIdentity"
@@ -302,7 +302,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeLookAt
         
-            typedef void ( ::osg::Matrixf::*makeLookAt_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeLookAt_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeLookAt"
@@ -313,7 +313,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeOrtho
         
-            typedef void ( ::osg::Matrixf::*makeOrtho_function_type )( double,double,double,double,double,double ) ;
+            typedef void ( ::osg::Matrixf::*makeOrtho_function_type)( double,double,double,double,double,double ) ;
             
             Matrixf_exposer.def( 
                 "makeOrtho"
@@ -324,7 +324,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeOrtho2D
         
-            typedef void ( ::osg::Matrixf::*makeOrtho2D_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::Matrixf::*makeOrtho2D_function_type)( double,double,double,double ) ;
             
             Matrixf_exposer.def( 
                 "makeOrtho2D"
@@ -335,7 +335,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makePerspective
         
-            typedef void ( ::osg::Matrixf::*makePerspective_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::Matrixf::*makePerspective_function_type)( double,double,double,double ) ;
             
             Matrixf_exposer.def( 
                 "makePerspective"
@@ -346,7 +346,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( ::osg::Vec3f const &,::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -356,7 +356,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -366,7 +366,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( float,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( float,::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -376,7 +376,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( float,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( float,::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -386,7 +386,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( float,float,float,float ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( float,float,float,float ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -396,7 +396,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( ::osg::Quat const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -406,7 +406,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( float,::osg::Vec3f const &,float,::osg::Vec3f const &,float,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( float,::osg::Vec3f const &,float,::osg::Vec3f const &,float,::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -416,7 +416,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeRotate
         
-            typedef void ( ::osg::Matrixf::*makeRotate_function_type )( float,::osg::Vec3d const &,float,::osg::Vec3d const &,float,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeRotate_function_type)( float,::osg::Vec3d const &,float,::osg::Vec3d const &,float,::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeRotate"
@@ -426,7 +426,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeScale
         
-            typedef void ( ::osg::Matrixf::*makeScale_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*makeScale_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "makeScale"
@@ -436,7 +436,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeScale
         
-            typedef void ( ::osg::Matrixf::*makeScale_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeScale_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeScale"
@@ -446,7 +446,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeScale
         
-            typedef void ( ::osg::Matrixf::*makeScale_function_type )( float,float,float ) ;
+            typedef void ( ::osg::Matrixf::*makeScale_function_type)( float,float,float ) ;
             
             Matrixf_exposer.def( 
                 "makeScale"
@@ -456,7 +456,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeTranslate
         
-            typedef void ( ::osg::Matrixf::*makeTranslate_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*makeTranslate_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "makeTranslate"
@@ -466,7 +466,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeTranslate
         
-            typedef void ( ::osg::Matrixf::*makeTranslate_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*makeTranslate_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "makeTranslate"
@@ -476,7 +476,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::makeTranslate
         
-            typedef void ( ::osg::Matrixf::*makeTranslate_function_type )( float,float,float ) ;
+            typedef void ( ::osg::Matrixf::*makeTranslate_function_type)( float,float,float ) ;
             
             Matrixf_exposer.def( 
                 "makeTranslate"
@@ -486,7 +486,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::mult
         
-            typedef void ( ::osg::Matrixf::*mult_function_type )( ::osg::Matrixf const &,::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Matrixf::*mult_function_type)( ::osg::Matrixf const &,::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "mult"
@@ -497,7 +497,7 @@ void register_Matrixf_class(){
         Matrixf_exposer.def( bp::self != bp::self );
         { //::osg::Matrixf::operator()
         
-            typedef float & ( ::osg::Matrixf::*__call___function_type )( int,int ) ;
+            typedef float & ( ::osg::Matrixf::*__call___function_type)( int,int ) ;
             
             Matrixf_exposer.def( 
                 "__call__"
@@ -508,7 +508,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::operator()
         
-            typedef float ( ::osg::Matrixf::*__call___function_type )( int,int ) const;
+            typedef float ( ::osg::Matrixf::*__call___function_type)( int,int ) const;
             
             Matrixf_exposer.def( 
                 "__call__"
@@ -531,7 +531,7 @@ void register_Matrixf_class(){
         Matrixf_exposer.def( bp::self < bp::self );
         { //::osg::Matrixf::operator=
         
-            typedef ::osg::Matrixf & ( ::osg::Matrixf::*assign_function_type )( ::osg::Matrixf const & ) ;
+            typedef ::osg::Matrixf & ( ::osg::Matrixf::*assign_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "assign"
@@ -542,7 +542,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::operator=
         
-            typedef ::osg::Matrixf & ( ::osg::Matrixf::*assign_function_type )( ::osg::Matrixd const & ) ;
+            typedef ::osg::Matrixf & ( ::osg::Matrixf::*assign_function_type)( ::osg::Matrixd const & ) ;
             
             Matrixf_exposer.def( 
                 "assign"
@@ -584,7 +584,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::orthoNormalize
         
-            typedef void ( ::osg::Matrixf::*orthoNormalize_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Matrixf::*orthoNormalize_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "orthoNormalize"
@@ -605,7 +605,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMult
         
-            typedef ::osg::Vec3f ( ::osg::Matrixf::*postMult_function_type )( ::osg::Vec3f const & ) const;
+            typedef ::osg::Vec3f ( ::osg::Matrixf::*postMult_function_type)( ::osg::Vec3f const & ) const;
             
             Matrixf_exposer.def( 
                 "postMult"
@@ -615,7 +615,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMult
         
-            typedef ::osg::Vec3d ( ::osg::Matrixf::*postMult_function_type )( ::osg::Vec3d const & ) const;
+            typedef ::osg::Vec3d ( ::osg::Matrixf::*postMult_function_type)( ::osg::Vec3d const & ) const;
             
             Matrixf_exposer.def( 
                 "postMult"
@@ -625,7 +625,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMult
         
-            typedef ::osg::Vec4f ( ::osg::Matrixf::*postMult_function_type )( ::osg::Vec4f const & ) const;
+            typedef ::osg::Vec4f ( ::osg::Matrixf::*postMult_function_type)( ::osg::Vec4f const & ) const;
             
             Matrixf_exposer.def( 
                 "postMult"
@@ -635,7 +635,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMult
         
-            typedef ::osg::Vec4d ( ::osg::Matrixf::*postMult_function_type )( ::osg::Vec4d const & ) const;
+            typedef ::osg::Vec4d ( ::osg::Matrixf::*postMult_function_type)( ::osg::Vec4d const & ) const;
             
             Matrixf_exposer.def( 
                 "postMult"
@@ -645,7 +645,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMult
         
-            typedef void ( ::osg::Matrixf::*postMult_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Matrixf::*postMult_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "postMult"
@@ -655,7 +655,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMultRotate
         
-            typedef void ( ::osg::Matrixf::*postMultRotate_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osg::Matrixf::*postMultRotate_function_type)( ::osg::Quat const & ) ;
             
             Matrixf_exposer.def( 
                 "postMultRotate"
@@ -665,7 +665,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMultScale
         
-            typedef void ( ::osg::Matrixf::*postMultScale_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*postMultScale_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "postMultScale"
@@ -675,7 +675,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMultScale
         
-            typedef void ( ::osg::Matrixf::*postMultScale_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*postMultScale_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "postMultScale"
@@ -685,7 +685,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMultTranslate
         
-            typedef void ( ::osg::Matrixf::*postMultTranslate_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*postMultTranslate_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "postMultTranslate"
@@ -695,7 +695,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::postMultTranslate
         
-            typedef void ( ::osg::Matrixf::*postMultTranslate_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*postMultTranslate_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "postMultTranslate"
@@ -705,7 +705,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMult
         
-            typedef ::osg::Vec3f ( ::osg::Matrixf::*preMult_function_type )( ::osg::Vec3f const & ) const;
+            typedef ::osg::Vec3f ( ::osg::Matrixf::*preMult_function_type)( ::osg::Vec3f const & ) const;
             
             Matrixf_exposer.def( 
                 "preMult"
@@ -715,7 +715,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMult
         
-            typedef ::osg::Vec3d ( ::osg::Matrixf::*preMult_function_type )( ::osg::Vec3d const & ) const;
+            typedef ::osg::Vec3d ( ::osg::Matrixf::*preMult_function_type)( ::osg::Vec3d const & ) const;
             
             Matrixf_exposer.def( 
                 "preMult"
@@ -725,7 +725,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMult
         
-            typedef ::osg::Vec4f ( ::osg::Matrixf::*preMult_function_type )( ::osg::Vec4f const & ) const;
+            typedef ::osg::Vec4f ( ::osg::Matrixf::*preMult_function_type)( ::osg::Vec4f const & ) const;
             
             Matrixf_exposer.def( 
                 "preMult"
@@ -735,7 +735,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMult
         
-            typedef ::osg::Vec4d ( ::osg::Matrixf::*preMult_function_type )( ::osg::Vec4d const & ) const;
+            typedef ::osg::Vec4d ( ::osg::Matrixf::*preMult_function_type)( ::osg::Vec4d const & ) const;
             
             Matrixf_exposer.def( 
                 "preMult"
@@ -745,7 +745,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMult
         
-            typedef void ( ::osg::Matrixf::*preMult_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Matrixf::*preMult_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "preMult"
@@ -755,7 +755,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMultRotate
         
-            typedef void ( ::osg::Matrixf::*preMultRotate_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osg::Matrixf::*preMultRotate_function_type)( ::osg::Quat const & ) ;
             
             Matrixf_exposer.def( 
                 "preMultRotate"
@@ -765,7 +765,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMultScale
         
-            typedef void ( ::osg::Matrixf::*preMultScale_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*preMultScale_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "preMultScale"
@@ -775,7 +775,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMultScale
         
-            typedef void ( ::osg::Matrixf::*preMultScale_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*preMultScale_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "preMultScale"
@@ -785,7 +785,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMultTranslate
         
-            typedef void ( ::osg::Matrixf::*preMultTranslate_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*preMultTranslate_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "preMultTranslate"
@@ -795,7 +795,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::preMultTranslate
         
-            typedef void ( ::osg::Matrixf::*preMultTranslate_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*preMultTranslate_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "preMultTranslate"
@@ -915,7 +915,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( ::osg::Matrixf const & ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -925,7 +925,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( ::osg::Matrixd const & ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -935,7 +935,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( float const * const ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( float const * const ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -945,7 +945,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( double const * const ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( double const * const ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -955,7 +955,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( float,float,float,float,float,float,float,float,float,float,float,float,float,float,float,float ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -965,7 +965,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::set
         
-            typedef void ( ::osg::Matrixf::*set_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osg::Matrixf::*set_function_type)( ::osg::Quat const & ) ;
             
             Matrixf_exposer.def( 
                 "set"
@@ -975,7 +975,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::setRotate
         
-            typedef void ( ::osg::Matrixf::*setRotate_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osg::Matrixf::*setRotate_function_type)( ::osg::Quat const & ) ;
             
             Matrixf_exposer.def( 
                 "setRotate"
@@ -985,7 +985,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::setTrans
         
-            typedef void ( ::osg::Matrixf::*setTrans_function_type )( float,float,float ) ;
+            typedef void ( ::osg::Matrixf::*setTrans_function_type)( float,float,float ) ;
             
             Matrixf_exposer.def( 
                 "setTrans"
@@ -995,7 +995,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::setTrans
         
-            typedef void ( ::osg::Matrixf::*setTrans_function_type )( ::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Matrixf::*setTrans_function_type)( ::osg::Vec3f const & ) ;
             
             Matrixf_exposer.def( 
                 "setTrans"
@@ -1005,7 +1005,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::setTrans
         
-            typedef void ( ::osg::Matrixf::*setTrans_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Matrixf::*setTrans_function_type)( ::osg::Vec3d const & ) ;
             
             Matrixf_exposer.def( 
                 "setTrans"
@@ -1085,7 +1085,7 @@ void register_Matrixf_class(){
         }
         { //::osg::Matrixf::valid
         
-            typedef bool ( ::osg::Matrixf::*valid_function_type )(  ) const;
+            typedef bool ( ::osg::Matrixf::*valid_function_type)(  ) const;
             
             Matrixf_exposer.def( 
                 "valid"

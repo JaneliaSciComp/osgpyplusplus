@@ -12,7 +12,7 @@ void register_pair_double_class(){
         .def( bp::init< double const &, double const & >(( bp::arg("_Val1"), bp::arg("_Val2") )) )    
         .def( 
             "swap"
-            , (void ( ::std::pair<double, double>::* )( ::std::pair< double, double > & ) )( &::std::pair< double, double >::swap )
+            , (void ( ::std::pair<double, double>::* )( ::std::pair< double, double > & ))( &::std::pair< double, double >::swap )
             , ( bp::arg("_Right") ) )    
         .def_readwrite( "first", &std::pair< double, double >::first )    
         .def_readwrite( "second", &std::pair< double, double >::second );

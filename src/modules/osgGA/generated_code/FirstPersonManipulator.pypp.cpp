@@ -760,7 +760,7 @@ void register_FirstPersonManipulator_class(){
         bp::implicitly_convertible< int, osgGA::FirstPersonManipulator >();
         { //::osgGA::FirstPersonManipulator::allocAnimationData
         
-            typedef void ( FirstPersonManipulator_wrapper::*allocAnimationData_function_type )(  ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "allocAnimationData"
@@ -769,7 +769,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::applyAnimationStep
         
-            typedef void ( FirstPersonManipulator_wrapper::*applyAnimationStep_function_type )( double const,double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "applyAnimationStep"
@@ -779,8 +779,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::className
         
-            typedef char const * ( ::osgGA::FirstPersonManipulator::*className_function_type )(  ) const;
-            typedef char const * ( FirstPersonManipulator_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgGA::FirstPersonManipulator::*className_function_type)(  ) const;
+            typedef char const * ( FirstPersonManipulator_wrapper::*default_className_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "className"
@@ -790,8 +790,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::clone
         
-            typedef ::osg::Object * ( ::osgGA::FirstPersonManipulator::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( FirstPersonManipulator_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::FirstPersonManipulator::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( FirstPersonManipulator_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "clone"
@@ -803,8 +803,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::FirstPersonManipulator::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( FirstPersonManipulator_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgGA::FirstPersonManipulator::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( FirstPersonManipulator_wrapper::*default_cloneType_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "cloneType"
@@ -815,7 +815,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getAcceleration
         
-            typedef double ( ::osgGA::FirstPersonManipulator::*getAcceleration_function_type )( bool * ) const;
+            typedef double ( ::osgGA::FirstPersonManipulator::*getAcceleration_function_type)( bool * ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getAcceleration"
@@ -825,8 +825,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getInverseMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::FirstPersonManipulator::*getInverseMatrix_function_type )(  ) const;
-            typedef ::osg::Matrixd ( FirstPersonManipulator_wrapper::*default_getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::FirstPersonManipulator::*getInverseMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( FirstPersonManipulator_wrapper::*default_getInverseMatrix_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getInverseMatrix"
@@ -836,8 +836,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::FirstPersonManipulator::*getMatrix_function_type )(  ) const;
-            typedef ::osg::Matrixd ( FirstPersonManipulator_wrapper::*default_getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::FirstPersonManipulator::*getMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( FirstPersonManipulator_wrapper::*default_getMatrix_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getMatrix"
@@ -847,7 +847,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getMaxVelocity
         
-            typedef double ( ::osgGA::FirstPersonManipulator::*getMaxVelocity_function_type )( bool * ) const;
+            typedef double ( ::osgGA::FirstPersonManipulator::*getMaxVelocity_function_type)( bool * ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getMaxVelocity"
@@ -857,8 +857,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getTransformation
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
-            typedef void ( FirstPersonManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osgGA::FirstPersonManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( FirstPersonManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getTransformation"
@@ -869,8 +869,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getTransformation
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( FirstPersonManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::FirstPersonManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( FirstPersonManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getTransformation"
@@ -881,7 +881,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getVelocity
         
-            typedef double ( ::osgGA::FirstPersonManipulator::*getVelocity_function_type )(  ) const;
+            typedef double ( ::osgGA::FirstPersonManipulator::*getVelocity_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getVelocity"
@@ -891,7 +891,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::getWheelMovement
         
-            typedef double ( ::osgGA::FirstPersonManipulator::*getWheelMovement_function_type )( bool * ) const;
+            typedef double ( ::osgGA::FirstPersonManipulator::*getWheelMovement_function_type)( bool * ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getWheelMovement"
@@ -931,8 +931,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::isSameKindAs
         
-            typedef bool ( ::osgGA::FirstPersonManipulator::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( FirstPersonManipulator_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::FirstPersonManipulator::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( FirstPersonManipulator_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "isSameKindAs"
@@ -943,8 +943,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::libraryName
         
-            typedef char const * ( ::osgGA::FirstPersonManipulator::*libraryName_function_type )(  ) const;
-            typedef char const * ( FirstPersonManipulator_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgGA::FirstPersonManipulator::*libraryName_function_type)(  ) const;
+            typedef char const * ( FirstPersonManipulator_wrapper::*default_libraryName_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "libraryName"
@@ -954,7 +954,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::moveForward
         
-            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type )( double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type)( double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "moveForward"
@@ -964,7 +964,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::moveForward
         
-            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type )( ::osg::Quat const &,double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*moveForward_function_type)( ::osg::Quat const &,double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "moveForward"
@@ -974,7 +974,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::moveRight
         
-            typedef void ( FirstPersonManipulator_wrapper::*moveRight_function_type )( double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*moveRight_function_type)( double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "moveRight"
@@ -984,7 +984,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::moveUp
         
-            typedef void ( FirstPersonManipulator_wrapper::*moveUp_function_type )( double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*moveUp_function_type)( double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "moveUp"
@@ -994,7 +994,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::performMouseDeltaMovement
         
-            typedef bool ( FirstPersonManipulator_wrapper::*performMouseDeltaMovement_function_type )( float const,float const ) ;
+            typedef bool ( FirstPersonManipulator_wrapper::*performMouseDeltaMovement_function_type)( float const,float const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "performMouseDeltaMovement"
@@ -1004,7 +1004,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::performMovementLeftMouseButton
         
-            typedef bool ( FirstPersonManipulator_wrapper::*performMovementLeftMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "performMovementLeftMouseButton"
@@ -1014,8 +1014,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setAcceleration
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setAcceleration_function_type )( double const &,bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setAcceleration_function_type )( double const &,bool ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setAcceleration_function_type)( double const &,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setAcceleration_function_type)( double const &,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setAcceleration"
@@ -1026,8 +1026,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setByInverseMatrix
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setByInverseMatrix"
@@ -1038,8 +1038,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setByMatrix
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setByMatrix_function_type )( ::osg::Matrixd const & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setByMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setByMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setByMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setByMatrix"
@@ -1050,8 +1050,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setMaxVelocity
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setMaxVelocity_function_type )( double const &,bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setMaxVelocity_function_type )( double const &,bool ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setMaxVelocity_function_type)( double const &,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setMaxVelocity_function_type)( double const &,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setMaxVelocity"
@@ -1062,8 +1062,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setTransformation
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setTransformation"
@@ -1074,8 +1074,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setTransformation
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setTransformation"
@@ -1086,8 +1086,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setVelocity
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setVelocity_function_type )( double const & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setVelocity_function_type )( double const & ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setVelocity_function_type)( double const & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setVelocity_function_type)( double const & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setVelocity"
@@ -1098,8 +1098,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::FirstPersonManipulator::setWheelMovement
         
-            typedef void ( ::osgGA::FirstPersonManipulator::*setWheelMovement_function_type )( double const &,bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setWheelMovement_function_type )( double const &,bool ) ;
+            typedef void ( ::osgGA::FirstPersonManipulator::*setWheelMovement_function_type)( double const &,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setWheelMovement_function_type)( double const &,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setWheelMovement"
@@ -1119,8 +1119,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "computeHomePosition"
@@ -1131,8 +1131,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::event
         
-            typedef void ( ::osgGA::GUIEventHandler::*event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( ::osgGA::GUIEventHandler::*event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "event"
@@ -1143,8 +1143,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::finishAnimation
         
-            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type )(  ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_finishAnimation_function_type )(  ) ;
+            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type)(  ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_finishAnimation_function_type)(  ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "finishAnimation"
@@ -1164,7 +1164,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::fixVerticalAxis
         
-            typedef void ( FirstPersonManipulator_wrapper::*fixVerticalAxis_function_type )( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "fixVerticalAxis"
@@ -1184,7 +1184,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::flushMouseEventStack
         
-            typedef void ( FirstPersonManipulator_wrapper::*flushMouseEventStack_function_type )(  ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "flushMouseEventStack"
@@ -1193,8 +1193,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::*getFusionDistanceMode_function_type )(  ) const;
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( FirstPersonManipulator_wrapper::*default_getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::CameraManipulator::*getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( FirstPersonManipulator_wrapper::*default_getFusionDistanceMode_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getFusionDistanceMode"
@@ -1204,8 +1204,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getFusionDistanceValue
         
-            typedef float ( ::osgGA::CameraManipulator::*getFusionDistanceValue_function_type )(  ) const;
-            typedef float ( FirstPersonManipulator_wrapper::*default_getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( ::osgGA::CameraManipulator::*getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( FirstPersonManipulator_wrapper::*default_getFusionDistanceValue_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getFusionDistanceValue"
@@ -1215,8 +1215,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( FirstPersonManipulator_wrapper::*default_getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( FirstPersonManipulator_wrapper::*default_getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getHomePosition"
@@ -1227,8 +1227,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) const;
-            typedef ::osg::Node const * ( FirstPersonManipulator_wrapper::*default_getNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( FirstPersonManipulator_wrapper::*default_getNode_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getNode"
@@ -1239,8 +1239,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) ;
-            typedef ::osg::Node * ( FirstPersonManipulator_wrapper::*default_getNode_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) ;
+            typedef ::osg::Node * ( FirstPersonManipulator_wrapper::*default_getNode_function_type)(  ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "getNode"
@@ -1251,7 +1251,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getRelativeFlag
         
-            typedef bool ( FirstPersonManipulator_wrapper::*getRelativeFlag_function_type )( int ) const;
+            typedef bool ( FirstPersonManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getRelativeFlag"
@@ -1261,7 +1261,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getThrowScale
         
-            typedef float ( FirstPersonManipulator_wrapper::*getThrowScale_function_type )( double const ) const;
+            typedef float ( FirstPersonManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getThrowScale"
@@ -1271,8 +1271,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getUsage
         
-            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
-            typedef void ( FirstPersonManipulator_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( FirstPersonManipulator_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "getUsage"
@@ -1304,7 +1304,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isMouseMoving
         
-            typedef bool ( FirstPersonManipulator_wrapper::*isMouseMoving_function_type )(  ) const;
+            typedef bool ( FirstPersonManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
             
             FirstPersonManipulator_exposer.def( 
                 "isMouseMoving"
@@ -1313,7 +1313,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::performMovementMiddleMouseButton
         
-            typedef bool ( FirstPersonManipulator_wrapper::*performMovementMiddleMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "performMovementMiddleMouseButton"
@@ -1323,7 +1323,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::performMovementRightMouseButton
         
-            typedef bool ( FirstPersonManipulator_wrapper::*performMovementRightMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( FirstPersonManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "performMovementRightMouseButton"
@@ -1343,8 +1343,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAllowThrow
         
-            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type )( bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setAllowThrow_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setAllowThrow_function_type)( bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setAllowThrow"
@@ -1355,8 +1355,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAnimationTime
         
-            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type )( double const ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setAnimationTime_function_type )( double const ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type)( double const ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setAnimationTime_function_type)( double const ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setAnimationTime"
@@ -1367,8 +1367,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type )( bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setAutoComputeHomePosition_function_type )( bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type)( bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setAutoComputeHomePosition_function_type)( bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setAutoComputeHomePosition"
@@ -1379,8 +1379,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
         
-            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setCoordinateFrameCallback"
@@ -1391,8 +1391,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setHomePosition"
@@ -1403,8 +1403,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setNode
         
-            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type )( ::osg::Node * ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setNode_function_type )( ::osg::Node * ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setNode_function_type)( ::osg::Node * ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setNode_function_type)( ::osg::Node * ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setNode"
@@ -1415,7 +1415,7 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setRelativeFlag
         
-            typedef void ( FirstPersonManipulator_wrapper::*setRelativeFlag_function_type )( int,bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setRelativeFlag"
@@ -1425,8 +1425,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
-            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type )( bool ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_setVerticalAxisFixed_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_setVerticalAxisFixed_function_type)( bool ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "setVerticalAxisFixed"
@@ -1437,8 +1437,8 @@ void register_FirstPersonManipulator_class(){
         }
         { //::osgGA::CameraManipulator::updateCamera
         
-            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type )( ::osg::Camera & ) ;
-            typedef void ( FirstPersonManipulator_wrapper::*default_updateCamera_function_type )( ::osg::Camera & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type)( ::osg::Camera & ) ;
+            typedef void ( FirstPersonManipulator_wrapper::*default_updateCamera_function_type)( ::osg::Camera & ) ;
             
             FirstPersonManipulator_exposer.def( 
                 "updateCamera"

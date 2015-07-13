@@ -399,8 +399,8 @@ void register_TriStripVisitor_class(){
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::TriStripVisitor >();
         { //::osgUtil::TriStripVisitor::apply
         
-            typedef void ( ::osgUtil::TriStripVisitor::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( TriStripVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( TriStripVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             TriStripVisitor_exposer.def( 
                 "apply"
@@ -411,7 +411,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::getCacheSize
         
-            typedef unsigned int ( ::osgUtil::TriStripVisitor::*getCacheSize_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::TriStripVisitor::*getCacheSize_function_type)(  ) const;
             
             TriStripVisitor_exposer.def( 
                 "getCacheSize"
@@ -420,7 +420,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::getGenerateFourPointPrimitivesQuads
         
-            typedef bool ( ::osgUtil::TriStripVisitor::*getGenerateFourPointPrimitivesQuads_function_type )(  ) const;
+            typedef bool ( ::osgUtil::TriStripVisitor::*getGenerateFourPointPrimitivesQuads_function_type)(  ) const;
             
             TriStripVisitor_exposer.def( 
                 "getGenerateFourPointPrimitivesQuads"
@@ -429,7 +429,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::getMinStripSize
         
-            typedef unsigned int ( ::osgUtil::TriStripVisitor::*getMinStripSize_function_type )(  ) const;
+            typedef unsigned int ( ::osgUtil::TriStripVisitor::*getMinStripSize_function_type)(  ) const;
             
             TriStripVisitor_exposer.def( 
                 "getMinStripSize"
@@ -438,7 +438,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::setCacheSize
         
-            typedef void ( ::osgUtil::TriStripVisitor::*setCacheSize_function_type )( unsigned int ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*setCacheSize_function_type)( unsigned int ) ;
             
             TriStripVisitor_exposer.def( 
                 "setCacheSize"
@@ -448,7 +448,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::setGenerateFourPointPrimitivesQuads
         
-            typedef void ( ::osgUtil::TriStripVisitor::*setGenerateFourPointPrimitivesQuads_function_type )( bool ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*setGenerateFourPointPrimitivesQuads_function_type)( bool ) ;
             
             TriStripVisitor_exposer.def( 
                 "setGenerateFourPointPrimitivesQuads"
@@ -458,7 +458,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::setMinStripSize
         
-            typedef void ( ::osgUtil::TriStripVisitor::*setMinStripSize_function_type )( unsigned int ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*setMinStripSize_function_type)( unsigned int ) ;
             
             TriStripVisitor_exposer.def( 
                 "setMinStripSize"
@@ -468,7 +468,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::stripify
         
-            typedef void ( ::osgUtil::TriStripVisitor::*stripify_function_type )( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*stripify_function_type)( ::osg::Geometry & ) ;
             
             TriStripVisitor_exposer.def( 
                 "stripify"
@@ -478,7 +478,7 @@ void register_TriStripVisitor_class(){
         }
         { //::osgUtil::TriStripVisitor::stripify
         
-            typedef void ( ::osgUtil::TriStripVisitor::*stripify_function_type )(  ) ;
+            typedef void ( ::osgUtil::TriStripVisitor::*stripify_function_type)(  ) ;
             
             TriStripVisitor_exposer.def( 
                 "stripify"

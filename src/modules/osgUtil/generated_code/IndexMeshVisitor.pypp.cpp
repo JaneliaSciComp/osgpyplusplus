@@ -399,7 +399,7 @@ void register_IndexMeshVisitor_class(){
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::IndexMeshVisitor >();
         { //::osgUtil::IndexMeshVisitor::makeMesh
         
-            typedef void ( ::osgUtil::IndexMeshVisitor::*makeMesh_function_type )( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::IndexMeshVisitor::*makeMesh_function_type)( ::osg::Geometry & ) ;
             
             IndexMeshVisitor_exposer.def( 
                 "makeMesh"
@@ -409,7 +409,7 @@ void register_IndexMeshVisitor_class(){
         }
         { //::osgUtil::IndexMeshVisitor::makeMesh
         
-            typedef void ( ::osgUtil::IndexMeshVisitor::*makeMesh_function_type )(  ) ;
+            typedef void ( ::osgUtil::IndexMeshVisitor::*makeMesh_function_type)(  ) ;
             
             IndexMeshVisitor_exposer.def( 
                 "makeMesh"
@@ -418,8 +418,8 @@ void register_IndexMeshVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::apply
         
-            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( IndexMeshVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( IndexMeshVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             IndexMeshVisitor_exposer.def( 
                 "apply"
@@ -430,8 +430,8 @@ void register_IndexMeshVisitor_class(){
         }
         { //::osgUtil::GeometryCollector::reset
         
-            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type )(  ) ;
-            typedef void ( IndexMeshVisitor_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::GeometryCollector::*reset_function_type)(  ) ;
+            typedef void ( IndexMeshVisitor_wrapper::*default_reset_function_type)(  ) ;
             
             IndexMeshVisitor_exposer.def( 
                 "reset"

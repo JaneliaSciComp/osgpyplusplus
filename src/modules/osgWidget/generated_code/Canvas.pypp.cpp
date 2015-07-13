@@ -699,8 +699,8 @@ void register_Canvas_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Canvas >();
         { //::osgWidget::Canvas::addWidget
         
-            typedef bool ( ::osgWidget::Canvas::*addWidget_function_type )( ::osgWidget::Widget *,::osgWidget::point_type,::osgWidget::point_type ) ;
-            typedef bool ( Canvas_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget *,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( ::osgWidget::Canvas::*addWidget_function_type)( ::osgWidget::Widget *,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( Canvas_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget *,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Canvas_exposer.def( 
                 "addWidget"
@@ -711,8 +711,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Canvas::className
         
-            typedef char const * ( ::osgWidget::Canvas::*className_function_type )(  ) const;
-            typedef char const * ( Canvas_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Canvas::*className_function_type)(  ) const;
+            typedef char const * ( Canvas_wrapper::*default_className_function_type)(  ) const;
             
             Canvas_exposer.def( 
                 "className"
@@ -722,8 +722,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Canvas::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Canvas::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Canvas_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Canvas::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Canvas_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Canvas_exposer.def( 
                 "clone"
@@ -735,8 +735,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Canvas::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Canvas::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Canvas_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Canvas::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Canvas_wrapper::*default_cloneType_function_type)(  ) const;
             
             Canvas_exposer.def( 
                 "cloneType"
@@ -747,8 +747,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Canvas::isSameKindAs
         
-            typedef bool ( ::osgWidget::Canvas::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Canvas_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Canvas::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Canvas_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Canvas_exposer.def( 
                 "isSameKindAs"
@@ -759,8 +759,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Canvas::libraryName
         
-            typedef char const * ( ::osgWidget::Canvas::*libraryName_function_type )(  ) const;
-            typedef char const * ( Canvas_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Canvas::*libraryName_function_type)(  ) const;
+            typedef char const * ( Canvas_wrapper::*default_libraryName_function_type)(  ) const;
             
             Canvas_exposer.def( 
                 "libraryName"
@@ -770,8 +770,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::addWidget
         
-            typedef bool ( ::osgWidget::Window::*addWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Canvas_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*addWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Canvas_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Canvas_exposer.def( 
                 "addWidget"
@@ -782,8 +782,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "focus"
@@ -794,8 +794,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::insertWidget
         
-            typedef bool ( ::osgWidget::Window::*insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
-            typedef bool ( Canvas_wrapper::*default_insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( ::osgWidget::Window::*insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( Canvas_wrapper::*default_insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
             
             Canvas_exposer.def( 
                 "insertWidget"
@@ -806,8 +806,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "keyDown"
@@ -818,8 +818,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "keyUp"
@@ -830,8 +830,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::managed
         
-            typedef void ( ::osgWidget::Window::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Canvas_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Canvas_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Canvas_exposer.def( 
                 "managed"
@@ -842,8 +842,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseDrag"
@@ -854,8 +854,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseEnter"
@@ -866,8 +866,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseLeave"
@@ -878,8 +878,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseOver"
@@ -890,8 +890,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mousePush"
@@ -902,8 +902,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseRelease"
@@ -914,8 +914,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "mouseScroll"
@@ -926,8 +926,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::removeWidget
         
-            typedef bool ( ::osgWidget::Window::*removeWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Canvas_wrapper::*default_removeWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*removeWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Canvas_wrapper::*default_removeWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Canvas_exposer.def( 
                 "removeWidget"
@@ -938,8 +938,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::replaceWidget
         
-            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
-            typedef bool ( Canvas_wrapper::*default_replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( Canvas_wrapper::*default_replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
             
             Canvas_exposer.def( 
                 "replaceWidget"
@@ -950,8 +950,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Canvas_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Canvas_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Canvas_exposer.def( 
                 "unfocus"
@@ -962,8 +962,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::unmanaged
         
-            typedef void ( ::osgWidget::Window::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Canvas_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Canvas_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Canvas_exposer.def( 
                 "unmanaged"
@@ -974,8 +974,8 @@ void register_Canvas_class(){
         }
         { //::osgWidget::Window::update
         
-            typedef void ( ::osgWidget::Window::*update_function_type )(  ) ;
-            typedef void ( Canvas_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*update_function_type)(  ) ;
+            typedef void ( Canvas_wrapper::*default_update_function_type)(  ) ;
             
             Canvas_exposer.def( 
                 "update"

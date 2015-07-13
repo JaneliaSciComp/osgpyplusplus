@@ -627,8 +627,8 @@ void register_ImageStream_class(){
         ImageStream_exposer.def( bp::init< >("\n Image Stream class.\n") );
         { //::osg::ImageStream::className
         
-            typedef char const * ( ::osg::ImageStream::*className_function_type )(  ) const;
-            typedef char const * ( ImageStream_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::ImageStream::*className_function_type)(  ) const;
+            typedef char const * ( ImageStream_wrapper::*default_className_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "className"
@@ -638,8 +638,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::clone
         
-            typedef ::osg::Object * ( ::osg::ImageStream::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ImageStream_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::ImageStream::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ImageStream_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             ImageStream_exposer.def( 
                 "clone"
@@ -651,8 +651,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::cloneType
         
-            typedef ::osg::Object * ( ::osg::ImageStream::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( ImageStream_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::ImageStream::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ImageStream_wrapper::*default_cloneType_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "cloneType"
@@ -663,8 +663,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::createSuitableTexture
         
-            typedef ::osg::Texture * ( ::osg::ImageStream::*createSuitableTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( ImageStream_wrapper::*default_createSuitableTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::ImageStream::*createSuitableTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ImageStream_wrapper::*default_createSuitableTexture_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "createSuitableTexture"
@@ -675,8 +675,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getAudioBalance
         
-            typedef float ( ::osg::ImageStream::*getAudioBalance_function_type )(  ) ;
-            typedef float ( ImageStream_wrapper::*default_getAudioBalance_function_type )(  ) ;
+            typedef float ( ::osg::ImageStream::*getAudioBalance_function_type)(  ) ;
+            typedef float ( ImageStream_wrapper::*default_getAudioBalance_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "getAudioBalance"
@@ -686,7 +686,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getAudioStreams
         
-            typedef ::std::vector< osg::ref_ptr<osg::AudioStream> > & ( ::osg::ImageStream::*getAudioStreams_function_type )(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osg::AudioStream> > & ( ::osg::ImageStream::*getAudioStreams_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "getAudioStreams"
@@ -696,7 +696,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getAudioStreams
         
-            typedef ::std::vector< osg::ref_ptr<osg::AudioStream> > const & ( ::osg::ImageStream::*getAudioStreams_function_type )(  ) const;
+            typedef ::std::vector< osg::ref_ptr<osg::AudioStream> > const & ( ::osg::ImageStream::*getAudioStreams_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getAudioStreams"
@@ -706,8 +706,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getCreationTime
         
-            typedef double ( ::osg::ImageStream::*getCreationTime_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getCreationTime_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getCreationTime_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getCreationTime_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getCreationTime"
@@ -717,8 +717,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getCurrentTime
         
-            typedef double ( ::osg::ImageStream::*getCurrentTime_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getCurrentTime_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getCurrentTime_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getCurrentTime_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getCurrentTime"
@@ -728,8 +728,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getFrameRate
         
-            typedef double ( ::osg::ImageStream::*getFrameRate_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getFrameRate_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getFrameRate_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getFrameRate_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getFrameRate"
@@ -739,8 +739,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getLength
         
-            typedef double ( ::osg::ImageStream::*getLength_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getLength_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getLength_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getLength_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getLength"
@@ -750,7 +750,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getLoopingMode
         
-            typedef ::osg::ImageStream::LoopingMode ( ::osg::ImageStream::*getLoopingMode_function_type )(  ) const;
+            typedef ::osg::ImageStream::LoopingMode ( ::osg::ImageStream::*getLoopingMode_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getLoopingMode"
@@ -759,8 +759,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getReferenceTime
         
-            typedef double ( ::osg::ImageStream::*getReferenceTime_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getReferenceTime_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getReferenceTime_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getReferenceTime_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getReferenceTime"
@@ -770,7 +770,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getStatus
         
-            typedef ::osg::ImageStream::StreamStatus ( ::osg::ImageStream::*getStatus_function_type )(  ) const;
+            typedef ::osg::ImageStream::StreamStatus ( ::osg::ImageStream::*getStatus_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getStatus"
@@ -779,8 +779,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getTimeMultiplier
         
-            typedef double ( ::osg::ImageStream::*getTimeMultiplier_function_type )(  ) const;
-            typedef double ( ImageStream_wrapper::*default_getTimeMultiplier_function_type )(  ) const;
+            typedef double ( ::osg::ImageStream::*getTimeMultiplier_function_type)(  ) const;
+            typedef double ( ImageStream_wrapper::*default_getTimeMultiplier_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getTimeMultiplier"
@@ -790,8 +790,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::getVolume
         
-            typedef float ( ::osg::ImageStream::*getVolume_function_type )(  ) const;
-            typedef float ( ImageStream_wrapper::*default_getVolume_function_type )(  ) const;
+            typedef float ( ::osg::ImageStream::*getVolume_function_type)(  ) const;
+            typedef float ( ImageStream_wrapper::*default_getVolume_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getVolume"
@@ -801,8 +801,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::isSameKindAs
         
-            typedef bool ( ::osg::ImageStream::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( ImageStream_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::ImageStream::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ImageStream_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             ImageStream_exposer.def( 
                 "isSameKindAs"
@@ -813,8 +813,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::libraryName
         
-            typedef char const * ( ::osg::ImageStream::*libraryName_function_type )(  ) const;
-            typedef char const * ( ImageStream_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::ImageStream::*libraryName_function_type)(  ) const;
+            typedef char const * ( ImageStream_wrapper::*default_libraryName_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "libraryName"
@@ -824,8 +824,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::pause
         
-            typedef void ( ::osg::ImageStream::*pause_function_type )(  ) ;
-            typedef void ( ImageStream_wrapper::*default_pause_function_type )(  ) ;
+            typedef void ( ::osg::ImageStream::*pause_function_type)(  ) ;
+            typedef void ( ImageStream_wrapper::*default_pause_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "pause"
@@ -835,8 +835,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::play
         
-            typedef void ( ::osg::ImageStream::*play_function_type )(  ) ;
-            typedef void ( ImageStream_wrapper::*default_play_function_type )(  ) ;
+            typedef void ( ::osg::ImageStream::*play_function_type)(  ) ;
+            typedef void ( ImageStream_wrapper::*default_play_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "play"
@@ -846,8 +846,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::quit
         
-            typedef void ( ::osg::ImageStream::*quit_function_type )( bool ) ;
-            typedef void ( ImageStream_wrapper::*default_quit_function_type )( bool ) ;
+            typedef void ( ::osg::ImageStream::*quit_function_type)( bool ) ;
+            typedef void ( ImageStream_wrapper::*default_quit_function_type)( bool ) ;
             
             ImageStream_exposer.def( 
                 "quit"
@@ -858,8 +858,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::rewind
         
-            typedef void ( ::osg::ImageStream::*rewind_function_type )(  ) ;
-            typedef void ( ImageStream_wrapper::*default_rewind_function_type )(  ) ;
+            typedef void ( ::osg::ImageStream::*rewind_function_type)(  ) ;
+            typedef void ( ImageStream_wrapper::*default_rewind_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "rewind"
@@ -869,8 +869,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::seek
         
-            typedef void ( ::osg::ImageStream::*seek_function_type )( double ) ;
-            typedef void ( ImageStream_wrapper::*default_seek_function_type )( double ) ;
+            typedef void ( ::osg::ImageStream::*seek_function_type)( double ) ;
+            typedef void ( ImageStream_wrapper::*default_seek_function_type)( double ) ;
             
             ImageStream_exposer.def( 
                 "seek"
@@ -881,8 +881,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setAudioBalance
         
-            typedef void ( ::osg::ImageStream::*setAudioBalance_function_type )( float ) ;
-            typedef void ( ImageStream_wrapper::*default_setAudioBalance_function_type )( float ) ;
+            typedef void ( ::osg::ImageStream::*setAudioBalance_function_type)( float ) ;
+            typedef void ( ImageStream_wrapper::*default_setAudioBalance_function_type)( float ) ;
             
             ImageStream_exposer.def( 
                 "setAudioBalance"
@@ -893,7 +893,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setAudioStreams
         
-            typedef void ( ::osg::ImageStream::*setAudioStreams_function_type )( ::std::vector< osg::ref_ptr<osg::AudioStream> > const & ) ;
+            typedef void ( ::osg::ImageStream::*setAudioStreams_function_type)( ::std::vector< osg::ref_ptr<osg::AudioStream> > const & ) ;
             
             ImageStream_exposer.def( 
                 "setAudioStreams"
@@ -903,7 +903,7 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setLoopingMode
         
-            typedef void ( ::osg::ImageStream::*setLoopingMode_function_type )( ::osg::ImageStream::LoopingMode ) ;
+            typedef void ( ::osg::ImageStream::*setLoopingMode_function_type)( ::osg::ImageStream::LoopingMode ) ;
             
             ImageStream_exposer.def( 
                 "setLoopingMode"
@@ -913,8 +913,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setReferenceTime
         
-            typedef void ( ::osg::ImageStream::*setReferenceTime_function_type )( double ) ;
-            typedef void ( ImageStream_wrapper::*default_setReferenceTime_function_type )( double ) ;
+            typedef void ( ::osg::ImageStream::*setReferenceTime_function_type)( double ) ;
+            typedef void ( ImageStream_wrapper::*default_setReferenceTime_function_type)( double ) ;
             
             ImageStream_exposer.def( 
                 "setReferenceTime"
@@ -925,8 +925,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setTimeMultiplier
         
-            typedef void ( ::osg::ImageStream::*setTimeMultiplier_function_type )( double ) ;
-            typedef void ( ImageStream_wrapper::*default_setTimeMultiplier_function_type )( double ) ;
+            typedef void ( ::osg::ImageStream::*setTimeMultiplier_function_type)( double ) ;
+            typedef void ( ImageStream_wrapper::*default_setTimeMultiplier_function_type)( double ) ;
             
             ImageStream_exposer.def( 
                 "setTimeMultiplier"
@@ -937,8 +937,8 @@ void register_ImageStream_class(){
         }
         { //::osg::ImageStream::setVolume
         
-            typedef void ( ::osg::ImageStream::*setVolume_function_type )( float ) ;
-            typedef void ( ImageStream_wrapper::*default_setVolume_function_type )( float ) ;
+            typedef void ( ::osg::ImageStream::*setVolume_function_type)( float ) ;
+            typedef void ( ImageStream_wrapper::*default_setVolume_function_type)( float ) ;
             
             ImageStream_exposer.def( 
                 "setVolume"
@@ -949,8 +949,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::allocateImage
         
-            typedef void ( ::osg::Image::*allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( ImageStream_wrapper::*default_allocateImage_function_type )( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ImageStream_wrapper::*default_allocateImage_function_type)( int,int,int,::GLenum,::GLenum,int ) ;
             
             ImageStream_exposer.def( 
                 "allocateImage"
@@ -961,8 +961,8 @@ void register_ImageStream_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type )(  ) ;
-            typedef ::osg::Array * ( ImageStream_wrapper::*default_asArray_function_type )(  ) ;
+            typedef ::osg::Array * ( ::osg::BufferData::*asArray_function_type)(  ) ;
+            typedef ::osg::Array * ( ImageStream_wrapper::*default_asArray_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "asArray"
@@ -973,8 +973,8 @@ void register_ImageStream_class(){
         }
         { //::osg::BufferData::asArray
         
-            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type )(  ) const;
-            typedef ::osg::Array const * ( ImageStream_wrapper::*default_asArray_function_type )(  ) const;
+            typedef ::osg::Array const * ( ::osg::BufferData::*asArray_function_type)(  ) const;
+            typedef ::osg::Array const * ( ImageStream_wrapper::*default_asArray_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "asArray"
@@ -985,8 +985,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type )(  ) ;
-            typedef ::osg::Image * ( ImageStream_wrapper::*default_asImage_function_type )(  ) ;
+            typedef ::osg::Image * ( ::osg::Image::*asImage_function_type)(  ) ;
+            typedef ::osg::Image * ( ImageStream_wrapper::*default_asImage_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "asImage"
@@ -997,8 +997,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::asImage
         
-            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type )(  ) const;
-            typedef ::osg::Image const * ( ImageStream_wrapper::*default_asImage_function_type )(  ) const;
+            typedef ::osg::Image const * ( ::osg::Image::*asImage_function_type)(  ) const;
+            typedef ::osg::Image const * ( ImageStream_wrapper::*default_asImage_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "asImage"
@@ -1009,8 +1009,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( ImageStream_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( ImageStream_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "computeDataVariance"
@@ -1020,8 +1020,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::copySubImage
         
-            typedef void ( ::osg::Image::*copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
-            typedef void ( ImageStream_wrapper::*default_copySubImage_function_type )( int,int,int,::osg::Image const * ) ;
+            typedef void ( ::osg::Image::*copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
+            typedef void ( ImageStream_wrapper::*default_copySubImage_function_type)( int,int,int,::osg::Image const * ) ;
             
             ImageStream_exposer.def( 
                 "copySubImage"
@@ -1032,8 +1032,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::getDataPointer
         
-            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type )(  ) const;
-            typedef ::GLvoid const * ( ImageStream_wrapper::*default_getDataPointer_function_type )(  ) const;
+            typedef ::GLvoid const * ( ::osg::Image::*getDataPointer_function_type)(  ) const;
+            typedef ::GLvoid const * ( ImageStream_wrapper::*default_getDataPointer_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getDataPointer"
@@ -1044,8 +1044,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::getTotalDataSize
         
-            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type )(  ) const;
-            typedef unsigned int ( ImageStream_wrapper::*default_getTotalDataSize_function_type )(  ) const;
+            typedef unsigned int ( ::osg::Image::*getTotalDataSize_function_type)(  ) const;
+            typedef unsigned int ( ImageStream_wrapper::*default_getTotalDataSize_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getTotalDataSize"
@@ -1055,8 +1055,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( ImageStream_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ImageStream_wrapper::*default_getUserData_function_type)(  ) ;
             
             ImageStream_exposer.def( 
                 "getUserData"
@@ -1067,8 +1067,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( ImageStream_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ImageStream_wrapper::*default_getUserData_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "getUserData"
@@ -1079,8 +1079,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::isImageTranslucent
         
-            typedef bool ( ::osg::Image::*isImageTranslucent_function_type )(  ) const;
-            typedef bool ( ImageStream_wrapper::*default_isImageTranslucent_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*isImageTranslucent_function_type)(  ) const;
+            typedef bool ( ImageStream_wrapper::*default_isImageTranslucent_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "isImageTranslucent"
@@ -1090,8 +1090,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::readImageFromCurrentTexture
         
-            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
-            typedef void ( ImageStream_wrapper::*default_readImageFromCurrentTexture_function_type )( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( ::osg::Image::*readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
+            typedef void ( ImageStream_wrapper::*default_readImageFromCurrentTexture_function_type)( unsigned int,bool,::GLenum,unsigned int ) ;
             
             ImageStream_exposer.def( 
                 "readImageFromCurrentTexture"
@@ -1102,8 +1102,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::readPixels
         
-            typedef void ( ::osg::Image::*readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
-            typedef void ( ImageStream_wrapper::*default_readPixels_function_type )( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ::osg::Image::*readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
+            typedef void ( ImageStream_wrapper::*default_readPixels_function_type)( int,int,int,int,::GLenum,::GLenum,int ) ;
             
             ImageStream_exposer.def( 
                 "readPixels"
@@ -1114,8 +1114,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::requiresUpdateCall
         
-            typedef bool ( ::osg::Image::*requiresUpdateCall_function_type )(  ) const;
-            typedef bool ( ImageStream_wrapper::*default_requiresUpdateCall_function_type )(  ) const;
+            typedef bool ( ::osg::Image::*requiresUpdateCall_function_type)(  ) const;
+            typedef bool ( ImageStream_wrapper::*default_requiresUpdateCall_function_type)(  ) const;
             
             ImageStream_exposer.def( 
                 "requiresUpdateCall"
@@ -1125,8 +1125,8 @@ void register_ImageStream_class(){
         }
         { //::osg::BufferData::resizeGLObjectBuffers
         
-            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( ImageStream_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::BufferData::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ImageStream_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             ImageStream_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1137,7 +1137,7 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int ) ;
             
             ImageStream_exposer.def( 
                 "scaleImage"
@@ -1148,8 +1148,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::scaleImage
         
-            typedef void ( ::osg::Image::*scaleImage_function_type )( int,int,int,::GLenum ) ;
-            typedef void ( ImageStream_wrapper::*default_scaleImage_function_type )( int,int,int,::GLenum ) ;
+            typedef void ( ::osg::Image::*scaleImage_function_type)( int,int,int,::GLenum ) ;
+            typedef void ( ImageStream_wrapper::*default_scaleImage_function_type)( int,int,int,::GLenum ) ;
             
             ImageStream_exposer.def( 
                 "scaleImage"
@@ -1160,8 +1160,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::sendFocusHint
         
-            typedef bool ( ::osg::Image::*sendFocusHint_function_type )( bool ) ;
-            typedef bool ( ImageStream_wrapper::*default_sendFocusHint_function_type )( bool ) ;
+            typedef bool ( ::osg::Image::*sendFocusHint_function_type)( bool ) ;
+            typedef bool ( ImageStream_wrapper::*default_sendFocusHint_function_type)( bool ) ;
             
             ImageStream_exposer.def( 
                 "sendFocusHint"
@@ -1172,8 +1172,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::sendKeyEvent
         
-            typedef bool ( ::osg::Image::*sendKeyEvent_function_type )( int,bool ) ;
-            typedef bool ( ImageStream_wrapper::*default_sendKeyEvent_function_type )( int,bool ) ;
+            typedef bool ( ::osg::Image::*sendKeyEvent_function_type)( int,bool ) ;
+            typedef bool ( ImageStream_wrapper::*default_sendKeyEvent_function_type)( int,bool ) ;
             
             ImageStream_exposer.def( 
                 "sendKeyEvent"
@@ -1184,8 +1184,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::sendPointerEvent
         
-            typedef bool ( ::osg::Image::*sendPointerEvent_function_type )( int,int,int ) ;
-            typedef bool ( ImageStream_wrapper::*default_sendPointerEvent_function_type )( int,int,int ) ;
+            typedef bool ( ::osg::Image::*sendPointerEvent_function_type)( int,int,int ) ;
+            typedef bool ( ImageStream_wrapper::*default_sendPointerEvent_function_type)( int,int,int ) ;
             
             ImageStream_exposer.def( 
                 "sendPointerEvent"
@@ -1196,8 +1196,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::setFrameLastRendered
         
-            typedef void ( ::osg::Image::*setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
-            typedef void ( ImageStream_wrapper::*default_setFrameLastRendered_function_type )( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osg::Image::*setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( ImageStream_wrapper::*default_setFrameLastRendered_function_type)( ::osg::FrameStamp const * ) ;
             
             ImageStream_exposer.def( 
                 "setFrameLastRendered"
@@ -1208,8 +1208,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::setImage
         
-            typedef void ( ::osg::Image::*setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
-            typedef void ( ImageStream_wrapper::*default_setImage_function_type )( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( ::osg::Image::*setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
+            typedef void ( ImageStream_wrapper::*default_setImage_function_type)( int,int,int,::GLint,::GLenum,::GLenum,unsigned char *,::osg::Image::AllocationMode,int,int ) ;
             
             ImageStream_exposer.def( 
                 "setImage"
@@ -1220,8 +1220,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( ImageStream_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( ImageStream_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             ImageStream_exposer.def( 
                 "setName"
@@ -1232,7 +1232,7 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             ImageStream_exposer.def( 
                 "setName"
@@ -1243,8 +1243,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( ImageStream_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ImageStream_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             ImageStream_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1255,8 +1255,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( ImageStream_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ImageStream_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             ImageStream_exposer.def( 
                 "setUserData"
@@ -1267,8 +1267,8 @@ void register_ImageStream_class(){
         }
         { //::osg::Image::update
         
-            typedef void ( ::osg::Image::*update_function_type )( ::osg::NodeVisitor * ) ;
-            typedef void ( ImageStream_wrapper::*default_update_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::Image::*update_function_type)( ::osg::NodeVisitor * ) ;
+            typedef void ( ImageStream_wrapper::*default_update_function_type)( ::osg::NodeVisitor * ) ;
             
             ImageStream_exposer.def( 
                 "update"

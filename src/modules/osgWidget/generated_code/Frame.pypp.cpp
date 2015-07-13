@@ -1898,8 +1898,8 @@ void register_Frame_class(){
             bp::implicitly_convertible< osgWidget::Frame::BorderType, osgWidget::Frame::Border >();
             { //::osgWidget::Frame::Border::className
             
-                typedef char const * ( ::osgWidget::Frame::Border::*className_function_type )(  ) const;
-                typedef char const * ( Frame_wrapper::Border_wrapper::*default_className_function_type )(  ) const;
+                typedef char const * ( ::osgWidget::Frame::Border::*className_function_type)(  ) const;
+                typedef char const * ( Frame_wrapper::Border_wrapper::*default_className_function_type)(  ) const;
                 
                 Border_exposer.def( 
                     "className"
@@ -1909,8 +1909,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::clone
             
-                typedef ::osg::Object * ( ::osgWidget::Frame::Border::*clone_function_type )( ::osg::CopyOp const & ) const;
-                typedef ::osg::Object * ( Frame_wrapper::Border_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( ::osgWidget::Frame::Border::*clone_function_type)( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( Frame_wrapper::Border_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
                 
                 Border_exposer.def( 
                     "clone"
@@ -1922,8 +1922,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::cloneType
             
-                typedef ::osg::Object * ( ::osgWidget::Frame::Border::*cloneType_function_type )(  ) const;
-                typedef ::osg::Object * ( Frame_wrapper::Border_wrapper::*default_cloneType_function_type )(  ) const;
+                typedef ::osg::Object * ( ::osgWidget::Frame::Border::*cloneType_function_type)(  ) const;
+                typedef ::osg::Object * ( Frame_wrapper::Border_wrapper::*default_cloneType_function_type)(  ) const;
                 
                 Border_exposer.def( 
                     "cloneType"
@@ -1934,7 +1934,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::getBorderType
             
-                typedef ::osgWidget::Frame::BorderType ( ::osgWidget::Frame::Border::*getBorderType_function_type )(  ) const;
+                typedef ::osgWidget::Frame::BorderType ( ::osgWidget::Frame::Border::*getBorderType_function_type)(  ) const;
                 
                 Border_exposer.def( 
                     "getBorderType"
@@ -1943,8 +1943,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::isSameKindAs
             
-                typedef bool ( ::osgWidget::Frame::Border::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+                typedef bool ( ::osgWidget::Frame::Border::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
                 
                 Border_exposer.def( 
                     "isSameKindAs"
@@ -1955,8 +1955,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::libraryName
             
-                typedef char const * ( ::osgWidget::Frame::Border::*libraryName_function_type )(  ) const;
-                typedef char const * ( Frame_wrapper::Border_wrapper::*default_libraryName_function_type )(  ) const;
+                typedef char const * ( ::osgWidget::Frame::Border::*libraryName_function_type)(  ) const;
+                typedef char const * ( Frame_wrapper::Border_wrapper::*default_libraryName_function_type)(  ) const;
                 
                 Border_exposer.def( 
                     "libraryName"
@@ -1966,8 +1966,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::mouseDrag
             
-                typedef bool ( ::osgWidget::Frame::Border::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::Frame::Border::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseDrag"
@@ -1978,8 +1978,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::parented
             
-                typedef void ( ::osgWidget::Frame::Border::*parented_function_type )( ::osgWidget::Window * ) ;
-                typedef void ( Frame_wrapper::Border_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+                typedef void ( ::osgWidget::Frame::Border::*parented_function_type)( ::osgWidget::Window * ) ;
+                typedef void ( Frame_wrapper::Border_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
                 
                 Border_exposer.def( 
                     "parented"
@@ -1990,8 +1990,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::positioned
             
-                typedef void ( ::osgWidget::Frame::Border::*positioned_function_type )(  ) ;
-                typedef void ( Frame_wrapper::Border_wrapper::*default_positioned_function_type )(  ) ;
+                typedef void ( ::osgWidget::Frame::Border::*positioned_function_type)(  ) ;
+                typedef void ( Frame_wrapper::Border_wrapper::*default_positioned_function_type)(  ) ;
                 
                 Border_exposer.def( 
                     "positioned"
@@ -2001,7 +2001,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::setBorderType
             
-                typedef void ( ::osgWidget::Frame::Border::*setBorderType_function_type )( ::osgWidget::Frame::BorderType ) ;
+                typedef void ( ::osgWidget::Frame::Border::*setBorderType_function_type)( ::osgWidget::Frame::BorderType ) ;
                 
                 Border_exposer.def( 
                     "setBorderType"
@@ -2011,7 +2011,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Border::setBorderTypeAndName
             
-                typedef void ( ::osgWidget::Frame::Border::*setBorderTypeAndName_function_type )( ::osgWidget::Frame::BorderType ) ;
+                typedef void ( ::osgWidget::Frame::Border::*setBorderTypeAndName_function_type)( ::osgWidget::Frame::BorderType ) ;
                 
                 Border_exposer.def( 
                     "setBorderTypeAndName"
@@ -2021,8 +2021,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::focus
             
-                typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "focus"
@@ -2033,8 +2033,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::keyDown
             
-                typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "keyDown"
@@ -2045,8 +2045,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::keyUp
             
-                typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "keyUp"
@@ -2057,8 +2057,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::managed
             
-                typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-                typedef void ( Frame_wrapper::Border_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+                typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+                typedef void ( Frame_wrapper::Border_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
                 
                 Border_exposer.def( 
                     "managed"
@@ -2069,8 +2069,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseEnter
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseEnter"
@@ -2081,8 +2081,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseLeave
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseLeave"
@@ -2093,8 +2093,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseOver
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseOver"
@@ -2105,8 +2105,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mousePush
             
-                typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mousePush"
@@ -2117,8 +2117,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseRelease
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseRelease"
@@ -2129,8 +2129,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseScroll
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "mouseScroll"
@@ -2141,8 +2141,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::unfocus
             
-                typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Border_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Border_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
                 
                 Border_exposer.def( 
                     "unfocus"
@@ -2153,8 +2153,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::unmanaged
             
-                typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-                typedef void ( Frame_wrapper::Border_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+                typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+                typedef void ( Frame_wrapper::Border_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
                 
                 Border_exposer.def( 
                     "unmanaged"
@@ -2165,8 +2165,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::unparented
             
-                typedef void ( ::osgWidget::Widget::*unparented_function_type )( ::osgWidget::Window * ) ;
-                typedef void ( Frame_wrapper::Border_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+                typedef void ( ::osgWidget::Widget::*unparented_function_type)( ::osgWidget::Window * ) ;
+                typedef void ( Frame_wrapper::Border_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
                 
                 Border_exposer.def( 
                     "unparented"
@@ -2183,8 +2183,8 @@ void register_Frame_class(){
             bp::implicitly_convertible< osgWidget::Frame::CornerType, osgWidget::Frame::Corner >();
             { //::osgWidget::Frame::Corner::className
             
-                typedef char const * ( ::osgWidget::Frame::Corner::*className_function_type )(  ) const;
-                typedef char const * ( Frame_wrapper::Corner_wrapper::*default_className_function_type )(  ) const;
+                typedef char const * ( ::osgWidget::Frame::Corner::*className_function_type)(  ) const;
+                typedef char const * ( Frame_wrapper::Corner_wrapper::*default_className_function_type)(  ) const;
                 
                 Corner_exposer.def( 
                     "className"
@@ -2194,8 +2194,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::clone
             
-                typedef ::osg::Object * ( ::osgWidget::Frame::Corner::*clone_function_type )( ::osg::CopyOp const & ) const;
-                typedef ::osg::Object * ( Frame_wrapper::Corner_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( ::osgWidget::Frame::Corner::*clone_function_type)( ::osg::CopyOp const & ) const;
+                typedef ::osg::Object * ( Frame_wrapper::Corner_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
                 
                 Corner_exposer.def( 
                     "clone"
@@ -2207,8 +2207,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::cloneType
             
-                typedef ::osg::Object * ( ::osgWidget::Frame::Corner::*cloneType_function_type )(  ) const;
-                typedef ::osg::Object * ( Frame_wrapper::Corner_wrapper::*default_cloneType_function_type )(  ) const;
+                typedef ::osg::Object * ( ::osgWidget::Frame::Corner::*cloneType_function_type)(  ) const;
+                typedef ::osg::Object * ( Frame_wrapper::Corner_wrapper::*default_cloneType_function_type)(  ) const;
                 
                 Corner_exposer.def( 
                     "cloneType"
@@ -2219,7 +2219,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::getCornerType
             
-                typedef ::osgWidget::Frame::CornerType ( ::osgWidget::Frame::Corner::*getCornerType_function_type )(  ) const;
+                typedef ::osgWidget::Frame::CornerType ( ::osgWidget::Frame::Corner::*getCornerType_function_type)(  ) const;
                 
                 Corner_exposer.def( 
                     "getCornerType"
@@ -2228,8 +2228,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::isSameKindAs
             
-                typedef bool ( ::osgWidget::Frame::Corner::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+                typedef bool ( ::osgWidget::Frame::Corner::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
                 
                 Corner_exposer.def( 
                     "isSameKindAs"
@@ -2240,8 +2240,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::libraryName
             
-                typedef char const * ( ::osgWidget::Frame::Corner::*libraryName_function_type )(  ) const;
-                typedef char const * ( Frame_wrapper::Corner_wrapper::*default_libraryName_function_type )(  ) const;
+                typedef char const * ( ::osgWidget::Frame::Corner::*libraryName_function_type)(  ) const;
+                typedef char const * ( Frame_wrapper::Corner_wrapper::*default_libraryName_function_type)(  ) const;
                 
                 Corner_exposer.def( 
                     "libraryName"
@@ -2251,8 +2251,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::mouseDrag
             
-                typedef bool ( ::osgWidget::Frame::Corner::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::Frame::Corner::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseDrag"
@@ -2263,8 +2263,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::parented
             
-                typedef void ( ::osgWidget::Frame::Corner::*parented_function_type )( ::osgWidget::Window * ) ;
-                typedef void ( Frame_wrapper::Corner_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+                typedef void ( ::osgWidget::Frame::Corner::*parented_function_type)( ::osgWidget::Window * ) ;
+                typedef void ( Frame_wrapper::Corner_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
                 
                 Corner_exposer.def( 
                     "parented"
@@ -2275,7 +2275,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::setCornerType
             
-                typedef void ( ::osgWidget::Frame::Corner::*setCornerType_function_type )( ::osgWidget::Frame::CornerType ) ;
+                typedef void ( ::osgWidget::Frame::Corner::*setCornerType_function_type)( ::osgWidget::Frame::CornerType ) ;
                 
                 Corner_exposer.def( 
                     "setCornerType"
@@ -2285,7 +2285,7 @@ void register_Frame_class(){
             }
             { //::osgWidget::Frame::Corner::setCornerTypeAndName
             
-                typedef void ( ::osgWidget::Frame::Corner::*setCornerTypeAndName_function_type )( ::osgWidget::Frame::CornerType ) ;
+                typedef void ( ::osgWidget::Frame::Corner::*setCornerTypeAndName_function_type)( ::osgWidget::Frame::CornerType ) ;
                 
                 Corner_exposer.def( 
                     "setCornerTypeAndName"
@@ -2295,8 +2295,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::focus
             
-                typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "focus"
@@ -2307,8 +2307,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::keyDown
             
-                typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "keyDown"
@@ -2319,8 +2319,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::keyUp
             
-                typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "keyUp"
@@ -2331,8 +2331,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::managed
             
-                typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-                typedef void ( Frame_wrapper::Corner_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+                typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+                typedef void ( Frame_wrapper::Corner_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
                 
                 Corner_exposer.def( 
                     "managed"
@@ -2343,8 +2343,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseEnter
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseEnter"
@@ -2355,8 +2355,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseLeave
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseLeave"
@@ -2367,8 +2367,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseOver
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseOver"
@@ -2379,8 +2379,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mousePush
             
-                typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mousePush"
@@ -2391,8 +2391,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseRelease
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseRelease"
@@ -2403,8 +2403,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::mouseScroll
             
-                typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "mouseScroll"
@@ -2415,8 +2415,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::positioned
             
-                typedef void ( ::osgWidget::Widget::*positioned_function_type )(  ) ;
-                typedef void ( Frame_wrapper::Corner_wrapper::*default_positioned_function_type )(  ) ;
+                typedef void ( ::osgWidget::Widget::*positioned_function_type)(  ) ;
+                typedef void ( Frame_wrapper::Corner_wrapper::*default_positioned_function_type)(  ) ;
                 
                 Corner_exposer.def( 
                     "positioned"
@@ -2426,8 +2426,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::EventInterface::unfocus
             
-                typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-                typedef bool ( Frame_wrapper::Corner_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+                typedef bool ( Frame_wrapper::Corner_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
                 
                 Corner_exposer.def( 
                     "unfocus"
@@ -2438,8 +2438,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::unmanaged
             
-                typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-                typedef void ( Frame_wrapper::Corner_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+                typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+                typedef void ( Frame_wrapper::Corner_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
                 
                 Corner_exposer.def( 
                     "unmanaged"
@@ -2450,8 +2450,8 @@ void register_Frame_class(){
             }
             { //::osgWidget::Widget::unparented
             
-                typedef void ( ::osgWidget::Widget::*unparented_function_type )( ::osgWidget::Window * ) ;
-                typedef void ( Frame_wrapper::Corner_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+                typedef void ( ::osgWidget::Widget::*unparented_function_type)( ::osgWidget::Window * ) ;
+                typedef void ( Frame_wrapper::Corner_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
                 
                 Corner_exposer.def( 
                     "unparented"
@@ -2474,7 +2474,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::canMove
         
-            typedef bool ( ::osgWidget::Frame::*canMove_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Frame::*canMove_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "canMove"
@@ -2483,7 +2483,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::canResize
         
-            typedef bool ( ::osgWidget::Frame::*canResize_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Frame::*canResize_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "canResize"
@@ -2492,7 +2492,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::canTexture
         
-            typedef bool ( ::osgWidget::Frame::*canTexture_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Frame::*canTexture_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "canTexture"
@@ -2501,8 +2501,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::className
         
-            typedef char const * ( ::osgWidget::Frame::*className_function_type )(  ) const;
-            typedef char const * ( Frame_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Frame::*className_function_type)(  ) const;
+            typedef char const * ( Frame_wrapper::*default_className_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "className"
@@ -2512,8 +2512,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Frame::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Frame_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Frame::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Frame_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Frame_exposer.def( 
                 "clone"
@@ -2525,8 +2525,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Frame::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Frame_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Frame::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Frame_wrapper::*default_cloneType_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "cloneType"
@@ -2558,7 +2558,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::createSimpleFrame
         
-            typedef void ( ::osgWidget::Frame::*createSimpleFrame_function_type )( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Frame::*createSimpleFrame_function_type)( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Frame_exposer.def( 
                 "createSimpleFrame"
@@ -2590,7 +2590,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::createSimpleFrameWithSingleTexture
         
-            typedef void ( ::osgWidget::Frame::*createSimpleFrameWithSingleTexture_function_type )( ::osg::Image *,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Frame::*createSimpleFrameWithSingleTexture_function_type)( ::osg::Image *,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Frame_exposer.def( 
                 "createSimpleFrameWithSingleTexture"
@@ -2600,7 +2600,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getBorder
         
-            typedef ::osgWidget::Frame::Border * ( ::osgWidget::Frame::*getBorder_function_type )( ::osgWidget::Frame::BorderType ) ;
+            typedef ::osgWidget::Frame::Border * ( ::osgWidget::Frame::*getBorder_function_type)( ::osgWidget::Frame::BorderType ) ;
             
             Frame_exposer.def( 
                 "getBorder"
@@ -2611,7 +2611,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getBorder
         
-            typedef ::osgWidget::Frame::Border const * ( ::osgWidget::Frame::*getBorder_function_type )( ::osgWidget::Frame::BorderType ) const;
+            typedef ::osgWidget::Frame::Border const * ( ::osgWidget::Frame::*getBorder_function_type)( ::osgWidget::Frame::BorderType ) const;
             
             Frame_exposer.def( 
                 "getBorder"
@@ -2622,7 +2622,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getCorner
         
-            typedef ::osgWidget::Frame::Corner * ( ::osgWidget::Frame::*getCorner_function_type )( ::osgWidget::Frame::CornerType ) ;
+            typedef ::osgWidget::Frame::Corner * ( ::osgWidget::Frame::*getCorner_function_type)( ::osgWidget::Frame::CornerType ) ;
             
             Frame_exposer.def( 
                 "getCorner"
@@ -2633,7 +2633,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getCorner
         
-            typedef ::osgWidget::Frame::Corner const * ( ::osgWidget::Frame::*getCorner_function_type )( ::osgWidget::Frame::CornerType ) const;
+            typedef ::osgWidget::Frame::Corner const * ( ::osgWidget::Frame::*getCorner_function_type)( ::osgWidget::Frame::CornerType ) const;
             
             Frame_exposer.def( 
                 "getCorner"
@@ -2644,7 +2644,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getEmbeddedWindow
         
-            typedef ::osgWidget::Window::EmbeddedWindow * ( ::osgWidget::Frame::*getEmbeddedWindow_function_type )(  ) ;
+            typedef ::osgWidget::Window::EmbeddedWindow * ( ::osgWidget::Frame::*getEmbeddedWindow_function_type)(  ) ;
             
             Frame_exposer.def( 
                 "getEmbeddedWindow"
@@ -2654,7 +2654,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getEmbeddedWindow
         
-            typedef ::osgWidget::Window::EmbeddedWindow const * ( ::osgWidget::Frame::*getEmbeddedWindow_function_type )(  ) const;
+            typedef ::osgWidget::Window::EmbeddedWindow const * ( ::osgWidget::Frame::*getEmbeddedWindow_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "getEmbeddedWindow"
@@ -2664,7 +2664,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::getFlags
         
-            typedef unsigned int ( ::osgWidget::Frame::*getFlags_function_type )(  ) const;
+            typedef unsigned int ( ::osgWidget::Frame::*getFlags_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "getFlags"
@@ -2673,8 +2673,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::isSameKindAs
         
-            typedef bool ( ::osgWidget::Frame::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Frame_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Frame::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Frame_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Frame_exposer.def( 
                 "isSameKindAs"
@@ -2685,8 +2685,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::libraryName
         
-            typedef char const * ( ::osgWidget::Frame::*libraryName_function_type )(  ) const;
-            typedef char const * ( Frame_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Frame::*libraryName_function_type)(  ) const;
+            typedef char const * ( Frame_wrapper::*default_libraryName_function_type)(  ) const;
             
             Frame_exposer.def( 
                 "libraryName"
@@ -2696,7 +2696,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::resizeFrame
         
-            typedef bool ( ::osgWidget::Frame::*resizeFrame_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( ::osgWidget::Frame::*resizeFrame_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Frame_exposer.def( 
                 "resizeFrame"
@@ -2706,7 +2706,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::setFlags
         
-            typedef void ( ::osgWidget::Frame::*setFlags_function_type )( unsigned int ) ;
+            typedef void ( ::osgWidget::Frame::*setFlags_function_type)( unsigned int ) ;
             
             Frame_exposer.def( 
                 "setFlags"
@@ -2716,7 +2716,7 @@ void register_Frame_class(){
         }
         { //::osgWidget::Frame::setWindow
         
-            typedef bool ( ::osgWidget::Frame::*setWindow_function_type )( ::osgWidget::Window * ) ;
+            typedef bool ( ::osgWidget::Frame::*setWindow_function_type)( ::osgWidget::Window * ) ;
             
             Frame_exposer.def( 
                 "setWindow"
@@ -2726,8 +2726,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Table::addWidget
         
-            typedef bool ( ::osgWidget::Table::*addWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Frame_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Table::*addWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Frame_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Frame_exposer.def( 
                 "addWidget"
@@ -2738,8 +2738,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Table::addWidget
         
-            typedef bool ( ::osgWidget::Table::*addWidget_function_type )( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
-            typedef bool ( Frame_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
+            typedef bool ( ::osgWidget::Table::*addWidget_function_type)( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
+            typedef bool ( Frame_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget *,unsigned int,unsigned int ) ;
             
             Frame_exposer.def( 
                 "addWidget"
@@ -2750,8 +2750,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "focus"
@@ -2762,8 +2762,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::insertWidget
         
-            typedef bool ( ::osgWidget::Window::*insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
-            typedef bool ( Frame_wrapper::*default_insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( ::osgWidget::Window::*insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( Frame_wrapper::*default_insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
             
             Frame_exposer.def( 
                 "insertWidget"
@@ -2774,8 +2774,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "keyDown"
@@ -2786,8 +2786,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "keyUp"
@@ -2798,8 +2798,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::managed
         
-            typedef void ( ::osgWidget::Window::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Frame_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Frame_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Frame_exposer.def( 
                 "managed"
@@ -2810,8 +2810,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseDrag"
@@ -2822,8 +2822,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseEnter"
@@ -2834,8 +2834,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseLeave"
@@ -2846,8 +2846,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseOver"
@@ -2858,8 +2858,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mousePush"
@@ -2870,8 +2870,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseRelease"
@@ -2882,8 +2882,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "mouseScroll"
@@ -2894,8 +2894,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::removeWidget
         
-            typedef bool ( ::osgWidget::Window::*removeWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Frame_wrapper::*default_removeWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*removeWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Frame_wrapper::*default_removeWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Frame_exposer.def( 
                 "removeWidget"
@@ -2906,8 +2906,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::replaceWidget
         
-            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
-            typedef bool ( Frame_wrapper::*default_replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( Frame_wrapper::*default_replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
             
             Frame_exposer.def( 
                 "replaceWidget"
@@ -2918,8 +2918,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Frame_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Frame_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Frame_exposer.def( 
                 "unfocus"
@@ -2930,8 +2930,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::unmanaged
         
-            typedef void ( ::osgWidget::Window::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Frame_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Frame_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Frame_exposer.def( 
                 "unmanaged"
@@ -2942,8 +2942,8 @@ void register_Frame_class(){
         }
         { //::osgWidget::Window::update
         
-            typedef void ( ::osgWidget::Window::*update_function_type )(  ) ;
-            typedef void ( Frame_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*update_function_type)(  ) ;
+            typedef void ( Frame_wrapper::*default_update_function_type)(  ) ;
             
             Frame_exposer.def( 
                 "update"

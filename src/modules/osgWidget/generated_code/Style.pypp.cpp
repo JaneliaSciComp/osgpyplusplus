@@ -279,8 +279,8 @@ void register_Style_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Style >();
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Widget *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Widget *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Widget *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Widget *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -291,8 +291,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Label *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Label *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Label *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Label *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -303,8 +303,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Input *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Input *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Input *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Input *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -315,8 +315,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Window *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Window *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Window *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Window *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -327,8 +327,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Window::EmbeddedWindow *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Window::EmbeddedWindow *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Window::EmbeddedWindow *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Window::EmbeddedWindow *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -339,8 +339,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Box *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Box *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Box *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Box *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -351,8 +351,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Frame::Corner *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Frame::Corner *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Frame::Corner *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Frame::Corner *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -363,8 +363,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Frame::Border *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Frame::Border *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Frame::Border *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Frame::Border *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -375,8 +375,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::applyStyle
         
-            typedef bool ( ::osgWidget::Style::*applyStyle_function_type )( ::osgWidget::Canvas *,::osgWidget::Reader ) ;
-            typedef bool ( Style_wrapper::*default_applyStyle_function_type )( ::osgWidget::Canvas *,::osgWidget::Reader ) ;
+            typedef bool ( ::osgWidget::Style::*applyStyle_function_type)( ::osgWidget::Canvas *,::osgWidget::Reader ) ;
+            typedef bool ( Style_wrapper::*default_applyStyle_function_type)( ::osgWidget::Canvas *,::osgWidget::Reader ) ;
             
             Style_exposer.def( 
                 "applyStyle"
@@ -387,8 +387,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::className
         
-            typedef char const * ( ::osgWidget::Style::*className_function_type )(  ) const;
-            typedef char const * ( Style_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Style::*className_function_type)(  ) const;
+            typedef char const * ( Style_wrapper::*default_className_function_type)(  ) const;
             
             Style_exposer.def( 
                 "className"
@@ -398,8 +398,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Style::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Style_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Style::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Style_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Style_exposer.def( 
                 "clone"
@@ -411,8 +411,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Style::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Style_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Style::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Style_wrapper::*default_cloneType_function_type)(  ) const;
             
             Style_exposer.def( 
                 "cloneType"
@@ -423,7 +423,7 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::getStyle
         
-            typedef ::std::string & ( ::osgWidget::Style::*getStyle_function_type )(  ) ;
+            typedef ::std::string & ( ::osgWidget::Style::*getStyle_function_type)(  ) ;
             
             Style_exposer.def( 
                 "getStyle"
@@ -433,7 +433,7 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::getStyle
         
-            typedef ::std::string const & ( ::osgWidget::Style::*getStyle_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgWidget::Style::*getStyle_function_type)(  ) const;
             
             Style_exposer.def( 
                 "getStyle"
@@ -443,8 +443,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::isSameKindAs
         
-            typedef bool ( ::osgWidget::Style::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Style_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Style::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Style_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Style_exposer.def( 
                 "isSameKindAs"
@@ -455,8 +455,8 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::libraryName
         
-            typedef char const * ( ::osgWidget::Style::*libraryName_function_type )(  ) const;
-            typedef char const * ( Style_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Style::*libraryName_function_type)(  ) const;
+            typedef char const * ( Style_wrapper::*default_libraryName_function_type)(  ) const;
             
             Style_exposer.def( 
                 "libraryName"
@@ -466,7 +466,7 @@ void register_Style_class(){
         }
         { //::osgWidget::Style::setStyle
         
-            typedef void ( ::osgWidget::Style::*setStyle_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgWidget::Style::*setStyle_function_type)( ::std::string const & ) ;
             
             Style_exposer.def( 
                 "setStyle"

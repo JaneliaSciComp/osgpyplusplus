@@ -639,20 +639,20 @@ void register_TranslatePlaneDragger_class(){
         .def( bp::init< >("\n Translate plane dragger consists of a wireframe box representing a plane that can be dragged to translate along the plane.\n") )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::TranslatePlaneDragger::* )(  ) const)(&::osgManipulator::TranslatePlaneDragger::className)
-            , (char const * ( TranslatePlaneDragger_wrapper::* )(  ) const)(&TranslatePlaneDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::TranslatePlaneDragger::* )(  )const)(&::osgManipulator::TranslatePlaneDragger::className)
+            , (char const * ( TranslatePlaneDragger_wrapper::* )(  )const)(&TranslatePlaneDragger_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::TranslatePlaneDragger::* )(  ) const)(&::osgManipulator::TranslatePlaneDragger::cloneType)
-            , (::osg::Object * ( TranslatePlaneDragger_wrapper::* )(  ) const)(&TranslatePlaneDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::TranslatePlaneDragger::* )(  )const)(&::osgManipulator::TranslatePlaneDragger::cloneType)
+            , (::osg::Object * ( TranslatePlaneDragger_wrapper::* )(  )const)(&TranslatePlaneDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getTranslate1DDragger"
-            , (::osgManipulator::Translate1DDragger * ( ::osgManipulator::TranslatePlaneDragger::* )(  ) )( &::osgManipulator::TranslatePlaneDragger::getTranslate1DDragger )
+            , (::osgManipulator::Translate1DDragger * ( ::osgManipulator::TranslatePlaneDragger::* )(  ))( &::osgManipulator::TranslatePlaneDragger::getTranslate1DDragger )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTranslate2DDragger"
-            , (::osgManipulator::Translate2DDragger * ( ::osgManipulator::TranslatePlaneDragger::* )(  ) )( &::osgManipulator::TranslatePlaneDragger::getTranslate2DDragger )
+            , (::osgManipulator::Translate2DDragger * ( ::osgManipulator::TranslatePlaneDragger::* )(  ))( &::osgManipulator::TranslatePlaneDragger::getTranslate2DDragger )
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -660,35 +660,35 @@ void register_TranslatePlaneDragger_class(){
             , ( bp::arg("inst"), bp::arg("pi"), bp::arg("ea"), bp::arg("us") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::TranslatePlaneDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::TranslatePlaneDragger::isSameKindAs)
-            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osg::Object const * ) const)(&TranslatePlaneDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::TranslatePlaneDragger::* )( ::osg::Object const * )const)(&::osgManipulator::TranslatePlaneDragger::isSameKindAs)
+            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osg::Object const * )const)(&TranslatePlaneDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::TranslatePlaneDragger::* )(  ) const)(&::osgManipulator::TranslatePlaneDragger::libraryName)
-            , (char const * ( TranslatePlaneDragger_wrapper::* )(  ) const)(&TranslatePlaneDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::TranslatePlaneDragger::* )(  )const)(&::osgManipulator::TranslatePlaneDragger::libraryName)
+            , (char const * ( TranslatePlaneDragger_wrapper::* )(  )const)(&TranslatePlaneDragger_wrapper::default_libraryName) )    
         .def( 
             "setColor"
-            , (void ( ::osgManipulator::TranslatePlaneDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::TranslatePlaneDragger::setColor )
+            , (void ( ::osgManipulator::TranslatePlaneDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::TranslatePlaneDragger::setColor )
             , ( bp::arg("color") ) )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::TranslatePlaneDragger::* )(  ) )(&::osgManipulator::TranslatePlaneDragger::setupDefaultGeometry)
-            , (void ( TranslatePlaneDragger_wrapper::* )(  ) )(&TranslatePlaneDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::TranslatePlaneDragger::* )(  ))(&::osgManipulator::TranslatePlaneDragger::setupDefaultGeometry)
+            , (void ( TranslatePlaneDragger_wrapper::* )(  ))(&TranslatePlaneDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::CompositeDragger::accept)
-            , (void ( TranslatePlaneDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&TranslatePlaneDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::CompositeDragger::accept)
+            , (void ( TranslatePlaneDragger_wrapper::* )( ::osg::NodeVisitor & ))(&TranslatePlaneDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::addDragger)
-            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TranslatePlaneDragger_wrapper::default_addDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::addDragger)
+            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TranslatePlaneDragger_wrapper::default_addDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::CompositeDragger::clone)
-            , (::osg::Object * ( TranslatePlaneDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&TranslatePlaneDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::CompositeDragger::clone)
+            , (::osg::Object * ( TranslatePlaneDragger_wrapper::* )( ::osg::CopyOp const & )const)(&TranslatePlaneDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
@@ -697,13 +697,13 @@ void register_TranslatePlaneDragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( TranslatePlaneDragger_wrapper::* )(  ) const)(&TranslatePlaneDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( TranslatePlaneDragger_wrapper::* )(  )const)(&TranslatePlaneDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ) )(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( TranslatePlaneDragger_wrapper::* )(  ) )(&TranslatePlaneDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ))(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( TranslatePlaneDragger_wrapper::* )(  ))(&TranslatePlaneDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -716,23 +716,23 @@ void register_TranslatePlaneDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "removeDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::removeDragger)
-            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TranslatePlaneDragger_wrapper::default_removeDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::removeDragger)
+            , (bool ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TranslatePlaneDragger_wrapper::default_removeDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ) )(&::osgManipulator::CompositeDragger::setIntersectionMask)
-            , (void ( TranslatePlaneDragger_wrapper::* )( unsigned int ) )(&TranslatePlaneDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ))(&::osgManipulator::CompositeDragger::setIntersectionMask)
+            , (void ( TranslatePlaneDragger_wrapper::* )( unsigned int ))(&TranslatePlaneDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::setParentDragger)
-            , (void ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&TranslatePlaneDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::setParentDragger)
+            , (void ( TranslatePlaneDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&TranslatePlaneDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
-            , (void ( TranslatePlaneDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&TranslatePlaneDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
+            , (void ( TranslatePlaneDragger_wrapper::* )( ::osg::NodeVisitor & ))(&TranslatePlaneDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

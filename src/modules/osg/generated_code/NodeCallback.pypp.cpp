@@ -180,97 +180,97 @@ void register_NodeCallback_class(){
         .def( bp::init< >() )    
         .def( 
             "addNestedCallback"
-            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ) )( &::osg::NodeCallback::addNestedCallback )
+            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ))( &::osg::NodeCallback::addNestedCallback )
             , ( bp::arg("nc") ) )    
         .def( 
             "className"
-            , (char const * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::className)
-            , (char const * ( NodeCallback_wrapper::* )(  ) const)(&NodeCallback_wrapper::default_className) )    
+            , (char const * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::className)
+            , (char const * ( NodeCallback_wrapper::* )(  )const)(&NodeCallback_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::NodeCallback::* )( ::osg::CopyOp const & ) const)(&::osg::NodeCallback::clone)
-            , (::osg::Object * ( NodeCallback_wrapper::* )( ::osg::CopyOp const & ) const)(&NodeCallback_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::NodeCallback::* )( ::osg::CopyOp const & )const)(&::osg::NodeCallback::clone)
+            , (::osg::Object * ( NodeCallback_wrapper::* )( ::osg::CopyOp const & )const)(&NodeCallback_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::cloneType)
-            , (::osg::Object * ( NodeCallback_wrapper::* )(  ) const)(&NodeCallback_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::cloneType)
+            , (::osg::Object * ( NodeCallback_wrapper::* )(  )const)(&NodeCallback_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getNestedCallback"
-            , (::osg::NodeCallback * ( ::osg::NodeCallback::* )(  ) )( &::osg::NodeCallback::getNestedCallback )
+            , (::osg::NodeCallback * ( ::osg::NodeCallback::* )(  ))( &::osg::NodeCallback::getNestedCallback )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNestedCallback"
-            , (::osg::NodeCallback const * ( ::osg::NodeCallback::* )(  ) const)( &::osg::NodeCallback::getNestedCallback )
+            , (::osg::NodeCallback const * ( ::osg::NodeCallback::* )(  )const)( &::osg::NodeCallback::getNestedCallback )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::NodeCallback::* )( ::osg::Object const * ) const)(&::osg::NodeCallback::isSameKindAs)
-            , (bool ( NodeCallback_wrapper::* )( ::osg::Object const * ) const)(&NodeCallback_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::NodeCallback::* )( ::osg::Object const * )const)(&::osg::NodeCallback::isSameKindAs)
+            , (bool ( NodeCallback_wrapper::* )( ::osg::Object const * )const)(&NodeCallback_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::libraryName)
-            , (char const * ( NodeCallback_wrapper::* )(  ) const)(&NodeCallback_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::libraryName)
+            , (char const * ( NodeCallback_wrapper::* )(  )const)(&NodeCallback_wrapper::default_libraryName) )    
         .def( 
             "__call__"
-            , (void ( ::osg::NodeCallback::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&::osg::NodeCallback::operator())
-            , (void ( NodeCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&NodeCallback_wrapper::default___call__)
+            , (void ( ::osg::NodeCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))(&::osg::NodeCallback::operator())
+            , (void ( NodeCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ))(&NodeCallback_wrapper::default___call__)
             , ( bp::arg("node"), bp::arg("nv") ) )    
         .def( 
             "removeNestedCallback"
-            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ) )( &::osg::NodeCallback::removeNestedCallback )
+            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ))( &::osg::NodeCallback::removeNestedCallback )
             , ( bp::arg("nc") ) )    
         .def( 
             "setNestedCallback"
-            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ) )( &::osg::NodeCallback::setNestedCallback )
+            , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ))( &::osg::NodeCallback::setNestedCallback )
             , ( bp::arg("nc") ) )    
         .def( 
             "traverse"
-            , (void ( ::osg::NodeCallback::* )( ::osg::Node *,::osg::NodeVisitor * ) )( &::osg::NodeCallback::traverse )
+            , (void ( ::osg::NodeCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))( &::osg::NodeCallback::traverse )
             , ( bp::arg("node"), bp::arg("nv") )
             , " Call any nested callbacks and then traverse the scene graph." )    
         .def_readwrite( "_nestedCallback", &osg::NodeCallback::_nestedCallback )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( NodeCallback_wrapper::* )(  ) )(&NodeCallback_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( NodeCallback_wrapper::* )(  ))(&NodeCallback_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( NodeCallback_wrapper::* )(  ) )(&NodeCallback_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( NodeCallback_wrapper::* )(  ))(&NodeCallback_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( NodeCallback_wrapper::* )(  ) const)(&NodeCallback_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( NodeCallback_wrapper::* )(  )const)(&NodeCallback_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( NodeCallback_wrapper::* )( unsigned int ) )(&NodeCallback_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( NodeCallback_wrapper::* )( unsigned int ))(&NodeCallback_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( NodeCallback_wrapper::* )( ::std::string const & ) )(&NodeCallback_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( NodeCallback_wrapper::* )( ::std::string const & ))(&NodeCallback_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( NodeCallback_wrapper::* )( bool ) )(&NodeCallback_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( NodeCallback_wrapper::* )( bool ))(&NodeCallback_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( NodeCallback_wrapper::* )( ::osg::Referenced * ) )(&NodeCallback_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( NodeCallback_wrapper::* )( ::osg::Referenced * ))(&NodeCallback_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

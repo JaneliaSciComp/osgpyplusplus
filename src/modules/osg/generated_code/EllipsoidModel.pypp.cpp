@@ -171,8 +171,8 @@ void register_EllipsoidModel_class(){
         bp::implicitly_convertible< double, osg::EllipsoidModel >();
         { //::osg::EllipsoidModel::className
         
-            typedef char const * ( ::osg::EllipsoidModel::*className_function_type )(  ) const;
-            typedef char const * ( EllipsoidModel_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::EllipsoidModel::*className_function_type)(  ) const;
+            typedef char const * ( EllipsoidModel_wrapper::*default_className_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "className"
@@ -182,8 +182,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::clone
         
-            typedef ::osg::Object * ( ::osg::EllipsoidModel::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( EllipsoidModel_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::EllipsoidModel::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( EllipsoidModel_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             EllipsoidModel_exposer.def( 
                 "clone"
@@ -195,8 +195,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::cloneType
         
-            typedef ::osg::Object * ( ::osg::EllipsoidModel::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( EllipsoidModel_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::EllipsoidModel::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( EllipsoidModel_wrapper::*default_cloneType_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "cloneType"
@@ -207,7 +207,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::computeCoordinateFrame
         
-            typedef void ( ::osg::EllipsoidModel::*computeCoordinateFrame_function_type )( double,double,::osg::Matrixd & ) const;
+            typedef void ( ::osg::EllipsoidModel::*computeCoordinateFrame_function_type)( double,double,::osg::Matrixd & ) const;
             
             EllipsoidModel_exposer.def( 
                 "computeCoordinateFrame"
@@ -217,7 +217,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::computeLocalToWorldTransformFromLatLongHeight
         
-            typedef void ( ::osg::EllipsoidModel::*computeLocalToWorldTransformFromLatLongHeight_function_type )( double,double,double,::osg::Matrixd & ) const;
+            typedef void ( ::osg::EllipsoidModel::*computeLocalToWorldTransformFromLatLongHeight_function_type)( double,double,double,::osg::Matrixd & ) const;
             
             EllipsoidModel_exposer.def( 
                 "computeLocalToWorldTransformFromLatLongHeight"
@@ -227,7 +227,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::computeLocalToWorldTransformFromXYZ
         
-            typedef void ( ::osg::EllipsoidModel::*computeLocalToWorldTransformFromXYZ_function_type )( double,double,double,::osg::Matrixd & ) const;
+            typedef void ( ::osg::EllipsoidModel::*computeLocalToWorldTransformFromXYZ_function_type)( double,double,double,::osg::Matrixd & ) const;
             
             EllipsoidModel_exposer.def( 
                 "computeLocalToWorldTransformFromXYZ"
@@ -237,7 +237,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::computeLocalUpVector
         
-            typedef ::osg::Vec3d ( ::osg::EllipsoidModel::*computeLocalUpVector_function_type )( double,double,double ) const;
+            typedef ::osg::Vec3d ( ::osg::EllipsoidModel::*computeLocalUpVector_function_type)( double,double,double ) const;
             
             EllipsoidModel_exposer.def( 
                 "computeLocalUpVector"
@@ -247,7 +247,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::convertLatLongHeightToXYZ
         
-            typedef void ( ::osg::EllipsoidModel::*convertLatLongHeightToXYZ_function_type )( double,double,double,double &,double &,double & ) const;
+            typedef void ( ::osg::EllipsoidModel::*convertLatLongHeightToXYZ_function_type)( double,double,double,double &,double &,double & ) const;
             
             EllipsoidModel_exposer.def( 
                 "convertLatLongHeightToXYZ"
@@ -258,7 +258,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::convertXYZToLatLongHeight
         
-            typedef void ( ::osg::EllipsoidModel::*convertXYZToLatLongHeight_function_type )( double,double,double,double &,double &,double & ) const;
+            typedef void ( ::osg::EllipsoidModel::*convertXYZToLatLongHeight_function_type)( double,double,double,double &,double &,double & ) const;
             
             EllipsoidModel_exposer.def( 
                 "convertXYZToLatLongHeight"
@@ -268,7 +268,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::getRadiusEquator
         
-            typedef double ( ::osg::EllipsoidModel::*getRadiusEquator_function_type )(  ) const;
+            typedef double ( ::osg::EllipsoidModel::*getRadiusEquator_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "getRadiusEquator"
@@ -277,7 +277,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::getRadiusPolar
         
-            typedef double ( ::osg::EllipsoidModel::*getRadiusPolar_function_type )(  ) const;
+            typedef double ( ::osg::EllipsoidModel::*getRadiusPolar_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "getRadiusPolar"
@@ -286,8 +286,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::isSameKindAs
         
-            typedef bool ( ::osg::EllipsoidModel::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( EllipsoidModel_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::EllipsoidModel::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( EllipsoidModel_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             EllipsoidModel_exposer.def( 
                 "isSameKindAs"
@@ -298,7 +298,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::isWGS84
         
-            typedef bool ( ::osg::EllipsoidModel::*isWGS84_function_type )(  ) const;
+            typedef bool ( ::osg::EllipsoidModel::*isWGS84_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "isWGS84"
@@ -307,8 +307,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::libraryName
         
-            typedef char const * ( ::osg::EllipsoidModel::*libraryName_function_type )(  ) const;
-            typedef char const * ( EllipsoidModel_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::EllipsoidModel::*libraryName_function_type)(  ) const;
+            typedef char const * ( EllipsoidModel_wrapper::*default_libraryName_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "libraryName"
@@ -318,7 +318,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::setRadiusEquator
         
-            typedef void ( ::osg::EllipsoidModel::*setRadiusEquator_function_type )( double ) ;
+            typedef void ( ::osg::EllipsoidModel::*setRadiusEquator_function_type)( double ) ;
             
             EllipsoidModel_exposer.def( 
                 "setRadiusEquator"
@@ -328,7 +328,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::EllipsoidModel::setRadiusPolar
         
-            typedef void ( ::osg::EllipsoidModel::*setRadiusPolar_function_type )( double ) ;
+            typedef void ( ::osg::EllipsoidModel::*setRadiusPolar_function_type)( double ) ;
             
             EllipsoidModel_exposer.def( 
                 "setRadiusPolar"
@@ -338,8 +338,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( EllipsoidModel_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( EllipsoidModel_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             EllipsoidModel_exposer.def( 
                 "computeDataVariance"
@@ -349,8 +349,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( EllipsoidModel_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( EllipsoidModel_wrapper::*default_getUserData_function_type)(  ) ;
             
             EllipsoidModel_exposer.def( 
                 "getUserData"
@@ -361,8 +361,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( EllipsoidModel_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( EllipsoidModel_wrapper::*default_getUserData_function_type)(  ) const;
             
             EllipsoidModel_exposer.def( 
                 "getUserData"
@@ -373,8 +373,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( EllipsoidModel_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( EllipsoidModel_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             EllipsoidModel_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -385,8 +385,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( EllipsoidModel_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( EllipsoidModel_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             EllipsoidModel_exposer.def( 
                 "setName"
@@ -397,7 +397,7 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             EllipsoidModel_exposer.def( 
                 "setName"
@@ -408,8 +408,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( EllipsoidModel_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( EllipsoidModel_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             EllipsoidModel_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -420,8 +420,8 @@ void register_EllipsoidModel_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( EllipsoidModel_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( EllipsoidModel_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             EllipsoidModel_exposer.def( 
                 "setUserData"

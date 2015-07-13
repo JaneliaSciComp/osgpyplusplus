@@ -87,8 +87,8 @@ void register_PythonEngine_class(){
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::PythonEngine >();
         { //::osgWidget::PythonEngine::close
         
-            typedef bool ( ::osgWidget::PythonEngine::*close_function_type )(  ) ;
-            typedef bool ( PythonEngine_wrapper::*default_close_function_type )(  ) ;
+            typedef bool ( ::osgWidget::PythonEngine::*close_function_type)(  ) ;
+            typedef bool ( PythonEngine_wrapper::*default_close_function_type)(  ) ;
             
             PythonEngine_exposer.def( 
                 "close"
@@ -98,8 +98,8 @@ void register_PythonEngine_class(){
         }
         { //::osgWidget::PythonEngine::eval
         
-            typedef bool ( ::osgWidget::PythonEngine::*eval_function_type )( ::std::string const & ) ;
-            typedef bool ( PythonEngine_wrapper::*default_eval_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::PythonEngine::*eval_function_type)( ::std::string const & ) ;
+            typedef bool ( PythonEngine_wrapper::*default_eval_function_type)( ::std::string const & ) ;
             
             PythonEngine_exposer.def( 
                 "eval"
@@ -110,8 +110,8 @@ void register_PythonEngine_class(){
         }
         { //::osgWidget::PythonEngine::initialize
         
-            typedef bool ( ::osgWidget::PythonEngine::*initialize_function_type )(  ) ;
-            typedef bool ( PythonEngine_wrapper::*default_initialize_function_type )(  ) ;
+            typedef bool ( ::osgWidget::PythonEngine::*initialize_function_type)(  ) ;
+            typedef bool ( PythonEngine_wrapper::*default_initialize_function_type)(  ) ;
             
             PythonEngine_exposer.def( 
                 "initialize"
@@ -121,8 +121,8 @@ void register_PythonEngine_class(){
         }
         { //::osgWidget::PythonEngine::runFile
         
-            typedef bool ( ::osgWidget::PythonEngine::*runFile_function_type )( ::std::string const & ) ;
-            typedef bool ( PythonEngine_wrapper::*default_runFile_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::PythonEngine::*runFile_function_type)( ::std::string const & ) ;
+            typedef bool ( PythonEngine_wrapper::*default_runFile_function_type)( ::std::string const & ) ;
             
             PythonEngine_exposer.def( 
                 "runFile"
@@ -133,7 +133,7 @@ void register_PythonEngine_class(){
         }
         { //::osgWidget::ScriptEngine::getLastErrorText
         
-            typedef ::std::string const & ( ::osgWidget::ScriptEngine::*getLastErrorText_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgWidget::ScriptEngine::*getLastErrorText_function_type)(  ) const;
             
             PythonEngine_exposer.def( 
                 "getLastErrorText"

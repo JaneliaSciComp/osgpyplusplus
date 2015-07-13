@@ -125,7 +125,7 @@ void register_Output_class(){
         bp::implicitly_convertible< char const *, osgDB::Output >();
         { //::osgDB::Output::createUniqueIDForObject
         
-            typedef bool ( ::osgDB::Output::*createUniqueIDForObject_function_type )( ::osg::Object const *,::std::string & ) ;
+            typedef bool ( ::osgDB::Output::*createUniqueIDForObject_function_type)( ::osg::Object const *,::std::string & ) ;
             
             Output_exposer.def( 
                 "createUniqueIDForObject"
@@ -135,7 +135,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getExternalFileWritten
         
-            typedef bool ( ::osgDB::Output::*getExternalFileWritten_function_type )( ::std::string const & ) const;
+            typedef bool ( ::osgDB::Output::*getExternalFileWritten_function_type)( ::std::string const & ) const;
             
             Output_exposer.def( 
                 "getExternalFileWritten"
@@ -145,7 +145,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getFileName
         
-            typedef ::std::string const & ( ::osgDB::Output::*getFileName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgDB::Output::*getFileName_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getFileName"
@@ -155,8 +155,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getFileNameForOutput
         
-            typedef ::std::string ( ::osgDB::Output::*getFileNameForOutput_function_type )( ::std::string const & ) const;
-            typedef ::std::string ( Output_wrapper::*default_getFileNameForOutput_function_type )( ::std::string const & ) const;
+            typedef ::std::string ( ::osgDB::Output::*getFileNameForOutput_function_type)( ::std::string const & ) const;
+            typedef ::std::string ( Output_wrapper::*default_getFileNameForOutput_function_type)( ::std::string const & ) const;
             
             Output_exposer.def( 
                 "getFileNameForOutput"
@@ -167,7 +167,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getIndent
         
-            typedef int ( ::osgDB::Output::*getIndent_function_type )(  ) const;
+            typedef int ( ::osgDB::Output::*getIndent_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getIndent"
@@ -176,7 +176,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getIndentStep
         
-            typedef int ( ::osgDB::Output::*getIndentStep_function_type )(  ) const;
+            typedef int ( ::osgDB::Output::*getIndentStep_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getIndentStep"
@@ -185,7 +185,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getNumIndicesPerLine
         
-            typedef int ( ::osgDB::Output::*getNumIndicesPerLine_function_type )(  ) const;
+            typedef int ( ::osgDB::Output::*getNumIndicesPerLine_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getNumIndicesPerLine"
@@ -194,7 +194,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getOptions
         
-            typedef ::osgDB::Options const * ( ::osgDB::Output::*getOptions_function_type )(  ) const;
+            typedef ::osgDB::Options const * ( ::osgDB::Output::*getOptions_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getOptions"
@@ -204,7 +204,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getOutputShaderFiles
         
-            typedef bool ( ::osgDB::Output::*getOutputShaderFiles_function_type )(  ) const;
+            typedef bool ( ::osgDB::Output::*getOutputShaderFiles_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getOutputShaderFiles"
@@ -213,7 +213,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getOutputTextureFiles
         
-            typedef bool ( ::osgDB::Output::*getOutputTextureFiles_function_type )(  ) const;
+            typedef bool ( ::osgDB::Output::*getOutputTextureFiles_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getOutputTextureFiles"
@@ -222,7 +222,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getPathNameHint
         
-            typedef ::osgDB::Output::PathNameHint ( ::osgDB::Output::*getPathNameHint_function_type )(  ) const;
+            typedef ::osgDB::Output::PathNameHint ( ::osgDB::Output::*getPathNameHint_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getPathNameHint"
@@ -231,8 +231,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getShaderFileNameForOutput
         
-            typedef ::std::string ( ::osgDB::Output::*getShaderFileNameForOutput_function_type )(  ) ;
-            typedef ::std::string ( Output_wrapper::*default_getShaderFileNameForOutput_function_type )(  ) ;
+            typedef ::std::string ( ::osgDB::Output::*getShaderFileNameForOutput_function_type)(  ) ;
+            typedef ::std::string ( Output_wrapper::*default_getShaderFileNameForOutput_function_type)(  ) ;
             
             Output_exposer.def( 
                 "getShaderFileNameForOutput"
@@ -242,8 +242,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getTextureFileNameForOutput
         
-            typedef ::std::string ( ::osgDB::Output::*getTextureFileNameForOutput_function_type )(  ) ;
-            typedef ::std::string ( Output_wrapper::*default_getTextureFileNameForOutput_function_type )(  ) ;
+            typedef ::std::string ( ::osgDB::Output::*getTextureFileNameForOutput_function_type)(  ) ;
+            typedef ::std::string ( Output_wrapper::*default_getTextureFileNameForOutput_function_type)(  ) ;
             
             Output_exposer.def( 
                 "getTextureFileNameForOutput"
@@ -253,7 +253,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getUniqueIDForObject
         
-            typedef bool ( ::osgDB::Output::*getUniqueIDForObject_function_type )( ::osg::Object const *,::std::string & ) ;
+            typedef bool ( ::osgDB::Output::*getUniqueIDForObject_function_type)( ::osg::Object const *,::std::string & ) ;
             
             Output_exposer.def( 
                 "getUniqueIDForObject"
@@ -263,7 +263,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::getWriteOutDefaultValues
         
-            typedef bool ( ::osgDB::Output::*getWriteOutDefaultValues_function_type )(  ) const;
+            typedef bool ( ::osgDB::Output::*getWriteOutDefaultValues_function_type)(  ) const;
             
             Output_exposer.def( 
                 "getWriteOutDefaultValues"
@@ -272,7 +272,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::indent
         
-            typedef ::osgDB::Output & ( ::osgDB::Output::*indent_function_type )(  ) ;
+            typedef ::osgDB::Output & ( ::osgDB::Output::*indent_function_type)(  ) ;
             
             Output_exposer.def( 
                 "indent"
@@ -282,7 +282,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::moveIn
         
-            typedef void ( ::osgDB::Output::*moveIn_function_type )(  ) ;
+            typedef void ( ::osgDB::Output::*moveIn_function_type)(  ) ;
             
             Output_exposer.def( 
                 "moveIn"
@@ -291,7 +291,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::moveOut
         
-            typedef void ( ::osgDB::Output::*moveOut_function_type )(  ) ;
+            typedef void ( ::osgDB::Output::*moveOut_function_type)(  ) ;
             
             Output_exposer.def( 
                 "moveOut"
@@ -300,7 +300,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::open
         
-            typedef void ( ::osgDB::Output::*open_function_type )( char const * ) ;
+            typedef void ( ::osgDB::Output::*open_function_type)( char const * ) ;
             
             Output_exposer.def( 
                 "open"
@@ -310,7 +310,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::registerUniqueIDForObject
         
-            typedef bool ( ::osgDB::Output::*registerUniqueIDForObject_function_type )( ::osg::Object const *,::std::string & ) ;
+            typedef bool ( ::osgDB::Output::*registerUniqueIDForObject_function_type)( ::osg::Object const *,::std::string & ) ;
             
             Output_exposer.def( 
                 "registerUniqueIDForObject"
@@ -320,7 +320,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setExternalFileWritten
         
-            typedef void ( ::osgDB::Output::*setExternalFileWritten_function_type )( ::std::string const &,bool ) ;
+            typedef void ( ::osgDB::Output::*setExternalFileWritten_function_type)( ::std::string const &,bool ) ;
             
             Output_exposer.def( 
                 "setExternalFileWritten"
@@ -330,7 +330,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setIndent
         
-            typedef void ( ::osgDB::Output::*setIndent_function_type )( int ) ;
+            typedef void ( ::osgDB::Output::*setIndent_function_type)( int ) ;
             
             Output_exposer.def( 
                 "setIndent"
@@ -340,7 +340,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setIndentStep
         
-            typedef void ( ::osgDB::Output::*setIndentStep_function_type )( int ) ;
+            typedef void ( ::osgDB::Output::*setIndentStep_function_type)( int ) ;
             
             Output_exposer.def( 
                 "setIndentStep"
@@ -350,7 +350,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setNumIndicesPerLine
         
-            typedef void ( ::osgDB::Output::*setNumIndicesPerLine_function_type )( int ) ;
+            typedef void ( ::osgDB::Output::*setNumIndicesPerLine_function_type)( int ) ;
             
             Output_exposer.def( 
                 "setNumIndicesPerLine"
@@ -360,7 +360,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setOptions
         
-            typedef void ( ::osgDB::Output::*setOptions_function_type )( ::osgDB::Options const * ) ;
+            typedef void ( ::osgDB::Output::*setOptions_function_type)( ::osgDB::Options const * ) ;
             
             Output_exposer.def( 
                 "setOptions"
@@ -370,7 +370,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setOutputShaderFiles
         
-            typedef void ( ::osgDB::Output::*setOutputShaderFiles_function_type )( bool ) ;
+            typedef void ( ::osgDB::Output::*setOutputShaderFiles_function_type)( bool ) ;
             
             Output_exposer.def( 
                 "setOutputShaderFiles"
@@ -380,7 +380,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setOutputTextureFiles
         
-            typedef void ( ::osgDB::Output::*setOutputTextureFiles_function_type )( bool ) ;
+            typedef void ( ::osgDB::Output::*setOutputTextureFiles_function_type)( bool ) ;
             
             Output_exposer.def( 
                 "setOutputTextureFiles"
@@ -390,7 +390,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setPathNameHint
         
-            typedef void ( ::osgDB::Output::*setPathNameHint_function_type )( ::osgDB::Output::PathNameHint const ) ;
+            typedef void ( ::osgDB::Output::*setPathNameHint_function_type)( ::osgDB::Output::PathNameHint const ) ;
             
             Output_exposer.def( 
                 "setPathNameHint"
@@ -400,7 +400,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::setWriteOutDefaultValues
         
-            typedef void ( ::osgDB::Output::*setWriteOutDefaultValues_function_type )( bool ) ;
+            typedef void ( ::osgDB::Output::*setWriteOutDefaultValues_function_type)( bool ) ;
             
             Output_exposer.def( 
                 "setWriteOutDefaultValues"
@@ -410,7 +410,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::wrapString
         
-            typedef ::std::string ( ::osgDB::Output::*wrapString_function_type )( char const * ) ;
+            typedef ::std::string ( ::osgDB::Output::*wrapString_function_type)( char const * ) ;
             
             Output_exposer.def( 
                 "wrapString"
@@ -420,7 +420,7 @@ void register_Output_class(){
         }
         { //::osgDB::Output::wrapString
         
-            typedef ::std::string ( ::osgDB::Output::*wrapString_function_type )( ::std::string const & ) ;
+            typedef ::std::string ( ::osgDB::Output::*wrapString_function_type)( ::std::string const & ) ;
             
             Output_exposer.def( 
                 "wrapString"
@@ -430,8 +430,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::writeBeginObject
         
-            typedef void ( ::osgDB::Output::*writeBeginObject_function_type )( ::std::string const & ) ;
-            typedef void ( Output_wrapper::*default_writeBeginObject_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgDB::Output::*writeBeginObject_function_type)( ::std::string const & ) ;
+            typedef void ( Output_wrapper::*default_writeBeginObject_function_type)( ::std::string const & ) ;
             
             Output_exposer.def( 
                 "writeBeginObject"
@@ -442,8 +442,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::writeEndObject
         
-            typedef void ( ::osgDB::Output::*writeEndObject_function_type )(  ) ;
-            typedef void ( Output_wrapper::*default_writeEndObject_function_type )(  ) ;
+            typedef void ( ::osgDB::Output::*writeEndObject_function_type)(  ) ;
+            typedef void ( Output_wrapper::*default_writeEndObject_function_type)(  ) ;
             
             Output_exposer.def( 
                 "writeEndObject"
@@ -453,8 +453,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::writeUniqueID
         
-            typedef void ( ::osgDB::Output::*writeUniqueID_function_type )( ::std::string const & ) ;
-            typedef void ( Output_wrapper::*default_writeUniqueID_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgDB::Output::*writeUniqueID_function_type)( ::std::string const & ) ;
+            typedef void ( Output_wrapper::*default_writeUniqueID_function_type)( ::std::string const & ) ;
             
             Output_exposer.def( 
                 "writeUniqueID"
@@ -465,8 +465,8 @@ void register_Output_class(){
         }
         { //::osgDB::Output::writeUseID
         
-            typedef void ( ::osgDB::Output::*writeUseID_function_type )( ::std::string const & ) ;
-            typedef void ( Output_wrapper::*default_writeUseID_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgDB::Output::*writeUseID_function_type)( ::std::string const & ) ;
+            typedef void ( Output_wrapper::*default_writeUseID_function_type)( ::std::string const & ) ;
             
             Output_exposer.def( 
                 "writeUseID"

@@ -337,7 +337,7 @@ void register_BlendEquation_class(){
             bp::implicitly_convertible< unsigned int, osg::BlendEquation::Extensions >();
             { //::osg::BlendEquation::Extensions::glBlendEquation
             
-                typedef void ( ::osg::BlendEquation::Extensions::*glBlendEquation_function_type )( ::GLenum ) const;
+                typedef void ( ::osg::BlendEquation::Extensions::*glBlendEquation_function_type)( ::GLenum ) const;
                 
                 Extensions_exposer.def( 
                     "glBlendEquation"
@@ -347,7 +347,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::glBlendEquationSeparate
             
-                typedef void ( ::osg::BlendEquation::Extensions::*glBlendEquationSeparate_function_type )( ::GLenum,::GLenum ) const;
+                typedef void ( ::osg::BlendEquation::Extensions::*glBlendEquationSeparate_function_type)( ::GLenum,::GLenum ) const;
                 
                 Extensions_exposer.def( 
                     "glBlendEquationSeparate"
@@ -357,7 +357,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::isBlendEquationSeparateSupported
             
-                typedef bool ( ::osg::BlendEquation::Extensions::*isBlendEquationSeparateSupported_function_type )(  ) const;
+                typedef bool ( ::osg::BlendEquation::Extensions::*isBlendEquationSeparateSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isBlendEquationSeparateSupported"
@@ -366,7 +366,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::isBlendEquationSupported
             
-                typedef bool ( ::osg::BlendEquation::Extensions::*isBlendEquationSupported_function_type )(  ) const;
+                typedef bool ( ::osg::BlendEquation::Extensions::*isBlendEquationSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isBlendEquationSupported"
@@ -375,7 +375,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::isLogicOpSupported
             
-                typedef bool ( ::osg::BlendEquation::Extensions::*isLogicOpSupported_function_type )(  ) const;
+                typedef bool ( ::osg::BlendEquation::Extensions::*isLogicOpSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isLogicOpSupported"
@@ -384,7 +384,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::isSGIXMinMaxSupported
             
-                typedef bool ( ::osg::BlendEquation::Extensions::*isSGIXMinMaxSupported_function_type )(  ) const;
+                typedef bool ( ::osg::BlendEquation::Extensions::*isSGIXMinMaxSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isSGIXMinMaxSupported"
@@ -403,7 +403,7 @@ void register_BlendEquation_class(){
             }
             { //::osg::BlendEquation::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::BlendEquation::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
+                typedef void ( ::osg::BlendEquation::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -413,8 +413,8 @@ void register_BlendEquation_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-                typedef void ( BlendEquation_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( BlendEquation_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -430,8 +430,8 @@ void register_BlendEquation_class(){
         BlendEquation_exposer.def( bp::init< osg::BlendEquation::Equation, osg::BlendEquation::Equation >(( bp::arg("equationRGB"), bp::arg("equationAlpha") )) );
         { //::osg::BlendEquation::apply
         
-            typedef void ( ::osg::BlendEquation::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( BlendEquation_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::BlendEquation::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( BlendEquation_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             BlendEquation_exposer.def( 
                 "apply"
@@ -442,8 +442,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::className
         
-            typedef char const * ( ::osg::BlendEquation::*className_function_type )(  ) const;
-            typedef char const * ( BlendEquation_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::BlendEquation::*className_function_type)(  ) const;
+            typedef char const * ( BlendEquation_wrapper::*default_className_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "className"
@@ -453,8 +453,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::clone
         
-            typedef ::osg::Object * ( ::osg::BlendEquation::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( BlendEquation_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::BlendEquation::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( BlendEquation_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             BlendEquation_exposer.def( 
                 "clone"
@@ -466,8 +466,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::cloneType
         
-            typedef ::osg::Object * ( ::osg::BlendEquation::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( BlendEquation_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::BlendEquation::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( BlendEquation_wrapper::*default_cloneType_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "cloneType"
@@ -478,7 +478,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::getEquation
         
-            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquation_function_type )(  ) const;
+            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquation_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getEquation"
@@ -487,7 +487,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::getEquationAlpha
         
-            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquationAlpha_function_type )(  ) const;
+            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquationAlpha_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getEquationAlpha"
@@ -496,7 +496,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::getEquationRGB
         
-            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquationRGB_function_type )(  ) const;
+            typedef ::osg::BlendEquation::Equation ( ::osg::BlendEquation::*getEquationRGB_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getEquationRGB"
@@ -517,8 +517,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::getModeUsage
         
-            typedef bool ( ::osg::BlendEquation::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( BlendEquation_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::BlendEquation::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( BlendEquation_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             BlendEquation_exposer.def( 
                 "getModeUsage"
@@ -529,8 +529,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::BlendEquation::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( BlendEquation_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::BlendEquation::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( BlendEquation_wrapper::*default_getType_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getType"
@@ -540,8 +540,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::isSameKindAs
         
-            typedef bool ( ::osg::BlendEquation::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( BlendEquation_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::BlendEquation::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( BlendEquation_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             BlendEquation_exposer.def( 
                 "isSameKindAs"
@@ -552,8 +552,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::libraryName
         
-            typedef char const * ( ::osg::BlendEquation::*libraryName_function_type )(  ) const;
-            typedef char const * ( BlendEquation_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::BlendEquation::*libraryName_function_type)(  ) const;
+            typedef char const * ( BlendEquation_wrapper::*default_libraryName_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "libraryName"
@@ -563,7 +563,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::setEquation
         
-            typedef void ( ::osg::BlendEquation::*setEquation_function_type )( ::osg::BlendEquation::Equation ) ;
+            typedef void ( ::osg::BlendEquation::*setEquation_function_type)( ::osg::BlendEquation::Equation ) ;
             
             BlendEquation_exposer.def( 
                 "setEquation"
@@ -573,7 +573,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::setEquationAlpha
         
-            typedef void ( ::osg::BlendEquation::*setEquationAlpha_function_type )( ::osg::BlendEquation::Equation ) ;
+            typedef void ( ::osg::BlendEquation::*setEquationAlpha_function_type)( ::osg::BlendEquation::Equation ) ;
             
             BlendEquation_exposer.def( 
                 "setEquationAlpha"
@@ -583,7 +583,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::BlendEquation::setEquationRGB
         
-            typedef void ( ::osg::BlendEquation::*setEquationRGB_function_type )( ::osg::BlendEquation::Equation ) ;
+            typedef void ( ::osg::BlendEquation::*setEquationRGB_function_type)( ::osg::BlendEquation::Equation ) ;
             
             BlendEquation_exposer.def( 
                 "setEquationRGB"
@@ -604,8 +604,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( BlendEquation_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( BlendEquation_wrapper::*default_asTexture_function_type)(  ) ;
             
             BlendEquation_exposer.def( 
                 "asTexture"
@@ -616,8 +616,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( BlendEquation_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( BlendEquation_wrapper::*default_asTexture_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "asTexture"
@@ -628,8 +628,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( BlendEquation_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( BlendEquation_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             BlendEquation_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -640,8 +640,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( BlendEquation_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( BlendEquation_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             BlendEquation_exposer.def( 
                 "compileGLObjects"
@@ -652,8 +652,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( BlendEquation_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( BlendEquation_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             BlendEquation_exposer.def( 
                 "computeDataVariance"
@@ -663,8 +663,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( BlendEquation_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( BlendEquation_wrapper::*default_getMember_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getMember"
@@ -674,8 +674,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( BlendEquation_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( BlendEquation_wrapper::*default_getUserData_function_type)(  ) ;
             
             BlendEquation_exposer.def( 
                 "getUserData"
@@ -686,8 +686,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( BlendEquation_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( BlendEquation_wrapper::*default_getUserData_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "getUserData"
@@ -698,8 +698,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( BlendEquation_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( BlendEquation_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             BlendEquation_exposer.def( 
                 "isTextureAttribute"
@@ -709,8 +709,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( BlendEquation_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( BlendEquation_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             BlendEquation_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -721,8 +721,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( BlendEquation_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( BlendEquation_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             BlendEquation_exposer.def( 
                 "setName"
@@ -733,7 +733,7 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             BlendEquation_exposer.def( 
                 "setName"
@@ -744,8 +744,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( BlendEquation_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( BlendEquation_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             BlendEquation_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -756,8 +756,8 @@ void register_BlendEquation_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( BlendEquation_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( BlendEquation_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             BlendEquation_exposer.def( 
                 "setUserData"

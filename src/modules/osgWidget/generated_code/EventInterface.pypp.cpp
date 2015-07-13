@@ -162,126 +162,126 @@ void register_EventInterface_class(){
         .def( bp::init< osgWidget::EventInterface const & >(( bp::arg("ei") )) )    
         .def( 
             "addCallback"
-            , (void ( ::osgWidget::EventInterface::* )( ::osgWidget::Callback * ) )( &::osgWidget::EventInterface::addCallback )
+            , (void ( ::osgWidget::EventInterface::* )( ::osgWidget::Callback * ))( &::osgWidget::EventInterface::addCallback )
             , ( bp::arg("cb") ) )    
         .def( 
             "addEventMask"
-            , (void ( ::osgWidget::EventInterface::* )( unsigned int ) )( &::osgWidget::EventInterface::addEventMask )
+            , (void ( ::osgWidget::EventInterface::* )( unsigned int ))( &::osgWidget::EventInterface::addEventMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "callCallbacks"
-            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::Event & ) )( &::osgWidget::EventInterface::callCallbacks )
+            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::Event & ))( &::osgWidget::EventInterface::callCallbacks )
             , ( bp::arg("ev") ) )    
         .def( 
             "callMethodAndCallbacks"
-            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::Event & ) )( &::osgWidget::EventInterface::callMethodAndCallbacks )
+            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::Event & ))( &::osgWidget::EventInterface::callMethodAndCallbacks )
             , ( bp::arg("ev") ) )    
         .def( 
             "canFocus"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canFocus ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canFocus ) )    
         .def( 
             "canKeyDown"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canKeyDown ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canKeyDown ) )    
         .def( 
             "canKeyUp"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canKeyUp ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canKeyUp ) )    
         .def( 
             "canMouseDrag"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseDrag ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseDrag ) )    
         .def( 
             "canMouseEnter"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseEnter ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseEnter ) )    
         .def( 
             "canMouseLeave"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseLeave ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseLeave ) )    
         .def( 
             "canMouseOver"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseOver ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseOver ) )    
         .def( 
             "canMousePush"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMousePush ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMousePush ) )    
         .def( 
             "canMouseRelease"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseRelease ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseRelease ) )    
         .def( 
             "canMouseScroll"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canMouseScroll ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canMouseScroll ) )    
         .def( 
             "canUnfocus"
-            , (bool ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::canUnfocus ) )    
+            , (bool ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::canUnfocus ) )    
         .def( 
             "focus"
-            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::focus)
-            , (bool ( EventInterface_wrapper::* )( ::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_focus)
+            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::focus)
+            , (bool ( EventInterface_wrapper::* )( ::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_focus)
             , ( bp::arg("arg0") ) )    
         .def( 
             "getCallbacks"
-            , (::std::list< osg::ref_ptr<osgWidget::Callback> > & ( ::osgWidget::EventInterface::* )(  ) )( &::osgWidget::EventInterface::getCallbacks )
+            , (::std::list< osg::ref_ptr<osgWidget::Callback> > & ( ::osgWidget::EventInterface::* )(  ))( &::osgWidget::EventInterface::getCallbacks )
             , bp::return_internal_reference< >() )    
         .def( 
             "getCallbacks"
-            , (::std::list< osg::ref_ptr<osgWidget::Callback> > const & ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::getCallbacks )
+            , (::std::list< osg::ref_ptr<osgWidget::Callback> > const & ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::getCallbacks )
             , bp::return_internal_reference< >() )    
         .def( 
             "getEventMask"
-            , (unsigned int ( ::osgWidget::EventInterface::* )(  ) const)( &::osgWidget::EventInterface::getEventMask ) )    
+            , (unsigned int ( ::osgWidget::EventInterface::* )(  )const)( &::osgWidget::EventInterface::getEventMask ) )    
         .def( 
             "keyDown"
-            , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::keyDown)
-            , (bool ( EventInterface_wrapper::* )( int,int,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_keyDown)
+            , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::keyDown)
+            , (bool ( EventInterface_wrapper::* )( int,int,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_keyDown)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "keyUp"
-            , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::keyUp)
-            , (bool ( EventInterface_wrapper::* )( int,int,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_keyUp)
+            , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::keyUp)
+            , (bool ( EventInterface_wrapper::* )( int,int,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_keyUp)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseDrag"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseDrag)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseDrag)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseDrag)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseDrag)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseEnter"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseEnter)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseEnter)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseEnter)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseEnter)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseLeave"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseLeave)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseLeave)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseLeave)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseLeave)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseOver"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseOver)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseOver)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseOver)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseOver)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mousePush"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mousePush)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mousePush)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mousePush)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mousePush)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseRelease"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseRelease)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseRelease)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseRelease)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseRelease)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "mouseScroll"
-            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseScroll)
-            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_mouseScroll)
+            , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseScroll)
+            , (bool ( EventInterface_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_mouseScroll)
             , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
         .def( 
             "removeEventMask"
-            , (void ( ::osgWidget::EventInterface::* )( unsigned int ) )( &::osgWidget::EventInterface::removeEventMask )
+            , (void ( ::osgWidget::EventInterface::* )( unsigned int ))( &::osgWidget::EventInterface::removeEventMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "setEventMask"
-            , (void ( ::osgWidget::EventInterface::* )( unsigned int ) )( &::osgWidget::EventInterface::setEventMask )
+            , (void ( ::osgWidget::EventInterface::* )( unsigned int ))( &::osgWidget::EventInterface::setEventMask )
             , ( bp::arg("mask") ) )    
         .def( 
             "unfocus"
-            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::unfocus)
-            , (bool ( EventInterface_wrapper::* )( ::osgWidget::WindowManager const * ) )(&EventInterface_wrapper::default_unfocus)
+            , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::unfocus)
+            , (bool ( EventInterface_wrapper::* )( ::osgWidget::WindowManager const * ))(&EventInterface_wrapper::default_unfocus)
             , ( bp::arg("arg0") ) );
 
 }

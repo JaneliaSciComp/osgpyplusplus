@@ -167,39 +167,39 @@ void register_StyleManager_class(){
     bp::class_< StyleManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::StyleManager >, boost::noncopyable >( "StyleManager", bp::init< >() )    
         .def( 
             "addStyle"
-            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Style * ) )( &::osgWidget::StyleManager::addStyle )
+            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Style * ))( &::osgWidget::StyleManager::addStyle )
             , ( bp::arg("arg0") ) )    
         .def( 
             "applyStyles"
-            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Widget * ) )( &::osgWidget::StyleManager::applyStyles )
+            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Widget * ))( &::osgWidget::StyleManager::applyStyles )
             , ( bp::arg("widget") ) )    
         .def( 
             "applyStyles"
-            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Window * ) )( &::osgWidget::StyleManager::applyStyles )
+            , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Window * ))( &::osgWidget::StyleManager::applyStyles )
             , ( bp::arg("window") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgWidget::StyleManager::* )(  ) const)(&::osgWidget::StyleManager::className)
-            , (char const * ( StyleManager_wrapper::* )(  ) const)(&StyleManager_wrapper::default_className) )    
+            , (char const * ( ::osgWidget::StyleManager::* )(  )const)(&::osgWidget::StyleManager::className)
+            , (char const * ( StyleManager_wrapper::* )(  )const)(&StyleManager_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgWidget::StyleManager::* )( ::osg::CopyOp const & ) const)(&::osgWidget::StyleManager::clone)
-            , (::osg::Object * ( StyleManager_wrapper::* )( ::osg::CopyOp const & ) const)(&StyleManager_wrapper::default_clone)
+            , (::osg::Object * ( ::osgWidget::StyleManager::* )( ::osg::CopyOp const & )const)(&::osgWidget::StyleManager::clone)
+            , (::osg::Object * ( StyleManager_wrapper::* )( ::osg::CopyOp const & )const)(&StyleManager_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgWidget::StyleManager::* )(  ) const)(&::osgWidget::StyleManager::cloneType)
-            , (::osg::Object * ( StyleManager_wrapper::* )(  ) const)(&StyleManager_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgWidget::StyleManager::* )(  )const)(&::osgWidget::StyleManager::cloneType)
+            , (::osg::Object * ( StyleManager_wrapper::* )(  )const)(&StyleManager_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgWidget::StyleManager::* )( ::osg::Object const * ) const)(&::osgWidget::StyleManager::isSameKindAs)
-            , (bool ( StyleManager_wrapper::* )( ::osg::Object const * ) const)(&StyleManager_wrapper::default_isSameKindAs)
+            , (bool ( ::osgWidget::StyleManager::* )( ::osg::Object const * )const)(&::osgWidget::StyleManager::isSameKindAs)
+            , (bool ( StyleManager_wrapper::* )( ::osg::Object const * )const)(&StyleManager_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgWidget::StyleManager::* )(  ) const)(&::osgWidget::StyleManager::libraryName)
-            , (char const * ( StyleManager_wrapper::* )(  ) const)(&StyleManager_wrapper::default_libraryName) );
+            , (char const * ( ::osgWidget::StyleManager::* )(  )const)(&::osgWidget::StyleManager::libraryName)
+            , (char const * ( StyleManager_wrapper::* )(  )const)(&StyleManager_wrapper::default_libraryName) );
 
 }

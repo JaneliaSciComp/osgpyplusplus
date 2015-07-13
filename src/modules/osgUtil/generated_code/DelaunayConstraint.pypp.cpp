@@ -432,49 +432,49 @@ void register_DelaunayConstraint_class(){
         .def( bp::init< >() )    
         .def( 
             "addtriangle"
-            , (void ( ::osgUtil::DelaunayConstraint::* )( int,int,int ) )( &::osgUtil::DelaunayConstraint::addtriangle )
+            , (void ( ::osgUtil::DelaunayConstraint::* )( int,int,int ))( &::osgUtil::DelaunayConstraint::addtriangle )
             , ( bp::arg("i1"), bp::arg("i2"), bp::arg("i3") ) )    
         .def( 
             "contains"
-            , (bool ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & ) const)(&::osgUtil::DelaunayConstraint::contains)
-            , (bool ( DelaunayConstraint_wrapper::* )( ::osg::Vec3 const & ) const)(&DelaunayConstraint_wrapper::default_contains)
+            , (bool ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & )const)(&::osgUtil::DelaunayConstraint::contains)
+            , (bool ( DelaunayConstraint_wrapper::* )( ::osg::Vec3 const & )const)(&DelaunayConstraint_wrapper::default_contains)
             , ( bp::arg("testpoint") ) )    
         .def( 
             "getPoints"
-            , (::osg::Vec3Array * ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3Array const * ) )( &::osgUtil::DelaunayConstraint::getPoints )
+            , (::osg::Vec3Array * ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3Array const * ))( &::osgUtil::DelaunayConstraint::getPoints )
             , ( bp::arg("points") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTriangles"
-            , (::osg::DrawElementsUInt const * ( ::osgUtil::DelaunayConstraint::* )(  ) const)( &::osgUtil::DelaunayConstraint::getTriangles )
+            , (::osg::DrawElementsUInt const * ( ::osgUtil::DelaunayConstraint::* )(  )const)( &::osgUtil::DelaunayConstraint::getTriangles )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTriangles"
-            , (::osg::DrawElementsUInt * ( ::osgUtil::DelaunayConstraint::* )(  ) )( &::osgUtil::DelaunayConstraint::getTriangles )
+            , (::osg::DrawElementsUInt * ( ::osgUtil::DelaunayConstraint::* )(  ))( &::osgUtil::DelaunayConstraint::getTriangles )
             , bp::return_internal_reference< >() )    
         .def( 
             "handleOverlaps"
-            , (void ( ::osgUtil::DelaunayConstraint::* )(  ) )( &::osgUtil::DelaunayConstraint::handleOverlaps ) )    
+            , (void ( ::osgUtil::DelaunayConstraint::* )(  ))( &::osgUtil::DelaunayConstraint::handleOverlaps ) )    
         .def( 
             "makeDrawable"
-            , (::osg::DrawElementsUInt * ( ::osgUtil::DelaunayConstraint::* )(  ) )( &::osgUtil::DelaunayConstraint::makeDrawable )
+            , (::osg::DrawElementsUInt * ( ::osgUtil::DelaunayConstraint::* )(  ))( &::osgUtil::DelaunayConstraint::makeDrawable )
             , bp::return_internal_reference< >() )    
         .def( 
             "merge"
-            , (void ( ::osgUtil::DelaunayConstraint::* )( ::osgUtil::DelaunayConstraint * ) )( &::osgUtil::DelaunayConstraint::merge )
+            , (void ( ::osgUtil::DelaunayConstraint::* )( ::osgUtil::DelaunayConstraint * ))( &::osgUtil::DelaunayConstraint::merge )
             , ( bp::arg("dco") ) )    
         .def( 
             "outside"
-            , (bool ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & ) const)(&::osgUtil::DelaunayConstraint::outside)
-            , (bool ( DelaunayConstraint_wrapper::* )( ::osg::Vec3 const & ) const)(&DelaunayConstraint_wrapper::default_outside)
+            , (bool ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & )const)(&::osgUtil::DelaunayConstraint::outside)
+            , (bool ( DelaunayConstraint_wrapper::* )( ::osg::Vec3 const & )const)(&DelaunayConstraint_wrapper::default_outside)
             , ( bp::arg("testpoint") ) )    
         .def( 
             "removeVerticesInside"
-            , (void ( ::osgUtil::DelaunayConstraint::* )( ::osgUtil::DelaunayConstraint const * ) )( &::osgUtil::DelaunayConstraint::removeVerticesInside )
+            , (void ( ::osgUtil::DelaunayConstraint::* )( ::osgUtil::DelaunayConstraint const * ))( &::osgUtil::DelaunayConstraint::removeVerticesInside )
             , ( bp::arg("dco") ) )    
         .def( 
             "windingNumber"
-            , (float ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & ) const)( &::osgUtil::DelaunayConstraint::windingNumber )
+            , (float ( ::osgUtil::DelaunayConstraint::* )( ::osg::Vec3 const & )const)( &::osgUtil::DelaunayConstraint::windingNumber )
             , ( bp::arg("testpoint") ) );
 
 }

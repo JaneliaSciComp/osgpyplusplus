@@ -312,8 +312,8 @@ void register_ClipPlane_class(){
         ClipPlane_exposer.def( bp::init< unsigned int, double, double, double, double >(( bp::arg("no"), bp::arg("a"), bp::arg("b"), bp::arg("c"), bp::arg("d") )) );
         { //::osg::ClipPlane::apply
         
-            typedef void ( ::osg::ClipPlane::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( ClipPlane_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::ClipPlane::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( ClipPlane_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             ClipPlane_exposer.def( 
                 "apply"
@@ -324,8 +324,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::className
         
-            typedef char const * ( ::osg::ClipPlane::*className_function_type )(  ) const;
-            typedef char const * ( ClipPlane_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::ClipPlane::*className_function_type)(  ) const;
+            typedef char const * ( ClipPlane_wrapper::*default_className_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "className"
@@ -335,8 +335,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::clone
         
-            typedef ::osg::Object * ( ::osg::ClipPlane::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( ClipPlane_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::ClipPlane::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ClipPlane_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             ClipPlane_exposer.def( 
                 "clone"
@@ -348,8 +348,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::cloneType
         
-            typedef ::osg::Object * ( ::osg::ClipPlane::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( ClipPlane_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::ClipPlane::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( ClipPlane_wrapper::*default_cloneType_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "cloneType"
@@ -360,7 +360,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::getClipPlane
         
-            typedef ::osg::Vec4d const & ( ::osg::ClipPlane::*getClipPlane_function_type )(  ) const;
+            typedef ::osg::Vec4d const & ( ::osg::ClipPlane::*getClipPlane_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "getClipPlane"
@@ -371,7 +371,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::getClipPlaneNum
         
-            typedef unsigned int ( ::osg::ClipPlane::*getClipPlaneNum_function_type )(  ) const;
+            typedef unsigned int ( ::osg::ClipPlane::*getClipPlaneNum_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "getClipPlaneNum"
@@ -381,8 +381,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::getMember
         
-            typedef unsigned int ( ::osg::ClipPlane::*getMember_function_type )(  ) const;
-            typedef unsigned int ( ClipPlane_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::ClipPlane::*getMember_function_type)(  ) const;
+            typedef unsigned int ( ClipPlane_wrapper::*default_getMember_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "getMember"
@@ -392,8 +392,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::getModeUsage
         
-            typedef bool ( ::osg::ClipPlane::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( ClipPlane_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::ClipPlane::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ClipPlane_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             ClipPlane_exposer.def( 
                 "getModeUsage"
@@ -404,8 +404,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::ClipPlane::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( ClipPlane_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::ClipPlane::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( ClipPlane_wrapper::*default_getType_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "getType"
@@ -415,8 +415,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::isSameKindAs
         
-            typedef bool ( ::osg::ClipPlane::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( ClipPlane_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::ClipPlane::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( ClipPlane_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             ClipPlane_exposer.def( 
                 "isSameKindAs"
@@ -427,8 +427,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::libraryName
         
-            typedef char const * ( ::osg::ClipPlane::*libraryName_function_type )(  ) const;
-            typedef char const * ( ClipPlane_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::ClipPlane::*libraryName_function_type)(  ) const;
+            typedef char const * ( ClipPlane_wrapper::*default_libraryName_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "libraryName"
@@ -438,7 +438,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::setClipPlane
         
-            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type )( ::osg::Plane const & ) ;
+            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type)( ::osg::Plane const & ) ;
             
             ClipPlane_exposer.def( 
                 "setClipPlane"
@@ -449,7 +449,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::setClipPlane
         
-            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type)( double,double,double,double ) ;
             
             ClipPlane_exposer.def( 
                 "setClipPlane"
@@ -460,7 +460,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::setClipPlane
         
-            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type )( ::osg::Vec4d const & ) ;
+            typedef void ( ::osg::ClipPlane::*setClipPlane_function_type)( ::osg::Vec4d const & ) ;
             
             ClipPlane_exposer.def( 
                 "setClipPlane"
@@ -471,7 +471,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::ClipPlane::setClipPlaneNum
         
-            typedef void ( ::osg::ClipPlane::*setClipPlaneNum_function_type )( unsigned int ) ;
+            typedef void ( ::osg::ClipPlane::*setClipPlaneNum_function_type)( unsigned int ) ;
             
             ClipPlane_exposer.def( 
                 "setClipPlaneNum"
@@ -482,8 +482,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( ClipPlane_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( ClipPlane_wrapper::*default_asTexture_function_type)(  ) ;
             
             ClipPlane_exposer.def( 
                 "asTexture"
@@ -494,8 +494,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( ClipPlane_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( ClipPlane_wrapper::*default_asTexture_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "asTexture"
@@ -506,8 +506,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( ClipPlane_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( ClipPlane_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             ClipPlane_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -518,8 +518,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( ClipPlane_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( ClipPlane_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             ClipPlane_exposer.def( 
                 "compileGLObjects"
@@ -530,8 +530,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( ClipPlane_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( ClipPlane_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             ClipPlane_exposer.def( 
                 "computeDataVariance"
@@ -541,8 +541,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( ClipPlane_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( ClipPlane_wrapper::*default_getUserData_function_type)(  ) ;
             
             ClipPlane_exposer.def( 
                 "getUserData"
@@ -553,8 +553,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( ClipPlane_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( ClipPlane_wrapper::*default_getUserData_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "getUserData"
@@ -565,8 +565,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( ClipPlane_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( ClipPlane_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             ClipPlane_exposer.def( 
                 "isTextureAttribute"
@@ -576,8 +576,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( ClipPlane_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( ClipPlane_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             ClipPlane_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -588,8 +588,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( ClipPlane_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( ClipPlane_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             ClipPlane_exposer.def( 
                 "setName"
@@ -600,7 +600,7 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             ClipPlane_exposer.def( 
                 "setName"
@@ -611,8 +611,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( ClipPlane_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ClipPlane_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             ClipPlane_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -623,8 +623,8 @@ void register_ClipPlane_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( ClipPlane_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( ClipPlane_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             ClipPlane_exposer.def( 
                 "setUserData"

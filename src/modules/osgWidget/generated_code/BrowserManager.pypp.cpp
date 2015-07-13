@@ -124,18 +124,18 @@ void register_BrowserManager_class(){
     bp::class_< BrowserManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::BrowserManager >, boost::noncopyable >( "BrowserManager", bp::no_init )    
         .def( 
             "createBrowserImage"
-            , (::osgWidget::BrowserImage * ( ::osgWidget::BrowserManager::* )( ::std::string const &,int,int ) )(&::osgWidget::BrowserManager::createBrowserImage)
-            , (::osgWidget::BrowserImage * ( BrowserManager_wrapper::* )( ::std::string const &,int,int ) )(&BrowserManager_wrapper::default_createBrowserImage)
+            , (::osgWidget::BrowserImage * ( ::osgWidget::BrowserManager::* )( ::std::string const &,int,int ))(&::osgWidget::BrowserManager::createBrowserImage)
+            , (::osgWidget::BrowserImage * ( BrowserManager_wrapper::* )( ::std::string const &,int,int ))(&BrowserManager_wrapper::default_createBrowserImage)
             , ( bp::arg("url"), bp::arg("width"), bp::arg("height") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getApplication"
-            , (::std::string const & ( ::osgWidget::BrowserManager::* )(  ) const)( &::osgWidget::BrowserManager::getApplication )
+            , (::std::string const & ( ::osgWidget::BrowserManager::* )(  )const)( &::osgWidget::BrowserManager::getApplication )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "init"
-            , (void ( ::osgWidget::BrowserManager::* )( ::std::string const & ) )(&::osgWidget::BrowserManager::init)
-            , (void ( BrowserManager_wrapper::* )( ::std::string const & ) )(&BrowserManager_wrapper::default_init)
+            , (void ( ::osgWidget::BrowserManager::* )( ::std::string const & ))(&::osgWidget::BrowserManager::init)
+            , (void ( BrowserManager_wrapper::* )( ::std::string const & ))(&BrowserManager_wrapper::default_init)
             , ( bp::arg("application") ) )    
         .def( 
             "instance"
@@ -143,7 +143,7 @@ void register_BrowserManager_class(){
             , bp::return_internal_reference< >() )    
         .def( 
             "setApplication"
-            , (void ( ::osgWidget::BrowserManager::* )( ::std::string const & ) )( &::osgWidget::BrowserManager::setApplication )
+            , (void ( ::osgWidget::BrowserManager::* )( ::std::string const & ))( &::osgWidget::BrowserManager::setApplication )
             , ( bp::arg("application") ) )    
         .staticmethod( "instance" );
 

@@ -27,7 +27,7 @@ void register_basic_type_wrapper_class(){
     bp::class_< basic_type_wrapper_wrapper, boost::noncopyable >( "basic_type_wrapper" )    
         .def( 
             "matches"
-            , bp::pure_virtual( (bool ( ::osgDB::basic_type_wrapper::* )( ::osg::Object const * ) const)(&::osgDB::basic_type_wrapper::matches) )
+            , bp::pure_virtual( (bool ( ::osgDB::basic_type_wrapper::* )( ::osg::Object const * )const)(&::osgDB::basic_type_wrapper::matches) )
             , ( bp::arg("proto") ) );
 
 }

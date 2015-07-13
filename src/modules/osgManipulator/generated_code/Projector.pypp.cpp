@@ -33,22 +33,22 @@ void register_Projector_class(){
     bp::class_< Projector_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgManipulator::Projector >, boost::noncopyable >( "Projector", "\n Base class for Projectors. Projectors maps 2D cursor motions to 3D motions.\n", bp::no_init )    
         .def( 
             "getLocalToWorld"
-            , (::osg::Matrix const & ( ::osgManipulator::Projector::* )(  ) const)( &::osgManipulator::Projector::getLocalToWorld )
+            , (::osg::Matrix const & ( ::osgManipulator::Projector::* )(  )const)( &::osgManipulator::Projector::getLocalToWorld )
             , bp::return_internal_reference< >()
             , " Gets the matrix for transforming the projectors local coordinate\n system to the world/object coordinate system." )    
         .def( 
             "getWorldToLocal"
-            , (::osg::Matrix const & ( ::osgManipulator::Projector::* )(  ) const)( &::osgManipulator::Projector::getWorldToLocal )
+            , (::osg::Matrix const & ( ::osgManipulator::Projector::* )(  )const)( &::osgManipulator::Projector::getWorldToLocal )
             , bp::return_internal_reference< >()
             , " Gets the matrix for transforming the world/object coordinate\n system to the commands local coordinate system." )    
         .def( 
             "project"
-            , bp::pure_virtual( (bool ( ::osgManipulator::Projector::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const)(&::osgManipulator::Projector::project) )
+            , bp::pure_virtual( (bool ( ::osgManipulator::Projector::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & )const)(&::osgManipulator::Projector::project) )
             , ( bp::arg("pi"), bp::arg("projectedPoint") )
             , "\n Calculates the object/world coordinates (projectedPoint) of a window\n coordinate (pointToProject) when projected onto some shape or\n geometry (implemented in derived classes). SceneView in used for i\n projecting window coordinates into object coordinates and vice versa.\n Returns true on successful projection.\n" )    
         .def( 
             "setLocalToWorld"
-            , (void ( ::osgManipulator::Projector::* )( ::osg::Matrix const & ) )( &::osgManipulator::Projector::setLocalToWorld )
+            , (void ( ::osgManipulator::Projector::* )( ::osg::Matrix const & ))( &::osgManipulator::Projector::setLocalToWorld )
             , ( bp::arg("localToWorld") )
             , " Sets the matrix for transforming the projectors local coordinate\n system to the world/object coordinate system." );
 

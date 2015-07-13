@@ -603,8 +603,8 @@ void register_Label_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Label >();
         { //::osgWidget::Label::className
         
-            typedef char const * ( ::osgWidget::Label::*className_function_type )(  ) const;
-            typedef char const * ( Label_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Label::*className_function_type)(  ) const;
+            typedef char const * ( Label_wrapper::*default_className_function_type)(  ) const;
             
             Label_exposer.def( 
                 "className"
@@ -614,8 +614,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Label::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Label_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Label::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Label_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Label_exposer.def( 
                 "clone"
@@ -627,8 +627,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Label::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Label_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Label::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Label_wrapper::*default_cloneType_function_type)(  ) const;
             
             Label_exposer.def( 
                 "cloneType"
@@ -639,7 +639,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::getLabel
         
-            typedef ::std::string ( ::osgWidget::Label::*getLabel_function_type )(  ) const;
+            typedef ::std::string ( ::osgWidget::Label::*getLabel_function_type)(  ) const;
             
             Label_exposer.def( 
                 "getLabel"
@@ -648,7 +648,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::getText
         
-            typedef ::osgText::Text * ( ::osgWidget::Label::*getText_function_type )(  ) ;
+            typedef ::osgText::Text * ( ::osgWidget::Label::*getText_function_type)(  ) ;
             
             Label_exposer.def( 
                 "getText"
@@ -658,7 +658,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::getText
         
-            typedef ::osgText::Text const * ( ::osgWidget::Label::*getText_function_type )(  ) const;
+            typedef ::osgText::Text const * ( ::osgWidget::Label::*getText_function_type)(  ) const;
             
             Label_exposer.def( 
                 "getText"
@@ -668,7 +668,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::getTextSize
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Label::*getTextSize_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Label::*getTextSize_function_type)(  ) const;
             
             Label_exposer.def( 
                 "getTextSize"
@@ -677,8 +677,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::isSameKindAs
         
-            typedef bool ( ::osgWidget::Label::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Label_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Label::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Label_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Label_exposer.def( 
                 "isSameKindAs"
@@ -689,8 +689,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::libraryName
         
-            typedef char const * ( ::osgWidget::Label::*libraryName_function_type )(  ) const;
-            typedef char const * ( Label_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Label::*libraryName_function_type)(  ) const;
+            typedef char const * ( Label_wrapper::*default_libraryName_function_type)(  ) const;
             
             Label_exposer.def( 
                 "libraryName"
@@ -700,8 +700,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::parented
         
-            typedef void ( ::osgWidget::Label::*parented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Label_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Label::*parented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Label_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
             
             Label_exposer.def( 
                 "parented"
@@ -712,8 +712,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::positioned
         
-            typedef void ( ::osgWidget::Label::*positioned_function_type )(  ) ;
-            typedef void ( Label_wrapper::*default_positioned_function_type )(  ) ;
+            typedef void ( ::osgWidget::Label::*positioned_function_type)(  ) ;
+            typedef void ( Label_wrapper::*default_positioned_function_type)(  ) ;
             
             Label_exposer.def( 
                 "positioned"
@@ -723,7 +723,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setFont
         
-            typedef void ( ::osgWidget::Label::*setFont_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgWidget::Label::*setFont_function_type)( ::std::string const & ) ;
             
             Label_exposer.def( 
                 "setFont"
@@ -733,7 +733,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setFontColor
         
-            typedef void ( ::osgWidget::Label::*setFontColor_function_type )( ::osgWidget::Color const & ) ;
+            typedef void ( ::osgWidget::Label::*setFontColor_function_type)( ::osgWidget::Color const & ) ;
             
             Label_exposer.def( 
                 "setFontColor"
@@ -743,7 +743,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setFontColor
         
-            typedef void ( ::osgWidget::Label::*setFontColor_function_type )( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Label::*setFontColor_function_type)( ::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Label_exposer.def( 
                 "setFontColor"
@@ -753,7 +753,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setFontSize
         
-            typedef void ( ::osgWidget::Label::*setFontSize_function_type )( unsigned int ) ;
+            typedef void ( ::osgWidget::Label::*setFontSize_function_type)( unsigned int ) ;
             
             Label_exposer.def( 
                 "setFontSize"
@@ -763,7 +763,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setLabel
         
-            typedef void ( ::osgWidget::Label::*setLabel_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgWidget::Label::*setLabel_function_type)( ::std::string const & ) ;
             
             Label_exposer.def( 
                 "setLabel"
@@ -773,7 +773,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setLabel
         
-            typedef void ( ::osgWidget::Label::*setLabel_function_type )( ::osgText::String const & ) ;
+            typedef void ( ::osgWidget::Label::*setLabel_function_type)( ::osgText::String const & ) ;
             
             Label_exposer.def( 
                 "setLabel"
@@ -783,7 +783,7 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::setShadow
         
-            typedef void ( ::osgWidget::Label::*setShadow_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Label::*setShadow_function_type)( ::osgWidget::point_type ) ;
             
             Label_exposer.def( 
                 "setShadow"
@@ -793,8 +793,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Label::unparented
         
-            typedef void ( ::osgWidget::Label::*unparented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Label_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Label::*unparented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Label_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
             
             Label_exposer.def( 
                 "unparented"
@@ -805,8 +805,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "focus"
@@ -817,8 +817,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "keyDown"
@@ -829,8 +829,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "keyUp"
@@ -841,8 +841,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Widget::managed
         
-            typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Label_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Label_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Label_exposer.def( 
                 "managed"
@@ -853,8 +853,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseDrag"
@@ -865,8 +865,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseEnter"
@@ -877,8 +877,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseLeave"
@@ -889,8 +889,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseOver"
@@ -901,8 +901,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mousePush"
@@ -913,8 +913,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseRelease"
@@ -925,8 +925,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "mouseScroll"
@@ -937,8 +937,8 @@ void register_Label_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Label_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Label_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Label_exposer.def( 
                 "unfocus"
@@ -949,8 +949,8 @@ void register_Label_class(){
         }
         { //::osgWidget::Widget::unmanaged
         
-            typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Label_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Label_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Label_exposer.def( 
                 "unmanaged"

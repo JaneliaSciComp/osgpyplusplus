@@ -339,7 +339,7 @@ void register_StencilTwoSided_class(){
             bp::implicitly_convertible< unsigned int, osg::StencilTwoSided::Extensions >();
             { //::osg::StencilTwoSided::Extensions::glActiveStencilFace
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*glActiveStencilFace_function_type )( ::GLenum ) const;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*glActiveStencilFace_function_type)( ::GLenum ) const;
                 
                 Extensions_exposer.def( 
                     "glActiveStencilFace"
@@ -349,7 +349,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::glStencilFuncSeparate
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilFuncSeparate_function_type )( ::GLenum,::GLenum,::GLint,::GLuint ) const;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilFuncSeparate_function_type)( ::GLenum,::GLenum,::GLint,::GLuint ) const;
                 
                 Extensions_exposer.def( 
                     "glStencilFuncSeparate"
@@ -359,7 +359,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::glStencilFuncSeparateATI
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilFuncSeparateATI_function_type )( ::GLenum,::GLenum,::GLint,::GLuint ) const;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilFuncSeparateATI_function_type)( ::GLenum,::GLenum,::GLint,::GLuint ) const;
                 
                 Extensions_exposer.def( 
                     "glStencilFuncSeparateATI"
@@ -369,7 +369,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::glStencilMaskSeparate
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilMaskSeparate_function_type )( ::GLenum,::GLuint ) const;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilMaskSeparate_function_type)( ::GLenum,::GLuint ) const;
                 
                 Extensions_exposer.def( 
                     "glStencilMaskSeparate"
@@ -379,7 +379,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::glStencilOpSeparate
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilOpSeparate_function_type )( ::GLenum,::GLenum,::GLenum,::GLenum ) const;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*glStencilOpSeparate_function_type)( ::GLenum,::GLenum,::GLenum,::GLenum ) const;
                 
                 Extensions_exposer.def( 
                     "glStencilOpSeparate"
@@ -389,7 +389,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::isOpenGL20Supported
             
-                typedef bool ( ::osg::StencilTwoSided::Extensions::*isOpenGL20Supported_function_type )(  ) const;
+                typedef bool ( ::osg::StencilTwoSided::Extensions::*isOpenGL20Supported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isOpenGL20Supported"
@@ -398,7 +398,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::isSeparateStencilSupported
             
-                typedef bool ( ::osg::StencilTwoSided::Extensions::*isSeparateStencilSupported_function_type )(  ) const;
+                typedef bool ( ::osg::StencilTwoSided::Extensions::*isSeparateStencilSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isSeparateStencilSupported"
@@ -407,7 +407,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::isStencilTwoSidedSupported
             
-                typedef bool ( ::osg::StencilTwoSided::Extensions::*isStencilTwoSidedSupported_function_type )(  ) const;
+                typedef bool ( ::osg::StencilTwoSided::Extensions::*isStencilTwoSidedSupported_function_type)(  ) const;
                 
                 Extensions_exposer.def( 
                     "isStencilTwoSidedSupported"
@@ -426,7 +426,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::setOpenGL20Supported
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*setOpenGL20Supported_function_type )( bool ) ;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*setOpenGL20Supported_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setOpenGL20Supported"
@@ -436,7 +436,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::setSeparateStencilSupported
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*setSeparateStencilSupported_function_type )( bool ) ;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*setSeparateStencilSupported_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setSeparateStencilSupported"
@@ -446,7 +446,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::setStencilTwoSidedSupported
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*setStencilTwoSidedSupported_function_type )( bool ) ;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*setStencilTwoSidedSupported_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setStencilTwoSidedSupported"
@@ -456,7 +456,7 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::StencilTwoSided::Extensions::setupGLExtensions
             
-                typedef void ( ::osg::StencilTwoSided::Extensions::*setupGLExtensions_function_type )( unsigned int ) ;
+                typedef void ( ::osg::StencilTwoSided::Extensions::*setupGLExtensions_function_type)( unsigned int ) ;
                 
                 Extensions_exposer.def( 
                     "setupGLExtensions"
@@ -466,8 +466,8 @@ void register_StencilTwoSided_class(){
             }
             { //::osg::Referenced::setThreadSafeRefUnref
             
-                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-                typedef void ( StencilTwoSided_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+                typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+                typedef void ( StencilTwoSided_wrapper::Extensions_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
                 
                 Extensions_exposer.def( 
                     "setThreadSafeRefUnref"
@@ -480,8 +480,8 @@ void register_StencilTwoSided_class(){
         StencilTwoSided_exposer.def( bp::init< >("\n Provides OpenGL two sided stencil functionality, also known as separate stencil.\n  It enables to specify different stencil function for front and back facing polygons.\n  Two sided stenciling is used usually to eliminate the need of two rendering passes\n  when using standard stenciling functions. See also aa osg::Stencil.\n\n  Two sided stenciling is available since OpenGL 2.0. It is also supported by\n  EXT_stencil_two_side extension especially on Nvidia cards.\n  Another extension introduced by ATI is ATI_separate_stencil. However, ATIs extension\n  is limited to have reference and mask value the same for both faces.\n  ATIs extension is currently not supported by the current implementation.\n\n  osg::StencilTwoSided does nothing if OpenGL 2.0 or EXT_stencil_two_side are not available.\n") );
         { //::osg::StencilTwoSided::apply
         
-            typedef void ( ::osg::StencilTwoSided::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( StencilTwoSided_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StencilTwoSided::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( StencilTwoSided_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             StencilTwoSided_exposer.def( 
                 "apply"
@@ -492,8 +492,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::className
         
-            typedef char const * ( ::osg::StencilTwoSided::*className_function_type )(  ) const;
-            typedef char const * ( StencilTwoSided_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::StencilTwoSided::*className_function_type)(  ) const;
+            typedef char const * ( StencilTwoSided_wrapper::*default_className_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "className"
@@ -503,8 +503,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::clone
         
-            typedef ::osg::Object * ( ::osg::StencilTwoSided::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( StencilTwoSided_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::StencilTwoSided::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( StencilTwoSided_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             StencilTwoSided_exposer.def( 
                 "clone"
@@ -516,8 +516,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::cloneType
         
-            typedef ::osg::Object * ( ::osg::StencilTwoSided::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( StencilTwoSided_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::StencilTwoSided::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( StencilTwoSided_wrapper::*default_cloneType_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "cloneType"
@@ -540,7 +540,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getFunction
         
-            typedef ::osg::StencilTwoSided::Function ( ::osg::StencilTwoSided::*getFunction_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef ::osg::StencilTwoSided::Function ( ::osg::StencilTwoSided::*getFunction_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getFunction"
@@ -550,7 +550,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getFunctionMask
         
-            typedef unsigned int ( ::osg::StencilTwoSided::*getFunctionMask_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef unsigned int ( ::osg::StencilTwoSided::*getFunctionMask_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getFunctionMask"
@@ -560,7 +560,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getFunctionRef
         
-            typedef int ( ::osg::StencilTwoSided::*getFunctionRef_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef int ( ::osg::StencilTwoSided::*getFunctionRef_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getFunctionRef"
@@ -570,8 +570,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getModeUsage
         
-            typedef bool ( ::osg::StencilTwoSided::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( StencilTwoSided_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::StencilTwoSided::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( StencilTwoSided_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             StencilTwoSided_exposer.def( 
                 "getModeUsage"
@@ -582,7 +582,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getStencilFailOperation
         
-            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilFailOperation_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilFailOperation_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getStencilFailOperation"
@@ -593,7 +593,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getStencilPassAndDepthFailOperation
         
-            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilPassAndDepthFailOperation_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilPassAndDepthFailOperation_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getStencilPassAndDepthFailOperation"
@@ -604,7 +604,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getStencilPassAndDepthPassOperation
         
-            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilPassAndDepthPassOperation_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef ::osg::StencilTwoSided::Operation ( ::osg::StencilTwoSided::*getStencilPassAndDepthPassOperation_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getStencilPassAndDepthPassOperation"
@@ -615,8 +615,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::StencilTwoSided::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( StencilTwoSided_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::StencilTwoSided::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( StencilTwoSided_wrapper::*default_getType_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "getType"
@@ -626,7 +626,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::getWriteMask
         
-            typedef unsigned int ( ::osg::StencilTwoSided::*getWriteMask_function_type )( ::osg::StencilTwoSided::Face ) const;
+            typedef unsigned int ( ::osg::StencilTwoSided::*getWriteMask_function_type)( ::osg::StencilTwoSided::Face ) const;
             
             StencilTwoSided_exposer.def( 
                 "getWriteMask"
@@ -636,8 +636,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::isSameKindAs
         
-            typedef bool ( ::osg::StencilTwoSided::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( StencilTwoSided_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::StencilTwoSided::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( StencilTwoSided_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             StencilTwoSided_exposer.def( 
                 "isSameKindAs"
@@ -648,8 +648,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::libraryName
         
-            typedef char const * ( ::osg::StencilTwoSided::*libraryName_function_type )(  ) const;
-            typedef char const * ( StencilTwoSided_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::StencilTwoSided::*libraryName_function_type)(  ) const;
+            typedef char const * ( StencilTwoSided_wrapper::*default_libraryName_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "libraryName"
@@ -670,7 +670,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setFunction
         
-            typedef void ( ::osg::StencilTwoSided::*setFunction_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Function,int,unsigned int ) ;
+            typedef void ( ::osg::StencilTwoSided::*setFunction_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Function,int,unsigned int ) ;
             
             StencilTwoSided_exposer.def( 
                 "setFunction"
@@ -680,7 +680,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setFunction
         
-            typedef void ( ::osg::StencilTwoSided::*setFunction_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Function ) ;
+            typedef void ( ::osg::StencilTwoSided::*setFunction_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Function ) ;
             
             StencilTwoSided_exposer.def( 
                 "setFunction"
@@ -690,7 +690,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setFunctionMask
         
-            typedef void ( ::osg::StencilTwoSided::*setFunctionMask_function_type )( ::osg::StencilTwoSided::Face,unsigned int ) ;
+            typedef void ( ::osg::StencilTwoSided::*setFunctionMask_function_type)( ::osg::StencilTwoSided::Face,unsigned int ) ;
             
             StencilTwoSided_exposer.def( 
                 "setFunctionMask"
@@ -700,7 +700,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setFunctionRef
         
-            typedef void ( ::osg::StencilTwoSided::*setFunctionRef_function_type )( ::osg::StencilTwoSided::Face,int ) ;
+            typedef void ( ::osg::StencilTwoSided::*setFunctionRef_function_type)( ::osg::StencilTwoSided::Face,int ) ;
             
             StencilTwoSided_exposer.def( 
                 "setFunctionRef"
@@ -710,7 +710,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setOperation
         
-            typedef void ( ::osg::StencilTwoSided::*setOperation_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation,::osg::StencilTwoSided::Operation,::osg::StencilTwoSided::Operation ) ;
+            typedef void ( ::osg::StencilTwoSided::*setOperation_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation,::osg::StencilTwoSided::Operation,::osg::StencilTwoSided::Operation ) ;
             
             StencilTwoSided_exposer.def( 
                 "setOperation"
@@ -721,7 +721,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setStencilFailOperation
         
-            typedef void ( ::osg::StencilTwoSided::*setStencilFailOperation_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
+            typedef void ( ::osg::StencilTwoSided::*setStencilFailOperation_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
             
             StencilTwoSided_exposer.def( 
                 "setStencilFailOperation"
@@ -732,7 +732,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setStencilPassAndDepthFailOperation
         
-            typedef void ( ::osg::StencilTwoSided::*setStencilPassAndDepthFailOperation_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
+            typedef void ( ::osg::StencilTwoSided::*setStencilPassAndDepthFailOperation_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
             
             StencilTwoSided_exposer.def( 
                 "setStencilPassAndDepthFailOperation"
@@ -743,7 +743,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setStencilPassAndDepthPassOperation
         
-            typedef void ( ::osg::StencilTwoSided::*setStencilPassAndDepthPassOperation_function_type )( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
+            typedef void ( ::osg::StencilTwoSided::*setStencilPassAndDepthPassOperation_function_type)( ::osg::StencilTwoSided::Face,::osg::StencilTwoSided::Operation ) ;
             
             StencilTwoSided_exposer.def( 
                 "setStencilPassAndDepthPassOperation"
@@ -754,7 +754,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StencilTwoSided::setWriteMask
         
-            typedef void ( ::osg::StencilTwoSided::*setWriteMask_function_type )( ::osg::StencilTwoSided::Face,unsigned int ) ;
+            typedef void ( ::osg::StencilTwoSided::*setWriteMask_function_type)( ::osg::StencilTwoSided::Face,unsigned int ) ;
             
             StencilTwoSided_exposer.def( 
                 "setWriteMask"
@@ -764,8 +764,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( StencilTwoSided_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( StencilTwoSided_wrapper::*default_asTexture_function_type)(  ) ;
             
             StencilTwoSided_exposer.def( 
                 "asTexture"
@@ -776,8 +776,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( StencilTwoSided_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( StencilTwoSided_wrapper::*default_asTexture_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "asTexture"
@@ -788,8 +788,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( StencilTwoSided_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( StencilTwoSided_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             StencilTwoSided_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -800,8 +800,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( StencilTwoSided_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( StencilTwoSided_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             StencilTwoSided_exposer.def( 
                 "compileGLObjects"
@@ -812,8 +812,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( StencilTwoSided_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( StencilTwoSided_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             StencilTwoSided_exposer.def( 
                 "computeDataVariance"
@@ -823,8 +823,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( StencilTwoSided_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( StencilTwoSided_wrapper::*default_getMember_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "getMember"
@@ -834,8 +834,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( StencilTwoSided_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( StencilTwoSided_wrapper::*default_getUserData_function_type)(  ) ;
             
             StencilTwoSided_exposer.def( 
                 "getUserData"
@@ -846,8 +846,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( StencilTwoSided_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( StencilTwoSided_wrapper::*default_getUserData_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "getUserData"
@@ -858,8 +858,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( StencilTwoSided_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( StencilTwoSided_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             StencilTwoSided_exposer.def( 
                 "isTextureAttribute"
@@ -869,8 +869,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( StencilTwoSided_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( StencilTwoSided_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             StencilTwoSided_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -881,8 +881,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( StencilTwoSided_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( StencilTwoSided_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             StencilTwoSided_exposer.def( 
                 "setName"
@@ -893,7 +893,7 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             StencilTwoSided_exposer.def( 
                 "setName"
@@ -904,8 +904,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( StencilTwoSided_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( StencilTwoSided_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             StencilTwoSided_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -916,8 +916,8 @@ void register_StencilTwoSided_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( StencilTwoSided_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( StencilTwoSided_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             StencilTwoSided_exposer.def( 
                 "setUserData"

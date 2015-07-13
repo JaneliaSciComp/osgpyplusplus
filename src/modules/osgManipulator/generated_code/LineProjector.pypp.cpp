@@ -56,28 +56,28 @@ void register_LineProjector_class(){
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 
             "getLineEnd"
-            , (::osg::Vec3d const & ( ::osgManipulator::LineProjector::* )(  ) const)( &::osgManipulator::LineProjector::getLineEnd )
+            , (::osg::Vec3d const & ( ::osgManipulator::LineProjector::* )(  )const)( &::osgManipulator::LineProjector::getLineEnd )
             , bp::return_internal_reference< >() )    
         .def( 
             "getLineEnd"
-            , (::osg::Vec3d & ( ::osgManipulator::LineProjector::* )(  ) )( &::osgManipulator::LineProjector::getLineEnd )
+            , (::osg::Vec3d & ( ::osgManipulator::LineProjector::* )(  ))( &::osgManipulator::LineProjector::getLineEnd )
             , bp::return_internal_reference< >() )    
         .def( 
             "getLineStart"
-            , (::osg::Vec3d const & ( ::osgManipulator::LineProjector::* )(  ) const)( &::osgManipulator::LineProjector::getLineStart )
+            , (::osg::Vec3d const & ( ::osgManipulator::LineProjector::* )(  )const)( &::osgManipulator::LineProjector::getLineStart )
             , bp::return_internal_reference< >() )    
         .def( 
             "getLineStart"
-            , (::osg::Vec3d & ( ::osgManipulator::LineProjector::* )(  ) )( &::osgManipulator::LineProjector::getLineStart )
+            , (::osg::Vec3d & ( ::osgManipulator::LineProjector::* )(  ))( &::osgManipulator::LineProjector::getLineStart )
             , bp::return_internal_reference< >() )    
         .def( 
             "project"
-            , (bool ( ::osgManipulator::LineProjector::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const)(&::osgManipulator::LineProjector::project)
-            , (bool ( LineProjector_wrapper::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const)(&LineProjector_wrapper::default_project)
+            , (bool ( ::osgManipulator::LineProjector::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & )const)(&::osgManipulator::LineProjector::project)
+            , (bool ( LineProjector_wrapper::* )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & )const)(&LineProjector_wrapper::default_project)
             , ( bp::arg("pi"), bp::arg("projectedPoint") ) )    
         .def( 
             "setLine"
-            , (void ( ::osgManipulator::LineProjector::* )( ::osg::Vec3d const &,::osg::Vec3d const & ) )( &::osgManipulator::LineProjector::setLine )
+            , (void ( ::osgManipulator::LineProjector::* )( ::osg::Vec3d const &,::osg::Vec3d const & ))( &::osgManipulator::LineProjector::setLine )
             , ( bp::arg("s"), bp::arg("e") ) );
 
 }

@@ -12,15 +12,15 @@ void register_StyleInterface_class(){
         .def( bp::init< osgWidget::StyleInterface const & >(( bp::arg("si") )) )    
         .def( 
             "getStyle"
-            , (::std::string & ( ::osgWidget::StyleInterface::* )(  ) )( &::osgWidget::StyleInterface::getStyle )
+            , (::std::string & ( ::osgWidget::StyleInterface::* )(  ))( &::osgWidget::StyleInterface::getStyle )
             , bp::return_internal_reference< >() )    
         .def( 
             "getStyle"
-            , (::std::string const & ( ::osgWidget::StyleInterface::* )(  ) const)( &::osgWidget::StyleInterface::getStyle )
+            , (::std::string const & ( ::osgWidget::StyleInterface::* )(  )const)( &::osgWidget::StyleInterface::getStyle )
             , bp::return_value_policy< bp::copy_const_reference >() )    
         .def( 
             "setStyle"
-            , (void ( ::osgWidget::StyleInterface::* )( ::std::string const & ) )( &::osgWidget::StyleInterface::setStyle )
+            , (void ( ::osgWidget::StyleInterface::* )( ::std::string const & ))( &::osgWidget::StyleInterface::setStyle )
             , ( bp::arg("style") ) );
 
 }

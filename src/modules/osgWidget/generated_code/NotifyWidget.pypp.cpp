@@ -603,8 +603,8 @@ void register_NotifyWidget_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::NotifyWidget >();
         { //::osgWidget::NotifyWidget::className
         
-            typedef char const * ( ::osgWidget::NotifyWidget::*className_function_type )(  ) const;
-            typedef char const * ( NotifyWidget_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::NotifyWidget::*className_function_type)(  ) const;
+            typedef char const * ( NotifyWidget_wrapper::*default_className_function_type)(  ) const;
             
             NotifyWidget_exposer.def( 
                 "className"
@@ -614,8 +614,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::clone
         
-            typedef ::osg::Object * ( ::osgWidget::NotifyWidget::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( NotifyWidget_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::NotifyWidget::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( NotifyWidget_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             NotifyWidget_exposer.def( 
                 "clone"
@@ -627,8 +627,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::NotifyWidget::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( NotifyWidget_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::NotifyWidget::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( NotifyWidget_wrapper::*default_cloneType_function_type)(  ) const;
             
             NotifyWidget_exposer.def( 
                 "cloneType"
@@ -639,8 +639,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::focus
         
-            typedef bool ( ::osgWidget::NotifyWidget::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "focus"
@@ -651,8 +651,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::isSameKindAs
         
-            typedef bool ( ::osgWidget::NotifyWidget::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( NotifyWidget_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::NotifyWidget::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( NotifyWidget_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             NotifyWidget_exposer.def( 
                 "isSameKindAs"
@@ -663,7 +663,7 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::keyPress
         
-            typedef bool ( ::osgWidget::NotifyWidget::*keyPress_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*keyPress_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "keyPress"
@@ -673,7 +673,7 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::keyRelease
         
-            typedef bool ( ::osgWidget::NotifyWidget::*keyRelease_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*keyRelease_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "keyRelease"
@@ -683,8 +683,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::libraryName
         
-            typedef char const * ( ::osgWidget::NotifyWidget::*libraryName_function_type )(  ) const;
-            typedef char const * ( NotifyWidget_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::NotifyWidget::*libraryName_function_type)(  ) const;
+            typedef char const * ( NotifyWidget_wrapper::*default_libraryName_function_type)(  ) const;
             
             NotifyWidget_exposer.def( 
                 "libraryName"
@@ -694,8 +694,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseDrag
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseDrag"
@@ -706,8 +706,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseEnter
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseEnter"
@@ -718,8 +718,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseLeave
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseLeave"
@@ -730,8 +730,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseOver
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseOver"
@@ -742,8 +742,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mousePush
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mousePush"
@@ -754,8 +754,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseRelease
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseRelease"
@@ -766,8 +766,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::mouseScroll
         
-            typedef bool ( ::osgWidget::NotifyWidget::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "mouseScroll"
@@ -778,8 +778,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::NotifyWidget::unfocus
         
-            typedef bool ( ::osgWidget::NotifyWidget::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::NotifyWidget::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "unfocus"
@@ -790,8 +790,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "keyDown"
@@ -802,8 +802,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( NotifyWidget_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( NotifyWidget_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             NotifyWidget_exposer.def( 
                 "keyUp"
@@ -814,8 +814,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::Widget::managed
         
-            typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( NotifyWidget_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( NotifyWidget_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             NotifyWidget_exposer.def( 
                 "managed"
@@ -826,8 +826,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::Widget::parented
         
-            typedef void ( ::osgWidget::Widget::*parented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( NotifyWidget_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*parented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( NotifyWidget_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
             
             NotifyWidget_exposer.def( 
                 "parented"
@@ -838,8 +838,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::Widget::positioned
         
-            typedef void ( ::osgWidget::Widget::*positioned_function_type )(  ) ;
-            typedef void ( NotifyWidget_wrapper::*default_positioned_function_type )(  ) ;
+            typedef void ( ::osgWidget::Widget::*positioned_function_type)(  ) ;
+            typedef void ( NotifyWidget_wrapper::*default_positioned_function_type)(  ) ;
             
             NotifyWidget_exposer.def( 
                 "positioned"
@@ -849,8 +849,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::Widget::unmanaged
         
-            typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( NotifyWidget_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( NotifyWidget_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             NotifyWidget_exposer.def( 
                 "unmanaged"
@@ -861,8 +861,8 @@ void register_NotifyWidget_class(){
         }
         { //::osgWidget::Widget::unparented
         
-            typedef void ( ::osgWidget::Widget::*unparented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( NotifyWidget_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Widget::*unparented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( NotifyWidget_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
             
             NotifyWidget_exposer.def( 
                 "unparented"

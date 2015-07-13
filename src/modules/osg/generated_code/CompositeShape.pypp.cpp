@@ -192,122 +192,122 @@ void register_CompositeShape_class(){
         .def( bp::init< >() )    
         .def( 
             "accept"
-            , (void ( ::osg::CompositeShape::* )( ::osg::ShapeVisitor & ) )(&::osg::CompositeShape::accept)
-            , (void ( CompositeShape_wrapper::* )( ::osg::ShapeVisitor & ) )(&CompositeShape_wrapper::default_accept)
+            , (void ( ::osg::CompositeShape::* )( ::osg::ShapeVisitor & ))(&::osg::CompositeShape::accept)
+            , (void ( CompositeShape_wrapper::* )( ::osg::ShapeVisitor & ))(&CompositeShape_wrapper::default_accept)
             , ( bp::arg("sv") ) )    
         .def( 
             "accept"
-            , (void ( ::osg::CompositeShape::* )( ::osg::ConstShapeVisitor & ) const)(&::osg::CompositeShape::accept)
-            , (void ( CompositeShape_wrapper::* )( ::osg::ConstShapeVisitor & ) const)(&CompositeShape_wrapper::default_accept)
+            , (void ( ::osg::CompositeShape::* )( ::osg::ConstShapeVisitor & )const)(&::osg::CompositeShape::accept)
+            , (void ( CompositeShape_wrapper::* )( ::osg::ConstShapeVisitor & )const)(&CompositeShape_wrapper::default_accept)
             , ( bp::arg("csv") ) )    
         .def( 
             "addChild"
-            , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ) )( &::osg::CompositeShape::addChild )
+            , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ))( &::osg::CompositeShape::addChild )
             , ( bp::arg("shape") )
             , " Add a child to the list." )    
         .def( 
             "className"
-            , (char const * ( ::osg::CompositeShape::* )(  ) const)(&::osg::CompositeShape::className)
-            , (char const * ( CompositeShape_wrapper::* )(  ) const)(&CompositeShape_wrapper::default_className) )    
+            , (char const * ( ::osg::CompositeShape::* )(  )const)(&::osg::CompositeShape::className)
+            , (char const * ( CompositeShape_wrapper::* )(  )const)(&CompositeShape_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::CompositeShape::* )( ::osg::CopyOp const & ) const)(&::osg::CompositeShape::clone)
-            , (::osg::Object * ( CompositeShape_wrapper::* )( ::osg::CopyOp const & ) const)(&CompositeShape_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::CompositeShape::* )( ::osg::CopyOp const & )const)(&::osg::CompositeShape::clone)
+            , (::osg::Object * ( CompositeShape_wrapper::* )( ::osg::CopyOp const & )const)(&CompositeShape_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::CompositeShape::* )(  ) const)(&::osg::CompositeShape::cloneType)
-            , (::osg::Object * ( CompositeShape_wrapper::* )(  ) const)(&CompositeShape_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::CompositeShape::* )(  )const)(&::osg::CompositeShape::cloneType)
+            , (::osg::Object * ( CompositeShape_wrapper::* )(  )const)(&CompositeShape_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "findChildNo"
-            , (unsigned int ( ::osg::CompositeShape::* )( ::osg::Shape * ) const)( &::osg::CompositeShape::findChildNo )
+            , (unsigned int ( ::osg::CompositeShape::* )( ::osg::Shape * )const)( &::osg::CompositeShape::findChildNo )
             , ( bp::arg("shape") )
             , " find the index number of child, if child is not found then it returns getNumChildren(),\n so should be used in similar style to STLs result!=end()." )    
         .def( 
             "getChild"
-            , (::osg::Shape * ( ::osg::CompositeShape::* )( unsigned int ) )( &::osg::CompositeShape::getChild )
+            , (::osg::Shape * ( ::osg::CompositeShape::* )( unsigned int ))( &::osg::CompositeShape::getChild )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Get a child." )    
         .def( 
             "getChild"
-            , (::osg::Shape const * ( ::osg::CompositeShape::* )( unsigned int ) const)( &::osg::CompositeShape::getChild )
+            , (::osg::Shape const * ( ::osg::CompositeShape::* )( unsigned int )const)( &::osg::CompositeShape::getChild )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >()
             , " Get a const child." )    
         .def( 
             "getNumChildren"
-            , (unsigned int ( ::osg::CompositeShape::* )(  ) const)( &::osg::CompositeShape::getNumChildren )
+            , (unsigned int ( ::osg::CompositeShape::* )(  )const)( &::osg::CompositeShape::getNumChildren )
             , " Get the number of children of this composite shape." )    
         .def( 
             "getShape"
-            , (::osg::Shape * ( ::osg::CompositeShape::* )(  ) )( &::osg::CompositeShape::getShape )
+            , (::osg::Shape * ( ::osg::CompositeShape::* )(  ))( &::osg::CompositeShape::getShape )
             , bp::return_internal_reference< >()
             , " Get the shape that encloses all of the children." )    
         .def( 
             "getShape"
-            , (::osg::Shape const * ( ::osg::CompositeShape::* )(  ) const)( &::osg::CompositeShape::getShape )
+            , (::osg::Shape const * ( ::osg::CompositeShape::* )(  )const)( &::osg::CompositeShape::getShape )
             , bp::return_internal_reference< >()
             , " Get the const shape that encloses all of the children." )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::CompositeShape::* )( ::osg::Object const * ) const)(&::osg::CompositeShape::isSameKindAs)
-            , (bool ( CompositeShape_wrapper::* )( ::osg::Object const * ) const)(&CompositeShape_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::CompositeShape::* )( ::osg::Object const * )const)(&::osg::CompositeShape::isSameKindAs)
+            , (bool ( CompositeShape_wrapper::* )( ::osg::Object const * )const)(&CompositeShape_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::CompositeShape::* )(  ) const)(&::osg::CompositeShape::libraryName)
-            , (char const * ( CompositeShape_wrapper::* )(  ) const)(&CompositeShape_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::CompositeShape::* )(  )const)(&::osg::CompositeShape::libraryName)
+            , (char const * ( CompositeShape_wrapper::* )(  )const)(&CompositeShape_wrapper::default_libraryName) )    
         .def( 
             "removeChild"
-            , (void ( ::osg::CompositeShape::* )( unsigned int ) )( &::osg::CompositeShape::removeChild )
+            , (void ( ::osg::CompositeShape::* )( unsigned int ))( &::osg::CompositeShape::removeChild )
             , ( bp::arg("i") )
             , " remove a child from the list." )    
         .def( 
             "setShape"
-            , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ) )( &::osg::CompositeShape::setShape )
+            , (void ( ::osg::CompositeShape::* )( ::osg::Shape * ))( &::osg::CompositeShape::setShape )
             , ( bp::arg("shape") )
             , " Set the shape that encloses all of the children." )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( CompositeShape_wrapper::* )(  ) )(&CompositeShape_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( CompositeShape_wrapper::* )(  ))(&CompositeShape_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( CompositeShape_wrapper::* )(  ) )(&CompositeShape_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( CompositeShape_wrapper::* )(  ))(&CompositeShape_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( CompositeShape_wrapper::* )(  ) const)(&CompositeShape_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( CompositeShape_wrapper::* )(  )const)(&CompositeShape_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( CompositeShape_wrapper::* )( unsigned int ) )(&CompositeShape_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( CompositeShape_wrapper::* )( unsigned int ))(&CompositeShape_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( CompositeShape_wrapper::* )( ::std::string const & ) )(&CompositeShape_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( CompositeShape_wrapper::* )( ::std::string const & ))(&CompositeShape_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( CompositeShape_wrapper::* )( bool ) )(&CompositeShape_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( CompositeShape_wrapper::* )( bool ))(&CompositeShape_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( CompositeShape_wrapper::* )( ::osg::Referenced * ) )(&CompositeShape_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( CompositeShape_wrapper::* )( ::osg::Referenced * ))(&CompositeShape_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

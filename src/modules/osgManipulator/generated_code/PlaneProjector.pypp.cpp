@@ -60,7 +60,7 @@ void register_PlaneProjector_class(){
         bp::implicitly_convertible< osg::Plane const &, osgManipulator::PlaneProjector >();
         { //::osgManipulator::PlaneProjector::getPlane
         
-            typedef ::osg::Plane const & ( ::osgManipulator::PlaneProjector::*getPlane_function_type )(  ) const;
+            typedef ::osg::Plane const & ( ::osgManipulator::PlaneProjector::*getPlane_function_type)(  ) const;
             
             PlaneProjector_exposer.def( 
                 "getPlane"
@@ -70,8 +70,8 @@ void register_PlaneProjector_class(){
         }
         { //::osgManipulator::PlaneProjector::project
         
-            typedef bool ( ::osgManipulator::PlaneProjector::*project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
-            typedef bool ( PlaneProjector_wrapper::*default_project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( ::osgManipulator::PlaneProjector::*project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( PlaneProjector_wrapper::*default_project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
             
             PlaneProjector_exposer.def( 
                 "project"
@@ -82,7 +82,7 @@ void register_PlaneProjector_class(){
         }
         { //::osgManipulator::PlaneProjector::setPlane
         
-            typedef void ( ::osgManipulator::PlaneProjector::*setPlane_function_type )( ::osg::Plane const & ) ;
+            typedef void ( ::osgManipulator::PlaneProjector::*setPlane_function_type)( ::osg::Plane const & ) ;
             
             PlaneProjector_exposer.def( 
                 "setPlane"

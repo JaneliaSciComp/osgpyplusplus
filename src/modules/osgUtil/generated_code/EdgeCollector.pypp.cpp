@@ -133,31 +133,31 @@ void register_EdgeCollector_class(){
         bp::class_< EdgeCollector_wrapper::Edge_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Edge >, boost::noncopyable >( "Edge" )    
             .def( 
                 "addTriangle"
-                , (void ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Triangle * ) )( &::osgUtil::EdgeCollector::Edge::addTriangle )
+                , (void ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Triangle * ))( &::osgUtil::EdgeCollector::Edge::addTriangle )
                 , ( bp::arg("triangle") ) )    
             .def( 
                 "beginConnected"
-                , (bool ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Edge const & ) const)( &::osgUtil::EdgeCollector::Edge::beginConnected )
+                , (bool ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Edge const & )const)( &::osgUtil::EdgeCollector::Edge::beginConnected )
                 , ( bp::arg("rhs") ) )    
             .def( 
                 "clear"
-                , (void ( ::osgUtil::EdgeCollector::Edge::* )(  ) )( &::osgUtil::EdgeCollector::Edge::clear ) )    
+                , (void ( ::osgUtil::EdgeCollector::Edge::* )(  ))( &::osgUtil::EdgeCollector::Edge::clear ) )    
             .def( 
                 "endConnected"
-                , (bool ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Edge const & ) const)( &::osgUtil::EdgeCollector::Edge::endConnected )
+                , (bool ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Edge const & )const)( &::osgUtil::EdgeCollector::Edge::endConnected )
                 , ( bp::arg("rhs") ) )    
             .def( 
                 "isAdjacentToBoundary"
-                , (bool ( ::osgUtil::EdgeCollector::Edge::* )(  ) const)( &::osgUtil::EdgeCollector::Edge::isAdjacentToBoundary ) )    
+                , (bool ( ::osgUtil::EdgeCollector::Edge::* )(  )const)( &::osgUtil::EdgeCollector::Edge::isAdjacentToBoundary ) )    
             .def( 
                 "isBoundaryEdge"
-                , (bool ( ::osgUtil::EdgeCollector::Edge::* )(  ) const)( &::osgUtil::EdgeCollector::Edge::isBoundaryEdge ) )    
+                , (bool ( ::osgUtil::EdgeCollector::Edge::* )(  )const)( &::osgUtil::EdgeCollector::Edge::isBoundaryEdge ) )    
             .def( bp::self != bp::self )    
             .def( bp::self < bp::self )    
             .def( bp::self == bp::self )    
             .def( 
                 "setOrderedPoints"
-                , (void ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) )( &::osgUtil::EdgeCollector::Edge::setOrderedPoints )
+                , (void ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ))( &::osgUtil::EdgeCollector::Edge::setOrderedPoints )
                 , ( bp::arg("p1"), bp::arg("p2") ) )    
             .def_readwrite( "_op1", &osgUtil::EdgeCollector::Edge::_op1 )    
             .def_readwrite( "_op2", &osgUtil::EdgeCollector::Edge::_op2 )    
@@ -167,19 +167,19 @@ void register_EdgeCollector_class(){
         bp::class_< EdgeCollector_wrapper::Edgeloop_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Edgeloop >, boost::noncopyable >( "Edgeloop" )    
             .def( 
                 "isClosed"
-                , (bool ( ::osgUtil::EdgeCollector::Edgeloop::* )(  ) )( &::osgUtil::EdgeCollector::Edgeloop::isClosed ) )    
+                , (bool ( ::osgUtil::EdgeCollector::Edgeloop::* )(  ))( &::osgUtil::EdgeCollector::Edgeloop::isClosed ) )    
             .def( 
                 "toIndexArray"
-                , (::osg::UIntArray * ( ::osgUtil::EdgeCollector::Edgeloop::* )(  ) const)( &::osgUtil::EdgeCollector::Edgeloop::toIndexArray )
+                , (::osg::UIntArray * ( ::osgUtil::EdgeCollector::Edgeloop::* )(  )const)( &::osgUtil::EdgeCollector::Edgeloop::toIndexArray )
                 , bp::return_internal_reference< >() )    
             .def_readwrite( "_edgeList", &osgUtil::EdgeCollector::Edgeloop::_edgeList );
         bp::class_< EdgeCollector_wrapper::Point_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Point >, boost::noncopyable >( "Point", bp::init< >() )    
             .def( 
                 "clear"
-                , (void ( ::osgUtil::EdgeCollector::Point::* )(  ) )( &::osgUtil::EdgeCollector::Point::clear ) )    
+                , (void ( ::osgUtil::EdgeCollector::Point::* )(  ))( &::osgUtil::EdgeCollector::Point::clear ) )    
             .def( 
                 "isBoundaryPoint"
-                , (bool ( ::osgUtil::EdgeCollector::Point::* )(  ) const)( &::osgUtil::EdgeCollector::Point::isBoundaryPoint ) )    
+                , (bool ( ::osgUtil::EdgeCollector::Point::* )(  )const)( &::osgUtil::EdgeCollector::Point::isBoundaryPoint ) )    
             .def( bp::self < bp::self )    
             .def_readwrite( "_index", &osgUtil::EdgeCollector::Point::_index )    
             .def_readwrite( "_protected", &osgUtil::EdgeCollector::Point::_protected )    
@@ -188,18 +188,18 @@ void register_EdgeCollector_class(){
         bp::class_< EdgeCollector_wrapper::Triangle_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Triangle >, boost::noncopyable >( "Triangle", bp::init< >() )    
             .def( 
                 "clear"
-                , (void ( ::osgUtil::EdgeCollector::Triangle::* )(  ) )( &::osgUtil::EdgeCollector::Triangle::clear ) )    
+                , (void ( ::osgUtil::EdgeCollector::Triangle::* )(  ))( &::osgUtil::EdgeCollector::Triangle::clear ) )    
             .def( 
                 "distance"
-                , (float ( ::osgUtil::EdgeCollector::Triangle::* )( ::osg::Vec3 const & ) const)( &::osgUtil::EdgeCollector::Triangle::distance )
+                , (float ( ::osgUtil::EdgeCollector::Triangle::* )( ::osg::Vec3 const & )const)( &::osgUtil::EdgeCollector::Triangle::distance )
                 , ( bp::arg("vertex") ) )    
             .def( 
                 "isBoundaryTriangle"
-                , (bool ( ::osgUtil::EdgeCollector::Triangle::* )(  ) const)( &::osgUtil::EdgeCollector::Triangle::isBoundaryTriangle ) )    
+                , (bool ( ::osgUtil::EdgeCollector::Triangle::* )(  )const)( &::osgUtil::EdgeCollector::Triangle::isBoundaryTriangle ) )    
             .def( bp::self < bp::self )    
             .def( 
                 "setOrderedPoints"
-                , (void ( ::osgUtil::EdgeCollector::Triangle::* )( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) )( &::osgUtil::EdgeCollector::Triangle::setOrderedPoints )
+                , (void ( ::osgUtil::EdgeCollector::Triangle::* )( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ))( &::osgUtil::EdgeCollector::Triangle::setOrderedPoints )
                 , ( bp::arg("p1"), bp::arg("p2"), bp::arg("p3") ) )    
             .def_readwrite( "_e1", &osgUtil::EdgeCollector::Triangle::_e1 )    
             .def_readwrite( "_e2", &osgUtil::EdgeCollector::Triangle::_e2 )    
@@ -213,7 +213,7 @@ void register_EdgeCollector_class(){
             .def_readwrite( "_plane", &osgUtil::EdgeCollector::Triangle::_plane );
         { //::osgUtil::EdgeCollector::addEdge
         
-            typedef ::osgUtil::EdgeCollector::Edge * ( ::osgUtil::EdgeCollector::*addEdge_function_type )( ::osgUtil::EdgeCollector::Triangle *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) ;
+            typedef ::osgUtil::EdgeCollector::Edge * ( ::osgUtil::EdgeCollector::*addEdge_function_type)( ::osgUtil::EdgeCollector::Triangle *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) ;
             
             EdgeCollector_exposer.def( 
                 "addEdge"
@@ -224,7 +224,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::addPoint
         
-            typedef ::osgUtil::EdgeCollector::Point * ( ::osgUtil::EdgeCollector::*addPoint_function_type )( ::osgUtil::EdgeCollector::Triangle *,unsigned int ) ;
+            typedef ::osgUtil::EdgeCollector::Point * ( ::osgUtil::EdgeCollector::*addPoint_function_type)( ::osgUtil::EdgeCollector::Triangle *,unsigned int ) ;
             
             EdgeCollector_exposer.def( 
                 "addPoint"
@@ -235,7 +235,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::addPoint
         
-            typedef ::osgUtil::EdgeCollector::Point * ( ::osgUtil::EdgeCollector::*addPoint_function_type )( ::osgUtil::EdgeCollector::Triangle *,::osgUtil::EdgeCollector::Point * ) ;
+            typedef ::osgUtil::EdgeCollector::Point * ( ::osgUtil::EdgeCollector::*addPoint_function_type)( ::osgUtil::EdgeCollector::Triangle *,::osgUtil::EdgeCollector::Point * ) ;
             
             EdgeCollector_exposer.def( 
                 "addPoint"
@@ -246,7 +246,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::addTriangle
         
-            typedef ::osgUtil::EdgeCollector::Triangle * ( ::osgUtil::EdgeCollector::*addTriangle_function_type )( unsigned int,unsigned int,unsigned int ) ;
+            typedef ::osgUtil::EdgeCollector::Triangle * ( ::osgUtil::EdgeCollector::*addTriangle_function_type)( unsigned int,unsigned int,unsigned int ) ;
             
             EdgeCollector_exposer.def( 
                 "addTriangle"
@@ -257,7 +257,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::addTriangle
         
-            typedef ::osgUtil::EdgeCollector::Triangle * ( ::osgUtil::EdgeCollector::*addTriangle_function_type )( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) ;
+            typedef ::osgUtil::EdgeCollector::Triangle * ( ::osgUtil::EdgeCollector::*addTriangle_function_type)( ::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point *,::osgUtil::EdgeCollector::Point * ) ;
             
             EdgeCollector_exposer.def( 
                 "addTriangle"
@@ -268,7 +268,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::extractBoundaryEdgeloop
         
-            typedef bool ( ::osgUtil::EdgeCollector::*extractBoundaryEdgeloop_function_type )( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > &,::osgUtil::EdgeCollector::Edgeloop & ) ;
+            typedef bool ( ::osgUtil::EdgeCollector::*extractBoundaryEdgeloop_function_type)( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > &,::osgUtil::EdgeCollector::Edgeloop & ) ;
             
             EdgeCollector_exposer.def( 
                 "extractBoundaryEdgeloop"
@@ -278,7 +278,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::extractBoundaryEdgeloopList
         
-            typedef bool ( ::osgUtil::EdgeCollector::*extractBoundaryEdgeloopList_function_type )( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > &,::std::list< osg::ref_ptr<osgUtil::EdgeCollector::Edgeloop> > & ) ;
+            typedef bool ( ::osgUtil::EdgeCollector::*extractBoundaryEdgeloopList_function_type)( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > &,::std::list< osg::ref_ptr<osgUtil::EdgeCollector::Edgeloop> > & ) ;
             
             EdgeCollector_exposer.def( 
                 "extractBoundaryEdgeloopList"
@@ -288,7 +288,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::getBoundaryEdgeList
         
-            typedef void ( ::osgUtil::EdgeCollector::*getBoundaryEdgeList_function_type )( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > & ) ;
+            typedef void ( ::osgUtil::EdgeCollector::*getBoundaryEdgeList_function_type)( ::std::vector< osg::ref_ptr<osgUtil::EdgeCollector::Edge> > & ) ;
             
             EdgeCollector_exposer.def( 
                 "getBoundaryEdgeList"
@@ -298,7 +298,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::getEdgeloopIndexList
         
-            typedef void ( ::osgUtil::EdgeCollector::*getEdgeloopIndexList_function_type )( ::std::list< osg::ref_ptr<osg::TemplateIndexArray<unsigned int, (osg::Array::Type)6, 1, 5125> > > & ) ;
+            typedef void ( ::osgUtil::EdgeCollector::*getEdgeloopIndexList_function_type)( ::std::list< osg::ref_ptr<osg::TemplateIndexArray<unsigned int, (osg::Array::Type)6, 1, 5125> > > & ) ;
             
             EdgeCollector_exposer.def( 
                 "getEdgeloopIndexList"
@@ -308,7 +308,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::getGeometry
         
-            typedef ::osg::Geometry * ( ::osgUtil::EdgeCollector::*getGeometry_function_type )(  ) ;
+            typedef ::osg::Geometry * ( ::osgUtil::EdgeCollector::*getGeometry_function_type)(  ) ;
             
             EdgeCollector_exposer.def( 
                 "getGeometry"
@@ -318,7 +318,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::getNumOfTriangles
         
-            typedef unsigned int ( ::osgUtil::EdgeCollector::*getNumOfTriangles_function_type )(  ) ;
+            typedef unsigned int ( ::osgUtil::EdgeCollector::*getNumOfTriangles_function_type)(  ) ;
             
             EdgeCollector_exposer.def( 
                 "getNumOfTriangles"
@@ -327,7 +327,7 @@ void register_EdgeCollector_class(){
         }
         { //::osgUtil::EdgeCollector::setGeometry
         
-            typedef void ( ::osgUtil::EdgeCollector::*setGeometry_function_type )( ::osg::Geometry * ) ;
+            typedef void ( ::osgUtil::EdgeCollector::*setGeometry_function_type)( ::osg::Geometry * ) ;
             
             EdgeCollector_exposer.def( 
                 "setGeometry"

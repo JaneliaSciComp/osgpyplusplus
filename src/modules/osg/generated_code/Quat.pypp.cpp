@@ -33,7 +33,7 @@ void register_Quat_class(){
         Quat_exposer.def( bp::init< double, osg::Vec3d const &, double, osg::Vec3d const &, double, osg::Vec3d const & >(( bp::arg("angle1"), bp::arg("axis1"), bp::arg("angle2"), bp::arg("axis2"), bp::arg("angle3"), bp::arg("axis3") )) );
         { //::osg::Quat::asVec3
         
-            typedef ::osg::Vec3d ( ::osg::Quat::*asVec3_function_type )(  ) const;
+            typedef ::osg::Vec3d ( ::osg::Quat::*asVec3_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "asVec3"
@@ -42,7 +42,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::asVec4
         
-            typedef ::osg::Vec4d ( ::osg::Quat::*asVec4_function_type )(  ) const;
+            typedef ::osg::Vec4d ( ::osg::Quat::*asVec4_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "asVec4"
@@ -51,7 +51,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::conj
         
-            typedef ::osg::Quat ( ::osg::Quat::*conj_function_type )(  ) const;
+            typedef ::osg::Quat ( ::osg::Quat::*conj_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "conj"
@@ -61,7 +61,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::get
         
-            typedef void ( ::osg::Quat::*get_function_type )( ::osg::Matrixf & ) const;
+            typedef void ( ::osg::Quat::*get_function_type)( ::osg::Matrixf & ) const;
             
             Quat_exposer.def( 
                 "get"
@@ -71,7 +71,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::get
         
-            typedef void ( ::osg::Quat::*get_function_type )( ::osg::Matrixd & ) const;
+            typedef void ( ::osg::Quat::*get_function_type)( ::osg::Matrixd & ) const;
             
             Quat_exposer.def( 
                 "get"
@@ -92,7 +92,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::inverse
         
-            typedef ::osg::Quat const ( ::osg::Quat::*inverse_function_type )(  ) const;
+            typedef ::osg::Quat const ( ::osg::Quat::*inverse_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "inverse"
@@ -102,7 +102,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::length
         
-            typedef double ( ::osg::Quat::*length_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*length_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "length"
@@ -112,7 +112,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::length2
         
-            typedef double ( ::osg::Quat::*length2_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*length2_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "length2"
@@ -122,7 +122,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( double,double,double,double ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -132,7 +132,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( double,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( double,::osg::Vec3f const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -142,7 +142,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( double,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( double,::osg::Vec3d const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -152,7 +152,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( double,::osg::Vec3f const &,double,::osg::Vec3f const &,double,::osg::Vec3f const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -162,7 +162,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( double,::osg::Vec3d const &,double,::osg::Vec3d const &,double,::osg::Vec3d const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -172,7 +172,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( ::osg::Vec3f const &,::osg::Vec3f const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( ::osg::Vec3f const &,::osg::Vec3f const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -183,7 +183,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate
         
-            typedef void ( ::osg::Quat::*makeRotate_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate"
@@ -194,7 +194,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::makeRotate_original
         
-            typedef void ( ::osg::Quat::*makeRotate_original_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Quat::*makeRotate_original_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Quat_exposer.def( 
                 "makeRotate_original"
@@ -221,7 +221,7 @@ void register_Quat_class(){
         Quat_exposer.def( bp::self < bp::self );
         { //::osg::Quat::operator=
         
-            typedef ::osg::Quat & ( ::osg::Quat::*assign_function_type )( ::osg::Quat const & ) ;
+            typedef ::osg::Quat & ( ::osg::Quat::*assign_function_type)( ::osg::Quat const & ) ;
             
             Quat_exposer.def( 
                 "assign"
@@ -233,7 +233,7 @@ void register_Quat_class(){
         Quat_exposer.def( bp::self == bp::self );
         { //::osg::Quat::operator[]
         
-            typedef double & ( ::osg::Quat::*__getitem___function_type )( int ) ;
+            typedef double & ( ::osg::Quat::*__getitem___function_type)( int ) ;
             
             Quat_exposer.def( 
                 "__getitem__"
@@ -244,7 +244,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::operator[]
         
-            typedef double ( ::osg::Quat::*__getitem___function_type )( int ) const;
+            typedef double ( ::osg::Quat::*__getitem___function_type)( int ) const;
             
             Quat_exposer.def( 
                 "__getitem__"
@@ -254,7 +254,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::set
         
-            typedef void ( ::osg::Quat::*set_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::Quat::*set_function_type)( double,double,double,double ) ;
             
             Quat_exposer.def( 
                 "set"
@@ -264,7 +264,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::set
         
-            typedef void ( ::osg::Quat::*set_function_type )( ::osg::Vec4f const & ) ;
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Vec4f const & ) ;
             
             Quat_exposer.def( 
                 "set"
@@ -274,7 +274,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::set
         
-            typedef void ( ::osg::Quat::*set_function_type )( ::osg::Vec4d const & ) ;
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Vec4d const & ) ;
             
             Quat_exposer.def( 
                 "set"
@@ -284,7 +284,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::set
         
-            typedef void ( ::osg::Quat::*set_function_type )( ::osg::Matrixf const & ) ;
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Matrixf const & ) ;
             
             Quat_exposer.def( 
                 "set"
@@ -294,7 +294,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::set
         
-            typedef void ( ::osg::Quat::*set_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osg::Quat::*set_function_type)( ::osg::Matrixd const & ) ;
             
             Quat_exposer.def( 
                 "set"
@@ -304,7 +304,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::slerp
         
-            typedef void ( ::osg::Quat::*slerp_function_type )( double,::osg::Quat const &,::osg::Quat const & ) ;
+            typedef void ( ::osg::Quat::*slerp_function_type)( double,::osg::Quat const &,::osg::Quat const & ) ;
             
             Quat_exposer.def( 
                 "slerp"
@@ -315,7 +315,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::w
         
-            typedef double & ( ::osg::Quat::*w_function_type )(  ) ;
+            typedef double & ( ::osg::Quat::*w_function_type)(  ) ;
             
             Quat_exposer.def( 
                 "w"
@@ -325,7 +325,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::w
         
-            typedef double ( ::osg::Quat::*w_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*w_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "w"
@@ -334,7 +334,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::x
         
-            typedef double & ( ::osg::Quat::*x_function_type )(  ) ;
+            typedef double & ( ::osg::Quat::*x_function_type)(  ) ;
             
             Quat_exposer.def( 
                 "x"
@@ -344,7 +344,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::x
         
-            typedef double ( ::osg::Quat::*x_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*x_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "x"
@@ -353,7 +353,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::y
         
-            typedef double & ( ::osg::Quat::*y_function_type )(  ) ;
+            typedef double & ( ::osg::Quat::*y_function_type)(  ) ;
             
             Quat_exposer.def( 
                 "y"
@@ -363,7 +363,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::y
         
-            typedef double ( ::osg::Quat::*y_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*y_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "y"
@@ -372,7 +372,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::z
         
-            typedef double & ( ::osg::Quat::*z_function_type )(  ) ;
+            typedef double & ( ::osg::Quat::*z_function_type)(  ) ;
             
             Quat_exposer.def( 
                 "z"
@@ -382,7 +382,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::z
         
-            typedef double ( ::osg::Quat::*z_function_type )(  ) const;
+            typedef double ( ::osg::Quat::*z_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "z"
@@ -391,7 +391,7 @@ void register_Quat_class(){
         }
         { //::osg::Quat::zeroRotation
         
-            typedef bool ( ::osg::Quat::*zeroRotation_function_type )(  ) const;
+            typedef bool ( ::osg::Quat::*zeroRotation_function_type)(  ) const;
             
             Quat_exposer.def( 
                 "zeroRotation"

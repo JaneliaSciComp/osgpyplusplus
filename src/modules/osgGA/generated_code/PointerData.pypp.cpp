@@ -54,7 +54,7 @@ void register_PointerData_class(){
         PointerData_exposer.def( bp::init< osgGA::PointerData const & >(( bp::arg("pd") )) );
         { //::osgGA::PointerData::getXnormalized
         
-            typedef float ( ::osgGA::PointerData::*getXnormalized_function_type )(  ) const;
+            typedef float ( ::osgGA::PointerData::*getXnormalized_function_type)(  ) const;
             
             PointerData_exposer.def( 
                 "getXnormalized"
@@ -63,7 +63,7 @@ void register_PointerData_class(){
         }
         { //::osgGA::PointerData::getYnormalized
         
-            typedef float ( ::osgGA::PointerData::*getYnormalized_function_type )(  ) const;
+            typedef float ( ::osgGA::PointerData::*getYnormalized_function_type)(  ) const;
             
             PointerData_exposer.def( 
                 "getYnormalized"

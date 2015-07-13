@@ -17,7 +17,7 @@ void register_ObserverNodePath_class(){
         bp::implicitly_convertible< osg::NodePath const &, osg::ObserverNodePath >();
         { //::osg::ObserverNodePath::clearNodePath
         
-            typedef void ( ::osg::ObserverNodePath::*clearNodePath_function_type )(  ) ;
+            typedef void ( ::osg::ObserverNodePath::*clearNodePath_function_type)(  ) ;
             
             ObserverNodePath_exposer.def( 
                 "clearNodePath"
@@ -26,7 +26,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::empty
         
-            typedef bool ( ::osg::ObserverNodePath::*empty_function_type )(  ) const;
+            typedef bool ( ::osg::ObserverNodePath::*empty_function_type)(  ) const;
             
             ObserverNodePath_exposer.def( 
                 "empty"
@@ -35,7 +35,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::getNodePath
         
-            typedef bool ( ::osg::ObserverNodePath::*getNodePath_function_type )( ::osg::NodePath & ) const;
+            typedef bool ( ::osg::ObserverNodePath::*getNodePath_function_type)( ::osg::NodePath & ) const;
             
             ObserverNodePath_exposer.def( 
                 "getNodePath"
@@ -46,7 +46,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::getRefNodePath
         
-            typedef bool ( ::osg::ObserverNodePath::*getRefNodePath_function_type )( ::osg::RefNodePath & ) const;
+            typedef bool ( ::osg::ObserverNodePath::*getRefNodePath_function_type)( ::osg::RefNodePath & ) const;
             
             ObserverNodePath_exposer.def( 
                 "getRefNodePath"
@@ -57,7 +57,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::operator=
         
-            typedef ::osg::ObserverNodePath & ( ::osg::ObserverNodePath::*assign_function_type )( ::osg::ObserverNodePath const & ) ;
+            typedef ::osg::ObserverNodePath & ( ::osg::ObserverNodePath::*assign_function_type)( ::osg::ObserverNodePath const & ) ;
             
             ObserverNodePath_exposer.def( 
                 "assign"
@@ -68,7 +68,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::setNodePath
         
-            typedef void ( ::osg::ObserverNodePath::*setNodePath_function_type )( ::osg::RefNodePath const & ) ;
+            typedef void ( ::osg::ObserverNodePath::*setNodePath_function_type)( ::osg::RefNodePath const & ) ;
             
             ObserverNodePath_exposer.def( 
                 "setNodePath"
@@ -78,7 +78,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::setNodePath
         
-            typedef void ( ::osg::ObserverNodePath::*setNodePath_function_type )( ::osg::NodePath const & ) ;
+            typedef void ( ::osg::ObserverNodePath::*setNodePath_function_type)( ::osg::NodePath const & ) ;
             
             ObserverNodePath_exposer.def( 
                 "setNodePath"
@@ -88,7 +88,7 @@ void register_ObserverNodePath_class(){
         }
         { //::osg::ObserverNodePath::setNodePathTo
         
-            typedef void ( ::osg::ObserverNodePath::*setNodePathTo_function_type )( ::osg::Node * ) ;
+            typedef void ( ::osg::ObserverNodePath::*setNodePathTo_function_type)( ::osg::Node * ) ;
             
             ObserverNodePath_exposer.def( 
                 "setNodePathTo"

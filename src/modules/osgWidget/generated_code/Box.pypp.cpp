@@ -692,8 +692,8 @@ void register_Box_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Box >();
         { //::osgWidget::Box::className
         
-            typedef char const * ( ::osgWidget::Box::*className_function_type )(  ) const;
-            typedef char const * ( Box_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Box::*className_function_type)(  ) const;
+            typedef char const * ( Box_wrapper::*default_className_function_type)(  ) const;
             
             Box_exposer.def( 
                 "className"
@@ -703,8 +703,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Box::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Box::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Box_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Box::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Box_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Box_exposer.def( 
                 "clone"
@@ -716,8 +716,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Box::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Box::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Box_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Box::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Box_wrapper::*default_cloneType_function_type)(  ) const;
             
             Box_exposer.def( 
                 "cloneType"
@@ -728,8 +728,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Box::isSameKindAs
         
-            typedef bool ( ::osgWidget::Box::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Box_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Box::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Box_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Box_exposer.def( 
                 "isSameKindAs"
@@ -740,8 +740,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Box::libraryName
         
-            typedef char const * ( ::osgWidget::Box::*libraryName_function_type )(  ) const;
-            typedef char const * ( Box_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Box::*libraryName_function_type)(  ) const;
+            typedef char const * ( Box_wrapper::*default_libraryName_function_type)(  ) const;
             
             Box_exposer.def( 
                 "libraryName"
@@ -751,8 +751,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::addWidget
         
-            typedef bool ( ::osgWidget::Window::*addWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Box_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*addWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Box_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Box_exposer.def( 
                 "addWidget"
@@ -763,8 +763,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "focus"
@@ -775,8 +775,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::insertWidget
         
-            typedef bool ( ::osgWidget::Window::*insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
-            typedef bool ( Box_wrapper::*default_insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( ::osgWidget::Window::*insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( Box_wrapper::*default_insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
             
             Box_exposer.def( 
                 "insertWidget"
@@ -787,8 +787,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "keyDown"
@@ -799,8 +799,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "keyUp"
@@ -811,8 +811,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::managed
         
-            typedef void ( ::osgWidget::Window::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Box_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Box_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Box_exposer.def( 
                 "managed"
@@ -823,8 +823,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseDrag"
@@ -835,8 +835,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseEnter"
@@ -847,8 +847,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseLeave"
@@ -859,8 +859,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseOver"
@@ -871,8 +871,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mousePush"
@@ -883,8 +883,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseRelease"
@@ -895,8 +895,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "mouseScroll"
@@ -907,8 +907,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::removeWidget
         
-            typedef bool ( ::osgWidget::Window::*removeWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Box_wrapper::*default_removeWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*removeWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Box_wrapper::*default_removeWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Box_exposer.def( 
                 "removeWidget"
@@ -919,8 +919,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::replaceWidget
         
-            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
-            typedef bool ( Box_wrapper::*default_replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( Box_wrapper::*default_replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
             
             Box_exposer.def( 
                 "replaceWidget"
@@ -931,8 +931,8 @@ void register_Box_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Box_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Box_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Box_exposer.def( 
                 "unfocus"
@@ -943,8 +943,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::unmanaged
         
-            typedef void ( ::osgWidget::Window::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Box_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Box_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Box_exposer.def( 
                 "unmanaged"
@@ -955,8 +955,8 @@ void register_Box_class(){
         }
         { //::osgWidget::Window::update
         
-            typedef void ( ::osgWidget::Window::*update_function_type )(  ) ;
-            typedef void ( Box_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*update_function_type)(  ) ;
+            typedef void ( Box_wrapper::*default_update_function_type)(  ) ;
             
             Box_exposer.def( 
                 "update"

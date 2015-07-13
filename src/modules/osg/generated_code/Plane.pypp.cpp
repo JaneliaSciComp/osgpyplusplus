@@ -24,7 +24,7 @@ void register_Plane_class(){
         Plane_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("norm"), bp::arg("point") ), "\n Constructor\n This constructor initializes the internal values directly without any checking or manipulation.\n @param norm:  The normal of the plane.\n @param point: A point of the plane.\n @remark You may call osg::Plane::MakeUnitLength afterwards if the passed normal was not normalized.\n") );
         { //::osg::Plane::asVec4
         
-            typedef ::osg::Vec4d ( ::osg::Plane::*asVec4_function_type )(  ) const;
+            typedef ::osg::Vec4d ( ::osg::Plane::*asVec4_function_type)(  ) const;
             
             Plane_exposer.def( 
                 "asVec4"
@@ -33,7 +33,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::calculateUpperLowerBBCorners
         
-            typedef void ( ::osg::Plane::*calculateUpperLowerBBCorners_function_type )(  ) ;
+            typedef void ( ::osg::Plane::*calculateUpperLowerBBCorners_function_type)(  ) ;
             
             Plane_exposer.def( 
                 "calculateUpperLowerBBCorners"
@@ -43,7 +43,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::distance
         
-            typedef float ( ::osg::Plane::*distance_function_type )( ::osg::Vec3f const & ) const;
+            typedef float ( ::osg::Plane::*distance_function_type)( ::osg::Vec3f const & ) const;
             
             Plane_exposer.def( 
                 "distance"
@@ -54,7 +54,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::distance
         
-            typedef double ( ::osg::Plane::*distance_function_type )( ::osg::Vec3d const & ) const;
+            typedef double ( ::osg::Plane::*distance_function_type)( ::osg::Vec3d const & ) const;
             
             Plane_exposer.def( 
                 "distance"
@@ -65,7 +65,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::dotProductNormal
         
-            typedef float ( ::osg::Plane::*dotProductNormal_function_type )( ::osg::Vec3f const & ) const;
+            typedef float ( ::osg::Plane::*dotProductNormal_function_type)( ::osg::Vec3f const & ) const;
             
             Plane_exposer.def( 
                 "dotProductNormal"
@@ -76,7 +76,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::dotProductNormal
         
-            typedef double ( ::osg::Plane::*dotProductNormal_function_type )( ::osg::Vec3d const & ) const;
+            typedef double ( ::osg::Plane::*dotProductNormal_function_type)( ::osg::Vec3d const & ) const;
             
             Plane_exposer.def( 
                 "dotProductNormal"
@@ -87,7 +87,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::flip
         
-            typedef void ( ::osg::Plane::*flip_function_type )(  ) ;
+            typedef void ( ::osg::Plane::*flip_function_type)(  ) ;
             
             Plane_exposer.def( 
                 "flip"
@@ -97,7 +97,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::getNormal
         
-            typedef ::osg::Vec3d ( ::osg::Plane::*getNormal_function_type )(  ) const;
+            typedef ::osg::Vec3d ( ::osg::Plane::*getNormal_function_type)(  ) const;
             
             Plane_exposer.def( 
                 "getNormal"
@@ -106,7 +106,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::intersect
         
-            typedef int ( ::osg::Plane::*intersect_function_type )( ::std::vector< osg::Vec3f > const & ) const;
+            typedef int ( ::osg::Plane::*intersect_function_type)( ::std::vector< osg::Vec3f > const & ) const;
             
             Plane_exposer.def( 
                 "intersect"
@@ -117,7 +117,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::intersect
         
-            typedef int ( ::osg::Plane::*intersect_function_type )( ::std::vector< osg::Vec3d > const & ) const;
+            typedef int ( ::osg::Plane::*intersect_function_type)( ::std::vector< osg::Vec3d > const & ) const;
             
             Plane_exposer.def( 
                 "intersect"
@@ -128,7 +128,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::intersect
         
-            typedef int ( ::osg::Plane::*intersect_function_type )( ::osg::BoundingSphere const & ) const;
+            typedef int ( ::osg::Plane::*intersect_function_type)( ::osg::BoundingSphere const & ) const;
             
             Plane_exposer.def( 
                 "intersect"
@@ -139,7 +139,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::intersect
         
-            typedef int ( ::osg::Plane::*intersect_function_type )( ::osg::BoundingBox const & ) const;
+            typedef int ( ::osg::Plane::*intersect_function_type)( ::osg::BoundingBox const & ) const;
             
             Plane_exposer.def( 
                 "intersect"
@@ -150,7 +150,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::isNaN
         
-            typedef bool ( ::osg::Plane::*isNaN_function_type )(  ) const;
+            typedef bool ( ::osg::Plane::*isNaN_function_type)(  ) const;
             
             Plane_exposer.def( 
                 "isNaN"
@@ -159,7 +159,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::makeUnitLength
         
-            typedef void ( ::osg::Plane::*makeUnitLength_function_type )(  ) ;
+            typedef void ( ::osg::Plane::*makeUnitLength_function_type)(  ) ;
             
             Plane_exposer.def( 
                 "makeUnitLength"
@@ -171,7 +171,7 @@ void register_Plane_class(){
         Plane_exposer.def( bp::self < bp::self );
         { //::osg::Plane::operator=
         
-            typedef ::osg::Plane & ( ::osg::Plane::*assign_function_type )( ::osg::Plane const & ) ;
+            typedef ::osg::Plane & ( ::osg::Plane::*assign_function_type)( ::osg::Plane const & ) ;
             
             Plane_exposer.def( 
                 "assign"
@@ -183,7 +183,7 @@ void register_Plane_class(){
         Plane_exposer.def( bp::self == bp::self );
         { //::osg::Plane::operator[]
         
-            typedef double & ( ::osg::Plane::*__getitem___function_type )( unsigned int ) ;
+            typedef double & ( ::osg::Plane::*__getitem___function_type)( unsigned int ) ;
             
             Plane_exposer.def( 
                 "__getitem__"
@@ -194,7 +194,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::operator[]
         
-            typedef double ( ::osg::Plane::*__getitem___function_type )( unsigned int ) const;
+            typedef double ( ::osg::Plane::*__getitem___function_type)( unsigned int ) const;
             
             Plane_exposer.def( 
                 "__getitem__"
@@ -204,7 +204,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Plane const & ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Plane const & ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -214,7 +214,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( double,double,double,double ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( double,double,double,double ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -224,7 +224,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Vec4f const & ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Vec4f const & ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -234,7 +234,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Vec4d const & ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Vec4d const & ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -244,7 +244,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Vec3d const &,double ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Vec3d const &,double ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -254,7 +254,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -264,7 +264,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::set
         
-            typedef void ( ::osg::Plane::*set_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::Plane::*set_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             Plane_exposer.def( 
                 "set"
@@ -274,7 +274,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::transform
         
-            typedef void ( ::osg::Plane::*transform_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Plane::*transform_function_type)( ::osg::Matrix const & ) ;
             
             Plane_exposer.def( 
                 "transform"
@@ -285,7 +285,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::transformProvidingInverse
         
-            typedef void ( ::osg::Plane::*transformProvidingInverse_function_type )( ::osg::Matrix const & ) ;
+            typedef void ( ::osg::Plane::*transformProvidingInverse_function_type)( ::osg::Matrix const & ) ;
             
             Plane_exposer.def( 
                 "transformProvidingInverse"
@@ -296,7 +296,7 @@ void register_Plane_class(){
         }
         { //::osg::Plane::valid
         
-            typedef bool ( ::osg::Plane::*valid_function_type )(  ) const;
+            typedef bool ( ::osg::Plane::*valid_function_type)(  ) const;
             
             Plane_exposer.def( 
                 "valid"

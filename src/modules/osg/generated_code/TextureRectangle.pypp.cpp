@@ -457,16 +457,16 @@ void register_TextureRectangle_class(){
                 , ( bp::arg("inst"), bp::arg("arg0"), bp::arg("arg1") ) )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-                , (void ( TextureRectangle_wrapper::SubloadCallback_wrapper::* )( bool ) )(&TextureRectangle_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+                , (void ( TextureRectangle_wrapper::SubloadCallback_wrapper::* )( bool ))(&TextureRectangle_wrapper::SubloadCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
         TextureRectangle_exposer.def( bp::init< >("\n Texture state class which encapsulates OpenGL texture functionality.\n") );
         TextureRectangle_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );
         bp::implicitly_convertible< osg::Image *, osg::TextureRectangle >();
         { //::osg::TextureRectangle::apply
         
-            typedef void ( ::osg::TextureRectangle::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( TextureRectangle_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::TextureRectangle::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( TextureRectangle_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             TextureRectangle_exposer.def( 
                 "apply"
@@ -477,8 +477,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::className
         
-            typedef char const * ( ::osg::TextureRectangle::*className_function_type )(  ) const;
-            typedef char const * ( TextureRectangle_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::TextureRectangle::*className_function_type)(  ) const;
+            typedef char const * ( TextureRectangle_wrapper::*default_className_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "className"
@@ -488,8 +488,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::clone
         
-            typedef ::osg::Object * ( ::osg::TextureRectangle::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TextureRectangle_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::TextureRectangle::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TextureRectangle_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             TextureRectangle_exposer.def( 
                 "clone"
@@ -501,8 +501,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::cloneType
         
-            typedef ::osg::Object * ( ::osg::TextureRectangle::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( TextureRectangle_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::TextureRectangle::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( TextureRectangle_wrapper::*default_cloneType_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "cloneType"
@@ -513,7 +513,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::copyTexImage2D
         
-            typedef void ( ::osg::TextureRectangle::*copyTexImage2D_function_type )( ::osg::State &,int,int,int,int ) ;
+            typedef void ( ::osg::TextureRectangle::*copyTexImage2D_function_type)( ::osg::State &,int,int,int,int ) ;
             
             TextureRectangle_exposer.def( 
                 "copyTexImage2D"
@@ -524,7 +524,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::copyTexSubImage2D
         
-            typedef void ( ::osg::TextureRectangle::*copyTexSubImage2D_function_type )( ::osg::State &,int,int,int,int,int,int ) ;
+            typedef void ( ::osg::TextureRectangle::*copyTexSubImage2D_function_type)( ::osg::State &,int,int,int,int,int,int ) ;
             
             TextureRectangle_exposer.def( 
                 "copyTexSubImage2D"
@@ -535,7 +535,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getImage
         
-            typedef ::osg::Image * ( ::osg::TextureRectangle::*getImage_function_type )(  ) ;
+            typedef ::osg::Image * ( ::osg::TextureRectangle::*getImage_function_type)(  ) ;
             
             TextureRectangle_exposer.def( 
                 "getImage"
@@ -546,7 +546,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getImage
         
-            typedef ::osg::Image const * ( ::osg::TextureRectangle::*getImage_function_type )(  ) const;
+            typedef ::osg::Image const * ( ::osg::TextureRectangle::*getImage_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getImage"
@@ -557,8 +557,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getImage
         
-            typedef ::osg::Image * ( ::osg::TextureRectangle::*getImage_function_type )( unsigned int ) ;
-            typedef ::osg::Image * ( TextureRectangle_wrapper::*default_getImage_function_type )( unsigned int ) ;
+            typedef ::osg::Image * ( ::osg::TextureRectangle::*getImage_function_type)( unsigned int ) ;
+            typedef ::osg::Image * ( TextureRectangle_wrapper::*default_getImage_function_type)( unsigned int ) ;
             
             TextureRectangle_exposer.def( 
                 "getImage"
@@ -570,8 +570,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getImage
         
-            typedef ::osg::Image const * ( ::osg::TextureRectangle::*getImage_function_type )( unsigned int ) const;
-            typedef ::osg::Image const * ( TextureRectangle_wrapper::*default_getImage_function_type )( unsigned int ) const;
+            typedef ::osg::Image const * ( ::osg::TextureRectangle::*getImage_function_type)( unsigned int ) const;
+            typedef ::osg::Image const * ( TextureRectangle_wrapper::*default_getImage_function_type)( unsigned int ) const;
             
             TextureRectangle_exposer.def( 
                 "getImage"
@@ -583,7 +583,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getModifiedCount
         
-            typedef unsigned int & ( ::osg::TextureRectangle::*getModifiedCount_function_type )( unsigned int ) const;
+            typedef unsigned int & ( ::osg::TextureRectangle::*getModifiedCount_function_type)( unsigned int ) const;
             
             TextureRectangle_exposer.def( 
                 "getModifiedCount"
@@ -594,8 +594,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getNumImages
         
-            typedef unsigned int ( ::osg::TextureRectangle::*getNumImages_function_type )(  ) const;
-            typedef unsigned int ( TextureRectangle_wrapper::*default_getNumImages_function_type )(  ) const;
+            typedef unsigned int ( ::osg::TextureRectangle::*getNumImages_function_type)(  ) const;
+            typedef unsigned int ( TextureRectangle_wrapper::*default_getNumImages_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getNumImages"
@@ -605,7 +605,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getSubloadCallback
         
-            typedef ::osg::TextureRectangle::SubloadCallback * ( ::osg::TextureRectangle::*getSubloadCallback_function_type )(  ) ;
+            typedef ::osg::TextureRectangle::SubloadCallback * ( ::osg::TextureRectangle::*getSubloadCallback_function_type)(  ) ;
             
             TextureRectangle_exposer.def( 
                 "getSubloadCallback"
@@ -615,7 +615,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getSubloadCallback
         
-            typedef ::osg::TextureRectangle::SubloadCallback const * ( ::osg::TextureRectangle::*getSubloadCallback_function_type )(  ) const;
+            typedef ::osg::TextureRectangle::SubloadCallback const * ( ::osg::TextureRectangle::*getSubloadCallback_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getSubloadCallback"
@@ -625,8 +625,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getTextureDepth
         
-            typedef int ( ::osg::TextureRectangle::*getTextureDepth_function_type )(  ) const;
-            typedef int ( TextureRectangle_wrapper::*default_getTextureDepth_function_type )(  ) const;
+            typedef int ( ::osg::TextureRectangle::*getTextureDepth_function_type)(  ) const;
+            typedef int ( TextureRectangle_wrapper::*default_getTextureDepth_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getTextureDepth"
@@ -636,8 +636,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getTextureHeight
         
-            typedef int ( ::osg::TextureRectangle::*getTextureHeight_function_type )(  ) const;
-            typedef int ( TextureRectangle_wrapper::*default_getTextureHeight_function_type )(  ) const;
+            typedef int ( ::osg::TextureRectangle::*getTextureHeight_function_type)(  ) const;
+            typedef int ( TextureRectangle_wrapper::*default_getTextureHeight_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getTextureHeight"
@@ -647,8 +647,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getTextureTarget
         
-            typedef ::GLenum ( ::osg::TextureRectangle::*getTextureTarget_function_type )(  ) const;
-            typedef ::GLenum ( TextureRectangle_wrapper::*default_getTextureTarget_function_type )(  ) const;
+            typedef ::GLenum ( ::osg::TextureRectangle::*getTextureTarget_function_type)(  ) const;
+            typedef ::GLenum ( TextureRectangle_wrapper::*default_getTextureTarget_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getTextureTarget"
@@ -658,8 +658,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getTextureWidth
         
-            typedef int ( ::osg::TextureRectangle::*getTextureWidth_function_type )(  ) const;
-            typedef int ( TextureRectangle_wrapper::*default_getTextureWidth_function_type )(  ) const;
+            typedef int ( ::osg::TextureRectangle::*getTextureWidth_function_type)(  ) const;
+            typedef int ( TextureRectangle_wrapper::*default_getTextureWidth_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getTextureWidth"
@@ -669,8 +669,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::TextureRectangle::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( TextureRectangle_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::TextureRectangle::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( TextureRectangle_wrapper::*default_getType_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getType"
@@ -680,8 +680,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::isSameKindAs
         
-            typedef bool ( ::osg::TextureRectangle::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( TextureRectangle_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::TextureRectangle::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( TextureRectangle_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             TextureRectangle_exposer.def( 
                 "isSameKindAs"
@@ -692,8 +692,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::libraryName
         
-            typedef char const * ( ::osg::TextureRectangle::*libraryName_function_type )(  ) const;
-            typedef char const * ( TextureRectangle_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::TextureRectangle::*libraryName_function_type)(  ) const;
+            typedef char const * ( TextureRectangle_wrapper::*default_libraryName_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "libraryName"
@@ -703,7 +703,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setImage
         
-            typedef void ( ::osg::TextureRectangle::*setImage_function_type )( ::osg::Image * ) ;
+            typedef void ( ::osg::TextureRectangle::*setImage_function_type)( ::osg::Image * ) ;
             
             TextureRectangle_exposer.def( 
                 "setImage"
@@ -714,8 +714,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setImage
         
-            typedef void ( ::osg::TextureRectangle::*setImage_function_type )( unsigned int,::osg::Image * ) ;
-            typedef void ( TextureRectangle_wrapper::*default_setImage_function_type )( unsigned int,::osg::Image * ) ;
+            typedef void ( ::osg::TextureRectangle::*setImage_function_type)( unsigned int,::osg::Image * ) ;
+            typedef void ( TextureRectangle_wrapper::*default_setImage_function_type)( unsigned int,::osg::Image * ) ;
             
             TextureRectangle_exposer.def( 
                 "setImage"
@@ -726,7 +726,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setSubloadCallback
         
-            typedef void ( ::osg::TextureRectangle::*setSubloadCallback_function_type )( ::osg::TextureRectangle::SubloadCallback * ) ;
+            typedef void ( ::osg::TextureRectangle::*setSubloadCallback_function_type)( ::osg::TextureRectangle::SubloadCallback * ) ;
             
             TextureRectangle_exposer.def( 
                 "setSubloadCallback"
@@ -736,7 +736,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setTextureHeight
         
-            typedef void ( ::osg::TextureRectangle::*setTextureHeight_function_type )( int ) ;
+            typedef void ( ::osg::TextureRectangle::*setTextureHeight_function_type)( int ) ;
             
             TextureRectangle_exposer.def( 
                 "setTextureHeight"
@@ -746,7 +746,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setTextureSize
         
-            typedef void ( ::osg::TextureRectangle::*setTextureSize_function_type )( int,int ) const;
+            typedef void ( ::osg::TextureRectangle::*setTextureSize_function_type)( int,int ) const;
             
             TextureRectangle_exposer.def( 
                 "setTextureSize"
@@ -757,7 +757,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::TextureRectangle::setTextureWidth
         
-            typedef void ( ::osg::TextureRectangle::*setTextureWidth_function_type )( int ) ;
+            typedef void ( ::osg::TextureRectangle::*setTextureWidth_function_type)( int ) ;
             
             TextureRectangle_exposer.def( 
                 "setTextureWidth"
@@ -767,8 +767,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( TextureRectangle_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::Texture::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( TextureRectangle_wrapper::*default_asTexture_function_type)(  ) ;
             
             TextureRectangle_exposer.def( 
                 "asTexture"
@@ -779,8 +779,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( TextureRectangle_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::Texture::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( TextureRectangle_wrapper::*default_asTexture_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "asTexture"
@@ -791,8 +791,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( TextureRectangle_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( TextureRectangle_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             TextureRectangle_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -803,8 +803,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::compileGLObjects
         
-            typedef void ( ::osg::Texture::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( TextureRectangle_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::Texture::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( TextureRectangle_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             TextureRectangle_exposer.def( 
                 "compileGLObjects"
@@ -815,8 +815,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( TextureRectangle_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( TextureRectangle_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             TextureRectangle_exposer.def( 
                 "computeDataVariance"
@@ -826,8 +826,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( TextureRectangle_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( TextureRectangle_wrapper::*default_getMember_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getMember"
@@ -837,8 +837,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::getModeUsage
         
-            typedef bool ( ::osg::Texture::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( TextureRectangle_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Texture::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( TextureRectangle_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             TextureRectangle_exposer.def( 
                 "getModeUsage"
@@ -849,8 +849,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( TextureRectangle_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( TextureRectangle_wrapper::*default_getUserData_function_type)(  ) ;
             
             TextureRectangle_exposer.def( 
                 "getUserData"
@@ -861,8 +861,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( TextureRectangle_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( TextureRectangle_wrapper::*default_getUserData_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "getUserData"
@@ -873,8 +873,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::isTextureAttribute
         
-            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( TextureRectangle_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::Texture::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( TextureRectangle_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             TextureRectangle_exposer.def( 
                 "isTextureAttribute"
@@ -884,8 +884,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Texture::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( TextureRectangle_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Texture::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( TextureRectangle_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             TextureRectangle_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -896,8 +896,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( TextureRectangle_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( TextureRectangle_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             TextureRectangle_exposer.def( 
                 "setName"
@@ -908,7 +908,7 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             TextureRectangle_exposer.def( 
                 "setName"
@@ -919,8 +919,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( TextureRectangle_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( TextureRectangle_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             TextureRectangle_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -931,8 +931,8 @@ void register_TextureRectangle_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( TextureRectangle_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( TextureRectangle_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             TextureRectangle_exposer.def( 
                 "setUserData"

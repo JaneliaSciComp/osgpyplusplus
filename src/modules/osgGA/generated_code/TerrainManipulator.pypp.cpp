@@ -854,7 +854,7 @@ void register_TerrainManipulator_class(){
         bp::implicitly_convertible< int, osgGA::TerrainManipulator >();
         { //::osgGA::TerrainManipulator::clampOrientation
         
-            typedef void ( TerrainManipulator_wrapper::*clampOrientation_function_type )(  ) ;
+            typedef void ( TerrainManipulator_wrapper::*clampOrientation_function_type)(  ) ;
             
             TerrainManipulator_exposer.def( 
                 "clampOrientation"
@@ -863,8 +863,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::className
         
-            typedef char const * ( ::osgGA::TerrainManipulator::*className_function_type )(  ) const;
-            typedef char const * ( TerrainManipulator_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgGA::TerrainManipulator::*className_function_type)(  ) const;
+            typedef char const * ( TerrainManipulator_wrapper::*default_className_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "className"
@@ -874,8 +874,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::clone
         
-            typedef ::osg::Object * ( ::osgGA::TerrainManipulator::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TerrainManipulator_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgGA::TerrainManipulator::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TerrainManipulator_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             TerrainManipulator_exposer.def( 
                 "clone"
@@ -887,8 +887,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::cloneType
         
-            typedef ::osg::Object * ( ::osgGA::TerrainManipulator::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( TerrainManipulator_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgGA::TerrainManipulator::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( TerrainManipulator_wrapper::*default_cloneType_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "cloneType"
@@ -899,7 +899,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::getRotationMode
         
-            typedef ::osgGA::TerrainManipulator::RotationMode ( ::osgGA::TerrainManipulator::*getRotationMode_function_type )(  ) const;
+            typedef ::osgGA::TerrainManipulator::RotationMode ( ::osgGA::TerrainManipulator::*getRotationMode_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getRotationMode"
@@ -908,7 +908,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::intersect
         
-            typedef bool ( TerrainManipulator_wrapper::*intersect_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d & ) const;
+            typedef bool ( TerrainManipulator_wrapper::*intersect_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d & ) const;
             
             TerrainManipulator_exposer.def( 
                 "intersect"
@@ -918,8 +918,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::isSameKindAs
         
-            typedef bool ( ::osgGA::TerrainManipulator::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( TerrainManipulator_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgGA::TerrainManipulator::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( TerrainManipulator_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             TerrainManipulator_exposer.def( 
                 "isSameKindAs"
@@ -930,8 +930,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::libraryName
         
-            typedef char const * ( ::osgGA::TerrainManipulator::*libraryName_function_type )(  ) const;
-            typedef char const * ( TerrainManipulator_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgGA::TerrainManipulator::*libraryName_function_type)(  ) const;
+            typedef char const * ( TerrainManipulator_wrapper::*default_libraryName_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "libraryName"
@@ -941,7 +941,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::performMovementMiddleMouseButton
         
-            typedef bool ( TerrainManipulator_wrapper::*performMovementMiddleMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( TerrainManipulator_wrapper::*performMovementMiddleMouseButton_function_type)( double const,double const,double const ) ;
             
             TerrainManipulator_exposer.def( 
                 "performMovementMiddleMouseButton"
@@ -951,7 +951,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::performMovementRightMouseButton
         
-            typedef bool ( TerrainManipulator_wrapper::*performMovementRightMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( TerrainManipulator_wrapper::*performMovementRightMouseButton_function_type)( double const,double const,double const ) ;
             
             TerrainManipulator_exposer.def( 
                 "performMovementRightMouseButton"
@@ -961,8 +961,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::setByMatrix
         
-            typedef void ( ::osgGA::TerrainManipulator::*setByMatrix_function_type )( ::osg::Matrixd const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setByMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::TerrainManipulator::*setByMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setByMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setByMatrix"
@@ -973,8 +973,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::setNode
         
-            typedef void ( ::osgGA::TerrainManipulator::*setNode_function_type )( ::osg::Node * ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setNode_function_type )( ::osg::Node * ) ;
+            typedef void ( ::osgGA::TerrainManipulator::*setNode_function_type)( ::osg::Node * ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setNode_function_type)( ::osg::Node * ) ;
             
             TerrainManipulator_exposer.def( 
                 "setNode"
@@ -985,8 +985,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::setRotationMode
         
-            typedef void ( ::osgGA::TerrainManipulator::*setRotationMode_function_type )( ::osgGA::TerrainManipulator::RotationMode ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setRotationMode_function_type )( ::osgGA::TerrainManipulator::RotationMode ) ;
+            typedef void ( ::osgGA::TerrainManipulator::*setRotationMode_function_type)( ::osgGA::TerrainManipulator::RotationMode ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setRotationMode_function_type)( ::osgGA::TerrainManipulator::RotationMode ) ;
             
             TerrainManipulator_exposer.def( 
                 "setRotationMode"
@@ -997,8 +997,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::TerrainManipulator::setTransformation
         
-            typedef void ( ::osgGA::TerrainManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::TerrainManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setTransformation"
@@ -1009,7 +1009,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::allocAnimationData
         
-            typedef void ( TerrainManipulator_wrapper::*allocAnimationData_function_type )(  ) ;
+            typedef void ( TerrainManipulator_wrapper::*allocAnimationData_function_type)(  ) ;
             
             TerrainManipulator_exposer.def( 
                 "allocAnimationData"
@@ -1027,7 +1027,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::applyAnimationStep
         
-            typedef void ( TerrainManipulator_wrapper::*applyAnimationStep_function_type )( double const,double const ) ;
+            typedef void ( TerrainManipulator_wrapper::*applyAnimationStep_function_type)( double const,double const ) ;
             
             TerrainManipulator_exposer.def( 
                 "applyAnimationStep"
@@ -1037,8 +1037,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::computeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_computeHomePosition_function_type )( ::osg::Camera const *,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_computeHomePosition_function_type)( ::osg::Camera const *,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "computeHomePosition"
@@ -1049,8 +1049,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::GUIEventHandler::event
         
-            typedef void ( ::osgGA::GUIEventHandler::*event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_event_function_type )( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( ::osgGA::GUIEventHandler::*event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_event_function_type)( ::osg::NodeVisitor *,::osg::Drawable * ) ;
             
             TerrainManipulator_exposer.def( 
                 "event"
@@ -1061,8 +1061,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::finishAnimation
         
-            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type )(  ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_finishAnimation_function_type )(  ) ;
+            typedef void ( ::osgGA::StandardManipulator::*finishAnimation_function_type)(  ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_finishAnimation_function_type)(  ) ;
             
             TerrainManipulator_exposer.def( 
                 "finishAnimation"
@@ -1082,7 +1082,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::fixVerticalAxis
         
-            typedef void ( TerrainManipulator_wrapper::*fixVerticalAxis_function_type )( ::osg::Vec3d &,::osg::Quat &,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*fixVerticalAxis_function_type)( ::osg::Vec3d &,::osg::Quat &,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "fixVerticalAxis"
@@ -1102,7 +1102,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::flushMouseEventStack
         
-            typedef void ( TerrainManipulator_wrapper::*flushMouseEventStack_function_type )(  ) ;
+            typedef void ( TerrainManipulator_wrapper::*flushMouseEventStack_function_type)(  ) ;
             
             TerrainManipulator_exposer.def( 
                 "flushMouseEventStack"
@@ -1111,8 +1111,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceMode
         
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type )(  ) const;
-            typedef ::osgUtil::SceneView::FusionDistanceMode ( TerrainManipulator_wrapper::*default_getFusionDistanceMode_function_type )(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( ::osgGA::OrbitManipulator::*getFusionDistanceMode_function_type)(  ) const;
+            typedef ::osgUtil::SceneView::FusionDistanceMode ( TerrainManipulator_wrapper::*default_getFusionDistanceMode_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getFusionDistanceMode"
@@ -1122,8 +1122,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getFusionDistanceValue
         
-            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type )(  ) const;
-            typedef float ( TerrainManipulator_wrapper::*default_getFusionDistanceValue_function_type )(  ) const;
+            typedef float ( ::osgGA::OrbitManipulator::*getFusionDistanceValue_function_type)(  ) const;
+            typedef float ( TerrainManipulator_wrapper::*default_getFusionDistanceValue_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getFusionDistanceValue"
@@ -1133,8 +1133,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::getHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( TerrainManipulator_wrapper::*default_getHomePosition_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::CameraManipulator::*getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( TerrainManipulator_wrapper::*default_getHomePosition_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             TerrainManipulator_exposer.def( 
                 "getHomePosition"
@@ -1145,8 +1145,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getInverseMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getInverseMatrix_function_type )(  ) const;
-            typedef ::osg::Matrixd ( TerrainManipulator_wrapper::*default_getInverseMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getInverseMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( TerrainManipulator_wrapper::*default_getInverseMatrix_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getInverseMatrix"
@@ -1156,8 +1156,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getMatrix
         
-            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getMatrix_function_type )(  ) const;
-            typedef ::osg::Matrixd ( TerrainManipulator_wrapper::*default_getMatrix_function_type )(  ) const;
+            typedef ::osg::Matrixd ( ::osgGA::OrbitManipulator::*getMatrix_function_type)(  ) const;
+            typedef ::osg::Matrixd ( TerrainManipulator_wrapper::*default_getMatrix_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getMatrix"
@@ -1167,8 +1167,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) const;
-            typedef ::osg::Node const * ( TerrainManipulator_wrapper::*default_getNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) const;
+            typedef ::osg::Node const * ( TerrainManipulator_wrapper::*default_getNode_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "getNode"
@@ -1179,8 +1179,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getNode
         
-            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type )(  ) ;
-            typedef ::osg::Node * ( TerrainManipulator_wrapper::*default_getNode_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgGA::StandardManipulator::*getNode_function_type)(  ) ;
+            typedef ::osg::Node * ( TerrainManipulator_wrapper::*default_getNode_function_type)(  ) ;
             
             TerrainManipulator_exposer.def( 
                 "getNode"
@@ -1191,7 +1191,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getRelativeFlag
         
-            typedef bool ( TerrainManipulator_wrapper::*getRelativeFlag_function_type )( int ) const;
+            typedef bool ( TerrainManipulator_wrapper::*getRelativeFlag_function_type)( int ) const;
             
             TerrainManipulator_exposer.def( 
                 "getRelativeFlag"
@@ -1201,7 +1201,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getThrowScale
         
-            typedef float ( TerrainManipulator_wrapper::*getThrowScale_function_type )( double const ) const;
+            typedef float ( TerrainManipulator_wrapper::*getThrowScale_function_type)( double const ) const;
             
             TerrainManipulator_exposer.def( 
                 "getThrowScale"
@@ -1211,8 +1211,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
-            typedef void ( TerrainManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
+            typedef void ( TerrainManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Quat & ) const;
             
             TerrainManipulator_exposer.def( 
                 "getTransformation"
@@ -1223,8 +1223,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::getTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
-            typedef void ( TerrainManipulator_wrapper::*default_getTransformation_function_type )( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( ::osgGA::OrbitManipulator::*getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
+            typedef void ( TerrainManipulator_wrapper::*default_getTransformation_function_type)( ::osg::Vec3d &,::osg::Vec3d &,::osg::Vec3d & ) const;
             
             TerrainManipulator_exposer.def( 
                 "getTransformation"
@@ -1235,8 +1235,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::getUsage
         
-            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
-            typedef void ( TerrainManipulator_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgGA::StandardManipulator::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( TerrainManipulator_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             TerrainManipulator_exposer.def( 
                 "getUsage"
@@ -1278,8 +1278,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::home
         
-            typedef void ( ::osgGA::StandardManipulator::*home_function_type )( double ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_home_function_type )( double ) ;
+            typedef void ( ::osgGA::StandardManipulator::*home_function_type)( double ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_home_function_type)( double ) ;
             
             TerrainManipulator_exposer.def( 
                 "home"
@@ -1300,7 +1300,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::isMouseMoving
         
-            typedef bool ( TerrainManipulator_wrapper::*isMouseMoving_function_type )(  ) const;
+            typedef bool ( TerrainManipulator_wrapper::*isMouseMoving_function_type)(  ) const;
             
             TerrainManipulator_exposer.def( 
                 "isMouseMoving"
@@ -1309,7 +1309,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::panModel
         
-            typedef void ( TerrainManipulator_wrapper::*panModel_function_type )( float const,float const,float const ) ;
+            typedef void ( TerrainManipulator_wrapper::*panModel_function_type)( float const,float const,float const ) ;
             
             TerrainManipulator_exposer.def( 
                 "panModel"
@@ -1319,7 +1319,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMouseDeltaMovement
         
-            typedef bool ( TerrainManipulator_wrapper::*performMouseDeltaMovement_function_type )( float const,float const ) ;
+            typedef bool ( TerrainManipulator_wrapper::*performMouseDeltaMovement_function_type)( float const,float const ) ;
             
             TerrainManipulator_exposer.def( 
                 "performMouseDeltaMovement"
@@ -1329,7 +1329,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::performMovementLeftMouseButton
         
-            typedef bool ( TerrainManipulator_wrapper::*performMovementLeftMouseButton_function_type )( double const,double const,double const ) ;
+            typedef bool ( TerrainManipulator_wrapper::*performMovementLeftMouseButton_function_type)( double const,double const,double const ) ;
             
             TerrainManipulator_exposer.def( 
                 "performMovementLeftMouseButton"
@@ -1339,7 +1339,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateTrackball
         
-            typedef void ( TerrainManipulator_wrapper::*rotateTrackball_function_type )( float const,float const,float const,float const,float const ) ;
+            typedef void ( TerrainManipulator_wrapper::*rotateTrackball_function_type)( float const,float const,float const,float const,float const ) ;
             
             TerrainManipulator_exposer.def( 
                 "rotateTrackball"
@@ -1349,7 +1349,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( TerrainManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const ) ;
+            typedef void ( TerrainManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const ) ;
             
             TerrainManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1359,7 +1359,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::rotateWithFixedVertical
         
-            typedef void ( TerrainManipulator_wrapper::*rotateWithFixedVertical_function_type )( float const,float const,::osg::Vec3f const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*rotateWithFixedVertical_function_type)( float const,float const,::osg::Vec3f const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "rotateWithFixedVertical"
@@ -1379,8 +1379,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAllowThrow
         
-            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type )( bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setAllowThrow_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAllowThrow_function_type)( bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setAllowThrow_function_type)( bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setAllowThrow"
@@ -1391,8 +1391,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setAnimationTime
         
-            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type )( double const ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setAnimationTime_function_type )( double const ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setAnimationTime_function_type)( double const ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setAnimationTime_function_type)( double const ) ;
             
             TerrainManipulator_exposer.def( 
                 "setAnimationTime"
@@ -1403,8 +1403,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setAutoComputeHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type )( bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setAutoComputeHomePosition_function_type )( bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setAutoComputeHomePosition_function_type)( bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setAutoComputeHomePosition_function_type)( bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setAutoComputeHomePosition"
@@ -1415,8 +1415,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setByInverseMatrix
         
-            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setByInverseMatrix_function_type )( ::osg::Matrixd const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setByInverseMatrix_function_type)( ::osg::Matrixd const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setByInverseMatrix"
@@ -1427,8 +1427,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setCenter
         
-            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type )( ::osg::Vec3d const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setCenter_function_type )( ::osg::Vec3d const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setCenter_function_type)( ::osg::Vec3d const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setCenter_function_type)( ::osg::Vec3d const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setCenter"
@@ -1439,8 +1439,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setCoordinateFrameCallback
         
-            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setCoordinateFrameCallback_function_type )( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setCoordinateFrameCallback_function_type)( ::osgGA::CameraManipulator::CoordinateFrameCallback * ) ;
             
             TerrainManipulator_exposer.def( 
                 "setCoordinateFrameCallback"
@@ -1451,8 +1451,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type )( double ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setDistance_function_type )( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setDistance_function_type)( double ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setDistance_function_type)( double ) ;
             
             TerrainManipulator_exposer.def( 
                 "setDistance"
@@ -1463,8 +1463,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::setHomePosition
         
-            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setHomePosition_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( ::osgGA::CameraManipulator::*setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setHomePosition_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setHomePosition"
@@ -1475,8 +1475,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setMinimumDistance
         
-            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type )( double const &,bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setMinimumDistance_function_type )( double const &,bool ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setMinimumDistance_function_type)( double const &,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setMinimumDistance_function_type)( double const &,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setMinimumDistance"
@@ -1487,7 +1487,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setRelativeFlag
         
-            typedef void ( TerrainManipulator_wrapper::*setRelativeFlag_function_type )( int,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*setRelativeFlag_function_type)( int,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setRelativeFlag"
@@ -1497,8 +1497,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setRotation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type )( ::osg::Quat const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setRotation_function_type )( ::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setRotation_function_type)( ::osg::Quat const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setRotation_function_type)( ::osg::Quat const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setRotation"
@@ -1509,8 +1509,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTrackballSize
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type )( double const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setTrackballSize_function_type )( double const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTrackballSize_function_type)( double const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setTrackballSize_function_type)( double const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setTrackballSize"
@@ -1521,8 +1521,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setTransformation
         
-            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setTransformation_function_type )( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setTransformation_function_type)( ::osg::Vec3d const &,::osg::Quat const & ) ;
             
             TerrainManipulator_exposer.def( 
                 "setTransformation"
@@ -1533,8 +1533,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::StandardManipulator::setVerticalAxisFixed
         
-            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type )( bool ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setVerticalAxisFixed_function_type )( bool ) ;
+            typedef void ( ::osgGA::StandardManipulator::*setVerticalAxisFixed_function_type)( bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setVerticalAxisFixed_function_type)( bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "setVerticalAxisFixed"
@@ -1545,8 +1545,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::setWheelZoomFactor
         
-            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type )( double ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_setWheelZoomFactor_function_type )( double ) ;
+            typedef void ( ::osgGA::OrbitManipulator::*setWheelZoomFactor_function_type)( double ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_setWheelZoomFactor_function_type)( double ) ;
             
             TerrainManipulator_exposer.def( 
                 "setWheelZoomFactor"
@@ -1557,7 +1557,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::tb_project_to_sphere
         
-            typedef float ( TerrainManipulator_wrapper::*tb_project_to_sphere_function_type )( float,float,float ) ;
+            typedef float ( TerrainManipulator_wrapper::*tb_project_to_sphere_function_type)( float,float,float ) ;
             
             TerrainManipulator_exposer.def( 
                 "tb_project_to_sphere"
@@ -1567,7 +1567,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::trackball
         
-            typedef void ( TerrainManipulator_wrapper::*trackball_function_type )( ::osg::Vec3d &,float &,float,float,float,float ) ;
+            typedef void ( TerrainManipulator_wrapper::*trackball_function_type)( ::osg::Vec3d &,float &,float,float,float,float ) ;
             
             TerrainManipulator_exposer.def( 
                 "trackball"
@@ -1577,8 +1577,8 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::CameraManipulator::updateCamera
         
-            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type )( ::osg::Camera & ) ;
-            typedef void ( TerrainManipulator_wrapper::*default_updateCamera_function_type )( ::osg::Camera & ) ;
+            typedef void ( ::osgGA::CameraManipulator::*updateCamera_function_type)( ::osg::Camera & ) ;
+            typedef void ( TerrainManipulator_wrapper::*default_updateCamera_function_type)( ::osg::Camera & ) ;
             
             TerrainManipulator_exposer.def( 
                 "updateCamera"
@@ -1589,7 +1589,7 @@ void register_TerrainManipulator_class(){
         }
         { //::osgGA::OrbitManipulator::zoomModel
         
-            typedef void ( TerrainManipulator_wrapper::*zoomModel_function_type )( float const,bool ) ;
+            typedef void ( TerrainManipulator_wrapper::*zoomModel_function_type)( float const,bool ) ;
             
             TerrainManipulator_exposer.def( 
                 "zoomModel"

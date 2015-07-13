@@ -11,10 +11,10 @@ void register_PixelStorageModes_class(){
     bp::class_< osg::PixelStorageModes >( "PixelStorageModes", bp::init< >() )    
         .def( 
             "retrieveStoreModes"
-            , (void ( ::osg::PixelStorageModes::* )(  ) )( &::osg::PixelStorageModes::retrieveStoreModes ) )    
+            , (void ( ::osg::PixelStorageModes::* )(  ))( &::osg::PixelStorageModes::retrieveStoreModes ) )    
         .def( 
             "retrieveStoreModes3D"
-            , (void ( ::osg::PixelStorageModes::* )(  ) )( &::osg::PixelStorageModes::retrieveStoreModes3D ) )    
+            , (void ( ::osg::PixelStorageModes::* )(  ))( &::osg::PixelStorageModes::retrieveStoreModes3D ) )    
         .def_readwrite( "pack_alignment", &osg::PixelStorageModes::pack_alignment )    
         .def_readwrite( "pack_image_height", &osg::PixelStorageModes::pack_image_height )    
         .def_readwrite( "pack_lsb_first", &osg::PixelStorageModes::pack_lsb_first )    

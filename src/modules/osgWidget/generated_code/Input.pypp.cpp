@@ -603,7 +603,7 @@ void register_Input_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Input >();
         { //::osgWidget::Input::calculateBestYOffset
         
-            typedef unsigned int ( ::osgWidget::Input::*calculateBestYOffset_function_type )( ::std::string const & ) ;
+            typedef unsigned int ( ::osgWidget::Input::*calculateBestYOffset_function_type)( ::std::string const & ) ;
             
             Input_exposer.def( 
                 "calculateBestYOffset"
@@ -613,7 +613,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::clear
         
-            typedef void ( ::osgWidget::Input::*clear_function_type )(  ) ;
+            typedef void ( ::osgWidget::Input::*clear_function_type)(  ) ;
             
             Input_exposer.def( 
                 "clear"
@@ -622,8 +622,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::focus
         
-            typedef bool ( ::osgWidget::Input::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "focus"
@@ -634,7 +634,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::getCursor
         
-            typedef ::osg::Drawable * ( ::osgWidget::Input::*getCursor_function_type )(  ) ;
+            typedef ::osg::Drawable * ( ::osgWidget::Input::*getCursor_function_type)(  ) ;
             
             Input_exposer.def( 
                 "getCursor"
@@ -644,7 +644,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::getCursor
         
-            typedef ::osg::Drawable const * ( ::osgWidget::Input::*getCursor_function_type )(  ) const;
+            typedef ::osg::Drawable const * ( ::osgWidget::Input::*getCursor_function_type)(  ) const;
             
             Input_exposer.def( 
                 "getCursor"
@@ -654,7 +654,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::getXOffset
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Input::*getXOffset_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Input::*getXOffset_function_type)(  ) const;
             
             Input_exposer.def( 
                 "getXOffset"
@@ -663,7 +663,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::getXYOffset
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Input::*getXYOffset_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Input::*getXYOffset_function_type)(  ) const;
             
             Input_exposer.def( 
                 "getXYOffset"
@@ -672,7 +672,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::getYOffset
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Input::*getYOffset_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Input::*getYOffset_function_type)(  ) const;
             
             Input_exposer.def( 
                 "getYOffset"
@@ -681,8 +681,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::keyDown
         
-            typedef bool ( ::osgWidget::Input::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "keyDown"
@@ -693,8 +693,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::keyUp
         
-            typedef bool ( ::osgWidget::Input::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "keyUp"
@@ -705,8 +705,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::mouseDrag
         
-            typedef bool ( ::osgWidget::Input::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseDrag"
@@ -717,8 +717,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::mousePush
         
-            typedef bool ( ::osgWidget::Input::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mousePush"
@@ -729,8 +729,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::mouseRelease
         
-            typedef bool ( ::osgWidget::Input::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseRelease"
@@ -741,8 +741,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::parented
         
-            typedef void ( ::osgWidget::Input::*parented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Input_wrapper::*default_parented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Input::*parented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Input_wrapper::*default_parented_function_type)( ::osgWidget::Window * ) ;
             
             Input_exposer.def( 
                 "parented"
@@ -753,8 +753,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::positioned
         
-            typedef void ( ::osgWidget::Input::*positioned_function_type )(  ) ;
-            typedef void ( Input_wrapper::*default_positioned_function_type )(  ) ;
+            typedef void ( ::osgWidget::Input::*positioned_function_type)(  ) ;
+            typedef void ( Input_wrapper::*default_positioned_function_type)(  ) ;
             
             Input_exposer.def( 
                 "positioned"
@@ -764,7 +764,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::setCursor
         
-            typedef void ( ::osgWidget::Input::*setCursor_function_type )( ::osgWidget::Widget * ) ;
+            typedef void ( ::osgWidget::Input::*setCursor_function_type)( ::osgWidget::Widget * ) ;
             
             Input_exposer.def( 
                 "setCursor"
@@ -774,7 +774,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::setXOffset
         
-            typedef void ( ::osgWidget::Input::*setXOffset_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Input::*setXOffset_function_type)( ::osgWidget::point_type ) ;
             
             Input_exposer.def( 
                 "setXOffset"
@@ -784,7 +784,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::setXYOffset
         
-            typedef void ( ::osgWidget::Input::*setXYOffset_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Input::*setXYOffset_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Input_exposer.def( 
                 "setXYOffset"
@@ -794,7 +794,7 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::setYOffset
         
-            typedef void ( ::osgWidget::Input::*setYOffset_function_type )( ::osgWidget::point_type ) ;
+            typedef void ( ::osgWidget::Input::*setYOffset_function_type)( ::osgWidget::point_type ) ;
             
             Input_exposer.def( 
                 "setYOffset"
@@ -804,8 +804,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Input::unfocus
         
-            typedef bool ( ::osgWidget::Input::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::Input::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "unfocus"
@@ -816,8 +816,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::className
         
-            typedef char const * ( ::osgWidget::Label::*className_function_type )(  ) const;
-            typedef char const * ( Input_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Label::*className_function_type)(  ) const;
+            typedef char const * ( Input_wrapper::*default_className_function_type)(  ) const;
             
             Input_exposer.def( 
                 "className"
@@ -827,8 +827,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::clone
         
-            typedef ::osg::Object * ( ::osgWidget::Label::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Input_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgWidget::Label::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Input_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Input_exposer.def( 
                 "clone"
@@ -840,8 +840,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::cloneType
         
-            typedef ::osg::Object * ( ::osgWidget::Label::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Input_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgWidget::Label::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Input_wrapper::*default_cloneType_function_type)(  ) const;
             
             Input_exposer.def( 
                 "cloneType"
@@ -852,8 +852,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::isSameKindAs
         
-            typedef bool ( ::osgWidget::Label::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Input_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgWidget::Label::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Input_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Input_exposer.def( 
                 "isSameKindAs"
@@ -864,8 +864,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::libraryName
         
-            typedef char const * ( ::osgWidget::Label::*libraryName_function_type )(  ) const;
-            typedef char const * ( Input_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgWidget::Label::*libraryName_function_type)(  ) const;
+            typedef char const * ( Input_wrapper::*default_libraryName_function_type)(  ) const;
             
             Input_exposer.def( 
                 "libraryName"
@@ -875,8 +875,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Widget::managed
         
-            typedef void ( ::osgWidget::Widget::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Input_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Input_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Input_exposer.def( 
                 "managed"
@@ -887,8 +887,8 @@ void register_Input_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseEnter"
@@ -899,8 +899,8 @@ void register_Input_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseLeave"
@@ -911,8 +911,8 @@ void register_Input_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseOver"
@@ -923,8 +923,8 @@ void register_Input_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Input_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Input_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Input_exposer.def( 
                 "mouseScroll"
@@ -935,8 +935,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Widget::unmanaged
         
-            typedef void ( ::osgWidget::Widget::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Input_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Widget::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Input_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Input_exposer.def( 
                 "unmanaged"
@@ -947,8 +947,8 @@ void register_Input_class(){
         }
         { //::osgWidget::Label::unparented
         
-            typedef void ( ::osgWidget::Label::*unparented_function_type )( ::osgWidget::Window * ) ;
-            typedef void ( Input_wrapper::*default_unparented_function_type )( ::osgWidget::Window * ) ;
+            typedef void ( ::osgWidget::Label::*unparented_function_type)( ::osgWidget::Window * ) ;
+            typedef void ( Input_wrapper::*default_unparented_function_type)( ::osgWidget::Window * ) ;
             
             Input_exposer.def( 
                 "unparented"

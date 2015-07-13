@@ -615,20 +615,20 @@ void register_RotateSphereDragger_class(){
         .def( bp::init< >("\n Dragger for performing 3D rotation on a sphere.\n") )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::RotateSphereDragger::* )(  ) const)(&::osgManipulator::RotateSphereDragger::className)
-            , (char const * ( RotateSphereDragger_wrapper::* )(  ) const)(&RotateSphereDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::RotateSphereDragger::* )(  )const)(&::osgManipulator::RotateSphereDragger::className)
+            , (char const * ( RotateSphereDragger_wrapper::* )(  )const)(&RotateSphereDragger_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::RotateSphereDragger::* )(  ) const)(&::osgManipulator::RotateSphereDragger::cloneType)
-            , (::osg::Object * ( RotateSphereDragger_wrapper::* )(  ) const)(&RotateSphereDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::RotateSphereDragger::* )(  )const)(&::osgManipulator::RotateSphereDragger::cloneType)
+            , (::osg::Object * ( RotateSphereDragger_wrapper::* )(  )const)(&RotateSphereDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::RotateSphereDragger::* )(  ) const)( &::osgManipulator::RotateSphereDragger::getColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::RotateSphereDragger::* )(  )const)( &::osgManipulator::RotateSphereDragger::getColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "getPickColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::RotateSphereDragger::* )(  ) const)( &::osgManipulator::RotateSphereDragger::getPickColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::RotateSphereDragger::* )(  )const)( &::osgManipulator::RotateSphereDragger::getPickColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -637,36 +637,36 @@ void register_RotateSphereDragger_class(){
             , "\n Handle pick events on dragger and generate TranslateInLine commands.\n" )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::RotateSphereDragger::isSameKindAs)
-            , (bool ( RotateSphereDragger_wrapper::* )( ::osg::Object const * ) const)(&RotateSphereDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Object const * )const)(&::osgManipulator::RotateSphereDragger::isSameKindAs)
+            , (bool ( RotateSphereDragger_wrapper::* )( ::osg::Object const * )const)(&RotateSphereDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::RotateSphereDragger::* )(  ) const)(&::osgManipulator::RotateSphereDragger::libraryName)
-            , (char const * ( RotateSphereDragger_wrapper::* )(  ) const)(&RotateSphereDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::RotateSphereDragger::* )(  )const)(&::osgManipulator::RotateSphereDragger::libraryName)
+            , (char const * ( RotateSphereDragger_wrapper::* )(  )const)(&RotateSphereDragger_wrapper::default_libraryName) )    
         .def( 
             "setColor"
-            , (void ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::RotateSphereDragger::setColor )
+            , (void ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::RotateSphereDragger::setColor )
             , ( bp::arg("color") )
             , " Set/Get color for dragger." )    
         .def( 
             "setPickColor"
-            , (void ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::RotateSphereDragger::setPickColor )
+            , (void ( ::osgManipulator::RotateSphereDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::RotateSphereDragger::setPickColor )
             , ( bp::arg("color") )
             , " Set/Get pick color for dragger. Pick color is color of the dragger\n when picked. It gives a visual feedback to show that the dragger has\n been picked." )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::RotateSphereDragger::* )(  ) )(&::osgManipulator::RotateSphereDragger::setupDefaultGeometry)
-            , (void ( RotateSphereDragger_wrapper::* )(  ) )(&RotateSphereDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::RotateSphereDragger::* )(  ))(&::osgManipulator::RotateSphereDragger::setupDefaultGeometry)
+            , (void ( RotateSphereDragger_wrapper::* )(  ))(&RotateSphereDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::accept)
-            , (void ( RotateSphereDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&RotateSphereDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::accept)
+            , (void ( RotateSphereDragger_wrapper::* )( ::osg::NodeVisitor & ))(&RotateSphereDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::Dragger::clone)
-            , (::osg::Object * ( RotateSphereDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&RotateSphereDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::Dragger::clone)
+            , (::osg::Object * ( RotateSphereDragger_wrapper::* )( ::osg::CopyOp const & )const)(&RotateSphereDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
@@ -675,13 +675,13 @@ void register_RotateSphereDragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( RotateSphereDragger_wrapper::* )(  ) const)(&RotateSphereDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( RotateSphereDragger_wrapper::* )(  )const)(&RotateSphereDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( RotateSphereDragger_wrapper::* )(  ) )(&RotateSphereDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( RotateSphereDragger_wrapper::* )(  ))(&RotateSphereDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -694,18 +694,18 @@ void register_RotateSphereDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )(&::osgManipulator::Dragger::setIntersectionMask)
-            , (void ( RotateSphereDragger_wrapper::* )( unsigned int ) )(&RotateSphereDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))(&::osgManipulator::Dragger::setIntersectionMask)
+            , (void ( RotateSphereDragger_wrapper::* )( unsigned int ))(&RotateSphereDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::Dragger::setParentDragger)
-            , (void ( RotateSphereDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&RotateSphereDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::Dragger::setParentDragger)
+            , (void ( RotateSphereDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&RotateSphereDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
-            , (void ( RotateSphereDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&RotateSphereDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
+            , (void ( RotateSphereDragger_wrapper::* )( ::osg::NodeVisitor & ))(&RotateSphereDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

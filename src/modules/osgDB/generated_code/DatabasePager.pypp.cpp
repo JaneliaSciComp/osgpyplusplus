@@ -300,8 +300,8 @@ void register_DatabasePager_class(){
             DatabaseThread_exposer.def( bp::init< osgDB::DatabasePager *, osgDB::DatabasePager::DatabaseThread::Mode, std::string const & >(( bp::arg("pager"), bp::arg("mode"), bp::arg("name") )) );
             { //::osgDB::DatabasePager::DatabaseThread::cancel
             
-                typedef int ( ::osgDB::DatabasePager::DatabaseThread::*cancel_function_type )(  ) ;
-                typedef int ( DatabasePager_wrapper::DatabaseThread_wrapper::*default_cancel_function_type )(  ) ;
+                typedef int ( ::osgDB::DatabasePager::DatabaseThread::*cancel_function_type)(  ) ;
+                typedef int ( DatabasePager_wrapper::DatabaseThread_wrapper::*default_cancel_function_type)(  ) ;
                 
                 DatabaseThread_exposer.def( 
                     "cancel"
@@ -311,7 +311,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::getActive
             
-                typedef bool ( ::osgDB::DatabasePager::DatabaseThread::*getActive_function_type )(  ) const;
+                typedef bool ( ::osgDB::DatabasePager::DatabaseThread::*getActive_function_type)(  ) const;
                 
                 DatabaseThread_exposer.def( 
                     "getActive"
@@ -320,7 +320,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::getDone
             
-                typedef bool ( ::osgDB::DatabasePager::DatabaseThread::*getDone_function_type )(  ) const;
+                typedef bool ( ::osgDB::DatabasePager::DatabaseThread::*getDone_function_type)(  ) const;
                 
                 DatabaseThread_exposer.def( 
                     "getDone"
@@ -329,7 +329,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::getName
             
-                typedef ::std::string const & ( ::osgDB::DatabasePager::DatabaseThread::*getName_function_type )(  ) const;
+                typedef ::std::string const & ( ::osgDB::DatabasePager::DatabaseThread::*getName_function_type)(  ) const;
                 
                 DatabaseThread_exposer.def( 
                     "getName"
@@ -339,8 +339,8 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::run
             
-                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*run_function_type )(  ) ;
-                typedef void ( DatabasePager_wrapper::DatabaseThread_wrapper::*default_run_function_type )(  ) ;
+                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*run_function_type)(  ) ;
+                typedef void ( DatabasePager_wrapper::DatabaseThread_wrapper::*default_run_function_type)(  ) ;
                 
                 DatabaseThread_exposer.def( 
                     "run"
@@ -350,7 +350,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::setActive
             
-                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setActive_function_type )( bool ) ;
+                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setActive_function_type)( bool ) ;
                 
                 DatabaseThread_exposer.def( 
                     "setActive"
@@ -360,7 +360,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::setDone
             
-                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setDone_function_type )( bool ) ;
+                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setDone_function_type)( bool ) ;
                 
                 DatabaseThread_exposer.def( 
                     "setDone"
@@ -370,7 +370,7 @@ void register_DatabasePager_class(){
             }
             { //::osgDB::DatabasePager::DatabaseThread::setName
             
-                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setName_function_type )( ::std::string const & ) ;
+                typedef void ( ::osgDB::DatabasePager::DatabaseThread::*setName_function_type)( ::std::string const & ) ;
                 
                 DatabaseThread_exposer.def( 
                     "setName"
@@ -382,31 +382,31 @@ void register_DatabasePager_class(){
         bp::class_< DatabasePager_wrapper::PagedLODList_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::DatabasePager::PagedLODList >, boost::noncopyable >( "PagedLODList", bp::no_init )    
             .def( 
                 "clear"
-                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )(  ) )(&::osgDB::DatabasePager::PagedLODList::clear) ) )    
+                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )(  ))(&::osgDB::DatabasePager::PagedLODList::clear) ) )    
             .def( 
                 "clone"
-                , bp::pure_virtual( (::osgDB::DatabasePager::PagedLODList * ( ::osgDB::DatabasePager::PagedLODList::* )(  ) )(&::osgDB::DatabasePager::PagedLODList::clone) )
+                , bp::pure_virtual( (::osgDB::DatabasePager::PagedLODList * ( ::osgDB::DatabasePager::PagedLODList::* )(  ))(&::osgDB::DatabasePager::PagedLODList::clone) )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "containsPagedLOD"
-                , bp::pure_virtual( (bool ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::observer_ptr< osg::PagedLOD > const & ) const)(&::osgDB::DatabasePager::PagedLODList::containsPagedLOD) )
+                , bp::pure_virtual( (bool ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::observer_ptr< osg::PagedLOD > const & )const)(&::osgDB::DatabasePager::PagedLODList::containsPagedLOD) )
                 , ( bp::arg("plod") ) )    
             .def( 
                 "insertPagedLOD"
-                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::observer_ptr< osg::PagedLOD > const & ) )(&::osgDB::DatabasePager::PagedLODList::insertPagedLOD) )
+                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::observer_ptr< osg::PagedLOD > const & ))(&::osgDB::DatabasePager::PagedLODList::insertPagedLOD) )
                 , ( bp::arg("plod") ) )    
             .def( 
                 "removeNodes"
-                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::NodeList & ) )(&::osgDB::DatabasePager::PagedLODList::removeNodes) )
+                , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )( ::osg::NodeList & ))(&::osgDB::DatabasePager::PagedLODList::removeNodes) )
                 , ( bp::arg("nodesToRemove") ) )    
             .def( 
                 "size"
-                , bp::pure_virtual( (unsigned int ( ::osgDB::DatabasePager::PagedLODList::* )(  ) )(&::osgDB::DatabasePager::PagedLODList::size) ) );
+                , bp::pure_virtual( (unsigned int ( ::osgDB::DatabasePager::PagedLODList::* )(  ))(&::osgDB::DatabasePager::PagedLODList::size) ) );
         DatabasePager_exposer.def( bp::init< >() );
         { //::osgDB::DatabasePager::addDatabaseThread
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*addDatabaseThread_function_type )( ::osgDB::DatabasePager::DatabaseThread::Mode,::std::string const & ) ;
-            typedef unsigned int ( DatabasePager_wrapper::*default_addDatabaseThread_function_type )( ::osgDB::DatabasePager::DatabaseThread::Mode,::std::string const & ) ;
+            typedef unsigned int ( ::osgDB::DatabasePager::*addDatabaseThread_function_type)( ::osgDB::DatabasePager::DatabaseThread::Mode,::std::string const & ) ;
+            typedef unsigned int ( DatabasePager_wrapper::*default_addDatabaseThread_function_type)( ::osgDB::DatabasePager::DatabaseThread::Mode,::std::string const & ) ;
             
             DatabasePager_exposer.def( 
                 "addDatabaseThread"
@@ -417,8 +417,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::cancel
         
-            typedef int ( ::osgDB::DatabasePager::*cancel_function_type )(  ) ;
-            typedef int ( DatabasePager_wrapper::*default_cancel_function_type )(  ) ;
+            typedef int ( ::osgDB::DatabasePager::*cancel_function_type)(  ) ;
+            typedef int ( DatabasePager_wrapper::*default_cancel_function_type)(  ) ;
             
             DatabasePager_exposer.def( 
                 "cancel"
@@ -428,8 +428,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::className
         
-            typedef char const * ( ::osgDB::DatabasePager::*className_function_type )(  ) const;
-            typedef char const * ( DatabasePager_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgDB::DatabasePager::*className_function_type)(  ) const;
+            typedef char const * ( DatabasePager_wrapper::*default_className_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "className"
@@ -439,8 +439,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::clear
         
-            typedef void ( ::osgDB::DatabasePager::*clear_function_type )(  ) ;
-            typedef void ( DatabasePager_wrapper::*default_clear_function_type )(  ) ;
+            typedef void ( ::osgDB::DatabasePager::*clear_function_type)(  ) ;
+            typedef void ( DatabasePager_wrapper::*default_clear_function_type)(  ) ;
             
             DatabasePager_exposer.def( 
                 "clear"
@@ -450,8 +450,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::clone
         
-            typedef ::osgDB::DatabasePager * ( ::osgDB::DatabasePager::*clone_function_type )(  ) const;
-            typedef ::osgDB::DatabasePager * ( DatabasePager_wrapper::*default_clone_function_type )(  ) const;
+            typedef ::osgDB::DatabasePager * ( ::osgDB::DatabasePager::*clone_function_type)(  ) const;
+            typedef ::osgDB::DatabasePager * ( DatabasePager_wrapper::*default_clone_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "clone"
@@ -472,7 +472,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getAcceptNewDatabaseRequests
         
-            typedef bool ( ::osgDB::DatabasePager::*getAcceptNewDatabaseRequests_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getAcceptNewDatabaseRequests_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getAcceptNewDatabaseRequests"
@@ -481,7 +481,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getApplyPBOToImages
         
-            typedef bool ( ::osgDB::DatabasePager::*getApplyPBOToImages_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getApplyPBOToImages_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getApplyPBOToImages"
@@ -490,7 +490,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getAverageTimeToMergeTiles
         
-            typedef double ( ::osgDB::DatabasePager::*getAverageTimeToMergeTiles_function_type )(  ) const;
+            typedef double ( ::osgDB::DatabasePager::*getAverageTimeToMergeTiles_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getAverageTimeToMergeTiles"
@@ -499,7 +499,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDataToCompileListSize
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*getDataToCompileListSize_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::DatabasePager::*getDataToCompileListSize_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDataToCompileListSize"
@@ -508,7 +508,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDataToMergeListSize
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*getDataToMergeListSize_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::DatabasePager::*getDataToMergeListSize_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDataToMergeListSize"
@@ -517,7 +517,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDatabasePagerThreadPause
         
-            typedef bool ( ::osgDB::DatabasePager::*getDatabasePagerThreadPause_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getDatabasePagerThreadPause_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDatabasePagerThreadPause"
@@ -526,7 +526,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDatabaseThread
         
-            typedef ::osgDB::DatabasePager::DatabaseThread * ( ::osgDB::DatabasePager::*getDatabaseThread_function_type )( unsigned int ) ;
+            typedef ::osgDB::DatabasePager::DatabaseThread * ( ::osgDB::DatabasePager::*getDatabaseThread_function_type)( unsigned int ) ;
             
             DatabasePager_exposer.def( 
                 "getDatabaseThread"
@@ -537,7 +537,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDatabaseThread
         
-            typedef ::osgDB::DatabasePager::DatabaseThread const * ( ::osgDB::DatabasePager::*getDatabaseThread_function_type )( unsigned int ) const;
+            typedef ::osgDB::DatabasePager::DatabaseThread const * ( ::osgDB::DatabasePager::*getDatabaseThread_function_type)( unsigned int ) const;
             
             DatabasePager_exposer.def( 
                 "getDatabaseThread"
@@ -548,7 +548,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDeleteRemovedSubgraphsInDatabaseThread
         
-            typedef bool ( ::osgDB::DatabasePager::*getDeleteRemovedSubgraphsInDatabaseThread_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getDeleteRemovedSubgraphsInDatabaseThread_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDeleteRemovedSubgraphsInDatabaseThread"
@@ -557,7 +557,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDoPreCompile
         
-            typedef bool ( ::osgDB::DatabasePager::*getDoPreCompile_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getDoPreCompile_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDoPreCompile"
@@ -566,7 +566,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getDrawablePolicy
         
-            typedef ::osgDB::DatabasePager::DrawablePolicy ( ::osgDB::DatabasePager::*getDrawablePolicy_function_type )(  ) const;
+            typedef ::osgDB::DatabasePager::DrawablePolicy ( ::osgDB::DatabasePager::*getDrawablePolicy_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getDrawablePolicy"
@@ -575,7 +575,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getFileRequestListSize
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*getFileRequestListSize_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::DatabasePager::*getFileRequestListSize_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getFileRequestListSize"
@@ -584,7 +584,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getIncrementalCompileOperation
         
-            typedef ::osgUtil::IncrementalCompileOperation * ( ::osgDB::DatabasePager::*getIncrementalCompileOperation_function_type )(  ) ;
+            typedef ::osgUtil::IncrementalCompileOperation * ( ::osgDB::DatabasePager::*getIncrementalCompileOperation_function_type)(  ) ;
             
             DatabasePager_exposer.def( 
                 "getIncrementalCompileOperation"
@@ -594,7 +594,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getMaxAnisotropyPolicy
         
-            typedef void ( ::osgDB::DatabasePager::*getMaxAnisotropyPolicy_function_type )( bool &,float & ) const;
+            typedef void ( ::osgDB::DatabasePager::*getMaxAnisotropyPolicy_function_type)( bool &,float & ) const;
             
             DatabasePager_exposer.def( 
                 "getMaxAnisotropyPolicy"
@@ -604,7 +604,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getMaximumTimeToMergeTile
         
-            typedef double ( ::osgDB::DatabasePager::*getMaximumTimeToMergeTile_function_type )(  ) const;
+            typedef double ( ::osgDB::DatabasePager::*getMaximumTimeToMergeTile_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getMaximumTimeToMergeTile"
@@ -613,7 +613,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getMinimumTimeToMergeTile
         
-            typedef double ( ::osgDB::DatabasePager::*getMinimumTimeToMergeTile_function_type )(  ) const;
+            typedef double ( ::osgDB::DatabasePager::*getMinimumTimeToMergeTile_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getMinimumTimeToMergeTile"
@@ -622,7 +622,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getNumDatabaseThreads
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*getNumDatabaseThreads_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::DatabasePager::*getNumDatabaseThreads_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getNumDatabaseThreads"
@@ -631,7 +631,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getNumFramesActive
         
-            typedef int ( ::osgDB::DatabasePager::*getNumFramesActive_function_type )(  ) const;
+            typedef int ( ::osgDB::DatabasePager::*getNumFramesActive_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getNumFramesActive"
@@ -640,7 +640,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getRequestsInProgress
         
-            typedef bool ( ::osgDB::DatabasePager::*getRequestsInProgress_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*getRequestsInProgress_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getRequestsInProgress"
@@ -649,7 +649,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getTargetMaximumNumberOfPageLOD
         
-            typedef unsigned int ( ::osgDB::DatabasePager::*getTargetMaximumNumberOfPageLOD_function_type )(  ) const;
+            typedef unsigned int ( ::osgDB::DatabasePager::*getTargetMaximumNumberOfPageLOD_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "getTargetMaximumNumberOfPageLOD"
@@ -658,7 +658,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::getUnrefImageDataAfterApplyPolicy
         
-            typedef void ( ::osgDB::DatabasePager::*getUnrefImageDataAfterApplyPolicy_function_type )( bool &,bool & ) const;
+            typedef void ( ::osgDB::DatabasePager::*getUnrefImageDataAfterApplyPolicy_function_type)( bool &,bool & ) const;
             
             DatabasePager_exposer.def( 
                 "getUnrefImageDataAfterApplyPolicy"
@@ -668,8 +668,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::isRunning
         
-            typedef bool ( ::osgDB::DatabasePager::*isRunning_function_type )(  ) const;
-            typedef bool ( DatabasePager_wrapper::*default_isRunning_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*isRunning_function_type)(  ) const;
+            typedef bool ( DatabasePager_wrapper::*default_isRunning_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "isRunning"
@@ -689,8 +689,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::registerPagedLODs
         
-            typedef void ( ::osgDB::DatabasePager::*registerPagedLODs_function_type )( ::osg::Node *,unsigned int ) ;
-            typedef void ( DatabasePager_wrapper::*default_registerPagedLODs_function_type )( ::osg::Node *,unsigned int ) ;
+            typedef void ( ::osgDB::DatabasePager::*registerPagedLODs_function_type)( ::osg::Node *,unsigned int ) ;
+            typedef void ( DatabasePager_wrapper::*default_registerPagedLODs_function_type)( ::osg::Node *,unsigned int ) ;
             
             DatabasePager_exposer.def( 
                 "registerPagedLODs"
@@ -701,8 +701,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::requestNodeFile
         
-            typedef void ( ::osgDB::DatabasePager::*requestNodeFile_function_type )( ::std::string const &,::osg::NodePath &,float,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
-            typedef void ( DatabasePager_wrapper::*default_requestNodeFile_function_type )( ::std::string const &,::osg::NodePath &,float,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
+            typedef void ( ::osgDB::DatabasePager::*requestNodeFile_function_type)( ::std::string const &,::osg::NodePath &,float,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
+            typedef void ( DatabasePager_wrapper::*default_requestNodeFile_function_type)( ::std::string const &,::osg::NodePath &,float,::osg::FrameStamp const *,::osg::ref_ptr< osg::Referenced > &,::osg::Referenced const * ) ;
             
             DatabasePager_exposer.def( 
                 "requestNodeFile"
@@ -713,7 +713,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::requiresUpdateSceneGraph
         
-            typedef bool ( ::osgDB::DatabasePager::*requiresUpdateSceneGraph_function_type )(  ) const;
+            typedef bool ( ::osgDB::DatabasePager::*requiresUpdateSceneGraph_function_type)(  ) const;
             
             DatabasePager_exposer.def( 
                 "requiresUpdateSceneGraph"
@@ -722,7 +722,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::resetStats
         
-            typedef void ( ::osgDB::DatabasePager::*resetStats_function_type )(  ) ;
+            typedef void ( ::osgDB::DatabasePager::*resetStats_function_type)(  ) ;
             
             DatabasePager_exposer.def( 
                 "resetStats"
@@ -731,7 +731,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setAcceptNewDatabaseRequests
         
-            typedef void ( ::osgDB::DatabasePager::*setAcceptNewDatabaseRequests_function_type )( bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setAcceptNewDatabaseRequests_function_type)( bool ) ;
             
             DatabasePager_exposer.def( 
                 "setAcceptNewDatabaseRequests"
@@ -741,7 +741,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setApplyPBOToImages
         
-            typedef void ( ::osgDB::DatabasePager::*setApplyPBOToImages_function_type )( bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setApplyPBOToImages_function_type)( bool ) ;
             
             DatabasePager_exposer.def( 
                 "setApplyPBOToImages"
@@ -751,7 +751,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setDatabasePagerThreadPause
         
-            typedef void ( ::osgDB::DatabasePager::*setDatabasePagerThreadPause_function_type )( bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setDatabasePagerThreadPause_function_type)( bool ) ;
             
             DatabasePager_exposer.def( 
                 "setDatabasePagerThreadPause"
@@ -761,7 +761,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setDeleteRemovedSubgraphsInDatabaseThread
         
-            typedef void ( ::osgDB::DatabasePager::*setDeleteRemovedSubgraphsInDatabaseThread_function_type )( bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setDeleteRemovedSubgraphsInDatabaseThread_function_type)( bool ) ;
             
             DatabasePager_exposer.def( 
                 "setDeleteRemovedSubgraphsInDatabaseThread"
@@ -771,7 +771,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setDoPreCompile
         
-            typedef void ( ::osgDB::DatabasePager::*setDoPreCompile_function_type )( bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setDoPreCompile_function_type)( bool ) ;
             
             DatabasePager_exposer.def( 
                 "setDoPreCompile"
@@ -781,7 +781,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setDrawablePolicy
         
-            typedef void ( ::osgDB::DatabasePager::*setDrawablePolicy_function_type )( ::osgDB::DatabasePager::DrawablePolicy ) ;
+            typedef void ( ::osgDB::DatabasePager::*setDrawablePolicy_function_type)( ::osgDB::DatabasePager::DrawablePolicy ) ;
             
             DatabasePager_exposer.def( 
                 "setDrawablePolicy"
@@ -791,7 +791,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setIncrementalCompileOperation
         
-            typedef void ( ::osgDB::DatabasePager::*setIncrementalCompileOperation_function_type )( ::osgUtil::IncrementalCompileOperation * ) ;
+            typedef void ( ::osgDB::DatabasePager::*setIncrementalCompileOperation_function_type)( ::osgUtil::IncrementalCompileOperation * ) ;
             
             DatabasePager_exposer.def( 
                 "setIncrementalCompileOperation"
@@ -801,7 +801,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setMaxAnisotropyPolicy
         
-            typedef void ( ::osgDB::DatabasePager::*setMaxAnisotropyPolicy_function_type )( bool,float ) ;
+            typedef void ( ::osgDB::DatabasePager::*setMaxAnisotropyPolicy_function_type)( bool,float ) ;
             
             DatabasePager_exposer.def( 
                 "setMaxAnisotropyPolicy"
@@ -811,7 +811,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setSchedulePriority
         
-            typedef int ( ::osgDB::DatabasePager::*setSchedulePriority_function_type )( ::OpenThreads::Thread::ThreadPriority ) ;
+            typedef int ( ::osgDB::DatabasePager::*setSchedulePriority_function_type)( ::OpenThreads::Thread::ThreadPriority ) ;
             
             DatabasePager_exposer.def( 
                 "setSchedulePriority"
@@ -821,7 +821,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setTargetMaximumNumberOfPageLOD
         
-            typedef void ( ::osgDB::DatabasePager::*setTargetMaximumNumberOfPageLOD_function_type )( unsigned int ) ;
+            typedef void ( ::osgDB::DatabasePager::*setTargetMaximumNumberOfPageLOD_function_type)( unsigned int ) ;
             
             DatabasePager_exposer.def( 
                 "setTargetMaximumNumberOfPageLOD"
@@ -831,7 +831,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setUnrefImageDataAfterApplyPolicy
         
-            typedef void ( ::osgDB::DatabasePager::*setUnrefImageDataAfterApplyPolicy_function_type )( bool,bool ) ;
+            typedef void ( ::osgDB::DatabasePager::*setUnrefImageDataAfterApplyPolicy_function_type)( bool,bool ) ;
             
             DatabasePager_exposer.def( 
                 "setUnrefImageDataAfterApplyPolicy"
@@ -841,7 +841,7 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::setUpThreads
         
-            typedef void ( ::osgDB::DatabasePager::*setUpThreads_function_type )( unsigned int,unsigned int ) ;
+            typedef void ( ::osgDB::DatabasePager::*setUpThreads_function_type)( unsigned int,unsigned int ) ;
             
             DatabasePager_exposer.def( 
                 "setUpThreads"
@@ -851,8 +851,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::signalBeginFrame
         
-            typedef void ( ::osgDB::DatabasePager::*signalBeginFrame_function_type )( ::osg::FrameStamp const * ) ;
-            typedef void ( DatabasePager_wrapper::*default_signalBeginFrame_function_type )( ::osg::FrameStamp const * ) ;
+            typedef void ( ::osgDB::DatabasePager::*signalBeginFrame_function_type)( ::osg::FrameStamp const * ) ;
+            typedef void ( DatabasePager_wrapper::*default_signalBeginFrame_function_type)( ::osg::FrameStamp const * ) ;
             
             DatabasePager_exposer.def( 
                 "signalBeginFrame"
@@ -863,8 +863,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::signalEndFrame
         
-            typedef void ( ::osgDB::DatabasePager::*signalEndFrame_function_type )(  ) ;
-            typedef void ( DatabasePager_wrapper::*default_signalEndFrame_function_type )(  ) ;
+            typedef void ( ::osgDB::DatabasePager::*signalEndFrame_function_type)(  ) ;
+            typedef void ( DatabasePager_wrapper::*default_signalEndFrame_function_type)(  ) ;
             
             DatabasePager_exposer.def( 
                 "signalEndFrame"
@@ -874,8 +874,8 @@ void register_DatabasePager_class(){
         }
         { //::osgDB::DatabasePager::updateSceneGraph
         
-            typedef void ( ::osgDB::DatabasePager::*updateSceneGraph_function_type )( ::osg::FrameStamp const & ) ;
-            typedef void ( DatabasePager_wrapper::*default_updateSceneGraph_function_type )( ::osg::FrameStamp const & ) ;
+            typedef void ( ::osgDB::DatabasePager::*updateSceneGraph_function_type)( ::osg::FrameStamp const & ) ;
+            typedef void ( DatabasePager_wrapper::*default_updateSceneGraph_function_type)( ::osg::FrameStamp const & ) ;
             
             DatabasePager_exposer.def( 
                 "updateSceneGraph"

@@ -179,100 +179,100 @@ void register_NodeTrackerCallback_class(){
     bp::class_< NodeTrackerCallback_wrapper, bp::bases< osg::NodeCallback >, osg::ref_ptr< ::osg::NodeTrackerCallback >, boost::noncopyable >( "NodeTrackerCallback" )    
         .def( 
             "getTrackNode"
-            , (::osg::Node * ( ::osg::NodeTrackerCallback::* )(  ) )( &::osg::NodeTrackerCallback::getTrackNode )
+            , (::osg::Node * ( ::osg::NodeTrackerCallback::* )(  ))( &::osg::NodeTrackerCallback::getTrackNode )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTrackNode"
-            , (::osg::Node const * ( ::osg::NodeTrackerCallback::* )(  ) const)( &::osg::NodeTrackerCallback::getTrackNode )
+            , (::osg::Node const * ( ::osg::NodeTrackerCallback::* )(  )const)( &::osg::NodeTrackerCallback::getTrackNode )
             , bp::return_internal_reference< >() )    
         .def( 
             "getTrackNodePath"
-            , (::osg::ObserverNodePath & ( ::osg::NodeTrackerCallback::* )(  ) )( &::osg::NodeTrackerCallback::getTrackNodePath )
+            , (::osg::ObserverNodePath & ( ::osg::NodeTrackerCallback::* )(  ))( &::osg::NodeTrackerCallback::getTrackNodePath )
             , bp::return_internal_reference< >() )    
         .def( 
             "__call__"
-            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&::osg::NodeTrackerCallback::operator())
-            , (void ( NodeTrackerCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ) )(&NodeTrackerCallback_wrapper::default___call__)
+            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))(&::osg::NodeTrackerCallback::operator())
+            , (void ( NodeTrackerCallback_wrapper::* )( ::osg::Node *,::osg::NodeVisitor * ))(&NodeTrackerCallback_wrapper::default___call__)
             , ( bp::arg("node"), bp::arg("nv") ) )    
         .def( 
             "setTrackNode"
-            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node * ) )( &::osg::NodeTrackerCallback::setTrackNode )
+            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node * ))( &::osg::NodeTrackerCallback::setTrackNode )
             , ( bp::arg("node") ) )    
         .def( 
             "setTrackNodePath"
-            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::NodePath const & ) )( &::osg::NodeTrackerCallback::setTrackNodePath )
+            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::NodePath const & ))( &::osg::NodeTrackerCallback::setTrackNodePath )
             , ( bp::arg("nodePath") ) )    
         .def( 
             "setTrackNodePath"
-            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::ObserverNodePath const & ) )( &::osg::NodeTrackerCallback::setTrackNodePath )
+            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::ObserverNodePath const & ))( &::osg::NodeTrackerCallback::setTrackNodePath )
             , ( bp::arg("nodePath") ) )    
         .def( 
             "update"
-            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node & ) )( &::osg::NodeTrackerCallback::update )
+            , (void ( ::osg::NodeTrackerCallback::* )( ::osg::Node & ))( &::osg::NodeTrackerCallback::update )
             , ( bp::arg("node") )
             , " Update the node to track the nodepath." )    
         .def( 
             "className"
-            , (char const * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::className)
-            , (char const * ( NodeTrackerCallback_wrapper::* )(  ) const)(&NodeTrackerCallback_wrapper::default_className) )    
+            , (char const * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::className)
+            , (char const * ( NodeTrackerCallback_wrapper::* )(  )const)(&NodeTrackerCallback_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osg::NodeCallback::* )( ::osg::CopyOp const & ) const)(&::osg::NodeCallback::clone)
-            , (::osg::Object * ( NodeTrackerCallback_wrapper::* )( ::osg::CopyOp const & ) const)(&NodeTrackerCallback_wrapper::default_clone)
+            , (::osg::Object * ( ::osg::NodeCallback::* )( ::osg::CopyOp const & )const)(&::osg::NodeCallback::clone)
+            , (::osg::Object * ( NodeTrackerCallback_wrapper::* )( ::osg::CopyOp const & )const)(&NodeTrackerCallback_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::cloneType)
-            , (::osg::Object * ( NodeTrackerCallback_wrapper::* )(  ) const)(&NodeTrackerCallback_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::cloneType)
+            , (::osg::Object * ( NodeTrackerCallback_wrapper::* )(  )const)(&NodeTrackerCallback_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "computeDataVariance"
-            , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-            , (void ( NodeTrackerCallback_wrapper::* )(  ) )(&NodeTrackerCallback_wrapper::default_computeDataVariance) )    
+            , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+            , (void ( NodeTrackerCallback_wrapper::* )(  ))(&NodeTrackerCallback_wrapper::default_computeDataVariance) )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-            , (::osg::Referenced * ( NodeTrackerCallback_wrapper::* )(  ) )(&NodeTrackerCallback_wrapper::default_getUserData)
+            , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+            , (::osg::Referenced * ( NodeTrackerCallback_wrapper::* )(  ))(&NodeTrackerCallback_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-            , (::osg::Referenced const * ( NodeTrackerCallback_wrapper::* )(  ) const)(&NodeTrackerCallback_wrapper::default_getUserData)
+            , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+            , (::osg::Referenced const * ( NodeTrackerCallback_wrapper::* )(  )const)(&NodeTrackerCallback_wrapper::default_getUserData)
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osg::NodeCallback::* )( ::osg::Object const * ) const)(&::osg::NodeCallback::isSameKindAs)
-            , (bool ( NodeTrackerCallback_wrapper::* )( ::osg::Object const * ) const)(&NodeTrackerCallback_wrapper::default_isSameKindAs)
+            , (bool ( ::osg::NodeCallback::* )( ::osg::Object const * )const)(&::osg::NodeCallback::isSameKindAs)
+            , (bool ( NodeTrackerCallback_wrapper::* )( ::osg::Object const * )const)(&NodeTrackerCallback_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osg::NodeCallback::* )(  ) const)(&::osg::NodeCallback::libraryName)
-            , (char const * ( NodeTrackerCallback_wrapper::* )(  ) const)(&NodeTrackerCallback_wrapper::default_libraryName) )    
+            , (char const * ( ::osg::NodeCallback::* )(  )const)(&::osg::NodeCallback::libraryName)
+            , (char const * ( NodeTrackerCallback_wrapper::* )(  )const)(&NodeTrackerCallback_wrapper::default_libraryName) )    
         .def( 
             "resizeGLObjectBuffers"
-            , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-            , (void ( NodeTrackerCallback_wrapper::* )( unsigned int ) )(&NodeTrackerCallback_wrapper::default_resizeGLObjectBuffers)
+            , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+            , (void ( NodeTrackerCallback_wrapper::* )( unsigned int ))(&NodeTrackerCallback_wrapper::default_resizeGLObjectBuffers)
             , ( bp::arg("arg0") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-            , (void ( NodeTrackerCallback_wrapper::* )( ::std::string const & ) )(&NodeTrackerCallback_wrapper::default_setName)
+            , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+            , (void ( NodeTrackerCallback_wrapper::* )( ::std::string const & ))(&NodeTrackerCallback_wrapper::default_setName)
             , ( bp::arg("name") ) )    
         .def( 
             "setName"
-            , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+            , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
             , ( bp::arg("name") )
             , " Set the name of object using a C style string." )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-            , (void ( NodeTrackerCallback_wrapper::* )( bool ) )(&NodeTrackerCallback_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+            , (void ( NodeTrackerCallback_wrapper::* )( bool ))(&NodeTrackerCallback_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-            , (void ( NodeTrackerCallback_wrapper::* )( ::osg::Referenced * ) )(&NodeTrackerCallback_wrapper::default_setUserData)
+            , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+            , (void ( NodeTrackerCallback_wrapper::* )( ::osg::Referenced * ))(&NodeTrackerCallback_wrapper::default_setUserData)
             , ( bp::arg("obj") ) );
 
 }

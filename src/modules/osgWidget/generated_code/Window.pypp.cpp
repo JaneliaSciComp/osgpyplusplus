@@ -1286,128 +1286,128 @@ void register_Window_class(){
         bp::class_< Window_wrapper::EmbeddedWindow_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::Window::EmbeddedWindow >, boost::noncopyable >( "EmbeddedWindow", bp::no_init )    
             .def( 
                 "className"
-                , (char const * ( ::osgWidget::Window::EmbeddedWindow::* )(  ) const)(&::osgWidget::Window::EmbeddedWindow::className)
-                , (char const * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  ) const)(&Window_wrapper::EmbeddedWindow_wrapper::default_className) )    
+                , (char const * ( ::osgWidget::Window::EmbeddedWindow::* )(  )const)(&::osgWidget::Window::EmbeddedWindow::className)
+                , (char const * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  )const)(&Window_wrapper::EmbeddedWindow_wrapper::default_className) )    
             .def( 
                 "clone"
-                , (::osg::Object * ( ::osgWidget::Window::EmbeddedWindow::* )( ::osg::CopyOp const & ) const)(&::osgWidget::Window::EmbeddedWindow::clone)
-                , (::osg::Object * ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osg::CopyOp const & ) const)(&Window_wrapper::EmbeddedWindow_wrapper::default_clone)
+                , (::osg::Object * ( ::osgWidget::Window::EmbeddedWindow::* )( ::osg::CopyOp const & )const)(&::osgWidget::Window::EmbeddedWindow::clone)
+                , (::osg::Object * ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osg::CopyOp const & )const)(&Window_wrapper::EmbeddedWindow_wrapper::default_clone)
                 , ( bp::arg("copyop") )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "cloneType"
-                , (::osg::Object * ( ::osgWidget::Window::EmbeddedWindow::* )(  ) const)(&::osgWidget::Window::EmbeddedWindow::cloneType)
-                , (::osg::Object * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  ) const)(&Window_wrapper::EmbeddedWindow_wrapper::default_cloneType)
+                , (::osg::Object * ( ::osgWidget::Window::EmbeddedWindow::* )(  )const)(&::osgWidget::Window::EmbeddedWindow::cloneType)
+                , (::osg::Object * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  )const)(&Window_wrapper::EmbeddedWindow_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "getWindow"
-                , (::osgWidget::Window * ( ::osgWidget::Window::EmbeddedWindow::* )(  ) )( &::osgWidget::Window::EmbeddedWindow::getWindow )
+                , (::osgWidget::Window * ( ::osgWidget::Window::EmbeddedWindow::* )(  ))( &::osgWidget::Window::EmbeddedWindow::getWindow )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getWindow"
-                , (::osgWidget::Window const * ( ::osgWidget::Window::EmbeddedWindow::* )(  ) const)( &::osgWidget::Window::EmbeddedWindow::getWindow )
+                , (::osgWidget::Window const * ( ::osgWidget::Window::EmbeddedWindow::* )(  )const)( &::osgWidget::Window::EmbeddedWindow::getWindow )
                 , bp::return_internal_reference< >() )    
             .def( 
                 "isSameKindAs"
-                , (bool ( ::osgWidget::Window::EmbeddedWindow::* )( ::osg::Object const * ) const)(&::osgWidget::Window::EmbeddedWindow::isSameKindAs)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osg::Object const * ) const)(&Window_wrapper::EmbeddedWindow_wrapper::default_isSameKindAs)
+                , (bool ( ::osgWidget::Window::EmbeddedWindow::* )( ::osg::Object const * )const)(&::osgWidget::Window::EmbeddedWindow::isSameKindAs)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osg::Object const * )const)(&Window_wrapper::EmbeddedWindow_wrapper::default_isSameKindAs)
                 , ( bp::arg("obj") ) )    
             .def( 
                 "libraryName"
-                , (char const * ( ::osgWidget::Window::EmbeddedWindow::* )(  ) const)(&::osgWidget::Window::EmbeddedWindow::libraryName)
-                , (char const * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  ) const)(&Window_wrapper::EmbeddedWindow_wrapper::default_libraryName) )    
+                , (char const * ( ::osgWidget::Window::EmbeddedWindow::* )(  )const)(&::osgWidget::Window::EmbeddedWindow::libraryName)
+                , (char const * ( Window_wrapper::EmbeddedWindow_wrapper::* )(  )const)(&Window_wrapper::EmbeddedWindow_wrapper::default_libraryName) )    
             .def( 
                 "managed"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::WindowManager * ) )(&::osgWidget::Window::EmbeddedWindow::managed)
-                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_managed)
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::WindowManager * ))(&::osgWidget::Window::EmbeddedWindow::managed)
+                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_managed)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "parented"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ) )(&::osgWidget::Window::EmbeddedWindow::parented)
-                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::Window * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_parented)
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ))(&::osgWidget::Window::EmbeddedWindow::parented)
+                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::Window * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_parented)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "positioned"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )(  ) )(&::osgWidget::Window::EmbeddedWindow::positioned)
-                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )(  ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_positioned) )    
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )(  ))(&::osgWidget::Window::EmbeddedWindow::positioned)
+                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )(  ))(&Window_wrapper::EmbeddedWindow_wrapper::default_positioned) )    
             .def( 
                 "setWindow"
-                , (bool ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ) )( &::osgWidget::Window::EmbeddedWindow::setWindow )
+                , (bool ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ))( &::osgWidget::Window::EmbeddedWindow::setWindow )
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "unmanaged"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::WindowManager * ) )(&::osgWidget::Window::EmbeddedWindow::unmanaged)
-                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_unmanaged)
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::WindowManager * ))(&::osgWidget::Window::EmbeddedWindow::unmanaged)
+                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_unmanaged)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "unparented"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ) )(&::osgWidget::Window::EmbeddedWindow::unparented)
-                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::Window * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_unparented)
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )( ::osgWidget::Window * ))(&::osgWidget::Window::EmbeddedWindow::unparented)
+                , (void ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::Window * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_unparented)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "updateSizeFromWindow"
-                , (void ( ::osgWidget::Window::EmbeddedWindow::* )(  ) )( &::osgWidget::Window::EmbeddedWindow::updateSizeFromWindow ) )    
+                , (void ( ::osgWidget::Window::EmbeddedWindow::* )(  ))( &::osgWidget::Window::EmbeddedWindow::updateSizeFromWindow ) )    
             .def( 
                 "focus"
-                , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::focus)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_focus)
+                , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::focus)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_focus)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "keyDown"
-                , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::keyDown)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( int,int,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_keyDown)
+                , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::keyDown)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( int,int,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_keyDown)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "keyUp"
-                , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::keyUp)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( int,int,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_keyUp)
+                , (bool ( ::osgWidget::EventInterface::* )( int,int,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::keyUp)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( int,int,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_keyUp)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseDrag"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseDrag)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseDrag)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseDrag)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseDrag)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseEnter"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseEnter)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseEnter)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseEnter)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseEnter)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseLeave"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseLeave)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseLeave)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseLeave)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseLeave)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseOver"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseOver)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseOver)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseOver)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseOver)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mousePush"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mousePush)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mousePush)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mousePush)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mousePush)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseRelease"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseRelease)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseRelease)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseRelease)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseRelease)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "mouseScroll"
-                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::mouseScroll)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseScroll)
+                , (bool ( ::osgWidget::EventInterface::* )( double,double,::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::mouseScroll)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( double,double,::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_mouseScroll)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) )    
             .def( 
                 "unfocus"
-                , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ) )(&::osgWidget::EventInterface::unfocus)
-                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager const * ) )(&Window_wrapper::EmbeddedWindow_wrapper::default_unfocus)
+                , (bool ( ::osgWidget::EventInterface::* )( ::osgWidget::WindowManager const * ))(&::osgWidget::EventInterface::unfocus)
+                , (bool ( Window_wrapper::EmbeddedWindow_wrapper::* )( ::osgWidget::WindowManager const * ))(&Window_wrapper::EmbeddedWindow_wrapper::default_unfocus)
                 , ( bp::arg("arg0") ) );
         bp::class_< osgWidget::Window::Sizes >( "Sizes", bp::no_init )    
             .def_readwrite( "current", &osgWidget::Window::Sizes::current )    
             .def_readwrite( "minimum", &osgWidget::Window::Sizes::minimum );
         { //::osgWidget::Window::addChildAndGetIndex
         
-            typedef unsigned int ( ::osgWidget::Window::*addChildAndGetIndex_function_type )( ::osg::Node * ) ;
+            typedef unsigned int ( ::osgWidget::Window::*addChildAndGetIndex_function_type)( ::osg::Node * ) ;
             
             Window_exposer.def( 
                 "addChildAndGetIndex"
@@ -1417,7 +1417,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addDrawableAndGetIndex
         
-            typedef unsigned int ( ::osgWidget::Window::*addDrawableAndGetIndex_function_type )( ::osg::Drawable * ) ;
+            typedef unsigned int ( ::osgWidget::Window::*addDrawableAndGetIndex_function_type)( ::osg::Drawable * ) ;
             
             Window_exposer.def( 
                 "addDrawableAndGetIndex"
@@ -1427,7 +1427,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addOrigin
         
-            typedef void ( ::osgWidget::Window::*addOrigin_function_type )( ::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addOrigin_function_type)( ::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addOrigin"
@@ -1437,7 +1437,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addRotate
         
-            typedef void ( ::osgWidget::Window::*addRotate_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addRotate_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addRotate"
@@ -1447,7 +1447,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addScale
         
-            typedef void ( ::osgWidget::Window::*addScale_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addScale_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addScale"
@@ -1457,7 +1457,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addVisibleArea
         
-            typedef void ( ::osgWidget::Window::*addVisibleArea_function_type )( int,int,int,int ) ;
+            typedef void ( ::osgWidget::Window::*addVisibleArea_function_type)( int,int,int,int ) ;
             
             Window_exposer.def( 
                 "addVisibleArea"
@@ -1467,8 +1467,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addWidget
         
-            typedef bool ( ::osgWidget::Window::*addWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Window_wrapper::*default_addWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*addWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Window_wrapper::*default_addWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Window_exposer.def( 
                 "addWidget"
@@ -1479,7 +1479,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addX
         
-            typedef void ( ::osgWidget::Window::*addX_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addX_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addX"
@@ -1489,7 +1489,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addY
         
-            typedef void ( ::osgWidget::Window::*addY_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addY_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addY"
@@ -1499,7 +1499,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::addZ
         
-            typedef void ( ::osgWidget::Window::*addZ_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*addZ_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "addZ"
@@ -1509,7 +1509,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::attachMoveCallback
         
-            typedef void ( ::osgWidget::Window::*attachMoveCallback_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*attachMoveCallback_function_type)(  ) ;
             
             Window_exposer.def( 
                 "attachMoveCallback"
@@ -1518,7 +1518,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::attachRotateCallback
         
-            typedef void ( ::osgWidget::Window::*attachRotateCallback_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*attachRotateCallback_function_type)(  ) ;
             
             Window_exposer.def( 
                 "attachRotateCallback"
@@ -1527,7 +1527,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::attachScaleCallback
         
-            typedef void ( ::osgWidget::Window::*attachScaleCallback_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*attachScaleCallback_function_type)(  ) ;
             
             Window_exposer.def( 
                 "attachScaleCallback"
@@ -1536,7 +1536,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::attachTabFocusCallback
         
-            typedef void ( ::osgWidget::Window::*attachTabFocusCallback_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*attachTabFocusCallback_function_type)(  ) ;
             
             Window_exposer.def( 
                 "attachTabFocusCallback"
@@ -1545,7 +1545,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::embed
         
-            typedef ::osgWidget::Window::EmbeddedWindow * ( ::osgWidget::Window::*embed_function_type )( ::std::string const &,::osgWidget::Widget::Layer,unsigned int ) ;
+            typedef ::osgWidget::Window::EmbeddedWindow * ( ::osgWidget::Window::*embed_function_type)( ::std::string const &,::osgWidget::Widget::Layer,unsigned int ) ;
             
             Window_exposer.def( 
                 "embed"
@@ -1556,7 +1556,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getAbsoluteOrigin
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getAbsoluteOrigin_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getAbsoluteOrigin_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getAbsoluteOrigin"
@@ -1565,7 +1565,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getAnchorHorizontal
         
-            typedef ::osgWidget::Window::HorizontalAnchor ( ::osgWidget::Window::*getAnchorHorizontal_function_type )(  ) const;
+            typedef ::osgWidget::Window::HorizontalAnchor ( ::osgWidget::Window::*getAnchorHorizontal_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getAnchorHorizontal"
@@ -1574,7 +1574,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getAnchorVertical
         
-            typedef ::osgWidget::Window::VerticalAnchor ( ::osgWidget::Window::*getAnchorVertical_function_type )(  ) const;
+            typedef ::osgWidget::Window::VerticalAnchor ( ::osgWidget::Window::*getAnchorVertical_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getAnchorVertical"
@@ -1583,7 +1583,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getBackground
         
-            typedef ::osgWidget::Widget * ( ::osgWidget::Window::*getBackground_function_type )(  ) ;
+            typedef ::osgWidget::Widget * ( ::osgWidget::Window::*getBackground_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getBackground"
@@ -1593,7 +1593,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getBackground
         
-            typedef ::osgWidget::Widget const * ( ::osgWidget::Window::*getBackground_function_type )(  ) const;
+            typedef ::osgWidget::Widget const * ( ::osgWidget::Window::*getBackground_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getBackground"
@@ -1603,7 +1603,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getEmbeddedList
         
-            typedef bool ( ::osgWidget::Window::*getEmbeddedList_function_type )( ::std::list< osg::observer_ptr<osgWidget::Window> > & ) const;
+            typedef bool ( ::osgWidget::Window::*getEmbeddedList_function_type)( ::std::list< osg::observer_ptr<osgWidget::Window> > & ) const;
             
             Window_exposer.def( 
                 "getEmbeddedList"
@@ -1613,7 +1613,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getFocusList
         
-            typedef bool ( ::osgWidget::Window::*getFocusList_function_type )( ::osgWidget::WidgetList & ) const;
+            typedef bool ( ::osgWidget::Window::*getFocusList_function_type)( ::osgWidget::WidgetList & ) const;
             
             Window_exposer.def( 
                 "getFocusList"
@@ -1623,7 +1623,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getFocused
         
-            typedef ::osgWidget::Widget * ( ::osgWidget::Window::*getFocused_function_type )(  ) ;
+            typedef ::osgWidget::Widget * ( ::osgWidget::Window::*getFocused_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getFocused"
@@ -1633,7 +1633,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getFocused
         
-            typedef ::osgWidget::Widget const * ( ::osgWidget::Window::*getFocused_function_type )(  ) const;
+            typedef ::osgWidget::Widget const * ( ::osgWidget::Window::*getFocused_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getFocused"
@@ -1643,7 +1643,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getGeode
         
-            typedef ::osg::Geode * ( ::osgWidget::Window::*getGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osgWidget::Window::*getGeode_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getGeode"
@@ -1653,7 +1653,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getGeode
         
-            typedef ::osg::Geode const * ( ::osgWidget::Window::*getGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osgWidget::Window::*getGeode_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getGeode"
@@ -1663,7 +1663,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getHeight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getHeight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getHeight_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getHeight"
@@ -1672,7 +1672,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getIndex
         
-            typedef unsigned int ( ::osgWidget::Window::*getIndex_function_type )(  ) const;
+            typedef unsigned int ( ::osgWidget::Window::*getIndex_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getIndex"
@@ -1681,7 +1681,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getMinHeight
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getMinHeight_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getMinHeight_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getMinHeight"
@@ -1690,7 +1690,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getMinSize
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getMinSize_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getMinSize_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getMinSize"
@@ -1699,7 +1699,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getMinWidth
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getMinWidth_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getMinWidth_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getMinWidth"
@@ -1708,7 +1708,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getOrigin
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getOrigin_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getOrigin_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getOrigin"
@@ -1717,7 +1717,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getParent
         
-            typedef ::osgWidget::Window * ( ::osgWidget::Window::*getParent_function_type )(  ) ;
+            typedef ::osgWidget::Window * ( ::osgWidget::Window::*getParent_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getParent"
@@ -1727,7 +1727,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getParent
         
-            typedef ::osgWidget::Window const * ( ::osgWidget::Window::*getParent_function_type )(  ) const;
+            typedef ::osgWidget::Window const * ( ::osgWidget::Window::*getParent_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getParent"
@@ -1737,7 +1737,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getParentList
         
-            typedef void ( ::osgWidget::Window::*getParentList_function_type )( ::std::list< osg::observer_ptr<osgWidget::Window> > & ) const;
+            typedef void ( ::osgWidget::Window::*getParentList_function_type)( ::std::list< osg::observer_ptr<osgWidget::Window> > & ) const;
             
             Window_exposer.def( 
                 "getParentList"
@@ -1747,7 +1747,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getPosition
         
-            typedef ::osgWidget::Point ( ::osgWidget::Window::*getPosition_function_type )(  ) const;
+            typedef ::osgWidget::Point ( ::osgWidget::Window::*getPosition_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getPosition"
@@ -1756,7 +1756,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getRotate
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getRotate_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getRotate_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getRotate"
@@ -1765,7 +1765,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getScale
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getScale_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getScale_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getScale"
@@ -1774,7 +1774,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getScaleDenominator
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getScaleDenominator_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getScaleDenominator_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getScaleDenominator"
@@ -1783,7 +1783,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getSize
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getSize_function_type )(  ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*getSize_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getSize"
@@ -1792,7 +1792,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getStrata
         
-            typedef ::osgWidget::Window::Strata ( ::osgWidget::Window::*getStrata_function_type )(  ) const;
+            typedef ::osgWidget::Window::Strata ( ::osgWidget::Window::*getStrata_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getStrata"
@@ -1801,7 +1801,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getTopmostParent
         
-            typedef ::osgWidget::Window * ( ::osgWidget::Window::*getTopmostParent_function_type )(  ) ;
+            typedef ::osgWidget::Window * ( ::osgWidget::Window::*getTopmostParent_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getTopmostParent"
@@ -1811,7 +1811,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getTopmostParent
         
-            typedef ::osgWidget::Window const * ( ::osgWidget::Window::*getTopmostParent_function_type )(  ) const;
+            typedef ::osgWidget::Window const * ( ::osgWidget::Window::*getTopmostParent_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getTopmostParent"
@@ -1821,7 +1821,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getVisibilityMode
         
-            typedef ::osgWidget::Window::VisibilityMode ( ::osgWidget::Window::*getVisibilityMode_function_type )(  ) const;
+            typedef ::osgWidget::Window::VisibilityMode ( ::osgWidget::Window::*getVisibilityMode_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getVisibilityMode"
@@ -1830,7 +1830,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getVisibleArea
         
-            typedef ::osgWidget::Quad const & ( ::osgWidget::Window::*getVisibleArea_function_type )(  ) const;
+            typedef ::osgWidget::Quad const & ( ::osgWidget::Window::*getVisibleArea_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getVisibleArea"
@@ -1840,7 +1840,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getWidth
         
-            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getWidth_function_type )(  ) const;
+            typedef ::osgWidget::point_type ( ::osgWidget::Window::*getWidth_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getWidth"
@@ -1849,7 +1849,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getWindowManager
         
-            typedef ::osgWidget::WindowManager * ( ::osgWidget::Window::*getWindowManager_function_type )(  ) ;
+            typedef ::osgWidget::WindowManager * ( ::osgWidget::Window::*getWindowManager_function_type)(  ) ;
             
             Window_exposer.def( 
                 "getWindowManager"
@@ -1859,7 +1859,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getWindowManager
         
-            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Window::*getWindowManager_function_type )(  ) const;
+            typedef ::osgWidget::WindowManager const * ( ::osgWidget::Window::*getWindowManager_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getWindowManager"
@@ -1869,7 +1869,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getX
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getX_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getX_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getX"
@@ -1878,7 +1878,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getY
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getY_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getY_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getY"
@@ -1887,7 +1887,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getZ
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getZ_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getZ_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getZ"
@@ -1896,7 +1896,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::getZRange
         
-            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getZRange_function_type )(  ) const;
+            typedef ::osgWidget::matrix_type ( ::osgWidget::Window::*getZRange_function_type)(  ) const;
             
             Window_exposer.def( 
                 "getZRange"
@@ -1905,7 +1905,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::grabFocus
         
-            typedef bool ( ::osgWidget::Window::*grabFocus_function_type )(  ) ;
+            typedef bool ( ::osgWidget::Window::*grabFocus_function_type)(  ) ;
             
             Window_exposer.def( 
                 "grabFocus"
@@ -1914,7 +1914,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::hide
         
-            typedef bool ( ::osgWidget::Window::*hide_function_type )(  ) ;
+            typedef bool ( ::osgWidget::Window::*hide_function_type)(  ) ;
             
             Window_exposer.def( 
                 "hide"
@@ -1923,8 +1923,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::insertWidget
         
-            typedef bool ( ::osgWidget::Window::*insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
-            typedef bool ( Window_wrapper::*default_insertWidget_function_type )( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( ::osgWidget::Window::*insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
+            typedef bool ( Window_wrapper::*default_insertWidget_function_type)( ::osgWidget::Widget *,unsigned int ) ;
             
             Window_exposer.def( 
                 "insertWidget"
@@ -1935,7 +1935,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::isPointerXYWithinVisible
         
-            typedef bool ( ::osgWidget::Window::*isPointerXYWithinVisible_function_type )( float,float ) const;
+            typedef bool ( ::osgWidget::Window::*isPointerXYWithinVisible_function_type)( float,float ) const;
             
             Window_exposer.def( 
                 "isPointerXYWithinVisible"
@@ -1945,7 +1945,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::isVisible
         
-            typedef bool ( ::osgWidget::Window::*isVisible_function_type )(  ) const;
+            typedef bool ( ::osgWidget::Window::*isVisible_function_type)(  ) const;
             
             Window_exposer.def( 
                 "isVisible"
@@ -1954,7 +1954,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::isXYWithinVisible
         
-            typedef bool ( ::osgWidget::Window::*isXYWithinVisible_function_type )( float,float ) const;
+            typedef bool ( ::osgWidget::Window::*isXYWithinVisible_function_type)( float,float ) const;
             
             Window_exposer.def( 
                 "isXYWithinVisible"
@@ -1964,7 +1964,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::localXY
         
-            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*localXY_function_type )( double,double ) const;
+            typedef ::osgWidget::XYCoord ( ::osgWidget::Window::*localXY_function_type)( double,double ) const;
             
             Window_exposer.def( 
                 "localXY"
@@ -1974,8 +1974,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::managed
         
-            typedef void ( ::osgWidget::Window::*managed_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Window_wrapper::*default_managed_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*managed_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Window_wrapper::*default_managed_function_type)( ::osgWidget::WindowManager * ) ;
             
             Window_exposer.def( 
                 "managed"
@@ -1986,8 +1986,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::removeWidget
         
-            typedef bool ( ::osgWidget::Window::*removeWidget_function_type )( ::osgWidget::Widget * ) ;
-            typedef bool ( Window_wrapper::*default_removeWidget_function_type )( ::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*removeWidget_function_type)( ::osgWidget::Widget * ) ;
+            typedef bool ( Window_wrapper::*default_removeWidget_function_type)( ::osgWidget::Widget * ) ;
             
             Window_exposer.def( 
                 "removeWidget"
@@ -1998,8 +1998,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::replaceWidget
         
-            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
-            typedef bool ( Window_wrapper::*default_replaceWidget_function_type )( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( ::osgWidget::Window::*replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
+            typedef bool ( Window_wrapper::*default_replaceWidget_function_type)( ::osgWidget::Widget *,::osgWidget::Widget * ) ;
             
             Window_exposer.def( 
                 "replaceWidget"
@@ -2010,7 +2010,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::resize
         
-            typedef bool ( ::osgWidget::Window::*resize_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( ::osgWidget::Window::*resize_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Window_exposer.def( 
                 "resize"
@@ -2020,7 +2020,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::resizeAdd
         
-            typedef bool ( ::osgWidget::Window::*resizeAdd_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( ::osgWidget::Window::*resizeAdd_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Window_exposer.def( 
                 "resizeAdd"
@@ -2030,7 +2030,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::resizePercent
         
-            typedef bool ( ::osgWidget::Window::*resizePercent_function_type )( ::osgWidget::point_type,::osgWidget::point_type ) ;
+            typedef bool ( ::osgWidget::Window::*resizePercent_function_type)( ::osgWidget::point_type,::osgWidget::point_type ) ;
             
             Window_exposer.def( 
                 "resizePercent"
@@ -2040,7 +2040,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setAnchorHorizontal
         
-            typedef void ( ::osgWidget::Window::*setAnchorHorizontal_function_type )( ::osgWidget::Window::HorizontalAnchor ) ;
+            typedef void ( ::osgWidget::Window::*setAnchorHorizontal_function_type)( ::osgWidget::Window::HorizontalAnchor ) ;
             
             Window_exposer.def( 
                 "setAnchorHorizontal"
@@ -2050,7 +2050,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setAnchorVertical
         
-            typedef void ( ::osgWidget::Window::*setAnchorVertical_function_type )( ::osgWidget::Window::VerticalAnchor ) ;
+            typedef void ( ::osgWidget::Window::*setAnchorVertical_function_type)( ::osgWidget::Window::VerticalAnchor ) ;
             
             Window_exposer.def( 
                 "setAnchorVertical"
@@ -2060,7 +2060,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setFirstFocusable
         
-            typedef bool ( ::osgWidget::Window::*setFirstFocusable_function_type )(  ) ;
+            typedef bool ( ::osgWidget::Window::*setFirstFocusable_function_type)(  ) ;
             
             Window_exposer.def( 
                 "setFirstFocusable"
@@ -2069,7 +2069,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setFocused
         
-            typedef bool ( ::osgWidget::Window::*setFocused_function_type )( ::osgWidget::Widget const * ) ;
+            typedef bool ( ::osgWidget::Window::*setFocused_function_type)( ::osgWidget::Widget const * ) ;
             
             Window_exposer.def( 
                 "setFocused"
@@ -2079,7 +2079,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setFocused
         
-            typedef bool ( ::osgWidget::Window::*setFocused_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::Window::*setFocused_function_type)( ::std::string const & ) ;
             
             Window_exposer.def( 
                 "setFocused"
@@ -2089,7 +2089,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setNextFocusable
         
-            typedef bool ( ::osgWidget::Window::*setNextFocusable_function_type )(  ) ;
+            typedef bool ( ::osgWidget::Window::*setNextFocusable_function_type)(  ) ;
             
             Window_exposer.def( 
                 "setNextFocusable"
@@ -2098,7 +2098,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setOrigin
         
-            typedef void ( ::osgWidget::Window::*setOrigin_function_type )( ::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setOrigin_function_type)( ::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setOrigin"
@@ -2108,7 +2108,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setOrigin
         
-            typedef void ( ::osgWidget::Window::*setOrigin_function_type )( ::osgWidget::XYCoord const & ) ;
+            typedef void ( ::osgWidget::Window::*setOrigin_function_type)( ::osgWidget::XYCoord const & ) ;
             
             Window_exposer.def( 
                 "setOrigin"
@@ -2118,7 +2118,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setPosition
         
-            typedef void ( ::osgWidget::Window::*setPosition_function_type )( ::osgWidget::matrix_type,::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setPosition_function_type)( ::osgWidget::matrix_type,::osgWidget::matrix_type,::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setPosition"
@@ -2128,7 +2128,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setPosition
         
-            typedef void ( ::osgWidget::Window::*setPosition_function_type )( ::osgWidget::Point const & ) ;
+            typedef void ( ::osgWidget::Window::*setPosition_function_type)( ::osgWidget::Point const & ) ;
             
             Window_exposer.def( 
                 "setPosition"
@@ -2138,7 +2138,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setRotate
         
-            typedef void ( ::osgWidget::Window::*setRotate_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setRotate_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setRotate"
@@ -2148,7 +2148,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setScale
         
-            typedef void ( ::osgWidget::Window::*setScale_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setScale_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setScale"
@@ -2158,7 +2158,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setScaleDenominator
         
-            typedef void ( ::osgWidget::Window::*setScaleDenominator_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setScaleDenominator_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setScaleDenominator"
@@ -2168,7 +2168,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setStrata
         
-            typedef void ( ::osgWidget::Window::*setStrata_function_type )( ::osgWidget::Window::Strata ) ;
+            typedef void ( ::osgWidget::Window::*setStrata_function_type)( ::osgWidget::Window::Strata ) ;
             
             Window_exposer.def( 
                 "setStrata"
@@ -2178,7 +2178,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setVisibilityMode
         
-            typedef void ( ::osgWidget::Window::*setVisibilityMode_function_type )( ::osgWidget::Window::VisibilityMode ) ;
+            typedef void ( ::osgWidget::Window::*setVisibilityMode_function_type)( ::osgWidget::Window::VisibilityMode ) ;
             
             Window_exposer.def( 
                 "setVisibilityMode"
@@ -2188,7 +2188,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setVisibleArea
         
-            typedef void ( ::osgWidget::Window::*setVisibleArea_function_type )( int,int,int,int ) ;
+            typedef void ( ::osgWidget::Window::*setVisibleArea_function_type)( int,int,int,int ) ;
             
             Window_exposer.def( 
                 "setVisibleArea"
@@ -2198,7 +2198,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setX
         
-            typedef void ( ::osgWidget::Window::*setX_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setX_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setX"
@@ -2208,7 +2208,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setY
         
-            typedef void ( ::osgWidget::Window::*setY_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setY_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setY"
@@ -2218,7 +2218,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setZ
         
-            typedef void ( ::osgWidget::Window::*setZ_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setZ_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setZ"
@@ -2228,7 +2228,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::setZRange
         
-            typedef void ( ::osgWidget::Window::*setZRange_function_type )( ::osgWidget::matrix_type ) ;
+            typedef void ( ::osgWidget::Window::*setZRange_function_type)( ::osgWidget::matrix_type ) ;
             
             Window_exposer.def( 
                 "setZRange"
@@ -2238,7 +2238,7 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::show
         
-            typedef bool ( ::osgWidget::Window::*show_function_type )(  ) ;
+            typedef bool ( ::osgWidget::Window::*show_function_type)(  ) ;
             
             Window_exposer.def( 
                 "show"
@@ -2247,8 +2247,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::unmanaged
         
-            typedef void ( ::osgWidget::Window::*unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
-            typedef void ( Window_wrapper::*default_unmanaged_function_type )( ::osgWidget::WindowManager * ) ;
+            typedef void ( ::osgWidget::Window::*unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
+            typedef void ( Window_wrapper::*default_unmanaged_function_type)( ::osgWidget::WindowManager * ) ;
             
             Window_exposer.def( 
                 "unmanaged"
@@ -2259,8 +2259,8 @@ void register_Window_class(){
         }
         { //::osgWidget::Window::update
         
-            typedef void ( ::osgWidget::Window::*update_function_type )(  ) ;
-            typedef void ( Window_wrapper::*default_update_function_type )(  ) ;
+            typedef void ( ::osgWidget::Window::*update_function_type)(  ) ;
+            typedef void ( Window_wrapper::*default_update_function_type)(  ) ;
             
             Window_exposer.def( 
                 "update"
@@ -2270,8 +2270,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::focus
         
-            typedef bool ( ::osgWidget::EventInterface::*focus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_focus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*focus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_focus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "focus"
@@ -2282,8 +2282,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::keyDown
         
-            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_keyDown_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_keyDown_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "keyDown"
@@ -2294,8 +2294,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::keyUp
         
-            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_keyUp_function_type )( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_keyUp_function_type)( int,int,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "keyUp"
@@ -2306,8 +2306,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseDrag
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseDrag_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseDrag_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseDrag"
@@ -2318,8 +2318,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseEnter
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseEnter_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseEnter_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseEnter"
@@ -2330,8 +2330,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseLeave
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseLeave_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseLeave_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseLeave"
@@ -2342,8 +2342,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseOver
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseOver_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseOver_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseOver"
@@ -2354,8 +2354,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mousePush
         
-            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mousePush_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mousePush_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mousePush"
@@ -2366,8 +2366,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseRelease
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseRelease_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseRelease_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseRelease"
@@ -2378,8 +2378,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::mouseScroll
         
-            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_mouseScroll_function_type )( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_mouseScroll_function_type)( double,double,::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "mouseScroll"
@@ -2390,8 +2390,8 @@ void register_Window_class(){
         }
         { //::osgWidget::EventInterface::unfocus
         
-            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
-            typedef bool ( Window_wrapper::*default_unfocus_function_type )( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( ::osgWidget::EventInterface::*unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
+            typedef bool ( Window_wrapper::*default_unfocus_function_type)( ::osgWidget::WindowManager const * ) ;
             
             Window_exposer.def( 
                 "unfocus"

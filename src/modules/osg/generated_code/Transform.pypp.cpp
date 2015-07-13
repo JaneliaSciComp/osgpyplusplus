@@ -477,8 +477,8 @@ void register_Transform_class(){
         Transform_exposer.def( bp::init< >("\n A Transform is a group node for which all children are transformed by\n a 4x4 matrix. It is often used for positioning objects within a scene,\n producing trackball functionality or for animation.\n\n Transform itself does not provide set/get functions, only the interface\n for defining what the 4x4 transformation is.  Subclasses, such as\n MatrixTransform and PositionAttitudeTransform support the use of an\n osg::Matrix or a osg::Vec3/osg::Quat respectively.\n\n Note: If the transformation matrix scales the subgraph then the normals\n of the underlying geometry will need to be renormalized to be unit\n vectors once more.  This can be done transparently through OpenGLs\n use of either GL_NORMALIZE and GL_RESCALE_NORMAL modes. For further\n background reading see the glNormalize documentation in the OpenGL\n Reference Guide (the blue book). To enable it in the OSG, you simply\n need to attach a local osg::StateSet to the osg::Transform, and set\n the appropriate mode to ON via\n   stateset->setMode(GL_NORMALIZE, osg::StateAttribute::ON);\n") );
         { //::osg::Transform::accept
         
-            typedef void ( ::osg::Transform::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Transform_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Transform::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Transform_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             Transform_exposer.def( 
                 "accept"
@@ -489,8 +489,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asMatrixTransform
         
-            typedef ::osg::MatrixTransform * ( ::osg::Transform::*asMatrixTransform_function_type )(  ) ;
-            typedef ::osg::MatrixTransform * ( Transform_wrapper::*default_asMatrixTransform_function_type )(  ) ;
+            typedef ::osg::MatrixTransform * ( ::osg::Transform::*asMatrixTransform_function_type)(  ) ;
+            typedef ::osg::MatrixTransform * ( Transform_wrapper::*default_asMatrixTransform_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asMatrixTransform"
@@ -501,8 +501,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asMatrixTransform
         
-            typedef ::osg::MatrixTransform const * ( ::osg::Transform::*asMatrixTransform_function_type )(  ) const;
-            typedef ::osg::MatrixTransform const * ( Transform_wrapper::*default_asMatrixTransform_function_type )(  ) const;
+            typedef ::osg::MatrixTransform const * ( ::osg::Transform::*asMatrixTransform_function_type)(  ) const;
+            typedef ::osg::MatrixTransform const * ( Transform_wrapper::*default_asMatrixTransform_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asMatrixTransform"
@@ -513,8 +513,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asPositionAttitudeTransform
         
-            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type )(  ) ;
-            typedef ::osg::PositionAttitudeTransform * ( Transform_wrapper::*default_asPositionAttitudeTransform_function_type )(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) ;
+            typedef ::osg::PositionAttitudeTransform * ( Transform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asPositionAttitudeTransform"
@@ -525,8 +525,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asPositionAttitudeTransform
         
-            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type )(  ) const;
-            typedef ::osg::PositionAttitudeTransform const * ( Transform_wrapper::*default_asPositionAttitudeTransform_function_type )(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( ::osg::Transform::*asPositionAttitudeTransform_function_type)(  ) const;
+            typedef ::osg::PositionAttitudeTransform const * ( Transform_wrapper::*default_asPositionAttitudeTransform_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asPositionAttitudeTransform"
@@ -537,8 +537,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( Transform_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Transform::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( Transform_wrapper::*default_asTransform_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asTransform"
@@ -549,8 +549,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( Transform_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Transform::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( Transform_wrapper::*default_asTransform_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asTransform"
@@ -561,8 +561,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::className
         
-            typedef char const * ( ::osg::Transform::*className_function_type )(  ) const;
-            typedef char const * ( Transform_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Transform::*className_function_type)(  ) const;
+            typedef char const * ( Transform_wrapper::*default_className_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "className"
@@ -572,8 +572,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::clone
         
-            typedef ::osg::Object * ( ::osg::Transform::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Transform_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Transform::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Transform_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Transform_exposer.def( 
                 "clone"
@@ -585,8 +585,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::cloneType
         
-            typedef ::osg::Object * ( ::osg::Transform::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Transform_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Transform::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Transform_wrapper::*default_cloneType_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "cloneType"
@@ -597,8 +597,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( Transform_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::Transform::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( Transform_wrapper::*default_computeBound_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "computeBound"
@@ -608,8 +608,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::computeLocalToWorldMatrix
         
-            typedef bool ( ::osg::Transform::*computeLocalToWorldMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
-            typedef bool ( Transform_wrapper::*default_computeLocalToWorldMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( ::osg::Transform::*computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( Transform_wrapper::*default_computeLocalToWorldMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
             
             Transform_exposer.def( 
                 "computeLocalToWorldMatrix"
@@ -620,8 +620,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::computeWorldToLocalMatrix
         
-            typedef bool ( ::osg::Transform::*computeWorldToLocalMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
-            typedef bool ( Transform_wrapper::*default_computeWorldToLocalMatrix_function_type )( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( ::osg::Transform::*computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
+            typedef bool ( Transform_wrapper::*default_computeWorldToLocalMatrix_function_type)( ::osg::Matrix &,::osg::NodeVisitor * ) const;
             
             Transform_exposer.def( 
                 "computeWorldToLocalMatrix"
@@ -632,7 +632,7 @@ void register_Transform_class(){
         }
         { //::osg::Transform::getReferenceFrame
         
-            typedef ::osg::Transform::ReferenceFrame ( ::osg::Transform::*getReferenceFrame_function_type )(  ) const;
+            typedef ::osg::Transform::ReferenceFrame ( ::osg::Transform::*getReferenceFrame_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "getReferenceFrame"
@@ -641,8 +641,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::isSameKindAs
         
-            typedef bool ( ::osg::Transform::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Transform_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Transform::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Transform_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Transform_exposer.def( 
                 "isSameKindAs"
@@ -653,8 +653,8 @@ void register_Transform_class(){
         }
         { //::osg::Transform::libraryName
         
-            typedef char const * ( ::osg::Transform::*libraryName_function_type )(  ) const;
-            typedef char const * ( Transform_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Transform::*libraryName_function_type)(  ) const;
+            typedef char const * ( Transform_wrapper::*default_libraryName_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "libraryName"
@@ -664,7 +664,7 @@ void register_Transform_class(){
         }
         { //::osg::Transform::setReferenceFrame
         
-            typedef void ( ::osg::Transform::*setReferenceFrame_function_type )( ::osg::Transform::ReferenceFrame ) ;
+            typedef void ( ::osg::Transform::*setReferenceFrame_function_type)( ::osg::Transform::ReferenceFrame ) ;
             
             Transform_exposer.def( 
                 "setReferenceFrame"
@@ -675,8 +675,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::addChild
         
-            typedef bool ( ::osg::Group::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( Transform_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( Transform_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             Transform_exposer.def( 
                 "addChild"
@@ -687,8 +687,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( Transform_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( Transform_wrapper::*default_asCamera_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asCamera"
@@ -699,8 +699,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( Transform_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( Transform_wrapper::*default_asCamera_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asCamera"
@@ -711,8 +711,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( Transform_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( Transform_wrapper::*default_asGeode_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asGeode"
@@ -723,8 +723,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( Transform_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( Transform_wrapper::*default_asGeode_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asGeode"
@@ -735,8 +735,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( Transform_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( Transform_wrapper::*default_asGroup_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asGroup"
@@ -747,8 +747,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( Transform_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( Transform_wrapper::*default_asGroup_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asGroup"
@@ -759,8 +759,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( Transform_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( Transform_wrapper::*default_asSwitch_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "asSwitch"
@@ -771,8 +771,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( Transform_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( Transform_wrapper::*default_asSwitch_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "asSwitch"
@@ -783,8 +783,8 @@ void register_Transform_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Transform_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Transform_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             Transform_exposer.def( 
                 "ascend"
@@ -795,8 +795,8 @@ void register_Transform_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Transform_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Transform_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "computeDataVariance"
@@ -806,8 +806,8 @@ void register_Transform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Transform_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Transform_wrapper::*default_getUserData_function_type)(  ) ;
             
             Transform_exposer.def( 
                 "getUserData"
@@ -818,8 +818,8 @@ void register_Transform_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Transform_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Transform_wrapper::*default_getUserData_function_type)(  ) const;
             
             Transform_exposer.def( 
                 "getUserData"
@@ -830,8 +830,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Transform_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Transform_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Transform_exposer.def( 
                 "insertChild"
@@ -842,8 +842,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::removeChildren
         
-            typedef bool ( ::osg::Group::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( Transform_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Group::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( Transform_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             Transform_exposer.def( 
                 "removeChildren"
@@ -854,8 +854,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( Transform_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( Transform_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             Transform_exposer.def( 
                 "replaceChild"
@@ -866,8 +866,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Transform_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Transform_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Transform_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -878,8 +878,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( Transform_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( Transform_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             Transform_exposer.def( 
                 "setChild"
@@ -890,8 +890,8 @@ void register_Transform_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Transform_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Transform_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Transform_exposer.def( 
                 "setName"
@@ -902,7 +902,7 @@ void register_Transform_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Transform_exposer.def( 
                 "setName"
@@ -913,8 +913,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Transform_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Group::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Transform_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Transform_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -925,8 +925,8 @@ void register_Transform_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Transform_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Transform_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Transform_exposer.def( 
                 "setUserData"
@@ -937,8 +937,8 @@ void register_Transform_class(){
         }
         { //::osg::Group::traverse
         
-            typedef void ( ::osg::Group::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Transform_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Group::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Transform_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             Transform_exposer.def( 
                 "traverse"

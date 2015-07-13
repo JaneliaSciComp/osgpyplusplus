@@ -395,16 +395,16 @@ void register_GeometryCollector_class(){
     bp::class_< GeometryCollector_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::GeometryCollector >, boost::noncopyable >( "GeometryCollector", bp::init< osgUtil::Optimizer *, osgUtil::Optimizer::OptimizationOptions >(( bp::arg("optimizer"), bp::arg("options") )) )    
         .def( 
             "apply"
-            , (void ( ::osgUtil::GeometryCollector::* )( ::osg::Geode & ) )(&::osgUtil::GeometryCollector::apply)
-            , (void ( GeometryCollector_wrapper::* )( ::osg::Geode & ) )(&GeometryCollector_wrapper::default_apply)
+            , (void ( ::osgUtil::GeometryCollector::* )( ::osg::Geode & ))(&::osgUtil::GeometryCollector::apply)
+            , (void ( GeometryCollector_wrapper::* )( ::osg::Geode & ))(&GeometryCollector_wrapper::default_apply)
             , ( bp::arg("geode") ) )    
         .def( 
             "getGeometryList"
-            , (::std::set< osg::Geometry* > & ( ::osgUtil::GeometryCollector::* )(  ) )( &::osgUtil::GeometryCollector::getGeometryList )
+            , (::std::set< osg::Geometry* > & ( ::osgUtil::GeometryCollector::* )(  ))( &::osgUtil::GeometryCollector::getGeometryList )
             , bp::return_internal_reference< >() )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::GeometryCollector::* )(  ) )(&::osgUtil::GeometryCollector::reset)
-            , (void ( GeometryCollector_wrapper::* )(  ) )(&GeometryCollector_wrapper::default_reset) );
+            , (void ( ::osgUtil::GeometryCollector::* )(  ))(&::osgUtil::GeometryCollector::reset)
+            , (void ( GeometryCollector_wrapper::* )(  ))(&GeometryCollector_wrapper::default_reset) );
 
 }

@@ -407,7 +407,7 @@ void register_PdfReader_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::PdfReader >();
         { //::osgWidget::PdfReader::assign
         
-            typedef bool ( ::osgWidget::PdfReader::*assign_function_type )( ::osgWidget::PdfImage *,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::PdfReader::*assign_function_type)( ::osgWidget::PdfImage *,::osgWidget::GeometryHints const & ) ;
             
             PdfReader_exposer.def( 
                 "assign"
@@ -417,7 +417,7 @@ void register_PdfReader_class(){
         }
         { //::osgWidget::PdfReader::next
         
-            typedef bool ( ::osgWidget::PdfReader::*next_function_type )(  ) ;
+            typedef bool ( ::osgWidget::PdfReader::*next_function_type)(  ) ;
             
             PdfReader_exposer.def( 
                 "next"
@@ -426,7 +426,7 @@ void register_PdfReader_class(){
         }
         { //::osgWidget::PdfReader::open
         
-            typedef bool ( ::osgWidget::PdfReader::*open_function_type )( ::std::string const &,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::PdfReader::*open_function_type)( ::std::string const &,::osgWidget::GeometryHints const & ) ;
             
             PdfReader_exposer.def( 
                 "open"
@@ -436,7 +436,7 @@ void register_PdfReader_class(){
         }
         { //::osgWidget::PdfReader::page
         
-            typedef bool ( ::osgWidget::PdfReader::*page_function_type )( int ) ;
+            typedef bool ( ::osgWidget::PdfReader::*page_function_type)( int ) ;
             
             PdfReader_exposer.def( 
                 "page"
@@ -446,7 +446,7 @@ void register_PdfReader_class(){
         }
         { //::osgWidget::PdfReader::previous
         
-            typedef bool ( ::osgWidget::PdfReader::*previous_function_type )(  ) ;
+            typedef bool ( ::osgWidget::PdfReader::*previous_function_type)(  ) ;
             
             PdfReader_exposer.def( 
                 "previous"

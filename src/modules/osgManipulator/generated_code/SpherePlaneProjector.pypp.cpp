@@ -60,7 +60,7 @@ void register_SpherePlaneProjector_class(){
         bp::implicitly_convertible< osg::Sphere *, osgManipulator::SpherePlaneProjector >();
         { //::osgManipulator::SpherePlaneProjector::getRotation
         
-            typedef ::osg::Quat ( ::osgManipulator::SpherePlaneProjector::*getRotation_function_type )( ::osg::Vec3d const &,bool,::osg::Vec3d const &,bool,float ) const;
+            typedef ::osg::Quat ( ::osgManipulator::SpherePlaneProjector::*getRotation_function_type)( ::osg::Vec3d const &,bool,::osg::Vec3d const &,bool,float ) const;
             
             SpherePlaneProjector_exposer.def( 
                 "getRotation"
@@ -70,7 +70,7 @@ void register_SpherePlaneProjector_class(){
         }
         { //::osgManipulator::SpherePlaneProjector::isProjectionOnSphere
         
-            typedef bool ( ::osgManipulator::SpherePlaneProjector::*isProjectionOnSphere_function_type )(  ) const;
+            typedef bool ( ::osgManipulator::SpherePlaneProjector::*isProjectionOnSphere_function_type)(  ) const;
             
             SpherePlaneProjector_exposer.def( 
                 "isProjectionOnSphere"
@@ -80,8 +80,8 @@ void register_SpherePlaneProjector_class(){
         }
         { //::osgManipulator::SpherePlaneProjector::project
         
-            typedef bool ( ::osgManipulator::SpherePlaneProjector::*project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
-            typedef bool ( SpherePlaneProjector_wrapper::*default_project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( ::osgManipulator::SpherePlaneProjector::*project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( SpherePlaneProjector_wrapper::*default_project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
             
             SpherePlaneProjector_exposer.def( 
                 "project"

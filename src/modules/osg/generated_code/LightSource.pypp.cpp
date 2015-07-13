@@ -404,8 +404,8 @@ void register_LightSource_class(){
         LightSource_exposer.def( bp::init< >("\n Leaf Node for defining a light in the scene.\n") );
         { //::osg::LightSource::accept
         
-            typedef void ( ::osg::LightSource::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( LightSource_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::LightSource::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( LightSource_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             LightSource_exposer.def( 
                 "accept"
@@ -416,8 +416,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::className
         
-            typedef char const * ( ::osg::LightSource::*className_function_type )(  ) const;
-            typedef char const * ( LightSource_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::LightSource::*className_function_type)(  ) const;
+            typedef char const * ( LightSource_wrapper::*default_className_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "className"
@@ -427,8 +427,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::clone
         
-            typedef ::osg::Object * ( ::osg::LightSource::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( LightSource_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::LightSource::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( LightSource_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             LightSource_exposer.def( 
                 "clone"
@@ -440,8 +440,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::cloneType
         
-            typedef ::osg::Object * ( ::osg::LightSource::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( LightSource_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::LightSource::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( LightSource_wrapper::*default_cloneType_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "cloneType"
@@ -452,8 +452,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::computeBound
         
-            typedef ::osg::BoundingSphere ( ::osg::LightSource::*computeBound_function_type )(  ) const;
-            typedef ::osg::BoundingSphere ( LightSource_wrapper::*default_computeBound_function_type )(  ) const;
+            typedef ::osg::BoundingSphere ( ::osg::LightSource::*computeBound_function_type)(  ) const;
+            typedef ::osg::BoundingSphere ( LightSource_wrapper::*default_computeBound_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "computeBound"
@@ -463,7 +463,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::getLight
         
-            typedef ::osg::Light * ( ::osg::LightSource::*getLight_function_type )(  ) ;
+            typedef ::osg::Light * ( ::osg::LightSource::*getLight_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "getLight"
@@ -474,7 +474,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::getLight
         
-            typedef ::osg::Light const * ( ::osg::LightSource::*getLight_function_type )(  ) const;
+            typedef ::osg::Light const * ( ::osg::LightSource::*getLight_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "getLight"
@@ -485,7 +485,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::getReferenceFrame
         
-            typedef ::osg::LightSource::ReferenceFrame ( ::osg::LightSource::*getReferenceFrame_function_type )(  ) const;
+            typedef ::osg::LightSource::ReferenceFrame ( ::osg::LightSource::*getReferenceFrame_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "getReferenceFrame"
@@ -494,8 +494,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::isSameKindAs
         
-            typedef bool ( ::osg::LightSource::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( LightSource_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::LightSource::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( LightSource_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             LightSource_exposer.def( 
                 "isSameKindAs"
@@ -506,8 +506,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::libraryName
         
-            typedef char const * ( ::osg::LightSource::*libraryName_function_type )(  ) const;
-            typedef char const * ( LightSource_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::LightSource::*libraryName_function_type)(  ) const;
+            typedef char const * ( LightSource_wrapper::*default_libraryName_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "libraryName"
@@ -517,7 +517,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::setLight
         
-            typedef void ( ::osg::LightSource::*setLight_function_type )( ::osg::Light * ) ;
+            typedef void ( ::osg::LightSource::*setLight_function_type)( ::osg::Light * ) ;
             
             LightSource_exposer.def( 
                 "setLight"
@@ -528,7 +528,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::setLocalStateSetModes
         
-            typedef void ( ::osg::LightSource::*setLocalStateSetModes_function_type )( unsigned int ) ;
+            typedef void ( ::osg::LightSource::*setLocalStateSetModes_function_type)( unsigned int ) ;
             
             LightSource_exposer.def( 
                 "setLocalStateSetModes"
@@ -539,7 +539,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::setReferenceFrame
         
-            typedef void ( ::osg::LightSource::*setReferenceFrame_function_type )( ::osg::LightSource::ReferenceFrame ) ;
+            typedef void ( ::osg::LightSource::*setReferenceFrame_function_type)( ::osg::LightSource::ReferenceFrame ) ;
             
             LightSource_exposer.def( 
                 "setReferenceFrame"
@@ -550,7 +550,7 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::setStateSetModes
         
-            typedef void ( ::osg::LightSource::*setStateSetModes_function_type )( ::osg::StateSet &,unsigned int ) const;
+            typedef void ( ::osg::LightSource::*setStateSetModes_function_type)( ::osg::StateSet &,unsigned int ) const;
             
             LightSource_exposer.def( 
                 "setStateSetModes"
@@ -561,8 +561,8 @@ void register_LightSource_class(){
         }
         { //::osg::LightSource::setThreadSafeRefUnref
         
-            typedef void ( ::osg::LightSource::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( LightSource_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::LightSource::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( LightSource_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             LightSource_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -573,8 +573,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::addChild
         
-            typedef bool ( ::osg::Group::*addChild_function_type )( ::osg::Node * ) ;
-            typedef bool ( LightSource_wrapper::*default_addChild_function_type )( ::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*addChild_function_type)( ::osg::Node * ) ;
+            typedef bool ( LightSource_wrapper::*default_addChild_function_type)( ::osg::Node * ) ;
             
             LightSource_exposer.def( 
                 "addChild"
@@ -585,8 +585,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type )(  ) ;
-            typedef ::osg::Camera * ( LightSource_wrapper::*default_asCamera_function_type )(  ) ;
+            typedef ::osg::Camera * ( ::osg::Node::*asCamera_function_type)(  ) ;
+            typedef ::osg::Camera * ( LightSource_wrapper::*default_asCamera_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "asCamera"
@@ -597,8 +597,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asCamera
         
-            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type )(  ) const;
-            typedef ::osg::Camera const * ( LightSource_wrapper::*default_asCamera_function_type )(  ) const;
+            typedef ::osg::Camera const * ( ::osg::Node::*asCamera_function_type)(  ) const;
+            typedef ::osg::Camera const * ( LightSource_wrapper::*default_asCamera_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "asCamera"
@@ -609,8 +609,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type )(  ) ;
-            typedef ::osg::Geode * ( LightSource_wrapper::*default_asGeode_function_type )(  ) ;
+            typedef ::osg::Geode * ( ::osg::Node::*asGeode_function_type)(  ) ;
+            typedef ::osg::Geode * ( LightSource_wrapper::*default_asGeode_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "asGeode"
@@ -621,8 +621,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asGeode
         
-            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type )(  ) const;
-            typedef ::osg::Geode const * ( LightSource_wrapper::*default_asGeode_function_type )(  ) const;
+            typedef ::osg::Geode const * ( ::osg::Node::*asGeode_function_type)(  ) const;
+            typedef ::osg::Geode const * ( LightSource_wrapper::*default_asGeode_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "asGeode"
@@ -633,8 +633,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type )(  ) ;
-            typedef ::osg::Group * ( LightSource_wrapper::*default_asGroup_function_type )(  ) ;
+            typedef ::osg::Group * ( ::osg::Group::*asGroup_function_type)(  ) ;
+            typedef ::osg::Group * ( LightSource_wrapper::*default_asGroup_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "asGroup"
@@ -645,8 +645,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::asGroup
         
-            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type )(  ) const;
-            typedef ::osg::Group const * ( LightSource_wrapper::*default_asGroup_function_type )(  ) const;
+            typedef ::osg::Group const * ( ::osg::Group::*asGroup_function_type)(  ) const;
+            typedef ::osg::Group const * ( LightSource_wrapper::*default_asGroup_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "asGroup"
@@ -657,8 +657,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type )(  ) ;
-            typedef ::osg::Switch * ( LightSource_wrapper::*default_asSwitch_function_type )(  ) ;
+            typedef ::osg::Switch * ( ::osg::Node::*asSwitch_function_type)(  ) ;
+            typedef ::osg::Switch * ( LightSource_wrapper::*default_asSwitch_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "asSwitch"
@@ -669,8 +669,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asSwitch
         
-            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type )(  ) const;
-            typedef ::osg::Switch const * ( LightSource_wrapper::*default_asSwitch_function_type )(  ) const;
+            typedef ::osg::Switch const * ( ::osg::Node::*asSwitch_function_type)(  ) const;
+            typedef ::osg::Switch const * ( LightSource_wrapper::*default_asSwitch_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "asSwitch"
@@ -681,8 +681,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type )(  ) ;
-            typedef ::osg::Transform * ( LightSource_wrapper::*default_asTransform_function_type )(  ) ;
+            typedef ::osg::Transform * ( ::osg::Node::*asTransform_function_type)(  ) ;
+            typedef ::osg::Transform * ( LightSource_wrapper::*default_asTransform_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "asTransform"
@@ -693,8 +693,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::asTransform
         
-            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type )(  ) const;
-            typedef ::osg::Transform const * ( LightSource_wrapper::*default_asTransform_function_type )(  ) const;
+            typedef ::osg::Transform const * ( ::osg::Node::*asTransform_function_type)(  ) const;
+            typedef ::osg::Transform const * ( LightSource_wrapper::*default_asTransform_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "asTransform"
@@ -705,8 +705,8 @@ void register_LightSource_class(){
         }
         { //::osg::Node::ascend
         
-            typedef void ( ::osg::Node::*ascend_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( LightSource_wrapper::*default_ascend_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Node::*ascend_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( LightSource_wrapper::*default_ascend_function_type)( ::osg::NodeVisitor & ) ;
             
             LightSource_exposer.def( 
                 "ascend"
@@ -717,8 +717,8 @@ void register_LightSource_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( LightSource_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( LightSource_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "computeDataVariance"
@@ -728,8 +728,8 @@ void register_LightSource_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( LightSource_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( LightSource_wrapper::*default_getUserData_function_type)(  ) ;
             
             LightSource_exposer.def( 
                 "getUserData"
@@ -740,8 +740,8 @@ void register_LightSource_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( LightSource_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( LightSource_wrapper::*default_getUserData_function_type)(  ) const;
             
             LightSource_exposer.def( 
                 "getUserData"
@@ -752,8 +752,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::insertChild
         
-            typedef bool ( ::osg::Group::*insertChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( LightSource_wrapper::*default_insertChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*insertChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( LightSource_wrapper::*default_insertChild_function_type)( unsigned int,::osg::Node * ) ;
             
             LightSource_exposer.def( 
                 "insertChild"
@@ -764,8 +764,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::removeChildren
         
-            typedef bool ( ::osg::Group::*removeChildren_function_type )( unsigned int,unsigned int ) ;
-            typedef bool ( LightSource_wrapper::*default_removeChildren_function_type )( unsigned int,unsigned int ) ;
+            typedef bool ( ::osg::Group::*removeChildren_function_type)( unsigned int,unsigned int ) ;
+            typedef bool ( LightSource_wrapper::*default_removeChildren_function_type)( unsigned int,unsigned int ) ;
             
             LightSource_exposer.def( 
                 "removeChildren"
@@ -776,8 +776,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::replaceChild
         
-            typedef bool ( ::osg::Group::*replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
-            typedef bool ( LightSource_wrapper::*default_replaceChild_function_type )( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
+            typedef bool ( LightSource_wrapper::*default_replaceChild_function_type)( ::osg::Node *,::osg::Node * ) ;
             
             LightSource_exposer.def( 
                 "replaceChild"
@@ -788,8 +788,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( LightSource_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Group::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( LightSource_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             LightSource_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -800,8 +800,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::setChild
         
-            typedef bool ( ::osg::Group::*setChild_function_type )( unsigned int,::osg::Node * ) ;
-            typedef bool ( LightSource_wrapper::*default_setChild_function_type )( unsigned int,::osg::Node * ) ;
+            typedef bool ( ::osg::Group::*setChild_function_type)( unsigned int,::osg::Node * ) ;
+            typedef bool ( LightSource_wrapper::*default_setChild_function_type)( unsigned int,::osg::Node * ) ;
             
             LightSource_exposer.def( 
                 "setChild"
@@ -812,8 +812,8 @@ void register_LightSource_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( LightSource_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( LightSource_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             LightSource_exposer.def( 
                 "setName"
@@ -824,7 +824,7 @@ void register_LightSource_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             LightSource_exposer.def( 
                 "setName"
@@ -835,8 +835,8 @@ void register_LightSource_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( LightSource_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( LightSource_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             LightSource_exposer.def( 
                 "setUserData"
@@ -847,8 +847,8 @@ void register_LightSource_class(){
         }
         { //::osg::Group::traverse
         
-            typedef void ( ::osg::Group::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( LightSource_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osg::Group::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( LightSource_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             LightSource_exposer.def( 
                 "traverse"

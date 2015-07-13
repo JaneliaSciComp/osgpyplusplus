@@ -55,20 +55,20 @@ void register_OpenGLQuerySupport_class(){
     bp::class_< OpenGLQuerySupport_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::OpenGLQuerySupport >, boost::noncopyable >( "OpenGLQuerySupport", bp::no_init )    
         .def( 
             "beginQuery"
-            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( unsigned int,::osg::State * ) )(&::osgViewer::OpenGLQuerySupport::beginQuery) )
+            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( unsigned int,::osg::State * ))(&::osgViewer::OpenGLQuerySupport::beginQuery) )
             , ( bp::arg("frameNumber"), bp::arg("state") ) )    
         .def( 
             "checkQuery"
-            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::Stats *,::osg::State *,::osg::Timer_t ) )(&::osgViewer::OpenGLQuerySupport::checkQuery) )
+            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::Stats *,::osg::State *,::osg::Timer_t ))(&::osgViewer::OpenGLQuerySupport::checkQuery) )
             , ( bp::arg("stats"), bp::arg("state"), bp::arg("startTick") ) )    
         .def( 
             "endQuery"
-            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::State * ) )(&::osgViewer::OpenGLQuerySupport::endQuery) )
+            , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::State * ))(&::osgViewer::OpenGLQuerySupport::endQuery) )
             , ( bp::arg("state") ) )    
         .def( 
             "initialize"
-            , (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::State *,::osg::Timer_t ) )(&::osgViewer::OpenGLQuerySupport::initialize)
-            , (void ( OpenGLQuerySupport_wrapper::* )( ::osg::State *,::osg::Timer_t ) )(&OpenGLQuerySupport_wrapper::default_initialize)
+            , (void ( ::osgViewer::OpenGLQuerySupport::* )( ::osg::State *,::osg::Timer_t ))(&::osgViewer::OpenGLQuerySupport::initialize)
+            , (void ( OpenGLQuerySupport_wrapper::* )( ::osg::State *,::osg::Timer_t ))(&OpenGLQuerySupport_wrapper::default_initialize)
             , ( bp::arg("state"), bp::arg("startTick") ) );
 
 }

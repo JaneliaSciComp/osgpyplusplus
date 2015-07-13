@@ -161,58 +161,58 @@ void register_ShapeVisitor_class(){
     bp::class_< ShapeVisitor_wrapper >( "ShapeVisitor", bp::init< >() )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Shape & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Shape & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Shape & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Shape & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Sphere & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Sphere & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Sphere & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Sphere & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Box & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Box & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Box & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Box & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Cone & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Cone & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Cone & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Cone & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Cylinder & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Cylinder & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Cylinder & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Cylinder & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::Capsule & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::Capsule & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::Capsule & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::Capsule & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::InfinitePlane & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::InfinitePlane & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::InfinitePlane & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::InfinitePlane & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::TriangleMesh & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::TriangleMesh & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::TriangleMesh & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::TriangleMesh & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::ConvexHull & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::ConvexHull & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::ConvexHull & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::ConvexHull & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::HeightField & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::HeightField & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::HeightField & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::HeightField & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) )    
         .def( 
             "apply"
-            , (void ( ::osg::ShapeVisitor::* )( ::osg::CompositeShape & ) )(&::osg::ShapeVisitor::apply)
-            , (void ( ShapeVisitor_wrapper::* )( ::osg::CompositeShape & ) )(&ShapeVisitor_wrapper::default_apply)
+            , (void ( ::osg::ShapeVisitor::* )( ::osg::CompositeShape & ))(&::osg::ShapeVisitor::apply)
+            , (void ( ShapeVisitor_wrapper::* )( ::osg::CompositeShape & ))(&ShapeVisitor_wrapper::default_apply)
             , ( bp::arg("arg0") ) );
 
 }

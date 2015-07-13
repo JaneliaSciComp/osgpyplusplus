@@ -51,44 +51,44 @@ void register_StateGraph_class(){
         .def( bp::init< osgUtil::StateGraph *, osg::StateSet const * >(( bp::arg("parent"), bp::arg("stateset") )) )    
         .def( 
             "addLeaf"
-            , (void ( ::osgUtil::StateGraph::* )( ::osgUtil::RenderLeaf * ) )( &::osgUtil::StateGraph::addLeaf )
+            , (void ( ::osgUtil::StateGraph::* )( ::osgUtil::RenderLeaf * ))( &::osgUtil::StateGraph::addLeaf )
             , ( bp::arg("leaf") ) )    
         .def( 
             "clean"
-            , (void ( ::osgUtil::StateGraph::* )(  ) )( &::osgUtil::StateGraph::clean ) )    
+            , (void ( ::osgUtil::StateGraph::* )(  ))( &::osgUtil::StateGraph::clean ) )    
         .def( 
             "cloneType"
-            , (::osgUtil::StateGraph * ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::cloneType )
+            , (::osgUtil::StateGraph * ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::cloneType )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "empty"
-            , (bool ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::empty ) )    
+            , (bool ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::empty ) )    
         .def( 
             "find_or_insert"
-            , (::osgUtil::StateGraph * ( ::osgUtil::StateGraph::* )( ::osg::StateSet const * ) )( &::osgUtil::StateGraph::find_or_insert )
+            , (::osgUtil::StateGraph * ( ::osgUtil::StateGraph::* )( ::osg::StateSet const * ))( &::osgUtil::StateGraph::find_or_insert )
             , ( bp::arg("stateset") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getAverageDistance"
-            , (float ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::getAverageDistance ) )    
+            , (float ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::getAverageDistance ) )    
         .def( 
             "getMinimumDistance"
-            , (float ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::getMinimumDistance ) )    
+            , (float ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::getMinimumDistance ) )    
         .def( 
             "getStateSet"
-            , (::osg::StateSet const * ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::getStateSet )
+            , (::osg::StateSet const * ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::getStateSet )
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced * ( ::osgUtil::StateGraph::* )(  ) )( &::osgUtil::StateGraph::getUserData )
+            , (::osg::Referenced * ( ::osgUtil::StateGraph::* )(  ))( &::osgUtil::StateGraph::getUserData )
             , bp::return_internal_reference< >() )    
         .def( 
             "getUserData"
-            , (::osg::Referenced const * ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::getUserData )
+            , (::osg::Referenced const * ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::getUserData )
             , bp::return_internal_reference< >() )    
         .def( 
             "leaves_empty"
-            , (bool ( ::osgUtil::StateGraph::* )(  ) const)( &::osgUtil::StateGraph::leaves_empty ) )    
+            , (bool ( ::osgUtil::StateGraph::* )(  )const)( &::osgUtil::StateGraph::leaves_empty ) )    
         .def( 
             "moveStateGraph"
             , (void (*)( ::osg::State &,::osgUtil::StateGraph *,::osgUtil::StateGraph * ))( &::osgUtil::StateGraph::moveStateGraph )
@@ -103,21 +103,21 @@ void register_StateGraph_class(){
             , ( bp::arg("sg_curr") ) )    
         .def( 
             "prune"
-            , (void ( ::osgUtil::StateGraph::* )(  ) )( &::osgUtil::StateGraph::prune ) )    
+            , (void ( ::osgUtil::StateGraph::* )(  ))( &::osgUtil::StateGraph::prune ) )    
         .def( 
             "reset"
-            , (void ( ::osgUtil::StateGraph::* )(  ) )( &::osgUtil::StateGraph::reset ) )    
+            , (void ( ::osgUtil::StateGraph::* )(  ))( &::osgUtil::StateGraph::reset ) )    
         .def( 
             "setStateSet"
-            , (void ( ::osgUtil::StateGraph::* )( ::osg::StateSet const * ) )( &::osgUtil::StateGraph::setStateSet )
+            , (void ( ::osgUtil::StateGraph::* )( ::osg::StateSet const * ))( &::osgUtil::StateGraph::setStateSet )
             , ( bp::arg("stateset") ) )    
         .def( 
             "setUserData"
-            , (void ( ::osgUtil::StateGraph::* )( ::osg::Referenced * ) )( &::osgUtil::StateGraph::setUserData )
+            , (void ( ::osgUtil::StateGraph::* )( ::osg::Referenced * ))( &::osgUtil::StateGraph::setUserData )
             , ( bp::arg("obj") ) )    
         .def( 
             "sortFrontToBack"
-            , (void ( ::osgUtil::StateGraph::* )(  ) )( &::osgUtil::StateGraph::sortFrontToBack ) )    
+            , (void ( ::osgUtil::StateGraph::* )(  ))( &::osgUtil::StateGraph::sortFrontToBack ) )    
         .def_readwrite( "_averageDistance", &osgUtil::StateGraph::_averageDistance )    
         .def_readwrite( "_depth", &osgUtil::StateGraph::_depth )    
         .def_readwrite( "_dynamic", &osgUtil::StateGraph::_dynamic )    

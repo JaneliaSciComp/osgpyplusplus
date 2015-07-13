@@ -398,10 +398,10 @@ void register_VncImage_class(){
     bp::class_< VncImage_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< ::osgWidget::VncImage >, boost::noncopyable >( "VncImage", "\n Pure virtual base class for VncImage that is sublcassed by vnc plugin to provide the actual implementation.\n", bp::no_init )    
         .def( 
             "close"
-            , bp::pure_virtual( (void ( ::osgWidget::VncImage::* )(  ) )(&::osgWidget::VncImage::close) ) )    
+            , bp::pure_virtual( (void ( ::osgWidget::VncImage::* )(  ))(&::osgWidget::VncImage::close) ) )    
         .def( 
             "connect"
-            , bp::pure_virtual( (bool ( ::osgWidget::VncImage::* )( ::std::string const & ) )(&::osgWidget::VncImage::connect) )
+            , bp::pure_virtual( (bool ( ::osgWidget::VncImage::* )( ::std::string const & ))(&::osgWidget::VncImage::connect) )
             , ( bp::arg("hostname") )
             , "\n Pure virtual base class for VncImage that is sublcassed by vnc plugin to provide the actual implementation.\n" );
 

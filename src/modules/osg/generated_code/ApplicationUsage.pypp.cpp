@@ -56,7 +56,7 @@ void register_ApplicationUsage_class(){
         bp::implicitly_convertible< std::string const &, osg::ApplicationUsage >();
         { //::osg::ApplicationUsage::addCommandLineOption
         
-            typedef void ( ::osg::ApplicationUsage::*addCommandLineOption_function_type )( ::std::string const &,::std::string const &,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addCommandLineOption_function_type)( ::std::string const &,::std::string const &,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addCommandLineOption"
@@ -66,7 +66,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::addEnvironmentalVariable
         
-            typedef void ( ::osg::ApplicationUsage::*addEnvironmentalVariable_function_type )( ::std::string const &,::std::string const &,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addEnvironmentalVariable_function_type)( ::std::string const &,::std::string const &,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addEnvironmentalVariable"
@@ -76,7 +76,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::addKeyboardMouseBinding
         
-            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type )( ::std::string const &,int,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type)( ::std::string const &,int,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addKeyboardMouseBinding"
@@ -86,7 +86,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::addKeyboardMouseBinding
         
-            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type )( int,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type)( int,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addKeyboardMouseBinding"
@@ -96,7 +96,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::addKeyboardMouseBinding
         
-            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type )( ::std::string const &,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addKeyboardMouseBinding_function_type)( ::std::string const &,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addKeyboardMouseBinding"
@@ -106,7 +106,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::addUsageExplanation
         
-            typedef void ( ::osg::ApplicationUsage::*addUsageExplanation_function_type )( ::osg::ApplicationUsage::Type,::std::string const &,::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*addUsageExplanation_function_type)( ::osg::ApplicationUsage::Type,::std::string const &,::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "addUsageExplanation"
@@ -116,7 +116,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getApplicationName
         
-            typedef ::std::string const & ( ::osg::ApplicationUsage::*getApplicationName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::ApplicationUsage::*getApplicationName_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getApplicationName"
@@ -126,7 +126,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getCommandLineOptions
         
-            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getCommandLineOptions_function_type )(  ) const;
+            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getCommandLineOptions_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getCommandLineOptions"
@@ -136,7 +136,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getCommandLineOptionsDefaults
         
-            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getCommandLineOptionsDefaults_function_type )(  ) const;
+            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getCommandLineOptionsDefaults_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getCommandLineOptionsDefaults"
@@ -146,7 +146,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getCommandLineUsage
         
-            typedef ::std::string const & ( ::osg::ApplicationUsage::*getCommandLineUsage_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::ApplicationUsage::*getCommandLineUsage_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getCommandLineUsage"
@@ -156,7 +156,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getDescription
         
-            typedef ::std::string const & ( ::osg::ApplicationUsage::*getDescription_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::ApplicationUsage::*getDescription_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getDescription"
@@ -166,7 +166,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getEnvironmentalVariables
         
-            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getEnvironmentalVariables_function_type )(  ) const;
+            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getEnvironmentalVariables_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getEnvironmentalVariables"
@@ -176,7 +176,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getEnvironmentalVariablesDefaults
         
-            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getEnvironmentalVariablesDefaults_function_type )(  ) const;
+            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getEnvironmentalVariablesDefaults_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getEnvironmentalVariablesDefaults"
@@ -186,7 +186,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getFormattedString
         
-            typedef void ( ::osg::ApplicationUsage::*getFormattedString_function_type )( ::std::string &,::std::map< std::string, std::string > const &,unsigned int,bool,::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*getFormattedString_function_type)( ::std::string &,::std::map< std::string, std::string > const &,unsigned int,bool,::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "getFormattedString"
@@ -196,7 +196,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::getKeyboardMouseBindings
         
-            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getKeyboardMouseBindings_function_type )(  ) const;
+            typedef ::std::map< std::string, std::string > const & ( ::osg::ApplicationUsage::*getKeyboardMouseBindings_function_type)(  ) const;
             
             ApplicationUsage_exposer.def( 
                 "getKeyboardMouseBindings"
@@ -216,7 +216,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setApplicationName
         
-            typedef void ( ::osg::ApplicationUsage::*setApplicationName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setApplicationName_function_type)( ::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setApplicationName"
@@ -227,7 +227,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setCommandLineOptions
         
-            typedef void ( ::osg::ApplicationUsage::*setCommandLineOptions_function_type )( ::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setCommandLineOptions_function_type)( ::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setCommandLineOptions"
@@ -237,7 +237,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setCommandLineOptionsDefaults
         
-            typedef void ( ::osg::ApplicationUsage::*setCommandLineOptionsDefaults_function_type )( ::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setCommandLineOptionsDefaults_function_type)( ::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setCommandLineOptionsDefaults"
@@ -247,7 +247,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setCommandLineUsage
         
-            typedef void ( ::osg::ApplicationUsage::*setCommandLineUsage_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setCommandLineUsage_function_type)( ::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setCommandLineUsage"
@@ -257,7 +257,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setDescription
         
-            typedef void ( ::osg::ApplicationUsage::*setDescription_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setDescription_function_type)( ::std::string const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setDescription"
@@ -268,7 +268,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setEnvironmentalVariables
         
-            typedef void ( ::osg::ApplicationUsage::*setEnvironmentalVariables_function_type )( ::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setEnvironmentalVariables_function_type)( ::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setEnvironmentalVariables"
@@ -278,7 +278,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setEnvironmentalVariablesDefaults
         
-            typedef void ( ::osg::ApplicationUsage::*setEnvironmentalVariablesDefaults_function_type )( ::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setEnvironmentalVariablesDefaults_function_type)( ::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setEnvironmentalVariablesDefaults"
@@ -288,7 +288,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::setKeyboardMouseBindings
         
-            typedef void ( ::osg::ApplicationUsage::*setKeyboardMouseBindings_function_type )( ::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*setKeyboardMouseBindings_function_type)( ::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "setKeyboardMouseBindings"
@@ -298,7 +298,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::write
         
-            typedef void ( ::osg::ApplicationUsage::*write_function_type )( ::std::ostream &,::std::map< std::string, std::string > const &,unsigned int,bool,::std::map< std::string, std::string > const & ) ;
+            typedef void ( ::osg::ApplicationUsage::*write_function_type)( ::std::ostream &,::std::map< std::string, std::string > const &,unsigned int,bool,::std::map< std::string, std::string > const & ) ;
             
             ApplicationUsage_exposer.def( 
                 "write"
@@ -308,7 +308,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::write
         
-            typedef void ( ::osg::ApplicationUsage::*write_function_type )( ::std::ostream &,unsigned int,unsigned int,bool ) ;
+            typedef void ( ::osg::ApplicationUsage::*write_function_type)( ::std::ostream &,unsigned int,unsigned int,bool ) ;
             
             ApplicationUsage_exposer.def( 
                 "write"
@@ -318,7 +318,7 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::ApplicationUsage::writeEnvironmentSettings
         
-            typedef void ( ::osg::ApplicationUsage::*writeEnvironmentSettings_function_type )( ::std::ostream & ) ;
+            typedef void ( ::osg::ApplicationUsage::*writeEnvironmentSettings_function_type)( ::std::ostream & ) ;
             
             ApplicationUsage_exposer.def( 
                 "writeEnvironmentSettings"
@@ -328,8 +328,8 @@ void register_ApplicationUsage_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( ApplicationUsage_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( ApplicationUsage_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             ApplicationUsage_exposer.def( 
                 "setThreadSafeRefUnref"

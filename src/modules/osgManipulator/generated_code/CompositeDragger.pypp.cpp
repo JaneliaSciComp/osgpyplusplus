@@ -631,87 +631,87 @@ void register_CompositeDragger_class(){
     bp::class_< CompositeDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::CompositeDragger >, boost::noncopyable >( "CompositeDragger", "\n CompositeDragger allows to create complex draggers that are composed of a\n hierarchy of Draggers.\n", bp::no_init )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::CompositeDragger::accept)
-            , (void ( CompositeDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&CompositeDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::CompositeDragger::accept)
+            , (void ( CompositeDragger_wrapper::* )( ::osg::NodeVisitor & ))(&CompositeDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "addDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::addDragger)
-            , (bool ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&CompositeDragger_wrapper::default_addDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::addDragger)
+            , (bool ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&CompositeDragger_wrapper::default_addDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::className)
-            , (char const * ( CompositeDragger_wrapper::* )(  ) const)(&CompositeDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::className)
+            , (char const * ( CompositeDragger_wrapper::* )(  )const)(&CompositeDragger_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::CompositeDragger::clone)
-            , (::osg::Object * ( CompositeDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&CompositeDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::CompositeDragger::clone)
+            , (::osg::Object * ( CompositeDragger_wrapper::* )( ::osg::CopyOp const & )const)(&CompositeDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::cloneType)
-            , (::osg::Object * ( CompositeDragger_wrapper::* )(  ) const)(&CompositeDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::cloneType)
+            , (::osg::Object * ( CompositeDragger_wrapper::* )(  )const)(&CompositeDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "containsDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger const * ) const)( &::osgManipulator::CompositeDragger::containsDragger )
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger const * )const)( &::osgManipulator::CompositeDragger::containsDragger )
             , ( bp::arg("dragger") ) )    
         .def( 
             "findDragger"
-            , (::std::_Vector_iterator< osg::ref_ptr< osgManipulator::Dragger >, std::allocator< osg::ref_ptr< osgManipulator::Dragger > > > ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger const * ) )( &::osgManipulator::CompositeDragger::findDragger )
+            , (::std::_Vector_iterator< osg::ref_ptr< osgManipulator::Dragger >, std::allocator< osg::ref_ptr< osgManipulator::Dragger > > > ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger const * ))( &::osgManipulator::CompositeDragger::findDragger )
             , ( bp::arg("dragger") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( CompositeDragger_wrapper::* )(  ) const)(&CompositeDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( CompositeDragger_wrapper::* )(  )const)(&CompositeDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ) )(&::osgManipulator::CompositeDragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( CompositeDragger_wrapper::* )(  ) )(&CompositeDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::* )(  ))(&::osgManipulator::CompositeDragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( CompositeDragger_wrapper::* )(  ))(&CompositeDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getDragger"
-            , (::osgManipulator::Dragger * ( ::osgManipulator::CompositeDragger::* )( unsigned int ) )( &::osgManipulator::CompositeDragger::getDragger )
+            , (::osgManipulator::Dragger * ( ::osgManipulator::CompositeDragger::* )( unsigned int ))( &::osgManipulator::CompositeDragger::getDragger )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getDragger"
-            , (::osgManipulator::Dragger const * ( ::osgManipulator::CompositeDragger::* )( unsigned int ) const)( &::osgManipulator::CompositeDragger::getDragger )
+            , (::osgManipulator::Dragger const * ( ::osgManipulator::CompositeDragger::* )( unsigned int )const)( &::osgManipulator::CompositeDragger::getDragger )
             , ( bp::arg("i") )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNumDraggers"
-            , (unsigned int ( ::osgManipulator::CompositeDragger::* )(  ) const)( &::osgManipulator::CompositeDragger::getNumDraggers ) )    
+            , (unsigned int ( ::osgManipulator::CompositeDragger::* )(  )const)( &::osgManipulator::CompositeDragger::getNumDraggers ) )    
         .def( 
             "handle"
             , (boost::python::object (*)( ::osgManipulator::CompositeDragger &,::osgManipulator::PointerInfo const &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter & ))( &CompositeDragger_wrapper::default_handle )
             , ( bp::arg("inst"), bp::arg("pi"), bp::arg("ea"), bp::arg("aa") ) )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::CompositeDragger::isSameKindAs)
-            , (bool ( CompositeDragger_wrapper::* )( ::osg::Object const * ) const)(&CompositeDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osg::Object const * )const)(&::osgManipulator::CompositeDragger::isSameKindAs)
+            , (bool ( CompositeDragger_wrapper::* )( ::osg::Object const * )const)(&CompositeDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::CompositeDragger::* )(  ) const)(&::osgManipulator::CompositeDragger::libraryName)
-            , (char const * ( CompositeDragger_wrapper::* )(  ) const)(&CompositeDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::CompositeDragger::* )(  )const)(&::osgManipulator::CompositeDragger::libraryName)
+            , (char const * ( CompositeDragger_wrapper::* )(  )const)(&CompositeDragger_wrapper::default_libraryName) )    
         .def( 
             "removeDragger"
-            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::removeDragger)
-            , (bool ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&CompositeDragger_wrapper::default_removeDragger)
+            , (bool ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::removeDragger)
+            , (bool ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&CompositeDragger_wrapper::default_removeDragger)
             , ( bp::arg("dragger") ) )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ) )(&::osgManipulator::CompositeDragger::setIntersectionMask)
-            , (void ( CompositeDragger_wrapper::* )( unsigned int ) )(&CompositeDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::CompositeDragger::* )( unsigned int ))(&::osgManipulator::CompositeDragger::setIntersectionMask)
+            , (void ( CompositeDragger_wrapper::* )( unsigned int ))(&CompositeDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::CompositeDragger::setParentDragger)
-            , (void ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&CompositeDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::CompositeDragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::CompositeDragger::setParentDragger)
+            , (void ( CompositeDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&CompositeDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "dispatch"
@@ -728,12 +728,12 @@ void register_CompositeDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::setupDefaultGeometry)
-            , (void ( CompositeDragger_wrapper::* )(  ) )(&CompositeDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::setupDefaultGeometry)
+            , (void ( CompositeDragger_wrapper::* )(  ))(&CompositeDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
-            , (void ( CompositeDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&CompositeDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
+            , (void ( CompositeDragger_wrapper::* )( ::osg::NodeVisitor & ))(&CompositeDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

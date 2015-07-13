@@ -624,8 +624,8 @@ void register_Scale1DDragger_class(){
         bp::implicitly_convertible< osgManipulator::Scale1DDragger::ScaleMode, osgManipulator::Scale1DDragger >();
         { //::osgManipulator::Scale1DDragger::className
         
-            typedef char const * ( ::osgManipulator::Scale1DDragger::*className_function_type )(  ) const;
-            typedef char const * ( Scale1DDragger_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgManipulator::Scale1DDragger::*className_function_type)(  ) const;
+            typedef char const * ( Scale1DDragger_wrapper::*default_className_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "className"
@@ -635,8 +635,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::cloneType
         
-            typedef ::osg::Object * ( ::osgManipulator::Scale1DDragger::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Scale1DDragger_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgManipulator::Scale1DDragger::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Scale1DDragger_wrapper::*default_cloneType_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "cloneType"
@@ -647,7 +647,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getColor
         
-            typedef ::osg::Vec4 const & ( ::osgManipulator::Scale1DDragger::*getColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgManipulator::Scale1DDragger::*getColor_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getColor"
@@ -657,7 +657,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getLeftHandleNode
         
-            typedef ::osg::Node * ( ::osgManipulator::Scale1DDragger::*getLeftHandleNode_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgManipulator::Scale1DDragger::*getLeftHandleNode_function_type)(  ) ;
             
             Scale1DDragger_exposer.def( 
                 "getLeftHandleNode"
@@ -667,7 +667,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getLeftHandleNode
         
-            typedef ::osg::Node const * ( ::osgManipulator::Scale1DDragger::*getLeftHandleNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( ::osgManipulator::Scale1DDragger::*getLeftHandleNode_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getLeftHandleNode"
@@ -677,7 +677,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getLeftHandlePosition
         
-            typedef double ( ::osgManipulator::Scale1DDragger::*getLeftHandlePosition_function_type )(  ) const;
+            typedef double ( ::osgManipulator::Scale1DDragger::*getLeftHandlePosition_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getLeftHandlePosition"
@@ -686,7 +686,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getMinScale
         
-            typedef double ( ::osgManipulator::Scale1DDragger::*getMinScale_function_type )(  ) const;
+            typedef double ( ::osgManipulator::Scale1DDragger::*getMinScale_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getMinScale"
@@ -695,7 +695,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getPickColor
         
-            typedef ::osg::Vec4 const & ( ::osgManipulator::Scale1DDragger::*getPickColor_function_type )(  ) const;
+            typedef ::osg::Vec4 const & ( ::osgManipulator::Scale1DDragger::*getPickColor_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getPickColor"
@@ -705,7 +705,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getRightHandleNode
         
-            typedef ::osg::Node * ( ::osgManipulator::Scale1DDragger::*getRightHandleNode_function_type )(  ) ;
+            typedef ::osg::Node * ( ::osgManipulator::Scale1DDragger::*getRightHandleNode_function_type)(  ) ;
             
             Scale1DDragger_exposer.def( 
                 "getRightHandleNode"
@@ -715,7 +715,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getRightHandleNode
         
-            typedef ::osg::Node const * ( ::osgManipulator::Scale1DDragger::*getRightHandleNode_function_type )(  ) const;
+            typedef ::osg::Node const * ( ::osgManipulator::Scale1DDragger::*getRightHandleNode_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getRightHandleNode"
@@ -725,7 +725,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::getRightHandlePosition
         
-            typedef double ( ::osgManipulator::Scale1DDragger::*getRightHandlePosition_function_type )(  ) const;
+            typedef double ( ::osgManipulator::Scale1DDragger::*getRightHandlePosition_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getRightHandlePosition"
@@ -745,8 +745,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::isSameKindAs
         
-            typedef bool ( ::osgManipulator::Scale1DDragger::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Scale1DDragger_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgManipulator::Scale1DDragger::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Scale1DDragger_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Scale1DDragger_exposer.def( 
                 "isSameKindAs"
@@ -757,8 +757,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::libraryName
         
-            typedef char const * ( ::osgManipulator::Scale1DDragger::*libraryName_function_type )(  ) const;
-            typedef char const * ( Scale1DDragger_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgManipulator::Scale1DDragger::*libraryName_function_type)(  ) const;
+            typedef char const * ( Scale1DDragger_wrapper::*default_libraryName_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "libraryName"
@@ -768,7 +768,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setColor
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setColor_function_type)( ::osg::Vec4 const & ) ;
             
             Scale1DDragger_exposer.def( 
                 "setColor"
@@ -779,7 +779,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setLeftHandleNode
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setLeftHandleNode_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setLeftHandleNode_function_type)( ::osg::Node & ) ;
             
             Scale1DDragger_exposer.def( 
                 "setLeftHandleNode"
@@ -790,7 +790,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setLeftHandlePosition
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setLeftHandlePosition_function_type )( double ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setLeftHandlePosition_function_type)( double ) ;
             
             Scale1DDragger_exposer.def( 
                 "setLeftHandlePosition"
@@ -801,7 +801,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setMinScale
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setMinScale_function_type )( double ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setMinScale_function_type)( double ) ;
             
             Scale1DDragger_exposer.def( 
                 "setMinScale"
@@ -812,7 +812,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setPickColor
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setPickColor_function_type )( ::osg::Vec4 const & ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setPickColor_function_type)( ::osg::Vec4 const & ) ;
             
             Scale1DDragger_exposer.def( 
                 "setPickColor"
@@ -823,7 +823,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setRightHandleNode
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setRightHandleNode_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setRightHandleNode_function_type)( ::osg::Node & ) ;
             
             Scale1DDragger_exposer.def( 
                 "setRightHandleNode"
@@ -833,7 +833,7 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setRightHandlePosition
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setRightHandlePosition_function_type )( double ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setRightHandlePosition_function_type)( double ) ;
             
             Scale1DDragger_exposer.def( 
                 "setRightHandlePosition"
@@ -843,8 +843,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Scale1DDragger::setupDefaultGeometry
         
-            typedef void ( ::osgManipulator::Scale1DDragger::*setupDefaultGeometry_function_type )(  ) ;
-            typedef void ( Scale1DDragger_wrapper::*default_setupDefaultGeometry_function_type )(  ) ;
+            typedef void ( ::osgManipulator::Scale1DDragger::*setupDefaultGeometry_function_type)(  ) ;
+            typedef void ( Scale1DDragger_wrapper::*default_setupDefaultGeometry_function_type)(  ) ;
             
             Scale1DDragger_exposer.def( 
                 "setupDefaultGeometry"
@@ -854,8 +854,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::accept
         
-            typedef void ( ::osgManipulator::Dragger::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Scale1DDragger_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Scale1DDragger_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             Scale1DDragger_exposer.def( 
                 "accept"
@@ -866,8 +866,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::clone
         
-            typedef ::osg::Object * ( ::osgManipulator::Dragger::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Scale1DDragger_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgManipulator::Dragger::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Scale1DDragger_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Scale1DDragger_exposer.def( 
                 "clone"
@@ -889,8 +889,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::*getComposite_function_type )(  ) const;
-            typedef ::osgManipulator::CompositeDragger const * ( Scale1DDragger_wrapper::*default_getComposite_function_type )(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::*getComposite_function_type)(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( Scale1DDragger_wrapper::*default_getComposite_function_type)(  ) const;
             
             Scale1DDragger_exposer.def( 
                 "getComposite"
@@ -901,8 +901,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::*getComposite_function_type )(  ) ;
-            typedef ::osgManipulator::CompositeDragger * ( Scale1DDragger_wrapper::*default_getComposite_function_type )(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::*getComposite_function_type)(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( Scale1DDragger_wrapper::*default_getComposite_function_type)(  ) ;
             
             Scale1DDragger_exposer.def( 
                 "getComposite"
@@ -934,8 +934,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::setIntersectionMask
         
-            typedef void ( ::osgManipulator::Dragger::*setIntersectionMask_function_type )( unsigned int ) ;
-            typedef void ( Scale1DDragger_wrapper::*default_setIntersectionMask_function_type )( unsigned int ) ;
+            typedef void ( ::osgManipulator::Dragger::*setIntersectionMask_function_type)( unsigned int ) ;
+            typedef void ( Scale1DDragger_wrapper::*default_setIntersectionMask_function_type)( unsigned int ) ;
             
             Scale1DDragger_exposer.def( 
                 "setIntersectionMask"
@@ -946,8 +946,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::setParentDragger
         
-            typedef void ( ::osgManipulator::Dragger::*setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
-            typedef void ( Scale1DDragger_wrapper::*default_setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef void ( ::osgManipulator::Dragger::*setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef void ( Scale1DDragger_wrapper::*default_setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
             
             Scale1DDragger_exposer.def( 
                 "setParentDragger"
@@ -958,8 +958,8 @@ void register_Scale1DDragger_class(){
         }
         { //::osgManipulator::Dragger::traverse
         
-            typedef void ( ::osgManipulator::Dragger::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( Scale1DDragger_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( Scale1DDragger_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             Scale1DDragger_exposer.def( 
                 "traverse"

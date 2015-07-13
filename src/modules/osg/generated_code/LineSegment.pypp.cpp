@@ -56,7 +56,7 @@ void register_LineSegment_class(){
         LineSegment_exposer.def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) );
         { //::osg::LineSegment::end
         
-            typedef ::osg::Vec3d & ( ::osg::LineSegment::*end_function_type )(  ) ;
+            typedef ::osg::Vec3d & ( ::osg::LineSegment::*end_function_type)(  ) ;
             
             LineSegment_exposer.def( 
                 "end"
@@ -66,7 +66,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::end
         
-            typedef ::osg::Vec3d const & ( ::osg::LineSegment::*end_function_type )(  ) const;
+            typedef ::osg::Vec3d const & ( ::osg::LineSegment::*end_function_type)(  ) const;
             
             LineSegment_exposer.def( 
                 "end"
@@ -76,7 +76,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingBox const & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingBox const & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -87,7 +87,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingBox const &,float &,float & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingBox const &,float &,float & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -98,7 +98,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingBox const &,double &,double & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingBox const &,double &,double & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -109,7 +109,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingSphere const & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingSphere const & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -120,7 +120,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingSphere const &,float &,float & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingSphere const &,float &,float & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -131,7 +131,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::BoundingSphere const &,double &,double & ) const;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::BoundingSphere const &,double &,double & ) const;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -142,7 +142,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::Vec3f const &,::osg::Vec3f const &,::osg::Vec3f const &,float & ) ;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::Vec3f const &,::osg::Vec3f const &,::osg::Vec3f const &,float & ) ;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -153,7 +153,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::intersect
         
-            typedef bool ( ::osg::LineSegment::*intersect_function_type )( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,double & ) ;
+            typedef bool ( ::osg::LineSegment::*intersect_function_type)( ::osg::Vec3d const &,::osg::Vec3d const &,::osg::Vec3d const &,double & ) ;
             
             LineSegment_exposer.def( 
                 "intersect"
@@ -186,7 +186,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::set
         
-            typedef void ( ::osg::LineSegment::*set_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
+            typedef void ( ::osg::LineSegment::*set_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) ;
             
             LineSegment_exposer.def( 
                 "set"
@@ -196,7 +196,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::start
         
-            typedef ::osg::Vec3d & ( ::osg::LineSegment::*start_function_type )(  ) ;
+            typedef ::osg::Vec3d & ( ::osg::LineSegment::*start_function_type)(  ) ;
             
             LineSegment_exposer.def( 
                 "start"
@@ -206,7 +206,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::start
         
-            typedef ::osg::Vec3d const & ( ::osg::LineSegment::*start_function_type )(  ) const;
+            typedef ::osg::Vec3d const & ( ::osg::LineSegment::*start_function_type)(  ) const;
             
             LineSegment_exposer.def( 
                 "start"
@@ -216,7 +216,7 @@ void register_LineSegment_class(){
         }
         { //::osg::LineSegment::valid
         
-            typedef bool ( ::osg::LineSegment::*valid_function_type )(  ) const;
+            typedef bool ( ::osg::LineSegment::*valid_function_type)(  ) const;
             
             LineSegment_exposer.def( 
                 "valid"
@@ -225,8 +225,8 @@ void register_LineSegment_class(){
         }
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( LineSegment_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( LineSegment_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             LineSegment_exposer.def( 
                 "setThreadSafeRefUnref"

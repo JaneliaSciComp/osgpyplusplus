@@ -52,11 +52,11 @@ void register_CallbackInterface_class(){
     bp::class_< CallbackInterface_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::CallbackInterface >, boost::noncopyable >( "CallbackInterface", bp::no_init )    
         .def( 
             "className"
-            , (char const * ( ::osgWidget::CallbackInterface::* )(  ) const)(&::osgWidget::CallbackInterface::className)
-            , (char const * ( CallbackInterface_wrapper::* )(  ) const)(&CallbackInterface_wrapper::default_className) )    
+            , (char const * ( ::osgWidget::CallbackInterface::* )(  )const)(&::osgWidget::CallbackInterface::className)
+            , (char const * ( CallbackInterface_wrapper::* )(  )const)(&CallbackInterface_wrapper::default_className) )    
         .def( 
             "__call__"
-            , bp::pure_virtual( (bool ( ::osgWidget::CallbackInterface::* )( ::osgWidget::Event & ) )(&::osgWidget::CallbackInterface::operator()) )
+            , bp::pure_virtual( (bool ( ::osgWidget::CallbackInterface::* )( ::osgWidget::Event & ))(&::osgWidget::CallbackInterface::operator()) )
             , ( bp::arg("arg0") ) );
 
 }

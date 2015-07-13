@@ -398,42 +398,42 @@ void register_PdfImage_class(){
     bp::class_< PdfImage_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< ::osgWidget::PdfImage >, boost::noncopyable >( "PdfImage", "\n Pure virtual base class for interfacing with implementation of PDF reader.\n", bp::no_init )    
         .def( 
             "getBackgroundColor"
-            , (::osg::Vec4 const & ( ::osgWidget::PdfImage::* )(  ) const)( &::osgWidget::PdfImage::getBackgroundColor )
+            , (::osg::Vec4 const & ( ::osgWidget::PdfImage::* )(  )const)( &::osgWidget::PdfImage::getBackgroundColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "getNextPageKeyEvent"
-            , (int ( ::osgWidget::PdfImage::* )(  ) const)( &::osgWidget::PdfImage::getNextPageKeyEvent ) )    
+            , (int ( ::osgWidget::PdfImage::* )(  )const)( &::osgWidget::PdfImage::getNextPageKeyEvent ) )    
         .def( 
             "getNumOfPages"
-            , bp::pure_virtual( (int ( ::osgWidget::PdfImage::* )(  ) )(&::osgWidget::PdfImage::getNumOfPages) ) )    
+            , bp::pure_virtual( (int ( ::osgWidget::PdfImage::* )(  ))(&::osgWidget::PdfImage::getNumOfPages) ) )    
         .def( 
             "getPageNum"
-            , (int ( ::osgWidget::PdfImage::* )(  ) const)( &::osgWidget::PdfImage::getPageNum ) )    
+            , (int ( ::osgWidget::PdfImage::* )(  )const)( &::osgWidget::PdfImage::getPageNum ) )    
         .def( 
             "getPreviousPageKeyEvent"
-            , (int ( ::osgWidget::PdfImage::* )(  ) const)( &::osgWidget::PdfImage::getPreviousPageKeyEvent ) )    
+            , (int ( ::osgWidget::PdfImage::* )(  )const)( &::osgWidget::PdfImage::getPreviousPageKeyEvent ) )    
         .def( 
             "next"
-            , (bool ( ::osgWidget::PdfImage::* )(  ) )( &::osgWidget::PdfImage::next ) )    
+            , (bool ( ::osgWidget::PdfImage::* )(  ))( &::osgWidget::PdfImage::next ) )    
         .def( 
             "page"
-            , bp::pure_virtual( (bool ( ::osgWidget::PdfImage::* )( int ) )(&::osgWidget::PdfImage::page) )
+            , bp::pure_virtual( (bool ( ::osgWidget::PdfImage::* )( int ))(&::osgWidget::PdfImage::page) )
             , ( bp::arg("pageNum") ) )    
         .def( 
             "previous"
-            , (bool ( ::osgWidget::PdfImage::* )(  ) )( &::osgWidget::PdfImage::previous ) )    
+            , (bool ( ::osgWidget::PdfImage::* )(  ))( &::osgWidget::PdfImage::previous ) )    
         .def( 
             "setBackgroundColor"
-            , (void ( ::osgWidget::PdfImage::* )( ::osg::Vec4 const & ) )( &::osgWidget::PdfImage::setBackgroundColor )
+            , (void ( ::osgWidget::PdfImage::* )( ::osg::Vec4 const & ))( &::osgWidget::PdfImage::setBackgroundColor )
             , ( bp::arg("backgroundColor") )
             , " Pure virtual base class for interfacing with implementation of PDF reader." )    
         .def( 
             "setNextPageKeyEvent"
-            , (void ( ::osgWidget::PdfImage::* )( int ) )( &::osgWidget::PdfImage::setNextPageKeyEvent )
+            , (void ( ::osgWidget::PdfImage::* )( int ))( &::osgWidget::PdfImage::setNextPageKeyEvent )
             , ( bp::arg("key") ) )    
         .def( 
             "setPreviousPageKeyEvent"
-            , (void ( ::osgWidget::PdfImage::* )( int ) )( &::osgWidget::PdfImage::setPreviousPageKeyEvent )
+            , (void ( ::osgWidget::PdfImage::* )( int ))( &::osgWidget::PdfImage::setPreviousPageKeyEvent )
             , ( bp::arg("key") ) );
 
 }

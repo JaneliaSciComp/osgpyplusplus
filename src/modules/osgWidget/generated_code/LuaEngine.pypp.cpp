@@ -87,8 +87,8 @@ void register_LuaEngine_class(){
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::LuaEngine >();
         { //::osgWidget::LuaEngine::close
         
-            typedef bool ( ::osgWidget::LuaEngine::*close_function_type )(  ) ;
-            typedef bool ( LuaEngine_wrapper::*default_close_function_type )(  ) ;
+            typedef bool ( ::osgWidget::LuaEngine::*close_function_type)(  ) ;
+            typedef bool ( LuaEngine_wrapper::*default_close_function_type)(  ) ;
             
             LuaEngine_exposer.def( 
                 "close"
@@ -98,8 +98,8 @@ void register_LuaEngine_class(){
         }
         { //::osgWidget::LuaEngine::eval
         
-            typedef bool ( ::osgWidget::LuaEngine::*eval_function_type )( ::std::string const & ) ;
-            typedef bool ( LuaEngine_wrapper::*default_eval_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::LuaEngine::*eval_function_type)( ::std::string const & ) ;
+            typedef bool ( LuaEngine_wrapper::*default_eval_function_type)( ::std::string const & ) ;
             
             LuaEngine_exposer.def( 
                 "eval"
@@ -110,8 +110,8 @@ void register_LuaEngine_class(){
         }
         { //::osgWidget::LuaEngine::initialize
         
-            typedef bool ( ::osgWidget::LuaEngine::*initialize_function_type )(  ) ;
-            typedef bool ( LuaEngine_wrapper::*default_initialize_function_type )(  ) ;
+            typedef bool ( ::osgWidget::LuaEngine::*initialize_function_type)(  ) ;
+            typedef bool ( LuaEngine_wrapper::*default_initialize_function_type)(  ) ;
             
             LuaEngine_exposer.def( 
                 "initialize"
@@ -121,8 +121,8 @@ void register_LuaEngine_class(){
         }
         { //::osgWidget::LuaEngine::runFile
         
-            typedef bool ( ::osgWidget::LuaEngine::*runFile_function_type )( ::std::string const & ) ;
-            typedef bool ( LuaEngine_wrapper::*default_runFile_function_type )( ::std::string const & ) ;
+            typedef bool ( ::osgWidget::LuaEngine::*runFile_function_type)( ::std::string const & ) ;
+            typedef bool ( LuaEngine_wrapper::*default_runFile_function_type)( ::std::string const & ) ;
             
             LuaEngine_exposer.def( 
                 "runFile"
@@ -133,7 +133,7 @@ void register_LuaEngine_class(){
         }
         { //::osgWidget::ScriptEngine::getLastErrorText
         
-            typedef ::std::string const & ( ::osgWidget::ScriptEngine::*getLastErrorText_function_type )(  ) const;
+            typedef ::std::string const & ( ::osgWidget::ScriptEngine::*getLastErrorText_function_type)(  ) const;
             
             LuaEngine_exposer.def( 
                 "getLastErrorText"

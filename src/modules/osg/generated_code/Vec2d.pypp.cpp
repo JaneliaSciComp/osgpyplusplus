@@ -19,7 +19,7 @@ void register_Vec2d_class(){
         bp::implicitly_convertible< osg::Vec2f const &, osg::Vec2d >();
         { //::osg::Vec2d::isNaN
         
-            typedef bool ( ::osg::Vec2d::*isNaN_function_type )(  ) const;
+            typedef bool ( ::osg::Vec2d::*isNaN_function_type)(  ) const;
             
             Vec2d_exposer.def( 
                 "isNaN"
@@ -29,7 +29,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::length
         
-            typedef double ( ::osg::Vec2d::*length_function_type )(  ) const;
+            typedef double ( ::osg::Vec2d::*length_function_type)(  ) const;
             
             Vec2d_exposer.def( 
                 "length"
@@ -39,7 +39,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::length2
         
-            typedef double ( ::osg::Vec2d::*length2_function_type )(  ) const;
+            typedef double ( ::osg::Vec2d::*length2_function_type)(  ) const;
             
             Vec2d_exposer.def( 
                 "length2"
@@ -49,7 +49,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::normalize
         
-            typedef double ( ::osg::Vec2d::*normalize_function_type )(  ) ;
+            typedef double ( ::osg::Vec2d::*normalize_function_type)(  ) ;
             
             Vec2d_exposer.def( 
                 "normalize"
@@ -73,7 +73,7 @@ void register_Vec2d_class(){
         Vec2d_exposer.def( bp::self == bp::self );
         { //::osg::Vec2d::operator[]
         
-            typedef double & ( ::osg::Vec2d::*__getitem___function_type )( int ) ;
+            typedef double & ( ::osg::Vec2d::*__getitem___function_type)( int ) ;
             
             Vec2d_exposer.def( 
                 "__getitem__"
@@ -84,7 +84,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::operator[]
         
-            typedef double ( ::osg::Vec2d::*__getitem___function_type )( int ) const;
+            typedef double ( ::osg::Vec2d::*__getitem___function_type)( int ) const;
             
             Vec2d_exposer.def( 
                 "__getitem__"
@@ -94,7 +94,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::set
         
-            typedef void ( ::osg::Vec2d::*set_function_type )( double,double ) ;
+            typedef void ( ::osg::Vec2d::*set_function_type)( double,double ) ;
             
             Vec2d_exposer.def( 
                 "set"
@@ -104,7 +104,7 @@ void register_Vec2d_class(){
         }
         { //::osg::Vec2d::valid
         
-            typedef bool ( ::osg::Vec2d::*valid_function_type )(  ) const;
+            typedef bool ( ::osg::Vec2d::*valid_function_type)(  ) const;
             
             Vec2d_exposer.def( 
                 "valid"
@@ -114,7 +114,7 @@ void register_Vec2d_class(){
         }
         { //property "x"[fget=::osg::Vec2d::x]
         
-            typedef double & ( ::osg::Vec2d::*fget )(  ) ;
+            typedef double & ( ::osg::Vec2d::*fget)(  ) ;
             
             Vec2d_exposer.add_property( 
                 "x"
@@ -125,7 +125,7 @@ void register_Vec2d_class(){
         }
         { //property "x"[fget=::osg::Vec2d::x]
         
-            typedef double ( ::osg::Vec2d::*fget )(  ) const;
+            typedef double ( ::osg::Vec2d::*fget)(  ) const;
             
             Vec2d_exposer.add_property( 
                 "x"
@@ -134,7 +134,7 @@ void register_Vec2d_class(){
         }
         { //property "y"[fget=::osg::Vec2d::y]
         
-            typedef double & ( ::osg::Vec2d::*fget )(  ) ;
+            typedef double & ( ::osg::Vec2d::*fget)(  ) ;
             
             Vec2d_exposer.add_property( 
                 "y"
@@ -145,7 +145,7 @@ void register_Vec2d_class(){
         }
         { //property "y"[fget=::osg::Vec2d::y]
         
-            typedef double ( ::osg::Vec2d::*fget )(  ) const;
+            typedef double ( ::osg::Vec2d::*fget)(  ) const;
             
             Vec2d_exposer.add_property( 
                 "y"

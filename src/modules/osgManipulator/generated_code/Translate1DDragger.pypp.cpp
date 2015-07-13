@@ -623,20 +623,20 @@ void register_Translate1DDragger_class(){
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 
             "className"
-            , (char const * ( ::osgManipulator::Translate1DDragger::* )(  ) const)(&::osgManipulator::Translate1DDragger::className)
-            , (char const * ( Translate1DDragger_wrapper::* )(  ) const)(&Translate1DDragger_wrapper::default_className) )    
+            , (char const * ( ::osgManipulator::Translate1DDragger::* )(  )const)(&::osgManipulator::Translate1DDragger::className)
+            , (char const * ( Translate1DDragger_wrapper::* )(  )const)(&Translate1DDragger_wrapper::default_className) )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgManipulator::Translate1DDragger::* )(  ) const)(&::osgManipulator::Translate1DDragger::cloneType)
-            , (::osg::Object * ( Translate1DDragger_wrapper::* )(  ) const)(&Translate1DDragger_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgManipulator::Translate1DDragger::* )(  )const)(&::osgManipulator::Translate1DDragger::cloneType)
+            , (::osg::Object * ( Translate1DDragger_wrapper::* )(  )const)(&Translate1DDragger_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "getColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::Translate1DDragger::* )(  ) const)( &::osgManipulator::Translate1DDragger::getColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::Translate1DDragger::* )(  )const)( &::osgManipulator::Translate1DDragger::getColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "getPickColor"
-            , (::osg::Vec4 const & ( ::osgManipulator::Translate1DDragger::* )(  ) const)( &::osgManipulator::Translate1DDragger::getPickColor )
+            , (::osg::Vec4 const & ( ::osgManipulator::Translate1DDragger::* )(  )const)( &::osgManipulator::Translate1DDragger::getPickColor )
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -645,40 +645,40 @@ void register_Translate1DDragger_class(){
             , "\n Handle pick events on dragger and generate TranslateInLine commands.\n" )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgManipulator::Translate1DDragger::* )( ::osg::Object const * ) const)(&::osgManipulator::Translate1DDragger::isSameKindAs)
-            , (bool ( Translate1DDragger_wrapper::* )( ::osg::Object const * ) const)(&Translate1DDragger_wrapper::default_isSameKindAs)
+            , (bool ( ::osgManipulator::Translate1DDragger::* )( ::osg::Object const * )const)(&::osgManipulator::Translate1DDragger::isSameKindAs)
+            , (bool ( Translate1DDragger_wrapper::* )( ::osg::Object const * )const)(&Translate1DDragger_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgManipulator::Translate1DDragger::* )(  ) const)(&::osgManipulator::Translate1DDragger::libraryName)
-            , (char const * ( Translate1DDragger_wrapper::* )(  ) const)(&Translate1DDragger_wrapper::default_libraryName) )    
+            , (char const * ( ::osgManipulator::Translate1DDragger::* )(  )const)(&::osgManipulator::Translate1DDragger::libraryName)
+            , (char const * ( Translate1DDragger_wrapper::* )(  )const)(&Translate1DDragger_wrapper::default_libraryName) )    
         .def( 
             "setCheckForNodeInNodePath"
-            , (void ( ::osgManipulator::Translate1DDragger::* )( bool ) )( &::osgManipulator::Translate1DDragger::setCheckForNodeInNodePath )
+            , (void ( ::osgManipulator::Translate1DDragger::* )( bool ))( &::osgManipulator::Translate1DDragger::setCheckForNodeInNodePath )
             , ( bp::arg("onOff") ) )    
         .def( 
             "setColor"
-            , (void ( ::osgManipulator::Translate1DDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::Translate1DDragger::setColor )
+            , (void ( ::osgManipulator::Translate1DDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::Translate1DDragger::setColor )
             , ( bp::arg("color") )
             , " Set/Get color for dragger." )    
         .def( 
             "setPickColor"
-            , (void ( ::osgManipulator::Translate1DDragger::* )( ::osg::Vec4 const & ) )( &::osgManipulator::Translate1DDragger::setPickColor )
+            , (void ( ::osgManipulator::Translate1DDragger::* )( ::osg::Vec4 const & ))( &::osgManipulator::Translate1DDragger::setPickColor )
             , ( bp::arg("color") )
             , " Set/Get pick color for dragger. Pick color is color of the dragger when picked.\n            It gives a visual feedback to show that the dragger has been picked." )    
         .def( 
             "setupDefaultGeometry"
-            , (void ( ::osgManipulator::Translate1DDragger::* )(  ) )(&::osgManipulator::Translate1DDragger::setupDefaultGeometry)
-            , (void ( Translate1DDragger_wrapper::* )(  ) )(&Translate1DDragger_wrapper::default_setupDefaultGeometry) )    
+            , (void ( ::osgManipulator::Translate1DDragger::* )(  ))(&::osgManipulator::Translate1DDragger::setupDefaultGeometry)
+            , (void ( Translate1DDragger_wrapper::* )(  ))(&Translate1DDragger_wrapper::default_setupDefaultGeometry) )    
         .def( 
             "accept"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::accept)
-            , (void ( Translate1DDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&Translate1DDragger_wrapper::default_accept)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::accept)
+            , (void ( Translate1DDragger_wrapper::* )( ::osg::NodeVisitor & ))(&Translate1DDragger_wrapper::default_accept)
             , ( bp::arg("nv") ) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & ) const)(&::osgManipulator::Dragger::clone)
-            , (::osg::Object * ( Translate1DDragger_wrapper::* )( ::osg::CopyOp const & ) const)(&Translate1DDragger_wrapper::default_clone)
+            , (::osg::Object * ( ::osgManipulator::Dragger::* )( ::osg::CopyOp const & )const)(&::osgManipulator::Dragger::clone)
+            , (::osg::Object * ( Translate1DDragger_wrapper::* )( ::osg::CopyOp const & )const)(&Translate1DDragger_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
@@ -687,13 +687,13 @@ void register_Translate1DDragger_class(){
             , ( bp::arg("inst"), bp::arg("command") ) )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  ) const)(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger const * ( Translate1DDragger_wrapper::* )(  ) const)(&Translate1DDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger const * ( ::osgManipulator::Dragger::* )(  )const)(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger const * ( Translate1DDragger_wrapper::* )(  )const)(&Translate1DDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "getComposite"
-            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ) )(&::osgManipulator::Dragger::getComposite)
-            , (::osgManipulator::CompositeDragger * ( Translate1DDragger_wrapper::* )(  ) )(&Translate1DDragger_wrapper::default_getComposite)
+            , (::osgManipulator::CompositeDragger * ( ::osgManipulator::Dragger::* )(  ))(&::osgManipulator::Dragger::getComposite)
+            , (::osgManipulator::CompositeDragger * ( Translate1DDragger_wrapper::* )(  ))(&Translate1DDragger_wrapper::default_getComposite)
             , bp::return_internal_reference< >() )    
         .def( 
             "handle"
@@ -706,18 +706,18 @@ void register_Translate1DDragger_class(){
             , "\n Setup default geometry for dragger.\n" )    
         .def( 
             "setIntersectionMask"
-            , (void ( ::osgManipulator::Dragger::* )( unsigned int ) )(&::osgManipulator::Dragger::setIntersectionMask)
-            , (void ( Translate1DDragger_wrapper::* )( unsigned int ) )(&Translate1DDragger_wrapper::default_setIntersectionMask)
+            , (void ( ::osgManipulator::Dragger::* )( unsigned int ))(&::osgManipulator::Dragger::setIntersectionMask)
+            , (void ( Translate1DDragger_wrapper::* )( unsigned int ))(&Translate1DDragger_wrapper::default_setIntersectionMask)
             , ( bp::arg("intersectionMask") ) )    
         .def( 
             "setParentDragger"
-            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ) )(&::osgManipulator::Dragger::setParentDragger)
-            , (void ( Translate1DDragger_wrapper::* )( ::osgManipulator::Dragger * ) )(&Translate1DDragger_wrapper::default_setParentDragger)
+            , (void ( ::osgManipulator::Dragger::* )( ::osgManipulator::Dragger * ))(&::osgManipulator::Dragger::setParentDragger)
+            , (void ( Translate1DDragger_wrapper::* )( ::osgManipulator::Dragger * ))(&Translate1DDragger_wrapper::default_setParentDragger)
             , ( bp::arg("parent") ) )    
         .def( 
             "traverse"
-            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ) )(&::osgManipulator::Dragger::traverse)
-            , (void ( Translate1DDragger_wrapper::* )( ::osg::NodeVisitor & ) )(&Translate1DDragger_wrapper::default_traverse)
+            , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::traverse)
+            , (void ( Translate1DDragger_wrapper::* )( ::osg::NodeVisitor & ))(&Translate1DDragger_wrapper::default_traverse)
             , ( bp::arg("nv") ) );
 
 }

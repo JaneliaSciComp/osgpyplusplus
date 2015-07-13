@@ -262,7 +262,7 @@ void register_ScreenCaptureHandler_class(){
                 ;
             { //::osgViewer::ScreenCaptureHandler::WriteToFile::getSavePolicy
             
-                typedef ::osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy ( ::osgViewer::ScreenCaptureHandler::WriteToFile::*getSavePolicy_function_type )(  ) const;
+                typedef ::osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy ( ::osgViewer::ScreenCaptureHandler::WriteToFile::*getSavePolicy_function_type)(  ) const;
                 
                 WriteToFile_exposer.def( 
                     "getSavePolicy"
@@ -271,7 +271,7 @@ void register_ScreenCaptureHandler_class(){
             }
             { //::osgViewer::ScreenCaptureHandler::WriteToFile::setSavePolicy
             
-                typedef void ( ::osgViewer::ScreenCaptureHandler::WriteToFile::*setSavePolicy_function_type )( ::osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy ) ;
+                typedef void ( ::osgViewer::ScreenCaptureHandler::WriteToFile::*setSavePolicy_function_type)( ::osgViewer::ScreenCaptureHandler::WriteToFile::SavePolicy ) ;
                 
                 WriteToFile_exposer.def( 
                     "setSavePolicy"
@@ -283,8 +283,8 @@ void register_ScreenCaptureHandler_class(){
         bp::implicitly_convertible< osgViewer::ScreenCaptureHandler::CaptureOperation *, osgViewer::ScreenCaptureHandler >();
         { //::osgViewer::ScreenCaptureHandler::captureNextFrame
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*captureNextFrame_function_type )( ::osgViewer::ViewerBase & ) ;
-            typedef void ( ScreenCaptureHandler_wrapper::*default_captureNextFrame_function_type )( ::osgViewer::ViewerBase & ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*captureNextFrame_function_type)( ::osgViewer::ViewerBase & ) ;
+            typedef void ( ScreenCaptureHandler_wrapper::*default_captureNextFrame_function_type)( ::osgViewer::ViewerBase & ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "captureNextFrame"
@@ -295,7 +295,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::getCaptureOperation
         
-            typedef ::osgViewer::ScreenCaptureHandler::CaptureOperation * ( ::osgViewer::ScreenCaptureHandler::*getCaptureOperation_function_type )(  ) const;
+            typedef ::osgViewer::ScreenCaptureHandler::CaptureOperation * ( ::osgViewer::ScreenCaptureHandler::*getCaptureOperation_function_type)(  ) const;
             
             ScreenCaptureHandler_exposer.def( 
                 "getCaptureOperation"
@@ -305,7 +305,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::getFramesToCapture
         
-            typedef int ( ::osgViewer::ScreenCaptureHandler::*getFramesToCapture_function_type )(  ) const;
+            typedef int ( ::osgViewer::ScreenCaptureHandler::*getFramesToCapture_function_type)(  ) const;
             
             ScreenCaptureHandler_exposer.def( 
                 "getFramesToCapture"
@@ -314,7 +314,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::getKeyEventTakeScreenShot
         
-            typedef int ( ::osgViewer::ScreenCaptureHandler::*getKeyEventTakeScreenShot_function_type )(  ) const;
+            typedef int ( ::osgViewer::ScreenCaptureHandler::*getKeyEventTakeScreenShot_function_type)(  ) const;
             
             ScreenCaptureHandler_exposer.def( 
                 "getKeyEventTakeScreenShot"
@@ -323,7 +323,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::getKeyEventToggleContinuousCapture
         
-            typedef int ( ::osgViewer::ScreenCaptureHandler::*getKeyEventToggleContinuousCapture_function_type )(  ) const;
+            typedef int ( ::osgViewer::ScreenCaptureHandler::*getKeyEventToggleContinuousCapture_function_type)(  ) const;
             
             ScreenCaptureHandler_exposer.def( 
                 "getKeyEventToggleContinuousCapture"
@@ -332,8 +332,8 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::getUsage
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*getUsage_function_type )( ::osg::ApplicationUsage & ) const;
-            typedef void ( ScreenCaptureHandler_wrapper::*default_getUsage_function_type )( ::osg::ApplicationUsage & ) const;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( ScreenCaptureHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             ScreenCaptureHandler_exposer.def( 
                 "getUsage"
@@ -344,7 +344,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::setCaptureOperation
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*setCaptureOperation_function_type )( ::osgViewer::ScreenCaptureHandler::CaptureOperation * ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*setCaptureOperation_function_type)( ::osgViewer::ScreenCaptureHandler::CaptureOperation * ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "setCaptureOperation"
@@ -354,7 +354,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::setFramesToCapture
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*setFramesToCapture_function_type )( int ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*setFramesToCapture_function_type)( int ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "setFramesToCapture"
@@ -364,7 +364,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::setKeyEventTakeScreenShot
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*setKeyEventTakeScreenShot_function_type )( int ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*setKeyEventTakeScreenShot_function_type)( int ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "setKeyEventTakeScreenShot"
@@ -374,7 +374,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::setKeyEventToggleContinuousCapture
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*setKeyEventToggleContinuousCapture_function_type )( int ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*setKeyEventToggleContinuousCapture_function_type)( int ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "setKeyEventToggleContinuousCapture"
@@ -384,7 +384,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::startCapture
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*startCapture_function_type )(  ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*startCapture_function_type)(  ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "startCapture"
@@ -393,7 +393,7 @@ void register_ScreenCaptureHandler_class(){
         }
         { //::osgViewer::ScreenCaptureHandler::stopCapture
         
-            typedef void ( ::osgViewer::ScreenCaptureHandler::*stopCapture_function_type )(  ) ;
+            typedef void ( ::osgViewer::ScreenCaptureHandler::*stopCapture_function_type)(  ) ;
             
             ScreenCaptureHandler_exposer.def( 
                 "stopCapture"

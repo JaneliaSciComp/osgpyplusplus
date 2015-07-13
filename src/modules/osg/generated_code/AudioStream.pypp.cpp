@@ -182,7 +182,7 @@ void register_AudioStream_class(){
             ;
         { //::osg::AudioStream::audioFrequency
         
-            typedef int ( ::osg::AudioStream::*audioFrequency_function_type )(  ) const;
+            typedef int ( ::osg::AudioStream::*audioFrequency_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "audioFrequency"
@@ -191,7 +191,7 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::audioNbChannels
         
-            typedef int ( ::osg::AudioStream::*audioNbChannels_function_type )(  ) const;
+            typedef int ( ::osg::AudioStream::*audioNbChannels_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "audioNbChannels"
@@ -200,7 +200,7 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::audioSampleFormat
         
-            typedef ::osg::AudioStream::SampleFormat ( ::osg::AudioStream::*audioSampleFormat_function_type )(  ) const;
+            typedef ::osg::AudioStream::SampleFormat ( ::osg::AudioStream::*audioSampleFormat_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "audioSampleFormat"
@@ -209,8 +209,8 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::className
         
-            typedef char const * ( ::osg::AudioStream::*className_function_type )(  ) const;
-            typedef char const * ( AudioStream_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::AudioStream::*className_function_type)(  ) const;
+            typedef char const * ( AudioStream_wrapper::*default_className_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "className"
@@ -220,7 +220,7 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::consumeAudioBuffer
         
-            typedef void ( ::osg::AudioStream::*consumeAudioBuffer_function_type )( void * const,::size_t const ) ;
+            typedef void ( ::osg::AudioStream::*consumeAudioBuffer_function_type)( void * const,::size_t const ) ;
             
             AudioStream_exposer.def( 
                 "consumeAudioBuffer"
@@ -230,8 +230,8 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::isSameKindAs
         
-            typedef bool ( ::osg::AudioStream::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( AudioStream_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::AudioStream::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( AudioStream_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             AudioStream_exposer.def( 
                 "isSameKindAs"
@@ -242,8 +242,8 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::libraryName
         
-            typedef char const * ( ::osg::AudioStream::*libraryName_function_type )(  ) const;
-            typedef char const * ( AudioStream_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::AudioStream::*libraryName_function_type)(  ) const;
+            typedef char const * ( AudioStream_wrapper::*default_libraryName_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "libraryName"
@@ -253,7 +253,7 @@ void register_AudioStream_class(){
         }
         { //::osg::AudioStream::setAudioSink
         
-            typedef void ( ::osg::AudioStream::*setAudioSink_function_type )( ::osg::AudioSink * ) ;
+            typedef void ( ::osg::AudioStream::*setAudioSink_function_type)( ::osg::AudioSink * ) ;
             
             AudioStream_exposer.def( 
                 "setAudioSink"
@@ -263,7 +263,7 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::clone
         
-            typedef ::osg::Object * ( ::osg::Object::*clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Object::*clone_function_type)( ::osg::CopyOp const & ) const;
             
             AudioStream_exposer.def( 
                 "clone"
@@ -275,7 +275,7 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::cloneType
         
-            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Object::*cloneType_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "cloneType"
@@ -286,8 +286,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( AudioStream_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( AudioStream_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             AudioStream_exposer.def( 
                 "computeDataVariance"
@@ -297,8 +297,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( AudioStream_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( AudioStream_wrapper::*default_getUserData_function_type)(  ) ;
             
             AudioStream_exposer.def( 
                 "getUserData"
@@ -309,8 +309,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( AudioStream_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( AudioStream_wrapper::*default_getUserData_function_type)(  ) const;
             
             AudioStream_exposer.def( 
                 "getUserData"
@@ -321,8 +321,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::resizeGLObjectBuffers
         
-            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( AudioStream_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::Object::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( AudioStream_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             AudioStream_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -333,8 +333,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( AudioStream_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( AudioStream_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             AudioStream_exposer.def( 
                 "setName"
@@ -345,7 +345,7 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             AudioStream_exposer.def( 
                 "setName"
@@ -356,8 +356,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( AudioStream_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( AudioStream_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             AudioStream_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -368,8 +368,8 @@ void register_AudioStream_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( AudioStream_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( AudioStream_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             AudioStream_exposer.def( 
                 "setUserData"

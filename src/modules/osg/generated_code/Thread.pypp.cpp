@@ -132,8 +132,8 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::cancel
         
-            typedef int ( ::OpenThreads::Thread::*cancel_function_type )(  ) ;
-            typedef int ( Thread_wrapper::*default_cancel_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*cancel_function_type)(  ) ;
+            typedef int ( Thread_wrapper::*default_cancel_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "cancel"
@@ -143,8 +143,8 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::cancelCleanup
         
-            typedef void ( ::OpenThreads::Thread::*cancelCleanup_function_type )(  ) ;
-            typedef void ( Thread_wrapper::*default_cancelCleanup_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Thread::*cancelCleanup_function_type)(  ) ;
+            typedef void ( Thread_wrapper::*default_cancelCleanup_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "cancelCleanup"
@@ -154,7 +154,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::detach
         
-            typedef int ( ::OpenThreads::Thread::*detach_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*detach_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "detach"
@@ -164,7 +164,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getImplementation
         
-            typedef void * ( ::OpenThreads::Thread::*getImplementation_function_type )(  ) ;
+            typedef void * ( ::OpenThreads::Thread::*getImplementation_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getImplementation"
@@ -174,7 +174,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getProcessId
         
-            typedef ::size_t ( ::OpenThreads::Thread::*getProcessId_function_type )(  ) ;
+            typedef ::size_t ( ::OpenThreads::Thread::*getProcessId_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getProcessId"
@@ -184,7 +184,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getSchedulePolicy
         
-            typedef int ( ::OpenThreads::Thread::*getSchedulePolicy_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*getSchedulePolicy_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getSchedulePolicy"
@@ -194,7 +194,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getSchedulePriority
         
-            typedef int ( ::OpenThreads::Thread::*getSchedulePriority_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*getSchedulePriority_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getSchedulePriority"
@@ -204,7 +204,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getStackSize
         
-            typedef ::size_t ( ::OpenThreads::Thread::*getStackSize_function_type )(  ) ;
+            typedef ::size_t ( ::OpenThreads::Thread::*getStackSize_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getStackSize"
@@ -214,7 +214,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::getThreadId
         
-            typedef int ( ::OpenThreads::Thread::*getThreadId_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*getThreadId_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "getThreadId"
@@ -224,7 +224,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::isRunning
         
-            typedef bool ( ::OpenThreads::Thread::*isRunning_function_type )(  ) ;
+            typedef bool ( ::OpenThreads::Thread::*isRunning_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "isRunning"
@@ -234,7 +234,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::join
         
-            typedef int ( ::OpenThreads::Thread::*join_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*join_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "join"
@@ -255,7 +255,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::printSchedulingInfo
         
-            typedef void ( ::OpenThreads::Thread::*printSchedulingInfo_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Thread::*printSchedulingInfo_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "printSchedulingInfo"
@@ -265,7 +265,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::run
         
-            typedef void ( ::OpenThreads::Thread::*run_function_type )(  ) ;
+            typedef void ( ::OpenThreads::Thread::*run_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "run"
@@ -275,7 +275,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setCancelModeAsynchronous
         
-            typedef int ( ::OpenThreads::Thread::*setCancelModeAsynchronous_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*setCancelModeAsynchronous_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "setCancelModeAsynchronous"
@@ -285,7 +285,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setCancelModeDeferred
         
-            typedef int ( ::OpenThreads::Thread::*setCancelModeDeferred_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*setCancelModeDeferred_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "setCancelModeDeferred"
@@ -295,7 +295,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setCancelModeDisable
         
-            typedef int ( ::OpenThreads::Thread::*setCancelModeDisable_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*setCancelModeDisable_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "setCancelModeDisable"
@@ -305,7 +305,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setProcessorAffinity
         
-            typedef int ( ::OpenThreads::Thread::*setProcessorAffinity_function_type )( unsigned int ) ;
+            typedef int ( ::OpenThreads::Thread::*setProcessorAffinity_function_type)( unsigned int ) ;
             
             Thread_exposer.def( 
                 "setProcessorAffinity"
@@ -316,7 +316,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setSchedulePolicy
         
-            typedef int ( ::OpenThreads::Thread::*setSchedulePolicy_function_type )( ::OpenThreads::Thread::ThreadPolicy ) ;
+            typedef int ( ::OpenThreads::Thread::*setSchedulePolicy_function_type)( ::OpenThreads::Thread::ThreadPolicy ) ;
             
             Thread_exposer.def( 
                 "setSchedulePolicy"
@@ -327,7 +327,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setSchedulePriority
         
-            typedef int ( ::OpenThreads::Thread::*setSchedulePriority_function_type )( ::OpenThreads::Thread::ThreadPriority ) ;
+            typedef int ( ::OpenThreads::Thread::*setSchedulePriority_function_type)( ::OpenThreads::Thread::ThreadPriority ) ;
             
             Thread_exposer.def( 
                 "setSchedulePriority"
@@ -338,7 +338,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::setStackSize
         
-            typedef int ( ::OpenThreads::Thread::*setStackSize_function_type )( ::size_t ) ;
+            typedef int ( ::OpenThreads::Thread::*setStackSize_function_type)( ::size_t ) ;
             
             Thread_exposer.def( 
                 "setStackSize"
@@ -349,7 +349,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::start
         
-            typedef int ( ::OpenThreads::Thread::*start_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*start_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "start"
@@ -359,7 +359,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::startThread
         
-            typedef int ( ::OpenThreads::Thread::*startThread_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*startThread_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "startThread"
@@ -368,7 +368,7 @@ void register_Thread_class(){
         }
         { //::OpenThreads::Thread::testCancel
         
-            typedef int ( ::OpenThreads::Thread::*testCancel_function_type )(  ) ;
+            typedef int ( ::OpenThreads::Thread::*testCancel_function_type)(  ) ;
             
             Thread_exposer.def( 
                 "testCancel"

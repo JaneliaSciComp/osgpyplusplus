@@ -294,8 +294,8 @@ void register_Material_class(){
         Material_exposer.def( bp::init< >("\n Material - encapsulates OpenGL glMaterial state.\n") );
         { //::osg::Material::apply
         
-            typedef void ( ::osg::Material::*apply_function_type )( ::osg::State & ) const;
-            typedef void ( Material_wrapper::*default_apply_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::Material::*apply_function_type)( ::osg::State & ) const;
+            typedef void ( Material_wrapper::*default_apply_function_type)( ::osg::State & ) const;
             
             Material_exposer.def( 
                 "apply"
@@ -306,8 +306,8 @@ void register_Material_class(){
         }
         { //::osg::Material::className
         
-            typedef char const * ( ::osg::Material::*className_function_type )(  ) const;
-            typedef char const * ( Material_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::Material::*className_function_type)(  ) const;
+            typedef char const * ( Material_wrapper::*default_className_function_type)(  ) const;
             
             Material_exposer.def( 
                 "className"
@@ -317,8 +317,8 @@ void register_Material_class(){
         }
         { //::osg::Material::clone
         
-            typedef ::osg::Object * ( ::osg::Material::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( Material_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::Material::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( Material_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             Material_exposer.def( 
                 "clone"
@@ -330,8 +330,8 @@ void register_Material_class(){
         }
         { //::osg::Material::cloneType
         
-            typedef ::osg::Object * ( ::osg::Material::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( Material_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::Material::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( Material_wrapper::*default_cloneType_function_type)(  ) const;
             
             Material_exposer.def( 
                 "cloneType"
@@ -342,7 +342,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getAmbient
         
-            typedef ::osg::Vec4 const & ( ::osg::Material::*getAmbient_function_type )( ::osg::Material::Face ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Material::*getAmbient_function_type)( ::osg::Material::Face ) const;
             
             Material_exposer.def( 
                 "getAmbient"
@@ -353,7 +353,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getAmbientFrontAndBack
         
-            typedef bool ( ::osg::Material::*getAmbientFrontAndBack_function_type )(  ) const;
+            typedef bool ( ::osg::Material::*getAmbientFrontAndBack_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getAmbientFrontAndBack"
@@ -362,7 +362,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getColorMode
         
-            typedef ::osg::Material::ColorMode ( ::osg::Material::*getColorMode_function_type )(  ) const;
+            typedef ::osg::Material::ColorMode ( ::osg::Material::*getColorMode_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getColorMode"
@@ -371,7 +371,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getDiffuse
         
-            typedef ::osg::Vec4 const & ( ::osg::Material::*getDiffuse_function_type )( ::osg::Material::Face ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Material::*getDiffuse_function_type)( ::osg::Material::Face ) const;
             
             Material_exposer.def( 
                 "getDiffuse"
@@ -382,7 +382,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getDiffuseFrontAndBack
         
-            typedef bool ( ::osg::Material::*getDiffuseFrontAndBack_function_type )(  ) const;
+            typedef bool ( ::osg::Material::*getDiffuseFrontAndBack_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getDiffuseFrontAndBack"
@@ -391,7 +391,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getEmission
         
-            typedef ::osg::Vec4 const & ( ::osg::Material::*getEmission_function_type )( ::osg::Material::Face ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Material::*getEmission_function_type)( ::osg::Material::Face ) const;
             
             Material_exposer.def( 
                 "getEmission"
@@ -403,7 +403,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getEmissionFrontAndBack
         
-            typedef bool ( ::osg::Material::*getEmissionFrontAndBack_function_type )(  ) const;
+            typedef bool ( ::osg::Material::*getEmissionFrontAndBack_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getEmissionFrontAndBack"
@@ -413,8 +413,8 @@ void register_Material_class(){
         }
         { //::osg::Material::getModeUsage
         
-            typedef bool ( ::osg::Material::*getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
-            typedef bool ( Material_wrapper::*default_getModeUsage_function_type )( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( ::osg::Material::*getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
+            typedef bool ( Material_wrapper::*default_getModeUsage_function_type)( ::osg::StateAttribute::ModeUsage & ) const;
             
             Material_exposer.def( 
                 "getModeUsage"
@@ -425,7 +425,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getShininess
         
-            typedef float ( ::osg::Material::*getShininess_function_type )( ::osg::Material::Face ) const;
+            typedef float ( ::osg::Material::*getShininess_function_type)( ::osg::Material::Face ) const;
             
             Material_exposer.def( 
                 "getShininess"
@@ -436,7 +436,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getShininessFrontAndBack
         
-            typedef bool ( ::osg::Material::*getShininessFrontAndBack_function_type )(  ) const;
+            typedef bool ( ::osg::Material::*getShininessFrontAndBack_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getShininessFrontAndBack"
@@ -446,7 +446,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getSpecular
         
-            typedef ::osg::Vec4 const & ( ::osg::Material::*getSpecular_function_type )( ::osg::Material::Face ) const;
+            typedef ::osg::Vec4 const & ( ::osg::Material::*getSpecular_function_type)( ::osg::Material::Face ) const;
             
             Material_exposer.def( 
                 "getSpecular"
@@ -458,7 +458,7 @@ void register_Material_class(){
         }
         { //::osg::Material::getSpecularFrontAndBack
         
-            typedef bool ( ::osg::Material::*getSpecularFrontAndBack_function_type )(  ) const;
+            typedef bool ( ::osg::Material::*getSpecularFrontAndBack_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getSpecularFrontAndBack"
@@ -468,8 +468,8 @@ void register_Material_class(){
         }
         { //::osg::Material::getType
         
-            typedef ::osg::StateAttribute::Type ( ::osg::Material::*getType_function_type )(  ) const;
-            typedef ::osg::StateAttribute::Type ( Material_wrapper::*default_getType_function_type )(  ) const;
+            typedef ::osg::StateAttribute::Type ( ::osg::Material::*getType_function_type)(  ) const;
+            typedef ::osg::StateAttribute::Type ( Material_wrapper::*default_getType_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getType"
@@ -479,8 +479,8 @@ void register_Material_class(){
         }
         { //::osg::Material::isSameKindAs
         
-            typedef bool ( ::osg::Material::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( Material_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::Material::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( Material_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             Material_exposer.def( 
                 "isSameKindAs"
@@ -491,8 +491,8 @@ void register_Material_class(){
         }
         { //::osg::Material::libraryName
         
-            typedef char const * ( ::osg::Material::*libraryName_function_type )(  ) const;
-            typedef char const * ( Material_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::Material::*libraryName_function_type)(  ) const;
+            typedef char const * ( Material_wrapper::*default_libraryName_function_type)(  ) const;
             
             Material_exposer.def( 
                 "libraryName"
@@ -502,7 +502,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setAlpha
         
-            typedef void ( ::osg::Material::*setAlpha_function_type )( ::osg::Material::Face,float ) ;
+            typedef void ( ::osg::Material::*setAlpha_function_type)( ::osg::Material::Face,float ) ;
             
             Material_exposer.def( 
                 "setAlpha"
@@ -513,7 +513,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setAmbient
         
-            typedef void ( ::osg::Material::*setAmbient_function_type )( ::osg::Material::Face,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Material::*setAmbient_function_type)( ::osg::Material::Face,::osg::Vec4 const & ) ;
             
             Material_exposer.def( 
                 "setAmbient"
@@ -523,7 +523,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setColorMode
         
-            typedef void ( ::osg::Material::*setColorMode_function_type )( ::osg::Material::ColorMode ) ;
+            typedef void ( ::osg::Material::*setColorMode_function_type)( ::osg::Material::ColorMode ) ;
             
             Material_exposer.def( 
                 "setColorMode"
@@ -533,7 +533,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setDiffuse
         
-            typedef void ( ::osg::Material::*setDiffuse_function_type )( ::osg::Material::Face,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Material::*setDiffuse_function_type)( ::osg::Material::Face,::osg::Vec4 const & ) ;
             
             Material_exposer.def( 
                 "setDiffuse"
@@ -543,7 +543,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setEmission
         
-            typedef void ( ::osg::Material::*setEmission_function_type )( ::osg::Material::Face,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Material::*setEmission_function_type)( ::osg::Material::Face,::osg::Vec4 const & ) ;
             
             Material_exposer.def( 
                 "setEmission"
@@ -554,7 +554,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setShininess
         
-            typedef void ( ::osg::Material::*setShininess_function_type )( ::osg::Material::Face,float ) ;
+            typedef void ( ::osg::Material::*setShininess_function_type)( ::osg::Material::Face,float ) ;
             
             Material_exposer.def( 
                 "setShininess"
@@ -565,7 +565,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setSpecular
         
-            typedef void ( ::osg::Material::*setSpecular_function_type )( ::osg::Material::Face,::osg::Vec4 const & ) ;
+            typedef void ( ::osg::Material::*setSpecular_function_type)( ::osg::Material::Face,::osg::Vec4 const & ) ;
             
             Material_exposer.def( 
                 "setSpecular"
@@ -576,7 +576,7 @@ void register_Material_class(){
         }
         { //::osg::Material::setTransparency
         
-            typedef void ( ::osg::Material::*setTransparency_function_type )( ::osg::Material::Face,float ) ;
+            typedef void ( ::osg::Material::*setTransparency_function_type)( ::osg::Material::Face,float ) ;
             
             Material_exposer.def( 
                 "setTransparency"
@@ -587,8 +587,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type )(  ) ;
-            typedef ::osg::Texture * ( Material_wrapper::*default_asTexture_function_type )(  ) ;
+            typedef ::osg::Texture * ( ::osg::StateAttribute::*asTexture_function_type)(  ) ;
+            typedef ::osg::Texture * ( Material_wrapper::*default_asTexture_function_type)(  ) ;
             
             Material_exposer.def( 
                 "asTexture"
@@ -599,8 +599,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::asTexture
         
-            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type )(  ) const;
-            typedef ::osg::Texture const * ( Material_wrapper::*default_asTexture_function_type )(  ) const;
+            typedef ::osg::Texture const * ( ::osg::StateAttribute::*asTexture_function_type)(  ) const;
+            typedef ::osg::Texture const * ( Material_wrapper::*default_asTexture_function_type)(  ) const;
             
             Material_exposer.def( 
                 "asTexture"
@@ -611,8 +611,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
-            typedef bool ( Material_wrapper::*default_checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateAttribute::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
+            typedef bool ( Material_wrapper::*default_checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             Material_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -623,8 +623,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::compileGLObjects
         
-            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type )( ::osg::State & ) const;
-            typedef void ( Material_wrapper::*default_compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateAttribute::*compileGLObjects_function_type)( ::osg::State & ) const;
+            typedef void ( Material_wrapper::*default_compileGLObjects_function_type)( ::osg::State & ) const;
             
             Material_exposer.def( 
                 "compileGLObjects"
@@ -635,8 +635,8 @@ void register_Material_class(){
         }
         { //::osg::Object::computeDataVariance
         
-            typedef void ( ::osg::Object::*computeDataVariance_function_type )(  ) ;
-            typedef void ( Material_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::Object::*computeDataVariance_function_type)(  ) ;
+            typedef void ( Material_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             Material_exposer.def( 
                 "computeDataVariance"
@@ -646,8 +646,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::getMember
         
-            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type )(  ) const;
-            typedef unsigned int ( Material_wrapper::*default_getMember_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateAttribute::*getMember_function_type)(  ) const;
+            typedef unsigned int ( Material_wrapper::*default_getMember_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getMember"
@@ -657,8 +657,8 @@ void register_Material_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( Material_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( Material_wrapper::*default_getUserData_function_type)(  ) ;
             
             Material_exposer.def( 
                 "getUserData"
@@ -669,8 +669,8 @@ void register_Material_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( Material_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( Material_wrapper::*default_getUserData_function_type)(  ) const;
             
             Material_exposer.def( 
                 "getUserData"
@@ -681,8 +681,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::isTextureAttribute
         
-            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type )(  ) const;
-            typedef bool ( Material_wrapper::*default_isTextureAttribute_function_type )(  ) const;
+            typedef bool ( ::osg::StateAttribute::*isTextureAttribute_function_type)(  ) const;
+            typedef bool ( Material_wrapper::*default_isTextureAttribute_function_type)(  ) const;
             
             Material_exposer.def( 
                 "isTextureAttribute"
@@ -692,8 +692,8 @@ void register_Material_class(){
         }
         { //::osg::StateAttribute::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( Material_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateAttribute::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( Material_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             Material_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -704,8 +704,8 @@ void register_Material_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( Material_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( Material_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             Material_exposer.def( 
                 "setName"
@@ -716,7 +716,7 @@ void register_Material_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             Material_exposer.def( 
                 "setName"
@@ -727,8 +727,8 @@ void register_Material_class(){
         }
         { //::osg::Object::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( Material_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Object::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( Material_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             Material_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -739,8 +739,8 @@ void register_Material_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( Material_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( Material_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             Material_exposer.def( 
                 "setUserData"

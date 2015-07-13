@@ -185,71 +185,71 @@ void register_ReversePrimitiveFunctor_class(){
     bp::class_< ReversePrimitiveFunctor_wrapper, bp::bases< ::osg::PrimitiveIndexFunctor > >( "ReversePrimitiveFunctor" )    
         .def( 
             "begin"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum ) )(&::osgUtil::ReversePrimitiveFunctor::begin)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum ) )(&ReversePrimitiveFunctor_wrapper::default_begin)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum ))(&::osgUtil::ReversePrimitiveFunctor::begin)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum ))(&ReversePrimitiveFunctor_wrapper::default_begin)
             , ( bp::arg("mode") ) )    
         .def( 
             "drawArrays"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLint,::GLsizei ) )(&::osgUtil::ReversePrimitiveFunctor::drawArrays)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLint,::GLsizei ) )(&ReversePrimitiveFunctor_wrapper::default_drawArrays)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLint,::GLsizei ))(&::osgUtil::ReversePrimitiveFunctor::drawArrays)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLint,::GLsizei ))(&ReversePrimitiveFunctor_wrapper::default_drawArrays)
             , ( bp::arg("mode"), bp::arg("first"), bp::arg("count") ) )    
         .def( 
             "drawElements"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ) )(&::osgUtil::ReversePrimitiveFunctor::drawElements)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLubyte const * ) )(&ReversePrimitiveFunctor_wrapper::default_drawElements)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLubyte const * ))(&::osgUtil::ReversePrimitiveFunctor::drawElements)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLubyte const * ))(&ReversePrimitiveFunctor_wrapper::default_drawElements)
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "drawElements"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ) )(&::osgUtil::ReversePrimitiveFunctor::drawElements)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLushort const * ) )(&ReversePrimitiveFunctor_wrapper::default_drawElements)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLushort const * ))(&::osgUtil::ReversePrimitiveFunctor::drawElements)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLushort const * ))(&ReversePrimitiveFunctor_wrapper::default_drawElements)
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "drawElements"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ) )(&::osgUtil::ReversePrimitiveFunctor::drawElements)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLuint const * ) )(&ReversePrimitiveFunctor_wrapper::default_drawElements)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( ::GLenum,::GLsizei,::GLuint const * ))(&::osgUtil::ReversePrimitiveFunctor::drawElements)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( ::GLenum,::GLsizei,::GLuint const * ))(&ReversePrimitiveFunctor_wrapper::default_drawElements)
             , ( bp::arg("mode"), bp::arg("count"), bp::arg("indices") ) )    
         .def( 
             "end"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )(  ) )(&::osgUtil::ReversePrimitiveFunctor::end)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )(  ) )(&ReversePrimitiveFunctor_wrapper::default_end) )    
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )(  ))(&::osgUtil::ReversePrimitiveFunctor::end)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )(  ))(&ReversePrimitiveFunctor_wrapper::default_end) )    
         .def( 
             "getReversedPrimitiveSet"
-            , (::osg::PrimitiveSet * ( ::osgUtil::ReversePrimitiveFunctor::* )(  ) )( &::osgUtil::ReversePrimitiveFunctor::getReversedPrimitiveSet )
+            , (::osg::PrimitiveSet * ( ::osgUtil::ReversePrimitiveFunctor::* )(  ))( &::osgUtil::ReversePrimitiveFunctor::getReversedPrimitiveSet )
             , bp::return_internal_reference< >() )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec2 const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec2 const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec2 const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec2 const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec3 const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec3 const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec3 const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec3 const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec4 const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec4 const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec4 const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec4 const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec2d const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec2d const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec2d const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec2d const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec3d const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec3d const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec3d const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec3d const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "setVertexArray"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec4d const * ) )(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec4d const * ) )(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int,::osg::Vec4d const * ))(&::osgUtil::ReversePrimitiveFunctor::setVertexArray)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int,::osg::Vec4d const * ))(&ReversePrimitiveFunctor_wrapper::default_setVertexArray)
             , ( bp::arg("arg0"), bp::arg("arg1") ) )    
         .def( 
             "vertex"
-            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int ) )(&::osgUtil::ReversePrimitiveFunctor::vertex)
-            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int ) )(&ReversePrimitiveFunctor_wrapper::default_vertex)
+            , (void ( ::osgUtil::ReversePrimitiveFunctor::* )( unsigned int ))(&::osgUtil::ReversePrimitiveFunctor::vertex)
+            , (void ( ReversePrimitiveFunctor_wrapper::* )( unsigned int ))(&ReversePrimitiveFunctor_wrapper::default_vertex)
             , ( bp::arg("arg0") ) )    
         .def_readwrite( "_reversedPrimitiveSet", &osgUtil::ReversePrimitiveFunctor::_reversedPrimitiveSet );
 

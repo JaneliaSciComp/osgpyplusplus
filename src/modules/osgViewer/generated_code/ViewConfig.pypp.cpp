@@ -191,38 +191,38 @@ void register_ViewConfig_class(){
     bp::class_< ViewConfig_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::ViewConfig >, boost::noncopyable >( "ViewConfig", bp::init< >() )    
         .def( 
             "className"
-            , (char const * ( ::osgViewer::ViewConfig::* )(  ) const)(&::osgViewer::ViewConfig::className)
-            , (char const * ( ViewConfig_wrapper::* )(  ) const)(&ViewConfig_wrapper::default_className) )    
+            , (char const * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::className)
+            , (char const * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_className) )    
         .def( 
             "clone"
-            , (::osg::Object * ( ::osgViewer::ViewConfig::* )( ::osg::CopyOp const & ) const)(&::osgViewer::ViewConfig::clone)
-            , (::osg::Object * ( ViewConfig_wrapper::* )( ::osg::CopyOp const & ) const)(&ViewConfig_wrapper::default_clone)
+            , (::osg::Object * ( ::osgViewer::ViewConfig::* )( ::osg::CopyOp const & )const)(&::osgViewer::ViewConfig::clone)
+            , (::osg::Object * ( ViewConfig_wrapper::* )( ::osg::CopyOp const & )const)(&ViewConfig_wrapper::default_clone)
             , ( bp::arg("copyop") )
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "cloneType"
-            , (::osg::Object * ( ::osgViewer::ViewConfig::* )(  ) const)(&::osgViewer::ViewConfig::cloneType)
-            , (::osg::Object * ( ViewConfig_wrapper::* )(  ) const)(&ViewConfig_wrapper::default_cloneType)
+            , (::osg::Object * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::cloneType)
+            , (::osg::Object * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_cloneType)
             , bp::return_value_policy< bp::reference_existing_object >() )    
         .def( 
             "configure"
-            , (void ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & ) const)(&::osgViewer::ViewConfig::configure)
-            , (void ( ViewConfig_wrapper::* )( ::osgViewer::View & ) const)(&ViewConfig_wrapper::default_configure)
+            , (void ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & )const)(&::osgViewer::ViewConfig::configure)
+            , (void ( ViewConfig_wrapper::* )( ::osgViewer::View & )const)(&ViewConfig_wrapper::default_configure)
             , ( bp::arg("arg0") ) )    
         .def( 
             "getActiveDisplaySetting"
-            , (::osg::DisplaySettings * ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & ) const)(&::osgViewer::ViewConfig::getActiveDisplaySetting)
-            , (::osg::DisplaySettings * ( ViewConfig_wrapper::* )( ::osgViewer::View & ) const)(&ViewConfig_wrapper::default_getActiveDisplaySetting)
+            , (::osg::DisplaySettings * ( ::osgViewer::ViewConfig::* )( ::osgViewer::View & )const)(&::osgViewer::ViewConfig::getActiveDisplaySetting)
+            , (::osg::DisplaySettings * ( ViewConfig_wrapper::* )( ::osgViewer::View & )const)(&ViewConfig_wrapper::default_getActiveDisplaySetting)
             , ( bp::arg("view") )
             , bp::return_internal_reference< >() )    
         .def( 
             "isSameKindAs"
-            , (bool ( ::osgViewer::ViewConfig::* )( ::osg::Object const * ) const)(&::osgViewer::ViewConfig::isSameKindAs)
-            , (bool ( ViewConfig_wrapper::* )( ::osg::Object const * ) const)(&ViewConfig_wrapper::default_isSameKindAs)
+            , (bool ( ::osgViewer::ViewConfig::* )( ::osg::Object const * )const)(&::osgViewer::ViewConfig::isSameKindAs)
+            , (bool ( ViewConfig_wrapper::* )( ::osg::Object const * )const)(&ViewConfig_wrapper::default_isSameKindAs)
             , ( bp::arg("obj") ) )    
         .def( 
             "libraryName"
-            , (char const * ( ::osgViewer::ViewConfig::* )(  ) const)(&::osgViewer::ViewConfig::libraryName)
-            , (char const * ( ViewConfig_wrapper::* )(  ) const)(&ViewConfig_wrapper::default_libraryName) );
+            , (char const * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::libraryName)
+            , (char const * ( ViewConfig_wrapper::* )(  )const)(&ViewConfig_wrapper::default_libraryName) );
 
 }

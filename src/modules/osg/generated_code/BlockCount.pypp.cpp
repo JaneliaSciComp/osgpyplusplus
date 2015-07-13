@@ -15,7 +15,7 @@ void register_BlockCount_class(){
         bp::implicitly_convertible< unsigned int, OpenThreads::BlockCount >();
         { //::OpenThreads::BlockCount::block
         
-            typedef void ( ::OpenThreads::BlockCount::*block_function_type )(  ) ;
+            typedef void ( ::OpenThreads::BlockCount::*block_function_type)(  ) ;
             
             BlockCount_exposer.def( 
                 "block"
@@ -24,7 +24,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::completed
         
-            typedef void ( ::OpenThreads::BlockCount::*completed_function_type )(  ) ;
+            typedef void ( ::OpenThreads::BlockCount::*completed_function_type)(  ) ;
             
             BlockCount_exposer.def( 
                 "completed"
@@ -33,7 +33,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::getBlockCount
         
-            typedef unsigned int ( ::OpenThreads::BlockCount::*getBlockCount_function_type )(  ) const;
+            typedef unsigned int ( ::OpenThreads::BlockCount::*getBlockCount_function_type)(  ) const;
             
             BlockCount_exposer.def( 
                 "getBlockCount"
@@ -42,7 +42,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::getCurrentCount
         
-            typedef unsigned int ( ::OpenThreads::BlockCount::*getCurrentCount_function_type )(  ) const;
+            typedef unsigned int ( ::OpenThreads::BlockCount::*getCurrentCount_function_type)(  ) const;
             
             BlockCount_exposer.def( 
                 "getCurrentCount"
@@ -51,7 +51,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::release
         
-            typedef void ( ::OpenThreads::BlockCount::*release_function_type )(  ) ;
+            typedef void ( ::OpenThreads::BlockCount::*release_function_type)(  ) ;
             
             BlockCount_exposer.def( 
                 "release"
@@ -60,7 +60,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::reset
         
-            typedef void ( ::OpenThreads::BlockCount::*reset_function_type )(  ) ;
+            typedef void ( ::OpenThreads::BlockCount::*reset_function_type)(  ) ;
             
             BlockCount_exposer.def( 
                 "reset"
@@ -69,7 +69,7 @@ void register_BlockCount_class(){
         }
         { //::OpenThreads::BlockCount::setBlockCount
         
-            typedef void ( ::OpenThreads::BlockCount::*setBlockCount_function_type )( unsigned int ) ;
+            typedef void ( ::OpenThreads::BlockCount::*setBlockCount_function_type)( unsigned int ) ;
             
             BlockCount_exposer.def( 
                 "setBlockCount"

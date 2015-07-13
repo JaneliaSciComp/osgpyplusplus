@@ -39,8 +39,8 @@ void register_RefBlockCount_class(){
         bp::implicitly_convertible< unsigned int, osg::RefBlockCount >();
         { //::osg::Referenced::setThreadSafeRefUnref
         
-            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( RefBlockCount_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::Referenced::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( RefBlockCount_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             RefBlockCount_exposer.def( 
                 "setThreadSafeRefUnref"

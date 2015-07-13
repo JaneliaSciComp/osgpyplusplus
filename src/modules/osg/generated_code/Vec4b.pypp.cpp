@@ -28,7 +28,7 @@ void register_Vec4b_class(){
         Vec4b_exposer.def( bp::self == bp::self );
         { //::osg::Vec4b::operator[]
         
-            typedef signed char & ( ::osg::Vec4b::*__getitem___function_type )( unsigned int ) ;
+            typedef signed char & ( ::osg::Vec4b::*__getitem___function_type)( unsigned int ) ;
             
             Vec4b_exposer.def( 
                 "__getitem__"
@@ -39,7 +39,7 @@ void register_Vec4b_class(){
         }
         { //::osg::Vec4b::operator[]
         
-            typedef signed char ( ::osg::Vec4b::*__getitem___function_type )( unsigned int ) const;
+            typedef signed char ( ::osg::Vec4b::*__getitem___function_type)( unsigned int ) const;
             
             Vec4b_exposer.def( 
                 "__getitem__"
@@ -49,7 +49,7 @@ void register_Vec4b_class(){
         }
         { //::osg::Vec4b::set
         
-            typedef void ( ::osg::Vec4b::*set_function_type )( signed char,signed char,signed char,signed char ) ;
+            typedef void ( ::osg::Vec4b::*set_function_type)( signed char,signed char,signed char,signed char ) ;
             
             Vec4b_exposer.def( 
                 "set"
@@ -59,7 +59,7 @@ void register_Vec4b_class(){
         }
         { //property "x"[fget=::osg::Vec4b::x]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "x"
@@ -70,7 +70,7 @@ void register_Vec4b_class(){
         }
         { //property "x"[fget=::osg::Vec4b::x]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "x"
@@ -79,7 +79,7 @@ void register_Vec4b_class(){
         }
         { //property "y"[fget=::osg::Vec4b::y]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "y"
@@ -90,7 +90,7 @@ void register_Vec4b_class(){
         }
         { //property "y"[fget=::osg::Vec4b::y]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "y"
@@ -99,7 +99,7 @@ void register_Vec4b_class(){
         }
         { //property "z"[fget=::osg::Vec4b::z]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "z"
@@ -110,7 +110,7 @@ void register_Vec4b_class(){
         }
         { //property "z"[fget=::osg::Vec4b::z]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "z"
@@ -119,7 +119,7 @@ void register_Vec4b_class(){
         }
         { //property "w"[fget=::osg::Vec4b::w]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "w"
@@ -130,7 +130,7 @@ void register_Vec4b_class(){
         }
         { //property "w"[fget=::osg::Vec4b::w]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "w"
@@ -139,7 +139,7 @@ void register_Vec4b_class(){
         }
         { //property "r"[fget=::osg::Vec4b::r]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "r"
@@ -150,7 +150,7 @@ void register_Vec4b_class(){
         }
         { //property "r"[fget=::osg::Vec4b::r]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "r"
@@ -159,7 +159,7 @@ void register_Vec4b_class(){
         }
         { //property "g"[fget=::osg::Vec4b::g]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "g"
@@ -170,7 +170,7 @@ void register_Vec4b_class(){
         }
         { //property "g"[fget=::osg::Vec4b::g]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "g"
@@ -179,7 +179,7 @@ void register_Vec4b_class(){
         }
         { //property "b"[fget=::osg::Vec4b::b]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "b"
@@ -190,7 +190,7 @@ void register_Vec4b_class(){
         }
         { //property "b"[fget=::osg::Vec4b::b]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "b"
@@ -199,7 +199,7 @@ void register_Vec4b_class(){
         }
         { //property "a"[fget=::osg::Vec4b::a]
         
-            typedef signed char & ( ::osg::Vec4b::*fget )(  ) ;
+            typedef signed char & ( ::osg::Vec4b::*fget)(  ) ;
             
             Vec4b_exposer.add_property( 
                 "a"
@@ -210,7 +210,7 @@ void register_Vec4b_class(){
         }
         { //property "a"[fget=::osg::Vec4b::a]
         
-            typedef signed char ( ::osg::Vec4b::*fget )(  ) const;
+            typedef signed char ( ::osg::Vec4b::*fget)(  ) const;
             
             Vec4b_exposer.add_property( 
                 "a"

@@ -12,20 +12,20 @@ void register_Block_class(){
         .def( bp::init< >("\n Block is a block that can be used to halt a thread that is waiting another thread to release it.\n") )    
         .def( 
             "block"
-            , (bool ( ::OpenThreads::Block::* )(  ) )( &::OpenThreads::Block::block ) )    
+            , (bool ( ::OpenThreads::Block::* )(  ))( &::OpenThreads::Block::block ) )    
         .def( 
             "block"
-            , (bool ( ::OpenThreads::Block::* )( long unsigned int ) )( &::OpenThreads::Block::block )
+            , (bool ( ::OpenThreads::Block::* )( long unsigned int ))( &::OpenThreads::Block::block )
             , ( bp::arg("timeout") ) )    
         .def( 
             "release"
-            , (void ( ::OpenThreads::Block::* )(  ) )( &::OpenThreads::Block::release ) )    
+            , (void ( ::OpenThreads::Block::* )(  ))( &::OpenThreads::Block::release ) )    
         .def( 
             "reset"
-            , (void ( ::OpenThreads::Block::* )(  ) )( &::OpenThreads::Block::reset ) )    
+            , (void ( ::OpenThreads::Block::* )(  ))( &::OpenThreads::Block::reset ) )    
         .def( 
             "set"
-            , (void ( ::OpenThreads::Block::* )( bool ) )( &::OpenThreads::Block::set )
+            , (void ( ::OpenThreads::Block::* )( bool ))( &::OpenThreads::Block::set )
             , ( bp::arg("doRelease") ) );
 
 }

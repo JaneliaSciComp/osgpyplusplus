@@ -1,7 +1,7 @@
 #!/bin/env python
 
 # Increment this version before a release
-OSG_PYPP_VERSION = '3.2.1.3pre'
+OSG_PYPP_VERSION = '3.2.1.3'
 
 """
 File: setup.py
@@ -70,7 +70,7 @@ if sys.platform == 'win32' :
 # Per-module parameters
 # Create one python module for each OpenSceneGraph namespace
 moduleInfo = dict()
-for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
+for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer', 'osgManipulator', 'osgWidget']:
     moduleInfo[module_name] = dict()
     mi = moduleInfo[module_name]
     mi["source_files"] = glob(os.path.join('src','modules',module_name,'generated_code','*.cpp'))
@@ -82,18 +82,21 @@ for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
     mi["libraries"] = [module_name] # assume osg C++ library has same name
     mi["libraries"].extend(libraries)
 # Append module specific libraries
-for module_name in ['osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
+for module_name in ['osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer', 'osgManipulator', 'osgWidget']:
     moduleInfo[module_name]["libraries"].append('osg')
-for module_name in ['osgGA', 'osgDB', 'osgText', 'osgViewer']:
+for module_name in ['osgGA', 'osgDB', 'osgText', 'osgViewer', 'osgManipulator', 'osgWidget']:
     moduleInfo[module_name]["libraries"].append('osgUtil')
-for module_name in ['osgGA', 'osgText', 'osgViewer']:
+for module_name in ['osgGA', 'osgText', 'osgViewer', 'osgManipulator', 'osgWidget']:
     moduleInfo[module_name]["libraries"].append('osgDB')
-moduleInfo['osgViewer']["libraries"].append('osgGA')
-moduleInfo['osgViewer']["libraries"].append('osgText')
+for module_name in ['osgViewer', 'osgManipulator', 'osgWidget']:
+    moduleInfo[module_name]["libraries"].append('osgGA')
+    moduleInfo[module_name]["libraries"].append('osgText')
+for module_name in ['osgManipulator', 'osgWidget']:
+    moduleInfo[module_name]["libraries"].append('osgViewer')
 
 # Create final list of extension modules
 extension_modules = []
-for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer']:
+for module_name in ['osg', 'osgUtil', 'osgGA', 'osgDB', 'osgText', 'osgViewer', 'osgManipulator', 'osgWidget']:
 # for module_name in ['osgText',]: # osgText module only, just for quick testing
     extension_modules.append(Extension(
         # binary module name begins with underscore "_", so we can wrap module with a python file

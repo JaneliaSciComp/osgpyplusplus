@@ -407,7 +407,7 @@ void register_Browser_class(){
         bp::implicitly_convertible< std::string const &, osgWidget::Browser >();
         { //::osgWidget::Browser::assign
         
-            typedef bool ( ::osgWidget::Browser::*assign_function_type )( ::osgWidget::BrowserImage *,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::Browser::*assign_function_type)( ::osgWidget::BrowserImage *,::osgWidget::GeometryHints const & ) ;
             
             Browser_exposer.def( 
                 "assign"
@@ -417,7 +417,7 @@ void register_Browser_class(){
         }
         { //::osgWidget::Browser::navigateTo
         
-            typedef void ( ::osgWidget::Browser::*navigateTo_function_type )( ::std::string const & ) ;
+            typedef void ( ::osgWidget::Browser::*navigateTo_function_type)( ::std::string const & ) ;
             
             Browser_exposer.def( 
                 "navigateTo"
@@ -427,7 +427,7 @@ void register_Browser_class(){
         }
         { //::osgWidget::Browser::open
         
-            typedef bool ( ::osgWidget::Browser::*open_function_type )( ::std::string const &,::osgWidget::GeometryHints const & ) ;
+            typedef bool ( ::osgWidget::Browser::*open_function_type)( ::std::string const &,::osgWidget::GeometryHints const & ) ;
             
             Browser_exposer.def( 
                 "open"

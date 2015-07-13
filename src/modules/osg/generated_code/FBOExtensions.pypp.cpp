@@ -33,20 +33,20 @@ void register_FBOExtensions_class(){
             , bp::return_internal_reference< >() )    
         .def( 
             "isMultisampleCoverageSupported"
-            , (bool ( ::osg::FBOExtensions::* )(  ) const)( &::osg::FBOExtensions::isMultisampleCoverageSupported ) )    
+            , (bool ( ::osg::FBOExtensions::* )(  )const)( &::osg::FBOExtensions::isMultisampleCoverageSupported ) )    
         .def( 
             "isMultisampleSupported"
-            , (bool ( ::osg::FBOExtensions::* )(  ) const)( &::osg::FBOExtensions::isMultisampleSupported ) )    
+            , (bool ( ::osg::FBOExtensions::* )(  )const)( &::osg::FBOExtensions::isMultisampleSupported ) )    
         .def( 
             "isPackedDepthStencilSupported"
-            , (bool ( ::osg::FBOExtensions::* )(  ) const)( &::osg::FBOExtensions::isPackedDepthStencilSupported ) )    
+            , (bool ( ::osg::FBOExtensions::* )(  )const)( &::osg::FBOExtensions::isPackedDepthStencilSupported ) )    
         .def( 
             "isSupported"
-            , (bool ( ::osg::FBOExtensions::* )(  ) const)( &::osg::FBOExtensions::isSupported ) )    
+            , (bool ( ::osg::FBOExtensions::* )(  )const)( &::osg::FBOExtensions::isSupported ) )    
         .def( 
             "setThreadSafeRefUnref"
-            , (void ( ::osg::Referenced::* )( bool ) )(&::osg::Referenced::setThreadSafeRefUnref)
-            , (void ( FBOExtensions_wrapper::* )( bool ) )(&FBOExtensions_wrapper::default_setThreadSafeRefUnref)
+            , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
+            , (void ( FBOExtensions_wrapper::* )( bool ))(&FBOExtensions_wrapper::default_setThreadSafeRefUnref)
             , ( bp::arg("threadSafe") ) )    
         .staticmethod( "instance" );
 

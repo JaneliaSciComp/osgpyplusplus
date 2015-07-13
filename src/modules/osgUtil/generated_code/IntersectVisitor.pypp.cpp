@@ -403,7 +403,7 @@ void register_IntersectVisitor_class(){
             ;
         { //::osgUtil::IntersectVisitor::addLineSegment
         
-            typedef void ( ::osgUtil::IntersectVisitor::*addLineSegment_function_type )( ::osg::LineSegment * ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*addLineSegment_function_type)( ::osg::LineSegment * ) ;
             
             IntersectVisitor_exposer.def( 
                 "addLineSegment"
@@ -413,8 +413,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Node & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Node & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Node & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Node & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -425,8 +425,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Geode & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Geode & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Geode & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Geode & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -437,8 +437,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Billboard & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Billboard & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Billboard & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Billboard & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -449,8 +449,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Group & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Group & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Group & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Group & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -461,8 +461,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Transform & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Transform & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Transform & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Transform & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -473,8 +473,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::Switch & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::Switch & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::Switch & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::Switch & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -485,8 +485,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::apply
         
-            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type )( ::osg::LOD & ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type )( ::osg::LOD & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*apply_function_type)( ::osg::LOD & ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_apply_function_type)( ::osg::LOD & ) ;
             
             IntersectVisitor_exposer.def( 
                 "apply"
@@ -497,8 +497,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::className
         
-            typedef char const * ( ::osgUtil::IntersectVisitor::*className_function_type )(  ) const;
-            typedef char const * ( IntersectVisitor_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::IntersectVisitor::*className_function_type)(  ) const;
+            typedef char const * ( IntersectVisitor_wrapper::*default_className_function_type)(  ) const;
             
             IntersectVisitor_exposer.def( 
                 "className"
@@ -508,8 +508,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getDistanceToEyePoint
         
-            typedef float ( ::osgUtil::IntersectVisitor::*getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
-            typedef float ( IntersectVisitor_wrapper::*default_getDistanceToEyePoint_function_type )( ::osg::Vec3 const &,bool ) const;
+            typedef float ( ::osgUtil::IntersectVisitor::*getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
+            typedef float ( IntersectVisitor_wrapper::*default_getDistanceToEyePoint_function_type)( ::osg::Vec3 const &,bool ) const;
             
             IntersectVisitor_exposer.def( 
                 "getDistanceToEyePoint"
@@ -520,8 +520,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getEyePoint
         
-            typedef ::osg::Vec3 ( ::osgUtil::IntersectVisitor::*getEyePoint_function_type )(  ) const;
-            typedef ::osg::Vec3 ( IntersectVisitor_wrapper::*default_getEyePoint_function_type )(  ) const;
+            typedef ::osg::Vec3 ( ::osgUtil::IntersectVisitor::*getEyePoint_function_type)(  ) const;
+            typedef ::osg::Vec3 ( IntersectVisitor_wrapper::*default_getEyePoint_function_type)(  ) const;
             
             IntersectVisitor_exposer.def( 
                 "getEyePoint"
@@ -531,7 +531,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getHitList
         
-            typedef ::std::vector< osgUtil::Hit > & ( ::osgUtil::IntersectVisitor::*getHitList_function_type )( ::osg::LineSegment const * ) ;
+            typedef ::std::vector< osgUtil::Hit > & ( ::osgUtil::IntersectVisitor::*getHitList_function_type)( ::osg::LineSegment const * ) ;
             
             IntersectVisitor_exposer.def( 
                 "getHitList"
@@ -542,7 +542,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getLODSelectionMode
         
-            typedef ::osgUtil::IntersectVisitor::LODSelectionMode ( ::osgUtil::IntersectVisitor::*getLODSelectionMode_function_type )(  ) const;
+            typedef ::osgUtil::IntersectVisitor::LODSelectionMode ( ::osgUtil::IntersectVisitor::*getLODSelectionMode_function_type)(  ) const;
             
             IntersectVisitor_exposer.def( 
                 "getLODSelectionMode"
@@ -551,7 +551,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getNumHits
         
-            typedef int ( ::osgUtil::IntersectVisitor::*getNumHits_function_type )( ::osg::LineSegment const * ) ;
+            typedef int ( ::osgUtil::IntersectVisitor::*getNumHits_function_type)( ::osg::LineSegment const * ) ;
             
             IntersectVisitor_exposer.def( 
                 "getNumHits"
@@ -561,7 +561,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::getSegHitList
         
-            typedef ::std::map< osg::LineSegment const*, std::vector< osgUtil::Hit > > & ( ::osgUtil::IntersectVisitor::*getSegHitList_function_type )(  ) ;
+            typedef ::std::map< osg::LineSegment const*, std::vector< osgUtil::Hit > > & ( ::osgUtil::IntersectVisitor::*getSegHitList_function_type)(  ) ;
             
             IntersectVisitor_exposer.def( 
                 "getSegHitList"
@@ -571,7 +571,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::hits
         
-            typedef bool ( ::osgUtil::IntersectVisitor::*hits_function_type )(  ) ;
+            typedef bool ( ::osgUtil::IntersectVisitor::*hits_function_type)(  ) ;
             
             IntersectVisitor_exposer.def( 
                 "hits"
@@ -580,8 +580,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::libraryName
         
-            typedef char const * ( ::osgUtil::IntersectVisitor::*libraryName_function_type )(  ) const;
-            typedef char const * ( IntersectVisitor_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgUtil::IntersectVisitor::*libraryName_function_type)(  ) const;
+            typedef char const * ( IntersectVisitor_wrapper::*default_libraryName_function_type)(  ) const;
             
             IntersectVisitor_exposer.def( 
                 "libraryName"
@@ -591,8 +591,8 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::reset
         
-            typedef void ( ::osgUtil::IntersectVisitor::*reset_function_type )(  ) ;
-            typedef void ( IntersectVisitor_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*reset_function_type)(  ) ;
+            typedef void ( IntersectVisitor_wrapper::*default_reset_function_type)(  ) ;
             
             IntersectVisitor_exposer.def( 
                 "reset"
@@ -602,7 +602,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::setEyePoint
         
-            typedef void ( ::osgUtil::IntersectVisitor::*setEyePoint_function_type )( ::osg::Vec3 const & ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*setEyePoint_function_type)( ::osg::Vec3 const & ) ;
             
             IntersectVisitor_exposer.def( 
                 "setEyePoint"
@@ -612,7 +612,7 @@ void register_IntersectVisitor_class(){
         }
         { //::osgUtil::IntersectVisitor::setLODSelectionMode
         
-            typedef void ( ::osgUtil::IntersectVisitor::*setLODSelectionMode_function_type )( ::osgUtil::IntersectVisitor::LODSelectionMode ) ;
+            typedef void ( ::osgUtil::IntersectVisitor::*setLODSelectionMode_function_type)( ::osgUtil::IntersectVisitor::LODSelectionMode ) ;
             
             IntersectVisitor_exposer.def( 
                 "setLODSelectionMode"

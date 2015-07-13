@@ -60,7 +60,7 @@ void register_CylinderPlaneProjector_class(){
         bp::implicitly_convertible< osg::Cylinder *, osgManipulator::CylinderPlaneProjector >();
         { //::osgManipulator::CylinderPlaneProjector::getRotation
         
-            typedef ::osg::Quat ( ::osgManipulator::CylinderPlaneProjector::*getRotation_function_type )( ::osg::Vec3d const &,::osg::Vec3d const & ) const;
+            typedef ::osg::Quat ( ::osgManipulator::CylinderPlaneProjector::*getRotation_function_type)( ::osg::Vec3d const &,::osg::Vec3d const & ) const;
             
             CylinderPlaneProjector_exposer.def( 
                 "getRotation"
@@ -71,8 +71,8 @@ void register_CylinderPlaneProjector_class(){
         }
         { //::osgManipulator::CylinderPlaneProjector::project
         
-            typedef bool ( ::osgManipulator::CylinderPlaneProjector::*project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
-            typedef bool ( CylinderPlaneProjector_wrapper::*default_project_function_type )( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( ::osgManipulator::CylinderPlaneProjector::*project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
+            typedef bool ( CylinderPlaneProjector_wrapper::*default_project_function_type)( ::osgManipulator::PointerInfo const &,::osg::Vec3d & ) const;
             
             CylinderPlaneProjector_exposer.def( 
                 "project"

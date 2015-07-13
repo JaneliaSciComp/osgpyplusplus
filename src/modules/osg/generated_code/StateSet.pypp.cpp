@@ -338,71 +338,71 @@ void register_StateSet_class(){
         bp::class_< StateSet_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
-                , (char const * ( ::osg::StateSet::Callback::* )(  ) const)(&::osg::StateSet::Callback::className)
-                , (char const * ( StateSet_wrapper::Callback_wrapper::* )(  ) const)(&StateSet_wrapper::Callback_wrapper::default_className) )    
+                , (char const * ( ::osg::StateSet::Callback::* )(  )const)(&::osg::StateSet::Callback::className)
+                , (char const * ( StateSet_wrapper::Callback_wrapper::* )(  )const)(&StateSet_wrapper::Callback_wrapper::default_className) )    
             .def( 
                 "clone"
-                , (::osg::Object * ( ::osg::StateSet::Callback::* )( ::osg::CopyOp const & ) const)(&::osg::StateSet::Callback::clone)
-                , (::osg::Object * ( StateSet_wrapper::Callback_wrapper::* )( ::osg::CopyOp const & ) const)(&StateSet_wrapper::Callback_wrapper::default_clone)
+                , (::osg::Object * ( ::osg::StateSet::Callback::* )( ::osg::CopyOp const & )const)(&::osg::StateSet::Callback::clone)
+                , (::osg::Object * ( StateSet_wrapper::Callback_wrapper::* )( ::osg::CopyOp const & )const)(&StateSet_wrapper::Callback_wrapper::default_clone)
                 , ( bp::arg("copyop") )
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "cloneType"
-                , (::osg::Object * ( ::osg::StateSet::Callback::* )(  ) const)(&::osg::StateSet::Callback::cloneType)
-                , (::osg::Object * ( StateSet_wrapper::Callback_wrapper::* )(  ) const)(&StateSet_wrapper::Callback_wrapper::default_cloneType)
+                , (::osg::Object * ( ::osg::StateSet::Callback::* )(  )const)(&::osg::StateSet::Callback::cloneType)
+                , (::osg::Object * ( StateSet_wrapper::Callback_wrapper::* )(  )const)(&StateSet_wrapper::Callback_wrapper::default_cloneType)
                 , bp::return_value_policy< bp::reference_existing_object >() )    
             .def( 
                 "isSameKindAs"
-                , (bool ( ::osg::StateSet::Callback::* )( ::osg::Object const * ) const)(&::osg::StateSet::Callback::isSameKindAs)
-                , (bool ( StateSet_wrapper::Callback_wrapper::* )( ::osg::Object const * ) const)(&StateSet_wrapper::Callback_wrapper::default_isSameKindAs)
+                , (bool ( ::osg::StateSet::Callback::* )( ::osg::Object const * )const)(&::osg::StateSet::Callback::isSameKindAs)
+                , (bool ( StateSet_wrapper::Callback_wrapper::* )( ::osg::Object const * )const)(&StateSet_wrapper::Callback_wrapper::default_isSameKindAs)
                 , ( bp::arg("obj") ) )    
             .def( 
                 "libraryName"
-                , (char const * ( ::osg::StateSet::Callback::* )(  ) const)(&::osg::StateSet::Callback::libraryName)
-                , (char const * ( StateSet_wrapper::Callback_wrapper::* )(  ) const)(&StateSet_wrapper::Callback_wrapper::default_libraryName) )    
+                , (char const * ( ::osg::StateSet::Callback::* )(  )const)(&::osg::StateSet::Callback::libraryName)
+                , (char const * ( StateSet_wrapper::Callback_wrapper::* )(  )const)(&StateSet_wrapper::Callback_wrapper::default_libraryName) )    
             .def( 
                 "computeDataVariance"
-                , (void ( ::osg::Object::* )(  ) )(&::osg::Object::computeDataVariance)
-                , (void ( StateSet_wrapper::Callback_wrapper::* )(  ) )(&StateSet_wrapper::Callback_wrapper::default_computeDataVariance) )    
+                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+                , (void ( StateSet_wrapper::Callback_wrapper::* )(  ))(&StateSet_wrapper::Callback_wrapper::default_computeDataVariance) )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced * ( ::osg::Object::* )(  ) )(&::osg::Object::getUserData)
-                , (::osg::Referenced * ( StateSet_wrapper::Callback_wrapper::* )(  ) )(&StateSet_wrapper::Callback_wrapper::default_getUserData)
+                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( StateSet_wrapper::Callback_wrapper::* )(  ))(&StateSet_wrapper::Callback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "getUserData"
-                , (::osg::Referenced const * ( ::osg::Object::* )(  ) const)(&::osg::Object::getUserData)
-                , (::osg::Referenced const * ( StateSet_wrapper::Callback_wrapper::* )(  ) const)(&StateSet_wrapper::Callback_wrapper::default_getUserData)
+                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( StateSet_wrapper::Callback_wrapper::* )(  )const)(&StateSet_wrapper::Callback_wrapper::default_getUserData)
                 , bp::return_internal_reference< >() )    
             .def( 
                 "resizeGLObjectBuffers"
-                , (void ( ::osg::Object::* )( unsigned int ) )(&::osg::Object::resizeGLObjectBuffers)
-                , (void ( StateSet_wrapper::Callback_wrapper::* )( unsigned int ) )(&StateSet_wrapper::Callback_wrapper::default_resizeGLObjectBuffers)
+                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( StateSet_wrapper::Callback_wrapper::* )( unsigned int ))(&StateSet_wrapper::Callback_wrapper::default_resizeGLObjectBuffers)
                 , ( bp::arg("arg0") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( ::std::string const & ) )(&::osg::Object::setName)
-                , (void ( StateSet_wrapper::Callback_wrapper::* )( ::std::string const & ) )(&StateSet_wrapper::Callback_wrapper::default_setName)
+                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+                , (void ( StateSet_wrapper::Callback_wrapper::* )( ::std::string const & ))(&StateSet_wrapper::Callback_wrapper::default_setName)
                 , ( bp::arg("name") ) )    
             .def( 
                 "setName"
-                , (void ( ::osg::Object::* )( char const * ) )( &::osg::Object::setName )
+                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
                 , ( bp::arg("name") )
                 , " Set the name of object using a C style string." )    
             .def( 
                 "setThreadSafeRefUnref"
-                , (void ( ::osg::Object::* )( bool ) )(&::osg::Object::setThreadSafeRefUnref)
-                , (void ( StateSet_wrapper::Callback_wrapper::* )( bool ) )(&StateSet_wrapper::Callback_wrapper::default_setThreadSafeRefUnref)
+                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( StateSet_wrapper::Callback_wrapper::* )( bool ))(&StateSet_wrapper::Callback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) )    
             .def( 
                 "setUserData"
-                , (void ( ::osg::Object::* )( ::osg::Referenced * ) )(&::osg::Object::setUserData)
-                , (void ( StateSet_wrapper::Callback_wrapper::* )( ::osg::Referenced * ) )(&StateSet_wrapper::Callback_wrapper::default_setUserData)
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+                , (void ( StateSet_wrapper::Callback_wrapper::* )( ::osg::Referenced * ))(&StateSet_wrapper::Callback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
         StateSet_exposer.def( bp::init< >("\n Stores a set of modes and attributes which represent a set of OpenGL state.\n  Notice that a  StateSet contains just a subset of the whole OpenGL state.\n <p>In OSG, each  Drawable and each  Node has a reference to a\n  StateSet. These <tt>StateSet</tt>s can be shared between\n different <tt>Drawable</tt>s and <tt>Node</tt>s (that is, several\n <tt>Drawable</tt>s and <tt>Node</tt>s can reference the same  StateSet).\n Indeed, this practice is recommended whenever possible,\n as this minimizes expensive state changes in the graphics pipeline.\n") );
         { //::osg::StateSet::addUniform
         
-            typedef void ( ::osg::StateSet::*addUniform_function_type )( ::osg::Uniform *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*addUniform_function_type)( ::osg::Uniform *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "addUniform"
@@ -413,7 +413,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::checkValidityOfAssociatedModes
         
-            typedef bool ( ::osg::StateSet::*checkValidityOfAssociatedModes_function_type )( ::osg::State & ) const;
+            typedef bool ( ::osg::StateSet::*checkValidityOfAssociatedModes_function_type)( ::osg::State & ) const;
             
             StateSet_exposer.def( 
                 "checkValidityOfAssociatedModes"
@@ -424,8 +424,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::className
         
-            typedef char const * ( ::osg::StateSet::*className_function_type )(  ) const;
-            typedef char const * ( StateSet_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osg::StateSet::*className_function_type)(  ) const;
+            typedef char const * ( StateSet_wrapper::*default_className_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "className"
@@ -435,7 +435,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::clear
         
-            typedef void ( ::osg::StateSet::*clear_function_type )(  ) ;
+            typedef void ( ::osg::StateSet::*clear_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "clear"
@@ -445,8 +445,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::clone
         
-            typedef ::osg::Object * ( ::osg::StateSet::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( StateSet_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osg::StateSet::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( StateSet_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             StateSet_exposer.def( 
                 "clone"
@@ -458,8 +458,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::cloneType
         
-            typedef ::osg::Object * ( ::osg::StateSet::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( StateSet_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osg::StateSet::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( StateSet_wrapper::*default_cloneType_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "cloneType"
@@ -470,7 +470,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::compileGLObjects
         
-            typedef void ( ::osg::StateSet::*compileGLObjects_function_type )( ::osg::State & ) const;
+            typedef void ( ::osg::StateSet::*compileGLObjects_function_type)( ::osg::State & ) const;
             
             StateSet_exposer.def( 
                 "compileGLObjects"
@@ -481,8 +481,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::computeDataVariance
         
-            typedef void ( ::osg::StateSet::*computeDataVariance_function_type )(  ) ;
-            typedef void ( StateSet_wrapper::*default_computeDataVariance_function_type )(  ) ;
+            typedef void ( ::osg::StateSet::*computeDataVariance_function_type)(  ) ;
+            typedef void ( StateSet_wrapper::*default_computeDataVariance_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "computeDataVariance"
@@ -492,7 +492,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getAttribute
         
-            typedef ::osg::StateAttribute * ( ::osg::StateSet::*getAttribute_function_type )( ::osg::StateAttribute::Type,unsigned int ) ;
+            typedef ::osg::StateAttribute * ( ::osg::StateSet::*getAttribute_function_type)( ::osg::StateAttribute::Type,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "getAttribute"
@@ -504,7 +504,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getAttribute
         
-            typedef ::osg::StateAttribute const * ( ::osg::StateSet::*getAttribute_function_type )( ::osg::StateAttribute::Type,unsigned int ) const;
+            typedef ::osg::StateAttribute const * ( ::osg::StateSet::*getAttribute_function_type)( ::osg::StateAttribute::Type,unsigned int ) const;
             
             StateSet_exposer.def( 
                 "getAttribute"
@@ -516,7 +516,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getAttributeList
         
-            typedef ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > & ( ::osg::StateSet::*getAttributeList_function_type )(  ) ;
+            typedef ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > & ( ::osg::StateSet::*getAttributeList_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getAttributeList"
@@ -527,7 +527,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getAttributeList
         
-            typedef ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > const & ( ::osg::StateSet::*getAttributeList_function_type )(  ) const;
+            typedef ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > const & ( ::osg::StateSet::*getAttributeList_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getAttributeList"
@@ -538,7 +538,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getAttributePair
         
-            typedef ::std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > const * ( ::osg::StateSet::*getAttributePair_function_type )( ::osg::StateAttribute::Type,unsigned int ) const;
+            typedef ::std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > const * ( ::osg::StateSet::*getAttributePair_function_type)( ::osg::StateAttribute::Type,unsigned int ) const;
             
             StateSet_exposer.def( 
                 "getAttributePair"
@@ -550,7 +550,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getBinName
         
-            typedef ::std::string const & ( ::osg::StateSet::*getBinName_function_type )(  ) const;
+            typedef ::std::string const & ( ::osg::StateSet::*getBinName_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getBinName"
@@ -561,7 +561,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getBinNumber
         
-            typedef int ( ::osg::StateSet::*getBinNumber_function_type )(  ) const;
+            typedef int ( ::osg::StateSet::*getBinNumber_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getBinNumber"
@@ -571,7 +571,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getEventCallback
         
-            typedef ::osg::StateSet::Callback * ( ::osg::StateSet::*getEventCallback_function_type )(  ) ;
+            typedef ::osg::StateSet::Callback * ( ::osg::StateSet::*getEventCallback_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getEventCallback"
@@ -582,7 +582,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getEventCallback
         
-            typedef ::osg::StateSet::Callback const * ( ::osg::StateSet::*getEventCallback_function_type )(  ) const;
+            typedef ::osg::StateSet::Callback const * ( ::osg::StateSet::*getEventCallback_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getEventCallback"
@@ -593,7 +593,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getMode
         
-            typedef unsigned int ( ::osg::StateSet::*getMode_function_type )( ::GLenum ) const;
+            typedef unsigned int ( ::osg::StateSet::*getMode_function_type)( ::GLenum ) const;
             
             StateSet_exposer.def( 
                 "getMode"
@@ -604,7 +604,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getModeList
         
-            typedef ::std::map< unsigned int, unsigned int > & ( ::osg::StateSet::*getModeList_function_type )(  ) ;
+            typedef ::std::map< unsigned int, unsigned int > & ( ::osg::StateSet::*getModeList_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getModeList"
@@ -615,7 +615,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getModeList
         
-            typedef ::std::map< unsigned int, unsigned int > const & ( ::osg::StateSet::*getModeList_function_type )(  ) const;
+            typedef ::std::map< unsigned int, unsigned int > const & ( ::osg::StateSet::*getModeList_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getModeList"
@@ -626,7 +626,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNestRenderBins
         
-            typedef bool ( ::osg::StateSet::*getNestRenderBins_function_type )(  ) const;
+            typedef bool ( ::osg::StateSet::*getNestRenderBins_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNestRenderBins"
@@ -636,7 +636,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNumChildrenRequiringEventTraversal
         
-            typedef unsigned int ( ::osg::StateSet::*getNumChildrenRequiringEventTraversal_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateSet::*getNumChildrenRequiringEventTraversal_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNumChildrenRequiringEventTraversal"
@@ -646,7 +646,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNumChildrenRequiringUpdateTraversal
         
-            typedef unsigned int ( ::osg::StateSet::*getNumChildrenRequiringUpdateTraversal_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateSet::*getNumChildrenRequiringUpdateTraversal_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNumChildrenRequiringUpdateTraversal"
@@ -656,7 +656,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNumParents
         
-            typedef unsigned int ( ::osg::StateSet::*getNumParents_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateSet::*getNumParents_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNumParents"
@@ -666,7 +666,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNumTextureAttributeLists
         
-            typedef unsigned int ( ::osg::StateSet::*getNumTextureAttributeLists_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateSet::*getNumTextureAttributeLists_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNumTextureAttributeLists"
@@ -676,7 +676,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getNumTextureModeLists
         
-            typedef unsigned int ( ::osg::StateSet::*getNumTextureModeLists_function_type )(  ) const;
+            typedef unsigned int ( ::osg::StateSet::*getNumTextureModeLists_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getNumTextureModeLists"
@@ -686,7 +686,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getOrCreateUniform
         
-            typedef ::osg::Uniform * ( ::osg::StateSet::*getOrCreateUniform_function_type )( ::std::string const &,::osg::Uniform::Type,unsigned int ) ;
+            typedef ::osg::Uniform * ( ::osg::StateSet::*getOrCreateUniform_function_type)( ::std::string const &,::osg::Uniform::Type,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "getOrCreateUniform"
@@ -698,7 +698,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getParent
         
-            typedef ::osg::Object * ( ::osg::StateSet::*getParent_function_type )( unsigned int ) ;
+            typedef ::osg::Object * ( ::osg::StateSet::*getParent_function_type)( unsigned int ) ;
             
             StateSet_exposer.def( 
                 "getParent"
@@ -709,7 +709,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getParent
         
-            typedef ::osg::Object const * ( ::osg::StateSet::*getParent_function_type )( unsigned int ) const;
+            typedef ::osg::Object const * ( ::osg::StateSet::*getParent_function_type)( unsigned int ) const;
             
             StateSet_exposer.def( 
                 "getParent"
@@ -721,7 +721,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getParents
         
-            typedef ::std::vector< osg::Object* > const & ( ::osg::StateSet::*getParents_function_type )(  ) const;
+            typedef ::std::vector< osg::Object* > const & ( ::osg::StateSet::*getParents_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getParents"
@@ -732,7 +732,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getParents
         
-            typedef ::std::vector< osg::Object* > ( ::osg::StateSet::*getParents_function_type )(  ) ;
+            typedef ::std::vector< osg::Object* > ( ::osg::StateSet::*getParents_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getParents"
@@ -742,7 +742,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getRenderBinMode
         
-            typedef ::osg::StateSet::RenderBinMode ( ::osg::StateSet::*getRenderBinMode_function_type )(  ) const;
+            typedef ::osg::StateSet::RenderBinMode ( ::osg::StateSet::*getRenderBinMode_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getRenderBinMode"
@@ -752,7 +752,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getRenderingHint
         
-            typedef int ( ::osg::StateSet::*getRenderingHint_function_type )(  ) const;
+            typedef int ( ::osg::StateSet::*getRenderingHint_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getRenderingHint"
@@ -762,7 +762,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureAttribute
         
-            typedef ::osg::StateAttribute * ( ::osg::StateSet::*getTextureAttribute_function_type )( unsigned int,::osg::StateAttribute::Type ) ;
+            typedef ::osg::StateAttribute * ( ::osg::StateSet::*getTextureAttribute_function_type)( unsigned int,::osg::StateAttribute::Type ) ;
             
             StateSet_exposer.def( 
                 "getTextureAttribute"
@@ -774,7 +774,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureAttribute
         
-            typedef ::osg::StateAttribute const * ( ::osg::StateSet::*getTextureAttribute_function_type )( unsigned int,::osg::StateAttribute::Type ) const;
+            typedef ::osg::StateAttribute const * ( ::osg::StateSet::*getTextureAttribute_function_type)( unsigned int,::osg::StateAttribute::Type ) const;
             
             StateSet_exposer.def( 
                 "getTextureAttribute"
@@ -786,7 +786,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureAttributeList
         
-            typedef ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > & ( ::osg::StateSet::*getTextureAttributeList_function_type )(  ) ;
+            typedef ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > & ( ::osg::StateSet::*getTextureAttributeList_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getTextureAttributeList"
@@ -797,7 +797,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureAttributeList
         
-            typedef ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > const & ( ::osg::StateSet::*getTextureAttributeList_function_type )(  ) const;
+            typedef ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > const & ( ::osg::StateSet::*getTextureAttributeList_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getTextureAttributeList"
@@ -808,7 +808,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureAttributePair
         
-            typedef ::std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > const * ( ::osg::StateSet::*getTextureAttributePair_function_type )( unsigned int,::osg::StateAttribute::Type ) const;
+            typedef ::std::pair< osg::ref_ptr< osg::StateAttribute >, unsigned int > const * ( ::osg::StateSet::*getTextureAttributePair_function_type)( unsigned int,::osg::StateAttribute::Type ) const;
             
             StateSet_exposer.def( 
                 "getTextureAttributePair"
@@ -820,7 +820,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureMode
         
-            typedef unsigned int ( ::osg::StateSet::*getTextureMode_function_type )( unsigned int,::GLenum ) const;
+            typedef unsigned int ( ::osg::StateSet::*getTextureMode_function_type)( unsigned int,::GLenum ) const;
             
             StateSet_exposer.def( 
                 "getTextureMode"
@@ -831,7 +831,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureModeList
         
-            typedef ::std::vector< std::map< unsigned int, unsigned int > > & ( ::osg::StateSet::*getTextureModeList_function_type )(  ) ;
+            typedef ::std::vector< std::map< unsigned int, unsigned int > > & ( ::osg::StateSet::*getTextureModeList_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getTextureModeList"
@@ -842,7 +842,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getTextureModeList
         
-            typedef ::std::vector< std::map< unsigned int, unsigned int > > const & ( ::osg::StateSet::*getTextureModeList_function_type )(  ) const;
+            typedef ::std::vector< std::map< unsigned int, unsigned int > > const & ( ::osg::StateSet::*getTextureModeList_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getTextureModeList"
@@ -853,7 +853,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUniform
         
-            typedef ::osg::Uniform * ( ::osg::StateSet::*getUniform_function_type )( ::std::string const & ) ;
+            typedef ::osg::Uniform * ( ::osg::StateSet::*getUniform_function_type)( ::std::string const & ) ;
             
             StateSet_exposer.def( 
                 "getUniform"
@@ -865,7 +865,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUniform
         
-            typedef ::osg::Uniform const * ( ::osg::StateSet::*getUniform_function_type )( ::std::string const & ) const;
+            typedef ::osg::Uniform const * ( ::osg::StateSet::*getUniform_function_type)( ::std::string const & ) const;
             
             StateSet_exposer.def( 
                 "getUniform"
@@ -877,7 +877,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUniformList
         
-            typedef ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > & ( ::osg::StateSet::*getUniformList_function_type )(  ) ;
+            typedef ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > & ( ::osg::StateSet::*getUniformList_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getUniformList"
@@ -888,7 +888,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUniformList
         
-            typedef ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > const & ( ::osg::StateSet::*getUniformList_function_type )(  ) const;
+            typedef ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > const & ( ::osg::StateSet::*getUniformList_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getUniformList"
@@ -899,7 +899,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUniformPair
         
-            typedef ::std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > const * ( ::osg::StateSet::*getUniformPair_function_type )( ::std::string const & ) const;
+            typedef ::std::pair< osg::ref_ptr< osg::Uniform >, unsigned int > const * ( ::osg::StateSet::*getUniformPair_function_type)( ::std::string const & ) const;
             
             StateSet_exposer.def( 
                 "getUniformPair"
@@ -911,7 +911,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUpdateCallback
         
-            typedef ::osg::StateSet::Callback * ( ::osg::StateSet::*getUpdateCallback_function_type )(  ) ;
+            typedef ::osg::StateSet::Callback * ( ::osg::StateSet::*getUpdateCallback_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getUpdateCallback"
@@ -922,7 +922,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::getUpdateCallback
         
-            typedef ::osg::StateSet::Callback const * ( ::osg::StateSet::*getUpdateCallback_function_type )(  ) const;
+            typedef ::osg::StateSet::Callback const * ( ::osg::StateSet::*getUpdateCallback_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getUpdateCallback"
@@ -933,8 +933,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::isSameKindAs
         
-            typedef bool ( ::osg::StateSet::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( StateSet_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osg::StateSet::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( StateSet_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             StateSet_exposer.def( 
                 "isSameKindAs"
@@ -945,8 +945,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::libraryName
         
-            typedef char const * ( ::osg::StateSet::*libraryName_function_type )(  ) const;
-            typedef char const * ( StateSet_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osg::StateSet::*libraryName_function_type)(  ) const;
+            typedef char const * ( StateSet_wrapper::*default_libraryName_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "libraryName"
@@ -956,7 +956,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeAssociatedModes
         
-            typedef void ( ::osg::StateSet::*removeAssociatedModes_function_type )( ::osg::StateAttribute const * ) ;
+            typedef void ( ::osg::StateSet::*removeAssociatedModes_function_type)( ::osg::StateAttribute const * ) ;
             
             StateSet_exposer.def( 
                 "removeAssociatedModes"
@@ -966,7 +966,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeAssociatedTextureModes
         
-            typedef void ( ::osg::StateSet::*removeAssociatedTextureModes_function_type )( unsigned int,::osg::StateAttribute const * ) ;
+            typedef void ( ::osg::StateSet::*removeAssociatedTextureModes_function_type)( unsigned int,::osg::StateAttribute const * ) ;
             
             StateSet_exposer.def( 
                 "removeAssociatedTextureModes"
@@ -976,7 +976,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeAttribute
         
-            typedef void ( ::osg::StateSet::*removeAttribute_function_type )( ::osg::StateAttribute::Type,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*removeAttribute_function_type)( ::osg::StateAttribute::Type,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "removeAttribute"
@@ -987,7 +987,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeAttribute
         
-            typedef void ( ::osg::StateSet::*removeAttribute_function_type )( ::osg::StateAttribute * ) ;
+            typedef void ( ::osg::StateSet::*removeAttribute_function_type)( ::osg::StateAttribute * ) ;
             
             StateSet_exposer.def( 
                 "removeAttribute"
@@ -998,7 +998,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeMode
         
-            typedef void ( ::osg::StateSet::*removeMode_function_type )( ::GLenum ) ;
+            typedef void ( ::osg::StateSet::*removeMode_function_type)( ::GLenum ) ;
             
             StateSet_exposer.def( 
                 "removeMode"
@@ -1009,7 +1009,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeTextureAttribute
         
-            typedef void ( ::osg::StateSet::*removeTextureAttribute_function_type )( unsigned int,::osg::StateAttribute::Type ) ;
+            typedef void ( ::osg::StateSet::*removeTextureAttribute_function_type)( unsigned int,::osg::StateAttribute::Type ) ;
             
             StateSet_exposer.def( 
                 "removeTextureAttribute"
@@ -1020,7 +1020,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeTextureAttribute
         
-            typedef void ( ::osg::StateSet::*removeTextureAttribute_function_type )( unsigned int,::osg::StateAttribute * ) ;
+            typedef void ( ::osg::StateSet::*removeTextureAttribute_function_type)( unsigned int,::osg::StateAttribute * ) ;
             
             StateSet_exposer.def( 
                 "removeTextureAttribute"
@@ -1031,7 +1031,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeTextureMode
         
-            typedef void ( ::osg::StateSet::*removeTextureMode_function_type )( unsigned int,::GLenum ) ;
+            typedef void ( ::osg::StateSet::*removeTextureMode_function_type)( unsigned int,::GLenum ) ;
             
             StateSet_exposer.def( 
                 "removeTextureMode"
@@ -1042,7 +1042,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeUniform
         
-            typedef void ( ::osg::StateSet::*removeUniform_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::StateSet::*removeUniform_function_type)( ::std::string const & ) ;
             
             StateSet_exposer.def( 
                 "removeUniform"
@@ -1053,7 +1053,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::removeUniform
         
-            typedef void ( ::osg::StateSet::*removeUniform_function_type )( ::osg::Uniform * ) ;
+            typedef void ( ::osg::StateSet::*removeUniform_function_type)( ::osg::Uniform * ) ;
             
             StateSet_exposer.def( 
                 "removeUniform"
@@ -1064,7 +1064,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::requiresEventTraversal
         
-            typedef bool ( ::osg::StateSet::*requiresEventTraversal_function_type )(  ) const;
+            typedef bool ( ::osg::StateSet::*requiresEventTraversal_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "requiresEventTraversal"
@@ -1074,7 +1074,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::requiresUpdateTraversal
         
-            typedef bool ( ::osg::StateSet::*requiresUpdateTraversal_function_type )(  ) const;
+            typedef bool ( ::osg::StateSet::*requiresUpdateTraversal_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "requiresUpdateTraversal"
@@ -1084,8 +1084,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::resizeGLObjectBuffers
         
-            typedef void ( ::osg::StateSet::*resizeGLObjectBuffers_function_type )( unsigned int ) ;
-            typedef void ( StateSet_wrapper::*default_resizeGLObjectBuffers_function_type )( unsigned int ) ;
+            typedef void ( ::osg::StateSet::*resizeGLObjectBuffers_function_type)( unsigned int ) ;
+            typedef void ( StateSet_wrapper::*default_resizeGLObjectBuffers_function_type)( unsigned int ) ;
             
             StateSet_exposer.def( 
                 "resizeGLObjectBuffers"
@@ -1096,7 +1096,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::runEventCallbacks
         
-            typedef void ( ::osg::StateSet::*runEventCallbacks_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::StateSet::*runEventCallbacks_function_type)( ::osg::NodeVisitor * ) ;
             
             StateSet_exposer.def( 
                 "runEventCallbacks"
@@ -1107,7 +1107,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::runUpdateCallbacks
         
-            typedef void ( ::osg::StateSet::*runUpdateCallbacks_function_type )( ::osg::NodeVisitor * ) ;
+            typedef void ( ::osg::StateSet::*runUpdateCallbacks_function_type)( ::osg::NodeVisitor * ) ;
             
             StateSet_exposer.def( 
                 "runUpdateCallbacks"
@@ -1118,7 +1118,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setAssociatedModes
         
-            typedef void ( ::osg::StateSet::*setAssociatedModes_function_type )( ::osg::StateAttribute const *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setAssociatedModes_function_type)( ::osg::StateAttribute const *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setAssociatedModes"
@@ -1128,7 +1128,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setAssociatedTextureModes
         
-            typedef void ( ::osg::StateSet::*setAssociatedTextureModes_function_type )( unsigned int,::osg::StateAttribute const *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setAssociatedTextureModes_function_type)( unsigned int,::osg::StateAttribute const *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setAssociatedTextureModes"
@@ -1138,7 +1138,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setAttribute
         
-            typedef void ( ::osg::StateSet::*setAttribute_function_type )( ::osg::StateAttribute *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setAttribute_function_type)( ::osg::StateAttribute *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setAttribute"
@@ -1149,7 +1149,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setAttributeAndModes
         
-            typedef void ( ::osg::StateSet::*setAttributeAndModes_function_type )( ::osg::StateAttribute *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setAttributeAndModes_function_type)( ::osg::StateAttribute *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setAttributeAndModes"
@@ -1160,7 +1160,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setAttributeList
         
-            typedef void ( ::osg::StateSet::*setAttributeList_function_type )( ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > & ) ;
+            typedef void ( ::osg::StateSet::*setAttributeList_function_type)( ::std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > & ) ;
             
             StateSet_exposer.def( 
                 "setAttributeList"
@@ -1171,7 +1171,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setBinName
         
-            typedef void ( ::osg::StateSet::*setBinName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::StateSet::*setBinName_function_type)( ::std::string const & ) ;
             
             StateSet_exposer.def( 
                 "setBinName"
@@ -1182,7 +1182,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setBinNumber
         
-            typedef void ( ::osg::StateSet::*setBinNumber_function_type )( int ) ;
+            typedef void ( ::osg::StateSet::*setBinNumber_function_type)( int ) ;
             
             StateSet_exposer.def( 
                 "setBinNumber"
@@ -1193,7 +1193,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setEventCallback
         
-            typedef void ( ::osg::StateSet::*setEventCallback_function_type )( ::osg::StateSet::Callback * ) ;
+            typedef void ( ::osg::StateSet::*setEventCallback_function_type)( ::osg::StateSet::Callback * ) ;
             
             StateSet_exposer.def( 
                 "setEventCallback"
@@ -1204,7 +1204,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setGlobalDefaults
         
-            typedef void ( ::osg::StateSet::*setGlobalDefaults_function_type )(  ) ;
+            typedef void ( ::osg::StateSet::*setGlobalDefaults_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "setGlobalDefaults"
@@ -1214,7 +1214,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setMode
         
-            typedef void ( ::osg::StateSet::*setMode_function_type )( ::GLenum,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setMode_function_type)( ::GLenum,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setMode"
@@ -1225,7 +1225,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setModeList
         
-            typedef void ( ::osg::StateSet::*setModeList_function_type )( ::std::map< unsigned int, unsigned int > & ) ;
+            typedef void ( ::osg::StateSet::*setModeList_function_type)( ::std::map< unsigned int, unsigned int > & ) ;
             
             StateSet_exposer.def( 
                 "setModeList"
@@ -1236,7 +1236,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setNestRenderBins
         
-            typedef void ( ::osg::StateSet::*setNestRenderBins_function_type )( bool ) ;
+            typedef void ( ::osg::StateSet::*setNestRenderBins_function_type)( bool ) ;
             
             StateSet_exposer.def( 
                 "setNestRenderBins"
@@ -1247,7 +1247,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setRenderBinDetails
         
-            typedef void ( ::osg::StateSet::*setRenderBinDetails_function_type )( int,::std::string const &,::osg::StateSet::RenderBinMode ) ;
+            typedef void ( ::osg::StateSet::*setRenderBinDetails_function_type)( int,::std::string const &,::osg::StateSet::RenderBinMode ) ;
             
             StateSet_exposer.def( 
                 "setRenderBinDetails"
@@ -1258,7 +1258,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setRenderBinMode
         
-            typedef void ( ::osg::StateSet::*setRenderBinMode_function_type )( ::osg::StateSet::RenderBinMode ) ;
+            typedef void ( ::osg::StateSet::*setRenderBinMode_function_type)( ::osg::StateSet::RenderBinMode ) ;
             
             StateSet_exposer.def( 
                 "setRenderBinMode"
@@ -1269,7 +1269,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setRenderBinToInherit
         
-            typedef void ( ::osg::StateSet::*setRenderBinToInherit_function_type )(  ) ;
+            typedef void ( ::osg::StateSet::*setRenderBinToInherit_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "setRenderBinToInherit"
@@ -1279,7 +1279,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setRenderingHint
         
-            typedef void ( ::osg::StateSet::*setRenderingHint_function_type )( int ) ;
+            typedef void ( ::osg::StateSet::*setRenderingHint_function_type)( int ) ;
             
             StateSet_exposer.def( 
                 "setRenderingHint"
@@ -1290,7 +1290,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setTextureAttribute
         
-            typedef void ( ::osg::StateSet::*setTextureAttribute_function_type )( unsigned int,::osg::StateAttribute *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setTextureAttribute_function_type)( unsigned int,::osg::StateAttribute *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setTextureAttribute"
@@ -1301,7 +1301,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setTextureAttributeAndModes
         
-            typedef void ( ::osg::StateSet::*setTextureAttributeAndModes_function_type )( unsigned int,::osg::StateAttribute *,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setTextureAttributeAndModes_function_type)( unsigned int,::osg::StateAttribute *,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setTextureAttributeAndModes"
@@ -1312,7 +1312,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setTextureAttributeList
         
-            typedef void ( ::osg::StateSet::*setTextureAttributeList_function_type )( ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > & ) ;
+            typedef void ( ::osg::StateSet::*setTextureAttributeList_function_type)( ::std::vector< std::map< std::pair<osg::StateAttribute::Type, unsigned int>, std::pair<osg::ref_ptr<osg::StateAttribute>, unsigned int> > > & ) ;
             
             StateSet_exposer.def( 
                 "setTextureAttributeList"
@@ -1323,7 +1323,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setTextureMode
         
-            typedef void ( ::osg::StateSet::*setTextureMode_function_type )( unsigned int,::GLenum,unsigned int ) ;
+            typedef void ( ::osg::StateSet::*setTextureMode_function_type)( unsigned int,::GLenum,unsigned int ) ;
             
             StateSet_exposer.def( 
                 "setTextureMode"
@@ -1334,7 +1334,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setTextureModeList
         
-            typedef void ( ::osg::StateSet::*setTextureModeList_function_type )( ::std::vector< std::map< unsigned int, unsigned int > > & ) ;
+            typedef void ( ::osg::StateSet::*setTextureModeList_function_type)( ::std::vector< std::map< unsigned int, unsigned int > > & ) ;
             
             StateSet_exposer.def( 
                 "setTextureModeList"
@@ -1345,8 +1345,8 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setThreadSafeRefUnref
         
-            typedef void ( ::osg::StateSet::*setThreadSafeRefUnref_function_type )( bool ) ;
-            typedef void ( StateSet_wrapper::*default_setThreadSafeRefUnref_function_type )( bool ) ;
+            typedef void ( ::osg::StateSet::*setThreadSafeRefUnref_function_type)( bool ) ;
+            typedef void ( StateSet_wrapper::*default_setThreadSafeRefUnref_function_type)( bool ) ;
             
             StateSet_exposer.def( 
                 "setThreadSafeRefUnref"
@@ -1357,7 +1357,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setUniformList
         
-            typedef void ( ::osg::StateSet::*setUniformList_function_type )( ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > & ) ;
+            typedef void ( ::osg::StateSet::*setUniformList_function_type)( ::std::map< std::string, std::pair<osg::ref_ptr<osg::Uniform>, unsigned int> > & ) ;
             
             StateSet_exposer.def( 
                 "setUniformList"
@@ -1368,7 +1368,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::setUpdateCallback
         
-            typedef void ( ::osg::StateSet::*setUpdateCallback_function_type )( ::osg::StateSet::Callback * ) ;
+            typedef void ( ::osg::StateSet::*setUpdateCallback_function_type)( ::osg::StateSet::Callback * ) ;
             
             StateSet_exposer.def( 
                 "setUpdateCallback"
@@ -1379,7 +1379,7 @@ void register_StateSet_class(){
         }
         { //::osg::StateSet::useRenderBinDetails
         
-            typedef bool ( ::osg::StateSet::*useRenderBinDetails_function_type )(  ) const;
+            typedef bool ( ::osg::StateSet::*useRenderBinDetails_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "useRenderBinDetails"
@@ -1389,8 +1389,8 @@ void register_StateSet_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type )(  ) ;
-            typedef ::osg::Referenced * ( StateSet_wrapper::*default_getUserData_function_type )(  ) ;
+            typedef ::osg::Referenced * ( ::osg::Object::*getUserData_function_type)(  ) ;
+            typedef ::osg::Referenced * ( StateSet_wrapper::*default_getUserData_function_type)(  ) ;
             
             StateSet_exposer.def( 
                 "getUserData"
@@ -1401,8 +1401,8 @@ void register_StateSet_class(){
         }
         { //::osg::Object::getUserData
         
-            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type )(  ) const;
-            typedef ::osg::Referenced const * ( StateSet_wrapper::*default_getUserData_function_type )(  ) const;
+            typedef ::osg::Referenced const * ( ::osg::Object::*getUserData_function_type)(  ) const;
+            typedef ::osg::Referenced const * ( StateSet_wrapper::*default_getUserData_function_type)(  ) const;
             
             StateSet_exposer.def( 
                 "getUserData"
@@ -1413,8 +1413,8 @@ void register_StateSet_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( ::std::string const & ) ;
-            typedef void ( StateSet_wrapper::*default_setName_function_type )( ::std::string const & ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( ::std::string const & ) ;
+            typedef void ( StateSet_wrapper::*default_setName_function_type)( ::std::string const & ) ;
             
             StateSet_exposer.def( 
                 "setName"
@@ -1425,7 +1425,7 @@ void register_StateSet_class(){
         }
         { //::osg::Object::setName
         
-            typedef void ( ::osg::Object::*setName_function_type )( char const * ) ;
+            typedef void ( ::osg::Object::*setName_function_type)( char const * ) ;
             
             StateSet_exposer.def( 
                 "setName"
@@ -1436,8 +1436,8 @@ void register_StateSet_class(){
         }
         { //::osg::Object::setUserData
         
-            typedef void ( ::osg::Object::*setUserData_function_type )( ::osg::Referenced * ) ;
-            typedef void ( StateSet_wrapper::*default_setUserData_function_type )( ::osg::Referenced * ) ;
+            typedef void ( ::osg::Object::*setUserData_function_type)( ::osg::Referenced * ) ;
+            typedef void ( StateSet_wrapper::*default_setUserData_function_type)( ::osg::Referenced * ) ;
             
             StateSet_exposer.def( 
                 "setUserData"

@@ -393,7 +393,7 @@ void register_BrowserImage_class(){
     bp::class_< BrowserImage_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< ::osgWidget::BrowserImage >, boost::noncopyable >( "BrowserImage", "\n Pure virtual base class that provides the browser interface for integration with 3rd party implementations.\n Implementations of BrowserImage are provided via the gecko plugin.\n", bp::no_init )    
         .def( 
             "navigateTo"
-            , bp::pure_virtual( (void ( ::osgWidget::BrowserImage::* )( ::std::string const & ) )(&::osgWidget::BrowserImage::navigateTo) )
+            , bp::pure_virtual( (void ( ::osgWidget::BrowserImage::* )( ::std::string const & ))(&::osgWidget::BrowserImage::navigateTo) )
             , ( bp::arg("url") )
             , "\n Pure virtual base class that provides the browser interface for integration with 3rd party implementations.\n Implementations of BrowserImage are provided via the gecko plugin.\n" );
 

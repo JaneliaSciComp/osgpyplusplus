@@ -643,8 +643,8 @@ void register_TrackballDragger_class(){
         bp::implicitly_convertible< bool, osgManipulator::TrackballDragger >();
         { //::osgManipulator::TrackballDragger::className
         
-            typedef char const * ( ::osgManipulator::TrackballDragger::*className_function_type )(  ) const;
-            typedef char const * ( TrackballDragger_wrapper::*default_className_function_type )(  ) const;
+            typedef char const * ( ::osgManipulator::TrackballDragger::*className_function_type)(  ) const;
+            typedef char const * ( TrackballDragger_wrapper::*default_className_function_type)(  ) const;
             
             TrackballDragger_exposer.def( 
                 "className"
@@ -654,8 +654,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::TrackballDragger::cloneType
         
-            typedef ::osg::Object * ( ::osgManipulator::TrackballDragger::*cloneType_function_type )(  ) const;
-            typedef ::osg::Object * ( TrackballDragger_wrapper::*default_cloneType_function_type )(  ) const;
+            typedef ::osg::Object * ( ::osgManipulator::TrackballDragger::*cloneType_function_type)(  ) const;
+            typedef ::osg::Object * ( TrackballDragger_wrapper::*default_cloneType_function_type)(  ) const;
             
             TrackballDragger_exposer.def( 
                 "cloneType"
@@ -666,8 +666,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::TrackballDragger::isSameKindAs
         
-            typedef bool ( ::osgManipulator::TrackballDragger::*isSameKindAs_function_type )( ::osg::Object const * ) const;
-            typedef bool ( TrackballDragger_wrapper::*default_isSameKindAs_function_type )( ::osg::Object const * ) const;
+            typedef bool ( ::osgManipulator::TrackballDragger::*isSameKindAs_function_type)( ::osg::Object const * ) const;
+            typedef bool ( TrackballDragger_wrapper::*default_isSameKindAs_function_type)( ::osg::Object const * ) const;
             
             TrackballDragger_exposer.def( 
                 "isSameKindAs"
@@ -678,8 +678,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::TrackballDragger::libraryName
         
-            typedef char const * ( ::osgManipulator::TrackballDragger::*libraryName_function_type )(  ) const;
-            typedef char const * ( TrackballDragger_wrapper::*default_libraryName_function_type )(  ) const;
+            typedef char const * ( ::osgManipulator::TrackballDragger::*libraryName_function_type)(  ) const;
+            typedef char const * ( TrackballDragger_wrapper::*default_libraryName_function_type)(  ) const;
             
             TrackballDragger_exposer.def( 
                 "libraryName"
@@ -689,8 +689,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::TrackballDragger::setupDefaultGeometry
         
-            typedef void ( ::osgManipulator::TrackballDragger::*setupDefaultGeometry_function_type )(  ) ;
-            typedef void ( TrackballDragger_wrapper::*default_setupDefaultGeometry_function_type )(  ) ;
+            typedef void ( ::osgManipulator::TrackballDragger::*setupDefaultGeometry_function_type)(  ) ;
+            typedef void ( TrackballDragger_wrapper::*default_setupDefaultGeometry_function_type)(  ) ;
             
             TrackballDragger_exposer.def( 
                 "setupDefaultGeometry"
@@ -700,8 +700,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::accept
         
-            typedef void ( ::osgManipulator::CompositeDragger::*accept_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( TrackballDragger_wrapper::*default_accept_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*accept_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( TrackballDragger_wrapper::*default_accept_function_type)( ::osg::NodeVisitor & ) ;
             
             TrackballDragger_exposer.def( 
                 "accept"
@@ -712,8 +712,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::addDragger
         
-            typedef bool ( ::osgManipulator::CompositeDragger::*addDragger_function_type )( ::osgManipulator::Dragger * ) ;
-            typedef bool ( TrackballDragger_wrapper::*default_addDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef bool ( ::osgManipulator::CompositeDragger::*addDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef bool ( TrackballDragger_wrapper::*default_addDragger_function_type)( ::osgManipulator::Dragger * ) ;
             
             TrackballDragger_exposer.def( 
                 "addDragger"
@@ -724,8 +724,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::clone
         
-            typedef ::osg::Object * ( ::osgManipulator::CompositeDragger::*clone_function_type )( ::osg::CopyOp const & ) const;
-            typedef ::osg::Object * ( TrackballDragger_wrapper::*default_clone_function_type )( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( ::osgManipulator::CompositeDragger::*clone_function_type)( ::osg::CopyOp const & ) const;
+            typedef ::osg::Object * ( TrackballDragger_wrapper::*default_clone_function_type)( ::osg::CopyOp const & ) const;
             
             TrackballDragger_exposer.def( 
                 "clone"
@@ -747,8 +747,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::*getComposite_function_type )(  ) const;
-            typedef ::osgManipulator::CompositeDragger const * ( TrackballDragger_wrapper::*default_getComposite_function_type )(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( ::osgManipulator::CompositeDragger::*getComposite_function_type)(  ) const;
+            typedef ::osgManipulator::CompositeDragger const * ( TrackballDragger_wrapper::*default_getComposite_function_type)(  ) const;
             
             TrackballDragger_exposer.def( 
                 "getComposite"
@@ -759,8 +759,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::getComposite
         
-            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::*getComposite_function_type )(  ) ;
-            typedef ::osgManipulator::CompositeDragger * ( TrackballDragger_wrapper::*default_getComposite_function_type )(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( ::osgManipulator::CompositeDragger::*getComposite_function_type)(  ) ;
+            typedef ::osgManipulator::CompositeDragger * ( TrackballDragger_wrapper::*default_getComposite_function_type)(  ) ;
             
             TrackballDragger_exposer.def( 
                 "getComposite"
@@ -802,8 +802,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::removeDragger
         
-            typedef bool ( ::osgManipulator::CompositeDragger::*removeDragger_function_type )( ::osgManipulator::Dragger * ) ;
-            typedef bool ( TrackballDragger_wrapper::*default_removeDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef bool ( ::osgManipulator::CompositeDragger::*removeDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef bool ( TrackballDragger_wrapper::*default_removeDragger_function_type)( ::osgManipulator::Dragger * ) ;
             
             TrackballDragger_exposer.def( 
                 "removeDragger"
@@ -814,8 +814,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::setIntersectionMask
         
-            typedef void ( ::osgManipulator::CompositeDragger::*setIntersectionMask_function_type )( unsigned int ) ;
-            typedef void ( TrackballDragger_wrapper::*default_setIntersectionMask_function_type )( unsigned int ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*setIntersectionMask_function_type)( unsigned int ) ;
+            typedef void ( TrackballDragger_wrapper::*default_setIntersectionMask_function_type)( unsigned int ) ;
             
             TrackballDragger_exposer.def( 
                 "setIntersectionMask"
@@ -826,8 +826,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::CompositeDragger::setParentDragger
         
-            typedef void ( ::osgManipulator::CompositeDragger::*setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
-            typedef void ( TrackballDragger_wrapper::*default_setParentDragger_function_type )( ::osgManipulator::Dragger * ) ;
+            typedef void ( ::osgManipulator::CompositeDragger::*setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
+            typedef void ( TrackballDragger_wrapper::*default_setParentDragger_function_type)( ::osgManipulator::Dragger * ) ;
             
             TrackballDragger_exposer.def( 
                 "setParentDragger"
@@ -838,8 +838,8 @@ void register_TrackballDragger_class(){
         }
         { //::osgManipulator::Dragger::traverse
         
-            typedef void ( ::osgManipulator::Dragger::*traverse_function_type )( ::osg::NodeVisitor & ) ;
-            typedef void ( TrackballDragger_wrapper::*default_traverse_function_type )( ::osg::NodeVisitor & ) ;
+            typedef void ( ::osgManipulator::Dragger::*traverse_function_type)( ::osg::NodeVisitor & ) ;
+            typedef void ( TrackballDragger_wrapper::*default_traverse_function_type)( ::osg::NodeVisitor & ) ;
             
             TrackballDragger_exposer.def( 
                 "traverse"

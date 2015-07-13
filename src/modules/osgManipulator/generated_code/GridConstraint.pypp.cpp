@@ -120,54 +120,54 @@ void register_GridConstraint_class(){
         .def( bp::init< osg::Node &, osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("refNode"), bp::arg("origin"), bp::arg("spacing") ), "\n Constraint to snap motion commands to a sugar cube grid.\n") )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::TranslateInLineCommand & ) const)(&::osgManipulator::GridConstraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::TranslateInLineCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::TranslateInLineCommand & )const)(&::osgManipulator::GridConstraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::TranslateInLineCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::TranslateInPlaneCommand & ) const)(&::osgManipulator::GridConstraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::TranslateInPlaneCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::TranslateInPlaneCommand & )const)(&::osgManipulator::GridConstraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::TranslateInPlaneCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::Scale1DCommand & ) const)(&::osgManipulator::GridConstraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Scale1DCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::Scale1DCommand & )const)(&::osgManipulator::GridConstraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Scale1DCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::Scale2DCommand & ) const)(&::osgManipulator::GridConstraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Scale2DCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::Scale2DCommand & )const)(&::osgManipulator::GridConstraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Scale2DCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::ScaleUniformCommand & ) const)(&::osgManipulator::GridConstraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::ScaleUniformCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::GridConstraint::* )( ::osgManipulator::ScaleUniformCommand & )const)(&::osgManipulator::GridConstraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::ScaleUniformCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) )    
         .def( 
             "getOrigin"
-            , (::osg::Vec3d const & ( ::osgManipulator::GridConstraint::* )(  ) const)( &::osgManipulator::GridConstraint::getOrigin )
+            , (::osg::Vec3d const & ( ::osgManipulator::GridConstraint::* )(  )const)( &::osgManipulator::GridConstraint::getOrigin )
             , bp::return_internal_reference< >() )    
         .def( 
             "getSpacing"
-            , (::osg::Vec3d const & ( ::osgManipulator::GridConstraint::* )(  ) const)( &::osgManipulator::GridConstraint::getSpacing )
+            , (::osg::Vec3d const & ( ::osgManipulator::GridConstraint::* )(  )const)( &::osgManipulator::GridConstraint::getSpacing )
             , bp::return_internal_reference< >() )    
         .def( 
             "setOrigin"
-            , (void ( ::osgManipulator::GridConstraint::* )( ::osg::Vec3d const & ) )( &::osgManipulator::GridConstraint::setOrigin )
+            , (void ( ::osgManipulator::GridConstraint::* )( ::osg::Vec3d const & ))( &::osgManipulator::GridConstraint::setOrigin )
             , ( bp::arg("origin") ) )    
         .def( 
             "setSpacing"
-            , (void ( ::osgManipulator::GridConstraint::* )( ::osg::Vec3d const & ) )( &::osgManipulator::GridConstraint::setSpacing )
+            , (void ( ::osgManipulator::GridConstraint::* )( ::osg::Vec3d const & ))( &::osgManipulator::GridConstraint::setSpacing )
             , ( bp::arg("spacing") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::MotionCommand & ) const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::MotionCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::MotionCommand & )const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::MotionCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("arg0") ) )    
         .def( 
             "constrain"
-            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Rotate3DCommand & ) const)(&::osgManipulator::Constraint::constrain)
-            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Rotate3DCommand & ) const)(&GridConstraint_wrapper::default_constrain)
+            , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::Rotate3DCommand & )const)(&::osgManipulator::Constraint::constrain)
+            , (bool ( GridConstraint_wrapper::* )( ::osgManipulator::Rotate3DCommand & )const)(&GridConstraint_wrapper::default_constrain)
             , ( bp::arg("command") ) );
 
 }

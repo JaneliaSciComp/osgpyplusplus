@@ -138,8 +138,8 @@ void register_PlaneIntersector_class(){
         PlaneIntersector_exposer.def( bp::init< osgUtil::Intersector::CoordinateFrame, osg::Plane const &, bp::optional< osg::Polytope const & > >(( bp::arg("cf"), bp::arg("plane"), bp::arg("boundingPolytope")=osg::Polytope() )) );
         { //::osgUtil::PlaneIntersector::clone
         
-            typedef ::osgUtil::Intersector * ( ::osgUtil::PlaneIntersector::*clone_function_type )( ::osgUtil::IntersectionVisitor & ) ;
-            typedef ::osgUtil::Intersector * ( PlaneIntersector_wrapper::*default_clone_function_type )( ::osgUtil::IntersectionVisitor & ) ;
+            typedef ::osgUtil::Intersector * ( ::osgUtil::PlaneIntersector::*clone_function_type)( ::osgUtil::IntersectionVisitor & ) ;
+            typedef ::osgUtil::Intersector * ( PlaneIntersector_wrapper::*default_clone_function_type)( ::osgUtil::IntersectionVisitor & ) ;
             
             PlaneIntersector_exposer.def( 
                 "clone"
@@ -151,8 +151,8 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::containsIntersections
         
-            typedef bool ( ::osgUtil::PlaneIntersector::*containsIntersections_function_type )(  ) ;
-            typedef bool ( PlaneIntersector_wrapper::*default_containsIntersections_function_type )(  ) ;
+            typedef bool ( ::osgUtil::PlaneIntersector::*containsIntersections_function_type)(  ) ;
+            typedef bool ( PlaneIntersector_wrapper::*default_containsIntersections_function_type)(  ) ;
             
             PlaneIntersector_exposer.def( 
                 "containsIntersections"
@@ -172,7 +172,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::getEllipsoidModel
         
-            typedef ::osg::EllipsoidModel const * ( ::osgUtil::PlaneIntersector::*getEllipsoidModel_function_type )(  ) const;
+            typedef ::osg::EllipsoidModel const * ( ::osgUtil::PlaneIntersector::*getEllipsoidModel_function_type)(  ) const;
             
             PlaneIntersector_exposer.def( 
                 "getEllipsoidModel"
@@ -182,7 +182,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::getIntersections
         
-            typedef ::std::vector< osgUtil::PlaneIntersector::Intersection > & ( ::osgUtil::PlaneIntersector::*getIntersections_function_type )(  ) ;
+            typedef ::std::vector< osgUtil::PlaneIntersector::Intersection > & ( ::osgUtil::PlaneIntersector::*getIntersections_function_type)(  ) ;
             
             PlaneIntersector_exposer.def( 
                 "getIntersections"
@@ -192,7 +192,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::getRecordHeightsAsAttributes
         
-            typedef bool ( ::osgUtil::PlaneIntersector::*getRecordHeightsAsAttributes_function_type )(  ) const;
+            typedef bool ( ::osgUtil::PlaneIntersector::*getRecordHeightsAsAttributes_function_type)(  ) const;
             
             PlaneIntersector_exposer.def( 
                 "getRecordHeightsAsAttributes"
@@ -201,7 +201,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::insertIntersection
         
-            typedef void ( ::osgUtil::PlaneIntersector::*insertIntersection_function_type )( ::osgUtil::PlaneIntersector::Intersection const & ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*insertIntersection_function_type)( ::osgUtil::PlaneIntersector::Intersection const & ) ;
             
             PlaneIntersector_exposer.def( 
                 "insertIntersection"
@@ -211,8 +211,8 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::intersect
         
-            typedef void ( ::osgUtil::PlaneIntersector::*intersect_function_type )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
-            typedef void ( PlaneIntersector_wrapper::*default_intersect_function_type )( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*intersect_function_type)( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
+            typedef void ( PlaneIntersector_wrapper::*default_intersect_function_type)( ::osgUtil::IntersectionVisitor &,::osg::Drawable * ) ;
             
             PlaneIntersector_exposer.def( 
                 "intersect"
@@ -223,8 +223,8 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::leave
         
-            typedef void ( ::osgUtil::PlaneIntersector::*leave_function_type )(  ) ;
-            typedef void ( PlaneIntersector_wrapper::*default_leave_function_type )(  ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*leave_function_type)(  ) ;
+            typedef void ( PlaneIntersector_wrapper::*default_leave_function_type)(  ) ;
             
             PlaneIntersector_exposer.def( 
                 "leave"
@@ -234,8 +234,8 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::reset
         
-            typedef void ( ::osgUtil::PlaneIntersector::*reset_function_type )(  ) ;
-            typedef void ( PlaneIntersector_wrapper::*default_reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*reset_function_type)(  ) ;
+            typedef void ( PlaneIntersector_wrapper::*default_reset_function_type)(  ) ;
             
             PlaneIntersector_exposer.def( 
                 "reset"
@@ -245,7 +245,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::setEllipsoidModel
         
-            typedef void ( ::osgUtil::PlaneIntersector::*setEllipsoidModel_function_type )( ::osg::EllipsoidModel * ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*setEllipsoidModel_function_type)( ::osg::EllipsoidModel * ) ;
             
             PlaneIntersector_exposer.def( 
                 "setEllipsoidModel"
@@ -255,7 +255,7 @@ void register_PlaneIntersector_class(){
         }
         { //::osgUtil::PlaneIntersector::setRecordHeightsAsAttributes
         
-            typedef void ( ::osgUtil::PlaneIntersector::*setRecordHeightsAsAttributes_function_type )( bool ) ;
+            typedef void ( ::osgUtil::PlaneIntersector::*setRecordHeightsAsAttributes_function_type)( bool ) ;
             
             PlaneIntersector_exposer.def( 
                 "setRecordHeightsAsAttributes"

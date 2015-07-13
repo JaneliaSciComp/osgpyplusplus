@@ -70,21 +70,21 @@ void register_Condition_class(){
     bp::class_< Condition_wrapper, boost::noncopyable >( "Condition", "\n  Class: Condition\n   This class provides an object-oriented thread condition interface.\n", bp::init< >("\n  Constructor\n") )    
         .def( 
             "broadcast"
-            , (int ( ::OpenThreads::Condition::* )(  ) )(&::OpenThreads::Condition::broadcast)
-            , (int ( Condition_wrapper::* )(  ) )(&Condition_wrapper::default_broadcast) )    
+            , (int ( ::OpenThreads::Condition::* )(  ))(&::OpenThreads::Condition::broadcast)
+            , (int ( Condition_wrapper::* )(  ))(&Condition_wrapper::default_broadcast) )    
         .def( 
             "signal"
-            , (int ( ::OpenThreads::Condition::* )(  ) )(&::OpenThreads::Condition::signal)
-            , (int ( Condition_wrapper::* )(  ) )(&Condition_wrapper::default_signal) )    
+            , (int ( ::OpenThreads::Condition::* )(  ))(&::OpenThreads::Condition::signal)
+            , (int ( Condition_wrapper::* )(  ))(&Condition_wrapper::default_signal) )    
         .def( 
             "wait"
-            , (int ( ::OpenThreads::Condition::* )( ::OpenThreads::Mutex * ) )(&::OpenThreads::Condition::wait)
-            , (int ( Condition_wrapper::* )( ::OpenThreads::Mutex * ) )(&Condition_wrapper::default_wait)
+            , (int ( ::OpenThreads::Condition::* )( ::OpenThreads::Mutex * ))(&::OpenThreads::Condition::wait)
+            , (int ( Condition_wrapper::* )( ::OpenThreads::Mutex * ))(&Condition_wrapper::default_wait)
             , ( bp::arg("mutex") ) )    
         .def( 
             "wait"
-            , (int ( ::OpenThreads::Condition::* )( ::OpenThreads::Mutex *,long unsigned int ) )(&::OpenThreads::Condition::wait)
-            , (int ( Condition_wrapper::* )( ::OpenThreads::Mutex *,long unsigned int ) )(&Condition_wrapper::default_wait)
+            , (int ( ::OpenThreads::Condition::* )( ::OpenThreads::Mutex *,long unsigned int ))(&::OpenThreads::Condition::wait)
+            , (int ( Condition_wrapper::* )( ::OpenThreads::Mutex *,long unsigned int ))(&Condition_wrapper::default_wait)
             , ( bp::arg("mutex"), bp::arg("ms") ) );
 
 }

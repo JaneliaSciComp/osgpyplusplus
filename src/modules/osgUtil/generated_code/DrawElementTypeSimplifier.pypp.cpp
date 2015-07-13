@@ -11,7 +11,7 @@ void register_DrawElementTypeSimplifier_class(){
     bp::class_< osgUtil::DrawElementTypeSimplifier >( "DrawElementTypeSimplifier" )    
         .def( 
             "simplify"
-            , (void ( ::osgUtil::DrawElementTypeSimplifier::* )( ::osg::Geometry & ) const)( &::osgUtil::DrawElementTypeSimplifier::simplify )
+            , (void ( ::osgUtil::DrawElementTypeSimplifier::* )( ::osg::Geometry & )const)( &::osgUtil::DrawElementTypeSimplifier::simplify )
             , ( bp::arg("geometry") ) );
 
 }

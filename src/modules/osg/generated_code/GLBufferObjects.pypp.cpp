@@ -17,7 +17,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::clear
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef void ( exported_class_t::*clear_function_type )(  ) ;
+            typedef void ( exported_class_t::*clear_function_type)(  ) ;
             
             GLBufferObjects_exposer.def( 
                 "clear"
@@ -27,7 +27,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::empty
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef bool ( exported_class_t::*empty_function_type )(  ) const;
+            typedef bool ( exported_class_t::*empty_function_type)(  ) const;
             
             GLBufferObjects_exposer.def( 
                 "empty"
@@ -37,7 +37,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::operator=
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef ::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > & ( exported_class_t::*assign_function_type )( ::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > const & ) ;
+            typedef ::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > & ( exported_class_t::*assign_function_type)( ::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > const & ) ;
             
             GLBufferObjects_exposer.def( 
                 "assign"
@@ -49,7 +49,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::operator[]
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::GLBufferObject > & ( exported_class_t::*__getitem___function_type )( unsigned int ) ;
+            typedef ::osg::ref_ptr< osg::GLBufferObject > & ( exported_class_t::*__getitem___function_type)( unsigned int ) ;
             
             GLBufferObjects_exposer.def( 
                 "__getitem__"
@@ -61,7 +61,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::operator[]
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef ::osg::ref_ptr< osg::GLBufferObject > const & ( exported_class_t::*__getitem___function_type )( unsigned int ) const;
+            typedef ::osg::ref_ptr< osg::GLBufferObject > const & ( exported_class_t::*__getitem___function_type)( unsigned int ) const;
             
             GLBufferObjects_exposer.def( 
                 "__getitem__"
@@ -73,7 +73,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::resize
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef void ( exported_class_t::*resize_function_type )( unsigned int ) ;
+            typedef void ( exported_class_t::*resize_function_type)( unsigned int ) ;
             
             GLBufferObjects_exposer.def( 
                 "resize"
@@ -84,7 +84,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::setAllElementsTo
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef void ( exported_class_t::*setAllElementsTo_function_type )( ::osg::ref_ptr< osg::GLBufferObject > const & ) ;
+            typedef void ( exported_class_t::*setAllElementsTo_function_type)( ::osg::ref_ptr< osg::GLBufferObject > const & ) ;
             
             GLBufferObjects_exposer.def( 
                 "setAllElementsTo"
@@ -95,7 +95,7 @@ void register_GLBufferObjects_class(){
         { //::osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > >::size
         
             typedef osg::buffered_object< osg::ref_ptr< osg::GLBufferObject > > exported_class_t;
-            typedef unsigned int ( exported_class_t::*size_function_type )(  ) const;
+            typedef unsigned int ( exported_class_t::*size_function_type)(  ) const;
             
             GLBufferObjects_exposer.def( 
                 "size"

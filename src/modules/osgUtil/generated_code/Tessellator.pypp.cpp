@@ -95,7 +95,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::addVertex
         
-            typedef void ( ::osgUtil::Tessellator::*addVertex_function_type )( ::osg::Vec3 * ) ;
+            typedef void ( ::osgUtil::Tessellator::*addVertex_function_type)( ::osg::Vec3 * ) ;
             
             Tessellator_exposer.def( 
                 "addVertex"
@@ -105,7 +105,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::beginContour
         
-            typedef void ( ::osgUtil::Tessellator::*beginContour_function_type )(  ) ;
+            typedef void ( ::osgUtil::Tessellator::*beginContour_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "beginContour"
@@ -114,8 +114,8 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::beginTessellation
         
-            typedef void ( ::osgUtil::Tessellator::*beginTessellation_function_type )(  ) ;
-            typedef void ( Tessellator_wrapper::*default_beginTessellation_function_type )(  ) ;
+            typedef void ( ::osgUtil::Tessellator::*beginTessellation_function_type)(  ) ;
+            typedef void ( Tessellator_wrapper::*default_beginTessellation_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "beginTessellation"
@@ -125,7 +125,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::endContour
         
-            typedef void ( ::osgUtil::Tessellator::*endContour_function_type )(  ) ;
+            typedef void ( ::osgUtil::Tessellator::*endContour_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "endContour"
@@ -134,7 +134,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::endTessellation
         
-            typedef void ( ::osgUtil::Tessellator::*endTessellation_function_type )(  ) ;
+            typedef void ( ::osgUtil::Tessellator::*endTessellation_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "endTessellation"
@@ -143,7 +143,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::getBoundaryOnly
         
-            typedef bool ( ::osgUtil::Tessellator::*getBoundaryOnly_function_type )(  ) ;
+            typedef bool ( ::osgUtil::Tessellator::*getBoundaryOnly_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "getBoundaryOnly"
@@ -152,7 +152,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::getContours
         
-            typedef ::std::vector< osg::ref_ptr<osg::PrimitiveSet> > ( ::osgUtil::Tessellator::*getContours_function_type )(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osg::PrimitiveSet> > ( ::osgUtil::Tessellator::*getContours_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "getContours"
@@ -161,7 +161,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::getPrimList
         
-            typedef ::std::vector< osg::ref_ptr<osgUtil::Tessellator::Prim> > & ( ::osgUtil::Tessellator::*getPrimList_function_type )(  ) ;
+            typedef ::std::vector< osg::ref_ptr<osgUtil::Tessellator::Prim> > & ( ::osgUtil::Tessellator::*getPrimList_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "getPrimList"
@@ -171,7 +171,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::getTessellationType
         
-            typedef ::osgUtil::Tessellator::TessellationType ( ::osgUtil::Tessellator::*getTessellationType_function_type )(  ) ;
+            typedef ::osgUtil::Tessellator::TessellationType ( ::osgUtil::Tessellator::*getTessellationType_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "getTessellationType"
@@ -180,7 +180,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::getWindingType
         
-            typedef ::osgUtil::Tessellator::WindingType ( ::osgUtil::Tessellator::*getWindingType_function_type )(  ) ;
+            typedef ::osgUtil::Tessellator::WindingType ( ::osgUtil::Tessellator::*getWindingType_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "getWindingType"
@@ -189,7 +189,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::reset
         
-            typedef void ( ::osgUtil::Tessellator::*reset_function_type )(  ) ;
+            typedef void ( ::osgUtil::Tessellator::*reset_function_type)(  ) ;
             
             Tessellator_exposer.def( 
                 "reset"
@@ -198,7 +198,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::retessellatePolygons
         
-            typedef void ( ::osgUtil::Tessellator::*retessellatePolygons_function_type )( ::osg::Geometry & ) ;
+            typedef void ( ::osgUtil::Tessellator::*retessellatePolygons_function_type)( ::osg::Geometry & ) ;
             
             Tessellator_exposer.def( 
                 "retessellatePolygons"
@@ -208,7 +208,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::setBoundaryOnly
         
-            typedef void ( ::osgUtil::Tessellator::*setBoundaryOnly_function_type )( bool const ) ;
+            typedef void ( ::osgUtil::Tessellator::*setBoundaryOnly_function_type)( bool const ) ;
             
             Tessellator_exposer.def( 
                 "setBoundaryOnly"
@@ -218,7 +218,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::setTessellationNormal
         
-            typedef void ( ::osgUtil::Tessellator::*setTessellationNormal_function_type )( ::osg::Vec3 const ) ;
+            typedef void ( ::osgUtil::Tessellator::*setTessellationNormal_function_type)( ::osg::Vec3 const ) ;
             
             Tessellator_exposer.def( 
                 "setTessellationNormal"
@@ -228,7 +228,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::setTessellationType
         
-            typedef void ( ::osgUtil::Tessellator::*setTessellationType_function_type )( ::osgUtil::Tessellator::TessellationType const ) ;
+            typedef void ( ::osgUtil::Tessellator::*setTessellationType_function_type)( ::osgUtil::Tessellator::TessellationType const ) ;
             
             Tessellator_exposer.def( 
                 "setTessellationType"
@@ -238,7 +238,7 @@ void register_Tessellator_class(){
         }
         { //::osgUtil::Tessellator::setWindingType
         
-            typedef void ( ::osgUtil::Tessellator::*setWindingType_function_type )( ::osgUtil::Tessellator::WindingType const ) ;
+            typedef void ( ::osgUtil::Tessellator::*setWindingType_function_type)( ::osgUtil::Tessellator::WindingType const ) ;
             
             Tessellator_exposer.def( 
                 "setWindingType"

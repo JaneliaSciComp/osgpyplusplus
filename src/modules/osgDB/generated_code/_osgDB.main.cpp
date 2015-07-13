@@ -18,123 +18,123 @@
 
 #include "wrap_osgdb.h"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_enumerations.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_enumerations.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_free_functions.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_free_functions.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_global_variables.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/_osgdb_global_variables.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationdetails.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationdetails.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationmap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/authenticationmap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basecompressor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basecompressor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/baseserializer.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/baseserializer.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basic_type_wrapper.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/basic_type_wrapper.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/children.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/children.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/compressormap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/compressormap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/databasepager.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/databasepager.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dotosgwrapper.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dotosgwrapper.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dynamiclibrary.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/dynamiclibrary.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/externalfilewriter.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/externalfilewriter.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/field.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/field.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreader.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreader.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreaderiterator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/fieldreaderiterator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filelocationcallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filelocationcallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filenamecomparator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filenamecomparator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filepathlist.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/filepathlist.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/findfilecallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/findfilecallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/finishedobjectreadcallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/finishedobjectreadcallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ifstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ifstream.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageoptions.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageoptions.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imagepager.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imagepager.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageprocessor.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageprocessor.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/input.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/input.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputexception.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputexception.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputiterator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputiterator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputstream.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/intlookup.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/intlookup.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__osg_scope_ref_ptr_less_osgdb_scope_readerwriterinfo_greater___greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__osg_scope_ref_ptr_less_osgdb_scope_readerwriterinfo_greater___greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__std_scope_string__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/list_less__std_scope_string__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__int_comma__std_scope_string__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__int_comma__std_scope_string__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__std_scope_string_comma__int__greater_.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/map_less__std_scope_string_comma__int__greater_.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectglenum.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectglenum.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectmark.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectmark.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectproperty.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectproperty.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectsset.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectsset.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrapper.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrapper.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrappermanager.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/objectwrappermanager.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ofstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/ofstream.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/options.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/options.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/output.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/output.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputexception.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputexception.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputiterator.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputiterator.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputstream.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/outputstream.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/parameteroutput.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/parameteroutput.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/pluginfunctionproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/pluginfunctionproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriterinfo.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriterinfo.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readfilecallback.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readfilecallback.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercompressorproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercompressorproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercustomwrapperproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registercustomwrapperproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerdotosgwrapperproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerdotosgwrapperproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerwrapperproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerwrapperproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/updatewrapperversionproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/updatewrapperversionproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
 
-#include "c:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/xmlnode.pypp.hpp"
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/xmlnode.pypp.hpp"
 
 namespace bp = boost::python;
 
