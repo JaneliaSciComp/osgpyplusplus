@@ -147,7 +147,7 @@ def createDragger(name):
         d = osgManipulator.RotateSphereDragger()
         d.setupDefaultGeometry()
         dragger = d
-    else :
+    else:
         d = osgManipulator.TabBoxDragger()
         d.setupDefaultGeometry()
         dragger = d
@@ -171,13 +171,13 @@ class DraggerContainer (osg.Group) :
     
         
         _dragger = dragger
-        if  !containsNode(dragger)  : addChild( dragger )
+        if   not containsNode(dragger)  : addChild( dragger )
     
     def getDragger():
     
-         return _dragger.get() 
+         return _dragger 
     def getDragger():
-         return _dragger.get() 
+         return _dragger 
     
     def setDraggerSize(size):
     
@@ -195,12 +195,12 @@ class DraggerContainer (osg.Group) :
     
         
         if  _dragger.valid()  :
-            if  _active  nv.getVisitorType()==osg.NodeVisitor.CULL_VISITOR  :
+            if  _active  and  nv.getVisitorType()==osg.NodeVisitor.CULL_VISITOR  :
                 cv = static_cast<osgUtil.CullVisitor*>(nv)
                 
                 pixelSize = cv.pixelSize(_dragger.getBound().center(), 0.48)
-                if  pixelSize!=_draggerSize  :
-                    pixelScale = pixelSize>0.0 ? _draggerSize/pixelSize : 1.0
+                if  pixelSize not =_draggerSize  :
+                    pixelScale =  _draggerSize/pixelSize if (pixelSize>0.0) else  1.0
                     scaleFactor = osg.Vec3d(pixelScale, pixelScale, pixelScale)
                     
                     trans = _dragger.getMatrix().getTrans()
@@ -228,7 +228,7 @@ def addDraggerToScene(scene, name, fixedSizeInScreen):
         draggerContainer = DraggerContainer()
         draggerContainer.setDragger( dragger )
         root.addChild(draggerContainer)
-    else :
+    else:
         root.addChild(dragger)
 
     scale = scene.getBound().radius() * 1.6
@@ -237,7 +237,7 @@ def addDraggerToScene(scene, name, fixedSizeInScreen):
 
     if dynamic_cast<osgManipulator.TabPlaneDragger*>(dragger) :
         dragger.addTransformUpdating(transform, osgManipulator.DraggerTransformCallback.HANDLE_TRANSLATE_IN_LINE)
-    else :
+    else:
         dragger.addTransformUpdating(transform)
 
     # we want the dragger to handle it's own events automatically
@@ -247,9 +247,9 @@ def addDraggerToScene(scene, name, fixedSizeInScreen):
     # the dragger will activate it, however if do define either of ActivationModKeyMask or
     # and ActivationKeyEvent then you'll have to press either than mod key or the specified key to
     # be able to activate the dragger when you mouse click on it.  Please note the follow allows
-    # activation if either the ctrl key or the 'a' key is pressed and held down.
+    # activation if either the ctrl key or the ord("a") key is pressed and held down.
     dragger.setActivationModKeyMask(osgGA.GUIEventAdapter.MODKEY_CTRL)
-    dragger.setActivationKeyEvent('a')
+    dragger.setActivationKeyEvent(ord("a"))
 
     return root
 
@@ -290,33 +290,33 @@ def createDemoScene(fixedSizeInScreen):
     hints.setDetailRatio(2.0)
     shape = osg.ShapeDrawable()
 
-    shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints.get())
+    shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints)
     shape.setColor(osg.Vec4(0.5, 0.5, 0.7, 1.0))
-    geode_1.addDrawable(shape.get())
+    geode_1.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 0.0, 0.0), radius * 2,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 0.0, 0.0), radius * 2,radius), hints)
     shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
-    geode_2.addDrawable(shape.get())
+    geode_2.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(-3.0, 0.0, 0.0), radius,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(-3.0, 0.0, 0.0), radius,radius), hints)
     shape.setColor(osg.Vec4(0.6, 0.8, 0.8, 1.0))
-    geode_3.addDrawable(shape.get())
+    geode_3.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(3.0, 0.0, 0.0), 2 * radius,radius), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(3.0, 0.0, 0.0), 2 * radius,radius), hints)
     shape.setColor(osg.Vec4(0.4, 0.9, 0.3, 1.0))
-    geode_4.addDrawable(shape.get())
+    geode_4.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints)
     shape.setColor(osg.Vec4(0.2, 0.5, 0.7, 1.0))
-    geode_5.addDrawable(shape.get())
+    geode_5.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints.get())
+    shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints)
     shape.setColor(osg.Vec4(1.0, 0.3, 0.3, 1.0))
-    geode_6.addDrawable(shape.get())
+    geode_6.addDrawable(shape)
 
-    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0), hints.get())
+    shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0), hints)
     shape.setColor(osg.Vec4(0.8, 0.8, 0.4, 1.0))
-    geode_7.addDrawable(shape.get())
+    geode_7.addDrawable(shape)
 
 
 
@@ -329,23 +329,23 @@ def createDemoScene(fixedSizeInScreen):
     matirial.setAmbient(osg.Material.FRONT_AND_BACK, osg.Vec4(0, 0, 0, 1))
     matirial.setSpecular(osg.Material.FRONT_AND_BACK, osg.Vec4(1, 1, 1, 1))
     matirial.setShininess(osg.Material.FRONT_AND_BACK, 64.0)
-    root.getOrCreateStateSet().setAttributeAndModes(matirial.get(), osg.StateAttribute.ON)
+    root.getOrCreateStateSet().setAttributeAndModes(matirial, osg.StateAttribute.ON)
 
-    transform_1.get().addChild(addDraggerToScene(geode_1.get(),"TabBoxDragger",fixedSizeInScreen))
-    transform_2.get().addChild(addDraggerToScene(geode_2.get(),"TabPlaneDragger",fixedSizeInScreen))
-    transform_3.get().addChild(addDraggerToScene(geode_3.get(),"TabBoxTrackballDragger",fixedSizeInScreen))
-    transform_4.get().addChild(addDraggerToScene(geode_4.get(),"TrackballDragger",fixedSizeInScreen))
-    transform_5.get().addChild(addDraggerToScene(geode_5.get(),"Translate1DDragger",fixedSizeInScreen))
-    transform_6.get().addChild(addDraggerToScene(geode_6.get(),"Translate2DDragger",fixedSizeInScreen))
-    transform_7.get().addChild(addDraggerToScene(geode_7.get(),"TranslateAxisDragger",fixedSizeInScreen))
+    transform_1.addChild(addDraggerToScene(geode_1,"TabBoxDragger",fixedSizeInScreen))
+    transform_2.addChild(addDraggerToScene(geode_2,"TabPlaneDragger",fixedSizeInScreen))
+    transform_3.addChild(addDraggerToScene(geode_3,"TabBoxTrackballDragger",fixedSizeInScreen))
+    transform_4.addChild(addDraggerToScene(geode_4,"TrackballDragger",fixedSizeInScreen))
+    transform_5.addChild(addDraggerToScene(geode_5,"Translate1DDragger",fixedSizeInScreen))
+    transform_6.addChild(addDraggerToScene(geode_6,"Translate2DDragger",fixedSizeInScreen))
+    transform_7.addChild(addDraggerToScene(geode_7,"TranslateAxisDragger",fixedSizeInScreen))
 
-    root.addChild(transform_1.get())
-    root.addChild(transform_2.get())
-    root.addChild(transform_3.get())
-    root.addChild(transform_4.get())
-    root.addChild(transform_5.get())
-    root.addChild(transform_6.get())
-    root.addChild(transform_7.get())
+    root.addChild(transform_1)
+    root.addChild(transform_2)
+    root.addChild(transform_3)
+    root.addChild(transform_4)
+    root.addChild(transform_5)
+    root.addChild(transform_6)
+    root.addChild(transform_7)
 
  
  
@@ -381,9 +381,9 @@ def main(argc, argv):
 
     # if user request help write it out to cout.
     helpAll = arguments.read("--help-all")
-    helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
-                            ((helpAll ||  arguments.read("--help-env"))? osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE : 0 ) |
-                            ((helpAll ||  arguments.read("--help-keys"))? osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING : 0 )
+    helpType = ( osg.ApplicationUsage.COMMAND_LINE_OPTION if ((helpAll  or  arguments.read("-h")  or  arguments.read("--help"))) else  0 ) |
+                            ( osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE if ((helpAll  or   arguments.read("--help-env"))) else  0 ) |
+                            ( osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING if ((helpAll  or   arguments.read("--help-keys"))) else  0 )
     if helpType :
         arguments.getApplicationUsage().write(std.cout, helpType)
         return 1
@@ -403,7 +403,7 @@ def main(argc, argv):
 
     # if no model has been successfully loaded report failure.
     tragger2Scene = bool(True)
-    if !loadedModel : 
+    if  not loadedModel : 
         #print arguments.getApplicationName(), ": No data loaded"
         #return 1
         loadedModel = createDemoScene(fixedSizeInScreen)
@@ -423,14 +423,14 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
     
     # pass the loaded scene graph to the viewer.
     if  tragger2Scene  : 
-        viewer.setSceneData(addDraggerToScene(loadedModel.get(), dragger_name, fixedSizeInScreen))
-     else :  
-        viewer.setSceneData(loadedModel.get())
+        viewer.setSceneData(addDraggerToScene(loadedModel, dragger_name, fixedSizeInScreen))
+     else:
+        viewer.setSceneData(loadedModel)
 
 
     return viewer.run()

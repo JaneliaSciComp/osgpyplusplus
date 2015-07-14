@@ -4,8 +4,8 @@ use strict;
 use warnings;
 
 my $examples_source_folder = 
-    # "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/examples";
-    "C:/Users/cmbruns/git/osg/examples";
+    "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/examples";
+    # "C:/Users/cmbruns/git/osg/examples";
 translate_all_examples($examples_source_folder);
 
 # Translates one C++ source file into python
@@ -30,6 +30,14 @@ sub translate_source_file {
     # Strip away osg::ref_ptr<...> shell
     # osg::ref_ptr<whatever> is already secretly inside the python classes
     $file_block =~ s/osg::ref_ptr<([^>]+)>/$1/g;
+
+    # Replace literal C characters with integers
+    $file_block =~ s/'(.)'/ord("$1")/g;
+
+    # Logical OR/AND/NOT
+    $file_block =~ s/\|\|/ or /g;      
+    $file_block =~ s/&&/ and /g;     
+    $file_block =~ s/!/ not /g;
 
     # Regexes can only do finite nesting of parentheses
     my $paren_rx = "\\([^()]*\\)";
@@ -163,7 +171,10 @@ sub translate_source_file {
         $file_block =~ s/\Q${cpp_while}/${py_while}/;
     }
 
-    $file_block =~ s/\belse\b/else :/g;
+    $file_block =~ s/\belse\b(?:[ {\t]*\n)/else:\n/g;
+
+    # Ternary operator, after initial "if" pass
+    $file_block =~ s/(${paren4_rx}|\S+)\s*\?\s*(.*\S)\s*:/ $3 if ($1) else /g;
 
     # Translate console output statements
     $file_block =~ s/(?:std::)?cout\s*<<\s*/print /g;
@@ -205,7 +216,10 @@ sub translate_source_file {
     $file_block =~ s/\bfalse\b/False/g;   
 
     # floating point numbers, like "1.0f"
-    $file_block =~ s/\b([-+0-9\.]+)[f]\b/$1/g;   
+    $file_block =~ s/\b([-+0-9\.]+)[f]\b/$1/g;
+
+    # Smart pointer ".get()" methods are superfluous
+    $file_block =~ s/\.get\(\)//g;
 
     return $file_block, \%modules;
 }
@@ -276,8 +290,8 @@ sub translate_all_examples {
 
         # Subset for testing
         $count += 1;
-        # last if $count > 10; # Just one for now while testing...
-        # next unless $example =~ /manip/;
+        # last if $count > 10; # Just a few for now while testing...
+        next unless $example =~ /manip/; # Just one for now while testing...
 
         print "Translating OSG example: ", $_, "\n";
         translate_example($example, $folder);

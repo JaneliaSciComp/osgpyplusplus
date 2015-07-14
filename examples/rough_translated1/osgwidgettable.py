@@ -61,7 +61,7 @@ def main(argc, argv):
 
     # Use a hackish method of setting the spacing for all Widgets.
     for(osgWidget.Table.Iterator i = table.begin() i != table.end() i++)
-        i.get().setPadding(1.0)
+        i.setPadding(1.0)
     
 
     # Now we fetch the very first 0, 0 Widget in the table using an awkward method.
