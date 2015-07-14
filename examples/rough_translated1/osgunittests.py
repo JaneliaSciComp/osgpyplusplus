@@ -63,7 +63,7 @@ typedef std.list<str> Strings
     strings.push_back(str("home\\robert\\myfile.ext.osgt"))
 
     for(Strings.iterator itr = strings.begin()
-        itr != strings.end()
+        not = strings.end()
         ++itr)
         str = *itr
         OSG_NOTICE, "string=", str
@@ -143,7 +143,7 @@ class ReadThread : public osg.Referenced, public OpenThreads.Thread
 #endif
 
         do
-            if !_fileNames.empty() :
+            if  not _fileNames.empty() :
                 # take front filename
                 filename = _fileNames.front()
                 _fileNames.erase(_fileNames.begin())
@@ -154,10 +154,10 @@ class ReadThread : public osg.Referenced, public OpenThreads.Thread
                 node = osgDB.readNodeFile(filename)
 #if VERBOSE                
                 if node.valid() : print "..  OK"
-                else : print "..  FAILED"
+                else print "..  FAILED"
 #endif
             
-         while !testCancel()  !_fileNames.empty()  !_done :
+         while  not testCancel()  and   not _fileNames.empty()  and   not _done :
         
         if _endBarrier.valid() : 
 #if VERBOSE                
@@ -252,14 +252,14 @@ def runMultiThreadReadTests(numThreads, arguments):
 
         readThread.setProcessorAffinity(numThreads % 4)
 
-        readThread.setStartBarrier(startBarrier.get())
-        readThread.setEndBarrier(endBarrier.get())
+        readThread.setStartBarrier(startBarrier)
+        readThread.setEndBarrier(endBarrier)
 
         readThread.addFileName("cessna.osgt")
         readThread.addFileName("glider.osgt")
         readThread.addFileName("town.ive")
         
-        readThreads.push_back(readThread.get())
+        readThreads.push_back(readThread)
 
         readThread.start()
         
@@ -462,7 +462,7 @@ def sizeOfTest():
 #if defined(_MSC_VER)
   # long long isn't supported on VS6.0...
   print "sizeof(__int64)==", sizeof(__int64)
-#else :
+#else:
   print "sizeof(long long)==", sizeof(long long)
 #endif
   print "sizeof(float)==", sizeof(float)
@@ -521,7 +521,7 @@ def testGetQuatFromMatrix(scale):
     yaw2start = 0.0
     yaw2stop = 360.0
     yaw2step = 20.0
-#else :
+#else:
     # focussed range
     rol1start = 0.0
     rol1stop = 0.0
@@ -599,17 +599,17 @@ def testGetQuatFromMatrix(scale):
                             # something is amiss
 
                             componentsOK = False
-                            if ( ((fabs(out_quat1.x()-out_quat2.x())) < eps) 
-                                 ((fabs(out_quat1.y()-out_quat2.y())) < eps) 
-                                 ((fabs(out_quat1.z()-out_quat2.z())) < eps) 
+                            if ( ((fabs(out_quat1.x()-out_quat2.x())) < eps)  and 
+                                 ((fabs(out_quat1.y()-out_quat2.y())) < eps)  and 
+                                 ((fabs(out_quat1.z()-out_quat2.z())) < eps)  and 
                                  ((fabs(out_quat1.w()-out_quat2.w())) < eps) )
                                 componentsOK = True
                             # We should also test for q = -q which is valid, so reflect
                             # one quat.
                             out_quat2 = out_quat2 * -1.0
-                            if ( ((fabs(out_quat1.x()-out_quat2.x())) < eps) 
-                                 ((fabs(out_quat1.y()-out_quat2.y())) < eps) 
-                                 ((fabs(out_quat1.z()-out_quat2.z())) < eps) 
+                            if ( ((fabs(out_quat1.x()-out_quat2.x())) < eps)  and 
+                                 ((fabs(out_quat1.y()-out_quat2.y())) < eps)  and 
+                                 ((fabs(out_quat1.z()-out_quat2.z())) < eps)  and 
                                  ((fabs(out_quat1.w()-out_quat2.w())) < eps) )
                                 componentsOK = True
 
@@ -617,7 +617,7 @@ def testGetQuatFromMatrix(scale):
                             if fabs(1.0-out_quat2.length()) < eps :
                                 lengthOK = True
 
-                            if !lengthOK || !componentsOK :
+                            if  not lengthOK  or   not componentsOK :
                                 print "testGetQuatFromMatrix problem at: \n", " r1=", rol1, " p1=", pit1, " y1=", yaw1, " r2=", rol2, " p2=", pit2, " y2=", yaw2, "\n"
                                 print "quats:        ", out_quat1, " length: ", out_quat1.length(), "\n"
                                 print "mats and get: ", out_quat2, " length: ", out_quat2.length(), "\n\n"
@@ -763,11 +763,11 @@ class NotifyThread (OpenThreads.Thread) :
 
         count = 0
 
-        while !_done : 
+        while  not _done : 
             ++count
 #if 1
             osg.notify(_level), _message, this, "\n"
-#else :
+#else:
             osg.notify(_level), _message, this
 #endif
 
@@ -817,16 +817,16 @@ def testPolytope():
     bContains = pt.contains(osg.Vec3(0, 0, 0))
     if bContains :
         print "Polytope pt.contains(osg.Vec3(0, 0, 0)) has succeeded."
-    else :
+    else:
         print "Polytope pt.contains(osg.Vec3(0, 0, 0)) has failed."
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which runs units tests.")
@@ -873,10 +873,10 @@ def main(argc, argv):
     while arguments.read("quat_scaled", quat_scale.x(), quat_scale.y(), quat_scale.z() ) : printQuatTest = True 
 
     performanceTest = False 
-    while arguments.read("p") || arguments.read("performance") : performanceTest = True 
+    while arguments.read("p")  or  arguments.read("performance") : performanceTest = True 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         print arguments.getApplicationUsage().getCommandLineUsage()
         arguments.getApplicationUsage().write(std.cout,arguments.getApplicationUsage().getCommandLineOptions())
         return 1
@@ -1022,7 +1022,7 @@ Benchmark()
 
     inline double time()
         t = _timer.delta_s(_beginTick,_endTick) - _averageDelay
-        return t<0.0 ? 0.0 : t
+        return  0.0 if (t<0.0) else  t
 
     inline void output( char* str, double numIterations=1.0)
         print str, "\t"
@@ -1030,7 +1030,7 @@ Benchmark()
         if s>=1.0 : print s, " s"
         elif s>=0.001 : print s*1000.0, " ms (10 ^ -3)"
         elif s>=0.000001 : print s*1000000.0, " ns (10 ^ -6)"
-        else : print s*1000000000.0, " ps (10 ^ -9)"
+        else print s*1000000000.0, " ps (10 ^ -9)"
 
     _timer = osg.Timer()
     _beginTick = osg.Timer_t()
@@ -1177,7 +1177,7 @@ def runPerformanceTests():
 
     group = osg.Group()
     mt = osg.MatrixTransform()
-    m = mt.get()
+    m = mt
     cnv = CustomNodeVisitor()
     RUN(benchmark,  osg.MatrixTransform* mtl = dynamic_cast<osg.MatrixTransform*>(m) if mtl : cnv.apply(*mtl) , 1000)
     RUN(benchmark,  m.accept(cnv) , 10000)
@@ -1257,9 +1257,9 @@ std.ostream TestContext.tout(TraceLevel tl)
 TestContext.TraceStream.TraceStream(std.ostream o, TraceLevel tl):
     _traceLevel(tl),
     _outputStreamPtr(o),
-#if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
+#if defined(WIN32)  and   not (defined(__CYGWIN__)  or  defined(__MINGW32__))
     _nullStream("nul")
-#else :
+#else:
     _nullStream("/dev/null")
 #endif
 
@@ -1284,7 +1284,7 @@ TestGraph TestGraph.instance()
     return instance_
 
 TestSuite* TestGraph.root()
-    return root_.get()
+    return root_
 
 TestSuite* TestGraph.suite( str path, TestSuite* tsuite, bool createIfNecessary)
     using namespace std
@@ -1297,16 +1297,15 @@ TestSuite* TestGraph.suite( str path, TestSuite* tsuite, bool createIfNecessary)
     # Dissect the path into it's constituent components
     do
 
-        while  it2 != path.end()  *it2 != '.'  : ++it2
+        while  it2  not = path.end()  and  *it2  not = ord(".")  : ++it2
 
-        # Consider a check for "" empty strings?
-        pathComponents.push_back( str(it1,it2) )
+        # Consider a check for "" empty  pathComponents.push_back( std: if (strings) else string(it1,it2) )
 
-        if  it2 != path.end() : ++it2
+        if  it2  not = path.end() : ++it2
 
         it1 = it2
 
-    while  it2 != path.end() :
+    while  it2  not = path.end() :
 
     suite = return(pathComponents.begin(), pathComponents.end(),
             tsuite, createIfNecessary)
@@ -1318,10 +1317,10 @@ TestSuite* TestGraph.suite(
         TestSuite* tsuite, bool createIfNecessary)
     using namespace std
 
-    if  ! tsuite : tsuite = root()
+    if   not  tsuite : tsuite = root()
 
     # Make sure these tie up
-    if *it != tsuite.name() : return 0
+    if *it  not = tsuite.name() : return 0
 
     ++it
     if it == end : return tsuite
@@ -1331,9 +1330,7 @@ TestSuite* TestGraph.suite(
     if child :
 
         # We've found a child with the right name. But is it a 
-        # test suite?
-
-        if TestSuite* childSuite = dynamic_cast<TestSuite*>(child) :
+        # test  if TestSuite* childSuite = dynamic_cast<TestSuite*>(child) if (suite) else 
             suite = return(it, end, childSuite, createIfNecessary)
 
         # We could return 0 here, to indicate that someone is
@@ -1414,7 +1411,7 @@ TestRecord.TestRecord( str name):
 std.ostream operator, (std.ostream o, TestRecord tr)
     if tr.result_ == TestRecord.Success :         o, "pass"
     elif tr.result_ == TestRecord.Failure :    o, "fail"
-    else :                                          o, "error"
+    else                                          o, "error"
 
     o, "\t", tr.name_
 
@@ -1422,9 +1419,9 @@ std.ostream operator, (std.ostream o, TestRecord tr)
     #o, tr.start_, '\t', tr.stop_, '\t', TestRecord.timer_.delta_s(tr.start_,tr.stop_)
 
     # Just print out the duration
-    o, '\t', TestRecord.timer_.delta_s(tr.start_,tr.stop_), 's'
+    o, '\t', TestRecord.timer_.delta_s(tr.start_,tr.stop_), ord("s")
 
-    if tr.result_ != TestRecord.Success :
+    if tr.result_  not = TestRecord.Success :
         o, '\t', tr.problem_
 
     return o
@@ -1438,7 +1435,7 @@ void TestRunner.specify(  str sQualifiedName )
 
 bool TestRunner.visitEnter( TestSuite* pSuite )
     TestQualifier.visitEnter( pSuite )
-    return !_ctx.shouldStop()
+    return  not _ctx.shouldStop()
 
 #ifndef DOXYGEN_SHOULD_SKIP_THIS
 
@@ -1460,13 +1457,13 @@ pTestName_ =  str()
 
 bool TestRunner.visit( TestCase* pTest )
     if  std.find_if _tests.begin(),_tests.end(),
-                      osgUtx.isSpecified(currentPath() + pTest.name() )  : != _tests.end() : perform( pTest )
+                      osgUtx.isSpecified(currentPath() + pTest.name() )  :  not = _tests.end() : perform( pTest )
 
-    return !_ctx.shouldStop()
+    return  not _ctx.shouldStop()
 
 bool TestRunner.visitLeave( TestSuite* pSuite )
     TestQualifier.visitLeave( pSuite )
-    return !_ctx.shouldStop()
+    return  not _ctx.shouldStop()
 
 void TestRunner.perform( TestCase* pTest )
     record = _db.createRecord( currentPath() + pTest.name() )
@@ -1497,18 +1494,18 @@ void TestSuite.add( Test* pTest )
 
 Test* TestSuite.findChild( str name)
     for(Tests.iterator it = _tests.begin()
-        it != _tests.end()
+        not = _tests.end()
         ++it)
 
-        if *it :.name() == name : return (*it).get()
+        if *it :.name() == name : return (*it)
 
     return 0
 
 bool TestSuite.accept( Test.Visitor v )
     if  v.visitEnter( this )  :
         end = _tests.end()
-        for ( Tests.iterator at = _tests.begin() at != end ++at )
-            if  !(*at).accept( v )  :
+        for ( Tests.iterator at = _tests.begin() at  not = end ++at )
+            if   not (*at).accept( v )  :
                 break
 
     return v.visitLeave( this )   # continue with siblings?
@@ -1741,8 +1738,7 @@ typedef void (FixtureT.*TestMethodPtr)(  Context )
             TestCase( sName ),
             _pTestMethod( pTestMethod )
 
-    # Create a TestFixture instance and invoke TestMethod?
-    def run(ctx):
+    # Create a TestFixture instance and invoke  def run(ctx) if (TestMethod) else 
         
         ( FixtureT().*_pTestMethod )( ctx )
 
@@ -1836,7 +1832,7 @@ class TestGraph :
 #current qualified TestSuite path.
 #
 class TestQualifier (TestVisitor) :
-enum  SEPCHAR = '.' 
+enum  SEPCHAR = ord(".") 
 
     # Entering a composite: Push its name on the Path
     visitEnter = virtual bool( TestSuite* pSuite )
@@ -2003,7 +1999,7 @@ class TestRunner (TestQualifier) :
 #
 #define OSGUTX_END_TESTSUITE \
          \
-        return s_suite.get() \
+        return s_suite \
 
 #* Define a TestSuite accessor 
 #define OSGUTX_TESTSUITE( tsuite ) \
@@ -2036,12 +2032,12 @@ namespace osgUtx
 #
 class TestSuiteAutoRegistrationAgent :
 TestSuiteAutoRegistrationAgent(TestSuite* tsuite,  char* path = 0)
-        if  ! path  : path = "root"
+        if   not  path  : path = "root"
 
         # Find the suite named in 'path', create it if necessary
         regSuite = osgUtx.TestGraph.instance().suite( path, 0, True )
 
-        if !regSuite :
+        if  not regSuite :
             osg.notify(osg.WARN), "Warning, unable to register test suite named \"", tsuite.name(), "\" at ", path, ", falling back to root suite."
             regSuite = osgUtx.TestGraph.instance().root()
 
@@ -2059,7 +2055,7 @@ TestSuiteAutoRegistrationAgent(TestSuite* tsuite,  char* path = 0)
 #along with expression itself.
 #
 #define OSGUTX_TEST_F( expr ) \
-    if  !(expr)  : \
+    if   not (expr)  : \
         ss = strstream() \
         ss, #expr, " failure: ", __FILE__, ", line ", __LINE__, std.ends \
         throw osgUtx.TestFailureX(ss.str()) \
@@ -2074,7 +2070,7 @@ TestSuiteAutoRegistrationAgent(TestSuite* tsuite,  char* path = 0)
 #along with expression itself.
 #
 #define OSGUTX_TEST_E( expr ) \
-    if  !(expr)  : \
+    if   not (expr)  : \
         ss = strstream() \
         ss, #expr, " error: ", __FILE__, ", line ", __LINE__, std.ends \
         throw osgUtx.TestErrorX(ss.str()) \

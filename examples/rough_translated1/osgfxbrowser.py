@@ -68,7 +68,7 @@ void Frame.rebuild()
     caption_text.setCharacterSize(16)
     caption_text.setFontResolution(16, 16)
     caption_text.setPosition(osg.Vec3((rect_.x0 + rect_.x1) / 2, rect_.y1 - 15, zPos*2.0))
-    addDrawable(caption_text.get())
+    addDrawable(caption_text)
 
     rebuild_client_area(Rect(rect_.x0 + 4, rect_.y0 + 4, rect_.x1 - 4, rect_.y1 - 28))
 
@@ -95,7 +95,7 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
         vx.push_back(osg.Vec3(rect.x1+shadow_size, rect.y0-shadow_size, z))
         vx.push_back(osg.Vec3(rect.x1+shadow_size, rect.y1-shadow_space, z))
 
-    geo.setVertexArray(vx.get())
+    geo.setVertexArray(vx)
 
     clr = osg.Vec4Array()
     clr.push_back(color)
@@ -118,9 +118,9 @@ osg.Geometry *Frame.build_quad( Rect rect,  osg.Vec4 color, bool shadow, float z
         clr.push_back(osg.Vec4(black, 0))
         clr.push_back(osg.Vec4(black, 0))
 
-    geo.setColorArray(clr.get(), osg.Array.BIND_PER_VERTEX)
+    geo.setColorArray(clr, osg.Array.BIND_PER_VERTEX)
 
-    geo.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, shadow? 12: 4))
+    geo.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0,  12 if (shadow) else  4))
 
     return geo.release()
 
@@ -246,7 +246,7 @@ class RotateCallback (osg.NodeCallback) :
     RotateCallback(): osg.NodeCallback(), enabled_(True) 
     void operator()(osg.Node* node, osg.NodeVisitor *nv)
         xform = dynamic_cast<osg.MatrixTransform *>(node)
-        if xform  enabled_ : 
+        if xform  and  enabled_ : 
             t = nv.getFrameStamp().getSimulationTime()
             xform.setMatrix(osg.Matrix.rotate(t, osg.Vec3(0, 0, 1)))
         traverse(node, nv)
@@ -277,14 +277,14 @@ class EffectPanel (osgfxbrowser.Frame) :
                     ep_.setNodeMask(0xffffffff - ep_.getNodeMask())
                     return True
                 if ea.getKey() == osgGA.GUIEventAdapter.KEY_Delete : 
-                    ep_.setEffectsEnabled(!ep_.getEffectsEnabled())
+                    ep_.setEffectsEnabled( not ep_.getEffectsEnabled())
                     return True
-                if ea.getKey() == 'x' : 
+                if ea.getKey() == ord("x") : 
                     osgDB.writeNodeFile(*ep_.getRoot(), "osgfx_model.osgt")
                     print "written nodes to \"osgfx_model.osgt\"\n"
                     return True
-                if ea.getKey() == 'r' : 
-                    rotate_cb.enabled_ = !rotate_cb.enabled_
+                if ea.getKey() == ord("r") : 
+                    rotate_cb.enabled_ =  not rotate_cb.enabled_
                     return True
 
             return False
@@ -303,20 +303,20 @@ class EffectPanel (osgfxbrowser.Frame) :
 
         print "INFO: available osgFX effects:\n"
         emap = osgFX.Registry.instance().getEffectMap()
-        for (osgFX.Registry.EffectMap.const_iterator i=emap.begin() i!=emap.end() ++i) 
+        for (osgFX.Registry.EffectMap.const_iterator i=emap.begin() i not =emap.end() ++i) 
             print "INFO: \t", i.first, "\n"
             effect = static_cast<osgFX.Effect *>(i.second.cloneType())
-            _effects.push_back(effect.get())            
+            _effects.push_back(effect)            
 
         print "INFO: ", emap.size(), " effect(s) ready.\n"
 
-        if !_effects.empty() : 
+        if  not _effects.empty() : 
             _selected_fx = 0
 
-    inline osg.Group* getRoot()  return _root.get() 
+    inline osg.Group* getRoot()  return _root 
     inline void setRoot(osg.Group* node)  _root = node 
 
-    inline osg.Node* getScene()  return _scene.get() 
+    inline osg.Node* getScene()  return _scene 
     inline void setScene(osg.Node* node)  _scene = node 
 
     inline bool getEffectsEnabled()   return _fxen 
@@ -333,62 +333,62 @@ class EffectPanel (osgfxbrowser.Frame) :
         rebuild()
 
     inline osgFX.Effect *getSelectedEffect()
-        if _selected_fx >= 0  _selected_fx < static_cast<int>(_effects.size()) : 
-            return _effects[_selected_fx].get()
+        if _selected_fx >= 0  and  _selected_fx < static_cast<int>(_effects.size()) : 
+            return _effects[_selected_fx]
         return 0
     def rebuild_client_area(client_rect):
         
-                zPos = -0.1 # note from Robert, was 0.1, but now must be -0.1 to keep text visible??#!? due
+                zPos = -0.1 # note from Robert, was 0.1, but now must be -0.1 to keep text visible??# not ? due
                                    # to some other change in the OSG not tracked down yet...
         
         arial = osgText.readFontFile("fonts/arial.ttf")
 
         hints = osgText.Text()
-        hints.setFont(arial.get())
+        hints.setFont(arial)
         hints.setColor(_hints_color)
         hints.setAlignment(osgText.Text.CENTER_BOTTOM)
         hints.setCharacterSize(13)
         hints.setPosition(osg.Vec3((client_rect.x0+client_rect.x1)/2, client_rect.y0 + 4, zPos))
-        hints.setText("<RETURN> show/hide this panel      <LEFT> previous effect      <RIGHT> next effect      <DEL> enable/disable effects      'x' save to file      'r' rotate/stop")
-        addDrawable(hints.get())
+        hints.setText("<RETURN> show/hide this panel      <LEFT> previous effect      <RIGHT> next effect      <DEL> enable/disable effects      ord("x") save to file      ord("r") rotate/stop")
+        addDrawable(hints)
 
         effect_name = "No Effect Selected"
         effect_description = ""
 
-        if _selected_fx >= 0  _selected_fx < static_cast<int>(_effects.size()) : 
+        if _selected_fx >= 0  and  _selected_fx < static_cast<int>(_effects.size()) : 
             effect_name = _effects[_selected_fx].effectName()
             author_name = _effects[_selected_fx].effectAuthor()
-            if !author_name.empty() : 
+            if  not author_name.empty() : 
                 effect_description = author_name = "AUTHOR: " + str(_effects[_selected_fx].effectAuthor()) + str("\n\n")
             effect_description += "DESCRIPTION:\n" + str(_effects[_selected_fx].effectDescription())            
 
-            if _scene.valid()  _root.valid() : 
+            if _scene.valid()  and  _root.valid() : 
                 _root.removeChildren(0, _root.getNumChildren())
-                effect = _effects[_selected_fx].get()
+                effect = _effects[_selected_fx]
                 effect.setEnabled(_fxen)
                 effect.removeChildren(0, effect.getNumChildren())
-                effect.addChild(_scene.get())
+                effect.addChild(_scene)
                 effect.setUpDemo()
-                _root.addChild(effect.get())
+                _root.addChild(effect)
 
         ename = osgText.Text()
-        ename.setFont(arial.get())
+        ename.setFont(arial)
         ename.setColor(_name_color)
         ename.setAlignment(osgText.Text.CENTER_TOP)
         ename.setCharacterSize(32)
         ename.setPosition(osg.Vec3((client_rect.x0 + client_rect.x1) / 2, client_rect.y1 - 22, zPos))
         ename.setText(effect_name)
-        addDrawable(ename.get())
+        addDrawable(ename)
 
         edesc = osgText.Text()
         edesc.setMaximumWidth(client_rect.width() - 16)
-        edesc.setFont(arial.get())
+        edesc.setFont(arial)
         edesc.setColor(_desc_color)
         edesc.setAlignment(osgText.Text.LEFT_TOP)
         edesc.setCharacterSize(16)
         edesc.setPosition(osg.Vec3(client_rect.x0 + 8, client_rect.y1 - 60, zPos))
         edesc.setText(effect_description)
-        addDrawable(edesc.get())
+        addDrawable(edesc)
     _selected_fx = int()
     typedef std.vector<osgFX.Effect > Effect_list
     _effects = Effect_list()
@@ -407,11 +407,11 @@ def build_hud_base(root):
     
     proj = osg.Projection(osg.Matrix.ortho2D(0, 1024, 0, 768))
     proj.setCullingActive(False)
-    root.addChild(proj.get())
+    root.addChild(proj)
 
     xform = osg.MatrixTransform(osg.Matrix.identity())
     xform.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
-    proj.addChild(xform.get())
+    proj.addChild(xform)
 
     ss = xform.getOrCreateStateSet()
     ss.setRenderBinDetails(100, "RenderBin")
@@ -419,7 +419,7 @@ def build_hud_base(root):
     ss.setMode(GL_DEPTH_TEST, osg.StateAttribute.OFF)
 
     bf = osg.BlendFunc()
-    ss.setAttributeAndModes(bf.get())
+    ss.setAttributeAndModes(bf)
 
     return xform.release()
 
@@ -432,7 +432,7 @@ def build_gui(root):
     effect_panel.setCaption("osgFX Effect Browser")
     effect_panel.setRect(osgfxbrowser.Rect(20, 20, 1000, 280))    
 
-    hud.addChild(effect_panel.get())
+    hud.addChild(effect_panel)
 
     return effect_panel.release()
 
@@ -443,13 +443,13 @@ def build_world(root, scene, viewer):
     effect_panel.setScene(scene)
     effect_panel.rebuild()
 
-    viewer.addEventHandler(EffectPanel.KeyboardHandler(effect_panel.get()))
+    viewer.addEventHandler(EffectPanel.KeyboardHandler(effect_panel))
 
     root.addChild(effect_panel.getRoot())
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -467,7 +467,7 @@ int main(int argc, char *argv[])
     viewer = osgViewer.Viewer()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") : 
+    if arguments.read("-h")  or  arguments.read("--help") : 
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -497,21 +497,21 @@ int main(int argc, char *argv[])
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
   
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
     # set up a transform to rotate the model
     xform = osg.MatrixTransform()
     rotate_cb = RotateCallback()
     xform.setUpdateCallback(rotate_cb)
-    xform.addChild(loadedModel.get())
+    xform.addChild(loadedModel)
 
     light = osg.Light()
     light.setLightNum(0)
@@ -521,13 +521,13 @@ int main(int argc, char *argv[])
     light.setPosition(osg.Vec4(1, -1, 1, 0))
 
     root = osg.LightSource()
-    root.setLight(light.get())
+    root.setLight(light)
     root.setLocalStateSetModes()
 
-    build_world(root.get(), xform.get(), viewer)
+    build_world(root, xform, viewer)
 
     # set the scene to render
-    viewer.setSceneData(root.get())
+    viewer.setSceneData(root)
 
     return viewer.run()
 

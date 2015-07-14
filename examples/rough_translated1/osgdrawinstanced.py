@@ -106,32 +106,32 @@ def createStateSet():
     vertexShader.setShaderSource( vertexSource )
 
      program = osg.Program()
-    program.addShader( vertexShader.get() )
+    program.addShader( vertexShader )
 
-    ss.setAttribute( program.get(),
+    ss.setAttribute( program,
         osg.StateAttribute.ON | osg.StateAttribute.PROTECTED )
 
      iLogo = osgDB.readImageFile( "Images/osg128.png" )
-    if  !iLogo.valid()  :
+    if   not iLogo.valid()  :
         osg.notify( osg.ALWAYS ), "Can't open image file osg128.png"
         return( NULL )
-    texLogo = osg.Texture2D( iLogo.get() )
+    texLogo = osg.Texture2D( iLogo )
     texLogo.setFilter( osg.Texture2D.MIN_FILTER, osg.Texture2D.LINEAR )
     texLogo.setFilter( osg.Texture2D.MAG_FILTER, osg.Texture2D.LINEAR )
 
     ss.setTextureAttribute( 0, texLogo )
 
      texLogoUniform = osg.Uniform( "osgLogo", 0 )
-    ss.addUniform( texLogoUniform.get() )
+    ss.addUniform( texLogoUniform )
 
     return( ss.release() )
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
    # Make a scene graph consisting of a single Geode, containing
     # a single Geometry, and a single PrimitiveSet.
@@ -148,16 +148,16 @@ def main(argc, argv):
     geom.setInitialBound( bb )
     # Add geometric data and the PrimitiveSet. Specify numInstances as 32*32 or 1024.
     createDAIGeometry( *geom, 32*32 )
-    geode.addDrawable( geom.get() )
+    geode.addDrawable( geom )
 
     # Create a StateSet to render the instanced Geometry.
      ss = createStateSet()
-    geode.setStateSet( ss.get() )
+    geode.setStateSet( ss )
 
     # osgDB.writeNodeFile(*geode, "instanced.osgt")
 
     viewer = osgViewer.Viewer(arguments)
-    viewer.setSceneData( geode.get() )
+    viewer.setSceneData( geode )
     return viewer.run()
 
 

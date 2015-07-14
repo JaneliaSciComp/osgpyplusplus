@@ -62,11 +62,11 @@ def createState():
     image_2 = osgDB.readImageFile("Images/tank.rgb")
     image_3 = osgDB.readImageFile("Images/skymap.jpg")
 
-    if !image_0 || !image_1 || !image_2 || !image_3 :
+    if  not image_0  or   not image_1  or   not image_2  or   not image_3 :
         print "Warning: could not open files."
         return osg.StateSet()
 
-    if image_0.getPixelFormat()!=image_1.getPixelFormat() || image_0.getPixelFormat()!=image_2.getPixelFormat() || image_0.getPixelFormat()!=image_3.getPixelFormat() :
+    if image_0.getPixelFormat() not =image_1.getPixelFormat()  or  image_0.getPixelFormat() not =image_2.getPixelFormat()  or  image_0.getPixelFormat() not =image_3.getPixelFormat() :
         print "Warning: image pixel formats not compatible."
         return osg.StateSet()
 
@@ -85,10 +85,10 @@ def createState():
                             image_0.getPixelFormat(),image_0.getDataType())
 
     # copy the 2d images into the 3d image.
-    image_3d.copySubImage(0,0,0,image_0.get())
-    image_3d.copySubImage(0,0,1,image_1.get())
-    image_3d.copySubImage(0,0,2,image_2.get())
-    image_3d.copySubImage(0,0,3,image_3.get())
+    image_3d.copySubImage(0,0,0,image_0)
+    image_3d.copySubImage(0,0,1,image_1)
+    image_3d.copySubImage(0,0,2,image_2)
+    image_3d.copySubImage(0,0,3,image_3)
 
     image_3d.setInternalTextureFormat(image_0.getInternalTextureFormat())
 

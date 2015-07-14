@@ -65,19 +65,19 @@ def _create_scene():
     
   scene = Group()
   geode_1 = Geode()
-  scene.addChild(geode_1.get())
+  scene.addChild(geode_1)
 
   geode_2 = Geode()
   transform_2 = MatrixTransform()
-  transform_2.addChild(geode_2.get())
+  transform_2.addChild(geode_2)
   transform_2.setUpdateCallback(osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(45.0)))
-  scene.addChild(transform_2.get())
+  scene.addChild(transform_2)
 
   geode_3 = Geode()
   transform_3 = MatrixTransform()
-  transform_3.addChild(geode_3.get())
+  transform_3.addChild(geode_3)
   transform_3.setUpdateCallback(osg.AnimationPathCallback(Vec3(0, 0, 0), Y_AXIS, inDegrees(-22.5)))
-  scene.addChild(transform_3.get())
+  scene.addChild(transform_3)
 
   radius = 0.8
   height = 1.0
@@ -85,30 +85,30 @@ def _create_scene():
   hints.setDetailRatio(2.0)
   shape = ref_ptr<ShapeDrawable>()
 
-  shape = ShapeDrawable(Box(Vec3(0.0, -2.0, 0.0), 10, 0.1, 10), hints.get())
+  shape = ShapeDrawable(Box(Vec3(0.0, -2.0, 0.0), 10, 0.1, 10), hints)
   shape.setColor(Vec4(0.5, 0.5, 0.7, 1.0))
-  geode_1.addDrawable(shape.get())
+  geode_1.addDrawable(shape)
 
 
-  shape = ShapeDrawable(Sphere(Vec3(-3.0, 0.0, 0.0), radius), hints.get())
+  shape = ShapeDrawable(Sphere(Vec3(-3.0, 0.0, 0.0), radius), hints)
   shape.setColor(Vec4(0.6, 0.8, 0.8, 1.0))
-  geode_2.addDrawable(shape.get())
+  geode_2.addDrawable(shape)
 
-  shape = ShapeDrawable(Box(Vec3(3.0, 0.0, 0.0), 2 * radius), hints.get())
+  shape = ShapeDrawable(Box(Vec3(3.0, 0.0, 0.0), 2 * radius), hints)
   shape.setColor(Vec4(0.4, 0.9, 0.3, 1.0))
-  geode_2.addDrawable(shape.get())
+  geode_2.addDrawable(shape)
 
-  shape = ShapeDrawable(Cone(Vec3(0.0, 0.0, -3.0), radius, height), hints.get())
+  shape = ShapeDrawable(Cone(Vec3(0.0, 0.0, -3.0), radius, height), hints)
   shape.setColor(Vec4(0.2, 0.5, 0.7, 1.0))
-  geode_2.addDrawable(shape.get())
+  geode_2.addDrawable(shape)
 
-  shape = ShapeDrawable(Cylinder(Vec3(0.0, 0.0, 3.0), radius, height), hints.get())
+  shape = ShapeDrawable(Cylinder(Vec3(0.0, 0.0, 3.0), radius, height), hints)
   shape.setColor(Vec4(1.0, 0.3, 0.3, 1.0))
-  geode_2.addDrawable(shape.get())
+  geode_2.addDrawable(shape)
 
-  shape = ShapeDrawable(Box(Vec3(0.0, 3.0, 0.0), 2, 0.1, 2), hints.get())
+  shape = ShapeDrawable(Box(Vec3(0.0, 3.0, 0.0), 2, 0.1, 2), hints)
   shape.setColor(Vec4(0.8, 0.8, 0.4, 1.0))
-  geode_3.addDrawable(shape.get())
+  geode_3.addDrawable(shape)
 
   # material
   matirial = Material()
@@ -116,7 +116,7 @@ def _create_scene():
   matirial.setAmbient(Material.FRONT_AND_BACK, Vec4(0, 0, 0, 1))
   matirial.setSpecular(Material.FRONT_AND_BACK, Vec4(1, 1, 1, 1))
   matirial.setShininess(Material.FRONT_AND_BACK, 64.0)
-  scene.getOrCreateStateSet().setAttributeAndModes(matirial.get(), StateAttribute.ON)
+  scene.getOrCreateStateSet().setAttributeAndModes(matirial, StateAttribute.ON)
 
   return scene
 
@@ -133,7 +133,7 @@ def createReflector():
   radius = 0.8
   hints = TessellationHints()
   hints.setDetailRatio(2.0)
-  shape = ShapeDrawable(Sphere(Vec3(0.0, 0.0, 0.0), radius * 1.5), hints.get())
+  shape = ShapeDrawable(Sphere(Vec3(0.0, 0.0, 0.0), radius * 1.5), hints)
   shape.setColor(Vec4(0.8, 0.8, 0.8, 1.0))
   geode_1.addDrawable(shape)
   
@@ -171,7 +171,7 @@ class UpdateCameraAndTexGenCallback (osg.NodeCallback) :
             
 
             for(unsigned int i=0 
-                i<6  i<_Cameras.size()
+                i<6  and  i<_Cameras.size()
                 ++i)
                 localOffset = osg.Matrix()
                 localOffset.makeLookAt(position,position+id[i].first,id[i].second)
@@ -282,12 +282,12 @@ def createShadowedScene(reflectedSubgraph, reflectorNodePath, unit, clearColor, 
     return group
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = ArgumentParser(argc, argv)
+    arguments = ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName() + " is the example which demonstrates using of GL_ARB_shadow extension implemented in osg.Texture class")
@@ -304,7 +304,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
@@ -333,14 +333,14 @@ def main(argc, argv):
     scene.setMatrix(osg.Matrix.rotate(osg.DegreesToRadians(125.0),1.0,0.0,0.0))
 
     reflectedSubgraph = _create_scene()    
-    if !reflectedSubgraph.valid() : return 1
+    if  not reflectedSubgraph.valid() : return 1
 
-    reflectedScene = createShadowedScene(reflectedSubgraph.get(), createReflector(), 0, viewer.getCamera().getClearColor(),
+    reflectedScene = createShadowedScene(reflectedSubgraph, createReflector(), 0, viewer.getCamera().getClearColor(),
                                                         tex_width, tex_height, renderImplementation)
 
-    scene.addChild(reflectedScene.get())
+    scene.addChild(reflectedScene)
 
-    viewer.setSceneData(scene.get())
+    viewer.setSceneData(scene)
 
     return viewer.run()
 

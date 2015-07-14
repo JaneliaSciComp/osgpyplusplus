@@ -73,18 +73,18 @@ class ContextTest (MemoryTest) :
             traits.windowDecoration = True
             traits.pbuffer = _pbuffer
             
-            window = osg.GraphicsContext.createGraphicsContext(traits.get())
+            window = osg.GraphicsContext.createGraphicsContext(traits)
             if window.valid() : 
                 if window.realize() :
                     return window.release()
-                else :
+                else:
                     if _pbuffer : throw "Failed to realize PixelBuffer"
-                    else :  throw "Failed to realize GraphicsWindow"
-            else :
+                    else  throw "Failed to realize GraphicsWindow"
+            else:
                 std.cerr, "Error: Unable to create graphics context, problem with running osgViewer-", osgViewerGetVersion(), ", cannot create windows/pbuffers."
                 
                 if _pbuffer : throw "Failed to create PixelBuffer"
-                else :  throw "Failed to create GraphicsWindow"
+                else  throw "Failed to create GraphicsWindow"
     
         _width = int()
         _height = int()
@@ -103,7 +103,7 @@ class StateAttributeObject (GLObject) :
             
             _attribute.apply(*renderInfo.getState())
             
-            if renderInfo.getState().checkGLErrors(_attribute.get()) :
+            if renderInfo.getState().checkGLErrors(_attribute) :
                 throw "OpenGL error"
         
         _attribute = osg.StateAttribute()
@@ -127,29 +127,29 @@ class TextureTest (GLMemoryTest) :
                 image.allocateImage(_width, _height, _depth, GL_RGBA, GL_UNSIGNED_BYTE)
                 
                 texture = osg.Texture3D()
-                texture.setImage(image.get())
+                texture.setImage(image)
                 texture.setResizeNonPowerOfTwoHint(False)
                 
-                return StateAttributeObject(texture.get())
+                return StateAttributeObject(texture)
             if _height>1 :
                 image = osg.Image()
                 image.allocateImage(_width, _height, 1, GL_RGBA, GL_UNSIGNED_BYTE)
                 
                 texture = osg.Texture2D()
-                texture.setImage(image.get())
+                texture.setImage(image)
                 texture.setResizeNonPowerOfTwoHint(False)
                 
-                return StateAttributeObject(texture.get())
+                return StateAttributeObject(texture)
             if _width>1 :
                 image = osg.Image()
                 image.allocateImage(_width, 1, 1, GL_RGBA, GL_UNSIGNED_BYTE)
                 
                 texture = osg.Texture1D()
-                texture.setImage(image.get())
+                texture.setImage(image)
                 texture.setResizeNonPowerOfTwoHint(False)
                 
-                return StateAttributeObject(texture.get())
-            else :
+                return StateAttributeObject(texture)
+            else:
                 throw "Invalid texture size of 0,0,0"
     
         _width = int()
@@ -176,7 +176,7 @@ class FboTest (GLMemoryTest) :
             if _depth>=1 : fbo.setAttachment(osg.Camera.COLOR_BUFFER, osg.FrameBufferAttachment(osg.RenderBuffer(_width, _height, GL_RGBA)))
             if _depth>=2 : fbo.setAttachment(osg.Camera.DEPTH_BUFFER, osg.FrameBufferAttachment(osg.RenderBuffer(_width, _height, GL_DEPTH_COMPONENT24)))
 
-            return StateAttributeObject(fbo.get())
+            return StateAttributeObject(fbo)
     
         _width = int()
         _height = int()
@@ -264,10 +264,10 @@ class GeometryTest (GLMemoryTest) :
         _height = int()
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" tests OpenGL and Windowing memory scalability..")
@@ -287,7 +287,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("-c <num>","Set the number of contexts to create of each type specified.")
     arguments.getApplicationUsage().addCommandLineOption("-g <num>","Set the number of GL objects to create of each type specified.")
 
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout, osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
 
@@ -356,7 +356,7 @@ def main(argc, argv):
         
             arguments.getApplicationUsage().write(std.cout,osg.ApplicationUsage.COMMAND_LINE_OPTION)
             return 1            
-        else :
+        else:
             contextTests.push_back(ContextTest(512,512, False))
 
     startTick = osg.Timer.instance().tick()
@@ -370,15 +370,15 @@ def main(argc, argv):
     try
         for( numGLObjectIterations<maxNumGLIterations ++numGLObjectIterations)
             for(GLMemoryTests.iterator itr = glMemoryTests.begin()
-                itr != glMemoryTests.end()
+                not = glMemoryTests.end()
                 ++itr)
                 glObject = (*itr).allocate()
-                if glObject.valid() : glObjects.push_back(glObject.get())
+                if glObject.valid() : glObjects.push_back(glObject)
         
         for(numContextIterations<maxNumContextIterations ++numContextIterations)
             printf("GraphicsContext %i\n",numContextIterations)
             for(ContextTests.iterator itr = contextTests.begin()
-                itr != contextTests.end()
+                not = contextTests.end()
                 ++itr)
                 context = (*itr).allocate()
                 if context.valid() :
@@ -390,7 +390,7 @@ def main(argc, argv):
                     renderInfo.setState(context.getState())
                     
                     for(GLObjects.iterator gitr = glObjects.begin()
-                        gitr != glObjects.end()
+                        not = glObjects.end()
                         ++gitr)
                         if sleepTime>0 : OpenThreads.Thread.microSleep( sleepTime )
 

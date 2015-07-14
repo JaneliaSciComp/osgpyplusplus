@@ -51,7 +51,7 @@ def create1DTextureStateToDecorate(loadedModel):
 
     noPixels = 1024
     
-    # allocate the image data, noPixels x 1 x 1 with 4 rgba floats - equivalent to a Vec4!
+    # allocate the image data, noPixels x 1 x 1 with 4 rgba floats - equivalent to a Vec4 not 
     image.allocateImage(noPixels,1,1,GL_RGBA,GL_FLOAT)
     image.setInternalTextureFormat(GL_RGBA)
     
@@ -116,18 +116,18 @@ class AnimateTexGenCallback (osg.NodeCallback) :
             static bool state = False
             while time>previousTime+timeInterval :
                 previousTime+=timeInterval
-                state = !state
+                state =  not state
         
             if state :
                 texgenNode.getTexGen().setMode(osg.TexGen.OBJECT_LINEAR)
-            else :
+            else:
                 texgenNode.getTexGen().setMode(osg.TexGen.EYE_LINEAR)
             
 
         virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
             texgenNode = dynamic_cast<osg.TexGenNode*>(node)
 
-            if texgenNode  nv.getFrameStamp() :
+            if texgenNode  and  nv.getFrameStamp() :
                 # we have an exisitng stateset, so lets animate it.
                 animateTexGen(texgenNode,nv.getFrameStamp().getSimulationTime())
 
@@ -138,13 +138,13 @@ class AnimateTexGenCallback (osg.NodeCallback) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
    
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -153,14 +153,14 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
   
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
     
-    if !loadedModel :
+    if  not loadedModel :
         osg.notify(osg.NOTICE), arguments.getApplicationUsage().getCommandLineUsage()
         return 0
 
     stateset = create1DTextureStateToDecorate(loadedModel)
-    if !stateset :
+    if  not stateset :
         print "Error: failed to create 1D texture state."
         return 1
 

@@ -59,10 +59,10 @@ void GraphicsWindowFOX.init()
 		setState( osg.State )()
 		getState().setGraphicsContext(this)
 
-		if _traits.valid()  _traits.sharedContext.valid() :
+		if _traits.valid()  and  _traits.sharedContext.valid() :
 			getState().setContextID( _traits.sharedContext.getState().getContextID() )
 			incrementContextIDUsageCount( getState().getContextID() )   
-		else :
+		else:
 			getState().setContextID( osg.GraphicsContext.createNewContextID() )
 
 GraphicsWindowFOX.~GraphicsWindowFOX()
@@ -78,7 +78,7 @@ void GraphicsWindowFOX.useCursor(bool cursorOn)
 	if cursorOn : 
 		# show the old cursor
 		setDefaultCursor(_oldCursor)
-	else : 
+	else:
 		setDefaultCursor(NULL)
 
 bool GraphicsWindowFOX.makeCurrentImplementation()
@@ -268,13 +268,13 @@ FOX_OSG_MDIView.FOX_OSG_MDIView(FXMDIClient *p,  FXString name,
 
     # load the scene.
     loadedModel = osgDB.readNodeFile("cow.osgt")
-    if !loadedModel :
+    if  not loadedModel :
         return 
 
     # add the stats handler
     viewer.addEventHandler(osgViewer.StatsHandler)()
 
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator)()
 
@@ -366,7 +366,7 @@ MainFrame.MainFrame(FXApp *app,  FXString name, FXIcon *ic, FXIcon *mi, FXuint o
 	# Make MDI Window Menu
 	mdimenu = FXMDIMenu(this,mdiclient)
 
-	# MDI buttons in menu:- note the message ID's!!!!!
+	# MDI buttons in menu:- note the message ID's not  not  not  not  not 
 	# Normally, MDI commands are simply sensitized or desensitized
 	# Under the menubar, however, they're hidden if the MDI Client is
 	# not maximized.  To do this, they must have different ID's.
@@ -389,7 +389,7 @@ void MainFrame.create()
   m_fxToolbarShell1.create()
   show(PLACEMENT_SCREEN)
 
-def main(argc, argv):
+def main(argv):
 
     
 

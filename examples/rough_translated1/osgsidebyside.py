@@ -117,7 +117,7 @@ class SwitchDOFVisitor : public osg.NodeVisitor, public osgGA.GUIEventHandler
 
         
         viewer = dynamic_cast<osgViewer.Viewer*>(aa)
-        if !viewer : return False
+        if  not viewer : return False
 
         if ea.getHandled() : return False
 
@@ -148,7 +148,7 @@ def singleWindowSideBySideCameras(viewer):
 
     
     wsi = osg.GraphicsContext.getWindowingSystemInterface()
-    if !wsi : 
+    if  not wsi : 
         osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
         return
     
@@ -170,7 +170,7 @@ def singleWindowSideBySideCameras(viewer):
     traits.doubleBuffer = True
     traits.sharedContext = 0
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
     if gc.valid() :
         osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
 
@@ -178,7 +178,7 @@ def singleWindowSideBySideCameras(viewer):
         # rather than just the parts of the window that are under the camera's viewports
         gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
         gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-    else :
+    else:
         osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
 
@@ -197,28 +197,28 @@ def singleWindowSideBySideCameras(viewer):
     camera = osg.Camera()
     camera.setCullMask(1)
     camera.setName("Left")
-    camera.setGraphicsContext(gc.get())
+    camera.setGraphicsContext(gc)
     camera.setViewport(osg.Viewport(0, 0, width/2, height))
-    buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+    buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
     camera.setDrawBuffer(buffer)
     camera.setReadBuffer(buffer)
-    viewer.addSlave(camera.get(), osg.Matrixd.scale(1.0,0.5,1.0), osg.Matrixd())
+    viewer.addSlave(camera, osg.Matrixd.scale(1.0,0.5,1.0), osg.Matrixd())
 
     camera = osg.Camera()
     camera.setCullMask(2)
     camera.setName("Right")
-    camera.setGraphicsContext(gc.get())
+    camera.setGraphicsContext(gc)
     camera.setViewport(osg.Viewport(width/2, 0, width/2, height))
-    buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+    buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
     camera.setDrawBuffer(buffer)
     camera.setReadBuffer(buffer)
-    viewer.addSlave(camera.get(), osg.Matrixd.scale(1.0,0.5,1.0), osg.Matrixd())
+    viewer.addSlave(camera, osg.Matrixd.scale(1.0,0.5,1.0), osg.Matrixd())
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     if argc<2 : 
         print argv[0], ": requires filename argument."
@@ -250,26 +250,26 @@ def main(argc, argv):
     # load the scene.
     loadedModel = osgDB.readNodeFiles(arguments)
 
-    if !loadedModel : 
+    if  not loadedModel : 
         print argv[0], ": No data loaded."
         return 1
 
     group = osg.Group()
     
     group1 = osg.Group()
-    group1.addChild(loadedModel.get())
+    group1.addChild(loadedModel)
     group1.setNodeMask(1)
 
     # Uncomment these lines if you like to compare the loaded model to the resulting model in a merge/diff tool
-    #osgDB.writeNodeFile(*loadedModel.get(), "dummy1.osgt")
+    #osgDB.writeNodeFile(*loadedModel, "dummy1.osgt")
 
-    osgDB.writeNodeFile(*loadedModel.get(), outputfile)
+    osgDB.writeNodeFile(*loadedModel, outputfile)
     convertedModel = osgDB.readNodeFile(outputfile)
 
-    #osgDB.writeNodeFile(*convertedModel.get(), "dummy2.osgt")
+    #osgDB.writeNodeFile(*convertedModel, "dummy2.osgt")
 
     group2 = osg.Group()
-    group2.addChild(convertedModel.get())
+    group2.addChild(convertedModel)
     group2.setNodeMask(2)
 
     # Activate DOF animations and collect switches

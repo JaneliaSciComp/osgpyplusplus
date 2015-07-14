@@ -64,7 +64,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
         result = dynamic_cast<T*>(node)
         if result :
              _foundNode = result
-         traverse = else :(node)
+         traverse = else(node)
     
     _foundNode = T*()
 
@@ -73,7 +73,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
 template<class T>
 def findTopMostNodeOfType(node):
     
-    if !node : return 0
+    if  not node : return 0
 
     fnotv = FindTopMostNodeOfTypeVisitor<T>()
     node.accept(fnotv)
@@ -88,9 +88,9 @@ class WindowCaptureCallback (osg.Camera.DrawCallback) :
             _image = osg.Image()
     
     virtual void operator () (osg.RenderInfo renderInfo) 
-            #if !defined(OSG_GLES1_AVAILABLE)  !defined(OSG_GLES2_AVAILABLE)
+            #if  not defined(OSG_GLES1_AVAILABLE)  and   not defined(OSG_GLES2_AVAILABLE)
             glReadBuffer(_readBuffer)
-            #else :
+            #else:
             osg.notify(osg.NOTICE), "Error: GLES unable to do glReadBuffer"
             #endif
 
@@ -103,25 +103,25 @@ class WindowCaptureCallback (osg.Camera.DrawCallback) :
                     pixelFormat = GL_RGBA
                 pixelFormat = GL_RGB
                 
-#if defined(OSG_GLES1_AVAILABLE) || defined(OSG_GLES2_AVAILABLE)
+#if defined(OSG_GLES1_AVAILABLE)  or  defined(OSG_GLES2_AVAILABLE)
                  if pixelFormat == GL_RGB :
                     value = 0
                     #ifndef GL_IMPLEMENTATION_COLOR_READ_FORMAT
                         #define GL_IMPLEMENTATION_COLOR_READ_FORMAT 0x8B9B
                     #endif
                     glGetIntegerv(GL_IMPLEMENTATION_COLOR_READ_FORMAT, value)
-                    if  value != GL_RGB ||
-                         value != GL_UNSIGNED_BYTE  :
+                    if  value  not = GL_RGB  or 
+                         not = GL_UNSIGNED_BYTE  :
                         pixelFormat = GL_RGBA#always supported
 #endif
                 width = gc.getTraits().width
                 height = gc.getTraits().height
 
-                print "Capture: size=", width, "x", height, ", format=", (pixelFormat == GL_RGBA ? "GL_RGBA":"GL_RGB")
+                print "Capture: size=", width, "x", height, ", format=", (pixelFormat ==  "GL_RGBA":"GL_RGB"), std: if (GL_RGBA) else endl
 
                 _image.readPixels(0, 0, width, height, pixelFormat, GL_UNSIGNED_BYTE)
                 
-            if !_fileName.empty() :
+            if  not _fileName.empty() :
                 print "Writing to: ", _fileName
                 osgDB.writeImageFile(*_image, _fileName)
     _readBuffer = GLenum()
@@ -145,13 +145,13 @@ class CustomRenderer (osgViewer.Renderer) :
             if _graphicsThreadDoesCull :
                 if _cullOnly :
                     cull()
-                cull_draw = else :()
+                cull_draw = else()
 
     def cull():
 
         
-            sceneView = _sceneView[0].get()
-            if !sceneView || _done  : return
+            sceneView = _sceneView[0]
+            if  not sceneView  or  _done  : return
             
             updateSceneView(sceneView)
             
@@ -168,9 +168,9 @@ class CustomRenderer (osgViewer.Renderer) :
 #===============================================================
 # MAIN
 #
-def main(argc, argv):
+def main(argv):
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     usage = arguments.getApplicationUsage()
 
     usage.setApplicationName(arguments.getApplicationName())
@@ -207,15 +207,15 @@ def main(argc, argv):
 
     use_pbuffer = False
     if arguments.read("--pbuffer") : 
-        if !activeMode : 
+        if  not activeMode : 
             use_pbuffer = True
-         else : 
+         else:
             osg.notify(osg.NOTICE), "ignoring --pbuffer because --active specified on commandline"
     if use_pbuffer : 
-        ds = osg.DisplaySettings.instance().get()
+        ds = osg.DisplaySettings.instance()
         traits = osg.GraphicsContext.Traits(ds)
 
-        if viewer.getCamera().getGraphicsContext()  viewer.getCamera().getGraphicsContext().getTraits() : 
+        if viewer.getCamera().getGraphicsContext()  and  viewer.getCamera().getGraphicsContext().getTraits() : 
             #use viewer settings for window size
             src_traits = viewer.getCamera().getGraphicsContext().getTraits()
             traits.screenNum = src_traits.screenNum
@@ -229,22 +229,22 @@ def main(argc, argv):
             traits.alpha = src_traits.alpha
             traits.depth = src_traits.depth
             traits.pbuffer = True
-         else : 
+         else:
             #viewer would use fullscreen size (unknown here) pbuffer will use 4096 x4096 (or best avaiable)
             traits.width = 1, 12
             traits.height = 1, 12
             traits.pbuffer = True
-        pbuffer = osg.GraphicsContext.createGraphicsContext(traits.get())
+        pbuffer = osg.GraphicsContext.createGraphicsContext(traits)
         if pbuffer.valid() :
             osg.notify(osg.NOTICE), "Pixel buffer has been created successfully."
             camera = osg.Camera(*viewer.getCamera())
-            camera.setGraphicsContext(pbuffer.get())
+            camera.setGraphicsContext(pbuffer)
             camera.setViewport(osg.Viewport(0,0,traits.width,traits.height))
-            buffer = pbuffer.getTraits().doubleBuffer ? GL_BACK : GL_FRONT
+            buffer =  GL_BACK if (pbuffer.getTraits().doubleBuffer) else  GL_FRONT
             camera.setDrawBuffer(buffer)
             camera.setReadBuffer(buffer)
-            viewer.setCamera(camera.get())
-        else :
+            viewer.setCamera(camera)
+        else:
             osg.notify(osg.NOTICE), "Pixel buffer has not been created successfully."
 
     # Read camera settings for screenshot
@@ -265,7 +265,7 @@ def main(argc, argv):
 
     # load the data
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -279,8 +279,8 @@ def main(argc, argv):
 
     # Setup specified camera
     if camera_specified :
-        csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(loadedModel.get())
-        if !csn : return 1
+        csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(loadedModel)
+        if  not csn : return 1
         
         # Compute eye point in world coordiantes
         eye = osg.Vec3d()
@@ -309,17 +309,17 @@ def main(argc, argv):
         up = roll_matrix.preMult(up)
         
         viewer.getCamera().setViewMatrixAsLookAt(eye, eye+target, up)
-    else :
+    else:
         # Only add camera manipulators if camera is not specified
         camera_specified=False
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() ) 
+        viewer.setCameraManipulator( keyswitchManipulator ) 
 
             
     # Optimize DatabasePager for auto-capture
@@ -328,13 +328,13 @@ def main(argc, argv):
 
     # Install custom renderer
     customRenderer = CustomRenderer(viewer.getCamera())
-    viewer.getCamera().setRenderer(customRenderer.get())
+    viewer.getCamera().setRenderer(customRenderer)
 
     # Override threading model
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # Set the final SceneData to show
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     # Realize GUI
     viewer.realize()
@@ -347,7 +347,7 @@ def main(argc, argv):
     beforeLoadTick = osg.Timer.instance().tick()
     
     # Keep updating and culling until full level of detail is reached
-    while !viewer.done()  pager.getRequestsInProgress() :
+    while  not viewer.done()  and  pager.getRequestsInProgress() :
 #        print pager.getRequestsInProgress(), " "
         viewer.updateTraversal()
         viewer.renderingTraversals()
@@ -360,10 +360,10 @@ def main(argc, argv):
     customRenderer.setCullOnly(False)
     
   
-    #--- Capture the image!!! ---
-    if !activeMode :
+    #--- Capture the image not  not  not  ---
+    if  not activeMode :
         # Add the WindowCaptureCallback now that we have full resolution
-        buffer = viewer.getCamera().getGraphicsContext().getTraits().doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (viewer.getCamera().getGraphicsContext().getTraits().doubleBuffer) else  GL_FRONT
         viewer.getCamera().setFinalDrawCallback(WindowCaptureCallback(buffer, fileName))
 
         beforeRenderTick = osg.Timer.instance().tick()
@@ -375,7 +375,7 @@ def main(argc, argv):
         print "Rendring time = ", osg.Timer.instance().delta_s(beforeRenderTick, afterRenderTick), " seconds"
 
         return 0
-    else :
+    else:
         return viewer.run()
 
 

@@ -71,8 +71,8 @@ class ImageStreamStateCallback (osg.Drawable.UpdateCallback) :
          _imageStream = is 
 
     virtual void update(osg.NodeVisitor* nv, osg.Drawable*)
-        if _text.valid()  _imageStream.valid() :
-            if _imageStream.data() != _lastData :
+        if _text.valid()  and  _imageStream.valid() :
+            if _imageStream.data()  not = _lastData :
                 dt = nv.getFrameStamp().getReferenceTime() - _lastDataTimeStamp
 
                 _fps = 0.9 * _fps + 0.1 * (1 / dt)
@@ -87,12 +87,12 @@ class ImageStreamStateCallback (osg.Drawable.UpdateCallback) :
             ss, " | cur: ", osg.round(_imageStream.getCurrentTime()*10) / 10.0
             if _imageStream.getStatus() == osg.ImageStream.PLAYING :
                 ss, " | playing"
-            else :
+            else:
                 ss, " | paused"
                 _fps = 0
             if _imageStream.getLoopingMode() == osg.ImageStream.LOOPING : 
                 ss, " | looping"
-            else :
+            else:
                 ss, " | don't loop"
             _text.setText(ss.str())
     _text = osg.observer_ptr<osgText.Text>()
@@ -118,7 +118,7 @@ class MovieEventHandler (osgGA.GUIEventHandler) :
     def setColor(geo, color):
 
         
-        if !geo :
+        if  not geo :
             return
 
         c = dynamic_cast<osg.Vec4Array*>(geo.getColorArray())
@@ -137,7 +137,7 @@ class MovieEventHandler (osgGA.GUIEventHandler) :
 bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa, osg.Object*, osg.NodeVisitor* nv)
     switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.MOVE):
-            if _currentImageStream.valid()  (ea.getModKeyMask()  osgGA.GUIEventAdapter.MODKEY_SHIFT) :
+            if _currentImageStream.valid()  and  (ea.getModKeyMask()  osgGA.GUIEventAdapter.MODKEY_SHIFT) :
                 scalar = (ea.getXnormalized()+1) / 2.0
                 _currentImageStream.seek(scalar * _currentImageStream.getLength())
         break
@@ -146,79 +146,79 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
 
             view = dynamic_cast<osgViewer.View*>(aa)
             intersections = osgUtil.LineSegmentIntersector.Intersections()
-            foundIntersection = view==0 ? False : view.computeIntersections(ea, intersections)
+            foundIntersection =  False if (view==0) else  view.computeIntersections(ea, intersections)
 
             if foundIntersection :
                 # use the nearest intersection
                 intersection = *(intersections.begin())
-                drawable = intersection.drawable.get()
-                geometry = drawable ? drawable.asGeometry() : 0
+                drawable = intersection.drawable
+                geometry =  drawable.asGeometry() if (drawable) else  0
 
                 if geometry : 
-                    tex = geometry.getStateSet() ? dynamic_cast<osg.Texture*>(geometry.getStateSet().getTextureAttribute(0, osg.StateAttribute.TEXTURE)) : NULL
+                    tex =  dynamic_cast<osg.Texture*>(geometry.getStateSet().getTextureAttribute(0, osg.StateAttribute.TEXTURE)) if (geometry.getStateSet()) else  NULL
                     if tex : 
                         is = dynamic_cast<osg.ImageStream*>(tex.getImage(0))
                         if is :
-                            setColor(_currentGeometry.get(), osg.Vec4(0.7, 0.7, 0.7, 1.0))
+                            setColor(_currentGeometry, osg.Vec4(0.7, 0.7, 0.7, 1.0))
                             _currentGeometry = geometry
-                            setColor(_currentGeometry.get(), osg.Vec4(1,1,1,1))
+                            setColor(_currentGeometry, osg.Vec4(1,1,1,1))
                             _currentImageStream = is
 
                             if is.getStatus() == osg.ImageStream.PLAYING :
                                 is.pause()
-                            else :
+                            else:
                                 is.play()
 
 
             break
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if !_currentImageStream.valid() :
+            if  not _currentImageStream.valid() :
                 return False
 
-            if ea.getKey()=='p' :
+            if ea.getKey()==ord("p") :
                 playToggle = _currentImageStream.getStatus()
-                if playToggle != osg.ImageStream.PLAYING :
-                    print _currentImageStream.get(), " Play"
+                if playToggle  not = osg.ImageStream.PLAYING :
+                    print _currentImageStream, " Play"
                     _currentImageStream.play()
-                else :
+                else:
                     # playing, so pause
-                    print _currentImageStream.get(), " Pause"
+                    print _currentImageStream, " Pause"
                     _currentImageStream.pause()
                 return True
-            elif ea.getKey()=='r' :
-                print _currentImageStream.get(), " Restart"
+            elif ea.getKey()==ord("r") :
+                print _currentImageStream, " Restart"
                 _currentImageStream.rewind()
                 _currentImageStream.play()
                 return True
-            elif ea.getKey()=='>' :
-                print _currentImageStream.get(), " Seeking"
+            elif ea.getKey()==ord(">") :
+                print _currentImageStream, " Seeking"
                 _currentImageStream.seek(_currentImageStream.getCurrentTime() + 1.0)
 
                 return True
-            elif ea.getKey()=='L' :
+            elif ea.getKey()==ord("L") :
                 if  _currentImageStream.getLoopingMode() == osg.ImageStream.LOOPING :
-                    print _currentImageStream.get(), " Toggle Looping Off"
+                    print _currentImageStream, " Toggle Looping Off"
                     _currentImageStream.setLoopingMode( osg.ImageStream.NO_LOOPING )
-                else :
-                    print _currentImageStream.get(), " Toggle Looping On"
+                else:
+                    print _currentImageStream, " Toggle Looping On"
                     _currentImageStream.setLoopingMode( osg.ImageStream.LOOPING )
                 return True
-            elif ea.getKey()=='+' :
+            elif ea.getKey()==ord("+") :
                 tm = _currentImageStream.getTimeMultiplier()
                 tm += 0.1
                 _currentImageStream.setTimeMultiplier(tm)
-                print _currentImageStream.get(), " Increase speed rate ", _currentImageStream.getTimeMultiplier()
+                print _currentImageStream, " Increase speed rate ", _currentImageStream.getTimeMultiplier()
 
                 return True
-            elif ea.getKey()=='-' :
+            elif ea.getKey()==ord("-") :
                 tm = _currentImageStream.getTimeMultiplier()
                 tm -= 0.1
                 _currentImageStream.setTimeMultiplier(tm)
-                print _currentImageStream.get(), " Decrease speed rate ", _currentImageStream.getTimeMultiplier()
+                print _currentImageStream, " Decrease speed rate ", _currentImageStream.getTimeMultiplier()
 
                 return True
-            elif ea.getKey()=='o' :
-                print _currentImageStream.get(), " Frame rate  ", _currentImageStream.getFrameRate()
+            elif ea.getKey()==ord("o") :
+                print _currentImageStream, " Frame rate  ", _currentImageStream.getFrameRate()
 
                 return True
             return False
@@ -247,11 +247,11 @@ static osgDB.DirectoryContents getSuitableFiles(osg.ArgumentParser arguments)
             directory = arguments[i]
             dc = osgDB.getSortedDirectoryContents(directory)
 
-            for(osgDB.DirectoryContents.iterator itr = dc.begin() itr != dc.end() ++itr)
+            for(osgDB.DirectoryContents.iterator itr = dc.begin() itr  not = dc.end() ++itr)
                 full_file_name = directory + "/" + (*itr)
-                if osgDB.fileType(full_file_name) != osgDB.DIRECTORY :
+                if osgDB.fileType(full_file_name)  not = osgDB.DIRECTORY :
                     files.push_back(full_file_name)
-        else : 
+        else:
             files.push_back(arguments[i])
     return files
 
@@ -263,10 +263,10 @@ class MyDimensionsChangedCallback (osg.Image.DimensionsChangedCallback) :
         , _geo(geo)
 
     virtual void operator()(osg.Image* img)
-        if img  _tex.valid()  _geo.valid() :
+        if img  and  _tex.valid()  and  _geo.valid() :
             float l(0), t(0)
-            r = (_tex.getTextureTarget() == GL_TEXTURE_2D) ? 1 : img.s()
-            b = (_tex.getTextureTarget() == GL_TEXTURE_2D) ? 1 : img.t()
+            r =  1 if ((_tex.getTextureTarget() == GL_TEXTURE_2D)) else  img.s()
+            b =  1 if ((_tex.getTextureTarget() == GL_TEXTURE_2D)) else  img.t()
 
             #
 #            if img.getOrigin() == osg.Image.TOP_LEFT :
@@ -288,19 +288,19 @@ class MyDimensionsChangedCallback (osg.Image.DimensionsChangedCallback) :
 
 static osg.Node* readImageStream( str file_name, osg.Vec3 p, float desired_height, osgDB.Options* options)
     obj = osgDB.readObjectFile(file_name, options)
-    tex = dynamic_cast<osg.Texture*>(obj.get())
+    tex = dynamic_cast<osg.Texture*>(obj)
     geo = osg.Geometry*(NULL)
     w = float(0)
 
-    if !tex :
-        img_stream = dynamic_cast<osg.ImageStream*>(obj.get())
+    if  not tex :
+        img_stream = dynamic_cast<osg.ImageStream*>(obj)
 
         # try readImageFile if readObjectFile failed
-        if !img_stream :
+        if  not img_stream :
             img_stream = dynamic_cast<osg.ImageStream*>(osgDB.readImageFile(file_name, options))
 
         if img_stream :
-            tex = osg.Texture2D(img_stream.get())
+            tex = osg.Texture2D(img_stream)
             tex.setResizeNonPowerOfTwoHint(False)
 
 
@@ -310,12 +310,12 @@ static osg.Node* readImageStream( str file_name, osg.Vec3 p, float desired_heigh
 
         img = dynamic_cast<osg.ImageStream*>(tex.getImage(0))
         if img :
-            w = (img.t() > 0) ? img.s() * desired_height / img.t() : 0
+            w =  img.s() * desired_height / img.t() if ((img.t() > 0)) else  0
 
             text = osgText.Text()
             text.setFont("arial.ttf")
             text.setDataVariance(osg.Object.DYNAMIC)
-            text.setUpdateCallback(ImageStreamStateCallback(text, img.get()))
+            text.setUpdateCallback(ImageStreamStateCallback(text, img))
             text.setCharacterSize(24)
             text.setPosition(p + osg.Vec3(10,-10,10))
             text.setAxisAlignment(osgText.TextBase.XZ_PLANE)
@@ -324,8 +324,8 @@ static osg.Node* readImageStream( str file_name, osg.Vec3 p, float desired_heigh
         if w == 0 :
             # hmm, imagestream with no width?
             w = desired_height * 16 / 9.0
-        tex_s = (tex.getTextureTarget() == GL_TEXTURE_2D) ? 1 : img.s()
-        tex_t = (tex.getTextureTarget() == GL_TEXTURE_2D) ? 1 : img.t()
+        tex_s =  1 if ((tex.getTextureTarget() == GL_TEXTURE_2D)) else  img.s()
+        tex_t =  1 if ((tex.getTextureTarget() == GL_TEXTURE_2D)) else  img.t()
 
         if img.getOrigin() == osg.Image.TOP_LEFT :
             geo = osg.createTexturedQuadGeometry(p, osg.Vec3(w, 0, 0), osg.Vec3(0, 0, desired_height), 0, tex_t, tex_s, 0)
@@ -333,7 +333,7 @@ static osg.Node* readImageStream( str file_name, osg.Vec3 p, float desired_heigh
 
         geode.addDrawable(geo)
 
-        geo.getOrCreateStateSet().setTextureAttributeAndModes(0, tex.get())
+        geo.getOrCreateStateSet().setTextureAttributeAndModes(0, tex)
 
         colors = osg.Vec4Array()
         colors.push_back(osg.Vec4(0.7, 0.7, 0.7, 1))
@@ -342,10 +342,10 @@ static osg.Node* readImageStream( str file_name, osg.Vec3 p, float desired_heigh
 
         p[0] += w + 10
 
-        img.addDimensionsChangedCallback(MyDimensionsChangedCallback(tex.get(), geo))
+        img.addDimensionsChangedCallback(MyDimensionsChangedCallback(tex, geo))
 
         return geode
-    else :
+    else:
         print "could not read file from ", file_name
         return NULL
 
@@ -375,8 +375,8 @@ class ReplaceTextureVisitor (osg.NodeVisitor) :
     def apply(ss):
 
         
-        if ss  ss.getTextureAttribute(0, osg.StateAttribute.TEXTURE) :
-            ss.setTextureAttribute(0, _tex.get())
+        if ss  and  ss.getTextureAttribute(0, osg.StateAttribute.TEXTURE) :
+            ss.setTextureAttribute(0, _tex)
     _tex = osg.Texture()
 
 
@@ -397,7 +397,7 @@ class SlideShowEventHandler (osgGA.GUIEventHandler) :
                         loadSlide(_currentFile - 1)
                     elif ea.getKey() == osgGA.GUIEventAdapter.KEY_Right :
                         loadSlide(_currentFile + 1)
-                    else :
+                    else:
                         return False
 
                     return True
@@ -419,21 +419,21 @@ class SlideShowEventHandler (osgGA.GUIEventHandler) :
         elif _currentFile >= static_cast<int>(_files.size()) :
             _currentFile = 0
 
-        obj = osgDB.readRefObjectFile(_files[_currentFile], _options.get())
-        tex = dynamic_cast<osg.Texture*>(obj.get())
-        if !tex : 
-            stream = dynamic_cast<osg.ImageStream*>(obj.get())
-            if !stream :
-                stream = dynamic_cast<osg.ImageStream*>(osgDB.readImageFile(_files[_currentFile], _options.get()))
+        obj = osgDB.readRefObjectFile(_files[_currentFile], _options)
+        tex = dynamic_cast<osg.Texture*>(obj)
+        if  not tex : 
+            stream = dynamic_cast<osg.ImageStream*>(obj)
+            if  not stream :
+                stream = dynamic_cast<osg.ImageStream*>(osgDB.readImageFile(_files[_currentFile], _options))
 
             if stream :
-                tex = osg.Texture2D(stream.get())
+                tex = osg.Texture2D(stream)
                 tex.setResizeNonPowerOfTwoHint(False)
         if tex : 
             stream = dynamic_cast<osg.ImageStream*>(tex.getImage(0))
             if stream :
                 stream.play()
-            v = ReplaceTextureVisitor(tex.get())
+            v = ReplaceTextureVisitor(tex)
             _node.accept(v)
 
     _node = osg.Node()
@@ -443,7 +443,7 @@ class SlideShowEventHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
@@ -456,7 +456,7 @@ def main(argc, argv):
 #    
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -496,7 +496,7 @@ def main(argc, argv):
 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -516,18 +516,18 @@ def main(argc, argv):
     options = osgDB.ReaderWriter.Options(options_str)
 
     if slide_show :
-        node = readImageStream(files[0], pos, desired_height, options.get())
+        node = readImageStream(files[0], pos, desired_height, options)
         group.addChild(node)
-        movie_event_handler = SlideShowEventHandler(node, files, options.get())
-    else :
+        movie_event_handler = SlideShowEventHandler(node, files, options)
+    else:
         movie_event_handler = MovieEventHandler()
 
         num_files_per_row = std.max(osg.round(sqrt(static_cast<double>(std.min(max_videos, static_cast<unsigned int>(files.size()))))), 1.0)
         static  float new_row_at = num_files_per_row * desired_height * 16 / 9.0
 
         num_videos = 0
-        for(osgDB.DirectoryContents.iterator i = files.begin() (i != files.end())  (num_videos < max_videos) ++i)
-            node = readImageStream(*i, pos, desired_height, options.get())
+        for(osgDB.DirectoryContents.iterator i = files.begin() (i  not = files.end())  and  (num_videos < max_videos) ++i)
+            node = readImageStream(*i, pos, desired_height, options)
             if node :
                 group.addChild(node)
 
@@ -538,7 +538,7 @@ def main(argc, argv):
 
 
     # set the scene to render
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     if viewer.getSceneData()==0 :
         arguments.getApplicationUsage().write(std.cout)

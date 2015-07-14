@@ -83,7 +83,7 @@ _tabs = osgWidget.Box()
             # in the Canvas down below.
             descr = strstream()
 
-            descr, "This is some text", "for the Tab_", i, " tab.", "Press the button up top", "And this should go to the next Window!"
+            descr, "This is some text", "for the Tab_", i, " tab.", "Press the button up top", "And this should go to the next Window not "
             
 
             label2 = osgWidget.Label(ss.str())
@@ -127,7 +127,7 @@ def bound(node):
 
     osgWidget.warn(), "center: ", bs.center(), " radius: ", bs.radius()
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

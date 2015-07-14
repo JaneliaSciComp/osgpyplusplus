@@ -154,7 +154,7 @@ def getNumeric(object):
     bvo = dynamic_cast<osg.ValueObject*>(object)
     if bvo :
         gn = GetNumeric<T>()
-        if bvo.get(gn)  gn._set : return gn._value
+        if bvo.get(gn)  and  gn._set : return gn._value
     T = return(0)
 
 def testResults(node):
@@ -163,19 +163,19 @@ def testResults(node):
     j = 0
     if node.getUserValue("Int value",j) :
         OSG_NOTICE, "Int value=", j
-    else :
+    else:
         OSG_NOTICE, "Int value not found"
 
     readString = str()
     if node.getUserValue("Status",readString) :
         OSG_NOTICE, "Status=", readString
-    else :
+    else:
         OSG_NOTICE, "Status not found"
 
     height = 0.0
     if node.getUserValue("Height",height) :
         OSG_NOTICE, "Height=", height
-    else :
+    else:
         OSG_NOTICE, "Height not found"
 
     udc = node.getUserDataContainer()
@@ -192,15 +192,15 @@ def testResults(node):
     OSG_NOTICE
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     
     node = osg.Group()
 
-    if arguments.read("--MyUserDataContainer") || arguments.read("--mydc") :
+    if arguments.read("--MyUserDataContainer")  or  arguments.read("--mydc") :
         node.setUserDataContainer(MyNamespace.MyUserDataContainer)()
     
     i = 10
@@ -213,7 +213,7 @@ def main(argc, argv):
 
     drawable = osg.Geometry()
     drawable.setName("myDrawable")
-    node.getOrCreateUserDataContainer().addUserObject(drawable.get())
+    node.getOrCreateUserDataContainer().addUserObject(drawable)
 
     node.setUserValue("fred",12)
     node.setUserValue("john",1.1)
@@ -224,28 +224,28 @@ def main(argc, argv):
     node.setUserValue("flag-off",False)
 
     OSG_NOTICE, "Testing results for values set directly on scene graph"
-    testResults(node.get())
+    testResults(node)
 
         osgDB.writeNodeFile(*node, "results.osgt")
 
         from_osgt = osgDB.readNodeFile("results.osgt")
         if from_osgt.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgt file"
-            testResults(from_osgt.get())
+            testResults(from_osgt)
     
         osgDB.writeNodeFile(*node, "results.osgb")
 
         from_osgb = osgDB.readNodeFile("results.osgb")
         if from_osgb.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgb file"
-            testResults(from_osgb.get())
+            testResults(from_osgb)
 
         osgDB.writeNodeFile(*node, "results.osgx")
 
         from_osgx = osgDB.readNodeFile("results.osgx")
         if from_osgx.valid() :
             OSG_NOTICE, "Testing results for values from scene graph read from .osgx file"
-            testResults(from_osgx.get())
+            testResults(from_osgx)
     return 0
 
 

@@ -248,7 +248,7 @@ def createHUDText():
 
     sequence = osg.Sequence()
         for(AlignmentList.iterator itr=alignmentList.begin()
-            itr!=alignmentList.end()
+            not = alignmentList.end()
             ++itr)
             alignmentGeode = osg.Geode()
             sequence.addChild(alignmentGeode)
@@ -307,8 +307,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(arial)
-        text.setText(arial!=0?
-                      "text.setFont(\"fonts/arial.ttf\")":
+        text.setText(arial not  "text.setFont(\"fonts/arial.ttf\")" if (=0) else 
                       "unable to load \"fonts/arial.ttf\"")
         geode.addDrawable(text)
 
@@ -323,8 +322,7 @@ def createHUDText():
         
         geode.addDrawable(text)
         text.setFont(times)
-        text.setText(times!=0?
-                      "text.setFont(\"fonts/times.ttf\")":
+        text.setText(times not  "text.setFont(\"fonts/times.ttf\")" if (=0) else 
                       "unable to load \"fonts/times.ttf\"")
 
         cursor.x() = text.getBound().xMax() + spacing 
@@ -340,8 +338,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(dirtydoz)
-        text.setText(dirtydoz!=0?
-                      "text.setFont(\"fonts/dirtydoz.ttf\")":
+        text.setText(dirtydoz not  "text.setFont(\"fonts/dirtydoz.ttf\")" if (=0) else 
                       "unable to load \"fonts/dirtydoz.ttf\"")
         geode.addDrawable(text)
 
@@ -355,8 +352,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(fudd)
-        text.setText(fudd!=0?
-                      "text.setFont(\"fonts/fudd.ttf\")":
+        text.setText(fudd not  "text.setFont(\"fonts/fudd.ttf\")" if (=0) else 
                       "unable to load \"fonts/fudd.ttf\"")
         geode.addDrawable(text)
 
@@ -481,7 +477,7 @@ class UpdateTextOperation (osg.Operation) :
         viewer = dynamic_cast<osgViewer.Viewer*>(callingObject)
 
         if viewer : update()
-        load = else :()
+        load = else()
     
     def update():
     
@@ -491,7 +487,7 @@ class UpdateTextOperation (osg.Operation) :
         lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         
         if _mergeSubgraph.valid() :
-            _group.addChild(_mergeSubgraph.get())
+            _group.addChild(_mergeSubgraph)
 
             _mergeSubgraph = 0
 
@@ -512,11 +508,11 @@ class UpdateTextOperation (osg.Operation) :
 
         geode = osg.Geode()
             lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
-            if !_availableSubgraph.empty() :
+            if  not _availableSubgraph.empty() :
                 geode = _availableSubgraph.front()
                 _availableSubgraph.pop_front()
         
-        if !geode : geode = osg.Geode()
+        if  not geode : geode = osg.Geode()
 
         for(unsigned int i=0 i<_maxNumTextPerGeode ++i)
             x = float(rand()) / float(RAND_MAX) - 0.5
@@ -571,11 +567,11 @@ class UpdateTextOperation (osg.Operation) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -586,7 +582,7 @@ def main(argc, argv):
     updateOperation = UpdateTextOperation()
 
     numThreads = 0
-    if arguments.read("--mt", numThreads) || arguments.read("--mt") :
+    if arguments.read("--mt", numThreads)  or  arguments.read("--mt") :
         # construct a multi-threaded text updating test.
         if numThreads==0 : numThreads = 1
         
@@ -598,7 +594,7 @@ def main(argc, argv):
         
         loadedModel = osgDB.readNodeFiles(arguments)
         if loadedModel.valid() :
-            mainGroup.addChild(loadedModel.get())
+            mainGroup.addChild(loadedModel)
             
             center = loadedModel.getBound().center()
             diameter = loadedModel.getBound().radius() * 2.0
@@ -617,11 +613,11 @@ def main(argc, argv):
             updateOperation = UpdateTextOperation(center, diameter, textGroup)
 
             # add the operation to the operation thread and start it.
-            operationThread.add(updateOperation.get())
+            operationThread.add(updateOperation)
             operationThread.startThread()
 
             # add the operation to the viewer to sync once per frame.
-            viewer.addUpdateOperation(updateOperation.get())
+            viewer.addUpdateOperation(updateOperation)
 
 
             # add a unit cube for the text to appear within.
@@ -632,7 +628,7 @@ def main(argc, argv):
             mainGroup.addChild(geode)
                 
         viewer.setSceneData(mainGroup)        
-    else :
+    else:
         # prepare scene.
         center = osg.Vec3(0.0,0.0,0.0)
         radius = 1.0
@@ -668,9 +664,9 @@ def main(argc, argv):
 
     viewer.run()
     
-    if !operationThreads.empty() :
+    if  not operationThreads.empty() :
         for(Threads.iterator itr = operationThreads.begin()
-            itr != operationThreads.end()
+            not = operationThreads.end()
             ++itr)
             (*itr).cancel()
 

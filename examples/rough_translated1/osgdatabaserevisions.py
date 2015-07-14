@@ -48,11 +48,11 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the standard OpenSceneGraph example which loads and visualises 3d models.")
@@ -82,23 +82,23 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '5', "Spherical", osgGA.SphericalManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("5"), "Spherical", osgGA.SphericalManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '6'
+        keyForAnimationPath = ord("6")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # add the state manipulator
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
@@ -135,7 +135,7 @@ def main(argc, argv):
 
     # load the data
     loadedModel = osgDB.readNodeFile(file)
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -149,9 +149,9 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
-    viewer.setSceneData( loadedModel.get() )
+    viewer.setSceneData( loadedModel )
 
     viewer.realize()
 

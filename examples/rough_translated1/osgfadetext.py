@@ -145,12 +145,12 @@ int main(int, char**)
     # read the scene from the list of file specified commandline args.
     root = createEarth()
     
-    if !root : return 0
+    if  not root : return 0
 
     # add a viewport to the viewer and attach the scene graph.
-    viewer.setSceneData(root.get())
+    viewer.setSceneData(root)
 
-    csn = dynamic_cast<osg.CoordinateSystemNode*>(root.get())
+    csn = dynamic_cast<osg.CoordinateSystemNode*>(root)
     if csn :
         # add fade text around the globe
         csn.addChild(createFadeText(csn.getEllipsoidModel()))

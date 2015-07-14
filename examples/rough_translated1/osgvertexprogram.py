@@ -67,7 +67,7 @@ fresnel = 0.2           # Fresnel multiplier
 
 
  char vpstr[] =
-    "!!ARBvp1.0 # Refraction                                    \n"
+    " not  not ARBvp1.0 # Refraction                                    \n"
     "                                                           \n"
     "ATTRIB iPos         = vertex.position                     \n"
     "#ATTRIB iCol        = vertex.color.primary                \n"
@@ -181,7 +181,7 @@ def readCubeMap():
     imagePosZ = osgDB.readImageFile(CUBEMAP_FILENAME(posz))
     imageNegZ = osgDB.readImageFile(CUBEMAP_FILENAME(negz))
 
-    if imagePosX  imageNegX  imagePosY  imageNegY  imagePosZ  imageNegZ :
+    if imagePosX  and  imageNegX  and  imagePosY  and  imageNegY  and  imagePosZ  and  imageNegZ :
         cubemap.setImage(osg.TextureCubeMap.POSITIVE_X, imagePosX)
         cubemap.setImage(osg.TextureCubeMap.NEGATIVE_X, imageNegX)
         cubemap.setImage(osg.TextureCubeMap.POSITIVE_Y, imagePosY)
@@ -364,7 +364,7 @@ def addRefractStateSet(node):
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -375,7 +375,7 @@ int main(int argc, char *argv[])
 
     # load the nodes from the commandline arguments.
     model = osgDB.readNodeFiles(arguments)
-    if !model :
+    if  not model :
         radius = 1.0
         geode = osg.Geode()
         geode.addDrawable(osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0,0.0,0.0),radius)))
@@ -401,12 +401,12 @@ int main(int argc, char *argv[])
     windows = osgViewer.Viewer.Windows()
     viewer.getWindows(windows)
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-        itr != windows.end()
+        not = windows.end()
         ++itr)
         contextID = (*itr).getState().getContextID()
         vpExt = osg.VertexProgram.getExtensions(contextID,False)
         if vpExt :
-            if !vpExt.isVertexProgramSupported() :
+            if  not vpExt.isVertexProgramSupported() :
                 print "Warning: ARB_vertex_program not supported by OpenGL drivers, unable to run application."
                 return 1
 

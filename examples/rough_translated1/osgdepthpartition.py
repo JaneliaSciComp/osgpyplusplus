@@ -133,12 +133,12 @@ def createScene():
 
     return scene
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -155,11 +155,11 @@ def main(argc, argv):
     scene = osgDB.readNodeFiles(arguments)
 
     # if one hasn't been loaded create an earth and sun test model.
-    if !scene :
+    if  not scene :
         scene = createScene()
         needToSetHomePosition = True
     # pass the loaded scene graph to the viewer.
-    viewer.setSceneData(scene.get())
+    viewer.setSceneData(scene)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator)()
 
@@ -174,8 +174,8 @@ def main(argc, argv):
         dps._zNear = zNear
         dps._zMid = zMid
         dps._zFar = zFar
-        viewer.setUpDepthPartition(dps.get())
-    else :
+        viewer.setUpDepthPartition(dps)
+    else:
         # set up depth partitioning with default settings
         viewer.setUpDepthPartition()
 

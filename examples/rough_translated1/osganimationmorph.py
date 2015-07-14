@@ -69,12 +69,12 @@ def getShape(name):
         finder = GeometryFinder()
         shape0.accept(finder)
         return finder._geom
-    else :
+    else:
         return NULL
 
 
 int main (int argc, char* argv[])
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
 
     animation = osgAnimation.Animation()
@@ -92,18 +92,18 @@ int main (int argc, char* argv[])
     bam.registerAnimation(animation)
 
     geom0 = getShape("morphtarget_shape0.osg")
-    if !geom0 : 
+    if  not geom0 : 
         std.cerr, "can't read morphtarget_shape0.osg"
         return 0
 
     geom1 = getShape("morphtarget_shape1.osg")
-    if !geom1 : 
+    if  not geom1 : 
         std.cerr, "can't read morphtarget_shape1.osg"
         return 0
 
     # initialize with the first shape
     morph = osgAnimation.MorphGeometry(*geom0)
-    morph.addMorphTarget(geom1.get())
+    morph.addMorphTarget(geom1)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
@@ -120,14 +120,14 @@ int main (int argc, char* argv[])
     viewer.addEventHandler(osgViewer.WindowSizeHandler())
     viewer.addEventHandler(osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()))
 
-    # let's run !
+    # let's run  not 
     viewer.setSceneData( scene )
     viewer.realize()
 
     bam.playAnimation(animation)
 
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
 
     osgDB.writeNodeFile(*scene, "morph_scene.osg")

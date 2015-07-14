@@ -143,7 +143,7 @@ MyCameraPostDrawCallback(osg.Image* image):
         _image(image)
 
     virtual void operator () ( osg.Camera #camera) 
-        if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_UNSIGNED_BYTE :
+        if _image  and  _image.getPixelFormat()==GL_RGBA  and  _image.getDataType()==GL_UNSIGNED_BYTE :
             # we'll pick out the center 1/2 of the whole image,
             column_start = _image.s()/4
             column_end = 3*column_start
@@ -165,7 +165,7 @@ MyCameraPostDrawCallback(osg.Image* image):
             # dirty the image (increments the modified count) so that any textures
             # using the image can be informed that they need to update.
             _image.dirty()
-        elif _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
+        elif _image  and  _image.getPixelFormat()==GL_RGBA  and  _image.getDataType()==GL_FLOAT :
             # we'll pick out the center 1/2 of the whole image,
             column_start = _image.s()/4
             column_end = 3*column_start
@@ -195,7 +195,7 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
 
 
     
-    if !subgraph : return 0
+    if  not subgraph : return 0
 
     # create a group to contain the flag and the pre rendering camera.
     parent = osg.Group()
@@ -210,7 +210,7 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
         textureRect.setFilter(osg.Texture2D.MAG_FILTER,osg.Texture2D.LINEAR)
 
         texture = textureRect
-    else :
+    else:
         texture2D = osg.Texture2D()
         texture2D.setTextureSize(tex_width, tex_height)
         texture2D.setInternalFormat(GL_RGBA)
@@ -250,8 +250,8 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
 
         # note, when we use TextureRectangle we have to scale the tex coords up to compensate.
         bottom_texcoord = osg.Vec2(0.0,0.0)
-        top_texcoord = osg.Vec2(0.0, useTextureRectangle ? tex_height : 1.0)
-        dv_texcoord = osg.Vec2((useTextureRectangle ? tex_width : 1.0)/(float)(noSteps-1),0.0)
+        top_texcoord = osg.Vec2(0.0,  tex_height if (useTextureRectangle) else  1.0)
+        dv_texcoord =  tex_width if (osg.Vec2((useTextureRectangle) else  1.0)/(float)(noSteps-1),0.0)
 
         for(int i=0i<noSteps++i)
             vertices.push_back(top)
@@ -301,7 +301,7 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
         camera.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
 
         bs = subgraph.getBound()
-        if !bs.valid() :
+        if  not bs.valid() :
             return subgraph
 
         znear = 1.0*bs.radius()
@@ -351,7 +351,7 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
             # The long way round allows us to manually modify the copied image via the callback
             # and then let this modified image by reloaded back.
             texture.setImage(0, image)
-        else :
+        else:
             # attach the texture and use it as the color buffer.
             camera.attach(osg.Camera.COLOR_BUFFER, texture,
                            0, 0, False,
@@ -366,11 +366,11 @@ def createPreRenderSubGraph(subgraph, tex_width, tex_height, renderImplementatio
 
     return parent
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates pre rendering of scene to a texture, and then apply this texture to geometry.")
@@ -398,7 +398,7 @@ def main(argc, argv):
     viewer.addEventHandler( osgViewer.ThreadingHandler() )
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -434,9 +434,9 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
 
-    if !loadedModel :
+    if  not loadedModel :
         return 1
 
     # create a transform to spin the model.

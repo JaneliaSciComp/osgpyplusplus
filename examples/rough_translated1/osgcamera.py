@@ -57,19 +57,19 @@ class ModelHandler (osgGA.GUIEventHandler) :
         
         
         viewer = dynamic_cast<osgViewer.Viewer*>(aa)
-        if !viewer : return False
+        if  not viewer : return False
     
         if _filenames.empty() : return False
     
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYUP):
-                if ea.getKey()=='l' :
+                if ea.getKey()==ord("l") :
                     model = osgDB.readNodeFile( _filenames[_position] )
                     ++_position
                     if _position>=_filenames.size() : _position = 0
                     
                     if model.valid() :
-                        viewer.setSceneData(model.get())
+                        viewer.setSceneData(model)
                     
                     return True
             default: break
@@ -85,7 +85,7 @@ def singleWindowMultipleCameras(viewer):
 
     
     wsi = osg.GraphicsContext.getWindowingSystemInterface()
-    if !wsi : 
+    if  not wsi : 
         osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
         return
     
@@ -101,7 +101,7 @@ def singleWindowMultipleCameras(viewer):
     traits.doubleBuffer = True
     traits.sharedContext = 0
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
     if gc.valid() :
         osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
 
@@ -109,26 +109,26 @@ def singleWindowMultipleCameras(viewer):
         # rather than just the parts of the window that are under the camera's viewports
         gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
         gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-    else :
+    else:
         osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
     numCameras = 2
     aspectRatioScale = 1.0#/(double)numCameras
     for(unsigned int i=0 i<numCameras++i)
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport((i*width)/numCameras,(i*height)/numCameras, width/numCameras, height/numCameras))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.scale(aspectRatioScale,1.0,1.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.scale(aspectRatioScale,1.0,1.0))
 
 def multipleWindowMultipleCameras(viewer, multipleScreens):
 
     
     wsi = osg.GraphicsContext.getWindowingSystemInterface()
-    if !wsi : 
+    if  not wsi : 
         osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
         return
     
@@ -141,7 +141,7 @@ def multipleWindowMultipleCameras(viewer, multipleScreens):
     translate_x = double(numCameras)-1
     for(unsigned int i=0 i<numCameras++i, translate_x -= 2.0)
         traits = osg.GraphicsContext.Traits()
-        traits.screenNum = multipleScreens ? i / 3 : 0
+        traits.screenNum =  i / 3 if (multipleScreens) else  0
         traits.x = (i*width)/numCameras
         traits.y = 0
         traits.width = width/numCameras-1
@@ -150,20 +150,20 @@ def multipleWindowMultipleCameras(viewer, multipleScreens):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
         if gc.valid() :
             osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
-        else :
+        else:
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0, width/numCameras, height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrix.scale(aspectRatioScale, 1.0, 1.0)*osg.Matrix.translate(translate_x, 0.0, 0.0), osg.Matrix() )
+        viewer.addSlave(camera, osg.Matrix.scale(aspectRatioScale, 1.0, 1.0)*osg.Matrix.translate(translate_x, 0.0, 0.0), osg.Matrix() )
 
 class EnableVBOVisitor (osg.NodeVisitor) :
     EnableVBOVisitor():
@@ -179,18 +179,18 @@ class EnableVBOVisitor (osg.NodeVisitor) :
                 geom.setUseVertexBufferObjects(True)
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     if argc<2 : 
         print argv[0], ": requires filename argument."
         return 1
 
     numRepeats = 2
-    if arguments.read("--repeat",numRepeats) || arguments.read("-r",numRepeats) || arguments.read("--repeat") || arguments.read("-r") :
+    if arguments.read("--repeat",numRepeats)  or  arguments.read("-r",numRepeats)  or  arguments.read("--repeat")  or  arguments.read("-r") :
 
         sharedModel = arguments.read("--shared")
         enableVBO = arguments.read("--vbo")
@@ -198,7 +198,7 @@ def main(argc, argv):
         model = osg.Node()
         if sharedModel :
             model = osgDB.readNodeFiles(arguments)
-            if !model : return 0
+            if  not model : return 0
 
             if enableVBO :
                 enableVBOs = EnableVBOVisitor()
@@ -217,16 +217,16 @@ def main(argc, argv):
 
                 viewer.setThreadingModel(threadingModel)
 
-                if sharedModel : viewer.setSceneData(model.get())
-                else :
+                if sharedModel : viewer.setSceneData(model)
+                else:
                     node = osgDB.readNodeFiles(arguments)
-                    if !node : return 0
+                    if  not node : return 0
 
                     if enableVBO :
                         enableVBOs = EnableVBOVisitor()
                         node.accept(enableVBOs)
 
-                    viewer.setSceneData(node.get())
+                    viewer.setSceneData(node)
 
                 viewer.run()
 
@@ -238,7 +238,7 @@ def main(argc, argv):
     apm = 0
     while arguments.read("-p",pathfile) :
         apm = osgGA.AnimationPathManipulator(pathfile)
-        if !apm.valid() || !(apm.valid())  : 
+        if  not apm.valid()  or   not (apm.valid())  : 
             apm = 0
 
     viewer = osgViewer.Viewer(arguments)
@@ -257,8 +257,8 @@ def main(argc, argv):
     while arguments.read("-2") :  multipleWindowMultipleCameras(viewer, False) 
     while arguments.read("-3") :  multipleWindowMultipleCameras(viewer, True) 
 
-    if apm.valid() : viewer.setCameraManipulator(apm.get())
-    else : viewer.setCameraManipulator( osgGA.TrackballManipulator() )
+    if apm.valid() : viewer.setCameraManipulator(apm)
+    else viewer.setCameraManipulator( osgGA.TrackballManipulator() )
     
     viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.addEventHandler(osgViewer.ThreadingHandler)()
@@ -267,10 +267,10 @@ def main(argc, argv):
     while arguments.read("--config", configfile) :
         osg.notify(osg.NOTICE), "Trying to read config file ", configfile
         object = osgDB.readObjectFile(configfile)
-        view = dynamic_cast<osgViewer.View*>(object.get())
+        view = dynamic_cast<osgViewer.View*>(object)
         if view :
             osg.notify(osg.NOTICE), "Read config file succesfully"
-        else :
+        else:
             osg.notify(osg.NOTICE), "Failed to read config file : ", configfile
             return 1
 
@@ -283,22 +283,22 @@ def main(argc, argv):
             modelHandler.add(arguments[i])
 
         viewer.addEventHandler(modelHandler)
-    else :
+    else:
         # load the scene.
         loadedModel = osgDB.readNodeFiles(arguments)
 
-        if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+        if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
 
-        if !loadedModel : 
+        if  not loadedModel : 
             print argv[0], ": No data loaded."
             return 1
 
-        viewer.setSceneData(loadedModel.get())
+        viewer.setSceneData(loadedModel)
     
     viewer.realize()
 
     numFrames = 0
-    while !viewer.done()  !(limitNumberOfFrames  numFrames>=maxFrames) :
+    while  not viewer.done()  and   not (limitNumberOfFrames  and  numFrames>=maxFrames) :
         viewer.frame()
         ++numFrames
 

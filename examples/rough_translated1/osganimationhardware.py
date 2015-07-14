@@ -60,7 +60,7 @@ program = osg.Program()
 class MyRigTransformHardware (osgAnimation.RigTransformHardware) :
 void operator()(osgAnimation.RigGeometry geom)
         if _needInit :
-            if !init(geom) :
+            if  not init(geom) :
                 return
         computeMatrixPaletteUniform(geom.getMatrixFromSkeletonToGeometry(), geom.getInvMatrixFromSkeletonToGeometry())
 
@@ -68,11 +68,11 @@ void operator()(osgAnimation.RigGeometry geom)
 
         
         pos = dynamic_cast<osg.Vec3Array*>(geom.getVertexArray())
-        if !pos : 
+        if  not pos : 
             osg.notify(osg.WARN), "RigTransformHardware no vertex array in the geometry ", geom.getName()
             return False
 
-        if !geom.getSkeleton() : 
+        if  not geom.getSkeleton() : 
             osg.notify(osg.WARN), "RigTransformHardware no skeleting set in geometry ", geom.getName()
             return False
 
@@ -80,20 +80,20 @@ void operator()(osgAnimation.RigGeometry geom)
         geom.getSkeleton().accept(mapVisitor)
         bm = mapVisitor.getBoneMap()
 
-        if !createPalette(pos.size(),bm, geom.getVertexInfluenceSet().getVertexToBoneList()) :
+        if  not createPalette(pos.size(),bm, geom.getVertexInfluenceSet().getVertexToBoneList()) :
             return False
 
         attribIndex = 11
         nbAttribs = getNumVertexAttrib()
 
         # use a global program for all avatar
-        if !program.valid() : 
+        if  not program.valid() : 
             program = osg.Program()
             program.setName("HardwareSkinning")
-            if !_shader.valid() :
+            if  not _shader.valid() :
                 _shader = osg.Shader.readShaderFile(osg.Shader.VERTEX,"shaders/skinning.vert")
 
-            if !_shader.valid() : 
+            if  not _shader.valid() : 
                 osg.notify(osg.WARN), "RigTransformHardware can't load VertexShader"
                 return False
 
@@ -107,7 +107,7 @@ void operator()(osgAnimation.RigGeometry geom)
                 _shader.setShaderSource(str)
                 osg.notify(osg.INFO), "Shader ", str
 
-            program.addShader(_shader.get())
+            program.addShader(_shader)
 
             for (int i = 0 i < nbAttribs i++)
                 ss = strstream()
@@ -123,8 +123,8 @@ void operator()(osgAnimation.RigGeometry geom)
         ss = osg.StateSet()
         ss.addUniform(getMatrixPaletteUniform())
         ss.addUniform(osg.Uniform("nbBonesPerVertex", getNumBonesPerVertex()))
-        ss.setAttributeAndModes(program.get())
-        geom.setStateSet(ss.get())
+        ss.setAttributeAndModes(program)
+        geom.setStateSet(ss)
         _needInit = False
         return True
 
@@ -148,7 +148,7 @@ _hardware = bool()
                 rig.setRigTransformImplementation(MyRigTransformHardware)()
 
 #if 0
-        if geom.getName() != str("BoundingBox") : # we disable compute of bounding box for all geometry except our bounding box
+        if geom.getName()  not = str("BoundingBox") : # we disable compute of bounding box for all geometry except our bounding box
             geom.setComputeBoundingBoxCallback(osg.Drawable.ComputeBoundingBoxCallback)()
 #            geom.setInitialBound(osg.Drawable.ComputeBoundingBoxCallback)()
 #endif
@@ -168,10 +168,10 @@ def createCharacterInstance(character, hardware):
     list = animationManager.getAnimationList()
     v = getRandomValueinRange(list.size())
     if list[v].getName() == str("MatIpo_ipo") : 
-        anim.playAnimation(list[v].get())
+        anim.playAnimation(list[v])
         v = (v + 1)%list.size()
         
-    anim.playAnimation(list[v].get())
+    anim.playAnimation(list[v])
 
     switcher = SetupRigGeometry(hardware)
     c.accept(switcher)
@@ -182,7 +182,7 @@ def createCharacterInstance(character, hardware):
 int main (int argc, char* argv[])
     std.cerr, "This example works better with nathan.osg"
 
-    psr = osg.ArgumentParser(argc, argv)
+    psr = osg.ArgumentParser(argv)
 
     viewer = osgViewer.Viewer(psr)
 
@@ -193,12 +193,12 @@ int main (int argc, char* argv[])
 
 
     root = dynamic_cast<osg.Group*>(osgDB.readNodeFiles(psr))
-    if !root : 
+    if  not root : 
         print psr.getApplicationName(), ": No data loaded"
         return 1
 
         animationManager = dynamic_cast<osgAnimation.AnimationManagerBase*>(root.getUpdateCallback())
-        if !animationManager : 
+        if  not animationManager : 
             osg.notify(osg.FATAL), "no AnimationManagerBase found, updateCallback need to animate elements"
             return 1
 
@@ -226,7 +226,7 @@ int main (int argc, char* argv[])
     # add the screen capture handler
     viewer.addEventHandler(osgViewer.ScreenCaptureHandler)()
 
-    viewer.setSceneData(scene.get())
+    viewer.setSceneData(scene)
 
     viewer.realize()
 
@@ -235,12 +235,12 @@ int main (int argc, char* argv[])
     for (double  i = 0.0 i < xChar i++) 
         for (double  j = 0.0 j < yChar j++) 
 
-            c = createCharacterInstance(root.get(), hardware)
+            c = createCharacterInstance(root, hardware)
             tr = osg.MatrixTransform()
             tr.setMatrix(osg.Matrix.translate( 2.0 * (i - xChar * .5),
                                                   0.0,
                                                   2.0 * (j - yChar * .5)))
-            tr.addChild(c.get())
+            tr.addChild(c)
             scene.addChild(tr)
     print "created ", xChar * yChar, " instance"
 

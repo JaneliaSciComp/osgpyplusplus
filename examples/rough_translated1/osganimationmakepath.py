@@ -62,14 +62,14 @@ from osgpypp import osgViewer
 
       #* Callback method called by the NodeVisitor when visiting a node.
       virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-          if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  
-              nv.getFrameStamp()  
-              nv.getFrameStamp().getFrameNumber() != _lastUpdate : 
+          if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  and  
+              nv.getFrameStamp()  and  
+              nv.getFrameStamp().getFrameNumber()  not = _lastUpdate : 
 
               _lastUpdate = nv.getFrameStamp().getFrameNumber()
               _currentTime = osg.Timer.instance().tick()
 
-              if _playing  _sampler.get()  _sampler.getKeyframeContainer() : 
+              if _playing  and  _sampler  and  _sampler.getKeyframeContainer() : 
                   transform = dynamic_cast<osg.MatrixTransform*>(node)
                   if transform : 
                       result = osg.Vec3()
@@ -117,15 +117,15 @@ class AnimtkStateSetUpdateCallback (osg.StateSet.Callback) :
 
     #* Callback method called by the NodeVisitor when visiting a node.
     virtual void operator()(osg.StateSet* state, osg.NodeVisitor* nv)
-        if state  
-            nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  
-            nv.getFrameStamp()  
-            nv.getFrameStamp().getFrameNumber() != _lastUpdate : 
+        if state  and  
+            nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  and  
+            nv.getFrameStamp()  and  
+            nv.getFrameStamp().getFrameNumber()  not = _lastUpdate : 
 
             _lastUpdate = nv.getFrameStamp().getFrameNumber()
             _currentTime = osg.Timer.instance().tick()
 
-            if _playing  _sampler.get()  _sampler.getKeyframeContainer() : 
+            if _playing  and  _sampler  and  _sampler.getKeyframeContainer() : 
                 material = dynamic_cast<osg.Material*>(state.getAttribute(osg.StateAttribute.MATERIAL))
                 if material : 
                     result = osg.Vec4()
@@ -163,7 +163,7 @@ _geode = osg.Geode()
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv) 
         t = osg.Timer.instance().delta_s(_startTime, _currentTime)
 
-        if _lastAdd + _addSeconds <= t  t <= 8.0 : 
+        if _lastAdd + _addSeconds <= t  and  t <= 8.0 : 
             pos = osg.Vec3()
 
             _sampler.getValueAt(t, pos)
@@ -199,12 +199,12 @@ _geode = osg.Geode()
 
         distance = _lastAdd - pos
 
-        if t <= 8.0  distance.length() >= _threshold : 
+        if t <= 8.0  and  distance.length() >= _threshold : 
             _geode.addDrawable(osg.ShapeDrawable(osg.Sphere(pos, 0.25)))
             _lastAdd = pos
             _count++
         elif t > 8.0 : 
-            if !countReported : print "Created ", _count, " nodes."
+            if  not countReported : print "Created ", _count, " nodes."
             countReported = True
 
         AnimtkUpdateCallback.operator()(node, nv)
@@ -288,10 +288,10 @@ def setupAnimtkNode(staticGeode):
 
     return node
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
     
     tbm = osgGA.TrackballManipulator()

@@ -148,18 +148,18 @@ class GraphCopyOp (osg.CopyOp) :
             osg.CopyOp(flags)  _nodeCopyMap.clear()
             
         virtual osg.Node* operator() ( osg.Node* node) 
-            if node  _flagsDEEP_COPY_NODES :
+            if node  and  _flagsDEEP_COPY_NODES :
                 if  node.getNumParents() > 1  :
-                    if  _nodeCopyMap.find(node) != _nodeCopyMap.end()  :
+                    if  _nodeCopyMap.find(node)  not = _nodeCopyMap.end()  :
                         print "Copy of node ", node, " ", node.getName(), ", ", _nodeCopyMap[node], ", will be reused"
                         return (osg.Node*)(_nodeCopyMap[node])
-                    else :
+                    else:
                         newNode = dynamic_cast<osg.Node*>( node.clone(*this) )
                         _nodeCopyMap[node] = newNode
                         return newNode
-                else :
+                else:
                     return dynamic_cast<osg.Node*>( node.clone(*this) )
-            else :
+            else:
                 return const_cast<osg.Node*>(node)
     
         # must be mutable since CopyOp is passed around as  to
@@ -168,18 +168,18 @@ class GraphCopyOp (osg.CopyOp) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # initialize the viewer.
     viewer = osgViewer.Viewer()
 
     # load the nodes from the commandline arguments.
     rootnode = osgDB.readNodeFiles(arguments)
-    if !rootnode :
+    if  not rootnode :
         osg.notify(osg.NOTICE), "Please specify a model filename on the command line."
         return 1
     

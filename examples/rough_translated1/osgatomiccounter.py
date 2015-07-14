@@ -95,17 +95,17 @@ class ResetAtomicCounter (osg.StateAttributeCallback) :
             acbb = dynamic_cast<osg.AtomicCounterBufferBinding *>(sa)
             if acbb :
                 acbo = dynamic_cast<osg.AtomicCounterBufferObject*>(acbb.getBufferObject())
-                if acbo  acbo.getBufferData(0) :
+                if acbo  and  acbo.getBufferData(0) :
                     acbo.getBufferData(0).dirty()
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is a simple example which show draw order of pixel.")
@@ -146,7 +146,7 @@ def main(argc, argv):
 
     # load the data
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel :
+    if  not loadedModel :
         quad = osg.createTexturedQuadGeometry(osg.Vec3f(-2.0, 0.0, -2.0),
                                                           osg.Vec3f(2.0, 0.0, 0.0),
                                                           osg.Vec3f(0.0, 0.0, 2.0) )
@@ -177,23 +177,23 @@ def main(argc, argv):
 
     acboRedAndGreen = osg.AtomicCounterBufferObject()
     acboRedAndGreen.setUsage(GL_STREAM_COPY)
-    atomicCounterArrayRedAndGreen.setBufferObject(acboRedAndGreen.get())
+    atomicCounterArrayRedAndGreen.setBufferObject(acboRedAndGreen)
 
     acboBlue = osg.AtomicCounterBufferObject()
     acboBlue.setUsage(GL_STREAM_COPY)
-    atomicCounterArrayBlue.setBufferObject(acboBlue.get())
+    atomicCounterArrayBlue.setBufferObject(acboBlue)
 
-    acbbRedAndGreen = osg.AtomicCounterBufferBinding(0, acboRedAndGreen.get(), 0, sizeof(GLuint)*3)
-    ss.setAttributeAndModes(acbbRedAndGreen.get())
+    acbbRedAndGreen = osg.AtomicCounterBufferBinding(0, acboRedAndGreen, 0, sizeof(GLuint)*3)
+    ss.setAttributeAndModes(acbbRedAndGreen)
 
-    acbbBlue = osg.AtomicCounterBufferBinding(2, acboBlue.get(), 0, sizeof(GLuint))
-    ss.setAttributeAndModes(acbbBlue.get())
+    acbbBlue = osg.AtomicCounterBufferBinding(2, acboBlue, 0, sizeof(GLuint))
+    ss.setAttributeAndModes(acbbBlue)
 
     acbbRedAndGreen.setUpdateCallback(ResetAtomicCounter)()
     acbbBlue.setUpdateCallback(ResetAtomicCounter)()
 
     invNumPixelUniform = osg.Uniform("invNumPixel", 1.0/(800.0*600.0))
-    ss.addUniform( invNumPixelUniform.get() )
+    ss.addUniform( invNumPixelUniform )
 
     drawCallback = AdaptNumPixelUniform()
     drawCallback._invNumPixelUniform = invNumPixelUniform
@@ -203,9 +203,9 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
-    viewer.setSceneData( loadedModel.get() )
+    viewer.setSceneData( loadedModel )
 
     viewer.realize()
 

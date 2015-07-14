@@ -81,25 +81,25 @@ class OccluderEventHandler (osgGA.GUIEventHandler) :
 bool OccluderEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa)
     switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()=='a' :
+            if ea.getKey()==ord("a") :
 
                 view = dynamic_cast<osgViewer.View*>(aa)
                 intersections = osgUtil.LineSegmentIntersector.Intersections()
-                if view  view.computeIntersections(ea, intersections) :
+                if view  and  view.computeIntersections(ea, intersections) :
                     hit = *(intersections.begin())
                     if hit.matrix.valid() : addPoint(hit.localIntersectionPoint * (*hit.matrix))
-                    addPoint = else :(hit.localIntersectionPoint)
+                    addPoint = else(hit.localIntersectionPoint)
 
                 return True
-            elif ea.getKey()=='e' :
+            elif ea.getKey()==ord("e") :
                 endOccluder()
                 return True
-            elif ea.getKey()=='O' :
+            elif ea.getKey()==ord("O") :
                 if _occluders.valid() :
 
                     if osgDB.writeNodeFile(*_occluders,"saved_occluders.osgt") :
                         print "saved occluders to 'saved_occluders.osgt'"
-                else :
+                else:
                     print "no occluders to save"
                 return True
             return False
@@ -110,7 +110,7 @@ bool OccluderEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapte
 void OccluderEventHandler.addPoint( osg.Vec3 pos)
     print "add point ", pos
 
-    if !_convexPlanarOccluder.valid() : _convexPlanarOccluder = osg.ConvexPlanarOccluder()
+    if  not _convexPlanarOccluder.valid() : _convexPlanarOccluder = osg.ConvexPlanarOccluder()
 
     occluder = _convexPlanarOccluder.getOccluder()
     occluder.add(pos)
@@ -130,17 +130,17 @@ void OccluderEventHandler.endOccluder()
     if _convexPlanarOccluder.valid() :
         if _convexPlanarOccluder.getOccluder().getVertexList().size()>=3 :
             occluderNode = osg.OccluderNode()
-            occluderNode.setOccluder(_convexPlanarOccluder.get())
+            occluderNode.setOccluder(_convexPlanarOccluder)
 
-            if !_occluders.valid() :
+            if  not _occluders.valid() :
                 _occluders = osg.Group()
-                if rootNode() : rootNode().addChild(_occluders.get())
+                if rootNode() : rootNode().addChild(_occluders)
             _occluders.addChild(occluderNode)
 
             print "created occluder"
-        else :
+        else:
             print "Occluder requires at least 3 points to create occluder."
-    else :
+    else:
         print "No occluder points to create occluder with."
 
     # reset current occluder.
@@ -264,13 +264,13 @@ def createOccludersAroundModel(model):
     return scene
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of convex planer occluders.")
@@ -288,7 +288,7 @@ def main(argc, argv):
         viewer.addEventHandler(OccluderEventHandler(viewer))
 
     # if user requests help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -296,9 +296,9 @@ def main(argc, argv):
     loadedmodel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try using default mode instead.
-    if !loadedmodel : loadedmodel = osgDB.readNodeFile("glider.osgt")
+    if  not loadedmodel : loadedmodel = osgDB.readNodeFile("glider.osgt")
 
-    if !loadedmodel :
+    if  not loadedmodel :
         osg.notify(osg.NOTICE), "Please specify a model filename on the command line."
         return 1
 
@@ -312,12 +312,12 @@ def main(argc, argv):
     if manuallyCreateOccluders :
         rootnode = osg.Group()
         rootnode.addChild(loadedmodel)
-    else :
+    else:
         rootnode = createOccludersAroundModel(loadedmodel)
 
 
     # add a viewport to the viewer and attach the scene graph.
-    viewer.setSceneData( rootnode.get() )
+    viewer.setSceneData( rootnode )
 
     return viewer.run()
 

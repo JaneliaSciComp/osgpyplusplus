@@ -38,20 +38,20 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # read the scene from the list of file specified commandline args.
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
     
     # if no model has been successfully loaded report failure.
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -71,17 +71,17 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
 
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0, traits.width, traits.height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
         # add this slave camera to the viewer, with a shift left of the projection matrix
-        viewer.addSlave(camera.get(), osg.Matrixd.translate(1.0,0.0,0.0), osg.Matrixd())
+        viewer.addSlave(camera, osg.Matrixd.translate(1.0,0.0,0.0), osg.Matrixd())
     
     # right window + right slave camera
         traits = osg.GraphicsContext.Traits()
@@ -93,25 +93,25 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
 
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0, traits.width, traits.height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
         # add this slave camera to the viewer, with a shift right of the projection matrix
-        viewer.addSlave(camera.get(), osg.Matrixd.translate(-1.0,0.0,0.0), osg.Matrixd())
+        viewer.addSlave(camera, osg.Matrixd.translate(-1.0,0.0,0.0), osg.Matrixd())
 
 
     # optimize the scene graph, remove rendundent nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
     # set the scene to render
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     return viewer.run()
 

@@ -47,10 +47,10 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
     virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
-                if ea.getKey()=='n' :
+                if ea.getKey()==ord("n") :
                     _flag = 1
                     return True
-                if ea.getKey()=='p' :
+                if ea.getKey()==ord("p") :
                     _flag = 2
                     return True
                 break
@@ -62,13 +62,13 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -90,7 +90,7 @@ def main(argc, argv):
     while arguments.read("--max-error",maxError) : 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -102,10 +102,10 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
   
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
     
     # if no model has been successfully loaded report failure.
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
     
@@ -115,7 +115,7 @@ def main(argc, argv):
     viewer.addEventHandler(KeyboardEventHandler(keyFlag))
 
     # set the scene to render
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
@@ -127,11 +127,11 @@ def main(argc, argv):
     ratio = sampleRatio
 
 
-    while  !viewer.done()  :
+    while   not viewer.done()  :
         # fire off the cull and draw traversals of the scene.
         viewer.frame()
     
-        if keyFlag == 1 || keyFlag == 2 :
+        if keyFlag == 1  or  keyFlag == 2 :
             if keyFlag == 1 : ratio *= multiplier
             if keyFlag == 2 : ratio /= multiplier
             if ratio<minRatio : ratio=minRatio
@@ -147,7 +147,7 @@ def main(argc, argv):
             
             print "done"
             
-            viewer.setSceneData(root.get())
+            viewer.setSceneData(root)
             keyFlag = 0
     
     return 0

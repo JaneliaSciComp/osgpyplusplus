@@ -47,11 +47,11 @@ from osgpypp import osgViewer
 
 #include <osgUtil/Optimizer>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -60,9 +60,9 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
     
-    if !loadedModel :
+    if  not loadedModel :
         osg.notify(osg.NOTICE), "Please specifiy a model filename on the command line."
         return 1
   
@@ -99,7 +99,7 @@ def main(argc, argv):
     material = osg.Material()
     stateset.setAttributeAndModes(material,osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OVERRIDE|osg.StateAttribute.OFF)
-#else :
+#else:
     # version which sets the color of the wireframe.
     material = osg.Material()
     material.setColorMode(osg.Material.OFF) # switch glColor usage off

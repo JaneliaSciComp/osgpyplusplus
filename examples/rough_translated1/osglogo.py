@@ -212,7 +212,7 @@ osg. Node* createTextLeft( osg.BoundingBox bb,  str label,  str subscript)
     lightblue = osg.Vec4(0.30,0.6,0.90,1.0)
     blue = osg.Vec4(0.10,0.30,0.40,1.0)
     text.setColorGradientCorners(lightblue, blue, blue, lightblue)
-#else :
+#else:
     text.setColorGradientMode(osgText.Text.OVERALL)
     light = osg.Vec4(0.0, 1.0, 1.0, 1.0)
     dark = osg.Vec4(0.0, 0.0, 0.5, 1.0)
@@ -223,7 +223,7 @@ osg. Node* createTextLeft( osg.BoundingBox bb,  str label,  str subscript)
     geode.addDrawable( text )
 
 
-    if !subscript.empty() :
+    if  not subscript.empty() :
         #osgText.Text* subscript = osgText.Text(osgText.TextureFont(font,45))
 
         subscriptText = osgText.Text()
@@ -242,7 +242,7 @@ osg. Node* createGlobe( osg.BoundingBox bb,float ratio,  str filename)
     xform = osg.MatrixTransform()
     xform.setUpdateCallback(osg.AnimationPathCallback(bb.center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(10.0)))
 
-    bluemarble = filename.empty() ? 0 : osgDB.readNodeFile(filename.c_str())
+    bluemarble =  0 : osgDB: if (filename.empty()) else readNodeFile(filename.c_str())
     if bluemarble :
         bs = bluemarble.getBound()
         s = 1.2*bb.radius()/bs.radius()
@@ -251,7 +251,7 @@ osg. Node* createGlobe( osg.BoundingBox bb,float ratio,  str filename)
         positioner.addChild(bluemarble)
 
         xform.addChild(positioner)
-    else :
+    else:
 
         geode = osg.Geode()
 
@@ -447,11 +447,11 @@ def createLogo(filename, label, subscript):
 
     return scene
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     osg.DisplaySettings.instance().setMinimumNumAlphaBits(8)
 
@@ -459,7 +459,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -481,7 +481,7 @@ def main(argc, argv):
     node = createLogo("", label, subscript)
 
     # add model to viewer.
-    viewer.setSceneData( node.get() )
+    viewer.setSceneData( node )
 
     return viewer.run()
 

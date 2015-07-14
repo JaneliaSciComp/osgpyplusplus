@@ -71,7 +71,7 @@ class CreateModelToSaveVisitor (osg.NodeVisitor) :
         if scribe :
             for(unsigned int i=0 i<scribe.getNumChildren() ++i)
                 _group.addChild(scribe.getChild(i))
-        else :
+        else:
             traverse(node)
     
     _group = osg.Group()
@@ -89,19 +89,19 @@ class DeleteSelectedNodesVisitor (osg.NodeVisitor) :
         scribe = dynamic_cast<osgFX.Scribe*>(node)
         if scribe :
             _selectedNodes.push_back(scribe)
-        else :
+        else:
             traverse(node)
     
     def pruneSelectedNodes():
     
         
         for(SelectedNodes.iterator itr = _selectedNodes.begin()
-            itr != _selectedNodes.end()
+            not = _selectedNodes.end()
             ++itr)
-            node = itr.get()
+            node = itr
             parents = node.getParents()
             for(osg.Node.ParentList.iterator pitr = parents.begin()
-                pitr != parents.end()
+                not = parents.end()
                 ++pitr)
                 parent = *pitr
                 parent.removeChild(node)
@@ -125,28 +125,28 @@ class PickHandler (osgGA.GUIEventHandler) :
 
         
         viewer = dynamic_cast<osgViewer.Viewer*>(aa)
-        if !viewer : return False
+        if  not viewer : return False
 
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYUP):
-                if ea.getKey()=='s' :
+                if ea.getKey()==ord("s") :
                     saveSelectedModel(viewer.getSceneData())
-                elif ea.getKey()=='o' :
+                elif ea.getKey()==ord("o") :
                     osg.notify(osg.NOTICE), "Saved model to file 'saved_model.osgt'"
                     osgDB.writeNodeFile(*(viewer.getSceneData()), "saved_model.osgt")
-                elif ea.getKey()=='p' :
-                    _usePolytopeIntersector = !_usePolytopeIntersector
+                elif ea.getKey()==ord("p") :
+                    _usePolytopeIntersector =  not _usePolytopeIntersector
                     if _usePolytopeIntersector :
                         osg.notify(osg.NOTICE), "Using PolytopeIntersector"
-                     else : 
+                     else:
                         osg.notify(osg.NOTICE), "Using LineSegmentIntersector"
-                elif ea.getKey()=='c' :
-                    _useWindowCoordinates = !_useWindowCoordinates
+                elif ea.getKey()==ord("c") :
+                    _useWindowCoordinates =  not _useWindowCoordinates
                     if _useWindowCoordinates :
                         osg.notify(osg.NOTICE), "Using window coordinates for picking"
-                     else : 
+                     else:
                         osg.notify(osg.NOTICE), "Using projection coordiates for picking"
-                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Delete || ea.getKey()==osgGA.GUIEventAdapter.KEY_BackSpace :
+                elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Delete  or  ea.getKey()==osgGA.GUIEventAdapter.KEY_BackSpace :
                     osg.notify(osg.NOTICE), "Delete"
                     dsnv = DeleteSelectedNodesVisitor()
                     viewer.getSceneData().accept(dsnv)
@@ -158,7 +158,7 @@ class PickHandler (osgGA.GUIEventHandler) :
                 _my = ea.getY()
                 return False
             case(osgGA.GUIEventAdapter.RELEASE):
-                if _mx == ea.getX()  _my == ea.getY() :
+                if _mx == ea.getX()  and  _my == ea.getY() :
                     # only do a pick if the mouse hasn't moved
                     pick(ea,viewer)
                 return True
@@ -170,7 +170,7 @@ class PickHandler (osgGA.GUIEventHandler) :
 
         
         scene = viewer.getSceneData()
-        if !scene : return
+        if  not scene : return
 
         osg.notify(osg.NOTICE)
 
@@ -190,7 +190,7 @@ class PickHandler (osgGA.GUIEventHandler) :
                 w = 5.0
                 h = 5.0
                 picker = osgUtil.PolytopeIntersector( osgUtil.Intersector.WINDOW, mx-w, my-h, mx+w, my+h )
-             else : 
+             else:
                 mx = ea.getXnormalized()
                 my = ea.getYnormalized()
                 w = 0.05
@@ -206,18 +206,18 @@ class PickHandler (osgGA.GUIEventHandler) :
                 osg.notify(osg.NOTICE), "Picked ", intersection.localIntersectionPoint, "  Distance to ref. plane ", intersection.distance, ", max. dist ", intersection.maxDistance, ", primitive index ", intersection.primitiveIndex, ", numIntersectionPoints ", intersection.numIntersectionPoints
 
                 nodePath = intersection.nodePath
-                node = (nodePath.size()>=1)?nodePath[nodePath.size()-1]:0
-                parent = (nodePath.size()>=2)?dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]):0
+                node =  nodePath[nodePath.size()-1] if ((nodePath.size()>=1)) else 0
+                parent =  dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]) if ((nodePath.size()>=2)) else 0
 
                 if node : print "  Hits ", node.className(), " nodePath size ", nodePath.size()    
                 toggleScribe(parent, node)
 
-        else :
+        else:
             picker = osgUtil.LineSegmentIntersector*()
-            if !_useWindowCoordinates :
+            if  not _useWindowCoordinates :
                 # use non dimensional coordinates - in projection/clip space
                 picker = osgUtil.LineSegmentIntersector( osgUtil.Intersector.PROJECTION, ea.getXnormalized(),ea.getYnormalized() )
-             else : 
+             else:
                 # use window coordinates
                 # remap the mouse x,y into viewport coordinates.
                 viewport = viewer.getCamera().getViewport()
@@ -233,8 +233,8 @@ class PickHandler (osgGA.GUIEventHandler) :
                 osg.notify(osg.NOTICE), "Picked ", intersection.localIntersectionPoint
 
                 nodePath = intersection.nodePath
-                node = (nodePath.size()>=1)?nodePath[nodePath.size()-1]:0
-                parent = (nodePath.size()>=2)?dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]):0
+                node =  nodePath[nodePath.size()-1] if ((nodePath.size()>=1)) else 0
+                parent =  dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]) if ((nodePath.size()>=2)) else 0
 
                 if node : print "  Hits ", node.className(), " nodePath size", nodePath.size()
                 toggleScribe(parent, node)
@@ -244,21 +244,21 @@ class PickHandler (osgGA.GUIEventHandler) :
     def toggleScribe(parent, node):
 
         
-        if !parent || !node : return
+        if  not parent  or   not node : return
 
         print "  parent ", parent.className()
 
         parentAsScribe = dynamic_cast<osgFX.Scribe*>(parent)
-        if !parentAsScribe :
+        if  not parentAsScribe :
             # node not already picked, so highlight it with an osgFX.Scribe
             scribe = osgFX.Scribe()
             scribe.addChild(node)
             parent.replaceChild(node,scribe)
-        else :
+        else:
             # node already picked so we want to remove scribe to unpick it.
             parentList = parentAsScribe.getParents()
             for(osg.Node.ParentList.iterator itr=parentList.begin()
-                itr!=parentList.end()
+                not = parentList.end()
                 ++itr)
                 (*itr).replaceChild(parentAsScribe,node)
 
@@ -266,7 +266,7 @@ class PickHandler (osgGA.GUIEventHandler) :
     def saveSelectedModel(scene):
 
         
-        if !scene : return
+        if  not scene : return
     
         cmtsv = CreateModelToSaveVisitor()
         scene.accept(cmtsv)
@@ -280,7 +280,7 @@ class PickHandler (osgGA.GUIEventHandler) :
     _useWindowCoordinates = bool()
 
 
-def main(argc, argv):
+def main(argv):
 
     
     loadedModel = osg.Node()
@@ -289,9 +289,9 @@ def main(argc, argv):
     if argc>1 : loadedModel = osgDB.readNodeFile(argv[1])
     
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("dumptruck.osgt")
     
-    if !loadedModel : 
+    if  not loadedModel : 
         print argv[0], ": No data loaded."
         return 1
     
@@ -305,23 +305,23 @@ def main(argc, argv):
     traits.doubleBuffer = True
     traits.sharedContext = 0
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
-    gw = dynamic_cast<osgViewer.GraphicsWindow*>(gc.get())
-    if !gw :
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
+    gw = dynamic_cast<osgViewer.GraphicsWindow*>(gc)
+    if  not gw :
         osg.notify(osg.NOTICE), "Error: unable to create graphics window."
         return 1
 
     # create the view of the scene.
     viewer = osgViewer.Viewer()
-    viewer.getCamera().setGraphicsContext(gc.get())
+    viewer.getCamera().setGraphicsContext(gc)
     viewer.getCamera().setViewport(0,0,800,600)
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
     
     # create a tracball manipulator to move the camera around in response to keyboard/mouse events
     viewer.setCameraManipulator( osgGA.TrackballManipulator )()
 
     statesetManipulator = osgGA.StateSetManipulator(viewer.getCamera().getStateSet())
-    viewer.addEventHandler(statesetManipulator.get())
+    viewer.addEventHandler(statesetManipulator)
 
     # add the pick handler
     viewer.addEventHandler(PickHandler())
@@ -329,7 +329,7 @@ def main(argc, argv):
     viewer.realize()
 
     # main loop (note, window toolkits which take control over the main loop will require a window redraw callback containing the code below.)
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
 
     return 0

@@ -88,7 +88,7 @@ class VortexOperator (osgParticle.Operator) :
             xf_center_ = prg.transformLocalToWorld(center_)
             # transform the axis vector (only rotation and scale)
             xf_axis_ = prg.rotateLocalToWorld(axis_)
-         else : 
+         else:
             xf_center_ = center_
             xf_axis_ = axis_
 
@@ -181,7 +181,7 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
 
     rrc.setRateRange(20, 30)    # generate 20 to 30 particles per second
 
-    # The emitter is done! Let's add it to the scene graph. The cool thing is
+    # The emitter is done not  Let's add it to the scene graph. The cool thing is
     # that any emitter node will take into account the accumulated local-to-world
     # matrix, so you can attach an emitter to a transform node and see it move.
 
@@ -209,7 +209,7 @@ osgParticle.ParticleSystem *create_simple_particle_system(osg.Group *root)
 
 
 osgParticle.ParticleSystem *create_complex_particle_system(osg.Group *root)
-    # Are you ready for a more complex particle system? Well, read on!
+    # Are you ready for a more complex particle system? Well, read on not 
 
     # Now we take one step we didn't before: create a particle template.
     # A particle template is simply a Particle object for which you set

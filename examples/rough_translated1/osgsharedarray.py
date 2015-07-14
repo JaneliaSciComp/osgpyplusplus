@@ -297,7 +297,7 @@ def createGeometry():
     geom.setUseVertexBufferObjects(False)
     geom.setUseDisplayList(False)
 
-    geode.addDrawable( geom.get() )
+    geode.addDrawable( geom )
 
     return geode
 

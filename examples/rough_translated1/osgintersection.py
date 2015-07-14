@@ -57,16 +57,16 @@ def readNodeFile(filename):
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     scene = osgDB.readNodeFiles(arguments)
     
-    if !scene : 
+    if  not scene : 
         print "No model loaded, please specify a valid model on the command line."
         return 0
     
@@ -79,8 +79,8 @@ def main(argc, argv):
     useIntersectorGroup = True
     useLineOfSight = True
     
-    #osg.CoordinateSystemNode* csn = dynamic_cast<osg.CoordinateSystemNode*>(scene.get())
-    #osg.EllipsoidModel* em = csn ? csn.getEllipsoidModel() : 0
+    #osg.CoordinateSystemNode* csn = dynamic_cast<osg.CoordinateSystemNode*>(scene)
+    #osg.EllipsoidModel* em =  csn.getEllipsoidModel() if (csn) else  0
 
     if useLineOfSight :
     
@@ -109,7 +109,7 @@ def main(argc, argv):
 
             startTick = osg.Timer.instance().tick()
 
-            los.computeIntersections(scene.get())
+            los.computeIntersections(scene)
 
             endTick = osg.Timer.instance().tick()
 
@@ -118,7 +118,7 @@ def main(argc, argv):
             for(unsigned int i=0 i<los.getNumLOS() i++)
                 intersections = los.getIntersections(i)
                 for(osgSim.LineOfSight.Intersections.const_iterator itr = intersections.begin()
-                    itr != intersections.end()
+                    not = intersections.end()
                     ++itr)
                      print "  point ", *itr
         
@@ -127,7 +127,7 @@ def main(argc, argv):
 
             print "Computing HeightAboveTerrain"
 
-            hat.computeIntersections(scene.get())
+            hat.computeIntersections(scene)
 
             endTick = osg.Timer.instance().tick()
 
@@ -148,7 +148,7 @@ def main(argc, argv):
             es.setStartPoint(bs.center()+osg.Vec3d(bs.radius(),0.0,0.0) )
             es.setEndPoint(bs.center()+osg.Vec3d(0.0,0.0, bs.radius()) )
 
-            es.computeIntersections(scene.get())
+            es.computeIntersections(scene)
 
             endTick = osg.Timer.instance().tick()
 
@@ -158,7 +158,7 @@ def main(argc, argv):
             dhl = es.getDistanceHeightIntersections()
             print "Number of intersections =", dhl.size()
             for(DistanceHeightList.const_iterator dhitr = dhl.begin()
-                dhitr != dhl.end()
+                not = dhl.end()
                 ++dhitr)
                  std.cout.precision(10)
                  print "  ", dhitr.first, " ", dhitr.second
@@ -181,10 +181,10 @@ def main(argc, argv):
                 s = start + deltaColumn * double(c) + deltaRow * double(r)
                 e = end + deltaColumn * double(c) + deltaRow * double(r)
                 intersector = osgUtil.LineSegmentIntersector(s, e)
-                intersectorGroup.addIntersector( intersector.get() )
+                intersectorGroup.addIntersector( intersector )
 
         
-        intersectVisitor = osgUtil.IntersectionVisitor( intersectorGroup.get(), MyReadCallback )()
+        intersectVisitor = osgUtil.IntersectionVisitor( intersectorGroup, MyReadCallback )()
         scene.accept(intersectVisitor)
 
         endTick = osg.Timer.instance().tick()
@@ -196,13 +196,13 @@ def main(argc, argv):
 
             intersectors = intersectorGroup.getIntersectors()
             for(osgUtil.IntersectorGroup.Intersectors.iterator intersector_itr = intersectors.begin()
-                intersector_itr != intersectors.end()
+                not = intersectors.end()
                 ++intersector_itr)
-                lsi = dynamic_cast<osgUtil.LineSegmentIntersector*>(intersector_itr.get())
+                lsi = dynamic_cast<osgUtil.LineSegmentIntersector*>(intersector_itr)
                 if lsi :
                     intersections = lsi.getIntersections()
                     for(osgUtil.LineSegmentIntersector.Intersections.iterator itr = intersections.begin()
-                        itr != intersections.end()
+                        not = intersections.end()
                         ++itr)
                         intersection = *itr
                         print "  ratio ", intersection.ratio
@@ -213,20 +213,20 @@ def main(argc, argv):
                         print std.endl
         
 
-    else :
+    else:
         startTick = osg.Timer.instance().tick()
 
     #if 1
         start = bs.center() + osg.Vec3d(0.0,bs.radius(),0.0)
         end = bs.center() - osg.Vec3d(0.0, bs.radius(),0.0)
-    #else :
+    #else:
         start = bs.center() + osg.Vec3d(0.0,0.0, bs.radius())
         end = bs.center() - osg.Vec3d(0.0, 0.0, bs.radius())
     #endif
 
         intersector = osgUtil.LineSegmentIntersector(start, end)
 
-        intersectVisitor = osgUtil.IntersectionVisitor( intersector.get(), MyReadCallback )()
+        intersectVisitor = osgUtil.IntersectionVisitor( intersector, MyReadCallback )()
 
         scene.accept(intersectVisitor)
 
@@ -237,7 +237,7 @@ def main(argc, argv):
         if  intersector.containsIntersections()  :
             intersections = intersector.getIntersections()
             for(osgUtil.LineSegmentIntersector.Intersections.iterator itr = intersections.begin()
-                itr != intersections.end()
+                not = intersections.end()
                 ++itr)
                 intersection = *itr
                 print "  ratio ", intersection.ratio

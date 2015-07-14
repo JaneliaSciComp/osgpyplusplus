@@ -114,16 +114,16 @@ AddHelperBone() : osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
         traverse(node)
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is an example for viewing osgAnimation animations.")
     arguments.getApplicationUsage().addCommandLineOption("-h or --help","List command line options.")
     arguments.getApplicationUsage().addCommandLineOption("--drawbone","draw helps to display bones.")
 
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout, osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 0
 
@@ -139,7 +139,7 @@ def main(argc, argv):
     group = osg.Group()
 
     node = dynamic_cast<osg.Group*>(osgDB.readNodeFiles(arguments)) #dynamic_cast<osgAnimation.AnimationManager*>(osgDB.readNodeFile(psr[1]))
-    if !node :
+    if  not node :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -147,9 +147,9 @@ def main(argc, argv):
     finder = AnimationManagerFinder()
     node.accept(finder)
     if finder._am.valid() : 
-        node.setUpdateCallback(finder._am.get())
-        AnimtkViewerModelController.setModel(finder._am.get())
-     else : 
+        node.setUpdateCallback(finder._am)
+        AnimtkViewerModelController.setModel(finder._am)
+     else:
         osg.notify(osg.WARN), "no osgAnimation.AnimationManagerBase found in the subgraph, no animations available"
 
     if drawBone : 
@@ -173,7 +173,7 @@ def main(argc, argv):
     viewer.addEventHandler(osgWidget.MouseHandler(gui))
     viewer.addEventHandler(osgWidget.KeyboardHandler(gui))
     viewer.addEventHandler(osgWidget.ResizeHandler(gui, camera))
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     viewer.setUpViewInWindow(40, 40, WIDTH, HEIGHT)
 
@@ -243,7 +243,7 @@ _direction = float()
     def update(t, w):
 
         
-        if !w : return
+        if  not w : return
         _motion.update(t*_direction) 
         val = _motion.getValue()*0.5
         val += 0.5
@@ -286,7 +286,7 @@ _previous = float()
 
         _previous = st
 
-        if !_active : return
+        if  not _active : return
 
         update(dt, dynamic_cast<osgWidget.Label*>(geom))
         updateScale(dt, dynamic_cast<osgWidget.Label*>(geom))
@@ -294,7 +294,7 @@ _previous = float()
     def update(t, w):
 
         
-        if !w : return
+        if  not w : return
 
         _motion.update(t / _fadeOutTime)
 
@@ -349,7 +349,7 @@ _previous = float()
 
         val = _transformSampler.getValue()
 
-        if val > 1.0 || val < 0.0 : return
+        if val > 1.0  or  val < 0.0 : return
 
         win = dynamic_cast<osgWidget.Window*>(node)
 
@@ -377,9 +377,9 @@ AnimtkViewerGUI.AnimtkViewerGUI(osgViewer.View* view, float w, float h, unsigned
 
     _listBox.setOrigin(getWidth(), 74.0)
 
-    addChild(_buttonBox.get())
-    addChild(_labelBox.get())
-    addChild(_listBox.get())
+    addChild(_buttonBox)
+    addChild(_labelBox)
+    addChild(_listBox)
 
     resizeAllWindows()
 
@@ -392,7 +392,7 @@ AnimtkViewerGUI.AnimtkViewerGUI(osgViewer.View* view, float w, float h, unsigned
 osgWidget.Widget* AnimtkViewerGUI._createButton( str name) 
     b = osgWidget.Widget(name, 64.0, 64.0)
     
-    if !b : return 0
+    if  not b : return 0
 
     b.setImage(IMAGE_PATH + name + ".png", True)
     b.setEventMask(osgWidget.EVENT_MASK_MOUSE_DRAG)
@@ -410,7 +410,7 @@ osgWidget.Widget* AnimtkViewerGUI._createButton( str name)
 bool AnimtkViewerGUI._listMouseHover(osgWidget.Event ev) 
     l = dynamic_cast<osgWidget.Label*>(ev.getWidget())
 
-    if !l : return False
+    if  not l : return False
 
     if ev.type == osgWidget.EVENT_MOUSE_ENTER : l.setFontColor(1.0, 1.0, 1.0, 1.0)
 
@@ -419,20 +419,20 @@ bool AnimtkViewerGUI._listMouseHover(osgWidget.Event ev)
     elif ev.type == osgWidget.EVENT_MOUSE_PUSH : 
         AnimtkViewerModelController.instance().playByName(ev.getWidget().getName())
     
-    else : return False
+    else return False
 
     return True
 
 bool AnimtkViewerGUI._buttonPush(osgWidget.Event ev) 
-    if !ev.getWidget() : return False
+    if  not ev.getWidget() : return False
 
     l = static_cast<osgWidget.Label*>(_labelBox.getByName("label"))
 
-    if !l : return False
+    if  not l : return False
 
     lf = dynamic_cast<LabelFunctor*>(l.getUpdateCallback())
 
-    if !lf : return False
+    if  not lf : return False
 
     # We're safe at this point, so begin processing.
     mc = AnimtkViewerModelController.instance()
@@ -461,11 +461,11 @@ bool AnimtkViewerGUI._buttonPush(osgWidget.Event ev)
     elif name == "open" : 
         lsf = dynamic_cast<ListFunctor*>(_listBox.getUpdateCallback())
 
-        if !lsf : return False
+        if  not lsf : return False
 
         lsf.toggleShown()
 
-    else : return False
+    else return False
 
     return True
 
@@ -504,7 +504,7 @@ void AnimtkViewerGUI._createListBox()
 
     for(
         i = amv.begin()
-        i != amv.end()
+        not = amv.end()
         i++
         ) 
         label = osgWidget.Label(*i)
@@ -573,11 +573,11 @@ void AnimtkViewerGUI._createLabelBox()
 #include "AnimtkViewerKeyHandler"
 
 AnimtkKeyEventHandler.AnimtkKeyEventHandler()
-    _actionKeys[List] = 'l'
-    _actionKeys[Help] = 'h'
-    _actionKeys[Play] = 'p'
-    _actionKeys[Next] = ']'
-    _actionKeys[Prev] = '['
+    _actionKeys[List] = ord("l")
+    _actionKeys[Help] = ord("h")
+    _actionKeys[Play] = ord("p")
+    _actionKeys[Next] = ord("]")
+    _actionKeys[Prev] = ord("[")
 
 void AnimtkKeyEventHandler.printUsage()  
     print (char) _actionKeys.find(Help).second, " for Help"

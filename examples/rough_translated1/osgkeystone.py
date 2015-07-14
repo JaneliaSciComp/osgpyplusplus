@@ -51,21 +51,21 @@ from osgpypp import osgViewer
 #include <osgViewer/config/WoWVxDisplay>
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # initialize the viewer.
     viewer = osgViewer.Viewer(arguments)
     
-    ds = viewer.getDisplaySettings() ? viewer.getDisplaySettings() : osg.DisplaySettings.instance().get()
+    ds =  viewer.getDisplaySettings() : osg.DisplaySettings: if (viewer.getDisplaySettings()) else instance()
     ds.readCommandLine(arguments)
 
     model = osgDB.readNodeFiles(arguments)
 
-    if !model :
+    if  not model :
         OSG_NOTICE, "No models loaded, please specify a model file on the command line"
         return 1
 
@@ -73,7 +73,7 @@ def main(argc, argv):
     OSG_NOTICE, "Stereo ", ds.getStereo()
     OSG_NOTICE, "StereoMode ", ds.getStereoMode()
 
-    viewer.setSceneData(model.get())
+    viewer.setSceneData(model)
     
     # add the state manipulator
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
@@ -86,17 +86,17 @@ def main(argc, argv):
 
     OSG_NOTICE, "KeystoneFileNames.size()=", ds.getKeystoneFileNames().size()
     for(osg.DisplaySettings.FileNames.iterator itr = ds.getKeystoneFileNames().begin()
-        itr != ds.getKeystoneFileNames().end()
+        not = ds.getKeystoneFileNames().end()
         ++itr)
         OSG_NOTICE, "   keystone filename = ", *itr
 
     ds.setKeystoneHint(True)
     
-    if !ds.getKeystoneFileNames().empty() :
+    if  not ds.getKeystoneFileNames().empty() :
         for(osg.DisplaySettings.Objects.iterator itr = ds.getKeystones().begin()
-            itr != ds.getKeystones().end()
+            not = ds.getKeystones().end()
             ++itr)
-            keystone = dynamic_cast<osgViewer.Keystone*>(itr.get())
+            keystone = dynamic_cast<osgViewer.Keystone*>(itr)
             if keystone : 
                 filename = str()
                 keystone.getUserValue("filename",filename)
@@ -108,7 +108,7 @@ def main(argc, argv):
     
     viewer.realize()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.advance()
         viewer.eventTraversal()
         viewer.updateTraversal()

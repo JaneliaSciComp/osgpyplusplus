@@ -88,7 +88,7 @@ _ops_nb = 16
 class TechniqueEventHandler (osgGA.GUIEventHandler) :
 
     TechniqueEventHandler(osg.LogicOp* logicOp)  _logicOp =logicOp_ops_index=_ops_nb-1
-    TechniqueEventHandler()  std.cerr, "Error, can't initialize it!"
+    TechniqueEventHandler()  std.cerr, "Error, can't initialize it not "
 
     META_Object(osglogicopApp,TechniqueEventHandler)
 
@@ -108,14 +108,14 @@ class TechniqueEventHandler (osgGA.GUIEventHandler) :
 bool TechniqueEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right ||
+            if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right  or 
                 ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Right :
                 _ops_index++
                 if _ops_index>=_ops_nb : _ops_index=0
                 _logicOp.setOpcode(_operations[_ops_index])
                 print "Operation name = ", _ops_name[_ops_index]
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Left :
                 _ops_index--
                 if _ops_index<0 : _ops_index=_ops_nb-1
@@ -134,22 +134,22 @@ void TechniqueEventHandler.getUsage(osg.ApplicationUsage usage)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # load the nodes from the commandline arguments.
     loadedModel = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("glider.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("glider.osgt")
     
-    if !loadedModel :
+    if  not loadedModel :
         osg.notify(osg.NOTICE), "Please specify model filename on the command line."
         return 1
   

@@ -75,7 +75,7 @@ def createFountainEffect(emitter, program):
     # Supported domains include triangle, rectangle, plane, disk and sphere.
     # Since a bounce always happens instantaneously, it will not work correctly with unstable delta-time.
     # At present, even the floating error of dt (which are applied to ParticleSystem and Operator seperately)
-    # causes wrong bounce results. Some one else : may have better solutions for this.
+    # causes wrong bounce results. Some one else may have better solutions for this.
     bounce = osgParticle.BounceOperator()
     bounce.setFriction( -0.05 )
     bounce.setResilience( 0.35 )
@@ -87,13 +87,13 @@ def createFountainEffect(emitter, program):
     sink.setSinkStrategy( osgParticle.SinkOperator.SINK_OUTSIDE )
     sink.addSphereDomain( osg.Vec3(), 20.0 )
     
-    emitter.setCounter( rrc.get() )
-    program.addOperator( accel.get() )
-    program.addOperator( damping.get() )
-    program.addOperator( bounce.get() )
-    program.addOperator( sink.get() )
+    emitter.setCounter( rrc )
+    program.addOperator( accel )
+    program.addOperator( damping )
+    program.addOperator( bounce )
+    program.addOperator( sink )
 
-def main(argc, argv):
+def main(argv):
 
     
     arguments = osg.ArgumentParser( argc, argv )
@@ -127,7 +127,7 @@ def main(argc, argv):
         ps.getDefaultParticleTemplate().setShape( osgParticle.Particle.USER )
         ps.getDefaultParticleTemplate().setDrawable( osg.ShapeDrawable(osg.Box(osg.Vec3(), 1.0)) )
         useShaders = False
-    else :
+    else:
         # The shader only supports rendering points at present.
         ps.getDefaultParticleTemplate().setShape( osgParticle.Particle.POINT )
     
@@ -140,7 +140,7 @@ def main(argc, argv):
         # At present, this is slightly efficient than ordinary methods. The bottlenack here seems to be the cull
         # traversal time. Operators go through the particle list again and again...
         ps.setDefaultAttributesUsingShaders( textureFile, True, 0 )
-    else :
+    else:
         # The default methods uses glBegin()/glEnd() pairs. Fortunately the GLBeginEndAdapter does improve the
         # process, which mimics the immediate mode with glDrawArrays().
         ps.setDefaultAttributes( textureFile, True, False, 0 )
@@ -159,35 +159,35 @@ def main(argc, argv):
 #    Construct other particle system elements, including the emitter and program
 #    **
     emitter = osgParticle.ModularEmitter()
-    emitter.setParticleSystem( ps.get() )
+    emitter.setParticleSystem( ps )
     
     program = osgParticle.ModularProgram()
-    program.setParticleSystem( ps.get() )
+    program.setParticleSystem( ps )
     
-    createFountainEffect( emitter.get(), program.get() )
+    createFountainEffect( emitter, program )
     
     #**
 #    Add the entire particle system to the scene graph
 #    **
     parent = osg.MatrixTransform()
-    parent.addChild( emitter.get() )
-    parent.addChild( program.get() )
+    parent.addChild( emitter )
+    parent.addChild( program )
     
     # The updater can receive particle systems as child drawables now. The addParticleSystem() method
     # is still usable, with which we should define another geode to contain a particle system.
     updater = osgParticle.ParticleSystemUpdater()
-    #updater.addDrawable( ps.get() )
+    #updater.addDrawable( ps )
     
     root = osg.Group()
-    root.addChild( parent.get() )
-    root.addChild( updater.get() )
+    root.addChild( parent )
+    root.addChild( updater )
     
     # FIXME 2010.9.19: the updater can't be a drawable otehrwise the ParticleEffect will not work properly. why?
-    updater.addParticleSystem( ps.get() )
+    updater.addParticleSystem( ps )
     
     geode = osg.Geode()
-    geode.addDrawable( ps.get() )
-    root.addChild( geode.get() )
+    geode.addDrawable( ps )
+    root.addChild( geode )
     
     #**
 #    Start the viewer
@@ -196,7 +196,7 @@ def main(argc, argv):
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
     viewer.addEventHandler( osgViewer.StatsHandler )()
     viewer.addEventHandler( osgViewer.WindowSizeHandler )()
-    viewer.setSceneData( root.get() )
+    viewer.setSceneData( root )
     viewer.setCameraManipulator( osgGA.TrackballManipulator )()
     
     # A floating error of delta-time should be explained here:

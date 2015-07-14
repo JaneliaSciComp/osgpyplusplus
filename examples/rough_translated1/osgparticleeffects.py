@@ -152,7 +152,7 @@ def computeTerrainIntersection(subgraph, x, y):
     
     intersector = osgUtil.LineSegmentIntersector(osg.Vec3(x,y,zMin),osg.Vec3(x,y,zMax))
 
-    iv = osgUtil.IntersectionVisitor(intersector.get())
+    iv = osgUtil.IntersectionVisitor(intersector)
 
     subgraph.accept(iv)
 
@@ -259,7 +259,7 @@ class PickHandler (osgGA.GUIEventHandler) :
 
         
         root = dynamic_cast<osg.Group*>(viewer.getSceneData())       
-        if !root : return
+        if  not root : return
         
         intersections = osgUtil.LineSegmentIntersector.Intersections()
         if viewer.computeIntersections(ea,intersections) :
@@ -268,13 +268,13 @@ class PickHandler (osgGA.GUIEventHandler) :
             handleMovingModels = False
             nodePath = hit.nodePath
             for(osg.NodePath.const_iterator nitr=nodePath.begin()
-                nitr!=nodePath.end()
+                not = nodePath.end()
                 ++nitr)
                 transform = dynamic_cast< osg.Transform*>(*nitr)
                 if transform :
                     if transform.getDataVariance()==osg.Object.DYNAMIC : handleMovingModels=True
             
-            position = handleMovingModels ? hit.getLocalIntersectPoint() : hit.getWorldIntersectPoint()
+            position =  hit.getLocalIntersectPoint() if (handleMovingModels) else  hit.getWorldIntersectPoint()
             scale = 10.0 * ((float)rand() / (float)RAND_MAX)
             intensity = 1.0
 
@@ -303,7 +303,7 @@ class PickHandler (osgGA.GUIEventHandler) :
                 # however, this does require us to insert the ParticleSystem itself into the root of the scene graph
                 # separately from the the main particle effects group which contains the emitters and programs.
                 # the follow code block implements this, note the path for handling particle effects which arn't attached to 
-                # moving models is easy - just a single line of code!
+                # moving models is easy - just a single line of code not 
             
                 # tell the effects not to attach to the particle system locally for rendering, as we'll handle add it into the 
                 # scene graph ourselves.
@@ -322,24 +322,24 @@ class PickHandler (osgGA.GUIEventHandler) :
                 insertGroup = 0
                 numGroupsFound = 0
                 for(osg.Node.ParentList.iterator itr=parents.begin()
-                    itr!=parents.end()
+                    not = parents.end()
                     ++itr)
                     if typeid(*(*itr))==typeid(osg.Group) :
                         ++numGroupsFound
                         insertGroup = *itr
-                if numGroupsFound==parents.size()  numGroupsFound==1  insertGroup :
+                if numGroupsFound==parents.size()  and  numGroupsFound==1  and  insertGroup :
                     osg.notify(osg.INFO), "PickHandler.pick(,) hit node's parent is a single osg.Group so we can simple the insert the particle effects group here."
 
                     # just reuse the existing group.
                     insertGroup.addChild(effectsGroup)
-                else :
+                else:
                     osg.notify(osg.INFO), "PickHandler.pick(,) hit node doesn't have an appropriate osg.Group node to insert particle effects into, inserting a osg.Group."()
                     insertGroup = osg.Group()
                     for(osg.Node.ParentList.iterator itr=parents.begin()
-                        itr!=parents.end()
+                        not = parents.end()
                         ++itr)
                         (*itr).replaceChild(hit.nodePath.back(),insertGroup)
-                    insertGroup.addChild(hitNode.get())
+                    insertGroup.addChild(hitNode)
                     insertGroup.addChild(effectsGroup)
 
                 # finally insert the particle systems into a Geode and attach to the root of the scene graph so the particle system
@@ -352,7 +352,7 @@ class PickHandler (osgGA.GUIEventHandler) :
                 
                 root.addChild(geode)
 
-            else :
+            else:
                 # when we don't have moving models we can simple insert the particle effect into the root of the scene graph
                 osg.notify(osg.INFO), "PickHandler.pick(,) adding particle effects to root node."
                 root.addChild(effectsGroup)

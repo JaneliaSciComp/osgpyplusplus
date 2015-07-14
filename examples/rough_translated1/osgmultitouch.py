@@ -119,7 +119,7 @@ class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
     def createTouchRepresentations(parent_group, num_objects):
         
         # create some geometry which is shown for every touch-point
-        for(unsigned int i = 0 i != num_objects ++i) 
+        for(unsigned int i = 0 i  not = num_objects ++i) 
             ss = std.ostringstream()
             
             geode = osg.Geode()
@@ -165,8 +165,7 @@ class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
             case osgGA.GUIEventAdapter.PUSH:
             case osgGA.GUIEventAdapter.DRAG:
             case osgGA.GUIEventAdapter.RELEASE:
-                    # is this a multi-touch event?
-                    if !ea.isMultiTouchEvent() :
+                    # is this a multi-touch  if  not ea.isMultiTouchEvent() if (event) else 
                         return False
                     
                     j = unsigned int(0)
@@ -174,7 +173,7 @@ class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
                     # iterate over all touch-points and update the geometry
                     num_touch_ended = unsigned(0)
                     
-                    for(osgGA.GUIEventAdapter.TouchData.iterator i = ea.getTouchData().begin() i != ea.getTouchData().end() ++i, ++j)
+                    for(osgGA.GUIEventAdapter.TouchData.iterator i = ea.getTouchData().begin() i  not = ea.getTouchData().end() ++i, ++j)
                         tp = (*i)
                         _mats[j].setMatrix(osg.Matrix.translate(tp.x, ea.getWindowHeight() - tp.y, 0))
                         _mats[j].setNodeMask(0xffff)
@@ -209,7 +208,7 @@ class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
                     cleanup(j)
                     
                     #check if all touches ended
-                    if ea.getTouchData().getNumTouchPoints() > 0 :  (ea.getTouchData().getNumTouchPoints() == num_touch_ended) :
+                    if ea.getTouchData().getNumTouchPoints() > 0 :  and  (ea.getTouchData().getNumTouchPoints() == num_touch_ended) :
                         _cleanupOnNextFrame = True
                     
                     # reposition mouse-pointer
@@ -235,21 +234,21 @@ class TestMultiTouchEventHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
 
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default model instead.
-    if !scene : scene = osgDB.readNodeFile("dumptruck.osgt")
+    if  not scene : scene = osgDB.readNodeFile("dumptruck.osgt")
     
-    if !scene : 
+    if  not scene : 
             geode = osg.Geode()
             drawable = osg.ShapeDrawable(osg.Box(osg.Vec3(0,0,0), 100))
             drawable.setColor(osg.Vec4(0.5, 0.5, 0.5,1))
@@ -264,7 +263,7 @@ def main(argc, argv):
     group = osg.Group()
 
     # add the HUD subgraph.    
-    if scene.valid() : group.addChild(scene.get())
+    if scene.valid() : group.addChild(scene)
     
     viewer.setCameraManipulator(osgGA.MultiTouchTrackballManipulator())
     viewer.realize()
@@ -287,7 +286,7 @@ def main(argc, argv):
     group.addChild(hud_camera)
 
     # set the scene to render
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     return viewer.run()
 

@@ -66,7 +66,7 @@ def createWidget(name, col, layer):
     
     return widget
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()
@@ -127,7 +127,7 @@ def main(argc, argv):
     return osgWidget.createExample(viewer, wm)
 
 #
-#def main(argc, argv):
+#def main(argv):
 #    
 #    viewer = osgViewer.Viewer()
 #

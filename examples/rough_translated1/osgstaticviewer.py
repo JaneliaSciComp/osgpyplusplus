@@ -90,11 +90,11 @@ USE_SERIALIZER_WRAPPER_LIBRARY(osgVolume)
 # include the platform specific GraphicsWindow implementation.
 USE_GRAPHICSWINDOW()
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the standard OpenSceneGraph example which loads and visualises 3d models.")
@@ -112,9 +112,9 @@ def main(argc, argv):
 
     # if user request help write it out to cout.
     helpAll = arguments.read("--help-all")
-    helpType = ((helpAll || arguments.read("-h") || arguments.read("--help"))? osg.ApplicationUsage.COMMAND_LINE_OPTION : 0 ) |
-                            ((helpAll ||  arguments.read("--help-env"))? osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE : 0 ) |
-                            ((helpAll ||  arguments.read("--help-keys"))? osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING : 0 )
+    helpType = ( osg.ApplicationUsage.COMMAND_LINE_OPTION if ((helpAll  or  arguments.read("-h")  or  arguments.read("--help"))) else  0 ) |
+                            ( osg.ApplicationUsage.ENVIRONMENTAL_VARIABLE if ((helpAll  or   arguments.read("--help-env"))) else  0 ) |
+                            ( osg.ApplicationUsage.KEYBOARD_MOUSE_BINDING if ((helpAll  or   arguments.read("--help-keys"))) else  0 )
     if helpType :
         arguments.getApplicationUsage().write(std.cout, helpType)
         return 1
@@ -133,22 +133,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # add the state manipulator
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
@@ -176,7 +176,7 @@ def main(argc, argv):
 
     # load the data
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -191,9 +191,9 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
-    viewer.setSceneData( loadedModel.get() )
+    viewer.setSceneData( loadedModel )
 
     return viewer.run()
 

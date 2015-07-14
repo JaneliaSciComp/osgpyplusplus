@@ -85,11 +85,11 @@ class EaseMotionSampler (osg.NodeCallback) :
         _pos      (pos) 
 
     void operator()(osg.Node* node, osg.NodeVisitor* nv) 
-        if !_motion.valid() : return
+        if  not _motion.valid() : return
 
         mt = dynamic_cast<osg.MatrixTransform*>(node)
 
-        if !mt : return
+        if  not mt : return
 
         t = nv.getFrameStamp().getSimulationTime()
 
@@ -109,7 +109,7 @@ class EaseMotionSampler (osg.NodeCallback) :
         _motion = T(M_START, M_DURATION, M_CHANGE, osgAnimation.Motion.LOOP)
 
         EASE_MOTION_GEODE.removeDrawables(0, EASE_MOTION_GEODE.getNumDrawables())
-        EASE_MOTION_GEODE.addDrawable(createEaseMotionGeometry(_motion.get()))
+        EASE_MOTION_GEODE.addDrawable(createEaseMotionGeometry(_motion))
 
 
 class ColorLabel (osgWidget.Label) :
@@ -131,121 +131,121 @@ ColorLabel( char* label):
     bool mousePush(double, double,  osgWidget.WindowManager*) 
         p = dynamic_cast<osgWidget.Table*>(_parent)
 
-        if !p : return False
+        if  not p : return False
 
         p.hide()
 
         name = getName()
 
-        if !name.compare("OutQuadMotion") :
+        if  not name.compare("OutQuadMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutQuadMotion>()
                 
 
-        elif !name.compare("InQuadMotion") :
+        elif  not name.compare("InQuadMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InQuadMotion>()
                 
 
-        elif !name.compare("InOutQuadMotion") :
+        elif  not name.compare("InOutQuadMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutQuadMotion>()
                 
 
-        elif !name.compare("OutCubicMotion") :
+        elif  not name.compare("OutCubicMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutCubicMotion>()
                 
 
-        elif !name.compare("InCubicMotion") :
+        elif  not name.compare("InCubicMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InCubicMotion>()
                 
 
-        elif !name.compare("InOutCubicMotion") :
+        elif  not name.compare("InOutCubicMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutCubicMotion>()
                 
 
-        elif !name.compare("OutQuartMotion") :
+        elif  not name.compare("OutQuartMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutQuartMotion>()
                 
 
-        elif !name.compare("InQuartMotion") :
+        elif  not name.compare("InQuartMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InQuartMotion>()
                 
 
-        elif !name.compare("InOutQuartMotion") :
+        elif  not name.compare("InOutQuartMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutQuartMotion>()
                 
 
-        elif !name.compare("OutBounceMotion") :
+        elif  not name.compare("OutBounceMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutBounceMotion>()
                 
 
-        elif !name.compare("InBounceMotion") :
+        elif  not name.compare("InBounceMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InBounceMotion>()
                 
 
-        elif !name.compare("InOutBounceMotion") :
+        elif  not name.compare("InOutBounceMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutBounceMotion>()
                 
 
-        elif !name.compare("OutElasticMotion") :
+        elif  not name.compare("OutElasticMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutElasticMotion>()
                 
 
-        elif !name.compare("InElasticMotion") :
+        elif  not name.compare("InElasticMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InElasticMotion>()
                 
 
-        elif !name.compare("InOutElasticMotion") :
+        elif  not name.compare("InOutElasticMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutElasticMotion>()
                 
 
-        elif !name.compare("OutSineMotion") :
+        elif  not name.compare("OutSineMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutSineMotion>()
                 
 
-        elif !name.compare("InSineMotion") :
+        elif  not name.compare("InSineMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InSineMotion>()
                 
 
-        elif !name.compare("InOutSineMotion") :
+        elif  not name.compare("InOutSineMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutSineMotion>()
                 
 
-        elif !name.compare("OutBackMotion") :
+        elif  not name.compare("OutBackMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutBackMotion>()
                 
 
-        elif !name.compare("InBackMotion") :
+        elif  not name.compare("InBackMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InBackMotion>()
                 
 
-        elif !name.compare("InOutBackMotion") :
+        elif  not name.compare("InOutBackMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutBackMotion>()
                 
 
-        elif !name.compare("OutCircMotion") :
+        elif  not name.compare("OutCircMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutCircMotion>()
                 
 
-        elif !name.compare("InCircMotion") :
+        elif  not name.compare("InCircMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InCircMotion>()
                 
 
-        elif !name.compare("InOutCircMotion") :
+        elif  not name.compare("InOutCircMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutCircMotion>()
                 
 
-        elif !name.compare("OutExpoMotion") :
+        elif  not name.compare("OutExpoMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.OutExpoMotion>()
                 
 
-        elif !name.compare("InExpoMotion") :
+        elif  not name.compare("InExpoMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InExpoMotion>()
                 
 
-        elif !name.compare("InOutExpoMotion") :
+        elif  not name.compare("InOutExpoMotion") :
             EASE_MOTION_SAMPLER.setMotion<osgAnimation.InOutExpoMotion>()
                 
 
-        else : EASE_MOTION_SAMPLER.setMotion<osgAnimation.LinearMotion>()
+        else EASE_MOTION_SAMPLER.setMotion<osgAnimation.LinearMotion>()
 
         return True
 
@@ -306,7 +306,7 @@ _window = osgWidget.Table()
         
         osgWidget.Label.managed(wm)
 
-        wm.addChild(_window.get())
+        wm.addChild(_window)
 
         _window.hide()
 
@@ -318,14 +318,14 @@ _window = osgWidget.Table()
         _window.setOrigin(_parent.getX(), _parent.getY() +  _parent.getHeight())
 
     bool mousePush(double, double,  osgWidget.WindowManager*) 
-        if !_window.isVisible() : _window.show()
+        if  not _window.isVisible() : _window.show()
 
-        else : _window.hide()
+        else _window.hide()
 
         return True
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

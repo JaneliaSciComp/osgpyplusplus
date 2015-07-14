@@ -86,8 +86,8 @@ def createTesselatedBox(nsplit, size):
     geometry = osg.Geometry()
     vertices = osg.Vec3Array(osg.Vec3Array())
     colors = osg.Vec3Array(osg.Vec3Array())
-    geometry.setVertexArray (vertices.get())
-    geometry.setColorArray (colors.get(), osg.Array.BIND_PER_VERTEX)
+    geometry.setVertexArray (vertices)
+    geometry.setColorArray (colors, osg.Array.BIND_PER_VERTEX)
 
     step = size / static_cast<float>(nsplit)
     s = 0.5/4.0
@@ -156,9 +156,9 @@ def initVertexMap(b0, b1, b2, geom, array):
     for (int i = 0 i < (int)array.size() i++)
         val = (*array)[i][0]
         print val
-        if val >= -1.0  val <= 0.0 :
+        if val >= -1.0  and  val <= 0.0 :
             (*vim)[b0.getName()].push_back(osgAnimation.VertexIndexWeight(i,1.0))
-        elif  val > 0.0  val <= 1.0 :
+        elif  val > 0.0  and  val <= 1.0 :
             (*vim)[b1.getName()].push_back(osgAnimation.VertexIndexWeight(i,1.0))
         elif  val > 1.0 :
             (*vim)[b2.getName()].push_back(osgAnimation.VertexIndexWeight(i,1.0))
@@ -168,7 +168,7 @@ def initVertexMap(b0, b1, b2, geom, array):
 
 
 int main (int argc, char* argv[])
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
@@ -198,13 +198,13 @@ int main (int argc, char* argv[])
     pRight1Update.getStackedTransforms().push_back(osgAnimation.StackedRotateAxisElement("rotate", osg.Vec3(0.0,0.0,1.0), 0.0))
     right1.setUpdateCallback(pRight1Update)
 
-    root.addChild(right0.get())
-    right0.addChild(right1.get())
-    skelroot.addChild(root.get())
+    root.addChild(right0)
+    right0.addChild(right1)
+    skelroot.addChild(root)
 
     scene = osg.Group()
     manager = osgAnimation.BasicAnimationManager()
-    scene.setUpdateCallback(manager.get())
+    scene.setUpdateCallback(manager)
 
     anim = osgAnimation.Animation()
         keys0 = osgAnimation.FloatKeyframeContainer()
@@ -231,7 +231,7 @@ int main (int argc, char* argv[])
     manager.registerAnimation(anim)
     manager.buildTargetReference()
 
-    # let's start !
+    # let's start  not 
     manager.playAnimation(anim)
 
     # we will use local data from the skeleton
@@ -244,7 +244,7 @@ int main (int argc, char* argv[])
     trueroot = osg.MatrixTransform()
     trueroot.setMatrix(osg.Matrix(root.getMatrixInBoneSpace().ptr()))
     trueroot.addChild(createAxis())
-    trueroot.addChild(skelroot.get())
+    trueroot.addChild(skelroot)
     trueroot.setDataVariance(osg.Object.DYNAMIC)
     rootTransform.addChild(trueroot)
     scene.addChild(rootTransform)
@@ -257,13 +257,13 @@ int main (int argc, char* argv[])
     geom.getOrCreateStateSet().setMode(GL_LIGHTING, False)
     geom.setDataVariance(osg.Object.DYNAMIC)
 
-    initVertexMap(root.get(), right0.get(), right1.get(), geom, src.get())
+    initVertexMap(root, right0, right1, geom, src)
 
-    # let's run !
+    # let's run  not 
     viewer.setSceneData( scene )
     viewer.realize()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
 
     osgDB.writeNodeFile(*scene, "skinning.osg")

@@ -190,7 +190,7 @@ def createScene():
             program.addShader(osg.Shader(osg.Shader.VERTEX, vertexShaderSource))
             program.addShader(osg.Shader(osg.Shader.FRAGMENT, fragmentShaderSource))
 
-#else :
+#else:
 
             # get shaders from source
             program.addShader(osg.Shader.readShaderFile(osg.Shader.VERTEX, osgDB.findDataFile("shaders/terrain.vert")))
@@ -262,7 +262,7 @@ class TestSupportOperation (osg.GraphicsOperation) :
         contextID = gc.getState().getContextID()
         gl2ext = osg.GL2Extensions.Get(contextID,True)
         if  gl2ext  :
-            if  !gl2ext.isGlslSupported()  :
+            if   not gl2ext.isGlslSupported()  :
                 _supported = False
                 _errorMessage = "ERROR: GLSL not supported by OpenGL driver."
 
@@ -271,7 +271,7 @@ class TestSupportOperation (osg.GraphicsOperation) :
             if  numVertexTexUnits <= 0  :
                 _supported = False
                 _errorMessage = "ERROR: vertex texturing not supported by OpenGL driver."
-        else :
+        else:
             _supported = False
             _errorMessage = "ERROR: GLSL not supported."
 
@@ -294,12 +294,12 @@ int main(int, char **)
     testSupportOperation = TestSupportOperation()
 #if 0
     # temporily commenting out as its causing the viewer to crash... no clue yet to why
-    viewer.setRealizeOperation(testSupportOperation.get())
+    viewer.setRealizeOperation(testSupportOperation)
 #endif
     # create the windows and run the threads.
     viewer.realize()
 
-    if !testSupportOperation._supported :
+    if  not testSupportOperation._supported :
         osg.notify(osg.WARN), testSupportOperation._errorMessage
 
         return 1

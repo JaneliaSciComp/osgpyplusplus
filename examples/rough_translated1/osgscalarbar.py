@@ -73,9 +73,9 @@ def printScalar(scalar):
         if scalar==0.0 : return ScalarPrinter.printScalar(scalar)+" Bottom"
         elif scalar==0.5 : return ScalarPrinter.printScalar(scalar)+" Middle"
         elif scalar==1.0 : return ScalarPrinter.printScalar(scalar)+" Top"
-        else : return ScalarPrinter.printScalar(scalar)
+        else return ScalarPrinter.printScalar(scalar)
 
-#else :
+#else:
 # Create a custom scalar printer
 class MyScalarPrinter (ScalarBar.ScalarPrinter) :
 def printScalar(scalar):
@@ -84,7 +84,7 @@ def printScalar(scalar):
         if scalar==0.0 : return ScalarBar.ScalarPrinter.printScalar(scalar)+" Bottom"
         elif scalar==0.5 : return ScalarBar.ScalarPrinter.printScalar(scalar)+" Middle"
         elif scalar==1.0 : return ScalarBar.ScalarPrinter.printScalar(scalar)+" Top"
-        else : return ScalarBar.ScalarPrinter.printScalar(scalar)
+        else return ScalarBar.ScalarPrinter.printScalar(scalar)
 
 #endif
 
@@ -109,7 +109,7 @@ def createScalarBar():
     sb.setScalarPrinter(MyScalarPrinter)()
 
     return sb
-#else :
+#else:
     sb = ScalarBar()
     tp = ScalarBar.TextProperties()
     tp._fontFile = "fonts/times.ttf"

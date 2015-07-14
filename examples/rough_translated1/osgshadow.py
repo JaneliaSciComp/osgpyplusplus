@@ -244,14 +244,14 @@ static unsigned char * orderBytes( unsigned int *raster, unsigned int size )
     dst_step = 4
     src_step = sizeof( unsigned int )
 
-    if  little_endian  src_step == dst_step  :
+    if  little_endian  and  src_step == dst_step  :
         return src
 
     counter = size / src_step
 
     # pack bytes if 64 (or more) bit machine
     if  src_step > dst_step  : 
-        if  !little_endian  :
+        if   not little_endian  :
             src += src_step - dst_step
 
         for( unsigned int i = 0 i < counter i++ )
@@ -263,7 +263,7 @@ static unsigned char * orderBytes( unsigned int *raster, unsigned int size )
             dst += dst_step
 
     # reorder bytes if big endian machine
-    if  !little_endian  : 
+    if   not little_endian  : 
         dst = (unsigned char*)raster
         while  counter--  :
             std.swap( dst[0], dst[3] )
@@ -452,7 +452,7 @@ static osg.Geode* createObjects( osg.HeightField * grid, unsigned int density )
 
                 if  rand() % 3 > 0  :
                     addTree( pos, vertices, normals, texCoords )
-                addHouse = else :( pos, vertices, normals, texCoords )
+                addHouse = else( pos, vertices, normals, texCoords )
 
 
     geometry.addPrimitiveSet(osg.DrawArrays(GL_QUADS, 0, vertices.size()))
@@ -472,7 +472,7 @@ osg.Node* createIsland( osg.Vec3 center = osg.Vec3( 0,0,0 ), float radius = 8192
                          osg.Image.NO_DELETE )
 
     colorMap = NULL # osgDB.readImageFile("Images/colorMap.png")
-    if  !colorMap  :
+    if   not colorMap  :
 
         class colorElevation :
 colorElevation(unsigned int elev,  osg.Vec4ub c):
@@ -529,22 +529,22 @@ colorElevation(unsigned int elev,  osg.Vec4ub c):
     locator.setCoordinateSystemType(osgTerrain.Locator.PROJECTED)
     locator.setTransformAsExtents(center.x()-radius, center.y()-radius, center.x()+radius, center.y()+radius)
 
-    terrainTile.setLocator(locator.get())
+    terrainTile.setLocator(locator)
 
     hfl = osgTerrain.HeightFieldLayer()
     hfl.setHeightField(grid)
-    hfl.setLocator(locator.get())
-    terrainTile.setElevationLayer(hfl.get())
+    hfl.setLocator(locator)
+    terrainTile.setElevationLayer(hfl)
 
     imageLayer = osgTerrain.ImageLayer()
-    imageLayer.setImage(colorMap.get())
-    imageLayer.setLocator(locator.get())
-    terrainTile.setColorLayer(0, imageLayer.get())
+    imageLayer.setImage(colorMap)
+    imageLayer.setLocator(locator)
+    terrainTile.setColorLayer(0, imageLayer)
 
     stateset = terrainTile.getOrCreateStateSet()
     stateset.setAttributeAndModes( osg.CullFace(), osg.StateAttribute.ON )
 
-    group.addChild(terrainTile.get())
+    group.addChild(terrainTile)
 
     group.addChild( createObjects( grid, 1 ) )
 
@@ -643,17 +643,17 @@ class ChangeFOVHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
         
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
-            if ea.getKey() == '-' || ea.getKey() == '=' || ea.getKey() == '0' :
+            if ea.getKey() == ord("-")  or  ea.getKey() == ord("=")  or  ea.getKey() == ord("0") :
                 double fovy, aspectRatio, zNear, zFar
                 _camera.getProjectionMatrix().getPerspective(fovy, aspectRatio, zNear, zFar)
 
-                if ea.getKey() == '-' :
+                if ea.getKey() == ord("-") :
                     fovy -= 5.0
 
-                if ea.getKey() == '=' :
+                if ea.getKey() == ord("=") :
                     fovy += 5.0
 
-                if ea.getKey() == '0' :
+                if ea.getKey() == ord("0") :
                     fovy = 45.0
 
                 print "Setting FOV to ", fovy
@@ -681,7 +681,7 @@ class DumpShadowVolumesHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
         
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
-            if ea.getKey() == 'D'  :
+            if ea.getKey() == ord("D")  :
                 set( True )
                 return True
 
@@ -704,8 +704,8 @@ class LightAnimationHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
         
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
-            if ea.getKey() == 'p'  :
-                _animating = !_animating
+            if ea.getKey() == ord("p")  :
+                _animating =  not _animating
                 return True
 
         return False
@@ -836,13 +836,13 @@ namespace ModelOne
 
         virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter #aa, osg.Object* object, osg.NodeVisitor* #nv)
             sw = dynamic_cast<osg.Switch*>(object)
-            if !sw : return False
+            if  not sw : return False
 
             if ea.getHandled() : return False
 
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYDOWN):
-                    if ea.getKey()=='n' :
+                    if ea.getKey()==ord("n") :
                         ++_childNum
                         if _childNum >= sw.getNumChildren() : _childNum = 0
 
@@ -1003,59 +1003,59 @@ namespace ModelThree
         scene = osg.Group()
 
         geode_1 = osg.Geode()
-        scene.addChild(geode_1.get())
+        scene.addChild(geode_1)
 
         geode_2 = osg.Geode()
         transform_2 = osg.MatrixTransform()
-        transform_2.addChild(geode_2.get())
+        transform_2.addChild(geode_2)
 #        transform_2.setUpdateCallback(osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(45.0)))
-        scene.addChild(transform_2.get())
+        scene.addChild(transform_2)
 
         geode_3 = osg.Geode()
         transform_3 = osg.MatrixTransform()
-        transform_3.addChild(geode_3.get())
+        transform_3.addChild(geode_3)
 #        transform_3.setUpdateCallback(osg.AnimationPathCallback(osg.Vec3(0, 0, 0), osg.Z_AXIS, osg.inDegrees(-22.5)))
-        scene.addChild(transform_3.get())
+        scene.addChild(transform_3)
 
         radius = 0.8
         height = 1.0
         hints = osg.TessellationHints()
         hints.setDetailRatio(2.0)
         shape = osg.ShapeDrawable()
-        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints.get())
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, -2.0), 10, 10.0, 0.1), hints)
         shape.setColor(osg.Vec4(0.5, 0.5, 0.7, 1.0))
         shape.setName("base box")
-        geode_1.addDrawable(shape.get())
+        geode_1.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), radius * 2), hints.get())
+        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), radius * 2), hints)
         shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
         shape.setName("center sphere")
-        geode_1.addDrawable(shape.get())
+        geode_1.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(-3.0, 0.0, 0.0), radius), hints.get())
+        shape = osg.ShapeDrawable(osg.Sphere(osg.Vec3(-3.0, 0.0, 0.0), radius), hints)
         shape.setColor(osg.Vec4(0.6, 0.8, 0.8, 1.0))
         shape.setName("cyan sphere")
-        geode_2.addDrawable(shape.get())
+        geode_2.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(3.0, 0.0, 0.0), 2 * radius), hints.get())
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(3.0, 0.0, 0.0), 2 * radius), hints)
         shape.setColor(osg.Vec4(0.4, 0.9, 0.3, 1.0))
         shape.setName("green box")
-        geode_2.addDrawable(shape.get())
+        geode_2.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints.get())
+        shape = osg.ShapeDrawable(osg.Cone(osg.Vec3(0.0, -3.0, 0.0), radius, height), hints)
         shape.setColor(osg.Vec4(0.2, 0.5, 0.7, 1.0))
         shape.setName("blue cone")
-        geode_2.addDrawable(shape.get())
+        geode_2.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints.get())
+        shape = osg.ShapeDrawable(osg.Cylinder(osg.Vec3(0.0, 3.0, 0.0), radius, height), hints)
         shape.setColor(osg.Vec4(1.0, 0.3, 0.3, 1.0))
         shape.setName("red cyclinder")
-        geode_2.addDrawable(shape.get())
+        geode_2.addDrawable(shape)
 
-        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0, 0.1), hints.get())
+        shape = osg.ShapeDrawable(osg.Box(osg.Vec3(0.0, 0.0, 3.0), 2.0, 2.0, 0.1), hints)
         shape.setColor(osg.Vec4(0.8, 0.8, 0.4, 1.0))
         shape.setName("rotating box")
-        geode_3.addDrawable(shape.get())
+        geode_3.addDrawable(shape)
 
         # material
         matirial = osg.Material()
@@ -1063,7 +1063,7 @@ namespace ModelThree
         matirial.setAmbient(osg.Material.FRONT_AND_BACK, osg.Vec4(0, 0, 0, 1))
         matirial.setSpecular(osg.Material.FRONT_AND_BACK, osg.Vec4(1, 1, 1, 1))
         matirial.setShininess(osg.Material.FRONT_AND_BACK, 64.0)
-        scene.getOrCreateStateSet().setAttributeAndModes(matirial.get(), osg.StateAttribute.ON)
+        scene.getOrCreateStateSet().setAttributeAndModes(matirial, osg.StateAttribute.ON)
 
         withBaseTexture = True
         while arguments.read("--with-base-texture") :  withBaseTexture = True 
@@ -1108,7 +1108,7 @@ UseVBOVisitor():
             path.insert( delta_time * (float)i, osg.AnimationPath.ControlPoint(pos, rot) )
 
         apcb = osg.AnimationPathCallback()
-        apcb.setAnimationPath( path.get() )
+        apcb.setAnimationPath( path )
         return apcb.release()
 
     def createModel(arguments):
@@ -1128,7 +1128,7 @@ UseVBOVisitor():
 
         # cessna is really poorly optimized so fix this by optimizing the mesh and use VBO's.
         optimizer = osgUtil.Optimizer()
-        optimizer.optimize(cessnaNode.get(), osgUtil.Optimizer.INDEX_MESH |
+        optimizer.optimize(cessnaNode, osgUtil.Optimizer.INDEX_MESH |
                                              osgUtil.Optimizer.VERTEX_POSTTRANSFORM |
                                              osgUtil.Optimizer.VERTEX_PRETRANSFORM)
 
@@ -1137,13 +1137,13 @@ UseVBOVisitor():
 
 
         shadowRoot = osg.Group()
-        shadowRoot.addChild( groundNode.get() )
+        shadowRoot.addChild( groundNode )
         for ( unsigned int i=0 i<10 ++i )
             for ( unsigned int j=0 j<10 ++j )
                 cessnaInstance = osg.MatrixTransform()
                 cessnaInstance.setMatrix( osg.Matrix.translate((float)i*50.0-25.0, (float)j*50.0-25.0, 0.0) )
-                cessnaInstance.addChild( cessnaNode.get() )
-                shadowRoot.addChild( cessnaInstance.get() )
+                cessnaInstance.addChild( cessnaNode )
+                shadowRoot.addChild( cessnaInstance )
 
 
         return shadowRoot.release()
@@ -1159,17 +1159,17 @@ def createTestModel(arguments):
         return ModelFour.createModel(arguments)
     elif arguments.read("-5") :
         return ModelFive.createModel(arguments)
-    else : #if arguments.read("-3") :
+    else #if arguments.read("-3") :
         return ModelThree.createModel(arguments)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName() + " is the example which demonstrates using of GL_ARB_shadow extension implemented in osg.Texture class")
@@ -1220,7 +1220,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -1232,7 +1232,7 @@ def main(argc, argv):
         dps._zNear = zNear
         dps._zMid = zMid
         dps._zFar = zFar
-        viewer.setUpDepthPartition(dps.get())
+        viewer.setUpDepthPartition(dps)
 
     if arguments.read("--dp") :
         # set up depth partitioning
@@ -1264,22 +1264,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() :
+            if apm  or   not apm.valid() :
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # add the state manipulator
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
@@ -1336,13 +1336,13 @@ def main(argc, argv):
         while arguments.read("--two-sided") : sv.setDrawMode(osgShadow.ShadowVolumeGeometry.STENCIL_TWO_SIDED)
         while arguments.read("--two-pass") : sv.setDrawMode(osgShadow.ShadowVolumeGeometry.STENCIL_TWO_PASS)
 
-        shadowedScene.setShadowTechnique(sv.get())
+        shadowedScene.setShadowTechnique(sv)
     elif arguments.read("--st") :
         st = osgShadow.ShadowTexture()
-        shadowedScene.setShadowTechnique(st.get())
+        shadowedScene.setShadowTechnique(st)
     elif arguments.read("--stsm") :
         st = osgShadow.StandardShadowMap()
-        shadowedScene.setShadowTechnique(st.get())
+        shadowedScene.setShadowTechnique(st)
     elif arguments.read("--pssm") :
         mapcount = 3
         while arguments.read("--mapcount", mapcount) :
@@ -1381,10 +1381,10 @@ def main(argc, argv):
         while arguments.read("--PolyOffset-Unit", polyoffsetunit) :
         pssm.setPolygonOffset(osg.Vec2(polyoffsetfactor,polyoffsetunit))
 
-        shadowedScene.setShadowTechnique(pssm.get())
+        shadowedScene.setShadowTechnique(pssm)
     elif arguments.read("--ssm") :
         sm = osgShadow.SoftShadowMap()
-        shadowedScene.setShadowTechnique(sm.get())
+        shadowedScene.setShadowTechnique(sm)
     elif  arguments.read("--vdsm")  :
         while  arguments.read("--debugHUD")  : settings.setDebugDraw( True )
         if arguments.read("--persp") : settings.setShadowMapProjectionHint(osgShadow.ShadowSettings.PERSPECTIVE_SHADOW_MAP)
@@ -1399,7 +1399,7 @@ def main(argc, argv):
         numShadowMaps = unsigned int()
         if arguments.read("--num-sm",numShadowMaps) : settings.setNumShadowMapsPerLight(numShadowMaps)
 
-        if arguments.read("--parallel-split") || arguments.read("--ps")  : settings.setMultipleShadowMapHint(osgShadow.ShadowSettings.PARALLEL_SPLIT)
+        if arguments.read("--parallel-split")  or  arguments.read("--ps")  : settings.setMultipleShadowMapHint(osgShadow.ShadowSettings.PARALLEL_SPLIT)
         if arguments.read("--cascaded") : settings.setMultipleShadowMapHint(osgShadow.ShadowSettings.CASCADED)
 
 
@@ -1408,31 +1408,31 @@ def main(argc, argv):
             settings.setTextureSize(osg.Vec2s(mapres,mapres))
 
         vdsm = osgShadow.ViewDependentShadowMap()
-        shadowedScene.setShadowTechnique(vdsm.get())
+        shadowedScene.setShadowTechnique(vdsm)
     elif  arguments.read("--lispsm")  :
         if  arguments.read( "--ViewBounds" )  :
             msm = osgShadow.LightSpacePerspectiveShadowMapVB()
         elif  arguments.read( "--CullBounds" )  :
             msm = osgShadow.LightSpacePerspectiveShadowMapCB()
-        else : # if  arguments.read( "--DrawBounds" )  : # default
+        else # if  arguments.read( "--DrawBounds" )  : # default
             msm = osgShadow.LightSpacePerspectiveShadowMapDB()
     elif  arguments.read("--msm")  :
        if  arguments.read( "--ViewBounds" )  :
             msm = osgShadow.MinimalShadowMap()
        elif  arguments.read( "--CullBounds" )  :
             msm = osgShadow.MinimalCullBoundsShadowMap()
-       else : # if  arguments.read( "--DrawBounds" )  : # default
+       else # if  arguments.read( "--DrawBounds" )  : # default
             msm = osgShadow.MinimalDrawBoundsShadowMap()
-    else : # if arguments.read("--sm") : 
+    else # if arguments.read("--sm") : 
         sm = osgShadow.ShadowMap()
-        shadowedScene.setShadowTechnique(sm.get())
+        shadowedScene.setShadowTechnique(sm)
 
         mapres = 1024
         while arguments.read("--mapres", mapres) :
             sm.setTextureSize(osg.Vec2s(mapres,mapres))
 
     if  msm  :# Set common MSM  LISPSM arguments
-        shadowedScene.setShadowTechnique( msm.get() )
+        shadowedScene.setShadowTechnique( msm )
         while  arguments.read("--debugHUD")  : msm.setDebugDraw( True )
 
         minLightMargin = 10.
@@ -1461,7 +1461,7 @@ def main(argc, argv):
     model = osgDB.readNodeFiles(arguments)
     if model.valid() :
         model.setNodeMask(CastsShadowTraversalMask | ReceivesShadowTraversalMask)
-    else :
+    else:
         model = createTestModel(arguments)
 
     # get the bounds of the model.
@@ -1469,7 +1469,7 @@ def main(argc, argv):
     model.accept(cbbv)
     bb = cbbv.getBoundingBox()
 
-    if lightpos.w()==1.0  !keepLightPos :
+    if lightpos.w()==1.0  and   not keepLightPos :
         lightpos.x() = bb.xMin()+(bb.xMax()-bb.xMin())*lightpos.x()
         lightpos.y() = bb.yMin()+(bb.yMax()-bb.yMin())*lightpos.y()
         lightpos.z() = bb.zMin()+(bb.zMax()-bb.zMin())*lightpos.z()
@@ -1503,29 +1503,29 @@ def main(argc, argv):
 
         #set the LightSource, only for checking, there is only 1 light in the scene
         shadowMap = dynamic_cast<osgShadow.ShadowMap*>(shadowedScene.getShadowTechnique())
-        if  shadowMap  : shadowMap.setLight(ls.get())
+        if  shadowMap  : shadowMap.setLight(ls)
 
     if  arguments.read("--coloured-light") :
         ls.getLight().setAmbient(osg.Vec4(1.0,0.0,0.0,1.0))
         ls.getLight().setDiffuse(osg.Vec4(0.0,1.0,0.0,1.0))
-    else :
+    else:
         ls.getLight().setAmbient(osg.Vec4(0.2,0.2,0.2,1.0))
         ls.getLight().setDiffuse(osg.Vec4(0.8,0.8,0.8,1.0))
 
-    shadowedScene.addChild(model.get())
-    shadowedScene.addChild(ls.get())
+    shadowedScene.addChild(model)
+    shadowedScene.addChild(ls)
 
-    viewer.setSceneData(shadowedScene.get())
+    viewer.setSceneData(shadowedScene)
 
      dumpShadowVolumes = DumpShadowVolumesHandler()
 
     viewer.addEventHandler(ChangeFOVHandler(viewer.getCamera()))
-    viewer.addEventHandler( dumpShadowVolumes.get() )
+    viewer.addEventHandler( dumpShadowVolumes )
 
     # create the windows and run the threads.
     viewer.realize()
 
-    if fov!=0.0 :
+    if fov not =0.0 :
         double fovy, aspectRatio, zNear, zFar
         viewer.getCamera().getProjectionMatrix().getPerspective(fovy, aspectRatio, zNear, zFar)
 
@@ -1547,15 +1547,15 @@ def main(argc, argv):
             hudCamera.setGraphicsContext(windows[0])
             hudCamera.setViewport(0,0,windows[0].getTraits().width, windows[0].getTraits().height)
 
-            viewer.addSlave(hudCamera.get(), False)
+            viewer.addSlave(hudCamera, False)
 
-    lightAnimationHandler = updateLightPosition ? LightAnimationHandler : 0()
-    if lightAnimationHandler : viewer.addEventHandler(lightAnimationHandler.get())
+    lightAnimationHandler =  LightAnimationHandler if (updateLightPosition) else  0()
+    if lightAnimationHandler : viewer.addEventHandler(lightAnimationHandler)
 
 
     # osgDB.writeNodeFile(*group,"test.osgt")
 
-    while !viewer.done() :
+    while  not viewer.done() :
             msm = dynamic_cast<osgShadow.MinimalShadowMap*>( shadowedScene.getShadowTechnique() )
 
             if  msm  : 
@@ -1564,7 +1564,7 @@ def main(argc, argv):
                 # and set modellingSpaceToWorld matrix to optimize scene bounds computation
 
                 np = viewer.getCoordinateSystemNodePath()
-                if  !np.empty()  : 
+                if   not np.empty()  : 
                     csn = dynamic_cast<osg.CoordinateSystemNode *>( np.back() )
 
                     if  csn  : 
@@ -1573,12 +1573,12 @@ def main(argc, argv):
                         msm.setModellingSpaceToWorldTransform
                             ( csn.computeLocalCoordinateFrame( pos ) )
 
-        if lightAnimationHandler.valid()  lightAnimationHandler .getAnimating() :
+        if lightAnimationHandler.valid()  and  lightAnimationHandler .getAnimating() :
             t = viewer.getFrameStamp().getSimulationTime()
 
             if lightpos.w()==1.0 :
                 lightpos.set(bb.center().x()+sinf(t)*bb.radius(), bb.center().y() + cosf(t)*bb.radius(), bb.zMax() + bb.radius()*3.0  ,1.0)
-            else :
+            else:
                 lightpos.set(sinf(t),cosf(t),1.0,0.0)
             ls.getLight().setPosition(lightpos)
 
@@ -1589,7 +1589,7 @@ def main(argc, argv):
             lightDir.normalize()
             ls.getLight().setDirection(lightDir)
 
-        if  dumpShadowVolumes.get()  :
+        if  dumpShadowVolumes  :
             dumpShadowVolumes.set( False )
 
             static int dumpFileNo = 0
@@ -1627,7 +1627,7 @@ def main(argc, argv):
 #*  THE SOFTWARE.
 #
 
-#if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
+#if defined(WIN32)  and   not (defined(__CYGWIN__)  or  defined(__MINGW32__))
     # disable the double to float errors.
     #pragma warning( disable : 4305 )
 #endif

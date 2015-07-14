@@ -143,14 +143,14 @@ def createSequence(arguments):
     if arguments.argc() > 1 :
         for (int i = 1 i < arguments.argc() ++i)
             filenames.push_back(arguments[i])
-    else :
+    else:
         filenames.push_back("cow.osgt")
         filenames.push_back("dumptruck.osgt")
         filenames.push_back("cessna.osgt")
         filenames.push_back("glider.osgt")
     
     for(Filenames.iterator itr = filenames.begin()
-        itr != filenames.end()
+        not = filenames.end()
         ++itr)        
         # load model
         node = osgDB.readNodeFile(*itr)
@@ -179,7 +179,7 @@ class SequenceEventHandler (osgGA.GUIEventHandler) :
                         osgGA.GUIActionAdapter)
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYDOWN : 
             switch (ea.getKey()) 
-            case 's':
+            case ord("s"):
                     mode = _seq.getMode()
                     if mode == osg.Sequence.STOP : 
                         mode = osg.Sequence.START
@@ -187,19 +187,19 @@ class SequenceEventHandler (osgGA.GUIEventHandler) :
                     elif mode == osg.Sequence.PAUSE : 
                         mode = osg.Sequence.RESUME
                         std.cerr, "Resume"
-                    else : 
+                    else:
                         mode = osg.Sequence.PAUSE
                         std.cerr, "Pause"
                     _seq.setMode(mode)
                 break
-            case 'l':
+            case ord("l"):
                     mode = osg.Sequence.LoopMode()
                     int begin, end
                     _seq.getInterval(mode, begin, end)
                     if mode == osg.Sequence.LOOP : 
                         mode = osg.Sequence.SWING
                         std.cerr, "Swing"
-                    else : 
+                    else:
                         mode = osg.Sequence.LOOP
                         std.cerr, "Loop"
                     _seq.setInterval(mode, begin, end)
@@ -212,12 +212,12 @@ class SequenceEventHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
    
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -232,8 +232,8 @@ def main(argc, argv):
         "- assigns a display duration to each child",
         "- can loop or swing through an interval of it's children",
         "- can repeat the interval a number of times or indefinitively",
-        "- press 's' to start/pause/resume",
-        "- press 'l' to toggle loop/swing mode",
+        "- press ord("s") to start/pause/resume",
+        "- press ord("l") to toggle loop/swing mode",
         NULL
     
     rootNode.addChild(createHUD(createTextGroup(text)))

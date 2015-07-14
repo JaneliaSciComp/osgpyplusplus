@@ -129,22 +129,22 @@ def decorate_with_clip_node(subgraph):
     return rootnode
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # load the nodes from the commandline arguments.
     loadedModel = osgDB.readNodeFiles(arguments)
 
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
 
 
-    if !loadedModel :
+    if  not loadedModel :
         osg.notify(osg.NOTICE), "Please specifiy a filename and the command line"
         return 1
   

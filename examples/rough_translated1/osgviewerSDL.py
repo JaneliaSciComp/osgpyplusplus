@@ -77,7 +77,7 @@ def convertEvent(event, eventQueue):
             break
     return False
 
-def main(argc, argv):
+def main(argv):
 
     
     if argc<2 :
@@ -93,7 +93,7 @@ def main(argc, argv):
 
     # load the scene.
     loadedModel = osgDB.readNodeFile(argv[1])
-    if !loadedModel :
+    if  not loadedModel :
         print argv[0], ": No data loaded."
         return 1
 
@@ -106,7 +106,7 @@ def main(argc, argv):
 
     # If not linked to SDL 1.2.10+, then we must use hardcoded values
     linked_version = SDL_Linked_Version()
-    if linked_version.major == 1  linked_version.minor == 2 :
+    if linked_version.major == 1  and  linked_version.minor == 2 :
         if linked_version.patch < 10 :
             windowWidth = 1280
             windowHeight = 1024
@@ -131,13 +131,13 @@ def main(argc, argv):
     
     viewer = osgViewer.Viewer()
     gw = viewer.setUpViewerAsEmbeddedInWindow(0,0,windowWidth,windowHeight)
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
     viewer.setCameraManipulator(osgGA.TrackballManipulator)()
     viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.realize()
 
     done = False
-    while  !done  :
+    while   not done  :
         event = SDL_Event()
 
         while  SDL_PollEvent(event)  :
@@ -154,7 +154,7 @@ def main(argc, argv):
                 case SDL_KEYUP:
 
                     if event.key.keysym.sym==SDLK_ESCAPE : done = True
-                    if event.key.keysym.sym=='f' : 
+                    if event.key.keysym.sym==ord("f") : 
                         SDL_WM_ToggleFullScreen(screen)
                         gw.resized(0, 0, screen.w, screen.h )
 

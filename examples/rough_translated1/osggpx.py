@@ -127,7 +127,7 @@ def readTrack(filename):
     if foundFilename.empty() : return 0
 
     ext = osgDB.getFileExtension(foundFilename)
-    if ext!="gpx" : return 0
+    if ext not ="gpx" : return 0
 
     input = osgDB.XmlNode.Input()
     input.open(foundFilename)
@@ -138,17 +138,17 @@ def readTrack(filename):
 
     root = 0
     for(osgDB.XmlNode.Children.iterator itr = doc.children.begin()
-        itr != doc.children.end()  !root
+        not = doc.children.end()  and   not root
         ++itr)
-        if *itr :.name=="gpx" : root = itr.get()
+        if *itr :.name=="gpx" : root = itr
 
-    if !root : return 0
+    if  not root : return 0
 
     latitude = str("lat")
     longitude = str("lon")
 
     for(osgDB.XmlNode.Children.iterator itr = root.children.begin()
-        itr != root.children.end()
+        not = root.children.end()
         ++itr)
         if *itr :.name=="rte" :
             track = Track()
@@ -156,21 +156,21 @@ def readTrack(filename):
 
             trackSegment = TrackSegment()
             for(osgDB.XmlNode.Children.iterator sitr = (*itr).children.begin()
-                sitr != (*itr).children.end()
+                not = (*itr).children.end()
                 ++sitr)
                 if *sitr :.name=="rtept"  :
-                    trkpt = sitr.get()
+                    trkpt = sitr
                     point = TrackSegment.TrackPoint()
                     valid = False
-                    if trkpt.properties.count(latitude)!=0 :
+                    if trkpt.properties.count(latitude) not =0 :
                         valid = True
                         point.latitude = osg.asciiToDouble(trkpt.properties[latitude].c_str())
-                    if trkpt.properties.count(longitude)!=0 :
+                    if trkpt.properties.count(longitude) not =0 :
                         valid = True
                         point.longitude = osg.asciiToDouble(trkpt.properties[longitude].c_str())
 
                     for(osgDB.XmlNode.Children.iterator pitr = trkpt.children.begin()
-                        pitr != trkpt.children.end()
+                        not = trkpt.children.end()
                         ++pitr)
                         if *pitr :.name=="ele" : point.elevation = osg.asciiToDouble((*pitr).contents.c_str())
                         elif *pitr :.name=="time" : point.time = convertTime((*pitr).contents)
@@ -180,8 +180,8 @@ def readTrack(filename):
                         trackSegment.addTrackPoint(point)
 
 
-            if !trackSegment.getTrackPoints().empty() :
-                track.addTrackSegment(trackSegment.get())
+            if  not trackSegment.getTrackPoints().empty() :
+                track.addTrackSegment(trackSegment)
 
             return track.release()
         elif *itr :.name=="trk" :
@@ -189,26 +189,26 @@ def readTrack(filename):
             track.setName(filename)
 
             for(osgDB.XmlNode.Children.iterator citr = (*itr).children.begin()
-                citr != (*itr).children.end()
+                not = (*itr).children.end()
                 ++citr)
                 if *citr :.name=="trkseg" :
                     trackSegment = TrackSegment()
                     for(osgDB.XmlNode.Children.iterator sitr = (*citr).children.begin()
-                        sitr != (*citr).children.end()
+                        not = (*citr).children.end()
                         ++sitr)
-                        if *sitr :.name=="trkpt" || (*sitr).name=="rtept"  :
-                            trkpt = sitr.get()
+                        if *sitr :.name=="trkpt"  or  (*sitr).name=="rtept"  :
+                            trkpt = sitr
                             point = TrackSegment.TrackPoint()
                             valid = False
-                            if trkpt.properties.count(latitude)!=0 :
+                            if trkpt.properties.count(latitude) not =0 :
                                 valid = True
                                 point.latitude = osg.asciiToDouble(trkpt.properties[latitude].c_str())
-                            if trkpt.properties.count(longitude)!=0 :
+                            if trkpt.properties.count(longitude) not =0 :
                                 valid = True
                                 point.longitude = osg.asciiToDouble(trkpt.properties[longitude].c_str())
 
                             for(osgDB.XmlNode.Children.iterator pitr = trkpt.children.begin()
-                                pitr != trkpt.children.end()
+                                not = trkpt.children.end()
                                 ++pitr)
                                 if *pitr :.name=="ele" : point.elevation = osg.asciiToDouble((*pitr).contents.c_str())
                                 elif *pitr :.name=="time" : point.time = convertTime((*pitr).contents)
@@ -216,8 +216,8 @@ def readTrack(filename):
                             if valid :
                                 # osg.notify(osg.NOTICE), "  point.latitude=", point.latitude, ", longitude=", point.longitude, ", elev=", point.elevation, ", time=", point.time
                                 trackSegment.addTrackPoint(point)
-                    if !trackSegment.getTrackPoints().empty() :
-                        track.addTrackSegment(trackSegment.get())
+                    if  not trackSegment.getTrackPoints().empty() :
+                        track.addTrackSegment(trackSegment)
             return track.release()
 
     return 0
@@ -225,7 +225,7 @@ def readTrack(filename):
 def computeSmoothedTrackSegment(ts):
 
     
-    if !ts : return 0
+    if  not ts : return 0
 
     orig_points = ts.getTrackPoints()
 
@@ -245,7 +245,7 @@ def computeSmoothedTrackSegment(ts):
             new_points[i].elevation = (orig_points[i-1].elevation+orig_points[i].elevation+orig_points[i+1].elevation)/3.0
             new_points[i].time = (orig_points[i-1].time+orig_points[i].time+orig_points[i+1].time)/3.0
         return new_ts.release()
-    else :
+    else:
         # we have two or less points and can't do smoothing, so will just return original TrackSegment
         return ts
 
@@ -253,7 +253,7 @@ def computeSmoothedTrackSegment(ts):
 def computeAveragedSpeedTrackSegment(ts):
 
     
-    if !ts : return 0
+    if  not ts : return 0
 
     em = osg.EllipsoidModel()
     orig_points = ts.getTrackPoints()
@@ -297,7 +297,7 @@ def computeAveragedSpeedTrackSegment(ts):
             new_points[i+1] = orig_points[i+1]
             new_points[i+1].time = accumulated_distance / average_speed
         return new_ts.release()
-    else :
+    else:
         # we have two or less points and can't do smoothing, so will just return original TrackSegment
         return ts
 
@@ -308,9 +308,9 @@ def computeAveragedSpeedTrack(track):
     new_track = Track()
 
     for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-        itr != track.getTrackSegments().end()
+        not = track.getTrackSegments().end()
         ++itr)
-        new_track.addTrackSegment(computeAveragedSpeedTrackSegment(itr.get()))
+        new_track.addTrackSegment(computeAveragedSpeedTrackSegment(itr))
 
     return new_track.release()
 
@@ -322,9 +322,9 @@ def computeSmoothedTrack(track):
     new_track = Track()
 
     for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-        itr != track.getTrackSegments().end()
+        not = track.getTrackSegments().end()
         ++itr)
-        new_track.addTrackSegment(computeSmoothedTrackSegment(itr.get()))
+        new_track.addTrackSegment(computeSmoothedTrackSegment(itr))
 
     return new_track.release()
 
@@ -336,14 +336,14 @@ def createTrackModel(track, colour):
     geode = osg.Geode()
 
     for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-        itr != track.getTrackSegments().end()
+        not = track.getTrackSegments().end()
         ++itr)
         points = (*itr).getTrackPoints()
         if points.size()<2 : continue
 
         geometry = osg.Geometry()
         vertices = osg.Vec3Array()
-        geometry.setVertexArray(vertices.get())
+        geometry.setVertexArray(vertices)
         vertices.resize(points.size())
         for(unsigned int i=0 i<points.size() ++i)
             point = osg.Vec3d()
@@ -354,11 +354,11 @@ def createTrackModel(track, colour):
 
         colours = osg.Vec4Array()
         colours.push_back(colour)
-        geometry.setColorArray(colours.get(), osg.Array.BIND_OVERALL)
+        geometry.setColorArray(colours, osg.Array.BIND_OVERALL)
 
         geometry.addPrimitiveSet(osg.DrawArrays(GL_LINE_STRIP, 0, points.size()))
 
-        geode.addDrawable(geometry.get())
+        geode.addDrawable(geometry)
 
     geode.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
@@ -373,10 +373,10 @@ def main(argv, argc):
     tracks = Tracks()
 
     average = False
-    while arguments.read("-a") || arguments.read("--average") : average = True
+    while arguments.read("-a")  or  arguments.read("--average") : average = True
 
     smooth = False
-    while arguments.read("-s") || arguments.read("--smooth") : smooth = True
+    while arguments.read("-s")  or  arguments.read("--smooth") : smooth = True
 
     outputFilename = str()
     while arguments.read("-o",outputFilename) : 
@@ -384,50 +384,50 @@ def main(argv, argc):
     trackFilename = str()
     while arguments.read("-t",trackFilename) :
         track = readTrack(trackFilename)
-        if track.valid() : tracks.push_back(track.get())
+        if track.valid() : tracks.push_back(track)
 
     em = osg.EllipsoidModel()
 
     group = osg.Group()
 
     loadedModel = osgDB.readNodeFiles(arguments)
-    if loadedModel.valid() : group.addChild(loadedModel.get())
+    if loadedModel.valid() : group.addChild(loadedModel)
 
     for(Tracks.iterator itr = tracks.begin()
-        itr != tracks.end()
+        not = tracks.end()
         ++itr)
-        track = itr.get()
+        track = itr
 
         group.addChild(createTrackModel(track, osg.Vec4(1.0,1.0,1.0,1.0)))
 
         # smooth the track
         if average :
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                *itr = computeAveragedSpeedTrackSegment(itr.get())
+                *itr = computeAveragedSpeedTrackSegment(itr)
 
         # smooth the track
         if smooth :
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                *itr = computeSmoothedTrackSegment(itr.get())
+                *itr = computeSmoothedTrackSegment(itr)
 
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                *itr = computeSmoothedTrackSegment(itr.get())
+                *itr = computeSmoothedTrackSegment(itr)
 
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                *itr = computeSmoothedTrackSegment(itr.get())
+                *itr = computeSmoothedTrackSegment(itr)
 
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                *itr = computeSmoothedTrackSegment(itr.get())
+                *itr = computeSmoothedTrackSegment(itr)
 
         totalDistance = 0.0
         totalAscent = 0.0
@@ -435,9 +435,9 @@ def main(argv, argc):
 
         osg.notify(osg.NOTICE), "Track read ", track.getName()
         for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-            itr != track.getTrackSegments().end()
+            not = track.getTrackSegments().end()
             ++itr)
-            ts = itr.get()
+            ts = itr
 
             points = ts.getTrackPoints()
             if points.size()>1 :
@@ -449,7 +449,7 @@ def main(argv, argc):
                 ++pitr
 
                 for(
-                    pitr != ts.getTrackPoints().end()
+                    not = ts.getTrackPoints().end()
                     ++pitr)
                     newPos = osg.Vec3d()
                     newElevation = pitr.elevation
@@ -460,7 +460,7 @@ def main(argv, argc):
 
                     totalDistance += distance
                     if newElevation>previousElevation : totalAscent += (newElevation-previousElevation)
-                    else : totalDescent += (previousElevation-newElevation)
+                    else totalDescent += (previousElevation-newElevation)
 
                     osg.notify(osg.NOTICE), "     distance=", distance, ", ", newElevation-previousElevation
 
@@ -475,26 +475,26 @@ def main(argv, argc):
         osg.notify(osg.NOTICE), "totalDescent = ", totalDescent, "m, ", totalDescent*metersToFeet, "ft"
 
 
-    if !outputFilename.empty() :
+    if  not outputFilename.empty() :
         fout = std.ofstream(outputFilename.c_str())
 
-        fout, "<?xml version=\"1.0\" encoding=\"utf-8\"?><gpx version=\"1.0\" creator=\"osggpx\" xmlns:xsi=\"http:#www.w3.org/2001/XMLSchema-instance\" xmlns=\"http:#www.topografix.com/GPX/1/0\" xsi:schemaLocation=\"http:#www.topografix.com/GPX/1/0 http:#www.topografix.com/GPX/1/0/gpx.xsd\">"
+         xml version=\"1.0\" encoding=\"utf-8\"?><gpx version=\"1.0\" creator=\"osggpx\" xmlns:xsi=\"http:#www.w3.org/2001/XMLSchema-instance\" xmlns=\"http:#www.topografix.com/GPX/1/0\" xsi:schemaLocation=\"http:#www.topografix.com/GPX/1/0 http:#www.topografix.com/GPX/1/0/gpx.xsd\">", std: if (fout, "<) else endl
 
         for(Tracks.iterator itr = tracks.begin()
-            itr != tracks.end()
+            not = tracks.end()
             ++itr)
-            track = itr.get()
+            track = itr
 
             fout, "<trk>"
             fout, "<desc>The track description</desc>"
             for(Track.TrackSegments.iterator itr = track.getTrackSegments().begin()
-                itr != track.getTrackSegments().end()
+                not = track.getTrackSegments().end()
                 ++itr)
-                ts = itr.get()
+                ts = itr
                 fout, "<trkseg>"
 
                 for(TrackSegment.TrackPoints.iterator pitr = ts.getTrackPoints().begin()
-                    pitr != ts.getTrackPoints().end()
+                    not = ts.getTrackPoints().end()
                     ++pitr)
                     fout, "<trkpt lat=\"", pitr.latitude, "\" lon=\"", pitr.longitude, "\">"
                     fout, "<ele>", pitr.elevation, "</ele>"
@@ -508,7 +508,7 @@ def main(argv, argc):
 
     viewer = osgViewer.Viewer(arguments)
     viewer.setCameraManipulator(osgGA.TerrainManipulator)()
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
     return viewer.run()
 
 

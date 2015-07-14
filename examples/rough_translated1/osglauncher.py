@@ -85,7 +85,7 @@ class PickHandler (osgGA.GUIEventHandler) :
     def highlight(name):
     
         
-        if _updateText.get() : _updateText.setText(name)
+        if _updateText : _updateText.setText(name)
 
     _viewer = osgViewer.Viewer*()
     _updateText = osgText.Text()
@@ -102,10 +102,10 @@ bool PickHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     case(osgGA.GUIEventAdapter.PUSH):
         # osg.notify(osg.NOTICE), "PUSH ", ea.getX(), ", ", ea.getY()
         picked_name = pick(ea)
-        if !picked_name.empty() :
+        if  not picked_name.empty() :
             runApp(picked_name)
             return True
-        else :
+        else:
             return False
     default:
         return False
@@ -115,10 +115,10 @@ str PickHandler.pick( osgGA.GUIEventAdapter event)
     intersections = osgUtil.LineSegmentIntersector.Intersections()
     if _viewer.computeIntersections(event, intersections) :
         for(osgUtil.LineSegmentIntersector.Intersections.iterator hitr = intersections.begin()
-            hitr != intersections.end()
+            not = intersections.end()
             ++hitr)
-            node = hitr.nodePath.empty() ? 0 : hitr.nodePath.back()
-            if node  !node.getName().empty() : return node.getName()
+            node =  0 if (hitr.nodePath.empty()) else  hitr.nodePath.back()
+            if node  and   not node.getName().empty() : return node.getName()
 
     return ""
 
@@ -126,8 +126,8 @@ def createHUD(updateText):
 
         # create the hud. derived from osgHud.cpp
     # adds a set of quads, each in a separate Geode - which can be picked individually
-    # eg to be used as a menuing/help system!
-    # Can pick texts too!
+    # eg to be used as a menuing/help system not 
+    # Can pick texts too not 
     modelview_abs = osg.MatrixTransform()
     modelview_abs.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
     modelview_abs.setMatrix(osg.Matrix.identity())
@@ -176,7 +176,7 @@ texture = str()
       Xample(str image, str prog)
         texture    = image
         app     = prog
-        osg.notify(osg.INFO), "New Xample!"
+        osg.notify(osg.INFO), "New Xample not "
     
     ~Xample()  
     
@@ -200,7 +200,7 @@ def printList():
 
     
     osg.notify(osg.INFO), "start printList()"
-    for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i)
+    for (OP i = Xamplelist.begin()  i  not = Xamplelist.end()  ++i)
         x = *i
         osg.notify(osg.INFO), "current x.texture = ", x.getTexture()
         osg.notify(osg.INFO), "current x.app = ", x.getApp()
@@ -213,17 +213,17 @@ def runApp(xapp):
 
     
     osg.notify(osg.INFO), "start runApp()"
-    for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i)
+    for (OP i = Xamplelist.begin()  i  not = Xamplelist.end()  ++i)
         x = *i
-        if !xapp.compare(x.getApp()) :
-            osg.notify(osg.INFO), "app found!"
+        if  not xapp.compare(x.getApp()) :
+            osg.notify(osg.INFO), "app found not "
             
             cxapp = xapp.c_str()
             
             osg.notify(osg.INFO), "char* = ", cxapp
             
             system = return(cxapp)
-    osg.notify(osg.INFO), "app not found!"
+    osg.notify(osg.INFO), "app not found not "
     return 1
  # end printList()
 
@@ -238,17 +238,17 @@ void readConfFile( char* confFile)                                              
     
 
     in = osgDB.ifstream(fileName.c_str())
-    if !in :
-        osg.notify(osg.INFO), "File ", fileName, " can not be opened!"
+    if  not in :
+        osg.notify(osg.INFO), "File ", fileName, " can not be opened not "
         exit(1)
     imageBuffer = str()
     appBuffer = str()
     
-    while !in.eof() :
+    while  not in.eof() :
         std.getline(in, imageBuffer)
         std.getline(in, appBuffer)
-        if imageBuffer == "" || appBuffer == "" :
-        else :
+        if imageBuffer == ""  or  appBuffer == "" :
+        else:
             osg.notify(osg.INFO), "imageBuffer: ", imageBuffer
             osg.notify(osg.INFO), "appBuffer: ", appBuffer
 #            jeweils checken ob image vorhanden ist.
@@ -362,7 +362,7 @@ osg.Group* setupGraph()                                                         
 
 #  run through Xampleliste
     z = 1
-    for (OP i = Xamplelist.begin()  i != Xamplelist.end()  ++i, ++z)
+    for (OP i = Xamplelist.begin()  i  not = Xamplelist.end()  ++i, ++z)
         x = *i
         
         tmpCube = createTexturedCube(defaultRadius, defaultPos, x.getTexture(), x.getApp())
@@ -374,7 +374,7 @@ osg.Group* setupGraph()                                                         
         # line feed
         if z < itemsInLine :
             xnext += xjump
-        else :
+        else:
             xnext = xstart
             znext -= zjump
             z = 0
@@ -384,13 +384,13 @@ osg.Group* setupGraph()                                                         
  # end setupGraph
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     if argc<=1 :
         readConfFile("osg.conf")                                                                          # read ConfigFile        1
-    else :
+    else:
         readConfFile(argv[1])                                                                          # read ConfigFile        1
     
     # construct the viewer.
@@ -400,14 +400,14 @@ def main(argc, argv):
     updateText.setDataVariance(osg.Object.DYNAMIC)
 
     # add the handler for doing the picking
-    viewer.addEventHandler(PickHandler(viewer,updateText.get()))
+    viewer.addEventHandler(PickHandler(viewer,updateText))
 
     root = osg.Group()
 
     root.addChild( setupGraph() )
 
     # add the HUD subgraph.    
-    root.addChild(createHUD(updateText.get()))
+    root.addChild(createHUD(updateText))
    
     # add model to viewer.
     viewer.setSceneData( root )
@@ -419,7 +419,7 @@ def main(argc, argv):
         
     viewer.realize()
 
-    while  !viewer.done()  :
+    while   not viewer.done()  :
         # fire off the cull and draw traversals of the scene.
         viewer.frame()        
 

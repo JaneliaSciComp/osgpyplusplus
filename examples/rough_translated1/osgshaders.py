@@ -148,9 +148,9 @@ ModelInstance()
 static void
 LoadShaderSource( osg.Shader* shader,  str fileName )
     fqFileName = osgDB.findDataFile(fileName)
-    if  fqFileName.length() != 0  :
+    if  fqFileName.length()  not = 0  :
         shader.loadShaderSourceFromFile( fqFileName.c_str() )
-    else :
+    else:
         osg.notify(osg.WARN), "File \"", fileName, "\" not found."
 
 
@@ -329,8 +329,8 @@ GL2Scene.reloadShaderSource()
 # doesn't fit well, so came up with a local implementation.
 void
 GL2Scene.toggleShaderEnable()
-    _shadersEnabled = ! _shadersEnabled
-    osg.notify(osg.WARN), "shader enable = ", ((_shadersEnabled) ? "ON" : "OFF")
+    _shadersEnabled =  not  _shadersEnabled
+    osg.notify(osg.WARN), "shader enable = ", "ON" : "OFF"), std: if (((_shadersEnabled)) else endl
     for( unsigned int i = 0 i < _programList.size() i++ )
         #_programList[i].enable( _shadersEnabled )
 
@@ -439,14 +439,14 @@ class KeyHandler (osgGA.GUIEventHandler) :
         
 
         bool handle(  osgGA.GUIEventAdapter ea, osgGA.GUIActionAdapter )
-            if  ea.getEventType() != osgGA.GUIEventAdapter.KEYDOWN  :
+            if  ea.getEventType()  not = osgGA.GUIEventAdapter.KEYDOWN  :
                 return False
 
             switch( ea.getKey() )
-                case 'x':
+                case ord("x"):
                     _gl2Scene.reloadShaderSource()
                     return True
-                case 'y':
+                case ord("y"):
                     _gl2Scene.toggleShaderEnable()
                     return True
             return False
@@ -462,7 +462,7 @@ int main(int, char **)
     # create the scene
     gl2Scene = GL2Scene()
 
-    viewer.setSceneData( gl2Scene.getRootNode().get() )
+    viewer.setSceneData( gl2Scene.getRootNode() )
 
     viewer.addEventHandler( KeyHandler(gl2Scene) )
 

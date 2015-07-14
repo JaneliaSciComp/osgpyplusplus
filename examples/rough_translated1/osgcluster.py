@@ -40,7 +40,7 @@ from osgpypp import sys
 #include <fcntl.h>
 #include <sys/types.h>
 
-#if !defined (WIN32) || defined(__CYGWIN__)
+#if  not defined (WIN32)  or  defined(__CYGWIN__)
 #include <sys/ioctl.h>
 #include <sys/uio.h>
 #include <sys/socket.h>
@@ -57,7 +57,7 @@ from osgpypp import sys
 #if defined(__linux)
     #include <unistd.h>
     #include <linux/sockios.h>
-#elif defined(__FreeBSD__) || defined(__FreeBSD_kernel__)
+#elif defined(__FreeBSD__)  or  defined(__FreeBSD_kernel__)
     #include <unistd.h>
     #include <sys/sockio.h>
 #elif defined(__sgi)
@@ -76,7 +76,7 @@ from osgpypp import sys
     #include <stdio.h>
 #elif defined (__hpux)
     #include <unistd.h>
-#else :
+#else:
     #error Teach me how to build on this system
 #endif
 
@@ -91,14 +91,14 @@ Broadcaster.Broadcaster( void )
     _address = 0
 
 Broadcaster.~Broadcaster( void )
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     closesocket( _so)
-#else :
+#else:
     close( _so )
 #endif
 
 bool Broadcaster.init( void )
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     version = MAKEWORD(1,1)
     wsaData = WSADATA()
     # First, we start up Winsock
@@ -112,35 +112,35 @@ bool Broadcaster.init( void )
     if _so = socket( AF_INET, SOCK_DGRAM, 0 ) : < 0  :
         perror( "Socket" )
         return False
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     on = TRUE
-#else :
+#else:
     on = 1
 #endif
 
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, ( char *) on, sizeof(int))
-#else :
+#else:
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, on, sizeof(on))
 #endif
 
     saddr.sin_family = AF_INET
     saddr.sin_port   = htons( _port )
     if  _address == 0  :
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
         setsockopt( _so, SOL_SOCKET, SO_BROADCAST, ( char *) on, sizeof(int))
-#else :
+#else:
         setsockopt( _so, SOL_SOCKET, SO_BROADCAST, on, sizeof(on))
 #endif
 
-#if !defined (WIN32) || defined(__CYGWIN__)
+#if  not defined (WIN32)  or  defined(__CYGWIN__)
         struct ifreq ifr
 #endif
-#if defined (__linux) || defined(__CYGWIN__)
+#if defined (__linux)  or  defined(__CYGWIN__)
         strcpy( ifr.ifr_name, "eth0" )
 #elif defined(__sun)
         strcpy( ifr.ifr_name, "hme0" )
-#elif !defined (WIN32)
+#elif  not defined (WIN32)
         strcpy( ifr.ifr_name, "ef0" )
 #endif
 #if defined (WIN32) # get the server address
@@ -149,7 +149,7 @@ bool Broadcaster.init( void )
             perror( "Broadcaster.init() Cannot get Broadcast Address" )
             return False
             saddr.sin_addr.s_addr = (((sockaddr_in *)ifr.ifr_broadaddr).sin_addr.s_addr)
-        else :
+        else:
             saddr.sin_addr.s_addr = _address
 #endif
 #define _VERBOSE 1
@@ -176,18 +176,18 @@ void Broadcaster.setBuffer( void *buffer,  unsigned int size )
     _buffer_size = size
 
 void Broadcaster.sync( void )
-    if !_initialized : init()
+    if  not _initialized : init()
 
     if  _buffer == 0L  :
         fprintf( stderr, "Broadcaster.sync() - No buffer\n" )
         return
 
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     size = sizeof( SOCKADDR_IN )
     sendto( _so, ( char *)_buffer, _buffer_size, 0, (struct sockaddr *)saddr, size )
     err = WSAGetLastError ()
-    if err!=0 : fprintf( stderr, "Broadcaster.sync() - error %d\n",err )
-#else :
+    if err not =0 : fprintf( stderr, "Broadcaster.sync() - error %d\n",err )
+#else:
     size = sizeof( struct sockaddr_in )
     sendto( _so, ( void *)_buffer, _buffer_size, 0, (struct sockaddr *)saddr, size )
 #endif
@@ -225,7 +225,7 @@ void Broadcaster.sync( void )
 # Class definition for broadcasting a buffer to a LAN
 #
 
-#if !defined(WIN32) || defined(__CYGWIN__)
+#if  not defined(WIN32)  or  defined(__CYGWIN__)
     #include <netinet/in.h>
 #endif
 
@@ -253,18 +253,18 @@ public :
 	init = bool( void )
 
     private :
-#if defined(WIN32)  !defined(__CYGWIN__)
+#if defined(WIN32)  and   not defined(__CYGWIN__)
         _so = SOCKET()
-#else :
+#else:
         _so = int()
 #endif
         _initialized = bool()
         _port = short()
         *_buffer = void()
         _buffer_size = unsigned int()
-#if defined(WIN32)  !defined(__CYGWIN__)
+#if defined(WIN32)  and   not defined(__CYGWIN__)
         saddr = SOCKADDR_IN()
-#else :
+#else:
         struct sockaddr_in saddr
 #endif
         _address = unsigned long()
@@ -311,7 +311,7 @@ public :
 
 #include <iostream>
 
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
 #include <winsock.h>
 #endif
 
@@ -409,7 +409,7 @@ class DataConverter :
             if _swapBytes :
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else :
+            else:
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
 
@@ -429,7 +429,7 @@ class DataConverter :
                 *(ptr+2) = *(_currentPtr++) 
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else :
+            else:
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
@@ -462,7 +462,7 @@ class DataConverter :
                 *(ptr+2) = *(_currentPtr++) 
                 *(ptr+1) = *(_currentPtr++) 
                 *(ptr) = *(_currentPtr++) 
-            else :
+            else:
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
                 *(ptr++) = *(_currentPtr++) 
@@ -615,7 +615,7 @@ class DataConverter :
         
             writeUInt(cameraPacket._events.size())
             for(osgGA.EventQueue.Events.iterator itr = cameraPacket._events.begin()
-                itr != cameraPacket._events.end()
+                not = cameraPacket._events.end()
                 ++itr)
                 write(*(*itr))
 
@@ -623,10 +623,10 @@ class DataConverter :
 
             
             cameraPacket._byte_order = readUInt()
-            if cameraPacket._byte_order != SWAP_BYTES_COMPARE :
-                _swapBytes = !_swapBytes
+            if cameraPacket._byte_order  not = SWAP_BYTES_COMPARE :
+                _swapBytes =  not _swapBytes
             
-            cameraPacket._masterKilled = readUInt()!=0
+            cameraPacket._masterKilled = readUInt() not =0
             
             read(cameraPacket._matrix)
             read(cameraPacket._frameStamp)
@@ -645,7 +645,7 @@ void CameraPacket.readEventQueue(osgViewer.Viewer viewer)
     contexts = osgViewer.ViewerBase.Contexts()
     viewer.getContexts(contexts)   
 
-    for(osgViewer.ViewerBase.Contexts.iterator citr =contexts.begin()  citr != contexts.end() ++citr)
+    for(osgViewer.ViewerBase.Contexts.iterator citr =contexts.begin()  citr  not = contexts.end() ++citr)
         gw_events = osgGA.EventQueue.Events()
 
         gw = dynamic_cast<osgViewer.GraphicsWindow*>(*citr)
@@ -671,11 +671,11 @@ enum ViewerMode
     MASTER
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates how to approach implementation of clustering.")
@@ -707,7 +707,7 @@ def main(argc, argv):
 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -727,7 +727,7 @@ def main(argc, argv):
     rootnode = osgDB.readNodeFiles(arguments)
 
     # set the scene to render
-    viewer.setSceneData(rootnode.get())
+    viewer.setSceneData(rootnode)
 
     if camera_fov>0.0 :
         double fovy, aspectRatio, zNear, zFar
@@ -769,7 +769,7 @@ def main(argc, argv):
     
     scratchPad = DataConverter(1024)
 
-    while  !viewer.done()  !masterKilled  :
+    while   not viewer.done()  and   not masterKilled  :
         startTick = osg.Timer.instance().tick()
                  
         viewer.advance()
@@ -811,7 +811,7 @@ def main(argc, argv):
 
                 if cp.getMasterKilled() : 
                     print "Received master killed."
-                    # break out of while !done : loop since we've now want to shut down.
+                    # break out of while  not done : loop since we've now want to shut down.
                     masterKilled = True
             break
         default:
@@ -834,7 +834,7 @@ def main(argc, argv):
             viewer.getCamera().setViewMatrix(modelview)
 
         # fire off the cull and draw traversals of the scene.
-        if !masterKilled :
+        if  not masterKilled :
             viewer.renderingTraversals()
         
 
@@ -878,9 +878,9 @@ def main(argc, argv):
 #include <stdio.h>
 #include <fcntl.h>
 #include <sys/types.h>
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
 #include <winsock.h>
-#else :
+#else:
 #include <unistd.h>
 #include <sys/uio.h>
 #include <sys/socket.h>
@@ -902,14 +902,14 @@ Receiver.Receiver( void )
     _buffer = 0L
 
 Receiver.~Receiver( void )
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     closesocket( _so)
-#else :
+#else:
     close( _so )
 #endif
 
 bool Receiver.init( void )
-#if defined(WIN32)  !defined(__CYGWIN__)
+#if defined(WIN32)  and   not defined(__CYGWIN__)
     version = MAKEWORD(1,1)
     wsaData = WSADATA()
     # First, we start up Winsock
@@ -923,10 +923,10 @@ bool Receiver.init( void )
     if _so = socket( AF_INET, SOCK_DGRAM, 0 ) : < 0  :
         perror( "Socket" )
     return False
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
 #     BOOL on = TRUE
 #    setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, ( char*) on, sizeof(int))
-#else :
+#else:
     on = 1
     setsockopt( _so, SOL_SOCKET, SO_REUSEADDR, on, sizeof(on))
 #endif
@@ -934,9 +934,9 @@ bool Receiver.init( void )
 #    struct sockaddr_in saddr
     saddr.sin_family = AF_INET
     saddr.sin_port   = htons( _port )
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
     saddr.sin_addr.s_addr =  htonl(INADDR_ANY)
-#else :
+#else:
     saddr.sin_addr.s_addr =  0
 #endif
 
@@ -956,15 +956,15 @@ void Receiver.setBuffer( void *buffer,  unsigned int size )
     _buffer_size = size
 
 void Receiver.sync( void )
-    if !_initialized : init()
+    if  not _initialized : init()
 
     if  _buffer == 0L  :
         fprintf( stderr, "Receiver.sync() - No buffer\n" )
         return
 
-#if defined(__linux) || defined(__FreeBSD__) || defined( __APPLE__ )
+#if defined(__linux)  or  defined(__FreeBSD__)  or  defined( __APPLE__ )
     size = socklen_t() 
-#else :
+#else:
     size = int()
 #endif
     size = sizeof( struct sockaddr_in )
@@ -977,17 +977,17 @@ void Receiver.sync( void )
     tv.tv_sec = 0
     tv.tv_usec = 0
 
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
 #    saddr.sin_port   = htons( _port )
     recvfrom( _so, (char *)_buffer, _buffer_size, 0, (sockaddr*)saddr, size )
 #    recvfrom(sock_Receive, szMessage, 256, 0, (sockaddr*)addr_Cli, clilen)
     err = WSAGetLastError ()
-    if err!=0 : fprintf( stderr, "Receiver.sync() - error %d\n",err )
+    if err not =0 : fprintf( stderr, "Receiver.sync() - error %d\n",err )
 
     while  select( static_cast<int>(_so)+1, fdset, 0L, 0L, tv )  :
         if  FD_ISSET( _so, fdset )  :
             recvfrom( _so, (char *)_buffer, _buffer_size, 0, (sockaddr*)saddr, size )
-#else :
+#else:
     recvfrom( _so, (caddr_t)_buffer, _buffer_size, 0, 0, size )
     while  select( _so+1, fdset, 0L, 0L, tv )  :
         if  FD_ISSET( _so, fdset )  :
@@ -1027,7 +1027,7 @@ void Receiver.sync( void )
 # Class definition for the recipient of a broadcasted message
 #
 
-#if !defined(WIN32) || defined(__CYGWIN__)
+#if  not defined(WIN32)  or  defined(__CYGWIN__)
     #include <netinet/in.h>
 #endif
 
@@ -1051,10 +1051,10 @@ public :
 	init = bool( void )
 
     private :
-#if defined (WIN32)  !defined(__CYGWIN__)
+#if defined (WIN32)  and   not defined(__CYGWIN__)
         _so = SOCKET()
         saddr = SOCKADDR_IN()
-#else :
+#else:
         _so = int()
         struct sockaddr_in saddr
 #endif

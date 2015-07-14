@@ -83,11 +83,11 @@ bool wxOsgApp.OnInit()
     # load the scene.
     fname = wxString(argv[1])
     loadedModel = osgDB.readNodeFile(str(fname.mb_str()))
-    if !loadedModel :
+    if  not loadedModel :
         print argv[0], ": No data loaded."
         return False
 
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
     viewer.setCameraManipulator(osgGA.TrackballManipulator)()
     frame.SetViewer(viewer)
 
@@ -111,7 +111,7 @@ void MainFrame.SetViewer(osgViewer.Viewer *viewer)
     _viewer = viewer
 
 void MainFrame.OnIdle(wxIdleEvent event)
-    if !_viewer.isRealized() :
+    if  not _viewer.isRealized() :
         return
 
     _viewer.frame()
@@ -168,7 +168,7 @@ void OSGCanvas.OnEraseBackground(wxEraseEvent WXUNUSED(event))
 void OSGCanvas.OnChar(wxKeyEvent event)
 #if wxUSE_UNICODE
     key = event.GetUnicodeKey()
-#else :
+#else:
     key = event.GetKeyCode()
 #endif
 
@@ -181,7 +181,7 @@ void OSGCanvas.OnChar(wxKeyEvent event)
 void OSGCanvas.OnKeyUp(wxKeyEvent event)
 #if wxUSE_UNICODE
     key = event.GetUnicodeKey()
-#else :
+#else:
     key = event.GetKeyCode()
 #endif
 
@@ -214,15 +214,14 @@ void OSGCanvas.OnMouseWheel(wxMouseEvent event)
 
     if _graphics_window.valid() : 
         _graphics_window.getEventQueue().mouseScroll(
-            delta>0 ? 
-            osgGA.GUIEventAdapter.SCROLL_UP : 
+             osgGA.GUIEventAdapter.SCROLL_UP if (delta>0) else  
             osgGA.GUIEventAdapter.SCROLL_DOWN)
 
 void OSGCanvas.UseCursor(bool value)
     if value :
         # show the old cursor
         SetCursor(_oldCursor)
-    else :
+    else:
         # remember the old cursor
         _oldCursor = GetCursor()
 
@@ -260,10 +259,10 @@ void GraphicsWindowWX.init()
         setState( osg.State )()
         getState().setGraphicsContext(this)
 
-        if _traits.valid()  _traits.sharedContext.valid() :
+        if _traits.valid()  and  _traits.sharedContext.valid() :
             getState().setContextID( _traits.sharedContext.getState().getContextID() )
             incrementContextIDUsageCount( getState().getContextID() )
-        else :
+        else:
             getState().setContextID( osg.GraphicsContext.createNewContextID() )
 
 void GraphicsWindowWX.grabFocus()

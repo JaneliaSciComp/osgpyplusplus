@@ -25,7 +25,7 @@ from osgpypp import osgDB
 def searchAndReplace(str, spat, rpat):
     
     pos = 0
-    while pos = str.find(spat, pos) : != str.npos :
+    while pos = str.find(spat, pos) :  not = str.npos :
         str.replace(pos, spat.length(), rpat)
         pos += rpat.length()
 
@@ -33,7 +33,7 @@ def writeShader(shader, cppFileName, variableName):
 
     
     fout = osgDB.ofstream(cppFileName.c_str())
-    if !fout :
+    if  not fout :
         print "Error: could not open file `", cppFileName, "` for writing."
 
     shaderSource = shader.getShaderSource()
@@ -48,25 +48,25 @@ def writeShader(shader, cppFileName, variableName):
     
     if endOfLine==str.npos : 
         fout, variableString, shaderSource, "\\n\""
-    else :
-        padding = str(variableString.size(),' ')
+    else:
+        padding = str(variableString.size(),ord(" "))
 
         fout, variableString, "\"", shaderSource.substr(startOfLine,endOfLine-startOfLine), "\\n\""
         startOfLine = endOfLine+1
         endOfLine = shaderSource.find_first_of('\n', startOfLine)
 
-        while endOfLine != str.npos :
+        while endOfLine  not = str.npos :
             fout, padding, "\"", shaderSource.substr(startOfLine,endOfLine-startOfLine), "\\n\""
             startOfLine = endOfLine + 1
             endOfLine = shaderSource.find_first_of('\n', startOfLine)
         fout, padding, "\"", shaderSource.substr(startOfLine,endOfLine-startOfLine), "\\n\""
     print "Written shader to `", cppFileName, "`"
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -76,7 +76,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("-h or --help","Display command line parameters")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
@@ -86,20 +86,20 @@ def main(argc, argv):
         if shader.valid() :
             name = osgDB.getStrippedName(filename)
             path = osgDB.getFilePath(filename)
-            invalidCharacters = "-+/\\*=()[]:<>,.?@'~#`!\""
+            invalidCharacters = "-+/\\*=()[]:<>,.?@'~#` not \""
             numbericCharacters = "0123456789"
             pos = name.find_first_of(invalidCharacters)
-            while pos != str.npos :
-                name[pos] = '_'
+            while pos  not = str.npos :
+                name[pos] = ord("_")
                 pos = name.find_first_of(invalidCharacters)
             
             ext = osgDB.getFileExtension(filename)
             cppFileName = osgDB.concatPaths(path, name + "_" + ext + ".cpp")
             variableName = name + "_" + ext
-            writeShader(shader.get(), cppFileName, variableName)
+            writeShader(shader, cppFileName, variableName)
 
             return 0
-        else :
+        else:
             print "Error: could not find file '", filename, "'"
             return 1
         

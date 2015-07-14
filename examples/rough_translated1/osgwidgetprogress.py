@@ -40,16 +40,16 @@ start = float()
         width = ((t - start) / done) * 512.0
         percent = (width / 512.0) * 100.0
     
-        if width < 1.0 || width > 512.0 : return
+        if width < 1.0  or  width > 512.0 : return
 
         window = dynamic_cast<osgWidget.Window*>(node)
 
-        if !window : return
+        if  not window : return
 
         w = window.getByName("pMeter")
         l = dynamic_cast<osgWidget.Label*>(window.getByName("pLabel"))
 
-        if !w || !l : return
+        if  not w  or   not l : return
 
         w.setWidth(width)
         w.setTexCoordRegion(0.0, 0.0, width, 64.0)
@@ -61,7 +61,7 @@ start = float()
         l.setLabel(ss.str())
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

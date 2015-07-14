@@ -26,7 +26,7 @@ from osgpypp import osgWidget
 
 MASK_2D = 0xF0000000
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

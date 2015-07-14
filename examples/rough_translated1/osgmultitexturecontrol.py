@@ -78,7 +78,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
         result = dynamic_cast<T*>(node)
         if result :
             _foundNode = result
-        else :
+        else:
             traverse(node)
     
     _foundNode = T*()
@@ -87,7 +87,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
 template<class T>
 def findTopMostNodeOfType(node):
     
-    if !node : return 0
+    if  not node : return 0
 
     fnotv = FindTopMostNodeOfTypeVisitor<T>()
     node.accept(fnotv)
@@ -112,13 +112,13 @@ class ElevationLayerBlendingCallback (osg.NodeCallback) :
             if nv.getVisitorType()==osg.NodeVisitor.UPDATE_VISITOR :
 
                 deltaTime = 0.01
-                if _previousFrame!=0 :
+                if _previousFrame not =0 :
                     deltaTime = float(nv.getFrameStamp().getReferenceTime() - _previousTime)
 
                 _previousTime = nv.getFrameStamp().getReferenceTime()
                 _previousFrame = nv.getFrameStamp().getFrameNumber()
 
-                if _mtc.valid()  !_elevations.empty() :
+                if _mtc.valid()  and   not _elevations.empty() :
                     index = _mtc.getNumTextureWeights()-1
                     for(unsigned int i=0 i<_elevations.size() ++i)
                         if _currentElevation>_elevations[i] : 
@@ -129,11 +129,11 @@ class ElevationLayerBlendingCallback (osg.NodeCallback) :
 
                     for(unsigned int i=0 i<_mtc.getNumTextureWeights() ++i)
                         currentValue = _mtc.getTextureWeight(i)
-                        desiredValue = (i==index) ? 1.0 : 0.0
-                        if desiredValue != currentValue :
+                        desiredValue =  1.0 if ((i==index)) else  0.0
+                        if desiredValue  not = currentValue :
                             if currentValue<desiredValue :
                                 desiredValue = std.min(currentValue + delta, desiredValue)
-                            else :
+                            else:
                                 desiredValue = std.max(currentValue - delta, desiredValue)
 
                             _mtc.setTextureWeight(i, desiredValue)
@@ -175,19 +175,19 @@ class TerrainHandler (osgGA.GUIEventHandler) :
         
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
-                if ea.getKey()=='r' :
+                if ea.getKey()==ord("r") :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()*0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
                     return True
-                elif ea.getKey()=='R' :
+                elif ea.getKey()==ord("R") :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()/0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
                     return True
-                elif ea.getKey()=='v' :
+                elif ea.getKey()==ord("v") :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()*1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
                     return True
-                elif ea.getKey()=='V' :
+                elif ea.getKey()==ord("V") :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()/1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
                     return True
@@ -201,11 +201,11 @@ class TerrainHandler (osgGA.GUIEventHandler) :
     _terrain = osgTerrain.Terrain()
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     arguments.getApplicationUsage().addCommandLineOption("-v","Set the terrain vertical scale.")
     arguments.getApplicationUsage().addCommandLineOption("-r","Set the terrain sample ratio.")
     arguments.getApplicationUsage().addCommandLineOption("--login <url> <username> <password>","Provide authentication information for http file access.")
@@ -221,7 +221,7 @@ def main(argc, argv):
         whiteList.allow(setname)
     while arguments.read("--allow-all") :
         whiteList.setAllowAll(True)
-    osgTerrain.TerrainTile.setTileLoadedCallback(whiteList.get())
+    osgTerrain.TerrainTile.setTileLoadedCallback(whiteList)
 
 
     # obtain the vertical scale
@@ -236,7 +236,7 @@ def main(argc, argv):
     # set up any authentication.
     str url, username, password
     while arguments.read("--login",url, username, password) :
-        if !osgDB.Registry.instance().getAuthenticationMap() :
+        if  not osgDB.Registry.instance().getAuthenticationMap() :
             osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
             osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(
                 url,
@@ -268,36 +268,36 @@ def main(argc, argv):
     # add all the camera manipulators
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
 
         num = keyswitchManipulator.getNumMatrixManipulators()
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 ++keyForAnimationPath
 
         keyswitchManipulator.selectMatrixManipulator(num)
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # set up the scene graph
         # load the nodes from the commandline arguments.
         rootnode = osgDB.readNodeFiles(arguments)
 
-        if !rootnode :
+        if  not rootnode :
             osg.notify(osg.NOTICE), "Warning: no valid data loaded, please specify a database on the command line."
             return 1
 
         terrain = findTopMostNodeOfType<osgTerrain.Terrain>(rootnode)
-        if !terrain :
+        if  not terrain :
             terrain = osgTerrain.Terrain()
 
             csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(rootnode)

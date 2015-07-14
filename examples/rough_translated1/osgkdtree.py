@@ -60,11 +60,11 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     maxNumLevels = 16
     targetNumIndicesPerLeaf = 16
@@ -76,12 +76,12 @@ def main(argc, argv):
     
     scene = osgDB.readNodeFiles(arguments)
     
-    if !scene : 
+    if  not scene : 
         print "No model loaded, please specify a valid model on the command line."
         return 0
 
     viewer = osgViewer.Viewer()
-    viewer.setSceneData(scene.get())
+    viewer.setSceneData(scene)
     return viewer.run()
 
 

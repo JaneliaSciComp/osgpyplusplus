@@ -95,7 +95,7 @@ def createAnimationPath(center, radius, looptime):
 
 class IntersectionUpdateCallback (osg.NodeCallback) :
 virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
-            if !root_ || !terrain_ || !ss_ || !intersectionGroup_ :
+            if  not root_  or   not terrain_  or   not ss_  or   not intersectionGroup_ :
                 osg.notify(osg.NOTICE), "IntersectionUpdateCallback not set up correctly."
                 return
 
@@ -105,10 +105,10 @@ virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
                 # first we need find the transformation matrix that takes
                 # the terrain into the coordinate frame of the sphere segment.
                 terrainLocalToWorld = osg.Matrixd()
-                terrain_worldMatrices = terrain_.getWorldMatrices(root_.get())
+                terrain_worldMatrices = terrain_.getWorldMatrices(root_)
                 if terrain_worldMatrices.empty() : terrainLocalToWorld.makeIdentity()
                 elif terrain_worldMatrices.size()==1 : terrainLocalToWorld = terrain_worldMatrices.front()
-                else :
+                else:
                     osg.notify(osg.NOTICE), "IntersectionUpdateCallback: warning cannot interestect with multiple terrain instances, just uses first one."
                     terrainLocalToWorld = terrain_worldMatrices.front()
 
@@ -118,8 +118,8 @@ virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
                 # now we can compute the terrain to ss transform
                 possie = terrainLocalToWorld*ssWorldToLocal
 
-                lines = ss_.computeIntersection(possie, terrain_.get())
-                if !lines.empty() :
+                lines = ss_.computeIntersection(possie, terrain_)
+                if  not lines.empty() :
                     if intersectionGroup_.valid() :
                         # now we need to place the intersections which are in the SphereSegmenet's coordinate frame into
                         # to the final position.
@@ -135,15 +135,15 @@ virtual void operator()(osg.Node* #node, osg.NodeVisitor* nv)
                         geode.getOrCreateStateSet().setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
                         for(osgSim.SphereSegment.LineList.iterator itr=lines.begin()
-                           itr!=lines.end()
+                           not = lines.end()
                            ++itr)
                             geom = osg.Geometry()
                             geode.addDrawable(geom)
 
-                            vertices = itr.get()
+                            vertices = itr
                             geom.setVertexArray(vertices)
                             geom.addPrimitiveSet(osg.DrawArrays(GL_LINE_STRIP, 0, vertices.getNumElements()))
-                else :
+                else:
                        osg.notify(osg.NOTICE), "No intersections found"
 
 
@@ -322,7 +322,7 @@ def computeTerrainIntersection(subgraph, x, y):
 
     intersector = osgUtil.LineSegmentIntersector(osg.Vec3(x,y,zMin),osg.Vec3(x,y,zMax))
 
-    iv = osgUtil.IntersectionVisitor(intersector.get())
+    iv = osgUtil.IntersectionVisitor(intersector)
 
     subgraph.accept(iv)
 
@@ -427,47 +427,47 @@ def build_world(root, testCase, useOverlay, technique):
         switch(testCase)
             case(0):
                 ss = osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                computeTerrainIntersection(terrainGeode,550.0,780.0), # center
                                 510.0, # radius
                                 osg.DegreesToRadians(135.0),
                                 osg.DegreesToRadians(240.0),
                                 osg.DegreesToRadians(-10.0),
                                 osg.DegreesToRadians(30.0),
                                 60)
-                root.addChild(ss.get())
+                root.addChild(ss)
                 break
             case(1):
                 ss = osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                computeTerrainIntersection(terrainGeode,550.0,780.0), # center
                                 510.0, # radius
                                 osg.DegreesToRadians(45.0),
                                 osg.DegreesToRadians(240.0),
                                 osg.DegreesToRadians(-10.0),
                                 osg.DegreesToRadians(30.0),
                                 60)
-                root.addChild(ss.get())
+                root.addChild(ss)
                 break
             case(2):
                 ss = osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                computeTerrainIntersection(terrainGeode,550.0,780.0), # center
                                 510.0, # radius
                                 osg.DegreesToRadians(5.0),
                                 osg.DegreesToRadians(355.0),
                                 osg.DegreesToRadians(-10.0),
                                 osg.DegreesToRadians(30.0),
                                 60)
-                root.addChild(ss.get())
+                root.addChild(ss)
                 break
             case(3):
                 ss = osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                computeTerrainIntersection(terrainGeode,550.0,780.0), # center
                                 510.0, # radius
                                 osg.DegreesToRadians(0.0),
                                 osg.DegreesToRadians(360.0),
                                 osg.DegreesToRadians(-10.0),
                                 osg.DegreesToRadians(30.0),
                                 60)
-                root.addChild(ss.get())
+                root.addChild(ss)
                 break
             case(4):
                 ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
@@ -484,11 +484,11 @@ def build_world(root, testCase, useOverlay, technique):
                                           -0.180627, -0.983552, -6.93889e-18, 0,
                                           -0.491776, 0.0903136, 0.866025, 0,
                                           598.217, 481.957, 100, 1))
-                mt.addChild(ss.get())
+                mt.addChild(ss)
 
                 terrainToSS.invert(mt.getMatrix())
 
-                root.addChild(mt.get())
+                root.addChild(mt)
                 break
             case(5):
                 ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
@@ -505,11 +505,11 @@ def build_world(root, testCase, useOverlay, technique):
                                           -0.180627, -0.983552, -6.93889e-18, 0,
                                           -0.491776, 0.0903136, 0.866025, 0,
                                           598.217, 481.957, 100, 1))
-                mt.addChild(ss.get())
+                mt.addChild(ss)
 
                 terrainToSS.invert(mt.getMatrix())
 
-                root.addChild(mt.get())
+                root.addChild(mt)
                 break
             case(6):
                 ss = osgSim.SphereSegment(osg.Vec3d(0.0,0.0,0.0),
@@ -526,15 +526,15 @@ def build_world(root, testCase, useOverlay, technique):
                                           -0.180627, -0.983552, -6.93889e-18, 0,
                                           -0.491776, 0.0903136, 0.866025, 0,
                                           598.217, 481.957, 100, 1))
-                mt.addChild(ss.get())
+                mt.addChild(ss)
 
                 terrainToSS.invert(mt.getMatrix())
 
-                root.addChild(mt.get())
+                root.addChild(mt)
                 break
             case(7):
                 ss = osgSim.SphereSegment(
-                                computeTerrainIntersection(terrainGeode.get(),550.0,780.0), # center
+                                computeTerrainIntersection(terrainGeode,550.0,780.0), # center
                                 510.0, # radius
                                 osg.DegreesToRadians(-240.0),
                                 osg.DegreesToRadians(-135.0),
@@ -542,7 +542,7 @@ def build_world(root, testCase, useOverlay, technique):
                                 osg.DegreesToRadians(30.0),
                                 60)
                 ss.setUpdateCallback(RotateUpdateCallback())
-                root.addChild(ss.get())
+                root.addChild(ss)
                 break
         
 
@@ -550,8 +550,8 @@ def build_world(root, testCase, useOverlay, technique):
             ss.setAllColors(osg.Vec4(1.0,1.0,1.0,0.5))
             ss.setSideColor(osg.Vec4(0.0,1.0,1.0,0.1))
 
-            if !ss.getParents().empty() :
-                ss.getParent(0).addChild(ss.computeIntersectionSubgraph(terrainToSS, terrainGeode.get()))
+            if  not ss.getParents().empty() :
+                ss.getParent(0).addChild(ss.computeIntersectionSubgraph(terrainToSS, terrainGeode))
 
 
 
@@ -561,18 +561,18 @@ def build_world(root, testCase, useOverlay, technique):
 
         bs = terrainGeode.getBound()
         overlaySubgraph = createOverlay(bs.center(), bs.radius()*0.5)
-        overlaySubgraph.addChild(ss.get())
+        overlaySubgraph.addChild(ss)
         overlayNode.setOverlaySubgraph(overlaySubgraph)
         overlayNode.setOverlayTextureSizeHint(1024)
         overlayNode.setOverlayBaseHeight(0.0)
-        overlayNode.addChild(terrainGeode.get())
+        overlayNode.addChild(terrainGeode)
 
         root.addChild(overlayNode)
-    else :
-      root.addChild(terrainGeode.get())
+    else:
+      root.addChild(terrainGeode)
 
     # create particle effects
-        position = computeTerrainIntersection(terrainGeode.get(),100.0,100.0)
+        position = computeTerrainIntersection(terrainGeode,100.0,100.0)
 
         explosion = osgParticle.ExplosionEffect(position, 10.0)
         smoke = osgParticle.SmokeEffect(position, 10.0)
@@ -583,7 +583,7 @@ def build_world(root, testCase, useOverlay, technique):
         root.addChild(fire)
 
     # create particle effects
-        position = computeTerrainIntersection(terrainGeode.get(),200.0,100.0)
+        position = computeTerrainIntersection(terrainGeode,200.0,100.0)
 
         explosion = osgParticle.ExplosionEffect(position, 1.0)
         smoke = osgParticle.SmokeEffect(position, 1.0)
@@ -597,7 +597,7 @@ def build_world(root, testCase, useOverlay, technique):
     createMovingRadar = True
 
     # create the moving models.
-        root.addChild(createMovingModel(osg.Vec3(500.0,500.0,500.0),100.0, terrainGeode.get(), root, createMovingRadar))
+        root.addChild(createMovingModel(osg.Vec3(500.0,500.0,500.0),100.0, terrainGeode, root, createMovingRadar))
 
 
 #######################################
@@ -605,12 +605,12 @@ def build_world(root, testCase, useOverlay, technique):
 #######################################
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of particle systems.")
@@ -628,12 +628,12 @@ def main(argc, argv):
     useOverlay = False
     technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--object") :  useOverlay = True technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
-    while arguments.read("--ortho") || arguments.read("--orthographic") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
-    while arguments.read("--persp") || arguments.read("--perspective") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY 
+    while arguments.read("--ortho")  or  arguments.read("--orthographic") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY 
+    while arguments.read("--persp")  or  arguments.read("--perspective") :  useOverlay = True technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY 
 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 

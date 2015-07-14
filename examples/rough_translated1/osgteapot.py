@@ -334,7 +334,7 @@ int main(int , char **)
 
     return viewer.run()
     
-#else :
+#else:
 
     # construct the viewer.
     viewer = osgViewer.Viewer()

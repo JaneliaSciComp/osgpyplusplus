@@ -251,7 +251,7 @@ def createHUDText():
 
     sequence = osg.Sequence()
         for(AlignmentList.iterator itr=alignmentList.begin()
-            itr!=alignmentList.end()
+            not = alignmentList.end()
             ++itr)
             alignmentGeode = osg.Geode()
             sequence.addChild(alignmentGeode)
@@ -310,8 +310,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(arial)
-        text.setText(arial!=0?
-                      "text.setFont(\"fonts/arial.ttf\")":
+        text.setText(arial not  "text.setFont(\"fonts/arial.ttf\")" if (=0) else 
                       "unable to load \"fonts/arial.ttf\"")
         geode.addDrawable(text)
 
@@ -326,8 +325,7 @@ def createHUDText():
         
         geode.addDrawable(text)
         text.setFont(times)
-        text.setText(times!=0?
-                      "text.setFont(\"fonts/times.ttf\")":
+        text.setText(times not  "text.setFont(\"fonts/times.ttf\")" if (=0) else 
                       "unable to load \"fonts/times.ttf\"")
 
         cursor.x() = text.getBound().xMax() + spacing 
@@ -343,8 +341,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(dirtydoz)
-        text.setText(dirtydoz!=0?
-                      "text.setFont(\"fonts/dirtydoz.ttf\")":
+        text.setText(dirtydoz not  "text.setFont(\"fonts/dirtydoz.ttf\")" if (=0) else 
                       "unable to load \"fonts/dirtydoz.ttf\"")
         geode.addDrawable(text)
 
@@ -358,8 +355,7 @@ def createHUDText():
         text.setCharacterSize(fontCharacterSize)
         
         text.setFont(fudd)
-        text.setText(fudd!=0?
-                      "text.setFont(\"fonts/fudd.ttf\")":
+        text.setText(fudd not  "text.setFont(\"fonts/fudd.ttf\")" if (=0) else 
                       "unable to load \"fonts/fudd.ttf\"")
         geode.addDrawable(text)
 
@@ -469,11 +465,11 @@ def create3DText(center, radius):
 
 class MainWindow (QWidget) :
     MainWindow()
-        traits = osg.GraphicsContext.Traits(osg.DisplaySettings.instance().get())
+        traits = osg.GraphicsContext.Traits(osg.DisplaySettings.instance())
         traits.width = width()
         traits.height = height()
         traits.doubleBuffer = True
-        graphicsWindow = osgQt.GraphicsWindowQt(traits.get())
+        graphicsWindow = osgQt.GraphicsWindowQt(traits)
 
         grid = QGridLayout()
         grid.setMargin(0)
@@ -506,7 +502,7 @@ class MainWindow (QWidget) :
     _viewer = osgViewer.Viewer()
 
 
-def main(argc, argv):
+def main(argv):
 
     
     app = QApplication(argc, argv)
@@ -526,14 +522,14 @@ def main(argc, argv):
     
     # make sure the root node is group so we can add extra nodes to it.
     group = osg.Group()
-    group.addChild(camera.get())
+    group.addChild(camera)
     group.addChild(create3DText(center, radius))
 
     # The qt window
     widget = MainWindow()
     
     # set the scene to render
-    widget.setSceneData(group.get())
+    widget.setSceneData(group)
     widget.setCameraManipulator(osgGA.TrackballManipulator)()
 
     widget.setGeometry(100, 100, 800, 600)

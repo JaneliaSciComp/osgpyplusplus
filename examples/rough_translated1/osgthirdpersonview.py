@@ -70,7 +70,7 @@ def makeFrustumFromCamera(camera):
     if camera :
         proj = camera.getProjectionMatrix()
         mv = camera.getViewMatrix()
-    else :
+    else:
         # Create some kind of reasonable default Projection matrix.
         proj.makePerspective( 30., 1., 1., 10. )
         # leave mv as identity
@@ -138,7 +138,7 @@ def makeFrustumFromCamera(camera):
     return mt
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
@@ -152,14 +152,14 @@ def main(argc, argv):
 
      scene = osg.Node()
     scene = osgDB.readNodeFiles( arguments )
-    if !scene :
+    if  not scene :
         # User didn't specify anything, or file(s) didn't exist.
         # Try to load the cow...
         osg.notify( osg.WARN ), arguments.getApplicationName(), ": Could not find specified files. Trying \"cow.osgt\" instead."
-        if  !(scene = osgDB.readNodeFile( str( "cow.osgt" ) ) )  :
+        if   not (scene = osgDB.readNodeFile( str( "cow.osgt" ) ) )  :
             osg.notify( osg.FATAL ), arguments.getApplicationName(), ": No data loaded."
             return 1
-    root.addChild( scene.get() )
+    root.addChild( scene )
 
 
     viewer = osgViewer.CompositeViewer( arguments )
@@ -171,7 +171,7 @@ def main(argc, argv):
         viewer.addView( view )
 
         view.setUpViewInWindow( 10, 10, 640, 480 )
-        view.setSceneData( scene.get() )
+        view.setSceneData( scene )
         view.setCameraManipulator( osgGA.TrackballManipulator )()
 
     # Create view 1 -- Contains the loaded moel, as well as a wireframe frustum derived from View 0's Camera.
@@ -179,10 +179,10 @@ def main(argc, argv):
         viewer.addView( view )
 
         view.setUpViewInWindow( 10, 510, 640, 480 )
-        view.setSceneData( root.get() )
+        view.setSceneData( root )
         view.setCameraManipulator( osgGA.TrackballManipulator )()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         # Update the wireframe frustum
         root.removeChild( 0, 1 )
         root.insertChild( 0, makeFrustumFromCamera(

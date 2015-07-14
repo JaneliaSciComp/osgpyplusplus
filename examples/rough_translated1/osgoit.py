@@ -45,7 +45,7 @@ from osgpypp import osgViewer
 #ifdef USE_TEXTURE_RECTANGLE
     "#extension GL_ARB_texture_rectangle : enable\n"
     "uniform sampler2DRectShadow depthtex\n"
-#else :
+#else:
     "uniform sampler2DShadow depthtex\n"
 #endif
     "uniform bool depthtest\n"  # depth test enable flag
@@ -62,7 +62,7 @@ from osgpypp import osgViewer
     "                    gl_FragCoord.z)\n"
 #ifdef USE_TEXTURE_RECTANGLE
     "    return shadow2DRect(depthtex, r0).r < 0.5\n"
-#else :
+#else:
     "    return shadow2D(depthtex, r0).r < 0.5\n"
 #endif
     "  \n"
@@ -78,31 +78,31 @@ class PreDrawFBOCallback (osg.Camera.DrawCallback) :
       # switching only the frame buffer attachments is actually faster than switching the framebuffer
 #ifdef USE_PACKED_DEPTH_STENCIL
 #ifdef USE_TEXTURE_RECTANGLE
-     _fbo.setAttachment(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, osg.FrameBufferAttachment((osg.TextureRectangle*)(_depthTexture.get())))
-#else :
-     _fbo.setAttachment(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, osg.FrameBufferAttachment((osg.Texture2D*)(_depthTexture.get())))
+     _fbo.setAttachment(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, osg.FrameBufferAttachment((osg.TextureRectangle*)(_depthTexture)))
+#else:
+     _fbo.setAttachment(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, osg.FrameBufferAttachment((osg.Texture2D*)(_depthTexture)))
 #endif
-#else :
+#else:
 #ifdef USE_TEXTURE_RECTANGLE
-     _fbo.setAttachment(osg.Camera.DEPTH_BUFFER, osg.FrameBufferAttachment((osg.TextureRectangle*)(_depthTexture.get())))
-#else :
-     _fbo.setAttachment(osg.Camera.DEPTH_BUFFER, osg.FrameBufferAttachment((osg.Texture2D*)(_depthTexture.get())))
+     _fbo.setAttachment(osg.Camera.DEPTH_BUFFER, osg.FrameBufferAttachment((osg.TextureRectangle*)(_depthTexture)))
+#else:
+     _fbo.setAttachment(osg.Camera.DEPTH_BUFFER, osg.FrameBufferAttachment((osg.Texture2D*)(_depthTexture)))
 #endif
 #endif
 #ifdef USE_TEXTURE_RECTANGLE
-     _fbo.setAttachment(osg.Camera.COLOR_BUFFER0, osg.FrameBufferAttachment((osg.TextureRectangle*)(_colorTexture.get())))
-#else :
-     _fbo.setAttachment(osg.Camera.COLOR_BUFFER0, osg.FrameBufferAttachment((osg.Texture2D*)(_colorTexture.get())))
+     _fbo.setAttachment(osg.Camera.COLOR_BUFFER0, osg.FrameBufferAttachment((osg.TextureRectangle*)(_colorTexture)))
+#else:
+     _fbo.setAttachment(osg.Camera.COLOR_BUFFER0, osg.FrameBufferAttachment((osg.Texture2D*)(_colorTexture)))
 #endif
 
      # check if we need to do some depth buffer copying from a source FBO into the current FBO
-     if _source_fbo.get() != NULL :
+     if _source_fbo  not = NULL :
          fbo_ext = osg.FBOExtensions.instance(renderInfo.getContextID(),True)
-         fbo_supported = fbo_ext  fbo_ext.isSupported()
-         if fbo_supported  fbo_ext.glBlitFramebuffer :
+         fbo_supported = fbo_ext  and  fbo_ext.isSupported()
+         if fbo_supported  and  fbo_ext.glBlitFramebuffer :
              # blit the depth buffer from the solid geometry fbo into the current transparency fbo
-             (_fbo.get()).apply(*renderInfo.getState(), osg.FrameBufferObject.DRAW_FRAMEBUFFER)
-             (_source_fbo.get()).apply(*renderInfo.getState(), osg.FrameBufferObject.READ_FRAMEBUFFER)
+             (_fbo).apply(*renderInfo.getState(), osg.FrameBufferObject.DRAW_FRAMEBUFFER)
+             (_source_fbo).apply(*renderInfo.getState(), osg.FrameBufferObject.READ_FRAMEBUFFER)
 
 #             glReadBuffer(GL_COLOR_ATTACHMENT0_EXT) # only needed to blit the color buffer
 #             glDrawBuffer(GL_COLOR_ATTACHMENT0_EXT) # only needed to blit the color buffer
@@ -111,12 +111,12 @@ class PreDrawFBOCallback (osg.Camera.DrawCallback) :
                  0, 0, static_cast<GLint>(_width), static_cast<GLint>(_height),
 #ifdef USE_PACKED_DEPTH_STENCIL
                  GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT, GL_NEAREST)
-#else :
+#else:
                  GL_DEPTH_BUFFER_BIT, GL_NEAREST)
-#endif _fbo.get() :.apply(*renderInfo.getState(), osg.FrameBufferObject.READ_FRAMEBUFFER)
-             (_fbo.get()).apply(*renderInfo.getState(), osg.FrameBufferObject.DRAW_FRAMEBUFFER)
+#endif _fbo :.apply(*renderInfo.getState(), osg.FrameBufferObject.READ_FRAMEBUFFER)
+             (_fbo).apply(*renderInfo.getState(), osg.FrameBufferObject.DRAW_FRAMEBUFFER)
      # switch to this fbo, if it isn't already bound
-     (_fbo.get()).apply( *renderInfo.getState() )
+     (_fbo).apply( *renderInfo.getState() )
   _fbo = osg.FrameBufferObject()
   _source_fbo = osg.FrameBufferObject()
   _depthTexture = osg.Texture()
@@ -155,13 +155,13 @@ void DepthPeeling.CullCallback.operator()(osg.Node* node, osg.NodeVisitor* nv)
     # scale the texture coordinates to the viewport
 #ifdef USE_TEXTURE_RECTANGLE
     m.postMultScale(osg.Vec3d(viewport.width(), viewport.height(), 1))
-#else :
+#else:
 #ifndef USE_NON_POWER_OF_TWO_TEXTURE
     m.postMultScale(osg.Vec3d(viewport.width()/double(_texWidth), viewport.height()/double(_texHeight), 1))
 #endif
 #endif
 
-    if _texUnit != 0  _offsetValue :
+    if _texUnit  not = 0  and  _offsetValue :
         # Kind of polygon offset: note this way, we can also offset lines and points.
         # Whereas with the polygon offset we could only handle surface primitives.
         m.postMultTranslate(osg.Vec3d(0, 0, -ldexp(double(_offsetValue), -24)))
@@ -170,7 +170,7 @@ void DepthPeeling.CullCallback.operator()(osg.Node* node, osg.NodeVisitor* nv)
     stateSet = osg.StateSet()
     stateSet.setTextureAttribute(_texUnit, texMat)
 
-    if _texUnit != 0 :
+    if _texUnit  not = 0 :
         #
         # GLSL pipeline support
         #
@@ -182,7 +182,7 @@ void DepthPeeling.CullCallback.operator()(osg.Node* node, osg.NodeVisitor* nv)
         depthUniform = osg.Uniform("depthtex", (int)_texUnit)
         invWidthUniform = osg.Uniform("invWidth", (float)1.0)
         invHeightUniform = osg.Uniform("invHeight", (float)1.0)
-#else :
+#else:
         depthUniform = osg.Uniform(osg.Uniform.SAMPLER_2D_SHADOW, "depthtex")
         depthUniform.set((int)_texUnit)
         invWidthUniform = osg.Uniform("invWidth", (float)1.0 / _texWidth)
@@ -255,7 +255,7 @@ void DepthPeeling.createPeeling()
     for (unsigned int i = 0 i < 3 ++i) 
 #ifdef USE_TEXTURE_RECTANGLE
         _depthTextures[i] = osg.TextureRectangle()
-#else :
+#else:
         _depthTextures[i] = osg.Texture2D()
 #endif
         _depthTextures[i].setTextureSize(_texWidth, _texHeight)
@@ -269,7 +269,7 @@ void DepthPeeling.createPeeling()
         _depthTextures[i].setInternalFormat(GL_DEPTH24_STENCIL8_EXT)
         _depthTextures[i].setSourceFormat(GL_DEPTH_STENCIL_EXT)
         _depthTextures[i].setSourceType(GL_UNSIGNED_INT_24_8_EXT)
-#else :
+#else:
         _depthTextures[i].setInternalFormat(GL_DEPTH_COMPONENT)
 #endif
 
@@ -286,7 +286,7 @@ void DepthPeeling.createPeeling()
         # create textures for the color buffers
 #ifdef USE_TEXTURE_RECTANGLE
         colorTexture = osg.TextureRectangle()
-#else :
+#else:
         colorTexture = osg.Texture2D()
 #endif
         colorTexture.setTextureSize(_texWidth, _texHeight)
@@ -305,11 +305,11 @@ void DepthPeeling.createPeeling()
 
     # create a node for solid model rendering
     pre_solidNode = osg.Group()
-    pre_solidNode.addChild(_solidscene.get())
+    pre_solidNode.addChild(_solidscene)
 
     # create a node for non depth peeled transparent rendering (topmost layer)
     transparentNodeNoPeel = osg.Group()
-    transparentNodeNoPeel.addChild(_transparentscene.get())
+    transparentNodeNoPeel.addChild(_transparentscene)
     transparentNodeNoPeel.getOrCreateStateSet().addUniform(depthOff)
     transparentNodeNoPeel.getOrCreateStateSet().setRenderBinDetails(99, "RenderBin", osg.StateSet.OVERRIDE_RENDERBIN_DETAILS)
 
@@ -318,7 +318,7 @@ void DepthPeeling.createPeeling()
     transparentNodePeel.setReferenceFrame(osg.TexGenNode.ABSOLUTE_RF)
     transparentNodePeel.setTextureUnit(_texUnit)
     transparentNodePeel.getTexGen().setMode(osg.TexGen.EYE_LINEAR)
-    transparentNodePeel.addChild(_transparentscene.get())
+    transparentNodePeel.addChild(_transparentscene)
     transparentNodePeel.getOrCreateStateSet().addUniform(depthOn)
     transparentNodePeel.getOrCreateStateSet().setRenderBinDetails(99, "RenderBin", osg.StateSet.OVERRIDE_RENDERBIN_DETAILS)
 
@@ -341,11 +341,11 @@ void DepthPeeling.createPeeling()
 
         # get the pointers to the required fbo, color and depth textures for each camera instance
         # we perform ping ponging between two depth textures
-        fbo0 = (i >= 1) ? fbos[0].get() : NULL
-        fbo = (i >= 1) ? fbos[1].get() : fbos[0].get()
-        colorTexture = _colorTextures[i].get()
-        depthTexture = (i >= 1) ? _depthTextures[1+(i-1)%2].get() : _depthTextures[i].get()
-        prevDepthTexture = (i >= 2) ? _depthTextures[1+(i-2)%2].get() : NULL
+        fbo0 =  fbos[0] if ((i >= 1)) else  NULL
+        fbo =  fbos[1] if ((i >= 1)) else  fbos[0]
+        colorTexture = _colorTextures[i]
+        depthTexture =  _depthTextures[1+(i-1)%2] if ((i >= 1)) else  _depthTextures[i]
+        prevDepthTexture =  _depthTextures[1+(i-2)%2] if ((i >= 2)) else  NULL
 
         # all our peeling layer cameras are post render
         camera = osg.Camera()
@@ -366,7 +366,7 @@ void DepthPeeling.createPeeling()
         if i > 0 : 
             camera.getOrCreateStateSet().setMode(GL_BLEND, osg.StateAttribute.OFF | osg.StateAttribute.OVERRIDE)
             camera.setClearMask(GL_COLOR_BUFFER_BIT)
-         else : 
+         else:
             # camera 0 has to clear both the depth and color buffers
             camera.setClearMask(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT)
 
@@ -376,7 +376,7 @@ void DepthPeeling.createPeeling()
             camera.addChild(pre_solidNode)
          elif 1 == i :  # topmost layer peeling pass
             camera.addChild(transparentNodeNoPeel)
-         else :              # behind layers peeling passes
+         else              # behind layers peeling passes
             camera.addChild(transparentNodePeel)
             # set depth (shadow) texture for depth peeling and add a cull callback
             camera.getOrCreateStateSet().setTextureAttributeAndModes(_texUnit, prevDepthTexture)
@@ -396,14 +396,14 @@ void DepthPeeling.createPeeling()
     _compositeCamera.setCullCallback(CullCallback(0, _texWidth, _texHeight, 0))
     stateSet = _compositeCamera.getOrCreateStateSet()
     stateSet.setRenderBinDetails(100, "TraversalOrderBin", osg.StateSet.OVERRIDE_RENDERBIN_DETAILS)
-    _root.addChild(_compositeCamera.get())
+    _root.addChild(_compositeCamera)
 
     # solid geometry is blended first, transparency layers are blended in back to front order.
     # this order is achieved by rendering using a TraversalOrderBin (see camera stateset).
     for (unsigned int i = _numPasses i > 0 --i) 
         geode = createQuad(i%_numPasses, numTiles)
         stateSet = geode.getOrCreateStateSet()
-        stateSet.setTextureAttributeAndModes(0, _colorTextures[i%_numPasses].get(), osg.StateAttribute.ON)
+        stateSet.setTextureAttributeAndModes(0, _colorTextures[i%_numPasses], osg.StateAttribute.ON)
         stateSet.setAttribute(osg.BlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA), osg.StateAttribute.ON)
         stateSet.setMode(GL_BLEND, osg.StateAttribute.ON)
         stateSet.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
@@ -434,7 +434,7 @@ void DepthPeeling.setTransparentScene(osg.Node* scene)
     _transparentscene.addChild(scene)
 
 osg.Node* DepthPeeling.getRoot()
-    return _root.get()
+    return _root
 
 void DepthPeeling.resize(int width, int height)
 #ifdef USE_TEXTURE_RECTANGLE
@@ -444,7 +444,7 @@ void DepthPeeling.resize(int width, int height)
         _colorTextures[i].setTextureSize(width, height)
     _texWidth = width
     _texHeight = height
-#else :
+#else:
 #ifndef USE_NON_POWER_OF_TWO_TEXTURE
     width = nextPowerOfTwo(width)
     height = nextPowerOfTwo(height)
@@ -504,20 +504,20 @@ bool DepthPeeling.EventHandler.handle( osgGA.GUIEventAdapter ea, osgGA.GUIAction
 
     if ea.getEventType() == osgGA.GUIEventAdapter.KEYDOWN : 
         switch (ea.getKey()) 
-        case 'm':
+        case ord("m"):
             _depthPeeling.setNumPasses(_depthPeeling.getNumPasses() + 1)
             return True
-        case 'n':
+        case ord("n"):
             _depthPeeling.setNumPasses(_depthPeeling.getNumPasses() - 1)
             return True
-        case 'p':
+        case ord("p"):
             _depthPeeling.setOffsetValue(_depthPeeling.getOffsetValue() + 1)
             return True
-        case 'o':
+        case ord("o"):
             _depthPeeling.setOffsetValue(_depthPeeling.getOffsetValue() - 1)
             return True
-        case 'l':
-            _depthPeeling.setShowAllLayers(!_depthPeeling.getShowAllLayers())
+        case ord("l"):
+            _depthPeeling.setShowAllLayers( not _depthPeeling.getShowAllLayers())
             return True
         default:
             return False
@@ -611,7 +611,7 @@ class DepthPeeling (osg.Referenced) :
 #ifdef USE_TEXTURE_RECTANGLE
     _depthTextures = std.vector<osg.TextureRectangle >()
     _colorTextures = std.vector<osg.TextureRectangle >()
-#else :
+#else:
     _depthTextures = std.vector<osg.Texture2D >()
     _colorTextures = std.vector<osg.Texture2D >()
 #endif
@@ -728,7 +728,7 @@ Heatmap.Heatmap(float width, float depth, float maxheight, unsigned int K, unsig
             for (unsigned int x=0 x < O*K x++) 
                 vertices.push_back(osg.Vec3(width*x/(O*K-1), depth*y/(O*N-1), 0.0)+off)
                 xypositions.push_back(osg.Vec2(((float)x+0.5)/(O*K),((float)y+0.5)/(O*N)))
-        else :
+        else:
             vertices.push_back(osg.Vec3(0, depth*y/(O*N-1), 0.0)+off)
             xypositions.push_back(osg.Vec2(0.5/(O*K),((float)y+0.5)/(O*N)))
             for (unsigned int x=0 x < O*K-1 x++) 
@@ -751,7 +751,7 @@ Heatmap.Heatmap(float width, float depth, float maxheight, unsigned int K, unsig
             i = 0 for (unsigned int x=0 x < O*K x++)  indices[i++] = base2+x indices[i++] = base+x
             indices[i++] = base2+O*K
             meshGeom.addPrimitiveSet(osg.DrawElementsUInt(osg.PrimitiveSet.TRIANGLE_STRIP, i, indices))
-        else :
+        else:
             base = (y/2) * (O*K+O*K+1) + O*K
             base2 = (y/2) * (O*K+O*K+1) + O*K + O*K+1
             i = 0 for (unsigned int x=0 x < O*K x++)  indices[i++] = base+x indices[i++] = base2+x
@@ -776,7 +776,7 @@ Heatmap.Heatmap(float width, float depth, float maxheight, unsigned int K, unsig
     *data++ =   0 *data++ = 255 *data++ =   0 *data++ = 255  # green
     *data++ = 255 *data++ = 255 *data++ =   0 *data++ = 255  # yellow
     *data++ = 255 *data++ =   0 *data++ =   0 *data++ = 255  # red
-    colortex = osg.Texture1D(colorimg.get())
+    colortex = osg.Texture1D(colorimg)
     colortex.setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
     colortex.setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
     colortex.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
@@ -786,21 +786,21 @@ Heatmap.Heatmap(float width, float depth, float maxheight, unsigned int K, unsig
     m_img2 = osg.Image()
     m_img2.allocateImage(K, N, 1, GL_LUMINANCE, GL_FLOAT)
     m_img2.setInternalTextureFormat(GL_RGB32F_ARB)
-    m_data = (float*)m_img2.get().data()
-    m_tex2 = osg.Texture2D(m_img2.get())
-    m_tex2.get().setResizeNonPowerOfTwoHint(False)
-    m_tex2.get().setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
-    m_tex2.get().setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
-    m_tex2.get().setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
-    m_tex2.get().setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP_TO_EDGE)
+    m_data = (float*)m_img2.data()
+    m_tex2 = osg.Texture2D(m_img2)
+    m_tex2.setResizeNonPowerOfTwoHint(False)
+    m_tex2.setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
+    m_tex2.setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
+    m_tex2.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
+    m_tex2.setWrap(osg.Texture.WRAP_T, osg.Texture.CLAMP_TO_EDGE)
 
     # set render states
     meshstate = meshGeom.getOrCreateStateSet()
     meshstate.setMode(GL_BLEND,  osg.StateAttribute.ON)
     meshstate.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
     meshstate.setAttributeAndModes(program, osg.StateAttribute.ON)
-    meshstate.setTextureAttributeAndModes(0,colortex.get(),osg.StateAttribute.ON)
-    meshstate.setTextureAttributeAndModes(1,m_tex2.get(),osg.StateAttribute.ON)
+    meshstate.setTextureAttributeAndModes(0,colortex,osg.StateAttribute.ON)
+    meshstate.setTextureAttributeAndModes(1,m_tex2,osg.StateAttribute.ON)
 
     # uniforms for height and color scaling
     maximumUniform = osg.Uniform( "maximum", (float)maximum )
@@ -828,7 +828,7 @@ void Heatmap.setData(float *buffer, float maxheight, float maximum, float transp
     maxheightUniform.set( maxheight )
     transparencyUniform.set ( transparency )
 
-    m_img2.get().dirty()
+    m_img2.dirty()
 
 Heatmap.~Heatmap()
 
@@ -908,11 +908,11 @@ class Heatmap (osg.Geode) :
 #include <limits>
 #include <iostream>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     arguments.getApplicationUsage().addKeyboardMouseBinding("m", "Increase the number of depth peeling layers")
     arguments.getApplicationUsage().addKeyboardMouseBinding("n", "Decrease the number of depth peeling layers")
     arguments.getApplicationUsage().addKeyboardMouseBinding("l", "Toggle display of the individual or composed layer textures")
@@ -940,7 +940,7 @@ def main(argc, argv):
     # display a solid version of the dump truck
     solidModel = osg.PositionAttitudeTransform()
     solidModel.setPosition(osg.Vec3f(7.0, -2.0, 7.0))
-    solidModel.addChild(dt.get())
+    solidModel.addChild(dt)
 
     # generate the 3D heatmap surface to display
     hm = Heatmap(30, 30, 10, 30, 30, 1.0, 0.25)
@@ -965,19 +965,19 @@ def main(argc, argv):
     lm = osg.LightModel()
     lm.setTwoSided(True)
     state.setAttribute(lm, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE)
-    (transparentTruck.get()).addChild(dt.get())
+    (transparentTruck).addChild(dt)
 
     # place the heatmap and a transparent dump truck in the transparent geometry group
     transparentModel = osg.Group()
-    (transparentModel.get()).addChild(hm.get())
-    (transparentModel.get()).addChild(transparentTruck.get())
+    (transparentModel).addChild(hm)
+    (transparentModel).addChild(transparentTruck)
 
     # The initial size set to 0, 0. We get a resize event for the right size...
     depthPeeling = DepthPeeling(0, 0)
     # the heat map already uses two textures bound to unit 0 and 1, so we can use TexUnit 2 for the peeling
     depthPeeling.setTexUnit(2)
-    depthPeeling.setSolidScene(solidModel.get())
-    depthPeeling.setTransparentScene(transparentModel.get())
+    depthPeeling.setSolidScene(solidModel)
+    depthPeeling.setTransparentScene(transparentModel)
     viewer.setSceneData(depthPeeling.getRoot())
 
     # Add the event handler for the depth peeling stuff

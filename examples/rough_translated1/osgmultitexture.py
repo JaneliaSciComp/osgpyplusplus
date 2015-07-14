@@ -52,11 +52,11 @@ from osgpypp import osgViewer
 
 #include <iostream>
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
    
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -65,9 +65,9 @@ def main(argc, argv):
     rootnode = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !rootnode : rootnode = osgDB.readNodeFile("cessnafire.osgt")
+    if  not rootnode : rootnode = osgDB.readNodeFile("cessnafire.osgt")
     
-    if !rootnode :
+    if  not rootnode :
         osg.notify(osg.NOTICE), "Please specify a model filename on the command line."
         return 1
     
@@ -89,7 +89,7 @@ def main(argc, argv):
         stateset.setTextureAttribute(1,texenv)
         
         rootnode.setStateSet(stateset)
-    else :
+    else:
         osg.notify(osg.NOTICE), "unable to load reflect map, model will not be mutlitextured"
 
     # run optimization over the scene graph
@@ -107,7 +107,7 @@ def main(argc, argv):
         ++contextID)
         textExt = osg.Texture.getExtensions(contextID,False)
         if textExt :
-            if !textExt.isMultiTexturingSupported() :
+            if  not textExt.isMultiTexturingSupported() :
                 print "Warning: multi-texturing not supported by OpenGL drivers, unable to run application."
                 return 1
 

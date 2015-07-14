@@ -76,7 +76,7 @@ class PickHandler (osgGA.GUIEventHandler) :
 
         
         view = dynamic_cast<osgViewer.View*>(aa)
-        if !view : return False
+        if  not view : return False
 
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.PUSH):
@@ -84,7 +84,7 @@ class PickHandler (osgGA.GUIEventHandler) :
                 _my = ea.getY()
                 break
             case(osgGA.GUIEventAdapter.RELEASE):
-                if _mx==ea.getX()  _my==ea.getY() :
+                if _mx==ea.getX()  and  _my==ea.getY() :
                     pick(view, ea)
                 break
             default:
@@ -101,22 +101,22 @@ class PickHandler (osgGA.GUIEventHandler) :
         if view.computeIntersections(event, intersections) :
             intersection = *intersections.begin()
             nodePath = intersection.nodePath
-            node = (nodePath.size()>=1)?nodePath[nodePath.size()-1]:0
-            parent = (nodePath.size()>=2)?dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]):0
+            node =  nodePath[nodePath.size()-1] if ((nodePath.size()>=1)) else 0
+            parent =  dynamic_cast<osg.Group*>(nodePath[nodePath.size()-2]) if ((nodePath.size()>=2)) else 0
 
         # now we try to decorate the hit node by the osgFX.Scribe to show that its been "picked"
-        if parent  node :
+        if parent  and  node :
             parentAsScribe = dynamic_cast<osgFX.Scribe*>(parent)
-            if !parentAsScribe :
+            if  not parentAsScribe :
                 # node not already picked, so highlight it with an osgFX.Scribe
                 scribe = osgFX.Scribe()
                 scribe.addChild(node)
                 parent.replaceChild(node,scribe)
-            else :
+            else:
                 # node already picked so we want to remove scribe to unpick it.
                 parentList = parentAsScribe.getParents()
                 for(osg.Node.ParentList.iterator itr=parentList.begin()
-                    itr!=parentList.end()
+                    not = parentList.end()
                     ++itr)
                     (*itr).replaceChild(parentAsScribe,node)
 
@@ -126,18 +126,18 @@ class PickHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
 
-    if !scene :
+    if  not scene :
         print argv[0], ": requires filename argument."
         return 1
 
@@ -163,14 +163,14 @@ def main(argc, argv):
             viewer.addView(view)
 
             view.setUpViewOnSingleScreen(0)
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the state manipulator
             statesetManipulator = osgGA.StateSetManipulator()
             statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
-            view.addEventHandler( statesetManipulator.get() )
+            view.addEventHandler( statesetManipulator )
 
         # view two
             view = osgViewer.View()
@@ -178,7 +178,7 @@ def main(argc, argv):
             viewer.addView(view)
 
             view.setUpViewOnSingleScreen(1)
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             view.addEventHandler( osgViewer.StatsHandler )()
@@ -188,10 +188,10 @@ def main(argc, argv):
             view.addEventHandler(PickHandler())
 
 
-    if arguments.read("-3") || viewer.getNumViews()==0 :
+    if arguments.read("-3")  or  viewer.getNumViews()==0 :
 
         wsi = osg.GraphicsContext.getWindowingSystemInterface()
-        if !wsi :
+        if  not wsi :
             osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
             return 1
 
@@ -207,7 +207,7 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
         if gc.valid() :
             osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
 
@@ -215,7 +215,7 @@ def main(argc, argv):
             # rather than just the parts of the window that are under the camera's viewports
             gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
             gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        else :
+        else:
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
         # view one
@@ -223,17 +223,17 @@ def main(argc, argv):
             view.setName("View one")
             viewer.addView(view)
 
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.getCamera().setName("Cam one")
             view.getCamera().setViewport(osg.Viewport(0,0, traits.width/2, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
             view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the state manipulator
             statesetManipulator = osgGA.StateSetManipulator()
             statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
-            view.addEventHandler( statesetManipulator.get() )
+            view.addEventHandler( statesetManipulator )
 
             view.addEventHandler( osgViewer.StatsHandler )()
             view.addEventHandler( osgViewer.HelpHandler )()
@@ -246,10 +246,10 @@ def main(argc, argv):
             view.setName("View two")
             viewer.addView(view)
 
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.getCamera().setName("Cam two")
             view.getCamera().setViewport(osg.Viewport(traits.width/2,0, traits.width/2, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
             view.setCameraManipulator(osgGA.TrackballManipulator)()
 
             # add the handler for doing the picking
@@ -266,7 +266,7 @@ def main(argc, argv):
             view.getCamera().setName("Cam three")
             view.getCamera().setProjectionMatrixAsPerspective(30.0, double(traits.width) / double(traits.height/2), 1.0, 1000.0)
             view.getCamera().setViewport(osg.Viewport(0, traits.height/2, traits.width, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
             view.setCameraManipulator(osgGA.TrackballManipulator)()
 
 

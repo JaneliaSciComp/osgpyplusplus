@@ -77,7 +77,7 @@ class ViewerWidget : public QWidget, public osgViewer.CompositeViewer
     def createGraphicsWindow(x, y, w, h, name, windowDecoration):
 
         
-        ds = osg.DisplaySettings.instance().get()
+        ds = osg.DisplaySettings.instance()
         traits = osg.GraphicsContext.Traits()
         traits.windowName = name
         traits.windowDecoration = windowDecoration
@@ -91,7 +91,7 @@ class ViewerWidget : public QWidget, public osgViewer.CompositeViewer
         traits.sampleBuffers = ds.getMultiSamples()
         traits.samples = ds.getNumMultiSamples()
 
-        return osgQt.GraphicsWindowQt(traits.get())
+        return osgQt.GraphicsWindowQt(traits)
 
     def paintEvent(event):
 
@@ -100,15 +100,15 @@ class ViewerWidget : public QWidget, public osgViewer.CompositeViewer
     _timer = QTimer()
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
 #if QT_VERSION >= 0x050000
     # Qt5 is currently crashing and reporting "Cannot make QOpenGLContext current in a different thread" when the viewer is run multi-threaded, this is regression from Qt4
     threadingModel = osgViewer.ViewerBase.SingleThreaded
-#else :
+#else:
     threadingModel = osgViewer.ViewerBase.CullDrawThreadPerContext
 #endif
 

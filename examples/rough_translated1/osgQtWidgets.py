@@ -107,10 +107,10 @@ class MyPushButton (QPushButton) :
         ok = False
 #if QT_VERSION >= 0x040500
         val = QInputDialog.getInt(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
-#else :
+#else:
         val = QInputDialog.getInteger(this, "Get integer", "Please enter an integer between 0 and pi", 0, 0, 3, 1, ok)
 #endif
-        print "Ok was ", (ok ? "" : "not"), " pressed, val is ", val
+        print "Ok was ", "" : "not"), " pressed, val is ", val, std: if ((ok) else endl
 
 
 
@@ -137,7 +137,7 @@ class MyPushButton (QPushButton) :
 #----------------------------------------------
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
@@ -145,7 +145,7 @@ def main(argc, argv):
     app = QApplication(argc, argv)
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # True = run osgViewer in a separate thread than Qt
     # False = interleave osgViewer and Qt in the main thread
@@ -187,7 +187,7 @@ def main(argc, argv):
 
     root = osg.Group()
 
-    if !useWidgetImage :
+    if  not useWidgetImage :
         #-------------------------------------------------------------------
         # QWebViewImage test
         #-------------------------------------------------------------------
@@ -196,11 +196,11 @@ def main(argc, argv):
         # QWidgetImage can display a QWebView just like QWebViewImage. Use 
         # --useWidgetImage --useBrowser to see that in action.
 
-        if !sanityCheck :
+        if  not sanityCheck :
             image = osgQt.QWebViewImage()
 
             if arguments.argc()>1 : image.navigateTo((arguments[1]))
-            else : image.navigateTo("http:#www.youtube.com/")
+            else image.navigateTo("http:#www.youtube.com/")
 
             hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
                                            osg.Vec3(1.0,0.0,0.0),
@@ -209,10 +209,10 @@ def main(argc, argv):
                                            osgWidget.GeometryHints.RESIZE_HEIGHT_TO_MAINTAINCE_ASPECT_RATIO)
 
             browser = osgWidget.Browser()
-            browser.assign(image.get(), hints)
+            browser.assign(image, hints)
 
-            root.addChild(browser.get())
-        else :
+            root.addChild(browser)
+        else:
             # Sanity check, do the same thing as QGraphicsViewAdapter but in 
             # a separate Qt window.
             webPage = QWebPage()
@@ -223,7 +223,7 @@ def main(argc, argv):
             webView.setPage(webPage)
 
             if arguments.argc()>1 : webView.load(QUrl(arguments[1]))
-            else : webView.load(QUrl("http:#www.youtube.com/"))
+            else webView.load(QUrl("http:#www.youtube.com/"))
 
             graphicsScene = QGraphicsScene()
             graphicsScene.addWidget(webView)
@@ -237,7 +237,7 @@ def main(argc, argv):
             mainWindow.setGeometry(50, 50, 1024, 768)
             mainWindow.show()
             mainWindow.raise()
-    else :
+    else:
         #-------------------------------------------------------------------
         # QWidgetImage test
         #-------------------------------------------------------------------
@@ -252,7 +252,7 @@ def main(argc, argv):
         #
         #    a) osgQtBrowser --useWidgetImage [--fullscreen] (optional)
         #    b) Try to click in the QTextEdit and type, or to select text
-        #       and drag-and-drop it somewhere else : in the QTextEdit. These
+        #       and drag-and-drop it somewhere else in the QTextEdit. These
         #       don't work.
         #    c) osgQtBrowser --useWidgetImage --sanityCheck
         #    d) Try the operations in b), they all work.
@@ -316,10 +316,10 @@ def main(argc, argv):
             webView.setPage(webPage)
 
             if arguments.argc()>1 : webView.load(QUrl(arguments[1]))
-            else : webView.load(QUrl("http:#www.youtube.com/"))
+            else webView.load(QUrl("http:#www.youtube.com/"))
 
             widget = webView
-        else :
+        else:
             widget = QWidget()
             widget.setLayout(QVBoxLayout)()
 
@@ -339,7 +339,7 @@ def main(argc, argv):
                 scrollArea.setWidget(label)
 
                 widget.layout().addWidget(scrollArea)
-            else :
+            else:
                 textEdit = QTextEdit(text)
                 textEdit.setReadOnly(False)
                 textEdit.setTextInteractionFlags(Qt.TextEditable)
@@ -358,7 +358,7 @@ def main(argc, argv):
 
         graphicsScene = 0
 
-        if !sanityCheck :
+        if  not sanityCheck :
             widgetImage = osgQt.QWidgetImage(widget)
 #if QT_VERSION >= QT_VERSION_CHECK(4, 5, 0) :
             widgetImage.getQWidget().setAttribute(Qt.WA_TranslucentBackground)
@@ -374,7 +374,7 @@ def main(argc, argv):
 
             mt = osg.MatrixTransform()
 
-            texture = osg.Texture2D(widgetImage.get())
+            texture = osg.Texture2D(widgetImage)
             texture.setResizeNonPowerOfTwoHint(False)
             texture.setFilter(osg.Texture.MIN_FILTER,osg.Texture.LINEAR)
             texture.setWrap(osg.Texture.WRAP_S, osg.Texture.CLAMP_TO_EDGE)
@@ -386,8 +386,8 @@ def main(argc, argv):
                 mt.setMatrix(osg.Matrix.rotate(osg.Vec3(0,1,0), osg.Vec3(0,0,1)))
                 mt.addChild(geode)
 
-                handler = osgViewer.InteractiveImageHandler(widgetImage.get())
-            else :    # fullscreen
+                handler = osgViewer.InteractiveImageHandler(widgetImage)
+            else    # fullscreen
                 # The HUD camera's viewport needs to follow the size of the 
                 # window. MyInteractiveImageHandler will make sure of this.
                 # As for the quad and the camera's projection, setting the 
@@ -407,7 +407,7 @@ def main(argc, argv):
 
                 mt.addChild(camera)
 
-                handler = osgViewer.InteractiveImageHandler(widgetImage.get(), texture, camera)
+                handler = osgViewer.InteractiveImageHandler(widgetImage, texture, camera)
 
             mt.getOrCreateStateSet().setMode(GL_LIGHTING, osg.StateAttribute.OFF)
             mt.getOrCreateStateSet().setMode(GL_BLEND, osg.StateAttribute.ON)
@@ -421,7 +421,7 @@ def main(argc, argv):
             
             quad.setEventCallback(handler)
             quad.setCullCallback(handler)
-        else :
+        else:
             # Sanity check, do the same thing as QWidgetImage and 
             # QGraphicsViewAdapter but in a separate Qt window.
 
@@ -456,7 +456,7 @@ def main(argc, argv):
     root.addChild(osgDB.readNodeFile("cow.osg.(15,0,5).trans.(0.1,0.1,0.1).scale"))
 
     viewer = osgViewer.Viewer(arguments)
-    viewer.setSceneData(root.get())
+    viewer.setSceneData(root)
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
     viewer.addEventHandler(osgGA.StateSetManipulator(root.getOrCreateStateSet()))
     viewer.addEventHandler(osgViewer.StatsHandler)()
@@ -467,15 +467,15 @@ def main(argc, argv):
 
     if useFrameLoopThread :
         # create a thread to run the viewer's frame loop
-        viewerThread = ViewerFrameThread(viewer.get(), True)
+        viewerThread = ViewerFrameThread(viewer, True)
         viewerThread.startThread()
 
         # now start the standard Qt event loop, then exists when the viewerThead sends the QApplication.exit() signal.
         return QApplication.exec()
 
-    else :
+    else:
         # run the frame loop, interleaving Qt and the main OSG frame loop
-        while !viewer.done() :
+        while  not viewer.done() :
             # process Qt events - this handles both events and paints the browser image
             QCoreApplication.processEvents(QEventLoop.AllEvents, 100)
 

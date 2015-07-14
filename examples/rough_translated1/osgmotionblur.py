@@ -45,11 +45,11 @@ class MotionBlurOperation (osg.Operation) :
 
     virtual void operator () (osg.Object* object)
         gc = dynamic_cast<osg.GraphicsContext*>(object)
-        if !gc : return
+        if  not gc : return
     
         t = gc.getState().getFrameStamp().getSimulationTime()
 
-        if !cleared_ :
+        if  not cleared_ :
             # clear the accumulation buffer
             glClearColor(0, 0, 0, 0)
             glClear(GL_ACCUM_BUFFER_BIT)
@@ -72,13 +72,13 @@ class MotionBlurOperation (osg.Operation) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -92,21 +92,21 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
     persistence = 0.25
-    arguments.read("-P", persistence) || arguments.read("--persistence", persistence)
+    arguments.read("-P", persistence)  or  arguments.read("--persistence", persistence)
 
     # read the scene from the list of file specified commandline args.
     loadedModel = osgDB.readNodeFiles(arguments)
     
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
 
     # if no model has been successfully loaded report failure.
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -115,7 +115,7 @@ def main(argc, argv):
     osg.DisplaySettings.instance().setMinimumNumAccumBits(8,8,8,8)
 
     # pass the loaded scene graph to the viewer.
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     # create the windows and run the threads.
     viewer.realize()
@@ -123,7 +123,7 @@ def main(argc, argv):
     windows = osgViewer.Viewer.Windows()
     viewer.getWindows(windows)
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-        itr != windows.end()
+        not = windows.end()
         ++itr)
         (*itr).add(MotionBlurOperation(persistence))
 

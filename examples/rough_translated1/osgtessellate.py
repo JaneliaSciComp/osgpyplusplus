@@ -479,7 +479,7 @@ def createHUD():
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
     # Disable depth test, and make sure that the hud is drawn after everything
-    # else : so that it always appears ontop.
+    # else so that it always appears ontop.
     stateset.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
     stateset.setRenderBinDetails(11,"RenderBin")
 
@@ -491,7 +491,7 @@ def createHUD():
 
         text.setFont(timesFont)
         text.setPosition(position)
-        text.setText("Tessellation example - no tessellation (use 'W' wireframe to visualise)")
+        text.setText("Tessellation example - no tessellation (use ord("W") wireframe to visualise)")
         text.setColor(osg.Vec4(1.0,1.0,0.8,1.0))
         position += delta
 
@@ -500,7 +500,7 @@ def createHUD():
 
         text.setFont(timesFont)
         text.setPosition(position)
-        text.setText("Press 'n' to use an alternative tessellation.")
+        text.setText("Press ord("n") to use an alternative tessellation.")
 
 
     # create the hud.
@@ -532,7 +532,7 @@ class setTessellateVisitor (osg.NodeVisitor) :
 # searches a loaded model tree for tessellatable geometries.
     # used with any database model which has a renderGroup (Geode) named 'tessellate'
     # or you can force a type of tess with special names or a sub-class of Geode could have extra information
-    # of course you can use any name to detect what is to be tessellated!
+    # of course you can use any name to detect what is to be tessellated not 
     # all the polygons within the specific node are deemed to be contours, so
     # any tessellation can be requested.
 
@@ -550,7 +550,7 @@ class setTessellateVisitor (osg.NodeVisitor) :
                             # add a Tessellator so that this geom is retessellated when N is pressed
                             tscx.setBoundaryOnly(True)
                             tscx.setWindingType( osgUtil.Tessellator.TESS_WINDING_ABS_GEQ_TWO) # so that first change in wind type makes the commonest tessellation - ODD.
-                            geom.setUserData(tscx.get())
+                            geom.setUserData(tscx)
                          elif geode.getName()== "tessellate odd" : 
                             # OR you can just apply the Tessellator once only, using these different types
                             tscx.setWindingType( osgUtil.Tessellator.TESS_WINDING_ODD) # commonest tessellation - ODD.
@@ -603,11 +603,11 @@ class cxTessellateVisitor (osg.NodeVisitor) :
         for(unsigned int i=0i<geode.getNumDrawables()++i)
             geom = dynamic_cast<tessellateDemoGeometry*>(geode.getDrawable(i))
             if geom : 
-                if !geom.getBoundaryOnly() :  # turn on bounds only
+                if  not geom.getBoundaryOnly() :  # turn on bounds only
                     # NB this shows only the True boundary of the curves, no internal edges
                     geom.setBoundaryOnly(True)
 
-                 else :  # change to next type of tessellation...
+                 else  # change to next type of tessellation...
                     geom.setBoundaryOnly(False)
                     switch (geom.getWindingType()) 
                     case         osgUtil.Tessellator.TESS_WINDING_ODD:
@@ -656,7 +656,7 @@ class cxTessellateVisitor (osg.NodeVisitor) :
 
 
 class KeyboardEventHandler (osgGA.GUIEventHandler) :
-# extra event handler traps 'n' key to re-tessellate any tessellated geodes.
+# extra event handler traps ord("n") key to re-tessellate any tessellated geodes.
 
     KeyboardEventHandler(osg.Node *nd):
         _scene(nd) 
@@ -664,7 +664,7 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
         virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYDOWN):
-                    if _scene  ea.getKey()=='n' :
+                    if _scene  and  ea.getKey()==ord("n") :
                         # re-tessellate the scene graph.
                         # the same contours are re-tessellated using a method. Old contours
                         #  tessellation type are held internally in the derived Geode class tessellateDemoGeometry.
@@ -681,12 +681,12 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -695,10 +695,10 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if no model has been successfully loaded report failure.
-    if !loadedModel :
+    if  not loadedModel :
         loadedModel=makeTessellateExample()
 
-     else :  # if there is a loaded model:
+     else  # if there is a loaded model:
 
         # tessellate by searching for geode called tessellate  tessellate it
         tsv = setTessellateVisitor()
@@ -706,18 +706,18 @@ def main(argc, argv):
 
 
     # create the hud.
-    gload = dynamic_cast<osg.Group *> (loadedModel.get())
+    gload = dynamic_cast<osg.Group *> (loadedModel)
     gload.addChild(createHUD())
 
 
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get() )
+    optimizer.optimize(loadedModel )
 
     # set the scene to render
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
-    # add event handler for keyboard 'n' to retessellate
-    viewer.addEventHandler(KeyboardEventHandler(loadedModel.get()))
+    # add event handler for keyboard ord("n") to retessellate
+    viewer.addEventHandler(KeyboardEventHandler(loadedModel))
 
     return viewer.run()
 

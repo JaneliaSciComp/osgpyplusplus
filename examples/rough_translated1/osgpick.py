@@ -84,7 +84,7 @@ class PickHandler (osgGA.GUIEventHandler) :
     def setLabel(name):
 
         
-        if _updateText.get() : _updateText.setText(name)
+        if _updateText : _updateText.setText(name)
 
     _updateText = osgText.Text()
 
@@ -96,7 +96,7 @@ bool PickHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa)
             if view : pick(view,ea)
             return False
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()=='c' :
+            if ea.getKey()==ord("c") :
                 view = dynamic_cast<osgViewer.View*>(aa)
                 event = osgGA.GUIEventAdapter(ea)
                 event.setX((ea.getXmin()+ea.getXmax())*0.5)
@@ -113,10 +113,10 @@ void PickHandler.pick(osgViewer.View* view,  osgGA.GUIEventAdapter ea)
 
     if view.computeIntersections(ea,intersections) :
         for(osgUtil.LineSegmentIntersector.Intersections.iterator hitr = intersections.begin()
-            hitr != intersections.end()
+            not = intersections.end()
             ++hitr)
             os = std.ostringstream()
-            if !hitr.nodePath.empty()  !(hitr.nodePath.back().getName().empty()) :
+            if  not hitr.nodePath.empty()  and   not (hitr.nodePath.back().getName().empty()) :
                 # the geodes are identified by name.
                 os, "Object \"", hitr.nodePath.back().getName(), "\""
             elif hitr.drawable.valid() :
@@ -137,8 +137,8 @@ def createHUD(updateText):
 
     # create the hud. derived from osgHud.cpp
     # adds a set of quads, each in a separate Geode - which can be picked individually
-    # eg to be used as a menuing/help system!
-    # Can pick texts too!
+    # eg to be used as a menuing/help system not 
+    # Can pick texts too not 
 
     hudCamera = osg.Camera()
     hudCamera.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
@@ -164,7 +164,7 @@ def createHUD(updateText):
         geode.addDrawable( text )
 
         text.setFont(timesFont)
-        text.setText("Picking in Head Up Displays is simple!")
+        text.setText("Picking in Head Up Displays is simple not ")
         text.setPosition(position)
 
         position += delta
@@ -222,16 +222,16 @@ def createHUD(updateText):
     return hudCamera
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
 
-    if !scene  arguments.read("--relative-camera-scene") :
+    if  not scene  and  arguments.read("--relative-camera-scene") :
         # Create a test scene with a camera that has a relative reference frame.
         group = osg.Group()
 
@@ -259,65 +259,65 @@ def main(argc, argv):
         scene = group
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !scene : scene = osgDB.readNodeFile("fountain.osgt")
+    if  not scene : scene = osgDB.readNodeFile("fountain.osgt")
 
-    group = dynamic_cast<osg.Group*>(scene.get())
-    if !group :
+    group = dynamic_cast<osg.Group*>(scene)
+    if  not group :
         group = osg.Group()
-        group.addChild(scene.get())
+        group.addChild(scene)
 
     updateText = osgText.Text()
 
     # add the HUD subgraph.
-    group.addChild(createHUD(updateText.get()))
+    group.addChild(createHUD(updateText))
 
     if arguments.read("--CompositeViewer") :
         view = osgViewer.View()
         # add the handler for doing the picking
-        view.addEventHandler(PickHandler(updateText.get()))
+        view.addEventHandler(PickHandler(updateText))
 
         # set the scene to render
-        view.setSceneData(group.get())
+        view.setSceneData(group)
 
         view.setUpViewAcrossAllScreens()
 
         viewer = osgViewer.CompositeViewer()
-        viewer.addView(view.get())
+        viewer.addView(view)
 
         return viewer.run()
 
-    else :
+    else:
         viewer = osgViewer.Viewer()
 
 
         # add all the camera manipulators
             keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-            keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-            keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-            keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
+            keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+            keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+            keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
 
             num = keyswitchManipulator.getNumMatrixManipulators()
-            keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+            keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
             pathfile = str()
-            keyForAnimationPath = '5'
+            keyForAnimationPath = ord("5")
             while arguments.read("-p",pathfile) :
                 apm = osgGA.AnimationPathManipulator(pathfile)
-                if apm || !apm.valid() :
+                if apm  or   not apm.valid() :
                     num = keyswitchManipulator.getNumMatrixManipulators()
                     keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                     ++keyForAnimationPath
 
             keyswitchManipulator.selectMatrixManipulator(num)
 
-            viewer.setCameraManipulator( keyswitchManipulator.get() )
+            viewer.setCameraManipulator( keyswitchManipulator )
 
         # add the handler for doing the picking
-        viewer.addEventHandler(PickHandler(updateText.get()))
+        viewer.addEventHandler(PickHandler(updateText))
 
         # set the scene to render
-        viewer.setSceneData(group.get())
+        viewer.setSceneData(group)
 
         return viewer.run()
 

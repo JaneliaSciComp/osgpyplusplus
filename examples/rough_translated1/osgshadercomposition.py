@@ -40,7 +40,7 @@ def createSceneGraph(arguments):
 
     
     node = osgDB.readNodeFiles(arguments)
-    if !node : return 0
+    if  not node : return 0
 
     group = osg.Group()
     spacing = node.getBound().radius() * 2.0
@@ -154,17 +154,17 @@ def createSceneGraph(arguments):
 
     return group
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     viewer = osgViewer.Viewer(arguments)
 
     scenegraph = createSceneGraph(arguments)
-    if !scenegraph : return 1
+    if  not scenegraph : return 1
 
-    viewer.setSceneData(scenegraph.get())
+    viewer.setSceneData(scenegraph)
 
     viewer.realize()
 
@@ -172,7 +172,7 @@ def main(argc, argv):
     windows = osgViewer.Viewer.Windows()
     viewer.getWindows(windows)
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-        itr != windows.end()
+        not = windows.end()
         ++itr)
         (*itr).getState().setShaderCompositionEnabled(True)
 

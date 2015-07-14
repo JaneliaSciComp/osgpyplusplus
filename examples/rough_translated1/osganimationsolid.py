@@ -57,7 +57,7 @@ def createAxis():
     vertices.push_back (osg.Vec3 ( 0.0, 10.0, 0.0))
     vertices.push_back (osg.Vec3 ( 0.0, 0.0, 0.0))
     vertices.push_back (osg.Vec3 ( 0.0, 0.0, 10.0))
-    geometry.setVertexArray (vertices.get())
+    geometry.setVertexArray (vertices)
 
     colors = osg.Vec4Array(osg.Vec4Array())
     colors.push_back (osg.Vec4 (1.0, 0.0, 0.0, 1.0))
@@ -66,16 +66,16 @@ def createAxis():
     colors.push_back (osg.Vec4 (0.0, 1.0, 0.0, 1.0))
     colors.push_back (osg.Vec4 (0.0, 0.0, 1.0, 1.0))
     colors.push_back (osg.Vec4 (0.0, 0.0, 1.0, 1.0))
-    geometry.setColorArray (colors.get(), osg.Array.BIND_PER_VERTEX)
+    geometry.setColorArray (colors, osg.Array.BIND_PER_VERTEX)
     geometry.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINES,0,6))
 
-    geode.addDrawable( geometry.get() )
+    geode.addDrawable( geometry )
     geode.getOrCreateStateSet().setMode(GL_LIGHTING, False)
     return geode
 
 
 int main (int argc, char* argv[])
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
@@ -104,10 +104,10 @@ int main (int argc, char* argv[])
     #initialize MatrixTranform
     trans.setMatrix(osg.Matrix.identity())
     #append geometry node
-    trans.addChild (geode.get())
+    trans.addChild (geode)
 
-    root.addChild (axe.get())
-    root.addChild (trans.get())
+    root.addChild (axe)
+    root.addChild (trans)
 
     # Define a scheduler for our animations
     grp = osg.Group()

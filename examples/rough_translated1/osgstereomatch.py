@@ -87,7 +87,7 @@ def createScene(left, right, min_disp, max_disp, window_size, single_pass):
 	# 0 1
 	int xoff, zoff
 	xoff = (i%2)
-	zoff = i>1 ? 1 : 0
+	zoff =  1 if (i>1) else  0
 
 	# initial viewer camera looks along y
 	vcoords.push_back(osg.Vec3d(0+(xoff * width), 0, 0+(zoff * height)))
@@ -95,10 +95,10 @@ def createScene(left, right, min_disp, max_disp, window_size, single_pass):
 	vcoords.push_back(osg.Vec3d(width+(xoff * width), 0, height+(zoff * height)))
 	vcoords.push_back(osg.Vec3d(0+(xoff * width), 0, height+(zoff * height)))
 
-	geom.setVertexArray(vcoords.get())
-	geom.setTexCoordArray(0,tcoords.get())
-	geom.addPrimitiveSet(da.get())
-	geom.setColorArray(colors.get(), osg.Array.BIND_OVERALL)
+	geom.setVertexArray(vcoords)
+	geom.setTexCoordArray(0,tcoords)
+	geom.addPrimitiveSet(da)
+	geom.setColorArray(colors, osg.Array.BIND_OVERALL)
 	geomss[i] = geom.getOrCreateStateSet()
 	geomss[i].setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
@@ -107,43 +107,43 @@ def createScene(left, right, min_disp, max_disp, window_size, single_pass):
 	texture[i].setFilter(osg.Texture.MIN_FILTER, osg.Texture.LINEAR)
 	texture[i].setFilter(osg.Texture.MAG_FILTER, osg.Texture.LINEAR)
 
-	geode.addDrawable(geom.get())
+	geode.addDrawable(geom)
 
     # attach the input images to the bottom textures of the view
     texture[0].setImage(left)
     texture[1].setImage(right)
-    geomss[0].setTextureAttributeAndModes(0, texture[0].get(), osg.StateAttribute.ON)
-    geomss[1].setTextureAttributeAndModes(0, texture[1].get(), osg.StateAttribute.ON)
+    geomss[0].setTextureAttributeAndModes(0, texture[0], osg.StateAttribute.ON)
+    geomss[1].setTextureAttributeAndModes(0, texture[1], osg.StateAttribute.ON)
 
-    topnode.addChild(geode.get())
+    topnode.addChild(geode)
 
     # create the processing passes
     if single_pass : 
-	stereopass = StereoPass(texture[0].get(), texture[1].get(),
+	stereopass = StereoPass(texture[0], texture[1],
 						width, height,
 						min_disp, max_disp, window_size)
 
-	topnode.addChild(stereopass.getRoot().get())
+	topnode.addChild(stereopass.getRoot())
 
 	# attach the output of the processing to the top left geom
 	geomss[2].setTextureAttributeAndModes(0,
-					       stereopass.getOutputTexture().get(),
+					       stereopass.getOutputTexture(),
 					       osg.StateAttribute.ON)
-     else : 
-	stereomp = StereoMultipass(texture[0].get(), texture[1].get(),
+     else:
+	stereomp = StereoMultipass(texture[0], texture[1],
 						width, height,
 						min_disp, max_disp, window_size)
-	topnode.addChild(stereomp.getRoot().get())
+	topnode.addChild(stereomp.getRoot())
 	# attach the output of the processing to the top left geom
 	geomss[2].setTextureAttributeAndModes(0,
-					       stereomp.getOutputTexture().get(),
+					       stereomp.getOutputTexture(),
 					       osg.StateAttribute.ON)
 
     return topnode
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates a stereo matching algorithm. It uses multiple render targets and multiple passes with texture ping-pong.")
@@ -157,7 +157,7 @@ int main(int argc, char *argv[])
     arguments.getApplicationUsage().addCommandLineOption("--single","Use a single pass instead on multiple passes.")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -179,7 +179,7 @@ int main(int argc, char *argv[])
     useSinglePass = False
     while arguments.read("--single") :  useSinglePass = True 
 
-    if leftName == "" || rightName=="" : 
+    if leftName == ""  or  rightName=="" : 
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -187,7 +187,7 @@ int main(int argc, char *argv[])
     leftIm = osgDB.readImageFile(leftName)
     rightIm = osgDB.readImageFile(rightName)
 
-    scene = createScene(leftIm.get(), rightIm.get(), minDisparity, maxDisparity, windowSize, useSinglePass)
+    scene = createScene(leftIm, rightIm, minDisparity, maxDisparity, windowSize, useSinglePass)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -241,9 +241,9 @@ SubtractPass.SubtractPass(osg.TextureRectangle *left_tex,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/stereomatch_subtract.frag")
 
@@ -273,23 +273,23 @@ osg.Group SubtractPass.createTexturedQuad()
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
-    _StateSet.setTextureAttributeAndModes(0, _InTextureLeft.get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(1, _InTextureRight.get(), osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(0, _InTextureLeft, osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(1, _InTextureRight, osg.StateAttribute.ON)
 
     _StateSet.addUniform(osg.Uniform("textureLeft", 0))
     _StateSet.addUniform(osg.Uniform("textureRight", 1))
     _StateSet.addUniform(osg.Uniform("start_disparity", _StartDisparity))
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -311,7 +311,7 @@ void SubtractPass.setupCamera()
 
     # attach the 4 textures
     for (int i=0 i<4 i++) 
-		_Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), _OutTexture[i].get())
+		_Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), _OutTexture[i])
 
 void SubtractPass.createOutputTextures()
     for (int i=0 i<4 i++) 
@@ -329,9 +329,9 @@ void SubtractPass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 #XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -361,9 +361,9 @@ AggregatePass.AggregatePass(osg.TextureRectangle *diff_tex0,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/stereomatch_aggregate.frag")
 
@@ -394,18 +394,18 @@ osg.Group AggregatePass.createTexturedQuad()
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
-    _StateSet.setTextureAttributeAndModes(0, _InTextureDifference[0].get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(1, _InTextureDifference[1].get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(2, _InTextureDifference[2].get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(3, _InTextureDifference[3].get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(4, _InTextureAggregate.get(), osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(0, _InTextureDifference[0], osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(1, _InTextureDifference[1], osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(2, _InTextureDifference[2], osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(3, _InTextureDifference[3], osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(4, _InTextureAggregate, osg.StateAttribute.ON)
 
     _StateSet.addUniform(osg.Uniform("textureDiff0", 0))
     _StateSet.addUniform(osg.Uniform("textureDiff1", 1))
@@ -415,9 +415,9 @@ osg.Group AggregatePass.createTexturedQuad()
     _StateSet.addUniform(osg.Uniform("start_disparity", _StartDisparity))
     _StateSet.addUniform(osg.Uniform("window_size", _WindowSize))
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -437,7 +437,7 @@ void AggregatePass.setupCamera()
     _Camera.setRenderOrder(osg.Camera.PRE_RENDER)
     _Camera.setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT)
 
-    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture.get())
+    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture)
 
 void AggregatePass.setShader(str filename)
     fshader = osg.Shader( osg.Shader.FRAGMENT )
@@ -446,9 +446,9 @@ void AggregatePass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -466,9 +466,9 @@ SelectPass.SelectPass(osg.TextureRectangle *in_tex,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/stereomatch_select.frag")
 
@@ -498,22 +498,22 @@ osg.Group SelectPass.createTexturedQuad()
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
-    _StateSet.setTextureAttributeAndModes(0, _InTexture.get(), osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(0, _InTexture, osg.StateAttribute.ON)
 
     _StateSet.addUniform(osg.Uniform("textureIn", 0))
     _StateSet.addUniform(osg.Uniform("min_disparity", _MinDisparity))
     _StateSet.addUniform(osg.Uniform("max_disparity", _MaxDisparity))
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -533,7 +533,7 @@ void SelectPass.setupCamera()
     _Camera.setRenderOrder(osg.Camera.PRE_RENDER)
     _Camera.setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT)
 
-	_Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture.get())
+	_Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture)
 
 void SelectPass.createOutputTextures()
     _OutTexture = osg.TextureRectangle()
@@ -550,9 +550,9 @@ void SelectPass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 # XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
@@ -568,9 +568,9 @@ StereoMultipass.StereoMultipass(osg.TextureRectangle *left_tex,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/stereomatch_clear.frag")
 
@@ -583,24 +583,24 @@ StereoMultipass.StereoMultipass(osg.TextureRectangle *left_tex,
 		subp = SubtractPass(left_tex, right_tex,
 											  width, height,
 											  i)
-		aggp = AggregatePass(subp.getOutputTexture(0).get(),
-												subp.getOutputTexture(1).get(),
-												subp.getOutputTexture(2).get(),
-												subp.getOutputTexture(3).get(),
-												_OutTexture[flip].get(),
-												_OutTexture[flop].get(),
+		aggp = AggregatePass(subp.getOutputTexture(0),
+												subp.getOutputTexture(1),
+												subp.getOutputTexture(2),
+												subp.getOutputTexture(3),
+												_OutTexture[flip],
+												_OutTexture[flop],
 												width, height,
 												i, window_size)
 
-		_RootGroup.addChild(subp.getRoot().get())
-		_RootGroup.addChild(aggp.getRoot().get())
-		flip = flip ? 0 : 1
-		flop = flop ? 0 : 1
+		_RootGroup.addChild(subp.getRoot())
+		_RootGroup.addChild(aggp.getRoot())
+		flip =  0 if (flip) else  1
+		flop =  0 if (flop) else  1
     # add select pass
-    _SelectPass = SelectPass(_OutTexture[flip].get(),
+    _SelectPass = SelectPass(_OutTexture[flip],
 								 width, height,
 								 min_disparity, max_disparity)
-    _RootGroup.addChild(_SelectPass.getRoot().get())
+    _RootGroup.addChild(_SelectPass.getRoot())
 
 StereoMultipass.~StereoMultipass()
 
@@ -628,17 +628,17 @@ osg.Group StereoMultipass.createTexturedQuad()
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -659,8 +659,8 @@ void StereoMultipass.setupCamera()
     _Camera.setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT)
 
 	# attach two textures for aggregating results
-    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture[0].get())
-    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+1), _OutTexture[1].get())
+    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+0), _OutTexture[0])
+    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+1), _OutTexture[1])
 
 void StereoMultipass.createOutputTextures()
     for (int i=0 i<2 i++) 
@@ -685,9 +685,9 @@ void StereoMultipass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 
 # Translated from file 'StereoMultipass.h'
@@ -820,7 +820,7 @@ class StereoMultipass :
     def getRoot():
          return _RootGroup 
     def getOutputTexture():
-         return _SelectPass.getOutputTexture().get() 
+         return _SelectPass.getOutputTexture() 
     setShader = void(str filename)
     createTexturedQuad = osg.Group()
     createOutputTextures = void()
@@ -887,9 +887,9 @@ StereoPass.StereoPass(osg.TextureRectangle *left_tex,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/stereomatch_stereopass.frag")
 
@@ -916,14 +916,14 @@ osg.Group StereoPass.createTexturedQuad()
     quad_geom = osg.Geometry()
     quad_da = osg.DrawArrays(osg.PrimitiveSet.QUADS,0,4)
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
     
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
-    _StateSet.setTextureAttributeAndModes(0, _InTextureLeft.get(), osg.StateAttribute.ON)
-    _StateSet.setTextureAttributeAndModes(1, _InTextureRight.get(), osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(0, _InTextureLeft, osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(1, _InTextureRight, osg.StateAttribute.ON)
 
     _StateSet.addUniform(osg.Uniform("textureID0", 0))
     _StateSet.addUniform(osg.Uniform("textureID1", 1))
@@ -931,9 +931,9 @@ osg.Group StereoPass.createTexturedQuad()
     _StateSet.addUniform(osg.Uniform("max_disparity", _MaxDisparity))
     _StateSet.addUniform(osg.Uniform("window_size", _WindowSize))
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
     
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -954,7 +954,7 @@ void StereoPass.setupCamera()
     _Camera.setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT)
 
 	# attach the output texture and use it as the color buffer.
-	_Camera.attach(osg.Camera.COLOR_BUFFER, _OutTexture.get())
+	_Camera.attach(osg.Camera.COLOR_BUFFER, _OutTexture)
 
 void StereoPass.createOutputTextures()
     _OutTexture = osg.TextureRectangle()
@@ -971,9 +971,9 @@ void StereoPass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 # Translated from file 'StereoPass.h'
 

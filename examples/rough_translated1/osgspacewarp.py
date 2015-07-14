@@ -53,7 +53,7 @@ DrawCallback():
         
         state = *renderInfo.getState()
 
-        if !_firstTime :
+        if  not _firstTime :
             _previousModelViewMatrix = _currentModelViewMatrix
             _currentModelViewMatrix = state.getModelViewMatrix()
             _inverseModelViewMatrix.invert(_currentModelViewMatrix)
@@ -64,7 +64,7 @@ DrawCallback():
             vertices = dynamic_cast<osg.Vec3Array*>(geometry.getVertexArray())
             for(unsigned int i=0i+1<vertices.size()i+=2)
                 (*vertices)[i+1] = (*vertices)[i]*T
-        else :
+        else:
             _currentModelViewMatrix = state.getModelViewMatrix()
 
         _firstTime = False

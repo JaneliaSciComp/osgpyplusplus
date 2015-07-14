@@ -126,12 +126,12 @@ def createTextureQuad(texture):
     return geode
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().addCommandLineOption("--fbo","Use Frame Buffer Object for render to texture, where supported.")
     arguments.getApplicationUsage().addCommandLineOption("--pbuffer-rtt","Use Pixel Buffer for render to texture, where supported.")
@@ -146,7 +146,7 @@ def main(argc, argv):
     viewer.addEventHandler( osgViewer.StatsHandler() )
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -187,7 +187,7 @@ def main(argc, argv):
 
     if usePDS :
         rttCamera.attach(osg.Camera.PACKED_DEPTH_STENCIL_BUFFER, GL_DEPTH_STENCIL_EXT)
-    else :
+    else:
         # this doesn't work on NVIDIA/Vista 64bit
         # FBO status = 0x8cd6 (FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT)
         rttCamera.attach(osg.Camera.DEPTH_BUFFER, GL_DEPTH_COMPONENT)
@@ -201,7 +201,7 @@ def main(argc, argv):
     g0.addChild(createMask())
     g0.addChild(createGeometry())
     rttCamera.addChild(g0)
-    rootNode.addChild(rttCamera.get())
+    rootNode.addChild(rttCamera)
 
     # creates textured quad with result
     rootNode.addChild(createTextureQuad(texture))

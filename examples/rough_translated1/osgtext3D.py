@@ -50,11 +50,11 @@ from osgpypp import osgViewer
 #include "TextNode.h"
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     viewer = osgViewer.Viewer(arguments)
 
@@ -62,8 +62,8 @@ def main(argc, argv):
     while arguments.read("-f",fontFile) : 
 
     font = osgText.readFontFile(fontFile)
-    if !font : return 1
-    OSG_NOTICE, "Read font ", fontFile, " font=", font.get()
+    if  not font : return 1
+    OSG_NOTICE, "Read font ", fontFile, " font=", font
 
     word = str("This is a test.")()
     while arguments.read("-w",word) : 
@@ -83,7 +83,7 @@ def main(argc, argv):
     while arguments.read("--flat") :  bevel = osgText.Bevel() bevel.flatBevel(0.25) 
     while arguments.read("--bevel-thickness",r) :  if bevel.valid() : bevel.setBevelThickness(r) 
 
-    style.setBevel(bevel.get())
+    style.setBevel(bevel)
 
     # set up outline.
     while arguments.read("--outline",r) :  style.setOutlineRatio(r) 
@@ -100,7 +100,7 @@ def main(argc, argv):
 
     if arguments.read("--2d") :
         text2D = osgText.Text()
-        text2D.setFont(font.get())
+        text2D.setFont(font)
         text2D.setCharacterSize(characterSize)
         text2D.setFontResolution(256,256)
         text2D.setDrawMode(osgText.Text.TEXT | osgText.Text.BOUNDINGBOX)
@@ -113,17 +113,17 @@ def main(argc, argv):
     if arguments.read("--TextNode") :
         # experimental text node
         text = osgText.TextNode()
-        text.setFont(font.get())
-        text.setStyle(style.get())
+        text.setFont(font)
+        text.setStyle(style)
         text.setTextTechnique(osgText.TextTechnique)()
         text.setText(word)
         text.update()
 
         group.addChild(text)
-    elif !arguments.read("--no-3d") :
+    elif  not arguments.read("--no-3d") :
         text3D = osgText.Text3D()
-        text3D.setFont(font.get())
-        text3D.setStyle(style.get())
+        text3D.setFont(font)
+        text3D.setStyle(style)
         text3D.setCharacterSize(characterSize)
         text3D.setDrawMode(osgText.Text3D.TEXT | osgText.Text3D.BOUNDINGBOX)
         text3D.setAxisAlignment(osgText.Text3D.XZ_PLANE)
@@ -145,7 +145,7 @@ def main(argc, argv):
             if image.valid() :
                 OSG_NOTICE, "  loaded image ", imageFilename
                 stateset = text3D.getOrCreateStateSet()
-                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image.get()), osg.StateAttribute.ON)
+                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image), osg.StateAttribute.ON)
 
         while arguments.read("--wall-color",color.r(),color.g(),color.b(),color.a()) :
             stateset = text3D.getOrCreateWallStateSet()
@@ -157,7 +157,7 @@ def main(argc, argv):
             image = osgDB.readImageFile(imageFilename)
             if image.valid() :
                 stateset = text3D.getOrCreateWallStateSet()
-                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image.get()), osg.StateAttribute.ON)
+                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image), osg.StateAttribute.ON)
 
         while arguments.read("--back-color",color.r(),color.g(),color.b(),color.a()) :
             stateset = text3D.getOrCreateBackStateSet()
@@ -169,13 +169,13 @@ def main(argc, argv):
             image = osgDB.readImageFile(imageFilename)
             if image.valid() :
                 stateset = text3D.getOrCreateBackStateSet()
-                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image.get()), osg.StateAttribute.ON)
+                stateset.setTextureAttributeAndModes(0, osg.Texture2D(image), osg.StateAttribute.ON)
 
         if arguments.read("--size-quad") :
             geode.addDrawable( osg.createTexturedQuadGeometry(osg.Vec3(0.0,characterSize*thickness,0.0),osg.Vec3(characterSize,0.0,0.0),osg.Vec3(0.0,0.0,characterSize), 0.0, 0.0, 1.0, 1.0) )
 
     
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
 #endif
 
@@ -270,12 +270,12 @@ def create3DText(center, radius):
     style = osgText.Style()
     bevel = osgText.Bevel()
     bevel.roundedBevel2(0.25)
-    style.setBevel(bevel.get())
+    style.setBevel(bevel)
     style.setWidthRatio(0.4)
 
     text7 = osgText.Text3D()
     text7.setFont("fonts/times.ttf")
-    text7.setStyle(style.get())
+    text7.setStyle(style)
     text7.setCharacterSize(characterSize)
     text7.setCharacterDepth(characterSize*0.2)
     text7.setPosition(center - osg.Vec3(0.0, 0.0, 0.6))
@@ -370,7 +370,7 @@ def test_create3DText(center, radius):
     text3.setAxisAlignment(osgText.Text3D.XZ_PLANE)
     text3.setText("CRAS H") #intersection crash
     geode.addDrawable(text3)
-#else :
+#else:
     text7 = osgText.Text3D()
     text7.setFont("fonts/times.ttf")
     text7.setCharacterSize(characterSize)
@@ -397,7 +397,7 @@ def test_create3DText(center, radius):
     front.setAmbient(osg.Material.FRONT_AND_BACK,osg.Vec4(0.2,0.2,0.2,1.0))
     front.setDiffuse(osg.Material.FRONT_AND_BACK,osg.Vec4(.0,.0,1.0,1.0))
     rootNode.getOrCreateStateSet().setAttributeAndModes(front)
-#else :
+#else:
     stateset = osg.StateSet() #Show wireframe
     polymode = osg.PolygonMode()
     polymode.setMode(osg.PolygonMode.FRONT_AND_BACK,osg.PolygonMode.LINE)
@@ -417,7 +417,7 @@ class CInputHandler (osgGA.GUIEventHandler) :
   def handle(ea, aa, pObject, pNodeVisitor):
       
     pViewer = dynamic_cast<osgViewer.Viewer*>(aa)
-    if  !pViewer  :
+    if   not pViewer  :
       return False
 
     if  ea.getEventType()==osgGA.GUIEventAdapter.PUSH  :
@@ -447,14 +447,14 @@ int main_test(int, char**)
     viewer.setUpViewInWindow(99,99,666,666, 0)
     rPat = osg.PositionAttitudeTransform()
     # add the handler to the viewer
-    viewer.addEventHandler( CInputHandler(rPat.get()) )
+    viewer.addEventHandler( CInputHandler(rPat) )
     # create a group to contain our scene and sphere
     pGroup = osg.Group()
     # create sphere
     pGeodeSphere = osg.Geode()
     pGeodeSphere.addDrawable( osg.ShapeDrawable( osg.Sphere(osg.Vec3(0.0,0.0,0.0),0.01) ) )
     rPat.addChild( pGeodeSphere )
-    pGroup.addChild( rPat.get() )
+    pGroup.addChild( rPat )
 
     center = osg.Vec3(0.0,0.0,0.0)
     radius = 1.0
@@ -526,7 +526,7 @@ void Layout.layout(TextNode text)
     technique = text.getTextTechnique()
     str = text.getText()
 
-    if !text.getTextTechnique() :
+    if  not text.getTextTechnique() :
         OSG_NOTICE, "Warning: no TextTechnique assigned to Layout"
         return
 
@@ -545,8 +545,8 @@ void Layout.layout(TextNode text)
 
     characterWidthScale = 1.0
 
-    textIs3D = (style  style.getThicknessRatio()!=0.0)
-    if !textIs3D :
+    textIs3D = (style  and  style.getThicknessRatio() not =0.0)
+    if  not textIs3D :
         characterWidthScale = 1.0/static_cast<float>(resolution.first)
 
     kerningType = osgText.KERNING_DEFAULT
@@ -562,7 +562,7 @@ void Layout.layout(TextNode text)
             if glyph :
                 technique.addCharacter(pos, size, glyph, style)
                 pos += osg.Vec3(size.x()*(glyph.getHorizontalAdvance()*characterWidthScale), 0.0 ,0.0)
-        else :
+        else:
             glyph = font.getGlyph3D(charcode)
             OSG_NOTICE, "pos = ", pos, ", charcode=", charcode, ", glyph=", glyph
             if glyph :
@@ -570,7 +570,7 @@ void Layout.layout(TextNode text)
                 technique.addCharacter(pos, local_scale, glyph, style)
                 pos += osg.Vec3(size.x()*glyph.getWidth(), 0.0 ,0.0)
 
-        if previousCharcode!=0  charcode!=0 :
+        if previousCharcode not =0  and  charcode not =0 :
             offset = font.getKerning(previousCharcode, charcode, kerningType)
             OSG_NOTICE, "  offset = ", offset
             pos.x() += offset.x()
@@ -616,8 +616,8 @@ void TextTechnique.addCharacter( osg.Vec3 position,  osg.Vec3 size, Glyph3D* gly
 
     geode = osg.Geode()
 
-    bevel = style ? style.getBevel() : 0
-    outline = style ? style.getOutlineRatio()>0.0 : False
+    bevel =  style.getBevel() if (style) else  0
+    outline =  style.getOutlineRatio()>0.0 if (style) else  False
     width = style.getThicknessRatio()
     creaseAngle = 30.0
     smooth = True
@@ -626,25 +626,25 @@ void TextTechnique.addCharacter( osg.Vec3 position,  osg.Vec3 size, Glyph3D* gly
         thickness = bevel.getBevelThickness()
 
         glyphGeometry = osgText.computeGlyphGeometry(glyph, thickness, width)
-        textGeometry = osgText.computeTextGeometry(glyphGeometry.get(), *bevel, width)
-        shellGeometry = outline ? osgText.computeShellGeometry(glyphGeometry.get(), *bevel, width) : 0
-        if textGeometry.valid() : geode.addDrawable(textGeometry.get())
-        if shellGeometry.valid() : geode.addDrawable(shellGeometry.get())
+        textGeometry = osgText.computeTextGeometry(glyphGeometry, *bevel, width)
+        shellGeometry =  osgText.computeShellGeometry(glyphGeometry, *bevel, width) if (outline) else  0
+        if textGeometry.valid() : geode.addDrawable(textGeometry)
+        if shellGeometry.valid() : geode.addDrawable(shellGeometry)
 
         # create the normals
-        if smooth  textGeometry.valid() :
+        if smooth  and  textGeometry.valid() :
             osgUtil.SmoothingVisitor.smooth(*textGeometry, osg.DegreesToRadians(creaseAngle))
-    else :
+    else:
         textGeometry = osgText.computeTextGeometry(glyph, width)
-        if textGeometry.valid() : geode.addDrawable(textGeometry.get())
+        if textGeometry.valid() : geode.addDrawable(textGeometry)
 
         # create the normals
-        if smooth  textGeometry.valid() :
+        if smooth  and  textGeometry.valid() :
             osgUtil.SmoothingVisitor.smooth(*textGeometry, osg.DegreesToRadians(creaseAngle))
 
-    transform.addChild(geode.get())
+    transform.addChild(geode)
 
-    _textNode.addChild(transform.get())
+    _textNode.addChild(transform)
 
     transform.getOrCreateStateSet().setMode(GL_NORMALIZE, osg.StateAttribute.ON)
 
@@ -673,7 +673,7 @@ TextNode.~TextNode()
 void TextNode.traverse(osg.NodeVisitor nv)
     if _technique.valid() :
         _technique.traverse(nv)
-    else :
+    else:
         Group.traverse(nv)
 
 void TextNode.setTextTechnique(TextTechnique* technique)
@@ -795,41 +795,41 @@ class #OSGTEXT_EXPORT TextNode : public osg.Group
 
              _font = font 
         def getFont():
-             return _font.get() 
+             return _font 
         def getFont():
-             return _font.get() 
+             return _font 
         def getActiveFont():
-             return _font.valid() ? _font.get() : Font.getDefaultFont().get() 
+             return  _font : Font: if (_font.valid()) else getDefaultFont() 
         def getActiveFont():
-             return _font.valid() ? _font.get() : Font.getDefaultFont().get() 
+             return  _font : Font: if (_font.valid()) else getDefaultFont() 
 
         def setStyle(style):
 
              _style = style 
         def getStyle():
-             return _style.get() 
+             return _style 
         def getStyle():
-             return _style.get() 
+             return _style 
         def getActiveStyle():
-             return _style.valid() ? _style.get() : Style.getDefaultStyle().get() 
+             return  _style : Style: if (_style.valid()) else getDefaultStyle() 
         def getActiveStyle():
-             return _style.valid() ? _style.get() : Style.getDefaultStyle().get() 
+             return  _style : Style: if (_style.valid()) else getDefaultStyle() 
 
         def setLayout(layout):
 
              _layout = layout 
         def getLayout():
-             return _layout.get() 
+             return _layout 
         def getLayout():
-             return _layout.get() 
+             return _layout 
         def getActiveLayout():
-             return _layout.valid() ? _layout.get() : Layout.getDefaultLayout().get() 
+             return  _layout : Layout: if (_layout.valid()) else getDefaultLayout() 
 
         setTextTechnique = void(TextTechnique* technique)
         def getTextTechnique():
-             return _technique.get() 
+             return _technique 
         def getTextTechnique():
-             return _technique.get() 
+             return _technique 
 
         setText = void( str str)
         def setText(str):

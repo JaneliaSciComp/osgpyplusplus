@@ -50,7 +50,7 @@ from osgpypp import osgWidget
 #include <QtGlobal>
 #if QT_VERSION >= 0x050000
 # include <QtWebKitWidgets>
-#else :
+#else:
 # include <QtWebKit>
 #endif
 
@@ -96,7 +96,7 @@ class ViewerFrameThread (OpenThreads.Thread) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
@@ -104,7 +104,7 @@ def main(argc, argv):
     app = QApplication(argc, argv)
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     useFrameLoopThread = False
     if arguments.read("--no-frame-thread") : useFrameLoopThread = False
@@ -113,7 +113,7 @@ def main(argc, argv):
     image = osgQt.QWebViewImage()
 
     if arguments.argc()>1 : image.navigateTo((arguments[1]))
-    else : image.navigateTo("http:#www.youtube.com/")
+    else image.navigateTo("http:#www.youtube.com/")
 
     hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
                                    osg.Vec3(1.0,0.0,0.0),
@@ -123,27 +123,27 @@ def main(argc, argv):
 
 
     browser = osgWidget.Browser()
-    browser.assign(image.get(), hints)
+    browser.assign(image, hints)
 
     # image.focusBrowser(True)
 
     viewer = osgViewer.Viewer(arguments)
-    viewer.setSceneData(browser.get())
+    viewer.setSceneData(browser)
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
     viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.addEventHandler(osgViewer.WindowSizeHandler)()
 
     if useFrameLoopThread :
         # create a thread to run the viewer's frame loop
-        viewerThread = ViewerFrameThread(viewer.get(), True)
+        viewerThread = ViewerFrameThread(viewer, True)
         viewerThread.startThread()
 
         # now start the standard Qt event loop, then exists when the viewerThead sends the QApplication.exit() signal.
         return QApplication.exec()
 
-    else :
+    else:
         # run the frame loop, interleaving Qt and the main OSG frame loop
-        while !viewer.done() :
+        while  not viewer.done() :
             # process Qt events - this handles both events and paints the browser image
             QCoreApplication.processEvents(QEventLoop.AllEvents, 100)
 

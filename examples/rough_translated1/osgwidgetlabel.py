@@ -52,7 +52,7 @@ def createLabel(l, size):
 
     return label
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

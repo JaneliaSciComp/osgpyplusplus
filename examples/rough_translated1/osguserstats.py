@@ -97,7 +97,7 @@ def updateUserStats(viewer):
     
     # Test the custom stats line by just adding up the update and cull 
     # times for the viewer main camera for the previous frame.
-    if viewer.getViewerStats().collectStats("update")  viewer.getCamera().getStats().collectStats("rendering") :
+    if viewer.getViewerStats().collectStats("update")  and  viewer.getCamera().getStats().collectStats("rendering") :
         # First get the frame number. The code below assumes that 
         # updateUserStats() is called after advance(), so the frame number
         # that will be returned is for the frame that has just started and is
@@ -201,7 +201,7 @@ class UselessThread (OpenThreads.Thread) :
     def run():
 
         
-        while !_done :
+        while  not _done :
             if _process :
                 startTiming(_viewer, otherThreadTimeName)
 
@@ -218,7 +218,7 @@ class UselessThread (OpenThreads.Thread) :
                 endTiming(_viewer, otherThreadTimeName)
 
                 _process = False
-            else :
+            else:
                 OpenThreads.Thread.microSleep(50)
 
     def cancel():
@@ -238,12 +238,12 @@ class UselessThread (OpenThreads.Thread) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the standard OpenSceneGraph example which loads and visualises 3d models.")
@@ -270,7 +270,7 @@ def main(argc, argv):
 
     str url, username, password
     while arguments.read("--login",url, username, password) :
-        if !osgDB.Registry.instance().getAuthenticationMap() :
+        if  not osgDB.Registry.instance().getAuthenticationMap() :
             osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
             osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(
                 url,
@@ -299,7 +299,7 @@ def main(argc, argv):
 
     # load the data
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -314,9 +314,9 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
-    viewer.setSceneData( loadedModel.get() )
+    viewer.setSceneData( loadedModel )
 
     viewer.realize()
 
@@ -325,7 +325,7 @@ def main(argc, argv):
     thread = UselessThread(viewer, 6.0)
     thread.start()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.advance()
 
         updateUserStats(viewer)

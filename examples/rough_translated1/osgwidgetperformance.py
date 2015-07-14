@@ -82,10 +82,10 @@ def doApp(viewer, node, width, height):
 
     return osgWidget.createExample(viewer, wm)
 
-def main(argc, argv):
+def main(argv):
 
     
-    args = osg.ArgumentParser(argc, argv)
+    args = osg.ArgumentParser(argv)
 
     setupArguments(args)
 
@@ -119,11 +119,11 @@ def main(argc, argv):
 
     if args.argc() >= 2 : numWidgets = std.atoi(args[1])
 
-    else : return doError("Please specify the number of Widgets to use.")
+    else return doError("Please specify the number of Widgets to use.")
 
     if numWidgets <= 0 : return doError("Please specify one or more Widgets to use.")
 
-    if !singleWindow  !multiWindow : return doError(
+    if  not singleWindow  and   not multiWindow : return doError(
         "Please specify one of --single-window or --multi-window."
     )
 
@@ -164,7 +164,7 @@ def main(argc, argv):
 
         doApp = return(viewer, canvas, width, height)
 
-    doError = else :("Not supported yet.")
+    doError = else("Not supported yet.")
 
     return 1
 

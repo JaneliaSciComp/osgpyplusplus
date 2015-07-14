@@ -25,7 +25,7 @@ MASK_2D = 0xF0000000
 # dynamically added to. Secondly, a table is matrix Layout, with both vertical and
 # horizontal placement cells. A Box, on the other hand, can only be vertical or horizontal.
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()
@@ -60,7 +60,7 @@ def main(argc, argv):
     table.attachMoveCallback()
 
     # Use a hackish method of setting the spacing for all Widgets.
-    for(osgWidget.Table.Iterator i = table.begin() i != table.end() i++)
+    for(osgWidget.Table.Iterator i = table.begin() i  not = table.end() i++)
         i.setPadding(1.0)
     
 

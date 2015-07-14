@@ -361,7 +361,7 @@ osg.Geode* SolarSystem.createSpace(  str name,  str textureName )
 
     sSpaceSphere = osg.ShapeDrawable( spaceSphere )
 
-    if  !textureName.empty()  :
+    if   not textureName.empty()  :
         image = osgDB.readImageFile( textureName )
         if  image  :
             sSpaceSphere.getOrCreateStateSet().setTextureAttributeAndModes( 0, osg.Texture2D( image ), osg.StateAttribute.ON )
@@ -447,7 +447,7 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
     geodePlanet = osg.Geode()
     geodePlanet.setName( name )
 
-    if  !textureName.empty()  :
+    if   not textureName.empty()  :
         image = osgDB.readImageFile( textureName )
         if  image  :
             tex2d = osg.Texture2D( image )
@@ -468,7 +468,7 @@ osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,
 osg.Geode* SolarSystem.createPlanet( double radius,  str name,  osg.Vec4 color ,  str textureName1,  str textureName2)
     geodePlanet = createPlanet( radius, name, color , textureName1)
 
-    if  !textureName2.empty()  :
+    if   not textureName2.empty()  :
         image = osgDB.readImageFile( textureName2 )
         if  image  :
             stateset = geodePlanet.getOrCreateStateSet()
@@ -555,12 +555,12 @@ void SolarSystem.printParameters()
     print "radiusFactor(", _radiusFactor, ")"
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of osg.AnimationPath and UpdateCallbacks for adding animation to your scenes.")
@@ -572,7 +572,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
-    viewer.setCameraManipulator( keyswitchManipulator.get() )
+    viewer.setCameraManipulator( keyswitchManipulator )
 
     solarSystem = SolarSystem()
 
@@ -616,7 +616,7 @@ def main(argc, argv):
         if mode=="NODE_CENTER_AND_ROTATION" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
         elif mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
         elif mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
-        else :
+        else:
             print "Unrecognized --tracker-mode option ", mode, ", valid options are:"
             print "    NODE_CENTER_AND_ROTATION"
             print "    NODE_CENTER_AND_AZIM"
@@ -628,7 +628,7 @@ def main(argc, argv):
     while arguments.read("--rotation-mode",mode) :
         if mode=="TRACKBALL" : rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
         elif mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
-        else :
+        else:
             print "Unrecognized --rotation-mode option ", mode, ", valid options are:"
             print "    TRACKBALL"
             print "    ELEVATION_AZIM"
@@ -638,7 +638,7 @@ def main(argc, argv):
     # solarSystem.printParameters()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         print "setup the following arguments: "
         print "\t--radiusSpace: double"
         print "\t--radiusSun: double"
@@ -852,7 +852,7 @@ def main(argc, argv):
 #    root.addChild( space )
 #
 
-    if !writeFileName.empty() :
+    if  not writeFileName.empty() :
         osgDB.writeNodeFile(*root, writeFileName)
         print "Written solar system to \"", writeFileName, "\""
         return 0
@@ -870,43 +870,43 @@ def main(argc, argv):
         fnnv = FindNamedNodeVisitor("Moon")
         root.accept(fnnv)
 
-        if !fnnv._foundNodes.empty() :
+        if  not fnnv._foundNodes.empty() :
             # set up the node tracker.
             tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
-            tm.setTrackNode( fnnv._foundNodes.front().get() )
+            tm.setTrackNode( fnnv._foundNodes.front() )
 
             num = keyswitchManipulator.getNumMatrixManipulators()
-            keyswitchManipulator.addMatrixManipulator( 'm', "moon", tm )
+            keyswitchManipulator.addMatrixManipulator( ord("m"), "moon", tm )
             keyswitchManipulator.selectMatrixManipulator( num )
 
         fnnv = FindNamedNodeVisitor("Earth")
         root.accept(fnnv)
 
-        if !fnnv._foundNodes.empty() :
+        if  not fnnv._foundNodes.empty() :
             # set up the node tracker.
             tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
-            tm.setTrackNode( fnnv._foundNodes.front().get() )
+            tm.setTrackNode( fnnv._foundNodes.front() )
 
             num = keyswitchManipulator.getNumMatrixManipulators()
-            keyswitchManipulator.addMatrixManipulator( 'e', "earth", tm)
+            keyswitchManipulator.addMatrixManipulator( ord("e"), "earth", tm)
             keyswitchManipulator.selectMatrixManipulator( num )
 
         fnnv = FindNamedNodeVisitor("Sun")
         root.accept(fnnv)
 
-        if !fnnv._foundNodes.empty() :
+        if  not fnnv._foundNodes.empty() :
             # set up the node tracker.
             tm = osgGA.NodeTrackerManipulator()
             tm.setTrackerMode( trackerMode )
             tm.setRotationMode( rotationMode )
-            tm.setTrackNode( fnnv._foundNodes.front().get() )
+            tm.setTrackNode( fnnv._foundNodes.front() )
 
             num = keyswitchManipulator.getNumMatrixManipulators()
-            keyswitchManipulator.addMatrixManipulator( 's', "sun", tm)
+            keyswitchManipulator.addMatrixManipulator( ord("s"), "sun", tm)
             keyswitchManipulator.selectMatrixManipulator( num )
 
     return viewer.run()

@@ -78,28 +78,28 @@ _mainLoop = osgAnimation.ActionStripAnimation()
 
         list = _manager.getAnimationList()
         map = osgAnimation.AnimationMap()
-        for (osgAnimation.AnimationList.const_iterator it = list.begin() it != list.end() it++)
+        for (osgAnimation.AnimationList.const_iterator it = list.begin() it  not = list.end() it++)
             map[(*it).getName()] = *it
 
-        _mainLoop = osgAnimation.ActionStripAnimation(map["Idle_Main"].get(),0.0,0.0)
+        _mainLoop = osgAnimation.ActionStripAnimation(map["Idle_Main"],0.0,0.0)
         _mainLoop.setLoop(0) # means forever
 
-        _scratchHead = osgAnimation.ActionStripAnimation(map["Idle_Head_Scratch.02"].get(),0.2,0.3)
+        _scratchHead = osgAnimation.ActionStripAnimation(map["Idle_Head_Scratch.02"],0.2,0.3)
         _scratchHead.setLoop(1) # one time
 
         map["Idle_Nose_Scratch.01"].setDuration(10.0) # set this animation duration to 10 seconds
-        _scratchNose = osgAnimation.ActionStripAnimation(map["Idle_Nose_Scratch.01"].get(),0.2,0.3)
+        _scratchNose = osgAnimation.ActionStripAnimation(map["Idle_Nose_Scratch.01"],0.2,0.3)
         _scratchNose.setLoop(1) # one time
 
         # add the main loop at priority 0 at time 0.
         
         tml = _manager.getTimeline()
         tml.play()
-        tml.addActionAt(0.0, _mainLoop.get(), 0)
+        tml.addActionAt(0.0, _mainLoop, 0)
 
 
         # add a scratch head priority 1 at 3.0 second.
-        tml.addActionAt(5.0, _scratchHead.get(), 1)
+        tml.addActionAt(5.0, _scratchHead, 1)
 
         # populate time with scratch head
         for (int i = 1 i < 20 i++)
@@ -109,7 +109,7 @@ _mainLoop = osgAnimation.ActionStripAnimation()
             #      the only things you need to take care is if you remove it. It will remove
             #      all instance that exist on the timeline. If you need to differtiate
             #      it's better to create a instance
-            tml.addActionAt(5.0 + 10.0 * i, _scratchHead.get(), 1)
+            tml.addActionAt(5.0 + 10.0 * i, _scratchHead, 1)
 
         # we will add the scratch nose action only when the player hit a key
         # in the operator()
@@ -124,21 +124,21 @@ _mainLoop = osgAnimation.ActionStripAnimation()
         return False
 
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-        if nv  nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR :
+        if nv  and  nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR :
             if _releaseKey : # we hit a key and release it execute an action
                 tml = _manager.getTimeline()
                 # dont play if already playing
-                if !tml.isActive(_scratchNose.get()) :
+                if  not tml.isActive(_scratchNose) :
                     # add this animation on top of two other
-                    # we add one to evaluate the animation at the next frame, else : we
+                    # we add one to evaluate the animation at the next frame, else we
                     # will miss the current frame
-                    tml.addActionAt(tml.getCurrentFrame() + 1, _scratchNose.get(), 2)
+                    tml.addActionAt(tml.getCurrentFrame() + 1, _scratchNose, 2)
                 _releaseKey = False
-        else :
+        else:
             ev = dynamic_cast<osgGA.EventVisitor*>(nv)
-            if ev  ev.getActionAdapter()  !ev.getEvents().empty() :
+            if ev  and  ev.getActionAdapter()  and   not ev.getEvents().empty() :
                 for(osgGA.EventQueue.Events.iterator itr = ev.getEvents().begin()
-                    itr != ev.getEvents().end()
+                    not = ev.getEvents().end()
                     ++itr)
                     handleWithCheckAgainstIgnoreHandledEventsMask(*(*itr), *(ev.getActionAdapter()), node, nv)
         traverse(node, nv)
@@ -149,7 +149,7 @@ _mainLoop = osgAnimation.ActionStripAnimation()
 int main (int argc, char* argv[])
     std.cerr, "This example works only with nathan.osg"
 
-    psr = osg.ArgumentParser(argc, argv)
+    psr = osg.ArgumentParser(argv)
 
     viewer = osgViewer.Viewer(psr)
 
@@ -159,18 +159,18 @@ int main (int argc, char* argv[])
 
     # replace the manager
     root = dynamic_cast<osg.Group*>(osgDB.readNodeFile(file))
-    if !root : 
+    if  not root : 
         osg.notify(osg.FATAL), "can't read file ", file
         return 1
     animationManager = dynamic_cast<osgAnimation.AnimationManagerBase*>(root.getUpdateCallback())
-    if !animationManager : 
+    if  not animationManager : 
         osg.notify(osg.FATAL), "Did not find AnimationManagerBase updateCallback needed to animate elements"
         return 1
 
     tl = osgAnimation.TimelineAnimationManager(*animationManager)
-    root.setUpdateCallback(tl.get())
+    root.setUpdateCallback(tl)
     
-    callback = ExampleTimelineUsage(tl.get())
+    callback = ExampleTimelineUsage(tl)
     root.setEventCallback(callback)
     root.getUpdateCallback().addNestedCallback(callback)
         

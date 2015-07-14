@@ -190,7 +190,7 @@ void AddLabel( osg.Group * group,  str  label, float offset )
 ########################################
 def CreateAdvancedHierarchy(model):
     
-    if  !model  : return NULL
+    if   not model  : return NULL
     offset = model.getBound().radius() * 1.3 # diameter
 
     # Create transforms for translated instances of the model
@@ -369,7 +369,7 @@ char LightingVertexShaderSource[] =
 "           DirectionalLight(i, normal, amb, diff, spec)                   \n" #28
 "       elif gl_LightSource[i].spotCutoff == 180.0 :                     \n" #29
 "           PointLight(i, eye, position, normal, amb, diff, spec)          \n" #30
-"       else :                                                                \n" #31
+"       else                                                                \n" #31
 "           SpotLight(i, eye, position, normal, amb, diff, spec)           \n" #32
 "                                                                          \n" #33
 "                                                                           \n" #34
@@ -421,7 +421,7 @@ char SpotLightShaderSource[] =
 "                                                                           \n" #35
 "    if spotDot < gl_LightSource[i].spotCosCutoff :                         \n" #36
 "        spotAttenuation = 0.0 # light adds no contribution               \n" #37
-"    else :                                                                   \n" #38
+"    else                                                                   \n" #38
 "        spotAttenuation = pow(spotDot, gl_LightSource[i].spotExponent)    \n" #39
 "                                                                           \n" #40
 "    # Combine the spotlight and distance attenuation.                     \n" #41
@@ -434,7 +434,7 @@ char SpotLightShaderSource[] =
 "                                                                           \n" #48
 "    if nDotVP == 0.0 :                                                     \n" #49
 "        pf = 0.0                                                          \n" #50
-"    else :                                                                   \n" #51
+"    else                                                                   \n" #51
 "        pf = pow(nDotHV, gl_FrontMaterial.shininess)                      \n" #52
 "                                                                           \n" #53
 "    ambient  += gl_LightSource[i].ambient * attenuation                   \n" #54
@@ -480,7 +480,7 @@ char PointLightShaderSource[] =
 "                                                                           \n" #35
 "    if nDotVP == 0.0 :                                                     \n" #36
 "        pf = 0.0                                                          \n" #37
-"    else :                                                                   \n" #38
+"    else                                                                   \n" #38
 "        pf = pow(nDotHV, gl_FrontMaterial.shininess)                      \n" #39
 "                                                                           \n" #40
 "    ambient += gl_LightSource[i].ambient * attenuation                    \n" #41
@@ -506,7 +506,7 @@ char DirectionalLightShaderSource[] =
 "                                                                           \n" #15
 "     if nDotVP == 0.0 :                                                    \n" #16
 "         pf = 0.0                                                         \n" #17
-"     else :                                                                  \n" #18
+"     else                                                                  \n" #18
 "         pf = pow(nDotHV, gl_FrontMaterial.shininess)                     \n" #19
 "                                                                           \n" #20
 "     ambient  += gl_LightSource[i].ambient                                \n" #21
@@ -532,7 +532,7 @@ using osgCandidate.VirtualProgram
 ########################################
 def CreateSimpleHierarchy(node):
     
-    if  !node  : return NULL
+    if   not node  : return NULL
     r = node.getBound().radius() # diameter
     root = osg.Group()
     group = osg.Group()
@@ -681,15 +681,15 @@ osg.Node * CreateGlobe( void )
 
 #if 1
     shape = osg.ShapeDrawable
-        ( osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), 4.0 ), hints.get() )
-#else :
+        ( osg.Sphere(osg.Vec3(0.0, 0.0, 0.0), 4.0 ), hints )
+#else:
     shape = osg.ShapeDrawable
         ( osg.Box( osg.Vec3(-1.0, -1.0, -1.0), 2.0, 2.0, 2.0 ) )
 #endif
 
     shape.setColor(osg.Vec4(0.8, 0.8, 0.8, 1.0))
 
-    geode.addDrawable( shape.get() )
+    geode.addDrawable( shape )
 
     stateSet = osg.StateSet()
 
@@ -719,27 +719,26 @@ osg.Node * CreateGlobe( void )
     geode.setStateSet( stateSet )
     return geode
 ########################################
-def main(argc, argv):
+def main(argv):
     
     # construct the viewer.
     arguments = osg.ArgumentParser( argc, argv )
     viewer = osgViewer.Viewer( arguments )
 
-    useSimpleExample = arguments.read("-s") || arguments.read("--simple") 
+    useSimpleExample = arguments.read("-s")  or  arguments.read("--simple") 
 
     model = NULL
 
-    if arguments.argc()>1  !arguments.isOption(1)  : 
+    if arguments.argc()>1  and   not arguments.isOption(1)  : 
         filename = arguments[1]
         model = osgDB.readNodeFile( filename )
-        if  !model  : 
+        if   not model  : 
             osg.notify( osg.NOTICE ), "Error, cannot read ", filename, ". Loading default earth model instead."
 
     if  model == NULL  :
         model = CreateGlobe( )
 
-    node = useSimpleExample ?        
-        CreateSimpleHierarchy( model ):
+    node =  CreateSimpleHierarchy( model ) if (useSimpleExample) else 
         CreateAdvancedHierarchy( model )
 
     viewer.setSceneData( node )
@@ -783,7 +782,7 @@ osg.Shader * VirtualProgram.getShader
     (  str  shaderSemantic, osg.Shader.Type type )
     key = ShaderMap.key_type( shaderSemantic, type )
 
-    return _shaderMap[ key ].get()
+    return _shaderMap[ key ]
 ########################################
 osg.Shader * VirtualProgram.setShader
 (  str  shaderSemantic, osg.Shader * shader )
@@ -800,17 +799,17 @@ osg.Shader * VirtualProgram.setShader
     shaderNew.setName( shaderSemantic )
 #endif
 
-    if  shaderCurrent != shaderNew  : 
+    if  shaderCurrent  not = shaderNew  : 
 #if 0
        if  shaderCurrent.valid()  :
-           Program.removeShader( shaderCurrent.get() )
+           Program.removeShader( shaderCurrent )
 
        if  shaderNew.valid()  :
-           Program.addShader( shaderNew.get() )
+           Program.addShader( shaderNew )
 #endif
        shaderCurrent = shaderNew
 
-    return shaderCurrent.get()
+    return shaderCurrent
 ########################################
 void VirtualProgram.apply( osg.State  state ) 
     if  _shaderMap.empty()  : # Virtual Program works as normal Program
@@ -824,30 +823,30 @@ void VirtualProgram.apply( osg.State  state )
 #endif
 
     shaderMap = ShaderMap()
-    for( State.AttributeVec.iterator i = av.begin() i != av.end() ++i )
+    for( State.AttributeVec.iterator i = av.begin() i  not = av.end() ++i )
         sa = i.first
         vp = dynamic_cast<  VirtualProgram *>( sa )
-        if  vp  ( vp._mask  _mask )  : 
+        if  vp  and  ( vp._mask  _mask )  : 
 
 #if NOTIFICATION_MESSAGES
             if  vp.getName().empty()  :
                 os, "VirtualProgram cumulate [ Unnamed VP ] apply"
-            else : 
+            else:
                 os, "VirtualProgram cumulate [", vp.getName(), "] apply"
 #endif
 
             for( ShaderMap.const_iterator i = vp._shaderMap.begin()
-                                           i != vp._shaderMap.end() ++i )
+                                           not = vp._shaderMap.end() ++i )
                                                     shaderMap[ i.first ] = i.second
 
-         else : 
+         else:
 #if NOTIFICATION_MESSAGES
             os, "VirtualProgram cumulate ( not VP or mask not match ) ignored"
 #endif
             continue # ignore osg.Programs
 
     for( ShaderMap.const_iterator i = this._shaderMap.begin()
-                                   i != this._shaderMap.end() ++i )
+                                   not = this._shaderMap.end() ++i )
                                         shaderMap[ i.first ] = i.second
 
 #if NOTIFICATION_MESSAGES
@@ -857,28 +856,28 @@ void VirtualProgram.apply( osg.State  state )
     if  shaderMap.size()  : 
 
         sl = ShaderList()
-        for( ShaderMap.iterator i = shaderMap.begin() i != shaderMap.end() ++i )
+        for( ShaderMap.iterator i = shaderMap.begin() i  not = shaderMap.end() ++i )
             sl.push_back( i.second )
 
          osg.Program   program = _programMap[ sl ]
 
-        if  !program.valid()  : 
+        if   not program.valid()  : 
             program = osg.Program()
-#if !MERGE_SHADERS
-            for( ShaderList.iterator i = sl.begin() i != sl.end() ++i )
-                program.addShader( i.get() )
-#else :
+#if  not MERGE_SHADERS
+            for( ShaderList.iterator i = sl.begin() i  not = sl.end() ++i )
+                program.addShader( i )
+#else:
             strFragment = str()
             strVertex = str()
             strGeometry = str()
             
-            for( ShaderList.iterator i = sl.begin() i != sl.end() ++i )
-                if  i.get().getType() == osg.Shader.FRAGMENT  :
-                    strFragment += i.get().getShaderSource()
-                elif  i.get().getType() == osg.Shader.VERTEX  :
-                    strVertex += i.get().getShaderSource()
-                elif  i.get().getType() == osg.Shader.GEOMETRY  :
-                    strGeometry += i.get().getShaderSource()
+            for( ShaderList.iterator i = sl.begin() i  not = sl.end() ++i )
+                if  i.getType() == osg.Shader.FRAGMENT  :
+                    strFragment += i.getShaderSource()
+                elif  i.getType() == osg.Shader.VERTEX  :
+                    strVertex += i.getShaderSource()
+                elif  i.getType() == osg.Shader.GEOMETRY  :
+                    strGeometry += i.getShaderSource()
 
             if  strFragment.length() > 0  : 
                 program.addShader( osg.Shader( osg.Shader.FRAGMENT, strFragment ) )
@@ -899,8 +898,8 @@ void VirtualProgram.apply( osg.State  state )
 #endif
 #endif
 
-        state.applyAttribute( program.get() )
-     else : 
+        state.applyAttribute( program )
+     else:
         Program.apply( state )
 
 #if NOTIFICATION_MESSAGES

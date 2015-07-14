@@ -192,9 +192,9 @@ static osg.Node* CreateBlinkSequenceLightNode()
                                      osg.Vec4( 0.0, 0.0, 0.0, 0.0 ) )
 
       if  i  1  :
-         lp._blinkSequence.setSequenceGroup( seq_1.get() )
-      else :
-         lp._blinkSequence.setSequenceGroup( seq_0.get() )
+         lp._blinkSequence.setSequenceGroup( seq_1 )
+      else:
+         lp._blinkSequence.setSequenceGroup( seq_0 )
       lp._blinkSequence.setPhaseShift( i/(static_cast<double>(max_points)) )
       lpList.push_back( lp )
 
@@ -202,11 +202,11 @@ static osg.Node* CreateBlinkSequenceLightNode()
 
    return lightPointNode
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use high quality light point, typically used for naviagional lights.")
@@ -218,7 +218,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 

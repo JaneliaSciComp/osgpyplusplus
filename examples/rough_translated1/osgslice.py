@@ -57,7 +57,7 @@ class SliceProcessor :
             _image = osg.Image()
             if  _sliceDelta > MIN_NEARFAROFFSET  :
                 _nearFarOffset = MIN_NEARFAROFFSET
-            else :
+            else:
                 _nearFarOffset = _sliceDelta
             _image.allocateImage( _sliceNumber, _sliceNumber,_sliceNumber, GL_RGBA, GL_UNSIGNED_BYTE )
             
@@ -72,11 +72,11 @@ class SliceProcessor :
     # needs function to do rendering and slicing
 
 
-def main(argc, argv):
+def main(argv):
 
     
         # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of osg.AnimationPath and UpdateCallbacks for adding animation to your scenes.")
@@ -84,7 +84,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("-h or --help","Display this information")
     arguments.getApplicationUsage().addCommandLineOption("-o <filename>","Object to be loaded")
     
-    if  arguments.read( "-h" ) || arguments.read( "--help" )  :
+    if  arguments.read( "-h" )  or  arguments.read( "--help" )  :
         print "Argumentlist:"
         print "\t-o <filename> sets object to be loaded and sliced"
         print "\t--slices <unsigned int> sets number of slices through the object"
@@ -108,14 +108,14 @@ def main(argc, argv):
     
     # load the scene.
     loadedModel = osgDB.readNodeFiles( arguments )
-    if !loadedModel : 
+    if  not loadedModel : 
         print "No data loaded."
         return 1
 
     bs = loadedModel.getBound()
     sp = SliceProcessor( (double)bs.radius(), numberSlices )
-    if nearClip!=0.0 : sp._nearPlane = nearClip
-    if farClip!=0.0 : sp._farPlane = farClip
+    if nearClip not =0.0 : sp._nearPlane = nearClip
+    if farClip not =0.0 : sp._farPlane = farClip
 
     # any option left unread are converted into errors to write out later.
     arguments.reportRemainingOptionsAsUnrecognized()
@@ -138,8 +138,8 @@ def main(argc, argv):
     traits.sharedContext = 0
     traits.pbuffer = False
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
-    if !gc || !gc.valid() :
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
+    if  not gc  or   not gc.valid() :
         osg.notify(osg.NOTICE), "Error: unable to create graphics window"
         return 1
     
@@ -149,7 +149,7 @@ def main(argc, argv):
     # create the view of the scene.
     sceneView = osgUtil.SceneView()
     sceneView.setDefaults()
-    sceneView.setSceneData(loadedModel.get())
+    sceneView.setSceneData(loadedModel)
 
     # initialize the view to look at the center of the scene graph
     viewMatrix = osg.Matrix()
@@ -175,14 +175,14 @@ def main(argc, argv):
     tmpImage = osg.Image()
     
     # main loop (note, window toolkits which take control over the main loop will require a window redraw callback containing the code below.)
-    for( unsigned int i = 0  i < sp._sliceNumber  gc.isRealized()  ++i )
+    for( unsigned int i = 0  i < sp._sliceNumber  and  gc.isRealized()  ++i )
         # set up the frame stamp for current frame to record the current time and frame number so that animtion code can advance correctly
         frameStamp = osg.FrameStamp()
         frameStamp.setReferenceTime(osg.Timer.instance().delta_s(start_tick,osg.Timer.instance().tick()))
         frameStamp.setFrameNumber(frameNum++)
         
         # pass frame stamp to the SceneView so that the update, cull and draw traversals all use the same FrameStamp
-        sceneView.setFrameStamp(frameStamp.get())
+        sceneView.setFrameStamp(frameStamp)
         
         # update the viewport dimensions, incase the window has been resized.
         sceneView.setViewport(0,0,traits.width,traits.height)

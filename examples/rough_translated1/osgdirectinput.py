@@ -44,54 +44,54 @@ def buildKeyMap():
     
     # TODO: finish the key map as you wish
     g_keyMap[DIK_ESCAPE] = KeyValue(osgGA.GUIEventAdapter.KEY_Escape, 0)
-    g_keyMap[DIK_1] = KeyValue('1', 0)
-    g_keyMap[DIK_2] = KeyValue('2', 0)
-    g_keyMap[DIK_3] = KeyValue('3', 0)
-    g_keyMap[DIK_4] = KeyValue('4', 0)
-    g_keyMap[DIK_5] = KeyValue('5', 0)
-    g_keyMap[DIK_6] = KeyValue('6', 0)
-    g_keyMap[DIK_7] = KeyValue('7', 0)
-    g_keyMap[DIK_8] = KeyValue('8', 0)
-    g_keyMap[DIK_9] = KeyValue('9', 0)
-    g_keyMap[DIK_0] = KeyValue('0', 0)
-    g_keyMap[DIK_MINUS] = KeyValue('-', 0)
-    g_keyMap[DIK_EQUALS] = KeyValue('=', 0)
+    g_keyMap[DIK_1] = KeyValue(ord("1"), 0)
+    g_keyMap[DIK_2] = KeyValue(ord("2"), 0)
+    g_keyMap[DIK_3] = KeyValue(ord("3"), 0)
+    g_keyMap[DIK_4] = KeyValue(ord("4"), 0)
+    g_keyMap[DIK_5] = KeyValue(ord("5"), 0)
+    g_keyMap[DIK_6] = KeyValue(ord("6"), 0)
+    g_keyMap[DIK_7] = KeyValue(ord("7"), 0)
+    g_keyMap[DIK_8] = KeyValue(ord("8"), 0)
+    g_keyMap[DIK_9] = KeyValue(ord("9"), 0)
+    g_keyMap[DIK_0] = KeyValue(ord("0"), 0)
+    g_keyMap[DIK_MINUS] = KeyValue(ord("-"), 0)
+    g_keyMap[DIK_EQUALS] = KeyValue(ord("="), 0)
     g_keyMap[DIK_BACK] = KeyValue(osgGA.GUIEventAdapter.KEY_BackSpace, 0)
     g_keyMap[DIK_TAB] = KeyValue(osgGA.GUIEventAdapter.KEY_Tab, 0)
     g_keyMap[DIK_SPACE] = KeyValue(osgGA.GUIEventAdapter.KEY_Space, 0)
 
 bool DirectInputRegistry.initKeyboard( HWND handle )
-    if  !_inputDevice  : return False
+    if   not _inputDevice  : return False
     
     hr = _inputDevice.CreateDevice( GUID_SysKeyboard, _keyboard, NULL )
-    if  FAILED(hr) || _keyboard==NULL  :
+    if  FAILED(hr)  or  _keyboard==NULL  :
         osg.notify(osg.WARN), "Unable to create keyboard."
         return False
     buildKeyMap()
     initImplementation = return( handle, _keyboard, c_dfDIKeyboard )
 
 bool DirectInputRegistry.initMouse( HWND handle )
-    if  !_inputDevice  : return False
+    if   not _inputDevice  : return False
     
     hr = _inputDevice.CreateDevice( GUID_SysMouse, _mouse, NULL )
-    if  FAILED(hr) || _mouse==NULL  :
+    if  FAILED(hr)  or  _mouse==NULL  :
         osg.notify(osg.WARN), "Unable to create mouse."
         return False
     initImplementation = return( handle, _mouse, c_dfDIMouse2 )
 
 bool DirectInputRegistry.initJoystick( HWND handle )
-    if  !_inputDevice  : return False
+    if   not _inputDevice  : return False
     
     hr = _inputDevice.EnumDevices( DI8DEVCLASS_GAMECTRL, EnumJoysticksCallback,
                                             NULL, DIEDFL_ATTACHEDONLY )
-    if  FAILED(hr) || _joystick==NULL  :
+    if  FAILED(hr)  or  _joystick==NULL  :
         osg.notify(osg.WARN), "Unable to enumerate joysticks."
         return False
     initImplementation = return( handle, _joystick, c_dfDIJoystick2 )
 
 void DirectInputRegistry.updateState( osgGA.EventQueue* eventQueue )
     hr = HRESULT()
-    if  !_supportDirectInput || !eventQueue  : return
+    if   not _supportDirectInput  or   not eventQueue  : return
     
     if  _keyboard  :
         pollDevice( _keyboard )
@@ -99,7 +99,7 @@ void DirectInputRegistry.updateState( osgGA.EventQueue* eventQueue )
         char buffer[256] = 0
         hr = _keyboard.GetDeviceState( sizeof(buffer), buffer )
         if  SUCCEEDED(hr)  :
-            for ( KeyMap.iterator itr=g_keyMap.begin() itr!=g_keyMap.end() ++itr )
+            for ( KeyMap.iterator itr=g_keyMap.begin() itr not =g_keyMap.end() ++itr )
                 key = itr.second
                 value = buffer[itr.first]
                 if  key.second==value  : continue
@@ -107,7 +107,7 @@ void DirectInputRegistry.updateState( osgGA.EventQueue* eventQueue )
                 key.second = value
                 if  value0x80  :
                     eventQueue.keyPress( key.first )
-                else :
+                else:
                     eventQueue.keyRelease( key.first )
     
     if  _mouse  :
@@ -123,7 +123,7 @@ void DirectInputRegistry.updateState( osgGA.EventQueue* eventQueue )
         
         event = JoystickEvent()
         hr = _joystick.GetDeviceState( sizeof(DIJOYSTATE2), (event._js) )
-        if  SUCCEEDED(hr)  : eventQueue.userEvent( event.get() )
+        if  SUCCEEDED(hr)  : eventQueue.userEvent( event )
 
 DirectInputRegistry.DirectInputRegistry()
 :   _keyboard(0), _mouse(0), _joystick(0),
@@ -211,7 +211,7 @@ class CustomViewer (osgViewer.Viewer) :
     def eventTraversal():
     
         
-        DirectInputRegistry.instance().updateState( _eventQueue.get() )
+        DirectInputRegistry.instance().updateState( _eventQueue )
         osgViewer.Viewer.eventTraversal()
     def viewerInit():
         
@@ -239,7 +239,7 @@ class JoystickHandler (osgGA.GUIEventHandler) :
             break
         case osgGA.GUIEventAdapter.USER:
                 event = dynamic_cast< JoystickEvent*>( ea.getUserData() )
-                if  !event  : break
+                if   not event  : break
                 
                 js = event._js
                 for ( unsigned int i=0 i<128 ++i )
@@ -257,13 +257,13 @@ class JoystickHandler (osgGA.GUIEventHandler) :
         return False
 
 
-def main(argc, argv):
+def main(argv):
 
     
     arguments = osg.ArgumentParser( argc, argv )
     model = osgDB.readNodeFiles( arguments )
-    if  !model  : model = osgDB.readNodeFile( "cow.osgt" )
-    if  !model  : 
+    if   not model  : model = osgDB.readNodeFile( "cow.osgt" )
+    if   not model  : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
     

@@ -148,21 +148,21 @@ GliderManipulator.~GliderManipulator()
 
 void GliderManipulator.setNode(osg.Node* node)
     _node = node
-    if _node.get() :
+    if _node :
         boundingSphere = _node.getBound()
         _modelScale = boundingSphere._radius
 
 
  osg.Node* GliderManipulator.getNode() 
-    return _node.get()
+    return _node
 
 
 
 osg.Node* GliderManipulator.getNode()
-    return _node.get()
+    return _node
 
 void GliderManipulator.home( GUIEventAdapter ea,GUIActionAdapter us)
-    if _node.get() :
+    if _node :
 
         boundingSphere = _node.getBound()
 
@@ -190,7 +190,7 @@ void GliderManipulator.init( GUIEventAdapter ea,GUIActionAdapter us)
 
     _velocity = 0.2
 
-    if ea.getEventType()!=GUIEventAdapter.RESIZE :
+    if ea.getEventType() not =GUIEventAdapter.RESIZE :
         us.requestWarpPointer((ea.getXmin()+ea.getXmax())/2.0,(ea.getYmin()+ea.getYmax())/2.0)
 
 
@@ -227,16 +227,16 @@ bool GliderManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
             return True
 #endif
         case(GUIEventAdapter.KEYDOWN):
-            if ea.getKey()==' ' :
+            if ea.getKey()==ord(" ") :
                 flushMouseEventStack()
                 home(ea,us)
                 us.requestRedraw()
                 us.requestContinuousUpdate(False)
                 return True
-            elif ea.getKey()=='q' :
+            elif ea.getKey()==ord("q") :
                 _yawMode = YAW_AUTOMATICALLY_WHEN_BANKED
                 return True
-            elif ea.getKey()=='a' :
+            elif ea.getKey()==ord("a") :
                 _yawMode = NO_AUTOMATIC_YAW
                 return True
             return False
@@ -302,7 +302,7 @@ bool GliderManipulator.calcMovement()
     #_camera.setFusionDistanceMode(osg.Camera.PROPORTIONAL_TO_SCREEN_DISTANCE)
 
     # return if less then two events have been added.
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
+    if _ga_t0==NULL  or  _ga_t1==NULL : return False
 
 
     dt = _ga_t0.getTime()-_ga_t1.getTime()
@@ -317,7 +317,7 @@ bool GliderManipulator.calcMovement()
 
         _velocity += dt*_modelScale*0.05
 
-    elif buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON ||
+    elif buttonMask==GUIEventAdapter.MIDDLE_MOUSE_BUTTON  or 
         buttonMask==(GUIEventAdapter.LEFT_MOUSE_BUTTON|GUIEventAdapter.RIGHT_MOUSE_BUTTON) :
 
         _velocity = 0.0
@@ -616,12 +616,12 @@ def Hat(x, y, z):
     n = 39
 
     i = 0
-    while  i < ((m-1)*39)  x > (vertex[i+n][0] - dbcenter[0])  :
+    while  i < ((m-1)*39)  and  x > (vertex[i+n][0] - dbcenter[0])  :
         i += n
 
     j = 0
 
-    while  j < n-1  y > (vertex[i+j+1][1] - dbcenter[1])  :
+    while  j < n-1  and  y > (vertex[i+j+1][1] - dbcenter[1])  :
         j++
 
     tri[0][0] = vertex[i+0+j+0][0] - dbcenter[0]
@@ -791,12 +791,12 @@ def createModel():
 
     return group
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates how to create a scene programatically, in this case a hang gliding flying site.")
@@ -807,7 +807,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer()
 
     # if user requests help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
@@ -816,7 +816,7 @@ def main(argc, argv):
 
     if customWindows :
         wsi = osg.GraphicsContext.getWindowingSystemInterface()
-        if !wsi : 
+        if  not wsi : 
             osg.notify(osg.NOTICE), "View.setUpViewAcrossAllScreens() : Error, no WindowSystemInterface available, cannot create windows."
             return 0
 
@@ -829,27 +829,27 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
         if gc.valid() :
             # need to ensure that the window is cleared make sure that the complete window is set the correct colour
             # rather than just the parts of the window that are under the camera's viewports
             gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
             gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        else :
+        else:
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
         numCameras = 2
         aspectRatioScale = 1.0
         for(unsigned int i=0 i<numCameras++i)
             camera = osg.Camera()
-            camera.setGraphicsContext(gc.get())
+            camera.setGraphicsContext(gc)
             camera.setViewport(osg.Viewport((i* traits.width)/numCameras,(i* traits.height)/numCameras,  traits.width/numCameras,  traits.height/numCameras))
-            buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+            buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
             camera.setDrawBuffer(buffer)
             camera.setReadBuffer(buffer)
 
-            viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.scale(aspectRatioScale,1.0,1.0))
-    else :
+            viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.scale(aspectRatioScale,1.0,1.0))
+    else:
         viewer.setUpViewAcrossAllScreens()
     
 
@@ -1330,7 +1330,7 @@ Node *makeTerrain( void )
 #*  THE SOFTWARE.
 #
 
-#if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
+#if defined(WIN32)  and   not (defined(__CYGWIN__)  or  defined(__MINGW32__))
     # disable the double to float errors.
     #pragma warning( disable : 4305 )
 #endif
@@ -2881,7 +2881,7 @@ static float vertex[][3] =
 #*  THE SOFTWARE.
 #
 
-#if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
+#if defined(WIN32)  and   not (defined(__CYGWIN__)  or  defined(__MINGW32__))
     # disable the double to float errors.
     #pragma warning( disable : 4305 )
 #endif
@@ -7325,7 +7325,7 @@ static float texcoord[][2] =
 #*  THE SOFTWARE.
 #
 
-#if defined(WIN32)  !(defined(__CYGWIN__) || defined(__MINGW32__))
+#if defined(WIN32)  and   not (defined(__CYGWIN__)  or  defined(__MINGW32__))
     # disable the double to float errors.
     #pragma warning( disable : 4305 )
 #endif
@@ -10477,7 +10477,7 @@ static int ct(  void *a,  void *b )
 
     if  da < db  :
         return -1
-    else :
+    else:
         return 1
 
 
@@ -10521,7 +10521,7 @@ Node *makeTrees( void )
     t = trees
     i = 0
     ttp = tt
-    while  *ttp != -1  :
+    while  *ttp  not = -1  :
         bb = Billboard()
         #int starti = i
 

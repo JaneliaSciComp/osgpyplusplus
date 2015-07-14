@@ -161,26 +161,26 @@ def CreateHouses():
 
         geometry.addPrimitiveSet(primitives)
 
-        geometry.setVertexArray(coords.get())
-        geometry.setVertexIndices(coordIndices.get())
+        geometry.setVertexArray(coords)
+        geometry.setVertexIndices(coordIndices)
 
-        geometry.setColorArray(colors.get())
+        geometry.setColorArray(colors)
         geometry.setColorBinding(deprecated_osg.Geometry.BIND_OVERALL)
 
-        geometry.setNormalArray(normals.get())
+        geometry.setNormalArray(normals)
         geometry.setNormalBinding(deprecated_osg.Geometry.BIND_PER_PRIMITIVE)
 
         geode = osg.Geode()
-        geode.addDrawable(geometry.get())
+        geode.addDrawable(geometry)
 
-        nodes.push_back(geode.get())
+        nodes.push_back(geode)
 
 def LayoutAsGrid():
 
     
     # calculate bounding box
     bbox = osg.BoundingBox()
-    for (NodeIterator node = nodes.begin() node != nodes.end() ++node)
+    for (NodeIterator node = nodes.begin() node  not = nodes.end() ++node)
         bbox.expandBy((*node).getBound())
 
     # setup grid information
@@ -196,8 +196,8 @@ def LayoutAsGrid():
     yGridSize = (bbox.yMax() - bbox.yMin()) / GridY
 
     # arrange buildings into right grid
-    for (NodeIterator nodeIter = nodes.begin() nodeIter != nodes.end() ++nodeIter)
-        node = nodeIter.get()
+    for (NodeIterator nodeIter = nodes.begin() nodeIter  not = nodes.end() ++nodeIter)
+        node = nodeIter
         center = node.getBound().center()
 
         x = (int)floor((center.x() - xGridStart) / xGridSize)
@@ -229,18 +229,18 @@ def LayoutAsGrid():
             impostor.setRange(0, 0.0, 1e7f)
             impostor.setCenter(groups[i].getBound().center())
             Root.addChild(impostor)
-        else :
+        else:
             Root.addChild(groups[i])
 
     delete[] groups
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -256,14 +256,14 @@ def main(argc, argv):
         # only operators on subclass of Group's, if the model top node is not
         # a group then it won't be able to insert an impostor.  We therefore
         # manually insert an impostor above the model.
-        if dynamic_cast<osg.Group*>(model.get())==0 :
+        if dynamic_cast<osg.Group*>(model)==0 :
             bs = model.getBound()
             if bs.valid() :
 
                 impostor = osgSim.Impostor()
 
                 # standard LOD settings
-                impostor.addChild(model.get())
+                impostor.addChild(model)
                 impostor.setRange(0,0.0,1e7f)
                 impostor.setCenter(bs.center())
 
@@ -279,9 +279,9 @@ def main(argc, argv):
         # we would know about it, other than by following the parent path
         # up from model.  This is really what should be done, but I'll pass
         # on it right now as it requires a getRoots() method to be added to
-        # osg.Node, and we're about to make a release so no features!
+        # osg.Node, and we're about to make a release so no features not 
         rootnode = osg.Group()
-        rootnode.addChild(model.get())
+        rootnode.addChild(model)
 
 
         # now insert impostors in the model using the InsertImpostorsVisitor.
@@ -290,19 +290,19 @@ def main(argc, argv):
         # traverse the model and collect all osg.Group's and osg.LOD's.
         # however, don't traverse the rootnode since we want to keep it as
         # the start of traversal, otherwise the insertImpostor could insert
-        # and Impostor above the current root, making it nolonger a root!
+        # and Impostor above the current root, making it nolonger a root not 
         model.accept(ov)
 
         # insert the Impostors above groups and LOD's
         ov.insertImpostors()
-    else :
+    else:
         # no user model so we'll create our own world.
         model = Root = osg.Group()
         CreateHouses()
         LayoutAsGrid()
 
     # add model to viewer.
-    viewer.setSceneData(model.get())
+    viewer.setSceneData(model)
 
     return viewer.run()
 
@@ -345,22 +345,22 @@ TestManipulator.~TestManipulator()
 
 void TestManipulator.setNode(osg.Node* node)
     _node = node
-    if _node.get() :
+    if _node :
         boundingSphere = _node.getBound()
         _modelScale = boundingSphere._radius
 
 
  osg.Node* TestManipulator.getNode() 
-    return _node.get()
+    return _node
 
 
 osg.Node* TestManipulator.getNode()
-    return _node.get()
+    return _node
 
 
                                  #ea
 void TestManipulator.home( GUIEventAdapter ,GUIActionAdapter us)
-    if _node.get() :
+    if _node :
 
         boundingSphere = _node.getBound()
 
@@ -392,14 +392,14 @@ bool TestManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
                         us.requestRedraw()
                         us.requestContinuousUpdate(True)
                         _thrown = True
-                else :
+                else:
                     flushMouseEventStack()
                     addMouseEvent(ea)
                     if calcMovement() : us.requestRedraw()
                     us.requestContinuousUpdate(False)
                     _thrown = False
 
-            else :
+            else:
                 flushMouseEventStack()
                 addMouseEvent(ea)
                 if calcMovement() : us.requestRedraw()
@@ -418,7 +418,7 @@ bool TestManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
             return False
 
         case(GUIEventAdapter.KEYDOWN):
-            if ea.getKey()==' ' :
+            if ea.getKey()==ord(" ") :
                 flushMouseEventStack()
                 _thrown = False
                 home(ea,us)
@@ -436,7 +436,7 @@ bool TestManipulator.handle( GUIEventAdapter ea,GUIActionAdapter us)
 
 
 bool TestManipulator.isMouseMoving()
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
+    if _ga_t0==NULL  or  _ga_t1==NULL : return False
 
     static  float velocity = 0.1
 
@@ -489,14 +489,14 @@ void TestManipulator.computePosition( osg.Vec3 eye, osg.Vec3 lv, osg.Vec3 up)
 bool TestManipulator.calcMovement()
 
     # return if less then two events have been added.
-    if _ga_t0.get()==NULL || _ga_t1.get()==NULL : return False
+    if _ga_t0==NULL  or  _ga_t1==NULL : return False
 
     dx = _ga_t0.getXnormalized()-_ga_t1.getXnormalized()
     dy = _ga_t0.getYnormalized()-_ga_t1.getYnormalized()
 
 
     # return if there is no movement.
-    if dx==0  dy==0 : return False
+    if dx==0  and  dy==0 : return False
 
     buttonMask = _ga_t1.getButtonMask()
     if buttonMask==GUIEventAdapter.LEFT_MOUSE_BUTTON :

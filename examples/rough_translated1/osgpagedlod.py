@@ -93,7 +93,7 @@ class WriteOutPagedLODSubgraphsVistor (osg.NodeVisitor) :
         for(unsigned int i=0i<plod.getNumChildren()++i)
             child = plod.getChild(i)
             filename = plod.getFileName(i)
-            if !filename.empty() :
+            if  not filename.empty() :
                 osg.notify(osg.NOTICE), "Writing out ", filename
                 osgDB.writeNodeFile(*child,filename)
     
@@ -127,15 +127,15 @@ class ConvertToPageLODVistor (osg.NodeVisitor) :
         
         lodNum = 0
         for(LODSet.iterator itr = _lodSet.begin()
-            itr != _lodSet.end()
+            not = _lodSet.end()
             ++itr, ++lodNum)
-            lod = const_cast<osg.LOD*>(itr.get())
+            lod = const_cast<osg.LOD*>(itr)
             
             if lod.getNumParents()==0 :
                 osg.notify(osg.NOTICE), "Warning can't operator on root node."
                 break
 
-            if !_makeAllChildrenPaged  lod.getNumRanges()<2 :
+            if  not _makeAllChildrenPaged  and  lod.getNumRanges()<2 :
                 osg.notify(osg.NOTICE), "Leaving LOD with one child as is."
                 break
 
@@ -148,17 +148,17 @@ class ConvertToPageLODVistor (osg.NodeVisitor) :
             rangeMap = MinMaxPairMap()
             pos = 0
             for(osg.LOD.RangeList.const_iterator ritr = originalRangeList.begin()
-                ritr != originalRangeList.end()
+                not = originalRangeList.end()
                 ++ritr, ++pos)
                 rangeMap.insert(std.multimap< osg.LOD.MinMaxPair , unsigned int >.value_type(*ritr, pos))
             
             pos = 0
             for(MinMaxPairMap.reverse_iterator mitr = rangeMap.rbegin()
-                mitr != rangeMap.rend()
+                not = rangeMap.rend()
                 ++mitr, ++pos)
-                if pos==0  !_makeAllChildrenPaged :
+                if pos==0  and   not _makeAllChildrenPaged :
                     plod.addChild(lod.getChild(mitr.second), mitr.first.first, mitr.first.second)
-                else :
+                else:
                     filename = _basename
                     os = std.ostringstream()
                     os, _basename, "_", lodNum, "_", pos, _extension
@@ -167,9 +167,9 @@ class ConvertToPageLODVistor (osg.NodeVisitor) :
             
             parents = lod.getParents()
             for(osg.Node.ParentList.iterator pitr=parents.begin()
-                pitr!=parents.end()
+                not = parents.end()
                 ++pitr)
-                (*pitr).replaceChild(lod.get(),plod)
+                (*pitr).replaceChild(lod,plod)
 
             plod.setCenter(plod.getBound().center())
             
@@ -184,13 +184,13 @@ class ConvertToPageLODVistor (osg.NodeVisitor) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -201,7 +201,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("--makeAllChildrenPaged","Force all children of LOD to be written out as external PagedLOD children")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -229,12 +229,12 @@ def main(argc, argv):
 
     model = osgDB.readNodeFiles(arguments)
     
-    if !model :
+    if  not model :
         osg.notify(osg.NOTICE), "No model loaded."
         return 1
     
     basename = str( osgDB.getNameLessExtension(outputfile) )
-    ext = '.'+ osgDB.getFileExtension(outputfile)
+    ext = ord(".")+ osgDB.getFileExtension(outputfile)
     
     converter = ConvertToPageLODVistor(basename,ext, makeAllChildrenPaged)
     model.accept(converter)

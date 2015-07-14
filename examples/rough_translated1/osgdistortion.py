@@ -196,7 +196,7 @@ def setDomeFaces(viewer, arguments):
     
 
     wsi = osg.GraphicsContext.getWindowingSystemInterface()
-    if !wsi :
+    if  not wsi :
         osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
         return
 
@@ -215,8 +215,8 @@ def setDomeFaces(viewer, arguments):
     traits.doubleBuffer = True
     traits.sharedContext = 0
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
-    if !gc :
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
+    if  not gc :
         osg.notify(osg.NOTICE), "GraphicsWindow has not been created successfully."
         return
 
@@ -228,64 +228,64 @@ def setDomeFaces(viewer, arguments):
 
     # front face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x-camera_width/2, center_y, camera_width, camera_height))
 
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd())
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd())
 
     # top face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x-camera_width/2, center_y+camera_height, camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 1.0,0.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 1.0,0.0,0.0))
 
     # left face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x-camera_width*3/2, center_y, camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,1.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,1.0,0.0))
 
     # right face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x+camera_width/2, center_y, camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,1.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,1.0,0.0))
 
     # bottom face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x-camera_width/2, center_y-camera_height, camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 1.0,0.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 1.0,0.0,0.0))
 
     # back face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(center_x-camera_width/2, center_y-2*camera_height, camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-180.0), 1.0,0.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-180.0), 1.0,0.0,0.0))
 
     viewer.getCamera().setProjectionMatrixAsPerspective(90.0, 1.0, 1, 1000.0)
 
@@ -365,7 +365,7 @@ def createDomeDistortionMesh(origin, widthVector, heightVector, arguments):
 
                 cursor += dx
             # osg.notify(osg.NOTICE)
-    else :
+    else:
         for(i=0i<noSteps++i)
             cursor = bottom+dy*(float)i
             for(j=0j<noSteps++j)
@@ -414,7 +414,7 @@ def setDomeCorrection(viewer, arguments):
     
 
     wsi = osg.GraphicsContext.getWindowingSystemInterface()
-    if !wsi :
+    if  not wsi :
         osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
         return
 
@@ -435,8 +435,8 @@ def setDomeCorrection(viewer, arguments):
 
 
 
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
-    if !gc :
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
+    if  not gc :
         osg.notify(osg.NOTICE), "GraphicsWindow has not been created successfully."
         return
 
@@ -456,7 +456,7 @@ def setDomeCorrection(viewer, arguments):
 #if 0
     renderTargetImplementation = osg.Camera.SEPERATE_WINDOW
     buffer = GL_FRONT
-#else :
+#else:
     renderTargetImplementation = osg.Camera.FRAME_BUFFER_OBJECT
     buffer = GL_FRONT
 #endif
@@ -464,7 +464,7 @@ def setDomeCorrection(viewer, arguments):
     # front face
         camera = osg.Camera()
         camera.setName("Front face camera")
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
@@ -475,15 +475,15 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.POSITIVE_Y)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd())
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd())
 
 
     # top face
         camera = osg.Camera()
         camera.setName("Top face camera")
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
         camera.setAllowEventFocus(False)
@@ -494,12 +494,12 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.POSITIVE_Z)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 1.0,0.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 1.0,0.0,0.0))
 
     # left face
         camera = osg.Camera()
         camera.setName("Left face camera")
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
@@ -511,12 +511,12 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.NEGATIVE_X)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,1.0,0.0) * osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,0.0,1.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,1.0,0.0) * osg.Matrixd.rotate(osg.inDegrees(-90.0), 0.0,0.0,1.0))
 
     # right face
         camera = osg.Camera()
         camera.setName("Right face camera")
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
@@ -528,11 +528,11 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.POSITIVE_X)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,1.0,0.0 ) * osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,0.0,1.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,1.0,0.0 ) * osg.Matrixd.rotate(osg.inDegrees(90.0), 0.0,0.0,1.0))
 
     # bottom face
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setName("Bottom face camera")
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
         camera.setDrawBuffer(buffer)
@@ -545,12 +545,12 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.NEGATIVE_Z)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 1.0,0.0,0.0) * osg.Matrixd.rotate(osg.inDegrees(180.0), 0.0,0.0,1.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(90.0), 1.0,0.0,0.0) * osg.Matrixd.rotate(osg.inDegrees(180.0), 0.0,0.0,1.0))
 
     # back face
         camera = osg.Camera()
         camera.setName("Back face camera")
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setViewport(osg.Viewport(0,0,camera_width, camera_height))
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
@@ -562,7 +562,7 @@ def setDomeCorrection(viewer, arguments):
         # attach the texture and use it as the color buffer.
         camera.attach(osg.Camera.COLOR_BUFFER, texture, 0, osg.TextureCubeMap.NEGATIVE_Y)
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(180.0), 1.0,0.0,0.0))
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd.rotate(osg.inDegrees(180.0), 1.0,0.0,0.0))
 
     viewer.getCamera().setProjectionMatrixAsPerspective(90.0, 1.0, 1, 1000.0)
 
@@ -579,11 +579,11 @@ def setDomeCorrection(viewer, arguments):
         stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
         camera = osg.Camera()
-        camera.setGraphicsContext(gc.get())
+        camera.setGraphicsContext(gc)
         camera.setClearMask(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT )
         camera.setClearColor( osg.Vec4(0.1,0.1,1.0,1.0) )
         camera.setViewport(osg.Viewport(0, 0, width, height))
-        buffer = traits.doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (traits.doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
         camera.setReferenceFrame(osg.Camera.ABSOLUTE_RF)
@@ -599,17 +599,17 @@ def setDomeCorrection(viewer, arguments):
 
         camera.setName("DistortionCorrectionCamera")
 
-        viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd(), False)
+        viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd(), False)
 
     viewer.getCamera().setNearFarRatio(0.0001)
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -618,14 +618,14 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cow.osgt")
 
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
 
-    if arguments.read("--dome") || arguments.read("--puffer")  :
+    if arguments.read("--dome")  or  arguments.read("--puffer")  :
 
         setDomeCorrection(viewer, arguments)
 
@@ -635,7 +635,7 @@ def main(argc, argv):
         setDomeFaces(viewer, arguments)
 
         viewer.setSceneData( loadedModel )
-    else :
+    else:
         distortionNode = createDistortionSubgraph( loadedModel, viewer.getCamera().getClearColor())
         viewer.setSceneData( distortionNode )
 
@@ -647,7 +647,7 @@ def main(argc, argv):
 
 
     # load the nodes from the commandline arguments.
-    if !viewer.getSceneData() :
+    if  not viewer.getSceneData() :
         osg.notify(osg.NOTICE), "Please specify a model filename on the command line."
         return 1
 
@@ -655,22 +655,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() :
+            if apm  or   not apm.valid() :
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 

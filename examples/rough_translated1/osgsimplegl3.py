@@ -77,7 +77,7 @@ def configureShaders(stateSet):
     lightDir.normalize()
     stateSet.addUniform( osg.Uniform( "ecLightDir", lightDir ) )
 
-def main(argc, argv):
+def main(argv):
 
     
     arguments = osg.ArgumentParser( argc, argv )
@@ -96,14 +96,14 @@ def main(argc, argv):
     traits.windowDecoration = True
     traits.doubleBuffer = True
     traits.glContextVersion = version
-     gc = osg.GraphicsContext.createGraphicsContext( traits.get() )
-    if  !gc.valid()  :
+     gc = osg.GraphicsContext.createGraphicsContext( traits )
+    if   not gc.valid()  :
         osg.notify( osg.FATAL ), "Unable to create OpenGL v", version, " context."
         return( 1 )
 
     # Create a Camera that uses the above OpenGL context.
     cam = osg.Camera()
-    cam.setGraphicsContext( gc.get() )
+    cam.setGraphicsContext( gc )
     # Must set perspective projection for fovy and aspect.
     cam.setProjectionMatrix( osg.Matrix.perspective( 30., (double)width/(double)height, 1., 100. ) )
     # Unlike OpenGL, OSG viewport does *not* default to window dimensions.

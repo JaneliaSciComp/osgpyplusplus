@@ -38,7 +38,7 @@ from osgpypp import osgViewer
 
 #include <osg/Config>
 
-#if defined(_MSC_VER)  defined(OSG_DISABLE_MSVC_WARNINGS)
+#if defined(_MSC_VER)  and  defined(OSG_DISABLE_MSVC_WARNINGS)
     # disable warning "glutCreateMenu_ATEXIT_HACK' : unreferenced local function has been removed"
     #pragma warning( disable : 4505 )
 #endif
@@ -50,7 +50,7 @@ from osgpypp import osgViewer
 
 #ifdef __APPLE__
 #  include <GLUT/glut.h>
-#else :
+#else:
 #  include <GL/glut.h>
 #endif
 
@@ -83,7 +83,7 @@ def mousebutton(button, state, x, y):
     
     if window.valid() :
         if state==0 : window.getEventQueue().mouseButtonPress( x, y, button+1 )
-        else : window.getEventQueue().mouseButtonRelease( x, y, button+1 )
+        else window.getEventQueue().mouseButtonRelease( x, y, button+1 )
 
 def mousemove(x, y):
 
@@ -104,7 +104,7 @@ void keyboard( unsigned char key, int #x, int #y )
                 window.getEventQueue().keyRelease( (osgGA.GUIEventAdapter.KeySymbol) key )
             break
 
-def main(argc, argv):
+def main(argv):
 
     
     glutInit(argc, argv)
@@ -115,7 +115,7 @@ def main(argc, argv):
 
     # load the scene.
     loadedModel = osgDB.readNodeFile(argv[1])
-    if !loadedModel :
+    if  not loadedModel :
         print argv[0], ": No data loaded."
         return 1
 
@@ -132,7 +132,7 @@ def main(argc, argv):
     # create the view of the scene.
     viewer = osgViewer.Viewer()
     window = viewer.setUpViewerAsEmbeddedInWindow(100,100,800,600)
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
     viewer.setCameraManipulator(osgGA.TrackballManipulator)()
     viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.realize()

@@ -61,7 +61,7 @@ from osgpypp import osgViewer
 # wrapped around OpenGL's vertex arrays and draw arrays/elements calls.  Familiarity with
 # OpenGL will help you understand the osg.Geometry class which encapsulate all this, or if you
 # havn't learned OpenGL yet, learning osg.Geometry will help you understand how OpenGL
-# works!
+# works not 
 
 # The osg.Geometry class "is a" subclass of osg.Drawable base class, so is an object that provides
 # a draw method for drawing objects in the scene.  osg.Geometry contains all the vertex, normal
@@ -299,7 +299,7 @@ def createScene():
     # In reality you need to specify coords for polygons in a anticlockwise direction
     # for their front face to be pointing towards you get this wrong and you could
     # find back face culling removing the wrong faces of your models.  The OpenGL diagram
-    # is just plain wrong, but it's a nice diagram so we'll keep it for now!
+    # is just plain wrong, but it's a nice diagram so we'll keep it for now not 
 
     # create POLYGON
         # create Geometry object to store all the vertices and lines primitive.
@@ -327,11 +327,11 @@ def createScene():
         polyGeom.setVertexArray(vertices)
 
         # use the shared color array.
-        polyGeom.setColorArray(shared_colors.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setColorArray(shared_colors, osg.Array.BIND_OVERALL)
 
 
         # use the shared normal array.
-        polyGeom.setNormalArray(shared_normals.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setNormalArray(shared_normals, osg.Array.BIND_OVERALL)
 
 
         # This time we simply use primitive, and hardwire the number of coords to use
@@ -369,11 +369,11 @@ def createScene():
         polyGeom.setVertexArray(vertices)
 
         # use the shared color array.
-        polyGeom.setColorArray(shared_colors.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setColorArray(shared_colors, osg.Array.BIND_OVERALL)
 
 
         # use the shared normal array.
-        polyGeom.setNormalArray(shared_normals.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setNormalArray(shared_normals, osg.Array.BIND_OVERALL)
 
 
         # This time we simply use primitive, and hardwire the number of coords to use
@@ -413,11 +413,11 @@ def createScene():
         polyGeom.setVertexArray(vertices)
 
         # use the shared color array.
-        polyGeom.setColorArray(shared_colors.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setColorArray(shared_colors, osg.Array.BIND_OVERALL)
 
 
         # use the shared normal array.
-        polyGeom.setNormalArray(shared_normals.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setNormalArray(shared_normals, osg.Array.BIND_OVERALL)
 
 
         # This time we simply use primitive, and hardwire the number of coords to use
@@ -476,11 +476,11 @@ def createScene():
         polyGeom.setVertexArray(vertices)
 
         # use the shared color array.
-        polyGeom.setColorArray(shared_colors.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setColorArray(shared_colors, osg.Array.BIND_OVERALL)
 
 
         # use the shared normal array.
-        polyGeom.setNormalArray(shared_normals.get(), osg.Array.BIND_OVERALL)
+        polyGeom.setNormalArray(shared_normals, osg.Array.BIND_OVERALL)
 
 
         # This time we simply use primitive, and hardwire the number of coords to use
@@ -493,7 +493,7 @@ def createScene():
         stateSet = osg.StateSet()
         polyGeom.setStateSet(stateSet)
 
-        #if !defined(OSG_GLES1_AVAILABLE)  !defined(OSG_GLES2_AVAILABLE)  !defined(OSG_GL3_AVAILABLE)
+        #if  not defined(OSG_GLES1_AVAILABLE)  and   not defined(OSG_GLES2_AVAILABLE)  and   not defined(OSG_GL3_AVAILABLE)
         polygonStipple = osg.PolygonStipple()
         stateSet.setAttributeAndModes(polygonStipple,osg.StateAttribute.OVERRIDE|osg.StateAttribute.ON)
         #endif
@@ -514,7 +514,7 @@ class MyTransformCallback (osg.NodeCallback) :
 
         virtual void operator() (osg.Node* node, osg.NodeVisitor* nv)
             transform = dynamic_cast<osg.MatrixTransform*>(node)
-            if nv  transform  nv.getFrameStamp() :
+            if nv  and  transform  and  nv.getFrameStamp() :
                 time = nv.getFrameStamp().getSimulationTime()
                 transform.setMatrix(osg.Matrix.translate(0.0,1.0+cosf(time*_angular_velocity),0.0))
 
@@ -534,7 +534,7 @@ def createBackground():
 
     # we'll create a texture mapped quad to sit behind the Geometry
     image = osgDB.readImageFile("Images/primitives.gif")
-    if !image : return NULL
+    if  not image : return NULL
 
 
     # create Geometry object to store all the vertices and lines primitive.

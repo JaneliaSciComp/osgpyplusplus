@@ -59,7 +59,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
         
         result = dynamic_cast<T*>( node )
         if  result  : _foundNode = result
-        traverse = else :( node )
+        traverse = else( node )
     
     _foundNode = T*()
 
@@ -67,7 +67,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
 template<class T>
 def findTopMostNodeOfType(node):
     
-    if  !node  : return 0
+    if   not node  : return 0
     
     fnotv = FindTopMostNodeOfTypeVisitor<T>()
     node.accept( fnotv )
@@ -87,7 +87,7 @@ def computeViewMatrixOnEarth(camera, scene, latLongHeight, hpr):
 
     
     csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(scene)
-    if  !csn  : return
+    if   not csn  : return
     
     # Compute eye point in world coordiantes
     eye = osg.Vec3d()
@@ -129,13 +129,13 @@ class CustomRenderer (osgViewer.Renderer) :
     virtual void operator ()( osg.GraphicsContext* )
         if  _graphicsThreadDoesCull  :
             if _cullOnly : cull()
-            cull_draw = else :()
+            cull_draw = else()
     
     def cull():
     
         
-        sceneView = _sceneView[0].get()
-        if  !sceneView || _done || _graphicsThreadDoesCull  :
+        sceneView = _sceneView[0]
+        if   not sceneView  or  _done  or  _graphicsThreadDoesCull  :
             return
         
         updateSceneView( sceneView )
@@ -158,7 +158,7 @@ class PrintPosterHandler (osgGA.GUIEventHandler) :
     
         
         view = dynamic_cast<osgViewer.View*>( aa )
-        if  !view  : return False
+        if   not view  : return False
         
         switch( ea.getEventType() )
         case osgGA.GUIEventAdapter.FRAME:
@@ -169,7 +169,7 @@ class PrintPosterHandler (osgGA.GUIEventHandler) :
             
             if  _printer.valid()  :
                 _printer.frame( view.getFrameStamp(), view.getSceneData() )
-                if  _started  _printer.done()  :
+                if  _started  and  _printer.done()  :
                     root = dynamic_cast<osg.Switch*>( view.getSceneData() )
                     if  root  :
                         # Assume child 0 is the loaded model and 1 is the poster camera
@@ -180,7 +180,7 @@ class PrintPosterHandler (osgGA.GUIEventHandler) :
             break
         
         case osgGA.GUIEventAdapter.KEYDOWN:
-            if  ea.getKey()=='p' || ea.getKey()=='P'  :
+            if  ea.getKey()==ord("p")  or  ea.getKey()==ord("P")  :
                 if  _printer.valid()  :
                     root = dynamic_cast<osg.Switch*>( view.getSceneData() )
                     if  root  :
@@ -201,7 +201,7 @@ class PrintPosterHandler (osgGA.GUIEventHandler) :
 
 
 # The main entry 
-def main(argc, argv):
+def main(argv):
     
     arguments = osg.ArgumentParser( argc, argv )
     usage = arguments.getApplicationUsage()
@@ -227,7 +227,7 @@ def main(argc, argv):
     usage.addCommandLineOption( "--camera-latlongheight <lat> <lon> <h>", "Set eye position on earth in inactive mode." )
     usage.addCommandLineOption( "--camera-hpr <h> <p> <r>", "Set eye rotation in inactive mode." )
     
-    if  arguments.read("-h") || arguments.read("--help")  :
+    if  arguments.read("-h")  or  arguments.read("--help")  :
         usage.write( std.cout )
         return 1
     
@@ -276,8 +276,8 @@ def main(argc, argv):
     
     # Construct scene graph
     scene = osgDB.readNodeFiles( arguments )
-    if  !scene  : scene = osgDB.readNodeFile( "cow.osgt" )
-    if  !scene  :
+    if   not scene  : scene = osgDB.readNodeFile( "cow.osgt" )
+    if   not scene  :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
     
@@ -295,13 +295,13 @@ def main(argc, argv):
     printer = PosterPrinter()
     printer.setTileSize( tileWidth, tileHeight )
     printer.setPosterSize( posterWidth, posterHeight )
-    printer.setCamera( camera.get() )
+    printer.setCamera( camera )
     
     posterImage = 0
     if  outputPoster  :
         posterImage = osg.Image()
         posterImage.allocateImage( posterWidth, posterHeight, 1, GL_RGBA, GL_UNSIGNED_BYTE )
-        printer.setFinalPoster( posterImage.get() )
+        printer.setFinalPoster( posterImage )
         printer.setOutputPosterName( posterName )
     
 #if 0
@@ -312,37 +312,37 @@ def main(argc, argv):
     # snapshots and recover later.
     root = osg.Switch()
     root.addChild( scene, True )
-    root.addChild( camera.get(), False )
-#else :
+    root.addChild( camera, False )
+#else:
     root = osg.Group()
     root.addChild( scene )
-    root.addChild( camera.get() )
+    root.addChild( camera )
 #endif
     
     viewer = osgViewer.Viewer()
-    viewer.setSceneData( root.get() )
+    viewer.setSceneData( root )
     viewer.getDatabasePager().setDoPreCompile( False )
     
     if  renderImplementation==osg.Camera.FRAME_BUFFER  :
         # FRAME_BUFFER requires the window resolution equal or greater than the to-be-copied size
         viewer.setUpViewInWindow( 100, 100, tileWidth, tileHeight )
-    else :
+    else:
         # We want to see the console output, so just render in a window
         viewer.setUpViewInWindow( 100, 100, 800, 600 )
     
     if  activeMode  :
-        viewer.addEventHandler( PrintPosterHandler(printer.get()) )
+        viewer.addEventHandler( PrintPosterHandler(printer) )
         viewer.addEventHandler( osgViewer.StatsHandler )()
         viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
         viewer.setCameraManipulator( osgGA.TrackballManipulator )()
         viewer.run()
-    else :
+    else:
         camera = viewer.getCamera()
-        if  !useLatLongHeight  : computeViewMatrix( camera, eye, hpr )
-        computeViewMatrixOnEarth = else :( camera, scene, latLongHeight, hpr )
+        if   not useLatLongHeight  : computeViewMatrix( camera, eye, hpr )
+        computeViewMatrixOnEarth = else( camera, scene, latLongHeight, hpr )
         
         renderer = CustomRenderer( camera )
-        camera.setRenderer( renderer.get() )
+        camera.setRenderer( renderer )
         viewer.setThreadingModel( osgViewer.Viewer.SingleThreaded )
         
         # Realize and initiate the first PagedLOD request
@@ -350,7 +350,7 @@ def main(argc, argv):
         viewer.frame()
         
         printer.init( camera )
-        while  !printer.done()  :
+        while   not printer.done()  :
             viewer.advance()
             
             # Keep updating and culling until full level of detail is reached
@@ -386,7 +386,7 @@ static PagedLoadingCallback g_pagedLoadingCallback = PagedLoadingCallback()
 class LodCullingCallback (osg.NodeCallback) :
     virtual void operator()( osg.Node* node, osg.NodeVisitor* nv )
         lod = static_cast<osg.LOD*>(node)
-        if  lod  lod.getNumChildren()>0  :
+        if  lod  and  lod.getNumChildren()>0  :
             lod.getChild(lod.getNumChildren()-1).accept(*nv)
 
 static LodCullingCallback g_lodCullingCallback = LodCullingCallback()
@@ -395,12 +395,12 @@ static LodCullingCallback g_lodCullingCallback = LodCullingCallback()
 class PagedCullingCallback (osg.NodeCallback) :
     virtual void operator()( osg.Node* node, osg.NodeVisitor* nv )
         pagedLOD = static_cast<osg.PagedLOD*>(node)
-        if  pagedLOD  pagedLOD.getNumChildren()>0  :
+        if  pagedLOD  and  pagedLOD.getNumChildren()>0  :
             numChildren = pagedLOD.getNumChildren()
             updateTimeStamp = nv.getVisitorType()==osg.NodeVisitor.CULL_VISITOR
-            if  nv.getFrameStamp()  updateTimeStamp  :
-                timeStamp = nv.getFrameStamp()?nv.getFrameStamp().getReferenceTime():0.0
-                frameNumber = nv.getFrameStamp()?nv.getFrameStamp().getFrameNumber():0
+            if  nv.getFrameStamp()  and  updateTimeStamp  :
+                timeStamp =  nv.getFrameStamp().getReferenceTime() if (nv.getFrameStamp()) else 0.0
+                frameNumber =  nv.getFrameStamp().getFrameNumber() if (nv.getFrameStamp()) else 0
                 
                 pagedLOD.setFrameNumberOfLastTraversal( frameNumber )
                 pagedLOD.setTimeStamp( numChildren-1, timeStamp )
@@ -408,15 +408,15 @@ class PagedCullingCallback (osg.NodeCallback) :
                 pagedLOD.getChild(numChildren-1).accept(*nv)
             
             # Request for child
-            if  !pagedLOD.getDisableExternalChildrenPaging() 
-                 nv.getDatabaseRequestHandler() 
+            if   not pagedLOD.getDisableExternalChildrenPaging()  and 
+                 nv.getDatabaseRequestHandler()  and 
                  numChildren<pagedLOD.getNumRanges()  :
                 if  pagedLOD.getDatabasePath().empty()  :
                     nv.getDatabaseRequestHandler().requestNodeFile(
                         pagedLOD.getFileName(numChildren), nv.getNodePath(),
                         1.0, nv.getFrameStamp(),
                         pagedLOD.getDatabaseRequest(numChildren), pagedLOD.getDatabaseOptions() )
-                else :
+                else:
                     nv.getDatabaseRequestHandler().requestNodeFile(
                         pagedLOD.getDatabasePath()+pagedLOD.getFileName(numChildren), nv.getNodePath(),
                         1.0, nv.getFrameStamp(),
@@ -432,37 +432,38 @@ PosterVisitor.PosterVisitor()
     _addingCallbacks(True)
 
 void PosterVisitor.apply( osg.LOD node )
-    #if  !hasCullCallback(node.getCullCallback(), g_lodCullingCallback.get())  :
+    #if   not hasCullCallback(node.getCullCallback(), g_lodCullingCallback)  :
 #    
-#        if  !node.getName().empty()  :
+#        if   not node.getName().empty()  :
 #        
 #            itr = _pagedNodeNames.find( node.getName() )
-#            if  itr!=_pagedNodeNames.end()  :
+#            if  itr not =_pagedNodeNames.end()  :
 #            
-#                insertCullCallback( node, g_lodCullingCallback.get() )
+#                insertCullCallback( node, g_lodCullingCallback )
 #                _appliedCount++
 #            
 #        
 #    
-#    elif  !_addingCallbacks  :
-#    
-#        node.removeCullCallback( g_lodCullingCallback.get() )
+#    def if _addingCallbacks .
+#        
+#        node.removeCullCallback( g_lodCullingCallback )
 #        _appliedCount--
 #    
     traverse( node )
 
 void PosterVisitor.apply( osg.PagedLOD node )
-    if  !hasCullCallback(node.getCullCallback(), g_pagedCullingCallback.get())  :
+    if   not hasCullCallback(node.getCullCallback(), g_pagedCullingCallback)  :
         for ( unsigned int i=0 i<node.getNumFileNames() ++i )
             if  node.getFileName(i).empty()  : continue
             
             itr = _pagedNodeNames.find( node.getFileName(i) )
-            if  itr!=_pagedNodeNames.end()  :
-                node.addCullCallback( g_pagedCullingCallback.get() )
+            if  itr not =_pagedNodeNames.end()  :
+                node.addCullCallback( g_pagedCullingCallback )
                 _appliedCount++
             break
-    elif  !_addingCallbacks  :
-        node.removeCullCallback( g_pagedCullingCallback.get() )
+    def if _addingCallbacks .
+        
+        node.removeCullCallback( g_pagedCullingCallback )
         if  _appliedCount>0  : _appliedCount--
     traverse( node )
 
@@ -494,11 +495,11 @@ osgUtil.Intersector* PosterIntersector.clone( osgUtil.IntersectionVisitor iv )
     return pi.release()
 
 bool PosterIntersector.enter(  osg.Node node )
-    if  !node.isCullingActive()  : return True
+    if   not node.isCullingActive()  : return True
     if  _polytope.contains(node.getBound())  :
         if  node.getCullCallback()  :
             cccb = dynamic_cast< osg.ClusterCullingCallback*>( node.getCullCallback() )
-            if  cccb  cccb.cull(_intersectionVisitor, 0, NULL)  : return False
+            if  cccb  and  cccb.cull(_intersectionVisitor, 0, NULL)  : return False
         return True
     return False
 
@@ -507,12 +508,12 @@ void PosterIntersector.reset()
     Intersector.reset()
 
 void PosterIntersector.intersect( osgUtil.IntersectionVisitor iv, osg.Drawable* drawable )
-    if  !_polytope.contains(drawable.getBound())  : return
+    if   not _polytope.contains(drawable.getBound())  : return
     if  iv.getDoDummyTraversal()  : return
     
     # Find and collect all paged LODs in the node path
     nodePath = iv.getNodePath()
-    for ( osg.NodePath.iterator itr=nodePath.begin() itr!=nodePath.end() ++itr )
+    for ( osg.NodePath.iterator itr=nodePath.begin() itr not =nodePath.end() ++itr )
         pagedLOD = dynamic_cast<osg.PagedLOD*>(*itr)
         if  pagedLOD  :
             # FIXME: The first non-empty getFileName() is used as the identity of this paged node.
@@ -527,7 +528,7 @@ void PosterIntersector.intersect( osgUtil.IntersectionVisitor iv, osg.Drawable* 
         #osg.LOD* lod = dynamic_cast<osg.LOD*>(*itr)
 #        if  lod  :
 #        
-#            if  !lod.getName().empty()  _parent._visitor.valid()  :
+#            if   not lod.getName().empty()  and  _parent._visitor.valid()  :
 #                _parent._visitor.insertName( lod.getName() )
 #        
 
@@ -539,7 +540,7 @@ PosterPrinter.PosterPrinter():
     _camera(0), _finalPoster(0)
     _intersector = PosterIntersector(-1.0, -1.0, 1.0, 1.0)
     _visitor = PosterVisitor()
-    _intersector.setPosterVisitor( _visitor.get() )
+    _intersector.setPosterVisitor( _visitor )
 
 void PosterPrinter.init(  osg.Camera* camera )
     if  _camera.valid()  :
@@ -593,20 +594,20 @@ void PosterPrinter.frame(  osg.FrameStamp* fs, osg.Node* node )
             
             if  _camera.valid()  :
                 print "Binding sub-camera ", _currentRow, "_", _currentColumn, " to image..."
-                bindCameraToImage( _camera.get(), _currentRow, _currentColumn )
+                bindCameraToImage( _camera, _currentRow, _currentColumn )
                 if  _currentColumn<_tileColumns-1  :
                     _currentColumn++
-                else :
+                else:
                     if  _currentRow<_tileRows-1  :
                         _currentRow++
                         _currentColumn = 0
-                    else :
+                    else:
                         _isRunning = False
                         _isFinishing = True
             _lastBindingFrame = fs.getFrameNumber()
 
 bool PosterPrinter.addCullCallbacks(  osg.FrameStamp* fs, osg.Node* node )
-    if  !_visitor.inQueue() || done()  :
+    if   not _visitor.inQueue()  or  done()  :
         return False
     
     _visitor.setAddingCallbacks( True )
@@ -627,7 +628,7 @@ void PosterPrinter.bindCameraToImage( osg.Camera* camera, int row, int col )
     image = osg.Image()
     image.setName( stream.str() )
     image.allocateImage( (int)_tileSize.x(), (int)_tileSize.y(), 1, GL_RGBA, GL_UNSIGNED_BYTE )
-    _images[TilePosition(row,col)] = image.get()
+    _images[TilePosition(row,col)] = image
     
     # Calculate projection matrix offset of each tile
     offsetMatrix = osg.Matrix.scale(_tileColumns, _tileRows, 1.0) *
@@ -636,8 +637,8 @@ void PosterPrinter.bindCameraToImage( osg.Camera* camera, int row, int col )
     camera.setProjectionMatrix( _currentProjectionMatrix * offsetMatrix )
     
     # Check intersections between the image-tile box and the model
-    iv = osgUtil.IntersectionVisitor( _intersector.get() )
-    iv.setReadCallback( g_pagedLoadingCallback.get() )
+    iv = osgUtil.IntersectionVisitor( _intersector )
+    iv.setReadCallback( g_pagedLoadingCallback )
     _intersector.reset()
     camera.accept( iv )
     if  _intersector.containsIntersections()  :
@@ -645,13 +646,12 @@ void PosterPrinter.bindCameraToImage( osg.Camera* camera, int row, int col )
         # This will be done by the PosterVisitor, who already records all the paged nodes.
     
     # Reattach cameras and allocated images
-    camera.setRenderingCache( NULL )  # FIXME: Uses for reattaching camera with image, maybe inefficient?
-    camera.detach( osg.Camera.COLOR_BUFFER )
-    camera.attach( osg.Camera.COLOR_BUFFER, image.get(), 0, 0 )
+    camera.setRenderingCache( NULL )  # FIXME: Uses for reattaching camera with image, maybe  camera.detach( osg.Camera: if (inefficient) else COLOR_BUFFER )
+    camera.attach( osg.Camera.COLOR_BUFFER, image, 0, 0 )
 
 void PosterPrinter.recordImages()
-    for ( TileImages.iterator itr=_images.begin() itr!=_images.end() ++itr )
-        image = (itr.second).get()
+    for ( TileImages.iterator itr=_images.begin() itr not =_images.end() ++itr )
+        image = (itr.second)
         if  _finalPoster.valid()  :
             # FIXME: A stupid way to combine tile images to final result. Any better ideas?
             row = itr.first.first, col = itr.first.second
@@ -706,7 +706,7 @@ class PosterVisitor (osg.NodeVisitor) :
     def getAppliedCount():
          return _appliedCount 
     def inQueue():
-         return _needToApplyCount>_appliedCount ? _needToApplyCount-_appliedCount : 0 
+         return  _needToApplyCount-_appliedCount if (_needToApplyCount>_appliedCount) else  0 
     
     def setAddingCallbacks(b):
     
@@ -719,7 +719,7 @@ class PosterVisitor (osg.NodeVisitor) :
     def hasCullCallback(nc, target):
         
         if  nc==target  : return True
-        elif  !nc  : return False
+        elif   not nc  : return False
         hasCullCallback = return( nc.getNestedCallback(), target )
     
     _pagedNodeNames = PagedNodeNameSet()
@@ -739,15 +739,15 @@ class PosterIntersector (osgUtil.Intersector) :
     
          _visitor = pcv 
     def getPosterVisitor():
-         return _visitor.get() 
+         return _visitor 
     def getPosterVisitor():
-         return _visitor.get() 
+         return _visitor 
     
     clone = virtual Intersector*( osgUtil.IntersectionVisitor iv )
     
     def containsIntersections():
     
-         return _visitor.valid()_visitor.getNumNames()>0 
+         return _visitor.valid() and _visitor.getNumNames()>0 
     
     enter = virtual bool(  osg.Node node )
     def leave():
@@ -800,23 +800,23 @@ class PosterPrinter (osg.Referenced) :
     def setCamera(camera):
          _camera = camera 
     def getCamera():
-         return _camera.get() 
+         return _camera 
     
     #* Set the final poster image, should be already allocated 
     def setFinalPoster(image):
          _finalPoster = image 
     def getFinalPoster():
-         return _finalPoster.get() 
+         return _finalPoster 
     
     def getPosterVisitor():
     
-         return _visitor.get() 
+         return _visitor 
     def getPosterVisitor():
-         return _visitor.get() 
+         return _visitor 
     
     def done():
     
-         return !_isRunning  !_isFinishing 
+         return  not _isRunning  and   not _isFinishing 
     
     init = void(  osg.Camera* camera )
     init = void(  osg.Matrixd view,  osg.Matrixd proj )

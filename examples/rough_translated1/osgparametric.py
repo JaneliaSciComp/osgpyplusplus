@@ -182,7 +182,7 @@ def createModel(shader, textureFileName, terrainFileName, dynamic, useVBO):
 
                 num_x = tx
                 num_y = tx
-            else :
+            else:
                 image = osgDB.readImageFile(terrainFileName)
 
                 num_x = image.s()
@@ -230,10 +230,10 @@ def createModel(shader, textureFileName, terrainFileName, dynamic, useVBO):
 
     geom.setVertexArray(vertices)
 
-    vbo = useVBO ? osg.VertexBufferObject : 0()
+    vbo =  osg.VertexBufferObject if (useVBO) else  0()
     if vbo : vertices.setVertexBufferObject(vbo)
     
-    ebo = useVBO ? osg.ElementBufferObject : 0()
+    ebo =  osg.ElementBufferObject if (useVBO) else  0()
 
     for(iy=0 iy<num_y-1 ++iy)
         element_no = 0
@@ -252,7 +252,7 @@ def createModel(shader, textureFileName, terrainFileName, dynamic, useVBO):
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrate support for ARB_vertex_program.")
@@ -281,13 +281,13 @@ int main(int argc, char *argv[])
     while arguments.read("--vbo") :  vbo = True 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
     # load the nodes from the commandline arguments.
     model = createModel(shader,textureFileName,terrainFileName, dynamic, vbo)
-    if !model :
+    if  not model :
         return 1
     
     viewer.setSceneData(model)

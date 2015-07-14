@@ -81,7 +81,7 @@ class TexturePanCallback (osg.NodeCallback) :
         _prevTime(0.0)
 
     virtual void operator()(osg.Node*, osg.NodeVisitor* nv)
-        if !_texmat :
+        if  not _texmat :
             return
 
         if nv.getFrameStamp() : 
@@ -244,7 +244,7 @@ def createModel(filename):
     
     root = osg.Group()
 
-    if filename != "X" : 
+    if filename  not = "X" : 
         bb = osg.BoundingBox(0.0,0.0,0.0,1.0,1.0,1.0)
         root.addChild(createRectangle(bb, filename)) # XXX
 
@@ -253,18 +253,18 @@ def createModel(filename):
     return root
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
 
     # create a model from the images.
-    rootNode = createModel((arguments.argc() > 1 ? arguments[1] : "Images/lz.rgb"))
+    rootNode = createModel((arguments.argc() >  arguments[1] if (1) else  "Images/lz.rgb"))
 
     # add model to viewer.
     viewer.setSceneData(rootNode)

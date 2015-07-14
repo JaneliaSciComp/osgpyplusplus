@@ -242,7 +242,7 @@ void Character.resetCatches()
     _catchSwitch.setAllChildrenOff()
 
 bool Character.addCatch()
-    if !_catchSwitch || _numCatches>=_catchSwitch.getNumChildren() : return False
+    if  not _catchSwitch  or  _numCatches>=_catchSwitch.getNumChildren() : return False
     
     _catchSwitch.setValue(_numCatches,True)
     ++_numCatches
@@ -250,12 +250,12 @@ bool Character.addCatch()
     return True
 
 bool Character.looseLife()
-    if !_livesSwitch || _numLives==0 : return False
+    if  not _livesSwitch  or  _numLives==0 : return False
     
     --_numLives
     _livesSwitch.setValue(_numLives,False)
     
-    return (_numLives!=0)
+    return (_numLives not =0)
 
 
 #############################################################
@@ -293,7 +293,7 @@ class CatchableObject (osg.Referenced) :
         
         def needToRemove(time):
         
-             return  _timeToRemove>=0.0  time>_timeToRemove 
+             return  _timeToRemove>=0.0  and  time>_timeToRemove 
         
         _object = osg.PositionAttitudeTransform()
         _velocity = osg.Vec3()
@@ -376,7 +376,7 @@ CatchableObject.CatchableObject()
 
 void CatchableObject.setUpCatchablesMap( FileList fileList)
     for(FileList.const_iterator itr=fileList.begin()
-        itr!=fileList.end()
+        not = fileList.end()
         ++itr)
         filename = *itr
         image = osgDB.readImageFile(filename)
@@ -391,7 +391,7 @@ void CatchableObject.setUpCatchablesMap( FileList fileList)
             pos = (width+height)*-0.5
 
             geometry = osg.createTexturedQuadGeometry(pos,width,height)
-            geometry.setStateSet(stateset.get())
+            geometry.setStateSet(stateset)
 
             geode = osg.Geode()
             geode.addDrawable(geometry)
@@ -406,16 +406,16 @@ void CatchableObject.setObject( str filename,  str name,  osg.Vec3 center, float
     _velocity = velocity
     _mass = 1000.0*Volume
 
-    if s_objectMap.count(filename)!=0 :
+    if s_objectMap.count(filename) not =0 :
         scaleTransform = osg.PositionAttitudeTransform()
         scaleTransform.setScale(osg.Vec3(characterSize,characterSize,characterSize))
-        scaleTransform.addChild(s_objectMap[filename].get())
+        scaleTransform.addChild(s_objectMap[filename])
 
         _object = osg.PositionAttitudeTransform()
         _object.setName(name)
         _object.setPosition(center)
         _object.addChild(scaleTransform)
-    else :
+    else:
         osg.notify(osg.NOTICE), "CatchableObject.setObject(", filename, ") not able to create catchable object."
 
 void CatchableObject.update(double dt)
@@ -493,7 +493,7 @@ class GameEventHandler (osgGA.GUIEventHandler) :
         compile.setState(state)
     
         for(ObjectMap.iterator itr = s_objectMap.begin()
-            itr != s_objectMap.end()
+            not = s_objectMap.end()
             ++itr)
             itr.second.accept(compile)
     
@@ -511,16 +511,16 @@ class GameEventHandler (osgGA.GUIEventHandler) :
     
         
         for(CatchableObjectList.iterator itr=_catchableObjects.begin()
-            itr!=_catchableObjects.end()
+            not = _catchableObjects.end()
             ++itr)
             # need to remove
             # remove child from parents.
             child = (*itr)._object
             parents = child.getParents()
             for(osg.Node.ParentList.iterator pitr=parents.begin()
-                pitr!=parents.end()
+                not = parents.end()
                 ++pitr)
-                (*pitr).removeChild(child.get())
+                (*pitr).removeChild(child)
 
         _catchableObjects.clear()
     
@@ -579,7 +579,7 @@ class GameEventHandler (osgGA.GUIEventHandler) :
         if _numberOfPlayers==0 :
             livesPosition = _originBaseLine+osg.Vec3(0.0,-0.5,0.0)
             catchesPosition = _originBaseLine+osg.Vec3(100.0,-0.5,0.0)
-        else :
+        else:
             livesPosition = _originBaseLine+osg.Vec3(1000.0,-0.5,000.0)
             catchesPosition = _originBaseLine+osg.Vec3(1100.0,-0.5,0.0)
         
@@ -636,7 +636,7 @@ class GameEventHandler (osgGA.GUIEventHandler) :
         textString = os.str()
     
         for(TextList.iterator itr = _scoreTextList.begin()
-            itr != _scoreTextList.end()
+            not = _scoreTextList.end()
             ++itr)
             (*itr).setText(textString)
     
@@ -791,7 +791,7 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
                 # move objects
                 for(CatchableObjectList.iterator itr=_catchableObjects.begin()
-                    itr!=_catchableObjects.end()
+                    not = _catchableObjects.end()
                     ++itr)
                     (*itr).update(dt)
 
@@ -801,21 +801,21 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
                         inBasket = ((*itr).centerInside(_players[i].getCurrentCenterOfBasket(),_players[i].getCurrentRadiusOfBasket()))
                     
                         if *itr :.dangerous() :
-                            if *itr :.anyInside(_players[i].getLowerLeft(),_players[i].getUpperRight()) || inBasket :
+                            if *itr :.anyInside(_players[i].getLowerLeft(),_players[i].getUpperRight())  or  inBasket :
                                 # player has hit or caught a dangerous object, must loose a life.
-                                if !_players[i].looseLife() :
+                                if  not _players[i].looseLife() :
                                     _currentIndex = _lostIndex
                                     _gameSwitch.setSingleChildOn(_currentIndex)
 
                                     return True
-                                else :
+                                else:
                                     clearCatchables()
                                     return True
                         elif inBasket :
                             # player has caught a safe object.
                             updateScoreWithCatch()
                             
-                            if !_players[i].addCatch() :
+                            if  not _players[i].addCatch() :
                                 _players[i].resetCatches()
                                 updateScoreWithLevel()
                                 nextLevel()
@@ -826,22 +826,22 @@ bool GameEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
 
                             removeEntry = True
 
-                    if !(*itr).anyInside(_origin, _origin+_width+_height) || 
-                        (*itr).needToRemove(ea.getTime()) ||
+                    if  not (*itr).anyInside(_origin, _origin+_width+_height)  or  
+                        (*itr).needToRemove(ea.getTime())  or 
                         removeEntry :
                         # need to remove
                         # remove child from parents.
                         child = (*itr)._object
                         parents = child.getParents()
                         for(osg.Node.ParentList.iterator pitr=parents.begin()
-                            pitr!=parents.end()
+                            not = parents.end()
                             ++pitr)
-                            (*pitr).removeChild(child.get())
+                            (*pitr).removeChild(child)
 
                         # remove child from catchable list
                         itr = _catchableObjects.erase(itr)
 
-                    elif *itr :.anyInside(_origin, _origin+_width)  !(*itr).stopped() :
+                    elif *itr :.anyInside(_origin, _origin+_width)  and   not (*itr).stopped() :
                         # hit base line
                         (*itr).explode()
                         (*itr).stop()
@@ -922,7 +922,7 @@ osg.Node* GameEventHandler.createScene()
         # set up the text
         textPosition = _origin+_width*0.5+_height*0.8 -osg.Vec3(0.0,0.1,0.0)
             text = osgText.Text()
-            text.setText("osgcatch is a childrens catching game\nMove your character using the mouse to\ncatch falling objects in your net\nbut avoid burning objects - they kill!!")
+            text.setText("osgcatch is a childrens catching game\nMove your character using the mouse to\ncatch falling objects in your net\nbut avoid burning objects - they kill not  not ")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
             text.setCharacterSize(_width.length()*0.025)
@@ -946,7 +946,7 @@ osg.Node* GameEventHandler.createScene()
 
             textPosition -= _height*0.25
             text = osgText.Text()
-            text.setText("Game concept and artwork - Caitlin Osfield, aged 5!\nSoftware development - Robert Osfield")
+            text.setText("Game concept and artwork - Caitlin Osfield, aged 5 not \nSoftware development - Robert Osfield")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
             text.setCharacterSize(_width.length()*0.025)
@@ -1038,7 +1038,7 @@ osg.Node* GameEventHandler.createScene()
         # set up the text
         textPosition = _origin+_width*0.5+_height*0.75 -osg.Vec3(0.0,0.1,0.0)
             text = osgText.Text()
-            text.setText("Well done!!!\nYou completed all levels!")
+            text.setText("Well done not  not  not \nYou completed all levels not ")
             text.setFont("fonts/dirtydoz.ttf")
             text.setPosition(textPosition)
             text.setCharacterSize(_width.length()*0.04)
@@ -1083,15 +1083,15 @@ osg.Node* GameEventHandler.createScene()
             addPlayer(PLAYER_GIRL)
 
         for(unsigned int i=0i<_numberOfPlayers++i)
-            _gameGroup.addChild(_players[i]._character.get())
-            _gameGroup.addChild(_players[i]._livesSwitch.get())
-            _gameGroup.addChild(_players[i]._catchSwitch.get())
+            _gameGroup.addChild(_players[i]._character)
+            _gameGroup.addChild(_players[i]._livesSwitch)
+            _gameGroup.addChild(_players[i]._catchSwitch)
 
         # background
             _levelSwitch = osg.Switch()
 
             for(FileList.const_iterator itr = _backgroundFiles.begin()
-                itr != _backgroundFiles.end()
+                not = _backgroundFiles.end()
                 ++itr)
 
                 image = osgDB.readImageFile(*itr)
@@ -1105,11 +1105,11 @@ osg.Node* GameEventHandler.createScene()
 
                     _levelSwitch.addChild(geode)
             _levelSwitch.setSingleChildOn(0)
-            _gameGroup.addChild(_levelSwitch.get())
+            _gameGroup.addChild(_levelSwitch)
 
 
         _gameIndex = _gameSwitch.getNumChildren()
-        _gameSwitch.addChild(_gameGroup.get())
+        _gameSwitch.addChild(_gameGroup)
 
         # set up the text
         textPosition = _origin+_width*0.05+_height*0.95-osg.Vec3(0.0,0.1,0.0)
@@ -1136,7 +1136,7 @@ osg.Node* GameEventHandler.createScene()
             _levelText.setDataVariance(osg.Object.DYNAMIC)
             _levelText.setAxisAlignment(osgText.Text.XZ_PLANE)
 
-            geode.addDrawable(_levelText.get())
+            geode.addDrawable(_levelText)
             
 
 
@@ -1147,7 +1147,7 @@ osg.Node* GameEventHandler.createScene()
     _currentIndex = _welcomeIndex
     _gameSwitch.setSingleChildOn(_currentIndex)
 
-    return _gameSwitch.get()
+    return _gameSwitch
 
 void GameEventHandler.createNewCatchable()
     if _benignCatachables.empty() : return
@@ -1173,7 +1173,7 @@ void GameEventHandler.createNewCatchable()
     if r < _chanceOfExplodingAtStart :
        catchableObject.explode() 
 
-    _gameGroup.addChild(catchableObject._object.get())
+    _gameGroup.addChild(catchableObject._object)
 
 class CompileStateCallback (osg.Operation) :
         CompileStateCallback(GameEventHandler* eh):
@@ -1182,7 +1182,7 @@ class CompileStateCallback (osg.Operation) :
         
         virtual void operator () (osg.Object* object)
             context = dynamic_cast<osg.GraphicsContext*>(object)
-            if !context : return
+            if  not context : return
 
             if _gameEventHandler :
                 _gameEventHandler.compileGLObjects(*(context.getState()))
@@ -1191,12 +1191,12 @@ class CompileStateCallback (osg.Operation) :
         _gameEventHandler = GameEventHandler*()
 
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use node masks to create stereo images.")
@@ -1220,7 +1220,7 @@ def main(argc, argv):
     
     
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -1251,7 +1251,7 @@ def main(argc, argv):
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 
     # set the scene to render
-    viewer.setSceneData(rootNode.get())
+    viewer.setSceneData(rootNode)
 
     viewer.setRealizeOperation(CompileStateCallback(seh))
 
@@ -1268,14 +1268,14 @@ def main(argc, argv):
     windows = osgViewer.Viewer.Windows()
     viewer.getWindows(windows)
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-        itr != windows.end()
+        not = windows.end()
         ++itr)
         (*itr).useCursor(False)
 
     # todo for osgViewer - implement warp pointer that can be done relative to different coordinate frames
     # viewer.requestWarpPointer(0.5,0.5)        
 
-    while  !viewer.done()  :
+    while   not viewer.done()  :
         viewer.getCamera().setViewMatrix(seh.getCameraPosition())
 
         # fire off the cull and draw traversals of the scene.

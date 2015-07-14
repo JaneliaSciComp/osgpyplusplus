@@ -54,9 +54,9 @@ class AdapterWidget (Fl_Gl_Window) :
 
     def getGraphicsWindow():
 
-         return _gw.get() 
+         return _gw 
     def getGraphicsWindow():
-         return _gw.get() 
+         return _gw 
 
     resize = virtual void(int x, int y, int w, int h)
 
@@ -126,7 +126,7 @@ class CompositeViewerFLTK : public osgViewer.CompositeViewer, public AdapterWidg
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
@@ -135,11 +135,11 @@ def main(argc, argv):
         print argv[0], ": requires filename argument."
         return 1
 
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # load the scene.
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel :
+    if  not loadedModel :
         print argv[0], ": No data loaded."
         return 1
 
@@ -156,7 +156,7 @@ def main(argc, argv):
             view1.getCamera().setProjectionMatrixAsPerspective(30.0, static_cast<double>(width)/static_cast<double>(height/2), 1.0, 1000.0)
             view1.getCamera().setViewport(osg.Viewport(0,0,width,height/2))
             view1.setCameraManipulator(osgGA.TrackballManipulator)()
-            view1.setSceneData(loadedModel.get())
+            view1.setSceneData(loadedModel)
             
             viewerWindow.addView(view1)
         
@@ -165,7 +165,7 @@ def main(argc, argv):
             view2.getCamera().setProjectionMatrixAsPerspective(30.0, static_cast<double>(width)/static_cast<double>(height/2), 1.0, 1000.0)
             view2.getCamera().setViewport(osg.Viewport(0,height/2,width,height/2))
             view2.setCameraManipulator(osgGA.TrackballManipulator)()
-            view2.setSceneData(loadedModel.get())
+            view2.setSceneData(loadedModel)
             
             viewerWindow.addView(view2)
 
@@ -174,12 +174,12 @@ def main(argc, argv):
         Fl.set_idle(idle_cb)
 
         return Fl.run()
-    else :
+    else:
 
         viewerWindow = ViewerFLTK(100,100,800,600)
         viewerWindow.resizable(viewerWindow)
 
-        viewerWindow.setSceneData(loadedModel.get())
+        viewerWindow.setSceneData(loadedModel)
         viewerWindow.setCameraManipulator(osgGA.TrackballManipulator)()
         viewerWindow.addEventHandler(osgViewer.StatsHandler)()
 

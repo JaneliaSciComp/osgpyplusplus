@@ -102,7 +102,7 @@ bool PickHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa)
             return False
 
         case(osgGA.GUIEventAdapter.KEYUP):
-            if ea.getKey() == 't' :
+            if ea.getKey() == ord("t") :
                 user_event = osgGA.GUIEventAdapter()
                 user_event.setEventType(osgGA.GUIEventAdapter.USER)
                 user_event.setUserValue("vec2f", osg.Vec2f(1.0,2.0))
@@ -129,10 +129,10 @@ void PickHandler.pick(osgViewer.View* view,  osgGA.GUIEventAdapter ea)
     y = ea.getY()
     if view.computeIntersections(ea, intersections) :
         for(osgUtil.LineSegmentIntersector.Intersections.iterator hitr = intersections.begin()
-            hitr != intersections.end()
+            not = intersections.end()
             ++hitr)
             os = std.ostringstream()
-            if !hitr.nodePath.empty()  !(hitr.nodePath.back().getName().empty()) :
+            if  not hitr.nodePath.empty()  and   not (hitr.nodePath.back().getName().empty()) :
                 # the geodes are identified by name.
                 os, "Object \"", hitr.nodePath.back().getName(), "\""
             elif hitr.drawable.valid() :
@@ -226,12 +226,12 @@ bool UserEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter aa
             rect = osg.Vec4()
             ea.getUserValue("resize", rect)
             view = dynamic_cast<osgViewer.View*>(aa)
-            if view  (rect[2] > 0)  (rect[3] > 0) :
+            if view  and  (rect[2] > 0)  and  (rect[3] > 0) :
                 OSG_ALWAYS, "resizing view to ", rect
-                win = view.getCamera().getGraphicsContext() ? dynamic_cast<osgViewer.GraphicsWindow*>(view.getCamera().getGraphicsContext()) : NULL
+                win =  dynamic_cast<osgViewer.GraphicsWindow*>(view.getCamera().getGraphicsContext()) if (view.getCamera().getGraphicsContext()) else  NULL
                 if win :
                     win.setWindowRectangle(rect[2] + 10 + rect[0], rect[1], rect[2], rect[3])
-        else : 
+        else:
             udc = ea.getUserDataContainer()
             if udc :
                 OSG_ALWAYS, "contents of ", udc.getName(), ": "
@@ -252,8 +252,8 @@ def createHUD():
 
     # create the hud. derived from osgHud.cpp
     # adds a set of quads, each in a separate Geode - which can be picked individually
-    # eg to be used as a menuing/help system!
-    # Can pick texts too!
+    # eg to be used as a menuing/help system not 
+    # Can pick texts too not 
 
     hudCamera = osg.Camera()
     hudCamera.setReferenceFrame(osg.Transform.ABSOLUTE_RF)
@@ -279,7 +279,7 @@ def createHUD():
         geode.addDrawable( text )
 
         text.setFont(timesFont)
-        text.setText("Picking in Head Up Displays is simple!")
+        text.setText("Picking in Head Up Displays is simple not ")
         text.setPosition(position)
 
         position += delta
@@ -363,18 +363,18 @@ class OscServiceDiscoveredEventHandler (ForwardToDeviceEventHandler) :
 
                 view = dynamic_cast<osgViewer.View*>(aa)
                 if view :
-                    view.addEventHandler(PickHandler(_device.get()))
+                    view.addEventHandler(PickHandler(_device))
                 return True
         return False
 
 
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().addCommandLineOption("--zeroconf","uses zeroconf to advertise the osc-plugin and to discover it")
     arguments.getApplicationUsage().addCommandLineOption("--sender","create a view which sends its events via osc")
@@ -385,7 +385,7 @@ def main(argc, argv):
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
 
-    if !scene :
+    if  not scene :
         print argv[0], ": requires filename argument."
         return 1
 
@@ -410,14 +410,14 @@ def main(argc, argv):
         traits.sharedContext = 0
         traits.windowName = "Receiver / view two"
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
 
         view = osgViewer.View()
         view.setName("View two")
         viewer.addView(view)
 
         group = osg.Group()
-        group.addChild(scene.get())
+        group.addChild(scene)
         geode = osg.Geode()
         group.addChild(geode)
 
@@ -433,21 +433,21 @@ def main(argc, argv):
         view.setSceneData(group)
         view.getCamera().setName("Cam two")
         view.getCamera().setViewport(osg.Viewport(0,0, traits.width, traits.height))
-        view.getCamera().setGraphicsContext(gc.get())
+        view.getCamera().setGraphicsContext(gc)
 
         view.addEventHandler( osgViewer.StatsHandler )()
         view.addEventHandler( UserEventHandler(text) )
 
         device = osgDB.readFile<osgGA.Device>("0.0.0.0:9000.receiver.osc")
-        if device.valid()  (device.getCapabilities()  osgGA.Device.RECEIVE_EVENTS) :
-            view.addDevice(device.get())
+        if device.valid()  and  (device.getCapabilities()  osgGA.Device.RECEIVE_EVENTS) :
+            view.addDevice(device)
 
             # add a zeroconf device, advertising the osc-device
             if use_zeroconf :
                 zeroconf_device = osgDB.readFile<osgGA.Device>("_osc._udp:9000.advertise.zeroconf")
                 if zeroconf_device :
                     view.addDevice(zeroconf_device)
-        else : 
+        else:
             OSG_WARN, "could not open osc-device, receiving will not work"
 
     # sender view
@@ -462,7 +462,7 @@ def main(argc, argv):
         traits.sharedContext = 0
         traits.windowName = "Sender / view one"
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
 
 
         view = osgViewer.View()
@@ -470,19 +470,19 @@ def main(argc, argv):
         viewer.addView(view)
 
         g = osg.Group()
-        g.addChild(scene.get())
+        g.addChild(scene)
         g.addChild(createHUD())
         view.setSceneData(g)
         view.getCamera().setName("Cam one")
         view.getCamera().setViewport(osg.Viewport(0,0, traits.width, traits.height))
-        view.getCamera().setGraphicsContext(gc.get())
+        view.getCamera().setGraphicsContext(gc)
         view.setCameraManipulator(osgGA.TrackballManipulator)()
 
         # add the state manipulator
         statesetManipulator = osgGA.StateSetManipulator()
         statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
-        view.addEventHandler( statesetManipulator.get() )
+        view.addEventHandler( statesetManipulator )
         view.addEventHandler( osgViewer.StatsHandler )()
 
         if use_zeroconf :
@@ -491,15 +491,15 @@ def main(argc, argv):
                 view.addDevice(zeroconf_device)
                 view.getEventHandlers().push_front(OscServiceDiscoveredEventHandler())
 
-        else :
+        else:
             device = osgDB.readFile<osgGA.Device>("localhost:9000.sender.osc")
-            if device.valid()  (device.getCapabilities()  osgGA.Device.SEND_EVENTS) :
+            if device.valid()  and  (device.getCapabilities()  osgGA.Device.SEND_EVENTS) :
                 # add as first event handler, so it gets ALL events ...
-                view.getEventHandlers().push_front(ForwardToDeviceEventHandler(device.get()))
+                view.getEventHandlers().push_front(ForwardToDeviceEventHandler(device))
 
                 # add the demo-pick-event-handler
-                view.addEventHandler(PickHandler(device.get()))
-            else : 
+                view.addEventHandler(PickHandler(device))
+            else:
                 OSG_WARN, "could not open osc-device, sending will not work"
 
 

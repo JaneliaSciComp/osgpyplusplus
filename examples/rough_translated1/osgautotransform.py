@@ -132,7 +132,7 @@ def createAxis(s, e, numReps, autoRotateMode, axisAlignment, str):
         geode.addDrawable(geom)
 
         group.addChild(geode)
-    else :
+    else:
         vertices = osg.Vec3Array()
 
         for(int i=0i<numReps++i)

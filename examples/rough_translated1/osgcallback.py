@@ -144,11 +144,11 @@ virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
         print "Camera event callback - post traverse", node
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
    
     # set the osgDB.Registy read file callback to catch all requests for reading files.
     osgDB.Registry.instance().setReadFileCallback(MyReadFileCallback())
@@ -160,9 +160,9 @@ def main(argc, argv):
     rootnode = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !rootnode : rootnode = osgDB.readNodeFile("cow.osgt")
+    if  not rootnode : rootnode = osgDB.readNodeFile("cow.osgt")
 
-    if !rootnode :
+    if  not rootnode :
         osg.notify(osg.NOTICE), "Please specify a file on the command line"
 
         return 1

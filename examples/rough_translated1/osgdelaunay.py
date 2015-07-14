@@ -83,7 +83,7 @@ class WallConstraint (osgUtil.DelaunayConstraint) :
         vertices = dynamic_cast< osg.Vec3Array*>(getVertexArray())
         for (unsigned int ipr=0 ipr<getNumPrimitiveSets() ipr++) 
             prset = getPrimitiveSet(ipr)
-            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP ||
+            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP  or 
                 prset.getMode()==osg.PrimitiveSet.LINE_STRIP :  # loops and walls
                 # start with the last point on the loop
                 prevp = (*vertices)[prset.index (prset.getNumIndices()-1)]
@@ -231,7 +231,7 @@ class pyramid (osgUtil.DelaunayConstraint) :
         for (ip=0 ip<4 ip++) 
             pts.push_back((*_line)[ip])
         for (ip=1 ip<5 ip++) 
-            nrm = ((*pts)[ip]-(*pts)[0])^((*pts)[ip==4?0:ip+1]-(*pts)[ip])
+            nrm =  0 if (((*pts)[ip]-(*pts)[0])^((*pts)[ip==4) else ip+1]-(*pts)[ip])
             nrm.normalize(  )
             norms.push_back(nrm)
 
@@ -253,7 +253,7 @@ class pyramid (osgUtil.DelaunayConstraint) :
         for (ip=0 ip<4 ip++) 
             dui.push_back(0)
             dui.push_back(ip+1)
-            dui.push_back(ip==3?1:ip+2)
+             1 if (dui.push_back(ip==3) else ip+2)
         tcoords.push_back(osg.Vec2(2,4))
         tcoords.push_back(osg.Vec2(0,0))
         tcoords.push_back(osg.Vec2(4,0))
@@ -300,7 +300,7 @@ def createHUD(ndcs, what):
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
 
     # Disable depth test, and make sure that the hud is drawn after everything
-    # else : so that it always appears ontop.
+    # else so that it always appears ontop.
     stateset.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
     stateset.setRenderBinDetails(11,"RenderBin")
 
@@ -324,7 +324,7 @@ def createHUD(ndcs, what):
 
         text.setFont(timesFont)
         text.setPosition(position)
-        text.setText("(use 'W' wireframe  'T' texture to visualise mesh)")
+        text.setText("(use ord("W") wireframe  ord("T") texture to visualise mesh)")
         text.setColor(osg.Vec4(1.0,1.0,0.8,1.0))
         position += delta
 #endif
@@ -333,7 +333,7 @@ def createHUD(ndcs, what):
 
         text.setFont(timesFont)
         text.setPosition(position)
-        text.setText("Press 'n' to add another constraint.")
+        text.setText("Press ord("n") to add another constraint.")
 
 
     # create the hud.
@@ -349,7 +349,7 @@ def createHUD(ndcs, what):
     return projection
 
 osg.Group *makedelaunay( int ndcs)
- # create a terrain tile. This is just an example!
+ # create a terrain tile. This is just an example not 
     # ndcs is the number of delaunay constraints to be applied
     grp = osg.Group()
     geode = osg.Geode()
@@ -375,7 +375,7 @@ osg.Group *makedelaunay( int ndcs)
         if pos.z()>-10000 : 
             points.push_back(pos)
             eod++
-         else : 
+         else:
             eod=-9999
     std.vector < pyramid* > pyrlist
     wc = WallConstraint() # This example does not remove the interior
@@ -400,7 +400,7 @@ osg.Group *makedelaunay( int ndcs)
         dc.setVertexArray(bounds)
         dc.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_STRIP,0,nmax) )
 
-        trig.addInputConstraint(dc.get())
+        trig.addInputConstraint(dc)
         what, nmax, " point simple constraint\n"
     if ndcs>0 :  # add 5 pyramids
         for (unsigned int ipy=0 ipy<5#5 ipy++) 
@@ -409,8 +409,8 @@ osg.Group *makedelaunay( int ndcs)
             pyr.setpos(osg.Vec3(x,y,getheight(x,y)),125.0+10*ipy)
             pyr.calcVertices() # make vertices
             pyr.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_LOOP,0,4) )
-            trig.addInputConstraint(pyr.get())
-            pyrlist.push_back(pyr.get())
+            trig.addInputConstraint(pyr)
+            pyrlist.push_back(pyr)
         what, 5, " pyramids\n"
         if ndcs>1 : 
             # add a simple constraint feature - this can cut holes in the terrain or just leave the triangles
@@ -423,7 +423,7 @@ osg.Group *makedelaunay( int ndcs)
             dc.setVertexArray(bounds)
             dc.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_LOOP,0,12) )
 
-            trig.addInputConstraint(dc.get())
+            trig.addInputConstraint(dc)
             what, 12, " point closed loop"
 
             if ndcs>2 : 
@@ -439,7 +439,7 @@ osg.Group *makedelaunay( int ndcs)
                 wc.setVertexArray(bounds)
                 wc.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_STRIP,0,5) )
                 wc.setHeight(12.0)
-                trig.addInputConstraint(wc.get())
+                trig.addInputConstraint(wc)
                 what, " with interior removed\n"
                 what, 5, " point wall derived constraint\n"
 
@@ -453,7 +453,7 @@ osg.Group *makedelaunay( int ndcs)
                     dc2.setVertexArray(bounds)
                     dc2.setTexrep(100,100) # texture is repeated at this frequency
                     dc2.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_LOOP,0,18) )
-                    trig.addInputConstraint(dc2.get())
+                    trig.addInputConstraint(dc2)
                     what, 18, " point area replaced\n"
 
                     if ndcs>4 : 
@@ -464,12 +464,12 @@ osg.Group *makedelaunay( int ndcs)
                             x = 610.0+50*i+90*sin(i/5.0),y=1110.0+90*cos(i/5.0)
                             verts.push_back(osg.Vec3(x,y,getheight(x,y)))
                         dc3.setVertices(verts,9.5) # width of road
-                        for (osg.Vec3Array.iterator vit=points.begin() vit!=points.end() ) 
+                        for (osg.Vec3Array.iterator vit=points.begin() vit not =points.end() ) 
                             if dc3.contains(*vit) : 
                                 vit=points.erase(vit)
-                             else : 
+                             else:
                                 vit++
-                        trig.addInputConstraint(dc3.get())
+                        trig.addInputConstraint(dc3)
                         what, 32, " point road constraint\n"
                         if ndcs>5 : 
                             # add a removed area and replace it with a 'forest' with textured roof and walls
@@ -483,7 +483,7 @@ osg.Group *makedelaunay( int ndcs)
                             forest.setWallTexrep(100,50)
                             forest.setTexrep(100,100) # texture is repeated at this frequency
                             forest.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_LOOP,0,12) )
-                            if ndcs==6 : trig.addInputConstraint(forest.get())
+                            if ndcs==6 : trig.addInputConstraint(forest)
                             what, 12, " point forest constraint\n"
 
                             if ndcs>6 :  # add roads that intersect forest
@@ -496,7 +496,7 @@ osg.Group *makedelaunay( int ndcs)
                                     y = 1210.0+150*i
                                     verts.push_back(osg.Vec3(xp,y,getheight(xp,y)))
                                 forestroad.setVertices(verts,22) # add road
-                                forestplus.merge(forestroad.get())
+                                forestplus.merge(forestroad)
                                 forestroad2=LinearConstraint()
                                 verts=osg.Vec3Array()
                                 for (i=0  i<12 i++) 
@@ -505,7 +505,7 @@ osg.Group *makedelaunay( int ndcs)
                                     y = 1010.0+150*i
                                     verts.push_back(osg.Vec3(xp,y,getheight(xp,y)))
                                 forestroad2.setVertices(verts,22) # add road
-                                forestplus.merge(forestroad2.get())
+                                forestplus.merge(forestroad2)
                                 forestroad3=LinearConstraint()
                                 verts=osg.Vec3Array()
                                 for (i=0  i<6 i++) 
@@ -514,19 +514,19 @@ osg.Group *makedelaunay( int ndcs)
                                     y = 1510.0+150*i
                                     verts.push_back(osg.Vec3(xp,y,getheight(xp,y)))
                                 forestroad3.setVertices(verts,22) # add road
-                                forestplus.merge(forestroad3.get())
-                                forestplus.merge(forest.get())
+                                forestplus.merge(forestroad3)
+                                forestplus.merge(forest)
                                 forestplus.handleOverlaps()
-                                for (osg.Vec3Array.iterator vit=points.begin() vit!=points.end() ) 
+                                for (osg.Vec3Array.iterator vit=points.begin() vit not =points.end() ) 
                                     if forestroad.contains(*vit) : 
                                         vit=points.erase(vit)
                                      elif forestroad2.contains(*vit) : 
                                         vit=points.erase(vit)
                                      elif forestroad3.contains(*vit) : 
                                         vit=points.erase(vit)
-                                     else : 
+                                     else:
                                         vit++
-                                trig.addInputConstraint(forestplus.get())
+                                trig.addInputConstraint(forestplus)
                                 what, " roads intersect forest constraint\n"
                                 if ndcs>7 : 
                                     # this option adds a more complex DC
@@ -538,14 +538,14 @@ osg.Group *makedelaunay( int ndcs)
                                         verts.push_back(osg.Vec3(x-180,y,getheight(x-180,y)))
                                         verts.push_back(osg.Vec3(x+180,y,getheight(x+180,y)))
                                         dc6.setVertices(verts,22) # width of road
-                                        dcoverlap.merge(dc6.get())
+                                        dcoverlap.merge(dc6)
                                         dc6a= LinearConstraint()
                                         verts=osg.Vec3Array()
                                         verts.push_back(osg.Vec3(x,y-180,getheight(x,y-180)))
                                         verts.push_back(osg.Vec3(x-20,y,getheight(x,y)))
                                         verts.push_back(osg.Vec3(x,y+180,getheight(x,y+180)))
                                         dc6a.setVertices(verts,22) # width of road
-                                        dcoverlap.merge(dc6a.get())
+                                        dcoverlap.merge(dc6a)
                                     what, "2 intersecting roads, with added points\n"
                                     if ndcs>9 : 
                                         # add yet more roads
@@ -557,21 +557,21 @@ osg.Group *makedelaunay( int ndcs)
                                             verts.push_back(osg.Vec3(xp,yp,getheight(xp,yp)))
                                             rad+=2.5
                                         dc8.setVertices(verts,16) # width of road
-                                        dcoverlap.merge(dc8.get())
+                                        dcoverlap.merge(dc8)
                                         what, "Spiral road crosses several other constraints."
                                     dcoverlap.handleOverlaps()
                                     if ndcs>8 : 
                                         # remove vertices cleans up the texturing at the intersection.
-                                        dcoverlap.removeVerticesInside(dc6.get())
-                                        dcoverlap.removeVerticesInside(dc6a.get())
-                                        if dc8.valid() : dcoverlap.removeVerticesInside(dc8.get())
+                                        dcoverlap.removeVerticesInside(dc6)
+                                        dcoverlap.removeVerticesInside(dc6a)
+                                        if dc8.valid() : dcoverlap.removeVerticesInside(dc8)
                                         what, "    remove internal vertices to improve texturing."
-                                    for (osg.Vec3Array.iterator vit=points.begin() vit!=points.end() ) 
+                                    for (osg.Vec3Array.iterator vit=points.begin() vit not =points.end() ) 
                                         if dcoverlap.contains(*vit) : 
                                             vit=points.erase(vit)
-                                         else : 
+                                         else:
                                             vit++
-                                    trig.addInputConstraint(dcoverlap.get())
+                                    trig.addInputConstraint(dcoverlap)
      # ndcs>0
     trig.setInputPointArray(points)
 
@@ -590,49 +590,49 @@ osg.Group *makedelaunay( int ndcs)
     if image : 
         repeat = 150.0, ry=150.0 # how often to repeat texture
         tcoords = osg.Vec2Array()
-        for (osg.Vec3Array.iterator itr=points.begin() itr!=points.end() itr++) 
+        for (osg.Vec3Array.iterator itr=points.begin() itr not =points.end() itr++) 
             tcatxy = osg.Vec2((*itr).x()/repeat,(*itr).y()/ry)
             tcoords.push_back(tcatxy)
         gm.setTexCoordArray(0,tcoords)
     gm.addPrimitiveSet(trig.getTriangles())
     gm.setNormalArray(trig.getOutputNormalArray())
     gm.setNormalBinding(deprecated_osg.Geometry.BIND_PER_PRIMITIVE)
-    geode.addDrawable(gm.get())
+    geode.addDrawable(gm)
     if ndcs>0 : 
-        for ( std.vector < pyramid* >.iterator itr=pyrlist.begin() itr!=pyrlist.end() itr++) 
+        for ( std.vector < pyramid* >.iterator itr=pyrlist.begin() itr not =pyrlist.end() itr++) 
             trig.removeInternalTriangles(*itr)
             geode.addDrawable((*itr).makeGeometry()) # this fills the holes of each pyramid with geometry
 
         if ndcs>2 : 
-            trig.removeInternalTriangles(dc.get())
+            trig.removeInternalTriangles(dc)
 
             wc.setTexture("Images/Brick-Norman-Brown.TGA") # wall looks like brick
             geode.addDrawable(wc.makeWallGeometry()) # this creates wall at wc drawarrays
             if ndcs>3 : 
-                trig.removeInternalTriangles(dc2.get())
+                trig.removeInternalTriangles(dc2)
                 arpts = dc2.getPoints(points)
                 dc2.setTexture("Images/purpleFlowers.png")
-                geode.addDrawable(dc2.makeAreal(arpts.get())) # this creates fill in geometry
+                geode.addDrawable(dc2.makeAreal(arpts)) # this creates fill in geometry
 
                 if ndcs>4 :  # a simple "road"
-                    trig.removeInternalTriangles(dc3.get())
+                    trig.removeInternalTriangles(dc3)
                     dc3.setTexture ("Images/road.png")
                     dc3.setTexrep(40,9.5) # texture is repeated at this frequency
                     geode.addDrawable(dc3.makeGeometry(points)) # this creates road geometry
 
                     if ndcs>5 : 
                         if ndcs>6 :  #  road  forest overlap - order of removal is important
-                            trig.removeInternalTriangles(forestroad.get())
-                            trig.removeInternalTriangles(forestroad2.get())
-                            trig.removeInternalTriangles(forestroad3.get())
-                        trig.removeInternalTriangles(forest.get())
+                            trig.removeInternalTriangles(forestroad)
+                            trig.removeInternalTriangles(forestroad2)
+                            trig.removeInternalTriangles(forestroad3)
+                        trig.removeInternalTriangles(forest)
                         forest.setTexture("Images/forestRoof.png")
                         locpts = forest.getPoints(points)
-                        geode.addDrawable(forest.makeAreal(locpts.get()))
+                        geode.addDrawable(forest.makeAreal(locpts))
 
                         forest.setWallTexture("Images/forestWall.png")
-                        geode.addDrawable(forest.makeWallGeometry(locpts.get()) )
-                        for (osg.Vec3Array.iterator vit=(*locpts).begin() vit!=(*locpts).end() vit++) 
+                        geode.addDrawable(forest.makeWallGeometry(locpts) )
+                        for (osg.Vec3Array.iterator vit=(*locpts).begin() vit not =(*locpts).end() vit++) 
                             (*vit)+=osg.Vec3(0,0,30)
 
                         if ndcs>6 : #  road  forest overlap
@@ -646,27 +646,27 @@ osg.Group *makedelaunay( int ndcs)
                             forestroad3.setTexrep(40,22) # texture is repeated at this frequency
                             geode.addDrawable(forestroad3.makeGeometry(points)) # this creates road geometry
                             if ndcs>7 : #  several overlapping DC's - add geom
-                                trig.removeInternalTriangles(dc6.get())
+                                trig.removeInternalTriangles(dc6)
                                 #                            dc6.makeDrawable()
                                 #                            dc6a.makeDrawable()
                                 dc6.setTexture ("Images/road.png")
                                 dc6.setTexrep(40,22) # texture is repeated at this frequency
                                 geode.addDrawable(dc6.makeGeometry(points)) # this creates road geometry
-                                trig.removeInternalTriangles(dc6a.get())
+                                trig.removeInternalTriangles(dc6a)
                                 dc6a.setTexture ("Images/road.png")
                                 dc6a.setTexrep(40,22) # texture is repeated at this frequency
                                 geode.addDrawable(dc6a.makeGeometry(points)) # this creates road geometry
                                 if dc8.valid() : 
-                                    trig.removeInternalTriangles(dc8.get())
+                                    trig.removeInternalTriangles(dc8)
                                     dc8.setTexture ("Images/road.png")
                                     dc8.setTexrep(40,16) # texture is repeated at this frequency
                                     geode.addDrawable(dc8.makeGeometry(points)) # this creates road geometry
-    grp.addChild(geode.get())
+    grp.addChild(geode)
     grp.addChild(createHUD(ndcs,what.str()))
     return grp.release()
 
 class KeyboardEventHandler (osgGA.GUIEventHandler) :
-# extra event handler traps 'n' key to re-triangulate the basic terrain.
+# extra event handler traps ord("n") key to re-triangulate the basic terrain.
 
     KeyboardEventHandler(osgViewer.Viewer vr):
       viewer(vr), iview(0) 
@@ -674,11 +674,11 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
       virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
           switch(ea.getEventType())
           case(osgGA.GUIEventAdapter.KEYDOWN):
-                  if ea.getKey()=='n' :
+                  if ea.getKey()==ord("n") :
                       iview++
                       if iview>10 : iview=0
                       loadedModel = makedelaunay(iview)
-                      viewer.setSceneData(loadedModel.get())
+                      viewer.setSceneData(loadedModel)
                       return True
                   break
           default:
@@ -697,8 +697,8 @@ osg.Vec3Array * WallConstraint.getWall( float height)
         vertices = dynamic_cast< osg.Vec3Array*>(getVertexArray())
         for (unsigned int ipr=0 ipr<getNumPrimitiveSets() ipr++) 
             prset = getPrimitiveSet(ipr)
-            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP ||
-                prset.getMode()==osg.PrimitiveSet.LINE_STRIP :  # nothing else : loops
+            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP  or 
+                prset.getMode()==osg.PrimitiveSet.LINE_STRIP :  # nothing else loops
                 # start with the last point on the loop
                 for (unsigned int i=0 i<prset.getNumIndices() i++) 
                     curp = (*vertices)[prset.index (i)]
@@ -751,7 +751,7 @@ osg.Vec2Array * WallConstraint.getWallTexcoords( float height)
     return tcoords
 osg.Geometry *WallConstraint.makeWallGeometry() 
     gm = osg.Geometry() # the wall
-    if texture!="" : 
+    if texture not ="" : 
         image = osgDB.readImageFile(texture.c_str())
         if image :
             txt = osg.Texture2D()
@@ -777,7 +777,7 @@ osg.Vec3Array *ArealConstraint.getWallNormals()
     vertices = dynamic_cast< osg.Vec3Array*>(getVertexArray())
     for (unsigned int ipr=0 ipr<getNumPrimitiveSets() ipr++) 
         prset = getPrimitiveSet(ipr)
-        if prset.getMode()==osg.PrimitiveSet.LINE_LOOP :  # nothing else : loops
+        if prset.getMode()==osg.PrimitiveSet.LINE_LOOP :  # nothing else loops
             # start with the last point on the loop
             prevp = (*vertices)[prset.index (prset.getNumIndices()-1)]
             for (unsigned int i=0 i<prset.getNumIndices() i++) 
@@ -803,7 +803,7 @@ osg.Vec3Array * ArealConstraint.getWall( float height)
         vertices = dynamic_cast< osg.Vec3Array*>(getVertexArray())
         for (unsigned int ipr=0 ipr<getNumPrimitiveSets() ipr++) 
             prset = getPrimitiveSet(ipr)
-            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP :  # nothing else : loops
+            if prset.getMode()==osg.PrimitiveSet.LINE_LOOP :  # nothing else loops
                 # start with the last point on the loop
                 for (unsigned int i=0 i<prset.getNumIndices() i++) 
                     curp = (*vertices)[prset.index (i)]
@@ -861,7 +861,7 @@ osg.Vec3Array *ArealConstraint.getCanopy( osg.Vec3Array *points, float height)
     off = osg.Vec3(0,0,height)
     internals = osg.Vec3Array()
     tritr = trilist.const_iterator()
-    for (tritr=_interiorTris.begin() tritr!=_interiorTris.end()tritr++) 
+    for (tritr=_interiorTris.begin() tritr not =_interiorTris.end()tritr++) 
         for (int i=0 i<3 i++) 
             index = (*tritr)[i]
             internals.push_back((*points)[index]+off)
@@ -869,7 +869,7 @@ osg.Vec3Array *ArealConstraint.getCanopy( osg.Vec3Array *points, float height)
 osg.Vec3Array *ArealConstraint.getCanopyNormals( osg.Vec3Array *points) 
     nrms = osg.Vec3Array()
     tritr = trilist.const_iterator()
-    for (tritr=_interiorTris.begin() tritr!=_interiorTris.end()tritr++) 
+    for (tritr=_interiorTris.begin() tritr not =_interiorTris.end()tritr++) 
         e1 = (*points)[(*tritr)[1]]-(*points)[(*tritr)[0]]
         e2 = (*points)[(*tritr)[2]]-(*points)[(*tritr)[0]]
         nrm = e1^e2
@@ -880,7 +880,7 @@ osg.Vec3Array *ArealConstraint.getCanopyNormals( osg.Vec3Array *points)
 osg.Vec2Array *ArealConstraint.getCanopyTexcoords( osg.Vec3Array *points) 
     tritr = osg.Vec3Array.const_iterator()
     tcoords = osg.Vec2Array()
-    for (tritr=points.begin() tritr!=points.end()tritr++) 
+    for (tritr=points.begin() tritr not =points.end()tritr++) 
                 # calculate tcoords for terrain from xy drape.
         tci = osg.Vec2f(tritr.x()/txxrepArea, tritr.y()/txyrepArea)
         tcoords.push_back(tci)
@@ -907,7 +907,7 @@ deprecated_osg.Geometry *ArealConstraint.makeWallGeometry( osg.Vec3Array *pt)
 
     tscx.retessellatePolygons(*(edges)) # find all edges
 
-    if walltexture!="" : 
+    if walltexture not ="" : 
         image = osgDB.readImageFile(walltexture.c_str())
         if image :
             txt = osg.Texture2D()
@@ -932,15 +932,15 @@ deprecated_osg.Geometry *ArealConstraint.makeWallGeometry( osg.Vec3Array *pt)
                 tcoords.push_back(osg.Vec2(ds/txxrepWall,0))
                 tcoords.push_back(osg.Vec2(ds/txxrepWall,1.0))
                 if icon<pr.getNumIndices()-1 : ds+=((*points)[pr.index(icon+1)]-(*points)[ithis]).length()
-                else : ds+=((*points)[pr.index(0)]-(*points)[ithis]).length()
+                else ds+=((*points)[pr.index(0)]-(*points)[ithis]).length()
             # repeat first point
             ithis = pr.index(0)
             coords.push_back((*points)[ithis])
             coords.push_back((*points)[ithis]+osg.Vec3(0,0,height))
             tcoords.push_back(osg.Vec2(ds/txxrepWall,0))
             tcoords.push_back(osg.Vec2(ds/txxrepWall,1.0))
-            gm.setVertexArray(coords.get())
-            gm.setTexCoordArray(0,tcoords.get())
+            gm.setVertexArray(coords)
+            gm.setTexCoordArray(0,tcoords)
             gm.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.QUAD_STRIP,nstart,2+2*pr.getNumIndices()))
             nstart+=2+2*pr.getNumIndices()
 
@@ -989,7 +989,7 @@ void LinearConstraint.setVertices( osg.Vec3Array *lp,  float w)
             valong=(*lp)[i+1]-(*lp)[i]
          elif i==lp.size()-1 : 
             valong=(*lp)[i]-(*lp)[i-1]
-         else : 
+         else:
             valong=(*lp)[i+1]-(*lp)[i-1]
         valong.normalize()
         vperp = valong^osg.Vec3(0,0,1)
@@ -1002,7 +1002,7 @@ void LinearConstraint.setVertices( osg.Vec3Array *lp,  float w)
         _edgecoords.insert(_edgecoords.begin() ,pos[1])
         _tcoords.insert(_tcoords.begin() ,osg.Vec2(width/txyrepAcross,ds/txxrepAlong))
         if i<lp.size()-1 : ds+=((*lp)[i+1]-(*lp)[i]).length()
-    setVertexArray(edges.get())
+    setVertexArray(edges)
     addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINE_LOOP,0,edges.size()) )
 
 osg.DrawArrays* LinearConstraint.makeRoad(void ) 
@@ -1017,7 +1017,7 @@ osg.Vec3Array *LinearConstraint.getRoadNormals( osg.Vec3Array* #points)
             valong=(*_midline)[i+1]-(*_midline)[i]
          elif i==_midline.size()-1 : 
             valong=(*_midline)[i]-(*_midline)[i-1]
-         else : 
+         else:
             valong=(*_midline)[i+1]-(*_midline)[i-1]
         vperp = valong^osg.Vec3(0,0,1)
         nrm = vperp^valong # normal to linear
@@ -1033,7 +1033,7 @@ osg.Vec3Array *LinearConstraint.getRoadVertices()
             valong=(*_midline)[i+1]-(*_midline)[i]
          elif i==_midline.size()-1 : 
             valong=(*_midline)[i]-(*_midline)[i-1]
-         else : 
+         else:
             valong=(*_midline)[i+1]-(*_midline)[i-1]
         valong.normalize()
         vperp = valong^osg.Vec3(0,0,1) # vector across road
@@ -1046,21 +1046,21 @@ osg.Vec2Array *LinearConstraint.getRoadTexcoords( osg.Vec3Array *points)
     # need to create a vec2 array from the coordinates that fits the road
     tritr = osg.Vec3Array.const_iterator()
     tcoords = osg.Vec2Array()
-    for (tritr=points.begin() tritr!=points.end()tritr++) 
+    for (tritr=points.begin() tritr not =points.end()tritr++) 
         tci = osg.Vec2(-1.,-1.)
         ib = 0
         # osg.Vec3Array *varr=dynamic_cast<osg.Vec3Array*>(getVertexArray())
         ptfound = False
-        for (osg.Vec3Array.iterator vit=_edgecoords.begin() vit!= _edgecoords.end()  !ptfound vit++) 
+        for (osg.Vec3Array.iterator vit=_edgecoords.begin() vit not = _edgecoords.end()  and   not ptfound vit++) 
             if *vit :==(*tritr) : 
                 tci=_tcoords.at(ib)
                 ptfound=True
             ib++
-        if !ptfound :  # search for surrounding points and interpolate
+        if  not ptfound :  # search for surrounding points and interpolate
             ib=0
             pminus = (_edgecoords.back()) # need pminus for interpolation
             ibm1 = _edgecoords.size()-1
-            for (osg.Vec3Array.iterator vit=_edgecoords.begin() vit!= _edgecoords.end() # !ptfound vit++) 
+            for (osg.Vec3Array.iterator vit=_edgecoords.begin() vit not = _edgecoords.end() # and   not ptfound vit++) 
                 pplus = (*vit)-(*tritr)
                 dpm = pminus-(*tritr)
                 pplus.set (pplus.x(),pplus.y(),0)
@@ -1077,18 +1077,18 @@ osg.Vec2Array *LinearConstraint.getRoadTexcoords( osg.Vec3Array *points)
                 pminus=(*vit)
         tcoords.push_back(tci)
     # some extra points are not interpolated as they lie between 2 interpolated vertices
-    for (tritr=points.begin() tritr!=points.end()tritr++) 
+    for (tritr=points.begin() tritr not =points.end()tritr++) 
         ib = tritr-points.begin()
         tci = tcoords.at(ib)
-        if tci.x()<-.99  tci.y()<-.99 : 
+        if tci.x()<-.99  and  tci.y()<-.99 : 
             # search through each of the primitivesets
             ptitr = osg.Vec3Array.const_iterator()
             #    osg.notify(osg.WARN), "Not calculated ", (*tritr).x(), ",", (*tritr).y()
-            for (ptitr=points.begin() ptitr!=points.end()ptitr++) 
+            for (ptitr=points.begin() ptitr not =points.end()ptitr++) 
     return tcoords.release()
 osg.Vec3Array * LinearConstraint.getNormals( osg.Vec3Array *points)
     norms = osg.Vec3Array()
-    for (osg.DrawElementsUInt.iterator uiitr=prim_tris_.begin() uiitr!=prim_tris_.end()uiitr+=3) 
+    for (osg.DrawElementsUInt.iterator uiitr=prim_tris_.begin() uiitr not =prim_tris_.end()uiitr+=3) 
         e1 = (*points)[*(uiitr+1)]-(*points)[(*uiitr)]
         e2 = (*points)[*(uiitr+2)]-(*points)[*(uiitr+1)]
         n = e1^e2
@@ -1101,7 +1101,7 @@ deprecated_osg.Geometry * LinearConstraint.makeGeometry( osg.Vec3Array *points)
     gm = deprecated_osg.Geometry() # the fill in road/railway
     if _midline.size()>0 : 
         locpts = getPoints(points)
-        if texture!="" : 
+        if texture not ="" : 
             image = osgDB.readImageFile(texture.c_str())
             if image :
                 txt = osg.Texture2D()
@@ -1115,9 +1115,9 @@ deprecated_osg.Geometry * LinearConstraint.makeGeometry( osg.Vec3Array *points)
                 material.setDiffuse(osg.Material.FRONT_AND_BACK,osg.Vec4(1.0,1.0,1.0,1.0))
                 stateset.setAttribute(material,osg.StateAttribute.ON)
                 stateset.setMode( GL_LIGHTING, osg.StateAttribute.ON )
-            gm.setTexCoordArray(0,getRoadTexcoords(locpts.get()))
-        gm.setVertexArray(locpts.get())
-        gm.setNormalArray(getNormals(locpts.get()))
+            gm.setTexCoordArray(0,getRoadTexcoords(locpts))
+        gm.setVertexArray(locpts)
+        gm.setNormalArray(getNormals(locpts))
         gm.setNormalBinding(deprecated_osg.Geometry.BIND_PER_PRIMITIVE)
         gm.addPrimitiveSet(getTriangles())
 
@@ -1126,14 +1126,14 @@ deprecated_osg.Geometry * LinearConstraint.makeGeometry( osg.Vec3Array *points)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -1142,19 +1142,19 @@ def main(argc, argv):
     loadedModel = makedelaunay(0)
 
     # if no model has been successfully loaded report failure.
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
     # pass the loaded scene graph to the viewer.
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     # copied from osgtessealte.cpp
-    # add event handler for keyboard 'n' to retriangulate
+    # add event handler for keyboard ord("n") to retriangulate
     viewer.addEventHandler(KeyboardEventHandler(viewer))
 
     return viewer.run()

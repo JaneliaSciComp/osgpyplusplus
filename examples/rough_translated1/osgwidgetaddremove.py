@@ -43,7 +43,7 @@ class Button (osgWidget.Label) :
         setEventMask(osgWidget.EVENT_MASK_MOUSE_CLICK)
         addSize(20.0, 20.0)
 
-    # NOTE! I need to make it clearer than Push/Release can happen so fast that
+    # NOTE not  I need to make it clearer than Push/Release can happen so fast that
     # the changes you make aren't visible with your refresh rate. Throttling state
     # changes and what-have-you on mousePush/mouseRelease/etc. is going to be
     # annoying...
@@ -67,7 +67,7 @@ _win1 = osgWidget.Window()
         addWidget(Button("Add Widget"))
         addWidget(Button("Remove Widget"))
 
-        # Take special note here! Not only do the Button objects have their
+        # Take special note here not  Not only do the Button objects have their
         # own overridden methods for changing the color, but they have attached
         # callbacks for doing the work with local data.
         getByName("Widget_1").addCallback(osgWidget.Callback(
@@ -89,7 +89,7 @@ _win1 = osgWidget.Window()
 
         _win1.setOrigin(250.0, 0.0)
 
-        wm.addChild(_win1.get())
+        wm.addChild(_win1)
 
     def handlePressAdd(ev):
 
@@ -109,19 +109,19 @@ _win1 = osgWidget.Window()
     def handlePressRemove(ev):
 
         
-        # TODO: Temporary hack!
+        # TODO: Temporary hack not 
         v = _win1.getObjects()
     
-        if !v.size() : return False
+        if  not v.size() : return False
 
-        w = _win1.getObjects()[v.size() - 1].get()
+        w = _win1.getObjects()[v.size() - 1]
 
         _win1.removeWidget(w)
 
         return True
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

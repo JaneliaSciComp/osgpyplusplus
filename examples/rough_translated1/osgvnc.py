@@ -41,10 +41,10 @@ class EscapeHandler (osgGA.GUIEventHandler) :
             return False
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
 
     hints = osgWidget.GeometryHints(osg.Vec3(0.0,0.0,0.0),
@@ -59,20 +59,20 @@ def main(argc, argv):
     while arguments.read("--password",password) :
 
     for(int i=1 i<arguments.argc() ++i)
-        if !arguments.isOption(i) :
+        if  not arguments.isOption(i) :
             hostname = arguments[i]
 
-            if !password.empty() :
-                if !osgDB.Registry.instance().getAuthenticationMap() : osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
+            if  not password.empty() :
+                if  not osgDB.Registry.instance().getAuthenticationMap() : osgDB.Registry.instance().setAuthenticationMap(osgDB.AuthenticationMap)()
                 osgDB.Registry.instance().getAuthenticationMap().addAuthenticationDetails(hostname, osgDB.AuthenticationDetails("", password))
 
             vncClient = osgWidget.VncClient()
             if vncClient.connect(arguments[i], hints) :
-                group.addChild(vncClient.get())
+                group.addChild(vncClient)
                 
                 hints.position.x() += 1.1
 
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     viewer.addEventHandler(osgViewer.StatsHandler)()
 

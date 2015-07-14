@@ -109,13 +109,13 @@ class LoadAndCompileOperation (osg.Operation) :
 
         _loadedModel = osgDB.readNodeFile(_filename)
 
-        if _loadedModel.valid()  _incrementalCompileOperation.valid() :
-            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
+        if _loadedModel.valid()  and  _incrementalCompileOperation.valid() :
+            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel)
 
-            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_block.get())
+            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_block)
 
-            _incrementalCompileOperation.add(compileSet.get())
-        else : 
+            _incrementalCompileOperation.add(compileSet)
+        else:
             if _block.valid() : _block.completed()
 
         # osg.notify(osg.NOTICE), "done LoadAndCompileOperation ", _filename
@@ -145,7 +145,7 @@ class MasterOperation (osg.Operation) :
     
     def getOperationQueue():
     
-         return _operationQueue.get() 
+         return _operationQueue 
     
     def readMasterFile(files):
     
@@ -157,15 +157,15 @@ class MasterOperation (osg.Operation) :
 
             readFilename = False
 
-            while !fr.eof() :
+            while  not fr.eof() :
                 itrAdvanced = False
-                if fr.matchSequence("file %s") || fr.matchSequence("file %w")  :
+                if fr.matchSequence("file %s")  or  fr.matchSequence("file %w")  :
                     files.insert(fr[1].getStr())
                     fr += 2
                     itrAdvanced = True
                     readFilename = True
 
-                if !itrAdvanced :
+                if  not itrAdvanced :
                     ++fr
             
             return readFilename
@@ -177,7 +177,7 @@ class MasterOperation (osg.Operation) :
         files = Files()
         readMasterFile(files)
         for(Files.iterator itr = files.begin()
-            itr != files.end()
+            not = files.end()
             ++itr)
             model = osgDB.readNodeFile(*itr)
             if model :
@@ -193,7 +193,7 @@ class MasterOperation (osg.Operation) :
         viewer = dynamic_cast<osgViewer.Viewer*>(callingObject)
 
         if viewer : update(viewer.getSceneData())
-        load = else :()
+        load = else()
 
     def load():
 
@@ -215,7 +215,7 @@ class MasterOperation (osg.Operation) :
 
             # osg.notify(osg.NOTICE), "second read ", filesB.size()
             
-         while filesA!=filesB :
+         while filesA not =filesB :
 
         files = Files()
         files.swap(filesB)
@@ -230,31 +230,31 @@ class MasterOperation (osg.Operation) :
             lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
 
             for(Files.iterator fitr = files.begin()
-                fitr != files.end()
+                not = files.end()
                 ++fitr)
                 if _existingFilenameNodeMap.count(*fitr)==0 : newFiles.insert(*fitr)
 
             for(FilenameNodeMap.iterator litr = _existingFilenameNodeMap.begin()
-                litr != _existingFilenameNodeMap.end()
+                not = _existingFilenameNodeMap.end()
                 ++litr)
                 if files.count(litr.first)==0 :
                     removedFiles.insert(litr.first)
         
 #if 0
-        if !newFiles.empty() || !removedFiles.empty() :
+        if  not newFiles.empty()  or   not removedFiles.empty() :
             osg.notify(osg.NOTICE), "void operator () files.size()=", files.size()
 #endif
 
         # first load the files.
         nodesToAdd = FilenameNodeMap()
-        if !newFiles.empty() :
+        if  not newFiles.empty() :
 
             typedef std.vector< osg.GraphicsThread > GraphicsThreads
             threads = GraphicsThreads()
         
             for(unsigned int i=0 i<= osg.GraphicsContext.getMaxContextID() ++i)
                 gc = osg.GraphicsContext.getCompileContext(i)
-                gt = gc ? gc.getGraphicsThread() : 0
+                gt =  gc.getGraphicsThread() if (gc) else  0
                 if gt : threads.push_back(gt)
 
             if _operationQueue.valid() :
@@ -268,13 +268,13 @@ class MasterOperation (osg.Operation) :
                 loadAndCompileList = LoadAndCompileList()
      
                 for(Files.iterator nitr = newFiles.begin()
-                    nitr != newFiles.end()
+                    not = newFiles.end()
                     ++nitr)
                     # osg.notify(osg.NOTICE), "Adding LoadAndCompileOperation ", *nitr
 
-                    loadAndCompile = LoadAndCompileOperation( *nitr, _incrementalCompileOperation.get(), _endOfLoadBlock.get() )
+                    loadAndCompile = LoadAndCompileOperation( *nitr, _incrementalCompileOperation, _endOfLoadBlock )
                     loadAndCompileList.push_back(loadAndCompile)
-                    _operationQueue.add( loadAndCompile.get() )
+                    _operationQueue.add( loadAndCompile )
 
 #if 1
                 operation = osg.Operation()
@@ -287,35 +287,35 @@ class MasterOperation (osg.Operation) :
                 # osg.notify(osg.NOTICE), "done ... Waiting for completion of LoadAndCompile operations"
                 
                 for(LoadAndCompileList.iterator litr = loadAndCompileList.begin()
-                    litr != loadAndCompileList.end()
+                    not = loadAndCompileList.end()
                     ++litr)
                     if *litr :._loadedModel.valid() :
                         nodesToAdd[(*litr)._filename] = (*litr)._loadedModel
 
             
-            else :
+            else:
 
                 _endOfLoadBlock = osg.RefBlockCount(newFiles.size())
                 
                 _endOfLoadBlock.reset()
 
                 for(Files.iterator nitr = newFiles.begin()
-                    nitr != newFiles.end()
+                    not = newFiles.end()
                     ++nitr)
                     loadedModel = osgDB.readNodeFile(*nitr)
 
-                    if loadedModel.get() :
+                    if loadedModel :
                         nodesToAdd[*nitr] = loadedModel
 
                         if _incrementalCompileOperation.valid() :
-                            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(loadedModel.get())
+                            compileSet = osgUtil.IncrementalCompileOperation.CompileSet(loadedModel)
 
-                            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_endOfLoadBlock.get())
+                            compileSet._compileCompletedCallback = ReleaseBlockOnCompileCompleted(_endOfLoadBlock)
 
-                            _incrementalCompileOperation.add(compileSet.get())
-                        else :
+                            _incrementalCompileOperation.add(compileSet)
+                        else:
                             _endOfLoadBlock.completed()
-                    else :
+                    else:
                         _endOfLoadBlock.completed()
 
                 _endOfLoadBlock.block()
@@ -327,7 +327,7 @@ class MasterOperation (osg.Operation) :
         # pass the locally peppared data to MasterOperations shared data
         # so that updated thread can merge these changes with the main scene 
         # graph.  This merge is carried out via the update(..) method.
-        if !removedFiles.empty() || !nodesToAdd.empty() :        
+        if  not removedFiles.empty()  or   not nodesToAdd.empty() :        
             lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
             _nodesToRemove.swap(removedFiles)
             _nodesToAdd.swap(nodesToAdd)
@@ -337,7 +337,7 @@ class MasterOperation (osg.Operation) :
         # otherwise _existingFilenameNodeMap will get out of sync.
         if requiresBlock :
             _updatesMergedBlock.block()
-        else :
+        else:
             OpenThreads.Thread.YieldCurrentThread()
 
     
@@ -347,34 +347,34 @@ class MasterOperation (osg.Operation) :
         # osg.notify(osg.NOTICE), "void update(Node*)"
 
         group = dynamic_cast<osg.Group*>(scene)
-        if !group :
+        if  not group :
             osg.notify(osg.NOTICE), "Error, MasterOperation.update(Node*) can only work with a Group as Viewer.getSceneData()."
             return
     
         lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
         
-        if !_nodesToRemove.empty() || !_nodesToAdd.empty() :
+        if  not _nodesToRemove.empty()  or   not _nodesToAdd.empty() :
             osg.notify(osg.NOTICE), "update().................. "
 
-        if !_nodesToRemove.empty() :
+        if  not _nodesToRemove.empty() :
             for(Files.iterator itr = _nodesToRemove.begin()
-                itr != _nodesToRemove.end()
+                not = _nodesToRemove.end()
                 ++itr)
                 fnmItr = _existingFilenameNodeMap.find(*itr)
-                if fnmItr != _existingFilenameNodeMap.end() :
+                if fnmItr  not = _existingFilenameNodeMap.end() :
                     osg.notify(osg.NOTICE), "  update():removing ", *itr
                 
-                    group.removeChild(fnmItr.second.get())
+                    group.removeChild(fnmItr.second)
                     _existingFilenameNodeMap.erase(fnmItr)
 
             _nodesToRemove.clear()
         
-        if !_nodesToAdd.empty() :
+        if  not _nodesToAdd.empty() :
             for(FilenameNodeMap.iterator itr = _nodesToAdd.begin()
-                itr != _nodesToAdd.end()
+                not = _nodesToAdd.end()
                 ++itr)
                 osg.notify(osg.NOTICE), "  update():inserting ", itr.first
-                group.addChild(itr.second.get())
+                group.addChild(itr.second)
                 _existingFilenameNodeMap[itr.first] = itr.second
             
             _nodesToAdd.clear()
@@ -416,35 +416,35 @@ class FilterHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
 
         
-        if !_gt : return False
+        if  not _gt : return False
 
         switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-                if ea.getKey() == 'g' :
+                if ea.getKey() == ord("g") :
                     osg.notify(osg.NOTICE), "Gaussian"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.GAUSSIAN)
                     return True
-                elif ea.getKey() == 's' :
+                elif ea.getKey() == ord("s") :
                     osg.notify(osg.NOTICE), "Smooth"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.SMOOTH)
                     return True
-                elif ea.getKey() == 'S' :
+                elif ea.getKey() == ord("S") :
                     osg.notify(osg.NOTICE), "Sharpen"
                     _gt.setFilterMatrixAs(osgTerrain.GeometryTechnique.SHARPEN)
                     return True
-                elif ea.getKey() == '+' :
+                elif ea.getKey() == ord("+") :
                     _gt.setFilterWidth(_gt.getFilterWidth()*1.1)
                     osg.notify(osg.NOTICE), "Filter width = ", _gt.getFilterWidth()
                     return True
-                elif ea.getKey() == '-' :
+                elif ea.getKey() == ord("-") :
                     _gt.setFilterWidth(_gt.getFilterWidth()/1.1)
                     osg.notify(osg.NOTICE), "Filter width = ", _gt.getFilterWidth()
                     return True
-                elif ea.getKey() == '>' :
+                elif ea.getKey() == ord(">") :
                     _gt.setFilterBias(_gt.getFilterBias()+0.1)
                     osg.notify(osg.NOTICE), "Filter bias = ", _gt.getFilterBias()
                     return True
-                elif ea.getKey() == '<' :
+                elif ea.getKey() == ord("<") :
                     _gt.setFilterBias(_gt.getFilterBias()-0.1)
                     osg.notify(osg.NOTICE), "Filter bias = ", _gt.getFilterBias()
                     return True
@@ -468,16 +468,16 @@ class LayerHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
 
         
-        if !_layer : return False
+        if  not _layer : return False
 
         scale = 1.2
 
         switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-                if ea.getKey() == 'q' :
+                if ea.getKey() == ord("q") :
                     _layer.transform(0.0, scale)
                     return True
-                elif ea.getKey() == 'a' :
+                elif ea.getKey() == ord("a") :
                     _layer.transform(0.0, 1.0/scale)
                     return True
                 break
@@ -489,10 +489,10 @@ class LayerHandler (osgGA.GUIEventHandler) :
     _layer = osg.observer_ptr<osgTerrain.Layer>()
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -500,22 +500,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
 
     # add the state manipulator
@@ -578,7 +578,7 @@ def main(argc, argv):
             locator.setCoordinateSystemType(osgTerrain.Locator.GEOCENTRIC)
             locator.setTransformAsExtents(x,y,x+w,y+h)
 
-        elif arguments.read(pos, "--transform",offset, scale) || arguments.read(pos, "-t",offset, scale) :
+        elif arguments.read(pos, "--transform",offset, scale)  or  arguments.read(pos, "-t",offset, scale) :
             # define the extents.
 
         elif arguments.read(pos, "--cartesian",x,y,w,h) :
@@ -592,73 +592,73 @@ def main(argc, argv):
             hf = osgDB.readHeightFieldFile(filename)
             if hf.valid() :
                 hfl = osgTerrain.HeightFieldLayer()
-                hfl.setHeightField(hf.get())
+                hfl.setHeightField(hf)
                 
-                hfl.setLocator(locator.get())
-                hfl.setValidDataOperator(validDataOperator.get())
+                hfl.setLocator(locator)
+                hfl.setValidDataOperator(validDataOperator)
                 hfl.setMagFilter(filter)
                 
-                if offset!=0.0 || scale!=1.0 :
+                if offset not =0.0  or  scale not =1.0 :
                     hfl.transform(offset,scale)
                 
-                terrainTile.setElevationLayer(hfl.get())
+                terrainTile.setElevationLayer(hfl)
                 
-                lastAppliedLayer = hfl.get()
+                lastAppliedLayer = hfl
                 
                 osg.notify(osg.NOTICE), "created osgTerrain.HeightFieldLayer"
-            else :
+            else:
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.HeightFieldLayer"
             
             scale = 1.0
             offset = 0.0
             
 
-        elif arguments.read(pos, "-d",filename) || arguments.read(pos, "--elevation-image",filename) :
+        elif arguments.read(pos, "-d",filename)  or  arguments.read(pos, "--elevation-image",filename) :
             osg.notify(osg.NOTICE), "--elevation-image ", filename
 
             image = osgDB.readImageFile(filename)
             if image.valid() :
                 imageLayer = osgTerrain.ImageLayer()
-                imageLayer.setImage(image.get())
-                imageLayer.setLocator(locator.get())
-                imageLayer.setValidDataOperator(validDataOperator.get())
+                imageLayer.setImage(image)
+                imageLayer.setLocator(locator)
+                imageLayer.setValidDataOperator(validDataOperator)
                 imageLayer.setMagFilter(filter)
                 
-                if offset!=0.0 || scale!=1.0 :
+                if offset not =0.0  or  scale not =1.0 :
                     imageLayer.transform(offset,scale)
                 
-                terrainTile.setElevationLayer(imageLayer.get())
+                terrainTile.setElevationLayer(imageLayer)
                 
-                lastAppliedLayer = imageLayer.get()
+                lastAppliedLayer = imageLayer
 
                 osg.notify(osg.NOTICE), "created Elevation osgTerrain.ImageLayer"
-            else :
+            else:
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.ImageLayer"
 
             scale = 1.0
             offset = 0.0
             
         
-        elif arguments.read(pos, "-c",filename) || arguments.read(pos, "--image",filename) :
+        elif arguments.read(pos, "-c",filename)  or  arguments.read(pos, "--image",filename) :
             osg.notify(osg.NOTICE), "--image ", filename, " x=", x, " y=", y, " w=", w, " h=", h
 
             image = osgDB.readImageFile(filename)
             if image.valid() :
                 imageLayer = osgTerrain.ImageLayer()
-                imageLayer.setImage(image.get())
-                imageLayer.setLocator(locator.get())
-                imageLayer.setValidDataOperator(validDataOperator.get())
+                imageLayer.setImage(image)
+                imageLayer.setLocator(locator)
+                imageLayer.setValidDataOperator(validDataOperator)
                 imageLayer.setMagFilter(filter)
                 
-                if offset!=0.0 || scale!=1.0 :
+                if offset not =0.0  or  scale not =1.0 :
                     imageLayer.transform(offset,scale)
 
-                terrainTile.setColorLayer(layerNum, imageLayer.get())
+                terrainTile.setColorLayer(layerNum, imageLayer)
 
-                lastAppliedLayer = imageLayer.get()
+                lastAppliedLayer = imageLayer
 
                 osg.notify(osg.NOTICE), "created Color osgTerrain.ImageLayer"
-            else :
+            else:
                 osg.notify(osg.NOTICE), "failed to create osgTerrain.ImageLayer"
 
             scale = 1.0
@@ -672,7 +672,7 @@ def main(argc, argv):
             elif filterName=="LINEAR" : 
                 filter = osg.Texture.LINEAR
                 osg.notify(osg.NOTICE), "--filter ", filterName
-            else :
+            else:
                 osg.notify(osg.NOTICE), "--filter ", filterName, " unrecognized filter name, please use LINEAER or NEAREST."
 
             if terrainTile.getColorLayer(layerNum) :
@@ -696,34 +696,34 @@ def main(argc, argv):
             
             osg.notify(osg.NOTICE), "--tf ", minValue, " ", maxValue
 
-            terrainTile.setColorLayer(layerNum, osgTerrain.ContourLayer(tf.get()))
-        else :
+            terrainTile.setColorLayer(layerNum, osgTerrain.ContourLayer(tf))
+        else:
             ++pos
 
     
 
     scene = osg.Group()
 
-    if terrainTile.valid()  (terrainTile.getElevationLayer() || terrainTile.getColorLayer(0)) :
+    if terrainTile.valid()  and  (terrainTile.getElevationLayer()  or  terrainTile.getColorLayer(0)) :
         osg.notify(osg.NOTICE), "Terrain created"
     
-        scene.addChild(terrainTile.get())
+        scene.addChild(terrainTile)
 
         geometryTechnique = osgTerrain.GeometryTechnique()
-        terrainTile.setTerrainTechnique(geometryTechnique.get())
-        viewer.addEventHandler(FilterHandler(geometryTechnique.get()))
-        viewer.addEventHandler(LayerHandler(lastAppliedLayer.get()))
+        terrainTile.setTerrainTechnique(geometryTechnique)
+        viewer.addEventHandler(FilterHandler(geometryTechnique))
+        viewer.addEventHandler(LayerHandler(lastAppliedLayer))
 
     if masterOperation.valid() :
         osg.notify(osg.NOTICE), "Master operation created"
 
-        masterOperation.open(scene.get())
+        masterOperation.open(scene)
     
     if scene.getNumChildren()==0 :
         osg.notify(osg.NOTICE), "No model created, please specify terrain or master file on command line."
         return 0
     
-    viewer.setSceneData(scene.get())
+    viewer.setSceneData(scene)
 
 
     # start operation thread if a master file has been used.
@@ -736,19 +736,19 @@ def main(argc, argv):
         masterOperationThread = osg.OperationThread()
         masterOperationThread.startThread()
         
-        masterOperationThread.add(masterOperation.get())
+        masterOperationThread.add(masterOperation)
 
 #        if numLoadThreads>0 :
             operationQueue = osg.OperationQueue()
-            masterOperation.setOperationQueue(operationQueue.get())
+            masterOperation.setOperationQueue(operationQueue)
 
             for(unsigned int i=0 i<numLoadThreads ++i)
                 thread = osg.OperationThread()
-                thread.setOperationQueue(operationQueue.get())
+                thread.setOperationQueue(operationQueue)
                 thread.startThread()
                 generalThreadList.push_back(thread)
         
-        viewer.addUpdateOperation(masterOperation.get())
+        viewer.addUpdateOperation(masterOperation)
     
     viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
     

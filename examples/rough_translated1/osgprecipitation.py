@@ -67,20 +67,20 @@ class MyGustCallback (osg.NodeCallback) :
             value = sin(nv.getFrameStamp().getSimulationTime())
             if value<-0.5 :
                 pe.snow(1.0)
-            else :
+            else:
                 pe.rain(0.5)
         
             traverse(node, nv)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -108,22 +108,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     precipitationEffect = osgParticle.PrecipitationEffect()
 
@@ -173,13 +173,13 @@ def main(argc, argv):
 
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
     # read the scene from the list of file specified commandline args.
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
     
@@ -187,18 +187,18 @@ def main(argc, argv):
     
     group = osg.Group()
     
-    if clipDistance!=0.0 :
+    if clipDistance not =0.0 :
         clipNode = osg.ClipNode()
         clipNode.addClipPlane( osg.ClipPlane( 0 ) )
         clipNode.getClipPlane(0).setClipPlane( 0.0, 0.0, -1.0, -clipDistance )
         clipNode.setReferenceFrame(osg.ClipNode.ABSOLUTE_RF)
-        clipNode.addChild(precipitationEffect.get())
+        clipNode.addChild(precipitationEffect)
 
-        group.addChild(clipNode.get())
-    else :
-        group.addChild(precipitationEffect.get())
+        group.addChild(clipNode)
+    else:
+        group.addChild(precipitationEffect)
     
-    group.addChild(loadedModel.get())
+    group.addChild(loadedModel)
 
     loadedModel.getOrCreateStateSet().setAttributeAndModes(precipitationEffect.getFog())
     
@@ -215,7 +215,7 @@ def main(argc, argv):
 
 
     # set the scene to render
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     return viewer.run()
 

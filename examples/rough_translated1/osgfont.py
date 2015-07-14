@@ -95,11 +95,11 @@ def createLabel(l, f, size):
 
 typedef std.list<unsigned int> Sizes
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()
-    args = osg.ArgumentParser(argc, argv)
+    args = osg.ArgumentParser(argv)
 
     # Make sure we have the minimum args...
     if argc <= 2 :
@@ -119,14 +119,14 @@ def main(argc, argv):
     sizes = Sizes()
 
     for(int i = 2 i < argc i++)
-        if !args.isNumber(i) : continue
+        if  not args.isNumber(i) : continue
 
         sizes.push_back(std.atoi(args[i]))
 
     geode = osg.Geode()
 
     # Add all of our osgText drawables.
-    for(Sizes.const_iterator i = sizes.begin() i != sizes.end() i++)
+    for(Sizes.const_iterator i = sizes.begin() i  not = sizes.end() i++)
         ss = strstream()
 
         ss, *i, " 1234567890 abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ"

@@ -56,7 +56,7 @@ static  char* computeSrc =
     "\n"
 
 
-def main(argc, argv):
+def main(argv):
 
     
     arguments = osg.ArgumentParser( argc, argv )
@@ -79,13 +79,12 @@ def main(argc, argv):
     
     # Create a node for outputting to the texture.
     # It is OK to have just an empty node here, but seems inbuilt uniforms like osg_FrameTime won't work then.
-    # TODO: maybe we can have a custom drawable which also will implement glMemoryBarrier?
-    sourceNode = osgDB.readNodeFile("axes.osgt")
-    if  !sourceNode  : sourceNode = osg.Node()
+    # TODO: maybe we can have a custom drawable which also will implement  sourceNode = osgDB: if (glMemoryBarrier) else readNodeFile("axes.osgt")
+    if   not sourceNode  : sourceNode = osg.Node()
     sourceNode.setDataVariance( osg.Object.DYNAMIC )
-    sourceNode.getOrCreateStateSet().setAttributeAndModes( computeProg.get() )
+    sourceNode.getOrCreateStateSet().setAttributeAndModes( computeProg )
     sourceNode.getOrCreateStateSet().addUniform( osg.Uniform("targetTex", (int)0) )
-    sourceNode.getOrCreateStateSet().setTextureAttributeAndModes( 0, tex2D.get() )
+    sourceNode.getOrCreateStateSet().setTextureAttributeAndModes( 0, tex2D )
     
     # Display the texture on a quad. We will also be able to operate on the data if reading back to CPU side
     geom = osg.createTexturedQuadGeometry(
@@ -93,18 +92,18 @@ def main(argc, argv):
     quad = osg.Geode()
     quad.addDrawable( geom )
     quad.getOrCreateStateSet().setMode( GL_LIGHTING, osg.StateAttribute.OFF )
-    quad.getOrCreateStateSet().setTextureAttributeAndModes( 0, tex2D.get() )
+    quad.getOrCreateStateSet().setTextureAttributeAndModes( 0, tex2D )
     
     # Create the scene graph and start the viewer
     scene = osg.Group()
     scene.addChild( sourceNode )
-    scene.addChild( quad.get() )
+    scene.addChild( quad )
     
     viewer = osgViewer.Viewer()
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
     viewer.addEventHandler( osgViewer.StatsHandler )()
     viewer.addEventHandler( osgViewer.WindowSizeHandler )()
-    viewer.setSceneData( scene.get() )
+    viewer.setSceneData( scene )
     return viewer.run()
 
 

@@ -221,6 +221,10 @@ sub translate_source_file {
     # Smart pointer ".get()" methods are superfluous
     $file_block =~ s/\.get\(\)//g;
 
+    # argv converions
+    $file_block =~ s/\Qdef main(argc, argv):/def main(argv):/g;
+    $file_block =~ s/ArgumentParser\(argc,\s*argv\)/ArgumentParser(argv)/g;
+
     return $file_block, \%modules;
 }
 
@@ -291,7 +295,7 @@ sub translate_all_examples {
         # Subset for testing
         $count += 1;
         # last if $count > 10; # Just a few for now while testing...
-        next unless $example =~ /manip/; # Just one for now while testing...
+        # next unless $example =~ /manip/; # Just one for now while testing...
 
         print "Translating OSG example: ", $_, "\n";
         translate_example($example, $folder);

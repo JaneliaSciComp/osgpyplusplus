@@ -157,40 +157,40 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
         switch (ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
                 switch (ea.getKey())
-                case 'q':
+                case ord("q"):
                     rotate(osg.PI/180, joint1) 
                     return True
-                case 'a':
+                case ord("a"):
                     rotate(-osg.PI/180, joint1) 
                     return True
-                case 'w':
+                case ord("w"):
                     rotate(osg.PI/180, joint2) 
                     return True
-                case 's':
+                case ord("s"):
                     rotate(-osg.PI/180, joint2) 
                     return True
-                case 'e':
+                case ord("e"):
                     rotate(osg.PI/180, joint3) 
                     return True
-                case 'd':
+                case ord("d"):
                     rotate(-osg.PI/180, joint3) 
                     return True
-                case 'r':
+                case ord("r"):
                     rotate(osg.PI/180, joint4) 
                     return True
-                case 'f':
+                case ord("f"):
                     rotate(-osg.PI/180, joint4) 
                     return True
-                case 't':
+                case ord("t"):
                     rotate(osg.PI/180, joint5) 
                     return True
-                case 'g':
+                case ord("g"):
                     rotate(-osg.PI/180, joint5) 
                     return True
-                case 'y':
+                case ord("y"):
                     rotate(osg.PI/180, joint6) 
                     return True
-                case 'h':
+                case ord("h"):
                     rotate(-osg.PI/180, joint6) 
                     return True
         default:

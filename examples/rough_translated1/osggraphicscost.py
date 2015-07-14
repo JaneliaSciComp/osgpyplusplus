@@ -54,27 +54,27 @@ class CalibrateCostEsimator (osg.GraphicsOperation) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
 
 
     node = osgDB.readNodeFiles(arguments)
-    if !node : return 0
+    if  not node : return 0
 
     gce = osg.GraphicsCostEstimator()
 
-    viewer.setSceneData(node.get())
+    viewer.setSceneData(node)
 
     viewer.realize()
 
-    compileCost = gce.estimateCompileCost(node.get())
-    drawCost = gce.estimateDrawCost(node.get())
+    compileCost = gce.estimateCompileCost(node)
+    drawCost = gce.estimateDrawCost(node)
 
     OSG_NOTICE, "estimateCompileCost(", node.getName(), "), CPU=", compileCost.first, " GPU=", compileCost.second
     OSG_NOTICE, "estimateDrawCost(", node.getName(), "), CPU=", drawCost.first, " GPU=", drawCost.second

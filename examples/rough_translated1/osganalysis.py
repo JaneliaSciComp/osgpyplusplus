@@ -67,13 +67,13 @@ class StripStateVisitor (osg.NodeVisitor) :
     def apply(node):
 
         
-        if !_useStateSets  node.getStateSet() : node.setStateSet(0)
+        if  not _useStateSets  and  node.getStateSet() : node.setStateSet(0)
         traverse(node)
 
     def apply(node):
 
         
-        if !_useStateSets  node.getStateSet() : node.setStateSet(0)
+        if  not _useStateSets  and  node.getStateSet() : node.setStateSet(0)
         for(unsigned int i = 0 i<node.getNumDrawables() ++i)
             process(*node.getDrawable(i))
 
@@ -82,7 +82,7 @@ class StripStateVisitor (osg.NodeVisitor) :
     def process(drawable):
 
         
-        if !_useStateSets  drawable.getStateSet() :
+        if  not _useStateSets  and  drawable.getStateSet() :
             drawable.setStateSet(0)
 
         drawable.setUseDisplayList(_useDisplayLists)
@@ -118,7 +118,7 @@ class OptimizeImageVisitor (osg.NodeVisitor) :
     def processStateSet(stateset):
 
         
-        if !stateset : return
+        if  not stateset : return
 
         for(unsigned int i=0 i<stateset.getNumTextureAttributeLists() ++i)
             sa = stateset.getTextureAttribute(i, osg.StateAttribute.TEXTURE)
@@ -133,11 +133,11 @@ class OptimizeImageVisitor (osg.NodeVisitor) :
 
 
         
-        if !image : return
+        if  not image : return
 
         if _imageProcessor.valid() :
             OSG_NOTICE, "Will be using ImageProcessor to process image ", image.getFileName()
-        else :
+        else:
             OSG_NOTICE, "No ImageProcessor to process image ", image.getFileName()
             OSG_NOTICE, "   compressImage ", _compressImages
             OSG_NOTICE, "   generateMipmaps ", _generateMipmaps
@@ -152,7 +152,7 @@ class SwapArrayVisitor (osg.ArrayVisitor) :
     template <class ARRAY>
     def apply_imp(array):
         
-        if array.getType()!=_array.getType() :
+        if array.getType() not =_array.getType() :
             OSG_NOTICE, "Arrays incompatible"
             return
         OSG_NOTICE, "Swapping Array"
@@ -215,7 +215,7 @@ class MemoryVisitor (osg.NodeVisitor) :
     def apply(geode, drawable):
 
         
-        if !drawable : return
+        if  not drawable : return
 
         geometry = drawable.asGeometry()
         if geometry :
@@ -238,13 +238,13 @@ class MemoryVisitor (osg.NodeVisitor) :
     def apply(geometry, array):
 
         
-        if !array : return
+        if  not array : return
         _arrayMap[array].insert(geometry)
 
     def apply(geometry, primitiveSet):
 
         
-        if !primitiveSet : return
+        if  not primitiveSet : return
         _primitiveSetMap[primitiveSet].insert(geometry)
 
     def report(out):
@@ -265,7 +265,7 @@ class MemoryVisitor (osg.NodeVisitor) :
         newArrays = ArrayVector()
         newGeometries = GeometryVector()
         for(GeometryMap.iterator itr = _geometryMap.begin()
-            itr != _geometryMap.end()
+            not = _geometryMap.end()
             ++itr)
             geometry = itr.first
             useVBO = geometry.getUseVertexBufferObjects()
@@ -276,15 +276,15 @@ class MemoryVisitor (osg.NodeVisitor) :
 
         geom_itr = newGeometries.begin()
         for(GeometryMap.iterator itr = _geometryMap.begin()
-            itr != _geometryMap.end()
+            not = _geometryMap.end()
             ++itr, ++geom_itr)
             geometry = itr.first
             geodes = itr.second
             for(Geodes.iterator gitr = geodes.begin()
-                gitr != geodes.end()
+                not = geodes.end()
                 ++gitr)
                 geode = const_cast<osg.Geode*>(*gitr)
-                geode.replaceDrawable(geometry, geom_itr.get())
+                geode.replaceDrawable(geometry, geom_itr)
 
     typedef std.vector< osg.Geometry > GeometryVector
     typedef std.pair<osg.Array*, osg.Array*> ArrayPair
@@ -295,7 +295,7 @@ class MemoryVisitor (osg.NodeVisitor) :
     def cloneArray(arrayVector, array):
 
         
-        if !array : return 0
+        if  not array : return 0
         newArray = static_cast<osg.Array*>(array.cloneType())
         arrayVector.push_back(ArrayPair(array,newArray))
         return newArray
@@ -303,7 +303,7 @@ class MemoryVisitor (osg.NodeVisitor) :
     def clonePrimitiveSet(psVector, ps):
 
         
-        if !ps : return 0
+        if  not ps : return 0
         newPS = static_cast<osg.PrimitiveSet*>(ps.cloneType())
         psVector.push_back(PrimitiveSetPair(ps,newPS))
         return newPS
@@ -318,11 +318,11 @@ class MemoryVisitor (osg.NodeVisitor) :
         newGeometries = GeometryVector()
 
         for(GeometryMap.iterator itr = _geometryMap.begin()
-            itr != _geometryMap.end()
+            not = _geometryMap.end()
             ++itr)
             geometry = itr.first
             newGeometry = osg.clone(geometry, osg.CopyOp.SHALLOW_COPY)
-            newGeometries.push_back(newGeometry.get())
+            newGeometries.push_back(newGeometry)
 
             newGeometry.setVertexArray(cloneArray(arrayVector, geometry.getVertexArray()))
             newGeometry.setNormalArray(cloneArray(arrayVector, geometry.getNormalArray()))
@@ -339,15 +339,15 @@ class MemoryVisitor (osg.NodeVisitor) :
 
         geom_itr = newGeometries.begin()
         for(GeometryMap.iterator itr = _geometryMap.begin()
-            itr != _geometryMap.end()
+            not = _geometryMap.end()
             ++itr, ++geom_itr)
             geometry = itr.first
             geodes = itr.second
             for(Geodes.iterator gitr = geodes.begin()
-                gitr != geodes.end()
+                not = geodes.end()
                 ++gitr)
                 geode = const_cast<osg.Geode*>(*gitr)
-                geode.replaceDrawable(geometry, geom_itr.get())
+                geode.replaceDrawable(geometry, geom_itr)
 
      typedef std.set<osg.Node*>  Nodes
      typedef std.set<osg.Geode*>  Geodes
@@ -378,22 +378,22 @@ class SceneGraphProcessor (osg.Referenced) :
         while arguments.read("--smoother") :   useSmoothingVisitor=True 
         while arguments.read("--no-smoother") :   useSmoothingVisitor=False 
 
-        while arguments.read("--remove-duplicate-vertices") || arguments.read("--rdv") : removeDuplicateVertices = True
-        while arguments.read("--optimize-vertex-cache") || arguments.read("--ovc") : optimizeVertexCache = True
-        while arguments.read("--optimize-vertex-order") || arguments.read("--ovo") : optimizeVertexOrder = True
+        while arguments.read("--remove-duplicate-vertices")  or  arguments.read("--rdv") : removeDuplicateVertices = True
+        while arguments.read("--optimize-vertex-cache")  or  arguments.read("--ovc") : optimizeVertexCache = True
+        while arguments.read("--optimize-vertex-order")  or  arguments.read("--ovo") : optimizeVertexOrder = True
 
         while arguments.read("--build-mipmaps") :  modifyTextureSettings = True buildImageMipmaps = True 
         while arguments.read("--compress") :  modifyTextureSettings = True compressImages = True 
         while arguments.read("--disable-mipmaps") :  modifyTextureSettings = True disableMipmaps = True 
 
-        while arguments.read("--reallocate") || arguments.read("--ra")  :  reallocateMemory = True 
+        while arguments.read("--reallocate")  or  arguments.read("--ra")  :  reallocateMemory = True 
 
         OSG_NOTICE, "simplificatioRatio=", simplificatioRatio
 
     def process(node):
 
         
-        if !node :
+        if  not node :
             OSG_NOTICE, "SceneGraphProcessor.process(Node*) : error cannot process NULL Node."
             return 0
 
@@ -514,10 +514,10 @@ class DatabasePagingOperation : public osg.Operation, public osgUtil.Incremental
 
         if _loadedModel.valid() :
             if _sceneGraphProcessor.valid() :
-                _loadedModel = _sceneGraphProcessor.process(_loadedModel.get())
+                _loadedModel = _sceneGraphProcessor.process(_loadedModel)
 
         if _loadedModel.valid() :
-            if !_outputFilename.empty() :
+            if  not _outputFilename.empty() :
                 OSG_NOTICE, "Writing out file ", _outputFilename
                 
                 osgDB.writeNodeFile(*_loadedModel, _outputFilename)
@@ -525,12 +525,12 @@ class DatabasePagingOperation : public osg.Operation, public osgUtil.Incremental
             if _incrementalCompileOperation.valid() :
                 OSG_NOTICE, "Registering with ICO ", _outputFilename
 
-                compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel.get())
+                compileSet = osgUtil.IncrementalCompileOperation.CompileSet(_loadedModel)
 
                 compileSet._compileCompletedCallback = this
 
-                _incrementalCompileOperation.add(compileSet.get())
-            else :
+                _incrementalCompileOperation.add(compileSet)
+            else:
                 _modelReadyToMerge = True
 
         osg.notify(osg.NOTICE), "done LoadAndCompileOperation ", _filename
@@ -554,7 +554,7 @@ class TexturePoolHandler (osgGA.GUIEventHandler) :
     def handle(ea, aa):
         
         if ea.getEventType() == osgGA.GUIEventAdapter.KEYUP :
-            if ea.getKey()=='r' :
+            if ea.getKey()==ord("r") :
                 osg.Texture.getTextureObjectManager(0).reportStats(osg.notify(osg.NOTICE))
                 osg.GLBufferObjectManager.getGLBufferObjectManager(0).reportStats(osg.notify(osg.NOTICE))
         return False
@@ -567,10 +567,10 @@ virtual void completed( osgGA.AnimationPathManipulator*)
         osg.GLBufferObjectManager.getGLBufferObjectManager(0).reportStats(osg.notify(osg.NOTICE))
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -578,19 +578,19 @@ def main(argc, argv):
     # set up camera manipulators
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
-        keyForAnimationPath = '8'
+        keyForAnimationPath = ord("8")
         animationSpeed = 1.0
         while arguments.read("--speed",animationSpeed)  : 
 
         pathfile = str()
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() :
+            if apm  or   not apm.valid() :
                 apm.setTimeScale(animationSpeed)
                 apm.setAnimationCompletedCallback(ReportStatsAnimationCompletedCallback())
                 
@@ -599,7 +599,7 @@ def main(argc, argv):
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # set up event handlers 
         viewer.addEventHandler( osgViewer.StatsHandler())
@@ -612,9 +612,9 @@ def main(argc, argv):
     # IncrementalCompileOperation settings
     #
     incrementalCompile = osgUtil.IncrementalCompileOperation()
-    viewer.setIncrementalCompileOperation(incrementalCompile.get())
+    viewer.setIncrementalCompileOperation(incrementalCompile)
 
-    if arguments.read("--force") || arguments.read("-f") :
+    if arguments.read("--force")  or  arguments.read("-f") :
         incrementalCompile.assignForceTextureDownloadGeometry()
 
     if arguments.read("-a") :
@@ -646,7 +646,7 @@ def main(argc, argv):
     typedef std.vector< str > FileNames
     fileNames = FileNames()
     for(int pos=1pos<arguments.argc()++pos)
-        if !arguments.isOption(pos) :
+        if  not arguments.isOption(pos) :
             fileNames.push_back(arguments[pos])
 
     if fileNames.empty() :
@@ -666,51 +666,51 @@ def main(argc, argv):
 
 
     group = osg.Group()
-    viewer.setSceneData(group.get())
+    viewer.setSceneData(group)
 
     viewer.realize()
 
     filename = fileNames[modelIndex++]
-    outputFilename = outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
+    outputFilename =  str() : osgDB: if (outputPostfix.empty()) else getStrippedName(filename)+outputPostfix
 
     databasePagingOperation = DatabasePagingOperation(
         filename,
         outputFilename,
-        sceneGraphProcessor.get(),
-        incrementalCompile.get())
+        sceneGraphProcessor,
+        incrementalCompile)
 
-    databasePagingThread.add(databasePagingOperation.get())
+    databasePagingThread.add(databasePagingOperation)
 
 
     timeOfLastMerge = viewer.getFrameStamp().getReferenceTime()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
 
         currentTime = viewer.getFrameStamp().getReferenceTime()
 
-        if !databasePagingOperation 
-            modelIndex<fileNames.size() 
+        if  not databasePagingOperation  and 
+            modelIndex<fileNames.size()  and 
             (currentTime-timeOfLastMerge)>timeBetweenMerges :
             filename = fileNames[modelIndex++]
-            outputFilename = outputPostfix.empty() ? str() : osgDB.getStrippedName(filename)+outputPostfix
+            outputFilename =  str() : osgDB: if (outputPostfix.empty()) else getStrippedName(filename)+outputPostfix
 
             databasePagingOperation = DatabasePagingOperation(
                 filename,
                 outputFilename,
-                sceneGraphProcessor.get(),
-                incrementalCompile.get())
+                sceneGraphProcessor,
+                incrementalCompile)
 
-            databasePagingThread.add(databasePagingOperation.get())
+            databasePagingThread.add(databasePagingOperation)
 
-        if databasePagingOperation.get()  databasePagingOperation._modelReadyToMerge :
+        if databasePagingOperation  and  databasePagingOperation._modelReadyToMerge :
             OSG_NOTICE, "Merging subgraph"
             
             timeOfLastMerge = currentTime
 
             group.removeChildren(0,group.getNumChildren())
 
-            group.addChild(databasePagingOperation._loadedModel.get())
+            group.addChild(databasePagingOperation._loadedModel)
 
             viewer.home()
 

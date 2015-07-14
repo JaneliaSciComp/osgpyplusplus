@@ -125,7 +125,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
         def apply(node):
 
             
-            if _visited.count(node)!=0 : return
+            if _visited.count(node) not =0 : return
             _visited.insert(node)
 
             if node.getStateSet() : apply(*(node.getStateSet()))
@@ -134,7 +134,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
         def apply(geode):
 
             
-            if _visited.count(geode)!=0 : return
+            if _visited.count(geode) not =0 : return
             _visited.insert(geode)
 
             if geode.getStateSet() : apply(*(geode.getStateSet()))
@@ -150,13 +150,13 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
             
             replacedStr = False
             pos = 0
-            while pos=str.find(original_phrase, pos) :!=str.npos :
+            while pos=str.find(original_phrase, pos) : not =str.npos :
                 endOfPhrasePos = pos+original_phrase.size()
                 if endOfPhrasePos<str.size() :
                     c = str[endOfPhrasePos]
-                    if c>='0'  c<='9' : ||
-                        (c>='a'  c<='z') ||
-                        (c>='A'  c<='Z') :
+                    if c>=ord("0")  and  c<=ord("9") :  or 
+                        (c>=ord("a")  and  c<=ord("z"))  or 
+                        (c>=ord("A")  and  c<=ord("Z")) :
                         pos = endOfPhrasePos
                         continue
 
@@ -167,7 +167,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
         def apply(program, shader):
 
             
-             if _visited.count(shader)!=0 : return
+             if _visited.count(shader) not =0 : return
             _visited.insert(shader)
 
             osg.notify(osg.NOTICE), "Shader ", shader.getTypename(), " ----before-----------"
@@ -183,7 +183,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
         def apply(stateset):
 
             
-             if _visited.count(stateset)!=0 : return
+             if _visited.count(stateset) not =0 : return
             _visited.insert(stateset)
 
             return
@@ -201,7 +201,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
             
             geom.setUseDisplayList(False)
 
-            if !_manualVertexAliasing : return
+            if  not _manualVertexAliasing : return
 
             osg.notify(osg.NOTICE), "Found geometry ", geom
             if geom.getVertexArray() :
@@ -233,7 +233,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
                 if geom.getTexCoordArray(i) :
                     setVertexAttrib(geom, _texCoordAlias[i], geom.getTexCoordArray(i), False, osg.Array.BIND_PER_VERTEX)
                     geom.setTexCoordArray(i,0)
-                else :
+                else:
                     osg.notify(osg.NOTICE), "Found empty TexCoordArray(", i, ")"
 
         def setVertexAttrib(geom, alias, array, normalize, binding):
@@ -242,7 +242,7 @@ class ConvertToVertexAttibArrays (osg.NodeVisitor) :
             index = alias.first
             name = alias.second
             array.setName(name)
-            if binding!=osg.Array.BIND_UNDEFINED : array.setBinding(binding)
+            if binding not =osg.Array.BIND_UNDEFINED : array.setBinding(binding)
             array.setNormalize(normalize)
             geom.setVertexAttribArray(index, array)
 
@@ -364,7 +364,7 @@ def createSimpleTextureTestModel():
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -375,11 +375,11 @@ int main(int argc, char *argv[])
     loadedModel = osg.Node()
 
     runConvertToVertexAttributes = False
-    if arguments.read("--simple") || arguments.read("--s") :
+    if arguments.read("--simple")  or  arguments.read("--s") :
         loadedModel = createSimpleTestModel()
-    elif arguments.read("--texture") || arguments.read("-t") :
+    elif arguments.read("--texture")  or  arguments.read("-t") :
         loadedModel = createSimpleTextureTestModel()
-    else :
+    else:
         runShaderGen = True
         while arguments.read("--shader-gen") :  runShaderGen = True 
         while arguments.read("--no-shader-gen") :  runShaderGen = False 
@@ -388,7 +388,7 @@ int main(int argc, char *argv[])
         while arguments.read("--no-vertex-attrib") :  runConvertToVertexAttributes = False 
 
         loadedModel = osgDB.readNodeFiles(arguments)
-        if !loadedModel.get() :
+        if  not loadedModel :
             osg.notify(osg.NOTICE), "No model loaded, please specify a model filename."
             return 1
 
@@ -402,14 +402,14 @@ int main(int argc, char *argv[])
             ctvaa = ConvertToVertexAttibArrays()
             loadedModel.accept(ctvaa)
 
-    if !loadedModel : return 1
+    if  not loadedModel : return 1
 
-    if !outputFileName.empty() :
+    if  not outputFileName.empty() :
         osgDB.writeNodeFile(*loadedModel, outputFileName)
         return 0
 
     # add a viewport to the viewer and attach the scene graph.
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
 
     viewer.setCameraManipulator(osgGA.TrackballManipulator())
 
@@ -424,7 +424,7 @@ int main(int argc, char *argv[])
         windows = osgViewer.Viewer.Windows()
         viewer.getWindows(windows)
         for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-            itr != windows.end()
+            not = windows.end()
             ++itr)
             (*itr).getState().setUseModelViewAndProjectionUniforms(True)
             (*itr).getState().setUseVertexAttributeAliasing(True)

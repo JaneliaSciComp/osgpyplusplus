@@ -89,7 +89,7 @@ ContextData(osg.GraphicsContext* gc, Mode mode, GLenum readBuffer,  str name):
                     if gc.getTraits().alpha :
                         osg.notify(osg.NOTICE), "Select GL_BGRA read back format"
                         _pixelFormat = GL_BGRA
-                    else : 
+                    else:
                         osg.notify(osg.NOTICE), "Select GL_BGR read back format"
                         _pixelFormat = GL_BGR 
             
@@ -140,12 +140,12 @@ ContextData(osg.GraphicsContext* gc, Mode mode, GLenum readBuffer,  str name):
                 
                 ext = osg.GLBufferObject.getExtensions(_gc.getState().getContextID(),True)
 
-                if ext.isPBOSupported()  !_pboBuffer.empty() :
+                if ext.isPBOSupported()  and   not _pboBuffer.empty() :
                     if _pboBuffer.size()==1 :
                         singlePBO(ext)
-                    else :
+                    else:
                         multiPBO(ext)
-                else :
+                else:
                     readPixels()
             
             readPixels = void()
@@ -202,9 +202,9 @@ ContextData(osg.GraphicsContext* gc, Mode mode, GLenum readBuffer,  str name):
             
             lock = OpenThreads.ScopedLock<OpenThreads.Mutex>(_mutex)
             data = _contextDataMap[gc]
-            if !data : data = createContextData(gc)
+            if  not data : data = createContextData(gc)
             
-            return data.get()
+            return data
 
         virtual void operator () (osg.RenderInfo renderInfo) 
             glReadBuffer(_readBuffer)
@@ -228,7 +228,7 @@ void WindowCaptureCallback.ContextData.updateTimings(osg.Timer_t tick_start,
                                                        osg.Timer_t tick_afterReadPixels,
                                                        osg.Timer_t tick_afterMemCpy,
                                                        unsigned int dataSize)
-    if !_reportTimingFrequency : return
+    if  not _reportTimingFrequency : return
 
     timeForReadPixels = osg.Timer.instance().delta_s(tick_start, tick_afterReadPixels)
     timeForFullCopy = osg.Timer.instance().delta_s(tick_start, tick_afterMemCpy)
@@ -262,7 +262,7 @@ void WindowCaptureCallback.ContextData.updateTimings(osg.Timer_t tick_start,
 
         if timeForMemCpy==0.0 :
             osg.notify(osg.NOTICE), "fps = ", fps, ", full frame copy = ", timeForFullCopy*1000.0, "ms rate = ", numMPixels / timeForFullCopy, " Mpixel/sec, copy speed = ", numMb / timeForFullCopy, " Mb/sec"
-        else :
+        else:
             osg.notify(osg.NOTICE), "fps = ", fps, ", full frame copy = ", timeForFullCopy*1000.0, "ms rate = ", numMPixels / timeForFullCopy, " Mpixel/sec, ", numMb / timeForFullCopy, " Mb/sec ", "time for memcpy = ", timeForMemCpy*1000.0, "ms  memcpy speed = ", numMb / timeForMemCpy, " Mb/sec"
         osg.notify(osg.NOTICE).precision(prec)
 
@@ -272,16 +272,16 @@ void WindowCaptureCallback.ContextData.readPixels()
     # print "readPixels(", _fileName, " image ", _currentImageIndex, " ", _currentPboIndex
 
     nextImageIndex = (_currentImageIndex+1)%_imageBuffer.size()
-    nextPboIndex = _pboBuffer.empty() ? 0 : (_currentPboIndex+1)%_pboBuffer.size()
+    nextPboIndex =  0 if (_pboBuffer.empty()) else  (_currentPboIndex+1)%_pboBuffer.size()
 
     width = 0, height=0
     getSize(_gc, width, height)
-    if width!=_width || _height!=height :
+    if width not =_width  or  _height not =height :
         print "   Window resized ", width, ", ", height
         _width = width
         _height = height
 
-    image = _imageBuffer[_currentImageIndex].get()
+    image = _imageBuffer[_currentImageIndex]
 
     tick_start = osg.Timer.instance().tick()
 
@@ -294,7 +294,7 @@ void WindowCaptureCallback.ContextData.readPixels()
 
     updateTimings(tick_start, tick_afterReadPixels, tick_afterReadPixels, image.getTotalSizeInBytes())
 
-    if !_fileName.empty() :
+    if  not _fileName.empty() :
         # osgDB.writeImageFile(*image, _fileName)
 
     _currentImageIndex = nextImageIndex
@@ -307,20 +307,20 @@ void WindowCaptureCallback.ContextData.singlePBO(osg.GLBufferObject.Extensions* 
 
     width = 0, height=0
     getSize(_gc, width, height)
-    if width!=_width || _height!=height :
+    if width not =_width  or  _height not =height :
         print "   Window resized ", width, ", ", height
         _width = width
         _height = height
 
     pbo = _pboBuffer[0]
     
-    image = _imageBuffer[_currentImageIndex].get()
-    if image.s() != _width || 
-        image.t() != _height :
+    image = _imageBuffer[_currentImageIndex]
+    if image.s()  not = _width  or  
+        image.t()  not = _height :
         osg.notify(osg.NOTICE), "Allocating image "
         image.allocateImage(_width, _height, 1, _pixelFormat, _type)
         
-        if pbo!=0 :
+        if pbo not =0 :
             osg.notify(osg.NOTICE), "deleting pbo ", pbo
             ext.glDeleteBuffers (1, pbo)
             pbo = 0
@@ -332,7 +332,7 @@ void WindowCaptureCallback.ContextData.singlePBO(osg.GLBufferObject.Extensions* 
         ext.glBufferData(GL_PIXEL_PACK_BUFFER_ARB, image.getTotalSizeInBytes(), 0, GL_STREAM_READ)
 
         osg.notify(osg.NOTICE), "Generating pbo ", pbo
-    else :
+    else:
         ext.glBindBuffer(GL_PIXEL_PACK_BUFFER_ARB, pbo)
 
     tick_start = osg.Timer.instance().tick()
@@ -356,7 +356,7 @@ void WindowCaptureCallback.ContextData.singlePBO(osg.GLBufferObject.Extensions* 
 
     updateTimings(tick_start, tick_afterReadPixels, tick_afterMemCpy, image.getTotalSizeInBytes())
 
-    if !_fileName.empty() :
+    if  not _fileName.empty() :
         # osgDB.writeImageFile(*image, _fileName)
 
 
@@ -369,7 +369,7 @@ void WindowCaptureCallback.ContextData.multiPBO(osg.GLBufferObject.Extensions* e
 
     width = 0, height=0
     getSize(_gc, width, height)
-    if width!=_width || _height!=height :
+    if width not =_width  or  _height not =height :
         print "   Window resized ", width, ", ", height
         _width = width
         _height = height
@@ -377,24 +377,24 @@ void WindowCaptureCallback.ContextData.multiPBO(osg.GLBufferObject.Extensions* e
     copy_pbo = _pboBuffer[_currentPboIndex]
     read_pbo = _pboBuffer[nextPboIndex]
     
-    image = _imageBuffer[_currentImageIndex].get()
-    if image.s() != _width || 
-        image.t() != _height :
+    image = _imageBuffer[_currentImageIndex]
+    if image.s()  not = _width  or  
+        image.t()  not = _height :
         osg.notify(osg.NOTICE), "Allocating image "
         image.allocateImage(_width, _height, 1, _pixelFormat, _type)
         
-        if read_pbo!=0 :
+        if read_pbo not =0 :
             osg.notify(osg.NOTICE), "deleting pbo ", read_pbo
             ext.glDeleteBuffers (1, read_pbo)
             read_pbo = 0
 
-        if copy_pbo!=0 :
+        if copy_pbo not =0 :
             osg.notify(osg.NOTICE), "deleting pbo ", copy_pbo
             ext.glDeleteBuffers (1, copy_pbo)
             copy_pbo = 0
     
     
-    doCopy = copy_pbo!=0
+    doCopy = copy_pbo not =0
     if copy_pbo==0 :
         ext.glGenBuffers(1, copy_pbo)
         ext.glBindBuffer(GL_PIXEL_PACK_BUFFER_ARB, copy_pbo)
@@ -408,7 +408,7 @@ void WindowCaptureCallback.ContextData.multiPBO(osg.GLBufferObject.Extensions* e
         ext.glBufferData(GL_PIXEL_PACK_BUFFER_ARB, image.getTotalSizeInBytes(), 0, GL_STREAM_READ)
 
         osg.notify(osg.NOTICE), "Generating pbo ", read_pbo
-    else :
+    else:
         ext.glBindBuffer(GL_PIXEL_PACK_BUFFER_ARB, read_pbo)
 
     tick_start = osg.Timer.instance().tick()
@@ -429,7 +429,7 @@ void WindowCaptureCallback.ContextData.multiPBO(osg.GLBufferObject.Extensions* e
             memcpy(image.data(), src, image.getTotalSizeInBytes())
             ext.glUnmapBuffer(GL_PIXEL_PACK_BUFFER_ARB)
 
-        if !_fileName.empty() :
+        if  not _fileName.empty() :
             # osgDB.writeImageFile(*image, _fileName)
     
     ext.glBindBuffer(GL_PIXEL_PACK_BUFFER_ARB, 0)
@@ -449,62 +449,62 @@ def addCallbackToViewer(viewer, callback):
         windows = osgViewer.ViewerBase.Windows()
         viewer.getWindows(windows)
         for(osgViewer.ViewerBase.Windows.iterator itr = windows.begin()
-            itr != windows.end()
+            not = windows.end()
             ++itr)
             window = *itr
             cameras = window.getCameras()
             firstCamera = 0
             for(osg.GraphicsContext.Cameras.iterator cam_itr = cameras.begin()
-                cam_itr != cameras.end()
+                not = cameras.end()
                 ++cam_itr)
                 if firstCamera :
                     if *cam_itr :.getRenderOrder() < firstCamera.getRenderOrder() :
                         firstCamera = (*cam_itr)
-                    if *cam_itr :.getRenderOrder() == firstCamera.getRenderOrder() 
+                    if *cam_itr :.getRenderOrder() == firstCamera.getRenderOrder()  and 
                         (*cam_itr).getRenderOrderNum() < firstCamera.getRenderOrderNum() :
                         firstCamera = (*cam_itr)
-                else :
+                else:
                     firstCamera = *cam_itr
 
             if firstCamera :
                 osg.notify(osg.NOTICE), "First camera ", firstCamera
 
                 firstCamera.setInitialDrawCallback(callback)
-            else :
+            else:
                 osg.notify(osg.NOTICE), "No camera found"
-    else :
+    else:
         windows = osgViewer.ViewerBase.Windows()
         viewer.getWindows(windows)
         for(osgViewer.ViewerBase.Windows.iterator itr = windows.begin()
-            itr != windows.end()
+            not = windows.end()
             ++itr)
             window = *itr
             cameras = window.getCameras()
             lastCamera = 0
             for(osg.GraphicsContext.Cameras.iterator cam_itr = cameras.begin()
-                cam_itr != cameras.end()
+                not = cameras.end()
                 ++cam_itr)
                 if lastCamera :
                     if *cam_itr :.getRenderOrder() > lastCamera.getRenderOrder() :
                         lastCamera = (*cam_itr)
-                    if *cam_itr :.getRenderOrder() == lastCamera.getRenderOrder() 
+                    if *cam_itr :.getRenderOrder() == lastCamera.getRenderOrder()  and 
                         (*cam_itr).getRenderOrderNum() >= lastCamera.getRenderOrderNum() :
                         lastCamera = (*cam_itr)
-                else :
+                else:
                     lastCamera = *cam_itr
 
             if lastCamera :
                 osg.notify(osg.NOTICE), "Last camera ", lastCamera
 
                 lastCamera.setFinalDrawCallback(callback)
-            else :
+            else:
                 osg.notify(osg.NOTICE), "No camera found"
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setCommandLineUsage(arguments.getApplicationName()+" [options] filename ...")
@@ -528,22 +528,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # add the state manipulator
     viewer.addEventHandler( osgGA.StateSetManipulator(viewer.getCamera().getOrCreateStateSet()) )
@@ -586,7 +586,7 @@ def main(argc, argv):
     height = 1024
     pbufferOnly = False
     pbuffer = osg.GraphicsContext()
-    if arguments.read("--pbuffer",width,height) || 
+    if arguments.read("--pbuffer",width,height)  or  
         (pbufferOnly = arguments.read("--pbuffer-only",width,height)) :
         traits = osg.GraphicsContext.Traits()
         traits.x = 0
@@ -602,16 +602,16 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        pbuffer = osg.GraphicsContext.createGraphicsContext(traits.get())
+        pbuffer = osg.GraphicsContext.createGraphicsContext(traits)
         if pbuffer.valid() :
             osg.notify(osg.NOTICE), "Pixel buffer has been created successfully."
-        else :
+        else:
             osg.notify(osg.NOTICE), "Pixel buffer has not been created successfully."
 
         
     # load the data
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
@@ -626,35 +626,35 @@ def main(argc, argv):
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
-    viewer.setSceneData( loadedModel.get() )
+    viewer.setSceneData( loadedModel )
 
     
     if pbuffer.valid() :
         camera = osg.Camera()
-        camera.setGraphicsContext(pbuffer.get())
+        camera.setGraphicsContext(pbuffer)
         camera.setViewport(osg.Viewport(0,0,width,height))
-        buffer = pbuffer.getTraits().doubleBuffer ? GL_BACK : GL_FRONT
+        buffer =  GL_BACK if (pbuffer.getTraits().doubleBuffer) else  GL_FRONT
         camera.setDrawBuffer(buffer)
         camera.setReadBuffer(buffer)
         camera.setFinalDrawCallback(WindowCaptureCallback(mode, position, readBuffer))
 
         if pbufferOnly :
-            viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd())
+            viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd())
 
             viewer.realize()
-        else :
+        else:
             viewer.realize()
 
             viewer.stopThreading()
 
             pbuffer.realize()
 
-            viewer.addSlave(camera.get(), osg.Matrixd(), osg.Matrixd())
+            viewer.addSlave(camera, osg.Matrixd(), osg.Matrixd())
 
             viewer.startThreading()
-    else :
+    else:
         viewer.realize()
 
         addCallbackToViewer(viewer, WindowCaptureCallback(mode, position, readBuffer))

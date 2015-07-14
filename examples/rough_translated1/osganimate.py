@@ -113,7 +113,7 @@ def createBase(center, radius):
     numIndicesPerRow = numTilesX+1
     for(iy=0iy<numTilesY++iy)
         for(int ix=0ix<numTilesX++ix)
-            primitives = ((iy+ix)%2==0) ? whitePrimitives.get() : blackPrimitives.get()
+            primitives =  whitePrimitives if (((iy+ix)%2==0)) else  blackPrimitives
             primitives.push_back(ix    +(iy+1)*numIndicesPerRow)
             primitives.push_back(ix    +iy*numIndicesPerRow)
             primitives.push_back((ix+1)+iy*numIndicesPerRow)
@@ -130,8 +130,8 @@ def createBase(center, radius):
 
     geom.setNormalArray(normals, osg.Array.BIND_OVERALL)
 
-    geom.addPrimitiveSet(whitePrimitives.get())
-    geom.addPrimitiveSet(blackPrimitives.get())
+    geom.addPrimitiveSet(whitePrimitives)
+    geom.addPrimitiveSet(blackPrimitives)
 
     geode = osg.Geode()
     geode.addDrawable(geom)
@@ -206,7 +206,7 @@ def createModel(overlay, technique):
         overlayNode.setOverlayBaseHeight(baseHeight-0.01)
         overlayNode.addChild(baseModel)
         root.addChild(overlayNode)
-    else :
+    else:
 
         root.addChild(baseModel)
 
@@ -215,19 +215,19 @@ def createModel(overlay, technique):
     return root
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
 
     overlay = False
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     while arguments.read("--overlay") : overlay = True
 
     technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--object") :  technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY overlay=True 
-    while arguments.read("--ortho") || arguments.read("--orthographic") :  technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY overlay=True 
-    while arguments.read("--persp") || arguments.read("--perspective") :  technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY overlay=True 
+    while arguments.read("--ortho")  or  arguments.read("--orthographic") :  technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY overlay=True 
+    while arguments.read("--persp")  or  arguments.read("--perspective") :  technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY overlay=True 
 
 
     # initialize the viewer.
@@ -235,7 +235,7 @@ def main(argc, argv):
 
     # load the nodes from the commandline arguments.
     model = createModel(overlay, technique)
-    if !model :
+    if  not model :
         return 1
 
     # tilt the scene so the default eye position is looking down on the model.
@@ -262,12 +262,12 @@ def main(argc, argv):
 
     simulationTime = 0.0
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame(simulationTime)
         simulationTime += 0.001
 
     return 0
-#else :
+#else:
 
     # normal viewer usage.
     return viewer.run()

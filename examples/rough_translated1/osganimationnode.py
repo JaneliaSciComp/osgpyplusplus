@@ -56,14 +56,14 @@ class AnimtkUpdateCallback (osg.NodeCallback) :
 
     #* Callback method called by the NodeVisitor when visiting a node.
     virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-        if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR 
-            nv.getFrameStamp() 
-            nv.getFrameStamp().getFrameNumber() != _lastUpdate : 
+        if nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  and 
+            nv.getFrameStamp()  and 
+            nv.getFrameStamp().getFrameNumber()  not = _lastUpdate : 
 
             _lastUpdate = nv.getFrameStamp().getFrameNumber()
             _currentTime = osg.Timer.instance().tick()
 
-            if _playing  _sampler.get()  _sampler.getKeyframeContainer() : 
+            if _playing  and  _sampler  and  _sampler.getKeyframeContainer() : 
                 transform = dynamic_cast<osg.MatrixTransform*>(node)
                 if transform : 
                     result = osg.Vec3()
@@ -111,15 +111,15 @@ class AnimtkStateSetUpdateCallback (osg.StateSet.Callback) :
 
     #* Callback method called by the NodeVisitor when visiting a node.
     virtual void operator()(osg.StateSet* state, osg.NodeVisitor* nv)
-        if state 
-            nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR 
-            nv.getFrameStamp() 
-            nv.getFrameStamp().getFrameNumber() != _lastUpdate :
+        if state  and 
+            nv.getVisitorType() == osg.NodeVisitor.UPDATE_VISITOR  and 
+            nv.getFrameStamp()  and 
+            nv.getFrameStamp().getFrameNumber()  not = _lastUpdate :
 
             _lastUpdate = nv.getFrameStamp().getFrameNumber()
             _currentTime = osg.Timer.instance().tick()
 
-            if _playing  _sampler.get()  _sampler.getKeyframeContainer() :
+            if _playing  and  _sampler  and  _sampler.getKeyframeContainer() :
                 material = dynamic_cast<osg.Material*>(state.getAttribute(osg.StateAttribute.MATERIAL))
                 if material :
                     result = osg.Vec4()
@@ -158,7 +158,7 @@ def createAxis():
     vertices.push_back (osg.Vec3 ( 0.0, 10.0, 0.0))
     vertices.push_back (osg.Vec3 ( 0.0, 0.0, 0.0))
     vertices.push_back (osg.Vec3 ( 0.0, 0.0, 10.0))
-    geometry.setVertexArray (vertices.get())
+    geometry.setVertexArray (vertices)
 
     colors = osg.Vec4Array(osg.Vec4Array())
     colors.push_back (osg.Vec4 (1.0, 0.0, 0.0, 1.0))
@@ -167,10 +167,10 @@ def createAxis():
     colors.push_back (osg.Vec4 (0.0, 1.0, 0.0, 1.0))
     colors.push_back (osg.Vec4 (0.0, 0.0, 1.0, 1.0))
     colors.push_back (osg.Vec4 (0.0, 0.0, 1.0, 1.0))
-    geometry.setColorArray (colors.get(), osg.Array.BIND_PER_VERTEX)
+    geometry.setColorArray (colors, osg.Array.BIND_PER_VERTEX)
     geometry.addPrimitiveSet(osg.DrawArrays(osg.PrimitiveSet.LINES,0,6))
 
-    geode.addDrawable( geometry.get() )
+    geode.addDrawable( geometry )
     geode.getOrCreateStateSet().setMode(GL_LIGHTING, False)
     return geode
 
@@ -244,7 +244,7 @@ def setupAnimtkNode():
     return node
 
 int main (int argc, char* argv[])
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
 
     manipulator = osgGA.TrackballManipulator()
@@ -261,7 +261,7 @@ int main (int argc, char* argv[])
     viewer.setSceneData( root )
     viewer.realize()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
 
 

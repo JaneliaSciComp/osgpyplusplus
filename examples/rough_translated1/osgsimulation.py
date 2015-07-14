@@ -131,13 +131,13 @@ class ModelPositionCallback (osg.NodeCallback) :
         
         nodePath = nv.getNodePath()
 
-        mt = nodePath.empty() ? 0 : dynamic_cast<osg.MatrixTransform*>(nodePath.back())
+        mt =  0 : dynamic_cast<osg: if (nodePath.empty()) else MatrixTransform*>(nodePath.back())
         if mt :
             csn = 0
 
             # find coordinate system node from our parental chain
             i = unsigned int()
-            for(i=0 i<nodePath.size()  csn==0 ++i)
+            for(i=0 i<nodePath.size()  and  csn==0 ++i)
                 csn = dynamic_cast<osg.CoordinateSystemNode*>(nodePath[i])
             
             if csn :
@@ -188,12 +188,12 @@ class FindNamedNodeVisitor (osg.NodeVisitor) :
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of node tracker.")
@@ -228,7 +228,7 @@ def main(argc, argv):
 
 
     speed = 1.0
-    while arguments.read("-f") || arguments.read("--fixed") : speed = 0.0
+    while arguments.read("-f")  or  arguments.read("--fixed") : speed = 0.0
 
 
     rotation = osg.Quat()
@@ -254,7 +254,7 @@ def main(argc, argv):
         if mode=="NODE_CENTER_AND_ROTATION" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_ROTATION
         elif mode=="NODE_CENTER_AND_AZIM" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER_AND_AZIM
         elif mode=="NODE_CENTER" : trackerMode = osgGA.NodeTrackerManipulator.NODE_CENTER
-        else :
+        else:
             print "Unrecognized --tracker-mode option ", mode, ", valid options are:"
             print "    NODE_CENTER_AND_ROTATION"
             print "    NODE_CENTER_AND_AZIM"
@@ -266,19 +266,19 @@ def main(argc, argv):
     while arguments.read("--rotation-mode",mode) :
         if mode=="TRACKBALL" : rotationMode = osgGA.NodeTrackerManipulator.TRACKBALL
         elif mode=="ELEVATION_AZIM" : rotationMode = osgGA.NodeTrackerManipulator.ELEVATION_AZIM
-        else :
+        else:
             print "Unrecognized --rotation-mode option ", mode, ", valid options are:"
             print "    TRACKBALL"
             print "    ELEVATION_AZIM"
             return 1
 
     useOverlay = True
-    while arguments.read("--no-overlay") || arguments.read("-n") : useOverlay = False
+    while arguments.read("--no-overlay")  or  arguments.read("-n") : useOverlay = False
     
     technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
     while arguments.read("--object") : technique = osgSim.OverlayNode.OBJECT_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
-    while arguments.read("--ortho") || arguments.read("--orthographic") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
-    while arguments.read("--persp") || arguments.read("--perspective") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY
+    while arguments.read("--ortho")  or  arguments.read("--orthographic") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_ORTHOGRAPHIC_OVERLAY
+    while arguments.read("--persp")  or  arguments.read("--perspective") : technique = osgSim.OverlayNode.VIEW_DEPENDENT_WITH_PERSPECTIVE_OVERLAY
 
     overlayTextureUnit = 1
     while arguments.read("--unit", overlayTextureUnit) : 
@@ -289,7 +289,7 @@ def main(argc, argv):
     addFireEffect = arguments.read("--fire")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
@@ -302,12 +302,12 @@ def main(argc, argv):
     # read the scene from the list of file specified commandline args.
     root = osgDB.readNodeFiles(arguments)
 
-    if !root : root = createEarth()
+    if  not root : root = createEarth()
 
-    if !root : return 0
+    if  not root : return 0
 
 
-    if !overlayFilename.empty() :
+    if  not overlayFilename.empty() :
         #osg.Object *pObj = osgDB.readObjectFile("alaska_clean.shp")
         #osg.Geode shapefile = dynamic_cast<osg.Geode*> (pObj)
         #
@@ -316,16 +316,16 @@ def main(argc, argv):
 
         shapefile = osgDB.readNodeFile(overlayFilename)
         
-        if !shapefile :
+        if  not shapefile :
             osg.notify(osg.NOTICE), "File `", overlayFilename, "` not found"
             return 1
 
-        csn = dynamic_cast<osg.CoordinateSystemNode*>(root.get())
+        csn = dynamic_cast<osg.CoordinateSystemNode*>(root)
         if csn :
 
             overlayNode = osgSim.OverlayNode(technique)
             overlayNode.getOrCreateStateSet().setTextureAttribute(1, osg.TexEnv(osg.TexEnv.DECAL))
-            overlayNode.setOverlaySubgraph(shapefile.get())
+            overlayNode.setOverlaySubgraph(shapefile)
             overlayNode.setOverlayTextureSizeHint(1024)
             overlayNode.setOverlayTextureUnit(overlayTextureUnit)
 
@@ -337,21 +337,21 @@ def main(argc, argv):
             csn.addChild(overlayNode)
 
             viewer.setSceneData(csn)
-        else :
+        else:
             overlayNode = osgSim.OverlayNode(technique)
             overlayNode.getOrCreateStateSet().setTextureAttribute(1, osg.TexEnv(osg.TexEnv.DECAL))
-            overlayNode.setOverlaySubgraph(shapefile.get())
+            overlayNode.setOverlaySubgraph(shapefile)
             overlayNode.setOverlayTextureSizeHint(1024)
-            overlayNode.addChild(root.get())
+            overlayNode.addChild(root)
 
             viewer.setSceneData(overlayNode)
-    else :
+    else:
     
 
         # add a viewport to the viewer and attach the scene graph.
-        viewer.setSceneData(root.get())
+        viewer.setSceneData(root)
 
-        csn = dynamic_cast<osg.CoordinateSystemNode*>(root.get())
+        csn = dynamic_cast<osg.CoordinateSystemNode*>(root)
         if csn :
 
             overlayNode = osgSim.OverlayNode()
@@ -363,7 +363,7 @@ def main(argc, argv):
                     overlayNode.addChild( csn.getChild(i) )
 
                 csn.removeChildren(0, csn.getNumChildren())
-                csn.addChild(overlayNode.get())
+                csn.addChild(overlayNode)
 
                 # tell the overlay node to continously update its overlay texture
                 # as we know we'll be tracking a moving target.
@@ -402,7 +402,7 @@ def main(argc, argv):
                 mt.addChild(scaler)
 
 
-                if !nc : nc = ModelPositionCallback(speed)
+                if  not nc : nc = ModelPositionCallback(speed)
 
                 mt.setUpdateCallback(nc)
 
@@ -416,28 +416,28 @@ def main(argc, argv):
                 tm.setTrackerMode(trackerMode)
                 tm.setRotationMode(rotationMode)
                 tm.setTrackNode(scaler)
-            else :
+            else:
                  print "Failed to read cessna.osgt"
 
 
     # set up camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        if tm.valid() : keyswitchManipulator.addMatrixManipulator( '0', "NodeTracker", tm.get() )
+        if tm.valid() : keyswitchManipulator.addMatrixManipulator( ord("0"), "NodeTracker", tm )
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
-        if !pathfile.empty() :
+        if  not pathfile.empty() :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
-                keyswitchManipulator.addMatrixManipulator( '5', "Path", apm )
+                keyswitchManipulator.addMatrixManipulator( ord("5"), "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # viewer.setThreadingModel(osgViewer.Viewer.SingleThreaded)
 

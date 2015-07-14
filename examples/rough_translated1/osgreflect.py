@@ -332,10 +332,10 @@ def createMirroredScene(model):
 # release the viewer
 # run main loop.
 #
-def main(argc, argv):
+def main(argv):
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -344,31 +344,31 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cessna.osgt")
 
     # if no model has been successfully loaded report failure.
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
     # add a transform with a callback to animate the loaded model.
     loadedModelTransform = osg.MatrixTransform()
-    loadedModelTransform.addChild(loadedModel.get())
+    loadedModelTransform.addChild(loadedModel)
 
     nc = osg.AnimationPathCallback(loadedModelTransform.getBound().center(),osg.Vec3(0.0,0.0,1.0),osg.inDegrees(45.0))
-    loadedModelTransform.setUpdateCallback(nc.get())
+    loadedModelTransform.setUpdateCallback(nc)
 
 
     # finally decorate the loaded model so that it has the required multipass/bin scene graph to do the reflection effect.
-    rootNode = createMirroredScene(loadedModelTransform.get())
+    rootNode = createMirroredScene(loadedModelTransform)
 
     # set the scene to render
-    viewer.setSceneData(rootNode.get())
+    viewer.setSceneData(rootNode)
 
     # hint to tell viewer to request stencil buffer when setting up windows
     osg.DisplaySettings.instance().setMinimumNumStencilBits(8)

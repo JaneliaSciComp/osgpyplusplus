@@ -36,7 +36,7 @@ bool OSGGTKDrawingArea.createWidget(int width, int height)
     ))
 
     if not _glconfig : 
-        osg.notify(osg.FATAL), "Fail!"
+        osg.notify(osg.FATAL), "Fail not "
 
         return False
 
@@ -132,7 +132,7 @@ bool OSGGTKDrawingArea._button_press_event(GtkWidget* widget, GdkEventButton* ev
 
         gtkButtonRelease = return(event.x, event.y, event.button)
 
-    else : return False
+    else return False
 
 bool OSGGTKDrawingArea._key_press_event(GtkWidget* widget, GdkEventKey* event) 
     _state = event.state
@@ -147,7 +147,7 @@ bool OSGGTKDrawingArea._key_press_event(GtkWidget* widget, GdkEventKey* event)
 
         gtkKeyRelease = return(event.keyval)
 
-    else : return False
+    else return False
 
 # Translated from file 'osggtkdrawingarea.h'
 
@@ -322,7 +322,7 @@ _widget = GtkWidget*()
         
         if _drawable and _context : return gdk_gl_drawable_gl_begin(_drawable, _context)
 
-        else : return False
+        else return False
 
     def gtkGLEnd():
 
@@ -338,7 +338,7 @@ _widget = GtkWidget*()
 
             return True
 
-        else : 
+        else:
             glFlush()
 
             return False
@@ -425,7 +425,7 @@ _menu = GtkWidget*()
                 model = osgDB.readNodeFile(file)
 
                 if model.valid() : 
-                    setSceneData(model.get())
+                    setSceneData(model)
                 
                     queueDraw()
 
@@ -434,7 +434,7 @@ _menu = GtkWidget*()
             gtk_widget_destroy(of)
 
         # Assume we're wanting FPS toggling.
-        else : 
+        else:
             if not _tid : 
                 _tid = g_timeout_add(
                     15,
@@ -444,7 +444,7 @@ _menu = GtkWidget*()
 
                 gtk_button_set_label(GTK_BUTTON(widget), "Toggle 60 FPS (off)")
 
-            else : 
+            else:
                 g_source_remove(_tid)
                 gtk_button_set_label(GTK_BUTTON(widget), "Toggle 60 FPS (on)")
 
@@ -496,10 +496,10 @@ _menu = GtkWidget*()
         return True
 
 
-# Our main() function! FINALLY! Most of this code is GTK stuff, so it's mostly boilerplate.
+# Our main() function not  FINALLY not  Most of this code is GTK stuff, so it's mostly boilerplate.
 # If we wanted to get real jiggy with it we could use Glade and cut down about 20 lines of
 # code or so.
-def main(argc, argv):
+def main(argv):
     
     gtk_init(argc, argv)
     gtk_gl_init(argc, argv)
@@ -510,7 +510,7 @@ def main(argc, argv):
         if argc >= 2 : 
             model = osgDB.readNodeFile(argv[1])
 
-            if model.valid() : da.setSceneData(model.get())
+            if model.valid() : da.setSceneData(model)
 
         window = gtk_window_new(GTK_WINDOW_TOPLEVEL)
         vbox1 = gtk_vbox_new(False, 3)
@@ -563,7 +563,7 @@ def main(argc, argv):
         gtk_widget_show_all(window)
         gtk_main()
 
-    else : return 1
+    else return 1
 
     return 0
 

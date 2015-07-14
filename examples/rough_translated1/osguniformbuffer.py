@@ -130,10 +130,10 @@ class UniformCallback (StateAttributeCallback) :
         array.dirty()
 
     
-def main(argc, argv):
+def main(argv):
     
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     viewer = osgViewer.Viewer(arguments)
     
     if arguments.argc() <= 1 : 
@@ -141,11 +141,11 @@ def main(argc, argv):
         return 1
 
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         cerr, "couldn't load ", argv[1], "\n"
         return 1
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
     bound = loadedModel.getBound()
     displacement = 2.25 * bound.radius()
     scene = Group()
@@ -168,41 +168,41 @@ def main(argc, argv):
     colorArray = FloatArray(colors1[0],
                          colors1[sizeof(colors1) / sizeof(GLfloat)])
     ubo = UniformBufferObject()
-    colorArray.setBufferObject(ubo.get())
+    colorArray.setBufferObject(ubo)
     group1 = Group()
     ss1 = group1.getOrCreateStateSet()
-    group1.addChild(loadedModel.get())
+    group1.addChild(loadedModel)
     scene.addChild(group1)
-    ubb1 = UniformBufferBinding(0, ubo.get(), 0, blockSize)
-    ss1.setAttributeAndModes(ubb1.get(), StateAttribute.ON)
+    ubb1 = UniformBufferBinding(0, ubo, 0, blockSize)
+    ss1.setAttributeAndModes(ubb1, StateAttribute.ON)
     
     colorArray2 = FloatArray(colors2[0],
                          colors2[sizeof(colors2) / sizeof(GLfloat)])
     ubo2 = UniformBufferObject()
-    colorArray2.setBufferObject(ubo2.get())
+    colorArray2.setBufferObject(ubo2)
     group2 = MatrixTransform()
     mat2 = Matrix.translate(-displacement, 0.0, 0.0)
     group2.setMatrix(mat2)
     ss2 = group2.getOrCreateStateSet()
-    group2.addChild(loadedModel.get())
+    group2.addChild(loadedModel)
     scene.addChild(group2)
-    ubb2 = UniformBufferBinding(0, ubo2.get(), 0, blockSize)
-    ss2.setAttributeAndModes(ubb2.get(), StateAttribute.ON)
+    ubb2 = UniformBufferBinding(0, ubo2, 0, blockSize)
+    ss2.setAttributeAndModes(ubb2, StateAttribute.ON)
 
     colorArray3 = FloatArray(colors2[0],
                          colors2[sizeof(colors2) / sizeof(GLfloat)])
     ubo3 = UniformBufferObject()
-    colorArray3.setBufferObject(ubo3.get())
+    colorArray3.setBufferObject(ubo3)
     group3 = MatrixTransform()
     mat3 = Matrix.translate(displacement, 0.0, 0.0)
     group3.setMatrix(mat3)
     ss3 = group3.getOrCreateStateSet()
-    group3.addChild(loadedModel.get())
+    group3.addChild(loadedModel)
     scene.addChild(group3)    
-    ubb3 = UniformBufferBinding(0, ubo3.get(), 0, blockSize)
+    ubb3 = UniformBufferBinding(0, ubo3, 0, blockSize)
     ubb3.setUpdateCallback(UniformCallback)()
     ubb3.setDataVariance(Object.DYNAMIC)
-    ss3.setAttributeAndModes(ubb3.get(), StateAttribute.ON)
+    ss3.setAttributeAndModes(ubb3, StateAttribute.ON)
     
     viewer.setSceneData(scene)
     viewer.realize()

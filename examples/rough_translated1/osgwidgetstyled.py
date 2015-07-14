@@ -43,14 +43,14 @@ def applyStyle(w, r):
     
         cs = dynamic_cast<CustomStyled*>(w)
 
-        if !cs : return False
+        if  not cs : return False
 
         osgWidget.warn(), "Here, okay."
 
         return True
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

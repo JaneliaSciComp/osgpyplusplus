@@ -50,21 +50,21 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
             _stateset(stateset)
             _point = osg.Point()
             _point.setDistanceAttenuation(osg.Vec3(0.0,0.0000,0.05))
-            _stateset.setAttribute(_point.get())
+            _stateset.setAttribute(_point)
     
         virtual bool handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
             switch(ea.getEventType())
                 case(osgGA.GUIEventAdapter.KEYDOWN):
-                    if ea.getKey()=='+' || ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Add :
+                    if ea.getKey()==ord("+")  or  ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Add :
                        changePointSize(1.0)
                        return True
-                    elif ea.getKey()=='-' || ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract :
+                    elif ea.getKey()==ord("-")  or  ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Subtract :
                        changePointSize(-1.0)
                        return True
-                    elif ea.getKey()=='<' :
+                    elif ea.getKey()==ord("<") :
                        changePointAttenuation(1.1)
                        return True
-                    elif ea.getKey()=='>' :
+                    elif ea.getKey()==ord(">") :
                        changePointAttenuation(1.0/1.1)
                        return True
                     break
@@ -101,12 +101,12 @@ class KeyboardEventHandler (osgGA.GUIEventHandler) :
         
 
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
@@ -124,7 +124,7 @@ def main(argc, argv):
     while arguments.read("--shader") : shader = True
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     
@@ -142,17 +142,17 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if no model has been successfully loaded report failure.
-    if !loadedModel : 
+    if  not loadedModel : 
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 
     # optimize the scene graph, remove redundant nodes and state etc.
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
 
 
     # set the scene to render
-    viewer.setSceneData(loadedModel.get())
+    viewer.setSceneData(loadedModel)
     
 
     stateset = loadedModel.getOrCreateStateSet()

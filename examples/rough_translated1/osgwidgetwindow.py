@@ -70,12 +70,12 @@ CallbackObject(osgWidget.EventType evType):
         return False
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()
     
-    # Let's get busy! The WindowManager class is actually an osg.Switch,
+    # Let's get busy not  The WindowManager class is actually an osg.Switch,
     # so you can add it to (ideally) an orthographic camera and have it behave as
     # expected. Note that you create a WindowManager with a NodeMask--it is very important
     # that this be unique for picking to work properly. This also makes it possible to have
@@ -105,7 +105,7 @@ def main(argc, argv):
     # as the second argument to the Callback constructor.
     # Object obj
 
-    static str data = "lol ur face!"
+    static str data = "lol ur face not "
 
     #
 #    box.addCallback(osgWidget.Callback(windowClicked, osgWidget.EVENT_MOUSE_PUSH, data))
@@ -134,7 +134,7 @@ def main(argc, argv):
     widget1.setImage(osgDB.readImageFile("Images/Saturn.TGA"), True)
 
     # Set the color of widget2, to differentiate it and make it sassy. This is
-    # like a poor man's gradient!
+    # like a poor man's gradient not 
     widget2.setColor(0.9, 0.0, 0.0, 0.9, osgWidget.Widget.LOWER_LEFT)
     widget2.setColor(0.9, 0.0, 0.0, 0.9, osgWidget.Widget.LOWER_RIGHT)
     widget2.setColor(0.0, 0.0, 0.9, 0.9, osgWidget.Widget.UPPER_RIGHT)
@@ -176,9 +176,9 @@ def main(argc, argv):
 
     # Setup our OSG objects for our scene note the use of the utility function
     # createOrthoCamera, which is just a helper for setting up a proper viewing area.
-    # An alternative (and a MUCH easier alternative at that!) is to
+    # An alternative (and a MUCH easier alternative at that not ) is to
     # simply use the createParentOrthoCamera method of the WindowManager class,
-    # which will wrap the calls to createOrthoCamera and addChild for us! Check out
+    # which will wrap the calls to createOrthoCamera and addChild for us not  Check out
     # some of the other examples to see this in action...
     group = osg.Group()
     camera = osgWidget.createOrthoCamera(1280.0, 1024.0)

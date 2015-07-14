@@ -73,7 +73,7 @@ _eq_nb = 8
 class TechniqueEventHandler (osgGA.GUIEventHandler) :
 
     TechniqueEventHandler(osg.BlendEquation* blendEq)  _blendEq=blendEq _eq_index=0
-    TechniqueEventHandler()  std.cerr, "Error, can't initialize it!"
+    TechniqueEventHandler()  std.cerr, "Error, can't initialize it not "
 
     META_Object(osgBlendEquationApp,TechniqueEventHandler)
 
@@ -96,14 +96,14 @@ class TechniqueEventHandler (osgGA.GUIEventHandler) :
 bool TechniqueEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right ||
+            if ea.getKey()==osgGA.GUIEventAdapter.KEY_Right  or 
                 ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Right :
                 _eq_index++
                 if _eq_index>=_eq_nb : _eq_index=0
                 _blendEq.setEquation(_equations[_eq_index])
                 print "Equation name = ", _equations_name[_eq_index]
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Left :
                 _eq_index--
                 if _eq_index<0 : _eq_index=_eq_nb-1
@@ -122,7 +122,7 @@ void TechniqueEventHandler.getUsage(osg.ApplicationUsage usage)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
 
@@ -130,7 +130,7 @@ def main(argc, argv):
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates how to use glBlendEquation for mixing rendered scene and the frame-buffer.")
@@ -144,9 +144,9 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("cessnafire.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("cessnafire.osgt")
   
-    if !loadedModel :
+    if  not loadedModel :
         print arguments.getApplicationName(), ": No data loaded"
         return 1
 

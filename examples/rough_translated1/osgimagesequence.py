@@ -61,12 +61,12 @@ static osgDB.DirectoryContents getSuitableFiles(osg.ArgumentParser arguments)
             directory = arguments[i]
             dc = osgDB.getSortedDirectoryContents(directory)
             
-            for(osgDB.DirectoryContents.iterator itr = dc.begin() itr != dc.end() ++itr)
+            for(osgDB.DirectoryContents.iterator itr = dc.begin() itr  not = dc.end() ++itr)
                 full_file_name = directory + "/" + (*itr)
                 ext = osgDB.getLowerCaseFileExtension(full_file_name)
-                if ext == "jpg" : || (ext == "png") || (ext == "gif") ||  (ext == "rgb") || (ext == "dds")  :
+                if ext == "jpg" :  or  (ext == "png")  or  (ext == "gif")  or   (ext == "rgb")  or  (ext == "dds")  :
                     files.push_back(full_file_name)
-        else : 
+        else:
             files.push_back(arguments[i])
     return files
 
@@ -101,28 +101,28 @@ def createState(arguments):
     while arguments.read("--fps",fps) : 
 
     files = getSuitableFiles(arguments)
-    if !files.empty() :
+    if  not files.empty() :
         for(osgDB.DirectoryContents.iterator itr = files.begin()
-            itr != files.end()
+            not = files.end()
             ++itr)
             filename = *itr
             if preLoad :
                 image = osgDB.readImageFile(filename)
                 if image.valid() :
-                    imageSequence.addImage(image.get())
-            else :
+                    imageSequence.addImage(image)
+            else:
                 imageSequence.addImageFile(filename)
 
         
         if length>0.0 :
             imageSequence.setLength(length)
-        else :
+        else:
             maxNum = imageSequence.getNumImageData()
             imageSequence.setLength(double(maxNum)*(1.0/fps))
-    else :
+    else:
         if length>0.0 :
             imageSequence.setLength(length)
-        else :
+        else:
             imageSequence.setLength(4.0)
         imageSequence.addImage(osgDB.readImageFile("Cubemap_axis/posx.png"))
         imageSequence.addImage(osgDB.readImageFile("Cubemap_axis/negx.png"))
@@ -140,14 +140,14 @@ def createState(arguments):
     texture.setFilter(osg.Texture.MAG_FILTER,osg.Texture.LINEAR)
     texture.setWrap(osg.Texture.WRAP_R,osg.Texture.REPEAT)
     texture.setResizeNonPowerOfTwoHint(False)
-    texture.setImage(imageSequence.get())
+    texture.setImage(imageSequence)
     #texture.setTextureSize(512,512)
-#else :    
+#else:
     texture = osg.TextureRectangle()
     texture.setFilter(osg.Texture.MIN_FILTER,osg.Texture.LINEAR)
     texture.setFilter(osg.Texture.MAG_FILTER,osg.Texture.LINEAR)
     texture.setWrap(osg.Texture.WRAP_R,osg.Texture.REPEAT)
-    texture.setImage(imageSequence.get())
+    texture.setImage(imageSequence)
     #texture.setTextureSize(512,512)
 #endif
 
@@ -192,14 +192,14 @@ class MovieEventHandler (osgGA.GUIEventHandler) :
 
         _trackMouse = tm
 
-        print "tracking mouse: ", (_trackMouse ? "ON" : "OFF")
+        print "tracking mouse: ", "ON" : "OFF"), std: if ((_trackMouse) else endl
 
         for(ImageStreamList.iterator itr=_imageStreamList.begin()
-            itr!=_imageStreamList.end()
+            not = _imageStreamList.end()
             ++itr)
             if *itr :.getStatus()==osg.ImageStream.PLAYING :
                 (*itr).pause()
-            else :
+            else:
                 (*itr).play()
 
 
@@ -247,7 +247,7 @@ fps = double()
             traverse(node)
         
         inline void apply(osg.StateSet* stateset)
-            if !stateset : return
+            if  not stateset : return
             
             attr = stateset.getTextureAttribute(0,osg.StateAttribute.TEXTURE)
             if attr :
@@ -293,11 +293,11 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
                 
                 fps_itr = _imageStreamPlayBackSpeedList.begin()
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
-                    itr!=_imageStreamList.end()
+                    not = _imageStreamList.end()
                     ++itr, ++fps_itr)
-                    if *itr :.getStatus()==osg.ImageStream.PLAYING :  ((*itr).data() != (*fps_itr).lastData) :
+                    if *itr :.getStatus()==osg.ImageStream.PLAYING :  and  ((*itr).data()  not = (*fps_itr).lastData) :
                         data = ImageStreamPlaybackSpeedData(*fps_itr)
-                        dt = (data.timeStamp > 0) ? t - data.timeStamp : 1/60.0
+                        dt =  t - data.timeStamp if ((data.timeStamp > 0)) else  1/60.0
                         data.lastData = (*itr).data()
                         data.fps = (*fps_itr).fps * 0.8 + 0.2 * (1/dt)
                         data.timeStamp = t
@@ -313,7 +313,7 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
         case(osgGA.GUIEventAdapter.MOVE):
                 if _trackMouse :
                     for(ImageStreamList.iterator itr=_imageStreamList.begin()
-                        itr!=_imageStreamList.end()
+                        not = _imageStreamList.end()
                         ++itr)
                         dt = (*itr).getLength() * ((1.0+ea.getXnormalized()) / 2.0)
                         (*itr).seek(dt)
@@ -321,39 +321,39 @@ bool MovieEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter a
                 return False
             
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()=='p' :
+            if ea.getKey()==ord("p") :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
-                    itr!=_imageStreamList.end()
+                    not = _imageStreamList.end()
                     ++itr)
                     if *itr :.getStatus()==osg.ImageStream.PLAYING :
                         # playing, so pause
                         print "Pause"
                         (*itr).pause()
-                    else :
+                    else:
                         # playing, so pause
                         print "Play"
                         (*itr).play()
                 return True
-            elif ea.getKey()=='r' :
+            elif ea.getKey()==ord("r") :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
-                    itr!=_imageStreamList.end()
+                    not = _imageStreamList.end()
                     ++itr)
                     print "Restart"
                     (*itr).rewind()
                 return True
-            elif ea.getKey()=='L' :
+            elif ea.getKey()==ord("L") :
                 for(ImageStreamList.iterator itr=_imageStreamList.begin()
-                    itr!=_imageStreamList.end()
+                    not = _imageStreamList.end()
                     ++itr)
                     if *itr :.getLoopingMode() == osg.ImageStream.LOOPING :
                         print "Toggle Looping Off"
                         (*itr).setLoopingMode( osg.ImageStream.NO_LOOPING )
-                    else :
+                    else:
                         print "Toggle Looping On"
                         (*itr).setLoopingMode( osg.ImageStream.LOOPING )
                 return True
-            elif ea.getKey() == 'i' : 
-                setTrackMouse(!_trackMouse)
+            elif ea.getKey() == ord("i") : 
+                setTrackMouse( not _trackMouse)
                 
                 
             return False
@@ -372,13 +372,13 @@ void MovieEventHandler.getUsage(osg.ApplicationUsage usage)
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
 
 
     
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -399,7 +399,7 @@ def main(argc, argv):
 
     viewer.addEventHandler( osgViewer.StatsHandler())
 
-    if !filename.empty() :
+    if  not filename.empty() :
         osgDB.writeNodeFile(*viewer.getSceneData(),filename)
 
     return viewer.run()

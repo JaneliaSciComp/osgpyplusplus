@@ -186,7 +186,7 @@ def countGeometryVertices(geom):
 
 
     
-    if !geom.getVertexArray() :
+    if  not geom.getVertexArray() :
         return 0
 
     # TBD This will eventually iterate over the PrimitiveSets and total the
@@ -229,7 +229,7 @@ class VertexCounter (osg.NodeVisitor) :
         i = unsigned int()
         for( i = 0 i < geode.getNumDrawables() i++ )
             geom = dynamic_cast<osg.Geometry *>(geode.getDrawable(i))
-            if  !geom  :
+            if   not geom  :
                 continue
 
             _total += countGeometryVertices( geom )
@@ -306,16 +306,16 @@ OcclusionQueryVisitor.addOQN( osg.Node node )
         np = node.getNumParents()
         while np-- :
             parent = dynamic_cast<osg.Group*>( node.getParent( np ) )
-            if parent != NULL :
+            if parent  not = NULL :
                 oqn = osg.OcclusionQueryNode()
                 oqn.addChild( node )
-                parent.replaceChild( node, oqn.get() )
+                parent.replaceChild( node, oqn )
 
                 oqn.setName( getNextOQNName() )
                 # Set all OQNs to use the same query StateSets (instead of multiple copies
                 #   of the same StateSet) for efficiency.
-                oqn.setQueryStateSet( _state.get() )
-                oqn.setDebugStateSet( _debugState.get() )
+                oqn.setQueryStateSet( _state )
+                oqn.setDebugStateSet( _debugState )
 
 str
 OcclusionQueryVisitor.getNextOQNName()
@@ -370,9 +370,9 @@ RemoveOcclusionQueryVisitor.apply( osg.OcclusionQueryNode oqn )
     np = oqn.getNumParents()
     while np-- :
         parent = dynamic_cast<osg.Group*>( oqn.getParent( np ) )
-        if parent != NULL :
+        if parent  not = NULL :
             # Remove OQN from parent.
-            parent.removeChild( oqnPtr.get() )
+            parent.removeChild( oqnPtr )
 
             # Add OQN's children to parent.
             nc = oqn.getNumChildren()
@@ -426,13 +426,13 @@ class KeyHandler (osgGA.GUIEventHandler) :
             case(osgGA.GUIEventAdapter.KEYUP):
                 if ea.getKey()==osgGA.GUIEventAdapter.KEY_F6 :
                     # F6 -- Toggle osgOQ testing.
-                    _enable = !_enable
+                    _enable =  not _enable
                     eqv = EnableQueryVisitor( _enable )
                     _node.accept( eqv )
                     return True
                 elif ea.getKey()==osgGA.GUIEventAdapter.KEY_F7 :
                     # F7 -- Toggle display of OQ test bounding volumes
-                    _debug = !_debug
+                    _debug =  not _debug
                     ddv = DebugDisplayVisitor( _debug )
                     _node.accept( ddv )
                     return True
@@ -447,10 +447,10 @@ class KeyHandler (osgGA.GUIEventHandler) :
                     roqv = RemoveOcclusionQueryVisitor()
                     _node.accept( roqv )
                     return True
-                elif ea.getKey()=='o' :
+                elif ea.getKey()==ord("o") :
                     if osgDB.writeNodeFile( _node, "saved_model.osgt" ) :
                         osg.notify( osg.ALWAYS ), "osgOQ: Wrote scene graph to \"saved_model.osgt\""
-                    else :
+                    else:
                         osg.notify( osg.ALWAYS ), "osgOQ: Wrote failed for \"saved_model.osgt\""
                     return True
                 return False
@@ -476,7 +476,7 @@ def createBox():
 
     geom = deprecated_osg.Geometry()
     v = osg.Vec3Array()
-    geom.setVertexArray( v.get() )
+    geom.setVertexArray( v )
 
         x =  float( 0. )
         y =  float( 0. )
@@ -509,12 +509,12 @@ def createBox():
         v.push_back( osg.Vec3( x+r, y+r, z-r ) )
 
     c = osg.Vec4Array()
-    geom.setColorArray( c.get() )
+    geom.setColorArray( c )
     geom.setColorBinding( deprecated_osg.Geometry.BIND_OVERALL )
     c.push_back( osg.Vec4( 0., 1., 1., 1. ) )
 
     n = osg.Vec3Array()
-    geom.setNormalArray( n.get() )
+    geom.setNormalArray( n )
     geom.setNormalBinding( deprecated_osg.Geometry.BIND_PER_PRIMITIVE )
     n.push_back( osg.Vec3( -1., 0., 0. ) )
     n.push_back( osg.Vec3( 1., 0., 0. ) )
@@ -523,9 +523,9 @@ def createBox():
     n.push_back( osg.Vec3( 0., 1., 0. ) )
 
     geom.addPrimitiveSet( osg.DrawArrays( GL_QUADS, 0, 20 ) )
-    box.addDrawable( geom.get() )
+    box.addDrawable( geom )
 
-    return box.get()
+    return box
 
 # Make a Geometry that renders slow intentionally.
 # To make sure it renders slow, we do the following:
@@ -553,7 +553,7 @@ def createRandomTriangles(num):
     geom.setUseDisplayList( False )
 
     v = osg.Vec3Array()
-    geom.setVertexArray( v.get() )
+    geom.setVertexArray( v )
     v.resize( num*3 )
 
     i = unsigned int()
@@ -568,7 +568,7 @@ def createRandomTriangles(num):
         v2 = osg.Vec3( RAND_NEG1_TO_1, RAND_NEG1_TO_1, RAND_NEG1_TO_1 )
 
     c = osg.Vec4Array()
-    geom.setColorArray( c.get() )
+    geom.setColorArray( c )
     # Bind per primitive to force slow glBegin/glEnd path.
     geom.setColorBinding( deprecated_osg.Geometry.BIND_PER_PRIMITIVE )
     c.resize( num )
@@ -579,9 +579,9 @@ def createRandomTriangles(num):
         c0 = osg.Vec4( RAND_0_TO_1, RAND_0_TO_1, RAND_0_TO_1, 1. )
 
     geom.addPrimitiveSet( osg.DrawArrays( GL_TRIANGLES, 0, num*3 ) )
-    tris.addDrawable( geom.get() )
+    tris.addDrawable( geom )
 
-    return tris.get()
+    return tris
 
 # Create the stock scene:
 # Top level Group
@@ -592,24 +592,24 @@ def createStockScene():
     
     # Create a simple box occluder
     root = osg.Group()
-    root.addChild( createBox().get() )
+    root.addChild( createBox() )
 
     # Create a complex mess of triangles as a child below an
     #   OcclusionQueryNode. The OQN will ensure that the
     #   subgraph isn't rendered when it's not visible.
     oqn = osg.OcclusionQueryNode()
-    oqn.addChild( createRandomTriangles( 20000 ).get() )
-    root.addChild( oqn.get() )
+    oqn.addChild( createRandomTriangles( 20000 ) )
+    root.addChild( oqn )
 
-    return root.get()
+    return root
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" demonstrates OpenGL occlusion query in OSG using the OcclusionQueryNode.")
@@ -617,7 +617,7 @@ def main(argc, argv):
     arguments.getApplicationUsage().addCommandLineOption("-h or --help","Display command line parameters")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout, osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
 
@@ -648,12 +648,12 @@ def main(argc, argv):
             # Run a NodeVisitor to insert OcclusionQueryNodes in the scene graph.
             oqv = OcclusionQueryVisitor()
             root.accept( oqv )
-        else :
+        else:
             print arguments.getApplicationName(), ": unable to load specified data."
             return 1
-    else :
-        root = createStockScene().get()
-        if !root :
+    else:
+        root = createStockScene()
+        if  not root :
             print arguments.getApplicationName(), ": Failed to create stock scene."
             return 1
 
@@ -669,9 +669,9 @@ def main(argc, argv):
     # optimize the scene graph, remove redundant nodes and state etc.
     if optimize :
         optimizer = osgUtil.Optimizer()
-        optimizer.optimize( root.get() )
+        optimizer.optimize( root )
 
-    viewer.setSceneData( root.get() )
+    viewer.setSceneData( root )
 
     kh = KeyHandler( *root )
     viewer.addEventHandler( kh )

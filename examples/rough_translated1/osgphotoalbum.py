@@ -91,7 +91,7 @@ str ImageReaderWriter.local_insertReference( str fileName, unsigned int res, flo
 
 osg.Image* ImageReaderWriter.readImage_Archive(DataReference dr, float s,float t)
     for(PhotoArchiveList.iterator itr=_photoArchiveList.begin()
-        itr!=_photoArchiveList.end()
+        not = _photoArchiveList.end()
         ++itr)
         image = (*itr).readImage(dr._fileName,dr._resolutionX,dr._resolutionY,s,t)
         if image : return image
@@ -106,15 +106,15 @@ osg.Image* ImageReaderWriter.readImage_DynamicSampling(DataReference dr, float s
     options._destinationImageWindowMode = osgDB.ImageOptions.PIXEL_WINDOW
     options._destinationPixelWindow.set(0,0,dr._resolutionX,dr._resolutionY)
 
-    osgDB.Registry.instance().setOptions(options.get())
+    osgDB.Registry.instance().setOptions(options)
 
     image = osgDB.readImageFile(dr._fileName)
 
     # restore previous options.
-    osgDB.Registry.instance().setOptions(previousOptions.get())
+    osgDB.Registry.instance().setOptions(previousOptions)
 
-    s = options.valid()?options._sourcePixelWindow.windowWidth:1.0
-    t = options.valid()?options._sourcePixelWindow.windowHeight:1.0
+    s =  options._sourcePixelWindow.windowWidth if (options.valid()) else 1.0
+    t =  options._sourcePixelWindow.windowHeight if (options.valid()) else 1.0
 
     return image
 
@@ -130,11 +130,11 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
     s = 1.0,t=1.0
 
     # try to load photo from any loaded PhotoArchives
-    if !_photoArchiveList.empty() :
+    if  not _photoArchiveList.empty() :
         image = readImage_Archive(dr,s,t)
 
     # not loaded yet, so try to load it directly.
-    if !image :
+    if  not image :
         image = readImage_DynamicSampling(dr,s,t)
 
 
@@ -154,7 +154,7 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
 
             photoWidth = maxWidth
             photoHeight = photoWidth*(t/s)
-        else :
+        else:
             # photo tall than wide relative to the required pictures size.
             # so need to clamp the height to the maximum height and then
             # set the width to keep the original photo aspect ratio.
@@ -187,12 +187,12 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
 
         coords = osg.Vec3Array(4)
 
-        if !dr._backPage :
+        if  not dr._backPage :
             (*coords)[0] = dr._center - halfWidthVector + halfHeightVector
             (*coords)[1] = dr._center - halfWidthVector - halfHeightVector
             (*coords)[2] = dr._center + halfWidthVector - halfHeightVector
             (*coords)[3] = dr._center + halfWidthVector + halfHeightVector
-        else :
+        else:
             (*coords)[3] = dr._center - halfWidthVector + halfHeightVector
             (*coords)[2] = dr._center - halfWidthVector - halfHeightVector
             (*coords)[1] = dr._center + halfWidthVector - halfHeightVector
@@ -218,7 +218,7 @@ osgDB.ReaderWriter.ReadResult ImageReaderWriter.local_readNode( str fileName,  O
 
         return geode
 
-    else :
+    else:
         return osgDB.ReaderWriter.ReadResult.FILE_NOT_HANDLED
 
 
@@ -373,7 +373,7 @@ class Page (osg.Transform) :
     static Page* createPage(Album* album, unsigned int pageNo,  str frontFileName,  str backFileName, float width, float height)
         page = Page(album, pageNo, frontFileName, backFileName, width, height)
         if page.valid() : return page.release()
-        else : return 0
+        else return 0
 
     traverse = virtual void(osg.NodeVisitor nv)
 
@@ -396,25 +396,25 @@ class Page (osg.Transform) :
 
     def rotating():
 
-         return _targetRotation!=_rotation 
+         return _targetRotation not =_rotation 
 
     def setPageVisible(frontVisible, backVisible):
 
         
-        _switch.setValue(0,!frontVisible  !backVisible)
+        _switch.setValue(0, not frontVisible  and   not backVisible)
         _switch.setValue(1,frontVisible)
         _switch.setValue(2,backVisible)
 
     def getSwitch():
 
-         return _switch.get() 
+         return _switch 
     def getSwitch():
-         return _switch.get() 
+         return _switch 
 
     virtual bool computeLocalToWorldMatrix(osg.Matrix matrix,osg.NodeVisitor*) 
         if _referenceFrame==RELATIVE_RF :
             matrix.preMult(getMatrix())
-        else : # absolute
+        else # absolute
             matrix = getMatrix()
         return True
 
@@ -424,7 +424,7 @@ class Page (osg.Transform) :
 
         if _referenceFrame==RELATIVE_RF :
             matrix.postMult(inverse)
-        else : # absolute
+        else # absolute
             matrix = inverse
         return True
 
@@ -454,11 +454,11 @@ class Album (osg.Referenced) :
 
     def getScene():
 
-         return _group.get() 
+         return _group 
 
     def getScene():
 
-         return _group.get() 
+         return _group 
 
     osg.Matrix getPageOffset(unsigned int pageNo) 
 
@@ -468,13 +468,13 @@ class Album (osg.Referenced) :
 
     def previousPage(timeToRotateBy):
 
-         return _currentPageNo>=1?gotoPage(_currentPageNo-1,timeToRotateBy):False 
+         return  gotoPage(_currentPageNo-1,timeToRotateBy) if (_currentPageNo>=1) else False 
 
     gotoPage = bool(unsigned int pageNo, float timeToRotateBy)
 
     def getBackgroundStateSet():
 
-         return _backgroundStateSet.get() 
+         return _backgroundStateSet 
 
     setVisibility = void()
 
@@ -510,12 +510,12 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
     # set up subgraph
     readerWriter = osgDB.Registry.instance().getReaderWriterForExtension("gdal")
-    if !readerWriter :
+    if  not readerWriter :
         print "Error: GDAL plugin not available, cannot preceed with database creation"
 
     _switch = osg.Switch()
 
-    rw = g_ImageReaderWriter.get()
+    rw = g_ImageReaderWriter
 
 
     # set up non visible page.
@@ -611,7 +611,7 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
         front_page.addChild(geode)
 
-    if !frontFileName.empty() :
+    if  not frontFileName.empty() :
         cut_off_distance = 8.0
         max_visible_distance = 300.0
 
@@ -685,7 +685,7 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
         back_page.addChild(geode)
 
-    if !backFileName.empty() :
+    if  not backFileName.empty() :
         cut_off_distance = 8.0
         max_visible_distance = 300.0
 
@@ -719,7 +719,7 @@ Page.Page(Album* album, unsigned int pageNo,  str frontFileName,  str backFileNa
 
         back_page.addChild(pagedlod)
 
-    addChild(_switch.get())
+    addChild(_switch)
 
 void Page.traverse(osg.NodeVisitor nv)
     # if app traversal update the frame count.
@@ -728,9 +728,9 @@ void Page.traverse(osg.NodeVisitor nv)
         if framestamp :
             t = framestamp.getSimulationTime()
 
-            if _rotation!=_targetRotation :
+            if _rotation not =_targetRotation :
                 if t>=_targetTime : _rotation = _targetRotation
-                else : _rotation += (_targetRotation-_rotation)*(t-_lastTimeTraverse)/(_targetTime-_lastTimeTraverse)
+                else _rotation += (_targetRotation-_rotation)*(t-_lastTimeTraverse)/(_targetTime-_lastTimeTraverse)
 
                 dirtyBound()
 
@@ -753,10 +753,10 @@ Album.Album(osg.ArgumentParser arguments, float width, float height)
             if osgDB.getLowerCaseFileExtension(filename)=="album" :
                 photoArchive = PhotoArchive.open(filename)
                 if photoArchive :
-                    g_ImageReaderWriter.get().addPhotoArchive(photoArchive)
+                    g_ImageReaderWriter.addPhotoArchive(photoArchive)
                     photoArchive.getImageFileNameList(fileList)
 
-            else :
+            else:
                 fileList.push_back(arguments[pos])
 
     _radiusOfRings = 0.02
@@ -772,8 +772,7 @@ Album.Album(osg.ArgumentParser arguments, float width, float height)
     # load the images.
     i = unsigned int()
     for(i=0i<fileList.size()i+=2)
-        page = i+1<fileList.size()?
-                     Page.createPage(this,_pages.size(),fileList[i],fileList[i+1], width, height):
+        page =  Page.createPage(this,_pages.size(),fileList[i],fileList[i+1], width, height) if (i+1<fileList.size()) else 
                      Page.createPage(this,_pages.size(),fileList[i],"", width, height)
         if page :
             _pages.push_back(page)
@@ -807,14 +806,14 @@ bool Album.gotoPage(unsigned int pageNo, float timeToRotateBy)
 
 void Album.setVisibility()
     for(unsigned int i=0i<_pages.size()++i)
-        front_visible = _pages[i].rotating() ||
-                             (i>0?_pages[i-1].rotating():False) ||
-                             i==_currentPageNo ||
+        front_visible = _pages[i].rotating()  or 
+                              _pages[i-1].rotating() if ((i>0) else False)  or 
+                             i==_currentPageNo  or 
                              i==0
 
-        back_visible = _pages[i].rotating() ||
-                            ((i+1)<_pages.size()?_pages[i+1].rotating():False) ||
-                            i==_currentPageNo-1 ||
+        back_visible = _pages[i].rotating()  or 
+                             _pages[i+1].rotating() if (((i+1)<_pages.size()) else False)  or 
+                            i==_currentPageNo-1  or 
                             i==_pages.size()-1
 
         _pages[i].setPageVisible(front_visible,back_visible)
@@ -863,14 +862,14 @@ void SlideEventHandler.set(Album* album, float timePerSlide, bool autoSteppingAc
 bool SlideEventHandler.handle( osgGA.GUIEventAdapter ea,osgGA.GUIActionAdapter)
     switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYDOWN):
-            if ea.getKey()=='a' :
-                _autoSteppingActive = !_autoSteppingActive
+            if ea.getKey()==ord("a") :
+                _autoSteppingActive =  not _autoSteppingActive
                 _previousTime = ea.getTime()
                 return True
-            elif ea.getKey()=='n' :
+            elif ea.getKey()==ord("n") :
                 _album.nextPage(ea.getTime()+1.0)
                 return True
-            elif ea.getKey()=='p' :
+            elif ea.getKey()==ord("p") :
                 _album.previousPage(ea.getTime()+1.0)
                 return True
             return False
@@ -896,12 +895,12 @@ void SlideEventHandler.getUsage(osg.ApplicationUsage usage)
     usage.addKeyboardMouseBinding("n","Advance to next image")
     usage.addKeyboardMouseBinding("p","Move to previous image")
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use node masks to create stereo images.")
@@ -929,7 +928,7 @@ def main(argc, argv):
     while arguments.read("-a") : autoSteppingActive = True
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -949,7 +948,7 @@ def main(argc, argv):
         return 1
 
 
-    if !archiveName.empty() :
+    if  not archiveName.empty() :
         # archive name set to create
         fileNameList = PhotoArchive.FileNameList()
         for(int i=1i<arguments.argc()++i)
@@ -977,7 +976,7 @@ def main(argc, argv):
     # creat the scene from the file list.
     rootNode = album.getScene()
 
-    if !rootNode : return 0
+    if  not rootNode : return 0
 
 
     #osgDB.writeNodeFile(*rootNode,"test.osgt")
@@ -986,7 +985,7 @@ def main(argc, argv):
     viewer.setSceneData(album.getScene())
 
     # set up the SlideEventHandler.
-    seh.set(album.get(),timeDelayBetweenSlides,autoSteppingActive)
+    seh.set(album,timeDelayBetweenSlides,autoSteppingActive)
 
     viewer.realize()
 
@@ -994,7 +993,7 @@ def main(argc, argv):
     windows = osgViewer.Viewer.Windows()
     viewer.getWindows(windows)
     for(osgViewer.Viewer.Windows.iterator itr = windows.begin()
-        itr != windows.end()
+        not = windows.end()
         ++itr)
         (*itr).useCursor(False)
 
@@ -1044,7 +1043,7 @@ bool PhotoArchive.readPhotoIndex( str filename)
     
     fileIndentifier = char [FILE_IDENTIFER.size()]
     in.read(fileIndentifier,FILE_IDENTIFER.size())
-    if FILE_IDENTIFER!=fileIndentifier :
+    if FILE_IDENTIFER not =fileIndentifier :
         delete [] fileIndentifier
         return False
     delete [] fileIndentifier
@@ -1063,7 +1062,7 @@ bool PhotoArchive.readPhotoIndex( str filename)
 
 void PhotoArchive.getImageFileNameList(FileNameList filenameList)
     for(PhotoIndexList.const_iterator itr=_photoIndex.begin()
-        itr!=_photoIndex.end()
+        not = _photoIndex.end()
         ++itr)
         filenameList.push_back(str(itr.filename))
                         
@@ -1072,14 +1071,14 @@ osg.Image* PhotoArchive.readImage( str filename,
                                     unsigned int target_s, unsigned target_t,
                                     float original_s, float original_t)
     for(PhotoIndexList.const_iterator itr=_photoIndex.begin()
-        itr!=_photoIndex.end()
+        not = _photoIndex.end()
         ++itr)
         if filename==itr.filename :
             photoHeader = *itr
         
-            if target_s <= photoHeader.thumbnail_s 
-                 target_t <= photoHeader.thumbnail_t 
-                 photoHeader.thumbnail_position != 0 :
+            if target_s <= photoHeader.thumbnail_s  and 
+                 target_t <= photoHeader.thumbnail_t  and 
+                 photoHeader.thumbnail_position  not = 0 :
                 in = osgDB.ifstream(_archiveFileName.c_str(),std.ios.in | std.ios.binary)
                 
                 # find image
@@ -1101,9 +1100,9 @@ osg.Image* PhotoArchive.readImage( str filename,
                 
                 return image
                  
-            if photoHeader.fullsize_s 
-                 photoHeader.fullsize_t 
-                 photoHeader.fullsize_position != 0 :
+            if photoHeader.fullsize_s  and 
+                 photoHeader.fullsize_t  and 
+                 photoHeader.fullsize_position  not = 0 :
                 in = osgDB.ifstream(_archiveFileName.c_str(),std.ios.in | std.ios.binary)
                 
                 # find image
@@ -1133,7 +1132,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
     photoIndex = PhotoIndexList()
     photoIndex.reserve(imageList.size())
     for(FileNameList.const_iterator fitr=imageList.begin()
-        fitr!=imageList.end()
+        not = imageList.end()
         ++fitr)
         header = PhotoHeader()
         
@@ -1170,7 +1169,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
 
     photoCount = 1    
     for(PhotoIndexList.iterator pitr=photoIndex.begin()
-        pitr!=photoIndex.end()
+        not = photoIndex.end()
         ++pitr,++photoCount)
         photoHeader = *pitr
         
@@ -1193,7 +1192,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
 
             # need to sort out what size to really use...
             newData = unsigned char [newTotalSize]()
-            if !newData :
+            if  not newData :
                 # should we throw an exception???  Just return for time being.
                 osg.notify(osg.FATAL), "Error scaleImage() did not succeed : out of memory.", newTotalSize
                 return
@@ -1213,7 +1212,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
                 image.getDataType(),
                 newData)
 
-            if status!=0 :
+            if status not =0 :
                 delete [] newData
                 osg.notify(osg.WARN), "Error scaleImage() did not succeed : errorString = ", osg.gluErrorString((GLenum)status)
                 return
@@ -1254,7 +1253,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
 
             # need to sort out what size to really use...
             newData = unsigned char [newTotalSize]()
-            if !newData :
+            if  not newData :
                 # should we throw an exception???  Just return for time being.
                 osg.notify(osg.FATAL), "Error scaleImage() did not succeed : out of memory.", newTotalSize
                 return
@@ -1274,7 +1273,7 @@ void PhotoArchive.buildArchive( str filename,  FileNameList imageList, unsigned 
                 image.getDataType(),
                 newData)
 
-            if status!=0 :
+            if status not =0 :
                 delete [] newData
                 osg.notify(osg.WARN), "Error scaleImage() did not succeed : errorString = ", osg.gluErrorString((GLenum)status)
                 return
@@ -1332,8 +1331,8 @@ class PhotoArchive (osg.Referenced) :
 
     static PhotoArchive* open( str filename)
         archive = PhotoArchive(filename)
-        if !archive.empty() : return archive.release()
-        else : return 0
+        if  not archive.empty() : return archive.release()
+        else return 0
 
     typedef std.vector<str> FileNameList
     

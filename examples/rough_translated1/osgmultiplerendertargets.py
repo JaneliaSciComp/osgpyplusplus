@@ -64,7 +64,7 @@ MyCameraPostDrawCallback(osg.Image* image):
         _image(image)
 
     virtual void operator () ( osg.Camera #camera) 
-        if _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_UNSIGNED_BYTE :
+        if _image  and  _image.getPixelFormat()==GL_RGBA  and  _image.getDataType()==GL_UNSIGNED_BYTE :
             # we'll pick out the center 1/2 of the whole image,
             column_start = _image.s()/4
             column_end = 3*column_start
@@ -82,7 +82,7 @@ MyCameraPostDrawCallback(osg.Image* image):
                     (*data) = 255 ++data
 
             _image.dirty()
-        elif _image  _image.getPixelFormat()==GL_RGBA  _image.getDataType()==GL_FLOAT :
+        elif _image  and  _image.getPixelFormat()==GL_RGBA  and  _image.getDataType()==GL_FLOAT :
             # we'll pick out the center 1/2 of the whole image,
             column_start = _image.s()/4
             column_end = 3*column_start
@@ -136,10 +136,10 @@ def createRTTQuad(tex_width, tex_height, useHDR):
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     stateset = quad_geom.getOrCreateStateSet()
     stateset.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
@@ -162,9 +162,9 @@ def createRTTQuad(tex_width, tex_height, useHDR):
 
         fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
         program = osg.Program()
-        program.addShader(fshader.get())
-        stateset.setAttributeAndModes(program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
-     else : 
+        program.addShader(fshader)
+        stateset.setAttributeAndModes(program, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+     else:
         static  char *shaderSource = 
             "uniform int width"
             "void main(void)\n"
@@ -178,12 +178,12 @@ def createRTTQuad(tex_width, tex_height, useHDR):
 
         fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
         program = osg.Program()
-        program.addShader(fshader.get())
-        stateset.setAttributeAndModes(program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+        program.addShader(fshader)
+        stateset.setAttributeAndModes(program, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -191,7 +191,7 @@ def createRTTQuad(tex_width, tex_height, useHDR):
 # The quad is textured using a shader and the multiple textures generated in the RTT stage.
 def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiSample):
     
-    if !cam_subgraph : return 0
+    if  not cam_subgraph : return 0
 
     # create a group to contain the quad and the pre render camera.
     parent = osg.Group()
@@ -276,9 +276,9 @@ def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiS
             
             fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
             program = osg.Program()
-            program.addShader( fshader.get())
-            stateset.setAttributeAndModes( program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
-         else : 
+            program.addShader( fshader)
+            stateset.setAttributeAndModes( program, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+         else:
             static  char *shaderSource = 
                 "uniform sampler2DRect textureID0\n"
                 "uniform sampler2DRect textureID1\n"
@@ -295,8 +295,8 @@ def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiS
             
             fshader = osg.Shader( osg.Shader.FRAGMENT , shaderSource)
             program = osg.Program()
-            program.addShader( fshader.get())
-            stateset.setAttributeAndModes( program.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+            program.addShader( fshader)
+            stateset.setAttributeAndModes( program, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 
         stateset.addUniform(osg.Uniform("textureID0", 0))
@@ -336,7 +336,7 @@ def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiS
         for (int i=0 i<NUM_TEXTURES i++) 
             if useMultiSample :
                 camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), textureRect[i], 0, 0, False, 4, 4)
-            else :
+            else:
                 camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER0+i), textureRect[i])
 
 
@@ -349,7 +349,7 @@ def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiS
             image = osg.Image()
             if useHDR : 
                 image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_FLOAT)
-             else : 
+             else:
                 image.allocateImage(tex_width, tex_height, 1, GL_RGBA, GL_UNSIGNED_BYTE)
 
             # attach the image so its copied on each frame.
@@ -367,11 +367,11 @@ def createScene(cam_subgraph, tex_width, tex_height, useHDR, useImage, useMultiS
 
     return parent
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName() + " demonstrates the use of multiple render targets (MRT) with frame buffer objects (FBOs). A render to texture (RTT) camera is used to render to four textures using a single shader. The four textures are then combined to texture the viewed geometry.")
@@ -386,7 +386,7 @@ def main(argc, argv):
     viewer = osgViewer.Viewer(arguments)
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 

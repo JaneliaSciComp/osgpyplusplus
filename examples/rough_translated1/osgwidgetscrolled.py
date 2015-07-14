@@ -24,20 +24,20 @@ from osgpypp import osgWidget
 
 MASK_2D = 0xF0000000
 
-# NOTE: THIS IS JUST A TEMPORARY HACK! :) This functionality will all eventually be
+# NOTE: THIS IS JUST A TEMPORARY HACK not  :) This functionality will all eventually be
 # encapsulate into another class in osgWidget proper.
 def scrollWindow(ev):
     
     # The first thing we need to do is make sure we have a Frame object...
     frame = dynamic_cast<osgWidget.Frame*>(ev.getWindow())
 
-    if !frame : return False
+    if  not frame : return False
 
     # And now we need to make sure our Frame has a valid internal EmbeddedWindow widget.
     ew = dynamic_cast<osgWidget.Window.EmbeddedWindow*>(frame.getEmbeddedWindow())
     
         
-    if !ew : return False
+    if  not ew : return False
     
     # Lets get the visible area so that we can use it to make sure our scrolling action
     # is necessary in the first place.
@@ -45,7 +45,7 @@ def scrollWindow(ev):
 
     # The user wants to scroll up make sure that the visible area's Y origin isn't already
     # at 0.0, 0.0.
-    if ev.getWindowManager().isMouseScrollingUp()  va[1] != 0.0 :
+    if ev.getWindowManager().isMouseScrollingUp()  and  va[1]  not = 0.0 :
         ew.getWindow().addVisibleArea(0, -20)
     
     
@@ -72,15 +72,15 @@ def changeTheme(ev):
         theme = "osgWidget/theme-2.png"
     
 
-    else : return False
+    else return False
 
     frame = dynamic_cast<osgWidget.Frame*>(ev.getWindow())
 
-    if !frame : return False
+    if  not frame : return False
 
     # This is just one way to access all our Widgets we could just as well have used:
     #
-    # for(osgWidget.Frame.Iterator i = frame.begin() i != frame.end() i++) 
+    # for(osgWidget.Frame.Iterator i = frame.begin() i  not = frame.end() i++) 
     #
     # ...and it have worked, too.
     for(unsigned int row = 0 row < 3 row++) 
@@ -89,7 +89,7 @@ def changeTheme(ev):
 
     return True
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

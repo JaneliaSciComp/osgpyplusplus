@@ -79,7 +79,7 @@ _window = osgWidget.Window()
         
         osgWidget.Label.managed(wm)
 
-        wm.addChild(_window.get())
+        wm.addChild(_window)
 
         _window.hide()
 
@@ -92,19 +92,19 @@ _window = osgWidget.Window()
         _window.resize(getWidth())
 
     bool mousePush(double, double,  osgWidget.WindowManager*) 
-        if !_window.isVisible() : _window.show()
+        if  not _window.isVisible() : _window.show()
 
-        else : _window.hide()
+        else _window.hide()
 
         return True
 
     bool mouseLeave(double, double,  osgWidget.WindowManager*) 
-        if !_window.isVisible() : setColor(0.8, 0.8, 0.8, 0.8)
+        if  not _window.isVisible() : setColor(0.8, 0.8, 0.8, 0.8)
 
         return True
 
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()
@@ -119,10 +119,10 @@ def main(argc, argv):
 
     menu = osgWidget.Box("menu", osgWidget.Box.HORIZONTAL)
 
-    menu.addWidget(ColorLabelMenu("Pick me!"))
-    menu.addWidget(ColorLabelMenu("No, wait, pick me!"))
+    menu.addWidget(ColorLabelMenu("Pick me not "))
+    menu.addWidget(ColorLabelMenu("No, wait, pick me not "))
     menu.addWidget(ColorLabelMenu("Don't pick them..."))
-    menu.addWidget(ColorLabelMenu("Grarar!?!"))
+    menu.addWidget(ColorLabelMenu("Grarar not ? not "))
 
     wm.addChild(menu)
     

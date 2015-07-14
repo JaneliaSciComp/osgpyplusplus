@@ -88,7 +88,7 @@ def createBox(name, bt):
 
     return box
 
-def main(argc, argv):
+def main(argv):
 
     
     viewer = osgViewer.Viewer()

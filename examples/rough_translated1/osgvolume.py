@@ -108,7 +108,7 @@ def createTexture3D(imageList, numComponentsDesired, s_maximumTextureSize, t_max
                                         t_maximumTextureSize,
                                         r_maximumTextureSize,
                                         resizeToPowerOfTwo)
-    else :
+    else:
         desiredPixelFormat = 0
         switch(numComponentsDesired)
             case(1) : desiredPixelFormat = GL_LUMINANCE break
@@ -171,13 +171,13 @@ def clampToNearestValidPowerOfTwo(sizeX, sizeY, sizeZ, s_maximumTextureSize, t_m
     
     # compute nearest powers of two for each axis.
     s_nearestPowerOfTwo = 1
-    while s_nearestPowerOfTwo<sizeX  s_nearestPowerOfTwo<s_maximumTextureSize : s_nearestPowerOfTwo*=2
+    while s_nearestPowerOfTwo<sizeX  and  s_nearestPowerOfTwo<s_maximumTextureSize : s_nearestPowerOfTwo*=2
 
     t_nearestPowerOfTwo = 1
-    while t_nearestPowerOfTwo<sizeY  t_nearestPowerOfTwo<t_maximumTextureSize : t_nearestPowerOfTwo*=2
+    while t_nearestPowerOfTwo<sizeY  and  t_nearestPowerOfTwo<t_maximumTextureSize : t_nearestPowerOfTwo*=2
 
     r_nearestPowerOfTwo = 1
-    while r_nearestPowerOfTwo<sizeZ  r_nearestPowerOfTwo<r_maximumTextureSize : r_nearestPowerOfTwo*=2
+    while r_nearestPowerOfTwo<sizeZ  and  r_nearestPowerOfTwo<r_maximumTextureSize : r_nearestPowerOfTwo*=2
 
     sizeX = s_nearestPowerOfTwo
     sizeY = t_nearestPowerOfTwo
@@ -187,7 +187,7 @@ def readRaw(sizeX, sizeY, sizeZ, numberBytesPerComponent, numberOfComponents, en
 
     
     fin = osgDB.ifstream(raw_filename.c_str(), std.ifstream.binary)
-    if !fin : return 0
+    if  not fin : return 0
 
     pixelFormat = GLenum()
     switch(numberOfComponents)
@@ -220,17 +220,17 @@ def readRaw(sizeX, sizeY, sizeZ, numberBytesPerComponent, numberOfComponents, en
     image.allocateImage(sizeS, sizeT, sizeR, pixelFormat, dataType)
 
 
-    endianSwap = (osg.getCpuByteOrder()==osg.BigEndian) ? (endian!="big") : (endian=="big")
+    endianSwap =  (endian not ="big") if ((osg.getCpuByteOrder()==osg.BigEndian)) else  (endian=="big")
 
-    r_offset = (sizeZ<sizeR) ? sizeR/2 - sizeZ/2 : 0
+    r_offset =  sizeR/2 - sizeZ/2 if ((sizeZ<sizeR)) else  0
 
-    offset = endianSwap ? numberBytesPerComponent : 0
-    delta = endianSwap ? -1 : 1
+    offset =  numberBytesPerComponent if (endianSwap) else  0
+    delta =  -1 if (endianSwap) else  1
     for(int r=0r<sizeZ++r)
         for(int t=0t<sizeY++t)
             data = (char*) image.data(0,t,r+r_offset)
             for(int s=0s<sizeX++s)
-                if !fin : return 0
+                if  not fin : return 0
 
                 for(int c=0c<numberOfComponents++c)
                     ptr = data+offset
@@ -243,13 +243,13 @@ def readRaw(sizeX, sizeY, sizeZ, numberBytesPerComponent, numberOfComponents, en
     # normalise texture
         # compute range of values
         osg.Vec4 minValue, maxValue
-        osg.computeMinMax(image.get(), minValue, maxValue)
-        osg.modifyImage(image.get(),ScaleOperator(1.0/maxValue.r()))
+        osg.computeMinMax(image, minValue, maxValue)
+        osg.modifyImage(image,ScaleOperator(1.0/maxValue.r()))
 
 
     fin.close()
 
-    if dataType!=GL_UNSIGNED_BYTE :
+    if dataType not =GL_UNSIGNED_BYTE :
         # need to convert to ubyte
 
         new_image = osg.Image()
@@ -354,7 +354,7 @@ class DraggerVolumeTileCallback (osgManipulator.DraggerCallback) :
 
 
 bool DraggerVolumeTileCallback.receive( osgManipulator.MotionCommand command)
-    if !_locator : return False
+    if  not _locator : return False
 
     switch (command.getStage())
         case osgManipulator.MotionCommand.START:
@@ -386,11 +386,11 @@ bool DraggerVolumeTileCallback.receive( osgManipulator.MotionCommand command)
         default:
             return False
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates use of 3D textures.")
@@ -433,13 +433,13 @@ def main(argc, argv):
 
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
 
         flightManipulator = osgGA.FlightManipulator()
         flightManipulator.setYawControlMode(osgGA.FlightManipulator.NO_AUTOMATIC_YAW)
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", flightManipulator )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", flightManipulator )
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
     # add the stats handler
     viewer.addEventHandler(osgViewer.StatsHandler)()
@@ -447,7 +447,7 @@ def main(argc, argv):
     viewer.getCamera().setClearColor(osg.Vec4(0.0,0.0,0.0,0.0))
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -507,9 +507,9 @@ def main(argc, argv):
     shadingModel = Standard
     while arguments.read("--mip") : shadingModel =  MaximumIntensityProjection
 
-    while arguments.read("--isosurface") || arguments.read("--iso-surface") : shadingModel = Isosurface
+    while arguments.read("--isosurface")  or  arguments.read("--iso-surface") : shadingModel = Isosurface
 
-    while arguments.read("--light") || arguments.read("-n") : shadingModel = Light
+    while arguments.read("--light")  or  arguments.read("-n") : shadingModel = Light
 
     xSize = 0.0, ySize=0.0, zSize=0.0
     while arguments.read("--xSize",xSize) : 
@@ -517,7 +517,7 @@ def main(argc, argv):
     while arguments.read("--zSize",zSize) : 
 
     testSupportOperation = TestSupportOperation()
-    viewer.setRealizeOperation(testSupportOperation.get())
+    viewer.setRealizeOperation(testSupportOperation)
 
     viewer.realize()
 
@@ -560,7 +560,7 @@ def main(argc, argv):
     while arguments.read("--num-components", numComponentsDesired) : 
 
     useManipulator = False
-    while arguments.read("--manipulator") || arguments.read("-m") :  useManipulator = True 
+    while arguments.read("--manipulator")  or  arguments.read("-m") :  useManipulator = True 
 
 
     useShader = True
@@ -577,7 +577,7 @@ def main(argc, argv):
     while arguments.read("--lod") :  sampleDensityWhenMoving = 0.02 
 
     sequenceLength = 10.0
-    while arguments.read("--sequence-duration", sequenceLength) ||
+    while arguments.read("--sequence-duration", sequenceLength)  or 
           arguments.read("--sd", sequenceLength) : 
 
     typedef std.list< osg.Image > Images
@@ -597,15 +597,15 @@ def main(argc, argv):
             print "Error in reading volume header ", vh_filename
             return 1
 
-        if !raw_filename.empty() :
+        if  not raw_filename.empty() :
             images.push_back(readRaw(xdim, ydim, zdim, 1, 1, "little", raw_filename))
 
-        if !transfer_filename.empty() :
+        if  not transfer_filename.empty() :
             fin = osgDB.ifstream(transfer_filename.c_str())
             if fin :
                 colorMap = osg.TransferFunction1D.ColorMap()
                 value = 0.0
-                while fin  value<=1.0 :
+                while fin  and  value<=1.0 :
                     float red, green, blue, alpha
                     fin >> red >> green >> blue >> alpha
                     if fin :
@@ -632,9 +632,9 @@ def main(argc, argv):
     if images_pos>=0 :
         imageList = osg.ImageList()
         pos = images_pos+1
-        for(pos<arguments.argc()  !arguments.isOption(pos)++pos)
+        for(pos<arguments.argc()  and   not arguments.isOption(pos)++pos)
             arg = str(arguments[pos])
-            if arg.find('*') != str.npos :
+            if arg.find(ord("*"))  not = str.npos :
                 contents = osgDB.expandWildcardsInFilename(arg)
                 for (unsigned int i = 0 i < contents.size() ++i)
                     image = osgDB.readImageFile( contents[i] )
@@ -642,7 +642,7 @@ def main(argc, argv):
                     if image :
                         OSG_NOTICE, "Read osg.Image FileName.", image.getFileName(), ", pixelFormat=0x", std.hex, image.getPixelFormat(), std.dec, ", s=", image.s(), ", t=", image.t(), ", r=", image.r()
                         imageList.push_back(image)
-            else :
+            else:
                 # not an option so assume string is a filename.
                 image = osgDB.readImageFile( arguments[pos] )
 
@@ -656,7 +656,7 @@ def main(argc, argv):
         image = createTexture3D(imageList, numComponentsDesired, s_maximumTextureSize, t_maximumTextureSize, r_maximumTextureSize, resizeToPowerOfTwo)
         if image :
             images.push_back(image)
-        else :
+        else:
             OSG_NOTICE, "Unable to create 3D image from source files."
 
 
@@ -671,14 +671,14 @@ def main(argc, argv):
 
     # assume remaining arguments are file names of textures.
     for(int pos=1pos<arguments.argc()++pos)
-        if !arguments.isOption(pos) :
+        if  not arguments.isOption(pos) :
             filename = arguments[pos]
             if osgDB.getLowerCaseFileExtension(filename)=="dicom" :
                 # not an option so assume string is a filename.
                 image = osgDB.readImageFile(filename)
                 if image :
                     images.push_back(image)
-            else :
+            else:
                 fileType = osgDB.fileType(filename)
                 if fileType == osgDB.FILE_NOT_FOUND :
                     filename = osgDB.findDataFile(filename)
@@ -691,7 +691,7 @@ def main(argc, argv):
                     # not an option so assume string is a filename.
                     image = osgDB.readImageFile( filename )
                     if image : images.push_back(image)
-                else :
+                else:
                     osg.notify(osg.NOTICE), "Error: could not find file: ", filename
                     return 1
 
@@ -706,18 +706,18 @@ def main(argc, argv):
     image_r = (*sizeItr).r()
     ++sizeItr
 
-    for(sizeItr != images.end() ++sizeItr)
-        if *sizeItr :.s() != image_s ||
-            (*sizeItr).t() != image_t ||
-            (*sizeItr).r() != image_r :
+    for(sizeItr  not = images.end() ++sizeItr)
+        if *sizeItr :.s()  not = image_s  or 
+            (*sizeItr).t()  not = image_t  or 
+            (*sizeItr).r()  not = image_r :
             print "Images in sequence are not of the same dimensions."
             return 1
 
 
     details = dynamic_cast<osgVolume.ImageDetails*>(images.front().getUserData())
-    matrix = details ? details.getMatrix() : dynamic_cast<osg.RefMatrix*>(images.front().getUserData())
+    matrix =  details.getMatrix() : dynamic_cast<osg: if (details) else RefMatrix*>(images.front().getUserData())
 
-    if !matrix :
+    if  not matrix :
         if xSize==0.0 : xSize = static_cast<float>(image_s)
         if ySize==0.0 : ySize = static_cast<float>(image_t)
         if zSize==0.0 : zSize = static_cast<float>(image_r)
@@ -728,17 +728,17 @@ def main(argc, argv):
                                     0.0,   0.0,   0.0,   1.0)
 
 
-    if xMultiplier!=1.0 || yMultiplier!=1.0 || zMultiplier!=1.0 :
+    if xMultiplier not =1.0  or  yMultiplier not =1.0  or  zMultiplier not =1.0 :
         matrix.postMultScale(osg.Vec3d(fabs(xMultiplier), fabs(yMultiplier), fabs(zMultiplier)))
 
     minValue = osg.Vec4(FLT_MAX, FLT_MAX, FLT_MAX, FLT_MAX)
     maxValue = osg.Vec4(-FLT_MAX, -FLT_MAX, -FLT_MAX, -FLT_MAX)
     computeMinMax = False
     for(Images.iterator itr = images.begin()
-        itr != images.end()
+        not = images.end()
         ++itr)
         osg.Vec4 localMinValue, localMaxValue
-        if osg.computeMinMax(itr.get(), localMinValue, localMaxValue) :
+        if osg.computeMinMax(itr, localMinValue, localMaxValue) :
             if localMinValue.r()<minValue.r() : minValue.r() = localMinValue.r()
             if localMinValue.g()<minValue.g() : minValue.g() = localMinValue.g()
             if localMinValue.b()<minValue.b() : minValue.b() = localMinValue.b()
@@ -777,9 +777,9 @@ def main(argc, argv):
                 offset = -minComponent * scale
 
                 for(Images.iterator itr = images.begin()
-                    itr != images.end()
+                    not = images.end()
                     ++itr)
-                    osg.offsetAndScaleImage(itr.get(),
+                    osg.offsetAndScaleImage(itr,
                         osg.Vec4(offset, offset, offset, offset),
                         osg.Vec4(scale, scale, scale, scale))
                 break
@@ -787,9 +787,9 @@ def main(argc, argv):
                 offset = -minComponent
 
                 for(Images.iterator itr = images.begin()
-                    itr != images.end()
+                    not = images.end()
                     ++itr)
-                    osg.offsetAndScaleImage(itr.get(),
+                    osg.offsetAndScaleImage(itr,
                         osg.Vec4(offset, offset, offset, offset),
                         osg.Vec4(1.0, 1.0, 1.0, 1.0))
                 break
@@ -797,40 +797,40 @@ def main(argc, argv):
 #endif
 
 
-    if colourSpaceOperation!=osg.NO_COLOR_SPACE_OPERATION :
+    if colourSpaceOperation not =osg.NO_COLOR_SPACE_OPERATION :
         for(Images.iterator itr = images.begin()
-            itr != images.end()
+            not = images.end()
             ++itr)
-            (*itr) = osg.colorSpaceConversion(colourSpaceOperation, itr.get(), colourModulate)
+            (*itr) = osg.colorSpaceConversion(colourSpaceOperation, itr, colourModulate)
 
-    if !gpuTransferFunction  transferFunction.valid() :
+    if  not gpuTransferFunction  and  transferFunction.valid() :
         for(Images.iterator itr = images.begin()
-            itr != images.end()
+            not = images.end()
             ++itr)
-            *itr = osgVolume.applyTransferFunction(itr.get(), transferFunction.get())
+            *itr = osgVolume.applyTransferFunction(itr, transferFunction)
 
     image_3d = 0
 
     if images.size()==1 :
         osg.notify(osg.NOTICE), "Single image ", images.size(), " volumes."
         image_3d = images.front()
-    else :
+    else:
         osg.notify(osg.NOTICE), "Creating sequence of ", images.size(), " volumes."
 
         imageSequence = osg.ImageSequence()
         imageSequence.setLength(sequenceLength)
-        image_3d = imageSequence.get()
+        image_3d = imageSequence
         for(Images.iterator itr = images.begin()
-            itr != images.end()
+            not = images.end()
             ++itr)
-            imageSequence.addImage(itr.get())
+            imageSequence.addImage(itr)
         imageSequence.play()
 
     volume = osgVolume.Volume()
     tile = osgVolume.VolumeTile()
-    volume.addChild(tile.get())
+    volume.addChild(tile)
 
-    layer = osgVolume.ImageLayer(image_3d.get())
+    layer = osgVolume.ImageLayer(image_3d)
 
     if details :
         layer.setTexelOffset(details.getTexelOffset())
@@ -848,17 +848,17 @@ def main(argc, argv):
             break
     
 
-    if xMultiplier<0.0 || yMultiplier<0.0 || zMultiplier<0.0 :
+    if xMultiplier<0.0  or  yMultiplier<0.0  or  zMultiplier<0.0 :
         layer.setLocator(osgVolume.Locator(
-            osg.Matrix.translate(xMultiplier<0.0 ? -1.0 : 0.0, yMultiplier<0.0 ? -1.0 : 0.0, zMultiplier<0.0 ? -1.0 : 0.0) *
-            osg.Matrix.scale(xMultiplier<0.0 ? -1.0 : 1.0, yMultiplier<0.0 ? -1.0 : 1.0, zMultiplier<0.0 ? -1.0 : 1.0) *
+             -1.0 : 0.0, yMultiplier<0.0 ? -1.0 : 0.0, zMultiplier<0.0 ? -1.0 if (osg.Matrix.translate(xMultiplier<0.0) else  0.0) *
+             -1.0 : 1.0, yMultiplier<0.0 ? -1.0 : 1.0, zMultiplier<0.0 ? -1.0 if (osg.Matrix.scale(xMultiplier<0.0) else  1.0) *
             (*matrix)
             ))
-    else :
+    else:
         layer.setLocator(osgVolume.Locator(*matrix))
     tile.setLocator(osgVolume.Locator(*matrix))
 
-    tile.setLayer(layer.get())
+    tile.setLayer(layer)
 
     tile.setEventCallback(osgVolume.PropertyAdjustmentCallback())
 
@@ -869,9 +869,9 @@ def main(argc, argv):
 
         ap = osgVolume.AlphaFuncProperty(alphaFunc)
         sd = osgVolume.SampleDensityProperty(0.005)
-        sdwm = sampleDensityWhenMoving!=0.0 ? osgVolume.SampleDensityWhenMovingProperty(sampleDensityWhenMoving) : 0
+        sdwm = sampleDensityWhenMoving not  osgVolume.SampleDensityWhenMovingProperty(sampleDensityWhenMoving) if (=0.0) else  0
         tp = osgVolume.TransparencyProperty(1.0)
-        tfp = transferFunction.valid() ? osgVolume.TransferFunctionProperty(transferFunction.get()) : 0
+        tfp =  osgVolume.TransferFunctionProperty(transferFunction) if (transferFunction.valid()) else  0
 
             # Standard
             cp = osgVolume.CompositeProperty()
@@ -924,58 +924,58 @@ def main(argc, argv):
 
 
         tile.setVolumeTechnique(osgVolume.RayTracedTechnique)()
-    else :
+    else:
         layer.addProperty(osgVolume.AlphaFuncProperty(alphaFunc))
         tile.setVolumeTechnique(osgVolume.FixedFunctionTechnique)()
 
-    if !outputFile.empty() :
+    if  not outputFile.empty() :
         ext = osgDB.getFileExtension(outputFile)
         name_no_ext = osgDB.getNameLessExtension(outputFile)
-        if ext=="osg" || ext=="osgt" || ext=="osgx"  :
+        if ext=="osg"  or  ext=="osgt"  or  ext=="osgx"  :
             if image_3d.valid() :
                 image_3d.setFileName(name_no_ext + ".dds")
                 options = osgDB.Options("ddsNoAutoFlipWrite")
-                osgDB.writeImageFile(*image_3d, image_3d.getFileName(), options.get())
+                osgDB.writeImageFile(*image_3d, image_3d.getFileName(), options)
             osgDB.writeNodeFile(*volume, outputFile)
-        elif ext=="ive" || ext=="osgb"  :
+        elif ext=="ive"  or  ext=="osgb"  :
             osgDB.writeNodeFile(*volume, outputFile)
         elif ext=="dds" :
             osgDB.writeImageFile(*image_3d, outputFile)
-        else :
+        else:
             print "Extension not support for file output, not file written."
 
         return 0
 
     if volume.valid() :
 
-        loadedModel = volume.get()
+        loadedModel = volume
 
         if useManipulator :
             group = osg.Group()
 
 #if 1
             dragger = osgManipulator.TabBoxDragger()
-#else :
+#else:
             dragger = osgManipulator.TrackballDragger()
 #endif
             dragger.setupDefaultGeometry()
             dragger.setHandleEvents(True)
             dragger.setActivationModKeyMask(osgGA.GUIEventAdapter.MODKEY_SHIFT)
-            dragger.addDraggerCallback(DraggerVolumeTileCallback(tile.get(), tile.getLocator()))
+            dragger.addDraggerCallback(DraggerVolumeTileCallback(tile, tile.getLocator()))
             dragger.setMatrix(osg.Matrix.translate(0.5,0.5,0.5)*tile.getLocator().getTransform())
 
 
-            group.addChild(dragger.get())
+            group.addChild(dragger)
 
-            #dragger.addChild(volume.get())
+            #dragger.addChild(volume)
 
-            group.addChild(volume.get())
+            group.addChild(volume)
 
             loadedModel = group
 
 
         # set the scene to render
-        viewer.setSceneData(loadedModel.get())
+        viewer.setSceneData(loadedModel)
 
         # the the viewers main frame loop
         viewer.run()

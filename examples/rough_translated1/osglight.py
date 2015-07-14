@@ -66,7 +66,7 @@ class ModelTransformCallback (osg.NodeCallback) :
         virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
             pat = dynamic_cast<osg.PositionAttitudeTransform*>(node)
             frameStamp = nv.getFrameStamp()
-            if pat  frameStamp :
+            if pat  and  frameStamp :
                 if _firstTime==0.0 :
                     _firstTime = frameStamp.getSimulationTime()
 
@@ -310,11 +310,11 @@ def createRoom(loadedModel):
     return root
 
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -323,7 +323,7 @@ def main(argc, argv):
     loadedModel = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !loadedModel : loadedModel = osgDB.readNodeFile("glider.osgt")
+    if  not loadedModel : loadedModel = osgDB.readNodeFile("glider.osgt")
 
     # create a room made of foor walls, a floor, a roof, and swinging light fitting.
     rootnode = createRoom(loadedModel)

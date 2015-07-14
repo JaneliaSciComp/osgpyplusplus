@@ -50,8 +50,8 @@ class MessageBox :
                 int fontSize)
 
 
-osgWidget.Frame* MessageBox.getButton()  return _button.get() 
-osgWidget.Frame* MessageBox.getWindow()  return _window.get() 
+osgWidget.Frame* MessageBox.getButton()  return _button 
+osgWidget.Frame* MessageBox.getWindow()  return _window 
 
 class AlphaSetterVisitor (osg.NodeVisitor) :
 _alpha = float()
@@ -65,12 +65,12 @@ _alpha = float()
         if win : 
 #             osgWidget.warn(), "I am in Window: ", win.getName()
 
-            for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
-#                 osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
+            for (osgWidget.Window.Iterator it = win.begin() it  not = win.end() it++)
+#                 osgWidget.warn(), "   I am operating on Widget: ", it.getName()
                 
-                color = it.get().getColor()
+                color = it.getColor()
                 color[3] = color[3] *_alpha
-                it.get().setColor(color)
+                it.setColor(color)
                 color = win.getBackground().getColor()
                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(color)
@@ -90,12 +90,12 @@ _color = osgWidget.Color()
         if win : 
 #            osgWidget.warn(), "I am in Window: ", win.getName()
 
-            for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
-#                osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
+            for (osgWidget.Window.Iterator it = win.begin() it  not = win.end() it++)
+#                osgWidget.warn(), "   I am operating on Widget: ", it.getName()
                 
-#                 color = it.get().getColor()
+#                 color = it.getColor()
 #                 color[3] = color[3] *_alpha
-                it.get().setColor(_color)
+                it.setColor(_color)
 #                 color = win.getBackground().getColor()
 #                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(osgWidget.Color(0,0,0,0))
@@ -161,7 +161,7 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                 if _over :
                     _motionOver.update(dt)
                     value = _motionOver.getValue()
-                else :
+                else:
                     _motionLeave.update(dt)
                     value = 1.0 - _motionLeave.getValue()
 
@@ -211,7 +211,7 @@ osgWidget.Frame* MessageBox.createButtonOk( str theme,
     frame.resizeFrame(box.getWidth(), box.getHeight())
     frame.resizeAdd(0, 0)
 
-    event = EventOK(frame.get())
+    event = EventOK(frame)
     frame.setUpdateCallback(event)
     frame.addCallback(event)
 
@@ -274,7 +274,7 @@ LABEL1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
     "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in..."
 
 
-def main(argc, argv):
+def main(argv):
 
     
 
@@ -393,12 +393,12 @@ _alpha = float()
         if win : 
 #             osgWidget.warn(), "I am in Window: ", win.getName()
 
-            for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
-#                 osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
+            for (osgWidget.Window.Iterator it = win.begin() it  not = win.end() it++)
+#                 osgWidget.warn(), "   I am operating on Widget: ", it.getName()
                 
-                color = it.get().getColor()
+                color = it.getColor()
                 color[3] = color[3] *_alpha
-                it.get().setColor(color)
+                it.setColor(color)
                 color = win.getBackground().getColor()
                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(color)
@@ -418,12 +418,12 @@ _color = osgWidget.Color()
         if win : 
 #            osgWidget.warn(), "I am in Window: ", win.getName()
 
-            for (osgWidget.Window.Iterator it = win.begin() it != win.end() it++)
-#                osgWidget.warn(), "   I am operating on Widget: ", it.get().getName()
+            for (osgWidget.Window.Iterator it = win.begin() it  not = win.end() it++)
+#                osgWidget.warn(), "   I am operating on Widget: ", it.getName()
                 
-#                 osgWidget.Color color = it.get().getColor()
+#                 osgWidget.Color color = it.getColor()
 #                 color[3] = color[3] *_alpha
-                it.get().setColor(_color)
+                it.setColor(_color)
 #                 osgWidget.Color color = win.getBackground().getColor()
 #                 color[3] = color[3] *_alpha
                 win.getBackground().setColor(osgWidget.Color(0,0,0,0))
@@ -482,7 +482,7 @@ struct EventOK : public osgWidget.Callback, osg.NodeCallback
                 if _over :
                     _motionOver.update(dt)
                     value = _motionOver.getValue()
-                else :
+                else:
                     _motionLeave.update(dt)
                     value = 1.0 - _motionLeave.getValue()
 
@@ -583,7 +583,7 @@ LABEL1 = "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed\n"
     "nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in..."
 
 
-def main(argc, argv):
+def main(argv):
 
     
     theme = "osgWidget/theme-1.png"

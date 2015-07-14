@@ -141,7 +141,7 @@ def getPossibleConfigs(gc, colorConfigs, depthConfigs, coverageConfigs):
     colorConfigs.push_back(BufferConfig("RGBA8", GL_RGBA8, 8))
     depthConfigs.push_back(BufferConfig("D24", GL_DEPTH_COMPONENT24, 24))
     fboe = FBOExtensions.instance(contextID, True)
-    if !fboe.isSupported() :
+    if  not fboe.isSupported() :
         return
     if fboe.isMultisampleSupported() :
         glGetIntegerv(GL_MAX_SAMPLES_EXT, maxSamples)
@@ -168,31 +168,31 @@ def checkFramebufferStatus(gc, silent):
         case GL_FRAMEBUFFER_COMPLETE_EXT:
             break
         case GL_FRAMEBUFFER_UNSUPPORTED_EXT:
-            if !silent :
+            if  not silent :
                 print "Unsupported framebuffer format\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_MISSING_ATTACHMENT_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, missing attachment\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_ATTACHMENT_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, duplicate attachment\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_DIMENSIONS_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, attached images must have same dimensions\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_FORMATS_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, attached images must have same format\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_DRAW_BUFFER_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, missing draw buffer\n"
             return False
         case GL_FRAMEBUFFER_INCOMPLETE_READ_BUFFER_EXT:
-            if !silent :
+            if  not silent :
                 print "Framebuffer incomplete, missing read buffer\n"
             return False
         default:
@@ -224,7 +224,7 @@ def createFBO(gc, config, data):
     if multisample :
         data.resolveFB = FrameBufferObject()
         data.resolveFB.setAttachment(Camera.COLOR_BUFFER,
-                                      FrameBufferAttachment(data.tex.get()))
+                                      FrameBufferAttachment(data.tex))
         colorRB = RenderBuffer(texWidth, texHeight, config.colorFormat,
                                    config.coverageSamples, config.depthSamples)
         data.fb.setAttachment(Camera.COLOR_BUFFER,
@@ -233,20 +233,20 @@ def createFBO(gc, config, data):
                                    config.coverageSamples, config.depthSamples)
         data.fb.setAttachment(Camera.DEPTH_BUFFER,
                                FrameBufferAttachment(depthRB))
-    else :
+    else:
         data.depthTex = makeDepthTexture(texWidth, texHeight,
                                          config.depthFormat)
         data.fb.setAttachment(Camera.COLOR_BUFFER,
-                               FrameBufferAttachment(data.tex.get()))
+                               FrameBufferAttachment(data.tex))
         data.fb.setAttachment(Camera.DEPTH_BUFFER,
-                               FrameBufferAttachment(data.depthTex.get()))
+                               FrameBufferAttachment(data.depthTex))
     state = *gc.getState()
     contextID = state.getContextID()
     fboe = FBOExtensions.instance(contextID, True)
 
     data.fb.apply(state)
     result = checkFramebufferStatus(gc, True)
-    if !result :
+    if  not result :
         fboe.glBindFramebuffer(GL_FRAMEBUFFER_EXT, 0)
         return False
     query = int()
@@ -259,7 +259,7 @@ def createFBO(gc, config, data):
                                                query)
             if query < config.coverageSamples :
                 result = False
-            else :
+            else:
                 config.coverageSamples = query
             fboe.glGetRenderbufferParameteriv(GL_RENDERBUFFER_EXT,
                                                GL_RENDERBUFFER_COLOR_SAMPLES_NV,
@@ -267,29 +267,29 @@ def createFBO(gc, config, data):
 
             if  query < config.depthSamples :
                result = False
-            else :
+            else:
                 config.depthSamples = query # report back the actual number
 
-        else :
+        else:
             fboe.glGetRenderbufferParameteriv(GL_RENDERBUFFER_EXT,
                                                GL_RENDERBUFFER_SAMPLES_EXT,
                                                query)
             if query < config.depthSamples :
                 result = False
-            else :
+            else:
                 config.depthSamples = query
     glGetIntegerv( GL_RED_BITS, query)
-    if query != config.redbits :
+    if query  not = config.redbits :
         result = False
     glGetIntegerv(GL_DEPTH_BITS, query)
-    if  query != config.depthBits :
+    if  query  not = config.depthBits :
         result = False
-    if result  multisample  data.resolveFB.valid() :
+    if result  and  multisample  and  data.resolveFB.valid() :
         data.resolveFB.apply(state)
         result = checkFramebufferStatus(gc, True)
         if result :
             glGetIntegerv( GL_RED_BITS, query)
-            if query != config.redbits :
+            if query  not = config.redbits :
                 result = False
     fboe.glBindFramebuffer(GL_FRAMEBUFFER_EXT, 0)
     return result
@@ -356,7 +356,7 @@ AppState.AppState(osgViewer.Viewer* viewer_)
     configText.setPosition(Vec3(50.0, 50.0, 0.0))
     configText.setColor(Vec4(1.0, 1.0, 1.0, 1.0))
     textGeode = Geode()
-    textGeode.addDrawable(configText.get())
+    textGeode.addDrawable(configText)
     # Text for the near plane distance
     zNearText = osgText.Text()
     zNearText.setDataVariance(Object.DYNAMIC)
@@ -364,7 +364,7 @@ AppState.AppState(osgViewer.Viewer* viewer_)
     zNearText.setPosition(Vec3(1230.0, 50.0, 0.0))
     zNearText.setColor(Vec4(1.0, 1.0, 1.0, 1.0))
     zNearText.setAlignment(osgText.Text.RIGHT_BASE_LINE)
-    textGeode.addDrawable(zNearText.get())
+    textGeode.addDrawable(zNearText)
     # Projection that lets the text be placed in pixels.
     textProjection = Projection()
     textProjection.setMatrix(Matrix.ortho2D(0,1280,0,1024))
@@ -378,9 +378,8 @@ AppState.AppState(osgViewer.Viewer* viewer_)
     noCanDo.setText("not available")
     textNotAvailable = Geode()
     textNotAvailable.addDrawable(noCanDo)
-    textProjection.addChild(textNotAvailable.get())
-    # Is the depth test inverted?
-    inverted = osgText.Text()
+    textProjection.addChild(textNotAvailable)
+    # Is the depth test  inverted = osgText: if (inverted) else Text()
     inverted.setFont(fontName)
     inverted.setPosition(Vec3(512.0, 50.0, 0.0))
     inverted.setColor(Vec4(1.0, 1.0, 1.0, 1.0))
@@ -388,11 +387,11 @@ AppState.AppState(osgViewer.Viewer* viewer_)
     textInverted = Geode()
     textInverted.addDrawable(inverted)
     textInverted.setNodeMask(~0u)
-    textProjection.addChild(textInverted.get())
+    textProjection.addChild(textInverted)
     textProjection.getOrCreateStateSet().setRenderBinDetails(11, "RenderBin")
 
 void AppState.setStateFromConfig( FboConfig config)
-    camera = viewer.getSlave(0)._camera.get()
+    camera = viewer.getSlave(0)._camera
     setAttachmentsFromConfig(camera, config)
     renderer = dynamic_cast<osgViewer.Renderer*>(camera.getRenderer())
     if renderer :
@@ -410,17 +409,17 @@ void AppState.updateDisplayedTexture()
     if displayScene :
         sw.setSingleChildOn(0)
     elif validConfigs[currentConfig].depthSamples > 0
-             || validConfigs[currentConfig].coverageSamples > 0 :
+              or  validConfigs[currentConfig].coverageSamples > 0 :
         sw.setAllChildrenOff()
-    elif validConfigs[currentConfig].depthFormat != GL_DEPTH_COMPONENT24 :
+    elif validConfigs[currentConfig].depthFormat  not = GL_DEPTH_COMPONENT24 :
         sw.setSingleChildOn(2)
-    else :
+    else:
         sw.setSingleChildOn(3)
     if displayScene
-        || (validConfigs[currentConfig].depthSamples == 0
-             validConfigs[currentConfig].coverageSamples == 0) :
+         or  (validConfigs[currentConfig].depthSamples == 0
+             and  validConfigs[currentConfig].coverageSamples == 0) :
         textNotAvailable.setNodeMask(0u)
-    else :
+    else:
         textNotAvailable.setNodeMask(~0u)
 
 void AppState.updateNear()
@@ -445,18 +444,18 @@ class ConfigHandler (osgGA.GUIEventHandler) :
                         Object*, NodeVisitor* #nv)
         if ea.getHandled() : return False
         viewer = dynamic_cast<osgViewer.Viewer*>(aa)
-        if !viewer : return False
+        if  not viewer : return False
         switch(ea.getEventType())
         case osgGA.GUIEventAdapter.KEYUP:
-            if ea.getKey()=='d' :
-                _appState.displayScene = !_appState.displayScene
+            if ea.getKey()==ord("d") :
+                _appState.displayScene =  not _appState.displayScene
                 _appState.updateDisplayedTexture()
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Right ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Right  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Right :
                 _appState.advanceConfig(1)
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Left  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Left :
                 _appState.advanceConfig(-1)
                 return True
@@ -489,29 +488,29 @@ class DepthHandler (osgGA.GUIEventHandler) :
         if ea.getHandled() : return False
 
         depth = ref_ptr<Depth>()
-        if !_depth.lock(depth) : return False
+        if  not _depth.lock(depth) : return False
 
         switch(ea.getEventType())
         case(osgGA.GUIEventAdapter.KEYUP):
-            if ea.getKey() == 'i' :
-                _appState.invertRange = !_appState.invertRange
-                if !_appState.invertRange :
+            if ea.getKey() == ord("i") :
+                _appState.invertRange =  not _appState.invertRange
+                if  not _appState.invertRange :
                     _appState.camera.setClearDepth(1.0)
                     depth.setFunction(Depth.LESS)
                     depth.setRange(0.0, 1.0)
                     _appState.textInverted.setNodeMask(0u)
-                else :
+                else:
                     _appState.camera.setClearDepth(0.0)
                     depth.setFunction(Depth.GEQUAL)
                     depth.setRange(1.0, 0.0)
                     _appState.textInverted.setNodeMask(~0u)
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Up ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Up  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Up :
                 _appState.zNear *= 2.0
                 _appState.updateNear()
                 return True
-            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Down ||
+            elif ea.getKey()==osgGA.GUIEventAdapter.KEY_Down  or 
                      ea.getKey()==osgGA.GUIEventAdapter.KEY_KP_Down :
                 _appState.zNear *= .5
                 _appState.updateNear()
@@ -571,7 +570,7 @@ ResizedCallback(AppState* appState)
 void ResizedCallback.resizedImplementation(GraphicsContext* gc, int x, int y,
                                             int width, int height)
     gc.resizedImplementation(x, y, width, height)
-    makeTexturesAndGeometry(width, height, _appState.sw.get())
+    makeTexturesAndGeometry(width, height, _appState.sw)
     _appState.setStateFromConfig(validConfigs[_appState
                                                .currentConfig])
     viewer = _appState.viewer
@@ -580,7 +579,7 @@ void ResizedCallback.resizedImplementation(GraphicsContext* gc, int x, int y,
         oldWidth = vp.width(), oldHeight = vp.height()
         aspectRatioChange = (width / oldWidth) / (height / oldHeight)
         vp.setViewport(0, 0, width, height)
-        if aspectRatioChange != 1.0 :
+        if aspectRatioChange  not = 1.0 :
             master = viewer.getCamera()
             switch (master.getProjectionResizePolicy())
             case Camera.HORIZONTAL:
@@ -608,11 +607,11 @@ def setupGC(viewer, arguments):
     while arguments.read("--window",x,y,width,height) : 
 
     wsi = GraphicsContext.getWindowingSystemInterface()
-    if !wsi :
+    if  not wsi :
         OSG_NOTIFY(NOTICE), "View.setUpViewOnSingleScreen() : Error, no WindowSystemInterface available, cannot create windows."
         return 0
 
-    ds = viewer.getDisplaySettings() ? viewer.getDisplaySettings() : DisplaySettings.instance().get()
+    ds =  viewer.getDisplaySettings() : DisplaySettings: if (viewer.getDisplaySettings()) else instance()
     si = GraphicsContext.ScreenIdentifier()
     si.readDISPLAY()
 
@@ -640,20 +639,20 @@ def setupGC(viewer, arguments):
     traits.windowDecoration = decoration
     traits.doubleBuffer = True
     traits.sharedContext = 0
-    gc = GraphicsContext.createGraphicsContext(traits.get())
-    gw = dynamic_cast<osgViewer.GraphicsWindow*>(gc.get())
+    gc = GraphicsContext.createGraphicsContext(traits)
+    gw = dynamic_cast<osgViewer.GraphicsWindow*>(gc)
     if gw :
         OSG_NOTIFY(INFO), "View.setUpViewOnSingleScreen - GraphicsWindow has been created successfully."
         gw.getEventQueue().getCurrentEventState()
             .setWindowRectangle(0, 0, width, height)
-    else :
+    else:
         OSG_NOTIFY(NOTICE), "  GraphicsWindow has not been created successfully."
     double fovy, aspectRatio, zNear, zFar
     viewer.getCamera().getProjectionMatrixAsPerspective(fovy, aspectRatio,
                                                          zNear, zFar)
     newAspectRatio = double(traits.width) / double(traits.height)
     aspectRatioChange = newAspectRatio / aspectRatio
-    if aspectRatioChange != 1.0 :
+    if aspectRatioChange  not = 1.0 :
         viewer.getCamera().getProjectionMatrix()
             *= Matrix.scale(1.0/aspectRatioChange,1.0,1.0)
     # Context has to be current to test for extensions
@@ -661,7 +660,7 @@ def setupGC(viewer, arguments):
     gc.makeCurrent()
     contextID = gc.getState().getContextID()
     fboe = FBOExtensions.instance(contextID, True)
-    if !fboe.isSupported() :
+    if  not fboe.isSupported() :
         OSG_NOTIFY(NOTICE), "Frame buffer objects are not supported\n"
         gc.releaseContext()
         gc.close(True)
@@ -673,24 +672,24 @@ def setupGC(viewer, arguments):
     colorConfigs = BufferConfigList()
     depthConfigs = BufferConfigList()
     coverageConfigs = vector<int>()
-    getPossibleConfigs(gc.get(), colorConfigs, depthConfigs, coverageConfigs)
+    getPossibleConfigs(gc, colorConfigs, depthConfigs, coverageConfigs)
     coverageSampleConfigs = (coverageConfigs.size() - 4) / 2
     print "color configs\nname\tbits\n"
     for (BufferConfigList.const_iterator colorItr = colorConfigs.begin(),
              colorEnd = colorConfigs.end()
-         colorItr != colorEnd
+         not = colorEnd
          ++colorItr)
         for (BufferConfigList.const_iterator depthItr = depthConfigs.begin(),
              depthEnd = depthConfigs.end()
-             depthItr != depthEnd
+             not = depthEnd
              ++depthItr)
             root = colorItr.name + " " + depthItr.name
             config = FboConfig(root, colorItr.format, depthItr.format,
                              colorItr.bits, depthItr.bits)
             data = FboData()
-            if createFBO(gc.get(), config, data) :
+            if createFBO(gc, config, data) :
                 validConfigs.push_back(config)
-            destroyFBO(gc.get(), data)
+            destroyFBO(gc, data)
             if coverageConfigs.size() > 0 :
                 #CSAA provides a list of all supported AA modes for
                 #quick enumeration
@@ -703,21 +702,21 @@ def setupGC(viewer, arguments):
                     if  config.coverageSamples == config.depthSamples  :
                         # Normal antialiasing
                         msText, " - ", config.depthSamples, " MSAA"
-                    else :
+                    else:
                         # coverage antialiasing
                         msText, " - ", config.coverageSamples, "/", config.depthSamples, " CSAA"
                     config.name = msText.str()
 
-                    if createFBO(gc.get(), config, data) : 
+                    if createFBO(gc, config, data) : 
                         validConfigs.push_back( config)
-                    destroyFBO(gc.get(), data)
+                    destroyFBO(gc, data)
     if validConfigs.empty() :
-        print "no valid frame buffer configurations!\n"
+        print "no valid frame buffer configurations not \n"
         return 0
     print "valid frame buffer configurations:\n"
     for (vector<FboConfig>.iterator itr = validConfigs.begin(),
              end = validConfigs.end()
-         itr != end
+         not = end
          ++itr)
         print itr.name, "\n"
     gc.releaseContext()
@@ -763,23 +762,23 @@ def setAttachmentsFromConfig(camera, config):
 
     
     # XXX Detaching the old buffers may not be necessary.
-    if !camera.getBufferAttachmentMap().empty() :
+    if  not camera.getBufferAttachmentMap().empty() :
         camera.detach(Camera.COLOR_BUFFER)
         camera.detach(Camera.DEPTH_BUFFER)
-    camera.attach(Camera.COLOR_BUFFER, colorTexture.get(), 0, 0, False,
+    camera.attach(Camera.COLOR_BUFFER, colorTexture, 0, 0, False,
                    config.coverageSamples, config.depthSamples)
-    if config.coverageSamples != 0 || config.depthSamples != 0 :
+    if config.coverageSamples  not = 0  or  config.depthSamples  not = 0 :
         camera.attach(Camera.DEPTH_BUFFER, config.depthFormat)
     elif config.depthFormat == GL_DEPTH_COMPONENT24 :
-        camera.attach(Camera.DEPTH_BUFFER, depthTexture24.get())
-    else :
-        camera.attach(Camera.DEPTH_BUFFER, depthTexture.get())
+        camera.attach(Camera.DEPTH_BUFFER, depthTexture24)
+    else:
+        camera.attach(Camera.DEPTH_BUFFER, depthTexture)
 
 # Create the parts of the local scene graph used to display the final
 # results.
 def makeTexturesAndGeometry(width, height, sw):
     
-    if !sw :
+    if  not sw :
         sw = Switch()
     colorTexture = Texture2D()
     colorTexture.setTextureSize(width, height)
@@ -795,23 +794,23 @@ def makeTexturesAndGeometry(width, height, sw):
         depthTexture = makeDepthTexture(width, height, depthTextureEnum)
     depthTexture = depthTexture24
     sw.removeChildren(0, sw.getNumChildren())
-    sw.addChild(createTextureQuad(colorTexture.get()))
-    sw.addChild(createTextureQuad(depthTexture.get()))
-    sw.addChild(createTextureQuad(depthTexture24.get()))
+    sw.addChild(createTextureQuad(colorTexture))
+    sw.addChild(createTextureQuad(depthTexture))
+    sw.addChild(createTextureQuad(depthTexture24))
     sw.setSingleChildOn(0)
     return sw
 
-def main(argc, argv):
+def main(argv):
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = ArgumentParser(argc,argv)
+    arguments = ArgumentParser(argv)
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()
                          + " demonstrates using a floating point depth buffer.\nThe user can invert the depth buffer range and choose among available multi-sample configurations.")
     arguments.getApplicationUsage().setCommandLineUsage(arguments.getApplicationName()+" [options] filename ...")
     arguments.getApplicationUsage().addCommandLineOption("--far <number>", "Set far plane value")
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
     zFar = 500.0
@@ -828,9 +827,9 @@ def main(argc, argv):
     viewer.getCamera()
         .setProjectionMatrixAsPerspective(40.0, 1.0, appState.zNear, zFar)
     gc = setupGC(viewer, arguments)
-    if !gc :
+    if  not gc :
         return 1
-    gc.setResizedCallback(ResizedCallback(appState.get()))
+    gc.setResizedCallback(ResizedCallback(appState))
     traits = gc.getTraits()
     width = traits.width
     height = traits.height
@@ -838,21 +837,21 @@ def main(argc, argv):
         arguments.getApplicationUsage().write(std.cout,osg.ApplicationUsage.COMMAND_LINE_OPTION)
         return 1
     loadedModel = osgDB.readNodeFiles(arguments)
-    if !loadedModel : 
+    if  not loadedModel : 
         cerr, "couldn't load ", argv[1], "\n"
         return 1
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(loadedModel.get())
+    optimizer.optimize(loadedModel)
     # creates texture to be rendered
-    sw = makeTexturesAndGeometry(width, height, appState.sw.get())
+    sw = makeTexturesAndGeometry(width, height, appState.sw)
     rttCamera = makeRttCamera(gc, width, height)
     rttCamera.setRenderOrder(Camera.PRE_RENDER)
-    viewer.addSlave(rttCamera.get())
+    viewer.addSlave(rttCamera)
     appState.camera = rttCamera
     # geometry and slave camera to display the result
     displayRoot = Group()
     displayRoot.addChild(sw)
-    displayRoot.addChild(appState.textProjection.get())
+    displayRoot.addChild(appState.textProjection)
     displaySS = displayRoot.getOrCreateStateSet()
     displaySS.setMode(GL_LIGHTING, StateAttribute.OFF)
     displaySS.setMode(GL_DEPTH_TEST, StateAttribute.OFF)
@@ -869,7 +868,7 @@ def main(argc, argv):
     texCamera.setCullingMode(CullSettings.NO_CULLING)
     texCamera.setProjectionResizePolicy(Camera.FIXED)
     viewer.addSlave(texCamera, Matrixd(), Matrixd(), False)
-    viewer.addEventHandler(ConfigHandler(appState.get()))
+    viewer.addEventHandler(ConfigHandler(appState))
 
     # add model to the viewer.
     sceneRoot = Group()
@@ -881,10 +880,10 @@ def main(argc, argv):
     # Hack to work around Blender osg export bug
     sceneSS.setAttributeAndModes(CullFace(CullFace.BACK))
 #endif
-    sceneRoot.addChild(loadedModel.get())
+    sceneRoot.addChild(loadedModel)
     appState.setStateFromConfig(validConfigs[0])
     appState.updateNear()
-    viewer.addEventHandler(DepthHandler(appState.get(), depth))
+    viewer.addEventHandler(DepthHandler(appState, depth))
     # add the help handler
     viewer.addEventHandler(osgViewer
                            .HelpHandler(arguments.getApplicationUsage()))

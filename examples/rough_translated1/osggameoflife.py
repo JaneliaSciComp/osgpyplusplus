@@ -48,9 +48,9 @@ ProcessPass.ProcessPass(osg.TextureRectangle *in_tex,
 
     _Camera = osg.Camera()
     setupCamera()
-    _Camera.addChild(createTexturedQuad().get())
+    _Camera.addChild(createTexturedQuad())
 
-    _RootGroup.addChild(_Camera.get())
+    _RootGroup.addChild(_Camera)
 
     setShader("shaders/gameoflife.frag")
 
@@ -80,22 +80,22 @@ osg.Group ProcessPass.createTexturedQuad()
     quad_colors = osg.Vec4Array()
     quad_colors.push_back(osg.Vec4(1.0,1.0,1.0,1.0))
 
-    quad_geom.setVertexArray(quad_coords.get())
-    quad_geom.setTexCoordArray(0, quad_tcoords.get())
-    quad_geom.addPrimitiveSet(quad_da.get())
-    quad_geom.setColorArray(quad_colors.get(), osg.Array.BIND_OVERALL)
+    quad_geom.setVertexArray(quad_coords)
+    quad_geom.setTexCoordArray(0, quad_tcoords)
+    quad_geom.addPrimitiveSet(quad_da)
+    quad_geom.setColorArray(quad_colors, osg.Array.BIND_OVERALL)
 
     _StateSet = quad_geom.getOrCreateStateSet()
     _StateSet.setMode(GL_LIGHTING,osg.StateAttribute.OFF)
     _StateSet.setMode(GL_DEPTH_TEST,osg.StateAttribute.OFF)
 
-    _StateSet.setTextureAttributeAndModes(0, _InTexture.get(), osg.StateAttribute.ON)
+    _StateSet.setTextureAttributeAndModes(0, _InTexture, osg.StateAttribute.ON)
 
     _StateSet.addUniform(osg.Uniform("textureIn", 0))
 
-    quad_geode.addDrawable(quad_geom.get())
+    quad_geode.addDrawable(quad_geom)
 
-    top_group.addChild(quad_geode.get())
+    top_group.addChild(quad_geode)
 
     return top_group
 
@@ -114,7 +114,7 @@ void ProcessPass.setupCamera()
     _Camera.setRenderOrder(osg.Camera.PRE_RENDER)
     _Camera.setRenderTargetImplementation(osg.Camera.FRAME_BUFFER_OBJECT)
 
-    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER), _OutTexture.get())
+    _Camera.attach(osg.Camera.BufferComponent(osg.Camera.COLOR_BUFFER), _OutTexture)
 
 void ProcessPass.setShader(str filename)
     foundFile = osgDB.findDataFile(filename)
@@ -128,9 +128,9 @@ void ProcessPass.setShader(str filename)
     _FragmentProgram = 0
     _FragmentProgram = osg.Program()
 
-    _FragmentProgram.addShader(fshader.get())
+    _FragmentProgram.addShader(fshader)
 
-    _StateSet.setAttributeAndModes(_FragmentProgram.get(), osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
+    _StateSet.setAttributeAndModes(_FragmentProgram, osg.StateAttribute.ON | osg.StateAttribute.OVERRIDE )
 
 ####################################
 
@@ -143,8 +143,8 @@ GameOfLifePass.GameOfLifePass(osg.Image *in_image)
     _BranchSwith[0] = osg.Switch()
     _BranchSwith[1] = osg.Switch()
 
-    _RootGroup.addChild(_BranchSwith[0].get())
-    _RootGroup.addChild(_BranchSwith[1].get())
+    _RootGroup.addChild(_BranchSwith[0])
+    _RootGroup.addChild(_BranchSwith[1])
 
     _ActiveBranch = 0
     activateBranch()
@@ -152,35 +152,35 @@ GameOfLifePass.GameOfLifePass(osg.Image *in_image)
     createOutputTextures()
     _InOutTextureLife[0].setImage(in_image)
 
-    _ProcessPass[0] = ProcessPass(_InOutTextureLife[0].get(),
-                                      _InOutTextureLife[1].get(),
+    _ProcessPass[0] = ProcessPass(_InOutTextureLife[0],
+                                      _InOutTextureLife[1],
                                       _TextureWidth, _TextureHeight)
 
     # For the other pass, the input/output textures are flipped
-    _ProcessPass[1] = ProcessPass(_InOutTextureLife[1].get(),
-                                      _InOutTextureLife[0].get(),
+    _ProcessPass[1] = ProcessPass(_InOutTextureLife[1],
+                                      _InOutTextureLife[0],
                                       _TextureWidth, _TextureHeight)
 
-    _BranchSwith[0].addChild(_ProcessPass[0].getRoot().get())
-    _BranchSwith[1].addChild(_ProcessPass[1].getRoot().get())
+    _BranchSwith[0].addChild(_ProcessPass[0].getRoot())
+    _BranchSwith[1].addChild(_ProcessPass[1].getRoot())
 
 GameOfLifePass.~GameOfLifePass()
     delete _ProcessPass[0]
     delete _ProcessPass[1]
 
 osg.TextureRectangle GameOfLifePass.getOutputTexture()
-    out_tex = (_ActiveBranch == 0) ? 1 : 0
+    out_tex =  1 if ((_ActiveBranch == 0)) else  0
     return _ProcessPass[out_tex].getOutputTexture()
 
 void GameOfLifePass.activateBranch()
     onb = _ActiveBranch
-    offb = (onb == 1) ? 0 : 1
+    offb =  0 if ((onb == 1)) else  1
 
     _BranchSwith[onb].setAllChildrenOn()
     _BranchSwith[offb].setAllChildrenOff()
 
 void GameOfLifePass.flip()
-    _ActiveBranch = (_ActiveBranch == 1) ? 0 : 1
+    _ActiveBranch =  0 if ((_ActiveBranch == 1)) else  1
     activateBranch()
 
 void GameOfLifePass.createOutputTextures()
@@ -349,30 +349,30 @@ def createScene(start_im):
     vcoords.push_back(osg.Vec3d(width, 0, height))
     vcoords.push_back(osg.Vec3d(0, 0, height))
 
-    geom.setVertexArray(vcoords.get())
-    geom.setTexCoordArray(0,tcoords.get())
-    geom.addPrimitiveSet(da.get())
-    geom.setColorArray(colors.get(), osg.Array.BIND_OVERALL)
+    geom.setVertexArray(vcoords)
+    geom.setTexCoordArray(0,tcoords)
+    geom.addPrimitiveSet(da)
+    geom.setColorArray(colors, osg.Array.BIND_OVERALL)
     geomss = geom.getOrCreateStateSet()
     geomss.setMode(GL_LIGHTING, osg.StateAttribute.OFF)
 
-    geode.addDrawable(geom.get())
+    geode.addDrawable(geom)
 
-    topnode.addChild(geode.get())
+    topnode.addChild(geode)
 
     # create the ping pong processing passes
     golpass = GameOfLifePass(start_im)
-    topnode.addChild(golpass.getRoot().get())
+    topnode.addChild(golpass.getRoot())
 
     # attach the output of the processing to the geom
     geomss.setTextureAttributeAndModes(0,
-                                        golpass.getOutputTexture().get(),
+                                        golpass.getOutputTexture(),
                                         osg.StateAttribute.ON)
     return topnode
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setDescription(arguments.getApplicationName()+" is the example which demonstrates ping pong rendering with FBOs and mutliple rendering branches. It uses Conway's Game of Life to illustrate the concept.")
@@ -381,7 +381,7 @@ int main(int argc, char *argv[])
     arguments.getApplicationUsage().addCommandLineOption("--startim","The initial image to seed the game of life with.")
 
     # if user request help write it out to cout.
-    if arguments.read("-h") || arguments.read("--help") :
+    if arguments.read("-h")  or  arguments.read("--help") :
         arguments.getApplicationUsage().write(std.cout)
         return 1
 
@@ -395,11 +395,11 @@ int main(int argc, char *argv[])
     # load the image
     startIm = osgDB.readImageFile(startName)
 
-    if !startIm : 
+    if  not startIm : 
         print "Could not load start image.\n"
         return(1)
 
-    scene = createScene(startIm.get())
+    scene = createScene(startIm)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -413,13 +413,13 @@ int main(int argc, char *argv[])
     viewer.realize()
     viewer.setCameraManipulator( osgGA.TrackballManipulator )()
 
-    while !viewer.done() :
+    while  not viewer.done() :
         viewer.frame()
         # flip the textures after we've completed a frame
         golpass.flip()
         # attach the proper output to view
         geomss.setTextureAttributeAndModes(0,
-                                            golpass.getOutputTexture().get(),
+                                            golpass.getOutputTexture(),
                                             osg.StateAttribute.ON)
 
     return 0

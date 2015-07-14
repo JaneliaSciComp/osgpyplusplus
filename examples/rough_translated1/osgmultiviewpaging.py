@@ -70,20 +70,20 @@ class MyPager (osgDB.DatabasePager) :
      print "DatabasePager update took ", d, " ms. Length of active nodes = ", _activePagedLODList.size()
 
 
-def main(argc, argv):
+def main(argv):
 
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
 
-    if !scene :
+    if  not scene :
         scene = osgDB.readNodeFile("http:#www.openscenegraph.org/data/earth_bayarea/earth.ive")
 
-    if !scene :
+    if  not scene :
         print argv[0], ": requires filename argument."
         return 1
 
@@ -93,7 +93,7 @@ def main(argc, argv):
     if viewer.getNumViews()==0 :
 
         wsi = osg.GraphicsContext.getWindowingSystemInterface()
-        if !wsi :
+        if  not wsi :
             osg.notify(osg.NOTICE), "Error, no WindowSystemInterface available, cannot create windows."
             return 1
 
@@ -109,7 +109,7 @@ def main(argc, argv):
         traits.doubleBuffer = True
         traits.sharedContext = 0
 
-        gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+        gc = osg.GraphicsContext.createGraphicsContext(traits)
         if gc.valid() :
             osg.notify(osg.INFO), "  GraphicsWindow has been created successfully."
 
@@ -117,7 +117,7 @@ def main(argc, argv):
             # rather than just the parts of the window that are under the camera's viewports
             gc.setClearColor(osg.Vec4f(0.2,0.2,0.6,1.0))
             gc.setClearMask(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
-        else :
+        else:
             osg.notify(osg.NOTICE), "  GraphicsWindow has not been created successfully."
 
         # view one
@@ -125,17 +125,17 @@ def main(argc, argv):
             view.setName("View one")
             viewer.addView(view)
 
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.getCamera().setName("Cam one")
             view.getCamera().setViewport(osg.Viewport(0,0, traits.width/2, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
 
             # add the state manipulator
             statesetManipulator = osgGA.StateSetManipulator()
             statesetManipulator.setStateSet(view.getCamera().getOrCreateStateSet())
 
             view.setCameraManipulator(osgGA.TerrainManipulator)()
-            view.addEventHandler( statesetManipulator.get() )
+            view.addEventHandler( statesetManipulator )
 
             view.addEventHandler( osgViewer.StatsHandler )()
             view.addEventHandler( osgViewer.HelpHandler )()
@@ -148,10 +148,10 @@ def main(argc, argv):
             view.setName("View two")
             viewer.addView(view)
 
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
             view.getCamera().setName("Cam two")
             view.getCamera().setViewport(osg.Viewport(traits.width/2,0, traits.width/2, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
             view.setCameraManipulator(osgGA.TerrainManipulator)()
 
 
@@ -160,12 +160,12 @@ def main(argc, argv):
             view.setName("View three")
             viewer.addView(view)
 
-            view.setSceneData(scene.get())
+            view.setSceneData(scene)
 
             view.getCamera().setName("Cam three")
             view.getCamera().setProjectionMatrixAsPerspective(30.0, double(traits.width) / double(traits.height/2), 1.0, 1000.0)
             view.getCamera().setViewport(osg.Viewport(0, traits.height/2, traits.width, traits.height/2))
-            view.getCamera().setGraphicsContext(gc.get())
+            view.getCamera().setGraphicsContext(gc)
             view.setCameraManipulator(osgGA.TerrainManipulator)()
 
             # attach custom database pager

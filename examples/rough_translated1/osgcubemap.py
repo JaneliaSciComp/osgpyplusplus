@@ -105,7 +105,7 @@ def create_specular_highlights(node):
 
 int main(int argc, char *argv[])
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer()
@@ -114,9 +114,9 @@ int main(int argc, char *argv[])
     rootnode = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if !rootnode : rootnode = osgDB.readNodeFile("cessna.osgt")
+    if  not rootnode : rootnode = osgDB.readNodeFile("cessna.osgt")
 
-    if !rootnode :
+    if  not rootnode :
         osg.notify(osg.NOTICE), "Please specify a model filename on the command line."
         return 1
 
@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
         ++contextID)
         tcmExt = osg.TextureCubeMap.getExtensions(contextID,False)
         if tcmExt :
-            if !tcmExt.isCubeMapSupported() :
+            if  not tcmExt.isCubeMapSupported() :
                 print "Warning: texture_cube_map not supported by OpenGL drivers, unable to run application."
                 return 1
 

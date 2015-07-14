@@ -351,11 +351,11 @@ def createDemoScene(fixedSizeInScreen):
  
     return root
 # 
-def main(argc, argv):
+def main(argv):
     
 
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
     
     # set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage().setApplicationName(arguments.getApplicationName())

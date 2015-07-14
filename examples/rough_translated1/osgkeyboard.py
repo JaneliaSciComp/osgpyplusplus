@@ -56,7 +56,7 @@ class KeyboardModel (osg.Referenced) :
         
         def getScene():
         
-             return _scene.get() 
+             return _scene 
         
         keyChange = void(int key, int virtualKey, int value)
         
@@ -79,21 +79,21 @@ void KeyboardModel.keyChange(int key, int virtualKey, int value)
 
     # toggle the keys graphical representation on or off via osg.Swithc
     itr = _keyModelMap.find(virtualKey)
-    if itr!=_keyModelMap.end() :
+    if itr not =_keyModelMap.end() :
         itr.second.setSingleChildOn(value)
     
     if value :
         # when a key is pressed add the data to the text field
         
-        if key>0  key<256 :
+        if key>0  and  key<256 :
             # just add ascii characters right now...
             _inputText.getText().push_back(key)
             _inputText.update()
         elif key==osgGA.GUIEventAdapter.KEY_Return :
             _inputText.getText().push_back('\n')
             _inputText.update()
-        elif key==osgGA.GUIEventAdapter.KEY_BackSpace || key==osgGA.GUIEventAdapter.KEY_Delete : 
-            if !_inputText.getText().empty() :
+        elif key==osgGA.GUIEventAdapter.KEY_BackSpace  or  key==osgGA.GUIEventAdapter.KEY_Delete : 
+            if  not _inputText.getText().empty() :
                 _inputText.getText().pop_back()
                 _inputText.update()
         
@@ -120,7 +120,7 @@ osg.Switch* KeyboardModel.addKey(osg.Vec3 pos, int key, str text,float width, fl
         textDown.setColor(osg.Vec4(1.0,0.0,1.0,1.0))
         textDown.setCharacterSize(height)
         textDown.setPosition(pos)
-        textDown.setDrawMode(osgText.Text.TEXT#||osgText.Text.BOUNDINGBOX)
+        textDown.setDrawMode(osgText.Text.TEXT# or osgText.Text.BOUNDINGBOX)
         textDown.setAlignment(osgText.Text.LEFT_CENTER)
         textDown.setAxisAlignment(osgText.Text.XZ_PLANE)
         textDown.setText(text)
@@ -327,13 +327,13 @@ void KeyboardModel.createKeyboard()
         _inputText.setCharacterSize(1.0)
         _inputText.setMaximumWidth(totalWidth)
         _inputText.setPosition(pos)
-        _inputText.setDrawMode(osgText.Text.TEXT#||osgText.Text.BOUNDINGBOX)
+        _inputText.setDrawMode(osgText.Text.TEXT# or osgText.Text.BOUNDINGBOX)
         _inputText.setAlignment(osgText.Text.BASE_LINE)
         _inputText.setAxisAlignment(osgText.Text.XZ_PLANE)
         _inputText.setDataVariance(osg.Object.DYNAMIC)
         _inputText.setText("Press some keys...")
         
-        geodeInput.addDrawable(_inputText.get())
+        geodeInput.addDrawable(_inputText)
         
         _scene.addChild(geodeInput)
 
@@ -399,7 +399,7 @@ int main(int , char **)
 
     viewer.addEventHandler(osgViewer.StatsHandler)()
     viewer.addEventHandler(osgViewer.WindowSizeHandler())
-    viewer.addEventHandler(KeyboardEventHandler(keyboardModel.get()))
+    viewer.addEventHandler(KeyboardEventHandler(keyboardModel))
     viewer.setSceneData( keyboardModel.getScene() )
 
     return viewer.run()

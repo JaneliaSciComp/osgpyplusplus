@@ -67,7 +67,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
         result = dynamic_cast<T*>(node)
         if result :
             _foundNode = result
-        else :
+        else:
             traverse(node)
 
     _foundNode = T*()
@@ -76,7 +76,7 @@ class FindTopMostNodeOfTypeVisitor (osg.NodeVisitor) :
 template<class T>
 def findTopMostNodeOfType(node):
     
-    if !node : return 0
+    if  not node : return 0
 
     fnotv = FindTopMostNodeOfTypeVisitor<T>()
     node.accept(fnotv)
@@ -94,19 +94,19 @@ class TerrainHandler (osgGA.GUIEventHandler) :
         
         switch(ea.getEventType())
             case(osgGA.GUIEventAdapter.KEYDOWN):
-                if ea.getKey()=='r' :
+                if ea.getKey()==ord("r") :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()*0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
                     return True
-                elif ea.getKey()=='R' :
+                elif ea.getKey()==ord("R") :
                     _terrain.setSampleRatio(_terrain.getSampleRatio()/0.5)
                     osg.notify(osg.NOTICE), "Sample ratio ", _terrain.getSampleRatio()
                     return True
-                elif ea.getKey()=='v' :
+                elif ea.getKey()==ord("v") :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()*1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
                     return True
-                elif ea.getKey()=='V' :
+                elif ea.getKey()==ord("V") :
                     _terrain.setVerticalScale(_terrain.getVerticalScale()/1.25)
                     osg.notify(osg.NOTICE), "Vertical scale ", _terrain.getVerticalScale()
                     return True
@@ -120,10 +120,10 @@ class TerrainHandler (osgGA.GUIEventHandler) :
     _terrain = osgTerrain.Terrain()
 
 
-def main(argc, argv):
+def main(argv):
 
     
-    arguments = osg.ArgumentParser(argc, argv)
+    arguments = osg.ArgumentParser(argv)
 
     # construct the viewer.
     viewer = osgViewer.Viewer(arguments)
@@ -131,22 +131,22 @@ def main(argc, argv):
     # set up the camera manipulators.
         keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
-        keyswitchManipulator.addMatrixManipulator( '1', "Trackball", osgGA.TrackballManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '2', "Flight", osgGA.FlightManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '3', "Drive", osgGA.DriveManipulator() )
-        keyswitchManipulator.addMatrixManipulator( '4', "Terrain", osgGA.TerrainManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", osgGA.TrackballManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("2"), "Flight", osgGA.FlightManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("3"), "Drive", osgGA.DriveManipulator() )
+        keyswitchManipulator.addMatrixManipulator( ord("4"), "Terrain", osgGA.TerrainManipulator() )
 
         pathfile = str()
-        keyForAnimationPath = '5'
+        keyForAnimationPath = ord("5")
         while arguments.read("-p",pathfile) :
             apm = osgGA.AnimationPathManipulator(pathfile)
-            if apm || !apm.valid() : 
+            if apm  or   not apm.valid() : 
                 num = keyswitchManipulator.getNumMatrixManipulators()
                 keyswitchManipulator.addMatrixManipulator( keyForAnimationPath, "Path", apm )
                 keyswitchManipulator.selectMatrixManipulator(num)
                 ++keyForAnimationPath
 
-        viewer.setCameraManipulator( keyswitchManipulator.get() )
+        viewer.setCameraManipulator( keyswitchManipulator )
 
 
     # add the state manipulator
@@ -180,35 +180,35 @@ def main(argc, argv):
     # load the nodes from the commandline arguments.
     rootnode = osgDB.readNodeFiles(arguments)
 
-    if !rootnode :
+    if  not rootnode :
         osg.notify(osg.NOTICE), "Warning: no valid data loaded, please specify a database on the command line."
         return 1
 
-    terrain = findTopMostNodeOfType<osgTerrain.Terrain>(rootnode.get())
-    if !terrain :
+    terrain = findTopMostNodeOfType<osgTerrain.Terrain>(rootnode)
+    if  not terrain :
         # no Terrain node present insert one above the loaded model.
         terrain = osgTerrain.Terrain()
 
         # if CoordinateSystemNode is present copy it's contents into the Terrain, and discard it.
-        csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(rootnode.get())
+        csn = findTopMostNodeOfType<osg.CoordinateSystemNode>(rootnode)
         if csn :
             terrain.set(*csn)
             for(unsigned int i=0 i<csn.getNumChildren()++i)
                 terrain.addChild(csn.getChild(i))
-        else :
-            terrain.addChild(rootnode.get())
+        else:
+            terrain.addChild(rootnode)
 
-        rootnode = terrain.get()
+        rootnode = terrain
 
     terrain.setSampleRatio(sampleRatio)
     terrain.setVerticalScale(verticalScale)
     terrain.setBlendingPolicy(blendingPolicy)
 
     # register our custom handler for adjust Terrain settings
-    viewer.addEventHandler(TerrainHandler(terrain.get()))
+    viewer.addEventHandler(TerrainHandler(terrain))
 
     # add a viewport to the viewer and attach the scene graph.
-    viewer.setSceneData( rootnode.get() )
+    viewer.setSceneData( rootnode )
 
 
     # run the viewers main loop

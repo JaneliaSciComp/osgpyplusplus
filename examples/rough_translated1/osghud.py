@@ -197,16 +197,16 @@ SnapImage( str filename):
 
     virtual void operator () (osg.RenderInfo renderInfo) 
 
-        if !_snapImage : return
+        if  not _snapImage : return
 
         osg.notify(osg.NOTICE), "Camera callback"
 
         camera = renderInfo.getCurrentCamera()
-        viewport = camera ? camera.getViewport() : 0
+        viewport =  camera.getViewport() if (camera) else  0
 
         osg.notify(osg.NOTICE), "Camera callback ", camera, " ", viewport
 
-        if viewport  _image.valid() :
+        if viewport  and  _image.valid() :
             _image.readPixels(int(viewport.x()),int(viewport.y()),int(viewport.width()),int(viewport.height()),
                                GL_RGBA,
                                GL_UNSIGNED_BYTE)
@@ -247,22 +247,22 @@ SnapeImageHandler(int key,SnapImage* si):
 
 
 
-def main(argc, argv):
+def main(argv):
 
 
     
     # use an ArgumentParser object to manage the program arguments.
-    arguments = osg.ArgumentParser(argc,argv)
+    arguments = osg.ArgumentParser(argv)
 
 
     # read the scene from the list of file specified commandline args.
     scene = osgDB.readNodeFiles(arguments)
 
     # if not loaded assume no arguments passed in, try use default model instead.
-    if !scene : scene = osgDB.readNodeFile("dumptruck.osgt")
+    if  not scene : scene = osgDB.readNodeFile("dumptruck.osgt")
 
 
-    if !scene :
+    if  not scene :
         osg.notify(osg.NOTICE), "No model loaded"
         return 1
 
@@ -289,7 +289,7 @@ def main(argc, argv):
         viewer.addSlave(hudCamera, False)
 
         # set the scene to render
-        viewer.setSceneData(scene.get())
+        viewer.setSceneData(scene)
 
         return viewer.run()
 
@@ -301,7 +301,7 @@ def main(argc, argv):
         view = osgViewer.View()
         viewer.addView(view)
 
-        view.setSceneData(scene.get())
+        view.setSceneData(scene)
         view.setUpViewAcrossAllScreens()
         view.setCameraManipulator(osgGA.TrackballManipulator)()
 
@@ -325,26 +325,26 @@ def main(argc, argv):
 
         return viewer.run()
 
-    else :
+    else:
         # construct the viewer.
         viewer = osgViewer.Viewer()
 
         postDrawCallback = SnapImage("PostDrawCallback.png")
         viewer.getCamera().setPostDrawCallback(postDrawCallback)
-        viewer.addEventHandler(SnapeImageHandler('p',postDrawCallback))
+        viewer.addEventHandler(SnapeImageHandler(ord("p"),postDrawCallback))
 
         finalDrawCallback = SnapImage("FinalDrawCallback.png")
         viewer.getCamera().setFinalDrawCallback(finalDrawCallback)
-        viewer.addEventHandler(SnapeImageHandler('f',finalDrawCallback))
+        viewer.addEventHandler(SnapeImageHandler(ord("f"),finalDrawCallback))
 
         group = osg.Group()
 
         # add the HUD subgraph.
-        if scene.valid() : group.addChild(scene.get())
+        if scene.valid() : group.addChild(scene)
         group.addChild(createHUD())
 
         # set the scene to render
-        viewer.setSceneData(group.get())
+        viewer.setSceneData(group)
 
         return viewer.run()
 

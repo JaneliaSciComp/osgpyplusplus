@@ -42,7 +42,7 @@ CChildFrame.~CChildFrame()
 
 BOOL CChildFrame.PreCreateWindow(CREATESTRUCT cs)
     # TODO: Modify the Window class or styles here by modifying the CREATESTRUCT cs
-    if  !CMDIChildWnd.PreCreateWindow(cs)  :
+    if   not CMDIChildWnd.PreCreateWindow(cs)  :
         return FALSE
 
     cs.style = WS_CHILD | WS_VISIBLE | WS_OVERLAPPED | WS_CAPTION | WS_SYSMENU
@@ -137,23 +137,23 @@ int CMainFrame.OnCreate(LPCREATESTRUCT lpCreateStruct)
     if CMDIFrameWnd.OnCreate(lpCreateStruct) == -1 :
         return -1
     
-    if !m_wndToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_TRANSPARENT) ||
-        !m_wndToolBar.LoadToolBar(IDR_MAINFRAME) :
+    if  not m_wndToolBar.CreateEx(this, TBSTYLE_FLAT | TBSTYLE_TRANSPARENT)  or 
+         not m_wndToolBar.LoadToolBar(IDR_MAINFRAME) :
         TRACE0("Failed to create toolbar\n")
         return -1      # fail to create
-    if !m_wndDlgBar.Create(this, IDR_MAINFRAME, 
+    if  not m_wndDlgBar.Create(this, IDR_MAINFRAME, 
         CBRS_ALIGN_TOP, AFX_IDW_DIALOGBAR) :
         TRACE0("Failed to create dialogbar\n")
         return -1        # fail to create
 
-    if !m_wndReBar.Create(this) ||
-        !m_wndReBar.AddBar(m_wndToolBar) ||
-        !m_wndReBar.AddBar(m_wndDlgBar) :
+    if  not m_wndReBar.Create(this)  or 
+         not m_wndReBar.AddBar(m_wndToolBar)  or 
+         not m_wndReBar.AddBar(m_wndDlgBar) :
         TRACE0("Failed to create rebar\n")
         return -1      # fail to create
 
-    if !m_wndStatusBar.Create(this) ||
-        !m_wndStatusBar.SetIndicators(indicators,
+    if  not m_wndStatusBar.Create(this)  or 
+         not m_wndStatusBar.SetIndicators(indicators,
           sizeof(indicators)/sizeof(UINT)) :
         TRACE0("Failed to create status bar\n")
         return -1      # fail to create
@@ -165,7 +165,7 @@ int CMainFrame.OnCreate(LPCREATESTRUCT lpCreateStruct)
     return 0
 
 BOOL CMainFrame.PreCreateWindow(CREATESTRUCT cs)
-    if  !CMDIFrameWnd.PreCreateWindow(cs)  :
+    if   not CMDIFrameWnd.PreCreateWindow(cs)  :
         return FALSE
     # TODO: Modify the Window class or styles here by modifying
     #  the CREATESTRUCT cs
@@ -263,7 +263,7 @@ void cOSG.InitManipulators(void)
     keyswitchManipulator = osgGA.KeySwitchMatrixManipulator()
 
     # Add our trackball manipulator to the switcher
-    keyswitchManipulator.addMatrixManipulator( '1', "Trackball", trackball.get())
+    keyswitchManipulator.addMatrixManipulator( ord("1"), "Trackball", trackball)
 
     # Init the switcher to the first manipulator (in this case the only manipulator)
     keyswitchManipulator.selectMatrixManipulator(0)  # Zero based index Value
@@ -275,15 +275,15 @@ void cOSG.InitSceneGraph(void)
 
     # Load the Model from the model name
     mModel = osgDB.readNodeFile(m_ModelName)
-    if !mModel : return
+    if  not mModel : return
 
     # Optimize the model
     optimizer = osgUtil.Optimizer()
-    optimizer.optimize(mModel.get())
+    optimizer.optimize(mModel)
     optimizer.reset()
 
     # Add the model to the scene
-    mRoot.addChild(mModel.get())
+    mRoot.addChild(mModel)
 
 void cOSG.InitCameraConfig(void)
     # Local Variable to hold window size data
@@ -316,7 +316,7 @@ void cOSG.InitCameraConfig(void)
     traits.inheritedWindowData = windata
 
     # Create the Graphics Context
-    gc = osg.GraphicsContext.createGraphicsContext(traits.get())
+    gc = osg.GraphicsContext.createGraphicsContext(traits)
 
     # Init Master Camera for this View
     camera = mViewer.getCamera()
@@ -334,14 +334,14 @@ void cOSG.InitCameraConfig(void)
         30.0, static_cast<double>(traits.width)/static_cast<double>(traits.height), 1.0, 1000.0)
 
     # Add the Camera to the Viewer
-    #mViewer.addSlave(camera.get())
-    mViewer.setCamera(camera.get())
+    #mViewer.addSlave(camera)
+    mViewer.setCamera(camera)
 
     # Add the Camera Manipulator to the Viewer
-    mViewer.setCameraManipulator(keyswitchManipulator.get())
+    mViewer.setCameraManipulator(keyswitchManipulator)
 
     # Set the Scene Data
-    mViewer.setSceneData(mRoot.get())
+    mViewer.setSceneData(mRoot)
 
     # Realize the Viewer
     mViewer.realize()
@@ -366,10 +366,10 @@ void cOSG.PostFrameUpdate()
 #
 #    # You have two options for the main viewer loop
 #    #      viewer.run()   or
-#    #      while !viewer.done() :  viewer.frame() 
+#    #      while  not viewer.done() :  viewer.frame() 
 #
 #    #viewer.run()
-#    while !viewer.done() :
+#    while  not viewer.done() :
 #    
 #        osg.PreFrameUpdate()
 #        viewer.frame()
@@ -394,7 +394,7 @@ CRenderingThread.~CRenderingThread()
         OpenThreads.Thread.YieldCurrentThread()
 
 void CRenderingThread.run()
-    if  !_ptr  :
+    if   not _ptr  :
         _done = True
         return
 
@@ -403,7 +403,7 @@ void CRenderingThread.run()
         _ptr.PreFrameUpdate()
         viewer.frame()
         _ptr.PostFrameUpdate()
-     while  !testCancel()  !viewer.done()  !_done  :
+     while   not testCancel()  and   not viewer.done()  and   not _done  :
 
 # Translated from file 'MFC_OSG.h'
 
@@ -526,13 +526,13 @@ BOOL CMFC_OSG_MDIApp.InitInstance()
         RUNTIME_CLASS(CMFC_OSG_MDIDoc),
         RUNTIME_CLASS(CChildFrame), # custom MDI child frame
         RUNTIME_CLASS(CMFC_OSG_MDIView))
-    if !pDocTemplate :
+    if  not pDocTemplate :
         return FALSE
     AddDocTemplate(pDocTemplate)
 
     # create main MDI Frame window
     pMainFrame = CMainFrame()
-    if !pMainFrame || !pMainFrame.LoadFrame(IDR_MAINFRAME) :
+    if  not pMainFrame  or   not pMainFrame.LoadFrame(IDR_MAINFRAME) :
         pMainFrame = delete()
         return FALSE
     m_pMainWnd = pMainFrame
@@ -550,7 +550,7 @@ BOOL CMFC_OSG_MDIApp.InitInstance()
 
     # Dispatch commands specified on the command line.  Will return FALSE if
     # app was launched with /RegServer, /Register, /Unregserver or /Unregister.
-    if !ProcessShellCommand(cmdInfo) :
+    if  not ProcessShellCommand(cmdInfo) :
         return FALSE
     # The main window has been initialized, so show and update it
     pMainFrame.ShowWindow(m_nCmdShow)
@@ -652,7 +652,7 @@ CMFC_OSG_MDIDoc.~CMFC_OSG_MDIDoc()
 BOOL CMFC_OSG_MDIDoc.OnOpenDocument(LPCTSTR lpszPathName)
     m_csFileName = lpszPathName
 
-    if !CDocument.OnOpenDocument(lpszPathName) :
+    if  not CDocument.OnOpenDocument(lpszPathName) :
       return FALSE
 
     return TRUE
@@ -663,7 +663,7 @@ BOOL CMFC_OSG_MDIDoc.OnOpenDocument(LPCTSTR lpszPathName)
 void CMFC_OSG_MDIDoc.Serialize(CArchive ar)
     if ar.IsStoring() :
         # TODO: add storing code here
-    else :
+    else:
         # TODO: add loading code here
 
 
@@ -752,7 +752,7 @@ BOOL CMFC_OSG_MDIView.PreCreateWindow(CREATESTRUCT cs)
 void CMFC_OSG_MDIView.OnDraw(CDC* #pDC)
     pDoc = GetDocument()
     ASSERT_VALID(pDoc)
-    if !pDoc :
+    if  not pDoc :
         return
 
 #ifdef _DEBUG
@@ -780,7 +780,7 @@ int CMFC_OSG_MDIView.OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 void CMFC_OSG_MDIView.OnDestroy()
     mThreadHandle = delete()
-    if mOSG != 0 : delete mOSG
+    if mOSG  not = 0 : delete mOSG
 
     #WaitForSingleObject(mThreadHandle, 1000)
 
@@ -946,13 +946,13 @@ inline CMFC_OSG_MDIDoc* CMFC_OSG_MDIView.GetDocument()
 
 #ifdef _UNICODE
 #if defined _M_IX86
-#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='x86' publicKeyToken='6595b64144ccf1df' language=ord("*")\"")
 #elif defined _M_IA64
-#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='ia64' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='ia64' publicKeyToken='6595b64144ccf1df' language=ord("*")\"")
 #elif defined _M_X64
-#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language='*'\"")
-#else :
-#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='amd64' publicKeyToken='6595b64144ccf1df' language=ord("*")\"")
+#else:
+#pragma comment(linker,"/manifestdependency:\"type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture=ord("*") publicKeyToken='6595b64144ccf1df' language=ord("*")\"")
 #endif
 #endif
 

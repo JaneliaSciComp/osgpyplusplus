@@ -515,7 +515,7 @@ class ImageUpdateCallback (osg.NodeCallback) :
         originalImage = osgDB.readImageFile("Images/dog_left_eye.jpg")
 
         subImage = osg.Image()
-        subImage.setUserData(originalImage.get()) # attach the originalImage as user data to prevent it being deleted.
+        subImage.setUserData(originalImage) # attach the originalImage as user data to prevent it being deleted.
 
         # now assign the appropriate portion data from the originalImage
         subImage.setImage(originalImage.s()/2, originalImage.t()/2, originalImage.r(), # half the width and height
@@ -527,16 +527,16 @@ class ImageUpdateCallback (osg.NodeCallback) :
                            originalImage.s()) # use the width of the original image as the row width
 
 
-        subImage.setPixelBufferObject(osg.PixelBufferObject(subImage.get()))
+        subImage.setPixelBufferObject(osg.PixelBufferObject(subImage))
 
 #if 0
         OSG_NOTICE, "orignalImage iterator"
-        for(osg.Image.DataIterator itr(originalImage.get()) itr.valid() ++itr)
+        for(osg.Image.DataIterator itr(originalImage) itr.valid() ++itr)
             OSG_NOTICE, "  ", (void*)itr.data(), ", ", itr.size()
 
         OSG_NOTICE, "subImage iterator, size ", subImage.s(), ", ", subImage.t()
         i = 0
-        for(osg.Image.DataIterator itr(subImage.get()) itr.valid() ++itr, ++i)
+        for(osg.Image.DataIterator itr(subImage) itr.valid() ++itr, ++i)
             OSG_NOTICE, "  ", i, ", ", (void*)itr.data(), ", ", itr.size()
 
             for(unsigned char* d=const_cast<unsigned char*>(itr.data()) d<(itr.data()+itr.size()) ++d)
@@ -544,9 +544,9 @@ class ImageUpdateCallback (osg.NodeCallback) :
 #endif
 
 
-        _imageList.push_back(subImage.get())
+        _imageList.push_back(subImage)
 
-#else :
+#else:
         _imageList.push_back(osgDB.readImageFile("Images/dog_left_eye.jpg"))
 #endif
         _textList.push_back("Subloaded Image 1 - dog_left_eye.jpg")
@@ -580,7 +580,7 @@ class ImageUpdateCallback (osg.NodeCallback) :
         # The load/subload happens during the draw traversal so doesn't happen on
         # the setImage which just updates internal pointers and modifed flags.
 
-        _texture.setImage(_imageList[_currPos].get())
+        _texture.setImage(_imageList[_currPos])
 
         #_texture.dirtyTextureObject()
 
