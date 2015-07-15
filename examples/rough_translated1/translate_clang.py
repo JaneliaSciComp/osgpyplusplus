@@ -13,16 +13,10 @@ punctuation_dict = {
     '}': '',
 }
 
-def find_namespaces(cursor, main_file):
-    "enumerate all namespaces, such as 'osg::', used in this file, to help enumerate python imports"
-    ns = set()
-    if (str(cursor.location.file).strip() == main_file) and (
-            cursor.kind == CursorKind.NAMESPACE_REF):
-        ns.add(str(cursor.spelling))
-    for c in cursor.get_children():
-        ns2 = find_namespaces(c, main_file)
-        ns.update(ns2)
-    return ns
+# Conversion from C++ to python
+method_dict = {
+    'operator()': '__call__',
+}
 
 def py_type(cursor):
     "Convert C++ type reference to python type name"
@@ -38,7 +32,47 @@ def py_type(cursor):
             print token.kind, token.spelling
     return t
 
+class CppSourceFile(object):
+    "Represents a C++ source file we want to convert to python"
+    def __init__(self, file_name, args):
+        self.index = clang.cindex.Index.create()
+        translation_unit = self.index.parse(file_name, args)
+        self.cursor = translation_unit.cursor
+        self.main_file = translation_unit.spelling
+
+    def find_namespaces(self, cursor):
+        "enumerate all namespaces, such as 'osg::', used in this file, to help enumerate python imports"
+        ns = set()
+        if (str(cursor.location.file).strip() == self.main_file) and (
+                cursor.kind == CursorKind.NAMESPACE_REF):
+            ns.add(str(cursor.spelling))
+        for c in cursor.get_children():
+            ns2 = self.find_namespaces(c)
+            ns.update(ns2)
+        return ns
+
+    def gen_import_fragment(self):
+        result = ""
+        imported = False
+        local_namespaces = sorted(self.find_namespaces(self.cursor))
+        for ns in local_namespaces:
+            if ns.startswith("osg"):
+                if not imported:
+                    result += "\n" # one blank line before imports
+                result += "from osgpypp import %s\n" % ns
+                imported = True
+        if imported:
+            result += "\n" # one blank line after imports
+        return result
+
+    def gen_py_file(self):
+        result = ""
+        result += self.gen_import_fragment()
+        result += walk_tree(self.cursor, self.main_file)
+        return result
+
 def walk_tree(cursor, main_file, indent = 0):
+    result = ""
     # Only emit declarations that are in our file of interest
     if str(cursor.location.file).strip() == main_file:
         if False:
@@ -56,46 +90,63 @@ def walk_tree(cursor, main_file, indent = 0):
             bases = ", ".join([py_type(b) for b in base_classes])
             if len(base_classes) < 1:
                 bases = "object"
-            py_string += bases + "):\n" # extra newline for class
-            print py_string # emit class declaration python code, including newline
+            py_string += bases + "):"
+            result += py_string # emit class declaration python code, including newline
             indent += 4
         elif cursor.kind == CursorKind.CONSTRUCTOR:
             params = ["self"]
             for param in cursor.get_children():
                 if param.kind == CursorKind.PARM_DECL:
                     params.append(param.spelling)
-            py_string = " "*indent + "def __init__("
+            py_string = "\n" + " "*indent + "def __init__("
             py_string += ", ".join(params)
-            py_string += "):"
-            print py_string
+            py_string += "):\n"
+            result += py_string
             indent += 4
         elif cursor.kind == CursorKind.CXX_BASE_SPECIFIER:
             pass # already handled in constructor
-            return
+            return result # skip substructure
+        elif cursor.kind == CursorKind.CXX_METHOD:
+            py_string = "\n" + " "*indent + "def "
+            method = str(cursor.spelling)
+            if method in method_dict:
+                method = method_dict[method]
+            py_string += method + "("
+            params = []
+            if not cursor.is_static_method():
+                params.append("self")
+            for param in cursor.get_children():
+                if param.kind == CursorKind.PARM_DECL:
+                    params.append(param.spelling)
+            if len(params) > 0:           
+                py_string += ", ".join(params)
+            py_string += "):\n"
+            result += py_string
+            indent += 4
+        elif cursor.kind == CursorKind.FUNCTION_DECL:
+            py_string = "\n" + " "*indent + "def "
+            py_string += cursor.spelling + "("
+            params = []
+            for param in cursor.get_children():
+                if param.kind == CursorKind.PARM_DECL:
+                    params.append(param.spelling)
+            if len(params) > 0:           
+                py_string += ", ".join(params)
+            py_string += "):\n"
+            result += py_string
+            indent += 4
         else:
-            print " "*indent + str(cursor.kind), cursor.spelling, cursor.displayname
+            result += " "*indent + str(cursor.kind) + ", " + cursor.spelling + ", " + cursor.displayname + "\n"
+            for c in cursor.get_children():
+                result += walk_tree(c, main_file, indent+1)
+            return result
     for c in cursor.get_children():
-        walk_tree(c, main_file, indent)
+        result += walk_tree(c, main_file, indent)
+    return result
 
 examples_src = "C:/Users/cmbruns/git/osg/examples"
 osg_includes = "C:/Users/cmbruns/git/osg/include"
-index = clang.cindex.Index.create()
 src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
-translation_unit = index.parse(src_file, args=["-I%s"%osg_includes, 'c++'] )
-cursor = translation_unit.cursor
-print dir(cursor)
-main_file = translation_unit.spelling
-
-namespaces = sorted(find_namespaces(cursor, main_file))
-imported = False
-for ns in namespaces:
-    if ns.startswith("osg"):
-        if not imported:
-            print # one blank line before imports
-        print "from osgpypp import %s" % ns
-        imported = True
-if imported:
-    print # one blank line after imports
-
-walk_tree(cursor, main_file)
+src_obj = CppSourceFile(src_file, args=["-I%s"%osg_includes, 'c++'] )
+print src_obj.gen_py_file()
 
