@@ -13,7 +13,8 @@ punctuation_translator = {
     '::': '.',
     '{': '',
     '}': '',
-    ',': ', '
+    ',': ', ',
+    '&': '',
 }
 
 keyword_translator = {
@@ -115,6 +116,34 @@ def bases(class_cursor):
         args = "object"
     yield "(" + args + ")"
 
+
+def call_expression(cursor):
+    prefix = list(matching_child(cursor))
+    p = ""
+    if len(prefix) > 0 and str(prefix[0]) != "":
+        p = prefix[0].spelling
+    if p == "operator->":
+        yield "self"
+        for c in arg_nonmatching(cursor):
+            yield c
+    elif p == "operator!":
+        yield "not "
+        for c in arg_nonmatching(cursor):
+            yield c
+    else:
+        for c in prefix:
+            yield c
+        yield "("
+        for c in arg_nonmatching(cursor):
+            yield c
+        yield ")"
+
+def compound_statement(cursor):
+    for child in cursor.get_children():
+        yield indent(cursor)
+        yield child
+        yield "\n"
+    
 def ctor_init(cursor):
     "parse out initializers, if any, from constructor"
     # Don't look after first child item
@@ -206,7 +235,7 @@ def ctor_nodes(cursor):
         yield child
 
 def debug(cursor):
-    yield cursor.kind
+    yield str(cursor.kind)
 
 def dec_indent(cursor):
     global indent_level
@@ -225,7 +254,8 @@ def filter_by_file(cursor):
         yield child
 
 def first_token(cursor):
-    yield cursor.get_tokens().next().spelling
+    token = cursor.get_tokens().next()
+    yield translate_token(token)
 
 def first_node(cursor):
     for child in cursor.get_children():
@@ -297,7 +327,7 @@ def non_first_nodes(cursor):
     
 
 def show_whole_structure(cursor, my_indent=indent_level):
-    result = " "*my_indent + "%s:%s\n" % (cursor.kind, cursor.spelling)
+    result = " "*my_indent + "%s:%s:%s\n" % (cursor.kind, cursor.spelling, cursor.displayname)
     for child in cursor.get_children():
         result += show_whole_structure(child, my_indent + 4)
     return result
@@ -346,42 +376,44 @@ def translate_tokens(tokens):
 default_sequence = [indent, "**", kind, ":", spelling, ":", displayname, "\n", inc_indent, all_nodes, dec_indent]
 # 
 cursor_sequence = {
-    CursorKind.CALL_EXPR: [matching_child, "(", arg_nonmatching, ")"],
-    CursorKind.CLASS_DECL: ["\n", indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent],
-    CursorKind.COMPOUND_STMT: [all_nodes], 
+    CursorKind.CALL_EXPR: [call_expression],
+    CursorKind.CLASS_DECL: ["\n", indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
+    CursorKind.COMPOUND_STMT: [compound_statement], 
     CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ":\n", inc_indent, ctor_init, ctor_nodes, dec_indent, "\n"],
     CursorKind.CXX_ACCESS_SPEC_DECL: [all_nodes], # Don't care about "public:" in python...
     CursorKind.CXX_BASE_SPECIFIER: [], # Handled in CLASS_DECL
     CursorKind.CXX_METHOD: [indent, "def ", translate_method, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
     CursorKind.DECL_REF_EXPR: [spelling, all_nodes], # TODO not sure about the all_nodes...
-    CursorKind.DECL_STMT: [indent, all_nodes, "\n"],
-    # CursorKind.FIELD_DECL: [],
-    # CursorKind.FUNCTION_DECL: [], # [indent, "def ", spelling, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"], # TODO
-    CursorKind.IF_STMT: [indent, "if ", first_node, ":\n", inc_indent, non_first_nodes, dec_indent, "\n"],
+    CursorKind.DECL_STMT: [all_nodes],
+    CursorKind.FIELD_DECL: [],
+    CursorKind.FUNCTION_DECL: [indent, "def ", spelling, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
+    CursorKind.IF_STMT: ["if ", first_node, ":\n", inc_indent, indent, non_first_nodes, dec_indent],
     CursorKind.INTEGER_LITERAL: [first_token],
     CursorKind.MEMBER_REF_EXPR: [all_nodes, ".", spelling],
     # CursorKind.MEMBER_REF: [".", spelling],
     CursorKind.NAMESPACE_REF: [spelling, ".", all_nodes],
     CursorKind.PARM_DECL: [],
-    CursorKind.RETURN_STMT: [indent, "return ", all_nodes, "\n"],
+    CursorKind.RETURN_STMT: ["return ", all_nodes],
+    CursorKind.TEMPLATE_REF: [spelling, "<", all_nodes, ">"],
     CursorKind.TRANSLATION_UNIT: [filter_by_file],
     CursorKind.TYPE_REF: [py_type, all_nodes],
+    CursorKind.UNARY_OPERATOR: [first_token, all_nodes],
     CursorKind.UNEXPOSED_EXPR: [all_nodes],
     CursorKind.VAR_DECL: [spelling, " = ", all_nodes],
 }
 
 def string_for_cursor(cursor):
-    result = ""
-    try: # Is argument a cursor...?
+    if isinstance(cursor, basestring):
+        return cursor # It's already a string
+    try:
         rules = cursor_sequence[cursor.kind]
     except KeyError: # ...undocumented cursor type...?
         rules = default_sequence
-    except AttributeError: # ...or a string?
-        return cursor
+    result = ""
     for r in rules:
-        try: # is it a string...?
-            result += r + ""
-        except TypeError: # ...or a function?
+        if isinstance(r, basestring):
+            result += r
+        else:
             for child in r(cursor):
                 result += string_for_cursor(child)
     return result
