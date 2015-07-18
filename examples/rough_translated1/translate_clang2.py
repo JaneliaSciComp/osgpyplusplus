@@ -8,7 +8,7 @@ from clang.cindex import CursorKind, TokenKind
 INDENT_SIZE = 4
 
 # Conversion from C++ to python
-punctuation_dict = {
+punctuation_translator = {
     '->': '.',
     '::': '.',
     '{': '',
@@ -16,21 +16,39 @@ punctuation_dict = {
     ',': ', '
 }
 
+keyword_translator = {
+    'catch': 'except',
+    'double': 'float',
+    'false': 'False',
+    'long': 'int',
+    'nullptr': 'None',
+    'short': 'int',
+    'this': 'self',
+    'throw': 'raise',
+    'true': 'True',
+}
+
 # Conversion from C++ to python
-method_dict = {
+method_translator = {
     'operator()': '__call__',
 }
 
 def py_type(cursor):
     "Convert C++ type reference to python type name"
     t = ""
+    # Limit token parsing to tokens that fall within the specified cursor bounds
+    end_pos = [cursor.extent.end.line, cursor.extent.end.column]
     for token in cursor.get_tokens():
+        if token.location.line > end_pos[0]:
+            break
+        if token.location.line == end_pos[0] and token.location.column > end_pos[1]:
+            break
         if token.kind == TokenKind.KEYWORD:
             continue # no keywords, like "public"
         elif token.kind == TokenKind.IDENTIFIER:
             t += token.spelling
-        elif token.spelling in punctuation_dict and token.kind == TokenKind.PUNCTUATION:
-            t += punctuation_dict[token.spelling]
+        elif token.spelling in punctuation_translator and token.kind == TokenKind.PUNCTUATION:
+            t += punctuation_translator[token.spelling]
         else:
             t += token.spelling # TODO??
             t += "#"
@@ -71,14 +89,28 @@ def arg_nonmatching(cursor):
     return [", ".join([string_for_cursor(c) for c in args]),]
 
 def args(cursor):
-    return ["ARGS...",]
+    a = []
+    if (cursor.kind == CursorKind.CONSTRUCTOR or (cursor.kind == 
+                    CursorKind.CXX_METHOD and not cursor.is_static_method())):
+        a.append("self")
+    for child in cursor.get_children():
+        if not child.kind == CursorKind.PARM_DECL:
+            continue
+        a.append(child.spelling)
+    return "(" + ", ".join(a) + ")"
 
 def bases(class_cursor):
     bases = []
     for c in class_cursor.get_children():
         if c.kind == CursorKind.CXX_BASE_SPECIFIER:
             bases.append(c)
-    args = ", ".join([string_for_cursor(b) for b in bases])
+    arg_list = []
+    for b in bases:
+        base_name = ""
+        for child in all_nodes(b):
+            base_name += string_for_cursor(child)
+        arg_list.append(base_name)
+    args = ", ".join(arg_list)
     if len(bases) < 1:
         args = "object"
     yield "(" + args + ")"
@@ -163,6 +195,15 @@ def ctor_init(cursor):
             result += field+".__init__(self, "+value+")"
         result += "\n"
     return result
+
+def ctor_nodes(cursor):
+    "Avoid child nodes that cause trouble for constructor"
+    for child in cursor.get_children():
+        if child.kind == CursorKind.MEMBER_REF:
+            continue
+        if child.kind == CursorKind.CALL_EXPR:
+            continue
+        yield child
 
 def debug(cursor):
     yield cursor.kind
@@ -254,6 +295,14 @@ def non_first_nodes(cursor):
             continue
         yield child
     
+
+def show_whole_structure(cursor, my_indent=indent_level):
+    result = " "*my_indent + "%s:%s\n" % (cursor.kind, cursor.spelling)
+    for child in cursor.get_children():
+        result += show_whole_structure(child, my_indent + 4)
+    return result
+
+    
 def spelling(cursor):
     return cursor.spelling    
 
@@ -271,13 +320,23 @@ def token_precedes(token, line1, col1):
         return True
     else:
         return False
-    
+
+
+def translate_method(cursor):
+    if cursor.spelling in method_translator:
+        return method_translator[cursor.spelling]
+    return cursor.spelling
+
+ 
 def translate_token(token):
     if token.kind == TokenKind.PUNCTUATION:
-        if token.spelling in punctuation_dict:
-            return punctuation_dict[token.spelling]
+        if token.spelling in punctuation_translator:
+            return punctuation_translator[token.spelling]
+    if token.kind == TokenKind.KEYWORD:
+        if token.spelling in keyword_translator:
+            return keyword_translator[token.spelling]
     return token.spelling
-    
+
 def translate_tokens(tokens):
     result = ""
     for t in tokens:
@@ -288,26 +347,27 @@ default_sequence = [indent, "**", kind, ":", spelling, ":", displayname, "\n", i
 # 
 cursor_sequence = {
     CursorKind.CALL_EXPR: [matching_child, "(", arg_nonmatching, ")"],
-    CursorKind.CLASS_DECL: [indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent],
+    CursorKind.CLASS_DECL: ["\n", indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent],
     CursorKind.COMPOUND_STMT: [all_nodes], 
-    CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ctor_init, all_nodes, ":\n"],
+    CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ":\n", inc_indent, ctor_init, ctor_nodes, dec_indent, "\n"],
     CursorKind.CXX_ACCESS_SPEC_DECL: [all_nodes], # Don't care about "public:" in python...
-    CursorKind.CXX_BASE_SPECIFIER: [all_nodes],
-    # CursorKind.CXX_METHOD: [all_nodes],
+    CursorKind.CXX_BASE_SPECIFIER: [], # Handled in CLASS_DECL
+    CursorKind.CXX_METHOD: [indent, "def ", translate_method, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
     CursorKind.DECL_REF_EXPR: [spelling, all_nodes], # TODO not sure about the all_nodes...
     CursorKind.DECL_STMT: [indent, all_nodes, "\n"],
     # CursorKind.FIELD_DECL: [],
-    # CursorKind.FUNCTION_DECL: [], # [indent, "def ", spelling, args, ":\n"], # TODO
+    # CursorKind.FUNCTION_DECL: [], # [indent, "def ", spelling, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"], # TODO
     CursorKind.IF_STMT: [indent, "if ", first_node, ":\n", inc_indent, non_first_nodes, dec_indent, "\n"],
     CursorKind.INTEGER_LITERAL: [first_token],
     CursorKind.MEMBER_REF_EXPR: [all_nodes, ".", spelling],
     # CursorKind.MEMBER_REF: [".", spelling],
     CursorKind.NAMESPACE_REF: [spelling, ".", all_nodes],
-    # CursorKind.PARM_DECL: [spelling, all_nodes],
+    CursorKind.PARM_DECL: [],
     CursorKind.RETURN_STMT: [indent, "return ", all_nodes, "\n"],
     CursorKind.TRANSLATION_UNIT: [filter_by_file],
     CursorKind.TYPE_REF: [py_type, all_nodes],
     CursorKind.UNEXPOSED_EXPR: [all_nodes],
+    CursorKind.VAR_DECL: [spelling, " = ", all_nodes],
 }
 
 def string_for_cursor(cursor):
