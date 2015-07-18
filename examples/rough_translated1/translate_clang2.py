@@ -13,6 +13,7 @@ punctuation_dict = {
     '::': '.',
     '{': '',
     '}': '',
+    ',': ', '
 }
 
 # Conversion from C++ to python
@@ -82,6 +83,87 @@ def bases(class_cursor):
         args = "object"
     yield "(" + args + ")"
 
+def ctor_init(cursor):
+    "parse out initializers, if any, from constructor"
+    # Don't look after first child item
+    first_pos = [cursor.extent.start.line, cursor.extent.start.column]
+    last_pos = [cursor.extent.end.line, cursor.extent.end.column]
+    parsed_members = list()
+    for c in cursor.get_children():
+        if c.kind == CursorKind.PARM_DECL: # go past constructor arguments
+            first_pos = [c.extent.end.line, c.extent.end.column+1]
+            continue
+        if c.kind == CursorKind.MEMBER_REF: # but take note of member initializers
+            parsed_members.append(c)
+            continue
+        if c.kind == CursorKind.CALL_EXPR: # and the second part of the initializer
+            continue
+        # First generic child found, probably COMPOUND_STMT. Stop searching before this point
+        last_pos = [c.location.line, c.location.column - 1]
+        break
+    found_colon = False
+    paren_level = 0
+    initializers = []
+    for t in cursor.get_tokens():
+        if t.location.line < first_pos[0]:
+            continue
+        if t.location.line > last_pos[0]:
+            break
+        if t.location.line == first_pos[0] and t.location.column < first_pos[1]:
+            continue
+        if t.location.line == last_pos[0] and t.location.column > last_pos[1]:
+            break
+        if not found_colon and t.kind == TokenKind.PUNCTUATION and t.spelling == ":":
+            found_colon = True
+            initializers.append([])
+            continue
+        if not found_colon:
+            continue
+        # inside parentheses, anything can happen, without advancing to the next initializer
+        if t.kind == TokenKind.PUNCTUATION and t.spelling == "(":
+            paren_level += 1
+        if t.kind == TokenKind.PUNCTUATION and t.spelling == ")":
+            paren_level -= 1
+        # Commas signal separate initializers
+        if paren_level == 0 and t.kind == TokenKind.PUNCTUATION and t.spelling == ",":
+            initializers.append([])
+            continue
+        # If we get this far, the current token belongs in the current intializier
+        initializers[-1].append(t)
+    result = ""
+    # Emit one initializer per line
+    for i in initializers:
+        if len(i) < 1:
+            continue
+        result += indent(cursor)
+        # Separate stuff before parentheses from after parentheses
+        if i[-1].spelling != ")":
+            print i[-1].kind, i[-1].spelling
+            raise Exception("Hey!, I expected a parenthesis there!")
+        # find first parenthesis
+        pre_paren = []
+        in_paren = []
+        found_paren = False
+        for tok in i[:-1]:
+            if not found_paren and tok.spelling == "(":
+                found_paren = True
+                continue
+            if found_paren:
+                in_paren.append(tok)
+            else:
+                pre_paren.append(tok)
+        field = translate_tokens(pre_paren)
+        value = translate_tokens(in_paren)
+        # Is it a field or a base initializer?
+        if (field in [c.spelling for c in parsed_members]):
+            # Field initializer
+            result += "self."+field+" = "+value
+        else:
+            # Assume base class initializer
+            result += field+".__init__(self, "+value+")"
+        result += "\n"
+    return result
+
 def debug(cursor):
     yield cursor.kind
 
@@ -120,6 +202,50 @@ def indent(cursor):
 def kind(cursor):
     return str(cursor.kind)
 
+
+def matching_child(cursor):
+    for c in cursor.get_children():
+        if c.spelling == cursor.spelling:
+            yield c
+    
+    
+def nodes_and_tokens(cursor):
+    children = cursor.get_children()
+    tokens = cursor.get_tokens()
+    try:
+        t = tokens.next()
+    except StopIteration:
+        t = None
+    for c in children:
+        # Emit tokens preceding child
+        l1 = c.extent.start.line
+        c1 = c.extent.start.column
+        while token_precedes(t, l1, c1):
+            yield string_for_token(t)
+            try:
+                t = tokens.next()        
+            except StopIteration:
+                t = None
+        yield c
+        # Discard tokens inside child
+        l1 = c.extent.end.line
+        c1 = c.extent.end.column + 1
+        while token_precedes(t, l1, c1):
+            try:
+                t = tokens.next()        
+            except StopIteration:
+                t = None
+        l0 = l1
+        c0 = c1
+    l1 = cursor.extent.end.line
+    c1 = cursor.extent.end.column + 1
+    while token_precedes(t, l1, c1):
+        yield string_for_token(t)
+        try:
+            t = tokens.next()        
+        except StopIteration:
+            t = None
+
 def non_first_nodes(cursor):
     saw_first = False
     for child in cursor.get_children():
@@ -128,13 +254,35 @@ def non_first_nodes(cursor):
             continue
         yield child
     
-def matching_child(cursor):
-    for c in cursor.get_children():
-        if c.spelling == cursor.spelling:
-            yield c
-    
 def spelling(cursor):
     return cursor.spelling    
+
+
+def string_for_token(token):
+    return "%s'%s'" % (token.kind, token.spelling)
+    
+    
+def token_precedes(token, line1, col1):
+    if token is None:
+        return False
+    if token.location.line < line1:
+        return True
+    elif token.location.line == line1 and token.location.column < col1:
+        return True
+    else:
+        return False
+    
+def translate_token(token):
+    if token.kind == TokenKind.PUNCTUATION:
+        if token.spelling in punctuation_dict:
+            return punctuation_dict[token.spelling]
+    return token.spelling
+    
+def translate_tokens(tokens):
+    result = ""
+    for t in tokens:
+        result += translate_token(t)
+    return result
 
 default_sequence = [indent, "**", kind, ":", spelling, ":", displayname, "\n", inc_indent, all_nodes, dec_indent]
 # 
@@ -142,7 +290,7 @@ cursor_sequence = {
     CursorKind.CALL_EXPR: [matching_child, "(", arg_nonmatching, ")"],
     CursorKind.CLASS_DECL: [indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent],
     CursorKind.COMPOUND_STMT: [all_nodes], 
-    # CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ":\n"],
+    CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ctor_init, all_nodes, ":\n"],
     CursorKind.CXX_ACCESS_SPEC_DECL: [all_nodes], # Don't care about "public:" in python...
     CursorKind.CXX_BASE_SPECIFIER: [all_nodes],
     # CursorKind.CXX_METHOD: [all_nodes],
