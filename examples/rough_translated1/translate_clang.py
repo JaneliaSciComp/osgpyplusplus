@@ -38,6 +38,10 @@ def py_type(cursor):
             # print token.kind, token.spelling # TODO
     return t
 
+def dump_tokens(cursor):
+    for token in cursor.get_tokens():
+        print token.kind, token.spelling, token.location.line, token.location.column
+
 
 class CppBlock(object):
     "Base class for parsed C++ AST tree elements, to be translated to python"
@@ -45,8 +49,10 @@ class CppBlock(object):
         self.cursor = cursor
         self.contents = list()
         self.next_indent = INDENT_SIZE
+        child_ix = 0
         for c in cursor.get_children():
-            n = self.handle_child(c)
+            n = self.handle_child(c, child_ix)
+            child_ix += 1
             if n is None:
                 pass
             else:
@@ -66,11 +72,19 @@ class CppBlock(object):
         result += self.gen_footer_fragment(indent)
         return result
 
-    def handle_child(self, child):
+    def handle_child(self, child, child_ix):
         if False:
             pass
         elif child.kind == CursorKind.COMPOUND_STMT:
             return CppCompoundStatement(child)
+        elif child.kind == CursorKind.CALL_EXPR:
+            return CppCallExpression(child)
+        elif child.kind == CursorKind.DECL_STMT:
+            return CppStatement(child)
+        elif child.kind == CursorKind.RETURN_STMT:
+            return CppReturnStatement(child)
+        elif child.kind == CursorKind.MEMBER_REF_EXPR:
+            return CppMemberRefExpression(child)
         return CppUnhandledNode(child)
 
 
@@ -90,12 +104,12 @@ class CppParammed(CppBlock):
             py_string += ", ".join(params1)
         return py_string
 
-    def handle_child(self, child):
+    def handle_child(self, child, child_ix):
         if child.kind == CursorKind.PARM_DECL:
             self.params.append(child)
             return None
         else:
-            return CppBlock.handle_child(self, child)
+            return CppBlock.handle_child(self, child, child_ix)
 
 
 class CppBaseMethod(CppParammed):
@@ -105,6 +119,21 @@ class CppBaseMethod(CppParammed):
     def gen_footer_fragment(self, indent):
         return " "*indent + "\n" # Extra newline after methods
 
+
+class CppCallExpression(CppBlock):
+    def __init__(self, cursor):
+        super(CppCallExpression, self).__init__(cursor)
+        self.next_indent = 0 # no indentation inside compound statement
+
+    def gen_py_fragment(self, indent):
+        if len(self.contents) < 1:
+            return "\nEMPTY_CALL?!"
+        args = ""
+        if len(self.contents) > 1:
+            args = ", ".join([a.gen_py_fragment(indent) for a in self.contents[1:]])
+        result = self.contents[0].gen_py_fragment(indent) + "(" + args + ")"
+        return result
+    
 
 class CppCompoundStatement(CppBlock):
     def __init__(self, cursor):
@@ -124,13 +153,13 @@ class CppConstructor(CppBaseMethod):
         # TODO parent constructor
         return py_string
 
-    def handle_child(self, child):
+    def handle_child(self, child, child_ix):
         if child.kind == CursorKind.MEMBER_REF:
             return CppFieldLInit(child)
         elif child.kind == CursorKind.CALL_EXPR:
             return CppFieldRInit(child)
         else:
-            return CppBaseMethod.handle_child(self, child)
+            return CppBaseMethod.handle_child(self, child, child_ix)
 
 
 class CppClass(CppBlock):
@@ -156,7 +185,7 @@ class CppClass(CppBlock):
             result += f.gen_py_fragment(indent + 4)
         return result
 
-    def handle_child(self, child):
+    def handle_child(self, child, child_ix):
         if False:
             pass
         elif child.kind == CursorKind.CONSTRUCTOR:
@@ -206,6 +235,15 @@ class CppFunction(CppBaseMethod):
         py_string += self.gen_param_fragment()
         py_string += "):\n"
         return py_string
+
+
+class CppMemberRefExpression(CppBlock):
+    def __init__(self, cursor):
+        super(CppMemberRefExpression, self).__init__(cursor)
+        self.next_indent = 0
+        
+    def gen_footer_fragment(self, indent):
+        return "." + self.cursor.spelling
 
 
 class CppMethod(CppBaseMethod):
@@ -289,7 +327,7 @@ class CppSourceFile(CppBlock):
             result += "\n" # one blank line after imports
         return result
 
-    def handle_child(self, child):
+    def handle_child(self, child, child_ix):
         # Only parse things found in this file
         if str(child.location.file).strip() != self.main_file:
             return None
@@ -298,7 +336,27 @@ class CppSourceFile(CppBlock):
         elif child.kind == CursorKind.FUNCTION_DECL:
             return CppFunction(child)
         else:
-            return CppBlock.handle_child(self, child)
+            return CppBlock.handle_child(self, child, child_ix)
+
+
+class CppStatement(CppBlock):
+    def __init__(self, cursor):
+        super(CppStatement, self).__init__(cursor)
+        self.next_indent = 0
+    
+    def gen_footer_fragment(self, indent):
+        return "\n" # end statement with a newline
+    
+    def gen_header_fragment(self, indent):
+        return " "*indent # begin statement with indentation
+
+
+class CppReturnStatement(CppStatement):
+    def __init__(self, cursor):
+        super(CppReturnStatement, self).__init__(cursor)
+    
+    def gen_header_fragment(self, indent):
+        return " "*indent + "return " # begin statement with indentation
 
 
 class CppUnhandledNode(CppBlock):
@@ -308,17 +366,20 @@ class CppUnhandledNode(CppBlock):
 
     def gen_header_fragment(self, indent):
         child = self.cursor
+        return "%s[%s]" % (child.spelling, child.kind)
         return "%s!!! *** Unrecognized node type %s %s %s\n" % (
             " "*indent,
             child.kind, 
             child.spelling, 
             child.displayname)
 
-
-if __name__ == "__main__":
+def main():
     examples_src = "C:/Users/cmbruns/git/osg/examples"
     osg_includes = "C:/Users/cmbruns/git/osg/include"
     src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
     src_obj = CppSourceFile(src_file, args=["-I%s"%osg_includes, 'c++'] )
     print src_obj.gen_py_fragment(0)
 
+
+if __name__ == "__main__":
+    main()
