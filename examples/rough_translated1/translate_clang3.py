@@ -2,8 +2,9 @@
 
 # Module to help convert OpenSceneGraph C++ examples to python
 
-import sys
 import re
+import textwrap
+
 import clang.cindex
 from clang.cindex import CursorKind, TokenKind
 
@@ -99,6 +100,15 @@ class CursorNibble(LocationComparable):
                 continue
             yield TokenNibble(token)
         
+    def get_namespaces(self):
+        "enumerate all namespaces, such as 'osg::', used in this file, to help enumerate python imports"
+        ns = set()
+        if self.cursor.kind == CursorKind.NAMESPACE_REF:
+            yield self.cursor
+        for child in self.get_child_cursors():
+            for ns in child.get_namespaces():
+                yield ns
+        
     def get_py_strings(self):
         for nibble in self.get_child_nibbles():
             for py_string in nibble.get_py_strings():
@@ -154,15 +164,37 @@ class TranslatedPyProgram():
             self.tus.append(TranslationUnit(src_file=s, args=args, indent=indent))
             
     def get_py_strings(self):
-        yield """\
-#!/bin/env python
-
-# This is an OpenSceneGraph example program, automatically translated from C++ into python
-
-"""
+        # Top header
+        yield textwrap.dedent("""\
+        #!/bin/env python
+        
+        # This is an OpenSceneGraph example program, automatically translated from C++ into python
+        
+        import sys
+        
+        """)
+        # osg import statements
+        osg_imports = set()
+        for tu in self.tus:
+            for namespace in tu.get_namespaces():
+                ns = str(namespace.spelling)
+                if ns.startswith("osg"):
+                    osg_imports.add(ns)
+        if len(osg_imports) > 0:
+            for imp in sorted(osg_imports):
+                yield "from osgpypp import %s\n" % imp
+            yield "\n" # blank line after third party imports
+        # Main program text
         for tu in self.tus:
             for s in tu.get_py_strings():
                 yield s
+        # Bottom footer
+        yield textwrap.dedent("""\
+        
+        if __name__ == '__main__':
+            main(sys.argv)
+        
+        """)
 
 
 class TranslationUnit(CursorNibble):
@@ -172,6 +204,11 @@ class TranslationUnit(CursorNibble):
         self.tu = index.parse(src_file, args=args)
         self.main_file = str(self.tu.spelling)
         CursorNibble.__init__(self, self.tu.cursor, file_filter=self.main_file)
+        
+    def get_py_strings(self):
+        # TODO - translation unit header
+        for string in CursorNibble.get_py_strings(self):
+            yield string
 
 
 def location(nibble):
@@ -605,10 +642,11 @@ def token_punctuation(token, indent=0):
 
 def token_comment(token, indent=0):
     c = str(token.spelling)
+    i = " "*indent
     if c.startswith("/*"):
         c = re.sub(r"^/\*", "##", c)
         c = re.sub(r"\*/$", "##", c)
-        c = re.sub(r"\n", "\n#", c)
+        c = re.sub(r"\n", "%s\n#" % (i), c)
     elif c.startswith("//"):
         c = re.sub(r"^//", "##", c)
     else:
