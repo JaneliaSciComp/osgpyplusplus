@@ -144,6 +144,7 @@ sub translate_source_file {
         my $type = $3;
         my $ident = $4;
         my $init = $6;
+        next if $type =~ m/^return$/;
         # We will remove the semicolon later
         my $py_dec = "$indent$ident = $type$init;";
         # print $cpp_dec, "\n";
