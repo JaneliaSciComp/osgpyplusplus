@@ -15,6 +15,8 @@ punctuation_translator = {
     '}': '',
     ',': ', ',
     '&': '',
+    ';': '',
+    '=': ' = ',
 }
 
 keyword_translator = {
@@ -338,7 +340,8 @@ def spelling(cursor):
 
 
 def string_for_token(token):
-    return "%s'%s'" % (token.kind, token.spelling)
+    # return "%s'%s'" % (token.kind, token.spelling)
+    return translate_token(token)
     
     
 def token_precedes(token, line1, col1):
@@ -383,8 +386,9 @@ cursor_sequence = {
     CursorKind.CXX_ACCESS_SPEC_DECL: [all_nodes], # Don't care about "public:" in python...
     CursorKind.CXX_BASE_SPECIFIER: [], # Handled in CLASS_DECL
     CursorKind.CXX_METHOD: [indent, "def ", translate_method, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
+    CursorKind.CXX_NEW_EXPR: [spelling],
     CursorKind.DECL_REF_EXPR: [spelling, all_nodes], # TODO not sure about the all_nodes...
-    CursorKind.DECL_STMT: [all_nodes],
+    CursorKind.DECL_STMT: [nodes_and_tokens],
     CursorKind.FIELD_DECL: [],
     CursorKind.FUNCTION_DECL: [indent, "def ", spelling, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
     CursorKind.IF_STMT: ["if ", first_node, ":\n", inc_indent, indent, non_first_nodes, dec_indent],
@@ -424,7 +428,7 @@ def main():
     osg_includes = "C:/Users/cmbruns/git/osg/include"
     src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
     index = clang.cindex.Index.create()
-    translation_unit = index.parse(src_file, args=["-I%s"%osg_includes, 'c++'])
+    translation_unit = index.parse(src_file, args=["-I%s"%osg_includes, '-x', 'c++', '-D__CODE_GENERATOR__'])
     global main_file
     main_file = str(translation_unit.spelling)
     print string_for_cursor(translation_unit.cursor)
