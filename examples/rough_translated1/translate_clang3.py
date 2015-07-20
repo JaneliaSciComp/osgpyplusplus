@@ -3,16 +3,62 @@
 # Module to help convert OpenSceneGraph C++ examples to python
 
 import sys
+import re
 import clang.cindex
 from clang.cindex import CursorKind, TokenKind
 
 
-class CursorNibble():
+class LocationComparable():
+    "Helper class to compare file locations of clang tokens and cursors"
+    def __init__(self, nibble):
+        self.line = int(nibble.location.line)
+        self.col = int(nibble.location.column)
+        
+    def __eq__(self, rhs):
+        return not self != rhs
+    
+    def __ne__(self, rhs):
+        if self.line != rhs.line:
+            return True
+        elif self.col != rhs.col:
+            return True
+        else:
+            return False
+        
+    def __lt__(self, rhs):
+        if self.line < rhs.line:
+            return True
+        elif self.line > rhs.line:
+            return False
+        elif self.col < rhs.col:
+            return True
+        else:
+            return False
+        
+    def __gt__(self, rhs):
+        if self.line > rhs.line:
+            return True
+        elif self.line < rhs.line:
+            return False
+        elif self.col > rhs.col:
+            return True
+        else:
+            return False
+        
+    def __le__(self, rhs):
+        return not self > rhs
+    
+    def __ge__(self, rhs):
+        return not self < rhs
+
+
+class CursorNibble(LocationComparable):
     """
     CursorNibble represents one node of a clang abstract syntax tree.
     Nibble represents a union of cursors and tokens
     """
     def __init__(self, cursor, file_filter=None):
+        LocationComparable.__init__(self, cursor)
         self.cursor = cursor
         self.file_filter = file_filter
         
@@ -38,17 +84,17 @@ class CursorNibble():
             elif t is None:
                 yield c
                 c = next(cg, None)
-            elif t.token.location < c.cursor.extent.start: # orphan token
+            elif t < c: # orphan token
                 yield t # orphan
                 t = next(tg, None)
-            elif t.token.location <= c.cursor.extent.end: # token internal to child cursor
+            elif t <= c: # token internal to child cursor
                 t = next(tg, None) # consume without emitting
             else: # child cursor after internal tokens exhausted
                 yield c
                 c = next(cg, None)
         
     def get_child_tokens(self):
-        for token in self.cursor.get_tokens():
+        for token in sorted(list(self.cursor.get_tokens()), key=comparable_location):
             if self.file_filter is not None and str(token.location.file) != self.file_filter:
                 continue
             yield TokenNibble(token)
@@ -57,12 +103,21 @@ class CursorNibble():
         for nibble in self.get_child_nibbles():
             for py_string in nibble.get_py_strings():
                 yield py_string
+                
+    kind = property(lambda self: self.cursor.kind)
+    location = property(lambda self: self.cursor.location)
+    spelling = property(lambda self: self.cursor.spelling)
+
+
+def comparable_location(nibble):
+    return LocationComparable(nibble)
 
 
 # Nibble is union of tokens and cursors
-class TokenNibble():
+class TokenNibble(LocationComparable):
     "A Token is a small chunk of C++ source code text, lexically parsed by clang"
     def __init__(self, token):
+        LocationComparable.__init__(self, token)
         self.token = token
         
     def get_child_cursors(self):
@@ -75,8 +130,17 @@ class TokenNibble():
         return # nothing
         
     def get_py_strings(self):
-        # TODO - actually translate tokens into python
-        return str(self.token.spelling)
+        if self.kind in rules:
+            for item in rules[self.kind]:
+                # Could be string_generator or ...
+                for string in item(self):
+                    yield string
+        else:
+            yield self.spelling
+    
+    kind = property(lambda self: self.token.kind)
+    location = property(lambda self: self.token.location)
+    spelling = property(lambda self: self.token.spelling)
 
 
 class TranslatedPyProgram():
@@ -90,6 +154,12 @@ class TranslatedPyProgram():
             self.tus.append(TranslationUnit(src_file=s, args=args, indent=indent))
             
     def get_py_strings(self):
+        yield """\
+#!/bin/env python
+
+# This is an OpenSceneGraph example program, automatically translated from C++ into python
+
+"""
         for tu in self.tus:
             for s in tu.get_py_strings():
                 yield s
@@ -104,17 +174,21 @@ class TranslationUnit(CursorNibble):
         CursorNibble.__init__(self, self.tu.cursor, file_filter=self.main_file)
 
 
+def location(nibble):
+    return nibble.location
+
+
 INDENT_SIZE = 4
 
 # Conversion from C++ to python
 punctuation_translator = {
     '->': '.',
     '::': '.',
-    '{': '',
-    '}': '',
+    '{': '\n',
+    '}': '\n',
     ',': ', ',
     '&': '',
-    ';': '',
+    ';': '\n',
     '=': ' = ',
 }
 
@@ -522,6 +596,33 @@ def string_for_cursor(cursor):
     return result
     
 
+def token_punctuation(token, indent=0):
+    if token.spelling in punctuation_translator:
+        yield punctuation_translator[token.spelling]
+    else:
+        yield token.spelling
+
+
+def token_comment(token, indent=0):
+    c = str(token.spelling)
+    if c.startswith("/*"):
+        c = re.sub(r"^/\*", "##", c)
+        c = re.sub(r"\*/$", "##", c)
+        c = re.sub(r"\n", "\n#", c)
+    elif c.startswith("//"):
+        c = re.sub(r"^//", "##", c)
+    else:
+        raise "Unexpected comment %s" % token.spelling
+    c += "\n"
+    yield c
+    
+    
+rules = {
+    TokenKind.COMMENT: [token_comment],
+    TokenKind.PUNCTUATION: [token_punctuation],
+    }
+
+
 def main():
     osg_src_dir = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/"
     examples_src = osg_src_dir + "examples/"
@@ -530,15 +631,10 @@ def main():
 
     args = ["-I%s"%osg_includes, '-x', 'c++', '-D__CODE_GENERATOR__']
     translated_program = TranslatedPyProgram([src_file,], args=args)
+    py_prog = ""
     for s in translated_program.get_py_strings():
-        sys.stdout.write(s)
-    print
-    
-    index = clang.cindex.Index.create()
-    translation_unit = index.parse(src_file, args=args)
-    global main_file
-    main_file = str(translation_unit.spelling)
-    print string_for_cursor(translation_unit.cursor)
+        py_prog += s
+    print py_prog
 
 
 if __name__ == "__main__":
