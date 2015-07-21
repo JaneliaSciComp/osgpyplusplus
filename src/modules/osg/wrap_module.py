@@ -583,8 +583,14 @@ class OsgWrapper(BaseWrapper):
         camera = self.mb.class_("Camera")
         dc = camera.class_("DrawCallback")
         expose_ref_ptr_class(dc)
-        dc.constructors().exclude()
-        dc.exclude()
+        dc.constructors(arg_types=[None, None]).exclude() # copy-ish constructor
+        # C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osg::Camera::~Camera' : cannot access protected member declared in class 'osg::Camera'
+        # virtual void operator() (const osg::Camera & arg0) const 
+        call_op = dc.member_operators("operator()")[1] # Is it always the second "operator()"?
+        call_op.exclude()
+        # call_op.add_transformation(FT.modify_type("arg0", remove_const_from_reference))
+        # call_op.transformations[-1].alias = "__call__"
+        # dc.exclude()
     
     def wrap_node(self):
         cls = self.mb.class_("Node")

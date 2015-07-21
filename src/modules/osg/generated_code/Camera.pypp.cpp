@@ -9,6 +9,173 @@ namespace bp = boost::python;
 
 struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
 
+    struct DrawCallback_wrapper : osg::Camera::DrawCallback, bp::wrapper< osg::Camera::DrawCallback > {
+    
+        DrawCallback_wrapper( )
+        : osg::Camera::DrawCallback( )
+          , bp::wrapper< osg::Camera::DrawCallback >(){
+            // null constructor
+        
+        }
+    
+        virtual char const * className(  ) const  {
+            if( bp::override func_className = this->get_override( "className" ) )
+                return func_className(  );
+            else{
+                return this->osg::Camera::DrawCallback::className(  );
+            }
+        }
+        
+        char const * default_className(  ) const  {
+            return osg::Camera::DrawCallback::className( );
+        }
+    
+        virtual ::osg::Object * clone( ::osg::CopyOp const & copyop ) const  {
+            if( bp::override func_clone = this->get_override( "clone" ) )
+                return func_clone( boost::ref(copyop) );
+            else{
+                return this->osg::Camera::DrawCallback::clone( boost::ref(copyop) );
+            }
+        }
+        
+        ::osg::Object * default_clone( ::osg::CopyOp const & copyop ) const  {
+            return osg::Camera::DrawCallback::clone( boost::ref(copyop) );
+        }
+    
+        virtual ::osg::Object * cloneType(  ) const  {
+            if( bp::override func_cloneType = this->get_override( "cloneType" ) )
+                return func_cloneType(  );
+            else{
+                return this->osg::Camera::DrawCallback::cloneType(  );
+            }
+        }
+        
+        ::osg::Object * default_cloneType(  ) const  {
+            return osg::Camera::DrawCallback::cloneType( );
+        }
+    
+        virtual bool isSameKindAs( ::osg::Object const * obj ) const  {
+            if( bp::override func_isSameKindAs = this->get_override( "isSameKindAs" ) )
+                return func_isSameKindAs( boost::python::ptr(obj) );
+            else{
+                return this->osg::Camera::DrawCallback::isSameKindAs( boost::python::ptr(obj) );
+            }
+        }
+        
+        bool default_isSameKindAs( ::osg::Object const * obj ) const  {
+            return osg::Camera::DrawCallback::isSameKindAs( boost::python::ptr(obj) );
+        }
+    
+        virtual char const * libraryName(  ) const  {
+            if( bp::override func_libraryName = this->get_override( "libraryName" ) )
+                return func_libraryName(  );
+            else{
+                return this->osg::Camera::DrawCallback::libraryName(  );
+            }
+        }
+        
+        char const * default_libraryName(  ) const  {
+            return osg::Camera::DrawCallback::libraryName( );
+        }
+    
+        virtual void operator()( ::osg::RenderInfo & renderInfo ) const  {
+            if( bp::override func___call__ = this->get_override( "__call__" ) )
+                func___call__( boost::ref(renderInfo) );
+            else{
+                this->osg::Camera::DrawCallback::operator()( boost::ref(renderInfo) );
+            }
+        }
+        
+        void default___call__( ::osg::RenderInfo & renderInfo ) const  {
+            osg::Camera::DrawCallback::operator()( boost::ref(renderInfo) );
+        }
+    
+        virtual void computeDataVariance(  ) {
+            if( bp::override func_computeDataVariance = this->get_override( "computeDataVariance" ) )
+                func_computeDataVariance(  );
+            else{
+                this->osg::Object::computeDataVariance(  );
+            }
+        }
+        
+        void default_computeDataVariance(  ) {
+            osg::Object::computeDataVariance( );
+        }
+    
+        virtual ::osg::Referenced * getUserData(  ) {
+            if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+                return func_getUserData(  );
+            else{
+                return this->osg::Object::getUserData(  );
+            }
+        }
+        
+        ::osg::Referenced * default_getUserData(  ) {
+            return osg::Object::getUserData( );
+        }
+    
+        virtual ::osg::Referenced const * getUserData(  ) const  {
+            if( bp::override func_getUserData = this->get_override( "getUserData" ) )
+                return func_getUserData(  );
+            else{
+                return this->osg::Object::getUserData(  );
+            }
+        }
+        
+        ::osg::Referenced const * default_getUserData(  ) const  {
+            return osg::Object::getUserData( );
+        }
+    
+        virtual void resizeGLObjectBuffers( unsigned int arg0 ) {
+            if( bp::override func_resizeGLObjectBuffers = this->get_override( "resizeGLObjectBuffers" ) )
+                func_resizeGLObjectBuffers( arg0 );
+            else{
+                this->osg::Object::resizeGLObjectBuffers( arg0 );
+            }
+        }
+        
+        void default_resizeGLObjectBuffers( unsigned int arg0 ) {
+            osg::Object::resizeGLObjectBuffers( arg0 );
+        }
+    
+        virtual void setName( ::std::string const & name ) {
+            if( bp::override func_setName = this->get_override( "setName" ) )
+                func_setName( name );
+            else{
+                this->osg::Object::setName( name );
+            }
+        }
+        
+        void default_setName( ::std::string const & name ) {
+            osg::Object::setName( name );
+        }
+    
+        virtual void setThreadSafeRefUnref( bool threadSafe ) {
+            if( bp::override func_setThreadSafeRefUnref = this->get_override( "setThreadSafeRefUnref" ) )
+                func_setThreadSafeRefUnref( threadSafe );
+            else{
+                this->osg::Object::setThreadSafeRefUnref( threadSafe );
+            }
+        }
+        
+        void default_setThreadSafeRefUnref( bool threadSafe ) {
+            osg::Object::setThreadSafeRefUnref( threadSafe );
+        }
+    
+        virtual void setUserData( ::osg::Referenced * obj ) {
+            if( bp::override func_setUserData = this->get_override( "setUserData" ) )
+                func_setUserData( boost::python::ptr(obj) );
+            else{
+                this->osg::Object::setUserData( boost::python::ptr(obj) );
+            }
+        }
+        
+        void default_setUserData( ::osg::Referenced * obj ) {
+            osg::Object::setUserData( boost::python::ptr(obj) );
+        }
+    
+    };
+
     Camera_wrapper( )
     : osg::Camera( )
       , bp::wrapper< osg::Camera >(){
@@ -577,6 +744,75 @@ void register_Camera_class(){
             .def_readwrite( "_multisampleColorSamples", &osg::Camera::Attachment::_multisampleColorSamples )    
             .def_readwrite( "_multisampleSamples", &osg::Camera::Attachment::_multisampleSamples )    
             .def_readwrite( "_texture", &osg::Camera::Attachment::_texture );
+        bp::class_< Camera_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Camera::DrawCallback >, boost::noncopyable >( "DrawCallback", "\n Draw callback for custom operations.\n", bp::init< >("\n Draw callback for custom operations.\n") )    
+            .def( 
+                "className"
+                , (char const * ( ::osg::Camera::DrawCallback::* )(  )const)(&::osg::Camera::DrawCallback::className)
+                , (char const * ( Camera_wrapper::DrawCallback_wrapper::* )(  )const)(&Camera_wrapper::DrawCallback_wrapper::default_className) )    
+            .def( 
+                "clone"
+                , (::osg::Object * ( ::osg::Camera::DrawCallback::* )( ::osg::CopyOp const & )const)(&::osg::Camera::DrawCallback::clone)
+                , (::osg::Object * ( Camera_wrapper::DrawCallback_wrapper::* )( ::osg::CopyOp const & )const)(&Camera_wrapper::DrawCallback_wrapper::default_clone)
+                , ( bp::arg("copyop") )
+                , bp::return_value_policy< bp::reference_existing_object >() )    
+            .def( 
+                "cloneType"
+                , (::osg::Object * ( ::osg::Camera::DrawCallback::* )(  )const)(&::osg::Camera::DrawCallback::cloneType)
+                , (::osg::Object * ( Camera_wrapper::DrawCallback_wrapper::* )(  )const)(&Camera_wrapper::DrawCallback_wrapper::default_cloneType)
+                , bp::return_value_policy< bp::reference_existing_object >() )    
+            .def( 
+                "isSameKindAs"
+                , (bool ( ::osg::Camera::DrawCallback::* )( ::osg::Object const * )const)(&::osg::Camera::DrawCallback::isSameKindAs)
+                , (bool ( Camera_wrapper::DrawCallback_wrapper::* )( ::osg::Object const * )const)(&Camera_wrapper::DrawCallback_wrapper::default_isSameKindAs)
+                , ( bp::arg("obj") ) )    
+            .def( 
+                "libraryName"
+                , (char const * ( ::osg::Camera::DrawCallback::* )(  )const)(&::osg::Camera::DrawCallback::libraryName)
+                , (char const * ( Camera_wrapper::DrawCallback_wrapper::* )(  )const)(&Camera_wrapper::DrawCallback_wrapper::default_libraryName) )    
+            .def( 
+                "__call__"
+                , (void ( ::osg::Camera::DrawCallback::* )( ::osg::RenderInfo & )const)(&::osg::Camera::DrawCallback::operator())
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )( ::osg::RenderInfo & )const)(&Camera_wrapper::DrawCallback_wrapper::default___call__)
+                , ( bp::arg("renderInfo") ) )    
+            .def( 
+                "computeDataVariance"
+                , (void ( ::osg::Object::* )(  ))(&::osg::Object::computeDataVariance)
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )(  ))(&Camera_wrapper::DrawCallback_wrapper::default_computeDataVariance) )    
+            .def( 
+                "getUserData"
+                , (::osg::Referenced * ( ::osg::Object::* )(  ))(&::osg::Object::getUserData)
+                , (::osg::Referenced * ( Camera_wrapper::DrawCallback_wrapper::* )(  ))(&Camera_wrapper::DrawCallback_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() )    
+            .def( 
+                "getUserData"
+                , (::osg::Referenced const * ( ::osg::Object::* )(  )const)(&::osg::Object::getUserData)
+                , (::osg::Referenced const * ( Camera_wrapper::DrawCallback_wrapper::* )(  )const)(&Camera_wrapper::DrawCallback_wrapper::default_getUserData)
+                , bp::return_internal_reference< >() )    
+            .def( 
+                "resizeGLObjectBuffers"
+                , (void ( ::osg::Object::* )( unsigned int ))(&::osg::Object::resizeGLObjectBuffers)
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )( unsigned int ))(&Camera_wrapper::DrawCallback_wrapper::default_resizeGLObjectBuffers)
+                , ( bp::arg("arg0") ) )    
+            .def( 
+                "setName"
+                , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )( ::std::string const & ))(&Camera_wrapper::DrawCallback_wrapper::default_setName)
+                , ( bp::arg("name") ) )    
+            .def( 
+                "setName"
+                , (void ( ::osg::Object::* )( char const * ))( &::osg::Object::setName )
+                , ( bp::arg("name") )
+                , " Set the name of object using a C style string." )    
+            .def( 
+                "setThreadSafeRefUnref"
+                , (void ( ::osg::Object::* )( bool ))(&::osg::Object::setThreadSafeRefUnref)
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )( bool ))(&Camera_wrapper::DrawCallback_wrapper::default_setThreadSafeRefUnref)
+                , ( bp::arg("threadSafe") ) )    
+            .def( 
+                "setUserData"
+                , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
+                , (void ( Camera_wrapper::DrawCallback_wrapper::* )( ::osg::Referenced * ))(&Camera_wrapper::DrawCallback_wrapper::default_setUserData)
+                , ( bp::arg("obj") ) );
         Camera_exposer.def( bp::init< >("\n Camera - is a subclass of Transform which represents encapsulates the settings of a Camera.\n") );
         { //::osg::Camera::accept
         
