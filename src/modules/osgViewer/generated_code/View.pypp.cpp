@@ -432,17 +432,6 @@ void register_View_class(){
                 , bp::return_internal_reference< >() );
         
         }
-        { //::osgViewer::View::getCameraContainingPosition
-        
-            typedef ::osg::Camera const * ( ::osgViewer::View::*getCameraContainingPosition_function_type)( float,float,float &,float & ) const;
-            
-            View_exposer.def( 
-                "getCameraContainingPosition"
-                , getCameraContainingPosition_function_type( &::osgViewer::View::getCameraContainingPosition )
-                , ( bp::arg("x"), bp::arg("y"), bp::arg("local_x"), bp::arg("local_y") )
-                , bp::return_internal_reference< >() );
-        
-        }
         { //::osgViewer::View::getCameraManipulator
         
             typedef ::osgGA::CameraManipulator * ( ::osgViewer::View::*getCameraManipulator_function_type)(  ) ;

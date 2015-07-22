@@ -17,11 +17,13 @@ class OsgViewerWrapper(BaseWrapper):
         # Don't rewrap anything already wrapped by osg etc.
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         # For base classes to be properly referenced, we really need to register all of the dependencies...
+        # """
         self.mb.register_module_dependency('../osgText/generated_code/')
         self.mb.register_module_dependency('../osgUtil/generated_code/')
         self.mb.register_module_dependency('../osgGA/generated_code/')
         self.mb.register_module_dependency('../osgDB/generated_code/')
         self.mb.register_module_dependency('../osg/generated_code/')
+        # """
             
     def wrap(self):
         mb = self.mb
@@ -44,10 +46,29 @@ class OsgViewerWrapper(BaseWrapper):
         self.wrap_view()
         self.wrap_keystone()
         self.wrap_screencapturehandler()
+        
+        # Handles all remaining W1009 warnings.
+        # execution error W1009: The function takes as argument...
+        osgViewer.class_("GraphicsWindow").member_function(
+                "getWindowRectangle").add_transformation(
+                    FT.output("x"),
+                    FT.output("y"),
+                    FT.output("width"),
+                    FT.output("height"))
+        osgViewer.class_("GraphicsWindow").member_function(
+                "getSwapGroup").add_transformation(
+                    FT.output("on"),
+                    FT.output("group"),
+                    FT.output("barrier"))
+        osgViewer.class_("View").member_function(
+                "getCameraContainingPosition").exclude()
+                # .add_transformation(FT.output("local_x"), FT.output("local_y"))
+        osgViewer.class_("DepthPartitionSettings").member_function(
+                "getDepthRange").add_transformation(
+                    # FT.output("view"),
+                    FT.output("zNear"),
+                    FT.output("zFar"))
 
-        # Should not be needed, due to register_module_dependency...
-        # mb.namespace("osgGA").class_("GUIEventHandler").already_exposed = True
-            
         hide_nonpublic(mb)
         
         self.mb.build_code_creator(module_name='_osgViewer')
@@ -57,9 +78,16 @@ class OsgViewerWrapper(BaseWrapper):
 
     def wrap_screencapturehandler(self):
         cls = self.mb.class_("ScreenCaptureHandler")
-        cls.member_operators("operator()").exclude()
-        co = cls.class_("CaptureOperation")
+        # cls.member_operators("operator()").exclude()
+        # co = cls.class_("CaptureOperation")
         # co.exclude()
+        for cls_name in ["CaptureOperation", "WriteToFile", ]:
+            wtf = cls.class_(cls_name)
+            call_op = wtf.member_operator("operator()")
+            call_op.add_transformation(FT.modify_type("image", remove_const_from_reference))
+            xform = call_op.transformations[-1]
+            xform.alias = "__call__"
+            xform.unique_name = xform.unique_name.replace("operator()", "operator_call")
         
     def wrap_keystone(self):
         ks = self.mb.class_("Keystone")
@@ -75,6 +103,8 @@ class OsgViewerWrapper(BaseWrapper):
         vb.constructors().exclude()
         vb.noncopyable = True
         vb.no_init = True
+        vb.member_function("getWindows").add_transformation(FT.output("windows"))
+        vb.member_function("getViews").add_transformation(FT.output("views"))
         
     def wrap_view(self):
         cls = self.mb.namespace("osgViewer").class_("View")

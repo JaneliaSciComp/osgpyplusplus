@@ -585,11 +585,16 @@ class OsgWrapper(BaseWrapper):
         expose_ref_ptr_class(dc)
         dc.constructors(arg_types=[None, None]).exclude() # copy-ish constructor
         # C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osg::Camera::~Camera' : cannot access protected member declared in class 'osg::Camera'
-        # virtual void operator() (const osg::Camera & arg0) const 
+        # Offending method is virtual void osg::Camera::DrawCallback::operator() (const osg::Camera & arg0) const 
         call_op = dc.member_operators("operator()")[1] # Is it always the second "operator()"?
-        call_op.exclude()
-        # call_op.add_transformation(FT.modify_type("arg0", remove_const_from_reference))
-        # call_op.transformations[-1].alias = "__call__"
+        # call_op.exclude()
+        call_op.add_transformation(FT.modify_type("arg0", remove_const_from_reference))
+        call_op.transformations[-1].alias = "__call__"
+        # Parentheses in "operator()" cause compile error on generated function name
+        # TODO - need to rename wrapper class function name to not have "operator()" in it
+        fn_string = call_op.transformations[-1].unique_name
+        fn_string = fn_string.replace("operator()", "operator_call")
+        call_op.transformations[-1].unique_name = fn_string
         # dc.exclude()
     
     def wrap_node(self):

@@ -2,6 +2,10 @@
 
 #include "boost/python.hpp"
 
+#include "__convenience.pypp.hpp"
+
+#include "__call_policies.pypp.hpp"
+
 #include "indexing_suite/container_suite.hpp"
 
 #include "indexing_suite/vector.hpp"
