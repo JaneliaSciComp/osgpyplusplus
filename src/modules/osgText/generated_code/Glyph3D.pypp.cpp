@@ -32,7 +32,7 @@ struct Glyph3D_wrapper : osgText::Glyph3D, bp::wrapper< osgText::Glyph3D > {
 
 void register_Glyph3D_class(){
 
-    bp::class_< Glyph3D_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgText::Glyph3D >, boost::noncopyable >( "Glyph3D", bp::no_init )    
+    bp::class_< Glyph3D_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Glyph3D_wrapper >, boost::noncopyable >( "Glyph3D", bp::no_init )    
         .def( bp::init< osgText::Font *, unsigned int >(( bp::arg("font"), bp::arg("glyphCode") )) )    
         .def( 
             "getBoundingBox"

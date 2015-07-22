@@ -280,7 +280,7 @@ struct PolygonMode_wrapper : osg::PolygonMode, bp::wrapper< osg::PolygonMode > {
 void register_PolygonMode_class(){
 
     { //::osg::PolygonMode
-        typedef bp::class_< PolygonMode_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PolygonMode >, boost::noncopyable > PolygonMode_exposer_t;
+        typedef bp::class_< PolygonMode_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PolygonMode_wrapper >, boost::noncopyable > PolygonMode_exposer_t;
         PolygonMode_exposer_t PolygonMode_exposer = PolygonMode_exposer_t( "PolygonMode", "\n State Class for setting OpenGLs polygon culling mode.\n", bp::no_init );
         bp::scope PolygonMode_scope( PolygonMode_exposer );
         bp::enum_< osg::PolygonMode::Face>("Face")

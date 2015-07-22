@@ -301,7 +301,7 @@ struct VertexProgram_wrapper : osg::VertexProgram, bp::wrapper< osg::VertexProgr
 void register_VertexProgram_class(){
 
     { //::osg::VertexProgram
-        typedef bp::class_< VertexProgram_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::VertexProgram >, boost::noncopyable > VertexProgram_exposer_t;
+        typedef bp::class_< VertexProgram_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< VertexProgram_wrapper >, boost::noncopyable > VertexProgram_exposer_t;
         VertexProgram_exposer_t VertexProgram_exposer = VertexProgram_exposer_t( "VertexProgram", "\n VertexProgram - encapsulates the OpenGL ARB vertex program state.\n", bp::no_init );
         bp::scope VertexProgram_scope( VertexProgram_exposer );
         { //::osg::VertexProgram::Extensions

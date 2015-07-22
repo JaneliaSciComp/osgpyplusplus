@@ -116,7 +116,7 @@ struct GridConstraint_wrapper : osgManipulator::GridConstraint, bp::wrapper< osg
 
 void register_GridConstraint_class(){
 
-    bp::class_< GridConstraint_wrapper, bp::bases< osgManipulator::Constraint >, osg::ref_ptr< ::osgManipulator::GridConstraint >, boost::noncopyable >( "GridConstraint", "\n Constraint to snap motion commands to a sugar cube grid.\n", bp::no_init )    
+    bp::class_< GridConstraint_wrapper, bp::bases< osgManipulator::Constraint >, osg::ref_ptr< GridConstraint_wrapper >, boost::noncopyable >( "GridConstraint", "\n Constraint to snap motion commands to a sugar cube grid.\n", bp::no_init )    
         .def( bp::init< osg::Node &, osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("refNode"), bp::arg("origin"), bp::arg("spacing") ), "\n Constraint to snap motion commands to a sugar cube grid.\n") )    
         .def( 
             "constrain"

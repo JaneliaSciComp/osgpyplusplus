@@ -40,7 +40,7 @@ struct ApplicationUsage_wrapper : osg::ApplicationUsage, bp::wrapper< osg::Appli
 void register_ApplicationUsage_class(){
 
     { //::osg::ApplicationUsage
-        typedef bp::class_< ApplicationUsage_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ApplicationUsage >, boost::noncopyable > ApplicationUsage_exposer_t;
+        typedef bp::class_< ApplicationUsage_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ApplicationUsage_wrapper >, boost::noncopyable > ApplicationUsage_exposer_t;
         ApplicationUsage_exposer_t ApplicationUsage_exposer = ApplicationUsage_exposer_t( "ApplicationUsage", bp::no_init );
         bp::scope ApplicationUsage_scope( ApplicationUsage_exposer );
         bp::enum_< osg::ApplicationUsage::Type>("Type")

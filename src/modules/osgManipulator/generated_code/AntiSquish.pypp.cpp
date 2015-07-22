@@ -479,7 +479,7 @@ struct AntiSquish_wrapper : osgManipulator::AntiSquish, bp::wrapper< osgManipula
 void register_AntiSquish_class(){
 
     { //::osgManipulator::AntiSquish
-        typedef bp::class_< AntiSquish_wrapper, bp::bases< ::osg::MatrixTransform >, osg::ref_ptr< ::osgManipulator::AntiSquish >, boost::noncopyable > AntiSquish_exposer_t;
+        typedef bp::class_< AntiSquish_wrapper, bp::bases< ::osg::MatrixTransform >, osg::ref_ptr< AntiSquish_wrapper >, boost::noncopyable > AntiSquish_exposer_t;
         AntiSquish_exposer_t AntiSquish_exposer = AntiSquish_exposer_t( "AntiSquish", "\n Class that performs the Anti Squish by making the scaling uniform along all axes.\n", bp::init< >("\n Class that performs the Anti Squish by making the scaling uniform along all axes.\n") );
         bp::scope AntiSquish_scope( AntiSquish_exposer );
         AntiSquish_exposer.def( bp::init< osg::Vec3d const & >(( bp::arg("pivot") )) );

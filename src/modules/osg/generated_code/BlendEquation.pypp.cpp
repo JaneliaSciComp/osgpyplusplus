@@ -315,7 +315,7 @@ struct BlendEquation_wrapper : osg::BlendEquation, bp::wrapper< osg::BlendEquati
 void register_BlendEquation_class(){
 
     { //::osg::BlendEquation
-        typedef bp::class_< BlendEquation_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::BlendEquation >, boost::noncopyable > BlendEquation_exposer_t;
+        typedef bp::class_< BlendEquation_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< BlendEquation_wrapper >, boost::noncopyable > BlendEquation_exposer_t;
         BlendEquation_exposer_t BlendEquation_exposer = BlendEquation_exposer_t( "BlendEquation", "\n Encapsulates OpenGL BlendEquation state.\n", bp::no_init );
         bp::scope BlendEquation_scope( BlendEquation_exposer );
         bp::enum_< osg::BlendEquation::Equation>("Equation")

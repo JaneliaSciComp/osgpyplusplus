@@ -693,7 +693,7 @@ struct Canvas_wrapper : osgWidget::Canvas, bp::wrapper< osgWidget::Canvas > {
 void register_Canvas_class(){
 
     { //::osgWidget::Canvas
-        typedef bp::class_< Canvas_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< ::osgWidget::Canvas >, boost::noncopyable > Canvas_exposer_t;
+        typedef bp::class_< Canvas_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< Canvas_wrapper >, boost::noncopyable > Canvas_exposer_t;
         Canvas_exposer_t Canvas_exposer = Canvas_exposer_t( "Canvas", bp::init< bp::optional< std::string const & > >(( bp::arg("arg0")="" )) );
         bp::scope Canvas_scope( Canvas_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::Canvas >();

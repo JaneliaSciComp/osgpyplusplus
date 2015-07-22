@@ -47,7 +47,7 @@ struct PointerData_wrapper : osgGA::PointerData, bp::wrapper< osgGA::PointerData
 void register_PointerData_class(){
 
     { //::osgGA::PointerData
-        typedef bp::class_< PointerData_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::PointerData > > PointerData_exposer_t;
+        typedef bp::class_< PointerData_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< PointerData_wrapper > > PointerData_exposer_t;
         PointerData_exposer_t PointerData_exposer = PointerData_exposer_t( "PointerData", bp::init< >() );
         bp::scope PointerData_scope( PointerData_exposer );
         PointerData_exposer.def( bp::init< osg::Object *, float, float, float, float, float, float >(( bp::arg("obj"), bp::arg("in_x"), bp::arg("in_xMin"), bp::arg("in_xMax"), bp::arg("in_y"), bp::arg("in_yMin"), bp::arg("in_yMax") )) );

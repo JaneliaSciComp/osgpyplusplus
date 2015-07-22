@@ -143,7 +143,7 @@ struct BufferObject_wrapper : osg::BufferObject, bp::wrapper< osg::BufferObject 
 
 void register_BufferObject_class(){
 
-    bp::class_< BufferObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferObject >, boost::noncopyable >( "BufferObject", bp::no_init )    
+    bp::class_< BufferObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< BufferObject_wrapper >, boost::noncopyable >( "BufferObject", bp::no_init )    
         .def( 
             "addBufferData"
             , (unsigned int ( ::osg::BufferObject::* )( ::osg::BufferData * ))( &::osg::BufferObject::addBufferData )

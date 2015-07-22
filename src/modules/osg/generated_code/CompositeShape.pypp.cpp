@@ -188,7 +188,7 @@ struct CompositeShape_wrapper : osg::CompositeShape, bp::wrapper< osg::Composite
 
 void register_CompositeShape_class(){
 
-    bp::class_< CompositeShape_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::CompositeShape >, boost::noncopyable >( "CompositeShape", bp::no_init )    
+    bp::class_< CompositeShape_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< CompositeShape_wrapper >, boost::noncopyable >( "CompositeShape", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"

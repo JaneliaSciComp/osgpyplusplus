@@ -618,7 +618,7 @@ struct Translate1DDragger_wrapper : osgManipulator::Translate1DDragger, bp::wrap
 
 void register_Translate1DDragger_class(){
 
-    bp::class_< Translate1DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::Translate1DDragger >, boost::noncopyable >( "Translate1DDragger", "\n Dragger for performing 1D translation.\n", bp::no_init )    
+    bp::class_< Translate1DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< Translate1DDragger_wrapper >, boost::noncopyable >( "Translate1DDragger", "\n Dragger for performing 1D translation.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing 1D translation.\n") )    
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 

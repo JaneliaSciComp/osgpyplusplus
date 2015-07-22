@@ -609,7 +609,7 @@ struct ImageSequence_wrapper : osg::ImageSequence, bp::wrapper< osg::ImageSequen
 void register_ImageSequence_class(){
 
     { //::osg::ImageSequence
-        typedef bp::class_< ImageSequence_wrapper, bp::bases< osg::ImageStream >, osg::ref_ptr< ::osg::ImageSequence >, boost::noncopyable > ImageSequence_exposer_t;
+        typedef bp::class_< ImageSequence_wrapper, bp::bases< osg::ImageStream >, osg::ref_ptr< ImageSequence_wrapper >, boost::noncopyable > ImageSequence_exposer_t;
         ImageSequence_exposer_t ImageSequence_exposer = ImageSequence_exposer_t( "ImageSequence", "\n Image Buffer class.\n", bp::no_init );
         bp::scope ImageSequence_scope( ImageSequence_exposer );
         bp::enum_< osg::ImageSequence::Mode>("Mode")

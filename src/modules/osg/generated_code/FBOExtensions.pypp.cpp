@@ -25,7 +25,7 @@ struct FBOExtensions_wrapper : osg::FBOExtensions, bp::wrapper< osg::FBOExtensio
 
 void register_FBOExtensions_class(){
 
-    bp::class_< FBOExtensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::FBOExtensions >, boost::noncopyable >( "FBOExtensions", "\n FBOExtensions\n", bp::no_init )    
+    bp::class_< FBOExtensions_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< FBOExtensions_wrapper >, boost::noncopyable >( "FBOExtensions", "\n FBOExtensions\n", bp::no_init )    
         .def( 
             "instance"
             , (::osg::FBOExtensions * (*)( unsigned int,bool ))( &::osg::FBOExtensions::instance )

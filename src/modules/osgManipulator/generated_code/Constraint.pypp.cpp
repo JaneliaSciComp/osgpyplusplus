@@ -109,7 +109,7 @@ struct Constraint_wrapper : osgManipulator::Constraint, bp::wrapper< osgManipula
 
 void register_Constraint_class(){
 
-    bp::class_< Constraint_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgManipulator::Constraint >, boost::noncopyable >( "Constraint", bp::no_init )    
+    bp::class_< Constraint_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Constraint_wrapper >, boost::noncopyable >( "Constraint", bp::no_init )    
         .def( 
             "constrain"
             , (bool ( ::osgManipulator::Constraint::* )( ::osgManipulator::MotionCommand & )const)(&::osgManipulator::Constraint::constrain)

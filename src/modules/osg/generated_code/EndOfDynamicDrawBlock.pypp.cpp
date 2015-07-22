@@ -45,7 +45,7 @@ struct EndOfDynamicDrawBlock_wrapper : osg::EndOfDynamicDrawBlock, bp::wrapper< 
 void register_EndOfDynamicDrawBlock_class(){
 
     { //::osg::EndOfDynamicDrawBlock
-        typedef bp::class_< EndOfDynamicDrawBlock_wrapper, bp::bases< OpenThreads::BlockCount, osg::State::DynamicObjectRenderingCompletedCallback >, osg::ref_ptr< ::osg::EndOfDynamicDrawBlock >, boost::noncopyable > EndOfDynamicDrawBlock_exposer_t;
+        typedef bp::class_< EndOfDynamicDrawBlock_wrapper, bp::bases< OpenThreads::BlockCount, osg::State::DynamicObjectRenderingCompletedCallback >, osg::ref_ptr< EndOfDynamicDrawBlock_wrapper >, boost::noncopyable > EndOfDynamicDrawBlock_exposer_t;
         EndOfDynamicDrawBlock_exposer_t EndOfDynamicDrawBlock_exposer = EndOfDynamicDrawBlock_exposer_t( "EndOfDynamicDrawBlock", bp::no_init );
         bp::scope EndOfDynamicDrawBlock_scope( EndOfDynamicDrawBlock_exposer );
         EndOfDynamicDrawBlock_exposer.def( bp::init< unsigned int >(( bp::arg("arg0") )) );

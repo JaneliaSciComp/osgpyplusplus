@@ -176,7 +176,7 @@ struct TransformCallback_wrapper : osgUtil::TransformCallback, bp::wrapper< osgU
 
 void register_TransformCallback_class(){
 
-    bp::class_< TransformCallback_wrapper, bp::bases< ::osg::NodeCallback >, osg::ref_ptr< ::osgUtil::TransformCallback >, boost::noncopyable >( "TransformCallback", bp::init< osg::Vec3 const &, osg::Vec3 const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") )) )    
+    bp::class_< TransformCallback_wrapper, bp::bases< ::osg::NodeCallback >, osg::ref_ptr< TransformCallback_wrapper >, boost::noncopyable >( "TransformCallback", bp::init< osg::Vec3 const &, osg::Vec3 const &, float >(( bp::arg("pivot"), bp::arg("axis"), bp::arg("angularVelocity") )) )    
         .def( 
             "__call__"
             , (void ( ::osgUtil::TransformCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))(&::osgUtil::TransformCallback::operator())

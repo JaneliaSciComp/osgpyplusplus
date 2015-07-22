@@ -272,7 +272,7 @@ struct ColorMatrix_wrapper : osg::ColorMatrix, bp::wrapper< osg::ColorMatrix > {
 
 void register_ColorMatrix_class(){
 
-    bp::class_< ColorMatrix_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ColorMatrix >, boost::noncopyable >( "ColorMatrix", "\n Encapsulates OpenGL color matrix functionality.\n", bp::no_init )    
+    bp::class_< ColorMatrix_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ColorMatrix_wrapper >, boost::noncopyable >( "ColorMatrix", "\n Encapsulates OpenGL color matrix functionality.\n", bp::no_init )    
         .def( bp::init< >("\n Encapsulates OpenGL color matrix functionality.\n") )    
         .def( 
             "apply"

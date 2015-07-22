@@ -165,7 +165,7 @@ struct EllipsoidModel_wrapper : osg::EllipsoidModel, bp::wrapper< osg::Ellipsoid
 void register_EllipsoidModel_class(){
 
     { //::osg::EllipsoidModel
-        typedef bp::class_< EllipsoidModel_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::EllipsoidModel >, boost::noncopyable > EllipsoidModel_exposer_t;
+        typedef bp::class_< EllipsoidModel_wrapper, bp::bases< osg::Object >, osg::ref_ptr< EllipsoidModel_wrapper >, boost::noncopyable > EllipsoidModel_exposer_t;
         EllipsoidModel_exposer_t EllipsoidModel_exposer = EllipsoidModel_exposer_t( "EllipsoidModel", "\n EllipsoidModel encapsulates the ellipsoid used to model astronomical bodies,\n such as sun, planets, moon etc.\n All distance quantities (i.e. heights + radius) are in meters,\n and latitude and longitude are in radians.\n", bp::init< bp::optional< double, double > >(( bp::arg("radiusEquator")=osg::WGS_84_RADIUS_EQUATOR, bp::arg("radiusPolar")=osg::WGS_84_RADIUS_POLAR ), "\n WGS_84 is a common representation of the earths spheroid\n") );
         bp::scope EllipsoidModel_scope( EllipsoidModel_exposer );
         bp::implicitly_convertible< double, osg::EllipsoidModel >();

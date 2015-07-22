@@ -369,7 +369,7 @@ struct ViewerBase_wrapper : osgViewer::ViewerBase, bp::wrapper< osgViewer::Viewe
 void register_ViewerBase_class(){
 
     { //::osgViewer::ViewerBase
-        typedef bp::class_< ViewerBase_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::ViewerBase >, boost::noncopyable > ViewerBase_exposer_t;
+        typedef bp::class_< ViewerBase_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ViewerBase_wrapper >, boost::noncopyable > ViewerBase_exposer_t;
         ViewerBase_exposer_t ViewerBase_exposer = ViewerBase_exposer_t( "ViewerBase", bp::no_init );
         bp::scope ViewerBase_scope( ViewerBase_exposer );
         bp::enum_< osgViewer::ViewerBase::BarrierPosition>("BarrierPosition")

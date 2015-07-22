@@ -64,7 +64,7 @@ struct GLObjectsOperation_wrapper : osgUtil::GLObjectsOperation, bp::wrapper< os
 void register_GLObjectsOperation_class(){
 
     { //::osgUtil::GLObjectsOperation
-        typedef bp::class_< GLObjectsOperation_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< ::osgUtil::GLObjectsOperation >, boost::noncopyable > GLObjectsOperation_exposer_t;
+        typedef bp::class_< GLObjectsOperation_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< GLObjectsOperation_wrapper >, boost::noncopyable > GLObjectsOperation_exposer_t;
         GLObjectsOperation_exposer_t GLObjectsOperation_exposer = GLObjectsOperation_exposer_t( "GLObjectsOperation", bp::init< bp::optional< unsigned int > >(( bp::arg("mode")=(unsigned int)(268) )) );
         bp::scope GLObjectsOperation_scope( GLObjectsOperation_exposer );
         bp::implicitly_convertible< unsigned int, osgUtil::GLObjectsOperation >();

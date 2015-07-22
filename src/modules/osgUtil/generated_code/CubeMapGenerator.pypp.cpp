@@ -25,7 +25,7 @@ struct CubeMapGenerator_wrapper : osgUtil::CubeMapGenerator, bp::wrapper< osgUti
 
 void register_CubeMapGenerator_class(){
 
-    bp::class_< CubeMapGenerator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::CubeMapGenerator >, boost::noncopyable >( "CubeMapGenerator", bp::no_init )    
+    bp::class_< CubeMapGenerator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< CubeMapGenerator_wrapper >, boost::noncopyable >( "CubeMapGenerator", bp::no_init )    
         .def( 
             "generateMap"
             , (void ( ::osgUtil::CubeMapGenerator::* )( bool ))( &::osgUtil::CubeMapGenerator::generateMap )

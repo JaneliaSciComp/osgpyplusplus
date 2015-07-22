@@ -273,7 +273,7 @@ struct LineWidth_wrapper : osg::LineWidth, bp::wrapper< osg::LineWidth > {
 void register_LineWidth_class(){
 
     { //::osg::LineWidth
-        typedef bp::class_< LineWidth_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::LineWidth >, boost::noncopyable > LineWidth_exposer_t;
+        typedef bp::class_< LineWidth_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< LineWidth_wrapper >, boost::noncopyable > LineWidth_exposer_t;
         LineWidth_exposer_t LineWidth_exposer = LineWidth_exposer_t( "LineWidth", "\n LineWidth - encapsulates the OpenGL glLineWidth for setting the width of lines in pixels.\n", bp::no_init );
         bp::scope LineWidth_scope( LineWidth_exposer );
         LineWidth_exposer.def( bp::init< bp::optional< float > >(( bp::arg("width")=1.0e+0f ), "\n LineWidth - encapsulates the OpenGL glLineWidth for setting the width of lines in pixels.\n") );

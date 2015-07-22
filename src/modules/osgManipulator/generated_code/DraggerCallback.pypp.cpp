@@ -320,7 +320,7 @@ struct DraggerCallback_wrapper : osgManipulator::DraggerCallback, bp::wrapper< o
 
 void register_DraggerCallback_class(){
 
-    bp::class_< DraggerCallback_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgManipulator::DraggerCallback >, boost::noncopyable >( "DraggerCallback", bp::init< >() )    
+    bp::class_< DraggerCallback_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< DraggerCallback_wrapper >, boost::noncopyable >( "DraggerCallback", bp::init< >() )    
         .def( 
             "className"
             , (char const * ( ::osgManipulator::DraggerCallback::* )(  )const)(&::osgManipulator::DraggerCallback::className)

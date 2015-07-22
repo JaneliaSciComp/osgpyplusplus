@@ -201,7 +201,7 @@ struct AudioSink_wrapper : osg::AudioSink, bp::wrapper< osg::AudioSink > {
 
 void register_AudioSink_class(){
 
-    bp::class_< AudioSink_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::AudioSink >, boost::noncopyable >( "AudioSink", "\n Pure virtual AudioSink bass class that is used to connect the audio system with AudioStreams.\n", bp::no_init )    
+    bp::class_< AudioSink_wrapper, bp::bases< osg::Object >, osg::ref_ptr< AudioSink_wrapper >, boost::noncopyable >( "AudioSink", "\n Pure virtual AudioSink bass class that is used to connect the audio system with AudioStreams.\n", bp::no_init )    
         .def( 
             "className"
             , (char const * ( ::osg::AudioSink::* )(  )const)(&::osg::AudioSink::className)

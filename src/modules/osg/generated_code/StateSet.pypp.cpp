@@ -320,7 +320,7 @@ struct StateSet_wrapper : osg::StateSet, bp::wrapper< osg::StateSet > {
 void register_StateSet_class(){
 
     { //::osg::StateSet
-        typedef bp::class_< StateSet_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet >, boost::noncopyable > StateSet_exposer_t;
+        typedef bp::class_< StateSet_wrapper, bp::bases< osg::Object >, osg::ref_ptr< StateSet_wrapper >, boost::noncopyable > StateSet_exposer_t;
         StateSet_exposer_t StateSet_exposer = StateSet_exposer_t( "StateSet", "\n Stores a set of modes and attributes which represent a set of OpenGL state.\n  Notice that a  StateSet contains just a subset of the whole OpenGL state.\n <p>In OSG, each  Drawable and each  Node has a reference to a\n  StateSet. These <tt>StateSet</tt>s can be shared between\n different <tt>Drawable</tt>s and <tt>Node</tt>s (that is, several\n <tt>Drawable</tt>s and <tt>Node</tt>s can reference the same  StateSet).\n Indeed, this practice is recommended whenever possible,\n as this minimizes expensive state changes in the graphics pipeline.\n", bp::no_init );
         bp::scope StateSet_scope( StateSet_exposer );
         bp::enum_< osg::StateSet::RenderBinMode>("RenderBinMode")
@@ -335,7 +335,7 @@ void register_StateSet_class(){
             .value("TRANSPARENT_BIN", osg::StateSet::TRANSPARENT_BIN)
             .export_values()
             ;
-        bp::class_< StateSet_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateSet::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
+        bp::class_< StateSet_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< StateSet_wrapper::Callback_wrapper >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
                 , (char const * ( ::osg::StateSet::Callback::* )(  )const)(&::osg::StateSet::Callback::className)

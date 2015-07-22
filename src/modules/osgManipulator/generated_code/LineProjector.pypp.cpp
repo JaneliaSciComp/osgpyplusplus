@@ -51,7 +51,7 @@ struct LineProjector_wrapper : osgManipulator::LineProjector, bp::wrapper< osgMa
 
 void register_LineProjector_class(){
 
-    bp::class_< LineProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< ::osgManipulator::LineProjector >, boost::noncopyable >( "LineProjector", "\n LineProjector projects points onto the closest point on the given line.\n", bp::no_init )    
+    bp::class_< LineProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< LineProjector_wrapper >, boost::noncopyable >( "LineProjector", "\n LineProjector projects points onto the closest point on the given line.\n", bp::no_init )    
         .def( bp::init< >("\n LineProjector projects points onto the closest point on the given line.\n") )    
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 

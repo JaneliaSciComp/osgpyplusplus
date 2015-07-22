@@ -301,7 +301,7 @@ struct ClipPlane_wrapper : osg::ClipPlane, bp::wrapper< osg::ClipPlane > {
 void register_ClipPlane_class(){
 
     { //::osg::ClipPlane
-        typedef bp::class_< ClipPlane_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ClipPlane >, boost::noncopyable > ClipPlane_exposer_t;
+        typedef bp::class_< ClipPlane_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ClipPlane_wrapper >, boost::noncopyable > ClipPlane_exposer_t;
         ClipPlane_exposer_t ClipPlane_exposer = ClipPlane_exposer_t( "ClipPlane", "\n Encapsulates OpenGL glClipPlane().\n", bp::no_init );
         bp::scope ClipPlane_scope( ClipPlane_exposer );
         ClipPlane_exposer.def( bp::init< >("\n Encapsulates OpenGL glClipPlane().\n") );

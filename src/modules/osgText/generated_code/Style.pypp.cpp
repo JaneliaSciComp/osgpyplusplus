@@ -164,7 +164,7 @@ struct Style_wrapper : osgText::Style, bp::wrapper< osgText::Style > {
 
 void register_Style_class(){
 
-    bp::class_< Style_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgText::Style >, boost::noncopyable >( "Style", bp::init< >() )    
+    bp::class_< Style_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Style_wrapper >, boost::noncopyable >( "Style", bp::init< >() )    
         .def( 
             "className"
             , (char const * ( ::osgText::Style::* )(  )const)(&::osgText::Style::className)

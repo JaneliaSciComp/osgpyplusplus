@@ -155,7 +155,7 @@ void register_CullSettings_class(){
             .value("ALL_VARIABLES", osg::CullSettings::ALL_VARIABLES)
             .export_values()
             ;
-        bp::class_< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::CullSettings::ClampProjectionMatrixCallback >, boost::noncopyable >( "ClampProjectionMatrixCallback", "\n Callback for overriding the CullVisitors default clamping of the projection matrix to computed near and far values.\n Note, both Matrixf and Matrixd versions of clampProjectionMatrixImplementation must be implemented as the CullVisitor\n can target either Matrix data type, configured at compile time.\n", bp::no_init )    
+        bp::class_< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< CullSettings_wrapper::ClampProjectionMatrixCallback_wrapper >, boost::noncopyable >( "ClampProjectionMatrixCallback", "\n Callback for overriding the CullVisitors default clamping of the projection matrix to computed near and far values.\n Note, both Matrixf and Matrixd versions of clampProjectionMatrixImplementation must be implemented as the CullVisitor\n can target either Matrix data type, configured at compile time.\n", bp::no_init )    
             .def( 
                 "clampProjectionMatrixImplementation"
                 , bp::pure_virtual( (bool ( ::osg::CullSettings::ClampProjectionMatrixCallback::* )( ::osg::Matrixf &,double &,double & )const)(&::osg::CullSettings::ClampProjectionMatrixCallback::clampProjectionMatrixImplementation) )

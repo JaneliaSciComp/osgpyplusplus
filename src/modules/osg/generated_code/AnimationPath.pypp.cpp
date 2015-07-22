@@ -177,7 +177,7 @@ struct AnimationPath_wrapper : osg::AnimationPath, bp::wrapper< osg::AnimationPa
 void register_AnimationPath_class(){
 
     { //::osg::AnimationPath
-        typedef bp::class_< AnimationPath_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::AnimationPath >, boost::noncopyable > AnimationPath_exposer_t;
+        typedef bp::class_< AnimationPath_wrapper, bp::bases< osg::Object >, osg::ref_ptr< AnimationPath_wrapper >, boost::noncopyable > AnimationPath_exposer_t;
         AnimationPath_exposer_t AnimationPath_exposer = AnimationPath_exposer_t( "AnimationPath", "\n AnimationPath encapsulates a time varying transformation pathway. Can be\n used for updating camera position and model object position.\n AnimationPathCallback can be attached directly to Transform nodes to\n move subgraphs around the scene.\n", bp::no_init );
         bp::scope AnimationPath_scope( AnimationPath_exposer );
         bp::enum_< osg::AnimationPath::LoopMode>("LoopMode")

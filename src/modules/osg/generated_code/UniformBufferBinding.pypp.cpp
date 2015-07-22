@@ -263,7 +263,7 @@ struct UniformBufferBinding_wrapper : osg::UniformBufferBinding, bp::wrapper< os
 void register_UniformBufferBinding_class(){
 
     { //::osg::UniformBufferBinding
-        typedef bp::class_< UniformBufferBinding_wrapper, osg::ref_ptr< ::osg::UniformBufferBinding >, boost::noncopyable > UniformBufferBinding_exposer_t;
+        typedef bp::class_< UniformBufferBinding_wrapper, osg::ref_ptr< UniformBufferBinding_wrapper >, boost::noncopyable > UniformBufferBinding_exposer_t;
         UniformBufferBinding_exposer_t UniformBufferBinding_exposer = UniformBufferBinding_exposer_t( "UniformBufferBinding", "\n StateAttribute for binding a uniform buffer index target.\n", bp::init< >("\n StateAttribute for binding a uniform buffer index target.\n") );
         bp::scope UniformBufferBinding_scope( UniformBufferBinding_exposer );
         UniformBufferBinding_exposer.def( bp::init< GLuint >(( bp::arg("index") )) );

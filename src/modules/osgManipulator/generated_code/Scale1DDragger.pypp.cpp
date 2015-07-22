@@ -612,7 +612,7 @@ struct Scale1DDragger_wrapper : osgManipulator::Scale1DDragger, bp::wrapper< osg
 void register_Scale1DDragger_class(){
 
     { //::osgManipulator::Scale1DDragger
-        typedef bp::class_< Scale1DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::Scale1DDragger >, boost::noncopyable > Scale1DDragger_exposer_t;
+        typedef bp::class_< Scale1DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< Scale1DDragger_wrapper >, boost::noncopyable > Scale1DDragger_exposer_t;
         Scale1DDragger_exposer_t Scale1DDragger_exposer = Scale1DDragger_exposer_t( "Scale1DDragger", "\n Dragger for performing 1D scaling.\n", bp::no_init );
         bp::scope Scale1DDragger_scope( Scale1DDragger_exposer );
         bp::enum_< osgManipulator::Scale1DDragger::ScaleMode>("ScaleMode")

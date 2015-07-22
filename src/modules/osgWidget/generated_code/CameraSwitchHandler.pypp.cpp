@@ -212,7 +212,7 @@ struct CameraSwitchHandler_wrapper : osgWidget::CameraSwitchHandler, bp::wrapper
 
 void register_CameraSwitchHandler_class(){
 
-    bp::class_< CameraSwitchHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgWidget::CameraSwitchHandler >, boost::noncopyable >( "CameraSwitchHandler", bp::init< osgWidget::WindowManager *, osg::Camera * >(( bp::arg("arg0"), bp::arg("arg1") )) )    
+    bp::class_< CameraSwitchHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< CameraSwitchHandler_wrapper >, boost::noncopyable >( "CameraSwitchHandler", bp::init< osgWidget::WindowManager *, osg::Camera * >(( bp::arg("arg0"), bp::arg("arg1") )) )    
         .def( 
             "handle"
             , (boost::python::object (*)( ::osgWidget::CameraSwitchHandler &,::osgGA::GUIEventAdapter &,::osgGA::GUIActionAdapter &,::osg::Object *,::osg::NodeVisitor * ))( &CameraSwitchHandler_wrapper::default_handle )

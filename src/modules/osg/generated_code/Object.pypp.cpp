@@ -130,7 +130,7 @@ struct Object_wrapper : osg::Object, bp::wrapper< osg::Object > {
 void register_Object_class(){
 
     { //::osg::Object
-        typedef bp::class_< Object_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Object >, boost::noncopyable > Object_exposer_t;
+        typedef bp::class_< Object_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Object_wrapper >, boost::noncopyable > Object_exposer_t;
         Object_exposer_t Object_exposer = Object_exposer_t( "Object", "\n Base class/standard interface for objects which require IO support,\n    cloning and reference counting.\n    Based on GOF Composite, Prototype and Template Method patterns.\n", bp::no_init );
         bp::scope Object_scope( Object_exposer );
         bp::enum_< osg::Object::DataVariance>("DataVariance")

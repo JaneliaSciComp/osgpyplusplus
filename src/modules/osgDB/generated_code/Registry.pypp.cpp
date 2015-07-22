@@ -116,7 +116,7 @@ struct Registry_wrapper : osgDB::Registry, bp::wrapper< osgDB::Registry > {
 void register_Registry_class(){
 
     { //::osgDB::Registry
-        typedef bp::class_< Registry_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::Registry >, boost::noncopyable > Registry_exposer_t;
+        typedef bp::class_< Registry_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Registry_wrapper >, boost::noncopyable > Registry_exposer_t;
         Registry_exposer_t Registry_exposer = Registry_exposer_t( "Registry", bp::no_init );
         bp::scope Registry_scope( Registry_exposer );
         bp::enum_< osgDB::Registry::LoadStatus>("LoadStatus")

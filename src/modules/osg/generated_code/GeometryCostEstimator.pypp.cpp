@@ -32,7 +32,7 @@ struct GeometryCostEstimator_wrapper : osg::GeometryCostEstimator, bp::wrapper< 
 
 void register_GeometryCostEstimator_class(){
 
-    bp::class_< GeometryCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GeometryCostEstimator >, boost::noncopyable >( "GeometryCostEstimator", bp::init< >() )    
+    bp::class_< GeometryCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GeometryCostEstimator_wrapper >, boost::noncopyable >( "GeometryCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
             , (void ( ::osg::GeometryCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::GeometryCostEstimator::calibrate )

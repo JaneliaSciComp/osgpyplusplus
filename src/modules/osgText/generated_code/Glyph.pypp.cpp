@@ -392,7 +392,7 @@ struct Glyph_wrapper : osgText::Glyph, bp::wrapper< osgText::Glyph > {
 
 void register_Glyph_class(){
 
-    bp::class_< Glyph_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< ::osgText::Glyph >, boost::noncopyable >( "Glyph", bp::no_init )    
+    bp::class_< Glyph_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< Glyph_wrapper >, boost::noncopyable >( "Glyph", bp::no_init )    
         .def( bp::init< osgText::Font *, unsigned int >(( bp::arg("font"), bp::arg("glyphCode") )) )    
         .def( 
             "getFont"

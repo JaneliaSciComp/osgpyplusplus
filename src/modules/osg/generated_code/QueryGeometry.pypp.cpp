@@ -405,7 +405,7 @@ struct QueryGeometry_wrapper : osg::QueryGeometry, bp::wrapper< osg::QueryGeomet
 void register_QueryGeometry_class(){
 
     { //::osg::QueryGeometry
-        typedef bp::class_< QueryGeometry_wrapper, bp::bases< osg::Geometry >, osg::ref_ptr< ::osg::QueryGeometry >, boost::noncopyable > QueryGeometry_exposer_t;
+        typedef bp::class_< QueryGeometry_wrapper, bp::bases< osg::Geometry >, osg::ref_ptr< QueryGeometry_wrapper >, boost::noncopyable > QueryGeometry_exposer_t;
         QueryGeometry_exposer_t QueryGeometry_exposer = QueryGeometry_exposer_t( "QueryGeometry", bp::init< bp::optional< std::string const & > >(( bp::arg("oqnName")=std::basic_string<char, std::char_traits<char>, std::allocator<char> >(((const char*)"")) )) );
         bp::scope QueryGeometry_scope( QueryGeometry_exposer );
         bp::implicitly_convertible< std::string const &, osg::QueryGeometry >();

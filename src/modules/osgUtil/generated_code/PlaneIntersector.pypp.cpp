@@ -124,7 +124,7 @@ struct PlaneIntersector_wrapper : osgUtil::PlaneIntersector, bp::wrapper< osgUti
 void register_PlaneIntersector_class(){
 
     { //::osgUtil::PlaneIntersector
-        typedef bp::class_< PlaneIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< ::osgUtil::PlaneIntersector >, boost::noncopyable > PlaneIntersector_exposer_t;
+        typedef bp::class_< PlaneIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< PlaneIntersector_wrapper >, boost::noncopyable > PlaneIntersector_exposer_t;
         PlaneIntersector_exposer_t PlaneIntersector_exposer = PlaneIntersector_exposer_t( "PlaneIntersector", bp::init< osg::Plane const &, bp::optional< osg::Polytope const & > >(( bp::arg("plane"), bp::arg("boundingPolytope")=osg::Polytope() )) );
         bp::scope PlaneIntersector_scope( PlaneIntersector_exposer );
         bp::class_< osgUtil::PlaneIntersector::Intersection >( "PlaneIntersection", bp::init< >() )    

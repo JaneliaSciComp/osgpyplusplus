@@ -110,9 +110,12 @@ def expose_increment_operators(mb):
             op.parent.add_declaration_code('static void %s(%s& val) {--val;}' % (decr_fn_name, op.parent.demangled) )
             op.parent.add_registration_code('def("decrement", &%s)' % decr_fn_name)
 
-def expose_ref_ptr_class(cls):
+def expose_nonoverridable_ref_ptr_class(cls):
     "Wrap a class that derives from osg::Referenced, using osg::ref_ptr<class_name>"
+    # Derivable overridable class need to wrap a pointer to the wrapped type
+    # Only for those classes with trouble, should we use the decl_string
     cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # Insufficient for calling overridden python methods from C++
+    # cls.held_type = 'osg::ref_ptr< %s >' % cls.wrapper_alias # wrapper_alias, not decl_string
     cls.include_files.append('wrap_referenced.h')
     cls.member_operators("operator=", allow_empty=True).exclude()
     if cls.is_abstract:
@@ -121,7 +124,7 @@ def expose_ref_ptr_class(cls):
         cls.no_init = True
         cls.constructors().exclude()
     
-def expose_overridable_ref_ptr_class(cls):
+def expose_ref_ptr_class(cls):
     """
     Wrap a class that derives from osg::Referenced, using osg::ref_ptr<class_name>
     Version where python virtual method callbacks are callable from C++.

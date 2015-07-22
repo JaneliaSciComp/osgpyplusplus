@@ -597,7 +597,7 @@ struct Widget_wrapper : osgWidget::Widget, bp::wrapper< osgWidget::Widget > {
 void register_Widget_class(){
 
     { //::osgWidget::Widget
-        typedef bp::class_< Widget_wrapper, bp::bases< ::osg::Geometry, osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< ::osgWidget::Widget >, boost::noncopyable > Widget_exposer_t;
+        typedef bp::class_< Widget_wrapper, bp::bases< ::osg::Geometry, osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< Widget_wrapper >, boost::noncopyable > Widget_exposer_t;
         Widget_exposer_t Widget_exposer = Widget_exposer_t( "Widget", bp::init< bp::optional< std::string const &, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("arg0")="", bp::arg("arg1")=0.0f, bp::arg("arg2")=0.0f )) );
         bp::scope Widget_scope( Widget_exposer );
         bp::enum_< osgWidget::Widget::CoordinateMode>("CoordinateMode")

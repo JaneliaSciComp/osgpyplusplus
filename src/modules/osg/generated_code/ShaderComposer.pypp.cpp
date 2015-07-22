@@ -200,7 +200,7 @@ struct ShaderComposer_wrapper : osg::ShaderComposer, bp::wrapper< osg::ShaderCom
 
 void register_ShaderComposer_class(){
 
-    bp::class_< ShaderComposer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::ShaderComposer >, boost::noncopyable >( "ShaderComposer", bp::no_init )    
+    bp::class_< ShaderComposer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ShaderComposer_wrapper >, boost::noncopyable >( "ShaderComposer", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addShaderToProgram"

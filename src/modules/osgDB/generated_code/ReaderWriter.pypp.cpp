@@ -579,7 +579,7 @@ struct ReaderWriter_wrapper : osgDB::ReaderWriter, bp::wrapper< osgDB::ReaderWri
 void register_ReaderWriter_class(){
 
     { //::osgDB::ReaderWriter
-        typedef bp::class_< ReaderWriter_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgDB::ReaderWriter >, boost::noncopyable > ReaderWriter_exposer_t;
+        typedef bp::class_< ReaderWriter_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ReaderWriter_wrapper >, boost::noncopyable > ReaderWriter_exposer_t;
         ReaderWriter_exposer_t ReaderWriter_exposer = ReaderWriter_exposer_t( "ReaderWriter", bp::init< >() );
         bp::scope ReaderWriter_scope( ReaderWriter_exposer );
         bp::enum_< osgDB::ReaderWriter::ArchiveStatus>("ArchiveStatus")

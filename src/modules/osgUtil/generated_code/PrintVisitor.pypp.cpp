@@ -393,7 +393,7 @@ struct PrintVisitor_wrapper : osgUtil::PrintVisitor, bp::wrapper< osgUtil::Print
 void register_PrintVisitor_class(){
 
     { //::osgUtil::PrintVisitor
-        typedef bp::class_< PrintVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::PrintVisitor >, boost::noncopyable > PrintVisitor_exposer_t;
+        typedef bp::class_< PrintVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< PrintVisitor_wrapper >, boost::noncopyable > PrintVisitor_exposer_t;
         PrintVisitor_exposer_t PrintVisitor_exposer = PrintVisitor_exposer_t( "PrintVisitor", bp::init< std::ostream &, bp::optional< int, int > >(( bp::arg("out"), bp::arg("indent")=(int)(0), bp::arg("step")=(int)(2) )) );
         bp::scope PrintVisitor_scope( PrintVisitor_exposer );
         bp::implicitly_convertible< std::ostream &, osgUtil::PrintVisitor >();

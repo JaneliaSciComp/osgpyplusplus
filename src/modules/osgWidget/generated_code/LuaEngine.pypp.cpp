@@ -81,7 +81,7 @@ struct LuaEngine_wrapper : osgWidget::LuaEngine, bp::wrapper< osgWidget::LuaEngi
 void register_LuaEngine_class(){
 
     { //::osgWidget::LuaEngine
-        typedef bp::class_< LuaEngine_wrapper, bp::bases< osgWidget::ScriptEngine >, osg::ref_ptr< ::osgWidget::LuaEngine >, boost::noncopyable > LuaEngine_exposer_t;
+        typedef bp::class_< LuaEngine_wrapper, bp::bases< osgWidget::ScriptEngine >, osg::ref_ptr< LuaEngine_wrapper >, boost::noncopyable > LuaEngine_exposer_t;
         LuaEngine_exposer_t LuaEngine_exposer = LuaEngine_exposer_t( "LuaEngine", bp::init< bp::optional< osgWidget::WindowManager * > >(( bp::arg("arg0")=bp::object() )) );
         bp::scope LuaEngine_scope( LuaEngine_exposer );
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::LuaEngine >();

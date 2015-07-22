@@ -32,7 +32,7 @@ struct OperationQueue_wrapper : osg::OperationQueue, bp::wrapper< osg::Operation
 
 void register_OperationQueue_class(){
 
-    bp::class_< OperationQueue_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::OperationQueue >, boost::noncopyable >( "OperationQueue", bp::no_init )    
+    bp::class_< OperationQueue_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< OperationQueue_wrapper >, boost::noncopyable >( "OperationQueue", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "add"

@@ -392,7 +392,7 @@ struct SmoothingVisitor_wrapper : osgUtil::SmoothingVisitor, bp::wrapper< osgUti
 
 void register_SmoothingVisitor_class(){
 
-    bp::class_< SmoothingVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::SmoothingVisitor >, boost::noncopyable >( "SmoothingVisitor", bp::init< >() )    
+    bp::class_< SmoothingVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< SmoothingVisitor_wrapper >, boost::noncopyable >( "SmoothingVisitor", bp::init< >() )    
         .def( 
             "apply"
             , (void ( ::osgUtil::SmoothingVisitor::* )( ::osg::Geode & ))(&::osgUtil::SmoothingVisitor::apply)

@@ -188,7 +188,7 @@ struct WindowSizeHandler_wrapper : osgViewer::WindowSizeHandler, bp::wrapper< os
 
 void register_WindowSizeHandler_class(){
 
-    bp::class_< WindowSizeHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::WindowSizeHandler >, boost::noncopyable >( "WindowSizeHandler", bp::init< >() )    
+    bp::class_< WindowSizeHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< WindowSizeHandler_wrapper >, boost::noncopyable >( "WindowSizeHandler", bp::init< >() )    
         .def( 
             "getChangeWindowedResolution"
             , (bool ( ::osgViewer::WindowSizeHandler::* )(  )const)( &::osgViewer::WindowSizeHandler::getChangeWindowedResolution ) )    

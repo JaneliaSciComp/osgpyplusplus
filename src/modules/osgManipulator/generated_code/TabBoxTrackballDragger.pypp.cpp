@@ -635,7 +635,7 @@ struct TabBoxTrackballDragger_wrapper : osgManipulator::TabBoxTrackballDragger, 
 
 void register_TabBoxTrackballDragger_class(){
 
-    bp::class_< TabBoxTrackballDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TabBoxTrackballDragger >, boost::noncopyable >( "TabBoxTrackballDragger", "\n Dragger for performing rotation in all axes.\n", bp::no_init )    
+    bp::class_< TabBoxTrackballDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TabBoxTrackballDragger_wrapper >, boost::noncopyable >( "TabBoxTrackballDragger", "\n Dragger for performing rotation in all axes.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing rotation in all axes.\n") )    
         .def( 
             "className"

@@ -342,10 +342,10 @@ struct GraphicsContext_wrapper : osg::GraphicsContext, bp::wrapper< osg::Graphic
 void register_GraphicsContext_class(){
 
     { //::osg::GraphicsContext
-        typedef bp::class_< GraphicsContext_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::GraphicsContext >, boost::noncopyable > GraphicsContext_exposer_t;
+        typedef bp::class_< GraphicsContext_wrapper, bp::bases< osg::Object >, osg::ref_ptr< GraphicsContext_wrapper >, boost::noncopyable > GraphicsContext_exposer_t;
         GraphicsContext_exposer_t GraphicsContext_exposer = GraphicsContext_exposer_t( "GraphicsContext", "\n Base class for providing Windowing API agnostic access to creating and managing graphics context.\n", bp::no_init );
         bp::scope GraphicsContext_scope( GraphicsContext_exposer );
-        bp::class_< GraphicsContext_wrapper::ResizedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsContext::ResizedCallback >, boost::noncopyable >( "ResizedCallback", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::ResizedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsContext_wrapper::ResizedCallback_wrapper >, boost::noncopyable >( "ResizedCallback", bp::no_init )    
             .def( 
                 "resizedImplementation"
                 , bp::pure_virtual( (void ( ::osg::GraphicsContext::ResizedCallback::* )( ::osg::GraphicsContext *,int,int,int,int ))(&::osg::GraphicsContext::ResizedCallback::resizedImplementation) )
@@ -382,7 +382,7 @@ void register_GraphicsContext_class(){
             .def_readwrite( "refreshRate", &osg::GraphicsContext::ScreenSettings::refreshRate, "\n Screen refresh rate, in Hz.\n" )    
             .def_readwrite( "width", &osg::GraphicsContext::ScreenSettings::width, "\n Simple resolution structure used by WindowingSystemInterface to get and set screen resolution.\n Note the 0 value stands for unset.\n" )    
             .def( bp::self == bp::self );
-        bp::class_< GraphicsContext_wrapper::SwapCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsContext::SwapCallback >, boost::noncopyable >( "SwapCallback", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::SwapCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsContext_wrapper::SwapCallback_wrapper >, boost::noncopyable >( "SwapCallback", bp::no_init )    
             .def( 
                 "swapBuffersImplementation"
                 , bp::pure_virtual( (void ( ::osg::GraphicsContext::SwapCallback::* )( ::osg::GraphicsContext * ))(&::osg::GraphicsContext::SwapCallback::swapBuffersImplementation) )
@@ -392,7 +392,7 @@ void register_GraphicsContext_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( GraphicsContext_wrapper::SwapCallback_wrapper::* )( bool ))(&GraphicsContext_wrapper::SwapCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< GraphicsContext_wrapper::Traits_wrapper, bp::bases< osg::Referenced, osg::GraphicsContext::ScreenIdentifier >, osg::ref_ptr< ::osg::GraphicsContext::Traits >, boost::noncopyable >( "Traits", "\n GraphicsContext Traits object provides the specification of what type of graphics context is required.\n", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::Traits_wrapper, bp::bases< osg::Referenced, osg::GraphicsContext::ScreenIdentifier >, osg::ref_ptr< GraphicsContext_wrapper::Traits_wrapper >, boost::noncopyable >( "Traits", "\n GraphicsContext Traits object provides the specification of what type of graphics context is required.\n", bp::no_init )    
             .def( 
                 "getContextVersion"
                 , (bool ( ::osg::GraphicsContext::Traits::* )( unsigned int &,unsigned int & )const)( &::osg::GraphicsContext::Traits::getContextVersion )
@@ -440,7 +440,7 @@ void register_GraphicsContext_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( GraphicsContext_wrapper::Traits_wrapper::* )( bool ))(&GraphicsContext_wrapper::Traits_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< GraphicsContext_wrapper::WindowingSystemInterface_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsContext::WindowingSystemInterface >, boost::noncopyable >( "WindowingSystemInterface", "\n Callback to be implemented to provide access to Windowing APIs ability to create Windows/pbuffers.\n", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::WindowingSystemInterface_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsContext_wrapper::WindowingSystemInterface_wrapper >, boost::noncopyable >( "WindowingSystemInterface", "\n Callback to be implemented to provide access to Windowing APIs ability to create Windows/pbuffers.\n", bp::no_init )    
             .def( 
                 "createGraphicsContext"
                 , bp::pure_virtual( (::osg::GraphicsContext * ( ::osg::GraphicsContext::WindowingSystemInterface::* )( ::osg::GraphicsContext::Traits * ))(&::osg::GraphicsContext::WindowingSystemInterface::createGraphicsContext) )

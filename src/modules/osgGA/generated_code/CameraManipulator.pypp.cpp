@@ -465,10 +465,10 @@ struct CameraManipulator_wrapper : osgGA::CameraManipulator, bp::wrapper< osgGA:
 void register_CameraManipulator_class(){
 
     { //::osgGA::CameraManipulator
-        typedef bp::class_< CameraManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< ::osgGA::CameraManipulator >, boost::noncopyable > CameraManipulator_exposer_t;
+        typedef bp::class_< CameraManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< CameraManipulator_wrapper >, boost::noncopyable > CameraManipulator_exposer_t;
         CameraManipulator_exposer_t CameraManipulator_exposer = CameraManipulator_exposer_t( "CameraManipulator", "\nCameraManipulator is an abstract base class defining the interface, and a certain\namount of default functionality, for classes which wish to control OSG cameras\nin response to GUI events.\n", bp::no_init );
         bp::scope CameraManipulator_scope( CameraManipulator_exposer );
-        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::CameraManipulator::CoordinateFrameCallback >, boost::noncopyable >( "CoordinateFrameCallback", "\n callback class to use to allow matrix manipulators to query the application for the local coordinate frame.\n", bp::no_init )    
+        bp::class_< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< CameraManipulator_wrapper::CoordinateFrameCallback_wrapper >, boost::noncopyable >( "CoordinateFrameCallback", "\n callback class to use to allow matrix manipulators to query the application for the local coordinate frame.\n", bp::no_init )    
             .def( 
                 "getCoordinateFrame"
                 , bp::pure_virtual( (::osg::CoordinateFrame ( ::osgGA::CameraManipulator::CoordinateFrameCallback::* )( ::osg::Vec3d const & )const)(&::osgGA::CameraManipulator::CoordinateFrameCallback::getCoordinateFrame) )

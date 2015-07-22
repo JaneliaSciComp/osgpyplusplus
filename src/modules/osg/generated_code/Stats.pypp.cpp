@@ -40,7 +40,7 @@ struct Stats_wrapper : osg::Stats, bp::wrapper< osg::Stats > {
 void register_Stats_class(){
 
     { //::osg::Stats
-        typedef bp::class_< Stats_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Stats >, boost::noncopyable > Stats_exposer_t;
+        typedef bp::class_< Stats_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Stats_wrapper >, boost::noncopyable > Stats_exposer_t;
         Stats_exposer_t Stats_exposer = Stats_exposer_t( "Stats", bp::no_init );
         bp::scope Stats_scope( Stats_exposer );
         Stats_exposer.def( bp::init< std::string const & >(( bp::arg("name") )) );

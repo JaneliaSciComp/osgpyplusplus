@@ -195,7 +195,7 @@ struct Cylinder_wrapper : osg::Cylinder, bp::wrapper< osg::Cylinder > {
 
 void register_Cylinder_class(){
 
-    bp::class_< Cylinder_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Cylinder >, boost::noncopyable >( "Cylinder", bp::no_init )    
+    bp::class_< Cylinder_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< Cylinder_wrapper >, boost::noncopyable >( "Cylinder", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< osg::Vec3 const &, float, float >(( bp::arg("center"), bp::arg("radius"), bp::arg("height") )) )    
         .def( 

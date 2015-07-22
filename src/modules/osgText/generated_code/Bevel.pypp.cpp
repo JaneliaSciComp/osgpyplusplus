@@ -164,7 +164,7 @@ struct Bevel_wrapper : osgText::Bevel, bp::wrapper< osgText::Bevel > {
 
 void register_Bevel_class(){
 
-    bp::class_< Bevel_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgText::Bevel >, boost::noncopyable >( "Bevel", bp::init< >() )    
+    bp::class_< Bevel_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Bevel_wrapper >, boost::noncopyable >( "Bevel", bp::init< >() )    
         .def( 
             "className"
             , (char const * ( ::osgText::Bevel::* )(  )const)(&::osgText::Bevel::className)

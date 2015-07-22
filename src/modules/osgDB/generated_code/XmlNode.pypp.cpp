@@ -33,7 +33,7 @@ struct XmlNode_wrapper : osgDB::XmlNode, bp::wrapper< osgDB::XmlNode > {
 void register_XmlNode_class(){
 
     { //::osgDB::XmlNode
-        typedef bp::class_< XmlNode_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::XmlNode >, boost::noncopyable > XmlNode_exposer_t;
+        typedef bp::class_< XmlNode_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< XmlNode_wrapper >, boost::noncopyable > XmlNode_exposer_t;
         XmlNode_exposer_t XmlNode_exposer = XmlNode_exposer_t( "XmlNode", bp::init< >() );
         bp::scope XmlNode_scope( XmlNode_exposer );
         bp::enum_< osgDB::XmlNode::NodeType>("NodeType")

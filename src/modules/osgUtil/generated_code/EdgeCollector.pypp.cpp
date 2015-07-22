@@ -130,7 +130,7 @@ void register_EdgeCollector_class(){
         typedef bp::class_< EdgeCollector_wrapper > EdgeCollector_exposer_t;
         EdgeCollector_exposer_t EdgeCollector_exposer = EdgeCollector_exposer_t( "EdgeCollector" );
         bp::scope EdgeCollector_scope( EdgeCollector_exposer );
-        bp::class_< EdgeCollector_wrapper::Edge_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Edge >, boost::noncopyable >( "Edge" )    
+        bp::class_< EdgeCollector_wrapper::Edge_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< EdgeCollector_wrapper::Edge_wrapper >, boost::noncopyable >( "Edge" )    
             .def( 
                 "addTriangle"
                 , (void ( ::osgUtil::EdgeCollector::Edge::* )( ::osgUtil::EdgeCollector::Triangle * ))( &::osgUtil::EdgeCollector::Edge::addTriangle )
@@ -164,7 +164,7 @@ void register_EdgeCollector_class(){
             .def_readwrite( "_p1", &osgUtil::EdgeCollector::Edge::_p1 )    
             .def_readwrite( "_p2", &osgUtil::EdgeCollector::Edge::_p2 )    
             .def_readwrite( "_triangles", &osgUtil::EdgeCollector::Edge::_triangles );
-        bp::class_< EdgeCollector_wrapper::Edgeloop_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Edgeloop >, boost::noncopyable >( "Edgeloop" )    
+        bp::class_< EdgeCollector_wrapper::Edgeloop_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< EdgeCollector_wrapper::Edgeloop_wrapper >, boost::noncopyable >( "Edgeloop" )    
             .def( 
                 "isClosed"
                 , (bool ( ::osgUtil::EdgeCollector::Edgeloop::* )(  ))( &::osgUtil::EdgeCollector::Edgeloop::isClosed ) )    
@@ -173,7 +173,7 @@ void register_EdgeCollector_class(){
                 , (::osg::UIntArray * ( ::osgUtil::EdgeCollector::Edgeloop::* )(  )const)( &::osgUtil::EdgeCollector::Edgeloop::toIndexArray )
                 , bp::return_internal_reference< >() )    
             .def_readwrite( "_edgeList", &osgUtil::EdgeCollector::Edgeloop::_edgeList );
-        bp::class_< EdgeCollector_wrapper::Point_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Point >, boost::noncopyable >( "Point", bp::init< >() )    
+        bp::class_< EdgeCollector_wrapper::Point_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< EdgeCollector_wrapper::Point_wrapper >, boost::noncopyable >( "Point", bp::init< >() )    
             .def( 
                 "clear"
                 , (void ( ::osgUtil::EdgeCollector::Point::* )(  ))( &::osgUtil::EdgeCollector::Point::clear ) )    
@@ -185,7 +185,7 @@ void register_EdgeCollector_class(){
             .def_readwrite( "_protected", &osgUtil::EdgeCollector::Point::_protected )    
             .def_readwrite( "_triangles", &osgUtil::EdgeCollector::Point::_triangles )    
             .def_readwrite( "_vertex", &osgUtil::EdgeCollector::Point::_vertex );
-        bp::class_< EdgeCollector_wrapper::Triangle_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::EdgeCollector::Triangle >, boost::noncopyable >( "Triangle", bp::init< >() )    
+        bp::class_< EdgeCollector_wrapper::Triangle_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< EdgeCollector_wrapper::Triangle_wrapper >, boost::noncopyable >( "Triangle", bp::init< >() )    
             .def( 
                 "clear"
                 , (void ( ::osgUtil::EdgeCollector::Triangle::* )(  ))( &::osgUtil::EdgeCollector::Triangle::clear ) )    

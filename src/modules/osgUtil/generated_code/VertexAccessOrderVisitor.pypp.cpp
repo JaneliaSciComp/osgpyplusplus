@@ -393,7 +393,7 @@ struct VertexAccessOrderVisitor_wrapper : osgUtil::VertexAccessOrderVisitor, bp:
 void register_VertexAccessOrderVisitor_class(){
 
     { //::osgUtil::VertexAccessOrderVisitor
-        typedef bp::class_< VertexAccessOrderVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< ::osgUtil::VertexAccessOrderVisitor >, boost::noncopyable > VertexAccessOrderVisitor_exposer_t;
+        typedef bp::class_< VertexAccessOrderVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< VertexAccessOrderVisitor_wrapper >, boost::noncopyable > VertexAccessOrderVisitor_exposer_t;
         VertexAccessOrderVisitor_exposer_t VertexAccessOrderVisitor_exposer = VertexAccessOrderVisitor_exposer_t( "VertexAccessOrderVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
         bp::scope VertexAccessOrderVisitor_scope( VertexAccessOrderVisitor_exposer );
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::VertexAccessOrderVisitor >();

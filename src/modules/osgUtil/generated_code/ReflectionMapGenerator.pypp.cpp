@@ -33,7 +33,7 @@ struct ReflectionMapGenerator_wrapper : osgUtil::ReflectionMapGenerator, bp::wra
 void register_ReflectionMapGenerator_class(){
 
     { //::osgUtil::ReflectionMapGenerator
-        typedef bp::class_< ReflectionMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< ::osgUtil::ReflectionMapGenerator >, boost::noncopyable > ReflectionMapGenerator_exposer_t;
+        typedef bp::class_< ReflectionMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< ReflectionMapGenerator_wrapper >, boost::noncopyable > ReflectionMapGenerator_exposer_t;
         ReflectionMapGenerator_exposer_t ReflectionMapGenerator_exposer = ReflectionMapGenerator_exposer_t( "ReflectionMapGenerator", bp::no_init );
         bp::scope ReflectionMapGenerator_scope( ReflectionMapGenerator_exposer );
         ReflectionMapGenerator_exposer.def( bp::init< bp::optional< int > >(( bp::arg("texture_size")=(int)(64) )) );

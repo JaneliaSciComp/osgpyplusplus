@@ -171,7 +171,7 @@ struct RenderBuffer_wrapper : osg::RenderBuffer, bp::wrapper< osg::RenderBuffer 
 
 void register_RenderBuffer_class(){
 
-    bp::class_< RenderBuffer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::RenderBuffer >, boost::noncopyable >( "RenderBuffer", "\n RenderBuffer\n", bp::no_init )    
+    bp::class_< RenderBuffer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< RenderBuffer_wrapper >, boost::noncopyable >( "RenderBuffer", "\n RenderBuffer\n", bp::no_init )    
         .def( bp::init< >("\n RenderBuffer\n") )    
         .def( bp::init< int, int, GLenum, bp::optional< int, int > >(( bp::arg("width"), bp::arg("height"), bp::arg("internalFormat"), bp::arg("samples")=(int)(0), bp::arg("colorSamples")=(int)(0) )) )    
         .def( 

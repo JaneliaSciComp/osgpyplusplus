@@ -44,7 +44,6 @@ mark_as_advanced(CLEAR Boost_PYTHON_LIBRARY_RELEASE)
 include_directories(${Boost_INCLUDE_DIR})
 
 # OpenSceneGraph TODO make this finding process more general
-find_path(OSG_DIR "include/osg/Node")
 find_path(OSG_INCLUDE_DIR "osg/Node"
     PATHS ${OSG_DIR})
 include_directories(${OSG_INCLUDE_DIR})
@@ -60,6 +59,24 @@ find_library(OSGGA_LIBRARY
     NAME osgGA
     PATHS ${OSG_DIR}/lib
 )
+
+# Copy DLLs to staging area for newborn python extension modules
+# 1) OpenSceneGraph
+file(GLOB OSG_RUNTIME_LIBS "${OSG_DIR}/bin/*.dll")
+file(GLOB OSG_RUNTIME_DEBUG_LIBS "${OSG_DIR}/bin/*d.dll")
+set(OSG_PLUGIN_FOLDER "osgPlugins-${OSG_VERSION_STRING}")
+file(GLOB OSG_PLUGIN_LIBS "${OSG_DIR}/bin/${OSG_PLUGIN_FOLDER}/*.dll")
+file(GLOB OSG_PLUGIN_DEBUG_LIBS "${OSG_DIR}/bin/${OSG_PLUGIN_FOLDER}/*d.dll")
+# Copy release libraries, but not debug libraries
+list(REMOVE_ITEM OSG_RUNTIME_LIBS ${OSG_RUNTIME_DEBUG_LIBS})
+list(REMOVE_ITEM OSG_PLUGIN_LIBS ${OSG_PLUGIN_DEBUG_LIBS})
+foreach(LIB ${OSG_RUNTIME_LIBS})
+    file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/osgpypp")
+endforeach()
+foreach(LIB ${OSG_PLUGIN_LIBS})
+    file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/${OSG_PLUGIN_FOLDER}/osgpypp")
+endforeach()
+# TODO - boostpython, collada, zlib dlls
 
 set(OSGPYPP_REGENERATE_BINDINGS FALSE CACHE BOOL "Whether to regenerate boost python C++ binding source code")
 

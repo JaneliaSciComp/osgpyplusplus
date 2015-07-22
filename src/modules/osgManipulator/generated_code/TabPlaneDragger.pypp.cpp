@@ -636,7 +636,7 @@ struct TabPlaneDragger_wrapper : osgManipulator::TabPlaneDragger, bp::wrapper< o
 void register_TabPlaneDragger_class(){
 
     { //::osgManipulator::TabPlaneDragger
-        typedef bp::class_< TabPlaneDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TabPlaneDragger >, boost::noncopyable > TabPlaneDragger_exposer_t;
+        typedef bp::class_< TabPlaneDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TabPlaneDragger_wrapper >, boost::noncopyable > TabPlaneDragger_exposer_t;
         TabPlaneDragger_exposer_t TabPlaneDragger_exposer = TabPlaneDragger_exposer_t( "TabPlaneDragger", "\n Tab plane dragger consists of a plane with tabs on its corners and edges\n for scaling. And the plane is used as a 2D translate dragger.\n", bp::no_init );
         bp::scope TabPlaneDragger_scope( TabPlaneDragger_exposer );
         TabPlaneDragger_exposer.def( bp::init< bp::optional< float > >(( bp::arg("handleScaleFactor")=2.0e+1f ), "\n Tab plane dragger consists of a plane with tabs on its corners and edges\n for scaling. And the plane is used as a 2D translate dragger.\n") );

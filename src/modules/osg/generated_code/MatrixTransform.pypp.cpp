@@ -472,7 +472,7 @@ struct MatrixTransform_wrapper : osg::MatrixTransform, bp::wrapper< osg::MatrixT
 void register_MatrixTransform_class(){
 
     { //::osg::MatrixTransform
-        typedef bp::class_< MatrixTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::MatrixTransform >, boost::noncopyable > MatrixTransform_exposer_t;
+        typedef bp::class_< MatrixTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< MatrixTransform_wrapper >, boost::noncopyable > MatrixTransform_exposer_t;
         MatrixTransform_exposer_t MatrixTransform_exposer = MatrixTransform_exposer_t( "MatrixTransform", "\n MatrixTransform - is a subclass of Transform which has an osg::Matrix\n which represents a 4x4 transformation of its children from local coordinates\n into the Transforms parent coordinates.\n", bp::no_init );
         bp::scope MatrixTransform_scope( MatrixTransform_exposer );
         MatrixTransform_exposer.def( bp::init< >("\n MatrixTransform - is a subclass of Transform which has an osg::Matrix\n which represents a 4x4 transformation of its children from local coordinates\n into the Transforms parent coordinates.\n") );

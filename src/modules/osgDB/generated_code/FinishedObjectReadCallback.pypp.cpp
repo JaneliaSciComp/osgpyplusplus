@@ -37,7 +37,7 @@ struct FinishedObjectReadCallback_wrapper : osgDB::FinishedObjectReadCallback, b
 
 void register_FinishedObjectReadCallback_class(){
 
-    bp::class_< FinishedObjectReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::FinishedObjectReadCallback >, boost::noncopyable >( "FinishedObjectReadCallback", bp::no_init )    
+    bp::class_< FinishedObjectReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< FinishedObjectReadCallback_wrapper >, boost::noncopyable >( "FinishedObjectReadCallback", bp::no_init )    
         .def( 
             "objectRead"
             , bp::pure_virtual( (void ( ::osgDB::FinishedObjectReadCallback::* )( ::osgDB::InputStream &,::osg::Object & ))(&::osgDB::FinishedObjectReadCallback::objectRead) )

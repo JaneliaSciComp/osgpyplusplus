@@ -32,7 +32,7 @@ struct GraphicsCostEstimator_wrapper : osg::GraphicsCostEstimator, bp::wrapper< 
 
 void register_GraphicsCostEstimator_class(){
 
-    bp::class_< GraphicsCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsCostEstimator >, boost::noncopyable >( "GraphicsCostEstimator", bp::no_init )    
+    bp::class_< GraphicsCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsCostEstimator_wrapper >, boost::noncopyable >( "GraphicsCostEstimator", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "calibrate"

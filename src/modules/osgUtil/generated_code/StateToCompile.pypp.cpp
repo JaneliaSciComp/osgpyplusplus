@@ -429,7 +429,7 @@ struct StateToCompile_wrapper : osgUtil::StateToCompile, bp::wrapper< osgUtil::S
 void register_StateToCompile_class(){
 
     { //::osgUtil::StateToCompile
-        typedef bp::class_< StateToCompile_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::StateToCompile >, boost::noncopyable > StateToCompile_exposer_t;
+        typedef bp::class_< StateToCompile_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< StateToCompile_wrapper >, boost::noncopyable > StateToCompile_exposer_t;
         StateToCompile_exposer_t StateToCompile_exposer = StateToCompile_exposer_t( "StateToCompile", bp::init< unsigned int >(( bp::arg("mode") )) );
         bp::scope StateToCompile_scope( StateToCompile_exposer );
         bp::implicitly_convertible< unsigned int, osgUtil::StateToCompile >();

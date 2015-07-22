@@ -30,7 +30,7 @@ struct Projector_wrapper : osgManipulator::Projector, bp::wrapper< osgManipulato
 
 void register_Projector_class(){
 
-    bp::class_< Projector_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgManipulator::Projector >, boost::noncopyable >( "Projector", "\n Base class for Projectors. Projectors maps 2D cursor motions to 3D motions.\n", bp::no_init )    
+    bp::class_< Projector_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Projector_wrapper >, boost::noncopyable >( "Projector", "\n Base class for Projectors. Projectors maps 2D cursor motions to 3D motions.\n", bp::no_init )    
         .def( 
             "getLocalToWorld"
             , (::osg::Matrix const & ( ::osgManipulator::Projector::* )(  )const)( &::osgManipulator::Projector::getLocalToWorld )

@@ -308,7 +308,7 @@ struct PrimitiveRestartIndex_wrapper : osg::PrimitiveRestartIndex, bp::wrapper< 
 void register_PrimitiveRestartIndex_class(){
 
     { //::osg::PrimitiveRestartIndex
-        typedef bp::class_< PrimitiveRestartIndex_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PrimitiveRestartIndex >, boost::noncopyable > PrimitiveRestartIndex_exposer_t;
+        typedef bp::class_< PrimitiveRestartIndex_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PrimitiveRestartIndex_wrapper >, boost::noncopyable > PrimitiveRestartIndex_exposer_t;
         PrimitiveRestartIndex_exposer_t PrimitiveRestartIndex_exposer = PrimitiveRestartIndex_exposer_t( "PrimitiveRestartIndex", "\n  osg::PrimitiveRestartIndex does nothing if OpenGL 3.1 is not available.\n", bp::no_init );
         bp::scope PrimitiveRestartIndex_scope( PrimitiveRestartIndex_exposer );
         { //::osg::PrimitiveRestartIndex::Extensions

@@ -213,7 +213,7 @@ struct KeyboardHandler_wrapper : osgWidget::KeyboardHandler, bp::wrapper< osgWid
 void register_KeyboardHandler_class(){
 
     { //::osgWidget::KeyboardHandler
-        typedef bp::class_< KeyboardHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgWidget::KeyboardHandler >, boost::noncopyable > KeyboardHandler_exposer_t;
+        typedef bp::class_< KeyboardHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< KeyboardHandler_wrapper >, boost::noncopyable > KeyboardHandler_exposer_t;
         KeyboardHandler_exposer_t KeyboardHandler_exposer = KeyboardHandler_exposer_t( "KeyboardHandler", bp::init< osgWidget::WindowManager * >(( bp::arg("arg0") )) );
         bp::scope KeyboardHandler_scope( KeyboardHandler_exposer );
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::KeyboardHandler >();

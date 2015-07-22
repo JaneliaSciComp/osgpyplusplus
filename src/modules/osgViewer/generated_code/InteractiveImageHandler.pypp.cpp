@@ -220,7 +220,7 @@ struct InteractiveImageHandler_wrapper : osgViewer::InteractiveImageHandler, bp:
 void register_InteractiveImageHandler_class(){
 
     { //::osgViewer::InteractiveImageHandler
-        typedef bp::class_< InteractiveImageHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler, ::osg::Drawable::CullCallback >, osg::ref_ptr< ::osgViewer::InteractiveImageHandler >, boost::noncopyable > InteractiveImageHandler_exposer_t;
+        typedef bp::class_< InteractiveImageHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler, ::osg::Drawable::CullCallback >, osg::ref_ptr< InteractiveImageHandler_wrapper >, boost::noncopyable > InteractiveImageHandler_exposer_t;
         InteractiveImageHandler_exposer_t InteractiveImageHandler_exposer = InteractiveImageHandler_exposer_t( "InteractiveImageHandler", bp::no_init );
         bp::scope InteractiveImageHandler_scope( InteractiveImageHandler_exposer );
         InteractiveImageHandler_exposer.def( bp::init< osg::Image * >(( bp::arg("image") )) );

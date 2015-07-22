@@ -56,7 +56,7 @@ struct SwapBuffersOperation_wrapper : osg::SwapBuffersOperation, bp::wrapper< os
 
 void register_SwapBuffersOperation_class(){
 
-    bp::class_< SwapBuffersOperation_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< ::osg::SwapBuffersOperation >, boost::noncopyable >( "SwapBuffersOperation", "\n SwapBufferOperation calls swap buffers on the GraphicsContext.\n", bp::init< >("\n SwapBufferOperation calls swap buffers on the GraphicsContext.\n") )    
+    bp::class_< SwapBuffersOperation_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< SwapBuffersOperation_wrapper >, boost::noncopyable >( "SwapBuffersOperation", "\n SwapBufferOperation calls swap buffers on the GraphicsContext.\n", bp::init< >("\n SwapBufferOperation calls swap buffers on the GraphicsContext.\n") )    
         .def( 
             "__call__"
             , (void ( ::osg::SwapBuffersOperation::* )( ::osg::GraphicsContext * ))(&::osg::SwapBuffersOperation::operator())

@@ -273,7 +273,7 @@ struct CullFace_wrapper : osg::CullFace, bp::wrapper< osg::CullFace > {
 void register_CullFace_class(){
 
     { //::osg::CullFace
-        typedef bp::class_< CullFace_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::CullFace >, boost::noncopyable > CullFace_exposer_t;
+        typedef bp::class_< CullFace_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< CullFace_wrapper >, boost::noncopyable > CullFace_exposer_t;
         CullFace_exposer_t CullFace_exposer = CullFace_exposer_t( "CullFace", "\n Class to globally enable/disable OpenGLs polygon culling mode.\n", bp::no_init );
         bp::scope CullFace_scope( CullFace_exposer );
         bp::enum_< osg::CullFace::Mode>("Mode")

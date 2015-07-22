@@ -155,7 +155,7 @@ struct PolytopeIntersector_wrapper : osgUtil::PolytopeIntersector, bp::wrapper< 
 void register_PolytopeIntersector_class(){
 
     { //::osgUtil::PolytopeIntersector
-        typedef bp::class_< PolytopeIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< ::osgUtil::PolytopeIntersector >, boost::noncopyable > PolytopeIntersector_exposer_t;
+        typedef bp::class_< PolytopeIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< PolytopeIntersector_wrapper >, boost::noncopyable > PolytopeIntersector_exposer_t;
         PolytopeIntersector_exposer_t PolytopeIntersector_exposer = PolytopeIntersector_exposer_t( "PolytopeIntersector", bp::init< osg::Polytope const & >(( bp::arg("polytope") )) );
         bp::scope PolytopeIntersector_scope( PolytopeIntersector_exposer );
         bp::scope().attr("DimZero") = (int)osgUtil::PolytopeIntersector::DimZero;

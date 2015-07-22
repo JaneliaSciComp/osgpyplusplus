@@ -273,7 +273,7 @@ struct Depth_wrapper : osg::Depth, bp::wrapper< osg::Depth > {
 void register_Depth_class(){
 
     { //::osg::Depth
-        typedef bp::class_< Depth_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Depth >, boost::noncopyable > Depth_exposer_t;
+        typedef bp::class_< Depth_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Depth_wrapper >, boost::noncopyable > Depth_exposer_t;
         Depth_exposer_t Depth_exposer = Depth_exposer_t( "Depth", "\n Encapsulate OpenGL glDepthFunc/Mask/Range functions.\n", bp::no_init );
         bp::scope Depth_scope( Depth_exposer );
         bp::enum_< osg::Depth::Function>("Function")

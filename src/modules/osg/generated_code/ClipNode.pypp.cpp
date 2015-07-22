@@ -393,7 +393,7 @@ struct ClipNode_wrapper : osg::ClipNode, bp::wrapper< osg::ClipNode > {
 void register_ClipNode_class(){
 
     { //::osg::ClipNode
-        typedef bp::class_< ClipNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ClipNode >, boost::noncopyable > ClipNode_exposer_t;
+        typedef bp::class_< ClipNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ClipNode_wrapper >, boost::noncopyable > ClipNode_exposer_t;
         ClipNode_exposer_t ClipNode_exposer = ClipNode_exposer_t( "ClipNode", "\n Node for defining the position of ClipPlanes in the scene.\n", bp::no_init );
         bp::scope ClipNode_scope( ClipNode_exposer );
         bp::enum_< osg::ClipNode::ReferenceFrame>("ReferenceFrame")

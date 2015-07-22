@@ -93,7 +93,7 @@ struct BarrierOperation_wrapper : osg::BarrierOperation, bp::wrapper< osg::Barri
 void register_BarrierOperation_class(){
 
     { //::osg::BarrierOperation
-        typedef bp::class_< BarrierOperation_wrapper, bp::bases< osg::Operation, OpenThreads::Barrier >, osg::ref_ptr< ::osg::BarrierOperation >, boost::noncopyable > BarrierOperation_exposer_t;
+        typedef bp::class_< BarrierOperation_wrapper, bp::bases< osg::Operation, OpenThreads::Barrier >, osg::ref_ptr< BarrierOperation_wrapper >, boost::noncopyable > BarrierOperation_exposer_t;
         BarrierOperation_exposer_t BarrierOperation_exposer = BarrierOperation_exposer_t( "BarrierOperation", "\n BarrierOperation allows one to synchronize multiple GraphicsThreads with each other.\n", bp::init< int, bp::optional< osg::BarrierOperation::PreBlockOp, bool > >(( bp::arg("numThreads"), bp::arg("op")=(long)(::osg::BarrierOperation::NO_OPERATION), bp::arg("keep")=(bool)(true) )) );
         bp::scope BarrierOperation_scope( BarrierOperation_exposer );
         bp::enum_< osg::BarrierOperation::PreBlockOp>("PreBlockOp")

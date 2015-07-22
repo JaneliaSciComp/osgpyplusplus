@@ -420,7 +420,7 @@ struct TextureCubeMap_wrapper : osg::TextureCubeMap, bp::wrapper< osg::TextureCu
 void register_TextureCubeMap_class(){
 
     { //::osg::TextureCubeMap
-        typedef bp::class_< TextureCubeMap_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::TextureCubeMap >, boost::noncopyable > TextureCubeMap_exposer_t;
+        typedef bp::class_< TextureCubeMap_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< TextureCubeMap_wrapper >, boost::noncopyable > TextureCubeMap_exposer_t;
         TextureCubeMap_exposer_t TextureCubeMap_exposer = TextureCubeMap_exposer_t( "TextureCubeMap", "\n TextureCubeMap state class which encapsulates OpenGL texture cubemap functionality.\n", bp::no_init );
         bp::scope TextureCubeMap_scope( TextureCubeMap_exposer );
         bp::enum_< osg::TextureCubeMap::Face>("Face")
@@ -490,7 +490,7 @@ void register_TextureCubeMap_class(){
             
             }
         }
-        bp::class_< TextureCubeMap_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureCubeMap::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< TextureCubeMap_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< TextureCubeMap_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

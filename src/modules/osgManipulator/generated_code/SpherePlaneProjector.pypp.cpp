@@ -52,7 +52,7 @@ struct SpherePlaneProjector_wrapper : osgManipulator::SpherePlaneProjector, bp::
 void register_SpherePlaneProjector_class(){
 
     { //::osgManipulator::SpherePlaneProjector
-        typedef bp::class_< SpherePlaneProjector_wrapper, bp::bases< osgManipulator::SphereProjector >, osg::ref_ptr< ::osgManipulator::SpherePlaneProjector >, boost::noncopyable > SpherePlaneProjector_exposer_t;
+        typedef bp::class_< SpherePlaneProjector_wrapper, bp::bases< osgManipulator::SphereProjector >, osg::ref_ptr< SpherePlaneProjector_wrapper >, boost::noncopyable > SpherePlaneProjector_exposer_t;
         SpherePlaneProjector_exposer_t SpherePlaneProjector_exposer = SpherePlaneProjector_exposer_t( "SpherePlaneProjector", "\n SpherePlaneProjector projects points onto a sphere, failing which it project\n onto a plane oriented to the viewing direction.\n", bp::no_init );
         bp::scope SpherePlaneProjector_scope( SpherePlaneProjector_exposer );
         SpherePlaneProjector_exposer.def( bp::init< >("\n SpherePlaneProjector projects points onto a sphere, failing which it project\n onto a plane oriented to the viewing direction.\n") );

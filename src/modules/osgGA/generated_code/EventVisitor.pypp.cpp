@@ -392,7 +392,7 @@ struct EventVisitor_wrapper : osgGA::EventVisitor, bp::wrapper< osgGA::EventVisi
 
 void register_EventVisitor_class(){
 
-    bp::class_< EventVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgGA::EventVisitor >, boost::noncopyable >( "EventVisitor", "\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n", bp::init< >("\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n") )    
+    bp::class_< EventVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< EventVisitor_wrapper >, boost::noncopyable >( "EventVisitor", "\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n", bp::init< >("\n Basic EventVisitor implementation for animating a scene.\n This visitor traverses the scene graph, calling each nodes appCallback if\n it exists.\n") )    
         .def( 
             "addEvent"
             , (void ( ::osgGA::EventVisitor::* )( ::osgGA::GUIEventAdapter * ))( &::osgGA::EventVisitor::addEvent )

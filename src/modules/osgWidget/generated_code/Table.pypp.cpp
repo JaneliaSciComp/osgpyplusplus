@@ -693,7 +693,7 @@ struct Table_wrapper : osgWidget::Table, bp::wrapper< osgWidget::Table > {
 void register_Table_class(){
 
     { //::osgWidget::Table
-        typedef bp::class_< Table_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< ::osgWidget::Table >, boost::noncopyable > Table_exposer_t;
+        typedef bp::class_< Table_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< Table_wrapper >, boost::noncopyable > Table_exposer_t;
         Table_exposer_t Table_exposer = Table_exposer_t( "Table", bp::init< bp::optional< std::string const &, unsigned int, unsigned int > >(( bp::arg("arg0")="", bp::arg("arg1")=(unsigned int)(0), bp::arg("arg2")=(unsigned int)(0) )) );
         bp::scope Table_scope( Table_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::Table >();

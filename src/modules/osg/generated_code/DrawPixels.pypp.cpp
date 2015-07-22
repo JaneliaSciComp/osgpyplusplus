@@ -404,7 +404,7 @@ struct DrawPixels_wrapper : osg::DrawPixels, bp::wrapper< osg::DrawPixels > {
 
 void register_DrawPixels_class(){
 
-    bp::class_< DrawPixels_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< ::osg::DrawPixels >, boost::noncopyable >( "DrawPixels", "\n DrawPixels is an osg::Drawable subclass which encapsulates the drawing of\n images using glDrawPixels.\n", bp::no_init )    
+    bp::class_< DrawPixels_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< DrawPixels_wrapper >, boost::noncopyable >( "DrawPixels", "\n DrawPixels is an osg::Drawable subclass which encapsulates the drawing of\n images using glDrawPixels.\n", bp::no_init )    
         .def( bp::init< >("\n DrawPixels is an osg::Drawable subclass which encapsulates the drawing of\n images using glDrawPixels.\n") )    
         .def( 
             "className"

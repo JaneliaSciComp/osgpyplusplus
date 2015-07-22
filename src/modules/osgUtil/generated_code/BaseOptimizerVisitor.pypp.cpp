@@ -392,7 +392,7 @@ struct BaseOptimizerVisitor_wrapper : osgUtil::BaseOptimizerVisitor, bp::wrapper
 
 void register_BaseOptimizerVisitor_class(){
 
-    bp::class_< BaseOptimizerVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::BaseOptimizerVisitor >, boost::noncopyable >( "BaseOptimizerVisitor", bp::init< osgUtil::Optimizer *, unsigned int >(( bp::arg("optimizer"), bp::arg("operation") )) )    
+    bp::class_< BaseOptimizerVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< BaseOptimizerVisitor_wrapper >, boost::noncopyable >( "BaseOptimizerVisitor", bp::init< osgUtil::Optimizer *, unsigned int >(( bp::arg("optimizer"), bp::arg("operation") )) )    
         .def( 
             "isOperationPermissibleForObject"
             , (bool ( ::osgUtil::BaseOptimizerVisitor::* )( ::osg::StateSet const * )const)( &::osgUtil::BaseOptimizerVisitor::isOperationPermissibleForObject )

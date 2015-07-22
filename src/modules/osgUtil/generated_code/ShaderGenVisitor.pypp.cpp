@@ -400,7 +400,7 @@ struct ShaderGenVisitor_wrapper : osgUtil::ShaderGenVisitor, bp::wrapper< osgUti
 void register_ShaderGenVisitor_class(){
 
     { //::osgUtil::ShaderGenVisitor
-        typedef bp::class_< ShaderGenVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::ShaderGenVisitor >, boost::noncopyable > ShaderGenVisitor_exposer_t;
+        typedef bp::class_< ShaderGenVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ShaderGenVisitor_wrapper >, boost::noncopyable > ShaderGenVisitor_exposer_t;
         ShaderGenVisitor_exposer_t ShaderGenVisitor_exposer = ShaderGenVisitor_exposer_t( "ShaderGenVisitor", bp::init< >() );
         bp::scope ShaderGenVisitor_scope( ShaderGenVisitor_exposer );
         ShaderGenVisitor_exposer.def( bp::init< osgUtil::ShaderGenCache * >(( bp::arg("stateCache") )) );

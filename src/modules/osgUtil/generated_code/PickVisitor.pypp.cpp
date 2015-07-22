@@ -392,7 +392,7 @@ struct PickVisitor_wrapper : osgUtil::PickVisitor, bp::wrapper< osgUtil::PickVis
 
 void register_PickVisitor_class(){
 
-    bp::class_< PickVisitor_wrapper, bp::bases< osgUtil::IntersectVisitor >, osg::ref_ptr< ::osgUtil::PickVisitor >, boost::noncopyable >( "PickVisitor", bp::init< osg::Viewport const *, osg::Matrixd const &, osg::Matrixd const &, float, float >(( bp::arg("viewport"), bp::arg("proj"), bp::arg("view"), bp::arg("mx"), bp::arg("my") )) )    
+    bp::class_< PickVisitor_wrapper, bp::bases< osgUtil::IntersectVisitor >, osg::ref_ptr< PickVisitor_wrapper >, boost::noncopyable >( "PickVisitor", bp::init< osg::Viewport const *, osg::Matrixd const &, osg::Matrixd const &, float, float >(( bp::arg("viewport"), bp::arg("proj"), bp::arg("view"), bp::arg("mx"), bp::arg("my") )) )    
         .def( 
             "apply"
             , (void ( ::osgUtil::PickVisitor::* )( ::osg::Projection & ))(&::osgUtil::PickVisitor::apply)

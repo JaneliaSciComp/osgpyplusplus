@@ -273,7 +273,7 @@ struct FrontFace_wrapper : osg::FrontFace, bp::wrapper< osg::FrontFace > {
 void register_FrontFace_class(){
 
     { //::osg::FrontFace
-        typedef bp::class_< FrontFace_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::FrontFace >, boost::noncopyable > FrontFace_exposer_t;
+        typedef bp::class_< FrontFace_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< FrontFace_wrapper >, boost::noncopyable > FrontFace_exposer_t;
         FrontFace_exposer_t FrontFace_exposer = FrontFace_exposer_t( "FrontFace", "\n Class to specify the orientation of front-facing polygons.\n", bp::no_init );
         bp::scope FrontFace_scope( FrontFace_exposer );
         bp::enum_< osg::FrontFace::Mode>("Mode")

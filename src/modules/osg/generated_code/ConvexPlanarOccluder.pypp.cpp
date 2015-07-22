@@ -164,7 +164,7 @@ struct ConvexPlanarOccluder_wrapper : osg::ConvexPlanarOccluder, bp::wrapper< os
 
 void register_ConvexPlanarOccluder_class(){
 
-    bp::class_< ConvexPlanarOccluder_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::ConvexPlanarOccluder >, boost::noncopyable >( "ConvexPlanarOccluder", "\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n", bp::no_init )    
+    bp::class_< ConvexPlanarOccluder_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ConvexPlanarOccluder_wrapper >, boost::noncopyable >( "ConvexPlanarOccluder", "\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n", bp::no_init )    
         .def( bp::init< >("\n A class for representing convex clipping volumes made up of several ConvexPlanarPolygon.\n") )    
         .def( 
             "addHole"

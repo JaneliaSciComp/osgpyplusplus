@@ -56,7 +56,7 @@ struct FindFileCallback_wrapper : osgDB::FindFileCallback, bp::wrapper< osgDB::F
 
 void register_FindFileCallback_class(){
 
-    bp::class_< FindFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::FindFileCallback >, boost::noncopyable >( "FindFileCallback", bp::no_init )    
+    bp::class_< FindFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< FindFileCallback_wrapper >, boost::noncopyable >( "FindFileCallback", bp::no_init )    
         .def( 
             "findDataFile"
             , (::std::string ( ::osgDB::FindFileCallback::* )( ::std::string const &,::osgDB::Options const *,::osgDB::CaseSensitivity ))(&::osgDB::FindFileCallback::findDataFile)

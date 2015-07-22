@@ -52,7 +52,7 @@ struct CylinderPlaneProjector_wrapper : osgManipulator::CylinderPlaneProjector, 
 void register_CylinderPlaneProjector_class(){
 
     { //::osgManipulator::CylinderPlaneProjector
-        typedef bp::class_< CylinderPlaneProjector_wrapper, bp::bases< osgManipulator::CylinderProjector >, osg::ref_ptr< ::osgManipulator::CylinderPlaneProjector >, boost::noncopyable > CylinderPlaneProjector_exposer_t;
+        typedef bp::class_< CylinderPlaneProjector_wrapper, bp::bases< osgManipulator::CylinderProjector >, osg::ref_ptr< CylinderPlaneProjector_wrapper >, boost::noncopyable > CylinderPlaneProjector_exposer_t;
         CylinderPlaneProjector_exposer_t CylinderPlaneProjector_exposer = CylinderPlaneProjector_exposer_t( "CylinderPlaneProjector", "\n CylinderPlaneProjector projects a point onto a plane relative to the\n given cylinder.  For most cases, the plane will be parallel to the\n cylinder axis oriented towards the eyepoint.  When the eyepoint and\n cylinder axis are close to parallel, then it will project onto a plane\n perpendicular to the cylinder.\n", bp::no_init );
         bp::scope CylinderPlaneProjector_scope( CylinderPlaneProjector_exposer );
         CylinderPlaneProjector_exposer.def( bp::init< >("\n CylinderPlaneProjector projects a point onto a plane relative to the\n given cylinder.  For most cases, the plane will be parallel to the\n cylinder axis oriented towards the eyepoint.  When the eyepoint and\n cylinder axis are close to parallel, then it will project onto a plane\n perpendicular to the cylinder.\n") );

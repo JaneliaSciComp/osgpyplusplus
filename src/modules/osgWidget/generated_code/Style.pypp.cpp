@@ -273,7 +273,7 @@ struct Style_wrapper : osgWidget::Style, bp::wrapper< osgWidget::Style > {
 void register_Style_class(){
 
     { //::osgWidget::Style
-        typedef bp::class_< Style_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::Style >, boost::noncopyable > Style_exposer_t;
+        typedef bp::class_< Style_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Style_wrapper >, boost::noncopyable > Style_exposer_t;
         Style_exposer_t Style_exposer = Style_exposer_t( "Style", bp::init< bp::optional< std::string const &, std::string const & > >(( bp::arg("arg0")="", bp::arg("arg1")="" )) );
         bp::scope Style_scope( Style_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::Style >();

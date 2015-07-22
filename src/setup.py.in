@@ -1,0 +1,35 @@
+#!/bin/env python
+
+# Increment this version before a release
+
+"""
+File: setup.py
+
+Build script for osgpyplusplus python bindings for OpenSceneGraph.
+
+You should use the osgpyplusplus CMake build system to create the final version of
+this file and binary extension modules in the "stage" subfolder of the build folder.
+
+At that point, you can perform the usual setup.py invocations, such as:
+ > python setup.py install
+OR
+ > python setup.py bdist
+OR
+ > python setup.py bdist_wininst
+"""
+
+from setuptools import setup
+
+setup(name='osgpypp',
+      version="@OSGPYPP_VERSION_STRING@",
+      description='OpenSceneGraph 3D graphics API python bindings, created using Boost.Python and pyplusplus',
+      author='Christopher Bruns',
+      author_email='brunsc@janelia.hhmi.org',
+      maintainer='Christopher Bruns',
+      maintainer_email='brunsc@janelia.hhmi.org',
+      url='https://github.com/JaneliaSciComp/osgpyplusplus',
+      # download_url='https://github.com/JaneliaSciComp/osgpyplusplus/releases',
+      packages=['osgpypp',],
+      package_dir={'osgpypp': 'osgpypp'},
+      package_data={'osgpypp': ['*.pyd', '*.dll', "osgPlugins-*/*.dll"],},
+     )

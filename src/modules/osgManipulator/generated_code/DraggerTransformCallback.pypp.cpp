@@ -321,7 +321,7 @@ struct DraggerTransformCallback_wrapper : osgManipulator::DraggerTransformCallba
 void register_DraggerTransformCallback_class(){
 
     { //::osgManipulator::DraggerTransformCallback
-        typedef bp::class_< DraggerTransformCallback_wrapper, bp::bases< osgManipulator::DraggerCallback >, osg::ref_ptr< ::osgManipulator::DraggerTransformCallback >, boost::noncopyable > DraggerTransformCallback_exposer_t;
+        typedef bp::class_< DraggerTransformCallback_wrapper, bp::bases< osgManipulator::DraggerCallback >, osg::ref_ptr< DraggerTransformCallback_wrapper >, boost::noncopyable > DraggerTransformCallback_exposer_t;
         DraggerTransformCallback_exposer_t DraggerTransformCallback_exposer = DraggerTransformCallback_exposer_t( "DraggerTransformCallback", bp::init< osg::MatrixTransform *, bp::optional< int > >(( bp::arg("transform"), bp::arg("handleCommandMask")=int(::osgManipulator::DraggerTransformCallback::HANDLE_ALL) )) );
         bp::scope DraggerTransformCallback_scope( DraggerTransformCallback_exposer );
         bp::enum_< osgManipulator::DraggerTransformCallback::HandleCommandMask>("HandleCommandMask")

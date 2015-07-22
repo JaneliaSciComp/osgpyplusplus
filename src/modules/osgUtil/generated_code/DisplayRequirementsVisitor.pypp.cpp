@@ -404,7 +404,7 @@ struct DisplayRequirementsVisitor_wrapper : osgUtil::DisplayRequirementsVisitor,
 
 void register_DisplayRequirementsVisitor_class(){
 
-    bp::class_< DisplayRequirementsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::DisplayRequirementsVisitor >, boost::noncopyable >( "DisplayRequirementsVisitor", bp::init< >() )    
+    bp::class_< DisplayRequirementsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< DisplayRequirementsVisitor_wrapper >, boost::noncopyable >( "DisplayRequirementsVisitor", bp::init< >() )    
         .def( 
             "apply"
             , (void ( ::osgUtil::DisplayRequirementsVisitor::* )( ::osg::Node & ))(&::osgUtil::DisplayRequirementsVisitor::apply)

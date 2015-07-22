@@ -1254,7 +1254,7 @@ struct Window_wrapper : osgWidget::Window, bp::wrapper< osgWidget::Window > {
 void register_Window_class(){
 
     { //::osgWidget::Window
-        typedef bp::class_< Window_wrapper, bp::bases< ::osg::MatrixTransform, osgWidget::UIObjectParent< osgWidget::Widget >, osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< ::osgWidget::Window >, boost::noncopyable > Window_exposer_t;
+        typedef bp::class_< Window_wrapper, bp::bases< ::osg::MatrixTransform, osgWidget::UIObjectParent< osgWidget::Widget >, osgWidget::EventInterface, osgWidget::StyleInterface >, osg::ref_ptr< Window_wrapper >, boost::noncopyable > Window_exposer_t;
         Window_exposer_t Window_exposer = Window_exposer_t( "Window", bp::no_init );
         bp::scope Window_scope( Window_exposer );
         bp::enum_< osgWidget::Window::HorizontalAnchor>("HorizontalAnchor")
@@ -1283,7 +1283,7 @@ void register_Window_class(){
             .value("VM_ENTIRE", osgWidget::Window::VM_ENTIRE)
             .export_values()
             ;
-        bp::class_< Window_wrapper::EmbeddedWindow_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::Window::EmbeddedWindow >, boost::noncopyable >( "EmbeddedWindow", bp::no_init )    
+        bp::class_< Window_wrapper::EmbeddedWindow_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< Window_wrapper::EmbeddedWindow_wrapper >, boost::noncopyable >( "EmbeddedWindow", bp::no_init )    
             .def( 
                 "className"
                 , (char const * ( ::osgWidget::Window::EmbeddedWindow::* )(  )const)(&::osgWidget::Window::EmbeddedWindow::className)

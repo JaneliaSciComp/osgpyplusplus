@@ -86,7 +86,7 @@ class OsgWrapper(BaseWrapper):
         self.wrap_all_osg_referenced(openthreads)
 
         # Special treatment for classes that need to be called back from C++
-        expose_overridable_ref_ptr_class(mb.class_("NodeVisitor"))
+        expose_ref_ptr_class(mb.class_("NodeVisitor"))
 
         # Free functions
         for fn_name in [
@@ -197,6 +197,11 @@ class OsgWrapper(BaseWrapper):
                 for ctor in ext.constructors():
                     if ctor.is_copy_constructor:
                         ctor.exclude() # copy constructor
+                expose_nonoverridable_ref_ptr_class(ext)
+                
+        # 1>C:\boost\include\boost-1_56\boost/python/object/pointer_holder.hpp(194) : error C2664: 'KdTreeBuilder_wrapper::KdTreeBuilder_wrapper(const KdTreeBuilder_wrapper &)' : cannot convert parameter 1 from 'const osg::KdTreeBuilder' to 'const KdTreeBuilder_wrapper &'
+        for cls_name in ["KdTreeBuilder", "LineSegment", ]:
+            expose_nonoverridable_ref_ptr_class(osg.class_(cls_name))
 
         for cls_name in ["RenderBuffer", ]:
             osg.class_(cls_name).member_functions("compare").exclude()
@@ -331,6 +336,9 @@ class OsgWrapper(BaseWrapper):
                 # "Transform",
                 ]:
             self.mb.class_(cls_name).exclude()
+
+        # Some classes don't like to have wrapper_alias in their ref_ptr held type.
+        # I didn't want to derive those classes anyway...
 
         # ..\..\..\..\src\modules\osg\generated_code\TextureBufferObjectList.pypp.cpp(12) : error C2248: 'osg::TextureBuffer::TextureBufferObject' : cannot access protected class declared in class 'osg::TextureBuffer'
         osg.classes(lambda c: c.alias == "TextureBufferObjectList").exclude()
@@ -627,8 +635,11 @@ class OsgWrapper(BaseWrapper):
         cls.member_functions("setDisplaySettings").exclude()
         cls.constructors().exclude()
         cls.noncopyable = True
+        expose_nonoverridable_ref_ptr_class(cls)
         cls.member_functions("instance").call_policies = return_value_policy(
-            copy_non_const_reference)
+            copy_non_const_reference) 
+            # reference_existing_object) # 1>ArgumentError: Python argument types in1>    DisplaySettings.setNumMultiSamples(DisplaySettings, int)1>did not match C++ signature:1>    setNumMultiSamples(class osg::DisplaySettings {lvalue}, unsigned int samples)
+            
     
     def wrap_stateset(self):
         cls = self.mb.class_("StateSet")

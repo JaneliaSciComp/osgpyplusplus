@@ -167,7 +167,7 @@ struct UserDataContainer_wrapper : osg::UserDataContainer, bp::wrapper< osg::Use
 
 void register_UserDataContainer_class(){
 
-    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::UserDataContainer >, boost::noncopyable >( "UserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
+    bp::class_< UserDataContainer_wrapper, bp::bases< osg::Object >, osg::ref_ptr< UserDataContainer_wrapper >, boost::noncopyable >( "UserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
         .def( 
             "addDescription"
             , bp::pure_virtual( (void ( ::osg::UserDataContainer::* )( ::std::string const & ))(&::osg::UserDataContainer::addDescription) )

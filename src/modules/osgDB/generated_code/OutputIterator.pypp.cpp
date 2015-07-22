@@ -127,7 +127,7 @@ struct OutputIterator_wrapper : osgDB::OutputIterator, bp::wrapper< osgDB::Outpu
 
 void register_OutputIterator_class(){
 
-    bp::class_< OutputIterator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::OutputIterator >, boost::noncopyable >( "OutputIterator", bp::no_init )    
+    bp::class_< OutputIterator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< OutputIterator_wrapper >, boost::noncopyable >( "OutputIterator", bp::no_init )    
         .def( 
             "flush"
             , (void ( ::osgDB::OutputIterator::* )(  ))(&::osgDB::OutputIterator::flush)

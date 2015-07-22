@@ -212,7 +212,7 @@ struct PositionalStateContainer_wrapper : osgUtil::PositionalStateContainer, bp:
 
 void register_PositionalStateContainer_class(){
 
-    bp::class_< PositionalStateContainer_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgUtil::PositionalStateContainer >, boost::noncopyable >( "PositionalStateContainer", bp::no_init )    
+    bp::class_< PositionalStateContainer_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< PositionalStateContainer_wrapper >, boost::noncopyable >( "PositionalStateContainer", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addPositionedAttribute"

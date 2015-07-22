@@ -96,7 +96,7 @@ struct TranslateInLineCommand_wrapper : osgManipulator::TranslateInLineCommand, 
 
 void register_TranslateInLineCommand_class(){
 
-    bp::class_< TranslateInLineCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::TranslateInLineCommand >, boost::noncopyable >( "TranslateInLineCommand", "\n Command for translating in a line.\n", bp::no_init )    
+    bp::class_< TranslateInLineCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< TranslateInLineCommand_wrapper >, boost::noncopyable >( "TranslateInLineCommand", "\n Command for translating in a line.\n", bp::no_init )    
         .def( bp::init< >("\n Command for translating in a line.\n") )    
         .def( bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("s"), bp::arg("e") )) )    
         .def( 

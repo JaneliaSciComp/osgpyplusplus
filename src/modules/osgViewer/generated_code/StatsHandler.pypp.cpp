@@ -189,7 +189,7 @@ struct StatsHandler_wrapper : osgViewer::StatsHandler, bp::wrapper< osgViewer::S
 void register_StatsHandler_class(){
 
     { //::osgViewer::StatsHandler
-        typedef bp::class_< StatsHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::StatsHandler >, boost::noncopyable > StatsHandler_exposer_t;
+        typedef bp::class_< StatsHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< StatsHandler_wrapper >, boost::noncopyable > StatsHandler_exposer_t;
         StatsHandler_exposer_t StatsHandler_exposer = StatsHandler_exposer_t( "StatsHandler", bp::init< >() );
         bp::scope StatsHandler_scope( StatsHandler_exposer );
         bp::enum_< osgViewer::StatsHandler::StatsType>("StatsType")

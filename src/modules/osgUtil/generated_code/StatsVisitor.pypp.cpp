@@ -440,7 +440,7 @@ struct StatsVisitor_wrapper : osgUtil::StatsVisitor, bp::wrapper< osgUtil::Stats
 
 void register_StatsVisitor_class(){
 
-    bp::class_< StatsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::StatsVisitor >, boost::noncopyable >( "StatsVisitor", bp::init< >() )    
+    bp::class_< StatsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< StatsVisitor_wrapper >, boost::noncopyable >( "StatsVisitor", bp::init< >() )    
         .def( 
             "apply"
             , (void ( ::osgUtil::StatsVisitor::* )( ::osg::Node & ))(&::osgUtil::StatsVisitor::apply)

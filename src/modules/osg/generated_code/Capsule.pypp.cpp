@@ -195,7 +195,7 @@ struct Capsule_wrapper : osg::Capsule, bp::wrapper< osg::Capsule > {
 
 void register_Capsule_class(){
 
-    bp::class_< Capsule_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Capsule >, boost::noncopyable >( "Capsule", bp::no_init )    
+    bp::class_< Capsule_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< Capsule_wrapper >, boost::noncopyable >( "Capsule", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< osg::Vec3 const &, float, float >(( bp::arg("center"), bp::arg("radius"), bp::arg("height") )) )    
         .def( 

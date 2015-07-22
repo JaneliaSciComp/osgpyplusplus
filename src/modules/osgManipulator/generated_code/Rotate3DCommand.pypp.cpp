@@ -89,7 +89,7 @@ struct Rotate3DCommand_wrapper : osgManipulator::Rotate3DCommand, bp::wrapper< o
 
 void register_Rotate3DCommand_class(){
 
-    bp::class_< Rotate3DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::Rotate3DCommand >, boost::noncopyable >( "Rotate3DCommand", "\n Command for rotation in 3D.\n", bp::no_init )    
+    bp::class_< Rotate3DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< Rotate3DCommand_wrapper >, boost::noncopyable >( "Rotate3DCommand", "\n Command for rotation in 3D.\n", bp::no_init )    
         .def( bp::init< >("\n Command for rotation in 3D.\n") )    
         .def( 
             "accept"

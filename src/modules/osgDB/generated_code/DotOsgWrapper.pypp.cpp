@@ -26,7 +26,7 @@ struct DotOsgWrapper_wrapper : osgDB::DotOsgWrapper, bp::wrapper< osgDB::DotOsgW
 void register_DotOsgWrapper_class(){
 
     { //::osgDB::DotOsgWrapper
-        typedef bp::class_< DotOsgWrapper_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::DotOsgWrapper >, boost::noncopyable > DotOsgWrapper_exposer_t;
+        typedef bp::class_< DotOsgWrapper_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< DotOsgWrapper_wrapper >, boost::noncopyable > DotOsgWrapper_exposer_t;
         DotOsgWrapper_exposer_t DotOsgWrapper_exposer = DotOsgWrapper_exposer_t( "DotOsgWrapper", bp::no_init );
         bp::scope DotOsgWrapper_scope( DotOsgWrapper_exposer );
         bp::enum_< osgDB::DotOsgWrapper::ReadWriteMode>("ReadWriteMode")

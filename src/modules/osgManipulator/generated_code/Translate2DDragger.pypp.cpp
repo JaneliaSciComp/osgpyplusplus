@@ -619,7 +619,7 @@ struct Translate2DDragger_wrapper : osgManipulator::Translate2DDragger, bp::wrap
 void register_Translate2DDragger_class(){
 
     { //::osgManipulator::Translate2DDragger
-        typedef bp::class_< Translate2DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::Translate2DDragger >, boost::noncopyable > Translate2DDragger_exposer_t;
+        typedef bp::class_< Translate2DDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< Translate2DDragger_wrapper >, boost::noncopyable > Translate2DDragger_exposer_t;
         Translate2DDragger_exposer_t Translate2DDragger_exposer = Translate2DDragger_exposer_t( "Translate2DDragger", "\n Dragger for performing 2D translation.\n", bp::no_init );
         bp::scope Translate2DDragger_scope( Translate2DDragger_exposer );
         Translate2DDragger_exposer.def( bp::init< >("\n Dragger for performing 2D translation.\n") );

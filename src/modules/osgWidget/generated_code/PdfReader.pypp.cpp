@@ -400,7 +400,7 @@ struct PdfReader_wrapper : osgWidget::PdfReader, bp::wrapper< osgWidget::PdfRead
 void register_PdfReader_class(){
 
     { //::osgWidget::PdfReader
-        typedef bp::class_< PdfReader_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< ::osgWidget::PdfReader >, boost::noncopyable > PdfReader_exposer_t;
+        typedef bp::class_< PdfReader_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< PdfReader_wrapper >, boost::noncopyable > PdfReader_exposer_t;
         PdfReader_exposer_t PdfReader_exposer = PdfReader_exposer_t( "PdfReader", "\n Convinience class that provides a interactive quad that can be placed directly in the scene.\n", bp::init< >("\n Convinience class that provides a interactive quad that can be placed directly in the scene.\n") );
         bp::scope PdfReader_scope( PdfReader_exposer );
         PdfReader_exposer.def( bp::init< std::string const &, bp::optional< osgWidget::GeometryHints const & > >(( bp::arg("filename"), bp::arg("hints")=osgWidget::GeometryHints() ), "\n Convinience class that provides a interactive quad that can be placed directly in the scene.\n") );

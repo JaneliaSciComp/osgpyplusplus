@@ -405,7 +405,7 @@ struct Geometry_wrapper : osg::Geometry, bp::wrapper< osg::Geometry > {
 void register_Geometry_class(){
 
     { //::osg::Geometry
-        typedef bp::class_< Geometry_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< ::osg::Geometry >, boost::noncopyable > Geometry_exposer_t;
+        typedef bp::class_< Geometry_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< Geometry_wrapper >, boost::noncopyable > Geometry_exposer_t;
         Geometry_exposer_t Geometry_exposer = Geometry_exposer_t( "Geometry", bp::no_init );
         bp::scope Geometry_scope( Geometry_exposer );
         bp::enum_< osg::Geometry::AttributeBinding>("AttributeBinding")

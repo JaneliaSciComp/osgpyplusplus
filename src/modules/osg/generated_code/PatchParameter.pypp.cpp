@@ -273,7 +273,7 @@ struct PatchParameter_wrapper : osg::PatchParameter, bp::wrapper< osg::PatchPara
 void register_PatchParameter_class(){
 
     { //::osg::PatchParameter
-        typedef bp::class_< PatchParameter_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PatchParameter >, boost::noncopyable > PatchParameter_exposer_t;
+        typedef bp::class_< PatchParameter_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PatchParameter_wrapper >, boost::noncopyable > PatchParameter_exposer_t;
         PatchParameter_exposer_t PatchParameter_exposer = PatchParameter_exposer_t( "PatchParameter", "\n Class which encapsulates glPatchParameter(..).\n", bp::no_init );
         bp::scope PatchParameter_scope( PatchParameter_exposer );
         PatchParameter_exposer.def( bp::init< bp::optional< GLint > >(( bp::arg("vertices")=(::GLint)(3) ), "\n Class which encapsulates glPatchParameter(..).\n") );

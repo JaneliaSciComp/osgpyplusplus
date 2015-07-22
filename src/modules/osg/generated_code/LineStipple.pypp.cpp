@@ -279,7 +279,7 @@ struct LineStipple_wrapper : osg::LineStipple, bp::wrapper< osg::LineStipple > {
 
 void register_LineStipple_class(){
 
-    bp::class_< LineStipple_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::LineStipple >, boost::noncopyable >( "LineStipple", bp::no_init )    
+    bp::class_< LineStipple_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< LineStipple_wrapper >, boost::noncopyable >( "LineStipple", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< GLint, GLushort >(( bp::arg("factor"), bp::arg("pattern") )) )    
         .def( 

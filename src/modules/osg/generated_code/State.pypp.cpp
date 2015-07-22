@@ -96,7 +96,7 @@ struct State_wrapper : osg::State, bp::wrapper< osg::State > {
 void register_State_class(){
 
     { //::osg::State
-        typedef bp::class_< State_wrapper, bp::bases< osg::Referenced, osg::Observer >, osg::ref_ptr< ::osg::State >, boost::noncopyable > State_exposer_t;
+        typedef bp::class_< State_wrapper, bp::bases< osg::Referenced, osg::Observer >, osg::ref_ptr< State_wrapper >, boost::noncopyable > State_exposer_t;
         State_exposer_t State_exposer = State_exposer_t( "State", "\n Encapsulates the current applied OpenGL modes, attributes and vertex arrays settings,\n implements lazy state updating and provides accessors for querying the current state.\n The venerable Red Book says that OpenGL is a state machine, and this class\n represents the OpenGL state in OSG. Furthermore,  State also has other\n important features:\n - It works as a stack of states (see  pushStateSet() and\n    popStateSet()). Manipulating this stack of OpenGL states manually is\n   seldom needed, since OSG does this in the most common situations.\n - It implements lazy state updating. This means that, if one requests a\n   state change and that particular state is already in the requested state,\n   no OpenGL call will be made. This ensures that the OpenGL pipeline is not\n   stalled by unnecessary state changes.\n - It allows to query the current OpenGL state without calls to  glGet*(),\n   which typically stall the graphics pipeline (see, for instance,\n    captureCurrentState() and  getModelViewMatrix()).\n", bp::no_init );
         bp::scope State_scope( State_exposer );
         bp::enum_< osg::State::CheckForGLErrors>("CheckForGLErrors")
@@ -105,7 +105,7 @@ void register_State_class(){
             .value("ONCE_PER_ATTRIBUTE", osg::State::ONCE_PER_ATTRIBUTE)
             .export_values()
             ;
-        bp::class_< State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::State::DynamicObjectRenderingCompletedCallback >, boost::noncopyable >( "DynamicObjectRenderingCompletedCallback", bp::no_init )    
+        bp::class_< State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< State_wrapper::DynamicObjectRenderingCompletedCallback_wrapper >, boost::noncopyable >( "DynamicObjectRenderingCompletedCallback", bp::no_init )    
             .def( 
                 "completed"
                 , bp::pure_virtual( (void ( ::osg::State::DynamicObjectRenderingCompletedCallback::* )( ::osg::State * ))(&::osg::State::DynamicObjectRenderingCompletedCallback::completed) )

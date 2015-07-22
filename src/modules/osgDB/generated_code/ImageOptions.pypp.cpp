@@ -195,7 +195,7 @@ struct ImageOptions_wrapper : osgDB::ImageOptions, bp::wrapper< osgDB::ImageOpti
 void register_ImageOptions_class(){
 
     { //::osgDB::ImageOptions
-        typedef bp::class_< ImageOptions_wrapper, bp::bases< osgDB::Options >, osg::ref_ptr< ::osgDB::ImageOptions >, boost::noncopyable > ImageOptions_exposer_t;
+        typedef bp::class_< ImageOptions_wrapper, bp::bases< osgDB::Options >, osg::ref_ptr< ImageOptions_wrapper >, boost::noncopyable > ImageOptions_exposer_t;
         ImageOptions_exposer_t ImageOptions_exposer = ImageOptions_exposer_t( "ImageOptions", bp::init< >() );
         bp::scope ImageOptions_scope( ImageOptions_exposer );
         bp::enum_< osgDB::ImageOptions::ImageSamplingMode>("ImageSamplingMode")
@@ -228,7 +228,7 @@ void register_ImageOptions_class(){
             .def_readwrite( "windowWidth", &osgDB::ImageOptions::RatioWindow::windowWidth )    
             .def_readwrite( "windowX", &osgDB::ImageOptions::RatioWindow::windowX )    
             .def_readwrite( "windowY", &osgDB::ImageOptions::RatioWindow::windowY );
-        bp::class_< ImageOptions_wrapper::TexCoordRange_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ImageOptions::TexCoordRange >, boost::noncopyable >( "TexCoordRange", bp::init< >() )    
+        bp::class_< ImageOptions_wrapper::TexCoordRange_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ImageOptions_wrapper::TexCoordRange_wrapper >, boost::noncopyable >( "TexCoordRange", bp::init< >() )    
             .def( 
                 "set"
                 , (void ( ::osgDB::ImageOptions::TexCoordRange::* )( double,double,double,double ))( &::osgDB::ImageOptions::TexCoordRange::set )

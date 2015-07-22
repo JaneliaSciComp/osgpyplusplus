@@ -440,10 +440,10 @@ struct Simplifier_wrapper : osgUtil::Simplifier, bp::wrapper< osgUtil::Simplifie
 void register_Simplifier_class(){
 
     { //::osgUtil::Simplifier
-        typedef bp::class_< Simplifier_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::Simplifier >, boost::noncopyable > Simplifier_exposer_t;
+        typedef bp::class_< Simplifier_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< Simplifier_wrapper >, boost::noncopyable > Simplifier_exposer_t;
         Simplifier_exposer_t Simplifier_exposer = Simplifier_exposer_t( "Simplifier", bp::init< bp::optional< double, double, double > >(( bp::arg("sampleRatio")=1.0e+0, bp::arg("maximumError")=3.4028234663852885981170418348451692544e+38f, bp::arg("maximumLength")=0.0 )) );
         bp::scope Simplifier_scope( Simplifier_exposer );
-        bp::class_< Simplifier_wrapper::ContinueSimplificationCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Simplifier::ContinueSimplificationCallback >, boost::noncopyable >( "ContinueSimplificationCallback", bp::no_init )    
+        bp::class_< Simplifier_wrapper::ContinueSimplificationCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Simplifier_wrapper::ContinueSimplificationCallback_wrapper >, boost::noncopyable >( "ContinueSimplificationCallback", bp::no_init )    
             .def( 
                 "continueSimplification"
                 , (bool ( ::osgUtil::Simplifier::ContinueSimplificationCallback::* )( ::osgUtil::Simplifier const &,float,unsigned int,unsigned int )const)(&::osgUtil::Simplifier::ContinueSimplificationCallback::continueSimplification)

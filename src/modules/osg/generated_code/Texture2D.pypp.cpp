@@ -399,10 +399,10 @@ struct Texture2D_wrapper : osg::Texture2D, bp::wrapper< osg::Texture2D > {
 void register_Texture2D_class(){
 
     { //::osg::Texture2D
-        typedef bp::class_< Texture2D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture2D >, boost::noncopyable > Texture2D_exposer_t;
+        typedef bp::class_< Texture2D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< Texture2D_wrapper >, boost::noncopyable > Texture2D_exposer_t;
         Texture2D_exposer_t Texture2D_exposer = Texture2D_exposer_t( "Texture2D", "\n Encapsulates OpenGL 2D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n", bp::no_init );
         bp::scope Texture2D_scope( Texture2D_exposer );
-        bp::class_< Texture2D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture2D::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture2D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture2D_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

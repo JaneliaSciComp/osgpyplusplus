@@ -280,7 +280,7 @@ struct TexMat_wrapper : osg::TexMat, bp::wrapper< osg::TexMat > {
 void register_TexMat_class(){
 
     { //::osg::TexMat
-        typedef bp::class_< TexMat_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexMat >, boost::noncopyable > TexMat_exposer_t;
+        typedef bp::class_< TexMat_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< TexMat_wrapper >, boost::noncopyable > TexMat_exposer_t;
         TexMat_exposer_t TexMat_exposer = TexMat_exposer_t( "TexMat", "\n A texture matrix state class that encapsulates OpenGL texture matrix\n functionality.\n", bp::no_init );
         bp::scope TexMat_scope( TexMat_exposer );
         TexMat_exposer.def( bp::init< >("\n A texture matrix state class that encapsulates OpenGL texture matrix\n functionality.\n") );

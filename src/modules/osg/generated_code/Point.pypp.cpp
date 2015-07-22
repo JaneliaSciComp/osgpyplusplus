@@ -308,7 +308,7 @@ struct Point_wrapper : osg::Point, bp::wrapper< osg::Point > {
 void register_Point_class(){
 
     { //::osg::Point
-        typedef bp::class_< Point_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Point >, boost::noncopyable > Point_exposer_t;
+        typedef bp::class_< Point_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Point_wrapper >, boost::noncopyable > Point_exposer_t;
         Point_exposer_t Point_exposer = Point_exposer_t( "Point", "\n Point - encapsulates the OpenGL point smoothing and size state.\n", bp::no_init );
         bp::scope Point_scope( Point_exposer );
         { //::osg::Point::Extensions

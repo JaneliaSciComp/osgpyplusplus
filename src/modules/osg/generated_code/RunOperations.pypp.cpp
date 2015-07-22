@@ -56,7 +56,7 @@ struct RunOperations_wrapper : osg::RunOperations, bp::wrapper< osg::RunOperatio
 
 void register_RunOperations_class(){
 
-    bp::class_< RunOperations_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< ::osg::RunOperations >, boost::noncopyable >( "RunOperations", bp::init< >() )    
+    bp::class_< RunOperations_wrapper, bp::bases< osg::GraphicsOperation >, osg::ref_ptr< RunOperations_wrapper >, boost::noncopyable >( "RunOperations", bp::init< >() )    
         .def( 
             "__call__"
             , (void ( ::osg::RunOperations::* )( ::osg::GraphicsContext * ))(&::osg::RunOperations::operator())

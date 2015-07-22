@@ -47,7 +47,7 @@ struct CullingSet_wrapper : osg::CullingSet, bp::wrapper< osg::CullingSet > {
 void register_CullingSet_class(){
 
     { //::osg::CullingSet
-        typedef bp::class_< CullingSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::CullingSet > > CullingSet_exposer_t;
+        typedef bp::class_< CullingSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< CullingSet_wrapper > > CullingSet_exposer_t;
         CullingSet_exposer_t CullingSet_exposer = CullingSet_exposer_t( "CullingSet", "\n A CullingSet class which contains a frustum and a list of occluders.\n", bp::init< >() );
         bp::scope CullingSet_scope( CullingSet_exposer );
         bp::enum_< osg::CullingSet::MaskValues>("MaskValues")

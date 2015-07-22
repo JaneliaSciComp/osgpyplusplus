@@ -144,7 +144,7 @@ struct WriteFileCallback_wrapper : osgDB::WriteFileCallback, bp::wrapper< osgDB:
 
 void register_WriteFileCallback_class(){
 
-    bp::class_< WriteFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::WriteFileCallback >, boost::noncopyable >( "WriteFileCallback", bp::no_init )    
+    bp::class_< WriteFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< WriteFileCallback_wrapper >, boost::noncopyable >( "WriteFileCallback", bp::no_init )    
         .def( 
             "writeHeightField"
             , (boost::python::object (*)( ::osgDB::WriteFileCallback &,::osg::HeightField &,::std::string const &,::osgDB::Options const * ))( &WriteFileCallback_wrapper::default_writeHeightField )

@@ -52,7 +52,7 @@ struct SphereProjector_wrapper : osgManipulator::SphereProjector, bp::wrapper< o
 void register_SphereProjector_class(){
 
     { //::osgManipulator::SphereProjector
-        typedef bp::class_< SphereProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< ::osgManipulator::SphereProjector >, boost::noncopyable > SphereProjector_exposer_t;
+        typedef bp::class_< SphereProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< SphereProjector_wrapper >, boost::noncopyable > SphereProjector_exposer_t;
         SphereProjector_exposer_t SphereProjector_exposer = SphereProjector_exposer_t( "SphereProjector", "\n SphereProjector projects points onto the given sphere.\n", bp::no_init );
         bp::scope SphereProjector_scope( SphereProjector_exposer );
         SphereProjector_exposer.def( bp::init< >("\n SphereProjector projects points onto the given sphere.\n") );

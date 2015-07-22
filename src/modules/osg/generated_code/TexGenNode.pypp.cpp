@@ -400,7 +400,7 @@ struct TexGenNode_wrapper : osg::TexGenNode, bp::wrapper< osg::TexGenNode > {
 void register_TexGenNode_class(){
 
     { //::osg::TexGenNode
-        typedef bp::class_< TexGenNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::TexGenNode >, boost::noncopyable > TexGenNode_exposer_t;
+        typedef bp::class_< TexGenNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< TexGenNode_wrapper >, boost::noncopyable > TexGenNode_exposer_t;
         TexGenNode_exposer_t TexGenNode_exposer = TexGenNode_exposer_t( "TexGenNode", "\n Node for defining the position of TexGen in the scene.\n", bp::no_init );
         bp::scope TexGenNode_scope( TexGenNode_exposer );
         bp::enum_< osg::TexGenNode::ReferenceFrame>("ReferenceFrame")

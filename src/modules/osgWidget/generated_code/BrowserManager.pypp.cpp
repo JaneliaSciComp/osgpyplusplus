@@ -121,7 +121,7 @@ struct BrowserManager_wrapper : osgWidget::BrowserManager, bp::wrapper< osgWidge
 
 void register_BrowserManager_class(){
 
-    bp::class_< BrowserManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::BrowserManager >, boost::noncopyable >( "BrowserManager", bp::no_init )    
+    bp::class_< BrowserManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< BrowserManager_wrapper >, boost::noncopyable >( "BrowserManager", bp::no_init )    
         .def( 
             "createBrowserImage"
             , (::osgWidget::BrowserImage * ( ::osgWidget::BrowserManager::* )( ::std::string const &,int,int ))(&::osgWidget::BrowserManager::createBrowserImage)

@@ -393,7 +393,7 @@ struct TriStripVisitor_wrapper : osgUtil::TriStripVisitor, bp::wrapper< osgUtil:
 void register_TriStripVisitor_class(){
 
     { //::osgUtil::TriStripVisitor
-        typedef bp::class_< TriStripVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::TriStripVisitor >, boost::noncopyable > TriStripVisitor_exposer_t;
+        typedef bp::class_< TriStripVisitor_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< TriStripVisitor_wrapper >, boost::noncopyable > TriStripVisitor_exposer_t;
         TriStripVisitor_exposer_t TriStripVisitor_exposer = TriStripVisitor_exposer_t( "TriStripVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
         bp::scope TriStripVisitor_scope( TriStripVisitor_exposer );
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::TriStripVisitor >();

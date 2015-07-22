@@ -376,7 +376,7 @@ struct DrawArrays_wrapper : osg::DrawArrays, bp::wrapper< osg::DrawArrays > {
 void register_DrawArrays_class(){
 
     { //::osg::DrawArrays
-        typedef bp::class_< DrawArrays_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawArrays >, boost::noncopyable > DrawArrays_exposer_t;
+        typedef bp::class_< DrawArrays_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< DrawArrays_wrapper >, boost::noncopyable > DrawArrays_exposer_t;
         DrawArrays_exposer_t DrawArrays_exposer = DrawArrays_exposer_t( "DrawArrays", bp::no_init );
         bp::scope DrawArrays_scope( DrawArrays_exposer );
         DrawArrays_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );

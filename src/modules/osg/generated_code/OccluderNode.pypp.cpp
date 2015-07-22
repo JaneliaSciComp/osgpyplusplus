@@ -392,7 +392,7 @@ struct OccluderNode_wrapper : osg::OccluderNode, bp::wrapper< osg::OccluderNode 
 
 void register_OccluderNode_class(){
 
-    bp::class_< OccluderNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::OccluderNode >, boost::noncopyable >( "OccluderNode", "\n OccluderNode is a Group node which provides hooks for adding\n ConvexPlanarOccluders to the scene.\n", bp::no_init )    
+    bp::class_< OccluderNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< OccluderNode_wrapper >, boost::noncopyable >( "OccluderNode", "\n OccluderNode is a Group node which provides hooks for adding\n ConvexPlanarOccluders to the scene.\n", bp::no_init )    
         .def( bp::init< >("\n OccluderNode is a Group node which provides hooks for adding\n ConvexPlanarOccluders to the scene.\n") )    
         .def( 
             "accept"

@@ -84,7 +84,7 @@ struct Intersector_wrapper : osgUtil::Intersector, bp::wrapper< osgUtil::Interse
 void register_Intersector_class(){
 
     { //::osgUtil::Intersector
-        typedef bp::class_< Intersector_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Intersector >, boost::noncopyable > Intersector_exposer_t;
+        typedef bp::class_< Intersector_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Intersector_wrapper >, boost::noncopyable > Intersector_exposer_t;
         Intersector_exposer_t Intersector_exposer = Intersector_exposer_t( "Intersector", bp::no_init );
         bp::scope Intersector_scope( Intersector_exposer );
         bp::enum_< osgUtil::Intersector::CoordinateFrame>("CoordinateFrame")

@@ -392,7 +392,7 @@ struct Geode_wrapper : osg::Geode, bp::wrapper< osg::Geode > {
 
 void register_Geode_class(){
 
-    bp::class_< Geode_wrapper, bp::bases< osg::Node >, osg::ref_ptr< ::osg::Geode >, boost::noncopyable >( "Geode", "\n A  Geode is a geometry node, that is, a leaf node on the scene graph\n that can have renderable things attached to it. In OSG, renderable things\n are represented by objects from the  Drawable class, so a  Geode is a\n  Node whose purpose is grouping <tt>Drawable</tt>s.\n", bp::no_init )    
+    bp::class_< Geode_wrapper, bp::bases< osg::Node >, osg::ref_ptr< Geode_wrapper >, boost::noncopyable >( "Geode", "\n A  Geode is a geometry node, that is, a leaf node on the scene graph\n that can have renderable things attached to it. In OSG, renderable things\n are represented by objects from the  Drawable class, so a  Geode is a\n  Node whose purpose is grouping <tt>Drawable</tt>s.\n", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"

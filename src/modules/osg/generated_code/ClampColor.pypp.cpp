@@ -308,7 +308,7 @@ struct ClampColor_wrapper : osg::ClampColor, bp::wrapper< osg::ClampColor > {
 void register_ClampColor_class(){
 
     { //::osg::ClampColor
-        typedef bp::class_< ClampColor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ClampColor >, boost::noncopyable > ClampColor_exposer_t;
+        typedef bp::class_< ClampColor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ClampColor_wrapper >, boost::noncopyable > ClampColor_exposer_t;
         ClampColor_exposer_t ClampColor_exposer = ClampColor_exposer_t( "ClampColor", "\n Encapsulates OpenGL ClampColor state.\n", bp::no_init );
         bp::scope ClampColor_scope( ClampColor_exposer );
         { //::osg::ClampColor::Extensions

@@ -390,7 +390,7 @@ struct DrawArrayLengths_wrapper : osg::DrawArrayLengths, bp::wrapper< osg::DrawA
 void register_DrawArrayLengths_class(){
 
     { //::osg::DrawArrayLengths
-        typedef bp::class_< DrawArrayLengths_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawArrayLengths >, boost::noncopyable > DrawArrayLengths_exposer_t;
+        typedef bp::class_< DrawArrayLengths_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< DrawArrayLengths_wrapper >, boost::noncopyable > DrawArrayLengths_exposer_t;
         DrawArrayLengths_exposer_t DrawArrayLengths_exposer = DrawArrayLengths_exposer_t( "DrawArrayLengths", bp::no_init );
         bp::scope DrawArrayLengths_scope( DrawArrayLengths_exposer );
         DrawArrayLengths_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );

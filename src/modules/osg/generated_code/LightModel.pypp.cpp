@@ -273,7 +273,7 @@ struct LightModel_wrapper : osg::LightModel, bp::wrapper< osg::LightModel > {
 void register_LightModel_class(){
 
     { //::osg::LightModel
-        typedef bp::class_< LightModel_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::LightModel >, boost::noncopyable > LightModel_exposer_t;
+        typedef bp::class_< LightModel_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< LightModel_wrapper >, boost::noncopyable > LightModel_exposer_t;
         LightModel_exposer_t LightModel_exposer = LightModel_exposer_t( "LightModel", bp::no_init );
         bp::scope LightModel_scope( LightModel_exposer );
         bp::enum_< osg::LightModel::ColorControl>("ColorControl")

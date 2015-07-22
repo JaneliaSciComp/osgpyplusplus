@@ -54,7 +54,7 @@ struct GraphicsOperation_wrapper : osg::GraphicsOperation, bp::wrapper< osg::Gra
 
 void register_GraphicsOperation_class(){
 
-    bp::class_< GraphicsOperation_wrapper, bp::bases< osg::Operation >, osg::ref_ptr< ::osg::GraphicsOperation >, boost::noncopyable >( "GraphicsOperation", bp::no_init )    
+    bp::class_< GraphicsOperation_wrapper, bp::bases< osg::Operation >, osg::ref_ptr< GraphicsOperation_wrapper >, boost::noncopyable >( "GraphicsOperation", bp::no_init )    
         .def( 
             "__call__"
             , (void ( ::osg::GraphicsOperation::* )( ::osg::Object * ))(&::osg::GraphicsOperation::operator())

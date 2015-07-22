@@ -280,7 +280,7 @@ struct Viewport_wrapper : osg::Viewport, bp::wrapper< osg::Viewport > {
 void register_Viewport_class(){
 
     { //::osg::Viewport
-        typedef bp::class_< Viewport_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Viewport >, boost::noncopyable > Viewport_exposer_t;
+        typedef bp::class_< Viewport_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Viewport_wrapper >, boost::noncopyable > Viewport_exposer_t;
         Viewport_exposer_t Viewport_exposer = Viewport_exposer_t( "Viewport", "\n Encapsulate OpenGL glViewport.\n", bp::no_init );
         bp::scope Viewport_scope( Viewport_exposer );
         Viewport_exposer.def( bp::init< >() );

@@ -32,7 +32,7 @@ struct GlyphGeometry_wrapper : osgText::GlyphGeometry, bp::wrapper< osgText::Gly
 
 void register_GlyphGeometry_class(){
 
-    bp::class_< GlyphGeometry_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgText::GlyphGeometry >, boost::noncopyable >( "GlyphGeometry", bp::init< >() )    
+    bp::class_< GlyphGeometry_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< GlyphGeometry_wrapper >, boost::noncopyable >( "GlyphGeometry", bp::init< >() )    
         .def( 
             "getBackPrimitiveSetList"
             , (::std::vector< osg::ref_ptr<osg::PrimitiveSet> > & ( ::osgText::GlyphGeometry::* )(  ))( &::osgText::GlyphGeometry::getBackPrimitiveSetList )

@@ -273,7 +273,7 @@ struct TexGen_wrapper : osg::TexGen, bp::wrapper< osg::TexGen > {
 void register_TexGen_class(){
 
     { //::osg::TexGen
-        typedef bp::class_< TexGen_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexGen >, boost::noncopyable > TexGen_exposer_t;
+        typedef bp::class_< TexGen_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< TexGen_wrapper >, boost::noncopyable > TexGen_exposer_t;
         TexGen_exposer_t TexGen_exposer = TexGen_exposer_t( "TexGen", "\n TexGen encapsulates the OpenGL glTexGen (texture coordinate generation)\n state.\n", bp::no_init );
         bp::scope TexGen_scope( TexGen_exposer );
         bp::enum_< osg::TexGen::Coord>("Coord")

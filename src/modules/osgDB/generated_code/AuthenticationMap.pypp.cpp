@@ -56,7 +56,7 @@ struct AuthenticationMap_wrapper : osgDB::AuthenticationMap, bp::wrapper< osgDB:
 
 void register_AuthenticationMap_class(){
 
-    bp::class_< AuthenticationMap_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::AuthenticationMap >, boost::noncopyable >( "AuthenticationMap", bp::no_init )    
+    bp::class_< AuthenticationMap_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< AuthenticationMap_wrapper >, boost::noncopyable >( "AuthenticationMap", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addAuthenticationDetails"

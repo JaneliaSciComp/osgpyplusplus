@@ -681,7 +681,7 @@ struct Box_wrapper : osgWidget::Box, bp::wrapper< osgWidget::Box > {
 void register_Box_class(){
 
     { //::osgWidget::Box
-        typedef bp::class_< Box_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< ::osgWidget::Box >, boost::noncopyable > Box_exposer_t;
+        typedef bp::class_< Box_wrapper, bp::bases< osgWidget::Window >, osg::ref_ptr< Box_wrapper >, boost::noncopyable > Box_exposer_t;
         Box_exposer_t Box_exposer = Box_exposer_t( "Box", bp::init< bp::optional< std::string const &, osgWidget::Box::BoxType, bool > >(( bp::arg("arg0")="", bp::arg("arg1")=(long)(::osgWidget::Box::HORIZONTAL), bp::arg("arg2")=(bool)(false) )) );
         bp::scope Box_scope( Box_exposer );
         bp::enum_< osgWidget::Box::BoxType>("BoxType")

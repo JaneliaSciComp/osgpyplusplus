@@ -611,7 +611,7 @@ struct RotateCylinderDragger_wrapper : osgManipulator::RotateCylinderDragger, bp
 
 void register_RotateCylinderDragger_class(){
 
-    bp::class_< RotateCylinderDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::RotateCylinderDragger >, boost::noncopyable >( "RotateCylinderDragger", "\n Dragger for performing 3D rotation on a cylinder.\n", bp::no_init )    
+    bp::class_< RotateCylinderDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< RotateCylinderDragger_wrapper >, boost::noncopyable >( "RotateCylinderDragger", "\n Dragger for performing 3D rotation on a cylinder.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing 3D rotation on a cylinder.\n") )    
         .def( 
             "className"

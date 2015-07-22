@@ -273,7 +273,7 @@ struct ShadeModel_wrapper : osg::ShadeModel, bp::wrapper< osg::ShadeModel > {
 void register_ShadeModel_class(){
 
     { //::osg::ShadeModel
-        typedef bp::class_< ShadeModel_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ShadeModel >, boost::noncopyable > ShadeModel_exposer_t;
+        typedef bp::class_< ShadeModel_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ShadeModel_wrapper >, boost::noncopyable > ShadeModel_exposer_t;
         ShadeModel_exposer_t ShadeModel_exposer = ShadeModel_exposer_t( "ShadeModel", "\n Class which encapsulates glShadeModel(..).\n", bp::no_init );
         bp::scope ShadeModel_scope( ShadeModel_exposer );
         bp::enum_< osg::ShadeModel::Mode>("Mode")

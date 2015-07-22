@@ -32,7 +32,7 @@ struct TextureCostEstimator_wrapper : osg::TextureCostEstimator, bp::wrapper< os
 
 void register_TextureCostEstimator_class(){
 
-    bp::class_< TextureCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureCostEstimator >, boost::noncopyable >( "TextureCostEstimator", bp::init< >() )    
+    bp::class_< TextureCostEstimator_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< TextureCostEstimator_wrapper >, boost::noncopyable >( "TextureCostEstimator", bp::init< >() )    
         .def( 
             "calibrate"
             , (void ( ::osg::TextureCostEstimator::* )( ::osg::RenderInfo & ))( &::osg::TextureCostEstimator::calibrate )

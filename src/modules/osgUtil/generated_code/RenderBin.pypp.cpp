@@ -372,7 +372,7 @@ struct RenderBin_wrapper : osgUtil::RenderBin, bp::wrapper< osgUtil::RenderBin >
 void register_RenderBin_class(){
 
     { //::osgUtil::RenderBin
-        typedef bp::class_< RenderBin_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgUtil::RenderBin >, boost::noncopyable > RenderBin_exposer_t;
+        typedef bp::class_< RenderBin_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< RenderBin_wrapper >, boost::noncopyable > RenderBin_exposer_t;
         RenderBin_exposer_t RenderBin_exposer = RenderBin_exposer_t( "RenderBin", bp::no_init );
         bp::scope RenderBin_scope( RenderBin_exposer );
         bp::enum_< osgUtil::RenderBin::SortMode>("SortMode")
@@ -383,12 +383,12 @@ void register_RenderBin_class(){
             .value("TRAVERSAL_ORDER", osgUtil::RenderBin::TRAVERSAL_ORDER)
             .export_values()
             ;
-        bp::class_< RenderBin_wrapper::DrawCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::RenderBin::DrawCallback >, boost::noncopyable >( "DrawCallback", bp::no_init )    
+        bp::class_< RenderBin_wrapper::DrawCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< RenderBin_wrapper::DrawCallback_wrapper >, boost::noncopyable >( "DrawCallback", bp::no_init )    
             .def( 
                 "drawImplementation"
                 , bp::pure_virtual( (void ( ::osgUtil::RenderBin::DrawCallback::* )( ::osgUtil::RenderBin *,::osg::RenderInfo &,::osgUtil::RenderLeaf * & ))(&::osgUtil::RenderBin::DrawCallback::drawImplementation) )
                 , ( bp::arg("bin"), bp::arg("renderInfo"), bp::arg("previous") ) );
-        bp::class_< RenderBin_wrapper::SortCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::RenderBin::SortCallback >, boost::noncopyable >( "SortCallback", bp::no_init )    
+        bp::class_< RenderBin_wrapper::SortCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< RenderBin_wrapper::SortCallback_wrapper >, boost::noncopyable >( "SortCallback", bp::no_init )    
             .def( 
                 "sortImplementation"
                 , bp::pure_virtual( (void ( ::osgUtil::RenderBin::SortCallback::* )( ::osgUtil::RenderBin * ))(&::osgUtil::RenderBin::SortCallback::sortImplementation) )

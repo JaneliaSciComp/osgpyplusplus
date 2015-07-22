@@ -301,7 +301,7 @@ struct Stencil_wrapper : osg::Stencil, bp::wrapper< osg::Stencil > {
 void register_Stencil_class(){
 
     { //::osg::Stencil
-        typedef bp::class_< Stencil_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Stencil >, boost::noncopyable > Stencil_exposer_t;
+        typedef bp::class_< Stencil_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Stencil_wrapper >, boost::noncopyable > Stencil_exposer_t;
         Stencil_exposer_t Stencil_exposer = Stencil_exposer_t( "Stencil", "\n Encapsulate OpenGL glStencilFunc/Op/Mask functions.\n\n   All functionality except INCR_WRAP and DECR_WRAP is supported by OpenGL 1.1.\n   INCR_WRAP an DECR_WRAP are available since OpenGL 1.4 or when\n   GL_EXT_stencil_wrap extension is present.\n\n   If INCR_WRAP or DECR_WRAP values are used while they are detected to be not supported,\n   the INCR or DECR values are sent to OpenGL instead. Note: do not use Stencil::getFunction()\n   to detect whether WRAP operations is used as the objects value is kept intact.\n   Use osg::Stencil::getExtensions() method instead.\n\n   OpenGL 2.0 introduced two side stenciling that is available through\n   osg::StencilTwoSided class.\n", bp::no_init );
         bp::scope Stencil_scope( Stencil_exposer );
         bp::enum_< osg::Stencil::Function>("Function")

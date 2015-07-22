@@ -393,7 +393,7 @@ struct LightSource_wrapper : osg::LightSource, bp::wrapper< osg::LightSource > {
 void register_LightSource_class(){
 
     { //::osg::LightSource
-        typedef bp::class_< LightSource_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::LightSource >, boost::noncopyable > LightSource_exposer_t;
+        typedef bp::class_< LightSource_wrapper, bp::bases< osg::Group >, osg::ref_ptr< LightSource_wrapper >, boost::noncopyable > LightSource_exposer_t;
         LightSource_exposer_t LightSource_exposer = LightSource_exposer_t( "LightSource", "\n Leaf Node for defining a light in the scene.\n", bp::no_init );
         bp::scope LightSource_scope( LightSource_exposer );
         bp::enum_< osg::LightSource::ReferenceFrame>("ReferenceFrame")

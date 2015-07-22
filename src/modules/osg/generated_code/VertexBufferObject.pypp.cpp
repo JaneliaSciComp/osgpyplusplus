@@ -164,7 +164,7 @@ struct VertexBufferObject_wrapper : osg::VertexBufferObject, bp::wrapper< osg::V
 
 void register_VertexBufferObject_class(){
 
-    bp::class_< VertexBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< ::osg::VertexBufferObject >, boost::noncopyable >( "VertexBufferObject", bp::no_init )    
+    bp::class_< VertexBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< VertexBufferObject_wrapper >, boost::noncopyable >( "VertexBufferObject", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addArray"

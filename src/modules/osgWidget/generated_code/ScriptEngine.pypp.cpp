@@ -80,7 +80,7 @@ struct ScriptEngine_wrapper : osgWidget::ScriptEngine, bp::wrapper< osgWidget::S
 
 void register_ScriptEngine_class(){
 
-    bp::class_< ScriptEngine_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::ScriptEngine >, boost::noncopyable >( "ScriptEngine" )    
+    bp::class_< ScriptEngine_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ScriptEngine_wrapper >, boost::noncopyable >( "ScriptEngine" )    
         .def( 
             "close"
             , (bool ( ::osgWidget::ScriptEngine::* )(  ))(&::osgWidget::ScriptEngine::close)

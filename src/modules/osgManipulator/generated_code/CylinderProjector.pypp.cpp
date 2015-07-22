@@ -52,7 +52,7 @@ struct CylinderProjector_wrapper : osgManipulator::CylinderProjector, bp::wrappe
 void register_CylinderProjector_class(){
 
     { //::osgManipulator::CylinderProjector
-        typedef bp::class_< CylinderProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< ::osgManipulator::CylinderProjector >, boost::noncopyable > CylinderProjector_exposer_t;
+        typedef bp::class_< CylinderProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< CylinderProjector_wrapper >, boost::noncopyable > CylinderProjector_exposer_t;
         CylinderProjector_exposer_t CylinderProjector_exposer = CylinderProjector_exposer_t( "CylinderProjector", "\n CylinderProjector projects points onto the given cylinder.\n", bp::no_init );
         bp::scope CylinderProjector_scope( CylinderProjector_exposer );
         CylinderProjector_exposer.def( bp::init< >("\n CylinderProjector projects points onto the given cylinder.\n") );

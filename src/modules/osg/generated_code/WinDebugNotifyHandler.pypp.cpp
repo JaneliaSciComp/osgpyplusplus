@@ -44,7 +44,7 @@ struct WinDebugNotifyHandler_wrapper : osg::WinDebugNotifyHandler, bp::wrapper< 
 
 void register_WinDebugNotifyHandler_class(){
 
-    bp::class_< WinDebugNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< ::osg::WinDebugNotifyHandler >, boost::noncopyable >( "WinDebugNotifyHandler", "\n Redirects notification stream to windows debugger with use of\n OuputDebugString functions.\n aee setNotifyHandler\n" )    
+    bp::class_< WinDebugNotifyHandler_wrapper, bp::bases< osg::NotifyHandler >, osg::ref_ptr< WinDebugNotifyHandler_wrapper >, boost::noncopyable >( "WinDebugNotifyHandler", "\n Redirects notification stream to windows debugger with use of\n OuputDebugString functions.\n aee setNotifyHandler\n" )    
         .def( 
             "notify"
             , (void ( ::osg::WinDebugNotifyHandler::* )( ::osg::NotifySeverity,char const * ))(&::osg::WinDebugNotifyHandler::notify)

@@ -597,7 +597,7 @@ struct NotifyWidget_wrapper : osgWidget::NotifyWidget, bp::wrapper< osgWidget::N
 void register_NotifyWidget_class(){
 
     { //::osgWidget::NotifyWidget
-        typedef bp::class_< NotifyWidget_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::NotifyWidget >, boost::noncopyable > NotifyWidget_exposer_t;
+        typedef bp::class_< NotifyWidget_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< NotifyWidget_wrapper >, boost::noncopyable > NotifyWidget_exposer_t;
         NotifyWidget_exposer_t NotifyWidget_exposer = NotifyWidget_exposer_t( "NotifyWidget", bp::init< bp::optional< std::string const &, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("n")="", bp::arg("w")=0.0f, bp::arg("h")=0.0f )) );
         bp::scope NotifyWidget_scope( NotifyWidget_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::NotifyWidget >();

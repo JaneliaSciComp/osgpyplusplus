@@ -1867,7 +1867,7 @@ struct Frame_wrapper : osgWidget::Frame, bp::wrapper< osgWidget::Frame > {
 void register_Frame_class(){
 
     { //::osgWidget::Frame
-        typedef bp::class_< Frame_wrapper, bp::bases< osgWidget::Table >, osg::ref_ptr< ::osgWidget::Frame >, boost::noncopyable > Frame_exposer_t;
+        typedef bp::class_< Frame_wrapper, bp::bases< osgWidget::Table >, osg::ref_ptr< Frame_wrapper >, boost::noncopyable > Frame_exposer_t;
         Frame_exposer_t Frame_exposer = Frame_exposer_t( "Frame", bp::init< bp::optional< std::string const &, unsigned int > >(( bp::arg("arg0")="", bp::arg("arg1")=(unsigned int)(0) )) );
         bp::scope Frame_scope( Frame_exposer );
         bp::enum_< osgWidget::Frame::BorderType>("BorderType")
@@ -1892,7 +1892,7 @@ void register_Frame_class(){
             .export_values()
             ;
         { //::osgWidget::Frame::Border
-            typedef bp::class_< Frame_wrapper::Border_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::Frame::Border >, boost::noncopyable > Border_exposer_t;
+            typedef bp::class_< Frame_wrapper::Border_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< Frame_wrapper::Border_wrapper >, boost::noncopyable > Border_exposer_t;
             Border_exposer_t Border_exposer = Border_exposer_t( "Border", bp::init< bp::optional< osgWidget::Frame::BorderType, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("arg0")=::osgWidget::Frame::BORDER_LEFT, bp::arg("arg1")=0.0f, bp::arg("arg2")=0.0f )) );
             bp::scope Border_scope( Border_exposer );
             bp::implicitly_convertible< osgWidget::Frame::BorderType, osgWidget::Frame::Border >();
@@ -2177,7 +2177,7 @@ void register_Frame_class(){
             }
         }
         { //::osgWidget::Frame::Corner
-            typedef bp::class_< Frame_wrapper::Corner_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::Frame::Corner >, boost::noncopyable > Corner_exposer_t;
+            typedef bp::class_< Frame_wrapper::Corner_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< Frame_wrapper::Corner_wrapper >, boost::noncopyable > Corner_exposer_t;
             Corner_exposer_t Corner_exposer = Corner_exposer_t( "Corner", bp::init< bp::optional< osgWidget::Frame::CornerType, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("arg0")=::osgWidget::Frame::CORNER_LOWER_LEFT, bp::arg("arg1")=0.0f, bp::arg("arg2")=0.0f )) );
             bp::scope Corner_scope( Corner_exposer );
             bp::implicitly_convertible< osgWidget::Frame::CornerType, osgWidget::Frame::Corner >();

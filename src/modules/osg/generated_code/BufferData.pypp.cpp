@@ -338,10 +338,10 @@ struct BufferData_wrapper : osg::BufferData, bp::wrapper< osg::BufferData > {
 void register_BufferData_class(){
 
     { //::osg::BufferData
-        typedef bp::class_< BufferData_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferData >, boost::noncopyable > BufferData_exposer_t;
+        typedef bp::class_< BufferData_wrapper, bp::bases< osg::Object >, osg::ref_ptr< BufferData_wrapper >, boost::noncopyable > BufferData_exposer_t;
         BufferData_exposer_t BufferData_exposer = BufferData_exposer_t( "BufferData", bp::no_init );
         bp::scope BufferData_scope( BufferData_exposer );
-        bp::class_< BufferData_wrapper::ModifiedCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::BufferData::ModifiedCallback >, boost::noncopyable >( "ModifiedCallback" )    
+        bp::class_< BufferData_wrapper::ModifiedCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< BufferData_wrapper::ModifiedCallback_wrapper >, boost::noncopyable >( "ModifiedCallback" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::BufferData::ModifiedCallback::* )(  )const)(&::osg::BufferData::ModifiedCallback::className)

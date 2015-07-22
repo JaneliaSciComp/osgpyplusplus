@@ -400,7 +400,7 @@ struct VncClient_wrapper : osgWidget::VncClient, bp::wrapper< osgWidget::VncClie
 void register_VncClient_class(){
 
     { //::osgWidget::VncClient
-        typedef bp::class_< VncClient_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< ::osgWidget::VncClient >, boost::noncopyable > VncClient_exposer_t;
+        typedef bp::class_< VncClient_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< VncClient_wrapper >, boost::noncopyable > VncClient_exposer_t;
         VncClient_exposer_t VncClient_exposer = VncClient_exposer_t( "VncClient", "\n Convinience Vnc Client class that provides a interactive quad that can be placed directly in the scene.\n", bp::init< >("\n Convinience Vnc Client class that provides a interactive quad that can be placed directly in the scene.\n") );
         bp::scope VncClient_scope( VncClient_exposer );
         VncClient_exposer.def( bp::init< std::string const &, bp::optional< osgWidget::GeometryHints const & > >(( bp::arg("hostname"), bp::arg("hints")=osgWidget::GeometryHints() ), "\n Convinience Vnc Client class that provides a interactive quad that can be placed directly in the scene.\n") );

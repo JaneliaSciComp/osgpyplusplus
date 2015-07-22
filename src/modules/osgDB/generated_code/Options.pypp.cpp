@@ -160,7 +160,7 @@ struct Options_wrapper : osgDB::Options, bp::wrapper< osgDB::Options > {
 void register_Options_class(){
 
     { //::osgDB::Options
-        typedef bp::class_< Options_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgDB::Options >, boost::noncopyable > Options_exposer_t;
+        typedef bp::class_< Options_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Options_wrapper >, boost::noncopyable > Options_exposer_t;
         Options_exposer_t Options_exposer = Options_exposer_t( "Options", bp::no_init );
         bp::scope Options_scope( Options_exposer );
         bp::enum_< osgDB::Options::BuildKdTreesHint>("BuildKdTreesHint")

@@ -47,7 +47,7 @@ struct StateGraph_wrapper : osgUtil::StateGraph, bp::wrapper< osgUtil::StateGrap
 
 void register_StateGraph_class(){
 
-    bp::class_< StateGraph_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::StateGraph >, boost::noncopyable >( "StateGraph", bp::init< >() )    
+    bp::class_< StateGraph_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< StateGraph_wrapper >, boost::noncopyable >( "StateGraph", bp::init< >() )    
         .def( bp::init< osgUtil::StateGraph *, osg::StateSet const * >(( bp::arg("parent"), bp::arg("stateset") )) )    
         .def( 
             "addLeaf"

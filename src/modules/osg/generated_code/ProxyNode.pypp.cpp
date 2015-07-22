@@ -405,7 +405,7 @@ struct ProxyNode_wrapper : osg::ProxyNode, bp::wrapper< osg::ProxyNode > {
 void register_ProxyNode_class(){
 
     { //::osg::ProxyNode
-        typedef bp::class_< ProxyNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::ProxyNode >, boost::noncopyable > ProxyNode_exposer_t;
+        typedef bp::class_< ProxyNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ProxyNode_wrapper >, boost::noncopyable > ProxyNode_exposer_t;
         ProxyNode_exposer_t ProxyNode_exposer = ProxyNode_exposer_t( "ProxyNode", "\n ProxyNode.\n", bp::no_init );
         bp::scope ProxyNode_scope( ProxyNode_exposer );
         bp::enum_< osg::ProxyNode::CenterMode>("CenterMode")

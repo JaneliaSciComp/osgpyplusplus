@@ -395,7 +395,7 @@ struct PdfImage_wrapper : osgWidget::PdfImage, bp::wrapper< osgWidget::PdfImage 
 
 void register_PdfImage_class(){
 
-    bp::class_< PdfImage_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< ::osgWidget::PdfImage >, boost::noncopyable >( "PdfImage", "\n Pure virtual base class for interfacing with implementation of PDF reader.\n", bp::no_init )    
+    bp::class_< PdfImage_wrapper, bp::bases< ::osg::Image >, osg::ref_ptr< PdfImage_wrapper >, boost::noncopyable >( "PdfImage", "\n Pure virtual base class for interfacing with implementation of PDF reader.\n", bp::no_init )    
         .def( 
             "getBackgroundColor"
             , (::osg::Vec4 const & ( ::osgWidget::PdfImage::* )(  )const)( &::osgWidget::PdfImage::getBackgroundColor )

@@ -279,7 +279,7 @@ struct Scissor_wrapper : osg::Scissor, bp::wrapper< osg::Scissor > {
 
 void register_Scissor_class(){
 
-    bp::class_< Scissor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Scissor >, boost::noncopyable >( "Scissor", "\n Encapsulate OpenGL glScissor.\n", bp::no_init )    
+    bp::class_< Scissor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Scissor_wrapper >, boost::noncopyable >( "Scissor", "\n Encapsulate OpenGL glScissor.\n", bp::no_init )    
         .def( bp::init< >("\n Encapsulate OpenGL glScissor.\n") )    
         .def( bp::init< int, int, int, int >(( bp::arg("x"), bp::arg("y"), bp::arg("width"), bp::arg("height") )) )    
         .def( 

@@ -188,7 +188,7 @@ struct InfinitePlane_wrapper : osg::InfinitePlane, bp::wrapper< osg::InfinitePla
 
 void register_InfinitePlane_class(){
 
-    bp::class_< InfinitePlane_wrapper, bp::bases< osg::Shape, osg::Plane >, osg::ref_ptr< ::osg::InfinitePlane >, boost::noncopyable >( "InfinitePlane", bp::no_init )    
+    bp::class_< InfinitePlane_wrapper, bp::bases< osg::Shape, osg::Plane >, osg::ref_ptr< InfinitePlane_wrapper >, boost::noncopyable >( "InfinitePlane", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"
