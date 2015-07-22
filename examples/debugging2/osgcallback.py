@@ -33,154 +33,144 @@ from osgpypp import osgViewer
 #*  THE SOFTWARE.
 #
 
-#include <osgViewer/Viewer>
 
-#include <osg/Transform>
-#include <osg/Billboard>
-#include <osg/Geode>
-#include <osg/Group>
-#include <osg/Notify>
+class UpdateCallback (osg.NodeCallback):
+    def __init__(self):
+        super(UpdateCallback, self).__init__()
 
-#include <osgDB/Registry>
-#include <osgDB/ReadFile>
-
-#include <osgGA/TrackballManipulator>
-#include <osgGA/FlightManipulator>
-#include <osgGA/DriveManipulator>
-
-#include <osgUtil/Optimizer>
-
-#include <iostream>
-
-class UpdateCallback (osg.NodeCallback) :
-virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-            print "update callback - pre traverse", node
-            traverse(node,nv)
-            print "update callback - post traverse", node
+    def __call__(self, node, nv):
+        print "update callback - pre traverse", node
+        self.traverse(node,nv)
+        print "update callback - post traverse", node
 
 
-class CullCallback (osg.NodeCallback) :
-virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
-            print "cull callback - pre traverse", node
-            traverse(node,nv)
-            print "cull callback - post traverse", node
+class CullCallback (osg.NodeCallback):
+    def __init__(self):
+        super(CullCallback, self).__init__()
+        
+    def __call__(self, node, nv):
+        print "cull callback - pre traverse", node
+        self.traverse(node,nv)
+        print "cull callback - post traverse", node
 
 
-class DrawableDrawCallback (osg.Drawable.DrawCallback) :
-def drawImplementation(renderInfo, drawable):
-    
-            print "draw call back - pre drawImplementation", drawable
-            drawable.drawImplementation(renderInfo)
-            print "draw call back - post drawImplementation", drawable
+class DrawableDrawCallback (osg.Drawable.DrawCallback):
+    def __init__(self):
+        super(DrawableDrawCallback, self).__init__()
+
+    def drawImplementation(self, renderInfo, drawable):    
+        print "draw call back - pre drawImplementation", drawable
+        drawable.drawImplementation(renderInfo)
+        print "draw call back - post drawImplementation", drawable
 
 
 class DrawableUpdateCallback (osg.Drawable.UpdateCallback) :
-virtual void update(osg.NodeVisitor*, osg.Drawable* drawable)
+    def __init__(self):
+        super(DrawableUpdateCallback, self).__init__()
+
+    def update(self, visitor, drawable):
         print "Drawable update callback ", drawable
 
 
 class DrawableCullCallback (osg.Drawable.CullCallback) :
-#* do customized cull code.
-    virtual bool cull(osg.NodeVisitor*, osg.Drawable* drawable, osg.State* #state) 
+    def __init__(self):
+        super(DrawableCullCallback, self).__init__()
+
+    #* do customized cull code.
+    def cull(self, visitor, drawable, state):
         print "Drawable cull callback ", drawable
         return False
 
 
-class InsertCallbacksVisitor (osg.NodeVisitor) :
-   
-        InsertCallbacksVisitor():osg.NodeVisitor(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
-        
-        def apply(node):
-        
-            
-             node.setUpdateCallback(UpdateCallback())
-             node.setCullCallback(CullCallback())
-             traverse(node)
+class InsertCallbacksVisitor (osg.NodeVisitor) :  
+    def __init__(self):
+        super(InsertCallbacksVisitor, self).__init__(osg.NodeVisitor.TRAVERSE_ALL_CHILDREN)
+    
+    def apply_node(self, node):
+        node.setUpdateCallback(UpdateCallback())
+        node.setCullCallback(CullCallback())
+        self.traverse(node)
 
-        def apply(geode):
-
-            
-            geode.setUpdateCallback(UpdateCallback())
-            
-            #note, it makes no sense to attach a cull callback to the node
-            #at there are no nodes to traverse below the geode, only
-            #drawables, and as such the Cull node callbacks is ignored.
-            #If you wish to control the culling of drawables
-            #then use a drawable cullback...
-
-            for(unsigned int i=0i<geode.getNumDrawables()++i)
-                geode.getDrawable(i).setUpdateCallback(DrawableUpdateCallback())
-                geode.getDrawable(i).setCullCallback(DrawableCullCallback())
-                geode.getDrawable(i).setDrawCallback(DrawableDrawCallback())
+    def apply_geode(self, geode):
+        geode.setUpdateCallback(UpdateCallback())
+        #note, it makes no sense to attach a cull callback to the node
+        #at there are no nodes to traverse below the geode, only
+        #drawables, and as such the Cull node callbacks is ignored.
+        #If you wish to control the culling of drawables
+        #then use a drawable cullback...
+        for i in range(geode.getNumDrawables()):
+            geode.getDrawable(i).setUpdateCallback(DrawableUpdateCallback())
+            geode.getDrawable(i).setCullCallback(DrawableCullCallback())
+            geode.getDrawable(i).setDrawCallback(DrawableDrawCallback())
+    
+    def apply_transform(self, transform):
+        self.apply_node(transform)
         
-        def apply(node):
-        
-            
-            apply((osg.Node)node)
+    def apply(self, node):
+        if isinstance(node, osg.Geode):
+            self.apply_geode(node)
+        else:
+            self.apply_node(node)
 
 
 class MyReadFileCallback (osgDB.Registry.ReadFileCallback) :
-    def readNode(fileName, options):
-        
+    def __init__(self):
+        super(MyReadFileCallback, self).__init__()
+
+    def readNode(self, fileName, options):
         print "before readNode"
         # note when calling the Registry to do the read you have to call readNodeImplementation NOT readNode, as this will
         # cause on infinite recusive loop.
-        result = osgDB.Registry.instance().readNodeImplementation(fileName,options)
+        result = osgDB.Registry.instance().readNodeImplementation(fileName, options)
         print "after readNode"
         return result
 
 
 class CameraUpdateCallback (osg.NodeCallback) :
-virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+    def __init__(self):
+        super(CameraUpdateCallback, self).__init__()
+
+    def __call__(self, node, nv):
         print "Camera update callback - pre traverse", node
-        traverse(node,nv)
+        self.traverse(node,nv)
         print "Camera update callback - post traverse", node
 
 
 class CameraEventCallback (osg.NodeCallback) :
-virtual void operator()(osg.Node* node, osg.NodeVisitor* nv)
+    def __init__(self):
+        super(CameraEventCallback, self).__init__()
+
+    def __call__(self, node, nv):
         print "Camera event callback - pre traverse", node
-        traverse(node,nv)
+        self.traverse(node,nv)
         print "Camera event callback - post traverse", node
 
 
 def main(argv):
-
-    
     # use an ArgumentParser object to manage the program arguments.
     arguments = osg.ArgumentParser(argv)
-   
     # set the osgDB.Registy read file callback to catch all requests for reading files.
     osgDB.Registry.instance().setReadFileCallback(MyReadFileCallback())
-   
     # initialize the viewer.
     viewer = osgViewer.Viewer()
-
     # load the nodes from the commandline arguments.
     rootnode = osgDB.readNodeFiles(arguments)
-
     # if not loaded assume no arguments passed in, try use default mode instead.
-    if  not rootnode : rootnode = osgDB.readNodeFile("cow.osgt")
-
-    if  not rootnode :
+    if rootnode is None:
+        rootnode = osgDB.readNodeFile("cow.osgt")
+    if rootnode is None:
         osg.notify(osg.NOTICE), "Please specify a file on the command line"
-
         return 1
-    
     # run optimization over the scene graph
     optimzer = osgUtil.Optimizer()
     optimzer.optimize(rootnode)
-     
     # insert all the callbacks
     icv = InsertCallbacksVisitor()
     rootnode.accept(icv)
-
     viewer.getCamera().setUpdateCallback(CameraUpdateCallback())
     viewer.getCamera().setEventCallback(CameraEventCallback())
-
     # set the scene to render
     viewer.setSceneData(rootnode)
-
     return viewer.run()
 
 

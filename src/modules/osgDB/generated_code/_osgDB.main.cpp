@@ -4,6 +4,8 @@
 
 #include "__call_policies.pypp.hpp"
 
+#include "__convenience.pypp.hpp"
+
 #include "indexing_suite/value_traits.hpp"
 
 #include "indexing_suite/container_suite.hpp"
@@ -70,6 +72,8 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageprocessor.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/imageprocessorlist.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/input.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/inputexception.pypp.hpp"
@@ -116,7 +120,11 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/pluginfunctionproxy.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriter.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriterinfo.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readerwriterlist.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/readfilecallback.pypp.hpp"
 
@@ -128,11 +136,15 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registerwrapperproxy.pypp.hpp"
 
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/registry.pypp.hpp"
+
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/updatewrapperversionproxy.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/userlookuptableproxy.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/wrappermap.pypp.hpp"
+
+#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/writefilecallback.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgdb/generated_code/xmlnode.pypp.hpp"
 
@@ -142,6 +154,10 @@ BOOST_PYTHON_MODULE(_osgDB){
     register_enumerations();
 
     register_Children_class();
+
+    register_ReaderWriterList_class();
+
+    register_ImageProcessorList_class();
 
     register_WrapperMap_class();
 
@@ -231,6 +247,8 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_PluginFunctionProxy_class();
 
+    register_ReaderWriter_class();
+
     register_ReadFileCallback_class();
 
     register_ReaderWriterInfo_class();
@@ -243,9 +261,13 @@ BOOST_PYTHON_MODULE(_osgDB){
 
     register_RegisterWrapperProxy_class();
 
+    register_Registry_class();
+
     register_UpdateWrapperVersionProxy_class();
 
     register_UserLookupTableProxy_class();
+
+    register_WriteFileCallback_class();
 
     register_XmlNode_class();
 

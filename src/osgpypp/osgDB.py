@@ -16,3 +16,9 @@ from . import osgUtil
 
 # delegate to binary module, created with pyplusplus and boost::python
 from _osgDB import *
+
+# Translate C++ typedefs into python
+Registry.FindFileCallback = FindFileCallback
+Registry.ReadFileCallback = ReadFileCallback
+Registry.WriteFileCallback = WriteFileCallback
+Registry.FileLocationCallback = FileLocationCallback

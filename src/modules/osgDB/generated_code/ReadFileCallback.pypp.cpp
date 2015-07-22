@@ -104,7 +104,7 @@ struct ReadFileCallback_wrapper : osgDB::ReadFileCallback, bp::wrapper< osgDB::R
 
 void register_ReadFileCallback_class(){
 
-    bp::class_< ReadFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ReadFileCallback >, boost::noncopyable >( "ReadFileCallback", bp::no_init )    
+    bp::class_< ReadFileCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ReadFileCallback_wrapper >, boost::noncopyable >( "ReadFileCallback" )    
         .def( 
             "openArchive"
             , (::osgDB::ReaderWriter::ReadResult ( ::osgDB::ReadFileCallback::* )( ::std::string const &,::osgDB::ReaderWriter::ArchiveStatus,unsigned int,::osgDB::Options const * ))(&::osgDB::ReadFileCallback::openArchive)
