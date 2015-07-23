@@ -490,7 +490,7 @@ void register_TextureCubeMap_class(){
             
             }
         }
-        bp::class_< TextureCubeMap_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureCubeMap::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< TextureCubeMap_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< TextureCubeMap_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

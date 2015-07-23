@@ -176,7 +176,7 @@ struct NodeCallback_wrapper : osg::NodeCallback, bp::wrapper< osg::NodeCallback 
 
 void register_NodeCallback_class(){
 
-    bp::class_< NodeCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::NodeCallback >, boost::noncopyable >( "NodeCallback", bp::no_init )    
+    bp::class_< NodeCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< NodeCallback_wrapper >, boost::noncopyable >( "NodeCallback", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addNestedCallback"

@@ -88,9 +88,6 @@ class OsgWrapper(BaseWrapper):
 
         self.wrap_all_osg_referenced(openthreads)
 
-        # Special treatment for classes that need to be called back from C++
-        expose_ref_ptr_class(mb.class_("NodeVisitor"))
-
         # Free functions
         for fn_name in [
                 "colorSpaceConversion", # protected Image destructor problem... 
@@ -211,6 +208,16 @@ class OsgWrapper(BaseWrapper):
                          ]:
             cls = osg.class_(cls_name)
             cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # decl_string not wrapper_alias
+
+        # Make known-overridable classes overridable
+        # Special treatment for classes that need to be called back from C++
+        for cls_name in ["NodeVisitor", "ComputeBoundsVisitor", "CollectOccludersVisitor"]:
+            cls = osg.class_(cls_name)
+            expose_ref_ptr_class(cls) # make overridable
+        for cls in osg.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
+        # for cls in osg.classes(lambda c: c.name.endswith("Visitor")):
+        #     expose_ref_ptr_class(cls) # make overridable
 
         for cls_name in ["RenderBuffer", ]:
             osg.class_(cls_name).member_functions("compare").exclude()
@@ -578,7 +585,10 @@ class OsgWrapper(BaseWrapper):
         # expose_ref_ptr_class(cbb)
         cbb.constructors().exclude()
         cbb.exclude()
-    
+                # Make known-overridable classes overridable
+        for cls in drawable.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
+
     def wrap_image(self):
         image = self.mb.class_("Image")
         image.member_functions("data").exclude()
@@ -613,6 +623,8 @@ class OsgWrapper(BaseWrapper):
         fn_string = fn_string.replace("operator()", "operator_call")
         call_op.transformations[-1].unique_name = fn_string
         # dc.exclude()
+        for cls in camera.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
     
     def wrap_node(self):
         cls = self.mb.class_("Node")

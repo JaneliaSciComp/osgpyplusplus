@@ -1600,7 +1600,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Drawable::ConstAttributeFunctor::* )( unsigned int,unsigned int,::osg::Vec4d const * ))(&::osg::Drawable::ConstAttributeFunctor::apply)
                 , (void ( Drawable_wrapper::ConstAttributeFunctor_wrapper::* )( unsigned int,unsigned int,::osg::Vec4d const * ))(&Drawable_wrapper::ConstAttributeFunctor_wrapper::default_apply)
                 , ( bp::arg("arg0"), bp::arg("arg1"), bp::arg("arg2") ) );
-        bp::class_< Drawable_wrapper::CullCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::CullCallback >, boost::noncopyable >( "CullCallback" )    
+        bp::class_< Drawable_wrapper::CullCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Drawable_wrapper::CullCallback_wrapper >, boost::noncopyable >( "CullCallback" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Drawable::CullCallback::* )(  )const)(&::osg::Drawable::CullCallback::className)
@@ -1674,7 +1674,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( Drawable_wrapper::CullCallback_wrapper::* )( ::osg::Referenced * ))(&Drawable_wrapper::CullCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        bp::class_< Drawable_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::DrawCallback >, boost::noncopyable >( "DrawCallback", "\n Callback attached to an Drawable which allows the users to customize the drawing of an exist Drawable object.\n The draw callback is implement as a replacement to the Drawables own drawImplementation() method, if the\n the user intends to decorate the existing draw code then simple call the drawable->drawImplementation() from\n with the callbacks drawImplementation() method. This allows the users to do both pre and post callbacks\n without fuss and can even disable the inner draw if required.\n" )    
+        bp::class_< Drawable_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Drawable_wrapper::DrawCallback_wrapper >, boost::noncopyable >( "DrawCallback", "\n Callback attached to an Drawable which allows the users to customize the drawing of an exist Drawable object.\n The draw callback is implement as a replacement to the Drawables own drawImplementation() method, if the\n the user intends to decorate the existing draw code then simple call the drawable->drawImplementation() from\n with the callbacks drawImplementation() method. This allows the users to do both pre and post callbacks\n without fuss and can even disable the inner draw if required.\n" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Drawable::DrawCallback::* )(  )const)(&::osg::Drawable::DrawCallback::className)
@@ -1743,7 +1743,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( Drawable_wrapper::DrawCallback_wrapper::* )( ::osg::Referenced * ))(&Drawable_wrapper::DrawCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        bp::class_< Drawable_wrapper::EventCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::EventCallback >, boost::noncopyable >( "EventCallback" )    
+        bp::class_< Drawable_wrapper::EventCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Drawable_wrapper::EventCallback_wrapper >, boost::noncopyable >( "EventCallback" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Drawable::EventCallback::* )(  )const)(&::osg::Drawable::EventCallback::className)
@@ -1812,7 +1812,7 @@ void register_Drawable_class(){
                 , (void ( ::osg::Object::* )( ::osg::Referenced * ))(&::osg::Object::setUserData)
                 , (void ( Drawable_wrapper::EventCallback_wrapper::* )( ::osg::Referenced * ))(&Drawable_wrapper::EventCallback_wrapper::default_setUserData)
                 , ( bp::arg("obj") ) );
-        bp::class_< Drawable_wrapper::UpdateCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Drawable::UpdateCallback >, boost::noncopyable >( "UpdateCallback" )    
+        bp::class_< Drawable_wrapper::UpdateCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Drawable_wrapper::UpdateCallback_wrapper >, boost::noncopyable >( "UpdateCallback" )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Drawable::UpdateCallback::* )(  )const)(&::osg::Drawable::UpdateCallback::className)

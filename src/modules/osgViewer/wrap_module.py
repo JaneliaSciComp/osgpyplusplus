@@ -35,8 +35,8 @@ class OsgViewerWrapper(BaseWrapper):
 
         wrap_call_policies(self.mb)
 
-        self.wrap_all_osg_referenced_noderive(osgViewer)
-        # self.wrap_all_osg_referenced(osgViewer)
+        # self.wrap_all_osg_referenced_noderive(osgViewer)
+        self.wrap_all_osg_referenced(osgViewer)
         
         # Avoid infinite recursion runtime error by making some classes
         # non-overridable

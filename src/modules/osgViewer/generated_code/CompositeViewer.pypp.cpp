@@ -544,7 +544,7 @@ struct CompositeViewer_wrapper : osgViewer::CompositeViewer, bp::wrapper< osgVie
 void register_CompositeViewer_class(){
 
     { //::osgViewer::CompositeViewer
-        typedef bp::class_< CompositeViewer_wrapper, bp::bases< osgViewer::ViewerBase >, osg::ref_ptr< ::osgViewer::CompositeViewer >, boost::noncopyable > CompositeViewer_exposer_t;
+        typedef bp::class_< CompositeViewer_wrapper, bp::bases< osgViewer::ViewerBase >, osg::ref_ptr< CompositeViewer_wrapper >, boost::noncopyable > CompositeViewer_exposer_t;
         CompositeViewer_exposer_t CompositeViewer_exposer = CompositeViewer_exposer_t( "CompositeViewer", bp::init< >() );
         bp::scope CompositeViewer_scope( CompositeViewer_exposer );
         CompositeViewer_exposer.def( bp::init< osg::ArgumentParser & >(( bp::arg("arguments") )) );

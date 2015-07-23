@@ -8,7 +8,6 @@ import sys
 
 from osgpypp import osg
 from osgpypp import osgDB
-from osgpypp import osgGA
 from osgpypp import osgUtil
 from osgpypp import osgViewer
 

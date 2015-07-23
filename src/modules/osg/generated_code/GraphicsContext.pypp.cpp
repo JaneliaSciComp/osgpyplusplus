@@ -345,7 +345,7 @@ void register_GraphicsContext_class(){
         typedef bp::class_< GraphicsContext_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::GraphicsContext >, boost::noncopyable > GraphicsContext_exposer_t;
         GraphicsContext_exposer_t GraphicsContext_exposer = GraphicsContext_exposer_t( "GraphicsContext", "\n Base class for providing Windowing API agnostic access to creating and managing graphics context.\n", bp::no_init );
         bp::scope GraphicsContext_scope( GraphicsContext_exposer );
-        bp::class_< GraphicsContext_wrapper::ResizedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsContext::ResizedCallback >, boost::noncopyable >( "ResizedCallback", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::ResizedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsContext_wrapper::ResizedCallback_wrapper >, boost::noncopyable >( "ResizedCallback", bp::no_init )    
             .def( 
                 "resizedImplementation"
                 , bp::pure_virtual( (void ( ::osg::GraphicsContext::ResizedCallback::* )( ::osg::GraphicsContext *,int,int,int,int ))(&::osg::GraphicsContext::ResizedCallback::resizedImplementation) )
@@ -382,7 +382,7 @@ void register_GraphicsContext_class(){
             .def_readwrite( "refreshRate", &osg::GraphicsContext::ScreenSettings::refreshRate, "\n Screen refresh rate, in Hz.\n" )    
             .def_readwrite( "width", &osg::GraphicsContext::ScreenSettings::width, "\n Simple resolution structure used by WindowingSystemInterface to get and set screen resolution.\n Note the 0 value stands for unset.\n" )    
             .def( bp::self == bp::self );
-        bp::class_< GraphicsContext_wrapper::SwapCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::GraphicsContext::SwapCallback >, boost::noncopyable >( "SwapCallback", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::SwapCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< GraphicsContext_wrapper::SwapCallback_wrapper >, boost::noncopyable >( "SwapCallback", bp::no_init )    
             .def( 
                 "swapBuffersImplementation"
                 , bp::pure_virtual( (void ( ::osg::GraphicsContext::SwapCallback::* )( ::osg::GraphicsContext * ))(&::osg::GraphicsContext::SwapCallback::swapBuffersImplementation) )
