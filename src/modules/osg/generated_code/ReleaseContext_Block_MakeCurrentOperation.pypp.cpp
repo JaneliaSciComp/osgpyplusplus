@@ -56,7 +56,7 @@ struct ReleaseContext_Block_MakeCurrentOperation_wrapper : osg::ReleaseContext_B
 
 void register_ReleaseContext_Block_MakeCurrentOperation_class(){
 
-    bp::class_< ReleaseContext_Block_MakeCurrentOperation_wrapper, bp::bases< osg::GraphicsOperation, osg::RefBlock >, osg::ref_ptr< ReleaseContext_Block_MakeCurrentOperation_wrapper >, boost::noncopyable >( "ReleaseContext_Block_MakeCurrentOperation", "\n ReleaseContext_Block_MakeCurrentOperation releases the context for another thread to acquire,\n then blocks waiting for context to be released, once the block is release the context is re-acquired.\n", bp::init< >("\n ReleaseContext_Block_MakeCurrentOperation releases the context for another thread to acquire,\n then blocks waiting for context to be released, once the block is release the context is re-acquired.\n") )    
+    bp::class_< ReleaseContext_Block_MakeCurrentOperation_wrapper, bp::bases< osg::GraphicsOperation, osg::RefBlock >, osg::ref_ptr< ::osg::ReleaseContext_Block_MakeCurrentOperation >, boost::noncopyable >( "ReleaseContext_Block_MakeCurrentOperation", "\n ReleaseContext_Block_MakeCurrentOperation releases the context for another thread to acquire,\n then blocks waiting for context to be released, once the block is release the context is re-acquired.\n", bp::init< >("\n ReleaseContext_Block_MakeCurrentOperation releases the context for another thread to acquire,\n then blocks waiting for context to be released, once the block is release the context is re-acquired.\n") )    
         .def( 
             "__call__"
             , (void ( ::osg::ReleaseContext_Block_MakeCurrentOperation::* )( ::osg::GraphicsContext * ))(&::osg::ReleaseContext_Block_MakeCurrentOperation::operator())

@@ -188,7 +188,7 @@ struct TriangleMesh_wrapper : osg::TriangleMesh, bp::wrapper< osg::TriangleMesh 
 
 void register_TriangleMesh_class(){
 
-    bp::class_< TriangleMesh_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< TriangleMesh_wrapper >, boost::noncopyable >( "TriangleMesh", "\n Exists to support collision detection engines not for doing rendering, use  osg::Geometry instead.\n", bp::no_init )    
+    bp::class_< TriangleMesh_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::TriangleMesh >, boost::noncopyable >( "TriangleMesh", "\n Exists to support collision detection engines not for doing rendering, use  osg::Geometry instead.\n", bp::no_init )    
         .def( bp::init< >("\n Exists to support collision detection engines not for doing rendering, use  osg::Geometry instead.\n") )    
         .def( 
             "accept"

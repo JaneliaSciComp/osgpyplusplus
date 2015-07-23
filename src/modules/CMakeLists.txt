@@ -74,9 +74,37 @@ foreach(LIB ${OSG_RUNTIME_LIBS})
     file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/osgpypp")
 endforeach()
 foreach(LIB ${OSG_PLUGIN_LIBS})
-    file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/${OSG_PLUGIN_FOLDER}/osgpypp")
+    file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/osgpypp/${OSG_PLUGIN_FOLDER}/")
 endforeach()
-# TODO - boostpython, collada, zlib dlls
+# 2) ZLIB - Maybe copy libs on Windows only? - needed by osgDB
+find_package(ZLIB)
+if (ZLIB_FOUND)
+    message(STATUS "${ZLIB_INCLUDE_DIR}/../bin/")
+    find_file(
+        ZLIB_RUNTIME_LIBRARY
+        NAMES zlib1.dll
+        PATHS "${ZLIB_INCLUDE_DIR}/../bin/"
+    )
+    find_library(
+        ZLIB_RUNTIME_LIBRARY
+        NAMES zlib1 z
+        PATHS "${ZLIB_INCLUDE_DIR}/../bin/"
+    )
+    file(COPY "${ZLIB_RUNTIME_LIBRARY}" DESTINATION "${STAGING_FOLDER}/osgpypp")
+endif()
+# 3) boost python 
+get_filename_component(BOOSTPYTHON_LIB_BASE "${Boost_PYTHON_LIBRARY_RELEASE}" NAME_WE)
+find_file(
+    BOOST_PYTHON_RUNTIME_LIBRARY
+    NAMES "${BOOSTPYTHON_LIB_BASE}.dll"
+    PATHS "${Boost_LIBRARY_DIR}"
+)
+file(COPY "${BOOST_PYTHON_RUNTIME_LIBRARY}" DESTINATION "${STAGING_FOLDER}/osgpypp")
+# 4) Collada library, needed for DAE loader plugin; OSG must have been built with DAE plugin too...
+find_file(
+    COLLADA_RUNTIME_LIBRARY
+    NAMES libcollada14dom21.dll)
+file(COPY "${COLLADA_RUNTIME_LIBRARY}" DESTINATION "${STAGING_FOLDER}/osgpypp")
 
 set(OSGPYPP_REGENERATE_BINDINGS FALSE CACHE BOOL "Whether to regenerate boost python C++ binding source code")
 

@@ -68,7 +68,7 @@ struct OperationThread_wrapper : osg::OperationThread, bp::wrapper< osg::Operati
 
 void register_OperationThread_class(){
 
-    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, osg::ref_ptr< OperationThread_wrapper >, boost::noncopyable >( "OperationThread", "\n OperationThread is a helper class for running Operation within a single thread.\n", bp::no_init )    
+    bp::class_< OperationThread_wrapper, bp::bases< osg::Referenced, OpenThreads::Thread >, osg::ref_ptr< ::osg::OperationThread >, boost::noncopyable >( "OperationThread", "\n OperationThread is a helper class for running Operation within a single thread.\n", bp::no_init )    
         .def( bp::init< >("\n OperationThread is a helper class for running Operation within a single thread.\n") )    
         .def( 
             "add"

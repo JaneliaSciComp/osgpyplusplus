@@ -165,7 +165,7 @@ struct Keystone_wrapper : osgViewer::Keystone, bp::wrapper< osgViewer::Keystone 
 void register_Keystone_class(){
 
     { //::osgViewer::Keystone
-        typedef bp::class_< Keystone_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Keystone_wrapper >, boost::noncopyable > Keystone_exposer_t;
+        typedef bp::class_< Keystone_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::Keystone >, boost::noncopyable > Keystone_exposer_t;
         Keystone_exposer_t Keystone_exposer = Keystone_exposer_t( "Keystone", bp::no_init );
         bp::scope Keystone_scope( Keystone_exposer );
         Keystone_exposer.def( bp::init< >() );

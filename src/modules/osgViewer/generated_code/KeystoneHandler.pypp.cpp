@@ -189,7 +189,7 @@ struct KeystoneHandler_wrapper : osgViewer::KeystoneHandler, bp::wrapper< osgVie
 void register_KeystoneHandler_class(){
 
     { //::osgViewer::KeystoneHandler
-        typedef bp::class_< KeystoneHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< KeystoneHandler_wrapper >, boost::noncopyable > KeystoneHandler_exposer_t;
+        typedef bp::class_< KeystoneHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::KeystoneHandler >, boost::noncopyable > KeystoneHandler_exposer_t;
         KeystoneHandler_exposer_t KeystoneHandler_exposer = KeystoneHandler_exposer_t( "KeystoneHandler", bp::init< osgViewer::Keystone * >(( bp::arg("keystone") )) );
         bp::scope KeystoneHandler_scope( KeystoneHandler_exposer );
         bp::enum_< osgViewer::KeystoneHandler::Region>("Region")

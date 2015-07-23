@@ -42,7 +42,7 @@ struct Operation_wrapper : osg::Operation, bp::wrapper< osg::Operation > {
 
 void register_Operation_class(){
 
-    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Operation_wrapper >, boost::noncopyable >( "Operation", "\n Base class for implementing graphics operations.\n", bp::no_init )    
+    bp::class_< Operation_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Operation >, boost::noncopyable >( "Operation", "\n Base class for implementing graphics operations.\n", bp::no_init )    
         .def( 
             "getKeep"
             , (bool ( ::osg::Operation::* )(  )const)( &::osg::Operation::getKeep )

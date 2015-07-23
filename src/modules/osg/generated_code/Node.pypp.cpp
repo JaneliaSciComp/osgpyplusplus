@@ -333,7 +333,7 @@ struct Node_wrapper : osg::Node, bp::wrapper< osg::Node > {
 void register_Node_class(){
 
     { //::osg::Node
-        typedef bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Node_wrapper >, boost::noncopyable > Node_exposer_t;
+        typedef bp::class_< Node_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Node >, boost::noncopyable > Node_exposer_t;
         Node_exposer_t Node_exposer = Node_exposer_t( "Node", "\n Base class for all internal nodes in the scene graph.\n    Provides interface for most common node operations (Composite Pattern).\n", bp::no_init );
         bp::scope Node_scope( Node_exposer );
         Node_exposer.def( bp::init< >("\n Construct a node.\n            Initialize the parent list to empty, node name to  and\n            bounding sphere dirty flag to true.\n") );

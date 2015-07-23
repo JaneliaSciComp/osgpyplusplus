@@ -432,7 +432,7 @@ struct DrawElementsUInt_wrapper : osg::DrawElementsUInt, bp::wrapper< osg::DrawE
 void register_DrawElementsUInt_class(){
 
     { //::osg::DrawElementsUInt
-        typedef bp::class_< DrawElementsUInt_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< DrawElementsUInt_wrapper >, boost::noncopyable > DrawElementsUInt_exposer_t;
+        typedef bp::class_< DrawElementsUInt_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< ::osg::DrawElementsUInt >, boost::noncopyable > DrawElementsUInt_exposer_t;
         DrawElementsUInt_exposer_t DrawElementsUInt_exposer = DrawElementsUInt_exposer_t( "DrawElementsUInt", bp::no_init );
         bp::scope DrawElementsUInt_scope( DrawElementsUInt_exposer );
         DrawElementsUInt_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );

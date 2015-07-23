@@ -427,7 +427,7 @@ struct Texture3D_wrapper : osg::Texture3D, bp::wrapper< osg::Texture3D > {
 void register_Texture3D_class(){
 
     { //::osg::Texture3D
-        typedef bp::class_< Texture3D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< Texture3D_wrapper >, boost::noncopyable > Texture3D_exposer_t;
+        typedef bp::class_< Texture3D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture3D >, boost::noncopyable > Texture3D_exposer_t;
         Texture3D_exposer_t Texture3D_exposer = Texture3D_exposer_t( "Texture3D", "\n Encapsulates OpenGL 3D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n", bp::no_init );
         bp::scope Texture3D_scope( Texture3D_exposer );
         { //::osg::Texture3D::Extensions
@@ -544,7 +544,7 @@ void register_Texture3D_class(){
             
             }
         }
-        bp::class_< Texture3D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture3D_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture3D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture3D::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

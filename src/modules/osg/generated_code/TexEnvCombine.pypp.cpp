@@ -273,7 +273,7 @@ struct TexEnvCombine_wrapper : osg::TexEnvCombine, bp::wrapper< osg::TexEnvCombi
 void register_TexEnvCombine_class(){
 
     { //::osg::TexEnvCombine
-        typedef bp::class_< TexEnvCombine_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< TexEnvCombine_wrapper >, boost::noncopyable > TexEnvCombine_exposer_t;
+        typedef bp::class_< TexEnvCombine_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexEnvCombine >, boost::noncopyable > TexEnvCombine_exposer_t;
         TexEnvCombine_exposer_t TexEnvCombine_exposer = TexEnvCombine_exposer_t( "TexEnvCombine", "\n TexEnvCombine encapsulates the OpenGL glTexEnvCombine (texture\n environment) state.\n", bp::no_init );
         bp::scope TexEnvCombine_scope( TexEnvCombine_exposer );
         bp::enum_< osg::TexEnvCombine::CombineParam>("CombineParam")

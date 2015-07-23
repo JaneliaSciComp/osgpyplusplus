@@ -416,7 +416,7 @@ struct Switch_wrapper : osg::Switch, bp::wrapper< osg::Switch > {
 
 void register_Switch_class(){
 
-    bp::class_< Switch_wrapper, bp::bases< osg::Group >, osg::ref_ptr< Switch_wrapper >, boost::noncopyable >( "Switch", "\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n", bp::no_init )    
+    bp::class_< Switch_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Switch >, boost::noncopyable >( "Switch", "\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n", bp::no_init )    
         .def( bp::init< >("\n Switch is a Group node that allows switching between children.\n Typical uses would be for objects which might need to be rendered\n differently at different times, for instance a switch could be used\n to represent the different states of a traffic light.\n") )    
         .def( 
             "accept"

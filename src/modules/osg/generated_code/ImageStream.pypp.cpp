@@ -609,7 +609,7 @@ struct ImageStream_wrapper : osg::ImageStream, bp::wrapper< osg::ImageStream > {
 void register_ImageStream_class(){
 
     { //::osg::ImageStream
-        typedef bp::class_< ImageStream_wrapper, bp::bases< osg::Image >, osg::ref_ptr< ImageStream_wrapper >, boost::noncopyable > ImageStream_exposer_t;
+        typedef bp::class_< ImageStream_wrapper, bp::bases< osg::Image >, osg::ref_ptr< ::osg::ImageStream >, boost::noncopyable > ImageStream_exposer_t;
         ImageStream_exposer_t ImageStream_exposer = ImageStream_exposer_t( "ImageStream", "\n Image Stream class.\n", bp::no_init );
         bp::scope ImageStream_scope( ImageStream_exposer );
         bp::enum_< osg::ImageStream::LoopingMode>("LoopingMode")

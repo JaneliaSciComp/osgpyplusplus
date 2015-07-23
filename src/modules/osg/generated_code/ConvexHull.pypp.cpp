@@ -188,7 +188,7 @@ struct ConvexHull_wrapper : osg::ConvexHull, bp::wrapper< osg::ConvexHull > {
 
 void register_ConvexHull_class(){
 
-    bp::class_< ConvexHull_wrapper, bp::bases< osg::TriangleMesh >, osg::ref_ptr< ConvexHull_wrapper >, boost::noncopyable >( "ConvexHull", bp::no_init )    
+    bp::class_< ConvexHull_wrapper, bp::bases< osg::TriangleMesh >, osg::ref_ptr< ::osg::ConvexHull >, boost::noncopyable >( "ConvexHull", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"

@@ -429,7 +429,7 @@ struct PagedLOD_wrapper : osg::PagedLOD, bp::wrapper< osg::PagedLOD > {
 void register_PagedLOD_class(){
 
     { //::osg::PagedLOD
-        typedef bp::class_< PagedLOD_wrapper, bp::bases< osg::LOD >, osg::ref_ptr< PagedLOD_wrapper >, boost::noncopyable > PagedLOD_exposer_t;
+        typedef bp::class_< PagedLOD_wrapper, bp::bases< osg::LOD >, osg::ref_ptr< ::osg::PagedLOD >, boost::noncopyable > PagedLOD_exposer_t;
         PagedLOD_exposer_t PagedLOD_exposer = PagedLOD_exposer_t( "PagedLOD", "\n PagedLOD.\n", bp::no_init );
         bp::scope PagedLOD_scope( PagedLOD_exposer );
         { //::osg::PagedLOD::PerRangeData

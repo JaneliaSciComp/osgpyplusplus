@@ -52,7 +52,7 @@ struct OpenGLQuerySupport_wrapper : osgViewer::OpenGLQuerySupport, bp::wrapper< 
 
 void register_OpenGLQuerySupport_class(){
 
-    bp::class_< OpenGLQuerySupport_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< OpenGLQuerySupport_wrapper >, boost::noncopyable >( "OpenGLQuerySupport", bp::no_init )    
+    bp::class_< OpenGLQuerySupport_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgViewer::OpenGLQuerySupport >, boost::noncopyable >( "OpenGLQuerySupport", bp::no_init )    
         .def( 
             "beginQuery"
             , bp::pure_virtual( (void ( ::osgViewer::OpenGLQuerySupport::* )( unsigned int,::osg::State * ))(&::osgViewer::OpenGLQuerySupport::beginQuery) )

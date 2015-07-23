@@ -272,7 +272,7 @@ struct DefaultUserDataContainer_wrapper : osg::DefaultUserDataContainer, bp::wra
 
 void register_DefaultUserDataContainer_class(){
 
-    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, osg::ref_ptr< DefaultUserDataContainer_wrapper >, boost::noncopyable >( "DefaultUserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
+    bp::class_< DefaultUserDataContainer_wrapper, bp::bases< osg::UserDataContainer >, osg::ref_ptr< ::osg::DefaultUserDataContainer >, boost::noncopyable >( "DefaultUserDataContainer", "\n Internal structure for storing all user data.\n", bp::no_init )    
         .def( bp::init< >("\n Internal structure for storing all user data.\n") )    
         .def( 
             "addDescription"

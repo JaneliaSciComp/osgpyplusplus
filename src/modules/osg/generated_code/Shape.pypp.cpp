@@ -153,7 +153,7 @@ struct Shape_wrapper : osg::Shape, bp::wrapper< osg::Shape > {
 
 void register_Shape_class(){
 
-    bp::class_< Shape_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Shape_wrapper >, boost::noncopyable >( "Shape", "\n Base class for all shape types.\n Shapes are used to either for culling and collision detection or\n to define the geometric shape of procedurally generate Geometry.\n", bp::no_init )    
+    bp::class_< Shape_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Shape >, boost::noncopyable >( "Shape", "\n Base class for all shape types.\n Shapes are used to either for culling and collision detection or\n to define the geometric shape of procedurally generate Geometry.\n", bp::no_init )    
         .def( 
             "accept"
             , bp::pure_virtual( (void ( ::osg::Shape::* )( ::osg::ShapeVisitor & ))(&::osg::Shape::accept) )

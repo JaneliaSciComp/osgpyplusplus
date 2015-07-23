@@ -169,7 +169,7 @@ struct AudioStream_wrapper : osg::AudioStream, bp::wrapper< osg::AudioStream > {
 void register_AudioStream_class(){
 
     { //::osg::AudioStream
-        typedef bp::class_< AudioStream_wrapper, bp::bases< osg::Object >, osg::ref_ptr< AudioStream_wrapper >, boost::noncopyable > AudioStream_exposer_t;
+        typedef bp::class_< AudioStream_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::AudioStream >, boost::noncopyable > AudioStream_exposer_t;
         AudioStream_exposer_t AudioStream_exposer = AudioStream_exposer_t( "AudioStream", "\n Pure virtual AudioStream base class. Subclasses provide mechanism for reading/generating audio data\n", bp::no_init );
         bp::scope AudioStream_scope( AudioStream_exposer );
         bp::enum_< osg::AudioStream::SampleFormat>("SampleFormat")

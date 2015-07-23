@@ -325,7 +325,7 @@ struct DrawElements_wrapper : osg::DrawElements, bp::wrapper< osg::DrawElements 
 
 void register_DrawElements_class(){
 
-    bp::class_< DrawElements_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< DrawElements_wrapper >, boost::noncopyable >( "DrawElements", bp::no_init )    
+    bp::class_< DrawElements_wrapper, bp::bases< osg::PrimitiveSet >, osg::ref_ptr< ::osg::DrawElements >, boost::noncopyable >( "DrawElements", bp::no_init )    
         .def( 
             "addElement"
             , bp::pure_virtual( (void ( ::osg::DrawElements::* )( unsigned int ))(&::osg::DrawElements::addElement) )

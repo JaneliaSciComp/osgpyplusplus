@@ -431,7 +431,7 @@ struct DrawElementsUByte_wrapper : osg::DrawElementsUByte, bp::wrapper< osg::Dra
 void register_DrawElementsUByte_class(){
 
     { //::osg::DrawElementsUByte
-        typedef bp::class_< DrawElementsUByte_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< DrawElementsUByte_wrapper >, boost::noncopyable > DrawElementsUByte_exposer_t;
+        typedef bp::class_< DrawElementsUByte_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< ::osg::DrawElementsUByte >, boost::noncopyable > DrawElementsUByte_exposer_t;
         DrawElementsUByte_exposer_t DrawElementsUByte_exposer = DrawElementsUByte_exposer_t( "DrawElementsUByte", bp::no_init );
         bp::scope DrawElementsUByte_scope( DrawElementsUByte_exposer );
         DrawElementsUByte_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );

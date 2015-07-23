@@ -362,7 +362,7 @@ struct TemplateArray_less__osg_scope_Vec2f_comma___obrace_osg_scope_Array_scope_
 void register_Vec2Array_class(){
 
     { //::osg::TemplateArray< osg::Vec2f, (osg::Array::Type)27, 2, 5126 >
-        typedef bp::class_< TemplateArray_less__osg_scope_Vec2f_comma___obrace_osg_scope_Array_scope_Type_cbrace_27_comma__2_comma__5126__greater__wrapper, bp::bases< osg::Array >, osg::ref_ptr< TemplateArray_less__osg_scope_Vec2f_comma___obrace_osg_scope_Array_scope_Type_cbrace_27_comma__2_comma__5126__greater__wrapper >, boost::noncopyable > Vec2Array_exposer_t;
+        typedef bp::class_< TemplateArray_less__osg_scope_Vec2f_comma___obrace_osg_scope_Array_scope_Type_cbrace_27_comma__2_comma__5126__greater__wrapper, bp::bases< osg::Array >, osg::ref_ptr< ::osg::TemplateArray<osg::Vec2f, (osg::Array::Type)27, 2, 5126> >, boost::noncopyable > Vec2Array_exposer_t;
         Vec2Array_exposer_t Vec2Array_exposer = Vec2Array_exposer_t( "Vec2Array", bp::no_init );
         bp::scope Vec2Array_scope( Vec2Array_exposer );
         Vec2Array_exposer.def( bp::init< bp::optional< osg::Array::Binding > >(( bp::arg("binding")=osg::Array::BIND_UNDEFINED )) );

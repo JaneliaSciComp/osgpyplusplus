@@ -242,7 +242,7 @@ struct View_wrapper : osg::View, bp::wrapper< osg::View > {
 void register_View_class(){
 
     { //::osg::View
-        typedef bp::class_< View_wrapper, bp::bases< osg::Object >, osg::ref_ptr< View_wrapper >, boost::noncopyable > View_exposer_t;
+        typedef bp::class_< View_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::View >, boost::noncopyable > View_exposer_t;
         View_exposer_t View_exposer = View_exposer_t( "View", "\n View - maintains a master camera view and a list of slave cameras that are relative to this master camera.\n Note, if no slave cameras are attached to the view then the master camera does both the control and implementation of the rendering of the scene,\n but if slave cameras are present then the master controls the view onto the scene, while the slaves implement the rendering of the scene.\n", bp::no_init );
         bp::scope View_scope( View_exposer );
         bp::enum_< osg::View::LightingMode>("LightingMode")
@@ -255,7 +255,7 @@ void register_View_class(){
             typedef bp::class_< View_wrapper::Slave_wrapper > Slave_exposer_t;
             Slave_exposer_t Slave_exposer = Slave_exposer_t( "Slave", "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n", bp::init< bp::optional< bool > >(( bp::arg("useMastersSceneData")=(bool)(true) ), "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n") );
             bp::scope Slave_scope( Slave_exposer );
-            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
+            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::View::Slave::UpdateSlaveCallback >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
                 .def( 
                     "updateSlave"
                     , bp::pure_virtual( (void ( ::osg::View::Slave::UpdateSlaveCallback::* )( ::osg::View &,::osg::View::Slave & ))(&::osg::View::Slave::UpdateSlaveCallback::updateSlave) )

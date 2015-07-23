@@ -272,7 +272,7 @@ struct ShaderAttribute_wrapper : osg::ShaderAttribute, bp::wrapper< osg::ShaderA
 
 void register_ShaderAttribute_class(){
 
-    bp::class_< ShaderAttribute_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ShaderAttribute_wrapper >, boost::noncopyable >( "ShaderAttribute", bp::no_init )    
+    bp::class_< ShaderAttribute_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::ShaderAttribute >, boost::noncopyable >( "ShaderAttribute", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addShader"

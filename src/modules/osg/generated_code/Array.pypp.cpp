@@ -235,7 +235,7 @@ struct Array_wrapper : osg::Array, bp::wrapper< osg::Array > {
 void register_Array_class(){
 
     { //::osg::Array
-        typedef bp::class_< Array_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< Array_wrapper >, boost::noncopyable > Array_exposer_t;
+        typedef bp::class_< Array_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< ::osg::Array >, boost::noncopyable > Array_exposer_t;
         Array_exposer_t Array_exposer = Array_exposer_t( "Array", bp::no_init );
         bp::scope Array_scope( Array_exposer );
         bp::enum_< osg::Array::Binding>("Binding")

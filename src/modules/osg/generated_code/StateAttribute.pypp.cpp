@@ -266,7 +266,7 @@ struct StateAttribute_wrapper : osg::StateAttribute, bp::wrapper< osg::StateAttr
 void register_StateAttribute_class(){
 
     { //::osg::StateAttribute
-        typedef bp::class_< StateAttribute_wrapper, bp::bases< osg::Object >, osg::ref_ptr< StateAttribute_wrapper >, boost::noncopyable > StateAttribute_exposer_t;
+        typedef bp::class_< StateAttribute_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::StateAttribute >, boost::noncopyable > StateAttribute_exposer_t;
         StateAttribute_exposer_t StateAttribute_exposer = StateAttribute_exposer_t( "StateAttribute", "\n Base class for state attributes.\n", bp::no_init );
         bp::scope StateAttribute_scope( StateAttribute_exposer );
         bp::enum_< osg::StateAttribute::Type>("Type")

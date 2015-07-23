@@ -176,7 +176,7 @@ struct NodeTrackerCallback_wrapper : osg::NodeTrackerCallback, bp::wrapper< osg:
 
 void register_NodeTrackerCallback_class(){
 
-    bp::class_< NodeTrackerCallback_wrapper, bp::bases< osg::NodeCallback >, osg::ref_ptr< NodeTrackerCallback_wrapper >, boost::noncopyable >( "NodeTrackerCallback" )    
+    bp::class_< NodeTrackerCallback_wrapper, bp::bases< osg::NodeCallback >, osg::ref_ptr< ::osg::NodeTrackerCallback >, boost::noncopyable >( "NodeTrackerCallback" )    
         .def( 
             "getTrackNode"
             , (::osg::Node * ( ::osg::NodeTrackerCallback::* )(  ))( &::osg::NodeTrackerCallback::getTrackNode )

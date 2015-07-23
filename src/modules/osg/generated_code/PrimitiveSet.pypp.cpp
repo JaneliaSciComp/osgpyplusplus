@@ -306,7 +306,7 @@ struct PrimitiveSet_wrapper : osg::PrimitiveSet, bp::wrapper< osg::PrimitiveSet 
 void register_PrimitiveSet_class(){
 
     { //::osg::PrimitiveSet
-        typedef bp::class_< PrimitiveSet_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< PrimitiveSet_wrapper >, boost::noncopyable > PrimitiveSet_exposer_t;
+        typedef bp::class_< PrimitiveSet_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< ::osg::PrimitiveSet >, boost::noncopyable > PrimitiveSet_exposer_t;
         PrimitiveSet_exposer_t PrimitiveSet_exposer = PrimitiveSet_exposer_t( "PrimitiveSet", bp::no_init );
         bp::scope PrimitiveSet_scope( PrimitiveSet_exposer );
         bp::enum_< osg::PrimitiveSet::Mode>("Mode")

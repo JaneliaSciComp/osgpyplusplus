@@ -32,7 +32,7 @@ struct RefBlock_wrapper : osg::RefBlock, bp::wrapper< osg::RefBlock > {
 
 void register_RefBlock_class(){
 
-    bp::class_< RefBlock_wrapper, bp::bases< osg::Referenced, OpenThreads::Block >, osg::ref_ptr< RefBlock_wrapper >, boost::noncopyable >( "RefBlock", bp::init< >() )    
+    bp::class_< RefBlock_wrapper, bp::bases< osg::Referenced, OpenThreads::Block >, osg::ref_ptr< ::osg::RefBlock >, boost::noncopyable >( "RefBlock", bp::init< >() )    
         .def( 
             "setThreadSafeRefUnref"
             , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

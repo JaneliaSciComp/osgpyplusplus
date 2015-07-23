@@ -412,7 +412,7 @@ struct ShapeDrawable_wrapper : osg::ShapeDrawable, bp::wrapper< osg::ShapeDrawab
 void register_ShapeDrawable_class(){
 
     { //::osg::ShapeDrawable
-        typedef bp::class_< ShapeDrawable_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< ShapeDrawable_wrapper >, boost::noncopyable > ShapeDrawable_exposer_t;
+        typedef bp::class_< ShapeDrawable_wrapper, bp::bases< osg::Drawable >, osg::ref_ptr< ::osg::ShapeDrawable >, boost::noncopyable > ShapeDrawable_exposer_t;
         ShapeDrawable_exposer_t ShapeDrawable_exposer = ShapeDrawable_exposer_t( "ShapeDrawable", "\n Allow the use of <tt>Shape</tt>s as <tt>Drawable</tt>s, so that they can\n  be rendered with reduced effort. The implementation of  ShapeDrawable is\n  not geared to efficiency; its better to think of it as a convenience to\n  render <tt>Shape</tt>s easily (perhaps for test or debugging purposes) than\n  as the right way to render basic shapes in some efficiency-critical section\n  of code.\n", bp::no_init );
         bp::scope ShapeDrawable_scope( ShapeDrawable_exposer );
         ShapeDrawable_exposer.def( bp::init< >("\n Allow the use of <tt>Shape</tt>s as <tt>Drawable</tt>s, so that they can\n  be rendered with reduced effort. The implementation of  ShapeDrawable is\n  not geared to efficiency; its better to think of it as a convenience to\n  render <tt>Shape</tt>s easily (perhaps for test or debugging purposes) than\n  as the right way to render basic shapes in some efficiency-critical section\n  of code.\n") );

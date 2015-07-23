@@ -189,7 +189,7 @@ struct HelpHandler_wrapper : osgViewer::HelpHandler, bp::wrapper< osgViewer::Hel
 void register_HelpHandler_class(){
 
     { //::osgViewer::HelpHandler
-        typedef bp::class_< HelpHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< HelpHandler_wrapper >, boost::noncopyable > HelpHandler_exposer_t;
+        typedef bp::class_< HelpHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::HelpHandler >, boost::noncopyable > HelpHandler_exposer_t;
         HelpHandler_exposer_t HelpHandler_exposer = HelpHandler_exposer_t( "HelpHandler", bp::init< bp::optional< osg::ApplicationUsage * > >(( bp::arg("au")=bp::object() )) );
         bp::scope HelpHandler_scope( HelpHandler_exposer );
         bp::implicitly_convertible< osg::ApplicationUsage *, osgViewer::HelpHandler >();

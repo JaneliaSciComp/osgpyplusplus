@@ -280,7 +280,7 @@ struct PolygonStipple_wrapper : osg::PolygonStipple, bp::wrapper< osg::PolygonSt
 void register_PolygonStipple_class(){
 
     { //::osg::PolygonStipple
-        typedef bp::class_< PolygonStipple_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PolygonStipple_wrapper >, boost::noncopyable > PolygonStipple_exposer_t;
+        typedef bp::class_< PolygonStipple_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PolygonStipple >, boost::noncopyable > PolygonStipple_exposer_t;
         PolygonStipple_exposer_t PolygonStipple_exposer = PolygonStipple_exposer_t( "PolygonStipple", bp::no_init );
         bp::scope PolygonStipple_scope( PolygonStipple_exposer );
         PolygonStipple_exposer.def( bp::init< >() );

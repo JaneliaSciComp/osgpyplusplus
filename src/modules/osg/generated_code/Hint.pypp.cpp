@@ -279,7 +279,7 @@ struct Hint_wrapper : osg::Hint, bp::wrapper< osg::Hint > {
 
 void register_Hint_class(){
 
-    bp::class_< Hint_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Hint_wrapper >, boost::noncopyable >( "Hint", bp::init< >() )    
+    bp::class_< Hint_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Hint >, boost::noncopyable >( "Hint", bp::init< >() )    
         .def( bp::init< GLenum, GLenum >(( bp::arg("target"), bp::arg("mode") )) )    
         .def( 
             "apply"

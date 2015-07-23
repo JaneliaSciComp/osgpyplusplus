@@ -465,7 +465,7 @@ struct CameraView_wrapper : osg::CameraView, bp::wrapper< osg::CameraView > {
 void register_CameraView_class(){
 
     { //::osg::CameraView
-        typedef bp::class_< CameraView_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< CameraView_wrapper >, boost::noncopyable > CameraView_exposer_t;
+        typedef bp::class_< CameraView_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::CameraView >, boost::noncopyable > CameraView_exposer_t;
         CameraView_exposer_t CameraView_exposer = CameraView_exposer_t( "CameraView", "\n CameraView - is a Transform that is used to specify camera views from within the scene graph.\n The application must attach a camera to a CameraView via the NodePath from the top of the scene graph\n to the CameraView node itself, and accumulate the view matrix from this NodePath.\n", bp::no_init );
         bp::scope CameraView_scope( CameraView_exposer );
         bp::enum_< osg::CameraView::FieldOfViewMode>("FieldOfViewMode")

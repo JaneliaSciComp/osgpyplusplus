@@ -273,7 +273,7 @@ struct PointSprite_wrapper : osg::PointSprite, bp::wrapper< osg::PointSprite > {
 void register_PointSprite_class(){
 
     { //::osg::PointSprite
-        typedef bp::class_< PointSprite_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PointSprite_wrapper >, boost::noncopyable > PointSprite_exposer_t;
+        typedef bp::class_< PointSprite_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PointSprite >, boost::noncopyable > PointSprite_exposer_t;
         PointSprite_exposer_t PointSprite_exposer = PointSprite_exposer_t( "PointSprite", "\n PointSprite base class which encapsulates enabling of point sprites .\n", bp::no_init );
         bp::scope PointSprite_scope( PointSprite_exposer );
         bp::enum_< osg::PointSprite::CoordOriginMode>("CoordOriginMode")

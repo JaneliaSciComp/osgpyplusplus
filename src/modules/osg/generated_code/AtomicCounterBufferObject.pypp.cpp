@@ -164,7 +164,7 @@ struct AtomicCounterBufferObject_wrapper : osg::AtomicCounterBufferObject, bp::w
 
 void register_AtomicCounterBufferObject_class(){
 
-    bp::class_< AtomicCounterBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< AtomicCounterBufferObject_wrapper >, boost::noncopyable >( "AtomicCounterBufferObject", bp::no_init )    
+    bp::class_< AtomicCounterBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< ::osg::AtomicCounterBufferObject >, boost::noncopyable >( "AtomicCounterBufferObject", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "className"

@@ -21,23 +21,30 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-# Copy python source modules to staging area
-file(COPY osgpypp
-    DESTINATION ${STAGING_FOLDER})
-
 # Find OpenSceneGraph, and incorporate OSG version into osgpypp version
 find_path(OSG_DIR "include/osg/Node")
-find_program(OSGVERSION_EXE osgversion PATHS "${OSG_DIR}/bin")
+find_program(OSGVERSION_EXE osgversion PATHS "${OSG_DIR}/bin" NO_DEFAULT_PATH)
 execute_process(COMMAND "${OSGVERSION_EXE}" OUTPUT_VARIABLE OSGVERSION_EXE_OUT)
 # message(STATUS ${OSGVERSION_EXE_OUT})
 string(REGEX MATCH "[0-9\\.]+" OSG_VERSION_STRING ${OSGVERSION_EXE_OUT})
 message(STATUS "OpenSceneGraph version " ${OSG_VERSION_STRING})
 
 # Increment OSGPYPP_PATCH_VERSION with each release of osgpyplusplus
-set(OSGPYPP_PATCH_VERSION 4)
+set(OSGPYPP_PATCH_VERSION 4pre)
 set(OSGPYPP_VERSION_STRING ${OSG_VERSION_STRING}.${OSGPYPP_PATCH_VERSION})
 
 configure_file(setup.py.in "${STAGING_FOLDER}/setup.py" @ONLY)
+
+# Copy python source modules to staging area
+file(GLOB PY_SRCS "osgpypp/*.py")
+foreach(SRC ${PY_SRCS})
+    file(COPY ${SRC} DESTINATION "${STAGING_FOLDER}/osgpypp/")
+endforeach()
+file(GLOB PY_IN_SRCS "osgpypp/*.py.in")
+foreach(SRC ${PY_IN_SRCS})
+    get_filename_component(BASENAME ${SRC} NAME_WE)
+    configure_file(${SRC} "${STAGING_FOLDER}/osgpypp/${BASENAME}.py" @ONLY)
+endforeach()
 
 # Copy binary exension modules into second level staging folder
 set(MODULE_STAGING_FOLDER ${STAGING_FOLDER}/osgpypp)

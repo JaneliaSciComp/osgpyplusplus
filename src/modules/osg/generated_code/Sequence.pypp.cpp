@@ -429,7 +429,7 @@ struct Sequence_wrapper : osg::Sequence, bp::wrapper< osg::Sequence > {
 void register_Sequence_class(){
 
     { //::osg::Sequence
-        typedef bp::class_< Sequence_wrapper, bp::bases< osg::Group >, osg::ref_ptr< Sequence_wrapper >, boost::noncopyable > Sequence_exposer_t;
+        typedef bp::class_< Sequence_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Sequence >, boost::noncopyable > Sequence_exposer_t;
         Sequence_exposer_t Sequence_exposer = Sequence_exposer_t( "Sequence", "\n Sequence is a Group node which allows automatic, time based\nswitching between children.\n", bp::no_init );
         bp::scope Sequence_scope( Sequence_exposer );
         bp::enum_< osg::Sequence::LoopMode>("LoopMode")

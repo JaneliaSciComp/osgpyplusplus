@@ -405,7 +405,7 @@ struct Billboard_wrapper : osg::Billboard, bp::wrapper< osg::Billboard > {
 void register_Billboard_class(){
 
     { //::osg::Billboard
-        typedef bp::class_< Billboard_wrapper, bp::bases< osg::Geode >, osg::ref_ptr< Billboard_wrapper >, boost::noncopyable > Billboard_exposer_t;
+        typedef bp::class_< Billboard_wrapper, bp::bases< osg::Geode >, osg::ref_ptr< ::osg::Billboard >, boost::noncopyable > Billboard_exposer_t;
         Billboard_exposer_t Billboard_exposer = Billboard_exposer_t( "Billboard", "\n Billboard is a derived form of Geode that orients its osg::Drawable\n children to face the eye point. Typical uses include trees and\n particle explosions,\n", bp::no_init );
         bp::scope Billboard_scope( Billboard_exposer );
         bp::enum_< osg::Billboard::Mode>("Mode")

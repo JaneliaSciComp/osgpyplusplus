@@ -420,7 +420,7 @@ struct Texture2DArray_wrapper : osg::Texture2DArray, bp::wrapper< osg::Texture2D
 void register_Texture2DArray_class(){
 
     { //::osg::Texture2DArray
-        typedef bp::class_< Texture2DArray_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< Texture2DArray_wrapper >, boost::noncopyable > Texture2DArray_exposer_t;
+        typedef bp::class_< Texture2DArray_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture2DArray >, boost::noncopyable > Texture2DArray_exposer_t;
         Texture2DArray_exposer_t Texture2DArray_exposer = Texture2DArray_exposer_t( "Texture2DArray", "\n Texture2DArray state class which encapsulates OpenGL 2D array texture functionality.\n Texture arrays were introduced with Shader Model 4.0 hardware.\n\n A 2D texture array does contain textures sharing the same properties (e.g. size, bitdepth,...)\n in a layered structure. See http://www.opengl.org/registry/specs/EXT/texture_array.txt for more info.\n", bp::no_init );
         bp::scope Texture2DArray_scope( Texture2DArray_exposer );
         { //::osg::Texture2DArray::Extensions
@@ -606,7 +606,7 @@ void register_Texture2DArray_class(){
             
             }
         }
-        bp::class_< Texture2DArray_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture2DArray_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture2DArray_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture2DArray::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

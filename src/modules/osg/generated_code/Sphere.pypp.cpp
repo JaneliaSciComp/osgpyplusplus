@@ -195,7 +195,7 @@ struct Sphere_wrapper : osg::Sphere, bp::wrapper< osg::Sphere > {
 
 void register_Sphere_class(){
 
-    bp::class_< Sphere_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< Sphere_wrapper >, boost::noncopyable >( "Sphere", bp::no_init )    
+    bp::class_< Sphere_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Sphere >, boost::noncopyable >( "Sphere", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< osg::Vec3 const &, float >(( bp::arg("center"), bp::arg("radius") )) )    
         .def( 

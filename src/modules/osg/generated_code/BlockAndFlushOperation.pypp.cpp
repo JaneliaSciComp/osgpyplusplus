@@ -56,7 +56,7 @@ struct BlockAndFlushOperation_wrapper : osg::BlockAndFlushOperation, bp::wrapper
 
 void register_BlockAndFlushOperation_class(){
 
-    bp::class_< BlockAndFlushOperation_wrapper, bp::bases< osg::GraphicsOperation, OpenThreads::Block >, osg::ref_ptr< BlockAndFlushOperation_wrapper >, boost::noncopyable >( "BlockAndFlushOperation", bp::init< >() )    
+    bp::class_< BlockAndFlushOperation_wrapper, bp::bases< osg::GraphicsOperation, OpenThreads::Block >, osg::ref_ptr< ::osg::BlockAndFlushOperation >, boost::noncopyable >( "BlockAndFlushOperation", bp::init< >() )    
         .def( 
             "__call__"
             , (void ( ::osg::BlockAndFlushOperation::* )( ::osg::GraphicsContext * ))(&::osg::BlockAndFlushOperation::operator())

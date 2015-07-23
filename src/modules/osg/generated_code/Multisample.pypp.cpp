@@ -301,7 +301,7 @@ struct Multisample_wrapper : osg::Multisample, bp::wrapper< osg::Multisample > {
 void register_Multisample_class(){
 
     { //::osg::Multisample
-        typedef bp::class_< Multisample_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Multisample_wrapper >, boost::noncopyable > Multisample_exposer_t;
+        typedef bp::class_< Multisample_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Multisample >, boost::noncopyable > Multisample_exposer_t;
         Multisample_exposer_t Multisample_exposer = Multisample_exposer_t( "Multisample", "\n Multisample - encapsulates the OpenGL Multisample state.\n", bp::no_init );
         bp::scope Multisample_scope( Multisample_exposer );
         bp::enum_< osg::Multisample::Mode>("Mode")

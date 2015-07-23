@@ -273,7 +273,7 @@ struct FrameBufferObject_wrapper : osg::FrameBufferObject, bp::wrapper< osg::Fra
 void register_FrameBufferObject_class(){
 
     { //::osg::FrameBufferObject
-        typedef bp::class_< FrameBufferObject_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< FrameBufferObject_wrapper >, boost::noncopyable > FrameBufferObject_exposer_t;
+        typedef bp::class_< FrameBufferObject_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::FrameBufferObject >, boost::noncopyable > FrameBufferObject_exposer_t;
         FrameBufferObject_exposer_t FrameBufferObject_exposer = FrameBufferObject_exposer_t( "FrameBufferObject", "\n FrameBufferObject\n", bp::no_init );
         bp::scope FrameBufferObject_scope( FrameBufferObject_exposer );
         bp::enum_< osg::FrameBufferObject::BindTarget>("BindTarget")

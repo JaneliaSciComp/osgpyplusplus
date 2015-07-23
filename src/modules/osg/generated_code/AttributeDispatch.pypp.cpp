@@ -56,7 +56,7 @@ struct AttributeDispatch_wrapper : osg::AttributeDispatch, bp::wrapper< osg::Att
 
 void register_AttributeDispatch_class(){
 
-    bp::class_< AttributeDispatch_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< AttributeDispatch_wrapper >, boost::noncopyable >( "AttributeDispatch" )    
+    bp::class_< AttributeDispatch_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::AttributeDispatch >, boost::noncopyable >( "AttributeDispatch" )    
         .def( 
             "assign"
             , (void ( ::osg::AttributeDispatch::* )( ::GLvoid const * ))(&::osg::AttributeDispatch::assign)

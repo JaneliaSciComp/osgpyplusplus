@@ -388,7 +388,7 @@ struct TextureBuffer_wrapper : osg::TextureBuffer, bp::wrapper< osg::TextureBuff
 void register_TextureBuffer_class(){
 
     { //::osg::TextureBuffer
-        typedef bp::class_< TextureBuffer_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< TextureBuffer_wrapper >, boost::noncopyable > TextureBuffer_exposer_t;
+        typedef bp::class_< TextureBuffer_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::TextureBuffer >, boost::noncopyable > TextureBuffer_exposer_t;
         TextureBuffer_exposer_t TextureBuffer_exposer = TextureBuffer_exposer_t( "TextureBuffer", "\n Encapsulates OpenGL texture buffer functionality.\n", bp::no_init );
         bp::scope TextureBuffer_scope( TextureBuffer_exposer );
         TextureBuffer_exposer.def( bp::init< >("\n Encapsulates OpenGL texture buffer functionality.\n") );

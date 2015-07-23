@@ -405,7 +405,7 @@ struct LOD_wrapper : osg::LOD, bp::wrapper< osg::LOD > {
 void register_LOD_class(){
 
     { //::osg::LOD
-        typedef bp::class_< LOD_wrapper, bp::bases< osg::Group >, osg::ref_ptr< LOD_wrapper >, boost::noncopyable > LOD_exposer_t;
+        typedef bp::class_< LOD_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::LOD >, boost::noncopyable > LOD_exposer_t;
         LOD_exposer_t LOD_exposer = LOD_exposer_t( "LOD", "\n LOD - Level Of Detail group node which allows switching between children\n    depending on distance from eye point.\n    Typical uses are for load balancing - objects further away from\n    the eye point are rendered at a lower level of detail, and at times\n    of high stress on the graphics pipeline lower levels of detail can\n    also be chosen by adjusting the viewerss Camera/CullSettings LODScale value.\n    Each child has a corresponding valid range consisting of a minimum\n    and maximum distance. Given a distance to the viewer (d), LOD displays\n    a child if min <= d < max. LOD may display multiple children simultaneously\n    if their corresponding ranges overlap. Children can be in any order,\n    and dont need to be sorted by range or amount of detail. If the number of\n    ranges (m) is less than the number of children (n), then children m+1 through\n    n are ignored.\n", bp::no_init );
         bp::scope LOD_scope( LOD_exposer );
         bp::enum_< osg::LOD::CenterMode>("CenterMode")

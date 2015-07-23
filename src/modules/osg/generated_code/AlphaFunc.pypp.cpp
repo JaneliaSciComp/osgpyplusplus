@@ -280,7 +280,7 @@ struct AlphaFunc_wrapper : osg::AlphaFunc, bp::wrapper< osg::AlphaFunc > {
 void register_AlphaFunc_class(){
 
     { //::osg::AlphaFunc
-        typedef bp::class_< AlphaFunc_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< AlphaFunc_wrapper >, boost::noncopyable > AlphaFunc_exposer_t;
+        typedef bp::class_< AlphaFunc_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::AlphaFunc >, boost::noncopyable > AlphaFunc_exposer_t;
         AlphaFunc_exposer_t AlphaFunc_exposer = AlphaFunc_exposer_t( "AlphaFunc", "\n Encapsulates OpenGL glAlphaFunc.\n", bp::no_init );
         bp::scope AlphaFunc_scope( AlphaFunc_exposer );
         bp::enum_< osg::AlphaFunc::ComparisonFunction>("ComparisonFunction")

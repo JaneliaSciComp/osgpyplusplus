@@ -465,7 +465,7 @@ struct Transform_wrapper : osg::Transform, bp::wrapper< osg::Transform > {
 void register_Transform_class(){
 
     { //::osg::Transform
-        typedef bp::class_< Transform_wrapper, bp::bases< osg::Group >, osg::ref_ptr< Transform_wrapper >, boost::noncopyable > Transform_exposer_t;
+        typedef bp::class_< Transform_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Transform >, boost::noncopyable > Transform_exposer_t;
         Transform_exposer_t Transform_exposer = Transform_exposer_t( "Transform", "\n A Transform is a group node for which all children are transformed by\n a 4x4 matrix. It is often used for positioning objects within a scene,\n producing trackball functionality or for animation.\n\n Transform itself does not provide set/get functions, only the interface\n for defining what the 4x4 transformation is.  Subclasses, such as\n MatrixTransform and PositionAttitudeTransform support the use of an\n osg::Matrix or a osg::Vec3/osg::Quat respectively.\n\n Note: If the transformation matrix scales the subgraph then the normals\n of the underlying geometry will need to be renormalized to be unit\n vectors once more.  This can be done transparently through OpenGLs\n use of either GL_NORMALIZE and GL_RESCALE_NORMAL modes. For further\n background reading see the glNormalize documentation in the OpenGL\n Reference Guide (the blue book). To enable it in the OSG, you simply\n need to attach a local osg::StateSet to the osg::Transform, and set\n the appropriate mode to ON via\n   stateset->setMode(GL_NORMALIZE, osg::StateAttribute::ON);\n", bp::no_init );
         bp::scope Transform_scope( Transform_exposer );
         bp::enum_< osg::Transform::ReferenceFrame>("ReferenceFrame")

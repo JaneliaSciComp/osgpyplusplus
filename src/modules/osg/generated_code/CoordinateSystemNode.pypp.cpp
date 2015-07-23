@@ -399,7 +399,7 @@ struct CoordinateSystemNode_wrapper : osg::CoordinateSystemNode, bp::wrapper< os
 
 void register_CoordinateSystemNode_class(){
 
-    bp::class_< CoordinateSystemNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< CoordinateSystemNode_wrapper >, boost::noncopyable >( "CoordinateSystemNode", "\n CoordinateSystem encapsulate the coordinate system that is associated with objects in a scene.\n    For an overview of common earth bases coordinate systems see http://www.colorado.edu/geography/gcraft/notes/coordsys/coordsys_f.html\n", bp::no_init )    
+    bp::class_< CoordinateSystemNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::CoordinateSystemNode >, boost::noncopyable >( "CoordinateSystemNode", "\n CoordinateSystem encapsulate the coordinate system that is associated with objects in a scene.\n    For an overview of common earth bases coordinate systems see http://www.colorado.edu/geography/gcraft/notes/coordsys/coordsys_f.html\n", bp::no_init )    
         .def( bp::init< >("\n CoordinateSystem encapsulate the coordinate system that is associated with objects in a scene.\n    For an overview of common earth bases coordinate systems see http://www.colorado.edu/geography/gcraft/notes/coordsys/coordsys_f.html\n") )    
         .def( bp::init< std::string const &, std::string const & >(( bp::arg("format"), bp::arg("cs") )) )    
         .def( 

@@ -301,7 +301,7 @@ struct FragmentProgram_wrapper : osg::FragmentProgram, bp::wrapper< osg::Fragmen
 void register_FragmentProgram_class(){
 
     { //::osg::FragmentProgram
-        typedef bp::class_< FragmentProgram_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< FragmentProgram_wrapper >, boost::noncopyable > FragmentProgram_exposer_t;
+        typedef bp::class_< FragmentProgram_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::FragmentProgram >, boost::noncopyable > FragmentProgram_exposer_t;
         FragmentProgram_exposer_t FragmentProgram_exposer = FragmentProgram_exposer_t( "FragmentProgram", "\n FragmentProgram - encapsulates the OpenGL ARB fragment program state.\n", bp::no_init );
         bp::scope FragmentProgram_scope( FragmentProgram_exposer );
         { //::osg::FragmentProgram::Extensions

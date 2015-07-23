@@ -164,7 +164,7 @@ struct TransferFunction_wrapper : osg::TransferFunction, bp::wrapper< osg::Trans
 
 void register_TransferFunction_class(){
 
-    bp::class_< TransferFunction_wrapper, bp::bases< osg::Object >, osg::ref_ptr< TransferFunction_wrapper >, boost::noncopyable >( "TransferFunction", "\n TransferFunction is a class that provide a 1D,2D or 3D colour look up table\n that can be used on the GPU as a 1D, 2D or 3D texture.\n Typically uses include mapping heights to colours when contouring terrain,\n or mapping intensities to colours when volume rendering.\n", bp::no_init )    
+    bp::class_< TransferFunction_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::TransferFunction >, boost::noncopyable >( "TransferFunction", "\n TransferFunction is a class that provide a 1D,2D or 3D colour look up table\n that can be used on the GPU as a 1D, 2D or 3D texture.\n Typically uses include mapping heights to colours when contouring terrain,\n or mapping intensities to colours when volume rendering.\n", bp::no_init )    
         .def( bp::init< >("\n TransferFunction is a class that provide a 1D,2D or 3D colour look up table\n that can be used on the GPU as a 1D, 2D or 3D texture.\n Typically uses include mapping heights to colours when contouring terrain,\n or mapping intensities to colours when volume rendering.\n") )    
         .def( 
             "className"

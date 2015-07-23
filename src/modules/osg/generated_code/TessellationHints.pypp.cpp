@@ -165,7 +165,7 @@ struct TessellationHints_wrapper : osg::TessellationHints, bp::wrapper< osg::Tes
 void register_TessellationHints_class(){
 
     { //::osg::TessellationHints
-        typedef bp::class_< TessellationHints_wrapper, bp::bases< osg::Object >, osg::ref_ptr< TessellationHints_wrapper >, boost::noncopyable > TessellationHints_exposer_t;
+        typedef bp::class_< TessellationHints_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::TessellationHints >, boost::noncopyable > TessellationHints_exposer_t;
         TessellationHints_exposer_t TessellationHints_exposer = TessellationHints_exposer_t( "TessellationHints", "\n Describe several hints that can be passed to a Tessellator (like the one used\n  by  ShapeDrawable) as a mean to try to influence the way it works.\n", bp::no_init );
         bp::scope TessellationHints_scope( TessellationHints_exposer );
         bp::enum_< osg::TessellationHints::TessellationMode>("TessellationMode")

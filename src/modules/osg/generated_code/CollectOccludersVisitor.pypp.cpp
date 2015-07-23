@@ -440,7 +440,7 @@ struct CollectOccludersVisitor_wrapper : osg::CollectOccludersVisitor, bp::wrapp
 
 void register_CollectOccludersVisitor_class(){
 
-    bp::class_< CollectOccludersVisitor_wrapper, bp::bases< osg::NodeVisitor >, osg::ref_ptr< CollectOccludersVisitor_wrapper >, boost::noncopyable >( "CollectOccludersVisitor", bp::init< >() )    
+    bp::class_< CollectOccludersVisitor_wrapper, bp::bases< osg::NodeVisitor >, osg::ref_ptr< ::osg::CollectOccludersVisitor >, boost::noncopyable >( "CollectOccludersVisitor", bp::init< >() )    
         .def( 
             "apply"
             , (void ( ::osg::CollectOccludersVisitor::* )( ::osg::Node & ))(&::osg::CollectOccludersVisitor::apply)

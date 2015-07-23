@@ -129,7 +129,7 @@ struct Renderer_wrapper : osgViewer::Renderer, bp::wrapper< osgViewer::Renderer 
 void register_Renderer_class(){
 
     { //::osgViewer::Renderer
-        typedef bp::class_< Renderer_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< Renderer_wrapper >, boost::noncopyable > Renderer_exposer_t;
+        typedef bp::class_< Renderer_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< ::osgViewer::Renderer >, boost::noncopyable > Renderer_exposer_t;
         Renderer_exposer_t Renderer_exposer = Renderer_exposer_t( "Renderer", bp::no_init );
         bp::scope Renderer_scope( Renderer_exposer );
         Renderer_exposer.def( bp::init< osg::Camera * >(( bp::arg("camera") )) );

@@ -404,7 +404,7 @@ struct OcclusionQueryNode_wrapper : osg::OcclusionQueryNode, bp::wrapper< osg::O
 
 void register_OcclusionQueryNode_class(){
 
-    bp::class_< OcclusionQueryNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< OcclusionQueryNode_wrapper >, boost::noncopyable >( "OcclusionQueryNode", bp::no_init )    
+    bp::class_< OcclusionQueryNode_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::OcclusionQueryNode >, boost::noncopyable >( "OcclusionQueryNode", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"

@@ -11,6 +11,8 @@ You should use the osgpyplusplus CMake build system to create the final version 
 this file and binary extension modules in the "stage" subfolder of the build folder.
 
 At that point, you can perform the usual setup.py invocations, such as:
+ > python setup.py build
+OR
  > python setup.py install
 OR
  > python setup.py bdist
@@ -21,7 +23,7 @@ OR
 from setuptools import setup
 
 setup(name='osgpypp',
-      version="@OSGPYPP_VERSION_STRING@",
+      version='@OSGPYPP_VERSION_STRING@',
       description='OpenSceneGraph 3D graphics API python bindings, created using Boost.Python and pyplusplus',
       author='Christopher Bruns',
       author_email='brunsc@janelia.hhmi.org',

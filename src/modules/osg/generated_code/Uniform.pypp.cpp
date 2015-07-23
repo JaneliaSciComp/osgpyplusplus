@@ -402,7 +402,7 @@ struct Uniform_wrapper : osg::Uniform, bp::wrapper< osg::Uniform > {
 void register_Uniform_class(){
 
     { //::osg::Uniform
-        typedef bp::class_< Uniform_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Uniform_wrapper >, boost::noncopyable > Uniform_exposer_t;
+        typedef bp::class_< Uniform_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform >, boost::noncopyable > Uniform_exposer_t;
         Uniform_exposer_t Uniform_exposer = Uniform_exposer_t( "Uniform", "\n Uniform encapsulates glUniform values\n", bp::no_init );
         bp::scope Uniform_scope( Uniform_exposer );
         bp::enum_< osg::Uniform::Type>("Type")
@@ -520,7 +520,7 @@ void register_Uniform_class(){
             .value("UNDEFINED", osg::Uniform::UNDEFINED)
             .export_values()
             ;
-        bp::class_< Uniform_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Uniform_wrapper::Callback_wrapper >, boost::noncopyable >( "Callback", bp::init< >() )    
+        bp::class_< Uniform_wrapper::Callback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Uniform::Callback >, boost::noncopyable >( "Callback", bp::init< >() )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Uniform::Callback::* )(  )const)(&::osg::Uniform::Callback::className)

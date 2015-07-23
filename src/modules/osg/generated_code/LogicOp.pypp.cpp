@@ -280,7 +280,7 @@ struct LogicOp_wrapper : osg::LogicOp, bp::wrapper< osg::LogicOp > {
 void register_LogicOp_class(){
 
     { //::osg::LogicOp
-        typedef bp::class_< LogicOp_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< LogicOp_wrapper >, boost::noncopyable > LogicOp_exposer_t;
+        typedef bp::class_< LogicOp_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::LogicOp >, boost::noncopyable > LogicOp_exposer_t;
         LogicOp_exposer_t LogicOp_exposer = LogicOp_exposer_t( "LogicOp", "\n Encapsulates OpenGL LogicOp state.\n", bp::no_init );
         bp::scope LogicOp_scope( LogicOp_exposer );
         bp::enum_< osg::LogicOp::Opcode>("Opcode")

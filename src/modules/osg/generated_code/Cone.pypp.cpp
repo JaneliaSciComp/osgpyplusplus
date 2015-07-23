@@ -195,7 +195,7 @@ struct Cone_wrapper : osg::Cone, bp::wrapper< osg::Cone > {
 
 void register_Cone_class(){
 
-    bp::class_< Cone_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< Cone_wrapper >, boost::noncopyable >( "Cone", bp::no_init )    
+    bp::class_< Cone_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Cone >, boost::noncopyable >( "Cone", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< osg::Vec3 const &, float, float >(( bp::arg("center"), bp::arg("radius"), bp::arg("height") )) )    
         .def( 

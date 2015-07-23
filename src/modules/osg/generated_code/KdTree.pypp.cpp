@@ -213,7 +213,7 @@ struct KdTree_wrapper : osg::KdTree, bp::wrapper< osg::KdTree > {
 void register_KdTree_class(){
 
     { //::osg::KdTree
-        typedef bp::class_< KdTree_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< KdTree_wrapper >, boost::noncopyable > KdTree_exposer_t;
+        typedef bp::class_< KdTree_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::KdTree >, boost::noncopyable > KdTree_exposer_t;
         KdTree_exposer_t KdTree_exposer = KdTree_exposer_t( "KdTree", "\n Implementation of a kdtree for Geometry leaves, to enable fast intersection tests.\n", bp::init< >("\n Implementation of a kdtree for Geometry leaves, to enable fast intersection tests.\n") );
         bp::scope KdTree_scope( KdTree_exposer );
         bp::class_< osg::KdTree::BuildOptions >( "BuildOptions", bp::init< >() )    

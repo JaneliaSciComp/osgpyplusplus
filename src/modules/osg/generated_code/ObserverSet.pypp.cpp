@@ -33,7 +33,7 @@ struct ObserverSet_wrapper : osg::ObserverSet, bp::wrapper< osg::ObserverSet > {
 void register_ObserverSet_class(){
 
     { //::osg::ObserverSet
-        typedef bp::class_< ObserverSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ObserverSet_wrapper >, boost::noncopyable > ObserverSet_exposer_t;
+        typedef bp::class_< ObserverSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::ObserverSet >, boost::noncopyable > ObserverSet_exposer_t;
         ObserverSet_exposer_t ObserverSet_exposer = ObserverSet_exposer_t( "ObserverSet", "\n Class used by osg::Referenced to track the observers associated with it.\n", bp::no_init );
         bp::scope ObserverSet_scope( ObserverSet_exposer );
         ObserverSet_exposer.def( bp::init< osg::Referenced const * >(( bp::arg("observedObject") ), "\n Class used by osg::Referenced to track the observers associated with it.\n") );

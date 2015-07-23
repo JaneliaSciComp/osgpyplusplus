@@ -193,7 +193,7 @@ struct RefMatrixd_wrapper : osg::RefMatrixd, bp::wrapper< osg::RefMatrixd > {
 void register_RefMatrixd_class(){
 
     { //::osg::RefMatrixd
-        typedef bp::class_< RefMatrixd_wrapper, bp::bases< osg::Object, osg::Matrixd >, osg::ref_ptr< RefMatrixd_wrapper > > RefMatrixd_exposer_t;
+        typedef bp::class_< RefMatrixd_wrapper, bp::bases< osg::Object, osg::Matrixd >, osg::ref_ptr< ::osg::RefMatrixd > > RefMatrixd_exposer_t;
         RefMatrixd_exposer_t RefMatrixd_exposer = RefMatrixd_exposer_t( "RefMatrixd", bp::no_init );
         bp::scope RefMatrixd_scope( RefMatrixd_exposer );
         RefMatrixd_exposer.def( bp::init< >() );

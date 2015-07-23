@@ -273,7 +273,7 @@ struct TexEnv_wrapper : osg::TexEnv, bp::wrapper< osg::TexEnv > {
 void register_TexEnv_class(){
 
     { //::osg::TexEnv
-        typedef bp::class_< TexEnv_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< TexEnv_wrapper >, boost::noncopyable > TexEnv_exposer_t;
+        typedef bp::class_< TexEnv_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexEnv >, boost::noncopyable > TexEnv_exposer_t;
         TexEnv_exposer_t TexEnv_exposer = TexEnv_exposer_t( "TexEnv", "\n TexEnv encapsulates the OpenGL glTexEnv (texture environment) state.\n", bp::no_init );
         bp::scope TexEnv_scope( TexEnv_exposer );
         bp::enum_< osg::TexEnv::Mode>("Mode")

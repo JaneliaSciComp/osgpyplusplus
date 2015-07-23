@@ -202,7 +202,7 @@ struct Box_wrapper : osg::Box, bp::wrapper< osg::Box > {
 
 void register_Box_class(){
 
-    bp::class_< Box_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< Box_wrapper >, boost::noncopyable >( "Box", bp::no_init )    
+    bp::class_< Box_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::Box >, boost::noncopyable >( "Box", bp::no_init )    
         .def( bp::init< >() )    
         .def( bp::init< osg::Vec3 const &, float >(( bp::arg("center"), bp::arg("width") )) )    
         .def( bp::init< osg::Vec3 const &, float, float, float >(( bp::arg("center"), bp::arg("lengthX"), bp::arg("lengthY"), bp::arg("lengthZ") )) )    

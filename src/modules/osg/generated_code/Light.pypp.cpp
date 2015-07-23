@@ -280,7 +280,7 @@ struct Light_wrapper : osg::Light, bp::wrapper< osg::Light > {
 void register_Light_class(){
 
     { //::osg::Light
-        typedef bp::class_< Light_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Light_wrapper >, boost::noncopyable > Light_exposer_t;
+        typedef bp::class_< Light_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Light >, boost::noncopyable > Light_exposer_t;
         Light_exposer_t Light_exposer = Light_exposer_t( "Light", "\n Light state class which encapsulates OpenGL glLight() functionality.\n", bp::no_init );
         bp::scope Light_scope( Light_exposer );
         Light_exposer.def( bp::init< >("\n Light state class which encapsulates OpenGL glLight() functionality.\n") );

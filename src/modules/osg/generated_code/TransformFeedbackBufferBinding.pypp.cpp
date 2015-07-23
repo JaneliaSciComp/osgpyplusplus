@@ -256,7 +256,7 @@ struct TransformFeedbackBufferBinding_wrapper : osg::TransformFeedbackBufferBind
 void register_TransformFeedbackBufferBinding_class(){
 
     { //::osg::TransformFeedbackBufferBinding
-        typedef bp::class_< TransformFeedbackBufferBinding_wrapper, osg::ref_ptr< TransformFeedbackBufferBinding_wrapper >, boost::noncopyable > TransformFeedbackBufferBinding_exposer_t;
+        typedef bp::class_< TransformFeedbackBufferBinding_wrapper, osg::ref_ptr< ::osg::TransformFeedbackBufferBinding >, boost::noncopyable > TransformFeedbackBufferBinding_exposer_t;
         TransformFeedbackBufferBinding_exposer_t TransformFeedbackBufferBinding_exposer = TransformFeedbackBufferBinding_exposer_t( "TransformFeedbackBufferBinding", "\n StateAttribute for binding a transform feedback index target.\n", bp::init< bp::optional< GLuint > >(( bp::arg("index")=(::GLuint)(0) ), "\n StateAttribute for binding a transform feedback index target.\n") );
         bp::scope TransformFeedbackBufferBinding_scope( TransformFeedbackBufferBinding_exposer );
         bp::implicitly_convertible< GLuint, osg::TransformFeedbackBufferBinding >();

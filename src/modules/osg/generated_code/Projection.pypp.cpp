@@ -400,7 +400,7 @@ struct Projection_wrapper : osg::Projection, bp::wrapper< osg::Projection > {
 void register_Projection_class(){
 
     { //::osg::Projection
-        typedef bp::class_< Projection_wrapper, bp::bases< osg::Group >, osg::ref_ptr< Projection_wrapper >, boost::noncopyable > Projection_exposer_t;
+        typedef bp::class_< Projection_wrapper, bp::bases< osg::Group >, osg::ref_ptr< ::osg::Projection >, boost::noncopyable > Projection_exposer_t;
         Projection_exposer_t Projection_exposer = Projection_exposer_t( "Projection", "\n Projection nodes set up the frustum/orthographic projection used when rendering the scene.\n", bp::no_init );
         bp::scope Projection_scope( Projection_exposer );
         Projection_exposer.def( bp::init< >("\n Projection nodes set up the frustum/orthographic projection used when rendering the scene.\n") );

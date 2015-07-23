@@ -279,7 +279,7 @@ struct PolygonOffset_wrapper : osg::PolygonOffset, bp::wrapper< osg::PolygonOffs
 
 void register_PolygonOffset_class(){
 
-    bp::class_< PolygonOffset_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< PolygonOffset_wrapper >, boost::noncopyable >( "PolygonOffset", "\n PolygonOffset - encapsulates the OpenGL glPolygonOffset state.\n", bp::no_init )    
+    bp::class_< PolygonOffset_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::PolygonOffset >, boost::noncopyable >( "PolygonOffset", "\n PolygonOffset - encapsulates the OpenGL glPolygonOffset state.\n", bp::no_init )    
         .def( bp::init< >("\n PolygonOffset - encapsulates the OpenGL glPolygonOffset state.\n") )    
         .def( bp::init< float, float >(( bp::arg("factor"), bp::arg("units") )) )    
         .def( 

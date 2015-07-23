@@ -164,7 +164,7 @@ struct UniformBufferObject_wrapper : osg::UniformBufferObject, bp::wrapper< osg:
 
 void register_UniformBufferObject_class(){
 
-    bp::class_< UniformBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< UniformBufferObject_wrapper >, boost::noncopyable >( "UniformBufferObject", bp::no_init )    
+    bp::class_< UniformBufferObject_wrapper, bp::bases< osg::BufferObject >, osg::ref_ptr< ::osg::UniformBufferObject >, boost::noncopyable >( "UniformBufferObject", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "className"

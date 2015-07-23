@@ -273,7 +273,7 @@ struct TexEnvFilter_wrapper : osg::TexEnvFilter, bp::wrapper< osg::TexEnvFilter 
 void register_TexEnvFilter_class(){
 
     { //::osg::TexEnvFilter
-        typedef bp::class_< TexEnvFilter_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< TexEnvFilter_wrapper >, boost::noncopyable > TexEnvFilter_exposer_t;
+        typedef bp::class_< TexEnvFilter_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::TexEnvFilter >, boost::noncopyable > TexEnvFilter_exposer_t;
         TexEnvFilter_exposer_t TexEnvFilter_exposer = TexEnvFilter_exposer_t( "TexEnvFilter", "\n TexEnvFilter - encapsulates the OpenGL glTexEnv (GL_TEXTURE_FILTER_CONTROL) state.\n", bp::no_init );
         bp::scope TexEnvFilter_scope( TexEnvFilter_exposer );
         TexEnvFilter_exposer.def( bp::init< bp::optional< float > >(( bp::arg("lodBias")=0.0f ), "\n TexEnvFilter - encapsulates the OpenGL glTexEnv (GL_TEXTURE_FILTER_CONTROL) state.\n") );

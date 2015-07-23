@@ -489,7 +489,7 @@ struct AutoTransform_wrapper : osg::AutoTransform, bp::wrapper< osg::AutoTransfo
 void register_AutoTransform_class(){
 
     { //::osg::AutoTransform
-        typedef bp::class_< AutoTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< AutoTransform_wrapper >, boost::noncopyable > AutoTransform_exposer_t;
+        typedef bp::class_< AutoTransform_wrapper, bp::bases< osg::Transform >, osg::ref_ptr< ::osg::AutoTransform >, boost::noncopyable > AutoTransform_exposer_t;
         AutoTransform_exposer_t AutoTransform_exposer = AutoTransform_exposer_t( "AutoTransform", "\n AutoTransform is a derived form of Transform that automatically\n scales or rotates to keep its children aligned with screen coordinates.\n", bp::no_init );
         bp::scope AutoTransform_scope( AutoTransform_exposer );
         bp::enum_< osg::AutoTransform::AutoRotateMode>("AutoRotateMode")

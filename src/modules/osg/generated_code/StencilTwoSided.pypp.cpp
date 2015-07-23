@@ -301,7 +301,7 @@ struct StencilTwoSided_wrapper : osg::StencilTwoSided, bp::wrapper< osg::Stencil
 void register_StencilTwoSided_class(){
 
     { //::osg::StencilTwoSided
-        typedef bp::class_< StencilTwoSided_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< StencilTwoSided_wrapper >, boost::noncopyable > StencilTwoSided_exposer_t;
+        typedef bp::class_< StencilTwoSided_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::StencilTwoSided >, boost::noncopyable > StencilTwoSided_exposer_t;
         StencilTwoSided_exposer_t StencilTwoSided_exposer = StencilTwoSided_exposer_t( "StencilTwoSided", "\n Provides OpenGL two sided stencil functionality, also known as separate stencil.\n  It enables to specify different stencil function for front and back facing polygons.\n  Two sided stenciling is used usually to eliminate the need of two rendering passes\n  when using standard stenciling functions. See also aa osg::Stencil.\n\n  Two sided stenciling is available since OpenGL 2.0. It is also supported by\n  EXT_stencil_two_side extension especially on Nvidia cards.\n  Another extension introduced by ATI is ATI_separate_stencil. However, ATIs extension\n  is limited to have reference and mask value the same for both faces.\n  ATIs extension is currently not supported by the current implementation.\n\n  osg::StencilTwoSided does nothing if OpenGL 2.0 or EXT_stencil_two_side are not available.\n", bp::no_init );
         bp::scope StencilTwoSided_scope( StencilTwoSided_exposer );
         bp::enum_< osg::StencilTwoSided::Face>("Face")

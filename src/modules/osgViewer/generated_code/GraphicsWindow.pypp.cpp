@@ -527,7 +527,7 @@ struct GraphicsWindow_wrapper : osgViewer::GraphicsWindow, bp::wrapper< osgViewe
 void register_GraphicsWindow_class(){
 
     { //::osgViewer::GraphicsWindow
-        typedef bp::class_< GraphicsWindow_wrapper, bp::bases< ::osg::GraphicsContext, ::osgGA::GUIActionAdapter >, osg::ref_ptr< GraphicsWindow_wrapper >, boost::noncopyable > GraphicsWindow_exposer_t;
+        typedef bp::class_< GraphicsWindow_wrapper, bp::bases< ::osg::GraphicsContext, ::osgGA::GUIActionAdapter >, osg::ref_ptr< ::osgViewer::GraphicsWindow >, boost::noncopyable > GraphicsWindow_exposer_t;
         GraphicsWindow_exposer_t GraphicsWindow_exposer = GraphicsWindow_exposer_t( "GraphicsWindow", bp::init< >() );
         bp::scope GraphicsWindow_scope( GraphicsWindow_exposer );
         bp::enum_< osgViewer::GraphicsWindow::MouseCursor>("MouseCursor")

@@ -526,7 +526,7 @@ struct GraphicsWindowEmbedded_wrapper : osgViewer::GraphicsWindowEmbedded, bp::w
 void register_GraphicsWindowEmbedded_class(){
 
     { //::osgViewer::GraphicsWindowEmbedded
-        typedef bp::class_< GraphicsWindowEmbedded_wrapper, bp::bases< osgViewer::GraphicsWindow >, osg::ref_ptr< GraphicsWindowEmbedded_wrapper >, boost::noncopyable > GraphicsWindowEmbedded_exposer_t;
+        typedef bp::class_< GraphicsWindowEmbedded_wrapper, bp::bases< osgViewer::GraphicsWindow >, osg::ref_ptr< ::osgViewer::GraphicsWindowEmbedded >, boost::noncopyable > GraphicsWindowEmbedded_exposer_t;
         GraphicsWindowEmbedded_exposer_t GraphicsWindowEmbedded_exposer = GraphicsWindowEmbedded_exposer_t( "GraphicsWindowEmbedded", bp::init< bp::optional< osg::GraphicsContext::Traits * > >(( bp::arg("traits")=bp::object() )) );
         bp::scope GraphicsWindowEmbedded_scope( GraphicsWindowEmbedded_exposer );
         bp::implicitly_convertible< osg::GraphicsContext::Traits *, osgViewer::GraphicsWindowEmbedded >();

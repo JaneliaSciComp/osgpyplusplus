@@ -362,7 +362,7 @@ struct TemplateArray_less__unsigned_int_comma___obrace_osg_scope_Array_scope_Typ
 void register_UIntArray_class(){
 
     { //::osg::TemplateArray< unsigned int, (osg::Array::Type)6, 4, 4 >
-        typedef bp::class_< TemplateArray_less__unsigned_int_comma___obrace_osg_scope_Array_scope_Type_cbrace_6_comma__4_comma__4__greater__wrapper, bp::bases< osg::Array >, osg::ref_ptr< TemplateArray_less__unsigned_int_comma___obrace_osg_scope_Array_scope_Type_cbrace_6_comma__4_comma__4__greater__wrapper >, boost::noncopyable > UIntArray_exposer_t;
+        typedef bp::class_< TemplateArray_less__unsigned_int_comma___obrace_osg_scope_Array_scope_Type_cbrace_6_comma__4_comma__4__greater__wrapper, bp::bases< osg::Array >, osg::ref_ptr< ::osg::TemplateArray<unsigned int, (osg::Array::Type)6, 4, 4> >, boost::noncopyable > UIntArray_exposer_t;
         UIntArray_exposer_t UIntArray_exposer = UIntArray_exposer_t( "UIntArray", bp::no_init );
         bp::scope UIntArray_scope( UIntArray_exposer );
         UIntArray_exposer.def( bp::init< bp::optional< osg::Array::Binding > >(( bp::arg("binding")=osg::Array::BIND_UNDEFINED )) );

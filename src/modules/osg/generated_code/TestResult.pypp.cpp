@@ -32,7 +32,7 @@ struct TestResult_wrapper : osg::TestResult, bp::wrapper< osg::TestResult > {
 
 void register_TestResult_class(){
 
-    bp::class_< TestResult_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< TestResult_wrapper >, boost::noncopyable >( "TestResult", bp::init< >() )    
+    bp::class_< TestResult_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TestResult >, boost::noncopyable >( "TestResult", bp::init< >() )    
         .def_readwrite( "_active", &osg::TestResult::_active )    
         .def_readwrite( "_contextID", &osg::TestResult::_contextID )    
         .def_readwrite( "_id", &osg::TestResult::_id )    

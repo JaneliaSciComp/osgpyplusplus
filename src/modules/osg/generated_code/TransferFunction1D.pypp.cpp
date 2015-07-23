@@ -164,7 +164,7 @@ struct TransferFunction1D_wrapper : osg::TransferFunction1D, bp::wrapper< osg::T
 
 void register_TransferFunction1D_class(){
 
-    bp::class_< TransferFunction1D_wrapper, bp::bases< osg::TransferFunction >, osg::ref_ptr< TransferFunction1D_wrapper >, boost::noncopyable >( "TransferFunction1D", "\n 1D variant of TransferFunction.\n", bp::init< >("\n 1D variant of TransferFunction.\n") )    
+    bp::class_< TransferFunction1D_wrapper, bp::bases< osg::TransferFunction >, osg::ref_ptr< ::osg::TransferFunction1D >, boost::noncopyable >( "TransferFunction1D", "\n 1D variant of TransferFunction.\n", bp::init< >("\n 1D variant of TransferFunction.\n") )    
         .def( 
             "allocate"
             , (void ( ::osg::TransferFunction1D::* )( unsigned int ))( &::osg::TransferFunction1D::allocate )

@@ -301,7 +301,7 @@ struct SampleMaski_wrapper : osg::SampleMaski, bp::wrapper< osg::SampleMaski > {
 void register_SampleMaski_class(){
 
     { //::osg::SampleMaski
-        typedef bp::class_< SampleMaski_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< SampleMaski_wrapper >, boost::noncopyable > SampleMaski_exposer_t;
+        typedef bp::class_< SampleMaski_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::SampleMaski >, boost::noncopyable > SampleMaski_exposer_t;
         SampleMaski_exposer_t SampleMaski_exposer = SampleMaski_exposer_t( "SampleMaski", "\n  osg::SampleMaski does nothing if OpenGL 3.2 or ARB_texture_multisample are not available.\n", bp::no_init );
         bp::scope SampleMaski_scope( SampleMaski_exposer );
         { //::osg::SampleMaski::Extensions

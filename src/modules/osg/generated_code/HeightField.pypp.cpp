@@ -188,7 +188,7 @@ struct HeightField_wrapper : osg::HeightField, bp::wrapper< osg::HeightField > {
 
 void register_HeightField_class(){
 
-    bp::class_< HeightField_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< HeightField_wrapper >, boost::noncopyable >( "HeightField", bp::no_init )    
+    bp::class_< HeightField_wrapper, bp::bases< osg::Shape >, osg::ref_ptr< ::osg::HeightField >, boost::noncopyable >( "HeightField", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "accept"

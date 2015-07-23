@@ -712,7 +712,7 @@ struct ValueObject_wrapper : osg::ValueObject, bp::wrapper< osg::ValueObject > {
 void register_ValueObject_class(){
 
     { //::osg::ValueObject
-        typedef bp::class_< ValueObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ValueObject_wrapper >, boost::noncopyable > ValueObject_exposer_t;
+        typedef bp::class_< ValueObject_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::ValueObject >, boost::noncopyable > ValueObject_exposer_t;
         ValueObject_exposer_t ValueObject_exposer = ValueObject_exposer_t( "ValueObject", bp::no_init );
         bp::scope ValueObject_scope( ValueObject_exposer );
         bp::class_< ValueObject_wrapper::GetValueVisitor_wrapper >( "GetValueVisitor" )    

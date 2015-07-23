@@ -523,7 +523,7 @@ static void wrap_increment_DataIterator(osg::Image::DataIterator& val) {++val;}
 void register_Image_class(){
 
     { //::osg::Image
-        typedef bp::class_< Image_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< Image_wrapper >, boost::noncopyable > Image_exposer_t;
+        typedef bp::class_< Image_wrapper, bp::bases< osg::BufferData >, osg::ref_ptr< ::osg::Image >, boost::noncopyable > Image_exposer_t;
         Image_exposer_t Image_exposer = Image_exposer_t( "Image", "\n Image class for encapsulating the storage texture image data.\n", bp::no_init );
         bp::scope Image_scope( Image_exposer );
         bp::enum_< osg::Image::AllocationMode>("AllocationMode")
@@ -571,7 +571,7 @@ void register_Image_class(){
             }
             DataIterator_exposer.def("increment", &wrap_increment_DataIterator);
         }
-        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Image_wrapper::DimensionsChangedCallback_wrapper >, boost::noncopyable >( "DimensionsChangedCallback", "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n", bp::no_init )    
+        bp::class_< Image_wrapper::DimensionsChangedCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Image::DimensionsChangedCallback >, boost::noncopyable >( "DimensionsChangedCallback", "\n Pass frame information to the custom Image classes, to be called only when objects associated with imagery are not culled.\n", bp::no_init )    
             .def( 
                 "__call__"
                 , bp::pure_virtual( (void ( ::osg::Image::DimensionsChangedCallback::* )( ::osg::Image * ))(&::osg::Image::DimensionsChangedCallback::operator()) )
@@ -582,7 +582,7 @@ void register_Image_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Image_wrapper::DimensionsChangedCallback_wrapper::* )( bool ))(&Image_wrapper::DimensionsChangedCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< Image_wrapper::UpdateCallback_wrapper >, boost::noncopyable >( "UpdateCallback", "\n Convenience update callback class that can be attached to a StateAttribute (such as Textures) to ensure\n that the Image::update(NodeVisitor*) method is called during the update traversal.  This callback\n is automatically attached when Image::requiresUpdateCall() is true (its false by default.)\n" )    
+        bp::class_< Image_wrapper::UpdateCallback_wrapper, osg::ref_ptr< ::osg::Image::UpdateCallback >, boost::noncopyable >( "UpdateCallback", "\n Convenience update callback class that can be attached to a StateAttribute (such as Textures) to ensure\n that the Image::update(NodeVisitor*) method is called during the update traversal.  This callback\n is automatically attached when Image::requiresUpdateCall() is true (its false by default.)\n" )    
             .def( 
                 "__call__"
                 , (void ( ::osg::Image::UpdateCallback::* )( ::osg::StateAttribute *,::osg::NodeVisitor * ))(&::osg::Image::UpdateCallback::operator())

@@ -188,7 +188,7 @@ struct ViewConfig_wrapper : osgViewer::ViewConfig, bp::wrapper< osgViewer::ViewC
 
 void register_ViewConfig_class(){
 
-    bp::class_< ViewConfig_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ViewConfig_wrapper >, boost::noncopyable >( "ViewConfig", bp::init< >() )    
+    bp::class_< ViewConfig_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgViewer::ViewConfig >, boost::noncopyable >( "ViewConfig", bp::init< >() )    
         .def( 
             "className"
             , (char const * ( ::osgViewer::ViewConfig::* )(  )const)(&::osgViewer::ViewConfig::className)

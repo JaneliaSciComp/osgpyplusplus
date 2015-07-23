@@ -387,7 +387,7 @@ struct Texture2DMultisample_wrapper : osg::Texture2DMultisample, bp::wrapper< os
 
 void register_Texture2DMultisample_class(){
 
-    bp::class_< Texture2DMultisample_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< Texture2DMultisample_wrapper >, boost::noncopyable >( "Texture2DMultisample", "\n Texture2DMultisample state class which encapsulates OpenGL 2D multisampled texture functionality.\n Multisampled texture were introduced with OpenGL 3.1 and extension GL_ARB_texture_multisample.\n See http://www.opengl.org/registry/specs/ARB/texture_multisample.txt for more info.\n", bp::no_init )    
+    bp::class_< Texture2DMultisample_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture2DMultisample >, boost::noncopyable >( "Texture2DMultisample", "\n Texture2DMultisample state class which encapsulates OpenGL 2D multisampled texture functionality.\n Multisampled texture were introduced with OpenGL 3.1 and extension GL_ARB_texture_multisample.\n See http://www.opengl.org/registry/specs/ARB/texture_multisample.txt for more info.\n", bp::no_init )    
         .def( bp::init< >("\n Texture2DMultisample state class which encapsulates OpenGL 2D multisampled texture functionality.\n Multisampled texture were introduced with OpenGL 3.1 and extension GL_ARB_texture_multisample.\n See http://www.opengl.org/registry/specs/ARB/texture_multisample.txt for more info.\n") )    
         .def( bp::init< GLsizei, GLboolean >(( bp::arg("numSamples"), bp::arg("fixedsamplelocations") )) )    
         .def( 

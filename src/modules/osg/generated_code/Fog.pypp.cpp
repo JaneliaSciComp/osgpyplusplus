@@ -273,7 +273,7 @@ struct Fog_wrapper : osg::Fog, bp::wrapper< osg::Fog > {
 void register_Fog_class(){
 
     { //::osg::Fog
-        typedef bp::class_< Fog_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Fog_wrapper >, boost::noncopyable > Fog_exposer_t;
+        typedef bp::class_< Fog_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Fog >, boost::noncopyable > Fog_exposer_t;
         Fog_exposer_t Fog_exposer = Fog_exposer_t( "Fog", "\n Fog - encapsulates OpenGL fog state.\n", bp::no_init );
         bp::scope Fog_scope( Fog_exposer );
         bp::enum_< osg::Fog::FogCoordinateSource>("FogCoordinateSource")

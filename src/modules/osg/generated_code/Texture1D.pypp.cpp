@@ -399,10 +399,10 @@ struct Texture1D_wrapper : osg::Texture1D, bp::wrapper< osg::Texture1D > {
 void register_Texture1D_class(){
 
     { //::osg::Texture1D
-        typedef bp::class_< Texture1D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< Texture1D_wrapper >, boost::noncopyable > Texture1D_exposer_t;
+        typedef bp::class_< Texture1D_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::Texture1D >, boost::noncopyable > Texture1D_exposer_t;
         Texture1D_exposer_t Texture1D_exposer = Texture1D_exposer_t( "Texture1D", "\n Encapsulates OpenGL 1D texture functionality. Doesnt support cube maps,\n so ignore C{face} parameters.\n", bp::no_init );
         bp::scope Texture1D_scope( Texture1D_exposer );
-        bp::class_< Texture1D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture1D_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture1D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture1D::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

@@ -256,7 +256,7 @@ struct AtomicCounterBufferBinding_wrapper : osg::AtomicCounterBufferBinding, bp:
 void register_AtomicCounterBufferBinding_class(){
 
     { //::osg::AtomicCounterBufferBinding
-        typedef bp::class_< AtomicCounterBufferBinding_wrapper, osg::ref_ptr< AtomicCounterBufferBinding_wrapper >, boost::noncopyable > AtomicCounterBufferBinding_exposer_t;
+        typedef bp::class_< AtomicCounterBufferBinding_wrapper, osg::ref_ptr< ::osg::AtomicCounterBufferBinding >, boost::noncopyable > AtomicCounterBufferBinding_exposer_t;
         AtomicCounterBufferBinding_exposer_t AtomicCounterBufferBinding_exposer = AtomicCounterBufferBinding_exposer_t( "AtomicCounterBufferBinding", "\n StateAttribute for binding a atomic counter buffer index target.\n", bp::init< bp::optional< GLuint > >(( bp::arg("index")=(::GLuint)(0) ), "\n StateAttribute for binding a atomic counter buffer index target.\n") );
         bp::scope AtomicCounterBufferBinding_scope( AtomicCounterBufferBinding_exposer );
         bp::implicitly_convertible< GLuint, osg::AtomicCounterBufferBinding >();

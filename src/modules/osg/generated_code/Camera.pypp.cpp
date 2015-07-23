@@ -689,7 +689,7 @@ struct Camera_wrapper : osg::Camera, bp::wrapper< osg::Camera > {
 void register_Camera_class(){
 
     { //::osg::Camera
-        typedef bp::class_< Camera_wrapper, bp::bases< osg::Transform, osg::CullSettings >, osg::ref_ptr< Camera_wrapper >, boost::noncopyable > Camera_exposer_t;
+        typedef bp::class_< Camera_wrapper, bp::bases< osg::Transform, osg::CullSettings >, osg::ref_ptr< ::osg::Camera >, boost::noncopyable > Camera_exposer_t;
         Camera_exposer_t Camera_exposer = Camera_exposer_t( "Camera", "\n Camera - is a subclass of Transform which represents encapsulates the settings of a Camera.\n", bp::no_init );
         bp::scope Camera_scope( Camera_exposer );
         bp::enum_< osg::Camera::BufferComponent>("BufferComponent")
@@ -765,7 +765,7 @@ void register_Camera_class(){
             .def_readwrite( "_multisampleColorSamples", &osg::Camera::Attachment::_multisampleColorSamples )    
             .def_readwrite( "_multisampleSamples", &osg::Camera::Attachment::_multisampleSamples )    
             .def_readwrite( "_texture", &osg::Camera::Attachment::_texture );
-        bp::class_< Camera_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< Camera_wrapper::DrawCallback_wrapper >, boost::noncopyable >( "DrawCallback", "\n Draw callback for custom operations.\n", bp::init< >("\n Draw callback for custom operations.\n") )    
+        bp::class_< Camera_wrapper::DrawCallback_wrapper, bp::bases< osg::Object >, osg::ref_ptr< ::osg::Camera::DrawCallback >, boost::noncopyable >( "DrawCallback", "\n Draw callback for custom operations.\n", bp::init< >("\n Draw callback for custom operations.\n") )    
             .def( 
                 "className"
                 , (char const * ( ::osg::Camera::DrawCallback::* )(  )const)(&::osg::Camera::DrawCallback::className)

@@ -188,7 +188,7 @@ struct LODScaleHandler_wrapper : osgViewer::LODScaleHandler, bp::wrapper< osgVie
 
 void register_LODScaleHandler_class(){
 
-    bp::class_< LODScaleHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< LODScaleHandler_wrapper >, boost::noncopyable >( "LODScaleHandler", bp::init< >() )    
+    bp::class_< LODScaleHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::LODScaleHandler >, boost::noncopyable >( "LODScaleHandler", bp::init< >() )    
         .def( 
             "getKeyEventDecreaseLODScale"
             , (int ( ::osgViewer::LODScaleHandler::* )(  )const)( &::osgViewer::LODScaleHandler::getKeyEventDecreaseLODScale ) )    

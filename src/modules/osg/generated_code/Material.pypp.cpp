@@ -273,7 +273,7 @@ struct Material_wrapper : osg::Material, bp::wrapper< osg::Material > {
 void register_Material_class(){
 
     { //::osg::Material
-        typedef bp::class_< Material_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Material_wrapper >, boost::noncopyable > Material_exposer_t;
+        typedef bp::class_< Material_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Material >, boost::noncopyable > Material_exposer_t;
         Material_exposer_t Material_exposer = Material_exposer_t( "Material", "\n Material - encapsulates OpenGL glMaterial state.\n", bp::no_init );
         bp::scope Material_scope( Material_exposer );
         bp::enum_< osg::Material::ColorMode>("ColorMode")

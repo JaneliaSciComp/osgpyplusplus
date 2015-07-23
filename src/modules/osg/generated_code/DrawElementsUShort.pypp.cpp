@@ -431,7 +431,7 @@ struct DrawElementsUShort_wrapper : osg::DrawElementsUShort, bp::wrapper< osg::D
 void register_DrawElementsUShort_class(){
 
     { //::osg::DrawElementsUShort
-        typedef bp::class_< DrawElementsUShort_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< DrawElementsUShort_wrapper >, boost::noncopyable > DrawElementsUShort_exposer_t;
+        typedef bp::class_< DrawElementsUShort_wrapper, bp::bases< osg::DrawElements >, osg::ref_ptr< ::osg::DrawElementsUShort >, boost::noncopyable > DrawElementsUShort_exposer_t;
         DrawElementsUShort_exposer_t DrawElementsUShort_exposer = DrawElementsUShort_exposer_t( "DrawElementsUShort", bp::no_init );
         bp::scope DrawElementsUShort_scope( DrawElementsUShort_exposer );
         DrawElementsUShort_exposer.def( bp::init< bp::optional< GLenum > >(( bp::arg("mode")=(::GLenum)(0) )) );

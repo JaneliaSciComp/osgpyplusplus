@@ -308,7 +308,7 @@ struct BlendColor_wrapper : osg::BlendColor, bp::wrapper< osg::BlendColor > {
 void register_BlendColor_class(){
 
     { //::osg::BlendColor
-        typedef bp::class_< BlendColor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< BlendColor_wrapper >, boost::noncopyable > BlendColor_exposer_t;
+        typedef bp::class_< BlendColor_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::BlendColor >, boost::noncopyable > BlendColor_exposer_t;
         BlendColor_exposer_t BlendColor_exposer = BlendColor_exposer_t( "BlendColor", "\n Encapsulates OpenGL blend/transparency state.\n", bp::no_init );
         bp::scope BlendColor_scope( BlendColor_exposer );
         { //::osg::BlendColor::Extensions

@@ -354,7 +354,7 @@ struct Texture_wrapper : osg::Texture, bp::wrapper< osg::Texture > {
 void register_Texture_class(){
 
     { //::osg::Texture
-        typedef bp::class_< Texture_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< Texture_wrapper >, boost::noncopyable > Texture_exposer_t;
+        typedef bp::class_< Texture_wrapper, bp::bases< osg::StateAttribute >, osg::ref_ptr< ::osg::Texture >, boost::noncopyable > Texture_exposer_t;
         Texture_exposer_t Texture_exposer = Texture_exposer_t( "Texture", "\n Texture pure virtual base class that encapsulates OpenGL texture\n functionality common to the various types of OSG textures.\n", bp::no_init );
         bp::scope Texture_scope( Texture_exposer );
         bp::enum_< osg::Texture::FilterMode>("FilterMode")
@@ -649,7 +649,7 @@ void register_Texture_class(){
             .def_readwrite( "layered", &osg::Texture::ImageAttachment::layered )    
             .def_readwrite( "level", &osg::Texture::ImageAttachment::level )    
             .def_readwrite( "unit", &osg::Texture::ImageAttachment::unit, " Encapsulates texture image load/store attributes" );
-        bp::class_< Texture_wrapper::TextureObjectManager_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture_wrapper::TextureObjectManager_wrapper >, boost::noncopyable >( "TextureObjectManager", bp::no_init )    
+        bp::class_< Texture_wrapper::TextureObjectManager_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::TextureObjectManager >, boost::noncopyable >( "TextureObjectManager", bp::no_init )    
             .def( 
                 "checkConsistency"
                 , (bool ( ::osg::Texture::TextureObjectManager::* )(  )const)( &::osg::Texture::TextureObjectManager::checkConsistency ) )    
@@ -794,7 +794,7 @@ void register_Texture_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( Texture_wrapper::TextureObjectManager_wrapper::* )( bool ))(&Texture_wrapper::TextureObjectManager_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< Texture_wrapper::TextureObjectSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture_wrapper::TextureObjectSet_wrapper >, boost::noncopyable >( "TextureObjectSet", bp::no_init )    
+        bp::class_< Texture_wrapper::TextureObjectSet_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture::TextureObjectSet >, boost::noncopyable >( "TextureObjectSet", bp::no_init )    
             .def( 
                 "addToBack"
                 , (void ( ::osg::Texture::TextureObjectSet::* )( ::osg::Texture::TextureObject * ))( &::osg::Texture::TextureObjectSet::addToBack )

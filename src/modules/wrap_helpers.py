@@ -88,6 +88,42 @@ class BaseWrapper:
             for ctor in cls.constructors(arg_types=[None, copyop_arg_t], allow_empty=True):
                 ctor.exclude()
 
+    def wrap_some_osg_referenced_noderive(self, namespace):
+        # Identify all classes derived from osg::Referenced, 
+        # and set their boost::python held_type to "osg::ref_ptr<class>"
+        osg = self.mb.namespace("osg")
+        referenced = osg.class_("Referenced")
+        referenced_derived = DerivedClasses(referenced)
+        referenced_derived.include_module(namespace)
+        copyop = osg.class_("CopyOp")
+        # We are interested in constructors that take an argument of type "const osg::CopyOp&""
+        copyop_arg_t = declarations.reference_t(declarations.const_t(declarations.declarated_t(copyop)))
+        for cls in referenced_derived:
+            if cls.name[0] in "vV": # and cls.name[1] in "abcdefgABCDEFG":
+                pass
+            else:
+                continue
+            expose_nonoverridable_ref_ptr_class(cls)
+            # These copy constructors consistently cause trouble
+            for ctor in cls.constructors(arg_types=[None, copyop_arg_t], allow_empty=True):
+                ctor.exclude()
+
+    def wrap_all_osg_referenced_noderive(self, namespace):
+        # Identify all classes derived from osg::Referenced, 
+        # and set their boost::python held_type to "osg::ref_ptr<class>"
+        osg = self.mb.namespace("osg")
+        referenced = osg.class_("Referenced")
+        referenced_derived = DerivedClasses(referenced)
+        referenced_derived.include_module(namespace)
+        copyop = osg.class_("CopyOp")
+        # We are interested in constructors that take an argument of type "const osg::CopyOp&""
+        copyop_arg_t = declarations.reference_t(declarations.const_t(declarations.declarated_t(copyop)))
+        for cls in referenced_derived:
+            expose_nonoverridable_ref_ptr_class(cls)
+            # These copy constructors consistently cause trouble
+            for ctor in cls.constructors(arg_types=[None, copyop_arg_t], allow_empty=True):
+                ctor.exclude()
+
 
 def expose_increment_operators(mb):
     "Wrap C++ operator++() and operator()-- methods as python incr() and decr() methods"

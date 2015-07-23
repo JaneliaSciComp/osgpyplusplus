@@ -189,7 +189,7 @@ struct RecordCameraPathHandler_wrapper : osgViewer::RecordCameraPathHandler, bp:
 void register_RecordCameraPathHandler_class(){
 
     { //::osgViewer::RecordCameraPathHandler
-        typedef bp::class_< RecordCameraPathHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< RecordCameraPathHandler_wrapper >, boost::noncopyable > RecordCameraPathHandler_exposer_t;
+        typedef bp::class_< RecordCameraPathHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgViewer::RecordCameraPathHandler >, boost::noncopyable > RecordCameraPathHandler_exposer_t;
         RecordCameraPathHandler_exposer_t RecordCameraPathHandler_exposer = RecordCameraPathHandler_exposer_t( "RecordCameraPathHandler", bp::init< bp::optional< std::string const &, float > >(( bp::arg("filename")="saved_animation.path", bp::arg("fps")=2.5e+1f )) );
         bp::scope RecordCameraPathHandler_scope( RecordCameraPathHandler_exposer );
         bp::implicitly_convertible< std::string const &, osgViewer::RecordCameraPathHandler >();
