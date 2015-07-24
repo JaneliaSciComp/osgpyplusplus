@@ -392,7 +392,7 @@ void register_GraphicsContext_class(){
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)
                 , (void ( GraphicsContext_wrapper::SwapCallback_wrapper::* )( bool ))(&GraphicsContext_wrapper::SwapCallback_wrapper::default_setThreadSafeRefUnref)
                 , ( bp::arg("threadSafe") ) );
-        bp::class_< GraphicsContext_wrapper::Traits_wrapper, bp::bases< osg::Referenced, osg::GraphicsContext::ScreenIdentifier >, osg::ref_ptr< ::osg::GraphicsContext::Traits >, boost::noncopyable >( "Traits", "\n GraphicsContext Traits object provides the specification of what type of graphics context is required.\n", bp::no_init )    
+        bp::class_< GraphicsContext_wrapper::Traits_wrapper, bp::bases< osg::Referenced, osg::GraphicsContext::ScreenIdentifier >, osg::ref_ptr< ::osg::GraphicsContext::Traits >, boost::noncopyable >( "Traits", "\n GraphicsContext Traits object provides the specification of what type of graphics context is required.\n" )    
             .def( 
                 "getContextVersion"
                 , (bool ( ::osg::GraphicsContext::Traits::* )( unsigned int &,unsigned int & )const)( &::osg::GraphicsContext::Traits::getContextVersion )

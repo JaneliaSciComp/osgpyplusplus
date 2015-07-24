@@ -353,6 +353,9 @@ class OsgWrapper(BaseWrapper):
                 ]:
             self.mb.class_(cls_name).exclude()
 
+        # RuntimeError: This class cannot be instantiated from Python
+        osg.class_("GraphicsContext").class_("Traits").no_init = False
+
         # Some classes don't like to have wrapper_alias in their ref_ptr held type.
         # I didn't want to derive those classes anyway...
 
