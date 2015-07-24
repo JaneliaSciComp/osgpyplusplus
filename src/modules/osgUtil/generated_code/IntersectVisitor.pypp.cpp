@@ -393,7 +393,7 @@ struct IntersectVisitor_wrapper : osgUtil::IntersectVisitor, bp::wrapper< osgUti
 void register_IntersectVisitor_class(){
 
     { //::osgUtil::IntersectVisitor
-        typedef bp::class_< IntersectVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::IntersectVisitor >, boost::noncopyable > IntersectVisitor_exposer_t;
+        typedef bp::class_< IntersectVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< IntersectVisitor_wrapper >, boost::noncopyable > IntersectVisitor_exposer_t;
         IntersectVisitor_exposer_t IntersectVisitor_exposer = IntersectVisitor_exposer_t( "IntersectVisitor", bp::init< >() );
         bp::scope IntersectVisitor_scope( IntersectVisitor_exposer );
         bp::enum_< osgUtil::IntersectVisitor::LODSelectionMode>("LODSelectionMode")

@@ -428,7 +428,7 @@ struct DelaunayConstraint_wrapper : osgUtil::DelaunayConstraint, bp::wrapper< os
 
 void register_DelaunayConstraint_class(){
 
-    bp::class_< DelaunayConstraint_wrapper, bp::bases< ::osg::Geometry >, osg::ref_ptr< ::osgUtil::DelaunayConstraint >, boost::noncopyable >( "DelaunayConstraint", bp::no_init )    
+    bp::class_< DelaunayConstraint_wrapper, bp::bases< ::osg::Geometry >, osg::ref_ptr< DelaunayConstraint_wrapper >, boost::noncopyable >( "DelaunayConstraint", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addtriangle"

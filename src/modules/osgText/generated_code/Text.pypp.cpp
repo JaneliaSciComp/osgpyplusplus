@@ -477,7 +477,7 @@ struct Text_wrapper : osgText::Text, bp::wrapper< osgText::Text > {
 void register_Text_class(){
 
     { //::osgText::Text
-        typedef bp::class_< Text_wrapper, bp::bases< osgText::TextBase >, osg::ref_ptr< ::osgText::Text >, boost::noncopyable > Text_exposer_t;
+        typedef bp::class_< Text_wrapper, bp::bases< osgText::TextBase >, osg::ref_ptr< Text_wrapper >, boost::noncopyable > Text_exposer_t;
         Text_exposer_t Text_exposer = Text_exposer_t( "Text", bp::no_init );
         bp::scope Text_scope( Text_exposer );
         bp::enum_< osgText::Text::BackdropImplementation>("BackdropImplementation")

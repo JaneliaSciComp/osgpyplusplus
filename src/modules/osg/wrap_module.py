@@ -82,11 +82,11 @@ class OsgWrapper(BaseWrapper):
         
         # Identify all classes derived from osg::Referenced, 
         # and set their boost::python held_type to "osg::ref_ptr<class>"
-        self.wrap_all_osg_referenced(osg)
-        self.wrap_all_osg_referenced(openthreads)
+        self.wrap_all_osg_referenced_noderive(osg) # decl_string
+        # self.wrap_all_osg_referenced(osg) # wrapper_alias
+        # self.wrap_some_osg_referenced_noderive(osg) # for testing only
 
-        # Special treatment for classes that need to be called back from C++
-        expose_overridable_ref_ptr_class(mb.class_("NodeVisitor"))
+        self.wrap_all_osg_referenced(openthreads)
 
         # Free functions
         for fn_name in [
@@ -197,6 +197,27 @@ class OsgWrapper(BaseWrapper):
                 for ctor in ext.constructors():
                     if ctor.is_copy_constructor:
                         ctor.exclude() # copy constructor
+                ext.held_type = 'osg::ref_ptr< %s >' % ext.decl_string # decl_string not wrapper_alias
+                
+        for cls_name in ["KdTreeBuilder", # 1>C:\boost\include\boost-1_56\boost/python/object/pointer_holder.hpp(194) : error C2664: 'KdTreeBuilder_wrapper::KdTreeBuilder_wrapper(const KdTreeBuilder_wrapper &)' : cannot convert parameter 1 from 'const osg::KdTreeBuilder' to 'const KdTreeBuilder_wrapper &'
+                         "LineSegment", 
+                         # "Object", # ?
+                         # "Referenced", 
+                         # "View", 
+                         "Viewport",  # ReferenceError: Attempt to return dangling pointer to object of type: class osg::Object
+                         ]:
+            cls = osg.class_(cls_name)
+            cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # decl_string not wrapper_alias
+
+        # Make known-overridable classes overridable
+        # Special treatment for classes that need to be called back from C++
+        for cls_name in ["NodeVisitor", "ComputeBoundsVisitor", "CollectOccludersVisitor"]:
+            cls = osg.class_(cls_name)
+            expose_ref_ptr_class(cls) # make overridable
+        for cls in osg.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
+        # for cls in osg.classes(lambda c: c.name.endswith("Visitor")):
+        #     expose_ref_ptr_class(cls) # make overridable
 
         for cls_name in ["RenderBuffer", ]:
             osg.class_(cls_name).member_functions("compare").exclude()
@@ -221,6 +242,13 @@ class OsgWrapper(BaseWrapper):
         hack_osg_arg(self.mb.class_("ShadowVolumeOccluder"), "computeOccluder", "occluder")
 
         self.mb.class_("CullingSet").member_function("computePixelSizeVector").exclude()
+
+        # Handle virtual python Callback object memory management
+        """
+        osg.class_("View").member_functions("getCamera").call_policies = return_internal_reference()
+        for fn in osg.member_functions(lambda f: f.name.startswith("set") and f.name.endswith("Callback")):
+            fn.call_policies = with_custodian_and_ward(2, 1)
+        """
 
         # Call custom methods to wrap individual classes
         self.wrap_camera()
@@ -331,6 +359,12 @@ class OsgWrapper(BaseWrapper):
                 # "Transform",
                 ]:
             self.mb.class_(cls_name).exclude()
+
+        # RuntimeError: This class cannot be instantiated from Python
+        osg.class_("GraphicsContext").class_("Traits").no_init = False
+
+        # Some classes don't like to have wrapper_alias in their ref_ptr held type.
+        # I didn't want to derive those classes anyway...
 
         # ..\..\..\..\src\modules\osg\generated_code\TextureBufferObjectList.pypp.cpp(12) : error C2248: 'osg::TextureBuffer::TextureBufferObject' : cannot access protected class declared in class 'osg::TextureBuffer'
         osg.classes(lambda c: c.alias == "TextureBufferObjectList").exclude()
@@ -554,14 +588,17 @@ class OsgWrapper(BaseWrapper):
     def wrap_drawable(self):
         drawable = self.mb.class_("Drawable")
         de = drawable.class_("Extensions")
-        expose_ref_ptr_class(de)
+        # expose_ref_ptr_class(de)
         de.member_functions("glMapBuffer").exclude()
         de.exclude()
         cbb = drawable.class_("ComputeBoundingBoxCallback")
-        expose_ref_ptr_class(cbb)
+        # expose_ref_ptr_class(cbb)
         cbb.constructors().exclude()
         cbb.exclude()
-    
+                # Make known-overridable classes overridable
+        for cls in drawable.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
+
     def wrap_image(self):
         image = self.mb.class_("Image")
         image.member_functions("data").exclude()
@@ -571,7 +608,7 @@ class OsgWrapper(BaseWrapper):
         program = self.mb.class_("Program")
         program.member_functions("apply").exclude()
         pb = program.class_("ProgramBinary")
-        expose_ref_ptr_class(pb)
+        # expose_ref_ptr_class(pb)
         pb.member_functions("getData").exclude()
     
     def wrap_state(self):
@@ -582,9 +619,24 @@ class OsgWrapper(BaseWrapper):
     def wrap_camera(self):
         camera = self.mb.class_("Camera")
         dc = camera.class_("DrawCallback")
-        expose_ref_ptr_class(dc)
-        dc.constructors().exclude()
-        dc.exclude()
+        # expose_ref_ptr_class(dc)
+        dc.constructors(arg_types=[None, None]).exclude() # copy-ish constructor
+        # C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osg::Camera::~Camera' : cannot access protected member declared in class 'osg::Camera'
+        # Offending method is virtual void osg::Camera::DrawCallback::operator() (const osg::Camera & arg0) const 
+        call_op = dc.member_operators("operator()")[1] # Is it always the second "operator()"?
+        # call_op.exclude()
+        call_op.add_transformation(FT.modify_type("arg0", remove_const_from_reference))
+        call_op.transformations[-1].alias = "__call__"
+        # Parentheses in "operator()" cause compile error on generated function name
+        # TODO - need to rename wrapper class function name to not have "operator()" in it
+        fn_string = call_op.transformations[-1].unique_name
+        fn_string = fn_string.replace("operator()", "operator_call")
+        call_op.transformations[-1].unique_name = fn_string
+        # dc.exclude()
+        for cls in camera.classes(lambda c: c.name.endswith("Callback")):
+            expose_ref_ptr_class(cls) # make overridable
+        for fn in camera.member_functions(lambda f: f.name.startswith("set") and f.name.endswith("Callback")):
+            fn.call_policies = with_custodian_and_ward(2, 1)
     
     def wrap_node(self):
         cls = self.mb.class_("Node")
@@ -607,7 +659,6 @@ class OsgWrapper(BaseWrapper):
             cls.member_function("getOrCreateStateSet"),
             cls.member_function("setStateSet") )
         cls.class_("ComputeBoundingSphereCallback").exclude()
-
     
     def wrap_displaysettings(self):
         cls = self.mb.class_("DisplaySettings")
@@ -616,8 +667,10 @@ class OsgWrapper(BaseWrapper):
         cls.member_functions("setDisplaySettings").exclude()
         cls.constructors().exclude()
         cls.noncopyable = True
+        cls.held_type = 'osg::ref_ptr< %s >' % cls.decl_string # decl_string not wrapper_alias
         cls.member_functions("instance").call_policies = return_value_policy(
-            copy_non_const_reference)
+            copy_non_const_reference) 
+            # reference_existing_object) # 1>ArgumentError: Python argument types in1>    DisplaySettings.setNumMultiSamples(DisplaySettings, int)1>did not match C++ signature:1>    setNumMultiSamples(class osg::DisplaySettings {lvalue}, unsigned int samples)
     
     def wrap_stateset(self):
         cls = self.mb.class_("StateSet")
@@ -632,7 +685,7 @@ class OsgWrapper(BaseWrapper):
         
     def wrap_array(self):
         arr = self.mb.class_("Array")
-        expose_ref_ptr_class(arr)
+        # expose_ref_ptr_class(arr)
         for fn in arr.member_functions("getVertexBufferObject"):
             fn.call_policies = return_internal_reference()
         for fn in arr.member_functions("asArray"):
@@ -646,18 +699,18 @@ class OsgWrapper(BaseWrapper):
     
     def wrap_vbo(self):
         vbo = self.mb.class_("VertexBufferObject")
-        expose_ref_ptr_class(vbo)
+        # expose_ref_ptr_class(vbo)
         vbo.member_functions("getArray").call_policies = return_internal_reference()
         vbo.constructors(arg_types=[None, None]).exclude()
         ubo = self.mb.class_("UniformBufferObject")
-        expose_ref_ptr_class(ubo)
+        # expose_ref_ptr_class(ubo)
         ubo.constructors(arg_types=[None, None]).exclude()
     
     def wrap_userdatacontainer(self):
         udc = self.mb.class_("UserDataContainer")
         dudc = self.mb.class_("DefaultUserDataContainer")
         for cls in [udc, dudc]:
-            expose_ref_ptr_class(cls)
+            # expose_ref_ptr_class(cls)
             cls.member_functions("getDescriptions").exclude()
             cls.member_functions("getUserObject", allow_empty=True).exclude()
             cls.constructors(arg_types=[None, None]).exclude() # No implicit copy constructor
@@ -671,7 +724,7 @@ class OsgWrapper(BaseWrapper):
         
     def wrap_observerset(self):
         os = self.mb.class_("ObserverSet")
-        expose_ref_ptr_class(os)
+        # expose_ref_ptr_class(os)
         for fn_name in ["getObserverdObject", "addRefLock"]:
             for fn in os.member_functions(fn_name):
                 fn.call_policies = return_value_policy(reference_existing_object)
@@ -680,7 +733,7 @@ class OsgWrapper(BaseWrapper):
     
     def wrap_stats(self):
         stats = self.mb.class_("Stats")
-        expose_ref_ptr_class(stats)
+        # expose_ref_ptr_class(stats)
         for fn_name in ['getAttribute', 'getAveragedAttribute']:
             for fn in stats.member_functions(fn_name):
                 fn.exclude() # TODO compile error hidden destructor

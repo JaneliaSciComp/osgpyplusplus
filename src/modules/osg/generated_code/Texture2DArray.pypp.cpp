@@ -606,7 +606,7 @@ void register_Texture2DArray_class(){
             
             }
         }
-        bp::class_< Texture2DArray_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture2DArray::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture2DArray_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture2DArray_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

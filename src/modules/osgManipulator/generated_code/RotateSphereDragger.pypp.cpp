@@ -611,7 +611,7 @@ struct RotateSphereDragger_wrapper : osgManipulator::RotateSphereDragger, bp::wr
 
 void register_RotateSphereDragger_class(){
 
-    bp::class_< RotateSphereDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::RotateSphereDragger >, boost::noncopyable >( "RotateSphereDragger", "\n Dragger for performing 3D rotation on a sphere.\n", bp::no_init )    
+    bp::class_< RotateSphereDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< RotateSphereDragger_wrapper >, boost::noncopyable >( "RotateSphereDragger", "\n Dragger for performing 3D rotation on a sphere.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing 3D rotation on a sphere.\n") )    
         .def( 
             "className"

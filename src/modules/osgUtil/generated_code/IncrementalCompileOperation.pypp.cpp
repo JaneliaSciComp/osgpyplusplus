@@ -322,15 +322,15 @@ struct IncrementalCompileOperation_wrapper : osgUtil::IncrementalCompileOperatio
 void register_IncrementalCompileOperation_class(){
 
     { //::osgUtil::IncrementalCompileOperation
-        typedef bp::class_< IncrementalCompileOperation_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation >, boost::noncopyable > IncrementalCompileOperation_exposer_t;
+        typedef bp::class_< IncrementalCompileOperation_wrapper, bp::bases< ::osg::GraphicsOperation >, osg::ref_ptr< IncrementalCompileOperation_wrapper >, boost::noncopyable > IncrementalCompileOperation_exposer_t;
         IncrementalCompileOperation_exposer_t IncrementalCompileOperation_exposer = IncrementalCompileOperation_exposer_t( "IncrementalCompileOperation", bp::no_init );
         bp::scope IncrementalCompileOperation_scope( IncrementalCompileOperation_exposer );
-        bp::class_< IncrementalCompileOperation_wrapper::CompileCompletedCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileCompletedCallback >, boost::noncopyable >( "CompileCompletedCallback", bp::no_init )    
+        bp::class_< IncrementalCompileOperation_wrapper::CompileCompletedCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileCompletedCallback_wrapper >, boost::noncopyable >( "CompileCompletedCallback", bp::no_init )    
             .def( 
                 "compileCompleted"
                 , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::* )( ::osgUtil::IncrementalCompileOperation::CompileSet * ))(&::osgUtil::IncrementalCompileOperation::CompileCompletedCallback::compileCompleted) )
                 , ( bp::arg("compileSet") ) );
-        bp::class_< IncrementalCompileOperation_wrapper::CompileOp_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileOp >, boost::noncopyable >( "CompileOp", bp::no_init )    
+        bp::class_< IncrementalCompileOperation_wrapper::CompileOp_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileOp_wrapper >, boost::noncopyable >( "CompileOp", bp::no_init )    
             .def( 
                 "compile"
                 , bp::pure_virtual( (bool ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & ))(&::osgUtil::IncrementalCompileOperation::CompileOp::compile) )
@@ -340,7 +340,7 @@ void register_IncrementalCompileOperation_class(){
                 , bp::pure_virtual( (double ( ::osgUtil::IncrementalCompileOperation::CompileOp::* )( ::osgUtil::IncrementalCompileOperation::CompileInfo & )const)(&::osgUtil::IncrementalCompileOperation::CompileOp::estimatedTimeForCompile) )
                 , ( bp::arg("compileInfo") ) );
         { //::osgUtil::IncrementalCompileOperation::CompileDrawableOp
-            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileDrawableOp >, boost::noncopyable > CompileDrawableOp_exposer_t;
+            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileDrawableOp_wrapper >, boost::noncopyable > CompileDrawableOp_exposer_t;
             CompileDrawableOp_exposer_t CompileDrawableOp_exposer = CompileDrawableOp_exposer_t( "CompileDrawableOp", bp::init< osg::Drawable * >(( bp::arg("drawable") )) );
             bp::scope CompileDrawableOp_scope( CompileDrawableOp_exposer );
             bp::implicitly_convertible< osg::Drawable *, osgUtil::IncrementalCompileOperation::CompileDrawableOp >();
@@ -412,7 +412,7 @@ void register_IncrementalCompileOperation_class(){
                 , ( bp::arg("compileInfo") ) )    
             .def_readwrite( "_compileOps", &osgUtil::IncrementalCompileOperation::CompileList::_compileOps );
         { //::osgUtil::IncrementalCompileOperation::CompileProgramOp
-            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileProgramOp >, boost::noncopyable > CompileProgramOp_exposer_t;
+            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileProgramOp_wrapper >, boost::noncopyable > CompileProgramOp_exposer_t;
             CompileProgramOp_exposer_t CompileProgramOp_exposer = CompileProgramOp_exposer_t( "CompileProgramOp", bp::init< osg::Program * >(( bp::arg("program") )) );
             bp::scope CompileProgramOp_scope( CompileProgramOp_exposer );
             bp::implicitly_convertible< osg::Program *, osgUtil::IncrementalCompileOperation::CompileProgramOp >();
@@ -443,7 +443,7 @@ void register_IncrementalCompileOperation_class(){
             CompileProgramOp_exposer.def_readwrite( "_program", &osgUtil::IncrementalCompileOperation::CompileProgramOp::_program );
         }
         { //::osgUtil::IncrementalCompileOperation::CompileSet
-            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileSet_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileSet >, boost::noncopyable > CompileSet_exposer_t;
+            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileSet_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileSet_wrapper >, boost::noncopyable > CompileSet_exposer_t;
             CompileSet_exposer_t CompileSet_exposer = CompileSet_exposer_t( "CompileSet", bp::no_init );
             bp::scope CompileSet_scope( CompileSet_exposer );
             CompileSet_exposer.def( bp::init< >() );
@@ -495,7 +495,7 @@ void register_IncrementalCompileOperation_class(){
             CompileSet_exposer.def_readwrite( "_subgraphToCompile", &osgUtil::IncrementalCompileOperation::CompileSet::_subgraphToCompile );
         }
         { //::osgUtil::IncrementalCompileOperation::CompileTextureOp
-            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< ::osgUtil::IncrementalCompileOperation::CompileTextureOp >, boost::noncopyable > CompileTextureOp_exposer_t;
+            typedef bp::class_< IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper, bp::bases< osgUtil::IncrementalCompileOperation::CompileOp >, osg::ref_ptr< IncrementalCompileOperation_wrapper::CompileTextureOp_wrapper >, boost::noncopyable > CompileTextureOp_exposer_t;
             CompileTextureOp_exposer_t CompileTextureOp_exposer = CompileTextureOp_exposer_t( "CompileTextureOp", bp::init< osg::Texture * >(( bp::arg("texture") )) );
             bp::scope CompileTextureOp_scope( CompileTextureOp_exposer );
             bp::implicitly_convertible< osg::Texture *, osgUtil::IncrementalCompileOperation::CompileTextureOp >();

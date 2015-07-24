@@ -597,7 +597,7 @@ struct NullWidget_wrapper : osgWidget::NullWidget, bp::wrapper< osgWidget::NullW
 void register_NullWidget_class(){
 
     { //::osgWidget::NullWidget
-        typedef bp::class_< NullWidget_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::NullWidget >, boost::noncopyable > NullWidget_exposer_t;
+        typedef bp::class_< NullWidget_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< NullWidget_wrapper >, boost::noncopyable > NullWidget_exposer_t;
         NullWidget_exposer_t NullWidget_exposer = NullWidget_exposer_t( "NullWidget", bp::init< bp::optional< std::string const &, osgWidget::point_type, osgWidget::point_type > >(( bp::arg("n")="", bp::arg("w")=0.0f, bp::arg("h")=0.0f )) );
         bp::scope NullWidget_scope( NullWidget_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::NullWidget >();

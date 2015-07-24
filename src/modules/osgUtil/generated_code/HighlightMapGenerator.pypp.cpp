@@ -32,7 +32,7 @@ struct HighlightMapGenerator_wrapper : osgUtil::HighlightMapGenerator, bp::wrapp
 
 void register_HighlightMapGenerator_class(){
 
-    bp::class_< HighlightMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< ::osgUtil::HighlightMapGenerator >, boost::noncopyable >( "HighlightMapGenerator", bp::no_init )    
+    bp::class_< HighlightMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< HighlightMapGenerator_wrapper >, boost::noncopyable >( "HighlightMapGenerator", bp::no_init )    
         .def( bp::init< osg::Vec3 const &, osg::Vec4 const &, float, bp::optional< int > >(( bp::arg("light_direction"), bp::arg("light_color"), bp::arg("specular_exponent"), bp::arg("texture_size")=(int)(64) )) );
 
 }

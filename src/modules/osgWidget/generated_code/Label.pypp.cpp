@@ -597,7 +597,7 @@ struct Label_wrapper : osgWidget::Label, bp::wrapper< osgWidget::Label > {
 void register_Label_class(){
 
     { //::osgWidget::Label
-        typedef bp::class_< Label_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< ::osgWidget::Label >, boost::noncopyable > Label_exposer_t;
+        typedef bp::class_< Label_wrapper, bp::bases< osgWidget::Widget >, osg::ref_ptr< Label_wrapper >, boost::noncopyable > Label_exposer_t;
         Label_exposer_t Label_exposer = Label_exposer_t( "Label", bp::init< bp::optional< std::string const &, std::string const & > >(( bp::arg("arg0")="", bp::arg("arg1")="" )) );
         bp::scope Label_scope( Label_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::Label >();

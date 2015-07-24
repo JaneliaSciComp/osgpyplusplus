@@ -213,7 +213,7 @@ struct ResizeHandler_wrapper : osgWidget::ResizeHandler, bp::wrapper< osgWidget:
 void register_ResizeHandler_class(){
 
     { //::osgWidget::ResizeHandler
-        typedef bp::class_< ResizeHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgWidget::ResizeHandler >, boost::noncopyable > ResizeHandler_exposer_t;
+        typedef bp::class_< ResizeHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ResizeHandler_wrapper >, boost::noncopyable > ResizeHandler_exposer_t;
         ResizeHandler_exposer_t ResizeHandler_exposer = ResizeHandler_exposer_t( "ResizeHandler", bp::init< osgWidget::WindowManager *, bp::optional< osg::Camera * > >(( bp::arg("arg0"), bp::arg("arg1")=bp::object() )) );
         bp::scope ResizeHandler_scope( ResizeHandler_exposer );
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::ResizeHandler >();

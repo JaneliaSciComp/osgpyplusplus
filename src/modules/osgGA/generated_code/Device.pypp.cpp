@@ -210,7 +210,7 @@ struct Device_wrapper : osgGA::Device, bp::wrapper< osgGA::Device > {
 void register_Device_class(){
 
     { //::osgGA::Device
-        typedef bp::class_< Device_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgGA::Device >, boost::noncopyable > Device_exposer_t;
+        typedef bp::class_< Device_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Device_wrapper >, boost::noncopyable > Device_exposer_t;
         Device_exposer_t Device_exposer = Device_exposer_t( "Device", "\n Device base class from abstracting away from devices/windows that can generate events.\n", bp::no_init );
         bp::scope Device_scope( Device_exposer );
         bp::scope().attr("UNKNOWN") = (int)osgGA::Device::UNKNOWN;

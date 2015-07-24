@@ -425,7 +425,7 @@ struct TextBase_wrapper : osgText::TextBase, bp::wrapper< osgText::TextBase > {
 void register_TextBase_class(){
 
     { //::osgText::TextBase
-        typedef bp::class_< TextBase_wrapper, bp::bases< ::osg::Drawable >, osg::ref_ptr< ::osgText::TextBase >, boost::noncopyable > TextBase_exposer_t;
+        typedef bp::class_< TextBase_wrapper, bp::bases< ::osg::Drawable >, osg::ref_ptr< TextBase_wrapper >, boost::noncopyable > TextBase_exposer_t;
         TextBase_exposer_t TextBase_exposer = TextBase_exposer_t( "TextBase", bp::no_init );
         bp::scope TextBase_scope( TextBase_exposer );
         bp::enum_< osgText::TextBase::AlignmentType>("AlignmentType")

@@ -25,7 +25,7 @@ struct ObjectWrapperManager_wrapper : osgDB::ObjectWrapperManager, bp::wrapper< 
 
 void register_ObjectWrapperManager_class(){
 
-    bp::class_< ObjectWrapperManager_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ObjectWrapperManager >, boost::noncopyable >( "ObjectWrapperManager", bp::no_init )    
+    bp::class_< ObjectWrapperManager_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ObjectWrapperManager_wrapper >, boost::noncopyable >( "ObjectWrapperManager", bp::no_init )    
         .def( 
             "addCompressor"
             , (void ( ::osgDB::ObjectWrapperManager::* )( ::osgDB::BaseCompressor * ))( &::osgDB::ObjectWrapperManager::addCompressor )

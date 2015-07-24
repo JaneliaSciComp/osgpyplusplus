@@ -635,7 +635,7 @@ struct ScaleAxisDragger_wrapper : osgManipulator::ScaleAxisDragger, bp::wrapper<
 
 void register_ScaleAxisDragger_class(){
 
-    bp::class_< ScaleAxisDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::ScaleAxisDragger >, boost::noncopyable >( "ScaleAxisDragger", "\n Dragger for performing scaling on all 3 axes.\n", bp::no_init )    
+    bp::class_< ScaleAxisDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ScaleAxisDragger_wrapper >, boost::noncopyable >( "ScaleAxisDragger", "\n Dragger for performing scaling on all 3 axes.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing scaling on all 3 axes.\n") )    
         .def( 
             "className"

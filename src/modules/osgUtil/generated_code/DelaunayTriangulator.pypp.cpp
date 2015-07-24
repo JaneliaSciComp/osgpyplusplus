@@ -40,7 +40,7 @@ struct DelaunayTriangulator_wrapper : osgUtil::DelaunayTriangulator, bp::wrapper
 void register_DelaunayTriangulator_class(){
 
     { //::osgUtil::DelaunayTriangulator
-        typedef bp::class_< DelaunayTriangulator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::DelaunayTriangulator >, boost::noncopyable > DelaunayTriangulator_exposer_t;
+        typedef bp::class_< DelaunayTriangulator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< DelaunayTriangulator_wrapper >, boost::noncopyable > DelaunayTriangulator_exposer_t;
         DelaunayTriangulator_exposer_t DelaunayTriangulator_exposer = DelaunayTriangulator_exposer_t( "DelaunayTriangulator", bp::no_init );
         bp::scope DelaunayTriangulator_scope( DelaunayTriangulator_exposer );
         DelaunayTriangulator_exposer.def( bp::init< >() );

@@ -400,7 +400,7 @@ struct Browser_wrapper : osgWidget::Browser, bp::wrapper< osgWidget::Browser > {
 void register_Browser_class(){
 
     { //::osgWidget::Browser
-        typedef bp::class_< Browser_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< ::osgWidget::Browser >, boost::noncopyable > Browser_exposer_t;
+        typedef bp::class_< Browser_wrapper, bp::bases< ::osg::Geode >, osg::ref_ptr< Browser_wrapper >, boost::noncopyable > Browser_exposer_t;
         Browser_exposer_t Browser_exposer = Browser_exposer_t( "Browser", "\n Convenience class that provides an interactive quad that can be placed directly into the scene.\n", bp::init< >("\n Convenience class that provides an interactive quad that can be placed directly into the scene.\n") );
         bp::scope Browser_scope( Browser_exposer );
         Browser_exposer.def( bp::init< std::string const &, bp::optional< osgWidget::GeometryHints const & > >(( bp::arg("url"), bp::arg("hints")=osgWidget::GeometryHints() ), "\n Convenience class that provides an interactive quad that can be placed directly into the scene.\n") );

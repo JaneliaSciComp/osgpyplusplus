@@ -52,7 +52,7 @@ struct PlaneProjector_wrapper : osgManipulator::PlaneProjector, bp::wrapper< osg
 void register_PlaneProjector_class(){
 
     { //::osgManipulator::PlaneProjector
-        typedef bp::class_< PlaneProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< ::osgManipulator::PlaneProjector >, boost::noncopyable > PlaneProjector_exposer_t;
+        typedef bp::class_< PlaneProjector_wrapper, bp::bases< osgManipulator::Projector >, osg::ref_ptr< PlaneProjector_wrapper >, boost::noncopyable > PlaneProjector_exposer_t;
         PlaneProjector_exposer_t PlaneProjector_exposer = PlaneProjector_exposer_t( "PlaneProjector", "\n PlaneProjector projects points onto the given line.\n", bp::no_init );
         bp::scope PlaneProjector_scope( PlaneProjector_exposer );
         PlaneProjector_exposer.def( bp::init< >("\n PlaneProjector projects points onto the given line.\n") );

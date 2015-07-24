@@ -393,7 +393,7 @@ struct VertexCacheMissVisitor_wrapper : osgUtil::VertexCacheMissVisitor, bp::wra
 void register_VertexCacheMissVisitor_class(){
 
     { //::osgUtil::VertexCacheMissVisitor
-        typedef bp::class_< VertexCacheMissVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::VertexCacheMissVisitor >, boost::noncopyable > VertexCacheMissVisitor_exposer_t;
+        typedef bp::class_< VertexCacheMissVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< VertexCacheMissVisitor_wrapper >, boost::noncopyable > VertexCacheMissVisitor_exposer_t;
         VertexCacheMissVisitor_exposer_t VertexCacheMissVisitor_exposer = VertexCacheMissVisitor_exposer_t( "VertexCacheMissVisitor", bp::init< bp::optional< unsigned int > >(( bp::arg("cacheSize")=(unsigned int)(16) )) );
         bp::scope VertexCacheMissVisitor_scope( VertexCacheMissVisitor_exposer );
         bp::implicitly_convertible< unsigned int, osgUtil::VertexCacheMissVisitor >();

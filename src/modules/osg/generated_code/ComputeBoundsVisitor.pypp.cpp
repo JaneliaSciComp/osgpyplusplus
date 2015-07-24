@@ -393,7 +393,7 @@ struct ComputeBoundsVisitor_wrapper : osg::ComputeBoundsVisitor, bp::wrapper< os
 void register_ComputeBoundsVisitor_class(){
 
     { //::osg::ComputeBoundsVisitor
-        typedef bp::class_< ComputeBoundsVisitor_wrapper, bp::bases< osg::NodeVisitor >, osg::ref_ptr< ::osg::ComputeBoundsVisitor >, boost::noncopyable > ComputeBoundsVisitor_exposer_t;
+        typedef bp::class_< ComputeBoundsVisitor_wrapper, bp::bases< osg::NodeVisitor >, osg::ref_ptr< ComputeBoundsVisitor_wrapper >, boost::noncopyable > ComputeBoundsVisitor_exposer_t;
         ComputeBoundsVisitor_exposer_t ComputeBoundsVisitor_exposer = ComputeBoundsVisitor_exposer_t( "ComputeBoundsVisitor", bp::init< bp::optional< osg::NodeVisitor::TraversalMode > >(( bp::arg("traversalMode")=::osg::NodeVisitor::TRAVERSE_ALL_CHILDREN )) );
         bp::scope ComputeBoundsVisitor_scope( ComputeBoundsVisitor_exposer );
         bp::implicitly_convertible< osg::NodeVisitor::TraversalMode, osg::ComputeBoundsVisitor >();

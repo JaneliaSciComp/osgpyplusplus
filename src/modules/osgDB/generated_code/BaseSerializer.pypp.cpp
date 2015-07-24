@@ -35,7 +35,7 @@ struct BaseSerializer_wrapper : osgDB::BaseSerializer, bp::wrapper< osgDB::BaseS
 void register_BaseSerializer_class(){
 
     { //::osgDB::BaseSerializer
-        typedef bp::class_< BaseSerializer_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::BaseSerializer >, boost::noncopyable > BaseSerializer_exposer_t;
+        typedef bp::class_< BaseSerializer_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< BaseSerializer_wrapper >, boost::noncopyable > BaseSerializer_exposer_t;
         BaseSerializer_exposer_t BaseSerializer_exposer = BaseSerializer_exposer_t( "BaseSerializer", bp::no_init );
         bp::scope BaseSerializer_scope( BaseSerializer_exposer );
         bp::enum_< osgDB::BaseSerializer::Type>("Type")

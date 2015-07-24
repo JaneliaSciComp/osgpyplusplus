@@ -635,7 +635,7 @@ struct TranslateAxisDragger_wrapper : osgManipulator::TranslateAxisDragger, bp::
 
 void register_TranslateAxisDragger_class(){
 
-    bp::class_< TranslateAxisDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TranslateAxisDragger >, boost::noncopyable >( "TranslateAxisDragger", "\n Dragger for performing translation in all three axes.\n", bp::no_init )    
+    bp::class_< TranslateAxisDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TranslateAxisDragger_wrapper >, boost::noncopyable >( "TranslateAxisDragger", "\n Dragger for performing translation in all three axes.\n", bp::no_init )    
         .def( bp::init< >("\n Dragger for performing translation in all three axes.\n") )    
         .def( 
             "className"

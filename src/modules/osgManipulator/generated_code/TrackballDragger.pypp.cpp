@@ -636,7 +636,7 @@ struct TrackballDragger_wrapper : osgManipulator::TrackballDragger, bp::wrapper<
 void register_TrackballDragger_class(){
 
     { //::osgManipulator::TrackballDragger
-        typedef bp::class_< TrackballDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TrackballDragger >, boost::noncopyable > TrackballDragger_exposer_t;
+        typedef bp::class_< TrackballDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TrackballDragger_wrapper >, boost::noncopyable > TrackballDragger_exposer_t;
         TrackballDragger_exposer_t TrackballDragger_exposer = TrackballDragger_exposer_t( "TrackballDragger", "\n Dragger for performing rotation in all axes.\n", bp::no_init );
         bp::scope TrackballDragger_scope( TrackballDragger_exposer );
         TrackballDragger_exposer.def( bp::init< bp::optional< bool > >(( bp::arg("useAutoTransform")=(bool)(false) ), "\n Dragger for performing rotation in all axes.\n") );

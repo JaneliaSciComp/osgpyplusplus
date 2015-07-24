@@ -176,11 +176,11 @@ struct ImagePager_wrapper : osgDB::ImagePager, bp::wrapper< osgDB::ImagePager > 
 void register_ImagePager_class(){
 
     { //::osgDB::ImagePager
-        typedef bp::class_< ImagePager_wrapper, bp::bases< ::osg::NodeVisitor::ImageRequestHandler >, osg::ref_ptr< ::osgDB::ImagePager >, boost::noncopyable > ImagePager_exposer_t;
+        typedef bp::class_< ImagePager_wrapper, bp::bases< ::osg::NodeVisitor::ImageRequestHandler >, osg::ref_ptr< ImagePager_wrapper >, boost::noncopyable > ImagePager_exposer_t;
         ImagePager_exposer_t ImagePager_exposer = ImagePager_exposer_t( "ImagePager", bp::no_init );
         bp::scope ImagePager_scope( ImagePager_exposer );
         { //::osgDB::ImagePager::ImageThread
-            typedef bp::class_< ImagePager_wrapper::ImageThread_wrapper, bp::bases< ::osg::Referenced, ::OpenThreads::Thread >, osg::ref_ptr< ::osgDB::ImagePager::ImageThread >, boost::noncopyable > ImageThread_exposer_t;
+            typedef bp::class_< ImagePager_wrapper::ImageThread_wrapper, bp::bases< ::osg::Referenced, ::OpenThreads::Thread >, osg::ref_ptr< ImagePager_wrapper::ImageThread_wrapper >, boost::noncopyable > ImageThread_exposer_t;
             ImageThread_exposer_t ImageThread_exposer = ImageThread_exposer_t( "ImageThread", bp::no_init );
             bp::scope ImageThread_scope( ImageThread_exposer );
             bp::enum_< osgDB::ImagePager::ImageThread::Mode>("Mode")

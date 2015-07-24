@@ -452,7 +452,7 @@ struct FadeText_wrapper : osgText::FadeText, bp::wrapper< osgText::FadeText > {
 
 void register_FadeText_class(){
 
-    bp::class_< FadeText_wrapper, bp::bases< osgText::Text >, osg::ref_ptr< ::osgText::FadeText >, boost::noncopyable >( "FadeText", bp::no_init )    
+    bp::class_< FadeText_wrapper, bp::bases< osgText::Text >, osg::ref_ptr< FadeText_wrapper >, boost::noncopyable >( "FadeText", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "className"

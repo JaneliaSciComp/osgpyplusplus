@@ -388,7 +388,7 @@ struct SceneView_wrapper : osgUtil::SceneView, bp::wrapper< osgUtil::SceneView >
 void register_SceneView_class(){
 
     { //::osgUtil::SceneView
-        typedef bp::class_< SceneView_wrapper, bp::bases< ::osg::Object, ::osg::CullSettings >, osg::ref_ptr< ::osgUtil::SceneView >, boost::noncopyable > SceneView_exposer_t;
+        typedef bp::class_< SceneView_wrapper, bp::bases< ::osg::Object, ::osg::CullSettings >, osg::ref_ptr< SceneView_wrapper >, boost::noncopyable > SceneView_exposer_t;
         SceneView_exposer_t SceneView_exposer = SceneView_exposer_t( "SceneView", bp::no_init );
         bp::scope SceneView_scope( SceneView_exposer );
         bp::enum_< osgUtil::SceneView::ActiveUniforms>("ActiveUniforms")
@@ -418,7 +418,7 @@ void register_SceneView_class(){
             .value("STANDARD_SETTINGS", osgUtil::SceneView::STANDARD_SETTINGS)
             .export_values()
             ;
-        bp::class_< SceneView_wrapper::ComputeStereoMatricesCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::SceneView::ComputeStereoMatricesCallback >, boost::noncopyable >( "ComputeStereoMatricesCallback", bp::no_init )    
+        bp::class_< SceneView_wrapper::ComputeStereoMatricesCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< SceneView_wrapper::ComputeStereoMatricesCallback_wrapper >, boost::noncopyable >( "ComputeStereoMatricesCallback", bp::no_init )    
             .def( 
                 "computeLeftEyeProjection"
                 , bp::pure_virtual( (::osg::Matrixd ( ::osgUtil::SceneView::ComputeStereoMatricesCallback::* )( ::osg::Matrixd const & )const)(&::osgUtil::SceneView::ComputeStereoMatricesCallback::computeLeftEyeProjection) )

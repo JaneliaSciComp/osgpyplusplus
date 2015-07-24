@@ -33,7 +33,7 @@ struct HalfWayMapGenerator_wrapper : osgUtil::HalfWayMapGenerator, bp::wrapper< 
 void register_HalfWayMapGenerator_class(){
 
     { //::osgUtil::HalfWayMapGenerator
-        typedef bp::class_< HalfWayMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< ::osgUtil::HalfWayMapGenerator >, boost::noncopyable > HalfWayMapGenerator_exposer_t;
+        typedef bp::class_< HalfWayMapGenerator_wrapper, bp::bases< osgUtil::CubeMapGenerator >, osg::ref_ptr< HalfWayMapGenerator_wrapper >, boost::noncopyable > HalfWayMapGenerator_exposer_t;
         HalfWayMapGenerator_exposer_t HalfWayMapGenerator_exposer = HalfWayMapGenerator_exposer_t( "HalfWayMapGenerator", bp::no_init );
         bp::scope HalfWayMapGenerator_scope( HalfWayMapGenerator_exposer );
         HalfWayMapGenerator_exposer.def( bp::init< osg::Vec3 const &, bp::optional< int > >(( bp::arg("light_direction"), bp::arg("texture_size")=(int)(64) )) );

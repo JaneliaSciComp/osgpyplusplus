@@ -417,7 +417,7 @@ struct WindowManager_wrapper : osgWidget::WindowManager, bp::wrapper< osgWidget:
 void register_WindowManager_class(){
 
     { //::osgWidget::WindowManager
-        typedef bp::class_< WindowManager_wrapper, bp::bases< ::osg::Switch, osgWidget::UIObjectParent< osgWidget::Window > >, osg::ref_ptr< ::osgWidget::WindowManager >, boost::noncopyable > WindowManager_exposer_t;
+        typedef bp::class_< WindowManager_wrapper, bp::bases< ::osg::Switch, osgWidget::UIObjectParent< osgWidget::Window > >, osg::ref_ptr< WindowManager_wrapper >, boost::noncopyable > WindowManager_exposer_t;
         WindowManager_exposer_t WindowManager_exposer = WindowManager_exposer_t( "WindowManager", bp::init< bp::optional< osgViewer::View *, osgWidget::point_type, osgWidget::point_type, unsigned int, unsigned int > >(( bp::arg("arg0")=bp::object(), bp::arg("arg1")=0.0f, bp::arg("arg2")=0.0f, bp::arg("arg3")=(unsigned int)(0), bp::arg("arg4")=(unsigned int)(0) )) );
         bp::scope WindowManager_scope( WindowManager_exposer );
         bp::enum_< osgWidget::WindowManager::PointerDirection>("PointerDirection")

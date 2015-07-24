@@ -393,7 +393,7 @@ struct VertexCacheVisitor_wrapper : osgUtil::VertexCacheVisitor, bp::wrapper< os
 void register_VertexCacheVisitor_class(){
 
     { //::osgUtil::VertexCacheVisitor
-        typedef bp::class_< VertexCacheVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< ::osgUtil::VertexCacheVisitor >, boost::noncopyable > VertexCacheVisitor_exposer_t;
+        typedef bp::class_< VertexCacheVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< VertexCacheVisitor_wrapper >, boost::noncopyable > VertexCacheVisitor_exposer_t;
         VertexCacheVisitor_exposer_t VertexCacheVisitor_exposer = VertexCacheVisitor_exposer_t( "VertexCacheVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
         bp::scope VertexCacheVisitor_scope( VertexCacheVisitor_exposer );
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::VertexCacheVisitor >();

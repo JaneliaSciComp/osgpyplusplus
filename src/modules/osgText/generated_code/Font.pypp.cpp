@@ -315,10 +315,10 @@ struct Font_wrapper : osgText::Font, bp::wrapper< osgText::Font > {
 void register_Font_class(){
 
     { //::osgText::Font
-        typedef bp::class_< Font_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgText::Font >, boost::noncopyable > Font_exposer_t;
+        typedef bp::class_< Font_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< Font_wrapper >, boost::noncopyable > Font_exposer_t;
         Font_exposer_t Font_exposer = Font_exposer_t( "Font", "\n Pure virtual base class for fonts.\n Concrete implementation are the DefaultFont found in src/osgText/DefaultFont.cpp\n and FreeTypeFont found in src/osgPlugins/freetype/FreeTypeFont.cpp\n", bp::no_init );
         bp::scope Font_scope( Font_exposer );
-        bp::class_< Font_wrapper::FontImplementation_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgText::Font::FontImplementation >, boost::noncopyable >( "FontImplementation", bp::no_init )    
+        bp::class_< Font_wrapper::FontImplementation_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Font_wrapper::FontImplementation_wrapper >, boost::noncopyable >( "FontImplementation", bp::no_init )    
             .def( 
                 "addGlyph"
                 , (void ( ::osgText::Font::FontImplementation::* )( ::osgText::FontResolution const &,unsigned int,::osgText::Glyph * ))( &::osgText::Font::FontImplementation::addGlyph )

@@ -544,7 +544,7 @@ void register_Texture3D_class(){
             
             }
         }
-        bp::class_< Texture3D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::Texture3D::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< Texture3D_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< Texture3D_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "setThreadSafeRefUnref"
                 , (void ( ::osg::Referenced::* )( bool ))(&::osg::Referenced::setThreadSafeRefUnref)

@@ -32,7 +32,7 @@ struct TangentSpaceGenerator_wrapper : osgUtil::TangentSpaceGenerator, bp::wrapp
 
 void register_TangentSpaceGenerator_class(){
 
-    bp::class_< TangentSpaceGenerator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::TangentSpaceGenerator >, boost::noncopyable >( "TangentSpaceGenerator", bp::no_init )    
+    bp::class_< TangentSpaceGenerator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< TangentSpaceGenerator_wrapper >, boost::noncopyable >( "TangentSpaceGenerator", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "generate"

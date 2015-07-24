@@ -597,7 +597,7 @@ struct Input_wrapper : osgWidget::Input, bp::wrapper< osgWidget::Input > {
 void register_Input_class(){
 
     { //::osgWidget::Input
-        typedef bp::class_< Input_wrapper, bp::bases< osgWidget::Label >, osg::ref_ptr< ::osgWidget::Input >, boost::noncopyable > Input_exposer_t;
+        typedef bp::class_< Input_wrapper, bp::bases< osgWidget::Label >, osg::ref_ptr< Input_wrapper >, boost::noncopyable > Input_exposer_t;
         Input_exposer_t Input_exposer = Input_exposer_t( "Input", bp::init< bp::optional< std::string const &, std::string const &, unsigned int > >(( bp::arg("arg0")="", bp::arg("arg1")="", bp::arg("arg2")=(unsigned int)(20) )) );
         bp::scope Input_scope( Input_exposer );
         bp::implicitly_convertible< std::string const &, osgWidget::Input >();

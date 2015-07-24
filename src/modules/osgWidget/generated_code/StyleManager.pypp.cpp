@@ -164,7 +164,7 @@ struct StyleManager_wrapper : osgWidget::StyleManager, bp::wrapper< osgWidget::S
 
 void register_StyleManager_class(){
 
-    bp::class_< StyleManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgWidget::StyleManager >, boost::noncopyable >( "StyleManager", bp::init< >() )    
+    bp::class_< StyleManager_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< StyleManager_wrapper >, boost::noncopyable >( "StyleManager", bp::init< >() )    
         .def( 
             "addStyle"
             , (bool ( ::osgWidget::StyleManager::* )( ::osgWidget::Style * ))( &::osgWidget::StyleManager::addStyle )

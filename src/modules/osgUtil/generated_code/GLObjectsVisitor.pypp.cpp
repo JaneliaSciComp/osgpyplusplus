@@ -393,7 +393,7 @@ struct GLObjectsVisitor_wrapper : osgUtil::GLObjectsVisitor, bp::wrapper< osgUti
 void register_GLObjectsVisitor_class(){
 
     { //::osgUtil::GLObjectsVisitor
-        typedef bp::class_< GLObjectsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::GLObjectsVisitor >, boost::noncopyable > GLObjectsVisitor_exposer_t;
+        typedef bp::class_< GLObjectsVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< GLObjectsVisitor_wrapper >, boost::noncopyable > GLObjectsVisitor_exposer_t;
         GLObjectsVisitor_exposer_t GLObjectsVisitor_exposer = GLObjectsVisitor_exposer_t( "GLObjectsVisitor", bp::init< bp::optional< unsigned int > >(( bp::arg("mode")=(unsigned int)(268) )) );
         bp::scope GLObjectsVisitor_scope( GLObjectsVisitor_exposer );
         bp::enum_< osgUtil::GLObjectsVisitor::ModeValues>("ModeValues")

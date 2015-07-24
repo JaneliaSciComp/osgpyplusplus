@@ -393,7 +393,7 @@ struct IndexMeshVisitor_wrapper : osgUtil::IndexMeshVisitor, bp::wrapper< osgUti
 void register_IndexMeshVisitor_class(){
 
     { //::osgUtil::IndexMeshVisitor
-        typedef bp::class_< IndexMeshVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< ::osgUtil::IndexMeshVisitor >, boost::noncopyable > IndexMeshVisitor_exposer_t;
+        typedef bp::class_< IndexMeshVisitor_wrapper, bp::bases< osgUtil::GeometryCollector >, osg::ref_ptr< IndexMeshVisitor_wrapper >, boost::noncopyable > IndexMeshVisitor_exposer_t;
         IndexMeshVisitor_exposer_t IndexMeshVisitor_exposer = IndexMeshVisitor_exposer_t( "IndexMeshVisitor", bp::init< bp::optional< osgUtil::Optimizer * > >(( bp::arg("optimizer")=bp::object() )) );
         bp::scope IndexMeshVisitor_scope( IndexMeshVisitor_exposer );
         bp::implicitly_convertible< osgUtil::Optimizer *, osgUtil::IndexMeshVisitor >();

@@ -81,7 +81,7 @@ struct PythonEngine_wrapper : osgWidget::PythonEngine, bp::wrapper< osgWidget::P
 void register_PythonEngine_class(){
 
     { //::osgWidget::PythonEngine
-        typedef bp::class_< PythonEngine_wrapper, bp::bases< osgWidget::ScriptEngine >, osg::ref_ptr< ::osgWidget::PythonEngine >, boost::noncopyable > PythonEngine_exposer_t;
+        typedef bp::class_< PythonEngine_wrapper, bp::bases< osgWidget::ScriptEngine >, osg::ref_ptr< PythonEngine_wrapper >, boost::noncopyable > PythonEngine_exposer_t;
         PythonEngine_exposer_t PythonEngine_exposer = PythonEngine_exposer_t( "PythonEngine", bp::init< bp::optional< osgWidget::WindowManager * > >(( bp::arg("arg0")=bp::object() )) );
         bp::scope PythonEngine_scope( PythonEngine_exposer );
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::PythonEngine >();

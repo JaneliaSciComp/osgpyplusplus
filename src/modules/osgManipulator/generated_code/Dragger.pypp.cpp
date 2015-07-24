@@ -604,7 +604,7 @@ struct Dragger_wrapper : osgManipulator::Dragger, bp::wrapper< osgManipulator::D
 
 void register_Dragger_class(){
 
-    bp::class_< Dragger_wrapper, bp::bases< ::osg::MatrixTransform >, osg::ref_ptr< ::osgManipulator::Dragger >, boost::noncopyable >( "Dragger", "\n Base class for draggers. Concrete draggers implement the pick event handler\n and generate motion commands (translate, rotate, ...) and sends these\n command to all the DraggerCallbacks & Transforms that are connected to the Dragger that generates the\n commands.\n", bp::no_init )    
+    bp::class_< Dragger_wrapper, bp::bases< ::osg::MatrixTransform >, osg::ref_ptr< Dragger_wrapper >, boost::noncopyable >( "Dragger", "\n Base class for draggers. Concrete draggers implement the pick event handler\n and generate motion commands (translate, rotate, ...) and sends these\n command to all the DraggerCallbacks & Transforms that are connected to the Dragger that generates the\n commands.\n", bp::no_init )    
         .def( 
             "accept"
             , (void ( ::osgManipulator::Dragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::Dragger::accept)

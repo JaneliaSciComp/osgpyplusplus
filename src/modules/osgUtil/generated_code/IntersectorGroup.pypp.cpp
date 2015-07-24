@@ -116,7 +116,7 @@ struct IntersectorGroup_wrapper : osgUtil::IntersectorGroup, bp::wrapper< osgUti
 
 void register_IntersectorGroup_class(){
 
-    bp::class_< IntersectorGroup_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< ::osgUtil::IntersectorGroup >, boost::noncopyable >( "IntersectorGroup", bp::init< >() )    
+    bp::class_< IntersectorGroup_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< IntersectorGroup_wrapper >, boost::noncopyable >( "IntersectorGroup", bp::init< >() )    
         .def( 
             "addIntersector"
             , (void ( ::osgUtil::IntersectorGroup::* )( ::osgUtil::Intersector * ))( &::osgUtil::IntersectorGroup::addIntersector )

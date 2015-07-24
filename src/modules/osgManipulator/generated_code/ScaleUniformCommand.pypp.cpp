@@ -89,7 +89,7 @@ struct ScaleUniformCommand_wrapper : osgManipulator::ScaleUniformCommand, bp::wr
 
 void register_ScaleUniformCommand_class(){
 
-    bp::class_< ScaleUniformCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::ScaleUniformCommand >, boost::noncopyable >( "ScaleUniformCommand", "\n Command for uniform 3D scaling.\n", bp::no_init )    
+    bp::class_< ScaleUniformCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ScaleUniformCommand_wrapper >, boost::noncopyable >( "ScaleUniformCommand", "\n Command for uniform 3D scaling.\n", bp::no_init )    
         .def( bp::init< >("\n Command for uniform 3D scaling.\n") )    
         .def( 
             "accept"

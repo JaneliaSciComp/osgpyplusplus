@@ -368,7 +368,7 @@ struct GlyphTexture_wrapper : osgText::GlyphTexture, bp::wrapper< osgText::Glyph
 
 void register_GlyphTexture_class(){
 
-    bp::class_< GlyphTexture_wrapper, bp::bases< ::osg::Texture2D >, osg::ref_ptr< ::osgText::GlyphTexture >, boost::noncopyable >( "GlyphTexture", bp::no_init )    
+    bp::class_< GlyphTexture_wrapper, bp::bases< ::osg::Texture2D >, osg::ref_ptr< GlyphTexture_wrapper >, boost::noncopyable >( "GlyphTexture", bp::no_init )    
         .def( bp::init< >() )    
         .def( 
             "addGlyph"

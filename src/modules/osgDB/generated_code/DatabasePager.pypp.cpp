@@ -277,7 +277,7 @@ struct DatabasePager_wrapper : osgDB::DatabasePager, bp::wrapper< osgDB::Databas
 void register_DatabasePager_class(){
 
     { //::osgDB::DatabasePager
-        typedef bp::class_< DatabasePager_wrapper, bp::bases< ::osg::NodeVisitor::DatabaseRequestHandler >, osg::ref_ptr< ::osgDB::DatabasePager >, boost::noncopyable > DatabasePager_exposer_t;
+        typedef bp::class_< DatabasePager_wrapper, bp::bases< ::osg::NodeVisitor::DatabaseRequestHandler >, osg::ref_ptr< DatabasePager_wrapper >, boost::noncopyable > DatabasePager_exposer_t;
         DatabasePager_exposer_t DatabasePager_exposer = DatabasePager_exposer_t( "DatabasePager", bp::no_init );
         bp::scope DatabasePager_scope( DatabasePager_exposer );
         bp::enum_< osgDB::DatabasePager::DrawablePolicy>("DrawablePolicy")
@@ -288,7 +288,7 @@ void register_DatabasePager_class(){
             .export_values()
             ;
         { //::osgDB::DatabasePager::DatabaseThread
-            typedef bp::class_< DatabasePager_wrapper::DatabaseThread_wrapper, bp::bases< ::osg::Referenced, ::OpenThreads::Thread >, osg::ref_ptr< ::osgDB::DatabasePager::DatabaseThread >, boost::noncopyable > DatabaseThread_exposer_t;
+            typedef bp::class_< DatabasePager_wrapper::DatabaseThread_wrapper, bp::bases< ::osg::Referenced, ::OpenThreads::Thread >, osg::ref_ptr< DatabasePager_wrapper::DatabaseThread_wrapper >, boost::noncopyable > DatabaseThread_exposer_t;
             DatabaseThread_exposer_t DatabaseThread_exposer = DatabaseThread_exposer_t( "DatabaseThread", bp::no_init );
             bp::scope DatabaseThread_scope( DatabaseThread_exposer );
             bp::enum_< osgDB::DatabasePager::DatabaseThread::Mode>("Mode")
@@ -379,7 +379,7 @@ void register_DatabasePager_class(){
             
             }
         }
-        bp::class_< DatabasePager_wrapper::PagedLODList_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::DatabasePager::PagedLODList >, boost::noncopyable >( "PagedLODList", bp::no_init )    
+        bp::class_< DatabasePager_wrapper::PagedLODList_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< DatabasePager_wrapper::PagedLODList_wrapper >, boost::noncopyable >( "PagedLODList", bp::no_init )    
             .def( 
                 "clear"
                 , bp::pure_virtual( (void ( ::osgDB::DatabasePager::PagedLODList::* )(  ))(&::osgDB::DatabasePager::PagedLODList::clear) ) )    

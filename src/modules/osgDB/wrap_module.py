@@ -91,7 +91,7 @@ class OsgDBWrapper(BaseWrapper):
         mb.free_functions("writeShaderFile").exclude()
         mb.free_functions("writeHeightFieldFile").exclude()
         
-        # Exclude difficult classe for now
+        # Exclude difficult classes for now
         for cls_name in [
                 "Archive",
                 "DatabaseRevision",
@@ -99,13 +99,33 @@ class OsgDBWrapper(BaseWrapper):
                 "DeprecatedDotOsgWrapperManager",
                 "FileCache",
                 "FileList",
-                "ReaderWriter",
-                "Registry",
+                # "ReaderWriter",
+                # "Registry",
                 "SharedStateManager",
-                "WriteFileCallback",
+                # "WriteFileCallback",
                 ]:
             osgDB.classes(cls_name).exclude()
         osgDB.classes(lambda c: c.name.startswith("TemplateSerializer<")).exclude()
+        
+        for cls_name in ["Registry", "WriteFileCallback", ]:
+            cls = osgDB.class_(cls_name)
+            for fn in cls.member_functions(lambda f: f.name.startswith("write")):
+                hack_osg_arg(cls, fn.name, "obj")
+                hack_osg_arg(cls, fn.name, "node")
+        for cls_name in ["ReaderWriter", ]:
+            cls = osgDB.class_(cls_name)
+            name_set = set()
+            for fn in cls.member_functions(lambda f: f.name.startswith("write")):
+                if fn.name in name_set: # Avoid duplicate function names, they will be handled anyway
+                    continue
+                hack_osg_arg(cls, fn.name, "arg0")
+                name_set.add(fn.name)
+
+        # TODO no_init may be part of the derivable/overridable class pattern
+        cls = osgDB.class_("ReadFileCallback")
+        cls.no_init = False # Important! So derived class can call parent constructor
+        cls.held_type = 'osg::ref_ptr< %s >' % cls.wrapper_alias # Important! So overridden method gets called
+        
         
         self.mb.build_code_creator(module_name='_osgDB')
         self.mb.split_module(os.path.join(os.path.abspath('.'), 'generated_code'))

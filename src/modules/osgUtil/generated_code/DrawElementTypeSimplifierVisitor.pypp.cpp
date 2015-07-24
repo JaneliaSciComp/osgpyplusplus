@@ -392,7 +392,7 @@ struct DrawElementTypeSimplifierVisitor_wrapper : osgUtil::DrawElementTypeSimpli
 
 void register_DrawElementTypeSimplifierVisitor_class(){
 
-    bp::class_< DrawElementTypeSimplifierVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::DrawElementTypeSimplifierVisitor >, boost::noncopyable >( "DrawElementTypeSimplifierVisitor" )    
+    bp::class_< DrawElementTypeSimplifierVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< DrawElementTypeSimplifierVisitor_wrapper >, boost::noncopyable >( "DrawElementTypeSimplifierVisitor" )    
         .def( 
             "apply"
             , (void ( ::osgUtil::DrawElementTypeSimplifierVisitor::* )( ::osg::Geode & ))(&::osgUtil::DrawElementTypeSimplifierVisitor::apply)

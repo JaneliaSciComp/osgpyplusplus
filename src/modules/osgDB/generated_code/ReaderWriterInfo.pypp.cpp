@@ -32,7 +32,7 @@ struct ReaderWriterInfo_wrapper : osgDB::ReaderWriterInfo, bp::wrapper< osgDB::R
 
 void register_ReaderWriterInfo_class(){
 
-    bp::class_< ReaderWriterInfo_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ReaderWriterInfo >, boost::noncopyable >( "ReaderWriterInfo", bp::no_init )    
+    bp::class_< ReaderWriterInfo_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ReaderWriterInfo_wrapper >, boost::noncopyable >( "ReaderWriterInfo", bp::no_init )    
         .def( bp::init< >() )    
         .def_readwrite( "description", &osgDB::ReaderWriterInfo::description )    
         .def_readwrite( "extensions", &osgDB::ReaderWriterInfo::extensions )    

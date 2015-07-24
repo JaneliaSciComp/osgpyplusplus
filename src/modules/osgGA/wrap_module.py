@@ -103,7 +103,7 @@ class OsgGAWrapper(BaseWrapper):
                     "startAnimationByMousePointerIntersection", 
                     ]:
                 cls.member_function(cls_name).exclude()
-            expose_overridable_ref_ptr_class(cls)
+            expose_ref_ptr_class(cls)
 
     def wrap_firstpersonmanipulator(self):
         fpm = self.mb.namespace("osgGA").class_("FirstPersonManipulator")
@@ -127,7 +127,7 @@ class OsgGAWrapper(BaseWrapper):
             # cls.member_function("addMouseEvent").exclude()
             cls.member_function("startAnimationByMousePointerIntersection").exclude()
             # Make class overridable, including callbacks from C++
-            expose_overridable_ref_ptr_class(cls)
+            expose_ref_ptr_class(cls)
 
     def wrap_manipulators(self):
         # Ugly alias
@@ -190,7 +190,7 @@ class OsgGAWrapper(BaseWrapper):
                     ]:
                 cls.member_functions(fn_name, allow_empty=True).exclude()
             # Make class overridable, including callbacks from C++
-            expose_overridable_ref_ptr_class(cls)
+            expose_ref_ptr_class(cls)
 
     def wrap_guieventadapter(self):
         cls = self.mb.class_("GUIEventAdapter")

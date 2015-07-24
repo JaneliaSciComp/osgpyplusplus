@@ -635,7 +635,7 @@ struct TranslatePlaneDragger_wrapper : osgManipulator::TranslatePlaneDragger, bp
 
 void register_TranslatePlaneDragger_class(){
 
-    bp::class_< TranslatePlaneDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TranslatePlaneDragger >, boost::noncopyable >( "TranslatePlaneDragger", "\n Translate plane dragger consists of a wireframe box representing a plane that can be dragged to translate along the plane.\n", bp::no_init )    
+    bp::class_< TranslatePlaneDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TranslatePlaneDragger_wrapper >, boost::noncopyable >( "TranslatePlaneDragger", "\n Translate plane dragger consists of a wireframe box representing a plane that can be dragged to translate along the plane.\n", bp::no_init )    
         .def( bp::init< >("\n Translate plane dragger consists of a wireframe box representing a plane that can be dragged to translate along the plane.\n") )    
         .def( 
             "className"

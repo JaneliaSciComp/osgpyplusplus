@@ -213,7 +213,7 @@ struct MouseHandler_wrapper : osgWidget::MouseHandler, bp::wrapper< osgWidget::M
 void register_MouseHandler_class(){
 
     { //::osgWidget::MouseHandler
-        typedef bp::class_< MouseHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< ::osgWidget::MouseHandler >, boost::noncopyable > MouseHandler_exposer_t;
+        typedef bp::class_< MouseHandler_wrapper, bp::bases< ::osgGA::GUIEventHandler >, osg::ref_ptr< MouseHandler_wrapper >, boost::noncopyable > MouseHandler_exposer_t;
         MouseHandler_exposer_t MouseHandler_exposer = MouseHandler_exposer_t( "MouseHandler", bp::init< osgWidget::WindowManager * >(( bp::arg("arg0") )) );
         bp::scope MouseHandler_scope( MouseHandler_exposer );
         bp::implicitly_convertible< osgWidget::WindowManager *, osgWidget::MouseHandler >();

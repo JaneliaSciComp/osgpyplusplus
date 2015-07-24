@@ -71,7 +71,7 @@ struct Callback_wrapper : osgWidget::Callback, bp::wrapper< osgWidget::Callback 
 void register_Callback_class(){
 
     { //::osgWidget::Callback
-        typedef bp::class_< Callback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::Callback > > Callback_exposer_t;
+        typedef bp::class_< Callback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Callback_wrapper > > Callback_exposer_t;
         Callback_exposer_t Callback_exposer = Callback_exposer_t( "Callback", bp::init< >() );
         bp::scope Callback_scope( Callback_exposer );
         Callback_exposer.def( bp::init< osgWidget::Callback const & >(( bp::arg("rhs") )) );

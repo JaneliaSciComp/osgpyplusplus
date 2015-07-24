@@ -68,7 +68,7 @@ struct Tessellator_wrapper : osgUtil::Tessellator, bp::wrapper< osgUtil::Tessell
 void register_Tessellator_class(){
 
     { //::osgUtil::Tessellator
-        typedef bp::class_< Tessellator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Tessellator >, boost::noncopyable > Tessellator_exposer_t;
+        typedef bp::class_< Tessellator_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Tessellator_wrapper >, boost::noncopyable > Tessellator_exposer_t;
         Tessellator_exposer_t Tessellator_exposer = Tessellator_exposer_t( "Tessellator", bp::init< >() );
         bp::scope Tessellator_scope( Tessellator_exposer );
         bp::enum_< osgUtil::Tessellator::TessellationType>("TessellationType")
@@ -86,7 +86,7 @@ void register_Tessellator_class(){
             .export_values()
             ;
         { //::osgUtil::Tessellator::Prim
-            typedef bp::class_< Tessellator_wrapper::Prim_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::Tessellator::Prim >, boost::noncopyable > Prim_exposer_t;
+            typedef bp::class_< Tessellator_wrapper::Prim_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< Tessellator_wrapper::Prim_wrapper >, boost::noncopyable > Prim_exposer_t;
             Prim_exposer_t Prim_exposer = Prim_exposer_t( "Prim", bp::init< GLenum >(( bp::arg("mode") )) );
             bp::scope Prim_scope( Prim_exposer );
             bp::implicitly_convertible< GLenum, osgUtil::Tessellator::Prim >();

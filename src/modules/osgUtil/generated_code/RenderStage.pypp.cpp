@@ -376,7 +376,7 @@ struct RenderStage_wrapper : osgUtil::RenderStage, bp::wrapper< osgUtil::RenderS
 void register_RenderStage_class(){
 
     { //::osgUtil::RenderStage
-        typedef bp::class_< RenderStage_wrapper, bp::bases< osgUtil::RenderBin >, osg::ref_ptr< ::osgUtil::RenderStage >, boost::noncopyable > RenderStage_exposer_t;
+        typedef bp::class_< RenderStage_wrapper, bp::bases< osgUtil::RenderBin >, osg::ref_ptr< RenderStage_wrapper >, boost::noncopyable > RenderStage_exposer_t;
         RenderStage_exposer_t RenderStage_exposer = RenderStage_exposer_t( "RenderStage", bp::no_init );
         bp::scope RenderStage_scope( RenderStage_exposer );
         bp::class_< osgUtil::RenderStage::Attachment >( "Attachment" )    

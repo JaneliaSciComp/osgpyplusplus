@@ -392,7 +392,7 @@ struct GeometryCollector_wrapper : osgUtil::GeometryCollector, bp::wrapper< osgU
 
 void register_GeometryCollector_class(){
 
-    bp::class_< GeometryCollector_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< ::osgUtil::GeometryCollector >, boost::noncopyable >( "GeometryCollector", bp::init< osgUtil::Optimizer *, osgUtil::Optimizer::OptimizationOptions >(( bp::arg("optimizer"), bp::arg("options") )) )    
+    bp::class_< GeometryCollector_wrapper, bp::bases< osgUtil::BaseOptimizerVisitor >, osg::ref_ptr< GeometryCollector_wrapper >, boost::noncopyable >( "GeometryCollector", bp::init< osgUtil::Optimizer *, osgUtil::Optimizer::OptimizationOptions >(( bp::arg("optimizer"), bp::arg("options") )) )    
         .def( 
             "apply"
             , (void ( ::osgUtil::GeometryCollector::* )( ::osg::Geode & ))(&::osgUtil::GeometryCollector::apply)

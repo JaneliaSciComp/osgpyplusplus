@@ -635,7 +635,7 @@ struct TabBoxDragger_wrapper : osgManipulator::TabBoxDragger, bp::wrapper< osgMa
 
 void register_TabBoxDragger_class(){
 
-    bp::class_< TabBoxDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< ::osgManipulator::TabBoxDragger >, boost::noncopyable >( "TabBoxDragger", "\n TabBoxDragger consists of 6 TabPlaneDraggers to form a box dragger that\n performs translation and scaling.\n", bp::no_init )    
+    bp::class_< TabBoxDragger_wrapper, bp::bases< osgManipulator::CompositeDragger >, osg::ref_ptr< TabBoxDragger_wrapper >, boost::noncopyable >( "TabBoxDragger", "\n TabBoxDragger consists of 6 TabPlaneDraggers to form a box dragger that\n performs translation and scaling.\n", bp::no_init )    
         .def( bp::init< >("\n TabBoxDragger consists of 6 TabPlaneDraggers to form a box dragger that\n performs translation and scaling.\n") )    
         .def( 
             "className"

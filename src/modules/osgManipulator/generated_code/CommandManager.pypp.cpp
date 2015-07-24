@@ -32,7 +32,7 @@ struct CommandManager_wrapper : osgManipulator::CommandManager, bp::wrapper< osg
 
 void register_CommandManager_class(){
 
-    bp::class_< CommandManager_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgManipulator::CommandManager >, boost::noncopyable >( "CommandManager", "\n Deprecated.\n CommandManager class is now no longer required as Dragger now matains all references to Constraints and Selections (now just generic MatrixTransforms).\n To replace CommandManager usage simple replace cmdMgr->connect(*dragger, *selection) with dragger->addTransformUpdating(selection) and\n cmdMgr->connect(*dragger, *selection) with dragger->addConstaint(constraint).\n", bp::no_init )    
+    bp::class_< CommandManager_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< CommandManager_wrapper >, boost::noncopyable >( "CommandManager", "\n Deprecated.\n CommandManager class is now no longer required as Dragger now matains all references to Constraints and Selections (now just generic MatrixTransforms).\n To replace CommandManager usage simple replace cmdMgr->connect(*dragger, *selection) with dragger->addTransformUpdating(selection) and\n cmdMgr->connect(*dragger, *selection) with dragger->addConstaint(constraint).\n", bp::no_init )    
         .def( bp::init< >("\n Deprecated.\n CommandManager class is now no longer required as Dragger now matains all references to Constraints and Selections (now just generic MatrixTransforms).\n To replace CommandManager usage simple replace cmdMgr->connect(*dragger, *selection) with dragger->addTransformUpdating(selection) and\n cmdMgr->connect(*dragger, *selection) with dragger->addConstaint(constraint).\n") )    
         .def( 
             "connect"

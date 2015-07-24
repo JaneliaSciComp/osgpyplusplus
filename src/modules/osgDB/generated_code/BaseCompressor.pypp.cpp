@@ -35,7 +35,7 @@ struct BaseCompressor_wrapper : osgDB::BaseCompressor, bp::wrapper< osgDB::BaseC
 
 void register_BaseCompressor_class(){
 
-    bp::class_< BaseCompressor_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::BaseCompressor >, boost::noncopyable >( "BaseCompressor", bp::no_init )    
+    bp::class_< BaseCompressor_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< BaseCompressor_wrapper >, boost::noncopyable >( "BaseCompressor", bp::no_init )    
         .def( 
             "compress"
             , bp::pure_virtual( (bool ( ::osgDB::BaseCompressor::* )( ::std::ostream &,::std::string const & ))(&::osgDB::BaseCompressor::compress) )

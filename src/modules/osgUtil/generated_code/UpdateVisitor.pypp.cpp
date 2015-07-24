@@ -392,7 +392,7 @@ struct UpdateVisitor_wrapper : osgUtil::UpdateVisitor, bp::wrapper< osgUtil::Upd
 
 void register_UpdateVisitor_class(){
 
-    bp::class_< UpdateVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::UpdateVisitor >, boost::noncopyable >( "UpdateVisitor", bp::init< >() )    
+    bp::class_< UpdateVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< UpdateVisitor_wrapper >, boost::noncopyable >( "UpdateVisitor", bp::init< >() )    
         .def( 
             "apply"
             , (void ( ::osgUtil::UpdateVisitor::* )( ::osg::Node & ))(&::osgUtil::UpdateVisitor::apply)

@@ -271,7 +271,7 @@ struct StateSetManipulator_wrapper : osgGA::StateSetManipulator, bp::wrapper< os
 void register_StateSetManipulator_class(){
 
     { //::osgGA::StateSetManipulator
-        typedef bp::class_< StateSetManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< ::osgGA::StateSetManipulator >, boost::noncopyable > StateSetManipulator_exposer_t;
+        typedef bp::class_< StateSetManipulator_wrapper, bp::bases< osgGA::GUIEventHandler >, osg::ref_ptr< StateSetManipulator_wrapper >, boost::noncopyable > StateSetManipulator_exposer_t;
         StateSetManipulator_exposer_t StateSetManipulator_exposer = StateSetManipulator_exposer_t( "StateSetManipulator", "\nExperimental class, not been looked at for a while, but which will\nbe returned to at some point :-\\n", bp::no_init );
         bp::scope StateSetManipulator_scope( StateSetManipulator_exposer );
         StateSetManipulator_exposer.def( bp::init< bp::optional< osg::StateSet * > >(( bp::arg("stateset")=bp::object() ), "\nExperimental class, not been looked at for a while, but which will\nbe returned to at some point :-\\n") );

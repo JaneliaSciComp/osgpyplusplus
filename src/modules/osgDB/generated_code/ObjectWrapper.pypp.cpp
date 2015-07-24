@@ -39,7 +39,7 @@ struct ObjectWrapper_wrapper : osgDB::ObjectWrapper, bp::wrapper< osgDB::ObjectW
 
 void register_ObjectWrapper_class(){
 
-    bp::class_< ObjectWrapper_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgDB::ObjectWrapper >, boost::noncopyable >( "ObjectWrapper", bp::no_init )    
+    bp::class_< ObjectWrapper_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ObjectWrapper_wrapper >, boost::noncopyable >( "ObjectWrapper", bp::no_init )    
         .def( bp::init< osg::Object *, std::string const &, std::string const & >(( bp::arg("proto"), bp::arg("name"), bp::arg("associates") )) )    
         .def( bp::init< osg::Object *, std::string const &, std::string const &, std::string const & >(( bp::arg("proto"), bp::arg("domain"), bp::arg("name"), bp::arg("associates") )) )    
         .def( 

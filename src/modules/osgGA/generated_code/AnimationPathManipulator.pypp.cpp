@@ -503,7 +503,7 @@ void register_AnimationPathManipulator_class(){
         typedef bp::class_< AnimationPathManipulator_wrapper, bp::bases< osgGA::CameraManipulator >, osg::ref_ptr< AnimationPathManipulator_wrapper >, boost::noncopyable > AnimationPathManipulator_exposer_t;
         AnimationPathManipulator_exposer_t AnimationPathManipulator_exposer = AnimationPathManipulator_exposer_t( "AnimationPathManipulator", bp::init< bp::optional< osg::AnimationPath * > >(( bp::arg("animationPath")=bp::object() )) );
         bp::scope AnimationPathManipulator_scope( AnimationPathManipulator_exposer );
-        bp::class_< AnimationPathManipulator_wrapper::AnimationCompletedCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgGA::AnimationPathManipulator::AnimationCompletedCallback >, boost::noncopyable >( "AnimationCompletedCallback", bp::no_init )    
+        bp::class_< AnimationPathManipulator_wrapper::AnimationCompletedCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< AnimationPathManipulator_wrapper::AnimationCompletedCallback_wrapper >, boost::noncopyable >( "AnimationCompletedCallback", bp::no_init )    
             .def( 
                 "completed"
                 , bp::pure_virtual( (void ( ::osgGA::AnimationPathManipulator::AnimationCompletedCallback::* )( ::osgGA::AnimationPathManipulator const * ))(&::osgGA::AnimationPathManipulator::AnimationCompletedCallback::completed) )

@@ -89,7 +89,7 @@ struct Scale2DCommand_wrapper : osgManipulator::Scale2DCommand, bp::wrapper< osg
 
 void register_Scale2DCommand_class(){
 
-    bp::class_< Scale2DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::Scale2DCommand >, boost::noncopyable >( "Scale2DCommand", "\n Command for 2D scaling.\n", bp::no_init )    
+    bp::class_< Scale2DCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< Scale2DCommand_wrapper >, boost::noncopyable >( "Scale2DCommand", "\n Command for 2D scaling.\n", bp::no_init )    
         .def( bp::init< >("\n Command for 2D scaling.\n") )    
         .def( 
             "accept"

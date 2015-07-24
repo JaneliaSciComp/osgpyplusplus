@@ -131,7 +131,7 @@ struct LineSegmentIntersector_wrapper : osgUtil::LineSegmentIntersector, bp::wra
 void register_LineSegmentIntersector_class(){
 
     { //::osgUtil::LineSegmentIntersector
-        typedef bp::class_< LineSegmentIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< ::osgUtil::LineSegmentIntersector >, boost::noncopyable > LineSegmentIntersector_exposer_t;
+        typedef bp::class_< LineSegmentIntersector_wrapper, bp::bases< osgUtil::Intersector >, osg::ref_ptr< LineSegmentIntersector_wrapper >, boost::noncopyable > LineSegmentIntersector_exposer_t;
         LineSegmentIntersector_exposer_t LineSegmentIntersector_exposer = LineSegmentIntersector_exposer_t( "LineSegmentIntersector", bp::init< osg::Vec3d const &, osg::Vec3d const & >(( bp::arg("start"), bp::arg("end") )) );
         bp::scope LineSegmentIntersector_scope( LineSegmentIntersector_exposer );
         bp::class_< osgUtil::LineSegmentIntersector::Intersection >( "Intersection", bp::init< >() )    

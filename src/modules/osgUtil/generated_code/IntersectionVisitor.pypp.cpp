@@ -421,7 +421,7 @@ struct IntersectionVisitor_wrapper : osgUtil::IntersectionVisitor, bp::wrapper< 
 void register_IntersectionVisitor_class(){
 
     { //::osgUtil::IntersectionVisitor
-        typedef bp::class_< IntersectionVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< ::osgUtil::IntersectionVisitor >, boost::noncopyable > IntersectionVisitor_exposer_t;
+        typedef bp::class_< IntersectionVisitor_wrapper, bp::bases< ::osg::NodeVisitor >, osg::ref_ptr< IntersectionVisitor_wrapper >, boost::noncopyable > IntersectionVisitor_exposer_t;
         IntersectionVisitor_exposer_t IntersectionVisitor_exposer = IntersectionVisitor_exposer_t( "IntersectionVisitor", bp::init< bp::optional< osgUtil::Intersector *, osgUtil::IntersectionVisitor::ReadCallback * > >(( bp::arg("intersector")=bp::object(), bp::arg("readCallback")=bp::object() )) );
         bp::scope IntersectionVisitor_scope( IntersectionVisitor_exposer );
         bp::enum_< osgUtil::IntersectionVisitor::LODSelectionMode>("LODSelectionMode")
@@ -429,7 +429,7 @@ void register_IntersectionVisitor_class(){
             .value("USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION", osgUtil::IntersectionVisitor::USE_EYE_POINT_FOR_LOD_LEVEL_SELECTION)
             .export_values()
             ;
-        bp::class_< IntersectionVisitor_wrapper::ReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgUtil::IntersectionVisitor::ReadCallback >, boost::noncopyable >( "ReadCallback", bp::no_init )    
+        bp::class_< IntersectionVisitor_wrapper::ReadCallback_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< IntersectionVisitor_wrapper::ReadCallback_wrapper >, boost::noncopyable >( "ReadCallback", bp::no_init )    
             .def( 
                 "readNodeFile"
                 , bp::pure_virtual( (::osg::Node * ( ::osgUtil::IntersectionVisitor::ReadCallback::* )( ::std::string const & ))(&::osgUtil::IntersectionVisitor::ReadCallback::readNodeFile) )

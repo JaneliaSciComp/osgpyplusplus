@@ -49,7 +49,7 @@ struct CallbackInterface_wrapper : osgWidget::CallbackInterface, bp::wrapper< os
 
 void register_CallbackInterface_class(){
 
-    bp::class_< CallbackInterface_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< ::osgWidget::CallbackInterface >, boost::noncopyable >( "CallbackInterface", bp::no_init )    
+    bp::class_< CallbackInterface_wrapper, bp::bases< ::osg::Referenced >, osg::ref_ptr< CallbackInterface_wrapper >, boost::noncopyable >( "CallbackInterface", bp::no_init )    
         .def( 
             "className"
             , (char const * ( ::osgWidget::CallbackInterface::* )(  )const)(&::osgWidget::CallbackInterface::className)

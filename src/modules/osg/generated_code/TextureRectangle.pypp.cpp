@@ -446,7 +446,7 @@ void register_TextureRectangle_class(){
         typedef bp::class_< TextureRectangle_wrapper, bp::bases< osg::Texture >, osg::ref_ptr< ::osg::TextureRectangle >, boost::noncopyable > TextureRectangle_exposer_t;
         TextureRectangle_exposer_t TextureRectangle_exposer = TextureRectangle_exposer_t( "TextureRectangle", "\n Texture state class which encapsulates OpenGL texture functionality.\n", bp::no_init );
         bp::scope TextureRectangle_scope( TextureRectangle_exposer );
-        bp::class_< TextureRectangle_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::TextureRectangle::SubloadCallback >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
+        bp::class_< TextureRectangle_wrapper::SubloadCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< TextureRectangle_wrapper::SubloadCallback_wrapper >, boost::noncopyable >( "SubloadCallback", bp::no_init )    
             .def( 
                 "load"
                 , (void (*)( ::osg::TextureRectangle::SubloadCallback const &,::osg::TextureRectangle &,::osg::State & ))( &TextureRectangle_wrapper::SubloadCallback_wrapper::default_load )

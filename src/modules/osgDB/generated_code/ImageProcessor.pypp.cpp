@@ -189,7 +189,7 @@ struct ImageProcessor_wrapper : osgDB::ImageProcessor, bp::wrapper< osgDB::Image
 void register_ImageProcessor_class(){
 
     { //::osgDB::ImageProcessor
-        typedef bp::class_< ImageProcessor_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgDB::ImageProcessor >, boost::noncopyable > ImageProcessor_exposer_t;
+        typedef bp::class_< ImageProcessor_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ImageProcessor_wrapper >, boost::noncopyable > ImageProcessor_exposer_t;
         ImageProcessor_exposer_t ImageProcessor_exposer = ImageProcessor_exposer_t( "ImageProcessor", bp::init< >() );
         bp::scope ImageProcessor_scope( ImageProcessor_exposer );
         bp::enum_< osgDB::ImageProcessor::CompressionMethod>("CompressionMethod")

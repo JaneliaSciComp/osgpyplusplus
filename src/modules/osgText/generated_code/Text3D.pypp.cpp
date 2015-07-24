@@ -453,7 +453,7 @@ struct Text3D_wrapper : osgText::Text3D, bp::wrapper< osgText::Text3D > {
 void register_Text3D_class(){
 
     { //::osgText::Text3D
-        typedef bp::class_< Text3D_wrapper, bp::bases< osgText::TextBase >, osg::ref_ptr< ::osgText::Text3D >, boost::noncopyable > Text3D_exposer_t;
+        typedef bp::class_< Text3D_wrapper, bp::bases< osgText::TextBase >, osg::ref_ptr< Text3D_wrapper >, boost::noncopyable > Text3D_exposer_t;
         Text3D_exposer_t Text3D_exposer = Text3D_exposer_t( "Text3D", bp::no_init );
         bp::scope Text3D_scope( Text3D_exposer );
         bp::enum_< osgText::Text3D::RenderMode>("RenderMode")

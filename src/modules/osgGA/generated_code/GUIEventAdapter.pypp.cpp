@@ -344,7 +344,7 @@ struct GUIEventAdapter_wrapper : osgGA::GUIEventAdapter, bp::wrapper< osgGA::GUI
 void register_GUIEventAdapter_class(){
 
     { //::osgGA::GUIEventAdapter
-        typedef bp::class_< GUIEventAdapter_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgGA::GUIEventAdapter >, boost::noncopyable > GUIEventAdapter_exposer_t;
+        typedef bp::class_< GUIEventAdapter_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< GUIEventAdapter_wrapper >, boost::noncopyable > GUIEventAdapter_exposer_t;
         GUIEventAdapter_exposer_t GUIEventAdapter_exposer = GUIEventAdapter_exposer_t( "GUIEventAdapter", "\n Event class for storing Keyboard, mouse and window events.\n", bp::no_init );
         bp::scope GUIEventAdapter_scope( GUIEventAdapter_exposer );
         bp::enum_< osgGA::GUIEventAdapter::EventType>("EventType")
@@ -615,7 +615,7 @@ void register_GUIEventAdapter_class(){
             .export_values()
             ;
         { //::osgGA::GUIEventAdapter::TouchData
-            typedef bp::class_< GUIEventAdapter_wrapper::TouchData_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< ::osgGA::GUIEventAdapter::TouchData >, boost::noncopyable > TouchData_exposer_t;
+            typedef bp::class_< GUIEventAdapter_wrapper::TouchData_wrapper, bp::bases< ::osg::Object >, osg::ref_ptr< GUIEventAdapter_wrapper::TouchData_wrapper >, boost::noncopyable > TouchData_exposer_t;
             TouchData_exposer_t TouchData_exposer = TouchData_exposer_t( "TouchData", bp::no_init );
             bp::scope TouchData_scope( TouchData_exposer );
             bp::class_< osgGA::GUIEventAdapter::TouchData::TouchPoint >( "TouchPoint", bp::init< >() )    

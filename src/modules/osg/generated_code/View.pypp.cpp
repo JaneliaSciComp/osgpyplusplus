@@ -255,7 +255,7 @@ void register_View_class(){
             typedef bp::class_< View_wrapper::Slave_wrapper > Slave_exposer_t;
             Slave_exposer_t Slave_exposer = Slave_exposer_t( "Slave", "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n", bp::init< bp::optional< bool > >(( bp::arg("useMastersSceneData")=(bool)(true) ), "\n Slave allows one to up a camera that follows the master with a local offset to the project and view matrices.\n") );
             bp::scope Slave_scope( Slave_exposer );
-            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< ::osg::View::Slave::UpdateSlaveCallback >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
+            bp::class_< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper, bp::bases< osg::Referenced >, osg::ref_ptr< View_wrapper::Slave_wrapper::UpdateSlaveCallback_wrapper >, boost::noncopyable >( "UpdateSlaveCallback", bp::no_init )    
                 .def( 
                     "updateSlave"
                     , bp::pure_virtual( (void ( ::osg::View::Slave::UpdateSlaveCallback::* )( ::osg::View &,::osg::View::Slave & ))(&::osg::View::Slave::UpdateSlaveCallback::updateSlave) )

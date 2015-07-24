@@ -628,7 +628,7 @@ struct CompositeDragger_wrapper : osgManipulator::CompositeDragger, bp::wrapper<
 
 void register_CompositeDragger_class(){
 
-    bp::class_< CompositeDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< ::osgManipulator::CompositeDragger >, boost::noncopyable >( "CompositeDragger", "\n CompositeDragger allows to create complex draggers that are composed of a\n hierarchy of Draggers.\n", bp::no_init )    
+    bp::class_< CompositeDragger_wrapper, bp::bases< osgManipulator::Dragger >, osg::ref_ptr< CompositeDragger_wrapper >, boost::noncopyable >( "CompositeDragger", "\n CompositeDragger allows to create complex draggers that are composed of a\n hierarchy of Draggers.\n", bp::no_init )    
         .def( 
             "accept"
             , (void ( ::osgManipulator::CompositeDragger::* )( ::osg::NodeVisitor & ))(&::osgManipulator::CompositeDragger::accept)

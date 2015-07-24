@@ -97,7 +97,7 @@ struct TranslateInPlaneCommand_wrapper : osgManipulator::TranslateInPlaneCommand
 void register_TranslateInPlaneCommand_class(){
 
     { //::osgManipulator::TranslateInPlaneCommand
-        typedef bp::class_< TranslateInPlaneCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< ::osgManipulator::TranslateInPlaneCommand >, boost::noncopyable > TranslateInPlaneCommand_exposer_t;
+        typedef bp::class_< TranslateInPlaneCommand_wrapper, bp::bases< osgManipulator::MotionCommand >, osg::ref_ptr< TranslateInPlaneCommand_wrapper >, boost::noncopyable > TranslateInPlaneCommand_exposer_t;
         TranslateInPlaneCommand_exposer_t TranslateInPlaneCommand_exposer = TranslateInPlaneCommand_exposer_t( "TranslateInPlaneCommand", "\n Command for translating in a plane.\n", bp::no_init );
         bp::scope TranslateInPlaneCommand_scope( TranslateInPlaneCommand_exposer );
         TranslateInPlaneCommand_exposer.def( bp::init< >("\n Command for translating in a plane.\n") );
