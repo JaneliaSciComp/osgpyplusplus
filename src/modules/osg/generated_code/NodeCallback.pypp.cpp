@@ -226,7 +226,8 @@ void register_NodeCallback_class(){
         .def( 
             "setNestedCallback"
             , (void ( ::osg::NodeCallback::* )( ::osg::NodeCallback * ))( &::osg::NodeCallback::setNestedCallback )
-            , ( bp::arg("nc") ) )    
+            , ( bp::arg("nc") )
+            , bp::with_custodian_and_ward< 2, 1 >() )    
         .def( 
             "traverse"
             , (void ( ::osg::NodeCallback::* )( ::osg::Node *,::osg::NodeVisitor * ))( &::osg::NodeCallback::traverse )

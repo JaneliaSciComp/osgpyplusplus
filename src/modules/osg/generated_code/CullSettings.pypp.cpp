@@ -404,6 +404,7 @@ void register_CullSettings_class(){
                 "setClampProjectionMatrixCallback"
                 , setClampProjectionMatrixCallback_function_type( &::osg::CullSettings::setClampProjectionMatrixCallback )
                 , ( bp::arg("cpmc") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " set the ClampProjectionMatrixCallback." );
         
         }

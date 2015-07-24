@@ -1767,6 +1767,7 @@ void register_Camera_class(){
                 "setFinalDrawCallback"
                 , setFinalDrawCallback_function_type( &::osg::Camera::setFinalDrawCallback )
                 , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the final draw callback for custom operations to be done after the drawing of the cameras subgraph and all of the post render stages has been completed." );
         
         }
@@ -1819,6 +1820,7 @@ void register_Camera_class(){
                 "setInitialDrawCallback"
                 , setInitialDrawCallback_function_type( &::osg::Camera::setInitialDrawCallback )
                 , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the initial draw callback for custom operations to be done before the drawing of the cameras subgraph and pre render stages." );
         
         }
@@ -1830,6 +1832,7 @@ void register_Camera_class(){
                 "setPostDrawCallback"
                 , setPostDrawCallback_function_type( &::osg::Camera::setPostDrawCallback )
                 , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the post draw callback for custom operations to be done after the drawing of the cameras subgraph but before the any post render stages have been completed." );
         
         }
@@ -1841,6 +1844,7 @@ void register_Camera_class(){
                 "setPreDrawCallback"
                 , setPreDrawCallback_function_type( &::osg::Camera::setPreDrawCallback )
                 , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the pre draw callback for custom operations to be done before the drawing of the cameras subgraph but after any pre render stages have been completed." );
         
         }

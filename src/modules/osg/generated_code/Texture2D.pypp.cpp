@@ -700,7 +700,8 @@ void register_Texture2D_class(){
             Texture2D_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::Texture2D::setSubloadCallback )
-                , ( bp::arg("cb") ) );
+                , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >() );
         
         }
         { //::osg::Texture2D::setTextureHeight

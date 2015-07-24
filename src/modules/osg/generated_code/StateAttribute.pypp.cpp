@@ -643,6 +643,7 @@ void register_StateAttribute_class(){
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::StateAttribute::setEventCallback )
                 , ( bp::arg("ec") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the EventCallback which allows users to attach customize the updating of an object during the Event traversal." );
         
         }
@@ -664,6 +665,7 @@ void register_StateAttribute_class(){
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::StateAttribute::setUpdateCallback )
                 , ( bp::arg("uc") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the UpdateCallback which allows users to attach customize the updating of an object during the update traversal." );
         
         }

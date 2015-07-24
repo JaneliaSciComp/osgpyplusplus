@@ -765,7 +765,8 @@ void register_TextureCubeMap_class(){
             TextureCubeMap_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::TextureCubeMap::setSubloadCallback )
-                , ( bp::arg("cb") ) );
+                , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >() );
         
         }
         { //::osg::TextureCubeMap::setTextureHeight

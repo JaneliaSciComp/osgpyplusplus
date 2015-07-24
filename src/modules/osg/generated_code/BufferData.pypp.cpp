@@ -646,7 +646,8 @@ void register_BufferData_class(){
             BufferData_exposer.def( 
                 "setModifiedCallback"
                 , setModifiedCallback_function_type( &::osg::BufferData::setModifiedCallback )
-                , ( bp::arg("md") ) );
+                , ( bp::arg("md") )
+                , bp::with_custodian_and_ward< 2, 1 >() );
         
         }
         { //::osg::BufferData::setModifiedCount

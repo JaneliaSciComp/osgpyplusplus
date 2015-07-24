@@ -1734,6 +1734,7 @@ void register_State_class(){
                 "setDynamicObjectRenderingCompletedCallback"
                 , setDynamicObjectRenderingCompletedCallback_function_type( &::osg::State::setDynamicObjectRenderingCompletedCallback )
                 , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the callback to be called when the dynamic object count hits 0." );
         
         }

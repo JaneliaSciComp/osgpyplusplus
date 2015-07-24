@@ -731,7 +731,8 @@ void register_TextureRectangle_class(){
             TextureRectangle_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::TextureRectangle::setSubloadCallback )
-                , ( bp::arg("cb") ) );
+                , ( bp::arg("cb") )
+                , bp::with_custodian_and_ward< 2, 1 >() );
         
         }
         { //::osg::TextureRectangle::setTextureHeight
