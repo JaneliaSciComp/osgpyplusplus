@@ -2486,7 +2486,6 @@ void register_Drawable_class(){
                 "setComputeBoundingBoxCallback"
                 , setComputeBoundingBoxCallback_function_type( &::osg::Drawable::setComputeBoundingBoxCallback )
                 , ( bp::arg("callback") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the compute bound callback to override the default computeBound." );
         
         }
@@ -2499,8 +2498,7 @@ void register_Drawable_class(){
                 "setCullCallback"
                 , setCullCallback_function_type(&::osg::Drawable::setCullCallback)
                 , default_setCullCallback_function_type(&Drawable_wrapper::default_setCullCallback)
-                , ( bp::arg("cc") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("cc") ) );
         
         }
         { //::osg::Drawable::setDrawCallback
@@ -2512,8 +2510,7 @@ void register_Drawable_class(){
                 "setDrawCallback"
                 , setDrawCallback_function_type(&::osg::Drawable::setDrawCallback)
                 , default_setDrawCallback_function_type(&Drawable_wrapper::default_setDrawCallback)
-                , ( bp::arg("dc") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("dc") ) );
         
         }
         { //::osg::Drawable::setEventCallback
@@ -2525,8 +2522,7 @@ void register_Drawable_class(){
                 "setEventCallback"
                 , setEventCallback_function_type(&::osg::Drawable::setEventCallback)
                 , default_setEventCallback_function_type(&Drawable_wrapper::default_setEventCallback)
-                , ( bp::arg("ac") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("ac") ) );
         
         }
         { //::osg::Drawable::setExtensions
@@ -2616,8 +2612,7 @@ void register_Drawable_class(){
                 "setUpdateCallback"
                 , setUpdateCallback_function_type(&::osg::Drawable::setUpdateCallback)
                 , default_setUpdateCallback_function_type(&Drawable_wrapper::default_setUpdateCallback)
-                , ( bp::arg("ac") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("ac") ) );
         
         }
         { //::osg::Drawable::setUseDisplayList

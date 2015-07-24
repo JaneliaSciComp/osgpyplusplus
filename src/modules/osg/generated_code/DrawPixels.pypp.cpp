@@ -544,20 +544,17 @@ void register_DrawPixels_class(){
             "setCullCallback"
             , (void ( ::osg::Drawable::* )( ::osg::Drawable::CullCallback * ))(&::osg::Drawable::setCullCallback)
             , (void ( DrawPixels_wrapper::* )( ::osg::Drawable::CullCallback * ))(&DrawPixels_wrapper::default_setCullCallback)
-            , ( bp::arg("cc") )
-            , bp::with_custodian_and_ward< 2, 1 >() )    
+            , ( bp::arg("cc") ) )    
         .def( 
             "setDrawCallback"
             , (void ( ::osg::Drawable::* )( ::osg::Drawable::DrawCallback * ))(&::osg::Drawable::setDrawCallback)
             , (void ( DrawPixels_wrapper::* )( ::osg::Drawable::DrawCallback * ))(&DrawPixels_wrapper::default_setDrawCallback)
-            , ( bp::arg("dc") )
-            , bp::with_custodian_and_ward< 2, 1 >() )    
+            , ( bp::arg("dc") ) )    
         .def( 
             "setEventCallback"
             , (void ( ::osg::Drawable::* )( ::osg::Drawable::EventCallback * ))(&::osg::Drawable::setEventCallback)
             , (void ( DrawPixels_wrapper::* )( ::osg::Drawable::EventCallback * ))(&DrawPixels_wrapper::default_setEventCallback)
-            , ( bp::arg("ac") )
-            , bp::with_custodian_and_ward< 2, 1 >() )    
+            , ( bp::arg("ac") ) )    
         .def( 
             "setName"
             , (void ( ::osg::Object::* )( ::std::string const & ))(&::osg::Object::setName)
@@ -577,8 +574,7 @@ void register_DrawPixels_class(){
             "setUpdateCallback"
             , (void ( ::osg::Drawable::* )( ::osg::Drawable::UpdateCallback * ))(&::osg::Drawable::setUpdateCallback)
             , (void ( DrawPixels_wrapper::* )( ::osg::Drawable::UpdateCallback * ))(&DrawPixels_wrapper::default_setUpdateCallback)
-            , ( bp::arg("ac") )
-            , bp::with_custodian_and_ward< 2, 1 >() )    
+            , ( bp::arg("ac") ) )    
         .def( 
             "setUseVertexBufferObjects"
             , (void ( ::osg::Drawable::* )( bool ))(&::osg::Drawable::setUseVertexBufferObjects)

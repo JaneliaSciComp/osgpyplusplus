@@ -106,6 +106,7 @@ class InsertCallbacksVisitor (osg.NodeVisitor) :
         self.apply_node(transform)
         
     def apply(self, node):
+        return
         if isinstance(node, osg.Geode):
             self.apply_geode(node)
         else:
@@ -165,9 +166,11 @@ def main(argv):
     optimzer.optimize(rootnode)
     # insert all the callbacks
     icv = InsertCallbacksVisitor()
-    rootnode.accept(icv)
-    viewer.getCamera().setUpdateCallback(CameraUpdateCallback())
-    viewer.getCamera().setEventCallback(CameraEventCallback())
+    # rootnode.accept(icv)
+    cuc = CameraUpdateCallback() # TODO - crashes if I do create this persistent reference 
+    viewer.getCamera().setUpdateCallback( cuc )
+    ceu = CameraEventCallback() # TODO - crashes if I do create this persistent reference 
+    viewer.getCamera().setEventCallback(ceu)
     # set the scene to render
     viewer.setSceneData(rootnode)
     return viewer.run()

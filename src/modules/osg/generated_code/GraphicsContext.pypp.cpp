@@ -1148,7 +1148,6 @@ void register_GraphicsContext_class(){
                 "setResizedCallback"
                 , setResizedCallback_function_type( &::osg::GraphicsContext::setResizedCallback )
                 , ( bp::arg("rc") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the resized callback which overrides the GraphicsConext::realizedImplementation(), allow developers to provide custom behavior\n in response to a window being resized." );
         
         }
@@ -1171,7 +1170,6 @@ void register_GraphicsContext_class(){
                 "setSwapCallback"
                 , setSwapCallback_function_type( &::osg::GraphicsContext::setSwapCallback )
                 , ( bp::arg("rc") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the swap callback which overrides the\n GraphicsContext::swapBuffersImplementation(), allowing\n developers to provide custom behavior for swap.\n The callback must call\n GraphicsContext::swapBuffersImplementation()" );
         
         }

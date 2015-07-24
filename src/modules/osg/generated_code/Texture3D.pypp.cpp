@@ -865,8 +865,7 @@ void register_Texture3D_class(){
             Texture3D_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::Texture3D::setSubloadCallback )
-                , ( bp::arg("cb") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("cb") ) );
         
         }
         { //::osg::Texture3D::setTextureDepth

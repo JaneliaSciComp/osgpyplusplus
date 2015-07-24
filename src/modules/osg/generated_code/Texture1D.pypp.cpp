@@ -700,8 +700,7 @@ void register_Texture1D_class(){
             Texture1D_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::Texture1D::setSubloadCallback )
-                , ( bp::arg("cb") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("cb") ) );
         
         }
         { //::osg::Texture1D::setTextureWidth

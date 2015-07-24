@@ -1013,7 +1013,6 @@ void register_Node_class(){
                 "setComputeBoundingSphereCallback"
                 , setComputeBoundingSphereCallback_function_type( &::osg::Node::setComputeBoundingSphereCallback )
                 , ( bp::arg("callback") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the compute bound callback to override the default computeBound." );
         
         }
@@ -1025,7 +1024,6 @@ void register_Node_class(){
                 "setCullCallback"
                 , setCullCallback_function_type( &::osg::Node::setCullCallback )
                 , ( bp::arg("nc") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set cull node callback, called during cull traversal." );
         
         }
@@ -1059,7 +1057,6 @@ void register_Node_class(){
                 "setEventCallback"
                 , setEventCallback_function_type( &::osg::Node::setEventCallback )
                 , ( bp::arg("nc") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set event node callback, called during event traversal." );
         
         }
@@ -1116,7 +1113,6 @@ void register_Node_class(){
                 "setUpdateCallback"
                 , setUpdateCallback_function_type( &::osg::Node::setUpdateCallback )
                 , ( bp::arg("nc") )
-                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set update node callback, called during update traversal." );
         
         }

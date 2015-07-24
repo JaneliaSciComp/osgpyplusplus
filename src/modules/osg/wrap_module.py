@@ -244,9 +244,11 @@ class OsgWrapper(BaseWrapper):
         self.mb.class_("CullingSet").member_function("computePixelSizeVector").exclude()
 
         # Handle virtual python Callback object memory management
+        """
         osg.class_("View").member_functions("getCamera").call_policies = return_internal_reference()
         for fn in osg.member_functions(lambda f: f.name.startswith("set") and f.name.endswith("Callback")):
             fn.call_policies = with_custodian_and_ward(2, 1)
+        """
 
         # Call custom methods to wrap individual classes
         self.wrap_camera()

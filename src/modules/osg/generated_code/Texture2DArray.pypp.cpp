@@ -882,8 +882,7 @@ void register_Texture2DArray_class(){
             Texture2DArray_exposer.def( 
                 "setSubloadCallback"
                 , setSubloadCallback_function_type( &::osg::Texture2DArray::setSubloadCallback )
-                , ( bp::arg("cb") )
-                , bp::with_custodian_and_ward< 2, 1 >() );
+                , ( bp::arg("cb") ) );
         
         }
         { //::osg::Texture2DArray::setTextureDepth
