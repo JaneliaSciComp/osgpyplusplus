@@ -662,7 +662,8 @@ rules = {
 
 
 def main():
-    osg_src_dir = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/"
+    # osg_src_dir = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/"
+    osg_src_dir = "C:/Users/cmbruns/git/osg/"
     examples_src = osg_src_dir + "examples/"
     osg_includes = osg_src_dir + "include/"
     src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
