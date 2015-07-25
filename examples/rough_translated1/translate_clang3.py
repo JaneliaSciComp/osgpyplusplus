@@ -9,11 +9,67 @@ import clang.cindex
 from clang.cindex import CursorKind, TokenKind
 
 
+INDENT_SIZE = 4
+
+# Conversion from C++ to python
+punctuation_translator = {
+    '->': '.',
+    ':': '',
+    '::': '.',
+    '{': '\n',
+    '}': '\n',
+    ',': ', ',
+    '&': '',
+    '&&': ' and ',
+    '||': ' or ',
+    ';': '\n',
+    '=': ' = ',
+    '==': ' == ',
+    '!': ' not ',
+}
+
+keyword_translator = {
+    'break': 'break',
+    'catch': 'except',
+    'class': 'class',
+    'continue': 'continue',
+    'double': 'float',
+    'else': 'else',
+    'for': 'for',
+    'false': 'False',
+    'delete': 'del',
+    'if': 'if',
+    'long': 'int',
+    'new': '',
+    'nullptr': 'None',
+    'private': '',
+    'protected': '',
+    'public': '',
+    'return': 'return',
+    'short': 'int',
+    'struct': 'class',
+    'this': 'self',
+    'throw': 'raise',
+    'true': 'True',
+    'try': 'try',
+    'while': 'while',
+}
+
+# Conversion from C++ to python
+method_translator = {
+    'operator()': '__call__',
+}
+
+
 class LocationComparable():
     "Helper class to compare file locations of clang tokens and cursors"
-    def __init__(self, nibble):
-        self.line = int(nibble.location.line)
-        self.col = int(nibble.location.column)
+    def __init__(self, nibble=None, line=None, column=None):
+        if nibble is not None:
+            self.line = int(nibble.location.line)
+            self.col = int(nibble.location.column)
+        else:
+            self.line = line
+            self.col = column
         
     def __eq__(self, rhs):
         return not self != rhs
@@ -62,7 +118,10 @@ class CursorNibble(LocationComparable):
         LocationComparable.__init__(self, cursor)
         self.cursor = cursor
         self.file_filter = file_filter
-        
+        # use property for cached location
+        self.line = int(self.location.line)
+        self.col = int(self.location.column)
+    
     def get_child_cursors(self):
         for child in self.cursor.get_children():
             if self.file_filter is not None and str(child.location.file) != self.file_filter:
@@ -93,6 +152,9 @@ class CursorNibble(LocationComparable):
             else: # child cursor after internal tokens exhausted
                 yield c
                 c = next(cg, None)
+            # Discard tokens that are past the end of our stated range
+            if t is not None and t > self.end:
+                t = None
         
     def get_child_tokens(self):
         for token in sorted(list(self.cursor.get_tokens()), key=comparable_location):
@@ -103,24 +165,60 @@ class CursorNibble(LocationComparable):
     def get_namespaces(self):
         "enumerate all namespaces, such as 'osg::', used in this file, to help enumerate python imports"
         ns = set()
-        if self.cursor.kind == CursorKind.NAMESPACE_REF:
+        if self.kind == CursorKind.NAMESPACE_REF:
             yield self.cursor
-        for child in self.get_child_cursors():
-            for ns in child.get_namespaces():
-                yield ns
-        
-    def get_py_strings(self):
+        # for child in self.get_child_cursors():
+        #     for ns in child.get_namespaces():
+        #         yield ns
+        previous_token = None
+        for nibble in self.get_child_nibbles():
+            if isinstance(nibble, CursorNibble):
+                previous_token = None
+                for ns in nibble.get_namespaces():
+                    yield ns
+            else: # must be a token
+                if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == '::':
+                    if previous_token is None:
+                        continue
+                    if previous_token.kind != TokenKind.IDENTIFIER:
+                        continue
+                    yield previous_token
+                previous_token = nibble
+    
+    def get_all_strings(self):
         for nibble in self.get_child_nibbles():
             for py_string in nibble.get_py_strings():
                 yield py_string
+    
+    def get_py_strings(self):
+        """
+        yield str(self.kind)
+        yield str(self.location.line)
+        yield "."
+        yield str(self.location.column)
+        """
+        if self.kind in rules:
+            for item in rules[self.kind]:
+                # Could be a string...
+                if isinstance(item, basestring):
+                    yield item
+                else: # ...or a string generator
+                    for string in item(self):
+                        yield string
+        else:
+            for py_string in self.get_all_strings():
+                    yield py_string
+                    
+    def get_real_beginning(self):
+        # Use location of first child, including early tokens
+        return self.get_child_nibbles().next().location
                 
+    end = property(lambda self: LocationComparable(
+                line=self.cursor.extent.end.line,
+                column=self.cursor.extent.end.column))
     kind = property(lambda self: self.cursor.kind)
-    location = property(lambda self: self.cursor.location)
+    location = property(lambda self: self.get_real_beginning())
     spelling = property(lambda self: self.cursor.spelling)
-
-
-def comparable_location(nibble):
-    return LocationComparable(nibble)
 
 
 # Nibble is union of tokens and cursors
@@ -140,11 +238,20 @@ class TokenNibble(LocationComparable):
         return # nothing
         
     def get_py_strings(self):
+        """
+        yield str(self.kind)
+        yield str(self.location.line)
+        yield "."
+        yield str(self.location.column)
+        """
         if self.kind in rules:
             for item in rules[self.kind]:
-                # Could be string_generator or ...
-                for string in item(self):
-                    yield string
+                # Could be a string...
+                if isinstance(item, basestring):
+                    yield item
+                else: # ...or a string generator
+                    for string in item(self):
+                        yield string
         else:
             yield self.spelling
     
@@ -204,47 +311,22 @@ class TranslationUnit(CursorNibble):
         self.tu = index.parse(src_file, args=args)
         self.main_file = str(self.tu.spelling)
         CursorNibble.__init__(self, self.tu.cursor, file_filter=self.main_file)
-        
+        self.current_indent = 0
+
+    def dec_indent(self):
+        self.current_indent -= indent
+        if self.current_indent < 0:
+            raise Exception("negative indent")        
     def get_py_strings(self):
         # TODO - translation unit header
         for string in CursorNibble.get_py_strings(self):
             yield string
+            if string.endswith('\n'):
+                yield ' '*self.current_indent
 
+    def inc_indent(self):
+        self.current_indent += 4
 
-def location(nibble):
-    return nibble.location
-
-
-INDENT_SIZE = 4
-
-# Conversion from C++ to python
-punctuation_translator = {
-    '->': '.',
-    '::': '.',
-    '{': '\n',
-    '}': '\n',
-    ',': ', ',
-    '&': '',
-    ';': '\n',
-    '=': ' = ',
-}
-
-keyword_translator = {
-    'catch': 'except',
-    'double': 'float',
-    'false': 'False',
-    'long': 'int',
-    'nullptr': 'None',
-    'short': 'int',
-    'this': 'self',
-    'throw': 'raise',
-    'true': 'True',
-}
-
-# Conversion from C++ to python
-method_translator = {
-    'operator()': '__call__',
-}
 
 def py_type(cursor):
     "Convert C++ type reference to python type name"
@@ -312,23 +394,6 @@ def args(cursor):
         a.append(child.spelling)
     return "(" + ", ".join(a) + ")"
 
-def bases(class_cursor):
-    bases = []
-    for c in class_cursor.get_children():
-        if c.kind == CursorKind.CXX_BASE_SPECIFIER:
-            bases.append(c)
-    arg_list = []
-    for b in bases:
-        base_name = ""
-        for child in all_nodes(b):
-            base_name += string_for_cursor(child)
-        arg_list.append(base_name)
-    args = ", ".join(arg_list)
-    if len(bases) < 1:
-        args = "object"
-    yield "(" + args + ")"
-
-
 def call_expression(cursor):
     prefix = list(matching_child(cursor))
     p = ""
@@ -349,6 +414,22 @@ def call_expression(cursor):
         for c in arg_nonmatching(cursor):
             yield c
         yield ")"
+
+def class_bases(class_cursor):
+    bases = []
+    for c in class_cursor.get_child_cursors():
+        if c.kind == CursorKind.CXX_BASE_SPECIFIER:
+            bases.append(c)
+    for b in bases:
+        for py_string in b.get_py_strings():
+            yield py_string
+        if b is not bases[-1]:
+            yield ", "
+
+
+def comparable_location(nibble):
+    return LocationComparable(nibble)
+
 
 def compound_statement(cursor):
     for child in cursor.get_children():
@@ -446,6 +527,10 @@ def ctor_nodes(cursor):
             continue
         yield child
 
+def cursor_all_strings(cursor):
+    for py_string in cursor.get_all_strings():
+        yield py_string
+
 def debug(cursor):
     yield str(cursor.kind)
 
@@ -484,6 +569,10 @@ def indent(cursor):
 
 def kind(cursor):
     return str(cursor.kind)
+
+
+def location(nibble):
+    return nibble.location
 
 
 def matching_child(cursor):
@@ -586,35 +675,6 @@ def translate_tokens(tokens):
         result += translate_token(t)
     return result
 
-default_sequence = [indent, "**", kind, ":", spelling, ":", displayname, "\n", inc_indent, all_nodes, dec_indent]
-# 
-cursor_sequence = {
-    CursorKind.CALL_EXPR: [call_expression],
-    CursorKind.CLASS_DECL: ["\n", indent, "class ", spelling, bases, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
-    CursorKind.COMPOUND_STMT: [compound_statement], 
-    CursorKind.CONSTRUCTOR: [indent, "def __init__", args, ":\n", inc_indent, ctor_init, ctor_nodes, dec_indent, "\n"],
-    CursorKind.CXX_ACCESS_SPEC_DECL: [all_nodes], # Don't care about "public:" in python...
-    CursorKind.CXX_BASE_SPECIFIER: [], # Handled in CLASS_DECL
-    CursorKind.CXX_METHOD: [indent, "def ", translate_method, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
-    CursorKind.CXX_NEW_EXPR: [spelling],
-    CursorKind.DECL_REF_EXPR: [spelling, all_nodes], # TODO not sure about the all_nodes...
-    CursorKind.DECL_STMT: [nodes_and_tokens],
-    CursorKind.FIELD_DECL: [],
-    CursorKind.FUNCTION_DECL: [indent, "def ", spelling, args, ":\n", inc_indent, all_nodes, dec_indent, "\n"],
-    CursorKind.IF_STMT: ["if ", first_node, ":\n", inc_indent, indent, non_first_nodes, dec_indent],
-    CursorKind.INTEGER_LITERAL: [first_token],
-    CursorKind.MEMBER_REF_EXPR: [all_nodes, ".", spelling],
-    # CursorKind.MEMBER_REF: [".", spelling],
-    CursorKind.NAMESPACE_REF: [spelling, ".", all_nodes],
-    CursorKind.PARM_DECL: [],
-    CursorKind.RETURN_STMT: ["return ", all_nodes],
-    CursorKind.TEMPLATE_REF: [spelling, "<", all_nodes, ">"],
-    CursorKind.TRANSLATION_UNIT: [filter_by_file],
-    CursorKind.TYPE_REF: [py_type, all_nodes],
-    CursorKind.UNARY_OPERATOR: [first_token, all_nodes],
-    CursorKind.UNEXPOSED_EXPR: [all_nodes],
-    CursorKind.VAR_DECL: [spelling, " = ", all_nodes],
-}
 
 def string_for_cursor(cursor):
     if isinstance(cursor, basestring):
@@ -633,30 +693,46 @@ def string_for_cursor(cursor):
     return result
     
 
+def token_comment(token, indent=0):
+    c = str(token.spelling)
+    if c.startswith('/*'):
+        c = re.sub(r'^/\*', '#', c)
+        for line in c.split('\n'):
+            yield '#'
+            yield line
+            yield '\n'
+    elif c.startswith("//"):
+        c = re.sub(r"^//", "##", c)
+        yield c
+        yield '\n'
+    else:
+        raise "Unexpected comment %s" % token.spelling
+
+
+def token_keyword(token):
+    if token.spelling in keyword_translator:
+        yield keyword_translator[token.spelling]
+    else:
+        yield token.spelling
+        yield ' '
+
+
 def token_punctuation(token, indent=0):
     if token.spelling in punctuation_translator:
         yield punctuation_translator[token.spelling]
     else:
         yield token.spelling
-
-
-def token_comment(token, indent=0):
-    c = str(token.spelling)
-    i = " "*indent
-    if c.startswith("/*"):
-        c = re.sub(r"^/\*", "##", c)
-        c = re.sub(r"\*/$", "##", c)
-        c = re.sub(r"\n", "%s\n#" % (i), c)
-    elif c.startswith("//"):
-        c = re.sub(r"^//", "##", c)
-    else:
-        raise "Unexpected comment %s" % token.spelling
-    c += "\n"
-    yield c
-    
-    
+        
+                
 rules = {
+    CursorKind.CLASS_DECL: [
+            '\n', '\n', 
+            'class', ' ', spelling, '(',
+            class_bases,
+            ')', ':', '\n',
+            cursor_all_strings],
     TokenKind.COMMENT: [token_comment],
+    TokenKind.KEYWORD: [token_keyword],
     TokenKind.PUNCTUATION: [token_punctuation],
     }
 
