@@ -306,8 +306,11 @@ class TranslatedPyProgram():
         # Bottom footer
         yield textwrap.dedent("""\
         
+        
         if __name__ == '__main__':
-            main(sys.argv)
+            ret_val = main(len(sys.argv), sys.argv)
+            if ret_val is not None:
+                sys.exit(ret_val)
         
         """)
 
@@ -326,6 +329,32 @@ class TranslationUnit(CursorNibble):
             yield string
             if string.endswith('\n'):
                 yield ' '*CURRENT_INDENT
+
+
+def call_expression(cursor, debug=False):
+    prefix = []
+    contents = []
+    for nibble in cursor.get_child_nibbles():
+        if nibble.spelling == cursor.spelling:
+            if isinstance(nibble, CursorNibble):
+                prefix.append(nibble)
+        else:
+            contents.append(nibble)
+    p = ""
+    if len(prefix) > 0:
+        p = prefix[0].spelling
+    if p == "operator->":
+        yield "self."
+    elif p == "operator!":
+        # yield "not "
+        pass
+    else:
+        for c in prefix:
+            for py_string in c.get_py_strings():
+                yield py_string
+    for c in contents:
+        for py_string in c.get_py_strings():
+            yield py_string
 
 
 def class_bases(class_cursor, debug=False):
@@ -548,6 +577,26 @@ def field_type(field, debug=False):
             yield py_string
 
 
+def if_conditional(cursor, debug=False):
+    for child in cursor.get_child_cursors():
+        py_strings = list(child.get_py_strings());
+        # Trim off final ")"
+        for py_string in py_strings[:-1]:
+                yield py_string
+        break # First cursor only
+    
+def if_consequence(cursor, debug=False):
+    found_first = False
+    for child in cursor.get_child_nibbles():
+        if not found_first:
+            if isinstance(child, CursorNibble):
+                found_first = True
+            continue # skip first cursor, and all before it
+        else:   
+            for py_string in child.get_py_strings(debug):
+                yield py_string
+    
+
 def inc_indent(cursor=None, debug=False):
     global CURRENT_INDENT
     CURRENT_INDENT += INDENT_SIZE
@@ -681,7 +730,8 @@ def decl_stmt(cursor, debug=False):
 
             
 rules = {
-    CursorKind.CLASS_DECL: [
+        CursorKind.CALL_EXPR: [call_expression],
+        CursorKind.CLASS_DECL: [
             '\n\n\n', 
             'class', ' ', spelling, '(',
             class_bases,
@@ -696,6 +746,7 @@ rules = {
     CursorKind.DECL_STMT: [decl_stmt, '\n'],
     CursorKind.FUNCTION_DECL: ['\n\n', "def ", spelling, "(", params, ")", ":", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
+    CursorKind.IF_STMT: ["if ", if_conditional, ":", inc_indent, "\n", if_consequence, dec_indent, '\n'],
     CursorKind.VAR_DECL: [spelling, ' = ', debug_nibble],
     TokenKind.COMMENT: [token_comment],
     TokenKind.KEYWORD: [token_keyword],
