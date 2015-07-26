@@ -4,20 +4,22 @@
 
 import re
 import textwrap
+from collections import OrderedDict
 
 import clang.cindex
 from clang.cindex import CursorKind, TokenKind
 
 
 INDENT_SIZE = 4
+CURRENT_INDENT = 0
 
 # Conversion from C++ to python
 punctuation_translator = {
     '->': '.',
     ':': '',
     '::': '.',
-    '{': '\n',
-    '}': '\n',
+    '{': '',
+    '}': '',
     ',': ', ',
     '&': '',
     '&&': ' and ',
@@ -26,6 +28,7 @@ punctuation_translator = {
     '=': ' = ',
     '==': ' == ',
     '!': ' not ',
+    '<<': ' << ',
 }
 
 keyword_translator = {
@@ -45,7 +48,7 @@ keyword_translator = {
     'private': '',
     'protected': '',
     'public': '',
-    'return': 'return',
+    'return': 'return ',
     'short': 'int',
     'struct': 'class',
     'this': 'self',
@@ -147,7 +150,7 @@ class CursorNibble(LocationComparable):
             elif t < c: # orphan token
                 yield t # orphan
                 t = next(tg, None)
-            elif t <= c: # token internal to child cursor
+            elif t <= c.end: # token internal to child cursor
                 t = next(tg, None) # consume without emitting
             else: # child cursor after internal tokens exhausted
                 yield c
@@ -185,29 +188,35 @@ class CursorNibble(LocationComparable):
                     yield previous_token
                 previous_token = nibble
     
-    def get_all_strings(self):
+    def get_all_strings(self, debug=False):
         for nibble in self.get_child_nibbles():
-            for py_string in nibble.get_py_strings():
+            for py_string in nibble.get_py_strings(debug=debug):
                 yield py_string
     
-    def get_py_strings(self):
-        """
-        yield str(self.kind)
-        yield str(self.location.line)
-        yield "."
-        yield str(self.location.column)
-        """
+    def get_py_strings(self, debug=False):
+        if debug:
+            yield str(self.kind)
+            yield str(self.location.line)
+            yield "."
+            yield str(self.location.column)
+            yield '-'
+            yield str(self.end.line)
+            yield "."
+            yield str(self.end.col)
+            yield "["
         if self.kind in rules:
             for item in rules[self.kind]:
                 # Could be a string...
                 if isinstance(item, basestring):
                     yield item
                 else: # ...or a string generator
-                    for string in item(self):
+                    for string in item(self, debug=debug):
                         yield string
         else:
-            for py_string in self.get_all_strings():
+            for py_string in self.get_all_strings(debug=debug):
                     yield py_string
+        if debug:
+            yield "]"
                     
     def get_real_beginning(self):
         # Use location of first child, including early tokens
@@ -237,13 +246,12 @@ class TokenNibble(LocationComparable):
     def get_child_tokens(self):
         return # nothing
         
-    def get_py_strings(self):
-        """
-        yield str(self.kind)
-        yield str(self.location.line)
-        yield "."
-        yield str(self.location.column)
-        """
+    def get_py_strings(self, debug=False):
+        if debug:
+            yield str(self.kind)
+            yield str(self.location.line)
+            yield "."
+            yield str(self.location.column)
         if self.kind in rules:
             for item in rules[self.kind]:
                 # Could be a string...
@@ -268,7 +276,7 @@ class TranslatedPyProgram():
     def __init__(self, src_files, args, indent=4):
         self.tus = []
         for s in src_files:
-            self.tus.append(TranslationUnit(src_file=s, args=args, indent=indent))
+            self.tus.append(TranslationUnit(src_file=s, args=args))
             
     def get_py_strings(self):
         # Top header
@@ -306,116 +314,21 @@ class TranslatedPyProgram():
 
 class TranslationUnit(CursorNibble):
     "TranslationUnit represents one C++ source file to be translated"
-    def __init__(self, src_file, args=[], indent=4):
+    def __init__(self, src_file, args=[]):
         index = clang.cindex.Index.create()
         self.tu = index.parse(src_file, args=args)
         self.main_file = str(self.tu.spelling)
         CursorNibble.__init__(self, self.tu.cursor, file_filter=self.main_file)
-        self.current_indent = 0
 
-    def dec_indent(self):
-        self.current_indent -= indent
-        if self.current_indent < 0:
-            raise Exception("negative indent")        
     def get_py_strings(self):
         # TODO - translation unit header
         for string in CursorNibble.get_py_strings(self):
             yield string
             if string.endswith('\n'):
-                yield ' '*self.current_indent
-
-    def inc_indent(self):
-        self.current_indent += 4
+                yield ' '*CURRENT_INDENT
 
 
-def py_type(cursor):
-    "Convert C++ type reference to python type name"
-    t = ""
-    # Limit token parsing to tokens that fall within the specified cursor bounds
-    end_pos = [cursor.extent.end.line, cursor.extent.end.column]
-    for token in cursor.get_tokens():
-        if token.location.line > end_pos[0]:
-            break
-        if token.location.line == end_pos[0] and token.location.column > end_pos[1]:
-            break
-        if token.kind == TokenKind.KEYWORD:
-            continue # no keywords, like "public"
-        elif token.kind == TokenKind.IDENTIFIER:
-            t += token.spelling
-        elif token.spelling in punctuation_translator and token.kind == TokenKind.PUNCTUATION:
-            t += punctuation_translator[token.spelling]
-        else:
-            t += token.spelling # TODO??
-            t += "#"
-            t += str(token.kind)
-            # print token.kind, token.spelling # TODO
-    yield t
-
-
-def all_nodes(cursor):
-    for child in cursor.get_children():
-        yield child
-
-def all_tokens(cursor):
-    result = ""
-    s = cursor.extent.start
-    e = cursor.extent.end
-    for t in cursor.get_tokens():
-        if t.location.line < s.line:
-            continue
-        if t.location.line > e.line:
-            continue
-        if t.location.line == s.line and t.location.column < s.column:
-            continue
-        if t.location.line == e.line and t.location.column > e.column:
-            continue
-        result += t.spelling
-    return [result,]
-
-def arg_nonmatching(cursor):
-    match = None
-    for match in matching_child(cursor):
-        break
-    args = []
-    for c in cursor.get_children():
-        if match is not None and  c == match:
-            continue
-        args.append(c)
-    return [", ".join([string_for_cursor(c) for c in args]),]
-
-def args(cursor):
-    a = []
-    if (cursor.kind == CursorKind.CONSTRUCTOR or (cursor.kind == 
-                    CursorKind.CXX_METHOD and not cursor.is_static_method())):
-        a.append("self")
-    for child in cursor.get_children():
-        if not child.kind == CursorKind.PARM_DECL:
-            continue
-        a.append(child.spelling)
-    return "(" + ", ".join(a) + ")"
-
-def call_expression(cursor):
-    prefix = list(matching_child(cursor))
-    p = ""
-    if len(prefix) > 0 and str(prefix[0]) != "":
-        p = prefix[0].spelling
-    if p == "operator->":
-        yield "self"
-        for c in arg_nonmatching(cursor):
-            yield c
-    elif p == "operator!":
-        yield "not "
-        for c in arg_nonmatching(cursor):
-            yield c
-    else:
-        for c in prefix:
-            yield c
-        yield "("
-        for c in arg_nonmatching(cursor):
-            yield c
-        yield ")"
-
-def class_bases(class_cursor):
+def class_bases(class_cursor, debug=False):
     bases = []
     for c in class_cursor.get_child_cursors():
         if c.kind == CursorKind.CXX_BASE_SPECIFIER:
@@ -427,98 +340,82 @@ def class_bases(class_cursor):
             yield ", "
 
 
+def class_constructors(cls, debug=False):
+    ctors = []
+    bases = []
+    fields = OrderedDict()
+    for child in cls.get_child_cursors():
+        if child.kind == CursorKind.CXX_BASE_SPECIFIER:
+            bases.append(child)
+        elif child.kind == CursorKind.CONSTRUCTOR:
+            ctors.append(child)
+        elif child.kind == CursorKind.FIELD_DECL:
+            ident = field_identifier(child, debug).next()
+            fields[ident] = child
+    for ctor in ctors:
+        for py_string in cursor_constructor(
+                    ctor, 
+                    class_name = cls.spelling, 
+                    fields=fields, 
+                    bases=bases,
+                    debug=debug):
+            yield py_string
+    # TODO: default constructor for constructor-less class
+
+
+def class_contents(cursor, debug=False):
+    found_a_cursor = False
+    for nibble in cursor.get_child_nibbles():
+        if isinstance(nibble, CursorNibble):
+            found_a_cursor = True
+        if isinstance(nibble, TokenNibble) and not found_a_cursor:
+            continue # already handled
+        if nibble.kind == CursorKind.CXX_BASE_SPECIFIER:
+            continue # already handled
+        if nibble.kind == CursorKind.CONSTRUCTOR:
+            continue # already handled
+        elif nibble.kind == CursorKind.FIELD_DECL:
+            continue
+        for py_string in nibble.get_py_strings():
+            yield py_string
+    
+
 def comparable_location(nibble):
     return LocationComparable(nibble)
 
 
-def compound_statement(cursor):
-    for child in cursor.get_children():
-        yield indent(cursor)
-        yield child
-        yield "\n"
-    
-def ctor_init(cursor):
-    "parse out initializers, if any, from constructor"
-    # Don't look after first child item
-    first_pos = [cursor.extent.start.line, cursor.extent.start.column]
-    last_pos = [cursor.extent.end.line, cursor.extent.end.column]
-    parsed_members = list()
-    for c in cursor.get_children():
-        if c.kind == CursorKind.PARM_DECL: # go past constructor arguments
-            first_pos = [c.extent.end.line, c.extent.end.column+1]
-            continue
-        if c.kind == CursorKind.MEMBER_REF: # but take note of member initializers
-            parsed_members.append(c)
-            continue
-        if c.kind == CursorKind.CALL_EXPR: # and the second part of the initializer
-            continue
-        # First generic child found, probably COMPOUND_STMT. Stop searching before this point
-        last_pos = [c.location.line, c.location.column - 1]
-        break
-    found_colon = False
+def ctor_base_args(ctor, bases={}, debug=False):
+    # Clang parses base constructor arguments only as a series of tokens
+    # So crudely parse those tokens
+    # Bar(carg1, carg2) : public Base(barg1, barg2), foo(3), baz("Hey!") {schwing();}
+    # this method should generate the "barg1, barg2", if any
+    # use a state machine
+    state = "pre-colon"
     paren_level = 0
-    initializers = []
-    for t in cursor.get_tokens():
-        if t.location.line < first_pos[0]:
-            continue
-        if t.location.line > last_pos[0]:
-            break
-        if t.location.line == first_pos[0] and t.location.column < first_pos[1]:
-            continue
-        if t.location.line == last_pos[0] and t.location.column > last_pos[1]:
-            break
-        if not found_colon and t.kind == TokenKind.PUNCTUATION and t.spelling == ":":
-            found_colon = True
-            initializers.append([])
-            continue
-        if not found_colon:
-            continue
-        # inside parentheses, anything can happen, without advancing to the next initializer
-        if t.kind == TokenKind.PUNCTUATION and t.spelling == "(":
-            paren_level += 1
-        if t.kind == TokenKind.PUNCTUATION and t.spelling == ")":
-            paren_level -= 1
-        # Commas signal separate initializers
-        if paren_level == 0 and t.kind == TokenKind.PUNCTUATION and t.spelling == ",":
-            initializers.append([])
-            continue
-        # If we get this far, the current token belongs in the current intializier
-        initializers[-1].append(t)
-    result = ""
-    # Emit one initializer per line
-    for i in initializers:
-        if len(i) < 1:
-            continue
-        result += indent(cursor)
-        # Separate stuff before parentheses from after parentheses
-        if i[-1].spelling != ")":
-            print i[-1].kind, i[-1].spelling
-            raise Exception("Hey!, I expected a parenthesis there!")
-        # find first parenthesis
-        pre_paren = []
-        in_paren = []
-        found_paren = False
-        for tok in i[:-1]:
-            if not found_paren and tok.spelling == "(":
-                found_paren = True
-                continue
-            if found_paren:
-                in_paren.append(tok)
-            else:
-                pre_paren.append(tok)
-        field = translate_tokens(pre_paren)
-        value = translate_tokens(in_paren)
-        # Is it a field or a base initializer?
-        if (field in [c.spelling for c in parsed_members]):
-            # Field initializer
-            result += "self."+field+" = "+value
-        else:
-            # Assume base class initializer
-            result += field+".__init__(self, "+value+")"
-        result += "\n"
-    return result
+    for nibble in ctor.get_child_nibbles():
+        if state == "pre-colon":
+            if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == ":":
+                state = "pre-paren"
+        elif state == "pre-paren":
+            if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == "(":
+                state = "base-args"
+                paren_level = 1
+            elif nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == ",":
+                break # no arguments to parse
+            elif isinstance(nibble, CursorNibble):
+                break # no arguments to parse
+        elif state == "base-args":
+            if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == "(":
+                paren_level += 1
+            elif nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == ")":
+                paren_level -= 1
+            if paren_level < 1:
+                break # Done with argument parsing
+            for py_string in nibble.get_py_strings():
+                yield py_string
+    
 
-def ctor_nodes(cursor):
+def ctor_nodes(cursor, debug=False):
     "Avoid child nodes that cause trouble for constructor"
     for child in cursor.get_children():
         if child.kind == CursorKind.MEMBER_REF:
@@ -527,122 +424,177 @@ def ctor_nodes(cursor):
             continue
         yield child
 
-def cursor_all_strings(cursor):
+
+def cursor_all_strings(cursor, debug=False):
     for py_string in cursor.get_all_strings():
         yield py_string
 
-def debug(cursor):
-    yield str(cursor.kind)
 
-def dec_indent(cursor):
-    global indent_level
-    indent_level -= INDENT_SIZE
-    return []
+def cursor_compound_child(cursor, debug=False):
+    for child in cursor.get_child_nibbles():
+        if child.kind == CursorKind.COMPOUND_STMT:
+            for py_string in child.get_py_strings(debug=debug):
+                yield py_string
+            return
 
-def displayname(cursor):
+
+def cursor_constructor(ctor, class_name, fields=None, bases=None, debug=False):
+    yield '\n'
+    yield "def __init__(self"
+    for arg in ctor.get_child_cursors():
+        if not arg.kind == CursorKind.PARM_DECL:
+            continue
+        yield ", "
+        yield arg.spelling
+        # TODO: default parameter values
+    yield "):"
+    inc_indent()
+    yield "\n"
+    # Base initalizer
+    yield 'super('
+    yield class_name
+    yield', self).__init__('
+    # TODO: use correct base initializer arguments
+    for py_string in ctor_base_args(ctor, bases=bases):
+        yield py_string
+    yield ')'
+    yield '\n'
+    # Emit one line of code for each member field initializer
+    # First visit all explicit field initializers in this constructor,
+    # and store the initialization value
+    init_args = dict()
+    for child in ctor.get_child_cursors():
+        if child.kind != CursorKind.CALL_EXPR:
+            continue
+        init = list(child.get_child_nibbles())
+        ident = str(init[0].spelling)
+        if ident in fields:
+            field = fields[ident]
+            val = init[2] # trim initial id and open paren
+            strings = list(val.get_py_strings())
+            args = strings[:-1] # trim final close paren
+            init_args[ident] = args
+    # Emit field initializers one by one
+    for ident, field in fields.iteritems():
+        yield "self."
+        yield ident         
+        yield " = "
+        # Field constructors
+        # A) Explicit field initializer...
+        if ident in init_args:
+            for py_string in init_args[ident]:
+                yield py_string
+        else: # ...or B) Default constructor using field type
+            for py_string in field_type(field):
+                yield py_string
+                yield '('
+                yield ')'
+        yield '\n'
+    # Emit remainder of constructor code
+    for py_string in cursor_compound_child(ctor, debug):
+        yield py_string
+    dec_indent()
+    
+    
+def cursor_first_tokens(cursor):
+    for child in cursor.get_child_nibbles():
+        if isinstance(child, TokenNibble):
+            yield child
+        else:
+            break
+        
+
+def debug_nibble(self, debug=True):
+    yield str(self.kind)
+    yield str(self.location.line)
+    yield "."
+    yield str(self.location.column)
+    yield '-'
+    yield str(self.end.line)
+    yield "."
+    yield str(self.end.col)
+    yield "["
+    for py_string in self.get_all_strings(debug=True):
+            yield py_string
+    yield "]"
+
+
+def dec_indent(cursor=None, debug=False):
+    global CURRENT_INDENT
+    CURRENT_INDENT -= INDENT_SIZE
+    if CURRENT_INDENT < 0:
+        raise Exception("Hey! indent should not be negative, but is")
+    return ''
+
+
+def displayname(cursor, debug=False):
     yield cursor.displayname
     
-main_file = None
-indent_level = 0
-def filter_by_file(cursor):
-    for child in cursor.get_children():
-        if str(child.location.file) != main_file:
+
+def field_identifier(field, debug=False):
+    for child in field.get_child_nibbles():
+        if child.kind == TokenKind.IDENTIFIER:
+            for py_string in child.get_py_strings(debug):
+                yield py_string
+
+
+def field_type(field, debug=False):
+    for child in field.get_child_nibbles():
+        if child.kind == TokenKind.IDENTIFIER:
             continue
-        yield child
+        if child.kind == TokenKind.PUNCTUATION and child.spelling == ";":
+            continue
+        for py_string in child.get_py_strings(debug):
+            yield py_string
 
-def first_token(cursor):
-    token = cursor.get_tokens().next()
-    yield translate_token(token)
 
-def first_node(cursor):
-    for child in cursor.get_children():
-        yield child
-        break
-    
-def inc_indent(cursor):
-    global indent_level
-    indent_level += INDENT_SIZE
-    return []
+def inc_indent(cursor=None, debug=False):
+    global CURRENT_INDENT
+    CURRENT_INDENT += INDENT_SIZE
+    return ''
         
-def indent(cursor):
-    return " "*indent_level
 
-def kind(cursor):
+def kind(cursor, debug=False):
     return str(cursor.kind)
 
 
-def location(nibble):
+def location(nibble, debug=False):
     return nibble.location
 
 
-def matching_child(cursor):
-    for c in cursor.get_children():
-        if c.spelling == cursor.spelling:
-            yield c
-    
-    
-def nodes_and_tokens(cursor):
-    children = cursor.get_children()
-    tokens = cursor.get_tokens()
-    try:
-        t = tokens.next()
-    except StopIteration:
-        t = None
-    for c in children:
-        # Emit tokens preceding child
-        l1 = c.extent.start.line
-        c1 = c.extent.start.column
-        while token_precedes(t, l1, c1):
-            yield string_for_token(t)
-            try:
-                t = tokens.next()        
-            except StopIteration:
-                t = None
-        yield c
-        # Discard tokens inside child
-        l1 = c.extent.end.line
-        c1 = c.extent.end.column + 1
-        while token_precedes(t, l1, c1):
-            try:
-                t = tokens.next()        
-            except StopIteration:
-                t = None
-        l0 = l1
-        c0 = c1
-    l1 = cursor.extent.end.line
-    c1 = cursor.extent.end.column + 1
-    while token_precedes(t, l1, c1):
-        yield string_for_token(t)
-        try:
-            t = tokens.next()        
-        except StopIteration:
-            t = None
+def method_name(method, debug=False):
+    if method.spelling in method_translator:
+        yield method_translator[method.spelling]
+    else:
+        yield method.spelling
 
-def non_first_nodes(cursor):
-    saw_first = False
-    for child in cursor.get_children():
-        if not saw_first:
-            saw_first = True
+
+def params(cursor, debug=False):
+    first_arg = True
+    for arg in cursor.get_child_cursors():
+        if not arg.kind == CursorKind.PARM_DECL:
             continue
-        yield child
-    
+        if not first_arg:
+            yield ", "
+        yield arg.spelling
+        first_arg = False
+        # TODO: default parameter values
 
-def show_whole_structure(cursor, my_indent=indent_level):
-    result = " "*my_indent + "%s:%s:%s\n" % (cursor.kind, cursor.spelling, cursor.displayname)
-    for child in cursor.get_children():
-        result += show_whole_structure(child, my_indent + 4)
-    return result
 
-    
-def spelling(cursor):
+def params_with_self(cursor, debug=False):
+    yield "self"
+    for arg in cursor.get_child_cursors():
+        if not arg.kind == CursorKind.PARM_DECL:
+            continue
+        yield ", "
+        yield arg.spelling
+        # TODO: default parameter values
+
+
+def spelling(cursor, debug=False):
     return cursor.spelling    
 
 
-def string_for_token(token):
-    # return "%s'%s'" % (token.kind, token.spelling)
-    return translate_token(token)
-    
-    
 def token_precedes(token, line1, col1):
     if token is None:
         return False
@@ -654,46 +606,7 @@ def token_precedes(token, line1, col1):
         return False
 
 
-def translate_method(cursor):
-    if cursor.spelling in method_translator:
-        return method_translator[cursor.spelling]
-    return cursor.spelling
-
- 
-def translate_token(token):
-    if token.kind == TokenKind.PUNCTUATION:
-        if token.spelling in punctuation_translator:
-            return punctuation_translator[token.spelling]
-    if token.kind == TokenKind.KEYWORD:
-        if token.spelling in keyword_translator:
-            return keyword_translator[token.spelling]
-    return token.spelling
-
-def translate_tokens(tokens):
-    result = ""
-    for t in tokens:
-        result += translate_token(t)
-    return result
-
-
-def string_for_cursor(cursor):
-    if isinstance(cursor, basestring):
-        return cursor # It's already a string
-    try:
-        rules = cursor_sequence[cursor.kind]
-    except KeyError: # ...undocumented cursor type...?
-        rules = default_sequence
-    result = ""
-    for r in rules:
-        if isinstance(r, basestring):
-            result += r
-        else:
-            for child in r(cursor):
-                result += string_for_cursor(child)
-    return result
-    
-
-def token_comment(token, indent=0):
+def token_comment(token, indent=0, debug=False):
     c = str(token.spelling)
     if c.startswith('/*'):
         c = re.sub(r'^/\*', '#', c)
@@ -702,14 +615,14 @@ def token_comment(token, indent=0):
             yield line
             yield '\n'
     elif c.startswith("//"):
-        c = re.sub(r"^//", "##", c)
+        c = re.sub(r"^//", "#", c)
         yield c
         yield '\n'
     else:
         raise "Unexpected comment %s" % token.spelling
 
 
-def token_keyword(token):
+def token_keyword(token, debug=False):
     if token.spelling in keyword_translator:
         yield keyword_translator[token.spelling]
     else:
@@ -717,20 +630,73 @@ def token_keyword(token):
         yield ' '
 
 
-def token_punctuation(token, indent=0):
+def token_punctuation(token, indent=0, debug=False):
     if token.spelling in punctuation_translator:
         yield punctuation_translator[token.spelling]
     else:
         yield token.spelling
         
-                
+        
+def decl_stmt(cursor, debug=False):
+    # Three types of variable declarations:
+    # A) type foo;
+    # B) type foo(args);
+    # C) type foo = <whatever>;
+    found_equals = False
+    var_decl = None
+    after_equals = []
+    for nibble in cursor.get_child_nibbles():
+        if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == "=":
+            found_equals = True # Case C
+            continue
+        if var_decl is None and nibble.kind == CursorKind.VAR_DECL:
+            var_decl = nibble
+        if found_equals:
+            after_equals.append(nibble)
+    yield var_decl.spelling
+    yield ' = '
+    # Case C
+    if len(after_equals) > 0:
+        for nibble in after_equals:
+            for py_string in nibble.get_py_strings():
+                yield py_string
+    else:
+        found_call = False
+        for nibble in var_decl.get_child_cursors():
+            if nibble.kind == CursorKind.CALL_EXPR:
+                found_call = True
+                # Print contents without identifier
+                yield '('
+                for subnibble in nibble.get_child_cursors():
+                    if subnibble.kind == TokenKind.IDENTIFIER: # Don't repeat variable name
+                        continue
+                    else:
+                        for py_string in subnibble.get_py_strings():
+                            yield py_string
+            else:
+                for py_string in nibble.get_py_strings():
+                    yield py_string
+        if not found_call:
+            yield '()' # case A
+
+            
 rules = {
     CursorKind.CLASS_DECL: [
-            '\n', '\n', 
+            '\n\n\n', 
             'class', ' ', spelling, '(',
             class_bases,
-            ')', ':', '\n',
-            cursor_all_strings],
+            ')', ':', 
+            inc_indent,
+            '\n',
+            class_constructors,
+            class_contents,
+            dec_indent,],
+    CursorKind.CXX_METHOD: ['\n\n', "def ", method_name, "(", params_with_self, "):", 
+            inc_indent, "\n", cursor_compound_child, dec_indent,],
+    CursorKind.DECL_STMT: [decl_stmt, '\n'],
+    CursorKind.FUNCTION_DECL: ['\n\n', "def ", spelling, "(", params, ")", ":", 
+            inc_indent, "\n", cursor_compound_child, dec_indent,],
+    CursorKind.VAR_DECL: [spelling, ' = ', debug_nibble],
     TokenKind.COMMENT: [token_comment],
     TokenKind.KEYWORD: [token_keyword],
     TokenKind.PUNCTUATION: [token_punctuation],
