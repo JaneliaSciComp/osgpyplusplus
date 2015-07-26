@@ -691,17 +691,24 @@ def decl_stmt(cursor, debug=False):
     # A) type foo;
     # B) type foo(args);
     # C) type foo = <whatever>;
+    # Is there an equals sign?
     found_equals = False
     var_decl = None
     after_equals = []
+    type_nibbles = []
     for nibble in cursor.get_child_nibbles():
         if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == "=":
             found_equals = True # Case C
-            continue
-        if var_decl is None and nibble.kind == CursorKind.VAR_DECL:
-            var_decl = nibble
-        if found_equals:
+        elif var_decl is None:
+            if nibble.kind == CursorKind.VAR_DECL:
+                var_decl = nibble
+            else:
+                type_nibbles.append(nibble)
+        elif found_equals:
             after_equals.append(nibble)
+    if len(type_nibbles) < 1:
+        pass
+        # Maybe the var_decl contains another var_decl
     yield var_decl.spelling
     yield ' = '
     # Case C
@@ -743,11 +750,11 @@ rules = {
             dec_indent,],
     CursorKind.CXX_METHOD: ['\n\n', "def ", method_name, "(", params_with_self, "):", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
-    CursorKind.DECL_STMT: [decl_stmt, '\n'],
+    CursorKind.DECL_STMT: [decl_stmt, '\n', debug_nibble],
     CursorKind.FUNCTION_DECL: ['\n\n', "def ", spelling, "(", params, ")", ":", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
     CursorKind.IF_STMT: ["if ", if_conditional, ":", inc_indent, "\n", if_consequence, dec_indent, '\n'],
-    CursorKind.VAR_DECL: [spelling, ' = ', debug_nibble],
+    CursorKind.VAR_DECL: [],
     TokenKind.COMMENT: [token_comment],
     TokenKind.KEYWORD: [token_keyword],
     TokenKind.PUNCTUATION: [token_punctuation],
