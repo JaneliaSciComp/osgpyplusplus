@@ -349,12 +349,18 @@ def call_expression(cursor, debug=False):
         # yield "not "
         pass
     else:
-        for c in prefix:
-            for py_string in c.get_py_strings():
+            for c in prefix:
+                for py_string in c.get_py_strings(debug):
+                    yield py_string
+    if len(contents) < 1:
+        pass
+    # Skip initial part of variable declaration with "new"
+    elif contents[-1].kind == TokenKind.PUNCTUATION and contents[-1].spelling == "=":
+        pass
+    else:
+        for c in contents:
+            for py_string in c.get_py_strings(debug):
                 yield py_string
-    for c in contents:
-        for py_string in c.get_py_strings():
-            yield py_string
 
 
 def class_bases(class_cursor, debug=False):
@@ -687,41 +693,51 @@ def token_punctuation(token, indent=0, debug=False):
         
         
 def decl_stmt(cursor, debug=False):
-    # Three types of variable declarations:
-    # A) type foo;
-    # B) type foo(args);
-    # C) type foo = <whatever>;
+    """
+    # Four types of variable declarations:
+    A) type foo; // ==> foo = type()
+    B) type foo(args); // ==> foo = type(args)
+    C) type foo = <whatever>; // ==> foo = <whatever>
+    D) type1 foo = new type2; // ==> foo = type2()
+    """
     # Is there an equals sign?
     found_equals = False
     var_decl = None
     after_equals = []
+    equals_token = None
+    for token in cursor.get_child_tokens(): # Look in ALL tokens for equals sign
+        if token.kind == TokenKind.PUNCTUATION and token.spelling == "=":
+            found_equals = True # Case C
+            equals_token = token
+    # 
     type_nibbles = []
     for nibble in cursor.get_child_nibbles():
-        if nibble.kind == TokenKind.PUNCTUATION and nibble.spelling == "=":
-            found_equals = True # Case C
-        elif var_decl is None:
+        if var_decl is None:
             if nibble.kind == CursorKind.VAR_DECL:
                 var_decl = nibble
             else:
                 type_nibbles.append(nibble)
-        elif found_equals:
+        elif found_equals and nibble > equals_token:
             after_equals.append(nibble)
-    if len(type_nibbles) < 1:
-        pass
-        # Maybe the var_decl contains another var_decl
     yield var_decl.spelling
     yield ' = '
     # Case C
     if len(after_equals) > 0:
+        # yield "Case 'C': "
         for nibble in after_equals:
             for py_string in nibble.get_py_strings():
                 yield py_string
+    elif found_equals:
+        final_nibble = list(var_decl.get_child_nibbles())[-1]
+        for py_string in final_nibble.get_py_strings():
+            yield py_string
     else:
         found_call = False
         for nibble in var_decl.get_child_cursors():
             if nibble.kind == CursorKind.CALL_EXPR:
                 found_call = True
                 # Print contents without identifier
+                # yield "Case 'B': "
                 yield '('
                 for subnibble in nibble.get_child_cursors():
                     if subnibble.kind == TokenKind.IDENTIFIER: # Don't repeat variable name
@@ -733,6 +749,7 @@ def decl_stmt(cursor, debug=False):
                 for py_string in nibble.get_py_strings():
                     yield py_string
         if not found_call:
+            # yield "Case 'A': "
             yield '()' # case A
 
             
@@ -750,11 +767,13 @@ rules = {
             dec_indent,],
     CursorKind.CXX_METHOD: ['\n\n', "def ", method_name, "(", params_with_self, "):", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
-    CursorKind.DECL_STMT: [decl_stmt, '\n', debug_nibble],
+    CursorKind.DECL_STMT: [decl_stmt, '\n', 
+                           # debug_nibble, 
+                           ],
     CursorKind.FUNCTION_DECL: ['\n\n', "def ", spelling, "(", params, ")", ":", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
     CursorKind.IF_STMT: ["if ", if_conditional, ":", inc_indent, "\n", if_consequence, dec_indent, '\n'],
-    CursorKind.VAR_DECL: [],
+    # CursorKind.VAR_DECL: [],
     TokenKind.COMMENT: [token_comment],
     TokenKind.KEYWORD: [token_keyword],
     TokenKind.PUNCTUATION: [token_punctuation],
@@ -762,8 +781,8 @@ rules = {
 
 
 def main():
-    # osg_src_dir = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/"
-    osg_src_dir = "C:/Users/cmbruns/git/osg/"
+    osg_src_dir = "F:/Users/cmbruns/build/OpenSceneGraph-3.2.1/OpenSceneGraph-3.2.1/"
+    # osg_src_dir = "C:/Users/cmbruns/git/osg/"
     examples_src = osg_src_dir + "examples/"
     osg_includes = osg_src_dir + "include/"
     src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
