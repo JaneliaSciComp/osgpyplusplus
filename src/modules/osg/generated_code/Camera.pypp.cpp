@@ -1767,7 +1767,7 @@ void register_Camera_class(){
                 "setFinalDrawCallback"
                 , setFinalDrawCallback_function_type( &::osg::Camera::setFinalDrawCallback )
                 , ( bp::arg("cb") )
-                , bp::with_custodian_and_ward_postcall< 2, 1 >()
+                , bp::with_custodian_and_ward< 2, 1 >()
                 , " Set the final draw callback for custom operations to be done after the drawing of the cameras subgraph and all of the post render stages has been completed." );
         
         }

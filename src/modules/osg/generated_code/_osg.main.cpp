@@ -1407,15 +1407,21 @@ BOOST_PYTHON_MODULE(_osg){
 
     boost::python::scope().attr("GL_CLIP_PLANE5") = GL_CLIP_PLANE5;
 
+    boost::python::scope().attr("GL_COLOR_BUFFER_BIT") = GL_COLOR_BUFFER_BIT;
+
     boost::python::scope().attr("GL_COLOR_LOGIC_OP") = GL_COLOR_LOGIC_OP;
 
     boost::python::scope().attr("GL_COLOR_MATERIAL") = GL_COLOR_MATERIAL;
 
     boost::python::scope().attr("GL_CULL_FACE") = GL_CULL_FACE;
 
+    boost::python::scope().attr("GL_DEPTH_BUFFER_BIT") = GL_DEPTH_BUFFER_BIT;
+
     boost::python::scope().attr("GL_DEPTH_TEST") = GL_DEPTH_TEST;
 
     boost::python::scope().attr("GL_DITHER") = GL_DITHER;
+
+    boost::python::scope().attr("GL_FLOAT") = GL_FLOAT;
 
     boost::python::scope().attr("GL_FOG") = GL_FOG;
 
@@ -1492,6 +1498,10 @@ BOOST_PYTHON_MODULE(_osg){
     boost::python::scope().attr("GL_POLYGON_SMOOTH") = GL_POLYGON_SMOOTH;
 
     boost::python::scope().attr("GL_POLYGON_STIPPLE") = GL_POLYGON_STIPPLE;
+
+    boost::python::scope().attr("GL_RGBA") = GL_RGBA;
+
+    boost::python::scope().attr("GL_RGBA32F_ARB") = GL_RGBA32F_ARB;
 
     boost::python::scope().attr("GL_SCISSOR_TEST") = GL_SCISSOR_TEST;
 
