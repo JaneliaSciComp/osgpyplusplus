@@ -186,6 +186,7 @@ add_subdirectory(osgGA)
 add_subdirectory(osgViewer)
 add_subdirectory(osgManipulator)
 add_subdirectory(osgWidget)
+add_subdirectory(osgFX)
 
 # InstallOsgPyPPLocally is used as a prerequisite for unit tests
 add_custom_target(InstallOsgPyPPLocally DEPENDS 

@@ -623,6 +623,26 @@ def method_name(method, debug=False):
     else:
         yield method.spelling
 
+def new_expr(expr, debug=False):
+    found_semicolon = None
+    for nibble in expr.get_child_nibbles():
+        if nibble.kind == CursorKind.TYPE_REF:
+            for subnibble in nibble.get_child_nibbles():
+                # Postpone semicolon, which becomes a newline, to the end
+                if subnibble.kind == TokenKind.PUNCTUATION and subnibble.spelling == ";":
+                    found_semicolon = subnibble
+                else:
+                    for py_string in subnibble.get_py_strings():
+                        yield py_string
+        elif nibble.kind == CursorKind.CALL_EXPR:
+            pass
+        else:
+            for s in nibble.get_py_strings():
+                yield s
+    # If we saw a semicolon, emit it at the end
+    if found_semicolon is not None:
+        for s in token_punctuation(found_semicolon, debug):
+            yield s
 
 def params(cursor, debug=False):
     first_arg = True
@@ -685,7 +705,7 @@ def token_keyword(token, debug=False):
         yield ' '
 
 
-def token_punctuation(token, indent=0, debug=False):
+def token_punctuation(token, debug=False):
     if token.spelling in punctuation_translator:
         yield punctuation_translator[token.spelling]
     else:
@@ -723,11 +743,12 @@ def decl_stmt(cursor, debug=False):
     yield ' = '
     # Case C
     if len(after_equals) > 0:
-        # yield "Case 'C': "
+        yield "Case 'C': "
         for nibble in after_equals:
             for py_string in nibble.get_py_strings():
                 yield py_string
     elif found_equals:
+        yield "Case D: "
         final_nibble = list(var_decl.get_child_nibbles())[-1]
         for py_string in final_nibble.get_py_strings():
             yield py_string
@@ -737,7 +758,7 @@ def decl_stmt(cursor, debug=False):
             if nibble.kind == CursorKind.CALL_EXPR:
                 found_call = True
                 # Print contents without identifier
-                # yield "Case 'B': "
+                yield "Case 'B': "
                 yield '('
                 for subnibble in nibble.get_child_cursors():
                     if subnibble.kind == TokenKind.IDENTIFIER: # Don't repeat variable name
@@ -749,13 +770,13 @@ def decl_stmt(cursor, debug=False):
                 for py_string in nibble.get_py_strings():
                     yield py_string
         if not found_call:
-            # yield "Case 'A': "
+            yield "Case 'A': "
             yield '()' # case A
 
             
 rules = {
-        CursorKind.CALL_EXPR: [call_expression],
-        CursorKind.CLASS_DECL: [
+    CursorKind.CALL_EXPR: [call_expression],
+    CursorKind.CLASS_DECL: [
             '\n\n\n', 
             'class', ' ', spelling, '(',
             class_bases,
@@ -767,12 +788,14 @@ rules = {
             dec_indent,],
     CursorKind.CXX_METHOD: ['\n\n', "def ", method_name, "(", params_with_self, "):", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
+    # CursorKind.CXX_NEW_EXPR: [new_expr, debug_nibble],
     CursorKind.DECL_STMT: [decl_stmt, '\n', 
                            # debug_nibble, 
                            ],
     CursorKind.FUNCTION_DECL: ['\n\n', "def ", spelling, "(", params, ")", ":", 
             inc_indent, "\n", cursor_compound_child, dec_indent,],
     CursorKind.IF_STMT: ["if ", if_conditional, ":", inc_indent, "\n", if_consequence, dec_indent, '\n'],
+    CursorKind.CXX_NEW_EXPR: [],
     # CursorKind.VAR_DECL: [],
     TokenKind.COMMENT: [token_comment],
     TokenKind.KEYWORD: [token_keyword],
@@ -785,7 +808,8 @@ def main():
     # osg_src_dir = "C:/Users/cmbruns/git/osg/"
     examples_src = osg_src_dir + "examples/"
     osg_includes = osg_src_dir + "include/"
-    src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
+    # src_file = examples_src + "/osggraphicscost/osggraphicscost.cpp"
+    src_file = examples_src + "/osggraphicscost/test.cpp"
 
     args = ["-I%s"%osg_includes, '-x', 'c++', '-D__CODE_GENERATOR__']
     translated_program = TranslatedPyProgram([src_file,], args=args)

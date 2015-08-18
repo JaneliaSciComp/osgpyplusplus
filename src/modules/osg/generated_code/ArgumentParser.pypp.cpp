@@ -21,6 +21,21 @@ boost::shared_ptr<osg::ArgumentParser> initArgumentParser( bp::object const & sy
                 return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
             }
 
+            boost::shared_ptr<osg::ArgumentParser> initArgumentParser2( int argc0, bp::object const & sys_argv )
+            {
+                int * argc = new int(argc0);
+                char ** argv = new char*[argc0];
+                for (int i = 0; i < argc0; ++i) {
+                    std::string str = bp::extract<std::string>(sys_argv[i]);
+                    int sz = str.size();
+                    argv[i] = new char[sz+1];
+                    argv[i][sz] = '\0'; // null terminate string
+                    for (int c = 0; c < sz; ++c)
+                        argv[i][c] = str[c];
+                }
+                return boost::shared_ptr<osg::ArgumentParser>(new osg::ArgumentParser(argc, argv) );
+            }
+
             std::string getArgumentParserItem(const osg::ArgumentParser& ap, int index) {
                 return std::string(ap[index]);
             }
@@ -527,6 +542,7 @@ void register_ArgumentParser_class(){
         ArgumentParser_exposer.staticmethod( "isOptionStr" );
         ArgumentParser_exposer.staticmethod( "isString" );
         ArgumentParser_exposer.def( "__init__", bp::make_constructor( &initArgumentParser ) );
+        ArgumentParser_exposer.def( "__init__", bp::make_constructor( &initArgumentParser2 ) );
         ArgumentParser_exposer.def( "__getitem__", &getArgumentParserItem );
     }
 
