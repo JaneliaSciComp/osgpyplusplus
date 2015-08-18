@@ -84,12 +84,23 @@ class OsgDBWrapper(BaseWrapper):
             for fn in mb.free_functions(fn_name):
                 fn.call_policies = return_value_policy(reference_existing_object)
         mb.free_functions("fopen").exclude()
-        mb.free_functions("writeShaderFile").exclude()
-        mb.free_functions("writeImageFile").exclude()
-        mb.free_functions("writeNodeFile").exclude()
-        mb.free_functions("writeObjectFile").exclude()
-        mb.free_functions("writeShaderFile").exclude()
-        mb.free_functions("writeHeightFieldFile").exclude()
+        # mb.free_functions("writeShaderFile").exclude()
+        # mb.free_functions("writeImageFile").exclude()
+        # mb.free_functions("writeNodeFile").exclude()
+        # mb.free_functions("writeObjectFile").exclude()
+        # mb.free_functions("writeShaderFile").exclude()
+        # mb.free_functions("writeHeightFieldFile").exclude()
+
+        for fn_name in [
+                "writeHeightFieldFile", 
+                "writeImageFile", 
+                "writeNodeFile", 
+                "writeObjectFile", 
+                "writeShaderFile", 
+                ]:
+            for fn in mb.free_functions(fn_name):
+                fn.add_transformation(FT.modify_type(0, remove_const_from_reference))
+                fn.transformations[-1].alias = fn.alias
         
         # Exclude difficult classes for now
         for cls_name in [

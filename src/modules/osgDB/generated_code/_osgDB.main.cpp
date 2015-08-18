@@ -150,6 +150,56 @@
 
 namespace bp = boost::python;
 
+static boost::python::object writeHeightFieldFile_a4d0ffa9adfdd6e0112de20aadb853a0( ::osg::HeightField & hf, ::std::string const & filename ){
+    bool result = ::osgDB::writeHeightFieldFile(hf, filename);
+    return bp::object( result );
+}
+
+static boost::python::object writeHeightFieldFile_3110a869fbf62205f51b9a799e26845a( ::osg::HeightField & hf, ::std::string const & filename, ::osgDB::Options const * options ){
+    bool result = ::osgDB::writeHeightFieldFile(hf, filename, options);
+    return bp::object( result );
+}
+
+static boost::python::object writeImageFile_0572104a58011a7ddd41dfa1f9bb94d5( ::osg::Image & image, ::std::string const & filename ){
+    bool result = ::osgDB::writeImageFile(image, filename);
+    return bp::object( result );
+}
+
+static boost::python::object writeImageFile_10f8a171de3b3be3a44fc24113a5a5cb( ::osg::Image & image, ::std::string const & filename, ::osgDB::Options const * options ){
+    bool result = ::osgDB::writeImageFile(image, filename, options);
+    return bp::object( result );
+}
+
+static boost::python::object writeNodeFile_8e6b8986ff55b2fc734915c1e71ed28e( ::osg::Node & node, ::std::string const & filename ){
+    bool result = ::osgDB::writeNodeFile(node, filename);
+    return bp::object( result );
+}
+
+static boost::python::object writeNodeFile_94aad5feb87f445a8c9bd1d76feb7d39( ::osg::Node & node, ::std::string const & filename, ::osgDB::Options const * options ){
+    bool result = ::osgDB::writeNodeFile(node, filename, options);
+    return bp::object( result );
+}
+
+static boost::python::object writeObjectFile_f3d04fbc6184fc75bcfe72d1c88bb571( ::osg::Object & object, ::std::string const & filename ){
+    bool result = ::osgDB::writeObjectFile(object, filename);
+    return bp::object( result );
+}
+
+static boost::python::object writeObjectFile_b8b4a6539851c2a57a9019eda3ddb0d8( ::osg::Object & object, ::std::string const & filename, ::osgDB::Options const * options ){
+    bool result = ::osgDB::writeObjectFile(object, filename, options);
+    return bp::object( result );
+}
+
+static boost::python::object writeShaderFile_b068de8e0814ec3d353252d0f4b46083( ::osg::Shader & shader, ::std::string const & filename ){
+    bool result = ::osgDB::writeShaderFile(shader, filename);
+    return bp::object( result );
+}
+
+static boost::python::object writeShaderFile_61b1f8ccbf43222c0a979526c16e13b2( ::osg::Shader & shader, ::std::string const & filename, ::osgDB::Options const * options ){
+    bool result = ::osgDB::writeShaderFile(shader, filename, options);
+    return bp::object( result );
+}
+
 BOOST_PYTHON_MODULE(_osgDB){
     register_enumerations();
 
@@ -276,6 +326,116 @@ BOOST_PYTHON_MODULE(_osgDB){
     register_basic_type_wrapper_class();
 
     register_ifstream_class();
+
+    { //::osgDB::writeHeightFieldFile
+    
+        typedef boost::python::object ( *writeHeightFieldFile_function_type )( ::osg::HeightField &,::std::string const & );
+        
+        bp::def( 
+            "writeHeightFieldFile"
+            , writeHeightFieldFile_function_type( &writeHeightFieldFile_a4d0ffa9adfdd6e0112de20aadb853a0 )
+            , ( bp::arg("hf"), bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::writeHeightFieldFile
+    
+        typedef boost::python::object ( *writeHeightFieldFile_function_type )( ::osg::HeightField &,::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "writeHeightFieldFile"
+            , writeHeightFieldFile_function_type( &writeHeightFieldFile_3110a869fbf62205f51b9a799e26845a )
+            , ( bp::arg("hf"), bp::arg("filename"), bp::arg("options") ) );
+    
+    }
+
+    { //::osgDB::writeImageFile
+    
+        typedef boost::python::object ( *writeImageFile_function_type )( ::osg::Image &,::std::string const & );
+        
+        bp::def( 
+            "writeImageFile"
+            , writeImageFile_function_type( &writeImageFile_0572104a58011a7ddd41dfa1f9bb94d5 )
+            , ( bp::arg("image"), bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::writeImageFile
+    
+        typedef boost::python::object ( *writeImageFile_function_type )( ::osg::Image &,::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "writeImageFile"
+            , writeImageFile_function_type( &writeImageFile_10f8a171de3b3be3a44fc24113a5a5cb )
+            , ( bp::arg("image"), bp::arg("filename"), bp::arg("options") ) );
+    
+    }
+
+    { //::osgDB::writeNodeFile
+    
+        typedef boost::python::object ( *writeNodeFile_function_type )( ::osg::Node &,::std::string const & );
+        
+        bp::def( 
+            "writeNodeFile"
+            , writeNodeFile_function_type( &writeNodeFile_8e6b8986ff55b2fc734915c1e71ed28e )
+            , ( bp::arg("node"), bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::writeNodeFile
+    
+        typedef boost::python::object ( *writeNodeFile_function_type )( ::osg::Node &,::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "writeNodeFile"
+            , writeNodeFile_function_type( &writeNodeFile_94aad5feb87f445a8c9bd1d76feb7d39 )
+            , ( bp::arg("node"), bp::arg("filename"), bp::arg("options") ) );
+    
+    }
+
+    { //::osgDB::writeObjectFile
+    
+        typedef boost::python::object ( *writeObjectFile_function_type )( ::osg::Object &,::std::string const & );
+        
+        bp::def( 
+            "writeObjectFile"
+            , writeObjectFile_function_type( &writeObjectFile_f3d04fbc6184fc75bcfe72d1c88bb571 )
+            , ( bp::arg("object"), bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::writeObjectFile
+    
+        typedef boost::python::object ( *writeObjectFile_function_type )( ::osg::Object &,::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "writeObjectFile"
+            , writeObjectFile_function_type( &writeObjectFile_b8b4a6539851c2a57a9019eda3ddb0d8 )
+            , ( bp::arg("object"), bp::arg("filename"), bp::arg("options") ) );
+    
+    }
+
+    { //::osgDB::writeShaderFile
+    
+        typedef boost::python::object ( *writeShaderFile_function_type )( ::osg::Shader &,::std::string const & );
+        
+        bp::def( 
+            "writeShaderFile"
+            , writeShaderFile_function_type( &writeShaderFile_b068de8e0814ec3d353252d0f4b46083 )
+            , ( bp::arg("shader"), bp::arg("filename") ) );
+    
+    }
+
+    { //::osgDB::writeShaderFile
+    
+        typedef boost::python::object ( *writeShaderFile_function_type )( ::osg::Shader &,::std::string const &,::osgDB::Options const * );
+        
+        bp::def( 
+            "writeShaderFile"
+            , writeShaderFile_function_type( &writeShaderFile_61b1f8ccbf43222c0a979526c16e13b2 )
+            , ( bp::arg("shader"), bp::arg("filename"), bp::arg("options") ) );
+    
+    }
 
     register_global_variables();
 

@@ -1389,6 +1389,48 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_pair_double_class();
 
+    boost::python::scope().attr("GL_UNSIGNED_BYTE") = GL_UNSIGNED_BYTE;
+
+    boost::python::scope().attr("GL_BYTE") = GL_BYTE;
+
+    boost::python::scope().attr("GL_UNSIGNED_SHORT") = GL_UNSIGNED_SHORT;
+
+    boost::python::scope().attr("GL_SHORT") = GL_SHORT;
+
+    boost::python::scope().attr("GL_UNSIGNED_INT") = GL_UNSIGNED_INT;
+
+    boost::python::scope().attr("GL_INT") = GL_INT;
+
+    boost::python::scope().attr("GL_HALF_FLOAT") = GL_HALF_FLOAT;
+
+    boost::python::scope().attr("GL_FLOAT") = GL_FLOAT;
+
+    boost::python::scope().attr("GL_UNSIGNED_SHORT_5_6_5") = GL_UNSIGNED_SHORT_5_6_5;
+
+    boost::python::scope().attr("GL_UNSIGNED_SHORT_4_4_4_4") = GL_UNSIGNED_SHORT_4_4_4_4;
+
+    boost::python::scope().attr("GL_UNSIGNED_SHORT_5_5_5_1") = GL_UNSIGNED_SHORT_5_5_5_1;
+
+    boost::python::scope().attr("GL_UNSIGNED_INT_2_10_10_10_REV") = GL_UNSIGNED_INT_2_10_10_10_REV;
+
+    boost::python::scope().attr("GL_RED") = GL_RED;
+
+    boost::python::scope().attr("GL_RG") = GL_RG;
+
+    boost::python::scope().attr("GL_RG_INTEGER") = GL_RG_INTEGER;
+
+    boost::python::scope().attr("GL_RGB") = GL_RGB;
+
+    boost::python::scope().attr("GL_RGBA") = GL_RGBA;
+
+    boost::python::scope().attr("GL_DEPTH_COMPONENT") = GL_DEPTH_COMPONENT;
+
+    boost::python::scope().attr("GL_LUMINANCE_ALPHA") = GL_LUMINANCE_ALPHA;
+
+    boost::python::scope().attr("GL_LUMINANCE") = GL_LUMINANCE;
+
+    boost::python::scope().attr("GL_ALPHA") = GL_ALPHA;
+
     boost::python::scope().attr("GL_ALPHA_TEST") = GL_ALPHA_TEST;
 
     boost::python::scope().attr("GL_AUTO_NORMAL") = GL_AUTO_NORMAL;

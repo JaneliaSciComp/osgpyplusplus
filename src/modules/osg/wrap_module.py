@@ -521,6 +521,40 @@ class OsgWrapper(BaseWrapper):
         # Manually export #define constants
         # expose GL_ constants TODO - more of them
         for symbol in [ 
+
+                # pixel format types
+                "GL_UNSIGNED_BYTE", 
+                "GL_BYTE", 
+                "GL_UNSIGNED_SHORT", 
+                "GL_SHORT", 
+                "GL_UNSIGNED_INT", 
+                "GL_INT", 
+                "GL_HALF_FLOAT", 
+                "GL_FLOAT", 
+                "GL_UNSIGNED_SHORT_5_6_5", 
+                "GL_UNSIGNED_SHORT_4_4_4_4", 
+                "GL_UNSIGNED_SHORT_5_5_5_1", 
+                "GL_UNSIGNED_INT_2_10_10_10_REV", 
+                # "GL_UNSIGNED_INT_10F_11F_11F_REV", 
+                # "GL_UNSIGNED_INT_5_9_9_9_REV", 
+                # "GL_UNSIGNED_INT_24_8", 
+                # "GL_FLOAT_32_UNSIGNED_INT_24_8_REV",
+
+                # pixel format formats
+                "GL_RED",
+                # "GL_RED_INTEGER",
+                "GL_RG",
+                "GL_RG_INTEGER",
+                "GL_RGB",
+                # "GL_RGB_INTEGER",
+                "GL_RGBA",
+                # "GL_RGBA_INTEGER",
+                "GL_DEPTH_COMPONENT",
+                # "GL_DEPTH_STENCIL",
+                "GL_LUMINANCE_ALPHA",
+                "GL_LUMINANCE",
+                "GL_ALPHA",
+
                 "GL_ALPHA_TEST", 
                 "GL_AUTO_NORMAL", 
                 "GL_BLEND", 
