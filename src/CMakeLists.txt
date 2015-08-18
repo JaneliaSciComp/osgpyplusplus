@@ -30,7 +30,7 @@ string(REGEX MATCH "[0-9\\.]+" OSG_VERSION_STRING ${OSGVERSION_EXE_OUT})
 message(STATUS "OpenSceneGraph version " ${OSG_VERSION_STRING})
 
 # Increment OSGPYPP_PATCH_VERSION with each release of osgpyplusplus
-set(OSGPYPP_PATCH_VERSION 4pre)
+set(OSGPYPP_PATCH_VERSION 4)
 set(OSGPYPP_VERSION_STRING ${OSG_VERSION_STRING}.${OSGPYPP_PATCH_VERSION})
 
 configure_file(setup.py.in "${STAGING_FOLDER}/setup.py" @ONLY)
