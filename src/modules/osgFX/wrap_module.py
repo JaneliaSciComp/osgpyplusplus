@@ -59,14 +59,14 @@ class OsgFXWrapper(BaseWrapper):
 
         wrap_call_policies(self.mb)
 
+        # RuntimeWarning: to-Python converter for class osg::ref_ptr<struct Registry_wrapper> already registered; second conversion method ignored.
+        osgFX.class_("Registry").wrapper_alias = 'FXRegistry_wrapper'
+
         self.wrap_all_osg_referenced(osgFX)
             
         hide_nonpublic(mb)
 
         cls = osgFX.class_("Validator").member_function("compare").exclude()
-
-        # RuntimeWarning: to-Python converter for class osg::ref_ptr<struct Registry_wrapper> already registered; second conversion method ignored.
-        osgFX.class_("Registry").exclude()
 
         self.generate_module_code('_osgFX')
 

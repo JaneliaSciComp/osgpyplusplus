@@ -9,9 +9,9 @@
 
 namespace bp = boost::python;
 
-struct StatsHandler_wrapper : osgAnimation::StatsHandler, bp::wrapper< osgAnimation::StatsHandler > {
+struct AnimStatsHandler_wrapper : osgAnimation::StatsHandler, bp::wrapper< osgAnimation::StatsHandler > {
 
-    StatsHandler_wrapper( )
+    AnimStatsHandler_wrapper( )
     : osgAnimation::StatsHandler( )
       , bp::wrapper< osgAnimation::StatsHandler >(){
         // null constructor
@@ -43,7 +43,7 @@ struct StatsHandler_wrapper : osgAnimation::StatsHandler, bp::wrapper< osgAnimat
     
     static boost::python::object default_handle( ::osgAnimation::StatsHandler & inst, ::osgGA::GUIEventAdapter & ea, ::osgGA::GUIActionAdapter & aa ){
         bool result;
-        if( dynamic_cast< StatsHandler_wrapper * >( boost::addressof( inst ) ) ){
+        if( dynamic_cast< AnimStatsHandler_wrapper * >( boost::addressof( inst ) ) ){
             result = inst.::osgAnimation::StatsHandler::handle(ea, aa);
         }
         else{
@@ -141,7 +141,7 @@ struct StatsHandler_wrapper : osgAnimation::StatsHandler, bp::wrapper< osgAnimat
 void register_StatsHandler_class(){
 
     { //::osgAnimation::StatsHandler
-        typedef bp::class_< StatsHandler_wrapper, osg::ref_ptr< StatsHandler_wrapper >, boost::noncopyable > StatsHandler_exposer_t;
+        typedef bp::class_< AnimStatsHandler_wrapper, osg::ref_ptr< AnimStatsHandler_wrapper >, boost::noncopyable > StatsHandler_exposer_t;
         StatsHandler_exposer_t StatsHandler_exposer = StatsHandler_exposer_t( "StatsHandler", "\n Event handler for adding on screen stats reporting to Viewers.\n", bp::init< >("\n Event handler for adding on screen stats reporting to Viewers.\n") );
         bp::scope StatsHandler_scope( StatsHandler_exposer );
         bp::enum_< osgAnimation::StatsHandler::StatsType>("StatsType")
@@ -200,12 +200,12 @@ void register_StatsHandler_class(){
         { //::osgAnimation::StatsHandler::getUsage
         
             typedef void ( ::osgAnimation::StatsHandler::*getUsage_function_type)( ::osg::ApplicationUsage & ) const;
-            typedef void ( StatsHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
+            typedef void ( AnimStatsHandler_wrapper::*default_getUsage_function_type)( ::osg::ApplicationUsage & ) const;
             
             StatsHandler_exposer.def( 
                 "getUsage"
                 , getUsage_function_type(&::osgAnimation::StatsHandler::getUsage)
-                , default_getUsage_function_type(&StatsHandler_wrapper::default_getUsage)
+                , default_getUsage_function_type(&AnimStatsHandler_wrapper::default_getUsage)
                 , ( bp::arg("usage") ) );
         
         }
@@ -215,7 +215,7 @@ void register_StatsHandler_class(){
             
             StatsHandler_exposer.def( 
                 "handle"
-                , default_handle_function_type( &StatsHandler_wrapper::default_handle )
+                , default_handle_function_type( &AnimStatsHandler_wrapper::default_handle )
                 , ( bp::arg("inst"), bp::arg("ea"), bp::arg("aa") ) );
         
         }

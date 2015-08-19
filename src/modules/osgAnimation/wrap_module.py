@@ -40,8 +40,10 @@ class OsgAnimationWrapper(BaseWrapper):
         # See http://www.language-binding.net/pyplusplus/documentation/multi_module_development.html
         # For base classes to be properly referenced, we really need to register all of the dependencies...
         self.mb.register_module_dependency('../osg/generated_code/')
+        # F:\Users\cmbruns\git\osgpyplusplus\build_cmake\stage\osgpypp\osgAnimation.py:13: RuntimeWarning: to-Python converter for class std::vector<int,class std::allocator<int> > already registered; second conversion method ignored.
+        #(needs to find declaration in osgUtil...)
+        self.mb.register_module_dependency('../osgUtil/generated_code/')
         if False: # Temporarily set to False for faster iterations during initial development
-            self.mb.register_module_dependency('../osgUtil/generated_code/')
             self.mb.register_module_dependency('../osgDB/generated_code/')
             self.mb.register_module_dependency('../osgGA/generated_code/') # Included to linearize dependency chain
             self.mb.register_module_dependency('../osgViewer/generated_code/') # Included to linearize dependency chain
@@ -57,9 +59,15 @@ class OsgAnimationWrapper(BaseWrapper):
         osgAnimation = mb.namespace("osgAnimation")
         osgAnimation.include()
 
-        # mb.free_functions(lambda f: f.name.startswith("osgAnimation")).include()
+        # mb.free_functions(lambda f: f.name.startswith("osgAnimation")).include() # no free functions!
 
         wrap_call_policies(self.mb)
+
+
+        # F:\Users\cmbruns\git\osgpyplusplus\build_cmake\stage\osgpypp\osgAnimation.py:13: RuntimeWarning: to-Python converter for class osg::ref_ptr<struct StatsHandler_wrapper> already registered; second conversion method ignored.
+        # BEFORE wrap_all_osg_referenced...
+        osgAnimation.class_("StatsHandler").wrapper_alias = 'AnimStatsHandler_wrapper'
+
 
         self.wrap_all_osg_referenced(osgAnimation)
             
@@ -74,8 +82,7 @@ class OsgAnimationWrapper(BaseWrapper):
         # 2>C:\boost\include\boost-1_56\boost/python/detail/destroy.hpp(33) : error C2248: 'osgGA::GUIEventAdapter::~GUIEventAdapter' : cannot access protected member declared in class 'osgGA::GUIEventAdapter'
         cls = osgAnimation.class_("StatsHandler")
         hack_osg_arg(cls, "handle", "ea")
-
-
+        
         self.generate_module_code('_osgAnimation')
 
 if __name__ == "__main__":

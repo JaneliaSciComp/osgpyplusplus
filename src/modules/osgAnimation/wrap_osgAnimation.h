@@ -57,6 +57,7 @@
 #include <osgAnimation/Vec3Packed>
 #include <osgAnimation/VertexInfluence>
 
+
 namespace pyplusplus { namespace aliases {
     // RuntimeError: `Py++` is going to write different content to the same file(F:\Users\cmbruns\git\osgpyplusplus\src\modules\osgAnimation\generated_code\_BoneWeight__value_traits.pypp.hpp).
     typedef osgAnimation::RigTransformSoftware::BoneWeight RTSBoneWeight;

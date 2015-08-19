@@ -180,8 +180,6 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osganimation/generated_code/vec3packedkeyframecontainer.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osganimation/generated_code/vector_less__int__greater_.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osganimation/generated_code/vector_less__osg_scope_ref_ptr_less_osganimation_scope_animation_greater___greater_.pypp.hpp"
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osganimation/generated_code/vector_less__osg_scope_ref_ptr_less_osganimation_scope_channel_greater___greater_.pypp.hpp"
@@ -220,8 +218,6 @@ BOOST_PYTHON_MODULE(_osgAnimation){
     register_vector_less__osg_scope_ref_ptr_less_osgAnimation_scope_Channel_greater___greater__class();
 
     register_vector_less__osg_scope_ref_ptr_less_osgAnimation_scope_Animation_greater___greater__class();
-
-    register_vector_less__int__greater__class();
 
     register_BoneMap_class();
 
