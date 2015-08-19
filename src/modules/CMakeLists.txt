@@ -192,3 +192,11 @@ add_subdirectory(osgFX)
 add_custom_target(InstallOsgPyPPLocally DEPENDS 
     _osg _osgDB _osgGA _osgUtil _osgViewer _osgText
     _osgManipulator _osgWidget)
+
+add_custom_target(InstallerWin32 ALL
+    python setup.py bdist_wininst
+    DEPENDS InstallOsgPyPPLocally
+    WORKING_DIRECTORY "${MODULE_STAGING_FOLDER}/.."
+    COMMENT Creating Windows installer...
+    SOURCES CMakeLists.txt "${PROJECT_SOURCE_DIR}/src/setup.py.in"
+)    

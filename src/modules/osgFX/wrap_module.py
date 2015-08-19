@@ -65,6 +65,9 @@ class OsgFXWrapper(BaseWrapper):
 
         cls = osgFX.class_("Validator").member_function("compare").exclude()
 
+        # RuntimeWarning: to-Python converter for class osg::ref_ptr<struct Registry_wrapper> already registered; second conversion method ignored.
+        osgFX.class_("Registry").exclude()
+
         self.generate_module_code('_osgFX')
 
 if __name__ == "__main__":
