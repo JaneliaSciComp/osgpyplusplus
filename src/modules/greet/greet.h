@@ -1,4 +1,0 @@
-
-char const* greet();
-
-

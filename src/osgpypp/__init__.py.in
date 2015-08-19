@@ -30,6 +30,7 @@ __all__ = [
     'osgText',
     'osgUtil',
     'osgViewer',
+    'osgVolume',
     'osgWidget',
     ]
 

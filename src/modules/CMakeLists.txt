@@ -174,9 +174,6 @@ endfunction()
 
 ####################
 
-# For initial testing and debugging only...
-# add_subdirectory(greet)
-
 # Add module subdirectories in inverse order of linear dependency chain
 add_subdirectory(osg)
 add_subdirectory(osgUtil)
@@ -187,11 +184,12 @@ add_subdirectory(osgViewer)
 add_subdirectory(osgManipulator)
 add_subdirectory(osgWidget)
 add_subdirectory(osgFX)
+add_subdirectory(osgVolume)
 
 # InstallOsgPyPPLocally is used as a prerequisite for unit tests
 add_custom_target(InstallOsgPyPPLocally DEPENDS 
     _osg _osgDB _osgGA _osgUtil _osgViewer _osgText
-    _osgManipulator _osgWidget)
+    _osgManipulator _osgWidget _osgFX _osgVolume)
 
 # Only use the first two values in the python version for the install version, e.g. "2.7"
 string(REGEX MATCH "^[0-9]+\\.[0-9]+" PY_TARGET_VERSION ${PYTHONLIBS_VERSION_STRING})
