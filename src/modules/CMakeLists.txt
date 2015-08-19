@@ -193,8 +193,12 @@ add_custom_target(InstallOsgPyPPLocally DEPENDS
     _osg _osgDB _osgGA _osgUtil _osgViewer _osgText
     _osgManipulator _osgWidget)
 
+# Only use the first two values in the python version for the install version, e.g. "2.7"
+string(REGEX MATCH "^[0-9]+\\.[0-9]+" PY_TARGET_VERSION ${PYTHONLIBS_VERSION_STRING})
+# message(${PY_TARGET_VERSION})
 add_custom_target(InstallerWin32 ALL
-    python setup.py bdist_wininst
+    # We shoehorned version into X.Y.Z format so we can use msi instead of wininst
+    ${PYTHON_EXECUTABLE} setup.py bdist_msi --target-version=${PY_TARGET_VERSION}
     DEPENDS InstallOsgPyPPLocally
     WORKING_DIRECTORY "${MODULE_STAGING_FOLDER}/.."
     COMMENT Creating Windows installer...

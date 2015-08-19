@@ -24,6 +24,7 @@
 __all__ = [
     'osg',
     'osgDB',
+    'osgFX',
     'osgGA',
     'osgManipulator',
     'osgText',
