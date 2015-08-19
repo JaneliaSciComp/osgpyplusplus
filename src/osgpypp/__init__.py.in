@@ -23,6 +23,7 @@
 
 __all__ = [
     'osg',
+    'osgAnimation',
     'osgDB',
     'osgFX',
     'osgGA',

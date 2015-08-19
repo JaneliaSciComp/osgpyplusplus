@@ -185,11 +185,13 @@ add_subdirectory(osgManipulator)
 add_subdirectory(osgWidget)
 add_subdirectory(osgFX)
 add_subdirectory(osgVolume)
+add_subdirectory(osgAnimation)
 
 # InstallOsgPyPPLocally is used as a prerequisite for unit tests
 add_custom_target(InstallOsgPyPPLocally DEPENDS 
     _osg _osgDB _osgGA _osgUtil _osgViewer _osgText
-    _osgManipulator _osgWidget _osgFX _osgVolume)
+    _osgManipulator _osgWidget _osgFX _osgVolume
+    _osgAnimation)
 
 # Only use the first two values in the python version for the install version, e.g. "2.7"
 string(REGEX MATCH "^[0-9]+\\.[0-9]+" PY_TARGET_VERSION ${PYTHONLIBS_VERSION_STRING})

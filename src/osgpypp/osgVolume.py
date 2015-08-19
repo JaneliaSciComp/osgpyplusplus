@@ -1,5 +1,5 @@
 """
-osgWidget module
+osgVolume module
 Part of osgpyplusplus python bindings for OpenSceneGraph C++ library
 https://github.com/JaneliaSciComp/osgpyplusplus
 
