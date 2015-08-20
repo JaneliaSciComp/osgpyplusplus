@@ -45,7 +45,7 @@ include_directories(${Boost_INCLUDE_DIR})
 
 # OpenSceneGraph TODO make this finding process more general
 find_path(OSG_INCLUDE_DIR "osg/Node"
-    PATHS ${OSG_DIR})
+    PATHS ${OSG_DIR}/include)
 include_directories(${OSG_INCLUDE_DIR})
 find_library(OPENTHREADS_LIBRARY 
     NAME OpenThreads
@@ -68,8 +68,8 @@ set(OSG_PLUGIN_FOLDER "osgPlugins-${OSG_VERSION_STRING}")
 file(GLOB OSG_PLUGIN_LIBS "${OSG_DIR}/bin/${OSG_PLUGIN_FOLDER}/*.dll")
 file(GLOB OSG_PLUGIN_DEBUG_LIBS "${OSG_DIR}/bin/${OSG_PLUGIN_FOLDER}/*d.dll")
 # Copy release libraries, but not debug libraries
-list(REMOVE_ITEM OSG_RUNTIME_LIBS ${OSG_RUNTIME_DEBUG_LIBS})
-list(REMOVE_ITEM OSG_PLUGIN_LIBS ${OSG_PLUGIN_DEBUG_LIBS})
+list(REMOVE_ITEM OSG_RUNTIME_LIBS ${OSG_RUNTIME_DEBUG_LIBS} "foo")
+list(REMOVE_ITEM OSG_PLUGIN_LIBS ${OSG_PLUGIN_DEBUG_LIBS} "foo")
 foreach(LIB ${OSG_RUNTIME_LIBS})
     file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/osgpypp")
 endforeach()
@@ -145,12 +145,19 @@ function (OSGPYPP_WRAP_MODULE MODULE_NAME)
     if(OSGPYPP_REGENERATE_BINDINGS)
         find_program(PYTHON_EXECUTABLE 
             NAMES python27 python)
+        find_program(GCCXML_EXECUTABLE gccxml
+            REQUIRED
+            PATHS "C:/Program Files (x86)/gccxml/bin/")
         set(WRAP_SCRIPT wrap_module.py)
+        set(GCCXML_COMPILER msvc9) # TODO
         # Create file generate_std.stamp to indicate successful completion of 
         # generate step. Because it is possible that no generated sources will be updated.
         set(GEN_STAMP "${CMAKE_CURRENT_SOURCE_DIR}/generated_code/generate_module.stamp")
         add_custom_command(
             COMMAND "${PYTHON_EXECUTABLE}" ${WRAP_SCRIPT}
+                --gccxml_path \"${GCCXML_EXECUTABLE}\"
+                --osg_include_path \"${OSG_INCLUDE_DIR}\"
+                --gccxml_compiler ${GCCXML_COMPILER}
                 > "${CMAKE_CURRENT_BINARY_DIR}/generate_${MODULE_NAME}_source.log"
                 2> "${CMAKE_CURRENT_BINARY_DIR}/generate_${MODULE_NAME}_source.err"
             OUTPUT "${GEN_STAMP}"

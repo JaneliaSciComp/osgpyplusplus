@@ -21,6 +21,11 @@
 # (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS 
 # SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+import re
+import os
+import argparse
+
 from pyplusplus import function_transformers as FT
 from pyplusplus import module_builder
 from pygccxml import declarations
@@ -28,8 +33,6 @@ from pygccxml.declarations import type_traits
 from pygccxml.declarations import cpptypes
 from pyplusplus.module_builder.call_policies import *
 from doxygen_doc_extractor import doxygen_doc_extractor
-import re
-import os
 
 
 class DerivedClasses(set):
@@ -54,14 +57,37 @@ class DerivedClasses(set):
 class BaseWrapper:
     "Base class for each OSG module wrapper"
     def __init__(self, files):
+        # Parse code generation parameters from (optional) command line arguments
+        # Otherwise hard code paths from my particular dev machine... (yuck)
+        parser = argparse.ArgumentParser(description='Generates boost-python wrapping code for an OSG module.')
+        parser.add_argument('--gccxml_path', 
+                            default="C:/Program Files (x86)/gccxml/bin/gccxml.exe", 
+                            help="path to the GCCXML executable program",)
+        parser.add_argument('--osg_include_path', 
+                            default="C:/Program Files (x86)/OpenSceneGraph323vs2008/include", 
+                            help="path to the OpenSceneGraph C++ header files",)
+        parser.add_argument('--gccxml_compiler', 
+                            default="msvc9", 
+                            help="name of C++ compiler",)
+        args = parser.parse_args()
+        #
+        gccxml_path = args.gccxml_path
+        osg_include_path = args.osg_include_path
+        compiler = args.gccxml_compiler
+        #
         self.max_arity = 18
+        define_symbols = []
+        if compiler == 'msvc9':
+            define_symbols.append("_HAS_TR1=0") # avoid boost compiler errors on windows
+        define_symbols.append("BOOST_PYTHON_MAX_ARITY=%d" % self.max_arity)
+        #
         self.mb = module_builder.module_builder_t(
             files = files,
-            gccxml_path = "C:/Program Files (x86)/gccxml/bin/gccxml.exe",
-            include_paths = ["C:/Program Files (x86)/OpenSceneGraph321vs2008/include",],
-            define_symbols=["_HAS_TR1=0", "BOOST_PYTHON_MAX_ARITY=%d" % self.max_arity, ],
+            gccxml_path = gccxml_path,
+            include_paths = [osg_include_path,],
+            define_symbols=define_symbols,
             indexing_suite_version=2,
-            compiler='msvc9',
+            compiler=compiler,
         )
         self.mb.BOOST_PYTHON_MAX_ARITY = self.max_arity # Prevents warnings on 10-18 argument methods
 
