@@ -1389,6 +1389,24 @@ BOOST_PYTHON_MODULE(_osg){
 
     register_pair_double_class();
 
+    boost::python::scope().attr("GL_POINTS") = GL_POINTS;
+
+    boost::python::scope().attr("GL_LINES") = GL_LINES;
+
+    boost::python::scope().attr("GL_LINE_STRIP") = GL_LINE_STRIP;
+
+    boost::python::scope().attr("GL_LINE_LOOP") = GL_LINE_LOOP;
+
+    boost::python::scope().attr("GL_TRIANGLES") = GL_TRIANGLES;
+
+    boost::python::scope().attr("GL_TRIANGLE_STRIP") = GL_TRIANGLE_STRIP;
+
+    boost::python::scope().attr("GL_QUADS") = GL_QUADS;
+
+    boost::python::scope().attr("GL_QUAD_STRIP") = GL_QUAD_STRIP;
+
+    boost::python::scope().attr("GL_POLYGON") = GL_POLYGON;
+
     boost::python::scope().attr("GL_UNSIGNED_BYTE") = GL_UNSIGNED_BYTE;
 
     boost::python::scope().attr("GL_BYTE") = GL_BYTE;

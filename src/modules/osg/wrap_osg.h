@@ -206,6 +206,7 @@ template class std::vector<osg::StateSet*>;
 template class osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT >;
 template class osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT >;
 template class osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT >;
+// template class std::vector< osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > >;
 
 template class osg::TemplateArray< unsigned int, osg::Array::UIntArrayType, 4, 4 >;
 
@@ -224,6 +225,8 @@ namespace pyplusplus { namespace aliases {
 	typedef osg::TemplateArray< osg::Vec4, osg::Array::Vec4ArrayType, 4, GL_FLOAT > Vec4Array;
 	typedef osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > Vec3Array;
 	typedef osg::TemplateArray< osg::Vec2, osg::Array::Vec2ArrayType, 2, GL_FLOAT > Vec2Array;
+    
+    // typedef std::vector< osg::TemplateArray< osg::Vec3, osg::Array::Vec3ArrayType, 3, GL_FLOAT > > vector_Vec3Array;
 
 	typedef osg::TemplateArray< unsigned int, osg::Array::UIntArrayType, 4, 4 > UIntArray;
 

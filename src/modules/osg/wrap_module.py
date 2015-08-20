@@ -397,7 +397,7 @@ class OsgWrapper(BaseWrapper):
                 """ % (t, t, t) )
 
         # Indexing for Mixin-based variable-sized VecXArrays
-        for alias in ["DrawElementsUInt"]:
+        for alias in ["DrawElementsUInt", "DrawElementsUShort", ]:
             arr = osg.classes(lambda c: c.alias == alias)[0]
             arr.include_files.append("indexing_helpers.h")
             t = arr.demangled
@@ -538,6 +538,17 @@ class OsgWrapper(BaseWrapper):
         # expose GL_ constants TODO - more of them
         for symbol in [ 
 
+                # direct mode primitives
+                "GL_POINTS", 
+                "GL_LINES", 
+                "GL_LINE_STRIP", 
+                "GL_LINE_LOOP", 
+                "GL_TRIANGLES", 
+                "GL_TRIANGLE_STRIP", 
+                "GL_QUADS", 
+                "GL_QUAD_STRIP", 
+                "GL_POLYGON", 
+                
                 # pixel format types
                 "GL_UNSIGNED_BYTE", 
                 "GL_BYTE", 

@@ -28,6 +28,8 @@ __all__ = [
     'osgFX',
     'osgGA',
     'osgManipulator',
+    'osgParticle', 
+    'osgSim', 
     'osgText',
     'osgUtil',
     'osgViewer',

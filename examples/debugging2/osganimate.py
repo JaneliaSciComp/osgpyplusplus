@@ -46,8 +46,8 @@ def createAnimationPath(center, radius, looptime):
     time = 0.0
     time_delta = looptime/float(numSamples)
     for i in range(numSamples):
-        position = osg.Vec3(center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0))
-        rotation = osg.Quat(osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0)))
+        position = center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0)
+        rotation = osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0))
         animationPath.insert(time,osg.AnimationPath.ControlPoint(position,rotation))
         yaw += yaw_delta
         time += time_delta
@@ -59,9 +59,9 @@ def createBase(center, radius):
     numTilesY = 10
     width = 2*radius
     height = 2*radius
-    v000 = osg.Vec3(center - osg.Vec3(width*0.5,height*0.5,0.0))
-    dx = osg.Vec3(osg.Vec3(width/(float(numTilesX)),0.0,0.0))
-    dy = osg.Vec3(osg.Vec3(0.0,height/(float(numTilesY)),0.0))
+    v000 = center - osg.Vec3(width*0.5,height*0.5,0.0)
+    dx = osg.Vec3(width/(float(numTilesX)),0.0,0.0)
+    dy = osg.Vec3(0.0,height/(float(numTilesY)),0.0)
     # fill in vertices for grid, note numTilesX+1 * numTilesY+1...
     coords = osg.Vec3Array()
     for iy in range(numTilesY):
@@ -71,8 +71,8 @@ def createBase(center, radius):
     colors = osg.Vec4Array()
     colors.append(osg.Vec4(1.0,1.0,1.0,1.0)) # white
     colors.append(osg.Vec4(0.0,0.0,0.0,1.0)) # black
-    whitePrimitives = osg.DrawElementsUShort(GL_QUADS)
-    blackPrimitives = osg.DrawElementsUShort(GL_QUADS)
+    whitePrimitives = osg.DrawElementsUShort(osg.GL_QUADS)
+    blackPrimitives = osg.DrawElementsUShort(osg.GL_QUADS)
     numIndicesPerRow = numTilesX+1
     for iy in range(numTilesY):
         for ix in range(numTilesX):
@@ -134,8 +134,8 @@ def createModel(overlay, technique):
     center = osg.Vec3(0.0,0.0,0.0)
     radius = 100.0
     root = osg.Group()
-    baseHeight = center.z()-radius*0.5
-    baseModel = createBase(osg.Vec3(center.x(), center.y(), baseHeight),radius)
+    baseHeight = center.z - radius*0.5
+    baseModel = createBase(osg.Vec3(center.x, center.y, baseHeight),radius)
     movingModel = createMovingModel(center,radius*0.8)
     if overlay :
         overlayNode = osgSim.OverlayNode(technique)
