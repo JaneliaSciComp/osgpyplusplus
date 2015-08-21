@@ -26,6 +26,7 @@
 
 
 import sys
+import math
 
 from osgpypp import osg
 from osgpypp import osgDB
@@ -46,7 +47,7 @@ def createAnimationPath(center, radius, looptime):
     time = 0.0
     time_delta = looptime/float(numSamples)
     for i in range(numSamples):
-        position = center+osg.Vec3(sinf(yaw)*radius,cosf(yaw)*radius,0.0)
+        position = center+osg.Vec3(math.sin(yaw)*radius,math.cos(yaw)*radius,0.0)
         rotation = osg.Quat(roll,osg.Vec3(0.0,1.0,0.0))*osg.Quat(-(yaw+osg.inDegrees(90.0)),osg.Vec3(0.0,0.0,1.0))
         animationPath.insert(time,osg.AnimationPath.ControlPoint(position,rotation))
         yaw += yaw_delta

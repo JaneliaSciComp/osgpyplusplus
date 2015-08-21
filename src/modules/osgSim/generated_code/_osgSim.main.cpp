@@ -76,8 +76,6 @@
 
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgsim/generated_code/vector_less__osg_scope_ref_ptr_less_osgsim_scope_impostorsprite_greater___greater_.pypp.hpp"
 
-#include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgsim/generated_code/vertexlist.pypp.hpp"
-
 #include "f:/users/cmbruns/git/osgpyplusplus/src/modules/osgsim/generated_code/visibilitygroup.pypp.hpp"
 
 namespace bp = boost::python;
@@ -86,8 +84,6 @@ BOOST_PYTHON_MODULE(_osgSim){
     register_LightPointList_class();
 
     register_vector_less__osg_scope_ref_ptr_less_osgSim_scope_ImpostorSprite_greater___greater__class();
-
-    register_VertexList_class();
 
     register_AzimRange_class();
 
