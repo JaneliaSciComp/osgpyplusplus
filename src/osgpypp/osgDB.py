@@ -11,6 +11,12 @@ plugins which provide specific file format support to be dynamically
 loaded on demand.
 """
 
+# modify PATH to be able to load DLLs from osgpyplusplus installation, like zlib and jpeg
+import os
+osgpypp_path = os.path.dirname(os.path.realpath(__file__))
+os.environ['PATH'] = osgpypp_path + ';' + os.environ['PATH']
+print os.environ['PATH']
+
 # osgDB depends on upstream modules, so always load these
 from . import osgUtil
 

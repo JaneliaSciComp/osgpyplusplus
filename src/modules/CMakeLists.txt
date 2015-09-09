@@ -61,6 +61,7 @@ find_library(OSGGA_LIBRARY
 )
 
 # Copy DLLs to staging area for newborn python extension modules
+
 # 1) OpenSceneGraph
 file(GLOB OSG_RUNTIME_LIBS "${OSG_DIR}/bin/*.dll")
 file(GLOB OSG_RUNTIME_DEBUG_LIBS "${OSG_DIR}/bin/*d.dll")
@@ -76,7 +77,8 @@ endforeach()
 foreach(LIB ${OSG_PLUGIN_LIBS})
     file(COPY ${LIB} DESTINATION "${STAGING_FOLDER}/osgpypp/${OSG_PLUGIN_FOLDER}/")
 endforeach()
-# 2) ZLIB - Maybe copy libs on Windows only? - needed by osgDB
+
+# 2a) ZLIB - Maybe copy libs on Windows only? - needed by osgDB
 find_package(ZLIB)
 if (ZLIB_FOUND)
     message(STATUS "${ZLIB_INCLUDE_DIR}/../bin/")
@@ -91,7 +93,25 @@ if (ZLIB_FOUND)
         PATHS "${ZLIB_INCLUDE_DIR}/../bin/"
     )
     file(COPY "${ZLIB_RUNTIME_LIBRARY}" DESTINATION "${STAGING_FOLDER}/osgpypp")
+    
+    # 2b) jpeg library
+    find_file(
+        JPEG_RUNTIME_LIBRARY
+        NAMES jpeg62.dll
+        PATHS "${ZLIB_INCLUDE_DIR}/../bin/"
+    )
+    find_library(
+        JPEG_RUNTIME_LIBRARY
+        NAMES jpeg62 jpeg
+        PATHS "${ZLIB_INCLUDE_DIR}/../bin/"
+    )
+    if (JPEG_RUNTIME_LIBRARY)
+        message(STATUS ${JPEG_RUNTIME_LIBRARY})
+        file(COPY "${JPEG_RUNTIME_LIBRARY}" DESTINATION "${STAGING_FOLDER}/osgpypp")
+    endif()
 endif()
+
+
 # 3) boost python 
 get_filename_component(BOOSTPYTHON_LIB_BASE "${Boost_PYTHON_LIBRARY_RELEASE}" NAME_WE)
 find_file(
